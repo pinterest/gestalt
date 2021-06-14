@@ -20,6 +20,71 @@ const KEYS = {
 
 const dropdownItemDisplayNames = ['DropdownItem', 'DropdownLink'];
 
+function getChildrenOptions(childrenArray) {
+  return childrenArray.reduce((accumulatedChildren, currentChild) => {
+    const {
+      props: { children: currentItemChildren },
+      type: { displayName },
+    } = currentChild;
+
+    if (currentItemChildren && displayName === 'DropdownSection') {
+      return [
+        ...accumulatedChildren,
+        ...(Array.isArray(currentItemChildren) ? currentItemChildren : [currentItemChildren]),
+      ];
+    }
+
+    if (dropdownItemDisplayNames.includes(displayName)) {
+      return [...accumulatedChildren, currentChild];
+    }
+
+    // eslint-disable-next-line no-console
+    console.error(
+      'Only children of type DropdownItem, DropdownLink, or DropdownSection are allowed.',
+    );
+
+    return [...accumulatedChildren];
+  }, []);
+}
+
+/* In order to properly supply a consecutive index to each Dropdown.Item,
+ * used for keyboard navigation,
+ * we must clone the item and inject the index prop
+ */
+const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) => {
+  return dropdownChildren.map((child, idx) => {
+    if (dropdownItemDisplayNames.includes(child.type.displayName)) {
+      const index = idx + idxBase;
+      return cloneElement(child, { index });
+    }
+    return child;
+  });
+};
+
+const renderChildrenWithIndex = (childrenArray) => {
+  let numItemsRendered = 0;
+
+  return childrenArray.reduce((acc, child) => {
+    const subSectionChildren = child.props.children;
+    const childDisplayName = child.type.displayName;
+
+    if (subSectionChildren && childDisplayName === 'DropdownSection') {
+      const sectionChildrenArray = Children.toArray(subSectionChildren);
+      const childWithIndex = cloneElement(child, {
+        children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
+      });
+      numItemsRendered += subSectionChildren.length;
+      return [...acc, childWithIndex];
+    }
+    if (dropdownItemDisplayNames.includes(childDisplayName)) {
+      const childWithIndex = cloneElement(child, { index: numItemsRendered });
+      numItemsRendered += 1;
+      return [...acc, childWithIndex];
+    }
+    return acc;
+  }, []);
+};
+
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 
 type Props = {|
@@ -44,30 +109,10 @@ export default function Dropdown({
   onDismiss,
   zIndex,
 }: Props): Node {
-  const dropdownChildrenArray = Children.toArray(children);
-
-  const allowedChildrenOptions = dropdownChildrenArray.reduce(
-    (accumulatedChildren, currentChild) => {
-      const {
-        props: { children: currentItemChildren },
-        type: { displayName },
-      } = currentChild;
-      if (currentItemChildren && displayName === 'DropdownSection') {
-        return [...accumulatedChildren, ...currentItemChildren];
-      }
-      if (dropdownItemDisplayNames.includes(displayName)) {
-        return [...accumulatedChildren, currentChild];
-      }
-      // eslint-disable-next-line no-console
-      console.error(
-        'Only children of type DropdownItem, DropdownLink, or DropdownSection are allowed.',
-      );
-      return [...accumulatedChildren];
-    },
-    [],
-  );
-
   const [hoveredItem, setHoveredItem] = useState<number>(0);
+
+  const dropdownChildrenArray = Children.toArray(children);
+  const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;
   const setOptionRef = (optionRef) => {
@@ -130,44 +175,6 @@ export default function Dropdown({
     }
   };
 
-  const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) => {
-    return dropdownChildren.map((child, idx) => {
-      if (dropdownItemDisplayNames.includes(child.type.displayName)) {
-        const index = idx + idxBase;
-        return cloneElement(child, { index });
-      }
-      return child;
-    });
-  };
-
-  /* In order to properly supply a consecutive index to each Dropdown.Item,
-   * used for keyboard navigation,
-   * we must clone the item and inject the index prop
-   */
-  const renderChildrenWithIndex = () => {
-    let numItemsRendered = 0;
-
-    return dropdownChildrenArray.reduce((acc, child) => {
-      const subSectionChildren = child.props.children;
-      const childDisplayName = child.type.displayName;
-
-      if (subSectionChildren && childDisplayName === 'DropdownSection') {
-        const sectionChildrenArray = Children.toArray(subSectionChildren);
-        const childWithIndex = cloneElement(child, {
-          children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
-        });
-        numItemsRendered += subSectionChildren.length;
-        return [...acc, childWithIndex];
-      }
-      if (dropdownItemDisplayNames.includes(childDisplayName)) {
-        const childWithIndex = cloneElement(child, { index: numItemsRendered });
-        numItemsRendered += 1;
-        return [...acc, childWithIndex];
-      }
-      return acc;
-    }, []);
-  };
-
   return (
     <Layer zIndex={zIndex}>
       <Popover
@@ -186,7 +193,7 @@ export default function Dropdown({
           {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
           <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
-            {renderChildrenWithIndex()}
+            {renderChildrenWithIndex(dropdownChildrenArray)}
           </DropdownContextProvider>
         </Box>
       </Popover>
