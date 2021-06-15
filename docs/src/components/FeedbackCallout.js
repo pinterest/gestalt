@@ -25,6 +25,7 @@ export default function FeedbackCallout({ componentName }: Props): Node {
           message="Answer two quick questions to let the Gestalt team know what you think of our new standardized documentation format (now with design best practices!)"
           primaryAction={{
             label: 'Give feedback',
+            accessibilityLabel: 'Give documentation feedback',
             href: link,
             target: 'blank',
           }}
