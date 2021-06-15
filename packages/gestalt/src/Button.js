@@ -237,6 +237,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
       disabled={disabled}
+      key={disabled ? 'disabled' : 'enabled'} // workaround for issue #1556
       name={name}
       onBlur={handleBlur}
       onClick={handleClick}
