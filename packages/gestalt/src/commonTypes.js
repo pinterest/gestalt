@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 export type ActionDataType = {|
-  accessibilityLabel?: string,
+  accessibilityLabel: string,
   href?: string,
   label: string,
   onClick?: AbstractEventHandler<
@@ -24,7 +24,7 @@ export type DismissButtonType = {|
 
 // $FlowFixMe[incompatible-exact]
 export const ActionDataPropType: React$PropType$Primitive<ActionDataType> = PropTypes.exact({
-  accessibilityLabel: PropTypes.string,
+  accessibilityLabel: PropTypes.string.isRequired,
   href: PropTypes.string,
   label: PropTypes.string.isRequired,
   // $FlowFixMe[incompatible-type]

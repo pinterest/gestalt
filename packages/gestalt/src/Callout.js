@@ -12,7 +12,7 @@ import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType, type DismissButtonType } from './commonTypes.js';
+import { type ActionDataType, type DismissButtonType, ActionDataPropType } from './commonTypes.js';
 
 type Props = {|
   dismissButton?: DismissButtonType,
@@ -204,20 +204,8 @@ Callout.propTypes = {
   }),
   iconAccessibilityLabel: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  primaryAction: PropTypes.shape({
-    href: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    accessibilityLabel: PropTypes.string,
-  }),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  secondaryAction: PropTypes.shape({
-    href: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    accessibilityLabel: PropTypes.string,
-  }),
+  primaryAction: ActionDataPropType,
+  secondaryAction: ActionDataPropType,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   type: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
   title: PropTypes.string,

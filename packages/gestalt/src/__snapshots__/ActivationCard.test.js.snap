@@ -316,6 +316,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
     >
       <a
+        aria-label="Learn more about tags"
         className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}
@@ -461,6 +462,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
     >
       <a
+        aria-label="Learn more about tags"
         className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}

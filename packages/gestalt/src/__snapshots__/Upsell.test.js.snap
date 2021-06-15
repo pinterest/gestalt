@@ -317,6 +317,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
+          aria-label=""
           className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
@@ -442,6 +443,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
+          aria-label=""
           className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
@@ -567,6 +569,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
+          aria-label="Learn more: upsell messages"
           className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
@@ -596,6 +599,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
+          aria-label=""
           className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
@@ -676,6 +680,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
+          aria-label=""
           className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
@@ -756,6 +761,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <button
+          aria-label=""
           className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
           disabled={false}
           onBlur={[Function]}

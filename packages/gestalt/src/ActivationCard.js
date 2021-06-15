@@ -13,7 +13,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
 
 type LinkData = {|
-  accessibilityLabel?: string,
+  accessibilityLabel: string,
   href: string,
   label: string,
   onClick?: AbstractEventHandler<
@@ -239,8 +239,7 @@ ActivationCard.propTypes = {
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
-
-    accessibilityLabel: PropTypes.string,
+    accessibilityLabel: PropTypes.string.isRequired,
     rel: PropTypes.oneOf(['none', 'nofollow']),
     target: PropTypes.oneOf([null, 'self', 'blank']),
   }),
