@@ -194,6 +194,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
   const handleLinkClick = ({ event, disableOnNavigation }) =>
     handleClick(event, disableOnNavigation);
 
+  const buttonContent = iconEnd ? (
+    <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+  ) : (
+    buttonText
+  );
+
   if (props.role === 'link') {
     const { href, rel = 'none', target = null } = props;
 
@@ -212,53 +218,22 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         target={target}
         wrappedComponent="button"
       >
-        {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
-        ) : (
-          buttonText
-        )}
+        {buttonContent}
       </InternalLink>
     );
   }
 
-  if (props.type === 'submit') {
-    const { name } = props;
-
-    return (
-      <button
-        aria-label={accessibilityLabel}
-        className={buttonRoleClasses}
-        disabled={disabled}
-        name={name}
-        onBlur={handleBlur}
-        onClick={handleClick}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onTouchCancel={handleTouchCancel}
-        onTouchEnd={handleTouchEnd}
-        onTouchMove={handleTouchMove}
-        onTouchStart={handleTouchStart}
-        ref={innerRef}
-        style={compressStyle || undefined}
-        tabIndex={disabled ? null : tabIndex}
-        type="submit"
-      >
-        {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
-        ) : (
-          buttonText
-        )}
-      </button>
-    );
-  }
-
-  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, name } = props;
+  const { name } = props;
 
   return (
     <button
-      aria-controls={accessibilityControls}
-      aria-expanded={accessibilityExpanded}
-      aria-haspopup={accessibilityHaspopup}
+      {...(props.type === 'submit'
+        ? {}
+        : {
+            'aria-controls': props.accessibilityControls,
+            'aria-expanded': props.accessibilityExpanded,
+            'aria-haspopup': props.accessibilityHaspopup,
+          })}
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
       disabled={disabled}
@@ -274,13 +249,9 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       ref={innerRef}
       style={compressStyle || undefined}
       tabIndex={disabled ? null : tabIndex}
-      type="button"
+      type={props.type === 'submit' ? 'submit' : 'button'}
     >
-      {iconEnd ? (
-        <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
-      ) : (
-        buttonText
-      )}
+      {buttonContent}
     </button>
   );
 });
