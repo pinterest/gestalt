@@ -113,17 +113,18 @@ export default class Image extends PureComponent<Props> {
     ) : null;
 
     return isScaledImage ? (
-      <div
-        aria-label={alt}
-        className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
-        style={{
-          backgroundColor: color,
-          backgroundImage: `url('${src}')`,
-        }}
-        role="img"
-      >
+      <Box height="100%" position="relative">
+        <div
+          aria-label={alt}
+          className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
+          style={{
+            backgroundColor: color,
+            backgroundImage: `url('${src}')`,
+          }}
+          role="img"
+        />
         {childContent}
-      </div>
+      </Box>
     ) : (
       <Box
         position="relative"
