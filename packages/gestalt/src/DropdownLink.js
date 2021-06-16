@@ -66,7 +66,7 @@ DropdownLink.displayName = 'DropdownLink';
 
 DropdownLink.propTypes = {
   badgeText: PropTypes.string,
-  href: PropTypes.string,
+  href: PropTypes.string.isRequired,
   isExternal: PropTypes.bool,
   onClick: PropTypes.func,
   // $FlowFixMe[incompatible-exact] Why Flow doesn't accept this as exact is beyond me
