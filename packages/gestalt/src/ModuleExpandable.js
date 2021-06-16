@@ -18,6 +18,9 @@ type Props = {|
   onExpandedChange?: (?number) => void,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Module
+ */
 export default function ModuleExpandable({
   accessibilityExpandLabel,
   accessibilityCollapseLabel,

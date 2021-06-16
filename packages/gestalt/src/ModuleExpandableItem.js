@@ -17,6 +17,9 @@ type Props = {|
   onModuleClicked: (boolean) => void,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Module
+ */
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,

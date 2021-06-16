@@ -56,6 +56,9 @@ const defaultIconButtonIconColors = {
   white: 'gray',
 };
 
+/**
+ * https://gestalt.pinterest.systems/Pog
+ */
 export default function Pog(props: Props): Node {
   const {
     accessibilityLabel = '',

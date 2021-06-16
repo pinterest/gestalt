@@ -13,6 +13,9 @@ type Props = {|
   type: TypeOptions, // overwriting to be required
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Module
+ */
 export default function ModuleTitle({
   badgeText,
   icon,

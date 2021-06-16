@@ -45,6 +45,9 @@ type Props = {|
   weight?: FontWeight,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Text
+ */
 export default function Text({
   align = 'start',
   children,

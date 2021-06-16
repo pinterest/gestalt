@@ -23,6 +23,9 @@ type Props = {|
   size?: Size,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Popover
+ */
 export default function Popover(props: Props): null | Node {
   const {
     anchor,

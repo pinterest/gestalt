@@ -25,6 +25,9 @@ type Props = {|
   srcSet?: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Image
+ */
 export default class Image extends PureComponent<Props> {
   static propTypes = {
     alt: PropTypes.string.isRequired,

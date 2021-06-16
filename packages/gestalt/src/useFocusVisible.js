@@ -111,6 +111,9 @@ function setupGlobalFocusEvents() {
   hasSetupGlobalListeners = true;
 }
 
+/**
+ * https://gestalt.pinterest.systems/useFocusVisible
+ */
 export default function useFocusVisible(): {|
   isFocusVisible: boolean,
 |} {

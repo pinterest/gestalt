@@ -87,6 +87,9 @@ const UpsellAction = ({
   );
 };
 
+/**
+ * https://gestalt.pinterest.systems/Upsell
+ */
 export default function Upsell({
   children,
   dismissButton,

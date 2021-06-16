@@ -25,6 +25,9 @@ type Props = {|
   value: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Datapoint
+ */
 export default function Datapoint({
   tooltipText,
   size = 'md',

@@ -38,6 +38,9 @@ type Props = {|
   errorMessage?: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/SearchField
+ */
 const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,

@@ -15,6 +15,9 @@ type Props = {|
   legendDisplay?: 'visible' | 'hidden',
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Fieldset
+ */
 export default function Fieldset({ legend, legendDisplay = 'visible', children }: Props): Node {
   return (
     <fieldset className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}>

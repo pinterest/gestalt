@@ -8,6 +8,9 @@ import styles from './Layer.css';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import { getContainerNode } from './utils/positioningUtils.js';
 
+/**
+ * https://gestalt.pinterest.systems/Layer
+ */
 export default function Layer({
   children,
   zIndex: zIndexIndexable,

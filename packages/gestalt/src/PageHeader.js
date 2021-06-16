@@ -18,6 +18,9 @@ type Props = {|
   subtext?: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/PageHeader
+ */
 export default function PageHeader({
   maxWidth = '100%',
   primaryAction,

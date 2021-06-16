@@ -24,6 +24,9 @@ type Props = {|
   status: 'active' | 'inactive',
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Table
+ */
 export default function TableSortableHeaderCell(props: Props): Node {
   const { children, colSpan, scope, rowSpan, status, sortOrder, onSortChange } = props;
 

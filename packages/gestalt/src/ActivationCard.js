@@ -181,6 +181,9 @@ const UncompletedCard = ({
   );
 };
 
+/**
+ * https://gestalt.pinterest.systems/ActivationCard
+ */
 export default function ActivationCard({
   dismissButton,
   message,

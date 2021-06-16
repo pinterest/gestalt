@@ -13,6 +13,9 @@ type Props = {|
   text: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Badge
+ */
 export default function Badge({ position = 'middle', text }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
 

@@ -26,6 +26,9 @@ type Props = {|
   id: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Table
+ */
 export default function TableRowExpandable(props: Props): Node {
   const {
     accessibilityCollapseLabel,

@@ -31,6 +31,9 @@ type Props = {|
   ...PrivateProps,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Dropdown
+ */
 export default function DropdownItem({
   badgeText,
   children,

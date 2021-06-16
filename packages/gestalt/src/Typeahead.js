@@ -45,6 +45,9 @@ type Props = {|
   zIndex?: Indexable,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Typeahead
+ */
 const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,

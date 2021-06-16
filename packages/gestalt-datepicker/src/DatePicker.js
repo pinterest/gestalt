@@ -35,6 +35,9 @@ type Props = {|
   value?: Date,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/DatePicker
+ */
 const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
   HTMLDivElement,

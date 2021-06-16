@@ -16,6 +16,9 @@ type Props = {|
   switched?: boolean,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Switch
+ */
 export default function Switch({
   disabled = false,
   id,

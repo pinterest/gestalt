@@ -8,6 +8,9 @@ type Props = {|
   sticky?: boolean,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Table
+ */
 export default function TableHeader(props: Props): Node {
   const cs = cx(styles.thead, props.sticky && styles.sticky);
   return <thead className={cs}>{props.children}</thead>;

@@ -26,6 +26,9 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
+/**
+ * https://gestalt.pinterest.systems/RadioButton
+ */
 const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,

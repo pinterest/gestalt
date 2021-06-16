@@ -43,6 +43,9 @@ type Props = {|
   subtext?: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Status
+ */
 export default function Status({ type, title, subtext }: Props): Node {
   const { icon, color } = ICON_COLOR_MAP[type];
 

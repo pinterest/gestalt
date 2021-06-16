@@ -18,6 +18,9 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Spinner
+ */
 export default function Spinner({
   accessibilityLabel,
   delay = true,

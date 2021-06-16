@@ -59,6 +59,9 @@ function Header({
   );
 }
 
+/**
+ * https://gestalt.pinterest.systems/Modal
+ */
 const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
   HTMLDivElement,

@@ -9,6 +9,9 @@ type Props = {|
   size?: number,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Pulsar
+ */
 export default function Pulsar({ paused, size = 136 }: Props): Node {
   return (
     <Box

@@ -36,6 +36,9 @@ const KEYS = {
   ENTER: 0,
 };
 
+/**
+ * https://gestalt.pinterest.systems/Dropdown
+ */
 export default function Dropdown({
   anchor,
   children,

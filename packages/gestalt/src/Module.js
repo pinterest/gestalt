@@ -12,6 +12,9 @@ type Props = {|
   id: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Module
+ */
 export default function Module({
   badgeText,
   children,

@@ -7,6 +7,9 @@ type Props = {|
   children?: Node,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Container
+ */
 export default function Container(props: Props): Node {
   const { children } = props;
   return (

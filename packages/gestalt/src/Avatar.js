@@ -29,6 +29,9 @@ const sizes = {
   xl: 120,
 };
 
+/**
+ * https://gestalt.pinterest.systems/Avatar
+ */
 export default function Avatar(props: Props): Node {
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const { colorGray0, colorGray100 } = useColorScheme();
