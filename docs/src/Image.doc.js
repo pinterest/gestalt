@@ -156,7 +156,7 @@ card(
   "
     name="Overlay"
     defaultCode={`
-<Box column={6} paddingX={2}>
+<Box height={500} paddingX={2} width={250}>
   <Image
     alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
     color="rgb(231, 186, 176)"
@@ -164,10 +164,14 @@ card(
     naturalWidth={564}
     src="https://i.ibb.co/7bQQYkX/stock2.jpg"
   >
-    <Box padding={3}>
-      <Text color="white">
-        Tropic greens: The taste of Petrol and Porcelain
-      </Text>
+    <Box height="100%" padding={3}>
+      <Flex direction="column" height="100%" justifyContent="between">
+        <Text color="white" weight="bold">
+          Tropic greens: The taste of Petrol and Porcelain
+        </Text>
+
+        <Button color="red" onClick={() => alert('Click!')} text="Save this Pin" />
+      </Flex>
     </Box>
   </Image>
 </Box>
