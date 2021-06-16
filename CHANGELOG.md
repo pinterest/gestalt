@@ -1,3 +1,9 @@
+## 24.1.2 (Jun 16, 2021)
+
+### Patch
+
+- Image: fit children (#1559)
+
 ## 24.1.1 (Jun 16, 2021)
 
 ### Patch
