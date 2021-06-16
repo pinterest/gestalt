@@ -421,73 +421,109 @@ card(
     <MainSection.Subsection
       title="Using 'as' property"
       description={`
-      By default, the Box component renders a \`div\` element, which doesn't provide much meaning to the user or assistive technology. Use the \`as\` prop to inform which HTML component should be rendered by the Box component to ensure a meaningful experience.
+        By default, the Box component renders a \`div\` element, which is a non-semantic element that doesn't provide much meaning to the user or assistive technology. Use the \`as\` prop to inform which semantic HTML element should be rendered by the Box component instead of a \`div\` to ensure a more meaningful experience for both the user and the browser.
 
-      When using a Box component as a custom element, it is your responsibility to address all the accessibility implications. Both the \`role\` and \`as\` properties semantically classify the Box; however, the \`as\` prop defines a more concise way to describe the HTML element by modifying the underlying DOM element directly, which helps support both accessibility and SEO. We recommend using the \`as\` prop when possible, making sure that the prop type is semantically associated with the Box content.
+        When using a Box component as a custom element, it is your responsibility to address all the accessibility implications. Both the \`role\` and \`as\` properties semantically classify the Box; however, the \`as\` prop defines a more concise way to describe the HTML element by modifying the underlying DOM element directly, which helps support both accessibility and SEO. Use the \`as\` prop whenever possible, making sure that the prop type is semantically associated with the Box content.
 
-      Review the [available options for the as prop](#Props). For some of the options, like \`nav\`, you will also need to specify a \`title\` to ensure unique landmarks on the page.
-    `}
+        Review the [available options for the as prop](#Props). For some of the options, like \`nav\`, you will also need to specify a \`title\` to ensure unique landmarks on the page. Learn more about [semantics in HTML](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html).
+      `}
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
 <Flex direction="column" flex="grow">
-  <Flex alignItems="top" >
-    <Box as="nav" title="as prop example nav" column={6} color="maroon" width="100%" padding={2} borderStyle="sm">
-      <Text color="white" weight="bold">Top Nav Menu: as="nav"</Text>
+  <Flex alignItems="top">
+    <Box
+      as="nav"
+      title="as prop example nav"
+      column={6}
+      color="maroon"
+      width="100%"
+      padding={2}
+      borderStyle="sm"
+    >
+      <Text color="white" weight="bold">
+        Top Nav Menu: as="nav"
+      </Text>
     </Box>
     <Box column={6} display="inlineBlock" borderStyle="sm">
       <Box color="midnight" width="100%" padding={2}>
-        <Text color="white" weight="bold">HTML output:</Text>
-        <Text color="white" weight="bold">{"<nav>Menu</nav>"}</Text>
+        <Text color="white" weight="bold">
+          HTML output:
+        </Text>
+        <Text color="white" weight="bold">
+          {'<nav>Menu</nav>'}
+        </Text>
       </Box>
     </Box>
   </Flex>
   <Flex alignItems="top">
     <Box as="article" column={6} color="pine" width="100%" padding={2} borderStyle="sm">
-      <Heading color="white" size="md">Article 1</Heading>
-      <Text color="white" weight="bold">Article: as="article"</Text>
+      <Heading color="white" size="md">
+        Article 1
+      </Heading>
+      <Text color="white" weight="bold">
+        Article: as="article"
+      </Text>
     </Box>
     <Box column={6} display="inlineBlock" borderStyle="sm">
       <Box color="midnight" width="100%" padding={2}>
-        <Text color="white" weight="bold">HTML output:</Text>
-        <Text color="white" weight="bold">{"<article>"}</Text>
-        <Text color="white" weight="bold">   {"<h2>Article 1</h2>"}</Text>
-        <Text color="white" weight="bold">{"</article>"}</Text>
+        <Text color="white" weight="bold">
+          HTML output:
+        </Text>
+        <Text color="white" weight="bold">
+          {'<article>'}
+        </Text>
+        <Text color="white" weight="bold">
+          {' '}
+          {'<h2>Article 1</h2>'}
+        </Text>
+        <Text color="white" weight="bold">
+          {'</article>'}
+        </Text>
       </Box>
     </Box>
   </Flex>
-</Flex>
+</Flex>;
+
 `}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Using 'role' property"
       description={`
-    Setting the  \`role\` property on Box classifies the Box as the semantically appropriate HTML element through the use of an ARIA role while leaving the underlying element as a \`div\`. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page, allowing assistive technology to classify the Box appropriately.
+        Setting the  \`role\` property on Box classifies the Box as the semantically appropriate HTML element through the use of an ARIA role while leaving the underlying element as a \`div\`. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page hierarchy, allowing assistive technology to classify the Box appropriately.
 
-    Using the \`role\` property creates more specific element classification and gives the user better context on the layout of the page, especially when the ability to specify the ['as' property](#Using-'as'-property) is not available. Learn more about [ARIA roles](https://www.w3.org/TR/wai-aria/#usage_intro).
-  `}
+        Using the \`role\` property creates more specific element classification and gives the user better context on the layout of the page, especially when the ability to specify the ['as' property](#Using-'as'-property) is not available. Learn more about [ARIA roles](https://www.w3.org/TR/wai-aria/#usage_intro).
+      `}
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
 <Box column={12}>
   <Box role="feed" color="midnight" width="100%" padding={2}>
-    <Text color="white" weight="bold">Container: role="feed"</Text>
+    <Text color="white" weight="bold">
+      Container: role="feed"
+    </Text>
     <Box column={8} display="inlineBlock">
       <Box role="article" title="Article 1" color="maroon" height={50} width="100%" padding={2}>
-        <Text color="white" weight="bold">Content: role="article"</Text>
+        <Text color="white" weight="bold">
+          Content: role="article"
+        </Text>
       </Box>
     </Box>
     <Box column={4} display="inlineBlock">
       <Box role="form" color="eggplant" height={50} width="100%" padding={2}>
-        <Text color="white" weight="bold">Contact Form: role="form"</Text>
+        <Text color="white" weight="bold">
+          Contact Form: role="form"
+        </Text>
       </Box>
     </Box>
   </Box>
   <Box role="navigation" title="Site Map" color="pine" height={50} width="100%" padding={2}>
-    <Text color="white" weight="bold">Site Map: role="navigation"</Text>
+    <Text color="white" weight="bold">
+      Site Map: role="navigation"
+    </Text>
   </Box>
   <Text>{"Everything above will render as a <div>"}</Text>
 </Box>
