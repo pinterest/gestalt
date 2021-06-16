@@ -93,3 +93,10 @@ html[dir="rtl"] .alignStart,
 .alignJustify {
   text-align: justify;
 }
+
+.lineClamp {
+  -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
+  display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+  max-width: 100%;
+  overflow: hidden;
+}

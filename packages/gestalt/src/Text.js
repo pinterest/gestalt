@@ -38,6 +38,7 @@ type Props = {|
     | 'white',
   inline?: boolean,
   italic?: boolean,
+  lineClamp?: number,
   overflow?: 'normal' | 'breakWord' | 'noWrap',
   size?: 'sm' | 'md' | 'lg',
   truncate?: boolean,
@@ -51,6 +52,7 @@ export default function Text({
   color = 'darkGray',
   inline = false,
   italic = false,
+  lineClamp,
   overflow = 'breakWord',
   size = 'lg',
   truncate = false,
@@ -59,26 +61,12 @@ export default function Text({
 }: Props): Node {
   const scale = SIZE_SCALE[size];
 
+  const shouldUseLineClamp = Boolean(lineClamp ? lineClamp > 1 : false);
+
   const cs = cx(
     styles.Text,
     styles[`fontSize${scale}`],
-    color === 'blue' && colors.blue,
-    color === 'darkGray' && colors.darkGray,
-    color === 'eggplant' && colors.eggplant,
-    color === 'gray' && colors.gray,
-    color === 'green' && colors.green,
-    color === 'lightGray' && colors.lightGray,
-    color === 'maroon' && colors.maroon,
-    color === 'midnight' && colors.midnight,
-    color === 'navy' && colors.navy,
-    color === 'olive' && colors.olive,
-    color === 'orange' && colors.orange,
-    color === 'orchid' && colors.orchid,
-    color === 'pine' && colors.pine,
-    color === 'purple' && colors.purple,
-    color === 'red' && colors.red,
-    color === 'watermelon' && colors.watermelon,
-    color === 'white' && colors.white,
+    color && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
@@ -91,14 +79,28 @@ export default function Text({
     underline && typography.underline,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
-    truncate && typography.truncate,
+    truncate && !lineClamp && typography.truncate,
+    lineClamp === 1 && typography.truncate,
+    shouldUseLineClamp && typography.lineClamp,
   );
+
+  const additionalStyles = {
+    ...((truncate || shouldUseLineClamp) && typeof children === 'string'
+      ? { title: children }
+      : {}),
+    ...(shouldUseLineClamp ? { WebkitLineClamp: lineClamp } : {}),
+  };
+
   const Tag = inline ? 'span' : 'div';
 
   return (
     <Tag
       className={cs}
-      {...(truncate && typeof children === 'string' ? { title: children } : null)}
+      {...additionalStyles}
+      // {...((truncate || shouldUseLineClamp) && typeof children === 'string'
+      //   ? { title: children }
+      //   : null)}
+      // {...(shouldUseLineClamp ? { WebkitLineClamp: lineClamp } : {})}
     >
       {children}
     </Tag>
