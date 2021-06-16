@@ -40,7 +40,7 @@ export default function DropdownLink({
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <MenuOption
           badgeText={badgeText}
-          hoveredItem={hoveredItem}
+          hoveredItemIndex={hoveredItem}
           href={href}
           id={id}
           index={index}
@@ -49,8 +49,8 @@ export default function DropdownLink({
           onClick={onClick}
           option={option}
           role="menuitem"
-          setHoveredItem={setHoveredItem}
-          setOptionRef={setOptionRef}
+          setHoveredItemIndex={setHoveredItem}
+          ref={setOptionRef}
           shouldTruncate
           textWeight="bold"
         >

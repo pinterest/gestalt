@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { forwardRef, Fragment, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Badge from './Badge.js';
@@ -23,7 +23,7 @@ export type OptionObject = {|
 type Props = {|
   badgeText?: string,
   children?: Node,
-  hoveredItem: ?number,
+  hoveredItemIndex: ?number,
   href?: string,
   id: string,
   index: number,
@@ -39,30 +39,33 @@ type Props = {|
   option: OptionObject,
   role?: 'option' | 'menuitem',
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
-  setHoveredItem: (number) => void,
-  setOptionRef: (?HTMLElement) => void,
+  setHoveredItemIndex: (number) => void,
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
 |};
 
-export default function MenuOption({
-  badgeText,
-  children,
-  hoveredItem,
-  href,
-  id,
-  index,
-  isExternal,
-  onClick,
-  onSelect,
-  option,
-  role,
-  selected,
-  setHoveredItem,
-  setOptionRef,
-  shouldTruncate = false,
-  textWeight = 'normal',
-}: Props): Node {
+const MenuOptionWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+  Props,
+  ?HTMLElement,
+>(function MenuOption(props, ref): Node {
+  const {
+    badgeText, // eslint-disable-line react/prop-types
+    children, // eslint-disable-line react/prop-types
+    onSelect,
+    hoveredItemIndex,
+    href,
+    id,
+    index,
+    isExternal, // eslint-disable-line react/prop-types
+    onClick,
+    option,
+    role, // eslint-disable-line react/prop-types
+    selected,
+    setHoveredItemIndex,
+    shouldTruncate = false, // eslint-disable-line react/prop-types
+    textWeight = 'normal', // eslint-disable-line react/prop-types
+  } = props;
+
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
   );
@@ -94,9 +97,9 @@ export default function MenuOption({
               <Text truncate={shouldTruncate} weight={textWeight} color="darkGray" inline>
                 {option?.label}
               </Text>
+              {/* Adds a pause for screen reader users between the text content */}
               {badgeText && (
                 <Box marginStart={2} marginTop={1}>
-                  {/* Adds a pause for screen reader users between the item content and the badge content */}
                   <Box display="visuallyHidden">{`, `}</Box>
                   <Badge text={badgeText} />
                 </Box>
@@ -142,7 +145,6 @@ export default function MenuOption({
     <div
       aria-selected={isSelectedItem}
       className={className}
-      key={option.value}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
       onKeyPress={(event) => {
@@ -151,16 +153,14 @@ export default function MenuOption({
       onMouseDown={(event) => {
         event.preventDefault();
       }}
-      onMouseEnter={() => setHoveredItem(index)}
-      ref={(ref) => {
-        if (index === hoveredItem) setOptionRef(ref);
-      }}
-      rounding={2}
+      onMouseEnter={() => setHoveredItemIndex(index)}
+      ref={index === hoveredItemIndex ? ref : null}
       role={role}
+      rounding={2}
       tabIndex={-1}
     >
       <Box
-        color={index === hoveredItem ? 'lightGray' : 'transparent'}
+        color={index === hoveredItemIndex ? 'lightGray' : 'transparent'}
         direction="column"
         display="flex"
         padding={2}
@@ -181,24 +181,21 @@ export default function MenuOption({
       </Box>
     </div>
   );
-}
+});
 
-MenuOption.displayName = 'MenuOption';
+MenuOptionWithForwardRef.displayName = 'MenuOption';
 
-MenuOption.propTypes = {
-  hoveredItem: PropTypes.number,
-  href: PropTypes.string,
+export default MenuOptionWithForwardRef;
+
+MenuOptionWithForwardRef.propTypes = {
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   onClick: PropTypes.func,
-  onSelect: PropTypes.func,
-  // $FlowFixMe[incompatible-exact] Why Flow doesn't accept this as exact is beyond me
-  option: (PropTypes.exact({
+  option: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     subtext: PropTypes.string,
-  }).isRequired: React$PropType$Primitive<OptionObject>),
-  // $FlowFixMe[signature-verification-failure] Beware, this thing is a mess to properly type
+  }).isRequired,
   selected: PropTypes.oneOfType([
     PropTypes.exact({
       label: PropTypes.string.isRequired,
@@ -213,6 +210,8 @@ MenuOption.propTypes = {
       }),
     ),
   ]),
-  setHoveredItem: PropTypes.func,
-  setOptionRef: PropTypes.func,
+  onSelect: PropTypes.func,
+  hoveredItemIndex: PropTypes.number,
+  setHoveredItemIndex: PropTypes.func,
+  href: PropTypes.string,
 };

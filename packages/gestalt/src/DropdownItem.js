@@ -40,16 +40,16 @@ export default function DropdownItem({
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <MenuOption
           badgeText={badgeText}
-          hoveredItem={hoveredItem}
+          hoveredItemIndex={hoveredItem}
           id={id}
           index={index}
           key={`${option.value + index}`}
           onSelect={onSelect}
           option={option}
+          ref={setOptionRef}
           role="menuitem"
           selected={selected}
-          setHoveredItem={setHoveredItem}
-          setOptionRef={setOptionRef}
+          setHoveredItemIndex={setHoveredItem}
           shouldTruncate
           textWeight="bold"
         >

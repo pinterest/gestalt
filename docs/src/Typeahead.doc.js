@@ -18,7 +18,7 @@ card(
     props={[
       {
         name: 'options',
-        type: 'Array<{ label: string, value: string }>',
+        type: 'Array<{ label: string, value: string, subtext: string }>',
         description:
           'The data must be an array with objects containing only label and value properties',
         required: true,

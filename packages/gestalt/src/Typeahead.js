@@ -162,9 +162,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     if (onSelect) onSelect({ event, item });
   };
 
-  let selectedElement;
+  let currentHoveredMenuOption;
   const setOptionRef = (optionRef) => {
-    selectedElement = optionRef;
+    currentHoveredMenuOption = optionRef;
   };
 
   const containerRef = useRef();
@@ -210,7 +210,11 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       handleBlur({ event, value: event.currentTarget.value });
     }
     // Scrolling
-    handleContainerScrolling({ direction, containerRef, selectedElement });
+    handleContainerScrolling({
+      direction,
+      containerRef,
+      currentHoveredOption: currentHoveredMenuOption,
+    });
   };
 
   const positioningRef = tags ? wrapperRef : inputRef;
@@ -267,7 +271,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
                 ) : (
                   availableOptions.map((option, index) => (
                     <MenuOption
-                      hoveredItem={hoveredItem}
                       id={id}
                       index={index}
                       key={`${option.value + index}`}
@@ -275,8 +278,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
                       option={option}
                       role="option"
                       selected={selected}
-                      setHoveredItem={setHoveredItem}
-                      setOptionRef={setOptionRef}
+                      hoveredItemIndex={hoveredItem}
+                      setHoveredItemIndex={setHoveredItem}
+                      ref={setOptionRef}
                       textWeight="normal"
                     />
                   ))
