@@ -113,7 +113,7 @@ export default class Image extends PureComponent<Props> {
     ) : null;
 
     return isScaledImage ? (
-      <Box position="relative">
+      <Box height="100%" position="relative">
         <div
           aria-label={alt}
           className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
