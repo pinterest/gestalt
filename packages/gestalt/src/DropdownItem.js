@@ -7,7 +7,7 @@ import { DropdownContextConsumer } from './DropdownContext.js';
 type PublicProps = {|
   badgeText?: string,
   children?: Node,
-  onSelect?: ({|
+  onSelect: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     item: OptionObject,
   |}) => void,
@@ -65,7 +65,7 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
   badgeText: PropTypes.string,
-  onSelect: PropTypes.func,
+  onSelect: PropTypes.func.isRequired,
   // $FlowFixMe[incompatible-exact] Why Flow doesn't accept this as exact is beyond me
   option: (PropTypes.exact({
     label: PropTypes.string.isRequired,
