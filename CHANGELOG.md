@@ -1,3 +1,9 @@
+## 24.1.1 (Jun 16, 2021)
+
+### Patch
+
+- Box: Add documentation about new 'as' prop (#1552)
+
 ## 24.1.0 (Jun 10, 2021)
 
 ### Minor
