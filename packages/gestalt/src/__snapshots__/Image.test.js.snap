@@ -24,16 +24,24 @@ exports[`Image matches snapshot 1`] = `
 
 exports[`Image with fit: contain matches snapshot 1`] = `
 <div
-  aria-label="foo"
-  className="contain"
-  role="img"
+  className="box relative"
   style={
     Object {
-      "backgroundColor": "transparent",
-      "backgroundImage": "url('foo.png')",
+      "height": "100%",
     }
   }
 >
+  <div
+    aria-label="foo"
+    className="contain"
+    role="img"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "backgroundImage": "url('foo.png')",
+      }
+    }
+  />
   <div
     className="absolute bottom0 box left0 overflowHidden right0 top0"
   >
@@ -44,16 +52,24 @@ exports[`Image with fit: contain matches snapshot 1`] = `
 
 exports[`Image with fit: cover matches snapshot 1`] = `
 <div
-  aria-label="foo"
-  className="cover"
-  role="img"
+  className="box relative"
   style={
     Object {
-      "backgroundColor": "transparent",
-      "backgroundImage": "url('foo.png')",
+      "height": "100%",
     }
   }
 >
+  <div
+    aria-label="foo"
+    className="cover"
+    role="img"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "backgroundImage": "url('foo.png')",
+      }
+    }
+  />
   <div
     className="absolute bottom0 box left0 overflowHidden right0 top0"
   >
