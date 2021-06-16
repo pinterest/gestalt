@@ -13,8 +13,8 @@ card(
     name="Image"
     description={`
 This component is the workhorse of Pinterest. If you define Pinterest to be all
-about collecting ideas, then images is how we choose to represent those ideas.
-In response, we've added a few extra superpowers to the regular <code>img</code> tag to
+about collecting ideas, then images are how we choose to represent those ideas.
+In response, we've added a few extra superpowers to the regular \`<img>\` tag to
 make it even more awesome.
 `}
   />,
@@ -24,13 +24,13 @@ card(
   <PropTable
     props={[
       {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
         name: 'alt',
         type: 'string',
         required: true,
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
       },
       {
         name: 'color',
@@ -41,7 +41,7 @@ card(
       {
         name: 'elementTiming',
         type: 'string',
-        description: `HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the ‘fit‘ prop is not set to ‘cover‘ or ‘contain‘.`,
+        description: `HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.`,
       },
       {
         name: 'fit',
@@ -54,7 +54,7 @@ card(
         name: 'importance',
         type: `"high" | "low" | "auto"`,
         defaultValue: 'auto',
-        description: `Priority Hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). ‘high‘ the developer considers the resource as being high priority. ‘low‘ the developer considers the resource as being low priority. ‘auto‘ the developer does not indicate a preference. This also serves as the attribute's invalid value default and missing value default.`,
+        description: `Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.`,
         href: 'fit',
       },
       {
@@ -62,7 +62,7 @@ card(
         type: `"eager" | "lazy" | "auto"`,
         defaultValue: 'auto',
         description: `
-        Controls if loading the image should be deferred when it's off-screen. ‘lazy’ to defer the load until the image or iframe reaches a distance threshold from the viewport. ‘eager’ to load the resource immediately. ‘auto’ the default behavior, which is to eagerly load the resource.
+        Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource.
         `,
         href: 'fit',
       },
@@ -180,16 +180,16 @@ card(
     id="fit"
     description={`
     In some cases, you may want to scale an image to fit into its container.
-    To achieve that, you can set \`fit\` to either \`cover\` or \`contain\`, depending on the effect you wish to achieve.
+    To achieve that, you can set \`fit\` to either \`"cover"\` or \`"contain"\`, depending on the effect you wish to achieve.
 
-    Contain: This makes it so that the image is "contained" within its container. This means that the image is resized appropriately
+    \`"contain"\`: This makes it so that the image is "contained" within its container. This means that the image is resized appropriately
     such that the entire image can fit in the container, while maintaining its aspect ratio (think letterbox);
 
     ~~~jsx
     <Image alt="..." color="#000" fit="contain" src="..." />
     ~~~
 
-    Cover: This does the opposite of contain and tries to scale the image as large as possible so that the entire container is occupied,
+    \`"cover"\`: This does the opposite of \`"contain"\` and tries to scale the image as large as possible so that the entire container is occupied,
     while maintaining the aspect ratio of the image.
 
     ~~~jsx
@@ -198,124 +198,96 @@ card(
 
     Notes:
 
-    * When using cover/contain, \`naturalHeight\` and \`naturalWidth\` are ignored since the aspect ratio is handled by the browser.
-    * In order for cover/contain to work properly, the container must have some sort of implicit height.
+    * When using \`"cover"\`/\`"contain"\`, \`naturalHeight\` and \`naturalWidth\` are ignored since the aspect ratio is handled by the browser.
+    * In order for \`"cover"\`/\`"contain"\` to work properly, the container must have some sort of implicit height.
   `}
     name="Fit"
     defaultCode={`
-<Box display="flex" direction="row" wrap>
-  <Box>
+<Flex alignItems="start" direction="column" gap={2} wrap>
+  <Flex direction="column">
     <h3>Square content: contain vs cover</h3>
-    <Box display="flex" direction="row" justifyContent="around">
-      <Box
-        color="darkGray"
-        height={200}
-        width={200}
-        marginStart={4}
-        marginEnd={4}
-      >
-        <Image
-          alt="square"
-          color="#000"
-          fit="contain"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/d0pQsJz/stock3.jpg"
-        />
-      </Box>
-      <Box
-        color="darkGray"
-        height={200}
-        width={200}
-        marginStart={4}
-        marginEnd={4}
-      >
-        <Image
-          alt="square"
-          color="#000"
-          fit="cover"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/d0pQsJz/stock3.jpg"
-        />
-      </Box>
+    <Box marginStart={4} marginEnd={4}>
+      <Flex gap={8} justifyContent="around">
+        <Box color="darkGray" height={200} width={200}>
+          <Image
+            alt="square"
+            color="#000"
+            fit="contain"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/d0pQsJz/stock3.jpg"
+          />
+        </Box>
+        <Box color="darkGray" height={200} width={200}>
+          <Image
+            alt="square"
+            color="#000"
+            fit="cover"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/d0pQsJz/stock3.jpg"
+          />
+        </Box>
+      </Flex>
     </Box>
-  </Box>
-  <Box>
+  </Flex>
+
+  <Flex direction="column">
     <h3>Wide content: contain vs cover</h3>
-    <Box display="flex" direction="row" justifyContent="around">
-      <Box
-        color="darkGray"
-        height={200}
-        width={200}
-        marginStart={4}
-        marginEnd={4}
-      >
-        <Image
-          alt="wide"
-          color="#000"
-          fit="contain"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/SB0pXgS/stock4.jpg"
-        />
-      </Box>
-      <Box
-        color="darkGray"
-        height={200}
-        width={200}
-        marginStart={4}
-        marginEnd={4}
-      >
-        <Image
-          alt="wide"
-          color="#000"
-          fit="cover"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/SB0pXgS/stock4.jpg"
-        />
-      </Box>
+    <Box marginStart={4} marginEnd={4}>
+      <Flex gap={8} justifyContent="around">
+        <Box color="darkGray" height={200} width={200}>
+          <Image
+            alt="wide"
+            color="#000"
+            fit="contain"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/SB0pXgS/stock4.jpg"
+          />
+        </Box>
+        <Box color="darkGray" height={200} width={200}>
+          <Image
+            alt="wide"
+            color="#000"
+            fit="cover"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/SB0pXgS/stock4.jpg"
+          />
+        </Box>
+      </Flex>
     </Box>
-  </Box>
-  <Box>
+  </Flex>
+
+  <Flex direction="column">
     <h3>Tall content: contain vs cover</h3>
-    <Box display="flex" direction="row" justifyContent="around">
-      <Box
-        color="darkGray"
-        height={200}
-        width={200}
-        marginStart={4}
-        marginEnd={4}
-      >
-        <Image
-          alt="tall"
-          color="#000"
-          fit="contain"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/jVR29XV/stock5.jpg"
-        />
-      </Box>
-      <Box
-        color="darkGray"
-        height={200}
-        width={200}
-        marginStart={4}
-        marginEnd={4}
-      >
-        <Image
-          alt="tall"
-          color="#000"
-          fit="cover"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/jVR29XV/stock5.jpg"
-        />
-      </Box>
+    <Box marginStart={4} marginEnd={4}>
+      <Flex gap={8} justifyContent="around">
+        <Box color="darkGray" height={200} width={200}>
+          <Image
+            alt="tall"
+            color="#000"
+            fit="contain"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/jVR29XV/stock5.jpg"
+          />
+        </Box>
+        <Box color="darkGray" height={200} width={200}>
+          <Image
+            alt="tall"
+            color="#000"
+            fit="cover"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/jVR29XV/stock5.jpg"
+          />
+        </Box>
+      </Flex>
     </Box>
-  </Box>
-</Box>
+  </Flex>
+</Flex>
 `}
   />,
 );
@@ -331,10 +303,10 @@ card(
   <Image
     alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
     color="rgb(231, 186, 176)"
+    loading="lazy"
     naturalHeight={496}
     naturalWidth={496}
     src="https://i.ibb.co/FY2MKr5/stock6.jpg"
-    loading="lazy"
   />
 </Box>
 `}
