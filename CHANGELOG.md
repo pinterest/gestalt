@@ -1,3 +1,9 @@
+## 26.0.0 (Jun 17, 2021)
+
+### Major
+
+- ActivationCard, Upsell, Callout: Make accessibilityLabel required for actions (#1555)
+
 ## 25.0.1 (Jun 17, 2021)
 
 ### Patch
