@@ -4,7 +4,7 @@
   - Splits out Dropdown.Item to include Dropdown.Link, ensures each contains correct props
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/next/dropdown-link.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/25.0.0/dropdown-link.js relative/path/to/your/code
 
 const commonProps = ['badgeText', 'children', 'option'];
 const dropdownItemProps = [...commonProps, 'onSelect', 'selected'];
