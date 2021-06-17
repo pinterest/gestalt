@@ -197,10 +197,12 @@ function OnNavigation() {
             primaryAction={
               { ...linkProps,
                 label:'Get started',
+                accessibilityLabel: 'Get started: verified merchant program'
               }}
             secondaryAction={
               { ...linkProps,
                 label: 'Learn more',
+                accessibilityLabel: 'Learn more: verified merchant program'
               }}
             dismissButton={{
               accessibilityLabel: 'Dismiss banner',
@@ -212,7 +214,8 @@ function OnNavigation() {
             message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
             primaryAction={
               { ...linkProps,
-                label: 'Send invite'
+                label: 'Send invite',
+                accessibilityLabel: 'Send invite for ads credit'
               }}
             dismissButton={{
               accessibilityLabel: 'Dismiss banner',
@@ -229,7 +232,8 @@ function OnNavigation() {
             message="Grow distribution and track Pins linked to your website"
             link={{
               ...linkProps,
-              label: 'Claim your website now'
+              label: 'Claim your website now',
+              accessibilityLabel: '',
             }}
             dismissButton={{
               accessibilityLabel: 'Dismiss card',

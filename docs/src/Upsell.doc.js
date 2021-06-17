@@ -17,7 +17,7 @@ card(
       <Upsell
         title="Give $30, get $60 in ads credit"
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-        primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+        primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank', accessibilityLabel: "Send ads invite" }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -68,7 +68,7 @@ card(
       {
         name: 'primaryAction',
         type:
-          '{| accessibilityLabel?: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
+          '{| accessibilityLabel: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
         required: false,
         defaultValue: null,
         description: `
@@ -80,7 +80,7 @@ card(
       {
         name: 'secondaryAction',
         type:
-          '{| accessibilityLabel?: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
+          '{| accessibilityLabel: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
         required: false,
         defaultValue: null,
         description: `
@@ -151,7 +151,12 @@ card(
 <Upsell
   title="Give $30, get $60 in ads credit"
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+  primaryAction={{
+    href: 'https://pinterest.com',
+    label: 'Send invite',
+    target: 'blank',
+    accessibilityLabel: "Send ads invite"
+  }}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: () => {},
@@ -184,7 +189,12 @@ card(
     <Upsell
       title="Give $30, get $60 in ads credit"
       message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-      primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+      primaryAction={{
+        href: 'https://pinterest.com',
+        label: 'Send invite',
+        target: 'blank',
+        accessibilityLabel: "Send ads invite"
+      }}
       dismissButton={{
         accessibilityLabel: 'Dismiss banner',
         onDismiss: () => {},
@@ -209,7 +219,7 @@ card(
   <Upsell
     title="Measure ad performance"
     message="Install the Pinterest tag to track your website traffic, conversions and more."
-    primaryAction={{ label: 'Install now' }}
+    primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag now' }}
     dismissButton={{
       accessibilityLabel: 'Dismiss banner',
       onDismiss: () => {},
@@ -225,7 +235,7 @@ card(
     }}
     title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
     message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-    primaryAction={{ label: 'Claim now' }}
+    primaryAction={{ label: 'Claim now', accessibilityLabel: "Claim ads credit" }}
   />
 </Flex>;
         `}
@@ -240,7 +250,7 @@ card(
 <Upsell
   title="Could not link account"
   message="There was a problem connecting your account."
-  primaryAction={{ label: 'Try again' }}
+  primaryAction={{ label: 'Try again', accessibilityLabel: 'Try linking account again' }}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: () => {},
@@ -277,12 +287,17 @@ card(
         }}
         title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
         message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-        primaryAction={{ label: 'Claim now' }}
+        primaryAction={{ label: 'Claim now', accessibilityLabel: 'Claim ads credit now' }}
       />
       <Upsell
         title="Give $30, get $60 in ads credit"
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-        primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+        primaryAction={{
+          href: 'https://pinterest.com',
+          label: 'Send invite',
+          target: 'blank',
+          accessibilityLabel: 'Send ads invite'
+        }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -307,7 +322,7 @@ card(
   <Upsell
     title="Measure ad performance"
     message="Install the Pinterest tag to track your website traffic, conversions and more."
-    primaryAction={{ label: 'Install now' }}
+    primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
     dismissButton={{
       accessibilityLabel: 'Dismiss banner',
       onDismiss: () => {},
@@ -319,7 +334,7 @@ card(
   <Upsell
     title="Measure ad performance"
     message="Install the Pinterest tag to track your website traffic, conversions and more."
-    primaryAction={{ label: 'Install now' }}
+    primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
     dismissButton={{
       accessibilityLabel: 'Dismiss banner',
       onDismiss: () => {},
@@ -342,7 +357,7 @@ card(
       description={`
       \`dismissButton\`, \`primaryAction\`, \`secondaryAction\`, and \`submitButtonAccessibilityLabel\` each require a short, descriptive label for screen readers, which should also be localized.
 
-      In the case of [Buttons](/Button), alternative text should be provided to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the word "button" in the label, as this becomes repetitive.
+      In the case of action [Buttons](/Button) or [Links](/Link), alternative text should be provided through the \`accessibilityLabel\` prop to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
 
       For the \`dismissButton\` [IconButton](/IconButton), the label provided should indicate the intent, like “Dismiss this banner”.
 
@@ -505,6 +520,7 @@ function Example(props) {
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{
           label: 'Send invite',
+          accessibilityLabel: 'Send ads invite',
           onClick: () => {
             setShowModal(!showModal);
           },
@@ -737,6 +753,7 @@ function OnNavigation() {
 
   const linkProps = {
     href:"https://pinterest.com",
+    accessibilityLabel: 'Send ads credit',
     onClick: onClickHandler,
     target:"blank",
   }

@@ -44,7 +44,7 @@ card(
       {
         name: 'link',
         type:
-          '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }, {| disableOnNavigation: () => void |}) => void |}',
+          '{| accessibilityLabel: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }, {| disableOnNavigation: () => void |}) => void |}',
         required: false,
         defaultValue: null,
         description: [
@@ -101,7 +101,11 @@ card(
       statusMessage="Not started"
       title="Claim your website"
       message="Grow distribution and track Pins linked to your website"
-      link={{href: "https://pinterest.com", label:"Claim your website now"}}
+      link={{
+        href: "https://pinterest.com",
+        label:"Claim your website now",
+        accessibilityLabel: ""
+      }}
       dismissButton={{
         accessibilityLabel: 'Dismiss card',
         onDismiss: ()=>{},
@@ -114,7 +118,11 @@ card(
       statusMessage="Pending"
       title="Claim your website"
       message="We will notify you via email as soon as your site has been successfully claimed."
-      link={{href: "https://pinterest.com", label:"Learn more"}}
+      link={{
+        href: "https://pinterest.com",
+        label:"Learn more",
+        accessibilityLabel: "Learn more: website claim status"
+      }}
       dismissButton={{
         accessibilityLabel: 'Dismiss card',
         onDismiss: ()=>{},
@@ -137,7 +145,11 @@ card(
       statusMessage="Needs attention"
       title="Tag is unhealthy"
       message="Oops! Your tag must be healthy to continue."
-      link={{accessibilityLabel:"Learn more about tag health", href: "https://pinterest.com", label:"Learn more"}}
+      link={{
+        accessibilityLabel: "Learn more about tag health",
+        href: "https://pinterest.com",
+        label: "Learn more"
+      }}
       dismissButton={{
         accessibilityLabel: 'Dismiss card',
         onDismiss: ()=>{},
@@ -197,6 +209,7 @@ function OnNavigation() {
 
   const linkProps = {
     href:"https://pinterest.com",
+    accessibilityLabel: "Learn more: claiming your website",
     onClick: onClickHandler,
     target:"blank",
   }

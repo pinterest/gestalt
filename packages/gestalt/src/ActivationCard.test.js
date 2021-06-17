@@ -70,7 +70,11 @@ describe('<ActivationCard />', () => {
         statusMessage="Needs attention"
         title="Tag is unhealthy"
         message="Oops! Your tag must be healthy to continue."
-        link={{ href: 'https://pinterest.com', label: 'Learn more' }}
+        link={{
+          href: 'https://pinterest.com',
+          label: 'Learn more',
+          accessibilityLabel: 'Learn more about tags',
+        }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -83,7 +87,11 @@ describe('<ActivationCard />', () => {
         statusMessage="Needs attention"
         title="Tag is unhealthy"
         message="Oops! Your tag must be healthy to continue."
-        link={{ href: 'https://pinterest.com', label: 'Learn more' }}
+        link={{
+          href: 'https://pinterest.com',
+          label: 'Learn more',
+          accessibilityLabel: 'Learn more about tags',
+        }}
         dismissButton={{
           accessibilityLabel: 'Dismiss card',
           onDismiss: jest.fn(),
