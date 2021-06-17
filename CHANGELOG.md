@@ -1,3 +1,9 @@
+## 25.0.0 (Jun 17, 2021)
+
+### Major
+
+- Dropdown: Remove parent onSelect, split Dropdown.Item to add Dropdown.Link (#1554)
+
 ## 24.2.1 (Jun 17, 2021)
 
 ### Patch
