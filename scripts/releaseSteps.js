@@ -135,7 +135,7 @@ function cleanSource() {
 
     // Remove URLs in source files so links don't show up twice
     shell.exec(
-      `find ${src} -type f -name "*.js" -exec sed -i -e 's!http(s){0,1}://[^[:space:]]*!!g' {} \\;`,
+      `find ${src} -type f -name "*.js" -exec sed -i -e 's! \\* http\\(s\\)\\{0,1\\}://[^[:space:]]*!!g' {} \\;`,
     );
 
     // Convert .js to .js.flow so to disallow imports under `src/*`
