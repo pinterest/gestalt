@@ -14,6 +14,9 @@ const sizes = {
   lg: 64,
 };
 
+/**
+ * https://gestalt.pinterest.systems/AvatarPair
+ */
 export default function AvatarPair({ collaborators, size = 'fit' }: Props): Node {
   const width = size === 'fit' ? '100%' : sizes[size];
   return (

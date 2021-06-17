@@ -61,6 +61,9 @@ const flipOnRtlIconNames = [
   'text-size',
 ];
 
+/**
+ * https://gestalt.pinterest.systems/Icon
+ */
 export default function Icon(props: Props): Node {
   const {
     accessibilityLabel,

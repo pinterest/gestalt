@@ -37,6 +37,9 @@ type Props = {|
   disabled?: boolean,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Link
+ */
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
   HTMLAnchorElement,

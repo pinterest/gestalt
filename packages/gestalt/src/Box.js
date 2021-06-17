@@ -205,6 +205,9 @@ const disallowedProps = [
 
 type OutputType = Element<As>;
 
+/**
+ * https://gestalt.pinterest.systems/Box
+ */
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }, ref): OutputType {
     const { passthroughProps, propsStyles } = buildStyles<$Diff<Props, {| as?: As |}>>({

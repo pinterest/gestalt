@@ -153,6 +153,9 @@ type Props = {|
   width: number,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Collage
+ */
 export default function Collage(props: Props): Node {
   const { columns, cover, gutter, height, layoutKey, renderImage, width } = props;
   const positions = getCollageLayout({

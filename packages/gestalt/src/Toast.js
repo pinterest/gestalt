@@ -13,6 +13,9 @@ type Props = {|
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Toast
+ */
 export default function Toast({
   button,
   color = 'white',

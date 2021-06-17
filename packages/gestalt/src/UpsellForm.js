@@ -19,6 +19,9 @@ type Props = {|
   submitButtonDisabled?: boolean,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Upsell
+ */
 export default function UpsellForm({
   children,
   onSubmit,

@@ -75,7 +75,10 @@ const ScrollBoundaryContainerWithForwardRef: AbstractComponent<
   );
 });
 
-// ScrollBoundaryContainerWithProvider is the ScrollBoundaryContainer to exposed to the Gestalt library, with a limited API.
+/**
+ * ScrollBoundaryContainerWithProvider is the ScrollBoundaryContainer to exposed to the Gestalt library, with a limited API.
+ * https://gestalt.pinterest.systems/ScrollBoundaryContainer
+ */
 const ScrollBoundaryContainerWithProvider = (passthroughProps: Props): Node => (
   <ScrollBoundaryContainerProvider>
     <ScrollBoundaryContainerWithForwardRef {...passthroughProps} />

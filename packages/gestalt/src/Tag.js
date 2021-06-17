@@ -33,6 +33,9 @@ type Props = {|
       |},
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Tag
+ */
 export default function Tag(props: Props): Node {
   const {
     disabled = false,

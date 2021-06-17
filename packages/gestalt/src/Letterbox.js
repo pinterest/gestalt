@@ -21,6 +21,9 @@ type Props = {|
   width: number,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Letterbox
+ */
 export default function Letterbox({ children, contentAspectRatio, height, width }: Props): Node {
   const viewportAspectRatio = aspectRatio(width, height);
 

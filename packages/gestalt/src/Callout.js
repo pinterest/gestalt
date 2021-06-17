@@ -96,6 +96,9 @@ const CalloutAction = ({
   );
 };
 
+/**
+ * https://gestalt.pinterest.systems/Callout
+ */
 export default function Callout({
   dismissButton,
   iconAccessibilityLabel,

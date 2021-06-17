@@ -14,6 +14,9 @@ type ColumnProps = {|
   lgSpan?: Columns,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Column
+ */
 export default function Column(props: ColumnProps): Node {
   const { children } = props;
   const cs = classnames(

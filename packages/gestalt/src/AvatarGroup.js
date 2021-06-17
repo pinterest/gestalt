@@ -29,6 +29,9 @@ type Props = {|
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
+/**
+ * https://gestalt.pinterest.systems/AvatarGroup
+ */
 const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = forwardRef<
   Props,
   UnionRefs,

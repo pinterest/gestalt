@@ -65,6 +65,9 @@ type LinkTapAreaType = {|
 type unionProps = TapAreaType | LinkTapAreaType;
 type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
+/**
+ * https://gestalt.pinterest.systems/TapArea
+ */
 const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,

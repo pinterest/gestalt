@@ -13,6 +13,9 @@ type Props = {|
   previousTotalWidth?: number,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Table
+ */
 export default function TableHeaderCell(props: Props): Node {
   const {
     children,

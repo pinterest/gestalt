@@ -5,6 +5,9 @@ import { Children, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 
+/**
+ * https://gestalt.pinterest.systems/ButtonGroup
+ */
 function ButtonGroup({ children }: {| children?: Node |}): Node {
   const count = Children.count(children);
 

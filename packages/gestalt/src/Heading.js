@@ -46,6 +46,9 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
+/**
+ * https://gestalt.pinterest.systems/Heading
+ */
 export default function Heading(props: Props): Node {
   const {
     accessibilityLevel,

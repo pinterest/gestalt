@@ -239,6 +239,9 @@ type Props = {|
   _dangerouslyUseV2?: boolean,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Tabs
+ */
 export default function Tabs({
   activeTabIndex,
   onChange,

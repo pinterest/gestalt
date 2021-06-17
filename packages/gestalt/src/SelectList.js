@@ -34,6 +34,9 @@ type Props = {|
   value?: ?string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/SelectList
+ */
 export default function SelectList({
   disabled = false,
   errorMessage,

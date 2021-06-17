@@ -104,6 +104,9 @@ const IconEnd = ({
   </Flex>
 );
 
+/**
+ * https://gestalt.pinterest.systems/Button
+ */
 const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,

@@ -66,6 +66,9 @@ function SegmentedControlItem({
   );
 }
 
+/**
+ * https://gestalt.pinterest.systems/SegmentedControl
+ */
 export default function SegmentedControl({
   items,
   onChange,

@@ -22,6 +22,9 @@ type Props = {|
   stickyColumns?: ?number,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Table
+ */
 export default function Table(props: Props): Node {
   const { borderStyle, children, maxHeight, stickyColumns } = props;
   const [showShadowScroll, setShowShadowScroll] = useState<'left' | 'right' | null>(null);

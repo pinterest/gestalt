@@ -26,6 +26,9 @@ const OnLinkNavigationContext: Context<OnLinkNavigationContextType | void> = cre
 
 const { Provider } = OnLinkNavigationContext;
 
+/**
+ * https://gestalt.pinterest.systems/OnLinkNavigationProvider
+ */
 export default function OnLinkNavigationProvider({
   onNavigation,
   children,

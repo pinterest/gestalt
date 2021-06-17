@@ -273,11 +273,13 @@ SheetWithForwardRef.propTypes = {
   subHeading: PropTypes.node,
 };
 
-/*
+/**
+ * <AnimatedSheet> component: adds animation capabilities
+ * <AnimatedSheetWithForwardRef> component: wrapper for forwarding ref to <AnimatedSheet>, the one which gets exported
+ */
 
-<AnimatedSheet> component: adds animation capabilities
-<AnimatedSheetWithForwardRef> component: wrapper for forwarding ref to <AnimatedSheet>, the one which gets exported
-
+/**
+ * https://gestalt.pinterest.systems/Sheet
  */
 const AnimatedSheetWithForwardRef: React$AbstractComponent<
   AnimatedSheetProps,

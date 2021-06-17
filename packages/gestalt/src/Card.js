@@ -16,6 +16,9 @@ type Props = {|
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Card
+ */
 export default function Card(props: Props): Node {
   const [hovered, setHovered] = useState(false);
   const { active, children, image, onMouseEnter, onMouseLeave } = props;

@@ -10,6 +10,9 @@ type Props = {|
   label: string,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Dropdown
+ */
 export default function DropdownSection({ label, children }: Props): Node {
   return (
     <div className={styles.DropdownSection} aria-label={label}>

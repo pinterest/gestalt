@@ -59,6 +59,9 @@ type Props = {|
   viewportHeight?: number,
 |};
 
+/**
+ * https://gestalt.pinterest.systems/Collection
+ */
 export default class Collection extends PureComponent<Props, void> {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types

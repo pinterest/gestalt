@@ -63,6 +63,9 @@ const allowedProps = [
   'wrap',
 ];
 
+/**
+ * https://gestalt.pinterest.systems/Flex
+ */
 export default function Flex({
   alignItems,
   children: childrenProp,
