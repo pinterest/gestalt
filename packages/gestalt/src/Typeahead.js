@@ -267,17 +267,17 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
                 ) : (
                   availableOptions.map((option, index) => (
                     <MenuOption
+                      hoveredItem={hoveredItem}
                       id={id}
                       index={index}
                       key={`${option.value + index}`}
+                      onSelect={handleSelect}
                       option={option}
+                      role="option"
                       selected={selected}
-                      hoveredItem={hoveredItem}
                       setHoveredItem={setHoveredItem}
-                      handleSelect={handleSelect}
                       setOptionRef={setOptionRef}
                       textWeight="normal"
-                      role="option"
                     />
                   ))
                 )}
