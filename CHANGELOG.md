@@ -1,3 +1,9 @@
+## 24.2.0 (Jun 17, 2021)
+
+### Minor
+
+- Internal: Add links in code to docs (#1558)
+
 ## 24.1.2 (Jun 16, 2021)
 
 ### Patch
