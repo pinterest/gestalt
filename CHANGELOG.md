@@ -1,3 +1,9 @@
+## 25.0.1 (Jun 17, 2021)
+
+### Patch
+
+- Dropdown: s/'next'/'25.0.0'/ for recent codemod (#1562)
+
 ## 25.0.0 (Jun 17, 2021)
 
 ### Major
