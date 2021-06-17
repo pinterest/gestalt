@@ -1,3 +1,9 @@
+## 24.2.1 (Jun 17, 2021)
+
+### Patch
+
+- Internal: fix stripping URLs from code (#1561)
+
 ## 24.2.0 (Jun 17, 2021)
 
 ### Minor
