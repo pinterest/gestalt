@@ -91,7 +91,7 @@ type TabProps = {|
 const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 1;
 
-const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
+export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
   HTMLElement,
 >(function Tab({ href, indicator, id, index, isActive, onChange, text }, ref) {

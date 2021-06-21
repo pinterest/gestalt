@@ -2,337 +2,403 @@
 
 exports[`<Tabs /> matches snapshot with default props 1`] = `
 <div
-  className="Flex rowGap0 itemsCenter xsDirectionRow"
+  className="Flex rowGap4 itemsCenter xsDirectionRow"
 >
   <div
-    className="box"
+    className="FlexItem"
   >
-    <a
-      aria-selected={true}
-      className="link hideOutline tapTransition pill block accessibilityOutline"
-      href="#"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      role="tab"
-      target={null}
+    <div
+      className="box paddingY3"
     >
-      <div
-        className="box darkGrayBg itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone xsDisplayFlex"
+      <a
+        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        style={
-          Object {
-            "height": 40,
-            "minWidth": 60,
-          }
-        }
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
         <div
-          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="FlexItem"
+            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
           >
             <div
-              className="Text fontSize3 white alignStart noWrap fontWeightBold"
+              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
             >
-              News
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                >
+                  News
+                </div>
+              </div>
+            </div>
+            <div
+              className="absolute box"
+              style={
+                Object {
+                  "bottom": -3,
+                  "width": "calc(100% - 8px)",
+                }
+              }
+            >
+              <div
+                className="box darkGrayBg"
+                style={
+                  Object {
+                    "borderRadius": 1.5,
+                    "height": 3,
+                    "width": "100%",
+                  }
+                }
+              />
             </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
   <div
-    className="box"
+    className="FlexItem"
   >
-    <a
-      aria-selected={false}
-      className="link hideOutline tapTransition pill block accessibilityOutline"
-      href="#"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      role="tab"
-      target={null}
+    <div
+      className="box paddingY3"
     >
-      <div
-        className="box itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone whiteBg xsDisplayFlex"
+      <a
+        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        style={
-          Object {
-            "height": 40,
-            "minWidth": 60,
-          }
-        }
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
         <div
-          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="FlexItem"
+            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
           >
             <div
-              className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
             >
-              You
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                >
+                  You
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
 `;
 
 exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 <div
-  className="Flex rowGap0 itemsCenter xsDirectionRow"
+  className="Flex rowGap4 itemsCenter xsDirectionRow"
 >
   <div
-    className="box"
+    className="FlexItem"
   >
-    <a
-      aria-selected={true}
-      className="link hideOutline tapTransition pill block accessibilityOutline"
-      href="#"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      role="tab"
-      target={null}
+    <div
+      className="box paddingY3"
     >
-      <div
-        className="box darkGrayBg itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone xsDisplayFlex"
+      <a
+        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        style={
-          Object {
-            "height": 40,
-            "minWidth": 60,
-          }
-        }
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
         <div
-          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="FlexItem"
+            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
           >
             <div
-              className="Text fontSize3 white alignStart noWrap fontWeightBold"
+              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
             >
-              News
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                >
+                  News
+                </div>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="box circle redBg"
+                  style={
+                    Object {
+                      "height": 6,
+                      "marginTop": "1px",
+                      "width": 6,
+                    }
+                  }
+                />
+              </div>
             </div>
-          </div>
-          <div
-            className="FlexItem"
-          >
             <div
-              className="box circle redBg"
+              className="absolute box"
               style={
                 Object {
-                  "height": 6,
-                  "marginTop": "1px",
-                  "width": 6,
+                  "bottom": -3,
+                  "width": "calc(100% - 8px)",
                 }
               }
-            />
+            >
+              <div
+                className="box darkGrayBg"
+                style={
+                  Object {
+                    "borderRadius": 1.5,
+                    "height": 3,
+                    "width": "100%",
+                  }
+                }
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
   <div
-    className="box"
+    className="FlexItem"
   >
-    <a
-      aria-selected={false}
-      className="link hideOutline tapTransition pill block accessibilityOutline"
-      href="#"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      role="tab"
-      target={null}
+    <div
+      className="box paddingY3"
     >
-      <div
-        className="box itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone whiteBg xsDisplayFlex"
+      <a
+        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        style={
-          Object {
-            "height": 40,
-            "minWidth": 60,
-          }
-        }
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
         <div
-          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="FlexItem"
+            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
           >
             <div
-              className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
             >
-              You
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                >
+                  You
+                </div>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="box circle redBg"
+                  style={
+                    Object {
+                      "height": 6,
+                      "marginTop": "1px",
+                      "width": 6,
+                    }
+                  }
+                />
+              </div>
             </div>
           </div>
-          <div
-            className="FlexItem"
-          >
-            <div
-              className="box circle redBg"
-              style={
-                Object {
-                  "height": 6,
-                  "marginTop": "1px",
-                  "width": 6,
-                }
-              }
-            />
-          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
 `;
 
-exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
+exports[`<Tabs /> matches snapshot with wrap 1`] = `
 <div
-  className="Flex rowGap0 flexWrap itemsCenter xsDirectionRow"
+  className="Flex rowGap4 flexWrap itemsCenter xsDirectionRow"
 >
   <div
-    className="box"
+    className="FlexItem"
   >
-    <a
-      aria-selected={true}
-      className="link hideOutline tapTransition pill block accessibilityOutline"
-      href="#"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      role="tab"
-      target={null}
+    <div
+      className="box paddingY3"
     >
-      <div
-        className="box darkGrayBg itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone xsDisplayFlex"
+      <a
+        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        style={
-          Object {
-            "height": 48,
-            "minWidth": 60,
-          }
-        }
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
         <div
-          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="FlexItem"
+            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
           >
             <div
-              className="Text fontSize3 white alignStart noWrap fontWeightBold"
+              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
             >
-              News
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                >
+                  News
+                </div>
+              </div>
+            </div>
+            <div
+              className="absolute box"
+              style={
+                Object {
+                  "bottom": -3,
+                  "width": "calc(100% - 8px)",
+                }
+              }
+            >
+              <div
+                className="box darkGrayBg"
+                style={
+                  Object {
+                    "borderRadius": 1.5,
+                    "height": 3,
+                    "width": "100%",
+                  }
+                }
+              />
             </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
   <div
-    className="box"
+    className="FlexItem"
   >
-    <a
-      aria-selected={false}
-      className="link hideOutline tapTransition pill block accessibilityOutline"
-      href="#"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      role="tab"
-      target={null}
+    <div
+      className="box paddingY3"
     >
-      <div
-        className="box itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone whiteBg xsDisplayFlex"
+      <a
+        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-        style={
-          Object {
-            "height": 48,
-            "minWidth": 60,
-          }
-        }
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
         <div
-          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="FlexItem"
+            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
           >
             <div
-              className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
             >
-              You
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                >
+                  You
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
 `;
