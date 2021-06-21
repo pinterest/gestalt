@@ -45,7 +45,7 @@ type BaseButton = {|
     | 'white',
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
-  inline?: boolean,
+  fullWidth?: boolean,
   name?: string,
   onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLButtonElement>
@@ -115,7 +115,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     accessibilityLabel,
     color = 'gray',
     disabled = false,
-    inline = false,
+    fullWidth = true,
     iconEnd,
     onClick,
     tabIndex = 0,
@@ -170,8 +170,8 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       [styles.selected]: !disabled && selected,
       [styles.disabled]: disabled,
       [styles.enabled]: !disabled,
-      [styles.inline]: props.role !== 'link' && inline,
-      [styles.block]: props.role !== 'link' && !inline,
+      [styles.inline]: props.role !== 'link' && !fullWidth,
+      [styles.block]: props.role !== 'link' && fullWidth,
       [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     },
@@ -205,7 +205,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         accessibilityLabel={accessibilityLabel}
         colorClass={colorClass}
         disabled={disabled}
-        inline={inline}
+        fullWidth={fullWidth}
         href={href}
         onClick={handleLinkClick}
         ref={innerRef}
@@ -297,7 +297,7 @@ ButtonWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
   href: PropTypes.string,
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
-  inline: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),

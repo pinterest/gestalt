@@ -32,7 +32,6 @@ type Props = {|
   fullWidth?: boolean,
   href: string,
   id?: string,
-  inline?: boolean,
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
@@ -68,7 +67,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     fullWidth,
     href,
     id,
-    inline,
     mouseCursor,
     onClick,
     onBlur,
@@ -122,8 +120,8 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     },
     isButton
       ? {
-          [layoutStyles.inlineFlex]: inline,
-          [layoutStyles.flex]: !inline,
+          [layoutStyles.inlineFlex]: !fullWidth,
+          [layoutStyles.flex]: fullWidth,
           [layoutStyles.justifyCenter]: true,
           [layoutStyles.itemsCenter]: true,
           [buttonStyles.button]: true,
@@ -246,7 +244,6 @@ InternalLinkWithForwardRef.propTypes = {
   fullWidth: PropTypes.bool,
   href: PropTypes.string.isRequired,
   id: PropTypes.string,
-  inline: PropTypes.bool,
   mouseCursor: PropTypes.oneOf([
     'copy',
     'grab',

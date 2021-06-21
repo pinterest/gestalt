@@ -41,7 +41,12 @@ it('renders Button with inline', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="button" href="https://example.com" inline tabIndex={0}>
+        <InternalLink
+          wrappedComponent="button"
+          href="https://example.com"
+          fullWidth={false}
+          tabIndex={0}
+        >
           InternalLink
         </InternalLink>,
       )

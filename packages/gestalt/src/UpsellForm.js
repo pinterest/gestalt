@@ -49,7 +49,7 @@ export default function UpsellForm({
             accessibilityLabel={submitButtonAccessibilityLabel}
             color="red"
             disabled={submitButtonDisabled}
-            inline={responsiveMinWidth !== 'xs'}
+            fullWidth={responsiveMinWidth === 'xs'}
             text={submitButtonText}
             type="submit"
           />
