@@ -8,8 +8,8 @@ Have you [formatted the PR title](https://github.com/pinterest/gestalt/#releasin
 
 ### Links
 
-- [Jira](https://jira.pinadmin.com/browse/PDS-XXX)
-- [TDD](Paper doc link)
+- [Jira](link to Jira ticket(s))
+- [TDD](link to Paper doc)
 - [Figma](link to Figma file)
 
 ### Checklist
