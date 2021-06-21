@@ -102,12 +102,12 @@ card(
         href: 'iconEnd',
       },
       {
-        name: 'inline',
+        name: 'fullWidth',
         type: 'boolean',
         required: false,
-        defaultValue: false,
+        defaultValue: true,
         description:
-          'Display a button as an inline element so that it does not start on a new line breaking the flow of the content. Inline buttons are sized by the text within the button, whereas the default block buttons expand to the full width of their container.',
+          "Default full-width buttons expand to the full width of their container whereas buttons with 'fullWidth' = 'false'  are sized by the text within the button.",
         href: 'width',
       },
       {
@@ -236,7 +236,7 @@ card(
   <Example
     name="Basic Button"
     id="basic-button"
-    defaultCode={`<Button text="Medium-sized button" inline />`}
+    defaultCode={`<Button text="Medium-sized button" fullWidth={false} />`}
   />,
 );
 
@@ -256,7 +256,6 @@ function Example() {
           <Button
             onClick={() => {}}
             text="Clear search history"
-            inline
             disabled={disabled}
             tabIndex={tabIndex ? -1 : 0}
           />
@@ -266,7 +265,6 @@ function Example() {
             type="submit"
             name="satisfaction-questionnaire"
             text="Submit your response"
-            inline
             disabled={disabled}
             tabIndex={tabIndex ? -1 : 0}
           />
@@ -277,7 +275,6 @@ function Example() {
             target="blank"
             href="https://www.pinterest.com"
             text="Visit pinterest.com"
-            inline
             disabled={disabled}
             tabIndex={tabIndex ? -1 : 0}
           />
@@ -319,9 +316,9 @@ card(
     name="Size"
     id="size"
     defaultCode={`<Flex gap={2}>
-  <Button size="sm" text="Small-sized button" inline />
-  <Button text="Medium-sized button" inline />
-  <Button size="lg" text="Large-sized button" inline />
+  <Button size="sm" text="Small-sized button" />
+  <Button text="Medium-sized button" />
+  <Button size="lg" text="Large-sized button" />
 </Flex>`}
   />,
 );
@@ -365,14 +362,14 @@ card(
             color={selectedTransparent ? 'transparentWhiteText' : 'transparent'}
             iconEnd="add-pin"
             text="Save this image"
-            inline />
+          />
           </Box>
           <Box padding={2} position="absolute" bottom right>
             <Button
             color={selectedTransparent ? 'transparent' : 'transparentWhiteText'}
             iconEnd="pin-hide"
             text="Hide this image"
-            inline />
+          />
           </Box>
         </Image>
       </Box>
@@ -395,7 +392,7 @@ card(
             color={selectedSemiTransparentWhite ? 'semiTransparentWhite' : 'white'}
             iconEnd="add-pin"
             text="Save this image"
-            inline />
+          />
           </Box>
           <Box padding={2} position="absolute" bottom right>
             <Button
@@ -420,7 +417,7 @@ card(
     defaultCode={`
 <React.Fragment>
   <Box padding={2}>
-    <Button text="Inline button" inline />
+    <Button text="Inline button" fullWidth={false} />
   </Box>
   <Box padding={2}>
     <Button text="Default full-width button" />
@@ -434,7 +431,7 @@ card(
     name="Icons"
     id="iconEnd"
     defaultCode={`
-    <Button iconEnd="download" text="Download CVS file" inline />
+    <Button iconEnd="download" text="Download CVS file" fullWidth={false} />
 `}
   />,
 );
@@ -448,7 +445,7 @@ function Example() {
   const [selected, setSelected] = React.useState(false);
   return (
     <Button
-      inline
+      fullWidth={false}
       selected={selected}
       onClick={() => {setSelected(!selected)}}
       text={selected ? "Selected" : "Deselected"}
@@ -472,7 +469,7 @@ function ButtonPopoverExample() {
   return (
     <React.Fragment>
       <Button
-        inline
+        fullWidth={false}
         onClick={() => setSelected(!selected)}
         ref={anchorRef}
         selected={selected}
@@ -508,7 +505,7 @@ function AccessibilityExample() {
     <Button
       accessibilityLabel={selected ? "Unfollow Alberto on Pinterest" : "Follow Alberto on Pinterest"}
       onClick={() => setSelected(!selected)}
-      inline
+      fullWidth={false}
       selected={selected}
       text={selected ? "Unfollow" : "Follow"}        />
   );
@@ -534,7 +531,6 @@ function MenuButtonExample() {
           accessibilityExpanded={selected}
           accessibilityHaspopup
           selected={selected}
-          inline
           onClick={() => setSelected(!selected)}
           text="Menu"
         />
