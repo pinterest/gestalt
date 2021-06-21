@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -129,7 +129,7 @@ card(
     name="Colors"
     defaultCode={`
 <Flex alignItems="start" direction="column" gap={4}>
-  <Box color="darkGray">
+  <Box color="darkGray" padding={1}>
     <Text color="white">White</Text>
   </Box>
   <Text color="gray">Gray</Text>
@@ -147,35 +147,30 @@ card(
     id="overflow"
     name="Overflow"
     defaultCode={`
-<Box maxWidth={180}>
-  <Box marginBottom={2}>
-    <Text weight="bold">normal:</Text>
-    <Text overflow="normal">
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
-    </Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text weight="bold">breakWord:</Text>
-    <Text>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
-    </Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text weight="bold">noWrap:</Text>
-    <Text overflow="noWrap">
-      This is a long and Supercalifragilisticexpialidocious sentence.
-    </Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text weight="bold">truncate:</Text>
-    <Text truncate>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-    </Text>
-  </Box>
-</Box>
+<Flex direction="column" gap={2} maxWidth={180}>
+  <Text weight="bold">normal:</Text>
+  <Text overflow="normal">
+    This is a long and Supercalifragilisticexpialidocious sentence.
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
+  </Text>
+
+  <Text weight="bold">breakWord:</Text>
+  <Text>
+    This is a long and Supercalifragilisticexpialidocious sentence.
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
+  </Text>
+
+  <Text weight="bold">noWrap:</Text>
+  <Text overflow="noWrap">
+    This is a long and Supercalifragilisticexpialidocious sentence.
+  </Text>
+
+  <Text weight="bold">truncate:</Text>
+  <Text truncate>
+    This is a long and Supercalifragilisticexpialidocious sentence.
+  </Text>
+</Flex>
 `}
   />,
 );
@@ -196,6 +191,7 @@ card(
       </Text>
     </span>
   </Flex>
+
   <Flex alignItems="center" gap={2}>
     <Text inline size="md">Medium</Text>
     <span lang="ja">
@@ -204,6 +200,7 @@ card(
       </Text>
     </span>
   </Flex>
+
   <Flex alignItems="center" gap={2}>
     <Text inline size="lg">Large (default size)</Text>
     <span lang="ja">
@@ -216,6 +213,7 @@ card(
 `}
   />,
 );
+
 card(
   <Example
     description="
@@ -225,16 +223,10 @@ card(
     id="styles"
     name="Styles"
     defaultCode={`
-<Box>
-  <Box marginBottom={2}>
-    <Text weight="bold">Bold</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text italic>Italic</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text underline>Underline</Text>
-  </Box>
+<Flex direction="column" gap={2}>
+  <Text weight="bold">Bold</Text>
+  <Text italic>Italic</Text>
+  <Text underline>Underline</Text>
 </Box>
 `}
   />,

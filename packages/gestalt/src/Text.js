@@ -1,9 +1,9 @@
 // @flow strict
-
-import type { Node } from 'react';
+import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
+import isNotNullish from './utils/isNotNullish.js';
 import styles from './Text.css';
 import typography from './Typography.css';
 
@@ -13,34 +13,40 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
+type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight';
+type Color =
+  | 'green'
+  | 'pine'
+  | 'olive'
+  | 'blue'
+  | 'navy'
+  | 'midnight'
+  | 'purple'
+  | 'orchid'
+  | 'eggplant'
+  | 'maroon'
+  | 'watermelon'
+  | 'orange'
+  | 'darkGray'
+  | 'gray'
+  | 'lightGray'
+  | 'red'
+  | 'white';
 export type FontWeight = 'bold' | 'normal';
+type Overflow = 'normal' | 'breakWord' | 'noWrap';
+type Size = 'sm' | 'md' | 'lg';
 
 type Props = {|
-  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
+  align?: Align,
   children?: Node,
-  color?:
-    | 'green'
-    | 'pine'
-    | 'olive'
-    | 'blue'
-    | 'navy'
-    | 'midnight'
-    | 'purple'
-    | 'orchid'
-    | 'eggplant'
-    | 'maroon'
-    | 'watermelon'
-    | 'orange'
-    | 'darkGray'
-    | 'gray'
-    | 'lightGray'
-    | 'red'
-    | 'white',
+  color?: Color,
   inline?: boolean,
   italic?: boolean,
+  // Undocumented prop for now.
+  // Will replace `truncate` if experiment ships
   lineClamp?: number,
-  overflow?: 'normal' | 'breakWord' | 'noWrap',
-  size?: 'sm' | 'md' | 'lg',
+  overflow?: Overflow,
+  size?: Size,
   truncate?: boolean,
   underline?: boolean,
   weight?: FontWeight,
@@ -61,8 +67,6 @@ export default function Text({
 }: Props): Node {
   const scale = SIZE_SCALE[size];
 
-  const shouldUseLineClamp = Boolean(lineClamp ? lineClamp > 1 : false);
-
   const cs = cx(
     styles.Text,
     styles[`fontSize${scale}`],
@@ -79,28 +83,22 @@ export default function Text({
     underline && typography.underline,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
-    truncate && !lineClamp && typography.truncate,
-    lineClamp === 1 && typography.truncate,
-    shouldUseLineClamp && typography.lineClamp,
+    // `lineClamp` overrides `truncate`
+    truncate && !isNotNullish(lineClamp) && typography.truncate,
+    isNotNullish(lineClamp) && typography.lineClamp,
   );
-
-  const additionalStyles = {
-    ...((truncate || shouldUseLineClamp) && typeof children === 'string'
-      ? { title: children }
-      : {}),
-    ...(shouldUseLineClamp ? { WebkitLineClamp: lineClamp } : {}),
-  };
 
   const Tag = inline ? 'span' : 'div';
 
   return (
     <Tag
       className={cs}
-      {...additionalStyles}
-      // {...((truncate || shouldUseLineClamp) && typeof children === 'string'
-      //   ? { title: children }
-      //   : null)}
-      // {...(shouldUseLineClamp ? { WebkitLineClamp: lineClamp } : {})}
+      style={{
+        ...(lineClamp ? { WebkitLineClamp: lineClamp } : {}),
+      }}
+      title={
+        (truncate || isNotNullish(lineClamp)) && typeof children === 'string' ? children : undefined
+      }
     >
       {children}
     </Tag>
@@ -108,11 +106,16 @@ export default function Text({
 }
 
 Text.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  align: PropTypes.oneOf(['start', 'end', 'center', 'justify', 'forceLeft', 'forceRight']),
+  align: (PropTypes.oneOf([
+    'start',
+    'end',
+    'center',
+    'justify',
+    'forceLeft',
+    'forceRight',
+  ]): React$PropType$Primitive<Align>),
   children: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf([
+  color: (PropTypes.oneOf([
     'green',
     'pine',
     'olive',
@@ -130,14 +133,16 @@ Text.propTypes = {
     'lightGray',
     'red',
     'white',
-  ]),
+  ]): React$PropType$Primitive<Color>),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  overflow: PropTypes.oneOf(['normal', 'breakWord', 'noWrap']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  lineClamp: PropTypes.number,
+  overflow: (PropTypes.oneOf([
+    'normal',
+    'breakWord',
+    'noWrap',
+  ]): React$PropType$Primitive<Overflow>),
+  size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
   truncate: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  weight: PropTypes.oneOf(['bold', 'normal']),
+  weight: (PropTypes.oneOf(['bold', 'normal']): React$PropType$Primitive<FontWeight>),
 };
