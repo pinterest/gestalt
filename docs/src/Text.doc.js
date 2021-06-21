@@ -227,7 +227,7 @@ card(
   <Text weight="bold">Bold</Text>
   <Text italic>Italic</Text>
   <Text underline>Underline</Text>
-</Box>
+</Flex>
 `}
   />,
 );
