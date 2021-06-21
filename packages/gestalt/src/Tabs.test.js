@@ -52,7 +52,7 @@ describe('<Tabs />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('matches snapshot with lg size and wrap', () => {
+  test('matches snapshot with wrap', () => {
     const tree = create(
       <Tabs
         tabs={[
@@ -61,7 +61,6 @@ describe('<Tabs />', () => {
         ]}
         activeTabIndex={0}
         onChange={() => {}}
-        size="lg"
         wrap
       />,
     ).toJSON();

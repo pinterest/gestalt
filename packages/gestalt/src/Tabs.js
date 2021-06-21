@@ -3,7 +3,6 @@ import { forwardRef, type AbstractComponent, type Node, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flex from './Flex.js';
-import Link from './Link.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -87,81 +86,15 @@ type TabProps = {|
   index: number,
   isActive: boolean,
   onChange: OnChangeHandler,
-  size: 'md' | 'lg',
 |};
-
-const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
-  TabProps,
-  HTMLElement,
->(function Tab({ href, id, index, indicator, isActive, onChange, size, text }, ref) {
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
-
-  return (
-    <Box position={focused ? 'relative' : undefined} ref={ref}>
-      <Link
-        accessibilitySelected={isActive}
-        hoverStyle="none"
-        href={href}
-        id={id}
-        onBlur={() => setFocused(false)}
-        onClick={({ event, disableOnNavigation }) =>
-          onChange({ activeTabIndex: index, event, disableOnNavigation })
-        }
-        onFocus={() => setFocused(true)}
-        role="tab"
-        rounding="pill"
-      >
-        <Box
-          alignItems="center"
-          color={(isActive && 'darkGray') || ((hovered || focused) && 'lightGray') || 'white'}
-          display="flex"
-          height={size === 'lg' ? 48 : 40}
-          justifyContent="center"
-          minWidth={60}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          paddingX={4}
-          paddingY={2}
-          rounding="pill"
-          userSelect="none"
-        >
-          <Flex alignItems="center" gap={2} justifyContent="center">
-            <Text color={isActive ? 'white' : 'darkGray'} weight="bold" overflow="noWrap">
-              {text}
-            </Text>
-
-            {indicator === 'dot' && <Dot />}
-          </Flex>
-        </Box>
-      </Link>
-    </Box>
-  );
-});
-
-TabWithForwardRef.displayName = 'Tab';
 
 const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 1;
 
-const TabV2WithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
+const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
   HTMLElement,
->(function TabV2(
-  {
-    href,
-    indicator,
-    id,
-    index,
-    isActive,
-    onChange,
-    // No longer supported, will be removed when this variant ships
-    // eslint-disable-next-line no-unused-vars
-    size,
-    text,
-  },
-  ref,
-) {
+>(function Tab({ href, indicator, id, index, isActive, onChange, text }, ref) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
@@ -227,35 +160,23 @@ const TabV2WithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef
   );
 });
 
-TabV2WithForwardRef.displayName = 'TabV2';
+TabWithForwardRef.displayName = 'Tab';
 
 type Props = {|
   activeTabIndex: number,
   onChange: OnChangeHandler,
-  size?: 'md' | 'lg',
   tabs: $ReadOnlyArray<{| ...TabType, ref?: {| current: ?HTMLElement |} |}>,
   wrap?: boolean,
-  // Temporary prop for the Tabs Redesign project experiments
-  _dangerouslyUseV2?: boolean,
 |};
 
 /**
  * https://gestalt.pinterest.systems/Tabs
  */
-export default function Tabs({
-  activeTabIndex,
-  onChange,
-  size = 'md',
-  tabs,
-  wrap,
-  _dangerouslyUseV2,
-}: Props): Node {
-  const TabComponent = _dangerouslyUseV2 ? TabV2WithForwardRef : TabWithForwardRef;
-
+export default function Tabs({ activeTabIndex, onChange, tabs, wrap }: Props): Node {
   return (
-    <Flex alignItems="center" gap={_dangerouslyUseV2 ? 4 : 0} justifyContent="start" wrap={wrap}>
+    <Flex alignItems="center" gap={4} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
-        <TabComponent
+        <TabWithForwardRef
           key={id || `${href}_${index}`}
           href={href}
           id={id}
@@ -264,7 +185,6 @@ export default function Tabs({
           indicator={indicator}
           onChange={onChange}
           ref={ref}
-          size={size}
           text={text}
         />
       ))}
@@ -279,22 +199,16 @@ const TabItemPropType = {
   text: PropTypes.node.isRequired,
 };
 
-const TabPropType = {
+TabWithForwardRef.propTypes = {
   ...TabItemPropType,
   index: PropTypes.number.isRequired,
   isActive: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  size: PropTypes.oneOf(['md', 'lg']),
 };
-
-TabWithForwardRef.propTypes = TabPropType;
-TabV2WithForwardRef.propTypes = TabPropType;
 
 Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
