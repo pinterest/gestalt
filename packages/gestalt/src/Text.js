@@ -93,12 +93,10 @@ export default function Text({
   return (
     <Tag
       className={cs}
-      style={{
-        ...(lineClamp ? { WebkitLineClamp: lineClamp } : {}),
-      }}
       title={
         (truncate || isNotNullish(lineClamp)) && typeof children === 'string' ? children : undefined
       }
+      {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
     >
       {children}
     </Tag>
