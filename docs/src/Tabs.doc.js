@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Tabs"
-    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.`}
+    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use [SegmentedControl](/SegmentedControl).`}
   />,
 );
 
@@ -37,16 +37,9 @@ card(
           'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
       },
       {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-      {
         name: 'wrap',
         type: 'boolean',
-        description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
+        description: `By default, flex items will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.`,
       },
     ]}
   />,
@@ -59,11 +52,13 @@ card(
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [wrap, setWrap] = React.useState(false);
+
   const handleChange = ({ activeTabIndex, event }) => {
     event.preventDefault();
     setActiveIndex(activeTabIndex)
   };
-  const TABS = [
+
+  const tabs = [
     { href: "https://pinterest.com", text: "Boards for You", indicator: "dot" },
     { href: "https://pinterest.com", text: "Pins for You" },
     { href: "https://pinterest.com", text: "1" },
@@ -71,6 +66,7 @@ function TabExample() {
     { href: "https://pinterest.com", text: "Following" },
     { href: "https://pinterest.com", text: "People to Follow" },
   ];
+
   return (
     <Flex alignItems="start" direction="column" gap={4}>
       <Flex gap={4} padding={2}>
@@ -83,20 +79,15 @@ function TabExample() {
           switched={wrap}
         />
       </Flex>
-      {['md', 'lg'].map((size) => (
-        <Box key={size}>
-          <Heading size="sm">size = {size}</Heading>
-          <Box maxWidth={500} overflow="auto" borderStyle="sm" padding={1}>
-            <Tabs
-              activeTabIndex={activeIndex}
-              onChange={handleChange}
-              size={size}
-              tabs={TABS}
-              wrap={wrap}
-            />
-          </Box>
-        </Box>
-      ))}
+
+      <Box borderStyle="sm" maxWidth={500} overflow="auto" padding={1}>
+        <Tabs
+          activeTabIndex={activeIndex}
+          onChange={handleChange}
+          tabs={tabs}
+          wrap={wrap}
+        />
+      </Box>
     </Flex>
   );
 }
