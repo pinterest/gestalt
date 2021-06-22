@@ -1,3 +1,9 @@
+## 27.0.0 (Jun 22, 2021)
+
+### Major
+
+- Tabs: Ship V2 tab treatment (#1566)
+
 ## 26.0.2 (Jun 22, 2021)
 
 ### Patch
