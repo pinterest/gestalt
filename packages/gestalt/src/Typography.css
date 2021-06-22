@@ -75,8 +75,7 @@
 
 html:not([dir="rtl"]) .alignStart,
 html[dir="rtl"] .alignEnd,
-.alignForceLeft,
-{
+.alignForceLeft {
   text-align: left;
 }
 
@@ -92,4 +91,12 @@ html[dir="rtl"] .alignStart,
 
 .alignJustify {
   text-align: justify;
+}
+
+.lineClamp {
+  -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
+  display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-all;
 }

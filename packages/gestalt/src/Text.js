@@ -1,11 +1,14 @@
 // @flow strict
-
-import type { Node } from 'react';
+import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
+
+function isNotNullish(val): boolean {
+  return val !== null && val !== undefined;
+}
 
 const SIZE_SCALE = {
   sm: 1,
@@ -13,33 +16,60 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
+const allowedColors = [
+  'blue',
+  'darkGray',
+  'eggplant',
+  'gray',
+  'green',
+  'lightGray',
+  'maroon',
+  'midnight',
+  'navy',
+  'olive',
+  'orange',
+  'orchid',
+  'pine',
+  'purple',
+  'red',
+  'watermelon',
+  'white',
+];
+
+type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight';
+type Color =
+  | 'blue'
+  | 'darkGray'
+  | 'eggplant'
+  | 'gray'
+  | 'green'
+  | 'lightGray'
+  | 'maroon'
+  | 'midnight'
+  | 'navy'
+  | 'olive'
+  | 'orange'
+  | 'orchid'
+  | 'pine'
+  | 'purple'
+  | 'red'
+  | 'watermelon'
+  | 'white';
 export type FontWeight = 'bold' | 'normal';
+type Overflow = 'normal' | 'breakWord' | 'noWrap';
+type Size = 'sm' | 'md' | 'lg';
 
 type Props = {|
-  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
+  align?: Align,
   children?: Node,
-  color?:
-    | 'green'
-    | 'pine'
-    | 'olive'
-    | 'blue'
-    | 'navy'
-    | 'midnight'
-    | 'purple'
-    | 'orchid'
-    | 'eggplant'
-    | 'maroon'
-    | 'watermelon'
-    | 'orange'
-    | 'darkGray'
-    | 'gray'
-    | 'lightGray'
-    | 'red'
-    | 'white',
+  color?: Color,
   inline?: boolean,
   italic?: boolean,
-  overflow?: 'normal' | 'breakWord' | 'noWrap',
-  size?: 'sm' | 'md' | 'lg',
+  // Undocumented prop for now.
+  // Will replace `truncate` if experiment ships
+  lineClamp?: number,
+  overflow?: Overflow,
+  size?: Size,
   truncate?: boolean,
   underline?: boolean,
   weight?: FontWeight,
@@ -54,6 +84,7 @@ export default function Text({
   color = 'darkGray',
   inline = false,
   italic = false,
+  lineClamp,
   overflow = 'breakWord',
   size = 'lg',
   truncate = false,
@@ -65,23 +96,7 @@ export default function Text({
   const cs = cx(
     styles.Text,
     styles[`fontSize${scale}`],
-    color === 'blue' && colors.blue,
-    color === 'darkGray' && colors.darkGray,
-    color === 'eggplant' && colors.eggplant,
-    color === 'gray' && colors.gray,
-    color === 'green' && colors.green,
-    color === 'lightGray' && colors.lightGray,
-    color === 'maroon' && colors.maroon,
-    color === 'midnight' && colors.midnight,
-    color === 'navy' && colors.navy,
-    color === 'olive' && colors.olive,
-    color === 'orange' && colors.orange,
-    color === 'orchid' && colors.orchid,
-    color === 'pine' && colors.pine,
-    color === 'purple' && colors.purple,
-    color === 'red' && colors.red,
-    color === 'watermelon' && colors.watermelon,
-    color === 'white' && colors.white,
+    color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
@@ -94,14 +109,20 @@ export default function Text({
     underline && typography.underline,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
-    truncate && typography.truncate,
+    // `lineClamp` overrides `truncate`
+    truncate && !isNotNullish(lineClamp) && typography.truncate,
+    isNotNullish(lineClamp) && typography.lineClamp,
   );
+
   const Tag = inline ? 'span' : 'div';
 
   return (
     <Tag
       className={cs}
-      {...(truncate && typeof children === 'string' ? { title: children } : null)}
+      title={
+        (truncate || isNotNullish(lineClamp)) && typeof children === 'string' ? children : undefined
+      }
+      {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
     >
       {children}
     </Tag>
@@ -109,36 +130,25 @@ export default function Text({
 }
 
 Text.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  align: PropTypes.oneOf(['start', 'end', 'center', 'justify', 'forceLeft', 'forceRight']),
+  align: (PropTypes.oneOf([
+    'start',
+    'end',
+    'center',
+    'justify',
+    'forceLeft',
+    'forceRight',
+  ]): React$PropType$Primitive<Align>),
   children: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf([
-    'green',
-    'pine',
-    'olive',
-    'blue',
-    'navy',
-    'midnight',
-    'purple',
-    'orchid',
-    'eggplant',
-    'maroon',
-    'watermelon',
-    'orange',
-    'darkGray',
-    'gray',
-    'lightGray',
-    'red',
-    'white',
-  ]),
+  color: (PropTypes.oneOf(allowedColors): React$PropType$Primitive<Color>),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  overflow: PropTypes.oneOf(['normal', 'breakWord', 'noWrap']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  lineClamp: PropTypes.number,
+  overflow: (PropTypes.oneOf([
+    'normal',
+    'breakWord',
+    'noWrap',
+  ]): React$PropType$Primitive<Overflow>),
+  size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
   truncate: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  weight: PropTypes.oneOf(['bold', 'normal']),
+  weight: (PropTypes.oneOf(['bold', 'normal']): React$PropType$Primitive<FontWeight>),
 };
