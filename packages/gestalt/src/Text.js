@@ -16,24 +16,44 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
+const allowedColors = [
+  'blue',
+  'darkGray',
+  'eggplant',
+  'gray',
+  'green',
+  'lightGray',
+  'maroon',
+  'midnight',
+  'navy',
+  'olive',
+  'orange',
+  'orchid',
+  'pine',
+  'purple',
+  'red',
+  'watermelon',
+  'white',
+];
+
 type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight';
 type Color =
-  | 'green'
-  | 'pine'
-  | 'olive'
   | 'blue'
-  | 'navy'
-  | 'midnight'
-  | 'purple'
-  | 'orchid'
-  | 'eggplant'
-  | 'maroon'
-  | 'watermelon'
-  | 'orange'
   | 'darkGray'
+  | 'eggplant'
   | 'gray'
+  | 'green'
   | 'lightGray'
+  | 'maroon'
+  | 'midnight'
+  | 'navy'
+  | 'olive'
+  | 'orange'
+  | 'orchid'
+  | 'pine'
+  | 'purple'
   | 'red'
+  | 'watermelon'
   | 'white';
 export type FontWeight = 'bold' | 'normal';
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
@@ -73,7 +93,7 @@ export default function Text({
   const cs = cx(
     styles.Text,
     styles[`fontSize${scale}`],
-    color && colors[color],
+    color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
@@ -116,25 +136,7 @@ Text.propTypes = {
     'forceRight',
   ]): React$PropType$Primitive<Align>),
   children: PropTypes.node,
-  color: (PropTypes.oneOf([
-    'green',
-    'pine',
-    'olive',
-    'blue',
-    'navy',
-    'midnight',
-    'purple',
-    'orchid',
-    'eggplant',
-    'maroon',
-    'watermelon',
-    'orange',
-    'darkGray',
-    'gray',
-    'lightGray',
-    'red',
-    'white',
-  ]): React$PropType$Primitive<Color>),
+  color: (PropTypes.oneOf(allowedColors): React$PropType$Primitive<Color>),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
   lineClamp: PropTypes.number,
