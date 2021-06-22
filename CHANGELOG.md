@@ -1,3 +1,9 @@
+## 26.0.1 (Jun 22, 2021)
+
+### Patch
+
+- Text: Add `lineClamp` prop (#1565)
+
 ## 26.0.0 (Jun 17, 2021)
 
 ### Major
