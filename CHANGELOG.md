@@ -1,3 +1,9 @@
+## 27.1.0 (Jun 22, 2021)
+
+### Minor
+
+- Lint Rules: Remove Tabs from `no-medium-formfields` rule (#1569)
+
 ## 27.0.0 (Jun 22, 2021)
 
 ### Major
