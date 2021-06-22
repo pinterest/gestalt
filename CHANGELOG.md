@@ -1,3 +1,9 @@
+## 26.0.2 (Jun 22, 2021)
+
+### Patch
+
+- Bump color-string from 1.5.3 to 1.5.5 (#1568)
+
 ## 26.0.1 (Jun 22, 2021)
 
 ### Patch
