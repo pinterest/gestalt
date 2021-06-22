@@ -958,7 +958,6 @@ function PopoverExample() {
             activeTabIndex={1}
             onChange={() => {}}
             tabs={[{ href: '#Anchor', text: 'Created'}]}
-            size="lg"
           />
         </Box>
       </Box>
