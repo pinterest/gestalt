@@ -953,12 +953,11 @@ function PopoverExample() {
   return (
     <ScrollBoundaryContainer>
       <Box ref={viewRef} width={300} height={220}>
-        <Box display="flex" justifyContent="center" ref={anchorRef} role="tablist">
+        <Box display="flex" justifyContent="center" ref={anchorRef}>
           <Tabs
             activeTabIndex={1}
             onChange={() => {}}
             tabs={[{ href: '#Anchor', text: 'Created'}]}
-            size="lg"
           />
         </Box>
       </Box>
