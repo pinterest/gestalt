@@ -1269,4 +1269,79 @@ card(
   />,
 );
 
+card(
+  <Example
+    id="sortableExample"
+    name="Example: Sortable header cells with sticky column"
+    defaultCode={`
+    function SortableHeaderExample() {
+      const [sortOrder, setSortOrder] = React.useState('desc');
+      const [sortCol, setSortCol] = React.useState('name');
+
+      const onSortChange = (col) => {
+        if (sortCol !== col) {
+          setSortCol(col);
+          setSortOrder('desc');
+        } else {
+          setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        }
+      }
+
+      return (
+        <Box width="60%" overflow="auto">
+          <Table stickyColumns={1}>
+            <Table.Header>
+              <Table.Row>
+                <Table.SortableHeaderCell onSortChange={() => onSortChange('name')} sortOrder={sortOrder} status={sortCol === 'name' ? 'active' : 'inactive'}>
+                  <Text weight="bold">Name</Text>
+                </Table.SortableHeaderCell>
+                <Table.SortableHeaderCell onSortChange={() => onSortChange('id')} sortOrder={sortOrder} status={sortCol === 'id' ? 'active' : 'inactive'}>
+                  <Text weight="bold">Nickname</Text>
+                </Table.SortableHeaderCell>
+                <Table.SortableHeaderCell onSortChange={() => onSortChange('food')} sortOrder={sortOrder} status={sortCol === 'food' ? 'active' : 'inactive'}>
+                  <Text weight="bold">Favorite Food</Text>
+                </Table.SortableHeaderCell>
+                <Table.SortableHeaderCell onSortChange={() => onSortChange('friend')} sortOrder={sortOrder} status={sortCol === 'friend' ? 'active' : 'inactive'}>
+                  <Text weight="bold">Best Friend</Text>
+                </Table.SortableHeaderCell>
+                <Table.SortableHeaderCell onSortChange={() => onSortChange('birth')} sortOrder={sortOrder} status={sortCol === 'birth' ? 'active' : 'inactive'}>
+                  <Text weight="bold">Birthdate</Text>
+                </Table.SortableHeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell><Text>Tony Stark</Text></Table.Cell>
+                <Table.Cell><Text>Iron Man</Text></Table.Cell>
+                <Table.Cell><Text>Shawarma</Text></Table.Cell>
+                <Table.Cell><Text>Spiderman</Text></Table.Cell>
+                <Table.Cell>
+                  <Box width={200}><Text>May 29, 1970</Text></Box>
+                </Table.Cell>
+              </Table.Row>
+
+              <Table.Row>
+                <Table.Cell><Text>Peter Parker</Text></Table.Cell>
+                <Table.Cell><Text>Spiderman</Text></Table.Cell>
+                <Table.Cell><Text>Sandwiches</Text></Table.Cell>
+                <Table.Cell><Text>Iron Man</Text></Table.Cell>
+                <Table.Cell><Text>December 28, 1995</Text></Table.Cell>
+              </Table.Row>
+
+              <Table.Row>
+                <Table.Cell><Text>T'Challa</Text></Table.Cell>
+                <Table.Cell><Text>Black Panther</Text></Table.Cell>
+                <Table.Cell><Text>Beef suya</Text></Table.Cell>
+                <Table.Cell><Text>Shuri</Text></Table.Cell>
+                <Table.Cell><Text>November 28, 1977</Text></Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
+        </Box>
+      );
+    }
+`}
+  />,
+);
+
 export default cards;
