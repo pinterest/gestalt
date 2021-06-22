@@ -56,7 +56,6 @@ function Example() {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Show Layer"
         onClick={() => setShowLayer(!showLayer)}
       />
@@ -99,7 +98,6 @@ function zIndexExample() {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Show Layer"
         onClick={() => setShowLayer(!showLayer)}
       />

@@ -26,27 +26,22 @@ it('renders TapArea', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('renders Button', () =>
+it('renders inline Button', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="button" href="https://example.com" fullWidth tabIndex={0}>
+        <InternalLink wrappedComponent="button" href="https://example.com" tabIndex={0}>
           InternalLink
         </InternalLink>,
       )
       .toJSON(),
   ).toMatchSnapshot());
 
-it('renders Button with inline', () =>
+it('renders full-width Button', () =>
   expect(
     renderer
       .create(
-        <InternalLink
-          wrappedComponent="button"
-          href="https://example.com"
-          fullWidth={false}
-          tabIndex={0}
-        >
+        <InternalLink fullWidth wrappedComponent="button" href="https://example.com" tabIndex={0}>
           InternalLink
         </InternalLink>,
       )
@@ -61,7 +56,6 @@ it('renders Button & target null', () =>
           wrappedComponent="button"
           href="https://example.com"
           target={null}
-          fullWidth
           tabIndex={0}
         >
           InternalLink
@@ -78,7 +72,6 @@ it('renders Button & target self', () =>
           wrappedComponent="button"
           href="https://example.com"
           target="self"
-          fullWidth
           tabIndex={0}
         >
           InternalLink
@@ -95,7 +88,6 @@ it('renders Button & target blank', () =>
           wrappedComponent="button"
           href="https://example.com"
           target="blank"
-          fullWidth
           tabIndex={0}
         >
           InternalLink
@@ -112,7 +104,6 @@ it('renders Button with nofollow', () =>
           wrappedComponent="button"
           href="https://example.com"
           rel="nofollow"
-          fullWidth
           tabIndex={0}
         >
           InternalLink
@@ -129,7 +120,6 @@ it('renders Button with onClick', () =>
           wrappedComponent="button"
           href="https://example.com"
           onClick={() => {}}
-          fullWidth
           tabIndex={0}
         >
           InternalLink

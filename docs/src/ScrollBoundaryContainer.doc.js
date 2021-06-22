@@ -69,7 +69,6 @@ function Example() {
           <Button
             ref={anchorRef}
             href="https://help.pinterest.com/en/business/article/data-source-ingestion"
-            inline
             iconEnd="visit"
             onClick={() => setOpen(false)}
             role="link"
@@ -373,7 +372,6 @@ function ScrollBoundaryContainerExample() {
           value="sheet"
         />
         <Button
-          inline
           text="Update Billing Address"
           onClick={() => setShowModal(true)}
         />
@@ -405,7 +403,6 @@ function ScrollBoundaryContainerExample() {
                     <Button
                       text="Cancel"
                       size="lg"
-                      inline
                       onClick={() => setShowModal(false)}
                     />
                   </Box>
@@ -450,7 +447,6 @@ function ScrollBoundaryContainerExample() {
                     accessibilityExpanded={open}
                     accessibilityLabel="Select Previous Address"
                     selected={open}
-                    inline
                     iconEnd="arrow-down"
                     text="Select Previous Address"
                     onClick={ () => setOpen((prevVal) => !prevVal) }

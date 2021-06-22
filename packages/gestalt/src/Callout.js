@@ -75,6 +75,7 @@ const CalloutAction = ({
           accessibilityLabel={accessibilityLabel}
           color={color}
           href={href}
+          fullWidth
           onClick={onClick}
           rel={rel}
           role="link"
@@ -87,6 +88,7 @@ const CalloutAction = ({
           accessibilityLabel={accessibilityLabel}
           color={color}
           onClick={onClick}
+          fullWidth
           role="button"
           size="lg"
           text={label}

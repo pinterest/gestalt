@@ -134,10 +134,10 @@ card(
             <Box marginBottom={4} display="flex" alignItems="center">
               <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
               <ButtonGroup>
-                <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
+                <Button color="transparent" iconEnd="arrow-down" text="Business" />
+                <Button color="transparent" iconEnd="arrow-down" text="Create" />
+                <Button color="transparent" iconEnd="arrow-down" text="Analytics" />
+                <Button color="transparent" iconEnd="arrow-down" text="Ads" />
               </ButtonGroup>
             </Box>
             <Divider/>
@@ -189,10 +189,10 @@ card(
           <Box marginBottom={4} display="flex" alignItems="center">
             <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
             <ButtonGroup>
-              <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
-              <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
-              <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
-              <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
+              <Button color="transparent" iconEnd="arrow-down" text="Business" />
+              <Button color="transparent" iconEnd="arrow-down" text="Create" />
+              <Button color="transparent" iconEnd="arrow-down" text="Analytics" />
+              <Button color="transparent" iconEnd="arrow-down" text="Ads" />
             </ButtonGroup>
           </Box>
           <Divider/>
@@ -438,8 +438,8 @@ function Example(props) {
             footer={
               <Flex flex="grow" justifyContent="end">
                   <ButtonGroup>
-                    <Button text="Cancel" inline onClick={() => { setShowModal(!showModal) }} size="lg" />
-                    <Button color="red" inline text="Save" size="lg" />
+                    <Button text="Cancel" onClick={() => { setShowModal(!showModal) }} size="lg" />
+                    <Button color="red" text="Save" size="lg" />
                   </ButtonGroup>
               </Flex>
             }

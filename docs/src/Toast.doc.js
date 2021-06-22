@@ -65,7 +65,6 @@ function ToastExample() {
   return (
     <Box>
       <Button
-        inline
         text={ showToast ? 'Close toast' : 'Show toast' }
         onClick={() => setShowToast(!showToast)}
       />
@@ -106,7 +105,6 @@ function ToastExample() {
   return (
     <Box>
       <Button
-        inline
         text={ showToast ? 'Close toast' : 'Show toast' }
         onClick={() => setShowToast(!showToast)}
       />
@@ -155,7 +153,6 @@ function ToastExample() {
   return (
     <Box>
       <Button
-        inline
         text={ showToast ? 'Close toast' : 'Show toast' }
         onClick={() => setShowToast(!showToast)}
       />
@@ -200,7 +197,6 @@ function ToastExample() {
   return (
     <Box>
       <Button
-        inline
         text={ showToast ? 'Close toast' : 'Show toast' }
         onClick={() => setShowToast(!showToast)}
       />
@@ -257,7 +253,6 @@ function ToastExample() {
   return (
     <Box>
       <Button
-        inline
         text={ showToast ? 'Close toast' : 'Show toast' }
         onClick={() => setShowToast(!showToast)}
       />
@@ -294,7 +289,7 @@ function ToastExample() {
                   </Text>
                 </React.Fragment>
               }
-              button={<Button key="button-key" inline text="Undo" size="lg" />}
+              button={<Button key="button-key" text="Undo" size="lg" />}
             />
           )}
         </Box>

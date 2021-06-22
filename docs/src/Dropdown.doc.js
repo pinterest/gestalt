@@ -30,7 +30,6 @@ card(
               accessibilityExpanded={open}
               accessibilityHaspopup
               iconEnd="arrow-down"
-              inline
               onClick={() => setOpen((prevVal) => !prevVal)}
               ref={anchorRef}
               selected={open}
@@ -254,7 +253,6 @@ card(
               accessibilityExpanded={open}
               accessibilityHaspopup
               iconEnd="arrow-down"
-              inline
               onClick={() => setOpen((prevVal) => !prevVal)}
               ref={anchorRef}
               selected={open}
@@ -319,7 +317,6 @@ card(
             accessibilityExpanded={open}
             accessibilityHaspopup
             iconEnd="arrow-down"
-            inline
             onClick={() => setOpen((prevVal) => !prevVal)}
             ref={anchorRef}
             selected={open}
@@ -441,7 +438,6 @@ function NoTooltipsDropdownExample() {
         accessibilityExpanded={open}
         iconEnd="arrow-down"
         text="Menu"
-        inline
         ref={anchorRef}
         selected={open}
         size="lg"
@@ -502,7 +498,6 @@ function ExternalLinksDropdownExample() {
         accessibilityExpanded={open}
         accessibilityHaspopup
         iconEnd="arrow-down"
-        inline
         onClick={() => setOpen((prevVal) => !prevVal)}
         ref={anchorRef}
         selected={open}
@@ -556,7 +551,6 @@ function CustomContentDropdownExample() {
         accessibilityExpanded={open}
         accessibilityHaspopup
         iconEnd="arrow-down"
-        inline
         onClick={() => setOpen((prevVal) => !prevVal)}
         ref={anchorRef}
         selected={open}
@@ -648,7 +642,6 @@ function TruncationDropdownExample() {
         accessibilityExpanded={open}
         accessibilityHaspopup
         iconEnd="arrow-down"
-        inline
         onClick={() => setOpen((prevVal) => !prevVal)}
         ref={anchorRef}
         selected={open}
@@ -712,7 +705,6 @@ function ActionDropdownExample() {
         accessibilityExpanded={open}
         accessibilityHaspopup
         iconEnd="arrow-down"
-        inline
         onClick={() => setOpen((prevVal) => !prevVal)}
         ref={anchorRef}
         selected={open}
@@ -877,7 +869,6 @@ function CustomHeaderExample() {
         accessibilityExpanded={open}
         accessibilityHaspopup
         iconEnd="arrow-down"
-        inline
         onClick={() => setOpen((prevVal) => !prevVal)}
         ref={anchorRef}
         selected={open}
@@ -1167,7 +1158,6 @@ function OnNavigation() {
             accessibilityExpanded={open}
             accessibilityHaspopup
             iconEnd="arrow-down"
-            inline
             onClick={() => setOpen((prevVal) => !prevVal)}
             ref={anchorRef}
             selected={open}

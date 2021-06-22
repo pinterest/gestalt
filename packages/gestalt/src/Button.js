@@ -115,7 +115,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     accessibilityLabel,
     color = 'gray',
     disabled = false,
-    fullWidth = true,
+    fullWidth = false,
     iconEnd,
     onClick,
     tabIndex = 0,

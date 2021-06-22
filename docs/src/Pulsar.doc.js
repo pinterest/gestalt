@@ -52,7 +52,6 @@ card(
           <Button
             text={text}
             onClick={() => setIsPulsing(!isPulsing)}
-            inline
             size="md"
           />
         </Box>

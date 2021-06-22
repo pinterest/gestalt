@@ -8,7 +8,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
     className="box paddingX1 paddingY1"
   >
     <button
-      className="button hideOutline tapTransition md gray enabled block accessibilityOutline"
+      className="button hideOutline tapTransition md gray enabled inline accessibilityOutline"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -32,7 +32,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
     className="box paddingX1 paddingY1"
   >
     <button
-      className="button hideOutline tapTransition md gray enabled block accessibilityOutline"
+      className="button hideOutline tapTransition md gray enabled inline accessibilityOutline"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -59,7 +59,7 @@ exports[`ButtonGroup Renders nothing when no children are passed in 1`] = `null`
 
 exports[`ButtonGroup Renders the child without container when 1 child is passed in 1`] = `
 <button
-  className="button hideOutline tapTransition md gray enabled block accessibilityOutline"
+  className="button hideOutline tapTransition md gray enabled inline accessibilityOutline"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}

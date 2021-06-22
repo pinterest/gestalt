@@ -107,7 +107,7 @@ card(
       wrap
     >
       <Box paddingX={1} paddingY={1}>
-        <Button text="Cancel" size="lg" inline />
+        <Button text="Cancel" size="lg" />
       </Box>
       <Box paddingX={1} paddingY={1}>
         <Button text="Submit" color="red" size="lg" type="submit" />

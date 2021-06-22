@@ -100,7 +100,7 @@ exports[`PageHeader renders primary action 1`] = `
             }
           >
             <button
-              className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+              className="button hideOutline tapTransition lg red enabled inline accessibilityOutline"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -204,7 +204,7 @@ exports[`PageHeader renders secondary action 1`] = `
             }
           >
             <button
-              className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+              className="button hideOutline tapTransition lg red enabled inline accessibilityOutline"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}

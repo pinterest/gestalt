@@ -1,7 +1,8 @@
 /*
  * Converts
- *  <Button inline/> to <Button fullWidth={false} />
- *  <Button inline={false}/> to <Button fullWidth />
+ *  <Button /> to <Button fullWidth />
+ *  <Button inline/> to <Button />
+ *  <Button inline={false}/> to <Button fullWidth/>
  *  <Button inline={inline} /> to CONSOLE.LOG for manual change />
  */
 
@@ -44,30 +45,39 @@ export default function transformer(file, api) {
 
       const attrs = node.openingElement.attributes;
 
-      const newAppendAttr = [];
+      if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
+        throw new Error(
+          `Remove Dynamic Text properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
+        );
+      }
+
+      let addFullWidth = true;
+
       const newAttrs = attrs
         .map((attr) => {
           const attrName = attr?.name?.name;
           const disallowedProps = Object.keys(transformMap);
 
           if (attrName && disallowedProps.includes(attrName)) {
-            const renamedAttr = { ...attr };
-            renamedAttr.name.name = transformMap[attrName];
-            if (attr?.value?.expression?.value === false) {
+            addFullWidth = false;
+
+            if (attr.value === null) {
               return false;
             }
+
+            if (attr?.value?.expression?.value === false) {
+              addFullWidth = true;
+              return false;
+            }
+
             if (typeof attr?.value?.expression?.name === 'string') {
               // eslint-disable-next-line no-console
               console.log(
                 `${node.openingElement.name.name} components with ${attr?.name?.name} prop must be converted to fullWidth manually (truthy/falsy logic must be reversed). Location: ${file.path} @line: ${node.loc.start.line}`,
               );
             }
-            if (attr.value === null) {
-              return j.jsxAttribute(
-                j.jsxIdentifier('fullWidth'),
-                j.jsxExpressionContainer(j.booleanLiteral(false)),
-              );
-            }
+            const renamedAttr = { ...attr };
+            renamedAttr.name.name = transformMap[attrName];
             return renamedAttr;
           }
           return attr;
@@ -75,7 +85,11 @@ export default function transformer(file, api) {
         .filter(Boolean);
 
       fileHasModifications = true;
+
+      const newAppendAttr = addFullWidth ? [j.jsxAttribute(j.jsxIdentifier('fullWidth'))] : [];
+
       node.openingElement.attributes = [...newAppendAttr, ...newAttrs];
+
       return null;
     })
     .toSource();

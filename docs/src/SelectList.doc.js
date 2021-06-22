@@ -263,7 +263,6 @@ card(
           accessibilityExpanded={ open }
           iconEnd="arrow-down"
           text="Date range"
-          inline
           selected={open}
           icon="add"
           size="lg"

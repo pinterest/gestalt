@@ -103,7 +103,6 @@ function OnNavigation() {
           <Box>
             <Button
               {...linkProps}
-              inline
               role="link"
               text="Visit pinterest.com"
             />
@@ -307,7 +306,6 @@ function OnNavigation() {
             accessibilityExpanded={open}
             iconEnd="arrow-down"
             text="Menu"
-            inline
             ref={anchorRef}
             selected={open}
             onClick={ () => setOpen((prevVal) => !prevVal) }

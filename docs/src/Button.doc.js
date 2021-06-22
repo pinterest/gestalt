@@ -105,9 +105,9 @@ card(
         name: 'fullWidth',
         type: 'boolean',
         required: false,
-        defaultValue: true,
+        defaultValue: false,
         description:
-          "Default full-width buttons expand to the full width of their container whereas buttons with 'fullWidth' = 'false'  are sized by the text within the button.",
+          'Default buttons are sized by the text within the button whereas full-width buttons expand to the full width of their container.',
         href: 'width',
       },
       {
@@ -236,7 +236,7 @@ card(
   <Example
     name="Basic Button"
     id="basic-button"
-    defaultCode={`<Button text="Medium-sized button" fullWidth={false} />`}
+    defaultCode={`<Button text="Medium-sized button" />`}
   />,
 );
 
@@ -417,10 +417,10 @@ card(
     defaultCode={`
 <React.Fragment>
   <Box padding={2}>
-    <Button text="Inline button" fullWidth={false} />
+    <Button text="Inline button" />
   </Box>
   <Box padding={2}>
-    <Button text="Default full-width button" />
+    <Button fullWidth text="Default full-width button" />
   </Box>
 </React.Fragment>`}
   />,
@@ -431,7 +431,7 @@ card(
     name="Icons"
     id="iconEnd"
     defaultCode={`
-    <Button iconEnd="download" text="Download CVS file" fullWidth={false} />
+    <Button iconEnd="download" text="Download CVS file" />
 `}
   />,
 );
@@ -445,7 +445,6 @@ function Example() {
   const [selected, setSelected] = React.useState(false);
   return (
     <Button
-      fullWidth={false}
       selected={selected}
       onClick={() => {setSelected(!selected)}}
       text={selected ? "Selected" : "Deselected"}
@@ -469,7 +468,6 @@ function ButtonPopoverExample() {
   return (
     <React.Fragment>
       <Button
-        fullWidth={false}
         onClick={() => setSelected(!selected)}
         ref={anchorRef}
         selected={selected}
@@ -505,7 +503,6 @@ function AccessibilityExample() {
     <Button
       accessibilityLabel={selected ? "Unfollow Alberto on Pinterest" : "Follow Alberto on Pinterest"}
       onClick={() => setSelected(!selected)}
-      fullWidth={false}
       selected={selected}
       text={selected ? "Unfollow" : "Follow"}        />
   );
@@ -642,7 +639,7 @@ function OnNavigation() {
             />
           <Divider/>
         </Flex>
-        <Button {...linkProps} role="link" text="Visit pinterest.com"/>
+        <Button fullWidth {...linkProps} role="link" text="Visit pinterest.com"/>
       </Flex>
     </OnLinkNavigationProvider>
   );
