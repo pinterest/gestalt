@@ -1271,8 +1271,8 @@ card(
 
 card(
   <Example
-    id="sortableExample"
-    name="Example: Sortable header cells with sticky column"
+    id="sortableExampleSticky"
+    name="Example: Sortable header cells with sticky columns"
     defaultCode={`
     function SortableHeaderExample() {
       const [sortOrder, setSortOrder] = React.useState('desc');
@@ -1288,8 +1288,8 @@ card(
       }
 
       return (
-        <Box width="60%" overflow="auto">
-          <Table stickyColumns={1}>
+        <Box width="70%" overflow="auto">
+          <Table stickyColumns={2}>
             <Table.Header>
               <Table.Row>
                 <Table.SortableHeaderCell onSortChange={() => onSortChange('name')} sortOrder={sortOrder} status={sortCol === 'name' ? 'active' : 'inactive'}>
@@ -1307,35 +1307,15 @@ card(
                 <Table.SortableHeaderCell onSortChange={() => onSortChange('birth')} sortOrder={sortOrder} status={sortCol === 'birth' ? 'active' : 'inactive'}>
                   <Text weight="bold">Birthdate</Text>
                 </Table.SortableHeaderCell>
+                <Table.SortableHeaderCell onSortChange={() => onSortChange('desc')} sortOrder={sortOrder} status={sortCol === 'desc' ? 'active' : 'inactive'}>
+                  <Text weight="bold">Description</Text>
+                </Table.SortableHeaderCell>
+                <Table.SortableHeaderCell onSortChange={() => onSortChange('color')} sortOrder={sortOrder} status={sortCol === 'color' ? 'active' : 'inactive'}>
+                  <Text weight="bold">Favorite Color</Text>
+                </Table.SortableHeaderCell>
               </Table.Row>
             </Table.Header>
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell><Text>Tony Stark</Text></Table.Cell>
-                <Table.Cell><Text>Iron Man</Text></Table.Cell>
-                <Table.Cell><Text>Shawarma</Text></Table.Cell>
-                <Table.Cell><Text>Spiderman</Text></Table.Cell>
-                <Table.Cell>
-                  <Box width={200}><Text>May 29, 1970</Text></Box>
-                </Table.Cell>
-              </Table.Row>
 
-              <Table.Row>
-                <Table.Cell><Text>Peter Parker</Text></Table.Cell>
-                <Table.Cell><Text>Spiderman</Text></Table.Cell>
-                <Table.Cell><Text>Sandwiches</Text></Table.Cell>
-                <Table.Cell><Text>Iron Man</Text></Table.Cell>
-                <Table.Cell><Text>December 28, 1995</Text></Table.Cell>
-              </Table.Row>
-
-              <Table.Row>
-                <Table.Cell><Text>T'Challa</Text></Table.Cell>
-                <Table.Cell><Text>Black Panther</Text></Table.Cell>
-                <Table.Cell><Text>Beef suya</Text></Table.Cell>
-                <Table.Cell><Text>Shuri</Text></Table.Cell>
-                <Table.Cell><Text>November 28, 1977</Text></Table.Cell>
-              </Table.Row>
-            </Table.Body>
           </Table>
         </Box>
       );
