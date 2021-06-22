@@ -2,7 +2,7 @@
   - Removes `size` prop from Tabs
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/next/tabs-size.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/27.0.0/tabs-size.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
