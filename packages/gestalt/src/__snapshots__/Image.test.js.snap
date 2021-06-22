@@ -17,8 +17,36 @@ exports[`Image matches snapshot 1`] = `
     loading="auto"
     onError={[Function]}
     onLoad={[Function]}
+    role="img"
     src="foo.png"
   />
+</div>
+`;
+
+exports[`Image with fit: contain and role matches snapshot 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    className="contain"
+    role="presentation"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "backgroundImage": "url('foo.png')",
+      }
+    }
+  />
+  <div
+    className="absolute bottom0 box left0 overflowHidden right0 top0"
+  >
+    Foo.png
+  </div>
 </div>
 `;
 
@@ -95,6 +123,7 @@ exports[`Image with overlay matches snapshot 1`] = `
     loading="auto"
     onError={[Function]}
     onLoad={[Function]}
+    role="img"
     src="foo.png"
   />
   <div

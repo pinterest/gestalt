@@ -89,6 +89,13 @@ card(
         type: '() => void',
       },
       {
+        name: 'role',
+        type: `"img" | "presentation"`,
+        defaultValue: 'img',
+        description: `When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility.`,
+        href: 'Presentational-Images-with-Role',
+      },
+      {
         name: 'sizes',
         type: 'string',
         description:
@@ -312,6 +319,39 @@ card(
     naturalWidth={496}
     src="https://i.ibb.co/FY2MKr5/stock6.jpg"
   />
+</Box>
+`}
+  />,
+);
+
+card(
+  <Example
+    description={`
+      Sometimes Images are purely presentational. For example, an Image used above an article title may be used to draw people's attention visually, but doesn't add any additional information or context about the article. In this case, the \`role\` should be set to "presentation" in order to inform screen readers and other assistive technology that this image does not need alternative text or any additional label.
+    `}
+    name="Presentational Images with Role"
+    defaultCode={`
+<Box
+  display="flex"
+  alignContent="center"
+  justifyContent="between"
+  direction="column"
+  borderStyle="sm"
+  height={300}
+  width={300}
+>
+  <Box height={200} width="100%">
+    <Image
+      alt=""
+      role="presentation"
+      color="#000"
+      fit="cover"
+      naturalHeight={1}
+      naturalWidth={1}
+      src="https://i.ibb.co/FY2MKr5/stock6.jpg"
+    />
+  </Box>
+  <Heading align="center" size="lg">Article Title</Heading>
 </Box>
 `}
   />,
