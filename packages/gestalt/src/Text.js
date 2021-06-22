@@ -3,9 +3,12 @@ import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
-import isNotNullish from './utils/isNotNullish.js';
 import styles from './Text.css';
 import typography from './Typography.css';
+
+function isNotNullish(val): boolean {
+  return val !== null && val !== undefined;
+}
 
 const SIZE_SCALE = {
   sm: 1,
