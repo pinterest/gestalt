@@ -46,10 +46,6 @@ const invalidSearchFieldDefault = readFileSync(
   ),
   'utf-8',
 );
-const invalidTabsDefault = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-medium-formfields/invalid/invalid-tabs-default.js'),
-  'utf-8',
-);
 const invalidSelectListDefault = readFileSync(
   path.resolve(
     __dirname,
@@ -70,7 +66,6 @@ ruleTester.run('no-medium-formfields', rule, {
     invalidTextfieldMedium,
     invalidTextfieldRenamed,
     invalidSearchFieldDefault,
-    invalidTabsDefault,
     invalidSelectListDefault,
   ].map((code) => ({
     code,
