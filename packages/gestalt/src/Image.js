@@ -152,7 +152,7 @@ export default class Image extends PureComponent<Props> {
           sizes={sizes}
           src={src}
           srcSet={srcSet}
-          role={role}
+          role={role === 'presentation' ? 'presentation' : undefined}
         />
         {childContent}
       </Box>

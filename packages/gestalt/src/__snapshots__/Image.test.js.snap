@@ -17,7 +17,6 @@ exports[`Image matches snapshot 1`] = `
     loading="auto"
     onError={[Function]}
     onLoad={[Function]}
-    role="img"
     src="foo.png"
   />
 </div>
@@ -123,7 +122,6 @@ exports[`Image with overlay matches snapshot 1`] = `
     loading="auto"
     onError={[Function]}
     onLoad={[Function]}
-    role="img"
     src="foo.png"
   />
   <div
