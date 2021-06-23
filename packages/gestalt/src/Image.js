@@ -20,6 +20,7 @@ type Props = {|
   naturalWidth: number,
   onError?: () => void,
   onLoad?: () => void,
+  role?: 'img' | 'presentation',
   sizes?: string,
   src: string,
   srcSet?: string,
@@ -41,6 +42,7 @@ export default class Image extends PureComponent<Props> {
     naturalWidth: PropTypes.number.isRequired,
     onError: PropTypes.func,
     onLoad: PropTypes.func,
+    role: PropTypes.oneOf(['img', 'presentation']),
     sizes: PropTypes.string,
     src: PropTypes.string.isRequired,
     srcSet: PropTypes.string,
@@ -103,6 +105,7 @@ export default class Image extends PureComponent<Props> {
       loading,
       naturalHeight,
       naturalWidth,
+      role = 'img',
       sizes,
       src,
       srcSet,
@@ -118,13 +121,13 @@ export default class Image extends PureComponent<Props> {
     return isScaledImage ? (
       <Box height="100%" position="relative">
         <div
-          aria-label={alt}
+          aria-label={role === 'presentation' ? undefined : alt}
           className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
           style={{
             backgroundColor: color,
             backgroundImage: `url('${src}')`,
           }}
-          role="img"
+          role={role}
         />
         {childContent}
       </Box>
@@ -149,6 +152,7 @@ export default class Image extends PureComponent<Props> {
           sizes={sizes}
           src={src}
           srcSet={srcSet}
+          role={role === 'presentation' ? 'presentation' : undefined}
         />
         {childContent}
       </Box>
