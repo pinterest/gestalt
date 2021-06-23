@@ -59,24 +59,23 @@ const rule = {
         if (!importedComponent) {
           return;
         }
+        const props = node.attributes.map(({ name, value }) => ({
+          key: name.name,
+          value: value.value,
+        }));
 
-        const props = Object.entries(node.attributes)
-          .map((item) => item[1])
-          .map(({ name, value }) => ({ name: name.name, value: value.value }));
-
-        // eslint-disable-next-line no-unused-vars
-        const displayProp = props.find(([key, val]) => key === 'display');
+        const displayProp = props.find(({ key }) => key === 'display');
         // No `display` prop or not `display="flex"`
-        if (!displayProp || displayProp[1] !== 'flex') {
+        if (!displayProp || displayProp.value !== 'flex') {
           return;
         }
 
         const notFlexProps = props
-          .map(({ name }) => name)
-          .filter((propName: string) => propName && !sharedProps.includes(propName));
+          .filter(({ key }) => key !== 'display')
+          .filter(({ key }) => !sharedProps.includes(key));
 
         // Props are set that Flex doesn't support, needs to remain a Box
-        if (notFlexProps) {
+        if (notFlexProps.length > 0) {
           return;
         }
 
