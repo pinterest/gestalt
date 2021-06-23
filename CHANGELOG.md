@@ -1,3 +1,9 @@
+## 27.2.0 (Jun 23, 2021)
+
+### Minor
+
+- Image: Add option for presentation role (#1570)
+
 ## 27.1.0 (Jun 22, 2021)
 
 ### Minor
