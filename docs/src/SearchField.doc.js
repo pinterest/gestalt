@@ -50,6 +50,12 @@ card(
   <PropTable
     props={[
       {
+        name: 'accessibilityClearButtonLabel',
+        type: 'string',
+        description:
+          'String that clients such as VoiceOver will read to describe the clear button element. Always localize the label. See the [Accessibility section](#Accessibility) for more info.',
+      },
+      {
         name: 'accessibilityLabel',
         type: 'string',
         required: true,
