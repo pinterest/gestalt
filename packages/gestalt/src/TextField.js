@@ -1,16 +1,8 @@
 // @flow strict
-import { forwardRef, type Element, type Node, useState } from 'react';
-import classnames from 'classnames';
+import { forwardRef, type Element, type Node } from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box.js';
-import focusStyles from './Focus.css';
-import formElement from './FormElement.css';
-import FormErrorMessage from './FormErrorMessage.js';
-import FormHelperText from './FormHelperText.js';
-import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
-import layout from './Layout.css';
-import styles from './TextField.css';
+import InternalTextField from './InternalTextField.js';
 
 type Props = {|
   autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
@@ -70,100 +62,28 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     type = 'text',
     value,
   } = props;
-  const [focused, setFocused] = useState(false);
 
-  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    onChange({ event, value: event.currentTarget.value });
-  };
-
-  const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    setFocused(false);
-    if (onBlur) {
-      onBlur({ event, value: event.currentTarget.value });
-    }
-  };
-
-  const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    setFocused(true);
-    if (onFocus) {
-      onFocus({ event, value: event.currentTarget.value });
-    }
-  };
-
-  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (onKeyDown) {
-      onKeyDown({ event, value: event.currentTarget.value });
-    }
-  };
-
-  const hasErrorMessage = Boolean(errorMessage);
-
-  const classes = classnames(
-    styles.textField,
-    formElement.base,
-    disabled ? formElement.disabled : formElement.enabled,
-    (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
-    size === 'md' ? layout.medium : layout.large,
-    tags
-      ? {
-          [focusStyles.accessibilityOutlineFocus]: focused,
-          [styles.textFieldWrapper]: true,
-        }
-      : {},
-  );
-
-  // type='number' doesn't work on ios safari without a pattern
-  // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
-  const pattern = type === 'number' ? '\\d*' : undefined;
-
-  const inputElement = (
-    <input
-      aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
-      aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
+  return (
+    <InternalTextField
       autoComplete={autoComplete}
-      className={tags ? styles.unstyledTextField : classes}
       disabled={disabled}
+      errorMessage={errorMessage}
+      hasError={hasError}
+      helperText={helperText}
       id={id}
+      label={label}
       name={name}
-      onBlur={handleBlur}
-      onChange={handleChange}
-      onFocus={handleFocus}
-      onKeyDown={handleKeyDown}
-      pattern={pattern}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
       placeholder={placeholder}
+      size={size}
       ref={ref}
+      tags={tags}
       type={type}
       value={value}
     />
-  );
-
-  return (
-    <span>
-      {label && <FormLabel id={id} label={label} />}
-      {tags ? (
-        <div className={classes}>
-          {tags.map((tag, tagIndex) => (
-            <Box key={tagIndex} marginEnd={1} marginBottom={1}>
-              {tag}
-            </Box>
-          ))}
-          <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
-            {/* This is an invisible spacer div which mirrors the input's
-             * content. We use it to implement the flex wrapping behavior
-             * which is not supported by inputs, by having the actual input
-             * track it with absolute positioning. */}
-            <div aria-hidden className={styles.textFieldSpacer}>
-              {value}
-            </div>
-            {inputElement}
-          </Box>
-        </div>
-      ) : (
-        inputElement
-      )}
-      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
-      {hasErrorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-    </span>
   );
 });
 

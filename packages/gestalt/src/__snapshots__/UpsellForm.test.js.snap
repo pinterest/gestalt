@@ -19,19 +19,24 @@ exports[`UpsellForm renders 1`] = `
         className="box marginBottom0 smMarginBottom2"
       >
         <span>
-          <input
-            aria-describedby={null}
-            aria-invalid="false"
-            className="textField base enabled normal medium"
-            disabled={false}
-            id="name"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            placeholder="Name"
-            type="text"
-          />
+          <div
+            className="box relative"
+          >
+            <input
+              aria-describedby={null}
+              aria-invalid="false"
+              className="textField base enabled normal medium truncate"
+              disabled={false}
+              id="name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Name"
+              type="text"
+            />
+          </div>
         </span>
       </div>
     </div>

@@ -140,19 +140,24 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                   className="box marginBottom0 smMarginBottom2"
                 >
                   <span>
-                    <input
-                      aria-describedby={null}
-                      aria-invalid="false"
-                      className="textField base enabled normal medium"
-                      disabled={false}
-                      id="name"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      placeholder="Name"
-                      type="text"
-                    />
+                    <div
+                      className="box relative"
+                    >
+                      <input
+                        aria-describedby={null}
+                        aria-invalid="false"
+                        className="textField base enabled normal medium truncate"
+                        disabled={false}
+                        id="name"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        placeholder="Name"
+                        type="text"
+                      />
+                    </div>
                   </span>
                 </div>
               </div>
@@ -323,6 +328,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -449,6 +455,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -575,6 +582,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -605,6 +613,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -686,6 +695,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
