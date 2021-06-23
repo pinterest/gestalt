@@ -18,11 +18,12 @@ import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { AriaCurrentPropType, type AriaCurrent } from './ariaTypes.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
 
 type Props = {|
-  accessibilityCurrent?: boolean,
+  accessibilityCurrent?: AriaCurrent,
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
@@ -171,7 +172,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   return (
     <a
-      aria-current={accessibilityCurrent ? 'page' : undefined}
+      aria-current={accessibilityCurrent}
       aria-label={accessibilityLabel}
       className={className}
       href={disabled ? undefined : href}
@@ -231,7 +232,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 });
 
 InternalLinkWithForwardRef.propTypes = {
-  accessibilityCurrent: PropTypes.bool,
+  accessibilityCurrent: AriaCurrentPropType,
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   colorClass: PropTypes.string,

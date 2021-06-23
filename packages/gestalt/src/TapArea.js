@@ -7,6 +7,7 @@ import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { AriaCurrentPropType, type AriaCurrent } from './ariaTypes.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
@@ -54,7 +55,7 @@ type TapAreaType = {|
 
 type LinkTapAreaType = {|
   ...BaseTapArea,
-  accessibilityCurrent?: boolean,
+  accessibilityCurrent?: AriaCurrent,
   href: string,
   rel?: 'none' | 'nofollow',
   role: 'link',
@@ -250,7 +251,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
 
 TapAreaWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
-  accessibilityCurrent: PropTypes.bool,
+  accessibilityCurrent: AriaCurrentPropType,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,

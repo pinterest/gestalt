@@ -109,7 +109,7 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
   return (
     <Box id={id} paddingY={3} ref={ref}>
       <TapArea
-        accessibilityCurrent={isActive}
+        accessibilityCurrent={isActive ? 'page' : undefined}
         href={href}
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
