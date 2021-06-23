@@ -1,3 +1,9 @@
+## 27.2.1 (Jun 23, 2021)
+
+### Patch
+
+- SearchField: Add accessibilityClearButtonLabel to props table in docs (#1572)
+
 ## 27.2.0 (Jun 23, 2021)
 
 ### Minor
