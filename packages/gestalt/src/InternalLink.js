@@ -1,7 +1,12 @@
 // @flow strict
-import type { AbstractComponent, Node, Element } from 'react';
-
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import {
+  forwardRef,
+  type AbstractComponent,
+  type Element,
+  type Node,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import buttonStyles from './Button.css';
@@ -17,6 +22,7 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
 
 type Props = {|
+  accessibilityCurrent?: boolean,
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
@@ -51,6 +57,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
   HTMLAnchorElement,
 >(function Link(props, ref): Element<'a'> {
   const {
+    accessibilityCurrent,
     accessibilityLabel,
     children,
     colorClass,
@@ -164,6 +171,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   return (
     <a
+      aria-current={accessibilityCurrent ? 'page' : undefined}
       aria-label={accessibilityLabel}
       className={className}
       href={disabled ? undefined : href}
@@ -223,6 +231,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 });
 
 InternalLinkWithForwardRef.propTypes = {
+  accessibilityCurrent: PropTypes.bool,
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   colorClass: PropTypes.string,
