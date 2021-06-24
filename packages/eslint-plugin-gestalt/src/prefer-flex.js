@@ -44,19 +44,23 @@ const rule = {
 
   // $FlowFixMe[unclear-type]
   create(context: Object): Object {
-    let importedComponent = false;
+    let hasImportedBox = false;
+    let importStatement;
 
     return {
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        importedComponent = decl.specifiers.some((node) => {
+        hasImportedBox = decl.specifiers.some((node) => {
           return node.imported.name === 'Box';
         });
+        if (hasImportedBox) {
+          importStatement = decl;
+        }
       },
       JSXOpeningElement(node) {
-        if (!importedComponent) {
+        if (!hasImportedBox) {
           return;
         }
         const props = node.attributes.map(({ name, value }) => ({
@@ -79,10 +83,32 @@ const rule = {
           return;
         }
 
-        context.report(node, errorMessage);
+        context.report({
+          node,
+          message: errorMessage,
+          fix: (fixer) => {
+            // TODO: add Flex import
+
+            // node.imported.name = 'Flex';
+
+            console.log(importStatement.specifiers);
+          },
+        });
       },
     };
   },
 };
 
 export default rule;
+
+// context keys
+// 'hasBOM',
+// 'text',
+// 'ast',
+// 'parserServices',
+// 'scopeManager',
+// 'visitorKeys',
+// 'tokensAndComments',
+// 'lines',
+// 'lineStartIndices',
+// '_commentCache'
