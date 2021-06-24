@@ -18,8 +18,11 @@ type Props = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| disableOnNavigation: () => void |},
   >,
+  previousTotalWidth?: number,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
+  shouldBeSticky?: boolean,
+  shouldHaveShadow?: boolean,
   sortOrder: 'asc' | 'desc',
   status: 'active' | 'inactive',
 |};
@@ -28,7 +31,18 @@ type Props = {|
  * https://gestalt.pinterest.systems/Table
  */
 export default function TableSortableHeaderCell(props: Props): Node {
-  const { children, colSpan, scope, rowSpan, status, sortOrder, onSortChange } = props;
+  const {
+    children,
+    colSpan,
+    scope,
+    rowSpan,
+    status,
+    sortOrder,
+    onSortChange,
+    shouldBeSticky,
+    previousTotalWidth,
+    shouldHaveShadow,
+  } = props;
 
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
@@ -37,7 +51,14 @@ export default function TableSortableHeaderCell(props: Props): Node {
   const visibility = shouldShowIcon ? 'visible' : 'hidden';
 
   return (
-    <TableHeaderCell colSpan={colSpan} rowSpan={rowSpan} scope={scope}>
+    <TableHeaderCell
+      colSpan={colSpan}
+      rowSpan={rowSpan}
+      scope={scope}
+      shouldBeSticky={shouldBeSticky}
+      shouldHaveShadow={shouldHaveShadow}
+      previousTotalWidth={previousTotalWidth}
+    >
       <Box display="inlineBlock">
         <TapArea
           fullWidth={false}
