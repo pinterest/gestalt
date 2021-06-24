@@ -327,6 +327,7 @@ card(
       <Image
         key="image-key"
         alt="Saved to home decor board"
+        color="transparent"
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
@@ -353,6 +354,7 @@ card(
           <Image
             key="image-key"
             alt="Saved to home decor board"
+            color="transparent"
             naturalHeight={751}
             naturalWidth={564}
             src="https://i.ibb.co/7bQQYkX/stock2.jpg"
