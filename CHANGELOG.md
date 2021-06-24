@@ -1,3 +1,9 @@
+## 27.3.0 (Jun 24, 2021)
+
+### Minor
+
+- Table: Add sticky column support to sortable header (#1567)
+
 ## 27.2.1 (Jun 23, 2021)
 
 ### Patch
