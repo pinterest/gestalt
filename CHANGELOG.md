@@ -1,3 +1,9 @@
+## 27.3.2 (Jun 24, 2021)
+
+### Patch
+
+- FetchItems: Refactor to function component (#1575)
+
 ## 27.3.1 (Jun 24, 2021)
 
 ### Patch
