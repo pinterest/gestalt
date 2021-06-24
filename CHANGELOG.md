@@ -1,3 +1,9 @@
+## 27.3.1 (Jun 24, 2021)
+
+### Patch
+
+- Tabs, TapArea, InternalLink: Add support for aria-current (#1571)
+
 ## 27.3.0 (Jun 24, 2021)
 
 ### Minor
