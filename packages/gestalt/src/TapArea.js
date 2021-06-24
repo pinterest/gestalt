@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
@@ -9,6 +7,7 @@ import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { AriaCurrentPropType, type AriaCurrent } from './ariaTypes.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
@@ -56,6 +55,7 @@ type TapAreaType = {|
 
 type LinkTapAreaType = {|
   ...BaseTapArea,
+  accessibilityCurrent?: AriaCurrent,
   href: string,
   rel?: 'none' | 'nofollow',
   role: 'link',
@@ -176,10 +176,11 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   const handleLinkOnMouseLeave = ({ event }) => handleOnMouseLeave(event);
 
   if (props.role === 'link') {
-    const { href, rel = 'none', target = null } = props;
+    const { accessibilityCurrent, href, rel = 'none', target = null } = props;
 
     return (
       <InternalLink
+        accessibilityCurrent={accessibilityCurrent}
         accessibilityLabel={accessibilityLabel}
         disabled={disabled}
         href={href}
@@ -250,6 +251,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
 
 TapAreaWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
+  accessibilityCurrent: AriaCurrentPropType,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,

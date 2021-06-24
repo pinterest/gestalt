@@ -1,7 +1,12 @@
 // @flow strict
-import type { AbstractComponent, Node, Element } from 'react';
-
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import {
+  forwardRef,
+  type AbstractComponent,
+  type Element,
+  type Node,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import buttonStyles from './Button.css';
@@ -13,10 +18,12 @@ import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { AriaCurrentPropType, type AriaCurrent } from './ariaTypes.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
 
 type Props = {|
+  accessibilityCurrent?: AriaCurrent,
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
@@ -51,6 +58,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
   HTMLAnchorElement,
 >(function Link(props, ref): Element<'a'> {
   const {
+    accessibilityCurrent,
     accessibilityLabel,
     children,
     colorClass,
@@ -164,6 +172,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   return (
     <a
+      aria-current={accessibilityCurrent}
       aria-label={accessibilityLabel}
       className={className}
       href={disabled ? undefined : href}
@@ -223,6 +232,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 });
 
 InternalLinkWithForwardRef.propTypes = {
+  accessibilityCurrent: AriaCurrentPropType,
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   colorClass: PropTypes.string,

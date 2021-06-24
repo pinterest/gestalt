@@ -11,6 +11,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
       className="box paddingY3"
     >
       <a
+        aria-current="page"
         className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
@@ -136,6 +137,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
       className="box paddingY3"
     >
       <a
+        aria-current="page"
         className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
@@ -289,6 +291,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
       className="box paddingY3"
     >
       <a
+        aria-current="page"
         className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
