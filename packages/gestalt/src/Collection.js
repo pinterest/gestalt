@@ -39,9 +39,7 @@
   4. The viewport can be any size. Most windowing/recycling solutions implement some sort of overscanning, however Collection leaves this up the the parent.
 
 */
-import type { Node } from 'react';
-
-import { PureComponent } from 'react';
+import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 
@@ -62,71 +60,55 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/Collection
  */
-export default class Collection extends PureComponent<Props, void> {
-  static propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
-    Item: PropTypes.any,
-    layout: PropTypes.arrayOf(
-      PropTypes.shape({
-        top: PropTypes.number.isRequired,
-        left: PropTypes.number.isRequired,
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired,
-      }).isRequired,
-    ),
-    viewportHeight: PropTypes.number,
-    viewportLeft: PropTypes.number,
-    viewportTop: PropTypes.number,
-    viewportWidth: PropTypes.number,
-  };
+export default function Collection(props: Props): Node {
+  const { Item, layout = [], viewportTop = 0, viewportLeft = 0 } = props;
 
-  static defaultProps: {|
-    layout: $ReadOnlyArray<{|
-      top: number,
-      left: number,
-      width: number,
-      height: number,
-    |}>,
-    viewportLeft: number,
-    viewportTop: number,
-  |} = {
-    layout: [],
-    viewportLeft: 0,
-    viewportTop: 0,
-  };
+  // Calculate the full dimensions of the item layer
+  const width = Math.max(...layout.map((item) => item.left + item.width));
+  const height = Math.max(...layout.map((item) => item.top + item.height));
 
-  render(): Node {
-    const { Item, layout, viewportTop = 0, viewportLeft = 0 } = this.props;
+  // Default the viewport to being the full width of the content layer
+  const { viewportWidth = width, viewportHeight = height } = props;
 
-    // Calculate the full dimensions of the item layer
-    const width = Math.max(...layout.map((item) => item.left + item.width));
-    const height = Math.max(...layout.map((item) => item.top + item.height));
+  // Calculates which items from the item layer to render in the viewport
+  // layer.
+  const items = layout.reduce((acc, position, idx) => {
+    if (
+      position.top + position.height > viewportTop &&
+      position.top < viewportHeight + viewportTop &&
+      position.left < viewportWidth + viewportLeft &&
+      position.left + position.width > viewportLeft
+    ) {
+      acc.push({ idx, ...position });
+    }
+    return acc;
+  }, []);
 
-    // Default the viewport to being the full width of the content layer
-    const { viewportWidth = width, viewportHeight = height } = this.props;
-
-    // Calculates which items from the item layer to render in the viewport
-    // layer.
-    const items = layout.reduce((acc, position, idx) => {
-      if (
-        position.top + position.height > viewportTop &&
-        position.top < viewportHeight + viewportTop &&
-        position.left < viewportWidth + viewportLeft &&
-        position.left + position.width > viewportLeft
-      ) {
-        acc.push({ idx, ...position });
-      }
-      return acc;
-    }, []);
-
-    return (
-      <div className={layoutStyles.relative} style={{ width, height }}>
-        {items.map(({ idx, ...style }) => (
-          <div key={idx} className={layoutStyles.absolute} style={style}>
-            <Item idx={idx} />
-          </div>
-        ))}
-      </div>
-    );
-  }
+  return (
+    <div className={layoutStyles.relative} style={{ width, height }}>
+      {items.map(({ idx, ...style }) => (
+        <div key={idx} className={layoutStyles.absolute} style={style}>
+          <Item idx={idx} />
+        </div>
+      ))}
+    </div>
+  );
 }
+
+Collection.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  Item: PropTypes.any,
+  // $FlowFixMe[signature-verification-failure]
+  layout: PropTypes.arrayOf(
+    PropTypes.shape({
+      top: PropTypes.number.isRequired,
+      left: PropTypes.number.isRequired,
+      width: PropTypes.number.isRequired,
+      height: PropTypes.number.isRequired,
+    }).isRequired,
+  ),
+  viewportHeight: PropTypes.number,
+  viewportLeft: PropTypes.number,
+  viewportTop: PropTypes.number,
+  viewportWidth: PropTypes.number,
+};
