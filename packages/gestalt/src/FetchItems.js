@@ -11,39 +11,27 @@
  */
 
 // @flow strict
-import { PureComponent } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 type Props = {|
   containerHeight: number,
+  fetchMore?: () => void,
   isAtEnd?: boolean,
   isFetching: boolean,
-  fetchMore?: () => void,
   scrollHeight: number,
   scrollTop: number,
 |};
 
-export default class FetchItems extends PureComponent<Props> {
-  static propTypes = {
-    containerHeight: PropTypes.number.isRequired,
-    isAtEnd: PropTypes.bool,
-    isFetching: PropTypes.bool.isRequired,
-    fetchMore: PropTypes.func,
-    scrollHeight: PropTypes.number.isRequired,
-    scrollTop: PropTypes.number.isRequired,
-  };
-
-  componentDidMount() {
-    setTimeout(this.check);
-  }
-
-  componentDidUpdate() {
-    this.check();
-  }
-
-  check: () => void = () => {
-    const { containerHeight, isAtEnd, isFetching, fetchMore, scrollHeight, scrollTop } = this.props;
-
+export default function FetchItems({
+  containerHeight,
+  fetchMore,
+  isAtEnd,
+  isFetching,
+  scrollHeight,
+  scrollTop,
+}: Props): null {
+  const check: () => void = () => {
     if (isAtEnd || isFetching || !fetchMore) {
       return;
     }
@@ -54,7 +42,22 @@ export default class FetchItems extends PureComponent<Props> {
     }
   };
 
-  render(): null {
-    return null;
-  }
+  // Note: purposefully supplying no dependency array so `check` is run on every render
+  useEffect(() => {
+    const timeoutId = setTimeout(check);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  });
+
+  return null;
 }
+
+FetchItems.propTypes = {
+  containerHeight: PropTypes.number.isRequired,
+  fetchMore: PropTypes.func,
+  isAtEnd: PropTypes.bool,
+  isFetching: PropTypes.bool.isRequired,
+  scrollHeight: PropTypes.number.isRequired,
+  scrollTop: PropTypes.number.isRequired,
+};
