@@ -350,12 +350,11 @@ function ComboBoxExample(props) {
     'WY - Wyoming',
   ];
 
-  const us_states_options = US_STATES.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
+  const usStatesOptions = US_STATES.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
-  const [options] = React.useState(us_states_options);
-  const [suggestedOptions, setSuggestedOptions] = React.useState(us_states_options);
-  const [inputValue, setInputValue] = React.useState(us_states_options[5].label);
-  const [selected, setSelected] = React.useState(us_states_options[5]);
+  const [suggestedOptions, setSuggestedOptions] = React.useState(usStatesOptions);
+  const [inputValue, setInputValue] = React.useState(usStatesOptions[5].label);
+  const [selected, setSelected] = React.useState(usStatesOptions[5]);
 
   const handleOnChange = ({ value }) => {
     setSelected();
@@ -367,13 +366,13 @@ function ComboBoxExample(props) {
       setSuggestedOptions(filteredOptions);
     } else {
       setInputValue(value);
-      setSuggestedOptions(options);
+      setSuggestedOptions(usStatesOptions);
     }
   };
 
   const handleSelect = ({ item }) => {
     setInputValue(item.label);
-    setSuggestedOptions(options);
+    setSuggestedOptions(usStatesOptions);
     setSelected(item);
   };
 
@@ -389,12 +388,12 @@ function ComboBoxExample(props) {
         options={suggestedOptions}
         onBlur={() => {
           if (!selected) setInputValue("");
-          setSuggestedOptions(options);
+          setSuggestedOptions(usStatesOptions);
         }}
         onClear={() => {
           setInputValue("")
           setSelected();
-          setSuggestedOptions(options);
+          setSuggestedOptions(usStatesOptions);
         }}
         selectedOption={selected}
         placeholder="Select a US state"
