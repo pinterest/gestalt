@@ -1,3 +1,9 @@
+## 27.3.3 (Jun 24, 2021)
+
+### Patch
+
+- Collection: Refactor to function component (#1574)
+
 ## 27.3.2 (Jun 24, 2021)
 
 ### Patch
