@@ -7,17 +7,17 @@ const Valid = (
     accessibilityShowButtonLabel="Show popup"
     id="ComboBox"
     noResultText="No Result"
-    options={[{ value: '1', subtext: 'subtext' }]}
+    options={[{ label: '1', value: '1', subtext: 'subtext' }]}
   />
 );
 
-const InvalidProp = (
+const InvalidValue = (
   <ComboBox
     accessibilityClearButtonLabel="Clear options"
     id="ComboBox"
     noResultText="No Result"
-    // $FlowExpectedError[prop-missing]
-    options={[{ value: '1', label: 'label' }]}
+    // $FlowExpectedError[incompatible-type]
+    options={[{ label: '1', value: 1, subtext: 'subtext' }]}
   />
 );
 

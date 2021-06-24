@@ -17,7 +17,8 @@ import Popover from './Popover.js';
 import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
-import ComboBoxOption, { type ComboBoxOptions } from './ComboBoxOption.js';
+import ComboBoxOption, { type OptionObject } from './MenuOption.js';
+
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
@@ -30,12 +31,13 @@ type Props = {|
   // REQUIRED
   accessibilityClearButtonLabel: string,
   id: string,
-  options: $ReadOnlyArray<ComboBoxOptions>,
+  options: $ReadOnlyArray<OptionObject>,
   noResultText: string,
   // OPTIONAL
   disabled?: boolean,
   errorMessage?: Node,
   helperText?: string,
+  inputValue?: string,
   label?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
@@ -56,12 +58,12 @@ type Props = {|
   |}) => void,
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: ComboBoxOptions,
+    item: OptionObject,
   |}) => void,
   placeholder?: string,
+  selectedOption?: OptionObject,
   size?: ComboBoxSize,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
-  value?: string,
 |};
 
 const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
@@ -86,7 +88,8 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     placeholder,
     size,
     tags,
-    value: controlledValue = null,
+    selectedOption,
+    inputValue: controlledInputValue = null,
   } = props;
 
   // ==== REFS ====
@@ -94,22 +97,19 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   const innerRef = useRef(null);
   const optionRef = useRef(null);
   const dropdownRef = useRef(null);
-  const innerTagsConstainerRef = useRef(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
 
   // ==== STATE ====
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
-  const [isControlled] = useState<boolean>(
-    !(controlledValue === null || controlledValue === undefined),
-  );
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<?ComboBoxOptions>(null);
-  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<ComboBoxOptions>>(
-    options,
-  );
+  const [selectedItem, setSelectedItem] = useState<?OptionObject>(null);
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
   const [textfieldInput, setTextfieldInput] = useState<string>('');
+
+  const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
+  const isNotControlled = !isControlledInput && !tags;
 
   // ==== TAGS: Force disable state in Tags if Typeahead is disabled as well ====
 
@@ -121,48 +121,42 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   // ==== UNCONTROLLED COMBOBOX: Set suggestions ====
 
   useEffect(() => {
-    if (!selectedItem) setHoveredItemIndex(null); // TODO can I clean this?
-    if (!isControlled && !tags) {
+    if (isNotControlled) {
+      if (!selectedItem) setHoveredItemIndex(null);
       if (showOptionsList && !selectedItem) {
-        const filteredOptions = options.filter(({ value }) =>
-          value.toLowerCase().includes(textfieldInput.toLowerCase()),
+        const filteredOptions = options.filter(({ label: optionLabel }) =>
+          optionLabel.toLowerCase().includes(textfieldInput.toLowerCase()),
         );
         setSuggestedOptions(filteredOptions);
       } else {
         setSuggestedOptions(options);
       }
     }
-  }, [isControlled, options, selectedItem, showOptionsList, tags, textfieldInput]);
+  }, [isNotControlled, options, selectedItem, showOptionsList, textfieldInput]);
 
   // ==== CONTROLLED COMBOBOX ====
 
   useEffect(() => {
-    if (isControlled) {
-      setSelectedItem(null);
-      setSuggestedOptions(options);
-
-      if (!tags) {
-        setSelectedItem(null);
-
-        const matchedOptionArray = options.filter(({ value: optionValue }, index) => {
-          const isMatchedValue = optionValue === controlledValue;
-          if (isMatchedValue) setHoveredItemIndex(index);
-          return isMatchedValue;
+    if (isControlledInput) {
+      if (!selectedOption) {
+        setHoveredItemIndex(null);
+      } else {
+        suggestedOptions.forEach((option, index) => {
+          if (option.value === selectedOption.value) setHoveredItemIndex(index);
         });
-
-        const matchedOption = matchedOptionArray?.[0];
-
-        if (matchedOption) {
-          setSelectedItem(matchedOption);
-        }
       }
+      setSuggestedOptions(options);
     }
-  }, [controlledValue, isControlled, options, tags]);
+  }, [isControlledInput, options, selectedOption, suggestedOptions]);
+
+  // ==== EVENT HANDLING ====
 
   const handleSelectOptionItem = ({ event, item }) => {
     onSelect?.({ event, item });
-    if (!tags) setSelectedItem(item);
-    if (!isControlled && !tags) setTextfieldInput(item.value);
+    if (isNotControlled) {
+      setSelectedItem(item);
+      setTextfieldInput(item.label);
+    }
     setShowOptionsList(false);
   };
 
@@ -231,7 +225,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   };
 
   const textfieldIconButton =
-    (controlledValue && controlledValue !== '') ||
+    (controlledInputValue && controlledInputValue !== '') ||
     (textfieldInput && textfieldInput !== '') ||
     (tags && tags.length > 0)
       ? 'clear'
@@ -246,7 +240,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         aria-owns={id}
         minWidth={280}
         position="relative"
-        ref={innerTagsConstainerRef}
         role="combobox"
       >
         <InternalTextField
@@ -266,29 +259,33 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           id={`comboxbox-${id}`}
           label={label}
           onBlur={({ event, value }) => {
-            if (!isControlled && !tags && !selectedItem) setTextfieldInput('');
+            if (isNotControlled && !selectedItem) setTextfieldInput('');
             if (onBlur) onBlur({ event, value });
           }}
           onChange={({ event, value }) => {
-            setSelectedItem(null);
             setHoveredItemIndex(null);
-            if (!isControlled && !tags) setTextfieldInput(value);
-            if (onChange) onChange({ event, value });
+            if (isNotControlled) {
+              setSelectedItem(null);
+              setTextfieldInput(value);
+            }
             if (showOptionsList === false) setShowOptionsList(true);
+            onChange?.({ event, value });
           }}
           onClickIconButton={
             textfieldIconButton === 'clear'
               ? () => {
-                  setSelectedItem(null);
-                  if (!isControlled && !tags) {
+                  setHoveredItemIndex(null);
+                  if (isNotControlled) {
+                    setSelectedItem(null);
                     setTextfieldInput('');
                     setSuggestedOptions(options);
                   }
-                  setHoveredItemIndex(null);
                   onClear?.();
                   innerRef?.current?.focus();
                 }
-              : () => setShowOptionsList(true)
+              : () => {
+                  setShowOptionsList(true);
+                }
           }
           onClick={() => setShowOptionsList(true)}
           onFocus={({ event, value }) => onFocus?.({ event, value })}
@@ -300,15 +297,15 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           ref={innerRef}
           size={size}
           tags={selectedTags}
-          textfieldIconButton={}
+          textfieldIconButton={textfieldIconButton}
           type="text"
-          value={controlledValue ?? textfieldInput}
+          value={controlledInputValue ?? textfieldInput}
         />
       </Box>
       {showOptionsList && innerRef.current ? (
         <Layer>
           <Popover
-            anchor={(tags ? innerTagsConstainerRef : innerRef).current}
+            anchor={innerRef.current}
             handleKeyDown={handleKeyDown}
             idealDirection="down"
             onDismiss={() => setShowOptionsList(false)}
@@ -328,7 +325,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
               ref={dropdownRef}
               role="listbox"
               rounding={4}
-              width={(tags ? innerTagsConstainerRef : innerRef).current?.offsetWidth}
+              width={innerRef?.current?.offsetWidth}
             >
               {suggestedOptions.length > 0 ? (
                 suggestedOptions.map((option, index) => (
@@ -336,12 +333,13 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                     hoveredItemIndex={hoveredItemIndex}
                     id={id}
                     index={index}
-                    key={`${option.value}${index}`}
+                    key={`${option.label}${index}`}
                     option={option}
                     onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
-                    selected={selectedItem}
+                    selected={selectedOption ?? selectedItem}
                     setHoveredItemIndex={setHoveredItemIndex}
                     ref={optionRef}
+                    role="option"
                   />
                 ))
               ) : (
@@ -367,6 +365,7 @@ ComboBoxWithForwardRef.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.exact({
       value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
       subtext: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
     }),
   ).isRequired,
@@ -374,6 +373,7 @@ ComboBoxWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
   helperText: PropTypes.string,
+  inputValue: PropTypes.string,
   label: PropTypes.string,
   onBlur: PropTypes.func,
   onClear: PropTypes.func,
@@ -382,9 +382,13 @@ ComboBoxWithForwardRef.propTypes = {
   onKeyDown: PropTypes.func,
   onSelect: PropTypes.func,
   placeholder: PropTypes.string,
+  selectedOption: PropTypes.exact({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    subtext: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  }),
   size: (PropTypes.oneOf(['md', 'lg']): React$PropType$Primitive<ComboBoxSize>),
   tags: PropTypes.arrayOf(PropTypes.node),
-  value: PropTypes.string,
 };
 
 ComboBoxWithForwardRef.displayName = 'ComboBox';

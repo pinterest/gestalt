@@ -8,7 +8,7 @@ test('Checkbox indeterminate', () => {
       accessibilityClearButtonLabel="Clear options"
       id="ComboBox"
       noResultText="No Result"
-      options={[{ value: '1', subtext: 'subtext' }]}
+      options={[{ label: '1', value: '1', subtext: 'subtext' }]}
     />,
   );
   expect(tree).toMatchSnapshot();

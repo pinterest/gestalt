@@ -25,7 +25,7 @@ function ComboBoxExample(props) {
     'zie / zem',
   ];
 
-  const options = PRONOUNS.map((pronoun) => ({ value: pronoun }));
+  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
   return (
     <ComboBox
@@ -49,16 +49,16 @@ card(
     props={[
       {
         name: 'options',
-        type: 'Array<{ value: string, subtext: string }>',
+        type: 'Array<{| label: string, value: string, subtext: string |}>',
         description:
           'The data for each selection option. See [subtext](#With-subtext) variant to learn more',
         required: true,
       },
       {
-        name: 'value',
+        name: 'inputValue',
         type: 'string',
         description:
-          'The default value set in the ComboBox for controlled components. See [controlled ComboBox](#Controlled-vs-Uncontrolled) variant to learn more.',
+          'The user input in ComboBox for controlled components. See [controlled ComboBox](#Controlled-vs-Uncontrolled) variant to learn more.',
       },
       {
         name: 'id',
@@ -144,6 +144,12 @@ card(
         description: 'Specify a short description suggestion the expected input for the field',
       },
       {
+        name: 'selectedOption',
+        type: '{| label: string, value: string, subtext: string |}',
+        description:
+          'The selected option in ComboBox for controlled components. See [controlled ComboBox](#Controlled-vs-Uncontrolled) variant to learn more.',
+      },
+      {
         name: 'size',
         type: '"md" | "lg"',
         description:
@@ -219,7 +225,7 @@ function ComboBoxExample(props) {
     'él / lo / le / -o',
   ];
 
-  const options = PRONOUNS.map((pronoun) => ({ value: pronoun }));
+  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
   return (
     <ComboBox
@@ -248,7 +254,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         title="Uncontrolled ComboBox"
-        description={`An uncontrolled ComboBox should be used for basic cases where no default value or tags are required. By passing \`options\` values to ComboBox, the component takes control and has fully manages its internal state. Don't use \`defaultValue\` props, any value different from \`null\` and \`undefined\` activates a controlled ComboBox.`}
+        description={`An uncontrolled ComboBox should be used for basic cases where no default value or tags are required. By passing \`options\` values to ComboBox, the component takes control and has fully manages its internal state. Don't use the \`inputValue\` or \`selectedOptions\` props, any value different from \`null\` and \`undefined\` activates a controlled ComboBox.`}
         defaultCode={`
 function ComboBoxExample(props) {
   const PRONOUNS = [
@@ -263,7 +269,7 @@ function ComboBoxExample(props) {
     'zie / zem',
   ];
 
-  const options = PRONOUNS.map((pronoun) => ({ value: pronoun }));
+  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
   return (
     <ComboBox
@@ -283,7 +289,7 @@ function ComboBoxExample(props) {
       <MainSection.Card
         cardSize="lg"
         title="Controlled ComboBox"
-        description={` A controlled ComboBox is required if a default value is set, as shown in the first example, values are set programatically, as shown in the second example, or it's used with [tags](#Tags). A controlled ComboBox requires three value props: \`options\`, \`defaultValue\` and/or \`tags\`. ComboBox notifies of changes via the \`onChange\`, \`onSelect\`, \`onBlur\`, \`onFocus\`, \`onKeyDown\`, and \`onClear\` props. All values displayed by ComboBox at any time are controlled externally. To clear \`defaultValue\`, set the value to an empty string \`defaultValue\` = \` "" \`, \`null\`  or \` undefined\` values turn ComboBox into an uncontrolled component.`}
+        description={` A controlled ComboBox is required if a selected value is set, as shown in the first example. In the second example, values are set programatically. Controlled Comboboxes with [tags](#Tags) are also controlled components. A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`selectedOptions\`. ComboBox notifies of changes via the \`onChange\`, \`onSelect\`, \`onBlur\`, \`onFocus\`, \`onKeyDown\`, and \`onClear\` props. All values displayed by ComboBox at any time are controlled externally. To clear \`inputValue\`, set the value to an empty string \`inputValue\` = \` "" \`, \`null\`  or \` undefined\` values turn ComboBox into an uncontrolled component.`}
         defaultCode={`
 function ComboBoxExample(props) {
   const US_STATES = [
@@ -344,28 +350,29 @@ function ComboBoxExample(props) {
     'WY - Wyoming',
   ];
 
-  const us_states_options = US_STATES.map((pronoun) => ({ value: pronoun }));
+  const us_states_options = US_STATES.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
   const [options] = React.useState(us_states_options);
   const [suggestedOptions, setSuggestedOptions] = React.useState(us_states_options);
-  const [defaultOption, setDefaultOption] = React.useState(us_states_options[5].value);
+  const [inputValue, setInputValue] = React.useState(us_states_options[5].label);
   const [selected, setSelected] = React.useState(us_states_options[5]);
 
   const handleOnChange = ({ value }) => {
+    setSelected();
     if (value) {
-      setDefaultOption(value);
+      setInputValue(value);
       const filteredOptions = options.filter((item) =>
-        item.value.toLowerCase().includes(value.toLowerCase()),
+        item.label.toLowerCase().includes(value.toLowerCase()),
       );
       setSuggestedOptions(filteredOptions);
     } else {
-      setDefaultOption(value);
+      setInputValue(value);
       setSuggestedOptions(options);
     }
   };
 
   const handleSelect = ({ item }) => {
-    setDefaultOption(item.value);
+    setInputValue(item.label);
     setSuggestedOptions(options);
     setSelected(item);
   };
@@ -377,24 +384,25 @@ function ComboBoxExample(props) {
         accessibilityShowButtonLabel="Show a list of US states for this field"
         label="State"
         id="controlled"
+        inputValue={inputValue}
         noResultText="No results for your selection"
         options={suggestedOptions}
         onBlur={() => {
-          if (!selected) setDefaultOption("");
+          if (!selected) setInputValue("");
           setSuggestedOptions(options);
         }}
         onClear={() => {
-          setDefaultOption("")
+          setInputValue("")
           setSelected();
           setSuggestedOptions(options);
         }}
-        value={defaultOption}
+        selectedOption={selected}
         placeholder="Select a US state"
         onChange={handleOnChange}
         onSelect={handleSelect}
       />
-      { selected && selected.value
-        ? <Text>Estimated tax to be collected in { (selected && selected.value) } will be calculated at checkout</Text>
+      { selected && selected.label
+        ? <Text>Estimated tax to be collected in { (selected && selected.label) } will be calculated at checkout</Text>
         : null
       }
     </Flex>
@@ -416,7 +424,7 @@ function ComboBoxExample(props) {
     'Beauty illustration',
     'Beauty salon',
     'Beauty blender',
-   ].map((pronoun) => ({ value: pronoun })),
+   ].map((pronoun, index) => ({ label: pronoun, value: 'value'+index })),
    "DIY": [
     'DIY Projects',
     'DIY Art',
@@ -426,51 +434,50 @@ function ComboBoxExample(props) {
     'DIY Wall decor',
     'DIY Clothes',
     'DIY Christmas decorations',
-    'DIY Christmas gits',
-    'DIY Wall art'].map((pronoun) => ({ value: pronoun }))
+    'DIY Christmas gifts',
+    'DIY Wall art'].map((pronoun, index) => ({ label: pronoun, value: 'value'+index }))
   };
 
   const [currentCategory, setCurrentCategory] = React.useState("BEAUTY");
 
-  const [options, setOptions] = React.useState(CATEGORIES[currentCategory]);
+  const [suggestedOptions, setSuggestedOptions] = React.useState(CATEGORIES[currentCategory]);
 
-  const [suggestedOptions, setSuggestedOptions] = React.useState(options);
+  const [inputValue, setInputValue] = React.useState("");
 
-  const [defaultOption, setDefaultOption] = React.useState("");
-
-  const [selected, setSelected] = React.useState();
+  const [selectedOption, setSelectedOption] = React.useState();
 
   const resetOptions = () => {
-    setSuggestedOptions(options);
+    setSuggestedOptions(CATEGORIES[currentCategory]);
   }
 
   const handleOnChange = ({ value }) => {
+    setSelectedOption()
     if (value) {
-      setSelected()
-      setDefaultOption(value);
-      const filteredOptions = options.filter((item) =>
-        item.value.toLowerCase().includes(value.toLowerCase()),
+      setInputValue(value);
+      const filteredOptions = CATEGORIES[currentCategory].filter((item) =>
+        item.label.toLowerCase().includes(value.toLowerCase()),
       );
       setSuggestedOptions(filteredOptions);
     } else {
-      setDefaultOption(value);
+      setInputValue(value);
       resetOptions();
     }
   };
 
   const handleSelect = ({ item }) => {
-    setDefaultOption(item.value);
-    setSelected(item);
+    setInputValue(item.label);
+    setSelectedOption(item);
     resetOptions();
   };
 
   const handleOnBlur = () => {
-    if (!selected) setDefaultOption("");
+    if (!selectedOption) setInputValue("");
     resetOptions();
   }
 
   const handleOnClear = () => {
-    setDefaultOption("");
+    setInputValue("");
+    setSelectedOption()
     resetOptions();
   }
 
@@ -481,7 +488,7 @@ function ComboBoxExample(props) {
           const nextCategory = currentCategory === 'BEAUTY' ? 'DIY' : 'BEAUTY';
           setCurrentCategory(nextCategory)
           setSuggestedOptions(CATEGORIES[nextCategory])
-          setDefaultOption("")
+          setInputValue("")
         }}
         text={"Change options to " + (currentCategory === "BEAUTY" ? "DIY" : "BEAUTY") + " category"}
         inline
@@ -490,16 +497,17 @@ function ComboBoxExample(props) {
         accessibilityClearButtonLabel="Clear the current value"
         accessibilityShowButtonLabel="Show a list of categories for this field"
         id="programaticallySet"
+        inputValue={inputValue}
         noResultText="No results for your selection"
         options={suggestedOptions}
         label="Pin category"
         size="lg"
         onBlur={handleOnBlur}
         onClear={handleOnClear}
-        value={defaultOption}
         placeholder="Select a category"
         onChange={handleOnChange}
         onSelect={handleSelect}
+        selectedOption={selectedOption}
       />
     </Flex>
   );
@@ -510,7 +518,7 @@ function ComboBoxExample(props) {
       description={`
     Include [Tag](/Tag) elements in the input using the \`tags\` prop.
 
-    Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled).
+    Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled). A controlled ComboBox with requires three value props: \`options\`,  \`inputValue\`,  and \`tags\`.
 
     To use ComboBox with [tags](/Tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
       title="Tags"
@@ -535,27 +543,26 @@ function ComboBoxExample(props) {
     'zie / zem',
   ];
 
-  const options = PRONOUNS.map((pronoun) => ({ value: pronoun }));
+  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
   const [unselectedOptions, setUnselectedOptions] = React.useState(options.filter((pronoun) => !selected.includes(pronoun.value)));
   const [suggestedOptions, setSuggestedOptions] = React.useState(unselectedOptions);
 
-  const handleOnSelect = ({ item: { value } }) => {
-    if (!selected.includes(value) && selected.length < 2) {
-      const newSelected = [...selected, value];
+  const handleOnSelect = ({ item: { label } }) => {
+    if (!selected.includes(label) && selected.length < 2) {
+      const newSelected = [...selected, label];
       setSelected(newSelected);
-      setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.value)));
+      setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
       setDefaultOption('');
     }
   };
 
   const handleOnChange = ({ value }) => {
-    console.log("change")
     setDefaultOption(value);
     if (value) {
       setDefaultOption(value);
       const filteredOptions = unselectedOptions.filter((item) =>
-        item.value.toLowerCase().includes(value.toLowerCase()),
+        item.label.toLowerCase().includes(value.toLowerCase()),
       );
       setSuggestedOptions(filteredOptions);
     } else {
@@ -581,16 +588,16 @@ function ComboBoxExample(props) {
     if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
       const newSelected = [...selected.slice(0, -1)];
       setSelected(newSelected);
-      setUnselectedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.value)));
-      setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.value)));
+      setUnselectedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
+      setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
     }
   };
 
   const handleRemoveTag = (removedValue) => {
     const newSelected = selected.filter((tagValue) => tagValue !== removedValue);
     setSelected(newSelected);
-    setUnselectedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.value)));
-    setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.value)));
+    setUnselectedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
+    setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
   };
 
   const renderedTags = selected.map((pronoun) => (
@@ -608,6 +615,7 @@ function ComboBoxExample(props) {
       accessibilityShowButtonLabel="Show a list of pronoun values for this field"
       label="Pronouns"
       id="tags"
+      inputValue={defaultOption}
       noResultText="No results for your selection"
       options={suggestedOptions}
       ref={ref}
@@ -619,7 +627,6 @@ function ComboBoxExample(props) {
       onSelect={handleOnSelect}
       placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
       tags={renderedTags}
-      value={defaultOption}
     />
   );
 }
@@ -645,7 +652,7 @@ function ComboBoxExample() {
         label="Select your favorite shape"
         id="favoriteShape"
         noResultText="No results for your selection"
-        options={[{ value:'square'}, { value:'circle'}]}
+        options={[{ label:'square', value:'1'}, { label:'circle', value:'2'}]}
         onSelect={() => ref.current.focus()}
         placeholder="Select a shape"
       />
@@ -655,7 +662,7 @@ function ComboBoxExample() {
         label="Select your favorite color"
         id="favoriteColor"
         noResultText="No results for your selection"
-        options={[{ value:'red'}, { value:'blue'}, { value:'green'}, { value:'yellow'}]}
+        options={[{ label:'red', value:'1'}, { label:'blue', value:'2'}, { label:'green', value:'3'}, { label:'yellow', value:'4'}]}
         placeholder="Select a color"
         ref={ref}
       />
@@ -675,9 +682,10 @@ function ComboBoxExample(props) {
   const [item, setItem] = React.useState('');
   const [selected, setSelected] = React.useState(null);
 
-  const options = Array.from(Array(20).keys()).map((item) => ({
-    value: "Value-" + (item + 1),
-    subtext: "Subtext-" + (item + 1),
+  const options = Array(20).fill(0).map((item, index) => ({
+    label: "Label-" + (index + 1),
+    value: "Value-" + (index + 1),
+    subtext: "Subtext-" + (index + 1),
   }));
 
   const handleOnChange = ({ value }) => setItem(value);
