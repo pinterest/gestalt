@@ -14,7 +14,7 @@ import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-export type OptionObject = {|
+export type OptionItemType = {|
   label: string,
   subtext?: string,
   value: string,
@@ -33,21 +33,21 @@ type Props = {|
     {| disableOnNavigation: () => void |},
   >,
   onSelect?: ({|
-    item: OptionObject,
+    item: OptionItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
-  option: OptionObject,
+  option: OptionItemType,
   role?: 'option' | 'menuitem',
-  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
+  selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
   setHoveredItemIndex: (number) => void,
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
 |};
 
-const MenuOptionWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
->(function MenuOption(props, ref): Node {
+>(function OptionItem(props, ref): Node {
   const {
     badgeText, // eslint-disable-line react/prop-types
     children, // eslint-disable-line react/prop-types
@@ -88,7 +88,7 @@ const MenuOptionWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     [styles.pointer]: true,
   });
 
-  const menuOptionContents = (
+  const optionItemContent = (
     <Flex>
       <Flex direction="column" flex="grow" gap={1}>
         <Flex alignItems="center">
@@ -173,21 +173,21 @@ const MenuOptionWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
             onClick={onClick}
             target={isExternal ? 'blank' : 'self'}
           >
-            {menuOptionContents}
+            {optionItemContent}
           </Link>
         ) : (
-          menuOptionContents
+          optionItemContent
         )}
       </Box>
     </div>
   );
 });
 
-MenuOptionWithForwardRef.displayName = 'MenuOption';
+OptionItemWithForwardRef.displayName = 'OptionItem';
 
-export default MenuOptionWithForwardRef;
+export default OptionItemWithForwardRef;
 
-MenuOptionWithForwardRef.propTypes = {
+OptionItemWithForwardRef.propTypes = {
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   onClick: PropTypes.func,

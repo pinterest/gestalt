@@ -17,7 +17,7 @@ import Popover from './Popover.js';
 import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
-import ComboBoxOption, { type OptionObject } from './MenuOption.js';
+import ComboBoxOption, { type OptionItemType } from './OptionItem.js';
 
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
@@ -31,7 +31,7 @@ type Props = {|
   // REQUIRED
   accessibilityClearButtonLabel: string,
   id: string,
-  options: $ReadOnlyArray<OptionObject>,
+  options: $ReadOnlyArray<OptionItemType>,
   noResultText: string,
   // OPTIONAL
   disabled?: boolean,
@@ -58,10 +58,10 @@ type Props = {|
   |}) => void,
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: OptionObject,
+    item: OptionItemType,
   |}) => void,
   placeholder?: string,
-  selectedOption?: OptionObject,
+  selectedOption?: OptionItemType,
   size?: ComboBoxSize,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
 |};
@@ -104,8 +104,8 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<?OptionObject>(null);
-  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
+  const [selectedItem, setSelectedItem] = useState<?OptionItemType>(null);
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionItemType>>(options);
   const [textfieldInput, setTextfieldInput] = useState<string>('');
 
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);

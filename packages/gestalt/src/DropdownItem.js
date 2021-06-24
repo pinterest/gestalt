@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import PropTypes from 'prop-types';
-import MenuOption, { type OptionObject } from './MenuOption.js';
+import MenuOption, { type OptionItemType } from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 
 type PublicProps = {|
@@ -9,10 +9,10 @@ type PublicProps = {|
   children?: Node,
   onSelect: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: OptionObject,
+    item: OptionItemType,
   |}) => void,
-  option: OptionObject,
-  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
+  option: OptionItemType,
+  selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
 |};
 
 type PrivateProps = {|
@@ -71,7 +71,7 @@ DropdownItem.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     subtext: PropTypes.string,
-  }).isRequired: React$PropType$Primitive<OptionObject>),
+  }).isRequired: React$PropType$Primitive<OptionItemType>),
   // $FlowFixMe[signature-verification-failure] Beware, this thing is a mess to properly type
   selected: PropTypes.oneOfType([
     PropTypes.shape({

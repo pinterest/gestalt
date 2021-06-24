@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import PropTypes from 'prop-types';
-import MenuOption, { type OptionObject } from './MenuOption.js';
+import MenuOption, { type OptionItemType } from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
@@ -14,7 +14,7 @@ type PublicProps = {|
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| disableOnNavigation: () => void |},
   >,
-  option: OptionObject,
+  option: OptionItemType,
 |};
 
 type PrivateProps = {|
@@ -74,5 +74,5 @@ DropdownLink.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     subtext: PropTypes.string,
-  }).isRequired: React$PropType$Primitive<OptionObject>),
+  }).isRequired: React$PropType$Primitive<OptionItemType>),
 };
