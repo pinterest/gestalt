@@ -40,6 +40,7 @@ type Props = {|
   >,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
+  onKeyDown?: AbstractEventHandler<SyntheticKeyboardEvent<HTMLAnchorElement>>,
   onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
@@ -72,6 +73,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     onClick,
     onBlur,
     onFocus,
+    onKeyDown,
     onMouseDown,
     onMouseUp,
     onMouseEnter,
@@ -198,6 +200,9 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       onFocus={(event) => {
         onFocus?.({ event });
       }}
+      onKeyDown={(event) => {
+        onKeyDown?.({ event });
+      }}
       onMouseEnter={(event) => {
         onMouseEnter?.({ event });
       }}
@@ -255,6 +260,7 @@ InternalLinkWithForwardRef.propTypes = {
   onClick: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onMouseDown: PropTypes.func,
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,

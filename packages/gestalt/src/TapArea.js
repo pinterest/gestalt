@@ -19,6 +19,10 @@ type MouseEventHandler = AbstractEventHandler<
   SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
 >;
 
+type KeyboardEventHandler = AbstractEventHandler<
+  SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+>;
+
 export type OnTapType = AbstractEventHandler<
   | SyntheticMouseEvent<HTMLDivElement>
   | SyntheticKeyboardEvent<HTMLDivElement>
@@ -36,6 +40,7 @@ type BaseTapArea = {|
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onBlur?: FocusEventHandler,
   onFocus?: FocusEventHandler,
+  onKeyDown?: KeyboardEventHandler,
   onMouseDown?: MouseEventHandler,
   onMouseUp?: MouseEventHandler,
   onMouseEnter?: MouseEventHandler,
@@ -80,6 +85,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     fullWidth = true,
     mouseCursor = 'pointer',
     onBlur,
+    onKeyDown,
     onFocus,
     onMouseDown,
     onMouseUp,
@@ -159,6 +165,12 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
 
   const handleLinkOnFocus = ({ event }) => handleOnFocus(event);
 
+  const handleOnKeyDown = (event) => {
+    if (!disabled && onKeyDown) onKeyDown({ event });
+  };
+
+  const handleLinkOnKeyDown = ({ event }) => handleOnKeyDown(event);
+
   const handleOnMouseEnter = (event) => {
     if (!disabled && onMouseEnter) {
       onMouseEnter({ event });
@@ -190,6 +202,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         onClick={handleLinkClick}
         onBlur={handleLinkOnBlur}
         onFocus={handleLinkOnFocus}
+        onKeyDown={handleLinkOnKeyDown}
         // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
         onMouseDown={onMouseDown}
         // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
@@ -223,6 +236,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         handleOnBlur(event);
         handleBlur();
       }}
+      onKeyDown={handleOnKeyDown}
       onFocus={handleOnFocus}
       onMouseDown={(event) => {
         onMouseDown?.({ event });
@@ -274,6 +288,7 @@ TapAreaWithForwardRef.propTypes = {
   >),
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onMouseDown: PropTypes.func,
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,

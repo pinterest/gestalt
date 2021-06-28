@@ -35,3 +35,25 @@
   flex-wrap: wrap;
   padding-bottom: 4px;
 }
+
+html:not([dir="rtl"]) .actionButton {
+  padding-right: 32px;
+}
+
+html[dir="rtl"] .actionButton {
+  padding-left: 32px;
+}
+
+.actionButtonContainer {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+}
+
+html:not([dir="rtl"]) .actionButtonContainer {
+  right: 0;
+}
+
+html[dir="rtl"] .actionButtonContainer {
+  left: 0;
+}
