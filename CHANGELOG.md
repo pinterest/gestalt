@@ -1,3 +1,9 @@
+## 27.3.4 (Jun 28, 2021)
+
+### Patch
+
+- TextField: new InternalTextField for reusability (#1573)
+
 ## 27.3.3 (Jun 24, 2021)
 
 ### Patch
