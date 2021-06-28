@@ -13,7 +13,7 @@ import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
 import layout from './Layout.css';
 import styles from './InternalTextField.css';
-import { TAB, ENTER } from './keyCodes.js';
+import { TAB, SPACE, ENTER } from './keyCodes.js';
 import typography from './Typography.css';
 
 type Props = {|
@@ -202,15 +202,23 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
         {textfieldIconButton && !disabled ? (
           // styles.actionButtonContainernis required for RTL positioning
           <div className={classnames(styles.actionButtonContainer)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
+            <Box
+              aria-hidden={textfieldIconButton === 'expand'}
+              alignItems="center"
+              display="flex"
+              height="100%"
+              marginEnd={2}
+              rounding="circle"
+            >
               <TapArea
                 accessibilityLabel={
-                  textfieldIconButton === 'clear' ? accessibilityClearButtonLabel : ''
+                  textfieldIconButton === 'clear' ? accessibilityClearButtonLabel : undefined
                 }
                 onBlur={() => setFocusedButton(false)}
                 onFocus={() => setFocusedButton(true)}
                 onKeyDown={({ event }) => {
-                  if (event.keyCode !== ENTER && event.keyCode !== TAB) innerRef.current?.focus();
+                  if ([ENTER, SPACE].includes(event.keyCode)) handleOnClickIconButton();
+                  if (event.keyCode !== TAB) event.preventDefault();
                 }}
                 onMouseEnter={() => setFocusedButton(true)}
                 onMouseLeave={() => setFocusedButton(false)}

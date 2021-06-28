@@ -6,15 +6,6 @@ import ComboBox from './ComboBox.js';
 import Tag from './Tag.js';
 
 describe('ComboBox', () => {
-  global.document.createRange = () => ({
-    setStart: () => {},
-    setEnd: () => {},
-    commonAncestorContainer: {
-      nodeName: 'BODY',
-      ownerDocument: document,
-    },
-  });
-
   const PRONOUNS = [
     'ey / em',
     'he / him',
@@ -40,24 +31,29 @@ describe('ComboBox', () => {
 
   const NO_RESULTS = 'No results found';
   const CLEAR = 'Clear selection';
-  const SHOW = 'Show popup';
-  const REMOVE = 'Remove tag';
+  const EMPTY_STRING = '';
+  const REMOVE_TAG = 'Remove tag';
   const PLACEHOLDER = 'placeholder';
+  const LABEL = 'label';
 
   const tagsInput = PRONOUNS.map((pronoun) => (
-    <Tag key={pronoun} onRemove={() => {}} removeIconAccessibilityLabel={REMOVE} text={pronoun} />
+    <Tag
+      key={pronoun}
+      onRemove={() => {}}
+      removeIconAccessibilityLabel={REMOVE_TAG}
+      text={pronoun}
+    />
   ));
 
   const renderComboBox = ({
     // Cmp Props
     accessibilityClearButtonLabel = CLEAR,
-    accessibilityShowButtonLabel = SHOW,
     disabled = false,
     errorMessage = undefined,
     helperText = undefined,
     id = 'test',
     inputValue = undefined,
-    label = undefined,
+    label = LABEL,
     noResultText = NO_RESULTS,
     onBlur = undefined,
     onChange = undefined,
@@ -74,7 +70,6 @@ describe('ComboBox', () => {
     render(
       <ComboBox
         accessibilityClearButtonLabel={accessibilityClearButtonLabel}
-        accessibilityShowButtonLabel={accessibilityShowButtonLabel}
         disabled={disabled}
         errorMessage={errorMessage}
         helperText={helperText}
@@ -109,7 +104,7 @@ describe('ComboBox', () => {
 
       expect(screen.queryByRole('button')).not.toBeInTheDocument();
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
       expect(screen.queryByText(PRONOUNS[3])).not.toBeInTheDocument();
     });
@@ -117,7 +112,7 @@ describe('ComboBox', () => {
     it('renders dropdown with options on click', () => {
       renderComboBox({});
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
       expect(screen.getAllByRole('option').length).toBe(defaultOptionsLength);
       expect(screen.getByText(PRONOUNS[1])).toBeVisible();
@@ -127,14 +122,14 @@ describe('ComboBox', () => {
     it('selects an option on click', () => {
       renderComboBox({});
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
       expect(screen.getByDisplayValue(PRONOUNS[1])).toBeVisible();
       expect(screen.queryByText(PRONOUNS[3])).not.toBeInTheDocument();
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
       expect(screen.getByRole('option', { name: 'he / him Selected item' })).toBeVisible();
     });
@@ -146,7 +141,7 @@ describe('ComboBox', () => {
       const input2 = 'r';
       const input3 = '{backspace}';
 
-      userEvent.type(screen.getByPlaceholderText(PLACEHOLDER), input1);
+      userEvent.type(screen.getByLabelText(LABEL), input1);
 
       expect(screen.getAllByRole('option').length).toBe(
         PRONOUNS.filter((x) => x.includes(input1)).length,
@@ -168,7 +163,7 @@ describe('ComboBox', () => {
     it('resets options after selecting', () => {
       renderComboBox({});
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
@@ -182,7 +177,7 @@ describe('ComboBox', () => {
 
       const input = 'xxxx';
 
-      userEvent.type(screen.getByPlaceholderText(PLACEHOLDER), input);
+      userEvent.type(screen.getByLabelText(LABEL), input);
 
       expect(screen.queryByText(NO_RESULTS)).toBeVisible();
     });
@@ -190,22 +185,20 @@ describe('ComboBox', () => {
     it('shows correct icons', () => {
       renderComboBox({});
 
-      expect(screen.getByRole('button', { name: SHOW })).toBeVisible();
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
 
-      expect(screen.queryByRole('button', { name: CLEAR })).not.toBeInTheDocument();
-
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
       expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
-
-      expect(screen.queryByRole('button', { name: SHOW })).not.toBeInTheDocument();
     });
 
-    it('clears selected options after clicking clear button', () => {
+    it('clears selected options with clear button', () => {
       renderComboBox({});
+      const SPACE = '{space}';
+      const ENTER = '{enter}';
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
@@ -213,7 +206,25 @@ describe('ComboBox', () => {
 
       fireEvent.click(screen.getByRole('button', { name: CLEAR }));
 
-      expect(screen.getByPlaceholderText(PLACEHOLDER)).toBeVisible();
+      fireEvent.click(screen.getByLabelText(LABEL));
+
+      fireEvent.click(screen.getByText(PRONOUNS[1]));
+
+      userEvent.tab();
+
+      userEvent.type(screen.getByRole('button', { name: CLEAR }), ENTER);
+
+      expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
+
+      fireEvent.click(screen.getByLabelText(LABEL));
+
+      fireEvent.click(screen.getByText(PRONOUNS[1]));
+
+      userEvent.tab();
+
+      userEvent.type(screen.getByRole('button', { name: CLEAR }), SPACE);
+
+      expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
     });
 
     it('manages focus', () => {
@@ -223,9 +234,9 @@ describe('ComboBox', () => {
 
       userEvent.tab();
 
-      expect(screen.getByPlaceholderText(PLACEHOLDER)).toHaveFocus();
+      expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
@@ -235,33 +246,25 @@ describe('ComboBox', () => {
 
       fireEvent.click(screen.getByRole('button', { name: CLEAR }));
 
-      expect(screen.getByPlaceholderText(PLACEHOLDER)).toHaveFocus();
+      expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
       userEvent.tab();
 
-      expect(screen.queryByRole('button', { name: SHOW })).not.toHaveFocus();
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
     });
 
-    it('clears input on blur or not options is selected', () => {
+    it("doesn't clear input on blur when no option is selected", () => {
       renderComboBox({});
 
       userEvent.tab();
 
       const input1 = 'he';
 
-      userEvent.type(screen.getByPlaceholderText(PLACEHOLDER), input1);
+      userEvent.type(screen.getByLabelText(LABEL), input1);
 
       userEvent.tab();
 
-      expect(screen.queryByRole('button', { name: SHOW })).toBeVisible();
-
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
-
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
-
-      userEvent.tab();
-
-      expect(screen.getByDisplayValue(PRONOUNS[1])).toBeVisible();
+      expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
     });
   });
 
@@ -282,9 +285,9 @@ describe('ComboBox', () => {
         options: controlledOptions,
       });
 
-      fireEvent.click(screen.getByPlaceholderText(PLACEHOLDER));
+      fireEvent.click(screen.getByLabelText(LABEL));
 
-      expect(screen.getByRole('button', { name: SHOW })).toBeVisible();
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
       expect(screen.getAllByRole('option').length).toBe(controlledOptionsLength);
       expect(screen.getByText(PRONOUNS[1])).toBeVisible();
     });
@@ -340,13 +343,13 @@ describe('ComboBox', () => {
     it('renders with tags', () => {
       const { baseElement } = renderComboBox({
         tags: tagsInput,
-        inputValue: '',
+        inputValue: EMPTY_STRING,
         options: controlledOptions,
       });
       expect(baseElement).toMatchSnapshot();
 
       expect(screen.getByRole('combobox')).toBeVisible();
-      expect(screen.getAllByRole('button', { name: REMOVE }).length).toBe(defaultOptionsLength);
+      expect(screen.getAllByRole('button', { name: REMOVE_TAG }).length).toBe(defaultOptionsLength);
       expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
       expect(screen.queryByText(PLACEHOLDER)).not.toBeInTheDocument();
     });

@@ -13,6 +13,20 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
       style="min-width: 280px;"
     >
       <span>
+        <label
+          class="label"
+          for="comboxbox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
         <div
           class="box relative"
         >
@@ -28,12 +42,12 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
             class="actionButtonContainer"
           >
             <div
+              aria-hidden="true"
               class="box circle itemsCenter marginEnd2 xsDisplayFlex"
               style="height: 100%;"
             >
               <div
                 aria-disabled="false"
-                aria-label="Show popup"
                 class="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
                 role="button"
                 tabindex="-1"
@@ -78,6 +92,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
       style="min-width: 280px;"
     >
       <span>
+        <label
+          class="label"
+          for="comboxbox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
         <div
           class="box relative"
         >
@@ -547,6 +575,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="actionButtonContainer"
           >
             <div
+              aria-hidden="false"
               class="box circle itemsCenter marginEnd2 xsDisplayFlex"
               style="height: 100%;"
             >
@@ -597,6 +626,20 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
       style="min-width: 280px;"
     >
       <span>
+        <label
+          class="label"
+          for="comboxbox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
         <div
           class="box relative"
         >
@@ -612,12 +655,12 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
             class="actionButtonContainer"
           >
             <div
+              aria-hidden="true"
               class="box circle itemsCenter marginEnd2 xsDisplayFlex"
               style="height: 100%;"
             >
               <div
                 aria-disabled="false"
-                aria-label="Show popup"
                 class="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
                 role="button"
                 tabindex="-1"
@@ -662,6 +705,20 @@ exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
       style="min-width: 280px;"
     >
       <span>
+        <label
+          class="label"
+          for="comboxbox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
         <div
           class="box relative"
         >

@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="ComboBox"
-    description="ComboBox is the combination of a Textfield and an associated Dropdown to let the user filter a list when selecting. ComboBox allows to type the selection, type part of the selection and narrow the results, and select an option from the list."
+    description="ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list."
     defaultCode={`
 function ComboBoxExample(props) {
   const PRONOUNS = [
@@ -27,17 +27,31 @@ function ComboBoxExample(props) {
 
   const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
+  const [errorMessage, setErrorMessage] = React.useState();
+
+  const handleOnBlur = ({ value }) => {
+    if (value !== "" && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
+  };
+
+  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
+
   return (
-    <ComboBox
-      accessibilityClearButtonLabel="Clear the current value"
-      accessibilityShowButtonLabel="Show a list of pronoun values for this field"
-      label="Pronouns"
-      id="header"
-      noResultText="No results for your selection"
-      options={options}
-      placeholder="Add your pronouns"
-      helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-    />
+    <Box width={400}>
+      <ComboBox
+        accessibilityClearButtonLabel="Clear the current value"
+        accessibilityShowButtonLabel="Show a list of pronoun values for this field"
+        errorMessage={errorMessage}
+        helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+        id="header"
+        label="Pronouns"
+        noResultText="No results for your selection"
+        onBlur={handleOnBlur}
+        onChange={resetErrorMessage}
+        onClear={resetErrorMessage}
+        options={options}
+        placeholder="Add your pronouns"
+      />
+    </Box>
   );
 }
 `}
@@ -77,7 +91,7 @@ card(
         type: 'boolean',
         defaultValue: false,
         description:
-          'Set disabled state so ComboBox looks inactive, cannot be interacted with, and actions are not available. If tags are passed, they appeared disabled as well. See [tags](#TYags) variant to learn more.',
+          'When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](#TYags) variant to learn more.',
       },
       {
         name: 'helperText',
@@ -85,21 +99,15 @@ card(
         description: 'Provides additional information about how to select a ComboBox option.',
       },
       {
-        name: 'accessibilityShowButtonLabel',
-        required: true,
-        type: 'string',
-        description: 'Provide feedback when an error on selection occurs.',
-      },
-      {
         name: 'accessibilityClearButtonLabel',
         type: 'string',
         required: true,
-        description: 'Label to describe the icon’s purpose.',
+        description: "Label to describe the clear button's purpose.",
       },
       {
         name: 'errorMessage',
         type: 'string',
-        description: 'Label to describe the icon’s purpose.',
+        description: 'Provide feedback when an error on selection occurs.',
       },
       {
         name: 'noResultText',
@@ -131,7 +139,7 @@ card(
       {
         name: 'onKeyDown',
         type: '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
-        description: 'Callback for key stroke events. See [tags](#TYags) variant to learn more.',
+        description: 'Callback for key stroke events. See [tags](#Tags) variant to learn more.',
       },
       {
         name: 'onSelect',
@@ -141,7 +149,7 @@ card(
       {
         name: 'placeholder',
         type: 'string',
-        description: 'Specify a short description suggestion the expected input for the field',
+        description: 'Specify a short description that suggests the expected input for the field',
       },
       {
         name: 'selectedOption',
@@ -160,7 +168,7 @@ card(
         name: 'tags',
         type: 'Array<Element<typeof Tag>>',
         description:
-          'List of tags to display in the component. See [tags](#tags) variant to learn more.',
+          'List of tags to display in the component. See [tags](#Tags) variant to learn more.',
       },
       {
         name: 'ref',
@@ -199,6 +207,7 @@ card(
       title="Keyboard interaction"
       description={`
     * Hitting \`Enter\` or \`Space\` key on the ComboBox's trigger opens the options list
+    * Once an item is selected, hitting \`Enter\` or \`Space\` on the clear button clears the selection and returns focus to the input textfield
     * \`Escape\` key closes the options list, while moving focus back on the ComboBox's trigger
     * Arrow keys are used to navigate items within the options list
     * \`Enter\` key selects an item within the options list
@@ -227,17 +236,32 @@ function ComboBoxExample(props) {
 
   const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
+  const [errorMessage, setErrorMessage] = React.useState();
+
+  const handleOnBlur = ({ value }) => {
+    if (value !== "" && !PRONOUNS.includes(value)) setErrorMessage('Por favor, selecciona una opción válida');
+  };
+
+  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
+
   return (
-    <ComboBox
-      accessibilityClearButtonLabel="Remueve la lista de pronombres seleccionados"
-      accessibilityShowButtonLabel="Muestra la lista de pronombres para este campo"
-      label="Pronombres"
-      id="localization"
-      noResultText="No se encontró ninguna coincidencia"
-      options={options}
-      placeholder="Añade tus pronombres"
-      helperText="Elige hasta 2 grupos de pronombres para que aparezcan en tu perfil y otras personas sepan cómo referirse a ti. Puedes editarlos o eliminarlos en cualquier momento."
-    />
+    <Box width={400}>
+      <ComboBox
+        accessibilityClearButtonLabel="Remueve la lista de pronombres seleccionados"
+        accessibilityShowButtonLabel="Muestra la lista de pronombres para este campo"
+        errorMessage={errorMessage}
+        helperText="Elige hasta 2 grupos de pronombres para que aparezcan en tu perfil y otras personas sepan cómo referirse a ti. Puedes editarlos o eliminarlos en cualquier momento."
+        id="localization"
+        label="Pronombres"
+        noResultText="No se encontró ninguna coincidencia"
+        onBlur={handleOnBlur}
+        onChange={resetErrorMessage}
+        onClear={resetErrorMessage}
+        options={options}
+        placeholder="Añade tus pronombres"
+      />
+    </Box>
+
   );
 }
 `}
@@ -248,13 +272,13 @@ function ComboBoxExample(props) {
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
-      description="ComboBox can be used as a controlled or an uncontrolled component. An uncontrolled ComboBox stores its own state internally and update it based on the user input. On the other side, a controlled ComboBox's state is managed by a parent component. The parent component's state passes new values through props to the controlled component which notifies changes through event callbacks."
+      description="ComboBox can be used as a controlled or an uncontrolled component. An uncontrolled ComboBox stores its own state internally and updates it based on the user input. On the other side, a controlled ComboBox's state is managed by a parent component. The parent component's state passes new values through props to the controlled component which notifies changes through event callbacks."
       title="Controlled vs Uncontrolled"
     >
       <MainSection.Card
         cardSize="lg"
         title="Uncontrolled ComboBox"
-        description={`An uncontrolled ComboBox should be used for basic cases where no default value or tags are required. By passing \`options\` values to ComboBox, the component takes control and has fully manages its internal state. Don't use the \`inputValue\` or \`selectedOptions\` props, any value different from \`null\` and \`undefined\` activates a controlled ComboBox.`}
+        description={`An uncontrolled ComboBox should be used for basic cases where no default value or tags are required. Don't pass \`inputValue\` or \`selectedOptions\` props to keep the component uncontrolled. By passing \`inputValue\` to ComboBox, the component fully manages its internal state: any value different from \`null\` and \`undefined\` makes Combobox controlled.`}
         defaultCode={`
 function ComboBoxExample(props) {
   const PRONOUNS = [
@@ -271,17 +295,31 @@ function ComboBoxExample(props) {
 
   const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
+  const [errorMessage, setErrorMessage] = React.useState();
+
+  const handleOnBlur = ({ value }) => {
+    if (value !== "" && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
+  };
+
+  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
+
   return (
-    <ComboBox
-      accessibilityClearButtonLabel="Clear the current value"
-      accessibilityShowButtonLabel="Show a list of pronoun values for this field"
-      label="Pronouns"
-      id="uncontrolled"
-      noResultText="No results for your selection"
-      options={options}
-      placeholder="Add your pronouns"
-      helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-    />
+    <Box width={400}>
+      <ComboBox
+        accessibilityClearButtonLabel="Clear the current value"
+        accessibilityShowButtonLabel="Show a list of pronoun values for this field"
+        errorMessage={errorMessage}
+        helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+        id="uncontrolled"
+        label="Pronouns"
+        noResultText="No results for your selection"
+        onBlur={handleOnBlur}
+        onChange={resetErrorMessage}
+        onClear={resetErrorMessage}
+        options={options}
+        placeholder="Add your pronouns"
+      />
+    </Box>
   );
 }
 `}
@@ -289,7 +327,7 @@ function ComboBoxExample(props) {
       <MainSection.Card
         cardSize="lg"
         title="Controlled ComboBox"
-        description={` A controlled ComboBox is required if a selected value is set, as shown in the first example. In the second example, values are set programatically. Controlled Comboboxes with [tags](#Tags) are also controlled components. A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`selectedOptions\`. ComboBox notifies of changes via the \`onChange\`, \`onSelect\`, \`onBlur\`, \`onFocus\`, \`onKeyDown\`, and \`onClear\` props. All values displayed by ComboBox at any time are controlled externally. To clear \`inputValue\`, set the value to an empty string \`inputValue\` = \` "" \`, \`null\`  or \` undefined\` values turn ComboBox into an uncontrolled component.`}
+        description={` A controlled ComboBox is required if a selected value is set, as shown in the first example. In the second example, values are set programatically. Controlled Comboboxes with [tags](#Tags) are also controlled components. A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`selectedOptions\`. ComboBox is notified of changes via the \`onChange\`, \`onSelect\`, \`onBlur\`, \`onFocus\`, \`onKeyDown\`, and \`onClear\` props. All values displayed by ComboBox at any time are controlled externally. To clear \`inputValue\`, set the value to an empty string \`inputValue\` = \` "" \`, \`null\`  or \` undefined\` values turn ComboBox into an uncontrolled component.`}
         defaultCode={`
 function ComboBoxExample(props) {
   const US_STATES = [
@@ -360,7 +398,7 @@ function ComboBoxExample(props) {
     setSelected();
     if (value) {
       setInputValue(value);
-      const filteredOptions = options.filter((item) =>
+      const filteredOptions = usStatesOptions.filter((item) =>
         item.label.toLowerCase().includes(value.toLowerCase()),
       );
       setSuggestedOptions(filteredOptions);
@@ -517,7 +555,7 @@ function ComboBoxExample(props) {
       description={`
     Include [Tag](/Tag) elements in the input using the \`tags\` prop.
 
-    Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled). A controlled ComboBox with requires three value props: \`options\`,  \`inputValue\`,  and \`tags\`.
+    Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled). A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`tags\`.
 
     To use ComboBox with [tags](/Tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
       title="Tags"
@@ -671,7 +709,7 @@ function ComboBoxExample() {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description="Display a subtext text under each selection option"
+      description="Display `subtext` under each selection option"
       title="With subtext"
     >
       <MainSection.Card
@@ -716,11 +754,15 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Textfield](/Textfield)**
-Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Buttons](/Buttons) and [Images](/Images).
+**[TextField](/Textfield)**
+Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Button](/Button) and [Image](/Image).
 
 **[SelectList](/SelectList)**
 If users need to select from a short, simple list (without needing sections, subtext details, or the ability to filter the list), use SelectList.
+
+**[Dropdown](/Dropdown)**
+Dropdown is an element constructed using Popover as its container. Use Dropdown to display a list of actions or options in a Popover.
+
 
 **[Fieldset](/Fieldset)**
 Use Fieldset to group related form items.

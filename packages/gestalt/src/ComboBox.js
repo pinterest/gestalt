@@ -258,10 +258,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           helperText={helperText}
           id={`comboxbox-${id}`}
           label={label}
-          onBlur={({ event, value }) => {
-            if (isNotControlled && !selectedItem) setTextfieldInput('');
-            if (onBlur) onBlur({ event, value });
-          }}
+          onBlur={({ event, value }) => onBlur?.({ event, value })}
           onChange={({ event, value }) => {
             setHoveredItemIndex(null);
             if (isNotControlled) {

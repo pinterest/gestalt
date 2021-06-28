@@ -4,7 +4,6 @@ import ComboBox from './ComboBox.js';
 const Valid = (
   <ComboBox
     accessibilityClearButtonLabel="Clear options"
-    accessibilityShowButtonLabel="Show popup"
     id="ComboBox"
     noResultText="No Result"
     options={[{ label: '1', value: '1', subtext: 'subtext' }]}
