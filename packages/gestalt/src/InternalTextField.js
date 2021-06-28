@@ -16,7 +16,6 @@ import styles from './InternalTextField.css';
 import { TAB, ENTER } from './keyCodes.js';
 import typography from './Typography.css';
 
-type Button = 'clear' | 'dropdown';
 type Props = {|
   // REQUIRED
   id: string,
@@ -27,11 +26,9 @@ type Props = {|
   // OPTIONAL
   accessibilityClearButtonLabel?: string,
   accessibilityControls?: string,
-  accessibilityActivedescendant?: string,
-  accessibilityShowButtonLabel?: string,
+  accessibilityActiveDescendant?: string,
   autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
   disabled?: boolean,
-  endButton?: Button,
   errorMessage?: Node,
   hasError?: boolean,
   helperText?: string,
@@ -57,6 +54,7 @@ type Props = {|
   placeholder?: string,
   size?: 'md' | 'lg',
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
+  textfieldIconButton?: 'clear' | 'expand',
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   value?: string,
 |};
@@ -67,12 +65,10 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
 > = forwardRef<Props, HTMLInputElement>(function TextField(props, ref): Node {
   const {
     accessibilityControls,
-    accessibilityActivedescendant,
+    accessibilityActiveDescendant,
     accessibilityClearButtonLabel,
-    accessibilityShowButtonLabel,
     autoComplete,
     disabled = false,
-    endButton,
     errorMessage,
     hasError = false,
     helperText,
@@ -88,6 +84,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     placeholder,
     size = 'md',
     tags,
+    textfieldIconButton,
     type = 'text',
     value,
   } = props;
@@ -139,7 +136,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     {
       [layout.medium]: !tags && size === 'md',
       [layout.large]: tags || size === 'lg',
-      [styles.actionButton]: endButton,
+      [styles.actionButton]: textfieldIconButton,
     },
     tags
       ? {
@@ -153,7 +150,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
 
   const inputElement = (
     <input
-      aria-activedescendant={accessibilityActivedescendant}
+      aria-activedescendant={accessibilityActiveDescendant}
       aria-controls={accessibilityControls}
       aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
@@ -202,15 +199,13 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
         ) : (
           inputElement
         )}
-        {endButton && !disabled ? (
+        {textfieldIconButton && !disabled ? (
           // styles.actionButtonContainernis required for RTL positioning
           <div className={classnames(styles.actionButtonContainer)}>
             <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
               <TapArea
                 accessibilityLabel={
-                  endButton === 'clear'
-                    ? accessibilityClearButtonLabel
-                    : accessibilityShowButtonLabel
+                  textfieldIconButton === 'clear' ? accessibilityClearButtonLabel : ''
                 }
                 onBlur={() => setFocusedButton(false)}
                 onFocus={() => setFocusedButton(true)}
@@ -221,18 +216,20 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
                 onMouseLeave={() => setFocusedButton(false)}
                 onTap={handleOnClickIconButton}
                 rounding="circle"
-                tabIndex={endButton === 'clear' ? 0 : -1}
-                tapStyle={endButton === 'clear' ? 'compress' : 'none'}
+                tabIndex={textfieldIconButton === 'clear' ? 0 : -1}
+                tapStyle={textfieldIconButton === 'clear' ? 'compress' : 'none'}
               >
                 <Box
-                  color={focusedButton && endButton === 'clear' ? 'lightGray' : 'transparent'}
+                  color={
+                    focusedButton && textfieldIconButton === 'clear' ? 'lightGray' : 'transparent'
+                  }
                   padding={size === 'lg' ? 2 : 1}
                   rounding="circle"
                 >
                   <Icon
                     accessibilityLabel=""
                     size={12}
-                    icon={endButton === 'clear' ? 'cancel' : 'arrow-down'}
+                    icon={textfieldIconButton === 'clear' ? 'cancel' : 'arrow-down'}
                     color="darkGray"
                   />
                 </Box>
@@ -248,10 +245,9 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
 });
 
 InternalTextFieldWithForwardRef.propTypes = {
-  accessibilityActivedescendant: PropTypes.string,
+  accessibilityActiveDescendant: PropTypes.string,
   accessibilityClearButtonLabel: PropTypes.string,
   accessibilityControls: PropTypes.string,
-  accessibilityShowButtonLabel: PropTypes.string,
   autoComplete: PropTypes.oneOf([
     'current-password',
     'new-password',
@@ -261,7 +257,7 @@ InternalTextFieldWithForwardRef.propTypes = {
     'email',
   ]),
   disabled: PropTypes.bool,
-  endButton: PropTypes.oneOf(['clear', 'dropdown']),
+  textfieldIconButton: PropTypes.oneOf(['clear', 'expand']),
   errorMessage: PropTypes.node,
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
