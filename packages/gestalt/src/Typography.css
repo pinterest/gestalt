@@ -98,5 +98,5 @@ html[dir="rtl"] .alignStart,
   display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
   max-width: 100%;
   overflow: hidden;
-  word-break: break-all;
+  word-break: break-word;
 }
