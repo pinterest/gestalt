@@ -1,3 +1,9 @@
+## 27.3.5 (Jun 30, 2021)
+
+### Patch
+
+- Text: Update `word-break` style (#1577)
+
 ## 27.3.4 (Jun 28, 2021)
 
 ### Patch
