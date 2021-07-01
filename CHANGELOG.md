@@ -1,3 +1,9 @@
+## 29.0.0 (Jul 1, 2021)
+
+### Major
+
+- Button: rename inline prop to fullWidth + codemod (#1564)
+
 ## 28.0.1 (Jul 1, 2021)
 
 ### Patch
