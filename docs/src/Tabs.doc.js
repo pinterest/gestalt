@@ -52,6 +52,7 @@ card(
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [wrap, setWrap] = React.useState(false);
+  const [bgColor, setBgColor] = React.useState(false);
 
   const handleChange = ({ activeTabIndex, event }) => {
     event.preventDefault();
@@ -69,18 +70,37 @@ function TabExample() {
 
   return (
     <Flex alignItems="start" direction="column" gap={4}>
-      <Flex gap={4} padding={2}>
-        <Label htmlFor="wrap">
-          <Text>Wrap</Text>
-        </Label>
-        <Switch
-          id="wrap"
-          onChange={() => setWrap(!wrap)}
-          switched={wrap}
-        />
+      <Flex gap={8}>
+        <Flex gap={4}>
+          <Label htmlFor="wrap">
+            <Text>Wrap</Text>
+          </Label>
+          <Switch
+            id="wrap"
+            onChange={() => setWrap((currVal) => !currVal)}
+            switched={wrap}
+          />
+        </Flex>
+
+        <Flex gap={4}>
+          <Label htmlFor="bgColor">
+            <Text>Background color</Text>
+          </Label>
+          <Switch
+            id="bgColor"
+            onChange={() => setBgColor((currVal) => !currVal)}
+            switched={bgColor}
+          />
+        </Flex>
       </Flex>
 
-      <Box borderStyle="sm" maxWidth={500} overflow="auto" padding={1}>
+      <Box
+        borderStyle="sm"
+        color={bgColor ? 'lightGray' : undefined}
+        maxWidth={500}
+        overflow="auto"
+        padding={1}
+      >
         <Tabs
           activeTabIndex={activeIndex}
           onChange={handleChange}
