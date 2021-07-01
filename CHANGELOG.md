@@ -1,3 +1,9 @@
+## 28.0.1 (Jul 1, 2021)
+
+### Patch
+
+- Image: Refactor to function component (#1576)
+
 ## 28.0.0 (Jul 1, 2021)
 
 ### Major
