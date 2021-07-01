@@ -417,10 +417,10 @@ card(
     defaultCode={`
 <React.Fragment>
   <Box padding={2}>
-    <Button text="Inline button" />
+    <Button text="Default inline button" />
   </Box>
   <Box padding={2}>
-    <Button fullWidth text="Default full-width button" />
+    <Button fullWidth text="Full-width button" />
   </Box>
 </React.Fragment>`}
   />,

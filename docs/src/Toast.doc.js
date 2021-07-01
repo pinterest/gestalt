@@ -327,7 +327,7 @@ card(
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
       />,
     ]}
-    button={[null, <Button key="button-key" fullWidth={false} text="Undo" size="lg" />]}
+    button={[null, <Button key="button-key" text="Undo" size="lg" />]}
   >
     {(props) => <Toast {...props} />}
   </Combination>,
@@ -367,7 +367,7 @@ card(
             </Text>
           </Fragment>
         }
-        button={<Button key="button-key" fullWidth={false} text="Undo" size="lg" />}
+        button={<Button key="button-key" text="Undo" size="lg" />}
       />
     )}
   </Combination>,

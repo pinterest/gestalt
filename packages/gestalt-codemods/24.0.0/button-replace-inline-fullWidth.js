@@ -62,12 +62,12 @@ export default function transformer(file, api) {
             addFullWidth = false;
 
             if (attr.value === null) {
-              return false;
+              return null;
             }
 
             if (attr?.value?.expression?.value === false) {
               addFullWidth = true;
-              return false;
+              return null;
             }
 
             if (typeof attr?.value?.expression?.name === 'string') {
