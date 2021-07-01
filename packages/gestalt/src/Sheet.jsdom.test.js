@@ -93,23 +93,6 @@ describe('Sheet', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should attach a ref', () => {
-    const sheetRef = createRef();
-
-    render(
-      <Sheet
-        accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
-        onDismiss={jest.fn()}
-        ref={sheetRef}
-      >
-        <section />
-      </Sheet>,
-    );
-
-    expect(sheetRef.current instanceof HTMLDivElement).toEqual(true);
-  });
-
   it('should focus the dismiss button upon render', () => {
     const { container } = render(
       <Sheet
