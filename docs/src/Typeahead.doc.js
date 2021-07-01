@@ -10,7 +10,8 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Typeahead"
-    description={`Use a \`Typeahead\` when you want to let the user filter a list when selecting.`}
+    badge="deprecated"
+    description="Use the new [Combobox](/ComboBox) instead"
   />,
 );
 card(
