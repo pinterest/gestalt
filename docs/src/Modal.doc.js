@@ -73,11 +73,6 @@ card(
           'Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).',
       },
       {
-        name: 'ref',
-        type: "React.Ref<'div'>",
-        description: 'Ref that will be set on the underlying div element',
-      },
-      {
         name: 'role',
         type: `"alertdialog" | "dialog"`,
         defaultValue: 'dialog',

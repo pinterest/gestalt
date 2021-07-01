@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal Modal renders with ref 1`] = `
+exports[`Modal Modal renders 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body
