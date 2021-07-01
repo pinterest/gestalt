@@ -45,9 +45,9 @@ test('Image with fit: contain and role matches snapshot', () => {
     <Image
       alt="foo"
       fit="contain"
-      role="presentation"
       naturalHeight={50}
       naturalWidth={50}
+      role="presentation"
       src="foo.png"
     >
       Foo.png
