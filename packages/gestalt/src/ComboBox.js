@@ -18,19 +18,20 @@ import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
 import ComboBoxOption, { type OptionItemType } from './OptionItem.js';
-
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
+import { type LabelDisplay } from './Label.js';
 
-type ComboBoxSize = 'md' | 'lg';
+type Size = 'md' | 'lg';
 
 type Props = {|
   // REQUIRED
   accessibilityClearButtonLabel: string,
   id: string,
+  label: string,
   options: $ReadOnlyArray<OptionItemType>,
   noResultText: string,
   // OPTIONAL
@@ -38,7 +39,7 @@ type Props = {|
   errorMessage?: Node,
   helperText?: string,
   inputValue?: string,
-  label?: string,
+  labelDisplay?: LabelDisplay,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
@@ -62,7 +63,7 @@ type Props = {|
   |}) => void,
   placeholder?: string,
   selectedOption?: OptionItemType,
-  size?: ComboBoxSize,
+  size?: Size,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
 |};
 
@@ -77,6 +78,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     helperText,
     id,
     label,
+    labelDisplay = 'visible',
     noResultText,
     onBlur,
     onChange,
@@ -258,6 +260,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           helperText={helperText}
           id={`combobox-${id}`}
           label={label}
+          labelDisplay={labelDisplay}
           onBlur={({ event, value }) => onBlur?.({ event, value })}
           onChange={({ event, value }) => {
             setHoveredItemIndex(null);
@@ -372,6 +375,7 @@ ComboBoxWithForwardRef.propTypes = {
   helperText: PropTypes.string,
   inputValue: PropTypes.string,
   label: PropTypes.string,
+  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
   onBlur: PropTypes.func,
   onClear: PropTypes.func,
   onChange: PropTypes.func,
@@ -384,7 +388,7 @@ ComboBoxWithForwardRef.propTypes = {
     label: PropTypes.string.isRequired,
     subtext: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   }),
-  size: (PropTypes.oneOf(['md', 'lg']): React$PropType$Primitive<ComboBoxSize>),
+  size: (PropTypes.oneOf(['md', 'lg']): React$PropType$Primitive<Size>),
   tags: PropTypes.arrayOf(PropTypes.node),
 };
 

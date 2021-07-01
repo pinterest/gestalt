@@ -5,6 +5,7 @@ const Valid = (
   <ComboBox
     accessibilityClearButtonLabel="Clear options"
     id="ComboBox"
+    label="label"
     noResultText="No Result"
     options={[{ label: '1', value: '1', subtext: 'subtext' }]}
   />
@@ -14,6 +15,7 @@ const InvalidValue = (
   <ComboBox
     accessibilityClearButtonLabel="Clear options"
     id="ComboBox"
+    label="label"
     noResultText="No Result"
     // $FlowExpectedError[incompatible-type]
     options={[{ label: '1', value: 1, subtext: 'subtext' }]}

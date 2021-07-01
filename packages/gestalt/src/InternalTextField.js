@@ -15,6 +15,7 @@ import layout from './Layout.css';
 import styles from './InternalTextField.css';
 import { TAB, SPACE, ENTER } from './keyCodes.js';
 import typography from './Typography.css';
+import { type LabelDisplay } from './Label.js';
 
 type Props = {|
   // REQUIRED
@@ -33,6 +34,7 @@ type Props = {|
   hasError?: boolean,
   helperText?: string,
   label?: string,
+  labelDisplay?: LabelDisplay,
   name?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -74,6 +76,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     helperText,
     id,
     label,
+    labelDisplay,
     name,
     onBlur,
     onChange,
@@ -176,7 +179,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
 
   return (
     <span>
-      {label ? <FormLabel id={id} label={label} /> : null}
+      {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} /> : null}
       <Box position="relative">
         {tags ? (
           <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
@@ -265,12 +268,12 @@ InternalTextFieldWithForwardRef.propTypes = {
     'email',
   ]),
   disabled: PropTypes.bool,
-  textfieldIconButton: PropTypes.oneOf(['clear', 'expand']),
   errorMessage: PropTypes.node,
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
+  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
   name: PropTypes.string,
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
@@ -281,6 +284,7 @@ InternalTextFieldWithForwardRef.propTypes = {
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   tags: PropTypes.arrayOf(PropTypes.node),
+  textfieldIconButton: PropTypes.oneOf(['clear', 'expand']),
   type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
   value: PropTypes.string,
 };

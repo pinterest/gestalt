@@ -4,11 +4,13 @@ import type { Node } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FormLabel.css';
 import Text from './Text.js';
-import Label from './Label.js';
+import Label, { type LabelDisplay } from './Label.js';
 
-export default function FormLabel({ id, label }: {| id: string, label: string |}): Node {
+type Props = {| id: string, label: string, labelDisplay?: LabelDisplay |};
+
+export default function FormLabel({ id, label, labelDisplay }: Props): Node {
   return (
-    <Label htmlFor={id}>
+    <Label labelDisplay={labelDisplay} htmlFor={id}>
       <div className={styles.formLabel}>
         <Text size="sm">{label}</Text>
       </div>
@@ -19,4 +21,5 @@ export default function FormLabel({ id, label }: {| id: string, label: string |}
 FormLabel.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
 };

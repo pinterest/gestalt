@@ -39,7 +39,6 @@ function ComboBoxExample(props) {
     <Box width={400}>
       <ComboBox
         accessibilityClearButtonLabel="Clear the current value"
-        accessibilityShowButtonLabel="Show a list of pronoun values for this field"
         errorMessage={errorMessage}
         helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
         id="header"
@@ -85,6 +84,13 @@ card(
         name: 'label',
         type: 'string',
         description: 'Provide a label to identify the ComboBox field.',
+      },
+      {
+        name: 'labelDisplay',
+        type: `'visible'|'hidden'`,
+        defaultValue: 'visible',
+        description:
+          'Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](#Label-visibility) for more info.',
       },
       {
         name: 'disabled',
@@ -201,11 +207,94 @@ card(
   <MainSection name="Accessibility">
     <MainSection.Subsection
       title="Labels"
-      description={`ComboBox requires \`accessibilityShowButtonLabel\` and \`accessibilityClearButtonLabel\``}
+      description={`ComboBox requires \`label\` and \`accessibilityClearButtonLabel\``}
     />
     <MainSection.Subsection
-      title="Keyboard interaction"
+      title="Label visibility"
       description={`
+      By default, the \`label\` is visible above TextField. However, if the form items are labelled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.
+
+      In the example below, the "Discover this week's top searched trends across all categories" text is acting as a heading, so instead of repeating another label, we visually hide the label. When a user focuses on the ComboBox, a screen reader will announce "Choose a category to display top search trends, Select category".
+      `}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function ComboBoxExample(props) {
+  const CATEGORIES = [
+    'All Categories',
+    'Food and drinks',
+    'Beauty',
+    'Home decor',
+    'Fashion',
+    'Travel',
+    'Art',
+    'Quotes',
+    'Entertainment',
+    'Entertainment',
+    'DIY and crafts',
+    'Health',
+    'Wedding',
+    'Event planning',
+    'Gardening',
+    'Parenting',
+    'Vehicles',
+    'Design',
+    'Sport',
+    'Electronics',
+    'Animals',
+    'Finance',
+    'Architecture',
+  ];
+
+  const options = CATEGORIES.map((category, index) => ({
+    label: category,
+    value: 'value'+index ,
+  }));
+
+  const [errorMessage, setErrorMessage] = React.useState();
+
+  const handleOnBlur = ({ value }) => {
+    if (value !== '' && !CATEGORIES.includes(value))
+      setErrorMessage('Please, select a valid option');
+  };
+
+  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
+
+  return (
+    <Flex
+      direction="column"
+      gap={2}
+    >
+      <Heading size="md">Discover this week's top searched trends across all categories</Heading>
+      <Text inline> Wanna learn how trends work? Read
+        <Text weight="bold" inline>
+          <Link accessibilityLabel="Learn how trends on Pinterest work" target="blank" inline href="https://business.pinterest.com/content/pinterest-predicts/">
+            additional information
+          </Link>
+        </Text>
+      </Text>
+      <ComboBox
+        accessibilityClearButtonLabel="Clear the current value"
+        errorMessage={errorMessage}
+        id="displayLabel"
+        label="Choose a category to display top search trends"
+        labelDisplay="hidden"
+        noResultText="No results for your selection"
+        onBlur={handleOnBlur}
+        onChange={resetErrorMessage}
+        onClear={resetErrorMessage}
+        options={options}
+        placeholder="Select category"
+      />
+    </Flex>
+  );
+}
+`}
+      />
+      <MainSection.Subsection
+        title="Keyboard interaction"
+        description={`
     * Hitting \`Enter\` or \`Space\` key on the ComboBox's trigger opens the options list
     * Once an item is selected, hitting \`Enter\` or \`Space\` on the clear button clears the selection and returns focus to the input textfield
     * \`Escape\` key closes the options list, while moving focus back on the ComboBox's trigger
@@ -213,14 +302,15 @@ card(
     * \`Enter\` key selects an item within the options list
     * \`Tab\` or \` Shift + Tab\` close the options list and move focus accordingly
   `}
-    />
+      />
+    </MainSection.Subsection>
   </MainSection>,
 );
 
 card(
   <MainSection
     name="Localization"
-    description={`Be sure to localize the \`helperText\`, \`errorMessage\`, \`noResultText\`, \`label\`, \`placeholder\`, \`accessibilityShowButtonLabel\`,  and \`accessibilityClearButtonLabel\` props. \`options\` and \`value\` should be localized for those cases that can be translated. Note that localization can lengthen text by 20 to 30 percent.`}
+    description={`Be sure to localize the \`helperText\`, \`errorMessage\`, \`noResultText\`, \`label\`, \`placeholder\`,  and \`accessibilityClearButtonLabel\` props. \`options\` and \`value\` should be localized for those cases that can be translated. Note that localization can lengthen text by 20 to 30 percent.`}
   >
     <MainSection.Card
       cardSize="lg"
@@ -248,7 +338,6 @@ function ComboBoxExample(props) {
     <Box width={400}>
       <ComboBox
         accessibilityClearButtonLabel="Remueve la lista de pronombres seleccionados"
-        accessibilityShowButtonLabel="Muestra la lista de pronombres para este campo"
         errorMessage={errorMessage}
         helperText="Elige hasta 2 grupos de pronombres para que aparezcan en tu perfil y otras personas sepan cómo referirse a ti. Puedes editarlos o eliminarlos en cualquier momento."
         id="localization"
@@ -307,7 +396,6 @@ function ComboBoxExample(props) {
     <Box width={400}>
       <ComboBox
         accessibilityClearButtonLabel="Clear the current value"
-        accessibilityShowButtonLabel="Show a list of pronoun values for this field"
         errorMessage={errorMessage}
         helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
         id="uncontrolled"
@@ -418,7 +506,6 @@ function ComboBoxExample(props) {
     <Flex direction="column" gap={10} width="50%">
       <ComboBox
         accessibilityClearButtonLabel="Clear the current value"
-        accessibilityShowButtonLabel="Show a list of US states for this field"
         label="State"
         id="controlled"
         inputValue={inputValue}
@@ -532,7 +619,6 @@ function ComboBoxExample(props) {
         />
       <ComboBox
         accessibilityClearButtonLabel="Clear the current value"
-        accessibilityShowButtonLabel="Show a list of categories for this field"
         id="programaticallySet"
         inputValue={inputValue}
         noResultText="No results for your selection"
@@ -649,7 +735,6 @@ function ComboBoxExample(props) {
   return (
     <ComboBox
       accessibilityClearButtonLabel="Clear the current value"
-      accessibilityShowButtonLabel="Show a list of pronoun values for this field"
       label="Pronouns"
       id="tags"
       inputValue={defaultOption}
@@ -685,7 +770,6 @@ function ComboBoxExample() {
     <Flex gap={4}>
       <ComboBox
         accessibilityClearButtonLabel="Clear the current values"
-        accessibilityShowButtonLabel="Show a list of shape values for this field"
         label="Select your favorite shape"
         id="favoriteShape"
         noResultText="No results for your selection"
@@ -695,7 +779,6 @@ function ComboBoxExample() {
       />
       <ComboBox
         accessibilityClearButtonLabel="Clear the current values"
-        accessibilityShowButtonLabel="Show a list of color values for this field"
         label="Select your favorite color"
         id="favoriteColor"
         noResultText="No results for your selection"
@@ -734,7 +817,6 @@ function ComboBoxExample(props) {
   return (
     <ComboBox
       accessibilityClearButtonLabel="Clear the current value"
-      accessibilityShowButtonLabel="Show a list of values for this field"
       label="Choose a value"
       id="subtext"
       noResultText="No results for your selection"
