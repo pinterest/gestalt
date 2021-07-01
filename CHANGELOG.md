@@ -1,3 +1,9 @@
+## 28.0.0 (Jul 1, 2021)
+
+### Major
+
+- Modal, Sheet: deprecate ref (forwardRef removal) + codemod (#1578)
+
 ## 27.3.5 (Jun 30, 2021)
 
 ### Patch
