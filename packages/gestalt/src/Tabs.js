@@ -89,7 +89,7 @@ type TabProps = {|
 |};
 
 const TAB_ROUNDING = 2;
-const TAB_INNER_PADDING = 2;
+const TAB_INNER_PADDING = 1;
 
 export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
@@ -102,7 +102,7 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
   let color = 'white';
   if (pressed) {
     color = 'lightWash';
-  } else if (hovered || focused) {
+  } else if ((hovered || focused) && !isActive) {
     color = 'lightGray';
   }
 
@@ -110,19 +110,16 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
     <Box id={id} paddingY={3} ref={ref}>
       <TapArea
         accessibilityCurrent={isActive ? 'page' : undefined}
-        disabled={isActive}
         href={href}
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
-        onMouseDown={() => (isActive ? undefined : setPressed(true))}
+        onMouseDown={() => setPressed(true)}
         onMouseUp={() => setPressed(false)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onTap={({ event, disableOnNavigation }) => {
-          setHovered(false);
-          setFocused(false);
-          onChange({ activeTabIndex: index, event, disableOnNavigation });
-        }}
+        onTap={({ event, disableOnNavigation }) =>
+          onChange({ activeTabIndex: index, event, disableOnNavigation })
+        }
         role="link"
         rounding={TAB_ROUNDING}
         tapStyle="compress"
