@@ -59,7 +59,6 @@ function SpinnerExample() {
     <Box>
       <Box paddingY={2}>
         <Button
-          inline
           text={!show ? "Show spinner" : "Hide spinner"}
           onClick={() => setShow(!show)}
           size="md"

@@ -86,7 +86,6 @@ function PopoverExample() {
           accessibilityExpanded={open}
           accessibilityControls="main-example"
           color="white"
-          inline
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -94,7 +93,7 @@ function PopoverExample() {
           selected={open}
           text={selectedBoard}
         />
-        <Button color="red" inline onClick={() => {}} size="lg" text="Save" />
+        <Button color="red" onClick={() => {}} size="lg" text="Save" />
       </Flex>
       {open && (
         <Layer>
@@ -290,7 +289,6 @@ function PopoverExample() {
           accessibilityExpanded={open}
           accessibilityControls="popover-search"
           color="white"
-          inline
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -298,7 +296,7 @@ function PopoverExample() {
           selected={open}
           text={selectedBoard}
         />
-        <Button color="red" inline onClick={() => {}} size="lg" text="Save" />
+        <Button color="red" onClick={() => {}} size="lg" text="Save" />
       </Flex>
       {open && (
         <Layer>
@@ -519,7 +517,6 @@ function PopoverExample() {
           accessibilityExpanded={open}
           accessibilityControls="popover-search-boards"
           color="white"
-          inline
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -527,7 +524,7 @@ function PopoverExample() {
           selected={open}
           text={selectedBoard}
         />
-        <Button color="red" inline onClick={() => {}} size="lg" text="Save" />
+        <Button color="red" onClick={() => {}} size="lg" text="Save" />
       </Flex>
       {open && (
         <Layer>
@@ -668,7 +665,6 @@ function PopoverExample() {
           accessibilityExpanded={open}
           accessibilityControls="example-a11y"
           color="white"
-          inline
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -676,7 +672,7 @@ function PopoverExample() {
           selected={open}
           text={selectedBoard}
         />
-        <Button color="red" inline onClick={() => {}} size="lg" text="Save" />
+        <Button color="red" onClick={() => {}} size="lg" text="Save" />
       </Flex>
       {open && (
         <Layer>
@@ -867,7 +863,6 @@ function PopoverExample() {
           accessibilityExpanded={open}
           accessibilityControls="popover-search-board-2"
           color="white"
-          inline
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -875,7 +870,7 @@ function PopoverExample() {
           selected={open}
           text={selectedBoard}
         />
-        <Button color="red" inline onClick={() => {}} size="lg" text="Save" />
+        <Button color="red" onClick={() => {}} size="lg" text="Save" />
       </Flex>
       {open && (
         <Layer>
@@ -979,7 +974,6 @@ function PopoverExample() {
                 </Text>
                 <Button
                   color="white"
-                  inline
                   onClick={() => setOpen(false)}
                   size="lg"
                   text="Got it!"
@@ -1132,7 +1126,6 @@ function ScrollBoundaryContainerExample() {
         accessibilityHaspopup={true}
         accessibilityExpanded={showSheet}
         accessibilityControls="popover-sheet"
-        inline
         text="Edit Pin"
         onClick={() => setShowSheet(true)}
         size="lg"
@@ -1152,7 +1145,6 @@ function ScrollBoundaryContainerExample() {
                       color="white"
                       text="Delete"
                       size="lg"
-                      inline
                       onClick={() => setShowSheet(false)}
                     />
                   </Flex.Item>
@@ -1160,11 +1152,9 @@ function ScrollBoundaryContainerExample() {
                     <Button
                       text="Cancel"
                       size="lg"
-                      inline
                       onClick={() => setShowSheet(false)}
                     />
                     <Button
-                      inline
                       text="Done"
                       color="red"
                       size="lg"
@@ -1268,7 +1258,6 @@ function Example() {
           <Button
             ref={anchorRef}
             href="https://help.pinterest.com/en/business/article/data-source-ingestion"
-            inline
             iconEnd="visit"
             onClick={() => setOpen(false)}
             role="link"
@@ -1353,7 +1342,6 @@ function Example() {
           <Button
             ref={anchorRef}
             href="https://help.pinterest.com/en/business/article/data-source-ingestion"
-            inline
             iconEnd="visit"
             onClick={() => setOpen(false)}
             role="link"

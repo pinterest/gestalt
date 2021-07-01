@@ -18,7 +18,7 @@ describe('<Button />', () => {
   });
 
   test('iconEnd', () => {
-    const instance = create(<Button color="white" iconEnd="arrow-down" inline text="Menu" />).root;
+    const instance = create(<Button color="white" iconEnd="arrow-down" text="Menu" />).root;
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
   test('Custom white text color on transparent background', () => {

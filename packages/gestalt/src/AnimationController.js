@@ -74,7 +74,6 @@ function AnimationExample() {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Show animation"
         onClick={() => setShouldShow(true)}
       />

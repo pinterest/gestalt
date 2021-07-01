@@ -202,7 +202,7 @@ function AccessibilityExample(props) {
         onDismiss={onDismiss}
         footer={({ onDismissStart }) => (
           <Flex alignItems="center" justifyContent="end">
-            <Button inline color="red" text="Create" onClick={onDismissStart} />
+            <Button color="red" text="Create" onClick={onDismissStart} />
           </Flex>
         )}
         size="md"
@@ -293,7 +293,6 @@ function AccessibilityExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="View example Sheet"
         onClick={() => setShouldShow(true)}
       />
@@ -354,7 +353,7 @@ function HeadingExample(props) {
         onDismiss={onDismiss}
         footer={({ onDismissStart }) => (
           <Flex alignItems="center" justifyContent="end">
-            <Button inline color="red" text="Create" onClick={onDismissStart}/>
+            <Button color="red" text="Create" onClick={onDismissStart}/>
           </Flex>
         )}
         size="md"
@@ -439,7 +438,6 @@ function HeadingExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="View example Sheet"
         onClick={() => setShouldShow(true)}
       />
@@ -496,7 +494,7 @@ function SubheadingExample(props) {
         onDismiss={onDismiss}
         footer={
           <Flex justifyContent="end">
-            <Button inline color="red" text="Apply changes"/>
+            <Button color="red" text="Apply changes"/>
           </Flex>
         }
         size="md"
@@ -606,7 +604,6 @@ function SubheadingExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="View subheading example"
         onClick={() => setShouldShow(true)}
       />
@@ -649,8 +646,8 @@ function FooterExample(props) {
         onDismiss={onDismiss}
         footer={({ onDismissStart }) => (
           <Flex alignItems="center" justifyContent="between">
-            <Button inline color="transparent" text="Delete"/>
-            <Button inline color="red" text="Apply changes" onClick={onDismissStart}/>
+            <Button color="transparent" text="Delete"/>
+            <Button color="red" text="Apply changes" onClick={onDismissStart}/>
           </Flex>
         )}
         size="md"
@@ -727,7 +724,6 @@ function FooterExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="View footer example"
         onClick={() => setShouldShow(true)}
       />
@@ -778,21 +774,18 @@ function SizesExample(props) {
     <React.Fragment>
       <Box padding={1}>
         <Button
-          inline
           text="Small Sheet"
           onClick={() => { dispatch({ type: 'small' }) }}
         />
       </Box>
       <Box padding={1}>
         <Button
-          inline
           text="Medium Sheet"
           onClick={() => { dispatch({ type: 'medium' }) }}
         />
       </Box>
       <Box padding={1}>
         <Button
-          inline
           text="Large Sheet"
           onClick={() => { dispatch({ type: 'large' }) }}
         />
@@ -804,7 +797,7 @@ function SizesExample(props) {
             accessibilitySheetLabel="Example sheet to demonstrate different sizes"
             footer={
               <Flex justifyContent="end">
-                <Button text="Apply changes" inline color="red"/>
+                <Button text="Apply changes" color="red"/>
               </Flex>
             }
             heading={state.heading}
@@ -901,7 +894,7 @@ function ClosingExample(props) {
         heading="Create new audience list"
         closeOnOutsideClick={false}
         onDismiss={onDismiss}
-        footer={({ onDismissStart }) => (<Flex alignItems="center" justifyContent="end"><Button inline color="red" text="Create" onClick={onDismissStart}/></Flex>)}
+        footer={({ onDismissStart }) => (<Flex alignItems="center" justifyContent="end"><Button color="red" text="Create" onClick={onDismissStart}/></Flex>)}
         size="md"
       >
         <Flex direction="column" gap={12}>
@@ -984,7 +977,6 @@ function ClosingExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="View Sheet"
         onClick={() => setShouldShow(true)}
       />
@@ -1027,7 +1019,6 @@ function AnimationExample() {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Open example sheet"
         onClick={() => setShouldShow(true)}
       />
@@ -1038,7 +1029,7 @@ function AnimationExample() {
             accessibilitySheetLabel="Animated sheet"
             footer={({ onDismissStart }) => (
               <Flex justifyContent="end">
-                <Button inline onClick={onDismissStart} text="Close on Footer" />
+                <Button onClick={onDismissStart} text="Close on Footer" />
               </Flex>
             )}
             heading="Animated Sheet"
@@ -1046,7 +1037,7 @@ function AnimationExample() {
             size="md"
             subHeading={({ onDismissStart }) => (
               <Box marginBottom={4} marginStart={8} marginEnd={8}>
-                <Button color="blue" inline onClick={onDismissStart} text="Close on Sub-heading" />
+                <Button color="blue" onClick={onDismissStart} text="Close on Sub-heading" />
               </Box>
             )}
           >
@@ -1060,7 +1051,7 @@ function AnimationExample() {
                   onClick={onDismissStart}
                   size="lg"
                 />
-                <Button color="red" inline onClick={onDismissStart} size="lg" text="Done on Children" />
+                <Button color="red" onClick={onDismissStart} size="lg" text="Done on Children" />
                 <IconButton
                   accessibilityLabel="Done icon right"
                   icon="directional-arrow-left"

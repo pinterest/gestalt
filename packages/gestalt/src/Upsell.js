@@ -66,6 +66,7 @@ const UpsellAction = ({
           accessibilityLabel={accessibilityLabel}
           color={color}
           href={href}
+          fullWidth
           onClick={onClick}
           rel={rel}
           role="link"
@@ -77,6 +78,7 @@ const UpsellAction = ({
         <Button
           accessibilityLabel={accessibilityLabel}
           color={color}
+          fullWidth
           onClick={onClick}
           role="button"
           size="lg"

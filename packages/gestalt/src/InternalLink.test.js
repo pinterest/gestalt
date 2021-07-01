@@ -26,7 +26,7 @@ it('renders TapArea', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('renders Button', () =>
+it('renders inline Button', () =>
   expect(
     renderer
       .create(
@@ -37,11 +37,11 @@ it('renders Button', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('renders Button with inline', () =>
+it('renders full-width Button', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="button" href="https://example.com" inline tabIndex={0}>
+        <InternalLink fullWidth wrappedComponent="button" href="https://example.com" tabIndex={0}>
           InternalLink
         </InternalLink>,
       )

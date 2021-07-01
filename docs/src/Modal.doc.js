@@ -283,7 +283,7 @@ return (
             onDismiss={onDismiss}
             footer={
               <Flex alignItems="center" justifyContent="end">
-                <Button inline color="red" text="Create"/>
+                <Button color="red" text="Create"/>
               </Flex>
             }
             size="sm"
@@ -320,7 +320,6 @@ return (
       return (
         <React.Fragment>
           <Button
-            inline
             text="View Modal"
             onClick={() => setShouldShow(true)}
           />
@@ -385,7 +384,7 @@ function HeadingExample(props) {
         onDismiss={onDismiss}
         footer={
           <Flex alignItems="center" justifyContent="end">
-            <Button inline color="red" text="Create"/>
+            <Button color="red" text="Create"/>
           </Flex>
         }
         size="sm"
@@ -422,7 +421,6 @@ function HeadingExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="View Modal"
         onClick={() => setShouldShow(true)}
       />
@@ -466,7 +464,7 @@ function SubHeadingExample(props) {
         footer={
           <Flex alignItems="center" justifyContent="end" gap={2}>
             <Button text="Cancel"/>
-            <Button inline color="red" text="Resume"/>
+            <Button color="red" text="Resume"/>
           </Flex>
         }
         size="sm"
@@ -485,7 +483,6 @@ function SubHeadingExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="View Modal"
         onClick={() => setShouldShow(true)}
       />
@@ -533,7 +530,6 @@ function SizesExample(props) {
     <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
-          inline
           text="Small Modal"
           onClick={() => { dispatch({type: 'small'}) }}
         />
@@ -555,7 +551,6 @@ function SizesExample(props) {
       </Box>
       <Box padding={1}>
         <Button
-          inline
           text="Medium Modal"
           onClick={() => { dispatch({type: 'medium'}) }}
         />
@@ -577,7 +572,6 @@ function SizesExample(props) {
       </Box>
       <Box padding={1}>
         <Button
-          inline
           text="Large Modal"
           onClick={() => { dispatch({type: 'large'}) }}
         />
@@ -615,7 +609,6 @@ function PreventCloseExample(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Open Modal"
         onClick={() => { setShowModal(!showModal) }}
       />

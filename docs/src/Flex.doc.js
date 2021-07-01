@@ -144,11 +144,11 @@ card(
     defaultCode={`
 <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
   <Flex alignItems="center" gap={4} width="100%">
-    <Button inline text="Button 1" />
+    <Button text="Button 1" />
     <Flex.Item flex="grow">
-      <Button inline text="Button 2" />
+      <Button text="Button 2" />
     </Flex.Item>
-    <Button inline text="Button 3" />
+    <Button text="Button 3" />
   </Flex>
 </Box>
 `}

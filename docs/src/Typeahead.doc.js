@@ -375,7 +375,6 @@ function Example(props) {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Report a stolen account"
         onClick={() => setOpen(true)}
       />

@@ -62,6 +62,7 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
         accessibilityLabel={accessibilityLabel}
         color="gray"
         href={href}
+        fullWidth
         onClick={onClick}
         rel={rel}
         role="link"

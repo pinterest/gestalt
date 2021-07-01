@@ -73,7 +73,7 @@ function Example(props) {
         <Box padding={2}>
           <Text>Some content</Text>
         </Box>
-        <Button text="Example button" inline /> <Button color="red" text="Red Button" inline />
+        <Button text="Example button" /> <Button color="red" text="Red Button" />
       </Box>
     </ColorSchemeProvider>
   );

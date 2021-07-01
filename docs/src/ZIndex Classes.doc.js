@@ -414,7 +414,6 @@ function ScrollBoundaryContainerExample() {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Edit Pin"
         onClick={() => setShowSheet(true)}
         size="lg"
@@ -434,7 +433,6 @@ function ScrollBoundaryContainerExample() {
                       color="white"
                       text="Delete"
                       size="lg"
-                      inline
                       onClick={() => setShowSheet(false)}
                     />
                   </Flex.Item>
@@ -442,11 +440,9 @@ function ScrollBoundaryContainerExample() {
                     <Button
                       text="Cancel"
                       size="lg"
-                      inline
                       onClick={() => setShowSheet(false)}
                     />
                     <Button
-                      inline
                       text="Done"
                       color="red"
                       size="lg"
@@ -526,7 +522,6 @@ function ScrollBoundaryContainerExample() {
         <Button
           accessibilityLabel="Edit this Pin"
           bgColor="white"
-          inline
           onClick={() => setShowModal(true)}
           text="Open edit modal"
           size="lg"
@@ -561,7 +556,6 @@ function ScrollBoundaryContainerExample() {
                     <Button
                       text="Cancel"
                       size="lg"
-                      inline
                       onClick={() => setShowModal(false)}
                     />
                   </Box>

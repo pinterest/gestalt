@@ -119,7 +119,7 @@ card(
         description="Use Tooltip to restate text already visible on screen."
         defaultCode={`
 <Tooltip text="Save">
-  <Button color="red" text="Save" size="lg" inline />
+  <Button color="red" text="Save" size="lg" />
 </Tooltip>
 `}
       />
@@ -166,7 +166,7 @@ card(
         description="Use Tooltip to communicate critical information, such as an error, instructions for performing a task or interaction feedback."
         defaultCode={`
 <Tooltip text="Pssst! Looks like you've already saved this Pin.">
-  <Button color="red" text="Save" inline size="lg" />
+  <Button color="red" text="Save" size="lg" />
 </Tooltip>
 `}
       />
@@ -450,7 +450,6 @@ function ScrollBoundaryContainerExample() {
         <Button
           accessibilityLabel="Edit this Pin"
           bgColor="white"
-          inline
           onClick={() => setShowModal(true)}
           text="Open edit modal"
           size="lg"
@@ -485,7 +484,6 @@ function ScrollBoundaryContainerExample() {
                     <Button
                       text="Cancel"
                       size="lg"
-                      inline
                       onClick={() => setShowModal(false)}
                     />
                   </Box>

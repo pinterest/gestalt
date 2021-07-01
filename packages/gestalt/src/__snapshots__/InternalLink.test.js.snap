@@ -2,7 +2,7 @@
 
 exports[`renders Button & target blank 1`] = `
 <a
-  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
+  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -27,7 +27,7 @@ exports[`renders Button & target blank 1`] = `
 
 exports[`renders Button & target null 1`] = `
 <a
-  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
+  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -52,7 +52,7 @@ exports[`renders Button & target null 1`] = `
 
 exports[`renders Button & target self 1`] = `
 <a
-  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
+  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -75,59 +75,9 @@ exports[`renders Button & target self 1`] = `
 </a>
 `;
 
-exports[`renders Button 1`] = `
-<a
-  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
-  href="https://example.com"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyDown={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  rel=""
-  tabIndex={0}
-  target={null}
->
-  InternalLink
-</a>
-`;
-
-exports[`renders Button with inline 1`] = `
-<a
-  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
-  href="https://example.com"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyDown={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  rel=""
-  tabIndex={0}
-  target={null}
->
-  InternalLink
-</a>
-`;
-
 exports[`renders Button with nofollow 1`] = `
 <a
-  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
+  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -152,7 +102,7 @@ exports[`renders Button with nofollow 1`] = `
 
 exports[`renders Button with onClick 1`] = `
 <a
-  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
+  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -248,5 +198,55 @@ exports[`renders TapArea 1`] = `
   >
     InternalLink
   </div>
+</a>
+`;
+
+exports[`renders full-width Button 1`] = `
+<a
+  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  tabIndex={0}
+  target={null}
+>
+  InternalLink
+</a>
+`;
+
+exports[`renders inline Button 1`] = `
+<a
+  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  tabIndex={0}
+  target={null}
+>
+  InternalLink
 </a>
 `;
