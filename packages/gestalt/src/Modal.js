@@ -1,7 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-
-import { useCallback, forwardRef, useState, useEffect, useRef } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
@@ -16,17 +15,23 @@ import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContaine
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
 import modalStyles from './Modal.css';
 
+type Size = 'sm' | 'md' | 'lg' | number;
+
+type Role = 'alertdialog' | 'dialog';
+
+type Align = 'start' | 'center';
+
 type Props = {|
   _dangerouslyDisableScrollBoundaryContainer?: boolean, // Temporary undocumented prop to disable ScrollBoundaryContainer.
   accessibilityModalLabel: string,
-  align?: 'start' | 'center',
+  align?: Align,
   children?: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
   heading?: Node,
   onDismiss: () => void,
-  role?: 'alertdialog' | 'dialog',
-  size?: 'sm' | 'md' | 'lg' | number,
+  role?: Role,
+  size?: Size,
   subHeading?: string,
 |};
 
@@ -62,10 +67,7 @@ function Header({
 /**
  * https://gestalt.pinterest.systems/Modal
  */
-const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
-  Props,
-  HTMLDivElement,
->(function Modal(props, ref): Node {
+export default function Modal(props: Props): Node {
   const {
     _dangerouslyDisableScrollBoundaryContainer = false,
     accessibilityModalLabel,
@@ -137,7 +139,6 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
               className={classnames(modalStyles.wrapper, focusStyles.hideOutline)}
               tabIndex={-1}
               style={{ width }}
-              ref={ref}
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {Boolean(heading) && (
@@ -181,22 +182,21 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
       </TrapFocusBehavior>
     </StopScrollBehavior>
   );
-});
+}
 
-ModalWithForwardRef.propTypes = {
+Modal.propTypes = {
   _dangerouslyDisableScrollBoundaryContainer: PropTypes.string,
   accessibilityModalLabel: PropTypes.string.isRequired,
-  align: PropTypes.oneOf(['start', 'center']),
+  align: (PropTypes.oneOf(['start', 'center']): React$PropType$Primitive<Align>),
   children: PropTypes.node,
   closeOnOutsideClick: PropTypes.bool,
   footer: PropTypes.node,
-  heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  heading: PropTypes.node,
   onDismiss: PropTypes.func,
-  role: PropTypes.oneOf(['alertdialog', 'dialog']),
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['sm', 'md', 'lg'])]),
+  role: (PropTypes.oneOf(['alertdialog', 'dialog']): React$PropType$Primitive<Role>),
+  size: (PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(['sm', 'md', 'lg']),
+  ]): React$PropType$Primitive<Size>),
   subHeading: PropTypes.string,
 };
-
-ModalWithForwardRef.displayName = 'Modal';
-
-export default ModalWithForwardRef;
