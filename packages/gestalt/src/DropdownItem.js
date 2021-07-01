@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import PropTypes from 'prop-types';
-import MenuOption, { type OptionItemType } from './OptionItem.js';
+import OptionItem, { type OptionItemType } from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 
 type PublicProps = {|
@@ -38,7 +38,7 @@ export default function DropdownItem({
   return (
     <DropdownContextConsumer>
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
-        <MenuOption
+        <OptionItem
           badgeText={badgeText}
           hoveredItemIndex={hoveredItem}
           id={id}
@@ -54,7 +54,7 @@ export default function DropdownItem({
           textWeight="bold"
         >
           {children}
-        </MenuOption>
+        </OptionItem>
       )}
     </DropdownContextConsumer>
   );

@@ -97,9 +97,9 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
               <Text truncate={shouldTruncate} weight={textWeight} color="darkGray" inline>
                 {option?.label}
               </Text>
-              {/* Adds a pause for screen reader users between the text content */}
               {badgeText && (
                 <Box marginStart={2} marginTop={1}>
+                  {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
                   <Badge text={badgeText} />
                 </Box>
@@ -188,9 +188,12 @@ OptionItemWithForwardRef.displayName = 'OptionItem';
 export default OptionItemWithForwardRef;
 
 OptionItemWithForwardRef.propTypes = {
+  hoveredItemIndex: PropTypes.number,
+  href: PropTypes.string,
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   onClick: PropTypes.func,
+  onSelect: PropTypes.func,
   option: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -210,8 +213,5 @@ OptionItemWithForwardRef.propTypes = {
       }),
     ),
   ]),
-  onSelect: PropTypes.func,
-  hoveredItemIndex: PropTypes.number,
   setHoveredItemIndex: PropTypes.func,
-  href: PropTypes.string,
 };

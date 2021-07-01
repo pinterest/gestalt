@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import PropTypes from 'prop-types';
-import MenuOption, { type OptionItemType } from './OptionItem.js';
+import OptionItem, { type OptionItemType } from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
@@ -38,7 +38,7 @@ export default function DropdownLink({
   return (
     <DropdownContextConsumer>
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
-        <MenuOption
+        <OptionItem
           badgeText={badgeText}
           hoveredItemIndex={hoveredItem}
           href={href}
@@ -55,7 +55,7 @@ export default function DropdownLink({
           textWeight="bold"
         >
           {children}
-        </MenuOption>
+        </OptionItem>
       )}
     </DropdownContextConsumer>
   );

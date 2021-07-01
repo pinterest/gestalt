@@ -256,7 +256,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           errorMessage={errorMessage}
           hasError={!!errorMessage}
           helperText={helperText}
-          id={`comboxbox-${id}`}
+          id={`combobox-${id}`}
           label={label}
           onBlur={({ event, value }) => onBlur?.({ event, value })}
           onChange={({ event, value }) => {

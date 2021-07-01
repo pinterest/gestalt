@@ -15,7 +15,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
       <span>
         <label
           class="label"
-          for="comboxbox-test"
+          for="combobox-test"
         >
           <div
             class="formLabel"
@@ -33,7 +33,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
           <input
             aria-invalid="false"
             class="textField base enabled normal medium actionButton truncate"
-            id="comboxbox-test"
+            id="combobox-test"
             placeholder="placeholder"
             type="text"
             value=""
@@ -94,7 +94,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
       <span>
         <label
           class="label"
-          for="comboxbox-test"
+          for="combobox-test"
         >
           <div
             class="formLabel"
@@ -564,7 +564,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               <input
                 aria-invalid="false"
                 class="unstyledTextField"
-                id="comboxbox-test"
+                id="combobox-test"
                 placeholder=""
                 type="text"
                 value=""
@@ -628,7 +628,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
       <span>
         <label
           class="label"
-          for="comboxbox-test"
+          for="combobox-test"
         >
           <div
             class="formLabel"
@@ -646,7 +646,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
           <input
             aria-invalid="false"
             class="textField base enabled normal medium actionButton truncate"
-            id="comboxbox-test"
+            id="combobox-test"
             placeholder="placeholder"
             type="text"
             value=""
@@ -707,7 +707,7 @@ exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
       <span>
         <label
           class="label"
-          for="comboxbox-test"
+          for="combobox-test"
         >
           <div
             class="formLabel"
@@ -726,7 +726,7 @@ exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
             aria-invalid="false"
             class="textField base disabled normal medium actionButton truncate"
             disabled=""
-            id="comboxbox-test"
+            id="combobox-test"
             placeholder="placeholder"
             type="text"
             value=""

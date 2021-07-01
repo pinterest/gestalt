@@ -754,15 +754,11 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[TextField](/Textfield)**
-Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Button](/Button) and [Image](/Image).
-
 **[SelectList](/SelectList)**
 If users need to select from a short, simple list (without needing sections, subtext details, or the ability to filter the list), use SelectList.
 
 **[Dropdown](/Dropdown)**
 Dropdown is an element constructed using Popover as its container. Use Dropdown to display a list of actions or options in a Popover.
-
 
 **[Fieldset](/Fieldset)**
 Use Fieldset to group related form items.
