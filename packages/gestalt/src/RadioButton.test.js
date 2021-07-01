@@ -57,7 +57,6 @@ test('RadioButton with image', () => {
         <Box>
           <Image
             alt=""
-            color="transparent"
             naturalHeight={1}
             naturalWidth={1}
             src="https://i.ibb.co/FY2MKr5/stock6.jpg"

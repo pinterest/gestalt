@@ -4,7 +4,7 @@ import Image from './Image.js';
 
 test('Image matches snapshot', () => {
   const component = renderer.create(
-    <Image alt="foo" color="transparent" naturalHeight={50} naturalWidth={50} src="foo.png" />,
+    <Image alt="foo" naturalHeight={50} naturalWidth={50} src="foo.png" />,
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -12,7 +12,7 @@ test('Image matches snapshot', () => {
 
 test('Image with overlay matches snapshot', () => {
   const component = renderer.create(
-    <Image alt="foo" color="transparent" naturalHeight={50} naturalWidth={50} src="foo.png">
+    <Image alt="foo" naturalHeight={50} naturalWidth={50} src="foo.png">
       Foo.png
     </Image>,
   );
@@ -22,14 +22,7 @@ test('Image with overlay matches snapshot', () => {
 
 test('Image with fit: cover matches snapshot', () => {
   const component = renderer.create(
-    <Image
-      alt="foo"
-      color="transparent"
-      fit="cover"
-      naturalHeight={50}
-      naturalWidth={50}
-      src="foo.png"
-    >
+    <Image alt="foo" fit="cover" naturalHeight={50} naturalWidth={50} src="foo.png">
       Foo.png
     </Image>,
   );
@@ -39,14 +32,7 @@ test('Image with fit: cover matches snapshot', () => {
 
 test('Image with fit: contain matches snapshot', () => {
   const component = renderer.create(
-    <Image
-      alt="foo"
-      color="transparent"
-      fit="contain"
-      naturalHeight={50}
-      naturalWidth={50}
-      src="foo.png"
-    >
+    <Image alt="foo" fit="contain" naturalHeight={50} naturalWidth={50} src="foo.png">
       Foo.png
     </Image>,
   );
@@ -58,7 +44,6 @@ test('Image with fit: contain and role matches snapshot', () => {
   const component = renderer.create(
     <Image
       alt="foo"
-      color="transparent"
       fit="contain"
       naturalHeight={50}
       naturalWidth={50}

@@ -14,7 +14,7 @@ type Role = 'img' | 'presentation';
 type Props = {|
   alt: string,
   children?: Node,
-  color: string,
+  color?: string,
   elementTiming?: string,
   fit?: Fit,
   importance?: Importance,
