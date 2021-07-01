@@ -89,7 +89,7 @@ type TabProps = {|
 |};
 
 const TAB_ROUNDING = 2;
-const TAB_INNER_PADDING = 1;
+const TAB_INNER_PADDING = 2;
 
 export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
@@ -102,7 +102,7 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
   let color = 'white';
   if (pressed) {
     color = 'lightWash';
-  } else if ((hovered || focused) && !isActive) {
+  } else if (hovered || focused) {
     color = 'lightGray';
   }
 
