@@ -84,6 +84,7 @@ card(
         name: 'label',
         type: 'string',
         description: 'Provide a label to identify the ComboBox field.',
+        required: true,
       },
       {
         name: 'labelDisplay',
@@ -113,7 +114,8 @@ card(
       {
         name: 'errorMessage',
         type: 'string',
-        description: 'Provide feedback when an error on selection occurs.',
+        description:
+          'Provide feedback when an error on selection occurs. See [error message](#Error-message) variant.',
       },
       {
         name: 'noResultText',
@@ -207,12 +209,8 @@ card(
   <MainSection name="Accessibility">
     <MainSection.Subsection
       title="Labels"
-      description={`ComboBox requires \`label\` and \`accessibilityClearButtonLabel\``}
-    />
-    <MainSection.Subsection
-      title="Label visibility"
       description={`
-      By default, the \`label\` is visible above TextField. However, if the form items are labelled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.
+      ComboBox requires both \`label\` and \`accessibilityClearButtonLabel\`. By default, the \`label\` is visible above TextField. However, if the form items are labelled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
       In the example below, the "Discover this week's top searched trends across all categories" text is acting as a heading, so instead of repeating another label, we visually hide the label. When a user focuses on the ComboBox, a screen reader will announce "Choose a category to display top search trends, Select category".
       `}
@@ -275,7 +273,7 @@ function ComboBoxExample(props) {
         </Text>
       </Text>
       <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
+        accessibilityClearButtonLabel="Clear category value"
         errorMessage={errorMessage}
         id="displayLabel"
         label="Choose a category to display top search trends"
@@ -827,6 +825,27 @@ function ComboBoxExample(props) {
     />
   );
 }`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection title="Error message">
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function ComboBoxExample(props) {
+  return (
+    <Box width={400}>
+      <ComboBox
+        accessibilityClearButtonLabel="Clear the current value"
+        errorMessage="Please select a valid category"
+        id="error"
+        label="Category"
+        noResultText="No results for your selection"
+        options={[]}
+      />
+    </Box>
+  );
+}
+`}
       />
     </MainSection.Subsection>
   </MainSection>,

@@ -361,6 +361,7 @@ ComboBoxWithForwardRef.propTypes = {
   // REQUIRED
   accessibilityClearButtonLabel: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   noResultText: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.exact({
@@ -374,7 +375,6 @@ ComboBoxWithForwardRef.propTypes = {
   errorMessage: PropTypes.string,
   helperText: PropTypes.string,
   inputValue: PropTypes.string,
-  label: PropTypes.string,
   labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
   onBlur: PropTypes.func,
   onClear: PropTypes.func,
