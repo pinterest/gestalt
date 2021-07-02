@@ -1,3 +1,9 @@
+## 29.1.0 (Jul 2, 2021)
+
+### Minor
+
+- ComboBox: new component (#1563)
+
 ## 29.0.0 (Jul 1, 2021)
 
 ### Major
