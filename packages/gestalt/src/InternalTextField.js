@@ -13,8 +13,9 @@ import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
 import layout from './Layout.css';
 import styles from './InternalTextField.css';
-import { TAB, ENTER } from './keyCodes.js';
+import { TAB, SPACE, ENTER } from './keyCodes.js';
 import typography from './Typography.css';
+import { type LabelDisplay } from './Label.js';
 
 type Props = {|
   // REQUIRED
@@ -33,6 +34,7 @@ type Props = {|
   hasError?: boolean,
   helperText?: string,
   label?: string,
+  labelDisplay?: LabelDisplay,
   name?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -74,6 +76,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     helperText,
     id,
     label,
+    labelDisplay,
     name,
     onBlur,
     onChange,
@@ -176,7 +179,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
 
   return (
     <span>
-      {label ? <FormLabel id={id} label={label} /> : null}
+      {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} /> : null}
       <Box position="relative">
         {tags ? (
           <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
@@ -202,15 +205,23 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
         {textfieldIconButton && !disabled ? (
           // styles.actionButtonContainernis required for RTL positioning
           <div className={classnames(styles.actionButtonContainer)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
+            <Box
+              aria-hidden={textfieldIconButton === 'expand'}
+              alignItems="center"
+              display="flex"
+              height="100%"
+              marginEnd={2}
+              rounding="circle"
+            >
               <TapArea
                 accessibilityLabel={
-                  textfieldIconButton === 'clear' ? accessibilityClearButtonLabel : ''
+                  textfieldIconButton === 'clear' ? accessibilityClearButtonLabel : undefined
                 }
                 onBlur={() => setFocusedButton(false)}
                 onFocus={() => setFocusedButton(true)}
                 onKeyDown={({ event }) => {
-                  if (event.keyCode !== ENTER && event.keyCode !== TAB) innerRef.current?.focus();
+                  if ([ENTER, SPACE].includes(event.keyCode)) handleOnClickIconButton();
+                  if (event.keyCode !== TAB) event.preventDefault();
                 }}
                 onMouseEnter={() => setFocusedButton(true)}
                 onMouseLeave={() => setFocusedButton(false)}
@@ -257,12 +268,12 @@ InternalTextFieldWithForwardRef.propTypes = {
     'email',
   ]),
   disabled: PropTypes.bool,
-  textfieldIconButton: PropTypes.oneOf(['clear', 'expand']),
   errorMessage: PropTypes.node,
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
+  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
   name: PropTypes.string,
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
@@ -273,6 +284,7 @@ InternalTextFieldWithForwardRef.propTypes = {
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   tags: PropTypes.arrayOf(PropTypes.node),
+  textfieldIconButton: PropTypes.oneOf(['clear', 'expand']),
   type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
   value: PropTypes.string,
 };

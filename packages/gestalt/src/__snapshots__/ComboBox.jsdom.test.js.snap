@@ -1,0 +1,739 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = `
+<body>
+  <div>
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="test"
+      class="box relative"
+      role="combobox"
+      style="min-width: 280px;"
+    >
+      <span>
+        <label
+          class="label"
+          for="combobox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
+        <div
+          class="box relative"
+        >
+          <input
+            aria-invalid="false"
+            class="textField base enabled normal medium actionButton truncate"
+            id="combobox-test"
+            placeholder="placeholder"
+            type="text"
+            value=""
+          />
+          <div
+            class="actionButtonContainer"
+          >
+            <div
+              aria-hidden="true"
+              class="box circle itemsCenter marginEnd2 xsDisplayFlex"
+              style="height: 100%;"
+            >
+              <div
+                aria-disabled="false"
+                class="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
+                role="button"
+                tabindex="-1"
+              >
+                <div
+                  class="box circle paddingX1 paddingY1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    aria-label=""
+                    class="icon darkGray iconBlock"
+                    height="12"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="12"
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
+<body>
+  <div>
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="test"
+      class="box relative"
+      role="combobox"
+      style="min-width: 280px;"
+    >
+      <span>
+        <label
+          class="label"
+          for="combobox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
+        <div
+          class="box relative"
+        >
+          <div
+            class="textField base enabled normal large actionButton textFieldWrapper"
+          >
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="ey / em"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      ey / em
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="he / him"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      he / him
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="ne / nem"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      ne / nem
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="she / her"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      she / her
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="they / them"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      they / them
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="ve / ver"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      ve / ver
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="xe / xem"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      xe / xem
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="xie / xem"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      xie / xem
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box marginBottom1 marginEnd1"
+            >
+              <div
+                aria-disabled="false"
+                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                style="height: 32px; max-width: 300px;"
+              >
+                <div
+                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  style="height: 100%;"
+                >
+                  <div
+                    class="box marginEnd2 marginStart0"
+                  />
+                  <div
+                    class="truncate"
+                    title="zie / zem"
+                  >
+                    <span
+                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                    >
+                      zie / zem
+                    </span>
+                  </div>
+                  <div
+                    class="box marginStart1"
+                  >
+                    <button
+                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      type="button"
+                    >
+                      <svg
+                        aria-label="Remove tag"
+                        class="icon darkGray iconBlock"
+                        height="8"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="8"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box flexGrow marginEnd2 relative"
+              style="max-width: 100%;"
+            >
+              <div
+                aria-hidden="true"
+                class="textFieldSpacer"
+              />
+              <input
+                aria-invalid="false"
+                class="unstyledTextField"
+                id="combobox-test"
+                placeholder=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="actionButtonContainer"
+          >
+            <div
+              aria-hidden="false"
+              class="box circle itemsCenter marginEnd2 xsDisplayFlex"
+              style="height: 100%;"
+            >
+              <div
+                aria-disabled="false"
+                aria-label="Clear selection"
+                class="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="box circle paddingX1 paddingY1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    aria-label=""
+                    class="icon darkGray iconBlock"
+                    height="12"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="12"
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
+<body>
+  <div>
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="test"
+      class="box relative"
+      role="combobox"
+      style="min-width: 280px;"
+    >
+      <span>
+        <label
+          class="label"
+          for="combobox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
+        <div
+          class="box relative"
+        >
+          <input
+            aria-invalid="false"
+            class="textField base enabled normal medium actionButton truncate"
+            id="combobox-test"
+            placeholder="placeholder"
+            type="text"
+            value=""
+          />
+          <div
+            class="actionButtonContainer"
+          >
+            <div
+              aria-hidden="true"
+              class="box circle itemsCenter marginEnd2 xsDisplayFlex"
+              style="height: 100%;"
+            >
+              <div
+                aria-disabled="false"
+                class="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
+                role="button"
+                tabindex="-1"
+              >
+                <div
+                  class="box circle paddingX1 paddingY1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    aria-label=""
+                    class="icon darkGray iconBlock"
+                    height="12"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="12"
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
+<body>
+  <div>
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="test"
+      class="box relative"
+      role="combobox"
+      style="min-width: 280px;"
+    >
+      <span>
+        <label
+          class="label"
+          for="combobox-test"
+        >
+          <div
+            class="formLabel"
+          >
+            <div
+              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+            >
+              label
+            </div>
+          </div>
+        </label>
+        <div
+          class="box relative"
+        >
+          <input
+            aria-invalid="false"
+            class="textField base disabled normal medium actionButton truncate"
+            disabled=""
+            id="combobox-test"
+            placeholder="placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </span>
+    </div>
+  </div>
+</body>
+`;

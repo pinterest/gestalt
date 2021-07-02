@@ -4,7 +4,7 @@ import type { Element, Node } from 'react';
 import { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
-import MenuOption, { type OptionObject } from './MenuOption.js';
+import MenuOption, { type OptionItemType } from './OptionItem.js';
 import Box from './Box.js';
 import Text from './Text.js';
 import Popover from './Popover.js';
@@ -35,9 +35,9 @@ type Props = {|
   |}) => void,
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLInputElement> | SyntheticKeyboardEvent<HTMLInputElement>,
-    item: ?OptionObject,
+    item: ?OptionItemType,
   |}) => void,
-  options: $ReadOnlyArray<OptionObject>,
+  options: $ReadOnlyArray<OptionItemType>,
   placeholder?: string,
   size?: 'md' | 'lg',
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
@@ -73,22 +73,22 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const wrapperRef = useRef(null);
 
   // Utility function for filtering data by value
-  const filterOriginalData = (filterValue: string): $ReadOnlyArray<OptionObject> =>
+  const filterOriginalData = (filterValue: string): $ReadOnlyArray<OptionItemType> =>
     options.filter((item) => item.label.toLowerCase().includes(filterValue.toLowerCase()));
 
   // Utility function to find default value
-  const findDefaultOption = (defaultValue: string | null): OptionObject | null => {
+  const findDefaultOption = (defaultValue: string | null): OptionItemType | null => {
     if (defaultValue === null) return defaultValue;
 
     return options.find((item) => item.value.toLowerCase() === defaultValue.toLowerCase()) || null;
   };
 
   // Track input value
-  const defaultOption: OptionObject | null = findDefaultOption(value);
+  const defaultOption: OptionItemType | null = findDefaultOption(value);
   const displayValue = defaultOption?.label ?? '';
   const [search, setSearch] = useState<string>(displayValue);
   // Track the selected item - could be used to see if someone is selecting the same thing again
-  const [selected, setSelected] = useState<OptionObject | null>(defaultOption);
+  const [selected, setSelected] = useState<OptionItemType | null>(defaultOption);
 
   // Make sure we respect any external changes to `value`
   useEffect(() => {
@@ -97,7 +97,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   }, [defaultOption, displayValue]);
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
-  const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
+  const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionItemType>>(options);
 
   // Ref to the input
   const inputRef = useRef(null);
@@ -162,9 +162,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     if (onSelect) onSelect({ event, item });
   };
 
-  let selectedElement;
+  let currentHoveredMenuOption;
   const setOptionRef = (optionRef) => {
-    selectedElement = optionRef;
+    currentHoveredMenuOption = optionRef;
   };
 
   const containerRef = useRef();
@@ -210,7 +210,11 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       handleBlur({ event, value: event.currentTarget.value });
     }
     // Scrolling
-    handleContainerScrolling({ direction, containerRef, selectedElement });
+    handleContainerScrolling({
+      direction,
+      containerRef,
+      currentHoveredOption: currentHoveredMenuOption,
+    });
   };
 
   const positioningRef = tags ? wrapperRef : inputRef;
@@ -267,7 +271,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
                 ) : (
                   availableOptions.map((option, index) => (
                     <MenuOption
-                      hoveredItem={hoveredItem}
                       id={id}
                       index={index}
                       key={`${option.value + index}`}
@@ -275,8 +278,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
                       option={option}
                       role="option"
                       selected={selected}
-                      setHoveredItem={setHoveredItem}
-                      setOptionRef={setOptionRef}
+                      hoveredItemIndex={hoveredItem}
+                      setHoveredItemIndex={setHoveredItem}
+                      ref={setOptionRef}
                       textWeight="normal"
                     />
                   ))
