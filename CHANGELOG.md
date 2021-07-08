@@ -1,3 +1,9 @@
+## 29.1.1 (Jul 8, 2021)
+
+### Patch
+
+- Upsell: docs cleanup (#1581)
+
 ## 29.1.0 (Jul 2, 2021)
 
 ### Minor
