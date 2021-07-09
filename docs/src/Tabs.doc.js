@@ -13,16 +13,22 @@ card(
     name="Tabs"
     description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use [SegmentedControl](/SegmentedControl).`}
     defaultCode={`
-      <Tabs
-        activeTabIndex={0}
-        onChange={() => {}}
-        tabs={[
-          { href: "#", text: "Explore", indicator: "dot" },
-          { href: "#", text: "Shop" },
-          { href: "#", text: "Profiles" },
-        ]}
-        wrap
-      />
+    function DefaultExample() {
+      const [activeIndex, setActiveIndex] = React.useState(0);
+
+      return (
+        <Tabs
+          activeTabIndex={activeIndex}
+          onChange={({ activeTabIndex }) => { setActiveIndex(activeTabIndex); }}
+          tabs={[
+            { href: "#", text: "Explore", indicator: "dot" },
+            { href: "#", text: "Shop" },
+            { href: "#", text: "Profiles" },
+          ]}
+          wrap
+        />
+      );
+    }
     `}
   />,
 );
