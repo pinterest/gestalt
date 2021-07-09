@@ -35,7 +35,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -55,7 +55,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
               style={
                 Object {
                   "bottom": -3,
-                  "width": "calc(100% - 8px)",
+                  "width": "calc(100% - 16px)",
                 }
               }
             >
@@ -105,7 +105,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -163,7 +163,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -197,7 +197,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
               style={
                 Object {
                   "bottom": -3,
-                  "width": "calc(100% - 8px)",
+                  "width": "calc(100% - 16px)",
                 }
               }
             >
@@ -247,7 +247,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -319,7 +319,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -339,7 +339,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
               style={
                 Object {
                   "bottom": -3,
-                  "width": "calc(100% - 8px)",
+                  "width": "calc(100% - 16px)",
                 }
               }
             >
@@ -389,7 +389,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX1 paddingY1 relative rounding2 userSelectNone whiteBg"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
