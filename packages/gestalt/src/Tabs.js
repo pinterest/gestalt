@@ -117,40 +117,43 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
   const bgColorSet = colors[bgColor];
 
   let color = bgColorSet.base;
-  if (pressed) {
-    color = bgColorSet.pressed;
-  } else if (hovered || focused) {
-    color = bgColorSet.hover;
+  if (!isActive) {
+    if (pressed) {
+      color = bgColorSet.pressed;
+    } else if (hovered || focused) {
+      color = bgColorSet.hover;
+    }
   }
 
   return (
     <Box id={id} paddingY={3} ref={ref}>
       <TapArea
         accessibilityCurrent={isActive ? 'page' : undefined}
-        disabled={isActive}
         href={href}
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
-        onMouseDown={() => (isActive ? undefined : setPressed(true))}
+        onMouseDown={() => setPressed(true)}
         onMouseUp={() => setPressed(false)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onTap={({ event, disableOnNavigation }) => {
-          setHovered(false);
-          setFocused(false);
           onChange({ activeTabIndex: index, event, disableOnNavigation });
         }}
         role="link"
         rounding={TAB_ROUNDING}
-        tapStyle="compress"
+        tapStyle={isActive ? 'none' : 'compress'}
       >
         <Flex alignItems="center" direction="column">
           <Box
             // $FlowExpectedError[incompatible-type] Flow doesn't understand the non-RGBA colors are valid for Box
             color={color.startsWith('rgba') ? undefined : color}
-            dangerouslySetInlineStyle={{
-              __style: { backgroundColor: color.startsWith('rgba') ? color : undefined },
-            }}
+            {...(color.startsWith('rgba')
+              ? {
+                  dangerouslySetInlineStyle: {
+                    __style: { backgroundColor: color },
+                  },
+                }
+              : {})}
             padding={TAB_INNER_PADDING}
             position="relative"
             rounding={TAB_ROUNDING}
