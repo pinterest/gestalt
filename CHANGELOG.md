@@ -1,3 +1,9 @@
+## 29.2.0 (Jul 12, 2021)
+
+### Minor
+
+- Tabs: Add `bgColor` prop, tweak padding/states (#1582)
+
 ## 29.1.1 (Jul 8, 2021)
 
 ### Patch
