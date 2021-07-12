@@ -80,30 +80,49 @@ type TabType = {|
   indicator?: 'dot' | number,
   text: Node,
 |};
+type BgColor = 'default' | 'transparent';
 
 type TabProps = {|
   ...TabType,
+  bgColor: BgColor,
   index: number,
   isActive: boolean,
   onChange: OnChangeHandler,
 |};
 
 const TAB_ROUNDING = 2;
-const TAB_INNER_PADDING = 1;
+const TAB_INNER_PADDING = 2;
+const colors = {
+  default: {
+    base: 'white',
+    pressed: 'lightWash',
+    hover: 'lightGray',
+  },
+  transparent: {
+    base: 'transparent',
+    // From Colors.css, matches <Button color="transparent" />
+    pressed: 'rgba(0, 0, 0, 0.1)',
+    hover: 'rgba(0, 0, 0, 0.06)',
+  },
+};
 
 export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
   HTMLElement,
->(function Tab({ href, indicator, id, index, isActive, onChange, text }, ref) {
+>(function Tab({ bgColor, href, indicator, id, index, isActive, onChange, text }, ref) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
 
-  let color = 'white';
-  if (pressed) {
-    color = 'lightWash';
-  } else if ((hovered || focused) && !isActive) {
-    color = 'lightGray';
+  const bgColorSet = colors[bgColor];
+
+  let color = bgColorSet.base;
+  if (!isActive) {
+    if (pressed) {
+      color = bgColorSet.pressed;
+    } else if (hovered || focused) {
+      color = bgColorSet.hover;
+    }
   }
 
   return (
@@ -117,16 +136,24 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
         onMouseUp={() => setPressed(false)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onTap={({ event, disableOnNavigation }) =>
-          onChange({ activeTabIndex: index, event, disableOnNavigation })
-        }
+        onTap={({ event, disableOnNavigation }) => {
+          onChange({ activeTabIndex: index, event, disableOnNavigation });
+        }}
         role="link"
         rounding={TAB_ROUNDING}
-        tapStyle="compress"
+        tapStyle={isActive ? 'none' : 'compress'}
       >
         <Flex alignItems="center" direction="column">
           <Box
-            color={color}
+            // $FlowExpectedError[incompatible-type] Flow doesn't understand the non-RGBA colors are valid for Box
+            color={color.startsWith('rgba') ? undefined : color}
+            {...(color.startsWith('rgba')
+              ? {
+                  dangerouslySetInlineStyle: {
+                    __style: { backgroundColor: color },
+                  },
+                }
+              : {})}
             padding={TAB_INNER_PADDING}
             position="relative"
             rounding={TAB_ROUNDING}
@@ -165,6 +192,7 @@ TabWithForwardRef.displayName = 'Tab';
 
 type Props = {|
   activeTabIndex: number,
+  bgColor?: BgColor,
   onChange: OnChangeHandler,
   tabs: $ReadOnlyArray<{| ...TabType, ref?: {| current: ?HTMLElement |} |}>,
   wrap?: boolean,
@@ -173,17 +201,24 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/Tabs
  */
-export default function Tabs({ activeTabIndex, onChange, tabs, wrap }: Props): Node {
+export default function Tabs({
+  activeTabIndex,
+  bgColor = 'default',
+  onChange,
+  tabs,
+  wrap,
+}: Props): Node {
   return (
     <Flex alignItems="center" gap={4} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabWithForwardRef
-          key={id || `${href}_${index}`}
+          bgColor={bgColor}
           href={href}
           id={id}
           index={index}
           isActive={activeTabIndex === index}
           indicator={indicator}
+          key={id || `${href}_${index}`}
           onChange={onChange}
           ref={ref}
           text={text}
@@ -199,9 +234,14 @@ const TabItemPropType = {
   indicator: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   text: PropTypes.node.isRequired,
 };
+const BgColorPropType = (PropTypes.oneOf([
+  'default',
+  'transparent',
+]): React$PropType$Primitive<BgColor>);
 
 TabWithForwardRef.propTypes = {
   ...TabItemPropType,
+  bgColor: BgColorPropType,
   index: PropTypes.number.isRequired,
   isActive: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -209,6 +249,7 @@ TabWithForwardRef.propTypes = {
 
 Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,
+  bgColor: BgColorPropType,
   onChange: PropTypes.func.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   tabs: PropTypes.arrayOf(
