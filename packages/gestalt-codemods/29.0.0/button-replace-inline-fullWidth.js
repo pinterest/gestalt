@@ -6,7 +6,7 @@
  *  <Button inline={inline} /> to CONSOLE.LOG for manual change />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/24.0.0/button-replace-inline-fullWidth.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/29.0.0/button-replace-inline-fullWidth.js relative/path/to/your/code
 
 const transformMap = {
   inline: 'fullWidth',
