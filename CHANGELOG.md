@@ -1,3 +1,9 @@
+## 29.2.1 (Jul 13, 2021)
+
+### Patch
+
+- Codemods: Move 29.0.0 codemod to correct directory (#1583)
+
 ## 29.2.0 (Jul 12, 2021)
 
 ### Minor
