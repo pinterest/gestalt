@@ -115,7 +115,7 @@ card(
       {
         name: 'onSubmit',
         type:
-          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
+          '(SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>) => void',
         required: true,
         description: `Actions to perform when the form has been submitted.`,
       },
@@ -639,6 +639,9 @@ function Example(props) {
         defaultCode={`
 function FormExample(props) {
   const [value, setValue] = React.useState('');
+  const handleSubmit = () => {
+    // your submit logic using state values
+  };
 
   return (
     <Upsell
@@ -653,7 +656,7 @@ function FormExample(props) {
       title="Give $30, get $60 in ads credit"
     >
       <Upsell.Form
-        onSubmit={({ event }) => { event.preventDefault(); }}
+        onSubmit={handleSubmit}
         submitButtonAccessibilityLabel="Submit name for ads credit"
         submitButtonText="Submit"
       >
@@ -677,12 +680,15 @@ function FormExample(props) {
 function Example(props) {
   const [nameValue, setNameValue] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
+  const handleSubmit = () => {
+    // your submit logic using state values
+  };
 
   return (
     <Upsell
       dismissButton={{
         accessibilityLabel: 'Dismiss banner',
-        onDismiss: ()=>{},
+        onDismiss: () => {},
       }}
       imageData={{
         component:
@@ -700,7 +706,7 @@ function Example(props) {
       title="Interested in a free ads consultation?"
     >
       <Upsell.Form
-        onSubmit={({ event }) => { event.preventDefault(); }}
+        onSubmit={handleSubmit}
         submitButtonAccessibilityLabel="Submit info for contact"
         submitButtonText="Contact me"
       >
