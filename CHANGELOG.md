@@ -1,3 +1,9 @@
+## 29.2.2 (Jul 14, 2021)
+
+### Patch
+
+- Button: Add key to fix Safari bug (#1584)
+
 ## 29.2.1 (Jul 13, 2021)
 
 ### Patch
