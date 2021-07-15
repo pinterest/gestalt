@@ -1,29 +1,26 @@
 // @flow strict
-import { type Node, useCallback, useEffect } from 'react';
+import type { Node } from 'react';
+
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Image.css';
 
 const shouldScaleImage = (fit) => fit === 'cover' || fit === 'contain';
 
-type Fit = 'contain' | 'cover' | 'none';
-type Importance = 'high' | 'low' | 'auto';
-type Loading = 'eager' | 'lazy' | 'auto';
-type Role = 'img' | 'presentation';
-
 type Props = {|
   alt: string,
   children?: Node,
-  color?: string,
+  color: string,
   elementTiming?: string,
-  fit?: Fit,
-  importance?: Importance,
-  loading?: Loading,
+  fit?: 'contain' | 'cover' | 'none',
+  importance?: 'high' | 'low' | 'auto',
+  loading?: 'eager' | 'lazy' | 'auto',
   naturalHeight: number,
   naturalWidth: number,
   onError?: () => void,
   onLoad?: () => void,
-  role?: Role,
+  role?: 'img' | 'presentation',
   sizes?: string,
   src: string,
   srcSet?: string,
@@ -32,109 +29,133 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/Image
  */
-export default function Image({
-  alt,
-  children,
-  color = 'transparent',
-  elementTiming,
-  fit = 'none',
-  importance = 'auto',
-  loading = 'auto',
-  naturalHeight,
-  naturalWidth,
-  onError,
-  onLoad,
-  role = 'img',
-  sizes,
-  src,
-  srcSet,
-}: Props): Node {
-  const isScaledImage = shouldScaleImage(fit);
+export default class Image extends PureComponent<Props> {
+  static propTypes = {
+    alt: PropTypes.string.isRequired,
+    children: PropTypes.node,
+    color: PropTypes.string,
+    elementTiming: PropTypes.string,
+    fit: PropTypes.oneOf(['contain', 'cover', 'none']),
+    importance: PropTypes.oneOf(['high', 'low', 'auto']),
+    loading: PropTypes.oneOf(['eager', 'lazy', 'auto']),
+    naturalHeight: PropTypes.number.isRequired,
+    naturalWidth: PropTypes.number.isRequired,
+    onError: PropTypes.func,
+    onLoad: PropTypes.func,
+    role: PropTypes.oneOf(['img', 'presentation']),
+    sizes: PropTypes.string,
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string,
+  };
 
-  const handleLoad = useCallback(() => {
-    onLoad?.();
-  }, [onLoad]);
+  static defaultProps: {|
+    color: string,
+    fit?: 'contain' | 'cover' | 'none',
+    importance?: 'high' | 'low' | 'auto',
+    loading?: 'eager' | 'lazy' | 'auto',
+  |} = {
+    color: 'transparent',
+    fit: 'none',
+    importance: 'auto',
+    loading: 'auto',
+  };
 
-  const handleError = useCallback(() => {
-    onError?.();
-  }, [onError]);
+  componentDidMount() {
+    if (shouldScaleImage(this.props.fit)) {
+      this.loadImage();
+    }
+  }
 
-  const loadImage = useCallback(() => {
+  componentDidUpdate(prevProps: Props) {
+    const { fit, src } = this.props;
+    if (shouldScaleImage(fit) && prevProps.src !== src) {
+      this.loadImage();
+    }
+  }
+
+  handleLoad: () => void = () => {
+    if (this.props.onLoad) {
+      this.props.onLoad();
+    }
+  };
+
+  handleError: () => void = () => {
+    if (this.props.onError) {
+      this.props.onError();
+    }
+  };
+
+  loadImage() {
     if (typeof window !== 'undefined') {
       const image = new window.Image();
-      image.onload = handleLoad;
-      image.onerror = handleError;
-      image.src = src;
+      image.onload = this.handleLoad;
+      image.onerror = this.handleError;
+      image.src = this.props.src;
     }
-  }, [handleError, handleLoad, src]);
+  }
 
-  useEffect(() => {
-    if (isScaledImage) {
-      loadImage();
-    }
-  }, [isScaledImage, loadImage, src]);
+  render(): Node {
+    const {
+      alt,
+      color,
+      children,
+      elementTiming,
+      fit,
+      importance,
+      loading,
+      naturalHeight,
+      naturalWidth,
+      role = 'img',
+      sizes,
+      src,
+      srcSet,
+    } = this.props;
 
-  const childContent = children ? (
-    <Box position="absolute" top left bottom right overflow="hidden">
-      {children}
-    </Box>
-  ) : null;
+    const isScaledImage = shouldScaleImage(fit);
+    const childContent = children ? (
+      <Box position="absolute" top left bottom right overflow="hidden">
+        {children}
+      </Box>
+    ) : null;
 
-  return isScaledImage ? (
-    <Box height="100%" position="relative">
-      <div
-        aria-label={role === 'presentation' ? undefined : alt}
-        className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
-        style={{
-          backgroundColor: color,
-          backgroundImage: `url('${src}')`,
+    return isScaledImage ? (
+      <Box height="100%" position="relative">
+        <div
+          aria-label={role === 'presentation' ? undefined : alt}
+          className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
+          style={{
+            backgroundColor: color,
+            backgroundImage: `url('${src}')`,
+          }}
+          role={role}
+        />
+        {childContent}
+      </Box>
+    ) : (
+      <Box
+        position="relative"
+        dangerouslySetInlineStyle={{
+          __style: {
+            backgroundColor: color,
+            paddingBottom: `${(naturalHeight / naturalWidth) * 100}%`,
+          },
         }}
-        role={role}
-      />
-      {childContent}
-    </Box>
-  ) : (
-    <Box
-      position="relative"
-      dangerouslySetInlineStyle={{
-        __style: {
-          backgroundColor: color,
-          paddingBottom: `${(naturalHeight / naturalWidth) * 100}%`,
-        },
-      }}
-    >
-      <img
-        alt={alt}
-        className={styles.img}
-        elementtiming={elementTiming}
-        importance={importance}
-        loading={loading}
-        onError={handleError}
-        onLoad={handleLoad}
-        sizes={sizes}
-        src={src}
-        srcSet={srcSet}
-        role={role === 'presentation' ? 'presentation' : undefined}
-      />
-      {childContent}
-    </Box>
-  );
+      >
+        <img
+          alt={alt}
+          className={styles.img}
+          elementtiming={elementTiming}
+          importance={importance}
+          loading={loading}
+          onError={this.handleError}
+          onLoad={this.handleLoad}
+          sizes={sizes}
+          src={src}
+          srcSet={srcSet}
+          role={role === 'presentation' ? 'presentation' : undefined}
+        />
+        {childContent}
+      </Box>
+    );
+  }
 }
-
-Image.propTypes = {
-  alt: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  color: PropTypes.string,
-  elementTiming: PropTypes.string,
-  fit: (PropTypes.oneOf(['contain', 'cover', 'none']): React$PropType$Primitive<Fit>),
-  importance: (PropTypes.oneOf(['high', 'low', 'auto']): React$PropType$Primitive<Importance>),
-  loading: (PropTypes.oneOf(['eager', 'lazy', 'auto']): React$PropType$Primitive<Loading>),
-  naturalHeight: PropTypes.number.isRequired,
-  naturalWidth: PropTypes.number.isRequired,
-  onError: PropTypes.func,
-  onLoad: PropTypes.func,
-  role: (PropTypes.oneOf(['img', 'presentation']): React$PropType$Primitive<Role>),
-  sizes: PropTypes.string,
-  src: PropTypes.string.isRequired,
-  srcSet: PropTypes.string,
-};
