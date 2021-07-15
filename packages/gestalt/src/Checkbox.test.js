@@ -64,9 +64,9 @@ test('Checkbox with an image', () => {
         <Box>
           <Image
             alt=""
+            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
             naturalHeight={1}
             naturalWidth={1}
-            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
           />
         </Box>
       }
