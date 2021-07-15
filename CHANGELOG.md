@@ -1,3 +1,9 @@
+## 29.3.1 (Jul 15, 2021)
+
+### Patch
+
+- Revert "Image: Refactor to function component (#1576)" (#1586)
+
 ## 29.3.0 (Jul 15, 2021)
 
 ### Minor
