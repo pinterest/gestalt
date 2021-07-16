@@ -1,3 +1,9 @@
+## 29.3.2 (Jul 16, 2021)
+
+### Patch
+
+- Lint Rules: Add `no-box-useless-props` to index (#1589)
+
 ## 29.3.1 (Jul 15, 2021)
 
 ### Patch
