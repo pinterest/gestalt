@@ -20,6 +20,8 @@ card(
     name="Our approach"
     description={`
     Everyone should be able to create the life they love with Pinterest, no matter their ability. An inclusive product is a top priority, and it relies on everyone's commitment to accessibility. Pinterest's goal as a company is to meet <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 AA standards</a>, and Gestalt's goal is no different. By creating accessible components, we aim to help everyone create an inclusive product.
+
+    It's important to remember that accessible components are a great starting point, but there is further work to do to create a cohesive, accessible experience. Below we've highlighted some key areas to address, but for a more extensive list we recommend checking out <a href="https://www.a11yproject.com/">The A11Y Project</a> and Heydon Pickering's <a href="https://github.com/Heydon/inclusive-design-checklist">Inclusive Design Checklist</a>.
     `}
   />,
 );
