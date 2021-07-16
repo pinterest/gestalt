@@ -27,7 +27,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Guidelines',
-    pages: ['Layouts', 'Screen Sizes'],
+    pages: ['Accessibility', 'Layouts', 'Screen Sizes'],
   },
   {
     sectionName: 'Foundation',
@@ -37,10 +37,6 @@ const sidebarIndex: Array<sidebarIndexType> = [
   {
     sectionName: 'Configuration',
     pages: ['ColorSchemeProvider', 'OnLinkNavigationProvider'],
-  },
-  {
-    sectionName: 'Accessibility',
-    pages: ['useFocusVisible', 'useReducedMotion'],
   },
   {
     sectionName: 'Data Display',
