@@ -29,15 +29,16 @@ card(
 card(
   <MainSection
     name="Design considerations"
-    description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit?usp=sharing)."
+    description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. Pinployees: for further detail and matching visual examples, check out our [Accessible Design deck](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit?usp=sharing)."
   >
     <MainSection.Subsection
       title="Visuals"
       description={`
-      When designing, it's important to ensure our use of color is appropriate.
+      When designing, it's important to ensure our use of color and typography is appropriate.
 
       - **Avoid using color as the sole indicator of information.** For instance, always supply and icon or text describing errors, rather than relying on a red outline or red text. Color-only changes do not work well for those who may be color blind or have low vision.
       - **Check your color contrast!** We follow AA guidance from the Web Content Accessibility Guidelines, so we recommend using a tool like [aremycolorsaccessible.com](https://www.aremycolorsaccessible.com/) to check the foreground color against the background color. In Figma, you can use [the Able plugin](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility) to check color contrast in your designs.
+      - **Use appropriate text-sizes.** WCAG 2.1 suggests using text no smaller than 16pt for easy readability.
       `}
     />
     <MainSection.Subsection
@@ -65,7 +66,9 @@ card(
     Accessibility requirements vary depending on the device used, so be sure to account for small and large screens alike.
 
     - **Account for zooming!** Many users, especially on mobile, adjust the default size of fonts and often increase the zoom setting. Does your design still work when zoomed in 200%?
-    - **Create large touch targets.** If you've ever clicked on the wrong thing because the tap target was too small, you know how frustrating it can be to have to re-orient yourself. Ensure your touch targets on mobile are large enough for people with limited mobility to accurately press what they're aiming for.`}
+    - **Create large touch targets.** If you've ever clicked on the wrong thing because the tap target was too small, you know how frustrating it can be to have to re-orient yourself. Ensure your touch targets on mobile are large enough for people with limited mobility to accurately press what they're aiming for.
+    - **Provide white space.** Use empty space on the page to break up sections and draw users' focus to specific content. Too much content and information can overwhelm and confuse users.
+    `}
     />
   </MainSection>,
 );
@@ -136,7 +139,7 @@ function Example() {
         description={`
           \`useReducedMotion\` allows a user to request that the system minimize the amount of non-essential motion.
 
-          Users can experience distraction or nausea from animated content. For example, scrolling a page which causes elements to move (other than the essential movement associated with scrolling) can trigger vestibular disorders.
+          Users can experience distraction or nausea from animated content. For example, scrolling a page which causes elements to move (other than the essential movement associated with scrolling) can trigger vestibular disorders. Change your Accessibility -> Display device settings to "Reduce motion" and notice the animation stops.
 
           References:
           <ul>
@@ -174,7 +177,7 @@ function Example() {
                 }
               >
                 <Box color="red" display="inlineBlock" padding={4}>
-                  <Text color="white">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion disabled'}</Text>
+                  <Text color="white">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion not activated'}</Text>
                 </Box>
               </div>
             </React.Fragment>
