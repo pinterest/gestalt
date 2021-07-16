@@ -1,6 +1,7 @@
 // @flow strict
 import buttonIconRestrictions from './button-icon-restrictions.js';
 import noBoxDisallowedProps from './no-box-disallowed-props.js';
+import noBoxUselessProps from './no-box-useless-props.js';
 import noBoxMarginleftMarginright from './no-box-marginleft-marginright.js';
 import noDangerousStyleDuplicates from './no-dangerous-style-duplicates.js';
 import noMediumFormfields from './no-medium-formfields.js';
@@ -11,6 +12,7 @@ module.exports = {
   rules: {
     'button-icon-restrictions': buttonIconRestrictions,
     'no-box-disallowed-props': noBoxDisallowedProps,
+    'no-box-useless-props': noBoxUselessProps,
     'no-box-marginleft-marginright': noBoxMarginleftMarginright,
     'no-dangerous-style-duplicates': noDangerousStyleDuplicates,
     'no-medium-formfields': noMediumFormfields,
