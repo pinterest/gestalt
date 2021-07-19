@@ -14,6 +14,8 @@ card(
 
     Users can experience distraction or nausea from animated content. For example, scrolling a page which causes elements to move (other than the essential movement associated with scrolling) can trigger vestibular disorders.
 
+    Change your Accessibility -> Display device settings to "Reduce motion" and notice the animation stops.
+
     References:
     <ul>
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion" target="_blank">CSS media query: prefers-reduced-motion</a></li>

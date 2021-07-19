@@ -33,10 +33,13 @@ const sidebarIndex: Array<sidebarIndexType> = [
     sectionName: 'Foundation',
     pages: ['Heading', 'Icon', 'Text'],
   },
-
   {
     sectionName: 'Configuration',
     pages: ['ColorSchemeProvider', 'OnLinkNavigationProvider'],
+  },
+  {
+    sectionName: 'Custom Hooks',
+    pages: ['useFocusVisible', 'useReducedMotion'],
   },
   {
     sectionName: 'Data Display',
