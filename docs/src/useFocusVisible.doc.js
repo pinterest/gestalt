@@ -27,19 +27,19 @@ card(
     defaultCode={`
 function Example() {
   const { isFocusVisible } = useFocusVisible();
-  const [ focussedButton1, setFocussedButton1 ] = React.useState(false);
-  const [ focussedButton2, setFocussedButton2 ] = React.useState(false);
+  const [ focusedButton1, setFocusedButton1 ] = React.useState(false);
+  const [ focusedButton2, setFocusedButton2 ] = React.useState(false);
 
   return (
     <Flex alignItems="start" direction="column" gap={4}>
       <Flex alignItems="center" gap={4}>
         <Text>With focus visible</Text>
         <button
-          onBlur={() => setFocussedButton1(false)}
-          onFocus={() => setFocussedButton1(true)}
+          onBlur={() => setFocusedButton1(false)}
+          onFocus={() => setFocusedButton1(true)}
           style={{
             outline: 'none',
-            boxShadow: isFocusVisible && focussedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
+            boxShadow: isFocusVisible && focusedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
           <Text>Button 1</Text>
@@ -48,11 +48,11 @@ function Example() {
       <Flex alignItems="center" gap={4}>
         <Text>Without focus visible</Text>
         <button
-          onBlur={() => setFocussedButton2(false)}
-          onFocus={() => setFocussedButton2(true)}
+          onBlur={() => setFocusedButton2(false)}
+          onFocus={() => setFocusedButton2(true)}
           style={{
             outline: 'none',
-            boxShadow: focussedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
+            boxShadow: focusedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
           <Text>Button 2</Text>

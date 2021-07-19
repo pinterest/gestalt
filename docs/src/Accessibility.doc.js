@@ -78,9 +78,11 @@ card(
     <MainSection.Subsection
       title="ARIA attributes"
       description={`
-      Accessible Rich Internet Applications (ARIA) attributes provide ways to make applications more accessible by supplementing HTML so that common interactions in applications can be properly utilized with assistive technology. Please note, HTML 5 covers many common patterns and interactions by default, so ARIA should only be used to fill gaps, not in place of correct semantic HTML.
+      Accessible Rich Internet Applications (ARIA) attributes provide ways to make applications more accessible by supplementing HTML so that common interactions in applications can be properly utilized with assistive technology.
 
-      For instance, it is always preferred to use the native \`<button>\` instead of adding \`role="button"\`. ARIA is best used to provide extra information about a component, like using \`aria-expanded\` to signal when a [Popover](/Popover#ARIA-attributes) is open or closed. Learn more about [ARIA and its use cases](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
+      Please note, HTML 5 covers many common patterns and interactions by default, so ARIA should only be used to fill gaps, not in place of correct semantic HTML. For instance, it is always preferred to use the native \`<button>\` instead of adding \`role="button"\`. Better yet, use the Gestalt [Button](/Button), and you won't have to worry about a thing!
+
+      In general, ARIA is best used to provide extra information about a component, like using \`aria-expanded\` to signal when a [Popover](/Popover#ARIA-attributes) is open or closed. Learn more about [ARIA and its use cases](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
     `}
     />
     <MainSection.Subsection
@@ -95,7 +97,7 @@ card(
     <MainSection.Subsection
       title="Keyboard navigation"
       description={`
-        People use and interact with technology in a myriad of ways. Many people do not use a mouse for various reasons and instead rely on the keyboard and a [screen reader](https://www.afb.org/blindness-and-low-vision/using-technology/assistive-technology-products/screen-readers) to interact with applications. The key to creating truly accessible products is ensuring that your application works very well when using only a keyboard and/or screen reader to navigate and interact with content. In other words, if it can be done with a mouse, it can be done with a keyboard. In the Gestalt documentation, we aim to help describe the expectations for keyboard navigation, particularly within our more complex components. For example, in [ComboBox](/ComboBox#Keyboard-interaction), we've detailed the expected keyboard interaction for all aspects of the ComboBox.
+        People use and interact with technology in myriad ways. Many people do not use a mouse for various reasons and instead rely on the keyboard and a [screen reader](https://www.afb.org/blindness-and-low-vision/using-technology/assistive-technology-products/screen-readers) to interact with applications. The key to creating truly accessible products is ensuring that your application works very well when using only a keyboard and/or screen reader to navigate and interact with content. In other words, if it can be done with a mouse, it can be done with a keyboard. In the Gestalt documentation, we aim to help describe the expectations for keyboard navigation, particularly within our more complex components. For example, in [ComboBox](/ComboBox#Keyboard-interaction), we've detailed the expected keyboard interaction for all aspects of the ComboBox.
 
         Another key aspect to keyboard navigation is [focus management](https://css-tricks.com/focus-management-and-inert/). Users should never lose their place within a page, and their current point of focus should always be clear visually. Some components, like Modals or Popovers, act as focus traps, meaning the user's focus should only rotate between items inside the Modal or Popover, and anything below these items is not reachable by keyboard. When a component like Modal or Popover is dismissed or closed, the user's focus should go back to the item that triggered the component.
     `}
@@ -103,7 +105,7 @@ card(
     <MainSection.Subsection
       columns={2}
       title="Available hooks"
-      description={`Gestalt provides two functions that help create more accessible experiences: \`useFocusVisible\` and \`useReducedMotion\`.`}
+      description={`Gestalt provides two [custom hooks](https://reactjs.org/docs/hooks-custom.html) that help create more accessible experiences: \`useFocusVisible\` and \`useReducedMotion\`.`}
     >
       <MainSection.Card
         cardSize="md"
@@ -120,19 +122,19 @@ card(
         defaultCode={`
 function Example() {
   const { isFocusVisible } = useFocusVisible();
-  const [ focussedButton1, setFocussedButton1 ] = React.useState(false);
-  const [ focussedButton2, setFocussedButton2 ] = React.useState(false);
+  const [ focusedButton1, setFocusedButton1 ] = React.useState(false);
+  const [ focusedButton2, setFocusedButton2 ] = React.useState(false);
 
   return (
     <Flex alignItems="start" direction="column" gap={4}>
       <Flex alignItems="center" gap={4}>
         <Text>With focus visible</Text>
         <button
-          onBlur={() => setFocussedButton1(false)}
-          onFocus={() => setFocussedButton1(true)}
+          onBlur={() => setFocusedButton1(false)}
+          onFocus={() => setFocusedButton1(true)}
           style={{
             outline: 'none',
-            boxShadow: isFocusVisible && focussedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
+            boxShadow: isFocusVisible && focusedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
           <Text>Button 1</Text>
@@ -141,11 +143,11 @@ function Example() {
       <Flex alignItems="center" gap={4}>
         <Text>Without focus visible</Text>
         <button
-          onBlur={() => setFocussedButton2(false)}
-          onFocus={() => setFocussedButton2(true)}
+          onBlur={() => setFocusedButton2(false)}
+          onFocus={() => setFocusedButton2(true)}
           style={{
             outline: 'none',
-            boxShadow: focussedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
+            boxShadow: focusedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
           <Text>Button 2</Text>
@@ -213,7 +215,7 @@ function Example() {
 card(
   <MainSection name="Further learning">
     <MainSection.Subsection
-      title="Internal"
+      title="Pinternal"
       description={`
         **[Web Accessibility Wiki](https://w.pinadmin.com/display/WT/Accessibility)**
         Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests).
