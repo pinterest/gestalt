@@ -27,19 +27,18 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Guidelines',
-    pages: ['Layouts', 'Screen Sizes'],
+    pages: ['Accessibility', 'Layouts', 'Screen Sizes'],
   },
   {
     sectionName: 'Foundation',
     pages: ['Heading', 'Icon', 'Text'],
   },
-
   {
     sectionName: 'Configuration',
     pages: ['ColorSchemeProvider', 'OnLinkNavigationProvider'],
   },
   {
-    sectionName: 'Accessibility',
+    sectionName: 'Custom Hooks',
     pages: ['useFocusVisible', 'useReducedMotion'],
   },
   {
