@@ -239,6 +239,9 @@ card(
 
         **[Deque aXe DevTools](https://www.deque.com/axe/devtools/)**
         Learn more about the software that powers our accessibility testing.
+
+        **[Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/)**
+        Details and info about the web content accessibility guidelines.
       `}
     />
   </MainSection>,
