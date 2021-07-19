@@ -1,3 +1,9 @@
+## 29.4.0 (Jul 19, 2021)
+
+### Minor
+
+- Lint Rules: Fix no-box-useless-props rule (#1590)
+
 ## 29.3.2 (Jul 16, 2021)
 
 ### Patch
