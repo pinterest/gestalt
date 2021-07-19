@@ -5,7 +5,6 @@
  */
 
 export const errorMessages = {
-  absolute: '`bottom`, `left`, `right`, and `top` must be used with position="absolute"',
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
   flex:
     '`alignContent`, `alignItems`, `direction`, `justifyContent`, and `wrap` must be used with `display="flex"`',
