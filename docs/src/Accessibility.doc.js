@@ -75,9 +75,31 @@ card(
 
 card(
   <MainSection name="Engineering considerations">
-    <MainSection.Subsection title="ARIA attributes" description="" />
-    <MainSection.Subsection title="Labels" description="" />
-    <MainSection.Subsection title="Keyboard navigation" description="" />
+    <MainSection.Subsection
+      title="ARIA attributes"
+      description={`
+      Accessible Rich Internet Applications (ARIA) attributes provide ways to make applications more accessible by supplementing HTML so that common interactions in applications can be properly utilized with assistive technology. Please note, HTML 5 covers many common patterns and interactions by default, so ARIA should only be used to fill gaps, not in place of correct semantic HTML.
+
+      For instance, it is always preferred to use the native \`<button>\` instead of adding \`role="button"\`. ARIA is best used to provide extra information about a component, like using \`aria-expanded\` to signal when a [Popover](/Popover#ARIA-attributes) is open or closed. Learn more about [ARIA and its use cases](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
+    `}
+    />
+    <MainSection.Subsection
+      title="Labels"
+      description={`
+      One of the most common ways to influence the ARIA attributes in our Gestalt components is through our \`accessibilityLabel\` props. These props allow users to create concise descriptions about components and their interactive elements in order to provide the best possible experience to those using assistive technology, like a screen reader. Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
+
+      - In [AvatarGroup](/AvatarGroup#ARIA-attributes), \`accessibilityLabel\` is used to describe an interactive Avatar face-pile that also acts as a button. A good \`accessibilityLabel\` may be "Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
+      - In [Callout](/Callout#Accessibility) and [Upsell](/Upsell#Accessibility), \`accessibilityLabel\` can be specified for each primary and secondary action to create better context. If the button texts are "Learn More" and "Invite", the accessibility labels should be "Learn more about ads credit" and "Invite friends for ads credit". If the button text is already descriptive enough, the accessibilityLabel can be an empty string.
+    `}
+    />
+    <MainSection.Subsection
+      title="Keyboard navigation"
+      description={`
+        People use and interact with technology in a myriad of ways. Many people do not use a mouse for various reasons and instead rely on the keyboard and a [screen reader](https://www.afb.org/blindness-and-low-vision/using-technology/assistive-technology-products/screen-readers) to interact with applications. The key to creating truly accessible products is ensuring that your application works very well when using only a keyboard and/or screen reader to navigate and interact with content. In other words, if it can be done with a mouse, it can be done with a keyboard. In the Gestalt documentation, we aim to help describe the expectations for keyboard navigation, particularly within our more complex components. For example, in [ComboBox](/ComboBox#Keyboard-interaction), we've detailed the expected keyboard interaction for all aspects of the ComboBox.
+
+        Another key aspect to keyboard navigation is [focus management](https://css-tricks.com/focus-management-and-inert/). Users should never lose their place within a page, and their current point of focus should always be clear visually. Some components, like Modals or Popovers, act as focus traps, meaning the user's focus should only rotate between items inside the Modal or Popover, and anything below these items is not reachable by keyboard. When a component like Modal or Popover is dismissed or closed, the user's focus should go back to the item that triggered the component.
+    `}
+    />
     <MainSection.Subsection
       columns={2}
       title="Available hooks"
@@ -190,8 +212,35 @@ function Example() {
 
 card(
   <MainSection name="Further learning">
-    <MainSection.Subsection title="Internal" description="" />
-    <MainSection.Subsection title="External" description="" />
+    <MainSection.Subsection
+      title="Internal"
+      description={`
+        **[Web Accessibility Wiki](https://w.pinadmin.com/display/WT/Accessibility)**
+        Learn more about or web accessibility efforts, best practices, and integration tests.
+
+        **[Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests)**
+        Our goal is to have an accessibility integration test for every page handler at Pinterest.
+
+        **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**
+        Checkout our Accessible Design deck for examples and recommendations regarding accessibility at the design phase
+
+        **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/enKB/Accessibility+101)**
+        Reference video recordings and materials from our Accessibility 101 session for new hires.
+      `}
+    />
+    <MainSection.Subsection
+      title="External"
+      description={`
+        **[A11Y Project](https://www.a11yproject.com/checklist/)**
+        Reference checklists, blog posts, and more. This is a great tool for learning about accessibility.
+
+        **[Able Figma Plugin](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility)**
+        Use the Able plugin to verify color contrast and account for color blindness.
+
+        **[Deque aXe DevTools](https://www.deque.com/axe/devtools/)**
+        Learn more about the software that powers our accessibility testing.
+      `}
+    />
   </MainSection>,
 );
 
