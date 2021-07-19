@@ -216,13 +216,13 @@ card(
       title="Internal"
       description={`
         **[Web Accessibility Wiki](https://w.pinadmin.com/display/WT/Accessibility)**
-        Learn more about or web accessibility efforts, best practices, and integration tests.
+        Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests).
 
-        **[Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests)**
-        Our goal is to have an accessibility integration test for every page handler at Pinterest.
+        **[Product Accessibility Working Group](https://paper.dropbox.com/doc/Product-Accessibility-Working-Group--BO3YB5RlBqMR_dd4mPlH47TQAg-3yV0JaSZlrnj5escjkAex)**
+        Details about the accessibility working group, including success metrics and project statuses.
 
         **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**
-        Checkout our Accessible Design deck for examples and recommendations regarding accessibility at the design phase
+        Checkout our Accessible Design deck for examples and recommendations regarding accessibility at the design phase.
 
         **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/enKB/Accessibility+101)**
         Reference video recordings and materials from our Accessibility 101 session for new hires.
