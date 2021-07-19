@@ -1,3 +1,9 @@
+## 29.4.1 (Jul 19, 2021)
+
+### Patch
+
+- Docs: Add Accessibility guidelines page (#1588)
+
 ## 29.4.0 (Jul 19, 2021)
 
 ### Minor
