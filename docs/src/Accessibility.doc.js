@@ -105,7 +105,7 @@ card(
     <MainSection.Subsection
       columns={2}
       title="Available hooks"
-      description={`Gestalt provides two [custom hooks](https://reactjs.org/docs/hooks-custom.html) that help create more accessible experiences: \`useFocusVisible\` and \`useReducedMotion\`.`}
+      description={`Gestalt provides two [custom Hooks](https://reactjs.org/docs/hooks-custom.html) that help create more accessible experiences: \`useFocusVisible\` and \`useReducedMotion\`.`}
     >
       <MainSection.Card
         cardSize="md"
