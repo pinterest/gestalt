@@ -11,7 +11,6 @@ export const errorMessages = {
     '`alignContent`, `alignItems`, `direction`, `justifyContent`, and `wrap` must be used with `display="flex"`',
 };
 
-const absoluteProps = ['bottom', 'left', 'right', 'top'];
 const flexProps = ['alignContent', 'alignItems', 'direction', 'justifyContent', 'wrap'];
 
 const rule = {
@@ -51,15 +50,6 @@ const rule = {
           value: node.attributes[key]?.value?.value,
         }));
         const propNames = props.map((prop) => prop.name);
-
-        // ABSOLUTE PROPS
-        const isAbsolutePosition =
-          props.find((prop) => prop.name === 'position')?.value === 'absolute';
-        const hasAbsoluteProps = absoluteProps.some((prop) => propNames.includes(prop));
-
-        if (hasAbsoluteProps && !isAbsolutePosition) {
-          context.report(node, errorMessages.absolute);
-        }
 
         // FIT - MAX WIDTH
         const hasFit = propNames.includes('fit');
