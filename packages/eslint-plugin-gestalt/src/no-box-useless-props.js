@@ -7,10 +7,21 @@
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
   flex:
-    '`alignContent`, `alignItems`, `direction`, `justifyContent`, and `wrap` must be used with `display="flex"`',
+    '`alignContent`, `alignItems`, `direction`, `smDirection`, `mdDirection`, `lgDirection`, `justifyContent`, and `wrap` must be used with `display="flex"`',
 };
 
-const flexProps = ['alignContent', 'alignItems', 'direction', 'justifyContent', 'wrap'];
+const displayPropNames = ['display', 'smDisplay', 'mdDisplay', 'lgDisplay'];
+
+const flexPropNames = [
+  'alignContent',
+  'alignItems',
+  'direction',
+  `smDirection`,
+  `mdDirection`,
+  `lgDirection`,
+  'justifyContent',
+  'wrap',
+];
 
 const rule = {
   meta: {
@@ -59,8 +70,9 @@ const rule = {
         }
 
         // FLEX PROPS
-        const isFlexDisplay = props.find((prop) => prop.name === 'display')?.value === 'flex';
-        const hasFlexProps = flexProps.some((prop) => propNames.includes(prop));
+        const displayProps = props.filter((prop) => displayPropNames.includes(prop.name));
+        const isFlexDisplay = displayProps.some((prop) => prop.value === 'flex');
+        const hasFlexProps = flexPropNames.some((prop) => propNames.includes(prop));
 
         if (hasFlexProps && !isFlexDisplay) {
           context.report(node, errorMessages.flex);
