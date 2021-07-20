@@ -96,6 +96,32 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Interrupting users to get confirmation on a user-triggered action
+          - Requesting minimal amounts of information from a user (1-2 fields only)
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Any time a separate, designated URL is desired
+          - Requesting large forms of information
+          - Any action that should not interrupt users from their current work stream
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection>
       <MainSection.Card

@@ -120,7 +120,7 @@ card(
         description={`
           - Getting user confirmation on an action
           - Displaying system errors or notices
-          - Anytime a separate, designated URL is desired
+          - Any time a separate, designated URL is desired
         `}
       />
     </MainSection.Subsection>
