@@ -1,3 +1,9 @@
+## 29.5.2 (Jul 20, 2021)
+
+### Patch
+
+- Sheet: Added new Usage Guidelines (#1592)
+
 ## 29.5.1 (Jul 20, 2021)
 
 ### Patch
