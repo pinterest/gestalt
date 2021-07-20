@@ -1,3 +1,9 @@
+## 29.5.1 (Jul 20, 2021)
+
+### Patch
+
+- Lint Rules: Better error message for grid props (#1593)
+
 ## 29.5.0 (Jul 20, 2021)
 
 ### Minor
