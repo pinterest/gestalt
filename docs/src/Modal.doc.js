@@ -105,7 +105,7 @@ card(
         description={`
           - Interrupting users to get confirmation on a user-triggered action
           - Requesting minimal amounts of information from a user (1-2 fields only)
-          - Capture user's full attention to something important
+          - Capturing user's full attention for something important
         `}
       />
       <MainSection.Card
