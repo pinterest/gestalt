@@ -105,6 +105,7 @@ card(
         description={`
           - Interrupting users to get confirmation on a user-triggered action
           - Requesting minimal amounts of information from a user (1-2 fields only)
+          - Capture user's full attention to something important
         `}
       />
       <MainSection.Card
@@ -115,6 +116,7 @@ card(
           - Any time a separate, designated URL is desired
           - Requesting large forms of information
           - Any action that should not interrupt users from their current work stream
+          - On top of another modal, since this can create usability issues and confusion
         `}
       />
     </MainSection.Subsection>
