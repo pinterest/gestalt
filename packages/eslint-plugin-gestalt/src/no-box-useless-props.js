@@ -7,21 +7,16 @@
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
   flex:
-    '`alignContent`, `alignItems`, `direction`, `smDirection`, `mdDirection`, `lgDirection`, `justifyContent`, and `wrap` must be used with `display="flex"`',
+    '`direction`, `smDirection`, `mdDirection`, `lgDirection`, and `wrap` must be used with `display="flex"`',
+  flexGrid:
+    '`alignContent`, `alignItems`, and `justifyContent` must be used with `display="flex"`. You can suppress this error if dangerously setting `display="grid"`',
 };
 
 const displayPropNames = ['display', 'smDisplay', 'mdDisplay', 'lgDisplay'];
 
-const flexPropNames = [
-  'alignContent',
-  'alignItems',
-  'direction',
-  `smDirection`,
-  `mdDirection`,
-  `lgDirection`,
-  'justifyContent',
-  'wrap',
-];
+// These are valid for both flexbox and grid layouts
+const flexGridPropNames = ['alignContent', 'alignItems', 'justifyContent'];
+const flexPropNames = ['direction', `smDirection`, `mdDirection`, `lgDirection`, 'wrap'];
 
 const rule = {
   meta: {
@@ -73,9 +68,14 @@ const rule = {
         const displayProps = props.filter((prop) => displayPropNames.includes(prop.name));
         const isFlexDisplay = displayProps.some((prop) => prop.value === 'flex');
         const hasFlexProps = flexPropNames.some((prop) => propNames.includes(prop));
+        const hasFlexGridProps = flexGridPropNames.some((prop) => propNames.includes(prop));
 
-        if (hasFlexProps && !isFlexDisplay) {
-          context.report(node, errorMessages.flex);
+        if (!isFlexDisplay) {
+          if (hasFlexProps) {
+            context.report(node, errorMessages.flex);
+          } else if (hasFlexGridProps) {
+            context.report(node, errorMessages.flexGrid);
+          }
         }
       },
     };
