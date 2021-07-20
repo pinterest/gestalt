@@ -1,3 +1,9 @@
+## 29.5.0 (Jul 20, 2021)
+
+### Minor
+
+- Lint Rules: Add support for responsive props in no-box-useless-props (#1591)
+
 ## 29.4.1 (Jul 19, 2021)
 
 ### Patch
