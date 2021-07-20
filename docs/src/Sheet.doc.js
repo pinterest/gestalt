@@ -101,6 +101,33 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Performing an optional sub-task within a larger task
+          - Quick bulk edits on info from a Table
+          - Presenting help info while maintaining the current page and its context
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Getting user confirmation on an action
+          - Displaying system errors or notices
+          - Anytime a separate, designated URL is desired
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection>
       <MainSection.Card
