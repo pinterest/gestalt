@@ -27,22 +27,22 @@ const validFitCode = validFitCodePaths.map(mapPathsToCode);
 const invalidFitCodePaths = ['fit-max-width'].map(mapFileNameToPath('invalid'));
 const invalidFitCode = invalidFitCodePaths.map(mapPathsToCode);
 
-const flexFileNames = [
-  'flex-align-content',
-  'flex-align-items',
-  'flex-direction',
-  'flex-justify-content',
-  'flex-wrap',
-];
+const flexFileNames = ['flex-direction', 'flex-wrap'];
 const validFlexCodePaths = flexFileNames.map(mapFileNameToPath('valid'));
 const validFlexCode = validFlexCodePaths.map(mapPathsToCode);
 const invalidFlexCodePaths = flexFileNames.map(mapFileNameToPath('invalid'));
 const invalidFlexCode = invalidFlexCodePaths.map(mapPathsToCode);
+const flexGridFileNames = ['flex-align-content', 'flex-align-items', 'flex-justify-content'];
+const validFlexGridCodePaths = flexGridFileNames.map(mapFileNameToPath('valid'));
+const validFlexGridCode = validFlexGridCodePaths.map(mapPathsToCode);
+const invalidFlexGridCodePaths = flexGridFileNames.map(mapFileNameToPath('invalid'));
+const invalidFlexGridCode = invalidFlexGridCodePaths.map(mapPathsToCode);
 
 ruleTester.run('no-box-useless-props', rule, {
   valid: [
     ...validFitCode.map((validCode) => ({ code: validCode })),
     ...validFlexCode.map((validCode) => ({ code: validCode })),
+    ...validFlexGridCode.map((validCode) => ({ code: validCode })),
   ],
   invalid: [
     ...invalidFitCode.map((invalidCode) => ({
@@ -52,6 +52,10 @@ ruleTester.run('no-box-useless-props', rule, {
     ...invalidFlexCode.map((invalidCode) => ({
       code: invalidCode,
       errors: [{ message: errorMessages.flex }],
+    })),
+    ...invalidFlexGridCode.map((invalidCode) => ({
+      code: invalidCode,
+      errors: [{ message: errorMessages.flexGrid }],
     })),
   ],
 });
