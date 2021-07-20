@@ -1,3 +1,9 @@
+## 29.5.3 (Jul 20, 2021)
+
+### Patch
+
+- Updated Report icon (#1594)
+
 ## 29.5.2 (Jul 20, 2021)
 
 ### Patch
