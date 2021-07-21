@@ -96,6 +96,34 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Interrupting users to get confirmation on a user-triggered action
+          - Requesting minimal amounts of information from a user (1-2 fields only)
+          - Capturing user's full attention for something important
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Any time a separate, designated URL is desired
+          - Requesting large forms of information
+          - Any action that should not interrupt users from their current work stream
+          - On top of another modal, since this can create usability issues and confusion
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection>
       <MainSection.Card
