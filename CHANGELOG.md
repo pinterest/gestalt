@@ -1,3 +1,9 @@
+## 29.5.4 (Jul 21, 2021)
+
+### Patch
+
+- Modal: Add usage guidelines (#1595)
+
 ## 29.5.3 (Jul 20, 2021)
 
 ### Patch
