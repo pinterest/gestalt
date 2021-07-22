@@ -1,3 +1,9 @@
+## 29.5.5 (Jul 22, 2021)
+
+### Patch
+
+- Docs: Clarify useFocusVisible Hook (#1597)
+
 ## 29.5.4 (Jul 21, 2021)
 
 ### Patch
