@@ -33,7 +33,7 @@ function Example() {
   return (
     <Flex alignItems="start" direction="column" gap={4}>
       <Flex alignItems="center" gap={4}>
-        <Text>With focus visible</Text>
+        <Text>Without focus visible</Text>
         <button
           onBlur={() => setFocusedButton1(false)}
           onFocus={() => setFocusedButton1(true)}
@@ -46,7 +46,7 @@ function Example() {
         </button>
       </Flex>
       <Flex alignItems="center" gap={4}>
-        <Text>Without focus visible</Text>
+        <Text>With focus visible</Text>
         <button
           onBlur={() => setFocusedButton2(false)}
           onFocus={() => setFocusedButton2(true)}
