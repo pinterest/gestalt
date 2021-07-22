@@ -226,7 +226,7 @@ card(
         **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**
         Checkout our Accessible Design deck for examples and recommendations regarding accessibility at the design phase.
 
-        **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/enKB/Accessibility+101)**
+        **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/EPD/Accessibility+101)**
         Reference video recordings and materials from our Accessibility 101 session for new hires.
       `}
     />
