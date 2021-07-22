@@ -10,7 +10,7 @@ card(
   <PageHeader
     name="useFocusVisible"
     description={`
-    \`useFocusVisible\` manages focus interactions on the page and determines whether a focus ring should be shown. If a user interacts with a mouse/touch, then the focus is not visible. When the user interacts with the keyboard, then the focus is visible.
+    \`useFocusVisible\` manages focus interactions on the page and determines whether a focus ring should be shown. When using the \`useFocusVisible\` hook, if a user interacts with a mouse or by touch, then the focus indicator is not visible. When the user interacts with the keyboard however, the focus indicator will be visible.
 
     References:
     <ul>
@@ -31,9 +31,9 @@ function Example() {
   const [ focusedButton2, setFocusedButton2 ] = React.useState(false);
 
   return (
-    <Flex alignItems="start" direction="column" gap={4}>
-      <Flex alignItems="center" gap={4}>
-        <Text>With focus visible</Text>
+    <Flex alignItems="center" direction="column" gap={12}>
+      <Flex direction="column" alignItems="center" gap={4}>
+        <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
         <button
           onBlur={() => setFocusedButton1(false)}
           onFocus={() => setFocusedButton1(true)}
@@ -45,8 +45,8 @@ function Example() {
           <Text>Button 1</Text>
         </button>
       </Flex>
-      <Flex alignItems="center" gap={4}>
-        <Text>Without focus visible</Text>
+      <Flex alignItems="center" direction="column" gap={4}>
+        <Text>Not using useFocusVisible(): Focus ring is always visible</Text>
         <button
           onBlur={() => setFocusedButton2(false)}
           onFocus={() => setFocusedButton2(true)}
