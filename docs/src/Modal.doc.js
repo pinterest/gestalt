@@ -103,9 +103,9 @@ card(
         type="do"
         title="When to Use"
         description={`
-          - Interrupting users to get confirmation on a user-triggered action
-          - Requesting minimal amounts of information from a user (1-2 fields only)
-          - Capturing user's full attention for something important
+          - Interrupting users to get confirmation on a user-triggered action.
+          - Requesting minimal amounts of information from a user (1-2 fields only).
+          - Capturing user's full attention for something important.
         `}
       />
       <MainSection.Card
@@ -113,10 +113,10 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Any time a separate, designated URL is desired
-          - Requesting large forms of information
-          - Any action that should not interrupt users from their current work stream
-          - On top of another modal, since this can create usability issues and confusion
+          - Any time a separate, designated URL is desired.
+          - Requesting large forms of information. Consider a [Sheet](/Sheet) or new page instead.
+          - Any action that should not interrupt users from their current work stream.
+          - On top of another modal, since this can create usability issues and confusion.
         `}
       />
     </MainSection.Subsection>

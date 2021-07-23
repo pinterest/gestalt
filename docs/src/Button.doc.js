@@ -233,6 +233,32 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Communicating an action that will occur.
+          - Triggering or enabling an action, such as submitting requested information.
+          - Progressing or regressing a user through a step in a flow.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Directing users to a new page or different part within the same page. Instead, use [Link](/Link).
+          - Limited space available. Consider using an [IconButton](/IconButton) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <Example
     name="Basic Button"
     id="basic-button"

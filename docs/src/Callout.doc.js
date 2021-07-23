@@ -102,6 +102,33 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Displaying high priority, surface-level information to the user.
+          - Providing persistent, non-blocking feedback.
+          - When communicating updates to the state or status of the surface.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Providing messaging/guidance for specific elements or areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
+          - Displaying information that is intended for promotional/marketing purposes. Use [Upsell](/Upsell) instead.
+          - When interacting with the Callout is required for the user to proceed with a task or flow. Use [Modal](/Modal) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection>
       <MainSection.Card

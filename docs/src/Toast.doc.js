@@ -7,6 +7,7 @@ import Combination from './components/Combination.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 import PropTable from './components/PropTable.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -53,6 +54,32 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Displaying non-critical feedback on the result of an action.
+          - Reinforcing success at the surface level.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Providing an update related to anything other than confirmation of a successful action. Consider a [Callout](/Callout) instead.
+          - Presenting mandatory and/or critical actions to a user.
+          - Displaying feedback at the element level (e.g., password inputted doesn't meet requirements). Use inline text instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

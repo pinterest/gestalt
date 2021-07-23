@@ -116,6 +116,31 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - For navigation within or directly accompanying a sentence.
+          - Directing users to another page or a different portion of the same page.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Performing actions, such as "Save", "Cancel" or "Delete". Use [Button](/Button) instead.
+          - Submitting a form or opening a modal. Use Button instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <Example
     description={`
     You should wrap \`Link\` components inside of a \`Text\` component to get the correct font & underline color.
