@@ -1,3 +1,9 @@
+## 29.5.6 (Jul 26, 2021)
+
+### Patch
+
+- Docs: Add usage guidelines for multiple components (#1599)
+
 ## 29.5.5 (Jul 22, 2021)
 
 ### Patch
