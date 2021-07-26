@@ -96,6 +96,31 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Providing helpful, but non-essential context to a UI element.
+          - Enhancing a baseline understanding of an element or feature.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
+          - Offering context at the surface-level scope. Consider a [Callout](/Callout) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection columns={2}>
       <MainSection.Card

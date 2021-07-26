@@ -108,9 +108,9 @@ card(
         type="do"
         title="When to Use"
         description={`
-          - Performing an optional sub-task within a larger task
-          - Quick bulk edits on info from a Table
-          - Presenting help info while maintaining the current page and its context
+          - Performing an optional sub-task within a larger task.
+          - Quick bulk edits on info from a Table.
+          - Presenting help info while maintaining the current page and its context.
         `}
       />
       <MainSection.Card
@@ -118,9 +118,9 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Getting user confirmation on an action
-          - Displaying system errors or notices
-          - Any time a separate, designated URL is desired
+          - Getting user confirmation on an action. Use a [Modal](/Modal) instead.
+          - Displaying system errors or notices. Consider a [Callout](/Callout) instead.
+          - Any time a separate, designated URL is desired.
         `}
       />
     </MainSection.Subsection>
