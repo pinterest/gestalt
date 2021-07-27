@@ -1,3 +1,9 @@
+## 29.6.0 (Jul 27, 2021)
+
+### Minor
+
+- Callout, Upsell: Allow actions to be disabled (#1600)
+
 ## 29.5.6 (Jul 26, 2021)
 
 ### Patch
