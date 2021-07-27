@@ -61,7 +61,7 @@ card(
       {
         name: 'primaryAction',
         type:
-          '{| accessibilityLabel: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
+          '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
         required: false,
         defaultValue: null,
         description: `
@@ -73,7 +73,7 @@ card(
       {
         name: 'secondaryAction',
         type:
-          '{| accessibilityLabel: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
+          '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
         required: false,
         defaultValue: null,
         description: `
@@ -425,6 +425,9 @@ card(
         Callouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/Link), by specifying the \`href\` property, or [Buttons](/Buttons), when no \`href\` is supplied.
 
         For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a Button that opens a [Modal](/Modal) with an application flow. Be sure to localize the labels of the actions.
+
+        If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
+
         `}
     >
       <MainSection.Card
