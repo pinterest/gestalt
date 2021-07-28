@@ -7,6 +7,7 @@ import noDangerousStyleDuplicates from './no-dangerous-style-duplicates.js';
 import noMediumFormfields from './no-medium-formfields.js';
 import noRoleLinkComponents from './no-role-link-components.js';
 import preferBox from './prefer-box.js';
+import preferBoxLonelyRef from './prefer-box-lonely-ref.js';
 
 module.exports = {
   rules: {
@@ -18,5 +19,6 @@ module.exports = {
     'no-medium-formfields': noMediumFormfields,
     'no-role-link-components': noRoleLinkComponents,
     'prefer-box': preferBox,
+    'prefer-box-lonely-ref': preferBoxLonelyRef,
   },
 };

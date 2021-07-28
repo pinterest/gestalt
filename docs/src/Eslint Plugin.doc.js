@@ -28,7 +28,13 @@ card(
     <MainSection.Subsection
       title="gestalt/prefer-box"
       description={`
-        Prevent using div inline styling for attributes that are already implemented in Box.
+        Prevent using \`<div>\` inline styling for attributes that are already implemented in Box.
+      `}
+    />
+    <MainSection.Subsection
+      title="gestalt/prefer-box-lonely-ref"
+      description={`
+        Prevent \`<div>\` tags used to only contain a \`ref\` attribute. Instead use \`ref\` props supported in Box or other elements such as Button or TextField.
       `}
     />
   </MainSection>,
