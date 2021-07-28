@@ -1,8 +1,10 @@
 /**
- * Error on disallowed props on `Box`
+ * @fileoverview Error on disallowed props on `Box`
+ * @author Ryan James <rjames@pinterest.com>
  */
 
 // @flow strict
+
 const allowedBaseProps = [
   // React / DOM
   'id',
@@ -130,9 +132,12 @@ const errorMessage = (props: $ReadOnlyArray<string>, localBoxName: string): stri
 
 const rule = {
   meta: {
+    type: 'suggestion',
     docs: {
-      description: 'Do no allow certain props on Box',
+      description: `Don't allow props different from the officially-supported Box props and the allowed-list of passthrough React / DOM props`,
+      category: 'Gestalt restrictions',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-disallowed-props',
     },
     schema: [
       {

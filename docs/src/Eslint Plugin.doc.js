@@ -10,12 +10,29 @@ card(
   <PageHeader
     name="Eslint Plugin"
     showSourceLink={false}
-    description="Install the package eslint-plugin-gestalt to get lint rules encouraging the correct usage of gestalt components"
+    description="Install the package eslint-plugin-gestalt to get lint rules encouraging the correct usage of Gestalt components"
   />,
 );
 
 card(
-  <MainSection name="Supported Rules">
+  <MainSection name="Gestalt alternatives">
+    <MainSection.Subsection
+      title="gestalt/no-dangerous-style-duplicates"
+      description={`
+        Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented. Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle. This linter checks for usage of already available props as dangerous styles and suggests the alternative.
+      `}
+    />
+    <MainSection.Subsection
+      title="gestalt/prefer-box"
+      description={`
+        Prevent using div inline styling for attributes that are already implemented in Box.
+      `}
+    />
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Gestalt restrictions">
     <MainSection.Subsection
       title="gestalt/button-icon-restrictions"
       description={`
@@ -26,21 +43,37 @@ card(
       `}
     />
     <MainSection.Subsection
-      title="gestalt/no-box-marginleft-marginright"
+      title="gestalt/no-box-disallowed-props"
       description={`
-        Disallow marginLeft/marginRight on Box. In order to have consistent usage of marginLeft/marginRight on Box in production, we update all of them to marginStart/marginEnd.
+        Prevent props different from 
+        * the officially-supported Box props 
+        * the following list of passthrough React / DOM props: \`id\`, \`key\`,\`onAnimationEnd\`, \`onAnimationIteration\`, \`onAnimationStart\`, \`onBlur\`, \`onClick\`, \`onContextMenu\`, \`onDblClick\`, \`onDoubleClick\`, \`onDrag\`, \`onDragEnd\`, \`onDragEnter\`, \`onDragExit\`, \`onDragLeave\`, \`onDragOver\`, \`onDragStart\`, \`onDrop\`, \`onFocus\`, \`onKeyDown\`, \`onKeyPress\`, \`onKeyUp\`, \`onMouseDown\`, \`onMouseEnter\`, \`onMouseLeave\`, \`onMouseMove\`, \`onMouseOut\`, \`onMouseOver\`, \`onMouseUp\`, \`onScroll\`, \`onSelect\`, \`onTouchCancel\`, \`onTouchEnd\`, \`onTouchMove\`, \`onTouchStart\`, \`onTransitionEnd\`, \`onTransitionStart\`, \`onWheel\`, \`ref\`, \`tabIndex\`.
       `}
     />
     <MainSection.Subsection
-      title="gestalt/no-dangerous-style-duplicates"
+      title="gestalt/no-box-useless-props"
       description={`
-        Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented. Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle. This linter checks for usage of already available props as dangerous styles and suggests the alternative.
+        Prevent useless props combinations on Box in two categories:
+
+        * alignContent, alignItems, direction, justifyContent, or wrap (and, if applicable, their respective responsive props) without display="flex"
+        * fit and maxWidth used together, since fit sets maxWidth under the hood
       `}
     />
     <MainSection.Subsection
       title="gestalt/no-medium-formfields"
       description={`
         Disallow medium form fields. In order to have consistent form fields in production, we update all of their sizes to large and disallow medium.
+      `}
+    />
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Deprecated rules">
+    <MainSection.Subsection
+      title="gestalt/no-box-marginleft-marginright"
+      description={`
+        Disallow marginLeft/marginRight on Box. In order to have consistent usage of marginLeft/marginRight on Box in production, we update all of them to marginStart/marginEnd.
       `}
     />
     <MainSection.Subsection

@@ -1,9 +1,9 @@
-// @flow strict
-
 /**
- * Error on useless props on `Box`
+ * @fileoverview Error on useless props on `Box`
+ * @author Ryan James <rjames@pinterest.com>
  */
 
+// @flow strict
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
   flex:
@@ -20,9 +20,12 @@ const flexPropNames = ['direction', `smDirection`, `mdDirection`, `lgDirection`,
 
 const rule = {
   meta: {
+    type: 'suggestion',
     docs: {
-      description: 'Do not allow useless props combinations on Box',
+      description: `Don't allow useless props combinations on Box`,
+      category: 'Gestalt restrictions',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-useless-props',
     },
     schema: [
       {

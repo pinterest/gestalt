@@ -23,10 +23,13 @@ export const errorMessage =
 
 const rule = {
   meta: {
+    type: 'suggestion',
     docs: {
       description:
         'Enforce usage of Right-to-Left (RTL)-compliant marginStart/marginEnd over marginLeft/marginRight',
+      category: 'Deprecated rules',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-marginleft-marginright',
     },
     schema: [
       {

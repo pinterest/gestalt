@@ -9,9 +9,12 @@
 // @flow strict
 const rule = {
   meta: {
+    type: 'suggestion',
     docs: {
       description: 'Disallow role-link on Gestalt components',
+      category: 'Deprecated rules',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-role-link-components',
     },
     schema: [
       {
