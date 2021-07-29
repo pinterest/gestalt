@@ -27,9 +27,12 @@ function getVariableDefinedStyles(ref) {
 
 const rule = {
   meta: {
+    type: 'suggestion',
     docs: {
-      description: 'linter checks for usage of inline styling that is available as Box props',
+      description: 'Warns over div inline styling that is already available as Box props',
+      category: 'Gestalt alternatives',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box',
     },
     schema: [
       {

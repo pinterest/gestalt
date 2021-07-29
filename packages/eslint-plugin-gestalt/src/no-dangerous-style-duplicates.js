@@ -58,10 +58,13 @@ const overflowLookup = {
 
 const rule = {
   meta: {
+    type: 'suggestion',
     docs: {
       description:
         'Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented',
+      category: 'Gestalt alternatives',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-dangerous-style-duplicates',
     },
     schema: [
       {
