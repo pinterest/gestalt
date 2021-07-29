@@ -1,3 +1,9 @@
+## 29.6.1 (Jul 29, 2021)
+
+### Patch
+
+- Eslint Plugin: Add missing rules to Docs, categorize, and standardize rule config   (#1601)
+
 ## 29.6.0 (Jul 27, 2021)
 
 ### Minor
