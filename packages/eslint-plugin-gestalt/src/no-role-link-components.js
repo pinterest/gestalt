@@ -12,7 +12,7 @@ const rule = {
     type: 'suggestion',
     docs: {
       description: 'Disallow role-link on Gestalt components',
-      category: 'Deprecated rules',
+      category: 'Deprecated ESlint rules',
       recommended: false,
       url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-role-link-components',
     },

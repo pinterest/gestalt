@@ -27,7 +27,7 @@ const rule = {
     docs: {
       description:
         'Enforce usage of Right-to-Left (RTL)-compliant marginStart/marginEnd over marginLeft/marginRight',
-      category: 'Deprecated rules',
+      category: 'Deprecated ESlint rules',
       recommended: false,
       url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-marginleft-marginright',
     },
