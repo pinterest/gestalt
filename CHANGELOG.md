@@ -1,3 +1,9 @@
+## 29.6.2 (Jul 29, 2021)
+
+### Patch
+
+- IconButton: New documentation and best practices (#1598)
+
 ## 29.6.1 (Jul 29, 2021)
 
 ### Patch
