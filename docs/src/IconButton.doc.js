@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { type Node } from 'react';
 import { IconButton } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import CombinationNew from './components/CombinationNew.js';
@@ -33,7 +33,7 @@ function SectionsIconButtonDropdownExample() {
         accessibilityControls="sections-dropdown-example"
         accessibilityExpanded={open}
         accessibilityHaspopup
-        accessibilityLabel="More Options"
+        accessibilityLabel="Create Pin Menu"
         bgColor="lightGray"
         icon="add"
         iconColor="darkGray"
@@ -97,7 +97,7 @@ card(
           '"transparent" | "darkGray" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "red"',
         defaultValue: 'transparent',
         description:
-          'Primary colors to apply to the IconButton background. See [color](#Color) variant to learn more.',
+          'Primary colors to apply to the IconButton background. See [background color](#Background-color) variant to learn more.',
       },
       {
         name: 'dangerouslySetSvgPath',
@@ -115,7 +115,7 @@ card(
         type: `"darkGray" | "gray" | "red" | "white"`,
         defaultValue: 'gray',
         description:
-          'Primary color to apply to the [Icon](/Icon). See [color](#Color) variant to learn more.',
+          'Primary color to apply to the [Icon](/Icon). See [icon color](#Icon-color) variant to learn more.',
       },
       {
         name: 'icon',
@@ -250,9 +250,9 @@ card(
         type="do"
         title="When to Use"
         description={`
-- Interface space is limited. Prefer using a [Button](/Button) if space is available.
+- Interface space is limited. Prioritize using a [Button](/Button) if space is available.
 - Triggering a [Modal](/Modal) to complete a related task.
-- Creating visual separation of actions in text-heavy contents.
+- Creating visual separation of actions in text-heavy content.
 - Less-emphasis actions that don't impede users from completing a task.
         `}
       />
@@ -374,26 +374,32 @@ function OrderDropdownExample() {
 
   return (
     <Flex gap={2}>
-      <IconButton
-        accessibilityLabel="Click to go back."
-        icon="arrow-back"
-        size="md"
-      />
-      <IconButton
-        accessibilityLabel="Share pin"
-        icon="share"
-        size="md"
-      />
-      <IconButton
-        accessibilityLabel="Edit pin"
-        icon="edit"
-        size="md"
-      />
+      <Tooltip text="Go back to previous page">
+        <IconButton
+          accessibilityLabel=""
+          icon="arrow-back"
+          size="md"
+        />
+      </Tooltip>
+      <Tooltip text="Share pin">
+        <IconButton
+          accessibilityLabel=""
+          icon="share"
+          size="md"
+        />
+      </Tooltip>
+      <Tooltip text="Edit pin">
+        <IconButton
+          accessibilityLabel=""
+          icon="edit"
+          size="md"
+        />
+      </Tooltip>
       <IconButton
         accessibilityControls="selectlist-dropdown-example3"
         accessibilityExpanded={open}
         accessibilityHaspopup
-        accessibilityLabel="Menu"
+        accessibilityLabel="Open menu"
         icon="ellipsis"
         onClick={() => setOpen((prevVal) => !prevVal)}
         ref={anchorRef}
@@ -437,31 +443,41 @@ function OrderDropdownExample() {
         description="Display more than 4 icon buttons in a single row as it can cause cognitive load and usability issues."
         defaultCode={`
 <Flex gap={2}>
-  <IconButton
-    accessibilityLabel="Click to go back."
-    icon="arrow-back"
-    size="md"
-  />
-  <IconButton
-    accessibilityLabel="Share pin"
-    icon="share"
-    size="md"
-  />
-  <IconButton
-    accessibilityLabel="Edit pin"
-    icon="edit"
-    size="md"
-  />
-  <IconButton
-    accessibilityLabel="Edit pin"
-    icon="add"
-    size="md"
-  />
-  <IconButton
-    accessibilityLabel="Edit pin"
-    icon="search"
-    size="md"
-  />
+  <Tooltip text="Go back to previous page">
+    <IconButton
+      accessibilityLabel=""
+      icon="arrow-back"
+      size="md"
+    />
+  </Tooltip>
+  <Tooltip text="Share pin">
+    <IconButton
+      accessibilityLabel=""
+      icon="share"
+      size="md"
+    />
+  </Tooltip>
+  <Tooltip text="Edit pin">
+    <IconButton
+      accessibilityLabel=""
+      icon="edit"
+      size="md"
+    />
+  </Tooltip>
+  <Tooltip text="Create new pin">
+    <IconButton
+      accessibilityLabel=""
+      icon="add"
+      size="md"
+    />
+  </Tooltip>
+  <Tooltip text="Search board">
+    <IconButton
+      accessibilityLabel=""
+      icon="search"
+      size="md"
+    />
+  </Tooltip>
   <Button color="red" text="Save" size="md"/>
 </Flex>
 `}
@@ -469,7 +485,7 @@ function OrderDropdownExample() {
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Display a [Tooltip](/Tooltip) in conjunction with IconButton to provide context when the IconButton solely would be insufficient."
+        description="Display a [Tooltip](/Tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
         defaultCode={`
 <Tooltip text="Send pin">
   <IconButton
@@ -545,7 +561,7 @@ function Example() {
         accessibilityControls="accessibility-example"
         accessibilityExpanded={open}
         accessibilityHaspopup
-        accessibilityLabel="More Options"
+        accessibilityLabel="Create Pin Menu"
         bgColor="lightGray"
         icon="add"
         iconColor="darkGray"
@@ -597,7 +613,7 @@ function Example(props) {
       <Flex gap={2} alignItems="center">
         <Text inline weight="bold">
           <Link
-            accessibilityLabel="Open the setting page"
+            accessibilityLabel="Open the settings page"
             target="blank"
             inline
             href="https://www.pinterest.com/settings/"
@@ -606,7 +622,7 @@ function Example(props) {
           </Link>
         </Text>
         <IconButton
-          accessibilityLabel="Open the setting page"
+          accessibilityLabel="Open the settings page"
           href="https://www.pinterest.com/settings/"
           icon="edit"
           role="link"
@@ -631,8 +647,12 @@ card(
     <MainSection.Subsection
       title="Role"
       columns={2}
-      description={`IconButton can be use for navigation and actions. If IconButton acts as a link, set \`role = link\` and pass role-specific [props](#role_linkProps).
-
+      description="IconButton can be use for navigation or actions."
+    >
+      <MainSection.Card
+        cardSize="md"
+        title="role = link"
+        description={`If IconButton acts as a link, set \`role = link\` and pass role-specific [props](#role_linkProps).
 
 \`target\` is optional and defines the frame or window to open the anchor defined on href:
 * "null" opens the anchor in the same window.
@@ -641,24 +661,7 @@ card(
 
 \`rel\` is optional. Use "follow" for external links to specify to web crawlers not follow the link.
 
-IconButtons that act as links can be paired with [OnLinkNavigationProvider](/OnLinkNavigationProvider). See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
-
-If IconButton acts as a button, pass role-specific [props](#role_buttonProps).`}
-    >
-      <MainSection.Card
-        cardSize="md"
-        defaultCode={`
-<Tooltip text="Button">
-  <IconButton
-    accessibilityLabel="This IconButton is an example of IconButton acting as a button"
-    icon="share"
-    onClick={() => {}}
-  />
-</Tooltip>
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
+IconButtons that act as links can be paired with [OnLinkNavigationProvider](/OnLinkNavigationProvider). See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.`}
         defaultCode={`
 <Tooltip text="Link">
   <IconButton
@@ -667,6 +670,20 @@ If IconButton acts as a button, pass role-specific [props](#role_buttonProps).`}
     role="link"
     target="blank"
     href="https://www.pinterest.com"
+  />
+</Tooltip>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        title="role = button"
+        description="If IconButton acts as a button, pass role-specific [props](#role_buttonProps)."
+        defaultCode={`
+<Tooltip text="Button">
+  <IconButton
+    accessibilityLabel="This IconButton is an example of IconButton acting as a button"
+    icon="share"
+    onClick={() => {}}
   />
 </Tooltip>
 `}
@@ -683,11 +700,11 @@ If IconButton acts as a button, pass role-specific [props](#role_buttonProps).`}
 3. \`md\` (40px)
     Medium is the size used on more dense UI such as business surfaces or internal tools.
 4. \`sm\` (32px)
-    Small Icon button should be used sparingly and only in places where the UI is very dense.
+    Small IconButton should be used sparingly and only in places where the UI is very dense.
 5. \`xs\` (24px)
     Use sparingly and only in places where the UI is very dense or has a case for an extra-small IconButton as they can be hard to see for people with visual impairments.
 
-Use padding sparingly. Padding options are 1-5 representing the padding in boints units. Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
+Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
     >
       <CombinationNew size={['xs', 'sm', 'md', 'lg', 'xl']}>
         {({ size }) => (
@@ -702,56 +719,60 @@ Use padding sparingly. Padding options are 1-5 representing the padding in boint
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="Color"
+      title="Icon color"
       description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
 Follow these guidelines for \`iconColor\`
 
 1. Red ("red"). High emphasis, used for primary actions.
 2. Dark Gray ("darkGray"). Medium emphasis, used for secondary actions.
-3. Light Gray ("lightGray"). Low emphasis when placed on white backgrounds, used for tertiary actions, and medium emphasis, used for secondary actions when placed on dark backgrounds.
+3. Light Gray ("lightGray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 4. White ("white"). Used in a dark mode scheme or over a dark-colored background creating better visibility.
+`}
+    >
+      <CombinationNew iconColor={['darkGray', 'gray', 'red', 'white']}>
+        {({ iconColor }) => (
+          <IconButton
+            accessibilityLabel={`Example icon color ${iconColor}`}
+            icon="add"
+            iconColor={iconColor}
+          />
+        )}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Background color"
+      description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
 Follow these guidelines for \`bgColor\`
 
 1. Red ("red"). High emphasis, used for primary actions.
 2. Dark Gray ("darkGray"). Medium emphasis, used for secondary actions.
 3. Transparent Dark Gray ("transparentDarkGray"). Medium emphasis, used for secondary actions, usually above a colored background.
-4. Light Gray ("lightGray"). Low emphasis when placed on white backgrounds, used for tertiary actions, and medium emphasis, used for secondary actions when placed on dark backgrounds.
-5. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide a better contrast and visibility.
+4. Light Gray ("lightGray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
+5. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
 6. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
 `}
     >
-      <Fragment>
-        <CombinationNew iconColor={['darkGray', 'gray', 'red', 'white']}>
-          {({ iconColor }) => (
-            <IconButton
-              accessibilityLabel={`Example icon color ${iconColor}`}
-              icon="add"
-              iconColor={iconColor}
-            />
-          )}
-        </CombinationNew>
-        <CombinationNew
-          bgColor={[
-            'transparent',
-            'transparentDarkGray',
-            'darkGray',
-            'gray',
-            'lightGray',
-            'white',
-            'red',
-          ]}
-        >
-          {({ bgColor }) => (
-            <IconButton
-              accessibilityLabel={`Example background color ${bgColor}`}
-              bgColor={bgColor}
-              icon="add"
-            />
-          )}
-        </CombinationNew>
-      </Fragment>
+      <CombinationNew
+        bgColor={[
+          'transparent',
+          'transparentDarkGray',
+          'darkGray',
+          'gray',
+          'lightGray',
+          'white',
+          'red',
+        ]}
+      >
+        {({ bgColor }) => (
+          <IconButton
+            accessibilityLabel={`Example background color ${bgColor}`}
+            bgColor={bgColor}
+            icon="add"
+          />
+        )}
+      </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Custom icon"
@@ -763,7 +784,7 @@ Follow these guidelines for \`bgColor\`
         defaultCode={`
 <Tooltip text="Built-in Gestalt Icon">
   <IconButton
-    accessibilityLabel="Add icon"
+    accessibilityLabel="Go to next steps"
     icon="directional-arrow-right"
   />
 </Tooltip>
@@ -774,7 +795,7 @@ Follow these guidelines for \`bgColor\`
         defaultCode={`
 <Tooltip text="Custom Icon">
   <IconButton
-    accessibilityLabel="Open edit modal to edit Board"
+    accessibilityLabel="Go to next steps"
     dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
   />
 </Tooltip>
@@ -806,7 +827,7 @@ function SectionsIconButtonDropdownExample() {
         accessibilityControls="sections-dropdown-example"
         accessibilityExpanded={open}
         accessibilityHaspopup
-        accessibilityLabel="More Options"
+        accessibilityLabel="Create Pin Menu"
         bgColor="lightGray"
         icon="add"
         iconColor="darkGray"
@@ -852,7 +873,7 @@ function SectionsIconButtonDropdownExample() {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Ref"
-      description={`To control focus or position and anchor components to IconButton, use \`ref\` as shown in the example below.`}
+      description={`To control focus, or position any anchor components to IconButton, use \`ref\`, as shown in the example below.`}
     >
       <MainSection.Card
         cardSize="lg"

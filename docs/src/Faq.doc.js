@@ -217,9 +217,9 @@ card(
       description={`
 If you need a new icon for an experiment that is not listed on our [Icon](/Icon) documentation, use the \`dangerouslySetSvgPath\` prop on [Icon](/Icon), [IconButton](/IconButton), and [Pog](/Pog). However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/Box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
 
-Once your experiment ships to 100%, ask your designer to follow the directions in the icon kit. Once the asset is ready, we can add the Icon to Gestalt.
+Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the Icon to Gestalt.
 
-We recommend streamlining (not contain strokes, transforms, ...) and optimizing the SVGs to improve the performance and the pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac)
+We recommend streamlining (removing strokes, transforms, ...) and optimizing the SVGs to improve the performance and the pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac)
 
 Gestalt Icon svg files follow a particular format and use automatic file validation testing.
 
@@ -232,7 +232,7 @@ We override the color in the Gestalt Icon component and Gestalt only uses the \`
 Accessibility notes:
 - Icons must meet the [Non-Text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) requirement.
 - Avoid using unfamiliar icons. Always refer to Gestalt available icons. A new icon needs to be user tested to evaluate comprehension.
-- Some icons don’t translate well in all cultures, so it's preferred to user-test each Icon before it gets assed to Gestalt.
+- Some icons don’t translate well in all cultures, so it's preferred to user-test each Icon before it gets added to Gestalt.
 `}
     />
   </MainSection>,

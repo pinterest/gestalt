@@ -11,6 +11,10 @@ describe('IconButton Accessibility check', () => {
           id: 'button-name',
           enabled: false,
         },
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
       ],
     });
 
