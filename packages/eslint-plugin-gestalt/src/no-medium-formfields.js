@@ -24,7 +24,7 @@ const rule = {
   create(context: Object): Object {
     let importedComponent = false;
     let localIdentifierName;
-    const componentNames = ['SearchField', 'SelectList', 'TextField'];
+    const componentNames = ['SearchField', 'SelectList', 'TextField', 'ComboBox'];
 
     return {
       ImportDeclaration(decl) {
