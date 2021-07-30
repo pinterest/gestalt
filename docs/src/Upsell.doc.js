@@ -12,7 +12,12 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Upsell"
-    description="Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has."
+    description={`
+
+    Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.
+
+    ⚠️ Please note: Upsell is not currently supported in dark mode.
+    `}
     defaultCode={`
       <Upsell
         dismissButton={{
