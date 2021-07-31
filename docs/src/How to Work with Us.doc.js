@@ -141,12 +141,12 @@ We offer two different meetings for the community to come with questions, commen
     - Audience
       The audience for office hours is expanding to include both Pinner and Business design.
     - Cadence
-      Gestalt office hours are now available twice a week, with a 1 hour slot on both Tuesdays and Thursdays. [Sign up sheet](https://paper.dropbox.com/doc/Design-systems-office-hours-signup-sheet--BIjd4OFguvep2iUsMexRq3hOAg-oBkTKg5JUNO0POAzPxNl6)
+      Gestalt office hours are now available twice a week, with 2 half-hour slots on both Tuesdays and Thursdays. [Sign up sheet](https://paper.dropbox.com/doc/Design-systems-office-hours-signup-sheet--BIjd4OFguvep2iUsMexRq3hOAg-oBkTKg5JUNO0POAzPxNl6)
 2.  **Component Crit**
     - Purpose
       For Systems designers to get feedback from the larger design org on systems-related designs.
     - Audience
-      A group of designers who represent the design org as a design system council. We decided to create a group in order to keep crits productive and a manageable size across the entire design team. We've worked with all the managers across design to come up with the initial participants. At times, we will invite designers outside of this group to join if their team will be immediate users of the component. Agenda can be found in the meeting invite. Please continue to bring component work to office hours.
+      A group of designers who represent the design org as a design system council. We decided to create a group in order to keep crits productive and a manageable size across the entire design team. We've worked with all the managers across design to come up with the initial participants. In addition, we will invite designers outside of this group to give feedback when their teams are immediate users of the component. Agenda can be found in the meeting invite. Please continue to bring component work to office hours.
     - Cadence
       Bi-weekly on Friday 1-2pm. Please sign up through the link in the calendar invite.
     `}
