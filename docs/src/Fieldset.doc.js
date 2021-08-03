@@ -4,6 +4,7 @@ import { Fieldset } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
+import Example from './components/Example.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -87,7 +88,10 @@ card(
       },
       {
         name: 'errorMessage',
-        type: 'string',
+        type: 'React.Node',
+        href: 'errorMessageExample',
+        description:
+          'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
       },
     ]}
   />,
@@ -260,12 +264,92 @@ function CheckboxExample() {
 );
 
 card(
+  <Example
+    id="errorMessageExample"
+    name="Example: Error message"
+    description={`
+    A TextArea can display its own error message.
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <TextArea
+      id="witherror"
+      onChange={({value}) => setValue(value)}
+      errorMessage={!value ? "This field can't be blank!" : null}
+      placeholder="Write something about yourself..."
+      label="With an error message"
+      value={value}
+    />
+  );
+}
+`}
+  />,
+);
+
+card(
   <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
-      **[Label](/Label)**
-      If a label is needed for a single form item (instead of a group of items), use Label.
-    `}
+    <MainSection.Card
+      cardSize="lg"
+      defaultCode={`
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState(undefined);
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+
+  return (
+    <form>
+      <Flex direction="column" gap={4}>
+        <TextField
+          id="name"
+          onChange={({ value }) => setName(value)}
+          placeholder="First and last name"
+          label="Name"
+          value={name}
+          type="email"
+        />
+        <TextField
+          id="email"
+          onChange={({ value }) => setEmail(value)}
+          placeholder="example@test.com"
+          label="Email"
+          value={email}
+          type="email"
+        />
+        <Fieldset legend="Favorite pet" errorMessage="Atleast 1 option must be selected">
+          <Flex direction="column" gap={2}>
+            <RadioButton
+              checked={favorite === 'dogs'}
+              id="favoriteDogA11y"
+              label="Dogs"
+              name="favorite"
+              onChange={() => setFavorite( 'dogs' )}
+              value="dogs"
+            />
+            <RadioButton
+              checked={favorite === 'cats'}
+              id="favoriteCatA11y"
+              label="Cats"
+              name="favorite"
+              onChange={() => setFavorite( 'cats' )}
+              value="cats"
+            />
+            <RadioButton
+              checked={favorite === 'plants'}
+              id="favoritePlantsA11y"
+              label="Plants"
+              name="favorite"
+              onChange={() => setFavorite( 'plants' )}
+              value="plants"
+            />
+          </Flex>
+        </Fieldset>
+      </Flex>
+    </form>
+  );
+}
+`}
     />
   </MainSection>,
 );
