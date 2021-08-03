@@ -85,6 +85,10 @@ card(
         required: true,
         description: `The content of Fieldset, typically [RadioButtons](/RadioButton), [Checkboxes](/Checkbox) or [TextFields](/TextField).`,
       },
+      {
+        name: 'errorMessage',
+        type: 'string',
+      },
     ]}
   />,
 );
