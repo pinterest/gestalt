@@ -1,3 +1,9 @@
+## 29.6.4 (Aug 3, 2021)
+
+### Patch
+
+- Callout, Upsell, Datapoint: Add note about dark mode support (#1603)
+
 ## 29.6.3 (Aug 3, 2021)
 
 ### Patch
