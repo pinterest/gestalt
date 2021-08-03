@@ -11,7 +11,12 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Datapoint"
-    description="Datapoint displays at-a-glance data for a user to quickly view key metrics."
+    description={`
+    Datapoint displays at-a-glance data for a user to quickly view key metrics.
+
+    ⚠️ Please note: Datapoint is not currently supported in dark mode.
+
+    `}
     defaultCode={`
 <Datapoint size="lg" tooltipText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="2.34M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
 `}
