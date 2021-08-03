@@ -120,7 +120,7 @@ card(
       {
         name: 'onSubmit',
         type:
-          '(SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>) => void',
+          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
         required: true,
         description: `Actions to perform when the form has been submitted.`,
       },
@@ -672,7 +672,8 @@ function Example(props) {
         defaultCode={`
 function FormExample(props) {
   const [value, setValue] = React.useState('');
-  const handleSubmit = () => {
+  const handleSubmit = ({ event }) => {
+    event.preventDefault();
     // your submit logic using state values
   };
 
@@ -713,7 +714,8 @@ function FormExample(props) {
 function Example(props) {
   const [nameValue, setNameValue] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
-  const handleSubmit = () => {
+  const handleSubmit = ({ event }) => {
+    event.preventDefault();
     // your submit logic using state values
   };
 
@@ -810,13 +812,6 @@ function OnNavigation() {
     }
   }
 
-  const linkProps = {
-    accessibilityLabel: 'Send ads credit',
-    href: "https://pinterest.com",
-    onClick: onClickHandler,
-    target:"blank",
-  }
-
   return (
     <OnLinkNavigationProvider onNavigation={onNavigation}>
       <Flex direction="column" gap={2}>
@@ -860,8 +855,12 @@ function OnNavigation() {
           message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
           title="Give $30, get $60 in ads credit"
           primaryAction={
-            { ...linkProps,
-              label: 'Send invite'
+            {
+              accessibilityLabel: 'Send ads credit',
+              href: "https://pinterest.com",
+              label: 'Send invite',
+              onClick: onClickHandler,
+              target:"blank",
             }}
         />
       </Flex>
