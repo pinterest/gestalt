@@ -27,9 +27,7 @@ export default function Fieldset({
   legend,
   legendDisplay = 'visible',
   children,
-}: Props): Node {
-  // Conditionally add the ID prop
-
+}: Props): Node 
   if (errorMessage && id === '') {
     // eslint-disable-next-line no-console
     console.error('Please provide an id property to <Fieldset />');
