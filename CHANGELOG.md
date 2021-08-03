@@ -1,3 +1,9 @@
+## 29.6.3 (Aug 3, 2021)
+
+### Patch
+
+- Docs: Update design crit information (#1604)
+
 ## 29.6.2 (Jul 29, 2021)
 
 ### Patch
