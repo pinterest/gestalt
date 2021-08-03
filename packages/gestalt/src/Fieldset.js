@@ -12,7 +12,8 @@ import FormErrorMessage from './FormErrorMessage.js';
 
 type Props = {|
   children: Node,
-  errorMessage: string,
+  id?: string,
+  errorMessage?: string,
   legend: string,
   legendDisplay?: 'visible' | 'hidden',
 |};
@@ -21,11 +22,19 @@ type Props = {|
  * https://gestalt.pinterest.systems/Fieldset
  */
 export default function Fieldset({
+  id = '',
   errorMessage,
   legend,
   legendDisplay = 'visible',
   children,
 }: Props): Node {
+  // Conditionally add the ID prop
+
+  if (errorMessage && id === '') {
+    // eslint-disable-next-line no-console
+    console.error('Please provide an id property to <Fieldset />');
+  }
+
   return (
     <fieldset className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}>
       <legend
@@ -41,7 +50,7 @@ export default function Fieldset({
         <Text size="sm">{legend}</Text>
       </legend>
       {children}
-      {errorMessage && <FormErrorMessage id={legend} text={errorMessage} />}
+      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </fieldset>
   );
 }
