@@ -4,7 +4,6 @@ import { Fieldset } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
-import Example from './components/Example.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -174,6 +173,92 @@ card(<MainSection name="Localization" description={`Be sure to localize the \`le
 
 card(
   <MainSection name="Variants">
+    <MainSection.Subsection
+      description={`
+      By default, the \`legend\` is visible above the items in the Fieldset. However, if the form items are labelled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the legend. In this case, it is still available to screen reader users, but will not appear visually on the screen.
+
+      In the example below, the "Company Account Goals" text is acting as a heading and a legend for the checkboxes, so instead of repeating another legend, we visually hide the Fieldset \`legend\`. When a user focuses on the first checkbox, a screen reader will announce "Sell more products, unchecked, checkbox, Choose up to 3 company account goals, group".
+      `}
+      title="Legend visibility"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function CheckboxExample() {
+  const [checkedSell, setCheckedSell] = React.useState(false);
+  const [checkedLeads, setCheckedLeads] = React.useState(false);
+  const [checkedAudience, setCheckedAudience] = React.useState(false);
+  const [checkedBrand, setCheckedBrand] = React.useState(false);
+  const [checkedNotSure, setCheckedNotSure] = React.useState(false);
+
+  return (
+    <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={2}>
+        <Heading size="sm">Company Account Goals</Heading>
+        <Text size="md">
+          Choose up to 3.
+          <Text inline size="md" weight="bold">
+            <Link inline target="blank" href="https://www.pinterest.com/">
+              Additional information
+            </Link>
+          </Text>
+        </Text>
+      </Flex>
+      <Fieldset legend="Choose up to 3 company account goals" legendDisplay="hidden">
+        <Flex direction="column" gap={4}>
+          <Checkbox
+            checked={checkedSell}
+            id="sell"
+            label="Sell more products"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedSell(checked);
+            }}
+          />
+          <Checkbox
+            checked={checkedLeads}
+            id="leads"
+            label="Generate more leads for the company"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedLeads(checked);
+            }}
+          />
+          <Checkbox
+            checked={checkedAudience}
+            id="audience"
+            label="Create content on Pinterest to attract an audience"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedAudience(checked);
+            }}
+          />
+          <Checkbox
+            checked={checkedBrand}
+            id="brand"
+            label="Increase brand awareness"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedBrand(checked);
+            }}
+          />
+          <Checkbox
+            checked={checkedNotSure}
+            id="notSure"
+            label="Not sure yet"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedNotSure(checked);
+            }}
+          />
+        </Flex>
+      </Fieldset>
+    </Flex>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
     <MainSection.Subsection title="Error message">
       <MainSection.Card
         cardSize="lg"
@@ -248,97 +333,6 @@ function CheckboxExample() {
 `}
       />
     </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    id="errorMessageExample"
-    name="Example: Error message"
-    description={`
-    A TextArea can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
-    defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <TextArea
-      id="witherror"
-      onChange={({value}) => setValue(value)}
-      errorMessage={!value ? "This field can't be blank!" : null}
-      placeholder="Write something about yourself..."
-      label="With an error message"
-      value={value}
-    />
-  );
-}
-`}
-  />,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Card
-      cardSize="lg"
-      defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState(undefined);
-  const [name, setName] = React.useState('')
-  const [email, setEmail] = React.useState('')
-
-  return (
-    <form>
-      <Flex direction="column" gap={4}>
-        <TextField
-          id="name"
-          onChange={({ value }) => setName(value)}
-          placeholder="First and last name"
-          label="Name"
-          value={name}
-          type="email"
-        />
-        <TextField
-          id="email"
-          onChange={({ value }) => setEmail(value)}
-          placeholder="example@test.com"
-          label="Email"
-          value={email}
-          type="email"
-        />
-        <Fieldset legend="Favorite pet" errorMessage="Atleast 1 option must be selected">
-          <Flex direction="column" gap={2}>
-            <RadioButton
-              checked={favorite === 'dogs'}
-              id="favoriteDogA11y"
-              label="Dogs"
-              name="favorite"
-              onChange={() => setFavorite( 'dogs' )}
-              value="dogs"
-            />
-            <RadioButton
-              checked={favorite === 'cats'}
-              id="favoriteCatA11y"
-              label="Cats"
-              name="favorite"
-              onChange={() => setFavorite( 'cats' )}
-              value="cats"
-            />
-            <RadioButton
-              checked={favorite === 'plants'}
-              id="favoritePlantsA11y"
-              label="Plants"
-              name="favorite"
-              onChange={() => setFavorite( 'plants' )}
-              value="plants"
-            />
-          </Flex>
-        </Fieldset>
-      </Flex>
-    </form>
-  );
-}
-`}
-    />
   </MainSection>,
 );
 
