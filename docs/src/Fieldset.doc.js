@@ -269,16 +269,12 @@ function CheckboxExample() {
         cardSize="lg"
         defaultCode={`
 function CheckboxExample() {
-  const [checkedSell, setCheckedSell] = React.useState(false);
-  const [checkedLeads, setCheckedLeads] = React.useState(false);
-  const [checkedAudience, setCheckedAudience] = React.useState(false);
-  const [checkedBrand, setCheckedBrand] = React.useState(false);
-  const [checkedNotSure, setCheckedNotSure] = React.useState(false);
+  const [favorite, setFavorite] = React.useState(null);
 
   return (
     <Flex direction="column" gap={4}>
       <Flex direction="column" gap={2}>
-        <Heading size="sm">Company Account Goals</Heading>
+        <Heading size="sm">Do you like me</Heading>
         <Text size="md">
           Choose up to 3.
           <Text inline size="md" weight="bold">
@@ -288,52 +284,31 @@ function CheckboxExample() {
           </Text>
         </Text>
       </Flex>
-      <Fieldset legend="Choose up to 3 company account goals" legendDisplay="hidden" errorMessage="Atleast 1 item must be selected">
+      <Fieldset id="fieldset-error-message" legend="Choose up to 3 company account goals" legendDisplay="hidden" errorMessage="Atleast 1 item must be selected">
         <Flex direction="column" gap={4}>
-          <Checkbox
-            checked={checkedSell}
-            id="sell"
-            label="Sell more products"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedSell(checked);
-            }}
+          <RadioButton
+            checked={favorite === 'pin'}
+            id="type-pin"
+            label="Pin"
+            name="favorite_pin"
+            onChange={() => setFavorite( 'pin' )}
+            value="pin"
           />
-          <Checkbox
-            checked={checkedLeads}
-            id="leads"
-            label="Generate more leads for the company"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedLeads(checked);
-            }}
+          <RadioButton
+            checked={favorite === 'idea'}
+            id="type-idea-pin"
+            label="Idea Pin"
+            name="favorite_pin"
+            onChange={() => setFavorite( 'idea' )}
+            value="idea"
           />
-          <Checkbox
-            checked={checkedAudience}
-            id="audience"
-            label="Create content on Pinterest to attract an audience"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedAudience(checked);
-            }}
-          />
-          <Checkbox
-            checked={checkedBrand}
-            id="brand"
-            label="Increase brand awareness"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedBrand(checked);
-            }}
-          />
-          <Checkbox
-            checked={checkedNotSure}
-            id="notSure"
-            label="Not sure yet"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedNotSure(checked);
-            }}
+          <RadioButton
+            checked={favorite === 'video'}
+            id="type-video"
+            label="Video Pin"
+            name="favorite_pin"
+            onChange={() => setFavorite( 'video' )}
+            value="video"
           />
         </Flex>
       </Fieldset>
