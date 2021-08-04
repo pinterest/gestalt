@@ -219,3 +219,127 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
   </div>
 </fieldset>
 `;
+
+exports[`Fieldset renders with errorMessage 1`] = `
+<fieldset
+  className="unstyled p0 m0"
+>
+  <legend
+    className="label formLabel paddingX0 visuallyHidden"
+  >
+    <div
+      className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+    >
+      What is your favorite dog?
+    </div>
+  </legend>
+  <div
+    className="box"
+  >
+    <div
+      className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    >
+      <label
+        className="label"
+        htmlFor="Schnauzer"
+      >
+        <div
+          className="box paddingX1 relative"
+        >
+          <input
+            checked={false}
+            className="input sizeMd inputEnabled"
+            disabled={false}
+            id="Schnauzer"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            type="checkbox"
+          />
+          <div
+            className="whiteBg border borderRadiusMd sizeMd check"
+          />
+        </div>
+      </label>
+      <label
+        className="label"
+        htmlFor="Schnauzer"
+      >
+        <div
+          className="box paddingX1"
+        >
+          <div
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+          >
+            Schnauzer
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    className="box"
+  >
+    <div
+      className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    >
+      <label
+        className="label"
+        htmlFor="Aussie"
+      >
+        <div
+          className="box paddingX1 relative"
+        >
+          <input
+            checked={false}
+            className="input sizeMd inputEnabled"
+            disabled={false}
+            id="Aussie"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            type="checkbox"
+          />
+          <div
+            className="whiteBg border borderRadiusMd sizeMd check"
+          />
+        </div>
+      </label>
+      <label
+        className="label"
+        htmlFor="Aussie"
+      >
+        <div
+          className="box paddingX1"
+        >
+          <div
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+          >
+            Aussie
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    className="box marginTop2"
+  >
+    <div
+      className="Text fontSize1 red alignStart breakWord fontWeightNormal"
+    >
+      <span
+        className="formErrorMessage"
+        id="fieldset-with-error-error"
+      >
+        Atleast 1 item must be selected
+      </span>
+    </div>
+  </div>
+</fieldset>
+`;
