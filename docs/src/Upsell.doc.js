@@ -47,8 +47,8 @@ card(
     props={[
       {
         name: 'children',
-        type: 'typeof UpsellForm',
-        description: `To create forms within Upsell, pass an Upsell.Form as children`,
+        type: 'typeof Upsell.Form',
+        description: `To create forms within Upsell, pass Upsell.Form as children`,
       },
       {
         name: 'dismissButton',
@@ -120,7 +120,7 @@ card(
       {
         name: 'onSubmit',
         type:
-          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
+          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
         required: true,
         description: `Actions to perform when the form has been submitted.`,
       },
