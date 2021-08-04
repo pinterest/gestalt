@@ -5,6 +5,7 @@ import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -101,6 +102,31 @@ a checkbox and its indeterminism are independent.`,
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Presenting users with a list of multiple, related options where users can select all, some, or none of the options. With Checkboxes, users can select more than one option.
+          - Presenting users with a single option that can be selected or not.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Situations where users can only choose one out of multiple, related options. Use [RadioButtons](/RadioButton) instead.
+          - When a selection takes immediate effect, especially on mobile. Use [Switch](/Switch) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
