@@ -274,7 +274,12 @@ exports[`PageHeader renders subtext 1`] = `
           className="box marginTop2"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="5 followers"
           >
             5 followers
@@ -329,7 +334,12 @@ exports[`PageHeader renders within a max width 1`] = `
           className="box marginTop2"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="5 followers"
           >
             5 followers

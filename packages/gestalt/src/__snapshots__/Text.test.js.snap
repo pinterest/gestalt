@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Text lineClamp should add a title when the children are text only 1`] = `
+<div
+  className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal lineClamp"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
+  title="Shall I compare thee to a summer's day - William Shakespeare"
+>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
+`;
+
+exports[`Text lineClamp should not add a title when the children are objects 1`] = `
+<div
+  className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal lineClamp"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
+>
+  <div>
+    Summer reading:
+  </div>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
+`;
+
 exports[`Text orange adds the orange color class 1`] = `
 <div
   className="Text fontSize3 orange alignStart breakWord fontWeightNormal"
@@ -16,24 +46,4 @@ exports[`Text size sm adds the small size class 1`] = `
 <div
   className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
 />
-`;
-
-exports[`Text truncate should add a title when the children are text only 1`] = `
-<div
-  className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal truncate"
-  title="Shall I compare thee to a summer's day - William Shakespeare"
->
-  Shall I compare thee to a summer's day - William Shakespeare
-</div>
-`;
-
-exports[`Text truncate should not add a title when the children are objects 1`] = `
-<div
-  className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal truncate"
->
-  <div>
-    Summer reading:
-  </div>
-  Shall I compare thee to a summer's day - William Shakespeare
-</div>
 `;
