@@ -1,3 +1,9 @@
+## 30.0.0 (Aug 4, 2021)
+
+### Major
+
+- Upsell: Fix Upsell.Form onSubmit API to match convention (#1606)
+
 ## 29.6.5 (Aug 3, 2021)
 
 ### Patch
