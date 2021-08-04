@@ -264,6 +264,11 @@ function CheckboxExample() {
         cardSize="lg"
         defaultCode={`
 function CheckboxExample() {
+  const [checkedSell, setCheckedSell] = React.useState(false);
+  const [checkedLeads, setCheckedLeads] = React.useState(false);
+  const [checkedAudience, setCheckedAudience] = React.useState(false);
+  const [checkedBrand, setCheckedBrand] = React.useState(false);
+  const [checkedNotSure, setCheckedNotSure] = React.useState(false);
 
   return (
     <Flex direction="column" gap={4}>
