@@ -67,6 +67,22 @@ const gestaltImportWithBoxOutput = readFileSync(
   'utf-8',
 );
 
+const gestaltImportWithRenamedBoxInput = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/prefer-box-lonely-ref/invalid/gestalt-import-with-renamed-box-input.js',
+  ),
+  'utf-8',
+);
+
+const gestaltImportWithRenamedBoxOutput = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/prefer-box-lonely-ref/invalid/gestalt-import-with-renamed-box-output.js',
+  ),
+  'utf-8',
+);
+
 const gestaltImportWithoutBoxInput = readFileSync(
   path.resolve(
     __dirname,
@@ -94,6 +110,7 @@ ruleTester.run('prefer-box-lonely-ref', rule, {
     [noGestaltImportInput, noGestaltImportOutput],
     [noGestaltImportSelfclosedInput, noGestaltImportSelfclosedOutput],
     [gestaltImportWithBoxInput, gestaltImportWithBoxOutput],
+    [gestaltImportWithRenamedBoxInput, gestaltImportWithRenamedBoxOutput],
     [gestaltImportWithoutBoxInput, gestaltImportWithoutBoxOutput],
   ].map((code) => ({
     code: code[0],

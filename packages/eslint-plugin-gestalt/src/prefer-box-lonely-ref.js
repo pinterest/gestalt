@@ -3,15 +3,13 @@ import { hasImport, hasLonelyAttribute, renameTag } from './eslintASTHelpers.js'
 /**
  * @fileoverview Prefer Box: prevent <div> tags used to only contain ref
  * @author Alberto Carreras <acarreras@pinterest.com>
- *
- * Box
  */
 
 const rule = {
   meta: {
     type: 'suggestion',
     docs: {
-      description: 'Prefer Box: prevent <div> tags used to only contain ref',
+      description: 'Prefer Box: prevent <div> tags used to only contain ref. Use Gestalt Box, instead',
       category: 'Gestalt alternatives',
       recommended: true,
       url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-lonely-ref',
