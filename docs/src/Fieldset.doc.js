@@ -86,6 +86,11 @@ card(
         description: `The content of Fieldset, typically [RadioButtons](/RadioButton), [Checkboxes](/Checkbox) or [TextFields](/TextField).`,
       },
       {
+        name: 'id',
+        type: 'string',
+        required: false,
+      },
+      {
         name: 'errorMessage',
         type: 'React.Node',
         href: 'errorMessageExample',
