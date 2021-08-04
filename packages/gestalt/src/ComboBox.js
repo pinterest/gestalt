@@ -344,7 +344,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                 ))
               ) : (
                 <Box width="100%" paddingX={2} paddingY={4}>
-                  <Text truncate color="gray">
+                  <Text lineClamp={1} color="gray">
                     {noResultText}
                   </Text>
                 </Box>

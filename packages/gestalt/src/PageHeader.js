@@ -38,7 +38,7 @@ export default function PageHeader({
             </Heading>
             {subtext && (
               <Box marginTop={2}>
-                <Text truncate>{subtext}</Text>
+                <Text lineClamp={1}>{subtext}</Text>
               </Box>
             )}
           </Box>

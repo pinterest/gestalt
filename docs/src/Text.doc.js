@@ -48,6 +48,13 @@ card(
         href: 'styles',
       },
       {
+        name: 'lineClamp',
+        type: 'number',
+        description:
+          'Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string.',
+        href: 'overflow',
+      },
+      {
         name: 'overflow',
         type: `"normal" | "breakWord" | "noWrap"`,
         defaultValue: 'breakWord',
@@ -59,14 +66,6 @@ card(
         description: `sm: 12px, md: 14px, lg: 16px`,
         defaultValue: 'lg',
         href: 'size',
-      },
-      {
-        name: 'truncate',
-        type: 'boolean',
-        description:
-          'Truncate the text to a single line. Add the title attribute if `<Text>` only contains text.',
-        href: 'overflow',
-        defaultValue: false,
       },
       {
         name: 'underline',
@@ -166,8 +165,8 @@ card(
     This is a long and Supercalifragilisticexpialidocious sentence.
   </Text>
 
-  <Text weight="bold">truncate:</Text>
-  <Text truncate>
+  <Text weight="bold">lineClamp:</Text>
+  <Text lineClamp={2}>
     This is a long and Supercalifragilisticexpialidocious sentence.
   </Text>
 </Flex>
