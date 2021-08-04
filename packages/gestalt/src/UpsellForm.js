@@ -32,7 +32,7 @@ export default function UpsellForm({
   const responsiveMinWidth = useResponsiveMinWidth();
 
   return (
-    <form onSubmit={onSubmit} style={{ width: '100%' }}>
+    <form onSubmit={(event) => onSubmit({ event })} style={{ width: '100%' }}>
       <Flex
         gap={2}
         direction={responsiveMinWidth === 'xs' ? 'column' : 'row'}
