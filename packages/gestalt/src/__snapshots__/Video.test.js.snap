@@ -2,7 +2,7 @@
 
 exports[`Video with callbacks 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -75,7 +75,7 @@ exports[`Video with callbacks 1`] = `
 
 exports[`Video with children 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -364,7 +364,7 @@ exports[`Video with children 1`] = `
 
 exports[`Video with crossOrigin 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -438,7 +438,7 @@ exports[`Video with crossOrigin 1`] = `
 
 exports[`Video with media attributes 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -512,7 +512,7 @@ exports[`Video with media attributes 1`] = `
 
 exports[`Video with multiple sources 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -592,7 +592,7 @@ exports[`Video with multiple sources 1`] = `
 
 exports[`Video with objectFit 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -670,7 +670,7 @@ exports[`Video with objectFit 1`] = `
 
 exports[`Video with source 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,

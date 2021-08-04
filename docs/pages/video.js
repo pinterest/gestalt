@@ -43,6 +43,12 @@ card(
         href: 'videoControlsExample',
       },
       {
+        name: 'backgroundColor',
+        type: "'black' | 'transparent'",
+        description: "Background color used to fill the video's placeholder",
+        defaultValue: 'black',
+      },
+      {
         name: 'accessibilityPauseLabel',
         type: 'string',
         description: 'Accessibility label for the pause button if controls are shown',
