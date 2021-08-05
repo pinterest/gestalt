@@ -18,6 +18,24 @@ const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-medium-formfields/valid.js'),
   'utf-8',
 );
+const invalidComboBoxDefault = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-default.js',
+  ),
+  'utf-8',
+);
+const invalidComboBoxMedium = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-medium-formfields/invalid/invalid-combobox-medium.js'),
+  'utf-8',
+);
+const invalidComboBoxRenamed = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-renamed.js',
+  ),
+  'utf-8',
+);
 const invalidTextfieldDefault = readFileSync(
   path.resolve(
     __dirname,
@@ -65,6 +83,9 @@ ruleTester.run('no-medium-formfields', rule, {
     invalidTextfieldDefault,
     invalidTextfieldMedium,
     invalidTextfieldRenamed,
+    invalidComboBoxDefault,
+    invalidComboBoxMedium,
+    invalidComboBoxRenamed,
     invalidSearchFieldDefault,
     invalidSelectListDefault,
   ].map((code) => ({
