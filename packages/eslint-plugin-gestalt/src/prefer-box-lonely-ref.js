@@ -1,5 +1,10 @@
 // @flow strict
-import { hasImport, hasLonelyAttribute, renameTag } from './eslintASTHelpers.js';
+import {
+  hasImport,
+  hasLonelyAttribute,
+  renameTagFixer,
+  updateGestaltImportFixer,
+} from './eslintASTHelpers.js';
 /**
  * @fileoverview Prefer Box: prevent <div> tags used to only contain ref
  * @author Alberto Carreras <acarreras@pinterest.com>
@@ -9,7 +14,8 @@ const rule = {
   meta: {
     type: 'suggestion',
     docs: {
-      description: 'Prefer Box: prevent <div> tags used to only contain ref. Use Gestalt Box, instead',
+      description:
+        'Prefer Box: prevent <div> tags used to only contain ref. Use Gestalt Box, instead',
       category: 'Gestalt alternatives',
       recommended: true,
       url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-lonely-ref',
@@ -30,22 +36,38 @@ const rule = {
       if (!node) return;
 
       const isGestaltImportNode = hasImport({ importNode: node, path: 'gestalt' });
-      if (isGestaltImportNode) {
-        gestaltImportNode = node;
-      }
+
+      if (!isGestaltImportNode) return;
+
+      gestaltImportNode = node;
     };
 
     const jSXElementFnc = (node) => {
       if (
         hasLonelyAttribute({ elementNode: node.openingElement, tagName: 'div', attribute: 'ref' })
       ) {
-        renameTag({
-          context,
-          elementNode: node,
-          gestaltImportNode,
-          gestaltName: 'Box',
-          programNode,
-          tagName: 'div',
+        context.report({
+          node,
+          messageId: 'disallowed',
+          fix: (fixer) => {
+            const tagFixers = renameTagFixer({
+              fixer,
+              elementNode: node,
+              context,
+              tagName: 'div',
+              gestaltName: 'Box',
+            });
+
+            const importFixers = updateGestaltImportFixer({
+              context,
+              fixer,
+              gestaltImportNode,
+              gestaltName: 'Box',
+              programNode,
+            });
+
+            return [...tagFixers, importFixers];
+          },
         });
       }
     };

@@ -34,7 +34,8 @@ card(
     <MainSection.Subsection
       title="gestalt/prefer-box-lonely-ref"
       description={`
-        Prevent \`<div>\` tags used to only contain a \`ref\` attribute. Instead use \`ref\` props supported in Box or other elements such as Button or TextField.
+        Prevent \`<div>\` tags used to only contain a \`ref\` attribute. Instead, use \`ref\` props supported in Box or other elements such as Button or TextField.
+        With AUTOFIX!
       `}
     />
   </MainSection>,
@@ -69,6 +70,13 @@ card(
 
         * alignContent, alignItems, direction, justifyContent, or wrap (and, if applicable, their respective responsive props) without display="flex"
         * fit and maxWidth used together, since fit sets maxWidth under the hood
+      `}
+    />
+    <MainSection.Subsection
+      title="gestalt/no-spread-props"
+      description={`
+        Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts. Instead, write the component's props out.
+        With AUTOFIX!
       `}
     />
     <MainSection.Subsection
