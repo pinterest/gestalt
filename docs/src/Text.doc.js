@@ -51,7 +51,7 @@ card(
         name: 'lineClamp',
         type: 'number',
         description:
-          'Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string.',
+          'Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.',
         href: 'overflow',
       },
       {
