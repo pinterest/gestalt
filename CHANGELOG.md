@@ -1,3 +1,9 @@
+## 30.0.1 (Aug 5, 2021)
+
+### Patch
+
+- Eslint Plugin: Add missing ComboBox to "no-medium-formfields"
+
 ## 30.0.0 (Aug 4, 2021)
 
 ### Major
