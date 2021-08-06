@@ -1,3 +1,9 @@
+## 30.1.0 (Aug 6, 2021)
+
+### Minor
+
+- Fieldset: Add errorMessage prop (#1605)
+
 ## 30.0.1 (Aug 5, 2021)
 
 ### Patch
