@@ -275,7 +275,7 @@ function CheckboxExample() {
     const [checkedCh, setCheckedCh] = React.useState(false);
 
   return (
-    <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message" legendDisplay="hidden" errorMessage="Atleast 1 item must be selected">
+    <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message" errorMessage="Atleast 1 item must be selected">
       <Flex direction="column" gap={2}>
         <Checkbox
           checked={checkedEn}
