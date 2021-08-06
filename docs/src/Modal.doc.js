@@ -527,7 +527,7 @@ function SubHeadingExample(props) {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Sizes"
-      description={`Modal has 3 size options: small (\`sm\`), medium (\`md\`) and large (\`lg\`). If absolutely necessary, a number representing a custom width can be provided instead, but we recommend using one of the standard sizes.
+      description={`Modal has 3 size options: small (\`sm\` - 540px), medium (\`md\` - 720px) and large (\`lg\` - 900px). If absolutely necessary, a number representing a custom width can be provided instead, but we recommend using one of the standard sizes.
       All Modals have a max-width of 100%.`}
     >
       <MainSection.Card

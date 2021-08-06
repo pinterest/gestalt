@@ -73,7 +73,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Choosing between multiple, related options. Use [Checkboxes](Checkbox) or [RadioButtons](/RadioButton) instead.
+          - Choosing between related options. Each Switch should be considered a solitary, standalone option. For multiple, related choices, use [Checkboxes](Checkbox) or [RadioButtons](/RadioButton) instead.
         `}
       />
     </MainSection.Subsection>
