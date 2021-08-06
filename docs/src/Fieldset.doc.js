@@ -85,6 +85,19 @@ card(
         required: true,
         description: `The content of Fieldset, typically [RadioButtons](/RadioButton), [Checkboxes](/Checkbox) or [TextFields](/TextField).`,
       },
+      {
+        name: 'id',
+        type: 'string',
+        required: false,
+        description:
+          'A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added',
+      },
+      {
+        name: 'errorMessage',
+        type: 'React.Node',
+        description:
+          'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
+      },
     ]}
   />,
 );
@@ -247,6 +260,55 @@ function CheckboxExample() {
         </Flex>
       </Fieldset>
     </Flex>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection title="Error message">
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function CheckboxExample() {
+    const [checkedEn, setCheckedEn] = React.useState(false);
+    const [checkedSp, setCheckedSp] = React.useState(false);
+    const [checkedCh, setCheckedCh] = React.useState(false);
+
+  return (
+    <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message" errorMessage="Atleast 1 item must be selected">
+      <Flex direction="column" gap={2}>
+        <Checkbox
+          checked={checkedEn}
+          id="english-info"
+          label="English"
+          subtext="USA, India, and Pakistan have the top number of English speakers "
+          name="languages"
+          onChange={({ checked }) => {
+            setCheckedEn(checked);
+          }}
+        />
+        <Checkbox
+          checked={checkedSp}
+          id="spanish-info"
+          label="Spanish"
+          subtext="Mexico, Columbia, and Spain are the top three Spanish speaking countries"
+          name="languages"
+          onChange={({ checked }) => {
+            setCheckedSp(checked);
+          }}
+        />
+        <Checkbox
+          checked={checkedCh}
+          id="chinese-info"
+          label="Chinese"
+          subtext="Chinese has two varieties: Cantonese and Mandarin"
+          name="languages"
+          onChange={({ checked }) => {
+            setCheckedCh(checked);
+          }}
+        />
+      </Flex>
+    </Fieldset>
   );
 }
 `}
