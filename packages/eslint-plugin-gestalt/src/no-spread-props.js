@@ -7,6 +7,7 @@ import {
   getPropertiesFromVariable,
   getVariableNodeInScopeFromName,
 } from './eslintASTHelpers.js';
+
 /**
  * @fileoverview Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts.
  * @author Alberto Carreras <acarreras@pinterest.com>
@@ -52,7 +53,7 @@ const rule = {
       const isGestaltComponent = importedComponents.map((cmp) => cmp[1]).includes(componentName);
 
       if (isGestaltComponent) {
-        // access the node of the variable being spread within scope
+        // access the node of the variable -within scope- being spread
         const declaredVariableNode = getVariableNodeInScopeFromName({
           context,
           nodeElement: nodeAttribute,

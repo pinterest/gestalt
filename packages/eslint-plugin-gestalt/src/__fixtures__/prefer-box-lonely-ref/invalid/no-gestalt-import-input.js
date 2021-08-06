@@ -1,6 +1,8 @@
+import { useRef } from 'react';
 export default function TestElement() {
+  const ref = useRef(null);
   return (
-    <div ref={undefined}>
+    <div ref={ref}>
       <div />
     </div>
   );

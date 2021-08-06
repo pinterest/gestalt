@@ -1,4 +1,6 @@
 import { Box } from 'gestalt';
+import { useRef } from 'react';
 export default function TestElement() {
-  return <Box ref={undefined} />;
+  const ref = useRef(null);
+  return <Box ref={ref} />;
 }

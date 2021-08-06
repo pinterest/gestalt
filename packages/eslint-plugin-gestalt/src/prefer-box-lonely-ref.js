@@ -1,10 +1,6 @@
 // @flow strict
-import {
-  hasImport,
-  hasLonelyAttribute,
-  renameTagFixer,
-  updateGestaltImportFixer,
-} from './eslintASTHelpers.js';
+import { hasImport, hasLonelyAttribute } from './eslintASTHelpers.js';
+import { renameTagFixer, updateGestaltImportFixer } from './eslintASTFixers.js';
 /**
  * @fileoverview Prefer Box: prevent <div> tags used to only contain ref
  * @author Alberto Carreras <acarreras@pinterest.com>
@@ -51,18 +47,18 @@ const rule = {
           messageId: 'disallowed',
           fix: (fixer) => {
             const tagFixers = renameTagFixer({
+              context,
               fixer,
               elementNode: node,
-              context,
+              newComponentName: 'Box',
               tagName: 'div',
-              gestaltName: 'Box',
             });
 
             const importFixers = updateGestaltImportFixer({
               context,
               fixer,
               gestaltImportNode,
-              gestaltName: 'Box',
+              newComponentName: 'Box',
               programNode,
             });
 
