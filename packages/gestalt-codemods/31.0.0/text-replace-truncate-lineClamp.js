@@ -4,7 +4,7 @@
  *  <Text truncate={truncate} /> to CONSOLE.LOG for manual change />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/next/text-replace-truncate-lineClamp.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/31.0.0/text-replace-truncate-lineClamp.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
