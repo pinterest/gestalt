@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './button-icon-restrictions.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validWithSize = readFileSync(
   path.resolve(__dirname, './__fixtures__/button-icon-restrictions/valid/valid-size.js'),
@@ -44,11 +37,10 @@ const invalidWithoutSize = readFileSync(
   'utf-8',
 );
 
+const errorMessage = 'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"';
+
 ruleTester.run('button-icon-restrictions', rule, {
-  valid: [validWithSize].map((code) => ({
-    code,
-    parserOptions,
-  })),
+  valid: [validWithSize].map((code) => ({ code })),
   invalid: [
     invalidMissingColor,
     invalidWrongColor,
@@ -56,13 +48,5 @@ ruleTester.run('button-icon-restrictions', rule, {
     invalidWrongIcon,
     invalidWrongSize,
     invalidWithoutSize,
-  ].map((code) => ({
-    code,
-    parserOptions,
-    errors: [
-      {
-        message: 'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
-      },
-    ],
-  })),
+  ].map((code) => ({ code, errors: [{ message: errorMessage }] })),
 });

@@ -1,6 +1,5 @@
 /**
  * @fileoverview Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented
- * @author Jenny Steele <jsteele@pinterest.com>
  *
  * Box supports some props already that are not widely known and instead are being
  * implemented with dangerouslySetInlineStyle. This linter checks for usage of already
@@ -15,6 +14,7 @@ import {
   validateBorderRadius,
   validateBoxShadow,
 } from './validators.js';
+import { type ESLintRule } from './eslintFlowTypes.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression &&
@@ -56,7 +56,7 @@ const overflowLookup = {
   auto: '  Use prop `overflow="auto"` instead',
 };
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -81,8 +81,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedBox = false;
     let localIdentifierName = 'Box';
     const { onlyKeys } = context.options[0] || {};

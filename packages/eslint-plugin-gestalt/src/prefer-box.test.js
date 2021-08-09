@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './prefer-box.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/prefer-box/valid.js'),
@@ -31,46 +24,14 @@ const invalidBorder = readFileSync(
   'utf-8',
 );
 
+const getErrorMessage = (string) =>
+  `Replace this div with a Gestalt Box.\n  Use prop ${string} instead`;
+
 ruleTester.run('prefer-box', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
-    {
-      code: invalidBackgroundColor,
-      parserOptions,
-      errors: [
-        {
-          message:
-            'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `color="white"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidBorderRadius,
-      parserOptions,
-      errors: [
-        {
-          message:
-            'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `rounding="circle"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidBorder,
-      parserOptions,
-      errors: [
-        {
-          message:
-            'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `borderStyle="lg"` instead',
-        },
-      ],
-    },
-  ],
+    [invalidBackgroundColor, '`color="white"`'],
+    [invalidBorderRadius, '`rounding="circle"`'],
+    [invalidBorder, '`borderStyle="lg"`'],
+  ].map(([code, errorMessage]) => ({ code, errors: [{ message: getErrorMessage(errorMessage) }] })),
 });

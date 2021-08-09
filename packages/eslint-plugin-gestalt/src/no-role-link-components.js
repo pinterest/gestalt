@@ -1,13 +1,14 @@
 /**
  * @fileoverview Disallow role-link on Gestalt components
- * @author Alberto Carreras <acarreras@pinterest.com>
  *
  * We do not allow role='link' on Button, TapArea, and IconButton.
  * Pinboard alternative with additional functionalityp must be used instead.
  */
 
 // @flow strict
-const rule = {
+import { type ESLintRule } from './eslintFlowTypes.js';
+
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -24,8 +25,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
     let importedName;
 

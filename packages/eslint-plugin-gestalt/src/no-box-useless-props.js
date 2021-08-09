@@ -1,9 +1,10 @@
 /**
  * @fileoverview Error on useless props on `Box`
- * @author Ryan James <rjames@pinterest.com>
  */
 
 // @flow strict
+import { type ESLintRule } from './eslintFlowTypes.js';
+
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
   flex:
@@ -18,7 +19,7 @@ const displayPropNames = ['display', 'smDisplay', 'mdDisplay', 'lgDisplay'];
 const flexGridPropNames = ['alignContent', 'alignItems', 'justifyContent'];
 const flexPropNames = ['direction', `smDirection`, `mdDirection`, `lgDirection`, 'wrap'];
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -35,8 +36,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let localBoxName = false;
 
     return {

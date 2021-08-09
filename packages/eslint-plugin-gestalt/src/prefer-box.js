@@ -1,6 +1,5 @@
 /**
  * @fileoverview Prevent using inline styles on divs that could be gestalt Box props
- * @author Jenny Steele <jsteele@pinterest.com>
  *
  * We prefer using gestalt Box over divs with inline styling to get styling consistency
  * across the app and shared css classes. This linter checks for usage of inline styling
@@ -9,6 +8,7 @@
 
 // @flow strict
 import { validateBackgroundColor, validateBorder, validateBorderRadius } from './validators.js';
+import { type ESLintRule } from './eslintFlowTypes.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
@@ -25,7 +25,7 @@ function getVariableDefinedStyles(ref) {
     : null;
 }
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -40,10 +40,12 @@ const rule = {
         additionalProperties: false,
       },
     ],
+    messages: {
+      disallowed: `Replace this div with a Gestalt Box.\n{{errorMessages}}`,
+    },
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     function matchKeyErrors(matchedErrors, key) {
       let message = '';
       switch (key.name) {
@@ -104,12 +106,12 @@ const rule = {
                 })
                 .reduce(matchKeyErrors, []);
               if (errorMessages.length) {
-                context.report(
+                context.report({
+                  node,
                   attr,
-                  `Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n${errorMessages.join(
-                    '\n',
-                  )}`,
-                );
+                  messageId: 'disallowed',
+                  data: { errorMessages: errorMessages.join('\n') },
+                });
               }
             }
           }

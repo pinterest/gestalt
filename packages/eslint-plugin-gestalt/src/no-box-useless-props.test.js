@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule, { errorMessages } from './no-box-useless-props.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester({
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 6,
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-});
+const ruleTester = new RuleTester({ parserOptions });
 
 const mapFileNameToPath = (pathPart) => (fileName) => {
   return `./__fixtures__/no-box-useless-props/${pathPart}/${fileName}.js`;

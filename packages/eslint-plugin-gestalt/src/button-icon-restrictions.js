@@ -1,6 +1,5 @@
 /**
  * @fileoverview Require specific props when using an icon with Button
- * @author Ryan James <rjames@pinterest.com>
  *
  * Gestalt is more permissive than PDS recommends in adding icons to Buttons.
  * Buttons using iconEnd must use:
@@ -10,7 +9,9 @@
  */
 
 // @flow strict
-const rule = {
+import { type ESLintRule } from './eslintFlowTypes.js';
+
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -27,8 +28,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
     let localIdentifierName;
     const componentName = 'Button';
