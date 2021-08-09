@@ -37,11 +37,10 @@ const invalidWithoutSize = readFileSync(
   'utf-8',
 );
 
+const errorMessage = 'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"';
+
 ruleTester.run('button-icon-restrictions', rule, {
-  valid: [validWithSize].map((code) => ({
-    code,
-    parserOptions,
-  })),
+  valid: [validWithSize].map((code) => ({ code })),
   invalid: [
     invalidMissingColor,
     invalidWrongColor,
@@ -49,13 +48,5 @@ ruleTester.run('button-icon-restrictions', rule, {
     invalidWrongIcon,
     invalidWrongSize,
     invalidWithoutSize,
-  ].map((code) => ({
-    code,
-    parserOptions,
-    errors: [
-      {
-        message: 'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
-      },
-    ],
-  })),
+  ].map((code) => ({ code, errors: [{ message: errorMessage }] })),
 });

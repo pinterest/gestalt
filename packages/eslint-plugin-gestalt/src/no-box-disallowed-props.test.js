@@ -56,32 +56,17 @@ const disallowedPropsInvalid = readFileSync(
 ruleTester.run('no-box-disallowedProps', rule, {
   valid: [validAria, validAs, validAsRenamed, validId, validData],
   invalid: [
-    {
-      code: disallowedProps,
-      errors: [
-        {
-          message:
-            'backgroundColor is not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.',
-        },
-      ],
-    },
-    {
-      code: disallowedPropsRenamed,
-      errors: [
-        {
-          message:
-            'backgroundColor is not allowed on Box (imported as GestaltBox). Please see https://gestalt.netlify.app/Box for all allowed props.',
-        },
-      ],
-    },
-    {
-      code: disallowedPropsInvalid,
-      errors: [
-        {
-          message:
-            'backgroundColor, invalidProp are not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.',
-        },
-      ],
-    },
-  ],
+    [
+      disallowedProps,
+      'backgroundColor is not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.',
+    ],
+    [
+      disallowedPropsRenamed,
+      'backgroundColor is not allowed on Box (imported as GestaltBox). Please see https://gestalt.netlify.app/Box for all allowed props.',
+    ],
+    [
+      disallowedPropsInvalid,
+      'backgroundColor, invalidProp are not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.',
+    ],
+  ].map(([code, errorMessage]) => ({ code, errors: [{ message: errorMessage }] })),
 });

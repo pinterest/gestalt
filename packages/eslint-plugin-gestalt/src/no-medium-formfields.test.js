@@ -65,6 +65,8 @@ const invalidSelectListDefault = readFileSync(
   'utf-8',
 );
 
+const errorMessage = 'Gestalt form fields should always have size="lg" set on them';
+
 ruleTester.run('no-medium-formfields', rule, {
   valid: [{ code: validCode }],
   invalid: [
@@ -76,8 +78,5 @@ ruleTester.run('no-medium-formfields', rule, {
     invalidComboBoxRenamed,
     invalidSearchFieldDefault,
     invalidSelectListDefault,
-  ].map((code) => ({
-    code,
-    errors: [{ message: 'Gestalt form fields should always have size="lg" set on them' }],
-  })),
+  ].map((code) => ({ code, errors: [{ message: errorMessage }] })),
 });

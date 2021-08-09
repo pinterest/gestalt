@@ -95,20 +95,12 @@ const gestaltImportWithoutBoxOutput = readFileSync(
 const errorMessage = 'Use <Box ref={ref}></Box> or other Gestalt components that support ref.';
 
 ruleTester.run('prefer-box-lonely-ref', rule, {
-  valid: [
-    {
-      code: validCode,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
     [noGestaltImportInput, noGestaltImportOutput],
     [noGestaltImportSelfclosedInput, noGestaltImportSelfclosedOutput],
     [gestaltImportWithBoxInput, gestaltImportWithBoxOutput],
     [gestaltImportWithRenamedBoxInput, gestaltImportWithRenamedBoxOutput],
     [gestaltImportWithoutBoxInput, gestaltImportWithoutBoxOutput],
-  ].map(([input, output]) => ({
-    code: input,
-    output,
-    errors: [{ message: errorMessage }],
-  })),
+  ].map(([input, output]) => ({ code: input, output, errors: [{ message: errorMessage }] })),
 });

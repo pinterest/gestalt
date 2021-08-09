@@ -31,17 +31,8 @@ const getErrorMessage = (string) => {
 ruleTester.run('prefer-box', rule, {
   valid: [{ code: validCode }],
   invalid: [
-    {
-      code: invalidBackgroundColor,
-      errors: [{ message: getErrorMessage('`color="white"`') }],
-    },
-    {
-      code: invalidBorderRadius,
-      errors: [{ message: getErrorMessage('`rounding="circle"`') }],
-    },
-    {
-      code: invalidBorder,
-      errors: [{ message: getErrorMessage('`borderStyle="lg"`') }],
-    },
-  ],
+    [invalidBackgroundColor, '`color="white"`'],
+    [invalidBorderRadius, '`rounding="circle"`'],
+    [invalidBorder, '`borderStyle="lg"`'],
+  ].map(([code, errorMessage]) => ({ code, errors: [{ message: getErrorMessage(errorMessage) }] })),
 });

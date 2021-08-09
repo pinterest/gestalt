@@ -30,17 +30,8 @@ const getErrorMessage = (cmp) =>
 ruleTester.run('no-role-link-components', rule, {
   valid: [{ code: validCode }],
   invalid: [
-    {
-      code: invalidButton,
-      errors: [{ message: getErrorMessage('Button') }],
-    },
-    {
-      code: invalidIconButton,
-      errors: [{ message: getErrorMessage('IconButton') }],
-    },
-    {
-      code: invalidTapArea,
-      errors: [{ message: getErrorMessage('TapArea') }],
-    },
-  ],
+    [invalidButton, 'Button'],
+    [invalidIconButton, 'IconButton'],
+    [invalidTapArea, 'TapArea'],
+  ].map(([code, errorMessage]) => ({ code, errors: [{ message: getErrorMessage(errorMessage) }] })),
 });

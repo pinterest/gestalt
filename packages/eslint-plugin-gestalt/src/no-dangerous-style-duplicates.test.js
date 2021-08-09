@@ -144,234 +144,44 @@ const invalidRight = readFileSync(
   'utf-8',
 );
 
+const getErrorMessage = (concat) =>
+  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n${concat}`;
+
 ruleTester.run('no-dangerous-style-duplicates', rule, {
   valid: [{ code: validCode }],
   invalid: [
-    {
-      code: invalidMultiple,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `color="white"` instead\n' +
-            '  Instead of dangerously styling top, use the "top" boolean prop',
-        },
-      ],
-    },
-    {
-      code: invalidMultiple,
-      options: [
-        {
-          onlyKeys: ['top'],
-        },
-      ],
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Instead of dangerously styling top, use the "top" boolean prop',
-        },
-      ],
-    },
-    {
-      code: invalidInVariable,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `color="white"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidBackgroundColor,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `color="white"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidBorder,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `borderStyle="lg"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidBorderRadius,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `rounding="circle"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidBottom,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Instead of dangerously styling bottom, use the "bottom" boolean prop',
-        },
-      ],
-    },
-    {
-      code: invalidLeft,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Instead of dangerously styling left, use the "left" boolean prop',
-        },
-      ],
-    },
-    {
-      code: invalidMarginNegative,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `margin={-2}` instead',
-        },
-      ],
-    },
-    {
-      code: invalidMarginLeft,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `marginStart={2}` instead',
-        },
-      ],
-    },
-    {
-      code: invalidMarginTop,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `marginTop={1}` instead',
-        },
-      ],
-    },
-    {
-      code: invalidMaxHeight,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidMaxWidth,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidMinHeight,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidMinWidth,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidPadding,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `padding={0}` instead',
-        },
-      ],
-    },
-    {
-      code: invalidOpacity,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `opacity={0.9}` instead',
-        },
-      ],
-    },
-    {
-      code: invalidOverflow,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `overflow="auto"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidPosition,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `position="absolute"` instead',
-        },
-      ],
-    },
-    {
-      code: invalidTop,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Instead of dangerously styling top, use the "top" boolean prop',
-        },
-      ],
-    },
-    {
-      code: invalidRight,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Instead of dangerously styling right, use the "right" boolean prop',
-        },
-      ],
-    },
-    {
-      code: invalidBoxShadow,
-      errors: [
-        {
-          message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `borderStyle="shadow"` instead',
-        },
-      ],
-    },
-  ],
+    [
+      invalidMultiple,
+      `  Use prop \`color="white"\` instead\n  Instead of dangerously styling top, use the "top" boolean prop`,
+    ],
+    [
+      invalidMultiple,
+      '  Instead of dangerously styling top, use the "top" boolean prop',
+      [{ onlyKeys: ['top'] }],
+    ],
+    [invalidInVariable, '  Use prop `color="white"` instead'],
+    [invalidBackgroundColor, '  Use prop `color="white"` instead'],
+    [invalidBorder, '  Use prop `borderStyle="lg"` instead'],
+    [invalidBorderRadius, '  Use prop `rounding="circle"` instead'],
+    [invalidBottom, '  Instead of dangerously styling bottom, use the "bottom" boolean prop'],
+    [invalidLeft, '  Instead of dangerously styling left, use the "left" boolean prop'],
+    [invalidMarginNegative, '  Use prop `margin={-2}` instead'],
+    [invalidMarginLeft, '  Use prop `marginStart={2}` instead'],
+    [invalidMarginTop, '  Use prop `marginTop={1}` instead'],
+    [invalidMaxHeight, '  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead'],
+    [invalidMaxWidth, '  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead'],
+    [invalidMinHeight, '  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead'],
+    [invalidMinWidth, '  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead'],
+    [invalidPadding, '  Use prop `padding={0}` instead'],
+    [invalidOpacity, '  Use prop `opacity={0.9}` instead'],
+    [invalidOverflow, '  Use prop `overflow="auto"` instead'],
+    [invalidPosition, '  Use prop `position="absolute"` instead'],
+    [invalidTop, '  Instead of dangerously styling top, use the "top" boolean prop'],
+    [invalidRight, '  Instead of dangerously styling right, use the "right" boolean prop'],
+    [invalidBoxShadow, '  Use prop `borderStyle="shadow"` instead'],
+  ].map(([code, errors, options]) => ({
+    code,
+    options: options ?? [],
+    errors: [{ message: getErrorMessage(errors) }],
+  })),
 });
