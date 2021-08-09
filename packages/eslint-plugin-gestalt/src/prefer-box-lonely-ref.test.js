@@ -104,9 +104,9 @@ ruleTester.run('prefer-box-lonely-ref', rule, {
     [gestaltImportWithBoxInput, gestaltImportWithBoxOutput],
     [gestaltImportWithRenamedBoxInput, gestaltImportWithRenamedBoxOutput],
     [gestaltImportWithoutBoxInput, gestaltImportWithoutBoxOutput],
-  ].map((code) => ({
-    code: code[0],
-    output: code[1],
+  ].map(([input, output]) => ({
+    code: input,
+    output,
     errors: [
       {
         message: `Use <Box ref={ref}></Box> or other Gestalt components that support ref.`,

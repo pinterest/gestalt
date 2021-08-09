@@ -35,9 +35,9 @@ ruleTester.run('no-spread-props', rule, {
   invalid: [
     [invalidFixableInput, invalidFixableOutput],
     [invalidNotFixableInput, invalidNotFixableOutput],
-  ].map((code, index) => ({
-    code: code[0],
-    output: code[1],
+  ].map(([input, output], index) => ({
+    code: input,
+    output,
     errors: [
       {
         message: `Prop spreading in Gestalt component 'Box' is forbidden, write your props out instead. ${
