@@ -1,3 +1,9 @@
+## 31.1.0 (Aug 9, 2021)
+
+### Minor
+
+- Eslint plugin: prefer-box-lonely-ref rule w/ autofix + no-spread-props rule w/ autofix (#1608)
+
 ## 31.0.1 (Aug 9, 2021)
 
 ### Patch
