@@ -53,7 +53,12 @@ exports[`ModuleExpandableItem renders correctly 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="test title"
                   >
                     test title
@@ -122,7 +127,12 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="test title"
                   >
                     test title
@@ -209,7 +219,12 @@ exports[`ModuleExpandableItem renders correctly with children 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="test title"
                   >
                     test title
@@ -295,7 +310,12 @@ exports[`ModuleExpandableItem renders correctly with error 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 red alignStart breakWord fontWeightBold truncate"
+                    className="Text fontSize3 red alignStart breakWord fontWeightBold lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="test title"
                   >
                     test title
@@ -381,7 +401,12 @@ exports[`ModuleExpandableItem renders correctly with icon 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="test title"
                   >
                     test title
@@ -450,7 +475,12 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="test title"
                   >
                     test title
@@ -468,7 +498,12 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
+                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="summary1"
                   >
                     summary1
@@ -478,7 +513,12 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
+                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="summary2"
                   >
                     summary2
@@ -488,7 +528,12 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
+                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="summary3"
                   >
                     summary3
@@ -557,7 +602,12 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="test title"
                   >
                     test title

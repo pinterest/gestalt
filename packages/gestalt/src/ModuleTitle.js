@@ -43,7 +43,7 @@ export default function ModuleTitle({
       )}
 
       <Flex.Item minWidth={0}>
-        <Text color={color} truncate weight="bold">
+        <Text color={color} lineClamp={1} weight="bold">
           {title}
         </Text>
       </Flex.Item>

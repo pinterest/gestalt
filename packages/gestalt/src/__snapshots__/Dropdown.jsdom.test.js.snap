@@ -48,7 +48,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
                           <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
                             title="Item 1"
                           >
                             Item 1
@@ -91,7 +91,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
                           <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
                             title="Item 2 with a really long, detailed, complex name"
                           >
                             Item 2 with a really long, detailed, complex name
@@ -140,7 +140,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
                             <span
-                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
                               title="External Item 3 with a really long, detailed, complex name"
                             >
                               External Item 3 with a really long, detailed, complex name
@@ -200,7 +200,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
                           <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
                             title="Item 4"
                           >
                             Item 4
@@ -263,7 +263,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
                             <span
-                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
                               title="Item 5 with a really long, detailed name"
                             >
                               Item 5 with a really long, detailed name
@@ -343,7 +343,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
                             <span
-                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
                               title="Item 6"
                             >
                               Item 6

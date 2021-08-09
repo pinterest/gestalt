@@ -65,12 +65,9 @@ type Props = {|
   color?: Color,
   inline?: boolean,
   italic?: boolean,
-  // Undocumented prop for now.
-  // Will replace `truncate` if experiment ships
   lineClamp?: number,
   overflow?: Overflow,
   size?: Size,
-  truncate?: boolean,
   underline?: boolean,
   weight?: FontWeight,
 |};
@@ -87,7 +84,6 @@ export default function Text({
   lineClamp,
   overflow = 'breakWord',
   size = 'lg',
-  truncate = false,
   underline = false,
   weight = 'normal',
 }: Props): Node {
@@ -109,8 +105,6 @@ export default function Text({
     underline && typography.underline,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
-    // `lineClamp` overrides `truncate`
-    truncate && !isNotNullish(lineClamp) && typography.truncate,
     isNotNullish(lineClamp) && typography.lineClamp,
   );
 
@@ -119,9 +113,7 @@ export default function Text({
   return (
     <Tag
       className={cs}
-      title={
-        (truncate || isNotNullish(lineClamp)) && typeof children === 'string' ? children : undefined
-      }
+      title={isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined}
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
     >
       {children}
@@ -149,6 +141,5 @@ Text.propTypes = {
     'noWrap',
   ]): React$PropType$Primitive<Overflow>),
   size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
-  truncate: PropTypes.bool,
   weight: (PropTypes.oneOf(['bold', 'normal']): React$PropType$Primitive<FontWeight>),
 };

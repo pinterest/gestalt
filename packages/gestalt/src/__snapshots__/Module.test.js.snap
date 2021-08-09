@@ -23,7 +23,12 @@ exports[`Module renders a badge correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="Testing"
           >
             Testing
@@ -85,7 +90,12 @@ exports[`Module renders a title correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="Module Test"
           >
             Module Test
@@ -140,7 +150,12 @@ exports[`Module renders an error correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 red alignStart breakWord fontWeightBold truncate"
+            className="Text fontSize3 red alignStart breakWord fontWeightBold lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="Testing"
           >
             Testing
@@ -201,7 +216,12 @@ exports[`Module renders an icon correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="Testing"
           >
             Testing
