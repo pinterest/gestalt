@@ -1,7 +1,7 @@
 // @flow strict
 
 // $FlowFixMe[unclear-type]
-type GenericType = Object;
+type GenericType = any;
 
 /** =================  HELPERS =================
  */
@@ -21,6 +21,10 @@ type KeyValuesType = {|
   value: string | number,
   isValueTypeLiteral: boolean,
 |};
+type RetrieveKeyValuesFromVariableType = ({|
+  context: GenericType,
+  variableNode: GenericType,
+|}) => $ReadOnlyArray<?KeyValuesType>;
 
 /** This function returns an array of objects containing the data for each key/value in the variable object.
 Example 1:
@@ -30,11 +34,6 @@ const a = { width: 20} >> returns [{ key: "width", value: 20, isValueTypeLiteral
 Example 3:
 const a = { onClick: () => {}} >> returns [{ key: "onClick", value: "() => {}", isValueTypeLiteral: false }]
 */
-type RetrieveKeyValuesFromVariableType = ({|
-  context: GenericType,
-  variableNode: GenericType,
-|}) => $ReadOnlyArray<?KeyValuesType>;
-
 export const retrieveKeyValuesFromVariable: RetrieveKeyValuesFromVariableType = ({
   context,
   variableNode,

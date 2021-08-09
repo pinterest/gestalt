@@ -14,7 +14,7 @@ import {
   validateBorderRadius,
   validateBoxShadow,
 } from './validators.js';
-import { type ESLintRule } from './eslintFlowDeclaration.js';
+import { type ESLintRule } from './eslintFlowTypes.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression &&

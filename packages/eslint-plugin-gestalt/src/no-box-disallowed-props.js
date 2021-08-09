@@ -3,7 +3,7 @@
  */
 
 // @flow strict
-import { type ESLintRule } from './eslintFlowDeclaration.js';
+import { type ESLintRule } from './eslintFlowTypes.js';
 
 const allowedBaseProps = [
   // React / DOM

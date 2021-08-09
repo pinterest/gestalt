@@ -2,7 +2,7 @@
 import { getNamedImportsComponents } from './eslintASTHelpers.js';
 
 // $FlowFixMe[unclear-type]
-type GenericType = Object;
+type GenericType = any;
 
 /** =================  FIXERS =================
 Fixers are the functions executed in the fix method inside context.report

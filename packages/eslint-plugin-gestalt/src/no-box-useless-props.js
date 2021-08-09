@@ -3,7 +3,7 @@
  */
 
 // @flow strict
-import { type ESLintRule } from './eslintFlowDeclaration.js';
+import { type ESLintRule } from './eslintFlowTypes.js';
 
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
