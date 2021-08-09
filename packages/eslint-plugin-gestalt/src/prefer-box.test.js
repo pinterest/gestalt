@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './prefer-box.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/prefer-box/valid.js'),
@@ -32,16 +25,10 @@ const invalidBorder = readFileSync(
 );
 
 ruleTester.run('prefer-box', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
     {
       code: invalidBackgroundColor,
-      parserOptions,
       errors: [
         {
           message:
@@ -52,7 +39,6 @@ ruleTester.run('prefer-box', rule, {
     },
     {
       code: invalidBorderRadius,
-      parserOptions,
       errors: [
         {
           message:
@@ -63,7 +49,6 @@ ruleTester.run('prefer-box', rule, {
     },
     {
       code: invalidBorder,
-      parserOptions,
       errors: [
         {
           message:

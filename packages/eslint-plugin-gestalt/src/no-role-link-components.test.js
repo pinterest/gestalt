@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './no-role-link-components.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-role-link-components/valid.js'),
@@ -32,16 +25,10 @@ const invalidTapArea = readFileSync(
 );
 
 ruleTester.run('no-role-link-components', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
     {
       code: invalidButton,
-      parserOptions,
       errors: [
         {
           message:
@@ -51,7 +38,6 @@ ruleTester.run('no-role-link-components', rule, {
     },
     {
       code: invalidIconButton,
-      parserOptions,
       errors: [
         {
           message:
@@ -61,7 +47,6 @@ ruleTester.run('no-role-link-components', rule, {
     },
     {
       code: invalidTapArea,
-      parserOptions,
       errors: [
         {
           message:

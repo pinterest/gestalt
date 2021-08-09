@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './no-dangerous-style-duplicates.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/valid.js'),
@@ -152,16 +145,10 @@ const invalidRight = readFileSync(
 );
 
 ruleTester.run('no-dangerous-style-duplicates', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
     {
       code: invalidMultiple,
-      parserOptions,
       errors: [
         {
           message:
@@ -173,7 +160,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMultiple,
-      parserOptions,
       options: [
         {
           onlyKeys: ['top'],
@@ -189,7 +175,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidInVariable,
-      parserOptions,
       errors: [
         {
           message:
@@ -200,7 +185,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidBackgroundColor,
-      parserOptions,
       errors: [
         {
           message:
@@ -211,7 +195,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidBorder,
-      parserOptions,
       errors: [
         {
           message:
@@ -222,7 +205,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidBorderRadius,
-      parserOptions,
       errors: [
         {
           message:
@@ -233,7 +215,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidBottom,
-      parserOptions,
       errors: [
         {
           message:
@@ -244,7 +225,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidLeft,
-      parserOptions,
       errors: [
         {
           message:
@@ -255,7 +235,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMarginNegative,
-      parserOptions,
       errors: [
         {
           message:
@@ -266,7 +245,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMarginLeft,
-      parserOptions,
       errors: [
         {
           message:
@@ -277,7 +255,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMarginTop,
-      parserOptions,
       errors: [
         {
           message:
@@ -288,7 +265,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMaxHeight,
-      parserOptions,
       errors: [
         {
           message:
@@ -299,7 +275,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMaxWidth,
-      parserOptions,
       errors: [
         {
           message:
@@ -310,7 +285,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMinHeight,
-      parserOptions,
       errors: [
         {
           message:
@@ -321,7 +295,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidMinWidth,
-      parserOptions,
       errors: [
         {
           message:
@@ -332,7 +305,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidPadding,
-      parserOptions,
       errors: [
         {
           message:
@@ -343,7 +315,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidOpacity,
-      parserOptions,
       errors: [
         {
           message:
@@ -354,7 +325,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidOverflow,
-      parserOptions,
       errors: [
         {
           message:
@@ -365,7 +335,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidPosition,
-      parserOptions,
       errors: [
         {
           message:
@@ -376,7 +345,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidTop,
-      parserOptions,
       errors: [
         {
           message:
@@ -387,7 +355,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidRight,
-      parserOptions,
       errors: [
         {
           message:
@@ -398,7 +365,6 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
     },
     {
       code: invalidBoxShadow,
-      parserOptions,
       errors: [
         {
           message:

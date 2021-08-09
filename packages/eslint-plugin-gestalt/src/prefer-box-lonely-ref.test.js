@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './prefer-box-lonely-ref.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/prefer-box-lonely-ref/valid.js'),
@@ -103,7 +96,6 @@ ruleTester.run('prefer-box-lonely-ref', rule, {
   valid: [
     {
       code: validCode,
-      parserOptions,
     },
   ],
   invalid: [
@@ -114,7 +106,6 @@ ruleTester.run('prefer-box-lonely-ref', rule, {
     [gestaltImportWithoutBoxInput, gestaltImportWithoutBoxOutput],
   ].map((code) => ({
     code: code[0],
-    parserOptions,
     output: code[1],
     errors: [
       {

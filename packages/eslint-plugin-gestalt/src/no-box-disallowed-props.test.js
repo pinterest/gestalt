@@ -1,74 +1,63 @@
 // @flow strict
 import { RuleTester } from 'eslint';
+import { readFileSync } from 'fs';
+import path from 'path';
 import rule from './no-box-disallowed-props.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester({
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 6,
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-});
+const ruleTester = new RuleTester({ parserOptions });
+
+const validId = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-id.js'),
+  'utf-8',
+);
+
+const validAs = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-as.js'),
+  'utf-8',
+);
+
+const validAsRenamed = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-as-renamed.js'),
+  'utf-8',
+);
+
+const validData = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-data.js'),
+  'utf-8',
+);
+
+const validAria = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-aria.js'),
+  'utf-8',
+);
+
+const disallowedProps = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/invalid/disallowed-props.js'),
+  'utf-8',
+);
+
+const disallowedPropsRenamed = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-box-disallowed-props/invalid/disallowed-props-renamed.js',
+  ),
+  'utf-8',
+);
+
+const disallowedPropsInvalid = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-box-disallowed-props/invalid/disallowed-props-invalid-prop.js',
+  ),
+  'utf-8',
+);
 
 ruleTester.run('no-box-disallowedProps', rule, {
-  valid: [
-    {
-      code: `
-import { Box } from 'gestalt';
-
-export default function TestElement() {
-  return <Box id="box" tabIndex={1}>Test</Box>;
-}
-    `,
-    },
-    {
-      code: `
-import { Box } from 'gestalt';
-
-export default function TestElement() {
-  return <Box as="main">Test</Box>;
-}
-    `,
-    },
-    {
-      code: `
-import { Box } from 'gestalt';
-
-export default function TestElement() {
-  return <Box data-pinId="12345">Test</Box>;
-}
-    `,
-    },
-    {
-      code: `
-import { Box as GestaltBox } from 'gestalt';
-
-export default function TestElement() {
-  return <GestaltBox as="main">Test</GestaltBox>;
-}
-    `,
-    },
-    {
-      code: `
-import { Box } from 'gestalt';
-
-export default function TestElement() {
-  return <Box aria-label="Accessibility Label">Test</Box>;
-}
-    `,
-    },
-  ],
+  valid: [validAria, validAs, validAsRenamed, validId, validData],
   invalid: [
     {
-      code: `
-import { Box } from 'gestalt';
-
-export default function TestElement() {
-  return <Box backgroundColor="#fff">Test</Box>;
-}
-      `,
+      code: disallowedProps,
       errors: [
         {
           message:
@@ -77,13 +66,7 @@ export default function TestElement() {
       ],
     },
     {
-      code: `
-import { Box as GestaltBox } from 'gestalt';
-
-export default function TestElement() {
-  return <GestaltBox backgroundColor="#fff">Test</GestaltBox>;
-}
-      `,
+      code: disallowedPropsRenamed,
       errors: [
         {
           message:
@@ -92,13 +75,7 @@ export default function TestElement() {
       ],
     },
     {
-      code: `
-import { Box } from 'gestalt';
-
-export default function TestElement() {
-  return <Box backgroundColor="#fff" invalidProp="Invalid">Test</Box>;
-}
-      `,
+      code: disallowedPropsInvalid,
       errors: [
         {
           message:

@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule, { errorMessage } from './no-box-marginleft-marginright.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/valid.js'),
@@ -48,48 +41,11 @@ const invalidLeftStartCode = readFileSync(
 );
 
 ruleTester.run('no-box-marginleft-marginright', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
-    {
-      code: invalidLeftCode,
-      parserOptions,
-      errors: [
-        {
-          message: errorMessage,
-        },
-      ],
-    },
-    {
-      code: invalidRightCode,
-      parserOptions,
-      errors: [
-        {
-          message: errorMessage,
-        },
-      ],
-    },
-    {
-      code: invalidRightStartCode,
-      parserOptions,
-      errors: [
-        {
-          message: errorMessage,
-        },
-      ],
-    },
-    {
-      code: invalidLeftStartCode,
-      parserOptions,
-      errors: [
-        {
-          message: errorMessage,
-        },
-      ],
-    },
+    { code: invalidLeftCode, errors: [{ message: errorMessage }] },
+    { code: invalidRightCode, errors: [{ message: errorMessage }] },
+    { code: invalidRightStartCode, errors: [{ message: errorMessage }] },
+    { code: invalidLeftStartCode, errors: [{ message: errorMessage }] },
   ],
 });

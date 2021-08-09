@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './no-spread-props.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-spread-props/valid.js'),
@@ -38,18 +31,12 @@ const invalidNotFixableOutput = readFileSync(
 );
 
 ruleTester.run('no-spread-props', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
     [invalidFixableInput, invalidFixableOutput],
     [invalidNotFixableInput, invalidNotFixableOutput],
   ].map((code, index) => ({
     code: code[0],
-    parserOptions,
     output: code[1],
     errors: [
       {

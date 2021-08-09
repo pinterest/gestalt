@@ -3,16 +3,9 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './no-medium-formfields.js';
+import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-medium-formfields/valid.js'),
@@ -73,12 +66,7 @@ const invalidSelectListDefault = readFileSync(
 );
 
 ruleTester.run('no-medium-formfields', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
     invalidTextfieldDefault,
     invalidTextfieldMedium,
@@ -90,11 +78,6 @@ ruleTester.run('no-medium-formfields', rule, {
     invalidSelectListDefault,
   ].map((code) => ({
     code,
-    parserOptions,
-    errors: [
-      {
-        message: 'Gestalt form fields should always have size="lg" set on them',
-      },
-    ],
+    errors: [{ message: 'Gestalt form fields should always have size="lg" set on them' }],
   })),
 });
