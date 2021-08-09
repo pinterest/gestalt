@@ -1,3 +1,9 @@
+## 31.0.0 (Aug 9, 2021)
+
+### Major
+
+- Text: Remove `truncate`, document `lineClamp` (#1611)
+
 ## 30.1.0 (Aug 6, 2021)
 
 ### Minor
