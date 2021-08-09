@@ -9,6 +9,7 @@
 
 // @flow strict
 import { validateBackgroundColor, validateBorder, validateBorderRadius } from './validators.js';
+import { type ESLintRule } from './eslintFlowDeclaration.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
@@ -25,7 +26,7 @@ function getVariableDefinedStyles(ref) {
     : null;
 }
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -42,8 +43,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     function matchKeyErrors(matchedErrors, key) {
       let message = '';
       switch (key.name) {

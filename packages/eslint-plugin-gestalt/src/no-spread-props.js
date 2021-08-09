@@ -7,13 +7,14 @@ import {
   getPropertiesFromVariable,
   getVariableNodeInScopeFromName,
 } from './eslintASTHelpers.js';
+import { type ESLintRule } from './eslintFlowDeclaration.js';
 
 /**
  * @fileoverview Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts.
  * @author Alberto Carreras <acarreras@pinterest.com>
  */
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -30,8 +31,7 @@ const rule = {
     },
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let gestaltImportNode;
 
     const importDeclarationFnc = (node) => {

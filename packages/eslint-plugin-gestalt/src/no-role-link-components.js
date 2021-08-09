@@ -7,7 +7,9 @@
  */
 
 // @flow strict
-const rule = {
+import { type ESLintRule } from './eslintFlowDeclaration.js';
+
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -24,8 +26,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
     let importedName;
 

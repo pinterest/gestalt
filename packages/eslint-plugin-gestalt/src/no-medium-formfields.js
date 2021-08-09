@@ -4,9 +4,11 @@
  *
  * In order to have consistent form fields in pinboard, we update all of their sizes to large and disallow medium
  */
-
 // @flow strict
-const rule = {
+
+import { type ESLintRule } from './eslintFlowDeclaration.js';
+
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -23,8 +25,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
     let localIdentifierName;
     const componentNames = ['SearchField', 'SelectList', 'TextField', 'ComboBox'];

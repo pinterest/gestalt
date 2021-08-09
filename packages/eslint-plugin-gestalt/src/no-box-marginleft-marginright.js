@@ -7,6 +7,8 @@
  */
 
 // @flow strict
+import { type ESLintRule } from './eslintFlowDeclaration.js';
+
 const disallowedProps = [
   'marginLeft',
   'smMarginLeft',
@@ -21,7 +23,7 @@ const disallowedProps = [
 export const errorMessage =
   'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -39,8 +41,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
 
     return {

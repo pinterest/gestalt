@@ -15,6 +15,7 @@ import {
   validateBorderRadius,
   validateBoxShadow,
 } from './validators.js';
+import { type ESLintRule } from './eslintFlowDeclaration.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression &&
@@ -56,7 +57,7 @@ const overflowLookup = {
   auto: '  Use prop `overflow="auto"` instead',
 };
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -81,8 +82,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedBox = false;
     let localIdentifierName = 'Box';
     const { onlyKeys } = context.options[0] || {};

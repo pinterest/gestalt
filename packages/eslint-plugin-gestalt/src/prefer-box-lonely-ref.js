@@ -1,12 +1,14 @@
 // @flow strict
 import { hasImport, hasLonelyAttribute } from './eslintASTHelpers.js';
 import { renameTagFixer, updateGestaltImportFixer } from './eslintASTFixers.js';
+import { type ESLintRule } from './eslintFlowDeclaration.js';
+
 /**
  * @fileoverview Prefer Box: prevent <div> tags used to only contain ref
  * @author Alberto Carreras <acarreras@pinterest.com>
  */
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -23,8 +25,7 @@ const rule = {
     },
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let programNode;
     let gestaltImportNode;
 

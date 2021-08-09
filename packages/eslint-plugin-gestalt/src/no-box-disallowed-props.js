@@ -4,6 +4,7 @@
  */
 
 // @flow strict
+import { type ESLintRule } from './eslintFlowDeclaration.js';
 
 const allowedBaseProps = [
   // React / DOM
@@ -130,7 +131,7 @@ const errorMessage = (props: $ReadOnlyArray<string>, localBoxName: string): stri
     localBoxName !== 'Box' ? ` (imported as ${localBoxName})` : ''
   }. Please see https://gestalt.netlify.app/Box for all allowed props.`;
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
@@ -147,8 +148,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let localBoxName = false;
 
     return {
