@@ -30,6 +30,11 @@ const invalidNotFixableOutput = readFileSync(
   'utf-8',
 );
 
+const getErrorMessage = (cmp, index) =>
+  `Prop spreading in Gestalt component ${cmp} is forbidden, write your props out instead. ${
+    index === 0 ? 'Autofix available' : ''
+  }`;
+
 ruleTester.run('no-spread-props', rule, {
   valid: [{ code: validCode }],
   invalid: [
@@ -39,16 +44,8 @@ ruleTester.run('no-spread-props', rule, {
     code: input,
     output,
     errors: [
-      {
-        message: `Prop spreading in Gestalt component 'Box' is forbidden, write your props out instead. ${
-          index === 0 ? 'Autofix available' : ''
-        }`,
-      },
-      {
-        message: `Prop spreading in Gestalt component 'RenamedBox' is forbidden, write your props out instead. ${
-          index === 0 ? 'Autofix available' : ''
-        }`,
-      },
+      { message: getErrorMessage('Box', index) },
+      { message: getErrorMessage('RenamedBox', index) },
     ],
   })),
 });

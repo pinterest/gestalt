@@ -24,38 +24,24 @@ const invalidBorder = readFileSync(
   'utf-8',
 );
 
+const getErrorMessage = (string) => {
+  return 'Replace this div with a Gestalt Box.\n' + `  Use prop ${string} instead`;
+};
+
 ruleTester.run('prefer-box', rule, {
   valid: [{ code: validCode }],
   invalid: [
     {
       code: invalidBackgroundColor,
-      errors: [
-        {
-          message:
-            'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `color="white"` instead',
-        },
-      ],
+      errors: [{ message: getErrorMessage('`color="white"`') }],
     },
     {
       code: invalidBorderRadius,
-      errors: [
-        {
-          message:
-            'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `rounding="circle"` instead',
-        },
-      ],
+      errors: [{ message: getErrorMessage('`rounding="circle"`') }],
     },
     {
       code: invalidBorder,
-      errors: [
-        {
-          message:
-            'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `borderStyle="lg"` instead',
-        },
-      ],
+      errors: [{ message: getErrorMessage('`borderStyle="lg"`') }],
     },
   ],
 });

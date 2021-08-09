@@ -26,7 +26,7 @@ const rule: ESLintRule = {
     fixable: 'code',
     schema: ([]: $ReadOnlyArray<empty>),
     messages: {
-      disallowed: `Prop spreading in Gestalt component '{{ name }}' is forbidden, write your props out instead. {{ autofix }}`,
+      disallowed: `Prop spreading in Gestalt component {{ name }} is forbidden, write your props out instead. {{ autofix }}`,
     },
   },
 

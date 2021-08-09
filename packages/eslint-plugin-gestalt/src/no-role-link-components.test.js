@@ -24,35 +24,23 @@ const invalidTapArea = readFileSync(
   'utf-8',
 );
 
+const getErrorMessage = (cmp) =>
+  `${cmp} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${cmp}Link.js instead.`;
+
 ruleTester.run('no-role-link-components', rule, {
   valid: [{ code: validCode }],
   invalid: [
     {
       code: invalidButton,
-      errors: [
-        {
-          message:
-            'Button Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/ButtonLink.js instead.',
-        },
-      ],
+      errors: [{ message: getErrorMessage('Button') }],
     },
     {
       code: invalidIconButton,
-      errors: [
-        {
-          message:
-            'IconButton Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/IconButtonLink.js instead.',
-        },
-      ],
+      errors: [{ message: getErrorMessage('IconButton') }],
     },
     {
       code: invalidTapArea,
-      errors: [
-        {
-          message:
-            'TapArea Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/TapAreaLink.js instead.',
-        },
-      ],
+      errors: [{ message: getErrorMessage('TapArea') }],
     },
   ],
 });

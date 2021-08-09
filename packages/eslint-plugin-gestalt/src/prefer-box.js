@@ -40,6 +40,9 @@ const rule: ESLintRule = {
         additionalProperties: false,
       },
     ],
+    messages: {
+      disallowed: `Replace this div with a Gestalt Box.\n{{errorMessages}}`,
+    },
   },
 
   create(context) {
@@ -103,12 +106,12 @@ const rule: ESLintRule = {
                 })
                 .reduce(matchKeyErrors, []);
               if (errorMessages.length) {
-                context.report(
+                context.report({
+                  node,
                   attr,
-                  `Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n${errorMessages.join(
-                    '\n',
-                  )}`,
-                );
+                  messageId: 'disallowed',
+                  data: { errorMessages: errorMessages.join('\n') },
+                });
               }
             }
           }

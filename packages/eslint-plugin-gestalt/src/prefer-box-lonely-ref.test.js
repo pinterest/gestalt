@@ -92,6 +92,8 @@ const gestaltImportWithoutBoxOutput = readFileSync(
   'utf-8',
 );
 
+const errorMessage = 'Use <Box ref={ref}></Box> or other Gestalt components that support ref.';
+
 ruleTester.run('prefer-box-lonely-ref', rule, {
   valid: [
     {
@@ -107,10 +109,6 @@ ruleTester.run('prefer-box-lonely-ref', rule, {
   ].map(([input, output]) => ({
     code: input,
     output,
-    errors: [
-      {
-        message: `Use <Box ref={ref}></Box> or other Gestalt components that support ref.`,
-      },
-    ],
+    errors: [{ message: errorMessage }],
   })),
 });
