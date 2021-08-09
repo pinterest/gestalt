@@ -4,13 +4,10 @@ import { getNamedImportsComponents } from './eslintASTHelpers.js';
 // $FlowFixMe[unclear-type]
 type GenericType = Object;
 
-/* =================  FIXERS =================
+/** =================  FIXERS =================
 Fixers are the functions executed in the fix method inside context.report
 */
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  updateGestaltImportFixer ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function updates the imports to include the new Gestalt component if needed. If there's no previous Gestalt import, it's preprended at the top of the file. It mantains aliased imports.
-*/
 type InsertGestaltImportTopFileFixerType = ({|
   context: GenericType,
   fixer: GenericType,
@@ -19,6 +16,8 @@ type InsertGestaltImportTopFileFixerType = ({|
   programNode: GenericType,
 |}) => GenericType;
 
+/** This function updates the imports to include the new Gestalt component if needed. If there's no previous Gestalt import, it's preprended at the top of the file. It mantains aliased imports.
+ */
 export const updateGestaltImportFixer: InsertGestaltImportTopFileFixerType = ({
   fixer,
   gestaltImportNode,
@@ -61,12 +60,6 @@ export const updateGestaltImportFixer: InsertGestaltImportTopFileFixerType = ({
   return importFixers;
 };
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  renameTagFixer ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function renames a given tag name inside a node: `tagName` is replaced with `newComponentName`
-Examples:
-<div></div> >> if tagName="div" & newComponentName="Box" returns <Box></Box>
-<div /> >> if tagName="div" & newComponentName="Box" returns true <Box />
-*/
 type RenameTagFixerType = ({|
   context: GenericType,
   elementNode: GenericType,
@@ -75,6 +68,12 @@ type RenameTagFixerType = ({|
   tagName: string,
 |}) => GenericType;
 
+/** This function renames a given tag name inside a node: `tagName` is replaced with `newComponentName`
+Examples 1:
+"\<div\>\<\/div\>" if tagName="div" & newComponentName="Box" returns "\<Box\>\<\/Box\>"
+Examples 2:
+"\<div \/\>" if tagName="div" & newComponentName="Box" returns "\<Box \/\>""
+*/
 export const renameTagFixer: RenameTagFixerType = ({
   context,
   elementNode,

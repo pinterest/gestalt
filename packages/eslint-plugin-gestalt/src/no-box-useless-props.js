@@ -1,10 +1,8 @@
 /**
  * @fileoverview Error on useless props on `Box`
- * @author Ryan James <rjames@pinterest.com>
  */
 
 // @flow strict
-
 import { type ESLintRule } from './eslintFlowDeclaration.js';
 
 export const errorMessages = {

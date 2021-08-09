@@ -1,11 +1,10 @@
 /**
  * @fileoverview Disallow medium form fields
- * @author Christian Vuerings <cvuerings@pinterest.com>
  *
  * In order to have consistent form fields in pinboard, we update all of their sizes to large and disallow medium
  */
-// @flow strict
 
+// @flow strict
 import { type ESLintRule } from './eslintFlowDeclaration.js';
 
 const rule: ESLintRule = {

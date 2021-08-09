@@ -3,28 +3,18 @@
 // $FlowFixMe[unclear-type]
 type GenericType = Object;
 
-/* =================  HELPERS =================
+/** =================  HELPERS =================
  */
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  getPropertiesFromVariable ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns the properties  of a variable (variableNode).
-Examples:
-const a = { key: "value"} >> returns nodes containing information (key: "value")
-*/
 type GetPropertiesFromVariable = ({|
   variableNode: GenericType,
 |}) => GenericType;
 
+/** This function returns the properties  of a variable (variableNode).
+Examples: const a = { key: "value"} >> returns nodes containing information (key: "value")
+*/
 export const getPropertiesFromVariable: GetPropertiesFromVariable = ({ variableNode }) =>
   variableNode?.resolved?.defs[0]?.node?.init?.properties;
-
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  retrieveKeyValuesFromVariable ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns an array of objects containing the data for each key/value in the variable object.
-Examples:
-const a = { color: "red"} >> returns [{ key: "color", value: "red", isValueTypeLiteral: true }]
-const a = { width: 20} >> returns [{ key: "width", value: 20, isValueTypeLiteral: true }]
-const a = { onClick: () => {}} >> returns [{ key: "onClick", value: "() => {}", isValueTypeLiteral: false }]
-*/
 
 type KeyValuesType = {|
   key: string,
@@ -32,6 +22,14 @@ type KeyValuesType = {|
   isValueTypeLiteral: boolean,
 |};
 
+/** This function returns an array of objects containing the data for each key/value in the variable object.
+Example 1:
+const a = { color: "red"} >> returns [{ key: "color", value: "red", isValueTypeLiteral: true }]
+Example 2:
+const a = { width: 20} >> returns [{ key: "width", value: 20, isValueTypeLiteral: true }]
+Example 3:
+const a = { onClick: () => {}} >> returns [{ key: "onClick", value: "() => {}", isValueTypeLiteral: false }]
+*/
 type RetrieveKeyValuesFromVariableType = ({|
   context: GenericType,
   variableNode: GenericType,
@@ -54,31 +52,30 @@ export const retrieveKeyValuesFromVariable: RetrieveKeyValuesFromVariableType = 
     : [];
 };
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  buildValueString ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns a string of literal value formatted as a prop value.
-Examples:
-{ key: "color", value: "red", isValueTypeLiteral: true } >> "red"
-{ key: "width", value: 20, isValueTypeLiteral: true } >> "{20}"
-*/
-
 type BuildLiteralValueStringType = ({|
   value: string | number,
 |}) => string;
 
+/** This function returns a string of literal value formatted as a prop value.
+Example 1:
+{ key: "color", value: "red", isValueTypeLiteral: true } >> "red"
+Example 2:
+{ key: "width", value: 20, isValueTypeLiteral: true } >> "{20}"
+*/
 export const buildLiteralValueString: BuildLiteralValueStringType = ({ value }) =>
   typeof value === 'number' ? `{${value}}` : `"${value}"`;
-
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  buildPropsFromKeyValues ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns key/values formatted as component props.
-Examples:
-{ key: "color", value: "red", isValueTypeLiteral: true } >> color="red"
-{ key: "width", value: 20, isValueTypeLiteral: true } >> width={20}
-{ key: "onClick", value: "() => {}", isValueTypeLiteral: false } >> onClick={() => {}}
-*/
 
 type BuildPropsFromKeyValuesType = ({|
   keyValues: GenericType,
 |}) => string;
+/** This function returns key/values formatted as component props.
+Example 1:
+{ key: "color", value: "red", isValueTypeLiteral: true } >> color="red"
+Example 2:
+{ key: "width", value: 20, isValueTypeLiteral: true } >> width={20}
+Example 3:
+{ key: "onClick", value: "() => {}", isValueTypeLiteral: false } >> onClick={() => {}}
+*/
 
 export const buildPropsFromKeyValues: BuildPropsFromKeyValuesType = ({ keyValues }) => {
   const newKeyValues = [...keyValues];
@@ -101,16 +98,14 @@ export const buildPropsFromKeyValues: BuildPropsFromKeyValuesType = ({ keyValues
   return stringProps;
 };
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  buildPropsFromKeyValuesVariable ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns key/values formatted as component props.
-Examples:
-[{ key: "color", value: "red", isValueTypeLiteral: true }, { key: "width", value: 20, isValueTypeLiteral: true }] >> 'color="red" width={20}'
-*/
 type BuildPropsFromKeyValuesVariableType = ({|
   context: GenericType,
   variableNode: GenericType,
 |}) => string;
-
+/** This function returns key/values formatted as component props.
+Example:
+[{ key: "color", value: "red", isValueTypeLiteral: true }, { key: "width", value: 20, isValueTypeLiteral: true }] >> 'color="red" width={20}'
+*/
 export const buildPropsFromKeyValuesVariable: BuildPropsFromKeyValuesVariableType = ({
   context,
   variableNode,
@@ -123,26 +118,23 @@ export const buildPropsFromKeyValuesVariable: BuildPropsFromKeyValuesVariableTyp
   return buildPropsFromKeyValues({ keyValues });
 };
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  getComponenFromAttribute ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns the component containing the attribute's node (nodeAttribute).
-Examples:
-<div {...props} /> >> returns div node for the spread props attribute
-*/
 type GetComponentFromAttributeType = ({| nodeAttribute: GenericType |}) => GenericType;
-
+/** This function returns the component containing the attribute's node (nodeAttribute).
+Example:
+\<div {...props} \/\> returns div node for the spread props attribute
+*/
 export const getComponenFromAttribute: GetComponentFromAttributeType = ({ nodeAttribute }) =>
   nodeAttribute.parent;
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  getVariableNodeInScopeFromName ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns the component's name containing the attribute's node (nodeAttribute).
-Examples:
-<div {...props} /> >> returns div for the spread props attribute
-*/
 type GetVariableNodeInScopeFromNameType = ({|
   context: GenericType,
   nodeElement: GenericType,
   name: string,
 |}) => GenericType;
+/** This function returns the component's name containing the attribute's node (nodeAttribute).
+Example:
+\<div {...props} \/\> returns div for the spread props attribute
+*/
 
 export const getVariableNodeInScopeFromName: GetVariableNodeInScopeFromNameType = ({
   context,
@@ -155,64 +147,58 @@ export const getVariableNodeInScopeFromName: GetVariableNodeInScopeFromNameType 
   return variableNode;
 };
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  getComponentNameFromAttribute ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns the component's name containing the attribute's node (nodeAttribute).
-Examples:
-<div {...props} /> >> returns div for the spread props attribute
-*/
 type GetComponentNameFromAttributeType = ({| nodeAttribute: GenericType |}) => string;
-
+/** This function returns the component's name containing the attribute's node (nodeAttribute).
+Example:
+\<div {...props} \/\> returns div for the spread props attribute
+*/
 export const getComponentNameFromAttribute: GetComponentNameFromAttributeType = ({
   nodeAttribute,
 }) => nodeAttribute?.parent?.name?.name;
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  hasImport ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function checks is a given node (importNode) contains a given import path (path), and returns true if so.
-Examples:
-import { Box } from 'gestalt' >> path="gestalt"
-import { Box } from 'app/box' >> path="app/box"
-*/
 type HasImportType = ({| importNode: GenericType, path: string |}) => boolean;
-
+/** This function checks is a given node (importNode) contains a given import path (path), and returns true if so.
+Example 1:
+import { Box } from 'gestalt'; path="gestalt"
+Example 2:
+import { Box } from 'app/box'; path="app/box"
+*/
 export const hasImport: HasImportType = ({ importNode, path }) => {
   const importName = importNode.source ? importNode.source.value : null;
   return importName === path;
 };
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  updateGestaltImportFixer ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function returns an array of arrays containing the named imports ([imported name, local or aliased name]) from a node (importNode).
-*/
 type GetNamedImportsComponentsType = ({| importNode: GenericType |}) => $ReadOnlyArray<
   $ReadOnlyArray<string>,
 >;
-
+/** This function returns an array of arrays containing the named imports ([imported name, local or aliased name]) from a node (importNode).
+ */
 export const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }) => {
   const namedImports = importNode.specifiers.map((node) => [node.imported.name, node?.local?.name]);
   return namedImports;
 };
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  isTag ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function checks is a given node (elementNode) contains a given tag (tagName), and returns true if so.
-Examples:
-<div /> >> if tagName="div" returns true
-<div /> >> if tagName="button" returns false
-*/
 type IsTagType = ({| elementNode: GenericType, tagName: string |}) => boolean;
-
+/** This function checks is a given node (elementNode) contains a given tag (tagName), and returns true if so.
+Example 1:
+\<div \/\> >> tagName="div" returns true
+Example 2:
+\<div \/\> >> tagName="button" returns false
+*/
 export const isTag: IsTagType = ({ elementNode, tagName }) => elementNode?.name?.name === tagName;
 
-/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  hasLonelyAttribute ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-This function checks is a given tag (tagName) in a node (elementNode) contains only a single attribute (attribute), and returns true if so.
-Examples:
-<div ref={} /> >> if attribute="ref" returns true
-<div ref={} style={} /> >> if attribute="ref" returns false
-*/
 type HasLonelyAttributeType = ({|
   elementNode: GenericType,
   tagName: string,
   attribute: string,
 |}) => boolean;
 
+/** This function checks is a given tag (tagName) in a node (elementNode) contains only a single attribute (attribute), and returns true if so.
+Example 1:
+\<div ref={} \/\> if attribute="ref" returns true
+Example 2:
+\<div ref={} style={} \/\> if attribute="ref" returns false
+*/
 export const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagName, attribute }) => {
   return (
     isTag({ elementNode, tagName }) &&

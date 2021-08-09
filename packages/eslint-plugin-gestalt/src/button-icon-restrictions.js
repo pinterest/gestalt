@@ -1,6 +1,5 @@
 /**
  * @fileoverview Require specific props when using an icon with Button
- * @author Ryan James <rjames@pinterest.com>
  *
  * Gestalt is more permissive than PDS recommends in adding icons to Buttons.
  * Buttons using iconEnd must use:

@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts.
+ */
+
 // @flow strict
 import {
   buildPropsFromKeyValuesVariable,
@@ -8,11 +12,6 @@ import {
   getVariableNodeInScopeFromName,
 } from './eslintASTHelpers.js';
 import { type ESLintRule } from './eslintFlowDeclaration.js';
-
-/**
- * @fileoverview Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts.
- * @author Alberto Carreras <acarreras@pinterest.com>
- */
 
 const rule: ESLintRule = {
   meta: {

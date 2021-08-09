@@ -1,6 +1,5 @@
 /**
  * @fileoverview Disallow role-link on Gestalt components
- * @author Alberto Carreras <acarreras@pinterest.com>
  *
  * We do not allow role='link' on Button, TapArea, and IconButton.
  * Pinboard alternative with additional functionalityp must be used instead.

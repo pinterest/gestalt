@@ -1,6 +1,5 @@
 /**
  * @fileoverview Error on disallowed props on `Box`
- * @author Ryan James <rjames@pinterest.com>
  */
 
 // @flow strict
