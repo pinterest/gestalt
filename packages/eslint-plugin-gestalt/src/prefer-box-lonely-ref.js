@@ -27,6 +27,7 @@ const rule: ESLintRule = {
   create(context) {
     let programNode;
     let gestaltImportNode;
+    let importFixerRun = false;
 
     const importDeclarationFnc = (node) => {
       if (!node) return;
@@ -62,7 +63,9 @@ const rule: ESLintRule = {
               programNode,
             });
 
-            return [...tagFixers, importFixers];
+            const fixers = !importFixerRun ? [...tagFixers, importFixers] : tagFixers;
+            importFixerRun = true;
+            return fixers;
           },
         });
       }
