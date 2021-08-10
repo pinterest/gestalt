@@ -167,13 +167,16 @@ export const hasImport: HasImportType = ({ importNode, path }) => {
   return importName === path;
 };
 
-type GetNamedImportsComponentsType = ({| importNode: GenericType |}) => $ReadOnlyArray<
+type GetNamedImportsComponentsType = ({| importNode: GenericType |}) => ?$ReadOnlyArray<
   $ReadOnlyArray<string>,
 >;
 /** This function returns an array of arrays containing the named imports ([imported name, local or aliased name]) from a node (importNode).
  */
 export const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }) => {
-  const namedImports = importNode.specifiers.map((node) => [node.imported.name, node?.local?.name]);
+  const namedImports = importNode?.specifiers?.map((node) => [
+    node.imported.name,
+    node?.local?.name,
+  ]);
   return namedImports;
 };
 
@@ -198,10 +201,7 @@ Example 1:
 Example 2:
 \<div ref={} style={} \/\> if attribute="ref" returns false
 */
-export const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagName, attribute }) => {
-  return (
-    isTag({ elementNode, tagName }) &&
-    elementNode?.attributes?.length === 1 &&
-    elementNode?.attributes[0]?.name?.name === attribute
-  );
-};
+export const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagName, attribute }) =>
+  isTag({ elementNode, tagName }) &&
+  elementNode?.attributes?.length === 1 &&
+  elementNode.attributes[0]?.name?.name === attribute;

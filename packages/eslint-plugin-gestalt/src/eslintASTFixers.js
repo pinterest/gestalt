@@ -24,40 +24,32 @@ export const updateGestaltImportFixer: InsertGestaltImportTopFileFixerType = ({
   newComponentName,
   programNode,
 }) => {
-  // default fix: add new Gestalt import on top of the file
-  let importFixers = fixer.insertTextBefore(
-    programNode,
-    `import { ${newComponentName} } from 'gestalt';\n`,
-  );
-  // if Gestalt is already imported: add new component if missing
-  if (gestaltImportNode) {
-    const namedImportsComponents = getNamedImportsComponents({
-      importNode: gestaltImportNode,
-    });
-
-    const importsComponentsArray = [...namedImportsComponents];
-    if (!namedImportsComponents.map((cmp) => cmp[0]).includes(newComponentName)) {
-      importsComponentsArray.push([newComponentName, newComponentName]);
-    }
-
-    const sortedImports = importsComponentsArray
-      .map((cmp) => {
-        if (cmp[0] === cmp[1]) {
-          // import and local names match
-          return cmp[0];
-        }
-        // import and local names don't match, keep alias
-        return `${cmp[0]} as ${cmp[1]}`;
-      })
-      .sort()
-      .join(', ');
-
-    importFixers = fixer.replaceText(
-      gestaltImportNode,
-      `import { ${sortedImports} } from 'gestalt';`,
-    );
+  // if Gestalt is not imported: add new Gestalt import on top of the file
+  if (!gestaltImportNode) {
+    return fixer.insertTextBefore(programNode, `import { ${newComponentName} } from 'gestalt';\n`);
   }
-  return importFixers;
+
+  // if Gestalt is already imported: add new component if missing
+  const namedImportsComponents =
+    getNamedImportsComponents({
+      importNode: gestaltImportNode,
+    }) ?? [];
+
+  const importsComponentsArray = [...namedImportsComponents];
+
+  if (!namedImportsComponents?.map((cmp) => cmp[0]).includes(newComponentName)) {
+    importsComponentsArray.push([newComponentName, newComponentName]);
+  }
+
+  const sortedImports = importsComponentsArray
+    .map((cmp) => {
+      if (cmp[0] === cmp[1]) return cmp[0]; // import and local names match
+      return `${cmp[0]} as ${cmp[1]}`; // import and local names don't match, keep alias
+    })
+    .sort()
+    .join(', ');
+
+  return fixer.replaceText(gestaltImportNode, `import { ${sortedImports} } from 'gestalt';`);
 };
 
 type RenameTagFixerType = ({|
