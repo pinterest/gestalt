@@ -1,3 +1,9 @@
+## 31.1.5 (Aug 11, 2021)
+
+### Patch
+
+- Bump path-parse from 1.0.6 to 1.0.7 (#1617)
+
 ## 31.1.4 (Aug 11, 2021)
 
 ### Patch
