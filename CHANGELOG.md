@@ -1,3 +1,9 @@
+## 31.1.1 (Aug 11, 2021)
+
+### Patch
+
+- Eslint plugin: fixes to `prefer-box`, `no-spread-props` (#1615)
+
 ## 31.1.0 (Aug 9, 2021)
 
 ### Minor
