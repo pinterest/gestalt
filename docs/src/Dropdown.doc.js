@@ -154,7 +154,7 @@ const commonDropdownItemProps = [
 
 card(
   <PropTable
-    Component={Dropdown.Item}
+    Component={Dropdown?.Item}
     name="Dropdown.Item"
     id="Dropdown.Item"
     props={[
@@ -179,7 +179,7 @@ card(
 
 card(
   <PropTable
-    Component={Dropdown.Link}
+    Component={Dropdown?.Link}
     name="Dropdown.Link"
     id="Dropdown.Link"
     props={[
@@ -212,7 +212,7 @@ card(
 
 card(
   <PropTable
-    Component={Dropdown.Section}
+    Component={Dropdown?.Section}
     name="Dropdown.Section"
     id="Dropdown.Section"
     props={[
