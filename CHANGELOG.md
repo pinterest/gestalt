@@ -1,3 +1,9 @@
+## 31.2.0 (Aug 11, 2021)
+
+### Minor
+
+- [Internal] Automatically launch docs & watcher when you open VSCode (#1620)
+
 ## 31.1.5 (Aug 11, 2021)
 
 ### Patch
