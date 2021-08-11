@@ -9,6 +9,7 @@ import noRoleLinkComponents from './no-role-link-components.js';
 import noSpreadProps from './no-spread-props.js';
 import preferBox from './prefer-box.js';
 import preferBoxLonelyRef from './prefer-box-lonely-ref.js';
+import preferBoxAsTag from './prefer-box-as-tag.js';
 
 module.exports = {
   rules: {
@@ -22,5 +23,6 @@ module.exports = {
     'no-spread-props': noSpreadProps,
     'prefer-box': preferBox,
     'prefer-box-lonely-ref': preferBoxLonelyRef,
+    'prefer-box-as-tag': preferBoxAsTag,
   },
 };
