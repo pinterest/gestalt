@@ -22,20 +22,57 @@ card(
     <MainSection.Subsection
       title="gestalt/no-dangerous-style-duplicates"
       description={`
-        Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented. Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle. This linter checks for usage of already available props as dangerous styles and suggests the alternative.
+        Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented.
+
+        Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle.
+
+        This linter checks for usage of already available props as dangerous styles and suggests the alternative.
+
+        [Learn more about Box](/Box).
       `}
     />
     <MainSection.Subsection
       title="gestalt/prefer-box"
       description={`
         Prevent using \`<div>\` inline styling for attributes that are already implemented in Box.
+
+        [Learn more about Box](/Box).
       `}
     />
     <MainSection.Subsection
       title="gestalt/prefer-box-lonely-ref"
       description={`
-        Prevent \`<div>\` tags used to only contain a \`ref\` attribute. Instead, use \`ref\` props supported in Box or other elements such as Button or TextField.
+        Prevent \`<div>\` tags used to only contain a \`ref\` attribute.
+
+        Instead, use \`ref\` props supported in Box or other elements such as Button or TextField.
+
         With AUTOFIX!
+
+        [Read more about the ref prop in Box](/Box#Using-as-a-ref).
+      `}
+    />
+    <MainSection.Subsection
+      title="gestalt/prefer-box-as-tag"
+      description={`
+        Prefer Box: prevent HTML tags supported in Box through the \`as\` prop.
+
+        Supported tags:
+
+        \`article\`,
+        \`aside\`,
+        \`details\`,
+        \`figcaption\`,
+        \`figure\`,
+        \`footer\`,
+        \`header\`,
+        \`main\`,
+        \`nav\`,
+        \`section\`,
+        \`summary\`.
+
+        With AUTOFIX!
+
+        [Read more about the as prop in Box](/Box#Using-'as'-property).
       `}
     />
   </MainSection>,
@@ -59,7 +96,9 @@ card(
       title="gestalt/no-box-disallowed-props"
       description={`
         Prevent props different from
+
         * the officially-supported Box props
+
         * the following list of passthrough React / DOM props: \`id\`, \`key\`,\`onAnimationEnd\`, \`onAnimationIteration\`, \`onAnimationStart\`, \`onBlur\`, \`onClick\`, \`onContextMenu\`, \`onDblClick\`, \`onDoubleClick\`, \`onDrag\`, \`onDragEnd\`, \`onDragEnter\`, \`onDragExit\`, \`onDragLeave\`, \`onDragOver\`, \`onDragStart\`, \`onDrop\`, \`onFocus\`, \`onKeyDown\`, \`onKeyPress\`, \`onKeyUp\`, \`onMouseDown\`, \`onMouseEnter\`, \`onMouseLeave\`, \`onMouseMove\`, \`onMouseOut\`, \`onMouseOver\`, \`onMouseUp\`, \`onScroll\`, \`onSelect\`, \`onTouchCancel\`, \`onTouchEnd\`, \`onTouchMove\`, \`onTouchStart\`, \`onTransitionEnd\`, \`onTransitionStart\`, \`onWheel\`, \`ref\`, \`tabIndex\`.
       `}
     />
@@ -75,7 +114,10 @@ card(
     <MainSection.Subsection
       title="gestalt/no-spread-props"
       description={`
-        Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts. Instead, write the component's props out.
+        Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts.
+
+        Instead, write the component's props out.
+
         With AUTOFIX!
       `}
     />
