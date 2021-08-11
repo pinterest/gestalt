@@ -1,3 +1,9 @@
+## 31.1.4 (Aug 11, 2021)
+
+### Patch
+
+- Bump url-parse from 1.5.1 to 1.5.3 (#1621)
+
 ## 31.1.3 (Aug 11, 2021)
 
 ### Patch
