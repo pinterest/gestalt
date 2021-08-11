@@ -1,3 +1,9 @@
+## 31.1.3 (Aug 11, 2021)
+
+### Patch
+
+- [Internal] Remove deprecated prettier VSCode setting (#1618)
+
 ## 31.1.2 (Aug 11, 2021)
 
 ### Patch
