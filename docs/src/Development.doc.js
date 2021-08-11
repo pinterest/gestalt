@@ -143,7 +143,7 @@ card(
           <ul>
             <li>
               <Text>
-                In VScode type <code>CMD+Shift+p</code>
+                In VSCode type <code>CMD+Shift+p</code>
               </Text>
             </li>
             <li>
