@@ -138,6 +138,25 @@ card(
             CSS files.
           </Text>
         </li>
+        <li>
+          <Text>If you want to automatically launch the docs when you open VSCode:</Text>
+          <ul>
+            <li>
+              <Text>
+                In VScode type <code>CMD+Shift+p</code>
+              </Text>
+            </li>
+            <li>
+              <Text>Search and select Tasks: &quot;Manage Automatic Tasks in Folder&quot;</Text>
+            </li>
+            <li>
+              <Text>Select Allow &quot;Automatic Tasks in Folder&quot;</Text>
+            </li>
+            <li>
+              <Text>Relaunch VSCode</Text>
+            </li>
+          </ul>
+        </li>
       </ul>
     </Flex>
   </Card>,
