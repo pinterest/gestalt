@@ -1,3 +1,9 @@
+## 31.1.2 (Aug 11, 2021)
+
+### Patch
+
+- [Internal] Fix property of undefined exceptions (#1619)
+
 ## 31.1.1 (Aug 11, 2021)
 
 ### Patch
