@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 10 Aug 2021 23:17:55 GMT
+// Generated on Wed, 11 Aug 2021 18:49:09 GMT
 
 
 import UIKit
@@ -48,4 +48,6 @@ public class StyleDictionary {
     public static let colorSkycicleBlue700 = UIColor(red: 0.000, green: 0.294, blue: 0.663, alpha: 1)
     public static let colorSkycicleBlue800 = UIColor(red: 0.000, green: 0.235, blue: 0.588, alpha: 1)
     public static let colorSkycicleBlue900 = UIColor(red: 0.000, green: 0.161, blue: 0.400, alpha: 1)
+    public static let space0 = 4px
+    public static let space100 = 8px
 }

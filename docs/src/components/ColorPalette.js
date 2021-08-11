@@ -1,6 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box, Text } from 'gestalt';
+import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 
 type Props = {|
   name: string,
@@ -8,11 +9,9 @@ type Props = {|
 |};
 
 const ColorPalette = ({ name, tokenId }: Props): Node => {
-  const tokenNumbers = [0, 50, 100, 200, 300, 400, 450, 500, 600, 700, 800, 900];
-
+  const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
   const colorBoxes = tokenNumbers.map((number, idx) => {
-    const cssVars = document.querySelector(':root');
-    const values = getComputedStyle(cssVars);
+    const textColor = number > 400 ? 'white' : 'darkGray';
     return (
       <Box
         key={`${idx}-${tokenId}`}
@@ -26,12 +25,10 @@ const ColorPalette = ({ name, tokenId }: Props): Node => {
         justifyContent="between"
         paddingX={2}
       >
-        <Text weight="bold" color={number > 450 ? 'white' : 'darkGray'}>
+        <Text weight="bold" color={textColor}>
           {number}
         </Text>
-        <Text color={number > 450 ? 'white' : 'darkGray'}>
-          {values.getPropertyValue(`--color-${tokenId}-${number}`).toUpperCase()}
-        </Text>
+        <Text color={textColor}>{tokens[`color-${tokenId}-${number}`].toUpperCase()}</Text>
       </Box>
     );
   });
