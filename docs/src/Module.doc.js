@@ -75,7 +75,7 @@ card(
 
 card(
   <PropTable
-    Component={Module.Expandable}
+    Component={Module?.Expandable}
     name="Expandable Module"
     id="expandable-module"
     props={[
