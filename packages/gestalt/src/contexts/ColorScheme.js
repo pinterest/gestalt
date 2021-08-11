@@ -78,7 +78,7 @@ const lightModeTheme = {
 
 const darkModeTheme = {
   name: 'darkMode',
-  colorRed0: '#e60023',
+  colorRed0: 'var(--color-pushpin-red-900)',
   colorRed100: '#ff5247',
   colorRed100Active: '#b8001b',
   colorRed100Hovered: '#cf001f',

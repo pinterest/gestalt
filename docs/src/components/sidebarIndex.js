@@ -31,7 +31,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Foundation',
-    pages: ['Heading', 'Icon', 'Text'],
+    pages: ['Color', 'Heading', 'Icon', 'Text'],
   },
   {
     sectionName: 'Configuration',

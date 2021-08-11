@@ -1,0 +1,70 @@
+{
+  "source": ["tokens/**/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "dist/css/",
+      "files": [{
+        "destination": "variables.css",
+        "format": "css/variables"
+      }]
+    },
+    "android": {
+      "transformGroup": "android",
+      "buildPath": "dist/android/",
+      "files": [{
+        "destination": "colors.xml",
+        "format": "android/colors"
+      }]
+    },
+    "ios": {
+      "transformGroup": "ios",
+      "buildPath": "dist/ios/",
+      "files": [{
+        "destination": "StyleDictionaryColor.h",
+        "format": "ios/colors.h",
+        "className": "StyleDictionaryColor",
+        "type": "StyleDictionaryColorName",
+        "filter": {
+          "attributes": {
+            "category": "color"
+          }
+        }
+      },{
+        "destination": "StyleDictionaryColor.m",
+        "format": "ios/colors.m",
+        "className": "StyleDictionaryColor",
+        "type": "StyleDictionaryColorName",
+        "filter": {
+          "attributes": {
+            "category": "color"
+          }
+        }
+      }]
+    },
+    "ios-swift": {
+      "transformGroup": "ios-swift",
+      "buildPath": "dist/ios-swift/",
+      "files": [{
+        "destination": "StyleDictionary.swift",
+        "format": "ios-swift/class.swift",
+        "className": "StyleDictionary",
+        "filter": {}
+      }]
+    },
+    "ios-swift-separate-enums": {
+      "transformGroup": "ios-swift-separate",
+      "buildPath": "dist/ios-swift/",
+      "files": [{
+        "destination": "StyleDictionaryColor.swift",
+        "format": "ios-swift/enum.swift",
+        "className": "StyleDictionaryColor",
+        "filter": {
+          "attributes": {
+            "category": "color"
+          }
+        }
+      }]
+    }
+  }
+}

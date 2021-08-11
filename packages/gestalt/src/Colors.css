@@ -1,6 +1,8 @@
+@import "gestalt-design-tokens/dist/css/variables.css";
+
 :root {
   /* primary colors */
-  --g-colorRed0: #ff5247;
+  --g-colorRed0: var(--color-pushpin-red-900);
   --g-colorRed100: #e60023;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;

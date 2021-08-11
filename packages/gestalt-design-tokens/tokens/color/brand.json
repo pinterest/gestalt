@@ -1,0 +1,52 @@
+{
+  "color": {
+    "pushpin": {
+      "red": {
+        "0" : { "value": "#FFF7F7" },
+        "50": { "value": "#FFEBEB" },
+        "100"  : { "value": "#FFE0E0" },
+        "200"  : { "value": "#FCBBBB" },
+        "300"  : { "value": "#F47171" },
+        "400"  : { "value": "#EB4242" },
+        "450"  : { "value": "#E60023" },
+        "500"  : { "value": "#CC0000" },
+        "600"  : { "value": "#B60000" },
+        "700"  : { "value": "#9B0000" },
+        "800"  : { "value": "#800000" },
+        "900"  : { "value": "#660000" }
+      }
+    },
+    "flaminglow": {
+      "pink": {
+        "0" : { "value": "#FFF8FA" },
+        "50": { "value": "#FFEBF1" },
+        "100"  : { "value": "#FFDFE9" },
+        "200"  : { "value": "#FFBED2" },
+        "300"  : { "value": "#FE8EB1" },
+        "400"  : { "value": "#F76593" },
+        "450"  : { "value": "#EE376A" },
+        "500"  : { "value": "#DE2C62" },
+        "600"  : { "value": "#C31952" },
+        "700"  : { "value": "#A30C4A" },
+        "800"  : { "value": "#82053E" },
+        "900"  : { "value": "#630233" }
+      }
+    },
+    "skycicle": {
+      "blue": {
+        "0" : { "value": "#F7FBFF" },
+        "50": { "value": "#E6F4FF" },
+        "100"  : { "value": "#D7EDFF" },
+        "200"  : { "value": "#ABDBFF" },
+        "300"  : { "value": "#75BFFF" },
+        "400"  : { "value": "#45A3FE" },
+        "450"  : { "value": "#007CFF" },
+        "500"  : { "value": "#0074E8" },
+        "600"  : { "value": "#005FCB" },
+        "700"  : { "value": "#004BA9" },
+        "800"  : { "value": "#003C96" },
+        "900"  : { "value": "#002966" }
+      }
+    }
+  }
+}
