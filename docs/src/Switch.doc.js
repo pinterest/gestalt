@@ -5,6 +5,7 @@ import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -56,6 +57,30 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - For a binary option that can be either active or inactive.
+          - Typically used on mobile, where toggling the Switch takes immediate effect.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Choosing between related options. Each Switch should be considered a solitary, standalone option. For multiple, related choices, use [Checkboxes](Checkbox) or [RadioButtons](/RadioButton) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <Example
     id="basicExample"
     description={`
@@ -68,7 +93,7 @@ function SwitchExample() {
 
   return (
     <Box display="flex" alignItems="center">
-      <Box paddingX={2} flex="grow">
+      <Box paddingX={2}>
         <Label htmlFor="emailNotifications">
           <Text>Airplane mode</Text>
         </Label>

@@ -253,7 +253,7 @@ card(
 - Interface space is limited. Prioritize using a [Button](/Button) if space is available.
 - Triggering a [Modal](/Modal) to complete a related task.
 - Creating visual separation of actions in text-heavy content.
-- Less-emphasis actions that don't impede users from completing a task.
+- Lower-emphasis actions that don't impede users from completing a task.
         `}
       />
       <MainSection.Card
@@ -264,7 +264,7 @@ card(
 - Displaying icons that don't have actions associated with them. Use an [Icon](/Icon) instead.
 - Displaying multiple IconButtons on a surface that uses the same icon for different actions.
 - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users.
-- Destructive high-emphasis actions, e.g "delete", "remove".
+- Destructive, high-emphasis actions, e.g "delete", "remove".
         `}
       />
     </MainSection.Subsection>

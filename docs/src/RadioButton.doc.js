@@ -5,6 +5,7 @@ import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -85,6 +86,30 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Situations where users can only choose one out of multiple, related options.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Any time users can choose more than one option. Use [Checkboxes](/Checkbox) instead.
+          - As a solitary option. RadioButtons should always appear in groups of 2 or more. Consider a [Checkbox](/Checkbox) or [Switch](/Switch) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
