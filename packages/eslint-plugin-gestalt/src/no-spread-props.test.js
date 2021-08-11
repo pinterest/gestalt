@@ -20,6 +20,7 @@ const invalidFixableOutput = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-output.js'),
   'utf-8',
 );
+
 const invalidNotFixableInput = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-input.js'),
   'utf-8',

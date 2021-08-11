@@ -44,45 +44,49 @@ const rule: ESLintRule = {
     };
 
     const jSXSpreadAttributeFnc = (nodeAttribute) => {
+      if (!gestaltImportNode) {
+        return null;
+      }
+
       const importedComponents = getNamedImportsComponents({ importNode: gestaltImportNode });
 
       // access the component with spread props
       const componentName = getComponentNameFromAttribute({ nodeAttribute });
 
-      const isGestaltComponent = importedComponents.map((cmp) => cmp[1]).includes(componentName);
+      const isGestaltComponent = importedComponents?.map((cmp) => cmp[1]).includes(componentName);
 
-      if (isGestaltComponent) {
-        // access the node of the variable -within scope- being spread
-        const declaredVariableNode = getVariableNodeInScopeFromName({
-          context,
-          nodeElement: nodeAttribute,
-          name: nodeAttribute.argument.name,
-        });
-
-        // check if the variable in scope is a key/value object from where retrieve props
-        const isFixable = !!getPropertiesFromVariable({ variableNode: declaredVariableNode });
-
-        return context.report({
-          node: nodeAttribute,
-          messageId: 'disallowed',
-          data: {
-            name: componentName,
-            autofix: isFixable ? 'Autofix available' : '',
-          },
-          fix: isFixable
-            ? (fixer) => {
-                const componentPropsString = buildPropsFromKeyValuesVariable({
-                  context,
-                  variableNode: declaredVariableNode,
-                });
-
-                return fixer.replaceText(nodeAttribute, componentPropsString);
-              }
-            : () => {},
-        });
+      if (!isGestaltComponent) {
+        return null;
       }
 
-      return null;
+      // access the node of the variable -within scope- being spread
+      const declaredVariableNode = getVariableNodeInScopeFromName({
+        context,
+        nodeElement: nodeAttribute,
+        name: nodeAttribute.argument.name,
+      });
+
+      // check if the variable in scope is a key/value object from where retrieve props
+      const isFixable = !!getPropertiesFromVariable({ variableNode: declaredVariableNode });
+
+      return context.report({
+        node: nodeAttribute,
+        messageId: 'disallowed',
+        data: {
+          name: componentName,
+          autofix: isFixable ? 'Autofix available' : '',
+        },
+        fix: isFixable
+          ? (fixer) => {
+              const componentPropsString = buildPropsFromKeyValuesVariable({
+                context,
+                variableNode: declaredVariableNode,
+              });
+
+              return fixer.replaceText(nodeAttribute, componentPropsString);
+            }
+          : () => {},
+      });
     };
 
     return {

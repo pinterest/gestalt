@@ -107,8 +107,7 @@ const rule: ESLintRule = {
                 .reduce(matchKeyErrors, []);
               if (errorMessages.length) {
                 context.report({
-                  node,
-                  attr,
+                  node: attr,
                   messageId: 'disallowed',
                   data: { errorMessages: errorMessages.join('\n') },
                 });
