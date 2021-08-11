@@ -1,3 +1,9 @@
+## 31.2.1 (Aug 11, 2021)
+
+### Patch
+
+- Checkbox, RadioButton, Switch: Add usage guidelines (#1612)
+
 ## 31.2.0 (Aug 11, 2021)
 
 ### Minor
