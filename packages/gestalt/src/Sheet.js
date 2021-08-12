@@ -37,12 +37,16 @@ import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContaine
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
 
 type Size = 'sm' | 'md' | 'lg';
+
+type OnAnimationEndStateType = 'in' | 'out';
+
 type SheetMainProps = {|
   accessibilityDismissButtonLabel: string,
   accessibilitySheetLabel: string,
   children: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
+  onAnimationEnd?: ({| animationState: OnAnimationEndStateType |}) => void,
   onDismiss: () => void,
   size?: Size,
 |};
@@ -117,6 +121,7 @@ function Sheet(props: SheetProps): Node {
     closeOnOutsideClick = true,
     footer,
     heading,
+    onAnimationEnd,
     onDismiss,
     size = 'sm',
     subHeading,
@@ -124,7 +129,10 @@ function Sheet(props: SheetProps): Node {
 
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-  const { animationState, onAnimationEnd } = useAnimation();
+  const {
+    animationState: animationStateHook,
+    onAnimationEnd: onAnimationEndFromHook,
+  } = useAnimation();
   const containerRef = useRef<?HTMLDivElement>(null);
   const contentRef = useRef<?HTMLElement>(null);
 
@@ -141,6 +149,11 @@ function Sheet(props: SheetProps): Node {
       window.removeEventListener('keyup', handleKeyUp);
     };
   }, [onDismiss]);
+
+  const handleOnAnimationEnd = useCallback(() => {
+    onAnimationEndFromHook?.();
+    onAnimationEnd?.({ animationState: animationStateHook === 'in' ? 'in' : 'out' });
+  }, [animationStateHook, onAnimationEnd, onAnimationEndFromHook]);
 
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
@@ -175,17 +188,17 @@ function Sheet(props: SheetProps): Node {
       <TrapFocusBehavior>
         <div className={sheetStyles.container} ref={containerRef}>
           <Backdrop
-            animationState={animationState}
+            animationState={animationStateHook}
             closeOnOutsideClick={closeOnOutsideClick}
             onClick={handleOutsideClick}
           >
             <div
               aria-label={accessibilitySheetLabel}
               className={classnames(sheetStyles.wrapper, focusStyles.hideOutline, {
-                [sheetStyles.wrapperAnimationIn]: animationState === 'in',
-                [sheetStyles.wrapperAnimationOut]: animationState === 'out',
+                [sheetStyles.wrapperAnimationIn]: animationStateHook === 'in',
+                [sheetStyles.wrapperAnimationOut]: animationStateHook === 'out',
               })}
-              onAnimationEnd={onAnimationEnd}
+              onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
               style={{ width: SIZE_WIDTH_MAP[size] }}
               tabIndex={-1}
@@ -255,6 +268,7 @@ Sheet.propTypes = {
   closeOnOutsideClick: PropTypes.bool,
   footer: PropTypes.node,
   heading: PropTypes.string,
+  onAnimationEnd: PropTypes.func,
   onDismiss: PropTypes.func.isRequired,
   size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
   subHeading: PropTypes.node,
@@ -273,6 +287,7 @@ export default function AnimatedSheet(props: AnimatedSheetProps): Node {
     accessibilitySheetLabel,
     children,
     closeOnOutsideClick,
+    onAnimationEnd,
     onDismiss,
     footer,
     heading = undefined,
@@ -289,6 +304,7 @@ export default function AnimatedSheet(props: AnimatedSheetProps): Node {
           closeOnOutsideClick={closeOnOutsideClick}
           footer={typeof footer === 'function' ? footer({ onDismissStart }) : footer}
           heading={heading}
+          onAnimationEnd={onAnimationEnd}
           onDismiss={onDismissStart}
           size={size}
           subHeading={
