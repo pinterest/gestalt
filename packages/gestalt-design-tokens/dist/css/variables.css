@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Aug 2021 18:49:09 GMT
+ * Generated on Thu, 12 Aug 2021 00:33:26 GMT
  */
 
 :root {
@@ -42,6 +42,17 @@
   --color-skycicle-blue-900: #002966;
   --color-font-base: #ffe0e0;
   --color-font-secondary: #cc0000;
-  --space-0: 4px;
-  --space-100: 8px;
+  --space-0: 0px;
+  --space-100: 4px;
+  --space-200: 8px;
+  --space-300: 16px;
+  --space-400: 24px;
+  --space-500: 32px;
+  --space-600: 64px;
+  --space-negative-100: -4px;
+  --space-negative-200: -8px;
+  --space-negative-300: -16px;
+  --space-negative-400: -24px;
+  --space-negative-500: -32px;
+  --space-negative-600: -64px;
 }

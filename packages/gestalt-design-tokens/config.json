@@ -23,6 +23,15 @@
       "files": [{
         "destination": "colors.xml",
         "format": "android/colors"
+      },
+      {
+        "destination": "space.xml",
+        "format": "android/resources",
+        "filter": {
+          "attributes": {
+            "category": "space"
+          }
+        }
       }]
     },
     "ios": {

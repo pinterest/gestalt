@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Wed, 11 Aug 2021 18:49:09 GMT
+// Generated on Thu, 12 Aug 2021 00:33:26 GMT
 
 
 import UIKit
@@ -48,6 +48,17 @@ public class StyleDictionary {
     public static let colorSkycicleBlue700 = UIColor(red: 0.000, green: 0.294, blue: 0.663, alpha: 1)
     public static let colorSkycicleBlue800 = UIColor(red: 0.000, green: 0.235, blue: 0.588, alpha: 1)
     public static let colorSkycicleBlue900 = UIColor(red: 0.000, green: 0.161, blue: 0.400, alpha: 1)
-    public static let space0 = 4px
-    public static let space100 = 8px
+    public static let space0 = 0px
+    public static let space100 = 4px
+    public static let space200 = 8px
+    public static let space300 = 16px
+    public static let space400 = 24px
+    public static let space500 = 32px
+    public static let space600 = 64px
+    public static let spaceNegative100 = -4px
+    public static let spaceNegative200 = -8px
+    public static let spaceNegative300 = -16px
+    public static let spaceNegative400 = -24px
+    public static let spaceNegative500 = -32px
+    public static let spaceNegative600 = -64px
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Do not edit directly
+  Generated on Thu, 12 Aug 2021 00:33:26 GMT
+-->
+<resources>
+  <string name="space_0">0px</string>
+  <string name="space_100">4px</string>
+  <string name="space_200">8px</string>
+  <string name="space_300">16px</string>
+  <string name="space_400">24px</string>
+  <string name="space_500">32px</string>
+  <string name="space_600">64px</string>
+  <string name="space_negative_100">-4px</string>
+  <string name="space_negative_200">-8px</string>
+  <string name="space_negative_300">-16px</string>
+  <string name="space_negative_400">-24px</string>
+  <string name="space_negative_500">-32px</string>
+  <string name="space_negative_600">-64px</string>
+  
+</resources>
