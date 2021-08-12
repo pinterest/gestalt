@@ -19,7 +19,9 @@ export const getTestTypePrepender = (testType: string): Prepender => (fileName) 
   `${testType}/${fileName}.js`;
 
 type Formatter = (string) => string;
-export const getPathFormatterByRuleName = (ruleName: string): Formatter => (testPath) => {
+export const getPathFormatterByRuleName = (ruleName: string): Formatter => (
+  testPath: string,
+): string => {
   return `./__fixtures__/${ruleName}/${testPath}`;
 };
 
