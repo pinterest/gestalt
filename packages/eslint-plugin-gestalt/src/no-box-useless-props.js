@@ -8,16 +8,73 @@ import { type ESLintRule } from './eslintFlowTypes.js';
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
   flex:
-    '`direction`, `smDirection`, `mdDirection`, `lgDirection`, and `wrap` must be used with `display="flex"`',
-  flexGrid:
-    '`alignContent`, `alignItems`, and `justifyContent` must be used with `display="flex"`. You can suppress this error if dangerously setting `display="grid"`',
+    '`direction`, `smDirection`, `mdDirection`, `lgDirection`, and `wrap` must be used with `display="flex", or dangerously set display of "inline-flex", "inline-grid", or "grid"`',
 };
 
 const displayPropNames = ['display', 'smDisplay', 'mdDisplay', 'lgDisplay'];
 
-// These are valid for both flexbox and grid layouts
-const flexGridPropNames = ['alignContent', 'alignItems', 'justifyContent'];
-const flexPropNames = ['direction', `smDirection`, `mdDirection`, `lgDirection`, 'wrap'];
+const flexPropNames = [
+  'alignContent',
+  'alignItems',
+  'direction',
+  'justifyContent',
+  'wrap',
+  `lgDirection`,
+  `mdDirection`,
+  `smDirection`,
+];
+const dangerousFlexGridDisplays = ['inline-flex', 'grid', 'inline-grid'];
+
+function getAttributeName(attributeName): ?string {
+  return attributeName?.name;
+}
+
+function getExpressionValues(valueExpression): $ReadOnlyArray<string> {
+  return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
+}
+
+function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
+  const staticValue = attributeValue?.value;
+  const isBooleanShorthand = attributeValue === null;
+  if (staticValue || isBooleanShorthand) {
+    return staticValue;
+  }
+
+  const valueExpression = attributeValue.expression;
+  if (valueExpression.type === 'ConditionalExpression') {
+    return getExpressionValues(valueExpression);
+  }
+  return undefined;
+}
+
+// $FlowExpectedError[unclear-type]
+function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
+  const valueExpression = attributeValue.expression;
+  const styleObject = valueExpression.properties.find(({ key }) => key.name === '__style');
+  if (!styleObject) {
+    return null;
+  }
+  return styleObject.value.properties.reduce(
+    (acc, { key, value }) => ({
+      ...acc,
+      [key.name]: value,
+    }),
+    {},
+  );
+}
+
+function hasDangerouslySetFlexDisplay(stylesObject): boolean {
+  if (!stylesObject || !stylesObject.display) {
+    return false;
+  }
+  const displayValue = stylesObject.display.value ?? getExpressionValues(stylesObject.display);
+  if (!displayValue) {
+    return false;
+  }
+  return Array.isArray(displayValue)
+    ? displayValue.some((value) => dangerousFlexGridDisplays.includes(value))
+    : dangerousFlexGridDisplays.includes(displayValue);
+}
 
 const rule: ESLintRule = {
   meta: {
@@ -48,16 +105,17 @@ const rule: ESLintRule = {
           return node.imported.name === 'Box';
         })?.local?.name;
       },
+
       JSXOpeningElement(node) {
         if (!localBoxName || node?.name?.name !== localBoxName) {
           return;
         }
 
-        const props = Object.keys(node.attributes).map((key: string) => ({
-          name: node.attributes[key]?.name?.name,
-          value: node.attributes[key]?.value?.value,
+        const props = node.attributes.map(({ name, value }) => ({
+          name,
+          value,
         }));
-        const propNames = props.map((prop) => prop.name);
+        const propNames = props.map(({ name }) => getAttributeName(name));
 
         // FIT - MAX WIDTH
         const hasFit = propNames.includes('fit');
@@ -68,17 +126,27 @@ const rule: ESLintRule = {
         }
 
         // FLEX PROPS
-        const displayProps = props.filter((prop) => displayPropNames.includes(prop.name));
-        const isFlexDisplay = displayProps.some((prop) => prop.value === 'flex');
-        const hasFlexProps = flexPropNames.some((prop) => propNames.includes(prop));
-        const hasFlexGridProps = flexGridPropNames.some((prop) => propNames.includes(prop));
+        const displayProps = props.filter(({ name }) => {
+          return displayPropNames.includes(getAttributeName(name));
+        });
+        const isFlexDisplay = displayProps.some(({ value }) => {
+          const propValue = getAttributeValue(value);
+          return Array.isArray(propValue) ? propValue.includes('flex') : propValue === 'flex';
+        });
 
-        if (!isFlexDisplay) {
-          if (hasFlexProps) {
-            context.report(node, errorMessages.flex);
-          } else if (hasFlexGridProps) {
-            context.report(node, errorMessages.flexGrid);
-          }
+        const dangerouslySetInlineStyleProp = props.find(
+          ({ name }) => getAttributeName(name) === 'dangerouslySetInlineStyle',
+        );
+        const isDangerousFlexDisplay = dangerouslySetInlineStyleProp
+          ? hasDangerouslySetFlexDisplay(
+              getDangerouslySetStyles(dangerouslySetInlineStyleProp.value),
+            )
+          : false;
+
+        const hasFlexProps = flexPropNames.some((prop) => propNames.includes(prop));
+
+        if (!(isFlexDisplay || isDangerousFlexDisplay) && hasFlexProps) {
+          context.report(node, errorMessages.flex);
         }
       },
     };
