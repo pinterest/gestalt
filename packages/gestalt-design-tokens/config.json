@@ -38,20 +38,20 @@
       "transformGroup": "ios",
       "buildPath": "dist/ios/",
       "files": [{
-        "destination": "StyleDictionaryColor.h",
+        "destination": "GestaltDesignTokensColor.h",
         "format": "ios/colors.h",
-        "className": "StyleDictionaryColor",
-        "type": "StyleDictionaryColorName",
+        "className": "GestaltDesignTokensColor",
+        "type": "GestaltDesignTokensColorName",
         "filter": {
           "attributes": {
             "category": "color"
           }
         }
       },{
-        "destination": "StyleDictionaryColor.m",
+        "destination": "GestaltDesignTokensColor.m",
         "format": "ios/colors.m",
-        "className": "StyleDictionaryColor",
-        "type": "StyleDictionaryColorName",
+        "className": "GestaltDesignTokensColor",
+        "type": "GestaltDesignTokensColorName",
         "filter": {
           "attributes": {
             "category": "color"
@@ -63,9 +63,9 @@
       "transformGroup": "ios-swift",
       "buildPath": "dist/ios-swift/",
       "files": [{
-        "destination": "StyleDictionary.swift",
+        "destination": "GestaltDesignTokens.swift",
         "format": "ios-swift/class.swift",
-        "className": "StyleDictionary",
+        "className": "GestaltDesignTokens",
         "filter": {}
       }]
     },
@@ -73,9 +73,9 @@
       "transformGroup": "ios-swift-separate",
       "buildPath": "dist/ios-swift/",
       "files": [{
-        "destination": "StyleDictionaryColor.swift",
+        "destination": "GestaltDesignTokensColor.swift",
         "format": "ios-swift/enum.swift",
-        "className": "StyleDictionaryColor",
+        "className": "GestaltDesignTokensColor",
         "filter": {
           "attributes": {
             "category": "color"
