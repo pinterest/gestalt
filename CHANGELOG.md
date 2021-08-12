@@ -1,3 +1,9 @@
+## 31.3.2 (Aug 12, 2021)
+
+### Patch
+
+-  Avatar, AvatarGroup, AvatarPair: Add usage guidelines (#1624)
+
 ## 31.3.1 (Aug 12, 2021)
 
 ### Patch
