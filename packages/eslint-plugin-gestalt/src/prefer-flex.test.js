@@ -1,20 +1,39 @@
 // @flow strict
-import { RuleTester } from 'eslint';
 import rule, { errorMessage } from './prefer-flex.js';
-import { getPathFormatterByRuleName, parserOptions, readTestByPath } from './testHelpers.js';
+import {
+  getPathFormatterByRuleName,
+  getRuleTester,
+  getTestTypePrepender,
+  readTestByPath,
+} from './testHelpers.js';
 
 const ruleName = 'prefer-flex';
-const ruleTester = new RuleTester({ parserOptions });
+const ruleTester = getRuleTester();
 const pathFormatter = getPathFormatterByRuleName(ruleName);
 
-const validDisplayFlex = readTestByPath(pathFormatter('valid-display-flex.js'));
-const validRounding = readTestByPath(pathFormatter('valid-rounding.js'));
-const invalid = readTestByPath(pathFormatter('invalid.js'));
+const validPrepender = getTestTypePrepender('valid');
+const invalidPrepender = getTestTypePrepender('invalid');
+
+const validDisplayFlex = readTestByPath(pathFormatter(validPrepender('display-flex')));
+const validRounding = readTestByPath(pathFormatter(validPrepender('rounding')));
+
+const invalidSingleBoxInput = readTestByPath(pathFormatter(invalidPrepender('single-box.input')));
+const invalidSingleBoxOutput = readTestByPath(pathFormatter(invalidPrepender('single-box.output')));
+const invalidMultipleBoxInput = readTestByPath(
+  pathFormatter(invalidPrepender('multiple-box.input')),
+);
+const invalidMultipleBoxOutput = readTestByPath(
+  pathFormatter(invalidPrepender('multiple-box.output')),
+);
 
 ruleTester.run(ruleName, rule, {
   valid: [validDisplayFlex, validRounding].map((code) => ({ code })),
-  invalid: [invalid].map((code) => ({
-    code,
+  invalid: [
+    [invalidSingleBoxInput, invalidSingleBoxOutput],
+    [invalidMultipleBoxInput, invalidMultipleBoxOutput],
+  ].map(([input, output]) => ({
+    code: input,
+    output,
     errors: [{ message: errorMessage }],
   })),
 });

@@ -63,9 +63,10 @@ const rule = {
         if (!hasImportedBox) {
           return;
         }
+
         const props = node.attributes.map(({ name, value }) => ({
-          key: name.name,
-          value: value.value,
+          key: name?.name,
+          value: value?.value,
         }));
 
         const displayProp = props.find(({ key }) => key === 'display');
