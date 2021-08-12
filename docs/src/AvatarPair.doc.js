@@ -38,7 +38,7 @@ card(
         title="When to Use"
         description={`
           - To represent a group of people, companies and/or brands in a square format.
-          - In cases where the parent element can represent either a single person/company or a group of people/companies.
+          - In cases where the space to represent user(s) can either be a single person/company or a group of people/companies.
         `}
       />
       <MainSection.Card
