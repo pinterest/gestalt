@@ -120,7 +120,7 @@ card(
         title="When to Use"
         description={`
           - For the general display of groups of people, companies and/or brands.
-          - In cases where an affordance for adding accounts is needed.
+          - In cases where an affordance for adding collaborators is needed.
         `}
       />
       <MainSection.Card
