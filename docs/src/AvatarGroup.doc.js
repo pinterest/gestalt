@@ -112,6 +112,30 @@ See the [Accessibility guidelines](#Accessibility) for details on proper usage.`
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - For the general display of groups of people, companies and/or brands.
+          - In cases where an affordance for adding collaborators is needed.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Displaying a group of people, companies and/or brands in a square format. Use [AvatarPair](/AvatarPair) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Accessibility">
     <MainSection.Subsection
       title="ARIA attributes"
