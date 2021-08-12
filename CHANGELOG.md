@@ -1,3 +1,9 @@
+## 31.3.1 (Aug 12, 2021)
+
+### Patch
+
+- Eslint plugin: fix prefer-box-as-tag
+
 ## 31.3.0 (Aug 11, 2021)
 
 ### Minor
