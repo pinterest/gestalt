@@ -1,6 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box, Text } from 'gestalt';
+// $FlowFixMe[untyped-import]
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 
 type Props = {|
@@ -12,7 +13,7 @@ const ColorPalette = ({ name, tokenId }: Props): Node => {
   const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
   const colorBoxes = tokenNumbers.map((number, idx) => {
     const textColor = number > 400 ? 'white' : 'darkGray';
-    return (
+    return tokens[`color-${tokenId}-${number}`] ? (
       <Box
         key={`${idx}-${tokenId}`}
         dangerouslySetInlineStyle={{
@@ -28,9 +29,9 @@ const ColorPalette = ({ name, tokenId }: Props): Node => {
         <Text weight="bold" color={textColor}>
           {number}
         </Text>
-        <Text color={textColor}>{tokens[`color-${tokenId}-${number}`].toUpperCase()}</Text>
+        <Text color={textColor}>{tokens[`color-${tokenId}-${number}`]?.toUpperCase()}</Text>
       </Box>
-    );
+    ) : null;
   });
   return (
     <Box>

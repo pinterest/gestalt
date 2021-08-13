@@ -1,8 +1,0 @@
-{
-  "color": {
-    "font": {
-      "base"     : { "value": "{color.pushpin.red.100.value}" },
-      "secondary": { "value": "{color.pushpin.red.500.value}" }
-    }
-  }
-}
