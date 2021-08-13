@@ -16,11 +16,11 @@ const ColorPalette = ({ name, tokenId }: Props): Node => {
     <Box>
       <Text weight="bold">{name}</Text>
       <Box marginTop={2}>
-        {tokenNumbers.map((number, idx) => {
+        {tokenNumbers.map((number) => {
           const textColor = number > 400 ? 'white' : 'darkGray';
           return tokens[`color-${tokenId}-${number}`] ? (
             <Box
-              key={`${idx}-${tokenId}`}
+              key={`${number}-${tokenId}`}
               dangerouslySetInlineStyle={{
                 __style: { backgroundColor: `var(--color-${tokenId}-${number})` },
               }}
