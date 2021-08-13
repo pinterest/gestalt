@@ -1,6 +1,6 @@
 # Gestalt Design Tokens
 
-This package contains all of the design tokens used by the Pinterest Gestalt Design System.
+This package contains all of the design tokens used by the Pinterest Gestalt Design System. The tokens are built for multiple platforms using [Style Dictionary](https://amzn.github.io/style-dictionary).
 
 To build the tokens, run:
 
