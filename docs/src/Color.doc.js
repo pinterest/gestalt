@@ -12,7 +12,7 @@ card(
   <PageHeader
     name="Color"
     description={`
-    Our color palettes are shared between Brand and Gestalt, and represent our full range of options. For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).
+    Our color palettes are shared between Brand and Gestalt, and represent our full range of options. For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/). Please note however that this new color palette is not yet reflected on the Brand website.
     `}
   />,
 );
@@ -20,7 +20,7 @@ card(
 card(
   <MainSection
     name="Full Palettes"
-    description="In order to ensure accessible contrast for color pairings, we require a dark font color to be used for any colors 400 and below. For 500 and above, we recommend using white."
+    description={`In order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/Text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.`}
   >
     <MainSection.Subsection title="Colors">
       <Flex direction="column" gap={12}>
