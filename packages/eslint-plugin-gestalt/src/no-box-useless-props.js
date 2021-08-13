@@ -41,8 +41,20 @@ function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   }
 
   const valueExpression = attributeValue.expression;
+  // ternary
   if (valueExpression.type === 'ConditionalExpression') {
     return getExpressionValues(valueExpression);
+  }
+  // variable
+  if (valueExpression.type === 'Identifier') {
+    // This could be a variable defined within the component/file,
+    // or it could be imported from elsewhere: we don't know. If needed in the future,
+    // we could check to see if the variable is defined in this file, and therefore
+    // check the value. However, as of Aug '21 there are only two instances of `display`
+    // using a variable in Pinboard, and both are passed-in props, so we can't know
+    // the values. For now we'll give variables the benefit of the doubt and treat them
+    // as 'flex' so we don't throw unnecessary errors.
+    return 'flex';
   }
   return undefined;
 }

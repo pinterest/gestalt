@@ -30,6 +30,7 @@ const validFlexCodePaths = [
   'flex-dynamic-dangerous',
   'flex-dynamic-display',
   'flex-justify-content',
+  'flex-reference-display',
   'flex-wrap',
 ].map(mapFileNameToPath('valid'));
 const validFlexCode = validFlexCodePaths.map(mapPathsToCode);
