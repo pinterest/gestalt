@@ -1,0 +1,43 @@
+{
+  "name": "gestalt-design-tokens",
+  "version": "0.1.1",
+  "license": "Apache-2.0",
+  "homepage": "https://gestalt.pinterest.systems/",
+  "description": "Design tokens style dictionary for Gestalt",
+  "main": "dist/css/variables.css",
+  "files": [
+    "dist",
+    "tokens"
+  ],
+  "nodemonConfig": {
+    "ignore": [
+      "dist/*"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "style-dictionary": "^3.0.1"
+  },
+  "peerDependencies": {
+    "gestalt": ">0.0.0"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "watch": "nodemon build.js"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not IE < 11",
+    "not <1%"
+  ],
+  "keywords": [
+    "design system",
+    "pinterest",
+    "ui library",
+    "design tokens"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinterest/gestalt"
+  }
+}

@@ -1,3 +1,5 @@
+@import "gestalt-design-tokens/dist/css/variables.css";
+
 :root {
   /* primary colors */
   --g-colorRed0: #ff5247;
