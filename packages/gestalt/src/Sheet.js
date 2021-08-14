@@ -35,6 +35,7 @@ import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContainer } from './ScrollBoundaryContainer.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
+import { FixedZIndex } from './zIndex.js';
 
 type Size = 'sm' | 'md' | 'lg';
 
@@ -130,7 +131,7 @@ function Sheet(props: SheetProps): Node {
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
   const {
-    animationState: animationStateHook,
+    animationState: animationStateFromHook,
     onAnimationEnd: onAnimationEndFromHook,
   } = useAnimation();
   const containerRef = useRef<?HTMLDivElement>(null);
@@ -152,8 +153,8 @@ function Sheet(props: SheetProps): Node {
 
   const handleOnAnimationEnd = useCallback(() => {
     onAnimationEndFromHook?.();
-    onAnimationEnd?.({ animationState: animationStateHook === 'in' ? 'in' : 'out' });
-  }, [animationStateHook, onAnimationEnd, onAnimationEndFromHook]);
+    onAnimationEnd?.({ animationState: animationStateFromHook === 'in' ? 'in' : 'out' });
+  }, [animationStateFromHook, onAnimationEnd, onAnimationEndFromHook]);
 
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
@@ -188,15 +189,15 @@ function Sheet(props: SheetProps): Node {
       <TrapFocusBehavior>
         <div className={sheetStyles.container} ref={containerRef}>
           <Backdrop
-            animationState={animationStateHook}
+            animationState={animationStateFromHook}
             closeOnOutsideClick={closeOnOutsideClick}
             onClick={handleOutsideClick}
           >
             <div
               aria-label={accessibilitySheetLabel}
               className={classnames(sheetStyles.wrapper, focusStyles.hideOutline, {
-                [sheetStyles.wrapperAnimationIn]: animationStateHook === 'in',
-                [sheetStyles.wrapperAnimationOut]: animationStateHook === 'out',
+                [sheetStyles.wrapperAnimationIn]: animationStateFromHook === 'in',
+                [sheetStyles.wrapperAnimationOut]: animationStateFromHook === 'out',
               })}
               onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
@@ -226,7 +227,13 @@ function Sheet(props: SheetProps): Node {
                 )}
                 {!heading && (
                   <Box display="flex" flex="grow" justifyContent="end" marginBottom={8}>
-                    <Box flex="none" paddingX={6} paddingY={7} position="absolute">
+                    <Box
+                      flex="none"
+                      paddingX={6}
+                      paddingY={7}
+                      position="absolute"
+                      zIndex={new FixedZIndex(1)}
+                    >
                       <DismissButton
                         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
                         onClick={onDismiss}

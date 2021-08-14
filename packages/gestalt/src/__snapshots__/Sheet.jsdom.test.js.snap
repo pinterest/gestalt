@@ -217,6 +217,7 @@ exports[`Sheet should render animation in 1`] = `
           >
             <div
               class="absolute box flexNone paddingX6 paddingY7"
+              style="z-index: 1;"
             >
               <button
                 aria-label="Dismiss"
@@ -283,6 +284,7 @@ exports[`Sheet should render animation out 1`] = `
           >
             <div
               class="absolute box flexNone paddingX6 paddingY7"
+              style="z-index: 1;"
             >
               <button
                 aria-label="Dismiss"

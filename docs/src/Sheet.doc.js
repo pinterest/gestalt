@@ -1040,7 +1040,7 @@ function ClosingExample(props) {
       - Left arrow red icon button (children)
       - Close button (footer)
 
-      Sheet also provides \`onAnimationEnd\`, a callback that gets triggered at the end of each animation. The callback has access to \`animationState\` to identify the end of each 'in' and 'out' animation for cases where each event don't trigger the same response.
+      Sheet also provides \`onAnimationEnd\`, a callback that gets triggered at the end of each animation. The callback has access to \`animationState\` to identify the end of each 'in' and 'out' animation for cases where the two events trigger different responses..
       `}
     >
       <MainSection.Card
