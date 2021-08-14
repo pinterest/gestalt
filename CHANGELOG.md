@@ -1,3 +1,9 @@
+## 31.4.0 (Aug 14, 2021)
+
+### Minor
+
+- Color: Add design tokens package and color page (#1616)
+
 ## 31.3.2 (Aug 12, 2021)
 
 ### Patch
