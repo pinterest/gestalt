@@ -13,9 +13,10 @@ Fixers are the functions executed in the fix method inside context.report
 */
 
 type InsertGestaltImportTopFileFixerType = ({|
-  context: GenericNode,
+type updateGestaltImportFixerType = ({|
   fixer: GenericNode,
   gestaltImportNode: GenericNode,
+  importsToRemove?: $ReadOnlyArray<string>,
   newComponentName: string,
   programNode: GenericNode,
 |}) => GenericNode;
@@ -23,8 +24,10 @@ type InsertGestaltImportTopFileFixerType = ({|
 /** This function updates the imports to include the new Gestalt component if needed. If there's no previous Gestalt import, it's preprended at the top of the file. It mantains aliased imports.
  */
 export const updateGestaltImportFixer: InsertGestaltImportTopFileFixerType = ({
+export const updateGestaltImportFixer: updateGestaltImportFixerType = ({
   fixer,
   gestaltImportNode,
+  importsToRemove,
   newComponentName,
   programNode,
 }) => {
@@ -46,6 +49,11 @@ export const updateGestaltImportFixer: InsertGestaltImportTopFileFixerType = ({
   }
 
   const sortedImports = importsComponentsArray
+  const filteredImportComponents = importsToRemove
+    ? importsComponentsArray.filter((component) => !importsToRemove.includes(component[0]))
+    : importsComponentsArray;
+
+  const sortedImports = filteredImportComponents
     .map((cmp) => {
       if (cmp[0] === cmp[1]) return cmp[0]; // import and local names match
       return `${cmp[0]} as ${cmp[1]}`; // import and local names don't match, keep alias
