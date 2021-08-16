@@ -25,12 +25,19 @@ const invalidMultipleBoxInput = readTestByPath(
 const invalidMultipleBoxOutput = readTestByPath(
   pathFormatter(invalidPrepender('multiple-box.output')),
 );
+const invalidMultipleBoxRenamedInput = readTestByPath(
+  pathFormatter(invalidPrepender('multiple-box-renamed.input')),
+);
+const invalidMultipleBoxRenamedOutput = readTestByPath(
+  pathFormatter(invalidPrepender('multiple-box-renamed.output')),
+);
 
 ruleTester.run(ruleName, rule, {
   valid: [validDisplayFlex, validRounding].map((code) => ({ code })),
   invalid: [
     [invalidSingleBoxInput, invalidSingleBoxOutput],
     [invalidMultipleBoxInput, invalidMultipleBoxOutput],
+    [invalidMultipleBoxRenamedInput, invalidMultipleBoxRenamedOutput],
   ].map(([input, output]) => ({
     code: input,
     output,
