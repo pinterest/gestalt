@@ -74,6 +74,12 @@ card(
           "The text used for Sheet's heading. Be sure to localize this text. See the [heading variant](#Heading) for more info.",
       },
       {
+        name: 'onAnimationEnd',
+        type: "({ animationState: 'in' | 'out' }) => void",
+        description:
+          'Callback fired when the Sheet in/out animations end. See the [animation](#Animation) variant to learn more. ',
+      },
+      {
         name: 'onDismiss',
         type: '() => void',
         required: true,
@@ -1033,6 +1039,8 @@ function ClosingExample(props) {
       - Done red button (children)
       - Left arrow red icon button (children)
       - Close button (footer)
+
+      Sheet also provides \`onAnimationEnd\`, a callback that gets triggered at the end of each animation. The callback has access to \`animationState\` to identify the end of each 'in' and 'out' animation for cases where the two events trigger different responses..
       `}
     >
       <MainSection.Card
