@@ -1,3 +1,9 @@
+## 31.5.0 (Aug 16, 2021)
+
+### Minor
+
+- Sheet: new onAnimationEnd prop + fix for bug (#1625)
+
 ## 31.4.0 (Aug 14, 2021)
 
 ### Minor
