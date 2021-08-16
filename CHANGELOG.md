@@ -1,3 +1,9 @@
+## 32.0.0 (Aug 16, 2021)
+
+### Major
+
+- Revert Color: Add design tokens package and color page (#1616) (#1627)
+
 ## 31.5.0 (Aug 16, 2021)
 
 ### Minor
