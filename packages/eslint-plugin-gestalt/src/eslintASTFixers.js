@@ -56,7 +56,9 @@ type RenameTagFixerType = ({|
   context: GenericNode,
   elementNode: GenericNode,
   fixer: GenericNode,
+  gestaltImportNode: GenericNode,
   newComponentName: string,
+  replaceRegexCallback?: ({| input: string |}) => string,
   tagName: string,
 |}) => $ReadOnlyArray<GenericNode>;
 
@@ -70,21 +72,31 @@ export const renameTagFixer: RenameTagFixerType = ({
   context,
   elementNode,
   fixer,
+  gestaltImportNode,
   newComponentName,
+  replaceRegexCallback = ({ input }) => input,
   tagName,
 }) => {
   return [elementNode.openingElement, elementNode.closingElement]
     .map((node) => {
       // $FlowFixMe[incompatible-type] Flow is not detecting the method filter(Boolean)
       if (!node) return false;
+      const namedImportsComponents =
+        getNamedImportsComponents({
+          importNode: gestaltImportNode,
+        }) ?? [];
 
-      return fixer.replaceText(
-        node,
-        getTextNodeFromSourceCode({ context, elementNode: node }).replace(
-          tagName,
-          newComponentName,
-        ),
+      const componentNameMatch = namedImportsComponents.find(
+        (item) => item[0] === newComponentName,
       );
+
+      const replacedText = replaceRegexCallback({
+        input: getTextNodeFromSourceCode({ context, elementNode: node }).replace(
+          tagName,
+          (componentNameMatch && componentNameMatch[1]) ?? newComponentName,
+        ),
+      });
+      return fixer.replaceText(node, replacedText);
     })
     .filter(Boolean);
 };

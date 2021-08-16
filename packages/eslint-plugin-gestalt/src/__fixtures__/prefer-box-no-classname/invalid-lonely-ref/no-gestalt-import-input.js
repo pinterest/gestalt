@@ -3,7 +3,7 @@ export default function TestElement() {
   const ref = useRef(null);
   return (
     <div ref={ref}>
-      <div />
+      <button />
     </div>
   );
 }
