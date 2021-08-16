@@ -1,3 +1,9 @@
+## 32.1.0 (Aug 16, 2021)
+
+### Minor
+
+- Lint rules: Add support for dynamic/dangerous styles in `no-box-useless-props` (#1623)
+
 ## 32.0.0 (Aug 16, 2021)
 
 ### Major
