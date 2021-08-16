@@ -9,12 +9,7 @@ console.log(`Publishing version: ${version}`);
 
 // Publish command to post to npm - must be run in the same directory as the gestalt package
 // `yarn publish` publishes the package defined by the package.json in the current directory.
-const packages = [
-  'gestalt',
-  'gestalt-datepicker',
-  'eslint-plugin-gestalt',
-  'gestalt-design-tokens',
-];
+const packages = ['gestalt', 'gestalt-datepicker', 'eslint-plugin-gestalt'];
 
 packages.forEach((packageName) => {
   shell.cd(path.join(__dirname, '..', 'packages', packageName));

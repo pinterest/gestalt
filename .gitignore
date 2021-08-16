@@ -9,7 +9,6 @@ screenshots
 packages/gestalt/dist/*
 packages/gestalt-datepicker/dist/*
 packages/eslint-plugin-gestalt/dist/*
-packages/gestalt-design-tokens/dist
 
 # the flow export file as it's maintained by hand
 !packages/gestalt/dist/gestalt.js.flow

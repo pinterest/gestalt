@@ -14,7 +14,6 @@
     "date-fns": "^2.16.1",
     "gestalt": ">0.0.0",
     "gestalt-datepicker": ">0.0.0",
-    "gestalt-design-tokens": ">0.0.0",
     "highlight.js": "^10.4.1",
     "history": "^5.0.0",
     "lz-string": "^1.4.4",
