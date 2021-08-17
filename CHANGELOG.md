@@ -1,3 +1,9 @@
+## 32.1.1 (Aug 17, 2021)
+
+### Patch
+
+- Lint rules: Fix reduce bug in no-box-useless-props (#1631)
+
 ## 32.1.0 (Aug 16, 2021)
 
 ### Minor
