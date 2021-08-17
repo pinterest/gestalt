@@ -62,7 +62,7 @@ function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
 // $FlowExpectedError[unclear-type]
 function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   const valueExpression = attributeValue.expression;
-  const styleObject = valueExpression.properties.find(({ key }) => key.name === '__style');
+  const styleObject = valueExpression?.properties?.find(({ key }) => key.name === '__style');
   if (!styleObject) {
     return null;
   }
