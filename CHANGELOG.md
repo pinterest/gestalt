@@ -1,3 +1,9 @@
+## 32.1.2 (Aug 17, 2021)
+
+### Patch
+
+- Lint rules: Fix find bug in no-box-useless-props (#1632)
+
 ## 32.1.1 (Aug 17, 2021)
 
 ### Patch
