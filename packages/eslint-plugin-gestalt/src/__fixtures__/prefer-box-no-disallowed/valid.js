@@ -4,6 +4,7 @@ export default function TestElement() {
     <Box>
       <Box ref={undefined} />
       <div ref={undefined} className={undefined} />
+      <div ref={undefined} onClick={() => {}} />
     </Box>
   );
 }

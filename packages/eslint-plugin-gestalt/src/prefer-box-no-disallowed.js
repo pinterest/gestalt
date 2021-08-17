@@ -1,9 +1,9 @@
 /**
- * @fileoverview Prefer Box: prevent <div> tags that don't contain className attribute
+ * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick
  */
 
 // @flow strict
-import { isTag, hasAttribute, hasImport, hasLonelyAttribute } from './eslintASTHelpers.js';
+import { isTag, hasAttributes, hasImport, hasLonelyAttribute } from './eslintASTHelpers.js';
 import { renameTagFixer, updateGestaltImportFixer } from './eslintASTFixers.js';
 import { type ESLintRule } from './eslintFlowTypes.js';
 
@@ -12,10 +12,10 @@ const rule: ESLintRule = {
     type: 'suggestion',
     docs: {
       description:
-        "Prefer Box: prevent <div> tags that don't contain a className attribute. Use Gestalt Box, instead",
+        "Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick. Use Gestalt Box, instead",
       category: 'Gestalt alternatives',
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-no-classname',
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-no-disallowed',
     },
     fixable: 'code',
     schema: ([]: $ReadOnlyArray<empty>),
@@ -43,7 +43,11 @@ const rule: ESLintRule = {
     const jSXElementFnc = (node) => {
       if (
         !isTag({ elementNode: node.openingElement, tagName: 'div' }) ||
-        hasAttribute({ elementNode: node.openingElement, tagName: 'div', attribute: 'className' })
+        hasAttributes({
+          elementNode: node.openingElement,
+          tagName: 'div',
+          attributes: ['className', 'onClick'],
+        })
       ) {
         return null;
       }

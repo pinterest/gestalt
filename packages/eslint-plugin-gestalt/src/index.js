@@ -8,7 +8,7 @@ import noMediumFormfields from './no-medium-formfields.js';
 import noRoleLinkComponents from './no-role-link-components.js';
 import noSpreadProps from './no-spread-props.js';
 import preferBoxInlineStyle from './prefer-box-inline-style.js';
-import preferBoxNoClassname from './prefer-box-no-classname.js';
+import preferBoxNoClassname from './prefer-box-no-disallowed.js';
 import preferBoxAsTag from './prefer-box-as-tag.js';
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
     'no-role-link-components': noRoleLinkComponents,
     'no-spread-props': noSpreadProps,
     'prefer-box-inline-style': preferBoxInlineStyle,
-    'prefer-box-no-classname': preferBoxNoClassname,
+    'prefer-box-no-disallowed': preferBoxNoClassname,
     'prefer-box-as-tag': preferBoxAsTag,
   },
 };

@@ -257,13 +257,13 @@ export const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagNam
 type HasAttributeType = ({|
   elementNode: GenericNode,
   tagName: string,
-  attribute: string,
+  attributes: $ReadOnlyArray<string>,
 |}) => boolean;
 
 /** This function checks is a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
 Example 1:
 \<div role="button" \/\> if attribute="role" returns true
 */
-export const hasAttribute: HasAttributeType = ({ elementNode, tagName, attribute }) =>
+export const hasAttributes: HasAttributeType = ({ elementNode, tagName, attributes }) =>
   isTag({ elementNode, tagName }) &&
-  elementNode?.attributes.some((nodeAttribute) => nodeAttribute?.name?.name === attribute);
+  elementNode?.attributes.some((nodeAttribute) => attributes.includes(nodeAttribute?.name?.name));
