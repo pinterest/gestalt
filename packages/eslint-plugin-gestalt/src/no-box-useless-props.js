@@ -69,7 +69,7 @@ function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   return styleObject.value?.properties?.reduce(
     (acc, { key, value }) => ({
       ...acc,
-      [key.name]: value,
+      [key?.name]: value,
     }),
     {},
   );
