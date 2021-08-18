@@ -25,33 +25,33 @@ card(
     <MainSection.Subsection title="Colors">
       <Flex direction="column" gap={12}>
         <Flex direction="row" gap={12} wrap>
-          <ColorPalette name="Pushpin" tokenId="pushpin-red" />
-          <ColorPalette name="Flaminglow" tokenId="flaminglow-pink" />
+          <ColorPalette name="Pushpin" tokenId="red" />
+          <ColorPalette name="Flaminglow" tokenId="pink" />
         </Flex>
         <Flex direction="row" gap={12} wrap>
-          <ColorPalette name="Skycicle" tokenId="skycicle-blue" />
-          <ColorPalette name="Spabattical" tokenId="spabattical-teal" />
+          <ColorPalette name="Skycicle" tokenId="blue" />
+          <ColorPalette name="Spabattical" tokenId="teal" />
         </Flex>
         <Flex direction="row" gap={12} wrap>
-          <ColorPalette name="Matchacado" tokenId="matchacado-green" />
-          <ColorPalette name="Mysticool" tokenId="mysticool-purple" />
+          <ColorPalette name="Matchacado" tokenId="green" />
+          <ColorPalette name="Mysticool" tokenId="purple" />
         </Flex>
         <Flex direction="row" gap={12} wrap>
-          <ColorPalette name="Firetini" tokenId="firetini-orange" />
-          <ColorPalette name="Caramellow" tokenId="caramellow-yellow" />
+          <ColorPalette name="Firetini" tokenId="orange" />
+          <ColorPalette name="Caramellow" tokenId="yellow" />
         </Flex>
       </Flex>
     </MainSection.Subsection>
     <MainSection.Subsection title="Neutrals">
       <Flex direction="column" gap={12}>
         <Flex direction="row" gap={12} wrap>
-          <ColorPalette name="Mochimalist" tokenId="mochimalist-white" />
+          <ColorPalette name="Mochimalist" tokenId="white" />
         </Flex>
         <Flex direction="row" gap={12} wrap>
-          <ColorPalette name="Roboflow" tokenId="roboflow-gray" />
+          <ColorPalette name="Roboflow" tokenId="gray" />
         </Flex>
         <Flex direction="row" gap={12} wrap>
-          <ColorPalette name="Cosmicore" tokenId="cosmicore-black" />
+          <ColorPalette name="Cosmicore" tokenId="black" />
         </Flex>
       </Flex>
     </MainSection.Subsection>

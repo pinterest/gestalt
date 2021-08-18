@@ -11,18 +11,19 @@ type Props = {|
 
 const ColorPalette = ({ name, tokenId }: Props): Node => {
   const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
-
+  const colorId = `${tokenId}-${name.toLowerCase()}`;
   return (
     <Box>
       <Text weight="bold">{name}</Text>
       <Box marginTop={2}>
         {tokenNumbers.map((number) => {
           const textColor = number > 400 ? 'white' : 'darkGray';
-          return tokens[`color-${tokenId}-${number}`] ? (
+          const colorVariableName = `color-${colorId}-${number}`;
+          return tokens[colorVariableName] ? (
             <Box
               key={`${number}-${tokenId}`}
               dangerouslySetInlineStyle={{
-                __style: { backgroundColor: `var(--color-${tokenId}-${number})` },
+                __style: { backgroundColor: `var(--${colorVariableName})` },
               }}
               height={50}
               width={300}
@@ -35,7 +36,7 @@ const ColorPalette = ({ name, tokenId }: Props): Node => {
               <Text weight="bold" color={textColor}>
                 {number}
               </Text>
-              <Text color={textColor}>{tokens[`color-${tokenId}-${number}`]?.toUpperCase()}</Text>
+              <Text color={textColor}>{tokens[colorVariableName]?.toUpperCase()}</Text>
             </Box>
           ) : null;
         })}

@@ -1,7 +1,7 @@
 {
   "color": {
-    "pushpin": {
-      "red": {
+    "red": {
+      "pushpin": {
         "0" : { "value": "#FFF7F7" },
         "50": { "value": "#FFEBEB" },
         "100"  : { "value": "#FFE0E0" },
@@ -16,8 +16,8 @@
         "900"  : { "value": "#660000" }
       }
     },
-    "flaminglow": {
-      "pink": {
+    "pink": {
+      "flaminglow": {
         "0" : { "value": "#FFF8FA" },
         "50": { "value": "#FFEBF1" },
         "100"  : { "value": "#FFDFE9" },
@@ -32,8 +32,8 @@
         "900"  : { "value": "#630233" }
       }
     },
-    "skycicle": {
-      "blue": {
+    "blue": {
+      "skycicle": {
         "0" : { "value": "#F7FBFF" },
         "50": { "value": "#E6F4FF" },
         "100"  : { "value": "#D7EDFF" },
@@ -48,8 +48,8 @@
         "900"  : { "value": "#002966" }
       }
     },
-    "spabattical": {
-      "teal": {
+    "teal": {
+      "spabattical": {
         "0" : { "value": "#F7FDFC" },
         "50": { "value": "#E6FAF5" },
         "100"  : { "value": "#CCF6EE" },
@@ -64,8 +64,8 @@
         "900"  : { "value": "#003440" }
       }
     },
-    "matchacado": {
-      "green": {
+    "green": {
+      "matchacado": {
         "0" : { "value": "#F6FDF5" },
         "50": { "value": "#E3FAE1" },
         "100"  : { "value": "#C3F9C2" },
@@ -80,8 +80,8 @@
         "900"  : { "value": "#003020" }
       }
     },
-    "mysticool": {
-      "purple": {
+    "purple": {
+      "mysticool": {
         "0" : { "value": "#F8F7FF" },
         "50": { "value": "#F0EDFF" },
         "100"  : { "value": "#E9E4FF" },
@@ -96,8 +96,8 @@
         "900"  : { "value": "#2C0066" }
       }
     },
-    "firetini": {
-      "orange": {
+    "orange": {
+      "firetini": {
         "0" : { "value": "#FFF6EB" },
         "50": { "value": "#FFF0DB" },
         "100"  : { "value": "#FFE4C1" },
@@ -112,8 +112,8 @@
         "900"  : { "value": "#662400" }
       }
     },
-    "caramellow": {
-      "yellow": {
+    "yellow": {
+      "caramellow": {
         "0" : { "value": "#FFFEDB" },
         "50": { "value": "#FFFEBB" },
         "100"  : { "value": "#FFFD92" },
@@ -128,13 +128,13 @@
         "900"  : { "value": "#662400" }
       }
     },
-    "mochimalist": {
-      "white": {
+    "white": {
+      "mochimalist": {
         "0" : { "value": "#FFFFFF" }
       }
     },
-    "roboflow": {
-      "gray": {
+    "gray": {
+      "roboflow": {
         "50" : { "value": "#F9F9F9" },
         "100" : { "value": "#F3F1F1" },
         "200" : { "value": "#E9E9E9" },
@@ -146,8 +146,8 @@
         "800" : { "value": "#191919" }
       }
     },
-    "cosmicore": {
-      "black": {
+    "black": {
+      "cosmicore": {
         "900" : { "value": "#111111" }
       }
     }
