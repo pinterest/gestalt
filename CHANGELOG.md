@@ -1,3 +1,9 @@
+## 32.1.6 (Aug 18, 2021)
+
+### Patch
+
+- Revert "Button: Add key to fix Safari bug, take two" (#1638)
+
 ## 32.1.5 (Aug 18, 2021)
 
 ### Patch
