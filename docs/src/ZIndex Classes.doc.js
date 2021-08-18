@@ -67,10 +67,12 @@ card(
 Export FixedZIndex and CompositeZIndex rather than the z-index values itself.
 ~~~jsx
 // exporting file
+import { FixedZIndex } from 'gestalt';
+
 export const BaseZIndex = = new FixedZIndex(1);
 
 // importing file
-import { BaseZIndex } from 'gestalt';
+import { BaseZIndex } from './path/to/your/zindex/file.js';
 
 const BoxWithZIndex = <Box zIndex={BaseZIndex}/>
 ~~~
@@ -86,7 +88,8 @@ Export constant z-index values to create FixedZIndex and CompositeZIndex.
 export const BaseZIndex = 1;
 
 // importing file
-import { BaseZIndex } from 'gestalt';
+import { BaseZIndex } from './path/to/your/zindex/file.js';
+import { FixedZIndex } from 'gestalt';
 
 const BoxZIndex = new FixedZIndex(BaseZIndex);
 
@@ -103,10 +106,14 @@ const BoxWithZIndex = <Box zIndex={BoxZIndex}/>
 Use CompositeZIndex to compose z-indices.
 ~~~jsx
 // exporting file
+import { FixedZIndex } from 'gestalt';
+
 export const BaseZIndex = = new FixedZIndex(1);
 
 // importing file
-import { BaseZIndex } from 'gestalt';
+import { CompositeZIndex } from 'gestalt';
+
+import { BaseZIndex } from './path/to/your/zindex/file.js';
 
 const composedZIndex = new CompositeZIndex([BaseZIndex]);
 
@@ -124,7 +131,8 @@ Use FixedZIndex to manually compose z-indices.
 export const BaseZIndex = 1;
 
 // importing file
-import { BaseZIndex } from 'gestalt';
+import { FixedZIndex } from 'gestalt';
+import { BaseZIndex } from './path/to/your/zindex/file.js';
 
 const composedZIndex = new FixedZIndex(BaseZIndex + 1);
 
@@ -140,17 +148,17 @@ const BoxWithZIndex = <Box zIndex={composedZIndex}/>
         description={`
 Use the lowest possible z-index values and compose them.
 ~~~jsx
-import { FixedZIndex } from 'gestalt';
+import { CompositeZIndex, FixedZIndex } from 'gestalt';
 
 const PageHeaderZindex = new FixedZIndex(1);
 
 const ArticleZindex =new FixedZIndex(1);
 
-const ArticleHeaderZindex = new ComposedZIndex([ArticleZindex]);
+const ArticleHeaderZindex = new CompositeZIndex([ArticleZindex]);
 
-const SheetZindex = new ComposedZIndex([PageHeaderZindex, ArticleHeaderZindex]);
+const SheetZindex = new CompositeZIndex([PageHeaderZindex, ArticleHeaderZindex]);
 
-const modalZindex = new ComposedZIndex([SheetZindex]);
+const modalZindex = new CompositeZIndex([SheetZindex]);
 
 const ModalWithZIndex = <Layer zIndex={modalZindex}><Modal/></Layer>
 ~~~
