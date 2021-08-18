@@ -3,6 +3,7 @@ import type { Node } from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -13,6 +14,26 @@ card(
     description="Pulsars bring focus to a specific element on the screen and act like training wheels
 to guide people towards the normal way to perform that action. They are used in isolation
 or combination with other education components for more instructions."
+    defaultCode={`
+  function PulsarExample() {
+    const [isPulsing, setIsPulsing] = React.useState(true);
+
+    const text = isPulsing ? 'Click to pause' : 'Click to show';
+
+    return (
+      <Box display="flex" direction="column">
+        <Box marginBottom={4}>
+          <Button
+            text={text}
+            onClick={() => setIsPulsing(!isPulsing)}
+            size="md"
+          />
+        </Box>
+        <Pulsar paused={!isPulsing} />
+      </Box>
+    );
+  }
+`}
   />,
 );
 
@@ -32,6 +53,30 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Calling attention to a specific element within a surface. Note: a Pulsar should be used in conjunction with a [Popover](/Popover).
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - In the case of a user error or warning that needs attention. Use [Callout](/Callout) or form errors states instead.
+          - When the focus of the attention is at the surface level. Use [Callout](/Callout) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

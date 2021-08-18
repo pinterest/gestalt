@@ -3,11 +3,35 @@ import type { Node } from 'react';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="Spinner" />);
+card(
+  <PageHeader
+    name="Spinner"
+    description="Spinners help indicate that a surface's content or portion of content is currently loading."
+    defaultCode={`
+function SpinnerExample() {
+  const [show, setShow] = React.useState(true);
+
+  return (
+    <Box>
+      <Box paddingY={2}>
+        <Button
+          text={!show ? "Show spinner" : "Hide spinner"}
+          onClick={() => setShow(!show)}
+          size="md"
+        />
+      </Box>
+      <Spinner show={show} accessibilityLabel="Example spinner" />
+    </Box>
+  );
+}
+`}
+  />,
+);
 
 card(
   <PropTable
@@ -41,6 +65,29 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - When loading or updating content on a surface.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - To communicate that a UI element, such as a button, is performing an action that takes a perceptible amount of time. Contact us if this is needed.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

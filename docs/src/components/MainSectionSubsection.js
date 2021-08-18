@@ -66,7 +66,7 @@ const MainSectionSubsection = ({ children, columns = 1, description, title }: Pr
               __style: {
                 display: 'grid',
                 gridTemplateColumns: 'repeat( auto-fit, minmax(362px, 1fr) )',
-                columnGap: '16px',
+                columnGap: '24px',
               },
             }}
           >

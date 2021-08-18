@@ -213,6 +213,33 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Providing additional information for related context without cluttering the surface of a workflow.
+          - Bringing attention to specific user interface elements. In this case, likely used with a [Pulsar](/Pulsar).
+          - Accommodating a variety of features, such as Buttons and Images.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Displaying critical information that prevents users from accomplishing a task.
+          - Displaying information out of context.
+          - As a replacement for the [Tooltip](/Tooltip).
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection columns={2}>
       <MainSection.Card

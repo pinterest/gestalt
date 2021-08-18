@@ -233,6 +233,33 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Displaying a list of actions, options, or links. Usually displays 3 or more options.
+          - Allowing complex functionality that a [SelectList](/SelectList) can't accomplish.
+          - Taking immediate action or navigating users to another view.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/RadioButton) or [Checkboxes](/Checkbox) instead.
+          - When it is desirable to filter a long list of options. Use [ComboBox](/ComboBox) instead.
+          - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/SelectList) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection columns={2}>
       <MainSection.Card
