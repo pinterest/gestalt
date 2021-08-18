@@ -1,3 +1,3 @@
 export default function TestElement() {
-  return <div role="button" />;
+  return <div onBlur={() => {}} />;
 }

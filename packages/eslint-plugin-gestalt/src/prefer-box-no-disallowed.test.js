@@ -144,22 +144,6 @@ const noDisallowedGestaltImportWithBoxOutput = readFileSync(
   'utf-8',
 );
 
-const noDisallowedGestaltImportWithBoxWithOnclickInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-box-with-onclick-input.js',
-  ),
-  'utf-8',
-);
-
-const noDisallowedGestaltImportWithBoxWithOnclickOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-box-with-onclick-output.js',
-  ),
-  'utf-8',
-);
-
 const noDisallowedGestaltImportWithBoxInlineStyleInput = readFileSync(
   path.resolve(
     __dirname,
@@ -253,11 +237,6 @@ ruleTester.run('prefer-box-no-disallowed', rule, {
     [
       noDisallowedGestaltImportWithBoxInput,
       noDisallowedGestaltImportWithBoxOutput,
-      errorMessageNoDisallowed,
-    ],
-    [
-      noDisallowedGestaltImportWithBoxWithOnclickInput,
-      noDisallowedGestaltImportWithBoxWithOnclickOutput,
       errorMessageNoDisallowed,
     ],
     [

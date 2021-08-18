@@ -254,7 +254,7 @@ export const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagNam
   elementNode?.attributes?.length === 1 &&
   elementNode.attributes[0]?.name?.name === attribute;
 
-type HasAttributeType = ({|
+type HasAttributesType = ({|
   elementNode: GenericNode,
   tagName: string,
   attributes: $ReadOnlyArray<string>,
@@ -264,6 +264,19 @@ type HasAttributeType = ({|
 Example 1:
 \<div role="button" \/\> if attribute="role" returns true
 */
-export const hasAttributes: HasAttributeType = ({ elementNode, tagName, attributes }) =>
+export const hasAttributes: HasAttributesType = ({ elementNode, tagName, attributes }) =>
   isTag({ elementNode, tagName }) &&
   elementNode?.attributes.some((nodeAttribute) => attributes.includes(nodeAttribute?.name?.name));
+
+type HasAriaAttributesType = ({|
+  elementNode: GenericNode,
+  tagName: string,
+|}) => boolean;
+
+/** This function checks is a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
+Example 1:
+\<div aria-label="test" \/\> returns true
+*/
+export const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, tagName }) =>
+  isTag({ elementNode, tagName }) &&
+  elementNode?.attributes.some((nodeAttribute) => nodeAttribute?.name?.name.startsWith('aria-'));

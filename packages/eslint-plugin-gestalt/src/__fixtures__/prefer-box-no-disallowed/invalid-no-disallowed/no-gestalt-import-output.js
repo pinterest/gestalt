@@ -1,7 +1,7 @@
 import { Box } from 'gestalt';
 export default function TestElement() {
   return (
-    <Box role="button">
+    <Box onBlur={() => {}}>
       <button />
     </Box>
   );

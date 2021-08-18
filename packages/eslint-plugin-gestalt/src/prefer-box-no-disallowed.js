@@ -3,7 +3,13 @@
  */
 
 // @flow strict
-import { isTag, hasAttributes, hasImport, hasLonelyAttribute } from './eslintASTHelpers.js';
+import {
+  isTag,
+  hasAriaAttributes,
+  hasAttributes,
+  hasImport,
+  hasLonelyAttribute,
+} from './eslintASTHelpers.js';
 import { renameTagFixer, updateGestaltImportFixer } from './eslintASTFixers.js';
 import { type ESLintRule } from './eslintFlowTypes.js';
 
@@ -41,12 +47,27 @@ const rule: ESLintRule = {
     };
 
     const jSXElementFnc = (node) => {
+      const disallowedAttributes = ['className', 'onClick'];
+      const ignoreEslintPluginJsxA11yAttributes = [
+        'role',
+        'onMouseOver',
+        'onMouseOut',
+        'accessKey',
+        'autoFocus',
+        'tabIndex',
+      ];
+
+      const ignoreAttributes = [...disallowedAttributes, ...ignoreEslintPluginJsxA11yAttributes];
       if (
         !isTag({ elementNode: node.openingElement, tagName: 'div' }) ||
         hasAttributes({
           elementNode: node.openingElement,
           tagName: 'div',
-          attributes: ['className', 'onClick'],
+          attributes: ignoreAttributes,
+        }) ||
+        hasAriaAttributes({
+          elementNode: node.openingElement,
+          tagName: 'div',
         })
       ) {
         return null;
