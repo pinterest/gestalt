@@ -122,10 +122,6 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     text,
   } = props;
 
-  // Key necessary for text color to update on Safari when disabled changes
-  // See https://github.com/pinterest/gestalt/issues/1556 for more context
-  const key = String(disabled);
-
   const innerRef = useRef(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
@@ -209,7 +205,6 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         disabled={disabled}
         fullWidth={fullWidth}
         href={href}
-        key={key}
         onClick={handleLinkClick}
         ref={innerRef}
         rel={rel}
@@ -235,7 +230,6 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         aria-label={accessibilityLabel}
         className={buttonRoleClasses}
         disabled={disabled}
-        key={key}
         name={name}
         onBlur={handleBlur}
         onClick={handleClick}
@@ -269,7 +263,6 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
       disabled={disabled}
-      key={key}
       name={name}
       onBlur={handleBlur}
       onClick={handleClick}
