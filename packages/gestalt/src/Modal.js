@@ -15,23 +15,61 @@ import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContaine
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
 import modalStyles from './Modal.css';
 
-type Size = 'sm' | 'md' | 'lg' | number;
-
-type Role = 'alertdialog' | 'dialog';
-
-type Align = 'start' | 'center';
-
 type Props = {|
-  _dangerouslyDisableScrollBoundaryContainer?: boolean, // Temporary undocumented prop to disable ScrollBoundaryContainer.
+  /**
+   * Temporary undocumented prop to disable ScrollBoundaryContainer.
+   */
+  _dangerouslyDisableScrollBoundaryContainer?: boolean,
+  /**
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label
+   * https://gestalt.pinterest.systems/Modal#Accessibility
+   */
   accessibilityModalLabel: string,
-  align?: Align,
+  /**
+   * Specify the alignment of heading & subHeading strings.
+   */
+  align?: 'start' | 'center',
+  /**
+   * Supply the element(s) that will be used as Modal's main content
+   * https://gestalt.pinterest.systems/Modal#Best-practices
+   */
   children?: Node,
+  /**
+   * Close the modal when you click outside of it.
+   * https://gestalt.pinterest.systems/Modal#Preventing-close-on-outside-click
+   */
   closeOnOutsideClick?: boolean,
+  /**
+   * Supply the element(s) that will be used as Modal's custom footer
+   * https://gestalt.pinterest.systems/Modal#Best-practices
+   */
   footer?: Node,
+  /**
+   * The text used for Modal's heading
+   * https://gestalt.pinterest.systems/Modal#Heading
+   */
   heading?: Node,
+  /**
+   * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if closeOnOutsideClick is true).
+   */
   onDismiss: () => void,
-  role?: Role,
-  size?: Size,
+  /**
+   * The underlying ARIA role for the Modal
+   * https://gestalt.pinterest.systems/Modal#Role
+   */
+  role?: 'alertdialog' | 'dialog',
+  /**
+   * Determines the width of the Modal
+   *
+   * sm: `540px` | md: `720px` | lg: `900px` | number
+   *
+   * https://gestalt.pinterest.systems/Modal#Sizes
+   */
+  size?: 'sm' | 'md' | 'lg' | number,
+  /**
+   * Subtext for Modal, only renders with heading strings
+   * https://gestalt.pinterest.systems/Modal#Sub-heading
+   */
   subHeading?: string,
 |};
 
@@ -187,16 +225,18 @@ export default function Modal(props: Props): Node {
 Modal.propTypes = {
   _dangerouslyDisableScrollBoundaryContainer: PropTypes.string,
   accessibilityModalLabel: PropTypes.string.isRequired,
-  align: (PropTypes.oneOf(['start', 'center']): React$PropType$Primitive<Align>),
+  align: (PropTypes.oneOf(['start', 'center']): React$PropType$Primitive<'start' | 'center'>),
   children: PropTypes.node,
   closeOnOutsideClick: PropTypes.bool,
   footer: PropTypes.node,
   heading: PropTypes.node,
   onDismiss: PropTypes.func,
-  role: (PropTypes.oneOf(['alertdialog', 'dialog']): React$PropType$Primitive<Role>),
+  role: (PropTypes.oneOf(['alertdialog', 'dialog']): React$PropType$Primitive<
+    'alertdialog' | 'dialog',
+  >),
   size: (PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['sm', 'md', 'lg']),
-  ]): React$PropType$Primitive<Size>),
+  ]): React$PropType$Primitive<'sm' | 'md' | 'lg' | number>),
   subHeading: PropTypes.string,
 };
