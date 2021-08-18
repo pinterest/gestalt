@@ -34,7 +34,12 @@ exports[`PageHeader renders 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord truncate"
+          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -79,7 +84,12 @@ exports[`PageHeader renders primary action 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord truncate"
+          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -161,7 +171,12 @@ exports[`PageHeader renders secondary action 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord truncate"
+          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -265,7 +280,12 @@ exports[`PageHeader renders subtext 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord truncate"
+          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -325,7 +345,12 @@ exports[`PageHeader renders within a max width 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord truncate"
+          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings

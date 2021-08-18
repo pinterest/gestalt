@@ -147,17 +147,17 @@ card(
     name="Overflow"
     defaultCode={`
 <Flex direction="column" gap={2} maxWidth={180}>
-  <Text weight="bold">normal:</Text>
-  <Text overflow="normal">
-    This is a long and Supercalifragilisticexpialidocious sentence.
-    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
-  </Text>
-
-  <Text weight="bold">breakWord:</Text>
+  <Text weight="bold">breakWord (default):</Text>
   <Text>
     This is a long and Supercalifragilisticexpialidocious sentence.
     次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
+  </Text>
+
+  <Text weight="bold">normal:</Text>
+  <Text overflow="normal">
+    This is a long and Supercalifragilisticexpialidocious sentence.
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
   </Text>
 
   <Text weight="bold">noWrap:</Text>

@@ -34,14 +34,14 @@ test('Heading overflow normal', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Heading truncate adds a title when the children are text only', () => {
-  const tree = create(<Heading truncate>When we two parted - Lord Byron</Heading>).toJSON();
+test('Heading lineClamp adds a title when the children are text only', () => {
+  const tree = create(<Heading lineClamp={1}>When we two parted - Lord Byron</Heading>).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Heading truncate does not add a title when the children are objects', () => {
+test('Heading lineClamp does not add a title when the children are objects', () => {
   const tree = create(
-    <Heading truncate>
+    <Heading lineClamp={1}>
       <div>Breakup reading:</div>
       When we two parted - Lord Byron
     </Heading>,
