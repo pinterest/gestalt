@@ -1,195 +1,111 @@
 // @flow strict
-import { RuleTester } from 'eslint';
-import { readFileSync } from 'fs';
-import path from 'path';
+import {
+  getPathFormatterByRuleName,
+  getRuleTester,
+  getTestTypePrepender,
+  readTestByPath,
+} from './testHelpers.js';
 import rule from './prefer-box-no-disallowed.js';
-import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester({ parserOptions });
+const ruleName = 'prefer-box-no-disallowed';
+const ruleTester = getRuleTester();
+const pathFormatter = getPathFormatterByRuleName(ruleName);
+const validPrepender = getTestTypePrepender('valid');
+const invalidPrependerLonelyRef = getTestTypePrepender('invalid-lonely-ref');
+const invalidPrependerNoDisallowed = getTestTypePrepender('invalid-no-disallowed');
 
-const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-no-disallowed/valid.js'),
-  'utf-8',
-);
+const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
 // lonely-ref
 
-const lonelyRefNoGestaltImportInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/no-gestalt-import-input.js',
-  ),
-  'utf-8',
+const lonelyRefNoGestaltImportInput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-input')),
 );
 
-const lonelyRefNoGestaltImportOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/no-gestalt-import-output.js',
-  ),
-  'utf-8',
+const lonelyRefNoGestaltImportOutput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-output')),
 );
 
-const lonelyRefNoGestaltImportSelfclosedInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/no-gestalt-import-selfclosed-input.js',
-  ),
-  'utf-8',
+const lonelyRefNoGestaltImportSelfclosedInput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-selfclosed-input')),
 );
 
-const lonelyRefNoGestaltImportSelfclosedOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/no-gestalt-import-selfclosed-output.js',
-  ),
-  'utf-8',
+const lonelyRefNoGestaltImportSelfclosedOutput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-selfclosed-output')),
 );
 
-const lonelyRefGestaltImportWithBoxInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/gestalt-import-with-box-input.js',
-  ),
-  'utf-8',
+const lonelyRefGestaltImportWithBoxInput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-box-input')),
 );
 
-const lonelyRefGestaltImportWithBoxOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/gestalt-import-with-box-output.js',
-  ),
-  'utf-8',
+const lonelyRefGestaltImportWithBoxOutput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-box-output')),
 );
 
-const lonelyRefGestaltImportWithRenamedBoxInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/gestalt-import-with-renamed-box-input.js',
-  ),
-  'utf-8',
+const lonelyRefGestaltImportWithRenamedBoxInput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-renamed-box-input')),
 );
 
-const lonelyRefGestaltImportWithRenamedBoxOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/gestalt-import-with-renamed-box-output.js',
-  ),
-  'utf-8',
+const lonelyRefGestaltImportWithRenamedBoxOutput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-renamed-box-output')),
 );
 
-const lonelyRefGestaltImportWithoutBoxInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/gestalt-import-without-box-input.js',
-  ),
-  'utf-8',
+const lonelyRefGestaltImportWithoutBoxInput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('gestalt-import-without-box-input')),
 );
 
-const lonelyRefGestaltImportWithoutBoxOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-lonely-ref/gestalt-import-without-box-output.js',
-  ),
-  'utf-8',
+const lonelyRefGestaltImportWithoutBoxOutput = readTestByPath(
+  pathFormatter(invalidPrependerLonelyRef('gestalt-import-without-box-output')),
 );
 
 // no-disallowed
 
-const noDisallowedNoGestaltImportInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/no-gestalt-import-input.js',
-  ),
-  'utf-8',
+const noDisallowedNoGestaltImportInput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-input')),
 );
 
-const noDisallowedNoGestaltImportOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/no-gestalt-import-output.js',
-  ),
-  'utf-8',
+const noDisallowedNoGestaltImportOutput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-output')),
 );
 
-const noDisallowedNoGestaltImportSelfclosedInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/no-gestalt-import-selfclosed-input.js',
-  ),
-  'utf-8',
+const noDisallowedNoGestaltImportSelfclosedInput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-selfclosed-input')),
 );
 
-const noDisallowedNoGestaltImportSelfclosedOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/no-gestalt-import-selfclosed-output.js',
-  ),
-  'utf-8',
+const noDisallowedNoGestaltImportSelfclosedOutput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-selfclosed-output')),
 );
 
-const noDisallowedGestaltImportWithBoxInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-box-input.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithBoxInput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-input')),
 );
 
-const noDisallowedGestaltImportWithBoxOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-box-output.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithBoxOutput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-output')),
 );
 
-const noDisallowedGestaltImportWithBoxInlineStyleInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-box-inline-style-input.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithBoxInlineStyleInput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-inline-style-input')),
 );
 
-const noDisallowedGestaltImportWithBoxInlineStyleOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-box-inline-style-output.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithBoxInlineStyleOutput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-inline-style-output')),
 );
 
-const noDisallowedGestaltImportWithRenamedBoxInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-renamed-box-input.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithRenamedBoxInput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-renamed-box-input')),
 );
 
-const noDisallowedGestaltImportWithRenamedBoxOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-with-renamed-box-output.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithRenamedBoxOutput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-renamed-box-output')),
 );
 
-const noDisallowedGestaltImportWithoutBoxInput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-without-box-input.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithoutBoxInput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-without-box-input')),
 );
 
-const noDisallowedGestaltImportWithoutBoxOutput = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box-no-disallowed/invalid-no-disallowed/gestalt-import-without-box-output.js',
-  ),
-  'utf-8',
+const noDisallowedGestaltImportWithoutBoxOutput = readTestByPath(
+  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-without-box-output')),
 );
 
 const errorMessageLonelyRef =

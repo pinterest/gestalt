@@ -6,6 +6,16 @@ type GenericNode = {| [string]: any |};
 /** =================  HELPERS =================
  */
 
+type GetNodeFromPropNameType = ({|
+  elementNode: GenericNode,
+  propName: string,
+|}) => GenericNode;
+
+/** This function returns the attribute node within a component node (elementNode)  if names (propName) match.
+ */
+const getNodeFromPropName: GetNodeFromPropNameType = ({ elementNode, propName }) =>
+  elementNode.openingElement.attributes.find((prop) => prop.name.name === propName);
+
 type GetTextNodeFromSourceCodeType = ({|
   context: GenericNode,
   elementNode: GenericNode,
@@ -13,10 +23,8 @@ type GetTextNodeFromSourceCodeType = ({|
 
 /** This function returns the text from a node as it's shown in the code source.
  */
-export const getTextNodeFromSourceCode: GetTextNodeFromSourceCodeType = ({
-  context,
-  elementNode,
-}) => context.getSourceCode().getText(elementNode);
+const getTextNodeFromSourceCode: GetTextNodeFromSourceCodeType = ({ context, elementNode }) =>
+  context.getSourceCode().getText(elementNode);
 
 type GetPropertiesFromVariableType = ({|
   variableNode: GenericNode,
@@ -25,7 +33,7 @@ type GetPropertiesFromVariableType = ({|
 /** This function returns the properties  of a variable (variableNode).
 Examples: const a = { key: "value"} >> returns nodes containing information (key: "value")
 */
-export const getPropertiesFromVariable: GetPropertiesFromVariableType = ({ variableNode }) =>
+const getPropertiesFromVariable: GetPropertiesFromVariableType = ({ variableNode }) =>
   variableNode?.resolved?.defs[0]?.node?.init?.properties;
 
 type KeyValuesType = {|
@@ -46,7 +54,7 @@ const a = { width: 20} >> returns [{ key: "width", value: 20, isValueTypeLiteral
 Example 3:
 const a = { onClick: () => {}} >> returns [{ key: "onClick", value: "() => {}", isValueTypeLiteral: false }]
 */
-export const retrieveKeyValuesFromVariable: RetrieveKeyValuesFromVariableType = ({
+const retrieveKeyValuesFromVariable: RetrieveKeyValuesFromVariableType = ({
   context,
   variableNode,
 }) => {
@@ -73,31 +81,44 @@ Example 1:
 Example 2:
 { key: "width", value: 20, isValueTypeLiteral: true } >> "{20}"
 */
-export const buildLiteralValueString: BuildLiteralValueStringType = ({ value }) =>
+const buildLiteralValueString: BuildLiteralValueStringType = ({ value }) =>
   typeof value === 'number' ? `{${value}}` : `"${value}"`;
 
 type RetrieveKeyValuesFromPropsType = ({|
   context: GenericNode,
   elementNode: GenericNode,
-  newPropsString: string,
+  propSorting?: boolean,
+  propsToAdd?: string,
+  propsToRemove?: $ReadOnlyArray<string>,
 |}) => string;
 
 /** This function returns a string of component props
 Example:
 If the node is \<div width={20} \> and newPropsString="color='red'"", it returns "color='red' width={20}"
 */
-export const buildProps: RetrieveKeyValuesFromPropsType = ({
+const buildProps: RetrieveKeyValuesFromPropsType = ({
   context,
   elementNode,
-  newPropsString,
+  propsToAdd,
+  propSorting = true,
+  propsToRemove,
 }) => {
-  if (elementNode.openingElement.attributes.length === 0) return newPropsString;
+  const openingElement =
+    elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
 
-  const previousProps = elementNode.openingElement.attributes.map(
-    (prop) => `${prop.name.name}=${context.getSourceCode().getText(prop.value)}`,
+  if (elementNode.openingElement.attributes.length === 0) return propsToAdd ?? '';
+  const filteredProps = propsToRemove
+    ? openingElement.attributes.filter((prop) => !(propsToRemove ?? []).includes(prop.name.name))
+    : openingElement.attributes;
+
+  const previousProps = filteredProps.map(
+    (prop) =>
+      `${prop.name.name}=${getTextNodeFromSourceCode({ context, elementNode: prop.value })}`,
   );
 
-  return [...previousProps, newPropsString].sort().join(' ');
+  const propsArray = propsToAdd ? [...previousProps, propsToAdd] : previousProps;
+
+  return propSorting ? propsArray.sort().join(' ') : propsArray.join(' ');
 };
 
 type BuildPropsFromKeyValuesType = ({|
@@ -112,7 +133,7 @@ Example 3:
 { key: "onClick", value: "() => {}", isValueTypeLiteral: false } >> onClick={() => {}}
 */
 
-export const buildPropsFromKeyValues: BuildPropsFromKeyValuesType = ({ keyValues }) => {
+const buildPropsFromKeyValues: BuildPropsFromKeyValuesType = ({ keyValues }) => {
   if (!keyValues[0]) return '';
 
   const newKeyValues = [...keyValues];
@@ -144,7 +165,7 @@ type BuildPropsFromKeyValuesVariableType = ({|
 Example:
 [{ key: "color", value: "red", isValueTypeLiteral: true }, { key: "width", value: 20, isValueTypeLiteral: true }] >> 'color="red" width={20}'
 */
-export const buildPropsFromKeyValuesVariable: BuildPropsFromKeyValuesVariableType = ({
+const buildPropsFromKeyValuesVariable: BuildPropsFromKeyValuesVariableType = ({
   context,
   variableNode,
 }) => {
@@ -160,7 +181,7 @@ type GetComponentFromAttributeType = ({| nodeAttribute: GenericNode |}) => Gener
 Example:
 \<div {...props} \/\> returns div node for the spread props attribute
 */
-export const getComponenFromAttribute: GetComponentFromAttributeType = ({ nodeAttribute }) =>
+const getComponenFromAttribute: GetComponentFromAttributeType = ({ nodeAttribute }) =>
   nodeAttribute.parent;
 
 type GetVariableNodeInScopeFromNameType = ({|
@@ -173,7 +194,7 @@ Example:
 \<div {...props} \/\> returns div for the spread props attribute
 */
 
-export const getVariableNodeInScopeFromName: GetVariableNodeInScopeFromNameType = ({
+const getVariableNodeInScopeFromName: GetVariableNodeInScopeFromNameType = ({
   context,
   nodeElement,
   name,
@@ -189,9 +210,8 @@ type GetComponentNameFromAttributeType = ({| nodeAttribute: GenericNode |}) => s
 Example:
 \<div {...props} \/\> returns div for the spread props attribute
 */
-export const getComponentNameFromAttribute: GetComponentNameFromAttributeType = ({
-  nodeAttribute,
-}) => nodeAttribute?.parent?.name?.name;
+const getComponentNameFromAttribute: GetComponentNameFromAttributeType = ({ nodeAttribute }) =>
+  nodeAttribute?.parent?.name?.name;
 
 type HasImportType = ({| importNode: GenericNode, path: string |}) => boolean;
 /** This function checks is a given node (importNode) contains a given import path (path), and returns true if so.
@@ -200,7 +220,7 @@ import { Box } from 'gestalt'; path="gestalt"
 Example 2:
 import { Box } from 'app/box'; path="app/box"
 */
-export const hasImport: HasImportType = ({ importNode, path }) => {
+const hasImport: HasImportType = ({ importNode, path }) => {
   const importName = importNode.source ? importNode.source.value : null;
   return importName === path;
 };
@@ -210,7 +230,7 @@ type GetNamedImportsComponentsType = ({| importNode: GenericNode |}) => ?$ReadOn
 >;
 /** This function returns an array of arrays containing the named imports ([imported name, local or aliased name]) from a node (importNode).
  */
-export const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }) => {
+const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }) => {
   const namedImports = importNode?.specifiers?.map((node) => [
     node.imported.name,
     node?.local?.name,
@@ -225,8 +245,7 @@ Examples:
 \<div \/\> returns "div"
 \<button \/\> returns "button"
 */
-export const getHtmlTag: GetHtmlTagType = ({ elementNode }) =>
-  elementNode?.openingElement?.name?.name;
+const getHtmlTag: GetHtmlTagType = ({ elementNode }) => elementNode?.openingElement?.name?.name;
 
 type IsTagType = ({| elementNode: GenericNode, tagName: string |}) => boolean;
 /** This function checks is a given node (elementNode) contains a given tag (tagName), and returns true if so.
@@ -235,7 +254,15 @@ Example 1:
 Example 2:
 \<div \/\> >> tagName="button" returns false
 */
-export const isTag: IsTagType = ({ elementNode, tagName }) => elementNode?.name?.name === tagName;
+const isTag: IsTagType = ({ elementNode, tagName }) => elementNode?.name?.name === tagName;
+
+type HasSpreadAttributesType = ({| elementNode: GenericNode |}) => boolean;
+/** This function checks is a given node (elementNode) contains spread attributs
+Example 1:
+\<div {...props} \/\> >> returns true
+*/
+const hasSpreadAttributes: HasSpreadAttributesType = ({ elementNode }) =>
+  elementNode.attributes.some((attributeNode) => attributeNode.type === 'JSXSpreadAttribute');
 
 type HasLonelyAttributeType = ({|
   elementNode: GenericNode,
@@ -249,7 +276,7 @@ Example 1:
 Example 2:
 \<div ref={} style={} \/\> if attribute="ref" returns false
 */
-export const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagName, attribute }) =>
+const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagName, attribute }) =>
   isTag({ elementNode, tagName }) &&
   elementNode?.attributes?.length === 1 &&
   elementNode.attributes[0]?.name?.name === attribute;
@@ -264,7 +291,7 @@ type HasAttributesType = ({|
 Example 1:
 \<div role="button" \/\> if attribute="role" returns true
 */
-export const hasAttributes: HasAttributesType = ({ elementNode, tagName, attributes }) =>
+const hasAttributes: HasAttributesType = ({ elementNode, tagName, attributes }) =>
   isTag({ elementNode, tagName }) &&
   elementNode?.attributes.some((nodeAttribute) => attributes.includes(nodeAttribute?.name?.name));
 
@@ -277,6 +304,50 @@ type HasAriaAttributesType = ({|
 Example 1:
 \<div aria-label="test" \/\> returns true
 */
-export const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, tagName }) =>
+const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, tagName }) =>
   isTag({ elementNode, tagName }) &&
   elementNode?.attributes.some((nodeAttribute) => nodeAttribute?.name?.name.startsWith('aria-'));
+
+type GetLocalComponentImportNameType = ({|
+  importNode: GenericNode,
+  componentName: string,
+|}) => string;
+
+/** This function returns the local component name, returning the alias.
+Example 1:
+import { Box } from 'gestalt ?? returns Box
+Example 2:
+import { Box as RenamedBox } from 'gestalt ?? returns RenamedBox
+ */
+const getLocalComponentImportName: GetLocalComponentImportNameType = ({
+  importNode,
+  componentName,
+}) => {
+  const namedImportsComponents = getNamedImportsComponents({ importNode }) ?? [];
+  const componentNameMatch = namedImportsComponents.find((item) => item[0] === componentName);
+  return (componentNameMatch && componentNameMatch[1]) ?? componentName;
+};
+
+// This export acts as an index of all helper functions for quick reference of helpers available
+export {
+  buildLiteralValueString,
+  buildProps,
+  buildPropsFromKeyValues,
+  buildPropsFromKeyValuesVariable,
+  getComponenFromAttribute,
+  getComponentNameFromAttribute,
+  getHtmlTag,
+  getLocalComponentImportName,
+  getNamedImportsComponents,
+  getNodeFromPropName,
+  getPropertiesFromVariable,
+  getTextNodeFromSourceCode,
+  getVariableNodeInScopeFromName,
+  hasAriaAttributes,
+  hasAttributes,
+  hasImport,
+  hasLonelyAttribute,
+  hasSpreadAttributes,
+  isTag,
+  retrieveKeyValuesFromVariable,
+};

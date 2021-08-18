@@ -40,8 +40,8 @@ card(
       `}
     />
     <MainSection.Subsection
-      title="gestalt/prefer-box-no-classname"
-      description={`Prevent \`<div>\` tags that don't contain a \`className\` attribute. Instead, Use Gestalt Box.
+      title="gestalt/prefer-box-no-disallowed"
+      description={`Prevent \`<div>\` tags that don't contain disallowed attributes: className and onClick. Use Gestalt Box, instead. Other attributes are disallowed as well so this Eslint rule doesn't conflict with [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
 
 [Read more about Box](/Box).
 

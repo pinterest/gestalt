@@ -4,13 +4,21 @@
 
 // @flow strict
 import {
-  isTag,
+  buildProps,
+  getNodeFromPropName,
+  getTextNodeFromSourceCode,
   hasAriaAttributes,
   hasAttributes,
   hasImport,
   hasLonelyAttribute,
+  hasSpreadAttributes,
+  isTag,
 } from './eslintASTHelpers.js';
-import { renameTagFixer, updateGestaltImportFixer } from './eslintASTFixers.js';
+import {
+  renameTagFixer,
+  renameTagWithPropsFixer,
+  updateGestaltImportFixer,
+} from './eslintASTFixers.js';
 import { type ESLintRule } from './eslintFlowTypes.js';
 
 const rule: ESLintRule = {
@@ -47,8 +55,9 @@ const rule: ESLintRule = {
     };
 
     const jSXElementFnc = (node) => {
-      const disallowedAttributes = ['className', 'onClick'];
-      const ignoreEslintPluginJsxA11yAttributes = [
+      const boxDisallowedAttributes = ['className', 'onClick'];
+
+      const ignoreEslintPluginJsxA11yConflictingAttributes = [
         'role',
         'onMouseOver',
         'onMouseOut',
@@ -57,9 +66,15 @@ const rule: ESLintRule = {
         'tabIndex',
       ];
 
-      const ignoreAttributes = [...disallowedAttributes, ...ignoreEslintPluginJsxA11yAttributes];
+      const ignoreAttributes = [
+        ...boxDisallowedAttributes,
+        ...ignoreEslintPluginJsxA11yConflictingAttributes,
+      ];
+
+      // First, return if div should stay unmodified
       if (
         !isTag({ elementNode: node.openingElement, tagName: 'div' }) ||
+        hasSpreadAttributes({ elementNode: node.openingElement }) ||
         hasAttributes({
           elementNode: node.openingElement,
           tagName: 'div',
@@ -73,6 +88,7 @@ const rule: ESLintRule = {
         return null;
       }
 
+      // Second, handle no lonely ref cases
       if (
         hasLonelyAttribute({ elementNode: node.openingElement, tagName: 'div', attribute: 'ref' })
       ) {
@@ -104,23 +120,34 @@ const rule: ESLintRule = {
         });
       }
 
+      // Last, handle allowed div modifications
+      const styleNode = getNodeFromPropName({ elementNode: node, propName: 'style' });
+      const propsToAdd = styleNode
+        ? getTextNodeFromSourceCode({ context, elementNode: styleNode }).replace(
+            new RegExp(/style={([\w \W \d \s]+)}/, 'i'), // regex expression to match style={{ [key]: values }}
+            (match, p1) => `dangerouslySetInlineStyle={{ __style: ${p1} }}`, // replacer function p1 returns the match between '()' in the RegExp
+          )
+        : undefined;
+
       // For any other div tag where there's neither className nor lonely ref attributes
       return context.report({
         node,
         messageId: 'disallowed',
         fix: (fixer) => {
-          const tagFixers = renameTagFixer({
+          const tagFixers = renameTagWithPropsFixer({
+            fixedPropsString: buildProps({
+              context,
+              elementNode: node,
+              propSorting: false,
+              propsToAdd,
+              propsToRemove: ['style'],
+            }),
             context,
             elementNode: node,
             fixer,
             gestaltImportNode,
             newComponentName: 'Box',
             tagName: 'div',
-            replaceRegexCallback: ({ input }) =>
-              input.replace(
-                new RegExp(/style={([\w \W \d \s]+)}/, 'i'), // regex expression to match style={{ [key]: values }}
-                (match, p1) => `dangerouslySetInlineStyle={{ __style: ${p1} }}`, // replacer function p1 returns the match between '()' in the RegExp
-              ),
           });
 
           const importFixers = updateGestaltImportFixer({

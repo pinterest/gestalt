@@ -1,5 +1,6 @@
 import { Box } from 'gestalt';
 export default function TestElement() {
+  const props = { onBlur: () => {} };
   return (
     <Box>
       <Box ref={undefined} />
@@ -10,6 +11,7 @@ export default function TestElement() {
       <div ref={undefined} onMouseOver={() => {}} />
       <div ref={undefined} accessKey="test" />
       <div ref={undefined} autoFocus />
+      <div ref={undefined} {...props} />
     </Box>
   );
 }

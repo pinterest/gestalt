@@ -1,5 +1,9 @@
 // @flow strict
-import { getNamedImportsComponents, getTextNodeFromSourceCode } from './eslintASTHelpers.js';
+import {
+  getLocalComponentImportName,
+  getNamedImportsComponents,
+  getTextNodeFromSourceCode,
+} from './eslintASTHelpers.js';
 
 // $FlowFixMe[unclear-type]
 type GenericNode = {| [string]: any |};
@@ -102,12 +106,14 @@ export const renameTagFixer: RenameTagFixerType = ({
 };
 
 type RenameTagWithPropsFixerType = ({|
-  additionalPropsString: string,
+  fixedPropsString: string,
   context: GenericNode,
   elementNode: GenericNode,
   fixer: GenericNode,
+  gestaltImportNode: GenericNode,
   newComponentName: string,
   tagName: string,
+  propsToRemove?: $ReadOnlyArray<string>,
 |}) => $ReadOnlyArray<GenericNode>;
 
 /** This function is a more complex version of renameTagFixer. It has the same tag replacement functionality, but it also rebuild the props in the opening tag to include a new prop. The new prop must be formatted as a string, p.e. `as="article"`
@@ -115,9 +121,10 @@ Examples 1:
 "\<div\>\<\/div\>" if tagName="div", newComponentName="Box", and completePropsString=`as="article"` returns "\<Box as="article"\>\<\/Box\>"
 */
 export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
-  additionalPropsString,
+  fixedPropsString,
   context,
   elementNode,
+  gestaltImportNode,
   fixer,
   newComponentName,
   tagName,
@@ -127,16 +134,22 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
       // $FlowFixMe[incompatible-type] Flow is not detecting the method filter(Boolean)
       if (!node) return false;
 
-      const completeOpeningNode = `<${newComponentName} ${additionalPropsString}${
+      const finalNewComponentName = getLocalComponentImportName({
+        importNode: gestaltImportNode,
+        componentName: newComponentName,
+      });
+
+      const completeOpeningNode = `<${finalNewComponentName} ${fixedPropsString}${
         elementNode.closingElement ? '' : ' /'
       }>`;
+
       return index === 0
         ? fixer.replaceText(node, completeOpeningNode)
         : fixer.replaceText(
             node,
             getTextNodeFromSourceCode({ context, elementNode: node }).replace(
               tagName,
-              newComponentName,
+              finalNewComponentName,
             ),
           );
     })
