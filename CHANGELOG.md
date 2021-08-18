@@ -1,3 +1,9 @@
+## 32.1.5 (Aug 18, 2021)
+
+### Patch
+
+- ZIndex Classes: Docs fixes (#1626)
+
 ## 32.1.4 (Aug 18, 2021)
 
 ### Patch
