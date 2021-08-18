@@ -1,3 +1,9 @@
+## 32.1.4 (Aug 18, 2021)
+
+### Patch
+
+- Docs: Add more usage guidelines (#1634)
+
 ## 32.1.3 (Aug 18, 2021)
 
 ### Patch
