@@ -1,3 +1,9 @@
+## 33.0.0 (Aug 18, 2021)
+
+### Major
+
+- Heading: Replace `truncate` with `lineClamp` (#1637)
+
 ## 32.1.6 (Aug 18, 2021)
 
 ### Patch
