@@ -1,3 +1,9 @@
+## 32.1.3 (Aug 18, 2021)
+
+### Patch
+
+- Lint rules: Fix name bug in no-box-useless-props (#1633)
+
 ## 32.1.2 (Aug 17, 2021)
 
 ### Patch
