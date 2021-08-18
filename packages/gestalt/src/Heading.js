@@ -5,7 +5,7 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
 import typography from './Typography.css';
-import { allowedColors, type Align, type Color } from './text-types.js';
+import { allowedColors, type Align, type Color } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;

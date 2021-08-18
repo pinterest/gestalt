@@ -13,7 +13,7 @@ import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { type FontWeight } from './text-types.js';
+import { type FontWeight } from './textTypes.js';
 
 export type OptionItemType = {|
   label: string,
