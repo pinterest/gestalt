@@ -4,7 +4,7 @@
  *  <Heading truncate={truncate} /> to console.log for manual change />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/next/heading-replace-truncate-lineClamp.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/33.0.0/heading-replace-truncate-lineClamp.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
