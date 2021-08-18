@@ -22,7 +22,7 @@ card(
       {
         name: 'accessibilityLevel',
         type: '1 | 2 | 3 | 4 | 5 | 6 | "none"',
-        description: 'Allows you to override the default heading level',
+        description: 'Allows you to override the default heading level for the given `size`',
         href: 'levels',
       },
       {
@@ -48,6 +48,13 @@ card(
         type: 'string',
       },
       {
+        name: 'lineClamp',
+        type: 'number',
+        description:
+          'Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.',
+        href: 'overflowTruncation',
+      },
+      {
         name: 'overflow',
         type: '"normal" | "breakWord"',
         defaultValue: 'breakWord',
@@ -59,12 +66,6 @@ card(
         description: `sm: 20px, md: 28px, lg: 36px`,
         defaultValue: 'lg',
         href: 'sizes',
-      },
-      {
-        name: 'truncate',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'overflowTruncation',
       },
     ]}
   />,
@@ -80,12 +81,14 @@ card(
   <span lang="ja">
     <Heading size="sm">こんにちは</Heading>
   </span>
+
   <span>
     <Heading size="md">Heading medium</Heading>
   </span>{' '}
   <span lang="ja">
     <Heading size="md">こんにちは</Heading>
   </span>
+
   <Heading size="lg">Heading large</Heading>
   <span lang="ja">
     <Heading size="lg">こんにちは</Heading>
@@ -108,15 +111,19 @@ card(
       </Heading>
     </Box>
   </Box>
+
   <Heading size="md">
     Dark gray (default)
   </Heading>
+
   <Heading color="gray" size="md">
     Gray
   </Heading>
+
   <Heading color="blue" size="md">
     Blue
   </Heading>
+
   <Heading color="red" size="md">
     Red
   </Heading>
@@ -132,21 +139,24 @@ card(
     defaultCode={`
 <Box maxWidth={240} marginTop={-2} marginBottom={-2}>
   <Box paddingY={2}>
-    <Heading size="sm">
+    <Text>breakWord (default):</Text>
+    <Heading size="sm" overflow="breakWord" >
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
   </Box>
 
   <Box paddingY={2}>
-    <Heading size="sm" truncate>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Heading>
-  </Box>
-
-  <Box paddingY={2}>
+    <Text>normal:</Text>
     <Heading size="sm" overflow="normal">
+      This is a long and Supercalifragilisticexpialidocious sentence.
+      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+    </Heading>
+  </Box>
+
+  <Box paddingY={2}>
+    <Text>lineClamp:</Text>
+    <Heading size="sm" lineClamp={2}>
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
@@ -166,8 +176,8 @@ card(
   <Heading align="end" size="sm">End-aligned heading</Heading>
   <Heading align="center" size="sm">Center-aligned heading</Heading>
   <Heading align="justify" size="sm">Justify-aligned heading</Heading>
-  <Heading align="forceLeft" size="sm">Forced left-aligned heading</Heading>
-  <Heading align="forceRight" size="sm">Forced right-aligned heading</Heading>
+  <Heading align="forceLeft" size="sm">Forced-left-aligned heading</Heading>
+  <Heading align="forceRight" size="sm">Forced-right-aligned heading</Heading>
 </Box>
 `}
   />,

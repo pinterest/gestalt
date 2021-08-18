@@ -33,7 +33,7 @@ export default function PageHeader({
       <Flex flex="grow" justifyContent="center" maxWidth="100%">
         <Flex alignItems="center" flex="grow" justifyContent="between" maxWidth={maxWidth}>
           <Box marginEnd={4} minWidth={0} marginTop={2} marginBottom={2}>
-            <Heading size="md" truncate accessibilityLevel={1}>
+            <Heading size="md" lineClamp={1} accessibilityLevel={1}>
               {title}
             </Heading>
             {subtext && (

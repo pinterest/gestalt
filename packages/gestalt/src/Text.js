@@ -5,6 +5,7 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
+import { allowedColors, type Align, type Color, type FontWeight } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -16,46 +17,6 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
-const allowedColors = [
-  'blue',
-  'darkGray',
-  'eggplant',
-  'gray',
-  'green',
-  'lightGray',
-  'maroon',
-  'midnight',
-  'navy',
-  'olive',
-  'orange',
-  'orchid',
-  'pine',
-  'purple',
-  'red',
-  'watermelon',
-  'white',
-];
-
-type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight';
-type Color =
-  | 'blue'
-  | 'darkGray'
-  | 'eggplant'
-  | 'gray'
-  | 'green'
-  | 'lightGray'
-  | 'maroon'
-  | 'midnight'
-  | 'navy'
-  | 'olive'
-  | 'orange'
-  | 'orchid'
-  | 'pine'
-  | 'purple'
-  | 'red'
-  | 'watermelon'
-  | 'white';
-export type FontWeight = 'bold' | 'normal';
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
 type Size = 'sm' | 'md' | 'lg';
 

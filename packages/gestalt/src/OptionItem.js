@@ -6,13 +6,14 @@ import Badge from './Badge.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
-import Text, { type FontWeight } from './Text.js';
+import Text from './Text.js';
 import styles from './Touchable.css';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { type FontWeight } from './textTypes.js';
 
 export type OptionItemType = {|
   label: string,

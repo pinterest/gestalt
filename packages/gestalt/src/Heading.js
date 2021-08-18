@@ -5,33 +5,25 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
 import typography from './Typography.css';
+import { allowedColors, type Align, type Color } from './textTypes.js';
+
+function isNotNullish(val): boolean {
+  return val !== null && val !== undefined;
+}
+
+type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
+type Overflow = 'normal' | 'breakWord';
+type Size = 'sm' | 'md' | 'lg';
 
 type Props = {|
-  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
-  accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 'none',
+  align?: Align,
+  accessibilityLevel?: AccessibilityLevel,
   children?: Node,
-  color?:
-    | 'blue'
-    | 'darkGray'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
-    | 'watermelon'
-    | 'white',
+  color?: Color,
   id?: string,
-  overflow?: 'normal' | 'breakWord',
-  size?: 'sm' | 'md' | 'lg',
-  truncate?: boolean,
+  lineClamp?: number,
+  overflow?: Overflow,
+  size?: Size,
 |};
 
 const defaultHeadingLevels = {
@@ -49,22 +41,20 @@ const SIZE_SCALE = {
 /**
  * https://gestalt.pinterest.systems/Heading
  */
-export default function Heading(props: Props): Node {
-  const {
-    accessibilityLevel,
-    align = 'start',
-    children,
-    color = 'darkGray',
-    id = null,
-    overflow = 'breakWord',
-    size = 'lg',
-    truncate = false,
-  } = props;
-
+export default function Heading({
+  accessibilityLevel,
+  align = 'start',
+  children,
+  color = 'darkGray',
+  lineClamp,
+  id,
+  overflow = 'breakWord',
+  size = 'lg',
+}: Props): Node {
   const cs = cx(
     styles.Heading,
     styles[`fontSize${SIZE_SCALE[size]}`],
-    colors[color],
+    color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
@@ -72,50 +62,48 @@ export default function Heading(props: Props): Node {
     align === 'forceLeft' && typography.alignForceLeft,
     align === 'forceRight' && typography.alignForceRight,
     overflow === 'breakWord' && typography.breakWord,
-    truncate && typography.truncate,
+    isNotNullish(lineClamp) && typography.lineClamp,
   );
 
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
+
   let newProps = { className: cs };
   if (id) {
     newProps = { ...newProps, id };
   }
-  if (truncate && typeof children === 'string') {
-    newProps = { ...newProps, title: children };
+  if (isNotNullish(lineClamp) && typeof children === 'string') {
+    newProps = {
+      ...newProps,
+      style: { WebkitLineClamp: lineClamp },
+      title: children,
+    };
   }
+
   return createElement(headingLevel === 'none' ? 'div' : `h${headingLevel}`, newProps, children);
 }
 
 Heading.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  accessibilityLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 'none']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  align: PropTypes.oneOf(['start', 'end', 'center', 'justify', 'forceLeft', 'forceRight']),
+  accessibilityLevel: (PropTypes.oneOf([
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    'none',
+  ]): React$PropType$Primitive<AccessibilityLevel>),
+  align: (PropTypes.oneOf([
+    'start',
+    'end',
+    'center',
+    'justify',
+    'forceLeft',
+    'forceRight',
+  ]): React$PropType$Primitive<Align>),
   children: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf([
-    'blue',
-    'darkGray',
-    'eggplant',
-    'gray',
-    'green',
-    'lightGray',
-    'maroon',
-    'midnight',
-    'navy',
-    'olive',
-    'orange',
-    'orchid',
-    'pine',
-    'purple',
-    'red',
-    'watermelon',
-    'white',
-  ]),
+  color: (PropTypes.oneOf(allowedColors): React$PropType$Primitive<Color>),
   id: PropTypes.string,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  overflow: PropTypes.oneOf(['normal', 'breakWord']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  truncate: PropTypes.bool,
+  lineClamp: PropTypes.number,
+  overflow: (PropTypes.oneOf(['normal', 'breakWord']): React$PropType$Primitive<Overflow>),
+  size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
 };
