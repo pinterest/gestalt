@@ -142,15 +142,16 @@ const rule: ESLintRule = {
 
           // Replace the Box node with Flex, adding additional props if necessary
           const tagFixers = renameTagWithPropsFixer({
-            additionalPropsString: buildProps({
+            context,
+            elementNode: node,
+            fixer,
+            gestaltImportNode: gestaltImportStatement,
+            modifiedPropsString: buildProps({
               context,
               elementNode: node,
-              newPropsString: additionalProps.join(' '),
+              propsToAdd: additionalProps.join(' '),
               propsToRemove: ['display'],
             }),
-            context,
-            fixer,
-            elementNode: node,
             newComponentName: 'Flex',
             tagName: 'Box',
           });

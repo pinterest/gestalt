@@ -106,7 +106,10 @@ const buildProps: RetrieveKeyValuesFromPropsType = ({
   const openingElement =
     elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
 
-  if (elementNode.openingElement.attributes.length === 0) return propsToAdd ?? '';
+  if (openingElement.attributes.length === 0) {
+    return propsToAdd ?? '';
+  }
+
   const filteredProps = propsToRemove
     ? openingElement.attributes.filter((prop) => !(propsToRemove ?? []).includes(prop.name.name))
     : openingElement.attributes;

@@ -106,7 +106,6 @@ const rule: ESLintRule = {
             });
 
             const importFixers = updateGestaltImportFixer({
-              context,
               gestaltImportNode,
               fixer,
               newComponentName: 'Box',
@@ -151,7 +150,6 @@ const rule: ESLintRule = {
           });
 
           const importFixers = updateGestaltImportFixer({
-            context,
             gestaltImportNode,
             fixer,
             newComponentName: 'Box',

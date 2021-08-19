@@ -15,7 +15,7 @@ export const parserOptions = {
 export const getRuleTester = (): Class<any> => new RuleTester({ parserOptions });
 
 type Prepender = (string) => string;
-export const getTestTypePrepender = (testType: 'valid' | 'invalid'): Prepender => (fileName) =>
+export const getTestTypePrepender = (testType: string): Prepender => (fileName) =>
   `${testType}/${fileName}.js`;
 
 type Formatter = (string) => string;
