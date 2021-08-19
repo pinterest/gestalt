@@ -91,7 +91,7 @@ card(
 
         return (
           <DatePicker
-            id="example-basic"
+            id="example-page-header"
             label="Select a date"
             onChange={({value}) => handleChange(value)}
           />
