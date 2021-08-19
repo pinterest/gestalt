@@ -1,3 +1,9 @@
+## 33.1.0 (Aug 19, 2021)
+
+### Minor
+
+- Eslint plugin: `prefer-box-no-classname` rule w/ autofix + merged into `prefer-box-lonely-ref` (#1629)
+
 ## 33.0.1 (Aug 19, 2021)
 
 ### Patch
