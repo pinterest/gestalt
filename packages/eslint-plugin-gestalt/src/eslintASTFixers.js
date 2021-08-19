@@ -86,8 +86,8 @@ export const renameTagFixer: RenameTagFixerType = ({
 }) => {
   return [elementNode.openingElement, elementNode.closingElement]
     .map((node) => {
-      // $FlowFixMe[incompatible-type] Flow is not detecting the method filter(Boolean)
-      if (!node) return false;
+      if (!node) return undefined;
+
       const namedImportsComponents =
         getNamedImportsComponents({
           importNode: gestaltImportNode,
@@ -135,19 +135,14 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
   const completeOpeningNode = `<${newComponentName} ${modifiedPropsString}${
     elementNode.closingElement ? '' : ' /'
   }>`;
+  const finalNewComponentName = getLocalComponentImportName({
+    importNode: gestaltImportNode,
+    componentName: newComponentName,
+  });
 
   return [openingElement, elementNode.closingElement]
     .map((node, index) => {
       if (!node) return undefined;
-
-      const finalNewComponentName = getLocalComponentImportName({
-        importNode: gestaltImportNode,
-        componentName: newComponentName,
-      });
-
-      const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
-        elementNode.closingElement ? '' : ' /'
-      }>`;
 
       return index === 0
         ? fixer.replaceText(node, completeOpeningNode)
