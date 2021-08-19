@@ -36,15 +36,22 @@ const rule: ESLintRule = {
   meta: {
     docs: {
       description: 'Encourage usage of Flex instead of Box',
-      recommended: false,
+      category: 'Gestalt alternatives',
+      recommended: true,
+      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-flex',
     },
+
     fixable: 'code',
+    messages: {
+      disallowed: errorMessage,
+    },
     schema: [
       {
         type: 'object',
         additionalProperties: false,
       },
     ],
+    type: 'suggestion',
   },
 
   create(context) {
@@ -106,7 +113,7 @@ const rule: ESLintRule = {
 
       context.report({
         node,
-        message: errorMessage,
+        messageId: 'disallowed',
         fix: (fixer) => {
           // Are there other Box nodes aside from the one we're currently on?
           const hasOtherBoxes =
