@@ -56,3 +56,11 @@ test('Image with fit: contain and role matches snapshot', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Image with crossorigin specified matches snapshot', () => {
+  const component = renderer.create(
+    <Image alt="foo" crossOrigin="anonymous" naturalHeight={50} naturalWidth={50} src="foo.png" />,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
