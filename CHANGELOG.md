@@ -1,3 +1,9 @@
+## 33.0.1 (Aug 19, 2021)
+
+### Patch
+
+- Modal: Add flow docs (#1635)
+
 ## 33.0.0 (Aug 18, 2021)
 
 ### Major
