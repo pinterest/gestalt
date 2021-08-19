@@ -2,8 +2,9 @@ import { Box } from 'gestalt';
 export default function TestElement() {
   return (
     <Box>
-      <Box ref={undefined} />
-      <div ref={undefined} className={undefined} />
+      <div onBlur={() => {}} style={{ marginTop: 200 }}>
+        <Box />
+      </div>
     </Box>
   );
 }

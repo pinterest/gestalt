@@ -7,8 +7,8 @@ import noDangerousStyleDuplicates from './no-dangerous-style-duplicates.js';
 import noMediumFormfields from './no-medium-formfields.js';
 import noRoleLinkComponents from './no-role-link-components.js';
 import noSpreadProps from './no-spread-props.js';
-import preferBox from './prefer-box.js';
-import preferBoxLonelyRef from './prefer-box-lonely-ref.js';
+import preferBoxInlineStyle from './prefer-box-inline-style.js';
+import preferBoxNoClassname from './prefer-box-no-disallowed.js';
 import preferBoxAsTag from './prefer-box-as-tag.js';
 
 module.exports = {
@@ -21,8 +21,8 @@ module.exports = {
     'no-medium-formfields': noMediumFormfields,
     'no-role-link-components': noRoleLinkComponents,
     'no-spread-props': noSpreadProps,
-    'prefer-box': preferBox,
-    'prefer-box-lonely-ref': preferBoxLonelyRef,
+    'prefer-box-inline-style': preferBoxInlineStyle,
+    'prefer-box-no-disallowed': preferBoxNoClassname,
     'prefer-box-as-tag': preferBoxAsTag,
   },
 };

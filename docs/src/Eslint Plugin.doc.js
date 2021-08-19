@@ -32,7 +32,7 @@ card(
       `}
     />
     <MainSection.Subsection
-      title="gestalt/prefer-box"
+      title="gestalt/prefer-box-inline-style"
       description={`
         Prevent using \`<div>\` inline styling for attributes that are already implemented in Box.
 
@@ -40,15 +40,16 @@ card(
       `}
     />
     <MainSection.Subsection
-      title="gestalt/prefer-box-lonely-ref"
-      description={`
-        Prevent \`<div>\` tags used to only contain a \`ref\` attribute.
+      title="gestalt/prefer-box-no-disallowed"
+      description={`Prevent \`<div>\` tags that don't contain disallowed attributes: className and onClick. Use Gestalt Box, instead. Other attributes are disallowed as well so this Eslint rule doesn't conflict with [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
 
-        Instead, use \`ref\` props supported in Box or other elements such as Button or TextField.
+[Read more about Box](/Box).
 
-        With AUTOFIX!
+It also prevents \`<div>\` tags used to only contain a \`ref\` attribute. \`ref\` is supported in Box and other elements such as Button or TextField.
 
-        [Read more about the ref prop in Box](/Box#Using-as-a-ref).
+[Read more about the ref prop in Box](/Box#Using-as-a-ref).
+
+With AUTOFIX!
       `}
     />
     <MainSection.Subsection

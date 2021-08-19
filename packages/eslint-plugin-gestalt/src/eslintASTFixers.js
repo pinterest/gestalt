@@ -1,5 +1,9 @@
 // @flow strict
-import { getNamedImportsComponents, getTextNodeFromSourceCode } from './eslintASTHelpers.js';
+import {
+  getLocalComponentImportName,
+  getNamedImportsComponents,
+  getTextNodeFromSourceCode,
+} from './eslintASTHelpers.js';
 
 // $FlowFixMe[unclear-type]
 type GenericNode = {| [string]: any |};
@@ -56,6 +60,7 @@ type RenameTagFixerType = ({|
   context: GenericNode,
   elementNode: GenericNode,
   fixer: GenericNode,
+  gestaltImportNode: GenericNode,
   newComponentName: string,
   tagName: string,
 |}) => $ReadOnlyArray<GenericNode>;
@@ -70,6 +75,7 @@ export const renameTagFixer: RenameTagFixerType = ({
   context,
   elementNode,
   fixer,
+  gestaltImportNode,
   newComponentName,
   tagName,
 }) => {
@@ -77,36 +83,45 @@ export const renameTagFixer: RenameTagFixerType = ({
     .map((node) => {
       // $FlowFixMe[incompatible-type] Flow is not detecting the method filter(Boolean)
       if (!node) return false;
+      const namedImportsComponents =
+        getNamedImportsComponents({
+          importNode: gestaltImportNode,
+        }) ?? [];
 
-      return fixer.replaceText(
-        node,
-        getTextNodeFromSourceCode({ context, elementNode: node }).replace(
-          tagName,
-          newComponentName,
-        ),
+      const componentNameMatch = namedImportsComponents.find(
+        (item) => item[0] === newComponentName,
       );
+
+      const replacedText = getTextNodeFromSourceCode({ context, elementNode: node }).replace(
+        tagName,
+        (componentNameMatch && componentNameMatch[1]) ?? newComponentName,
+      );
+      return fixer.replaceText(node, replacedText);
     })
     .filter(Boolean);
 };
 
 type RenameTagWithPropsFixerType = ({|
-  additionalPropsString: string,
   context: GenericNode,
   elementNode: GenericNode,
   fixer: GenericNode,
+  gestaltImportNode: GenericNode,
+  modifiedPropsString: string,
   newComponentName: string,
   tagName: string,
+  propsToRemove?: $ReadOnlyArray<string>,
 |}) => $ReadOnlyArray<GenericNode>;
 
 /** This function is a more complex version of renameTagFixer. It has the same tag replacement functionality, but it also rebuild the props in the opening tag to include a new prop. The new prop must be formatted as a string, p.e. `as="article"`
 Examples 1:
-"\<div\>\<\/div\>" if tagName="div", newComponentName="Box", and completePropsString=`as="article"` returns "\<Box as="article"\>\<\/Box\>"
+"\<div\>\<\/div\>" if tagName="div", newComponentName="Box", and modifiedPropsString=`as="article"` returns "\<Box as="article"\>\<\/Box\>"
 */
 export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
-  additionalPropsString,
   context,
   elementNode,
+  gestaltImportNode,
   fixer,
+  modifiedPropsString,
   newComponentName,
   tagName,
 }) => {
@@ -115,16 +130,22 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
       // $FlowFixMe[incompatible-type] Flow is not detecting the method filter(Boolean)
       if (!node) return false;
 
-      const completeOpeningNode = `<${newComponentName} ${additionalPropsString}${
+      const finalNewComponentName = getLocalComponentImportName({
+        importNode: gestaltImportNode,
+        componentName: newComponentName,
+      });
+
+      const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
         elementNode.closingElement ? '' : ' /'
       }>`;
+
       return index === 0
         ? fixer.replaceText(node, completeOpeningNode)
         : fixer.replaceText(
             node,
             getTextNodeFromSourceCode({ context, elementNode: node }).replace(
               tagName,
-              newComponentName,
+              finalNewComponentName,
             ),
           );
     })

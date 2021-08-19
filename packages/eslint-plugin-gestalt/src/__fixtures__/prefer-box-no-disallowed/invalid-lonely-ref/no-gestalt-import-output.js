@@ -4,7 +4,7 @@ export default function TestElement() {
   const ref = useRef(null);
   return (
     <Box ref={ref}>
-      <div />
+      <button />
     </Box>
   );
 }
