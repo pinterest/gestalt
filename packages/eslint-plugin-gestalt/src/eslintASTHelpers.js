@@ -2,9 +2,48 @@
 
 // $FlowFixMe[unclear-type]
 type GenericNode = {| [string]: any |};
+// $FlowFixMe[unclear-type]
+type AnyType = any;
 
 /** =================  HELPERS =================
  */
+type GetPropertiesFromVariableType = ({|
+  variableNode: GenericNode,
+|}) => AnyType;
+
+/** This function returns ...
+ */
+const getPropertiesFromVariable: GetPropertiesFromVariableType = ({ variableNode }) =>
+  variableNode?.resolved?.defs?.[0]?.node?.init?.properties;
+
+type GetInlineDefinedStylesType = ({| attributeNode: GenericNode |}) => ?GenericNode;
+
+/** This function returns ...
+ */
+const getInlineDefinedStyles: GetInlineDefinedStylesType = ({ attributeNode }) => {
+  const propertyNode = attributeNode?.value?.expression?.properties?.[0];
+  return propertyNode?.key?.name === '__style' ? propertyNode?.value.properties : null;
+};
+
+type GetOpeningElementType = ({|
+  elementNode: GenericNode,
+|}) => GenericNode;
+
+/** This function returns ...
+ */
+const getOpeningElement: GetOpeningElementType = ({ elementNode }) =>
+  elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
+
+type GetVariableDefinedStylesType = ({|
+  variableNode: GenericNode,
+|}) => ?GenericNode;
+
+/** This function returns ...
+ */
+const getVariableDefinedStyles: GetVariableDefinedStylesType = ({ variableNode }) => {
+  const propertyNode = getPropertiesFromVariable({ variableNode })?.[0];
+  return propertyNode?.key?.name === '__style' ? propertyNode?.value?.properties : null;
+};
 
 type GetNodeFromPropNameType = ({|
   elementNode: GenericNode,
@@ -14,7 +53,7 @@ type GetNodeFromPropNameType = ({|
 /** This function returns the attribute node within a component node (elementNode)  if names (propName) match.
  */
 const getNodeFromPropName: GetNodeFromPropNameType = ({ elementNode, propName }) =>
-  elementNode.openingElement.attributes.find((prop) => prop.name.name === propName);
+  getOpeningElement({ elementNode })?.attributes?.find((prop) => prop?.name?.name === propName);
 
 type GetTextNodeFromSourceCodeType = ({|
   context: GenericNode,
@@ -25,16 +64,6 @@ type GetTextNodeFromSourceCodeType = ({|
  */
 const getTextNodeFromSourceCode: GetTextNodeFromSourceCodeType = ({ context, elementNode }) =>
   context.getSourceCode().getText(elementNode);
-
-type GetPropertiesFromVariableType = ({|
-  variableNode: GenericNode,
-|}) => ?GenericNode;
-
-/** This function returns the properties  of a variable (variableNode).
-Examples: const a = { key: "value"} >> returns nodes containing information (key: "value")
-*/
-const getPropertiesFromVariable: GetPropertiesFromVariableType = ({ variableNode }) =>
-  variableNode?.resolved?.defs[0]?.node?.init?.properties;
 
 type KeyValuesType = {|
   key: string,
@@ -103,8 +132,7 @@ const buildProps: RetrieveKeyValuesFromPropsType = ({
   propSorting = true,
   propsToRemove,
 }) => {
-  const openingElement =
-    elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
+  const openingElement = getOpeningElement({ elementNode });
 
   if (openingElement.attributes.length === 0) {
     return propsToAdd ?? '';
@@ -290,7 +318,7 @@ type HasAttributesType = ({|
   attributes: $ReadOnlyArray<string>,
 |}) => boolean;
 
-/** This function checks if a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
+/** This function checks is a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
 Example 1:
 \<div role="button" \/\> if attribute="role" returns true
 */
@@ -303,7 +331,7 @@ type HasAriaAttributesType = ({|
   tagName: string,
 |}) => boolean;
 
-/** This function checks if a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
+/** This function checks is a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
 Example 1:
 \<div aria-label="test" \/\> returns true
 */
@@ -331,6 +359,25 @@ const getLocalComponentImportName: GetLocalComponentImportNameType = ({
   return (componentNameMatch && componentNameMatch[1]) ?? componentName;
 };
 
+type IsGestaltComponentType = ({|
+  elementNode: GenericNode,
+  gestaltImportNode: GenericNode,
+  componentName: string,
+|}) => boolean;
+
+/** This function ... */
+const isGestaltComponent: IsGestaltComponentType = ({
+  elementNode,
+  gestaltImportNode,
+  componentName,
+}) => {
+  const importedBoxName = getNamedImportsComponents({ importNode: gestaltImportNode })?.find(
+    (importName) => importName[0] === componentName,
+  )?.[1];
+
+  return importedBoxName === elementNode.name.name;
+};
+
 // This export acts as an index of all helper functions for quick reference of helpers available
 export {
   buildLiteralValueString,
@@ -340,17 +387,20 @@ export {
   getComponentFromAttribute,
   getComponentNameFromAttribute,
   getHtmlTag,
+  getInlineDefinedStyles,
   getLocalComponentImportName,
   getNamedImportsComponents,
   getNodeFromPropName,
   getPropertiesFromVariable,
   getTextNodeFromSourceCode,
+  getVariableDefinedStyles,
   getVariableNodeInScopeFromName,
   hasAriaAttributes,
   hasAttributes,
   hasImport,
   hasLonelyAttribute,
   hasSpreadAttributes,
+  isGestaltComponent,
   isTag,
   retrieveKeyValuesFromVariable,
 };

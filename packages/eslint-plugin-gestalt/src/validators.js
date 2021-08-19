@@ -1,4 +1,45 @@
 // @flow strict
+const colorMap = {
+  '#e60023': `color="red"`,
+  'white': `color="white"`,
+  '#fff': `color="white"`,
+  '#ffffff': `color="white"`,
+  '#333': `color="darkGray"`,
+  '#333333': `color="darkGray"`,
+  '#efefef': `color="lightGray"`,
+  '#767676': `color="gray"`,
+  '#0fa573': `color="green"`,
+  '#0a6955': `color="pine"`,
+  '#364a4c': `color="olive"`,
+  '#0074e8': `color="blue"`,
+  '#004b91': `color="navy"`,
+  '#133a5e': `color="midnight"`,
+  '#b469eb': `color="purple"`,
+  '#8046a5': `color="orchid"`,
+  '#5b2677': `color="eggplant"`,
+  '#6e0f3c': `color="maroon"`,
+  '#f13535': `color="watermelon"`,
+  '#e3780c': `color="orange"`,
+  'transparent': `color="transparent"`,
+  'rgba(51,: 51,51,.8)': `color="transparentDarkGray"`,
+  '#e2e2e2': `color="lightWash"`,
+  '#dadada': `color="darkWash"`,
+};
+
+const borderRadiusMap = {
+  '50%': `rounding="circle"`,
+  '999px': `rounding="circle"`,
+};
+
+const borderMap = {
+  '#efefef 1px solid': `borderStyle="sm"`,
+  '#eee 1px solid': `borderStyle="sm"`,
+  '1px lightgray solid': `borderStyle="sm"`,
+  '#efefef 2px solid': `borderStyle="lg"`,
+  '#eee 2px solid': `borderStyle="lg"`,
+  '2px lightgray solid': `borderStyle="lg"`,
+};
+
 export function genBointLookup(
   propName: string,
   start: number,
@@ -7,11 +48,13 @@ export function genBointLookup(
   const lookupMap = {};
   for (let i = start; i <= end; i += 1) {
     const px = i * 4;
-    let msg = `  Use prop \`${propName}={${i}}\` instead`;
+
+    let msg = `${propName}={${i}}`;
+
     // Special case for marginLeft and marginRight
     if (['marginLeft', 'marginRight'].includes(propName)) {
       const recommendedProp = propName === 'marginLeft' ? 'marginStart' : 'marginEnd';
-      msg = `  Use prop \`${recommendedProp}={${i}}\` instead`;
+      msg = `${recommendedProp}={${i}}`;
     }
     lookupMap[px] = msg;
     lookupMap[`${px}px`] = msg;
@@ -21,82 +64,10 @@ export function genBointLookup(
 
 const roundingLookup = genBointLookup('rounding', 0, 8);
 
-export const validateBackgroundColor = (value: string): ?string => {
-  if (value === '#e60023') {
-    return '  Use prop `color="red"` instead';
-  }
-  if (value === 'white' || value === '#fff' || value === '#ffffff') {
-    return '  Use prop `color="white"` instead';
-  }
-  if (value === '#efefef') {
-    return '  Use prop `color="lightGray"` instead';
-  }
-  if (value === '#767676') {
-    return '  Use prop `color="gray"` instead';
-  }
-  if (value === '#333' || value === '#333333') {
-    return '  Use prop `color="darkGray"` instead';
-  }
-  if (value === '#0fa573') {
-    return '  Use prop `color="green"` instead';
-  }
-  if (value === '#0a6955') {
-    return '  Use prop `color="pine"` instead';
-  }
-  if (value === '#364a4c') {
-    return '  Use prop `color="olive"` instead';
-  }
-  if (value === '#0074e8') {
-    return '  Use prop `color="blue"` instead';
-  }
-  if (value === '#004b91') {
-    return '  Use prop `color="navy"` instead';
-  }
-  if (value === '#133a5e') {
-    return '  Use prop `color="midnight"` instead';
-  }
-  if (value === '#b469eb') {
-    return '  Use prop `color="purple"` instead';
-  }
-  if (value === '#8046a5') {
-    return '  Use prop `color="orchid"` instead';
-  }
-  if (value === '#5b2677') {
-    return '  Use prop `color="eggplant"` instead';
-  }
-  if (value === '#6e0f3c') {
-    return '  Use prop `color="maroon"` instead';
-  }
-  if (value === '#f13535') {
-    return '  Use prop `color="watermelon"` instead';
-  }
-  if (value === '#e3780c') {
-    return '  Use prop `color="orange"` instead';
-  }
-  if (value === 'transparent') {
-    return '  Use prop `color="transparent"` instead';
-  }
-  if (value === 'rgba(51,51,51,.8)') {
-    return '  Use prop `color="transparentDarkGray"` instead';
-  }
-  if (value === '#e2e2e2') {
-    return '  Use prop `color="lightWash"` instead';
-  }
-  if (value === '#dadada') {
-    return '  Use prop `color="darkWash"` instead';
-  }
-  return undefined;
-};
+export const validateBackgroundColor = (value: string): ?string => colorMap[value];
 
-export const validateBorderRadius = (value: string): number | string => {
-  if (value === '50%') {
-    return '  Use prop `rounding="circle"` instead';
-  }
-  if (value === '999px') {
-    return '  Use prop `rounding="pill"` instead';
-  }
-  return roundingLookup[value];
-};
+export const validateBorderRadius = (value: string): ?number | string =>
+  borderRadiusMap[value] ? borderRadiusMap[value] : roundingLookup[value];
 
 export const validateBorder = (value: string): ?string => {
   // If the value is a string:
@@ -104,21 +75,9 @@ export const validateBorder = (value: string): ?string => {
   // 2) sort the values since some found uses have the wrong order
   const cleanValue =
     value && value.toLowerCase ? value.toLowerCase().split(' ').sort().join(' ') : value;
-  if (
-    cleanValue === '#efefef 1px solid' ||
-    cleanValue === '#eee 1px solid' ||
-    cleanValue === '1px lightgray solid'
-  ) {
-    return '  Use prop `borderStyle="sm"` instead';
-  }
-  if (
-    cleanValue === '#efefef 2px solid' ||
-    cleanValue === '#eee 2px solid' ||
-    cleanValue === '2px lightgray solid'
-  ) {
-    return '  Use prop `borderStyle="lg"` instead';
-  }
-  return undefined;
+
+  // $FlowFixMe[prop-missing]
+  return borderMap[cleanValue];
 };
 
 export const validateBoxShadow = (value: string): ?string => {
@@ -126,29 +85,20 @@ export const validateBoxShadow = (value: string): ?string => {
   // 1) strip out the rgba portion
   // 2) convert the pixel portion to only numbers
   // 3) If both pieces match, recommend borderStyle="shadow"
-
   const rgbaRegex = new RegExp(
     /rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)/,
     'g',
   );
+
   const rgbaPortion = value.match(rgbaRegex);
   const cleanRgbaPortion =
-    rgbaPortion && rgbaPortion.length > 0 ? rgbaPortion[0].replace(/ /g, '') : undefined;
+    rgbaPortion && rgbaPortion?.length > 0 ? rgbaPortion[0].replace(/ /g, '') : undefined;
+  const rgbaMatch =
+    cleanRgbaPortion && ['rgba(0,0,0,0.1)', 'rgba(0,0,0,.1)'].includes(cleanRgbaPortion);
 
   const pixelPortion = value.replace(rgbaRegex, '');
   const cleanPixelPortion = pixelPortion.replace(/px/g, '').replace(/ /g, '');
+  const pixelsMatch = ['008', '0080'].includes(cleanPixelPortion);
 
-  let rgbaMatch = false;
-  let pixelsMatch = false;
-  if (cleanRgbaPortion && ['rgba(0,0,0,0.1)', 'rgba(0,0,0,.1)'].includes(cleanRgbaPortion)) {
-    rgbaMatch = true;
-  }
-  if (['008', '0080'].includes(cleanPixelPortion)) {
-    pixelsMatch = true;
-  }
-
-  if (rgbaMatch && pixelsMatch) {
-    return '  Use prop `borderStyle="shadow"` instead';
-  }
-  return undefined;
+  return rgbaMatch || pixelsMatch ? 'borderStyle="shadow"' : undefined;
 };

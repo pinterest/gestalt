@@ -17,95 +17,71 @@ const invalidPrependerNoDisallowed = getTestTypePrepender('invalid-no-disallowed
 const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
 // lonely-ref
+const buildInvalidTestLonelyRef = (name) =>
+  readTestByPath(pathFormatter(invalidPrependerLonelyRef(name)));
 
-const lonelyRefNoGestaltImportInput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-input')),
+const lonelyRefNoGestaltImportInput = buildInvalidTestLonelyRef('no-gestalt-import-input');
+const lonelyRefNoGestaltImportOutput = buildInvalidTestLonelyRef('no-gestalt-import-output');
+const lonelyRefNoGestaltImportSelfclosedInput = buildInvalidTestLonelyRef(
+  'no-gestalt-import-selfclosed-input',
 );
-
-const lonelyRefNoGestaltImportOutput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-output')),
+const lonelyRefNoGestaltImportSelfclosedOutput = buildInvalidTestLonelyRef(
+  'no-gestalt-import-selfclosed-output',
 );
-
-const lonelyRefNoGestaltImportSelfclosedInput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-selfclosed-input')),
+const lonelyRefGestaltImportWithBoxInput = buildInvalidTestLonelyRef(
+  'gestalt-import-with-box-input',
 );
-
-const lonelyRefNoGestaltImportSelfclosedOutput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('no-gestalt-import-selfclosed-output')),
+const lonelyRefGestaltImportWithBoxOutput = buildInvalidTestLonelyRef(
+  'gestalt-import-with-box-output',
 );
-
-const lonelyRefGestaltImportWithBoxInput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-box-input')),
+const lonelyRefGestaltImportWithRenamedBoxInput = buildInvalidTestLonelyRef(
+  'gestalt-import-with-renamed-box-input',
 );
-
-const lonelyRefGestaltImportWithBoxOutput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-box-output')),
+const lonelyRefGestaltImportWithRenamedBoxOutput = buildInvalidTestLonelyRef(
+  'gestalt-import-with-renamed-box-output',
 );
-
-const lonelyRefGestaltImportWithRenamedBoxInput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-renamed-box-input')),
+const lonelyRefGestaltImportWithoutBoxInput = buildInvalidTestLonelyRef(
+  'gestalt-import-without-box-input',
 );
-
-const lonelyRefGestaltImportWithRenamedBoxOutput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('gestalt-import-with-renamed-box-output')),
-);
-
-const lonelyRefGestaltImportWithoutBoxInput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('gestalt-import-without-box-input')),
-);
-
-const lonelyRefGestaltImportWithoutBoxOutput = readTestByPath(
-  pathFormatter(invalidPrependerLonelyRef('gestalt-import-without-box-output')),
+const lonelyRefGestaltImportWithoutBoxOutput = buildInvalidTestLonelyRef(
+  'gestalt-import-without-box-output',
 );
 
 // no-disallowed
+const buildInvalidTestNoDisallowed = (name) =>
+  readTestByPath(pathFormatter(invalidPrependerNoDisallowed(name)));
 
-const noDisallowedNoGestaltImportInput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-input')),
+const noDisallowedNoGestaltImportInput = buildInvalidTestNoDisallowed('no-gestalt-import-input');
+const noDisallowedNoGestaltImportOutput = buildInvalidTestNoDisallowed('no-gestalt-import-output');
+const noDisallowedNoGestaltImportSelfclosedInput = buildInvalidTestNoDisallowed(
+  'no-gestalt-import-selfclosed-input',
 );
-
-const noDisallowedNoGestaltImportOutput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-output')),
+const noDisallowedNoGestaltImportSelfclosedOutput = buildInvalidTestNoDisallowed(
+  'no-gestalt-import-selfclosed-output',
 );
-
-const noDisallowedNoGestaltImportSelfclosedInput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-selfclosed-input')),
+const noDisallowedGestaltImportWithBoxInput = buildInvalidTestNoDisallowed(
+  'gestalt-import-with-box-input',
 );
-
-const noDisallowedNoGestaltImportSelfclosedOutput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('no-gestalt-import-selfclosed-output')),
+const noDisallowedGestaltImportWithBoxOutput = buildInvalidTestNoDisallowed(
+  'gestalt-import-with-box-output',
 );
-
-const noDisallowedGestaltImportWithBoxInput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-input')),
+const noDisallowedGestaltImportWithBoxInlineStyleInput = buildInvalidTestNoDisallowed(
+  'gestalt-import-with-box-inline-style-input',
 );
-
-const noDisallowedGestaltImportWithBoxOutput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-output')),
+const noDisallowedGestaltImportWithBoxInlineStyleOutput = buildInvalidTestNoDisallowed(
+  'gestalt-import-with-box-inline-style-output',
 );
-
-const noDisallowedGestaltImportWithBoxInlineStyleInput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-inline-style-input')),
+const noDisallowedGestaltImportWithRenamedBoxInput = buildInvalidTestNoDisallowed(
+  'gestalt-import-with-renamed-box-input',
 );
-
-const noDisallowedGestaltImportWithBoxInlineStyleOutput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-box-inline-style-output')),
+const noDisallowedGestaltImportWithRenamedBoxOutput = buildInvalidTestNoDisallowed(
+  'gestalt-import-with-renamed-box-output',
 );
-
-const noDisallowedGestaltImportWithRenamedBoxInput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-renamed-box-input')),
+const noDisallowedGestaltImportWithoutBoxInput = buildInvalidTestNoDisallowed(
+  'gestalt-import-without-box-input',
 );
-
-const noDisallowedGestaltImportWithRenamedBoxOutput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-with-renamed-box-output')),
-);
-
-const noDisallowedGestaltImportWithoutBoxInput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-without-box-input')),
-);
-
-const noDisallowedGestaltImportWithoutBoxOutput = readTestByPath(
-  pathFormatter(invalidPrependerNoDisallowed('gestalt-import-without-box-output')),
+const noDisallowedGestaltImportWithoutBoxOutput = buildInvalidTestNoDisallowed(
+  'gestalt-import-without-box-output',
 );
 
 const errorMessageLonelyRef =

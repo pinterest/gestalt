@@ -1,187 +1,87 @@
 // @flow strict
-import { RuleTester } from 'eslint';
-import { readFileSync } from 'fs';
-import path from 'path';
+import {
+  getPathFormatterByRuleName,
+  getRuleTester,
+  getTestTypePrepender,
+  readTestByPath,
+} from './testHelpers.js';
 import rule from './no-dangerous-style-duplicates.js';
-import { parserOptions } from './testHelpers.js';
 
-const ruleTester = new RuleTester({ parserOptions });
+const ruleName = 'no-dangerous-style-duplicates';
+const ruleTester = getRuleTester();
+const pathFormatter = getPathFormatterByRuleName(ruleName);
+const validPrepender = getTestTypePrepender('valid');
+const invalidPrepender = getTestTypePrepender('invalid');
 
-const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/valid.js'),
-  'utf-8',
-);
-const invalidMultiple = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-multiple.js',
-  ),
-  'utf-8',
-);
-const invalidInVariable = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-in-variable.js',
-  ),
-  'utf-8',
-);
-const invalidBackgroundColor = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-backgroundColor.js',
-  ),
-  'utf-8',
-);
-const invalidBottom = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-bottom.js'),
-  'utf-8',
-);
-const invalidBorder = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-border.js'),
-  'utf-8',
-);
-const invalidBoxShadow = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-boxShadow.js',
-  ),
-  'utf-8',
-);
-const invalidBorderRadius = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-borderRadius.js',
-  ),
-  'utf-8',
-);
-const invalidLeft = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-left.js'),
-  'utf-8',
-);
-const invalidMarginNegative = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-margin-negative.js',
-  ),
-  'utf-8',
-);
-const invalidMarginLeft = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-marginLeft.js',
-  ),
-  'utf-8',
-);
-const invalidMarginTop = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-marginTop.js',
-  ),
-  'utf-8',
-);
-const invalidMaxHeight = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-maxHeight.js',
-  ),
-  'utf-8',
-);
-const invalidMaxWidth = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-maxWidth.js',
-  ),
-  'utf-8',
-);
-const invalidMinHeight = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-minHeight.js',
-  ),
-  'utf-8',
-);
-const invalidMinWidth = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-minWidth.js',
-  ),
-  'utf-8',
-);
-const invalidPadding = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-padding.js',
-  ),
-  'utf-8',
-);
-const invalidOpacity = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-opacity.js',
-  ),
-  'utf-8',
-);
-const invalidOverflow = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-overflow.js',
-  ),
-  'utf-8',
-);
-const invalidPosition = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-position.js',
-  ),
-  'utf-8',
-);
-const invalidTop = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-top.js'),
-  'utf-8',
-);
-const invalidRight = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-right.js'),
-  'utf-8',
-);
+const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
-const getErrorMessage = (concat) =>
-  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n${concat}`;
+const buildInvalidTest = (name) => readTestByPath(pathFormatter(invalidPrepender(name)));
+
+const invalidMultiple = buildInvalidTest('invalid-multiple');
+const invalidInVariable = buildInvalidTest('invalid-in-variable');
+const invalidBackgroundColor = buildInvalidTest('invalid-backgroundColor');
+const invalidBottom = buildInvalidTest('invalid-bottom');
+const invalidBorder = buildInvalidTest('invalid-border');
+const invalidBoxShadow = buildInvalidTest('invalid-boxShadow');
+const invalidBorderRadius = buildInvalidTest('invalid-borderRadius');
+const invalidLeft = buildInvalidTest('invalid-left');
+const invalidMarginNegative = buildInvalidTest('invalid-margin-negative');
+const invalidMarginLeft = buildInvalidTest('invalid-marginLeft');
+const invalidMarginTop = buildInvalidTest('invalid-marginTop');
+const invalidMaxHeight = buildInvalidTest('invalid-maxHeight');
+const invalidMaxWidth = buildInvalidTest('invalid-maxWidth');
+const invalidMinHeight = buildInvalidTest('invalid-minHeight');
+const invalidMinWidth = buildInvalidTest('invalid-minWidth');
+const invalidPadding = buildInvalidTest('invalid-padding');
+const invalidOpacity = buildInvalidTest('invalid-opacity');
+const invalidOverflow = buildInvalidTest('invalid-overflow');
+const invalidPosition = buildInvalidTest('invalid-position');
+const invalidTop = buildInvalidTest('invalid-top');
+const invalidRight = buildInvalidTest('invalid-right');
+
+const getErrorMessage = (error) =>
+  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n${error}`;
 
 ruleTester.run('no-dangerous-style-duplicates', rule, {
   valid: [{ code: validCode }],
   invalid: [
     [
       invalidMultiple,
-      `  Use prop \`color="white"\` instead\n  Instead of dangerously styling top, use the "top" boolean prop`,
+      [
+        `  Use prop \`color="white"\` instead`,
+        `  Instead of dangerously styling top, use the "top" boolean prop`,
+      ],
     ],
     [
       invalidMultiple,
-      '  Instead of dangerously styling top, use the "top" boolean prop',
+      ['  Instead of dangerously styling top, use the "top" boolean prop'],
       [{ onlyKeys: ['top'] }],
     ],
-    [invalidInVariable, '  Use prop `color="white"` instead'],
-    [invalidBackgroundColor, '  Use prop `color="white"` instead'],
-    [invalidBorder, '  Use prop `borderStyle="lg"` instead'],
-    [invalidBorderRadius, '  Use prop `rounding="circle"` instead'],
-    [invalidBottom, '  Instead of dangerously styling bottom, use the "bottom" boolean prop'],
-    [invalidLeft, '  Instead of dangerously styling left, use the "left" boolean prop'],
-    [invalidMarginNegative, '  Use prop `margin={-2}` instead'],
-    [invalidMarginLeft, '  Use prop `marginStart={2}` instead'],
-    [invalidMarginTop, '  Use prop `marginTop={1}` instead'],
-    [invalidMaxHeight, '  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead'],
-    [invalidMaxWidth, '  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead'],
-    [invalidMinHeight, '  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead'],
-    [invalidMinWidth, '  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead'],
-    [invalidPadding, '  Use prop `padding={0}` instead'],
-    [invalidOpacity, '  Use prop `opacity={0.9}` instead'],
-    [invalidOverflow, '  Use prop `overflow="auto"` instead'],
-    [invalidPosition, '  Use prop `position="absolute"` instead'],
-    [invalidTop, '  Instead of dangerously styling top, use the "top" boolean prop'],
-    [invalidRight, '  Instead of dangerously styling right, use the "right" boolean prop'],
-    [invalidBoxShadow, '  Use prop `borderStyle="shadow"` instead'],
+    [invalidInVariable, ['  Use prop `color="white"` instead']],
+    [invalidBackgroundColor, ['  Use prop `color="white"` instead']],
+    [invalidBorder, ['  Use prop `borderStyle="lg"` instead']],
+    [invalidBorderRadius, ['  Use prop `rounding="circle"` instead']],
+    [invalidBottom, ['  Instead of dangerously styling bottom, use the "bottom" boolean prop']],
+    [invalidLeft, ['  Instead of dangerously styling left, use the "left" boolean prop']],
+    [invalidMarginNegative, ['  Use prop `margin={-2}` instead']],
+    [invalidMarginLeft, ['  Use prop `marginStart={2}` instead']],
+    [invalidMarginTop, ['  Use prop `marginTop={1}` instead']],
+    [invalidMaxHeight, ['  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead']],
+    [invalidMaxWidth, ['  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead']],
+    [invalidMinHeight, ['  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead']],
+    [invalidMinWidth, ['  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead']],
+    [invalidPadding, ['  Use prop `padding={0}` instead']],
+    [invalidOpacity, ['  Use prop `opacity={0.9}` instead']],
+    [invalidOverflow, ['  Use prop `overflow="auto"` instead']],
+    [invalidPosition, ['  Use prop `position="absolute"` instead']],
+    [invalidTop, ['  Instead of dangerously styling top, use the "top" boolean prop']],
+    [invalidRight, ['  Instead of dangerously styling right, use the "right" boolean prop']],
+    [invalidBoxShadow, ['  Use prop `borderStyle="shadow"` instead']],
   ].map(([code, errors, options]) => ({
     code,
     options: options ?? [],
-    errors: [{ message: getErrorMessage(errors) }],
+    errors: errors.map((error) => ({
+      message: getErrorMessage(error),
+    })),
   })),
 });
