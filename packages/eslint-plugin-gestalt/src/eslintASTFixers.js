@@ -62,7 +62,6 @@ type RenameTagFixerType = ({|
   fixer: GenericNode,
   gestaltImportNode: GenericNode,
   newComponentName: string,
-  replaceRegexCallback?: ({| input: string |}) => string,
   tagName: string,
 |}) => $ReadOnlyArray<GenericNode>;
 
@@ -78,7 +77,6 @@ export const renameTagFixer: RenameTagFixerType = ({
   fixer,
   gestaltImportNode,
   newComponentName,
-  replaceRegexCallback = ({ input }) => input,
   tagName,
 }) => {
   return [elementNode.openingElement, elementNode.closingElement]
@@ -94,23 +92,21 @@ export const renameTagFixer: RenameTagFixerType = ({
         (item) => item[0] === newComponentName,
       );
 
-      const replacedText = replaceRegexCallback({
-        input: getTextNodeFromSourceCode({ context, elementNode: node }).replace(
-          tagName,
-          (componentNameMatch && componentNameMatch[1]) ?? newComponentName,
-        ),
-      });
+      const replacedText = getTextNodeFromSourceCode({ context, elementNode: node }).replace(
+        tagName,
+        (componentNameMatch && componentNameMatch[1]) ?? newComponentName,
+      );
       return fixer.replaceText(node, replacedText);
     })
     .filter(Boolean);
 };
 
 type RenameTagWithPropsFixerType = ({|
-  fixedPropsString: string,
   context: GenericNode,
   elementNode: GenericNode,
   fixer: GenericNode,
   gestaltImportNode: GenericNode,
+  modifiedPropsString: string,
   newComponentName: string,
   tagName: string,
   propsToRemove?: $ReadOnlyArray<string>,
@@ -118,14 +114,14 @@ type RenameTagWithPropsFixerType = ({|
 
 /** This function is a more complex version of renameTagFixer. It has the same tag replacement functionality, but it also rebuild the props in the opening tag to include a new prop. The new prop must be formatted as a string, p.e. `as="article"`
 Examples 1:
-"\<div\>\<\/div\>" if tagName="div", newComponentName="Box", and completePropsString=`as="article"` returns "\<Box as="article"\>\<\/Box\>"
+"\<div\>\<\/div\>" if tagName="div", newComponentName="Box", and modifiedPropsString=`as="article"` returns "\<Box as="article"\>\<\/Box\>"
 */
 export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
-  fixedPropsString,
   context,
   elementNode,
   gestaltImportNode,
   fixer,
+  modifiedPropsString,
   newComponentName,
   tagName,
 }) => {
@@ -139,7 +135,7 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
         componentName: newComponentName,
       });
 
-      const completeOpeningNode = `<${finalNewComponentName} ${fixedPropsString}${
+      const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
         elementNode.closingElement ? '' : ' /'
       }>`;
 

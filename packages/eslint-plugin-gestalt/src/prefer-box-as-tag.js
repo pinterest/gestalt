@@ -65,16 +65,16 @@ const rule: ESLintRule = {
         data: { tagName },
         fix: (fixer) => {
           const tagFixers = renameTagWithPropsFixer({
-            fixedPropsString: buildProps({
-              context,
-              elementNode: node,
-              propsToAdd: `as="${tagName}"`,
-            }),
             context,
             elementNode: node,
             fixer,
             gestaltImportNode,
             newComponentName: 'Box',
+            modifiedPropsString: buildProps({
+              context,
+              elementNode: node,
+              propsToAdd: `as="${tagName}"`,
+            }),
             tagName,
           });
 

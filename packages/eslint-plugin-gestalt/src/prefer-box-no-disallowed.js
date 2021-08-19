@@ -135,18 +135,18 @@ const rule: ESLintRule = {
         messageId: 'disallowed',
         fix: (fixer) => {
           const tagFixers = renameTagWithPropsFixer({
-            fixedPropsString: buildProps({
+            context,
+            elementNode: node,
+            fixer,
+            gestaltImportNode,
+            newComponentName: 'Box',
+            modifiedPropsString: buildProps({
               context,
               elementNode: node,
               propSorting: false,
               propsToAdd,
               propsToRemove: ['style'],
             }),
-            context,
-            elementNode: node,
-            fixer,
-            gestaltImportNode,
-            newComponentName: 'Box',
             tagName: 'div',
           });
 

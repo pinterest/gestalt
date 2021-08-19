@@ -181,7 +181,7 @@ type GetComponentFromAttributeType = ({| nodeAttribute: GenericNode |}) => Gener
 Example:
 \<div {...props} \/\> returns div node for the spread props attribute
 */
-const getComponenFromAttribute: GetComponentFromAttributeType = ({ nodeAttribute }) =>
+const getComponentFromAttribute: GetComponentFromAttributeType = ({ nodeAttribute }) =>
   nodeAttribute.parent;
 
 type GetVariableNodeInScopeFromNameType = ({|
@@ -214,7 +214,7 @@ const getComponentNameFromAttribute: GetComponentNameFromAttributeType = ({ node
   nodeAttribute?.parent?.name?.name;
 
 type HasImportType = ({| importNode: GenericNode, path: string |}) => boolean;
-/** This function checks is a given node (importNode) contains a given import path (path), and returns true if so.
+/** This function checks if a given node (importNode) contains a given import path (path), and returns true if so.
 Example 1:
 import { Box } from 'gestalt'; path="gestalt"
 Example 2:
@@ -248,7 +248,7 @@ Examples:
 const getHtmlTag: GetHtmlTagType = ({ elementNode }) => elementNode?.openingElement?.name?.name;
 
 type IsTagType = ({| elementNode: GenericNode, tagName: string |}) => boolean;
-/** This function checks is a given node (elementNode) contains a given tag (tagName), and returns true if so.
+/** This function checks if a given node (elementNode) contains a given tag (tagName), and returns true if so.
 Example 1:
 \<div \/\> >> tagName="div" returns true
 Example 2:
@@ -257,7 +257,7 @@ Example 2:
 const isTag: IsTagType = ({ elementNode, tagName }) => elementNode?.name?.name === tagName;
 
 type HasSpreadAttributesType = ({| elementNode: GenericNode |}) => boolean;
-/** This function checks is a given node (elementNode) contains spread attributs
+/** This function checks if a given node (elementNode) contains spread attributes
 Example 1:
 \<div {...props} \/\> >> returns true
 */
@@ -270,7 +270,7 @@ type HasLonelyAttributeType = ({|
   attribute: string,
 |}) => boolean;
 
-/** This function checks is a given tag (tagName) in a node (elementNode) contains only a single attribute (attribute), and returns true if so.
+/** This function checks if a given tag (tagName) in a node (elementNode) contains only a single attribute (attribute), and returns true if so.
 Example 1:
 \<div ref={} \/\> if attribute="ref" returns true
 Example 2:
@@ -287,7 +287,7 @@ type HasAttributesType = ({|
   attributes: $ReadOnlyArray<string>,
 |}) => boolean;
 
-/** This function checks is a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
+/** This function checks if a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
 Example 1:
 \<div role="button" \/\> if attribute="role" returns true
 */
@@ -300,7 +300,7 @@ type HasAriaAttributesType = ({|
   tagName: string,
 |}) => boolean;
 
-/** This function checks is a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
+/** This function checks if a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
 Example 1:
 \<div aria-label="test" \/\> returns true
 */
@@ -334,7 +334,7 @@ export {
   buildProps,
   buildPropsFromKeyValues,
   buildPropsFromKeyValuesVariable,
-  getComponenFromAttribute,
+  getComponentFromAttribute,
   getComponentNameFromAttribute,
   getHtmlTag,
   getLocalComponentImportName,
