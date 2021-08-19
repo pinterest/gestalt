@@ -189,6 +189,29 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Presenting users with a long list of options (typically 10 or more) that can be filtered by typing in the text field.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - For shorter lists of items where filtering is not needed, typically under 10 items.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection columns={2}>
       <MainSection.Card

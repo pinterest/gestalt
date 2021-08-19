@@ -221,8 +221,8 @@ card(
         title="When to Use"
         description={`
           - Providing additional information for related context without cluttering the surface of a workflow.
-          - Bringing attention to specific user interface elements. In this case, likely used with a [Pulsar](/Pulsar).
-          - Accommodating a variety of features, such as Buttons and Images.
+          - Bringing attention to specific user interface elements for educational purposes. In this case, likely used with a [Pulsar](/Pulsar).
+          - Accommodating a variety of features, such as Buttons, Images or SearchFields, that are not available in [Dropdown](/Dropdown).
         `}
       />
       <MainSection.Card
@@ -232,7 +232,8 @@ card(
         description={`
           - Displaying critical information that prevents users from accomplishing a task.
           - Displaying information out of context.
-          - As a replacement for the [Tooltip](/Tooltip).
+          - As a replacement for [Tooltip](/Tooltip).
+          - For presenting a list of actions or options. Use [Dropdown](/Dropdown) instead.
         `}
       />
     </MainSection.Subsection>

@@ -41,6 +41,7 @@ import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 import PropTable from './components/PropTable.js';
 import Combination from './components/Combination.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -84,6 +85,19 @@ card(
   <PageHeader
     name="DatePicker"
     description="Use Datepicker when the user has to select a date or date range."
+    defaultCode={`
+      function DatePickerExample() {
+        const handleChange = (value) => value;
+
+        return (
+          <DatePicker
+            id="example-basic"
+            label="Select a date"
+            onChange={({value}) => handleChange(value)}
+          />
+        )
+      }
+    `}
   />,
 );
 
@@ -189,6 +203,30 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Allowing users to choose a date or date range by clicking through the calendar popup or typing in the text field.
+          - Limiting date options to a specific range of dates.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/TextField) with type=”date”.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
