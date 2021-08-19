@@ -9,6 +9,7 @@
 // @flow strict
 import { buildProps } from './eslintASTHelpers.js';
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './eslintASTFixers.js';
+import { type ESLintRule } from './eslintFlowTypes.js';
 
 const sharedProps = [
   'alignContent',
@@ -31,7 +32,7 @@ const sharedProps = [
 export const errorMessage =
   "Please use Flex for flexbox layouts. If you are wrapping children in Boxes to set margin/padding, try using Flex's `gap` prop instead!";
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
     docs: {
       description: 'Encourage usage of Flex instead of Box',
@@ -46,8 +47,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let hasImportedBox = false;
     let gestaltImportStatement;
     let programNode;
