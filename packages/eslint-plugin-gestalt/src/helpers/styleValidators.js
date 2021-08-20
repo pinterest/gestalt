@@ -62,12 +62,7 @@ export function genBointLookup(
   return lookupMap;
 }
 
-const roundingLookup = genBointLookup('rounding', 0, 8);
-
 export const validateBackgroundColor = (value: string): ?string => colorMap[value];
-
-export const validateBorderRadius = (value: string): ?number | string =>
-  borderRadiusMap[value] ? borderRadiusMap[value] : roundingLookup[value];
 
 export const validateBorder = (value: string): ?string => {
   // If the value is a string:
@@ -79,6 +74,11 @@ export const validateBorder = (value: string): ?string => {
   // $FlowFixMe[prop-missing]
   return borderMap[cleanValue];
 };
+
+const roundingLookup = genBointLookup('rounding', 0, 8);
+
+export const validateBorderRadius = (value: string): ?number | string =>
+  borderRadiusMap[value] ? borderRadiusMap[value] : roundingLookup[value];
 
 export const validateBoxShadow = (value: string): ?string => {
   // If the value is a string:

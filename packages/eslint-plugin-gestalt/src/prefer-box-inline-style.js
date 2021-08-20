@@ -7,8 +7,13 @@
  */
 
 // @flow strict
-import { validateBackgroundColor, validateBorder, validateBorderRadius } from './validators.js';
-import { type ESLintRule } from './eslintFlowTypes.js';
+import {
+  validateBackgroundColor,
+  validateBorder,
+  validateBorderRadius,
+} from './helpers/styleValidators.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+import { generateDefaultMessage } from './helpers/styleHelpers.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
@@ -47,24 +52,24 @@ const rule: ESLintRule = {
 
   create(context) {
     function matchKeyErrors(matchedErrors, key) {
-      let message = '';
+      let alternateProp = '';
       switch (key.name) {
         case 'backgroundColor':
-          message = validateBackgroundColor(key.value);
-          if (message) {
-            matchedErrors.push(message);
+          alternateProp = validateBackgroundColor(key.value);
+          if (alternateProp) {
+            matchedErrors.push(generateDefaultMessage(alternateProp));
           }
           break;
         case 'borderRadius':
-          message = validateBorderRadius(key.value);
-          if (message) {
-            matchedErrors.push(message);
+          alternateProp = validateBorderRadius(key.value);
+          if (alternateProp) {
+            matchedErrors.push(generateDefaultMessage(alternateProp));
           }
           break;
         case 'border':
-          message = validateBorder(key.value);
-          if (message) {
-            matchedErrors.push(message);
+          alternateProp = validateBorder(key.value);
+          if (alternateProp) {
+            matchedErrors.push(generateDefaultMessage(alternateProp));
           }
           break;
         default:

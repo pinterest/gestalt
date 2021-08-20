@@ -5,7 +5,7 @@ import {
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
-} from './testHelpers.js';
+} from './helpers/testHelpers.js';
 
 const ruleName = 'prefer-flex';
 const ruleTester = getRuleTester();

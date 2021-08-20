@@ -21,18 +21,6 @@ card(
     description="The following Eslint rules provide guidance on how to replace native HTML elements and attributes with available Gestalt equivalents"
   >
     <MainSection.Subsection
-      title="gestalt/no-dangerous-style-duplicates"
-      description={`
-        Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented.
-
-        Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle.
-
-        This linter checks for usage of already available props as dangerous styles and suggests the alternative.
-
-        [Learn more about Box](/Box).
-      `}
-    />
-    <MainSection.Subsection
       title="gestalt/prefer-box-inline-style"
       description={`
         Prevent using \`<div>\` inline styling for attributes that are already implemented in Box.
@@ -85,6 +73,20 @@ card(
     name="Gestalt restrictions"
     description="The following Eslint rules restrict the usage of Gestalt component props to enforce design consistency and code safety anf best practices."
   >
+    <MainSection.Subsection
+      title="gestalt/no-dangerous-style-duplicates"
+      description={`
+        Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented.
+
+        Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle.
+
+        This linter checks for usage of already available props as dangerous styles and suggests the alternative.
+
+        With AUTOFIX!
+
+        [Learn more about Box](/Box).
+      `}
+    />
     <MainSection.Subsection
       title="gestalt/button-icon-restrictions"
       description={`

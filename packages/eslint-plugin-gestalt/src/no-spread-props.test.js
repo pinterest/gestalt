@@ -3,7 +3,7 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './no-spread-props.js';
-import { parserOptions } from './testHelpers.js';
+import { parserOptions } from './helpers/testHelpers.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 

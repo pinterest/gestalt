@@ -9,7 +9,7 @@
  */
 
 // @flow strict
-import { type ESLintRule } from './eslintFlowTypes.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const rule: ESLintRule = {
   meta: {

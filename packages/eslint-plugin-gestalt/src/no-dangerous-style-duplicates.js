@@ -8,15 +8,18 @@
 
 // @flow strict
 import {
+  buildProps,
   hasImport,
   isGestaltComponent,
   getNodeFromPropName,
   getInlineDefinedStyles,
+  getTextNodeFromSourceCode,
   getVariableDefinedStyles,
   getVariableNodeInScopeFromName,
-} from './eslintASTHelpers.js';
-import buildErrorMessagesFromStyleProperties from './noDangerousStyleDuplicatesHelpers.js';
-import { type ESLintRule } from './eslintFlowTypes.js';
+} from './helpers/eslintASTHelpers.js';
+import { renameTagWithPropsFixer } from './helpers/eslintASTFixers.js';
+import { buildValidatorResponsesFromStyleProperties } from './helpers/styleHelpers.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const rule: ESLintRule = {
   meta: {
@@ -24,7 +27,7 @@ const rule: ESLintRule = {
     docs: {
       description:
         'Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented',
-      category: 'Gestalt alternatives',
+      category: 'Gestalt restrictions',
       recommended: false,
       url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-dangerous-style-duplicates',
     },
@@ -43,7 +46,7 @@ const rule: ESLintRule = {
       },
     ],
     messages: {
-      disallowed: `Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n{{errorMessage}}`,
+      disallowed: `Unnecessary Box dangerous styles found. https://gestalt.netlify.app/Box\n{{errorMessage}}`,
     },
   },
 
@@ -61,7 +64,7 @@ const rule: ESLintRule = {
     };
 
     const jSXOpeningElementFnc = (node) => {
-      // Check for Gestalt import, Box component, and dangerouslySetInlineStyle prop
+      // exit if Gestalt is not imported
       if (!gestaltImportNode) return null;
 
       const isBox = isGestaltComponent({
@@ -70,6 +73,7 @@ const rule: ESLintRule = {
         componentName: 'Box',
       });
 
+      // exit if not Box component
       if (!isBox) return null;
 
       const attributeNode = getNodeFromPropName({
@@ -77,11 +81,13 @@ const rule: ESLintRule = {
         propName: 'dangerouslySetInlineStyle',
       });
 
+      // exit if not dangerouslySetInlineStyle prop
       if (!attributeNode) return null;
 
-      // Check if style is 1st: declared inline or 2nd: in a variable
+      // 1st: Check if style is declared inline
       const inlineStyleProperties = getInlineDefinedStyles({ attributeNode });
 
+      // 2nd: If style is not declared inline, check if style is declared in a variable
       let variableDefinedStyleProperties;
       if (!inlineStyleProperties && attributeNode?.value?.expression?.name) {
         // Access the node of the variable -within scope- being passed
@@ -96,45 +102,82 @@ const rule: ESLintRule = {
 
       const styleProperties = inlineStyleProperties ?? variableDefinedStyleProperties;
 
+      // exit if style properties are not found
       if (!styleProperties) return null;
 
-      // Check if there are alternatives to the style properties
-      const errorMessages = buildErrorMessagesFromStyleProperties({ context, styleProperties });
+      // Check if there are Gestalt alternatives to the style properties to suggest/autofix
+      const validatorResponse = buildValidatorResponsesFromStyleProperties({
+        context,
+        styleProperties,
+      });
 
-      if (!errorMessages.length) return null;
+      // exit if there are not style properties alternatives to suggest/autofix
+      if (!validatorResponse.length) return null;
 
-      return errorMessages.forEach(
-        ({ node: stylePropertyNode, prop: alternativeProp, message: errorMessage }) => {
+      const newPropsToAddToBox = validatorResponse
+        ?.map((alternative) => alternative.prop)
+        .sort()
+        .join(' ');
 
-          return context.report({
-            node: stylePropertyNode,
-            messageId: 'disallowed',
-            data: { errorMessage },
-            fix: (fixer) => {
-              const tagFixers = renameTagFixer({
-                context,
-                elementNode: node,
-                fixer,
-                gestaltImportNode,
-                newComponentName: 'Box',
-                tagName: 'div',
-              });
-
-              const importFixers = updateGestaltImportFixer({
-                context,
-                gestaltImportNode,
-                fixer,
-                newComponentName: 'Box',
-                programNode,
-              });
-
-              const fixers = !importFixerRun ? [...tagFixers, importFixers] : tagFixers;
-              importFixerRun = true;
-              return fixers;
-            },
-          });
-        },
+      const attributesToRemoveFromDangerouslySetInlineStyle = validatorResponse.map((alternative) =>
+        getTextNodeFromSourceCode({ context, elementNode: alternative.node }),
       );
+
+      const errorMessage = validatorResponse.map((alternative) => alternative.message).join('\n');
+
+      const styleValuesRegex = new RegExp(
+        /dangerouslySetInlineStyle={{[\s\S]*__style:[\s\S]*{([\s\S]+)}[\s\S]*}[\s\S]*}/,
+        'i',
+      );
+
+      const isDangerouslySetInlineStyleEmptyAfterFix =
+        styleProperties.length - validatorResponse.length === 0;
+
+      const reconstructedDangerouslySetInlineStyle = isDangerouslySetInlineStyleEmptyAfterFix
+        ? '' // optimization, prop unused and removed
+        : `dangerouslySetInlineStyle={{ __style: { ${
+            // get the full dangerouslySetInlineStyle prop text
+            getTextNodeFromSourceCode({
+              context,
+              elementNode: attributeNode,
+            })
+              .match(styleValuesRegex)?.[1] // isolate all the styles from the full dangerouslySetInlineStyle prop text
+              ?.split(',') // itemize each style attribute
+              .map((a) => a.trim()) // clean up left/right spaces
+              .filter((string) => !attributesToRemoveFromDangerouslySetInlineStyle.includes(string)) // remove attributes for which there's a Gestalt alternative being suggested/fixed
+              .sort() // sort
+              .join(', ') ?? '' // generate final string
+          } } }}`;
+
+      const reconstructedBoxProps = `${newPropsToAddToBox} ${reconstructedDangerouslySetInlineStyle}`;
+
+      const builtProps = buildProps({
+        context,
+        elementNode: node,
+        propsToAdd: isDangerouslySetInlineStyleEmptyAfterFix
+          ? newPropsToAddToBox
+          : reconstructedBoxProps,
+        propsToRemove: ['dangerouslySetInlineStyle'],
+      });
+
+      return context.report({
+        node,
+        messageId: 'disallowed',
+        data: { errorMessage },
+        fix: (fixer) => {
+          const tagFixers = renameTagWithPropsFixer({
+            context,
+            elementNode: node,
+            fixer,
+            gestaltImportNode,
+            newComponentName: 'Box',
+            modifiedPropsString: builtProps,
+            tagName: 'Box',
+          });
+
+          return tagFixers;
+        },
+      });
     };
 
     return {

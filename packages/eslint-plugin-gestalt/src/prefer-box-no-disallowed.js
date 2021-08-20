@@ -13,13 +13,13 @@ import {
   hasLonelyAttribute,
   hasSpreadAttributes,
   isTag,
-} from './eslintASTHelpers.js';
+} from './helpers/eslintASTHelpers.js';
 import {
   renameTagFixer,
   renameTagWithPropsFixer,
   updateGestaltImportFixer,
-} from './eslintASTFixers.js';
-import { type ESLintRule } from './eslintFlowTypes.js';
+} from './helpers/eslintASTFixers.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const rule: ESLintRule = {
   meta: {

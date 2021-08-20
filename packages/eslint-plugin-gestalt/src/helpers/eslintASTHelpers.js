@@ -391,6 +391,7 @@ export {
   getLocalComponentImportName,
   getNamedImportsComponents,
   getNodeFromPropName,
+  getOpeningElement,
   getPropertiesFromVariable,
   getTextNodeFromSourceCode,
   getVariableDefinedStyles,

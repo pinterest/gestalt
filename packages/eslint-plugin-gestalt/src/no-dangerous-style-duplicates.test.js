@@ -4,8 +4,9 @@ import {
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
-} from './testHelpers.js';
+} from './helpers/testHelpers.js';
 import rule from './no-dangerous-style-duplicates.js';
+import { generateDefaultMessage } from './helpers/styleHelpers.js';
 
 const ruleName = 'no-dangerous-style-duplicates';
 const ruleTester = getRuleTester();
@@ -17,71 +18,106 @@ const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
 const buildInvalidTest = (name) => readTestByPath(pathFormatter(invalidPrepender(name)));
 
-const invalidMultiple = buildInvalidTest('invalid-multiple');
-const invalidInVariable = buildInvalidTest('invalid-in-variable');
-const invalidBackgroundColor = buildInvalidTest('invalid-backgroundColor');
-const invalidBottom = buildInvalidTest('invalid-bottom');
-const invalidBorder = buildInvalidTest('invalid-border');
-const invalidBoxShadow = buildInvalidTest('invalid-boxShadow');
-const invalidBorderRadius = buildInvalidTest('invalid-borderRadius');
-const invalidLeft = buildInvalidTest('invalid-left');
-const invalidMarginNegative = buildInvalidTest('invalid-margin-negative');
-const invalidMarginLeft = buildInvalidTest('invalid-marginLeft');
-const invalidMarginTop = buildInvalidTest('invalid-marginTop');
-const invalidMaxHeight = buildInvalidTest('invalid-maxHeight');
-const invalidMaxWidth = buildInvalidTest('invalid-maxWidth');
-const invalidMinHeight = buildInvalidTest('invalid-minHeight');
-const invalidMinWidth = buildInvalidTest('invalid-minWidth');
-const invalidPadding = buildInvalidTest('invalid-padding');
-const invalidOpacity = buildInvalidTest('invalid-opacity');
-const invalidOverflow = buildInvalidTest('invalid-overflow');
-const invalidPosition = buildInvalidTest('invalid-position');
-const invalidTop = buildInvalidTest('invalid-top');
-const invalidRight = buildInvalidTest('invalid-right');
+const invalidBackgroundColorInput = buildInvalidTest('invalid-backgroundColor-input');
+const invalidBackgroundColorOutput = buildInvalidTest('invalid-backgroundColor-output');
+const invalidBorderInput = buildInvalidTest('invalid-border-input');
+const invalidBorderOutput = buildInvalidTest('invalid-border-output');
+const invalidBorderRadiusInput = buildInvalidTest('invalid-borderRadius-input');
+const invalidBorderRadiusOutput = buildInvalidTest('invalid-borderRadius-output');
+const invalidBottomInput = buildInvalidTest('invalid-bottom-input');
+const invalidBottomOutput = buildInvalidTest('invalid-bottom-output');
+const invalidBoxShadowInput = buildInvalidTest('invalid-boxShadow-input');
+const invalidBoxShadowOutput = buildInvalidTest('invalid-boxShadow-output');
+const invalidInVariableInput = buildInvalidTest('invalid-in-variable-input');
+const invalidInVariableOutput = buildInvalidTest('invalid-in-variable-output');
+const invalidLeftInput = buildInvalidTest('invalid-left-input');
+const invalidLeftOutput = buildInvalidTest('invalid-left-output');
+const invalidMinHeightInput = buildInvalidTest('invalid-minHeight-input');
+const invalidMinHeightOutput = buildInvalidTest('invalid-minHeight-output');
+const invalidMinWidthInput = buildInvalidTest('invalid-minWidth-input');
+const invalidMinWidthOutput = buildInvalidTest('invalid-minWidth-output');
+const invalidMaxHeightInput = buildInvalidTest('invalid-maxHeight-input');
+const invalidMaxHeightOutput = buildInvalidTest('invalid-maxHeight-output');
+const invalidMaxWidthInput = buildInvalidTest('invalid-maxWidth-input');
+const invalidMaxWidthOutput = buildInvalidTest('invalid-maxWidth-output');
+const invalidMarginNegativeInput = buildInvalidTest('invalid-margin-negative-input');
+const invalidMarginNegativeOutput = buildInvalidTest('invalid-margin-negative-output');
+const invalidMarginLeftInput = buildInvalidTest('invalid-marginLeft-input');
+const invalidMarginLeftOutput = buildInvalidTest('invalid-marginLeft-output');
+const invalidMarginTopInput = buildInvalidTest('invalid-marginTop-input');
+const invalidMarginTopOutput = buildInvalidTest('invalid-marginTop-output');
+const invalidMultipleInput = buildInvalidTest('invalid-multiple-input');
+const invalidMultipleOutput = buildInvalidTest('invalid-multiple-output');
+const invalidMultipleKeysInput = buildInvalidTest('invalid-multiple-keys-input');
+const invalidMultipleKeysOutput = buildInvalidTest('invalid-multiple-keys-output');
+const invalidOpacityInput = buildInvalidTest('invalid-opacity-input');
+const invalidOpacityOutput = buildInvalidTest('invalid-opacity-output');
+const invalidOverflowInput = buildInvalidTest('invalid-overflow-input');
+const invalidOverflowOutput = buildInvalidTest('invalid-overflow-output');
+const invalidPaddingInput = buildInvalidTest('invalid-padding-input');
+const invalidPaddingOutput = buildInvalidTest('invalid-padding-output');
+const invalidPositionInput = buildInvalidTest('invalid-position-input');
+const invalidPositionOutput = buildInvalidTest('invalid-position-output');
+const invalidRightInput = buildInvalidTest('invalid-right-input');
+const invalidRightOutput = buildInvalidTest('invalid-right-output');
+const invalidTopInput = buildInvalidTest('invalid-top-input');
+const invalidTopOutput = buildInvalidTest('invalid-top-output');
 
 const getErrorMessage = (error) =>
-  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n${error}`;
+  `Unnecessary Box dangerous styles found. https://gestalt.netlify.app/Box\n${error ?? ''}`;
 
 ruleTester.run('no-dangerous-style-duplicates', rule, {
   valid: [{ code: validCode }],
   invalid: [
     [
-      invalidMultiple,
-      [
-        `  Use prop \`color="white"\` instead`,
-        `  Instead of dangerously styling top, use the "top" boolean prop`,
-      ],
+      invalidBackgroundColorInput,
+      invalidBackgroundColorOutput,
+      generateDefaultMessage(`color="white"`),
+    ],
+    [invalidBorderInput, invalidBorderOutput, generateDefaultMessage(`borderStyle="lg"`)],
+    [
+      invalidBorderRadiusInput,
+      invalidBorderRadiusOutput,
+      generateDefaultMessage(`rounding="circle"`),
+    ],
+    [invalidBottomInput, invalidBottomOutput, generateDefaultMessage(`bottom`)],
+    [invalidBoxShadowInput, invalidBoxShadowOutput, generateDefaultMessage(`borderStyle="shadow"`)],
+    [invalidInVariableInput, invalidInVariableOutput, generateDefaultMessage(`color="white"`)],
+    [invalidLeftInput, invalidLeftOutput, generateDefaultMessage(`left`)],
+    [
+      invalidMarginNegativeInput,
+      invalidMarginNegativeOutput,
+      generateDefaultMessage(`margin={-2}`),
+    ],
+    [invalidMarginLeftInput, invalidMarginLeftOutput, generateDefaultMessage(`marginStart={2}`)],
+    [invalidMarginTopInput, invalidMarginTopOutput, generateDefaultMessage(`marginTop={1}`)],
+    [invalidMaxHeightInput, invalidMaxHeightOutput, generateDefaultMessage(`maxHeight={8}`)],
+    [invalidMaxWidthInput, invalidMaxWidthOutput, generateDefaultMessage(`maxWidth={8}`)],
+    [invalidMinHeightInput, invalidMinHeightOutput, generateDefaultMessage(`minHeight="100%"`)],
+    [invalidMinWidthInput, invalidMinWidthOutput, generateDefaultMessage(`minWidth="100%"`)],
+    [
+      invalidMultipleInput,
+      invalidMultipleOutput,
+      `${generateDefaultMessage('color="white"') ?? ''}\n${generateDefaultMessage('top') ?? ''}\n${
+        generateDefaultMessage('marginStart={2}') ?? ''
+      }`,
     ],
     [
-      invalidMultiple,
-      ['  Instead of dangerously styling top, use the "top" boolean prop'],
+      invalidMultipleKeysInput,
+      invalidMultipleKeysOutput,
+      generateDefaultMessage(`top`),
       [{ onlyKeys: ['top'] }],
     ],
-    [invalidInVariable, ['  Use prop `color="white"` instead']],
-    [invalidBackgroundColor, ['  Use prop `color="white"` instead']],
-    [invalidBorder, ['  Use prop `borderStyle="lg"` instead']],
-    [invalidBorderRadius, ['  Use prop `rounding="circle"` instead']],
-    [invalidBottom, ['  Instead of dangerously styling bottom, use the "bottom" boolean prop']],
-    [invalidLeft, ['  Instead of dangerously styling left, use the "left" boolean prop']],
-    [invalidMarginNegative, ['  Use prop `margin={-2}` instead']],
-    [invalidMarginLeft, ['  Use prop `marginStart={2}` instead']],
-    [invalidMarginTop, ['  Use prop `marginTop={1}` instead']],
-    [invalidMaxHeight, ['  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead']],
-    [invalidMaxWidth, ['  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead']],
-    [invalidMinHeight, ['  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead']],
-    [invalidMinWidth, ['  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead']],
-    [invalidPadding, ['  Use prop `padding={0}` instead']],
-    [invalidOpacity, ['  Use prop `opacity={0.9}` instead']],
-    [invalidOverflow, ['  Use prop `overflow="auto"` instead']],
-    [invalidPosition, ['  Use prop `position="absolute"` instead']],
-    [invalidTop, ['  Instead of dangerously styling top, use the "top" boolean prop']],
-    [invalidRight, ['  Instead of dangerously styling right, use the "right" boolean prop']],
-    [invalidBoxShadow, ['  Use prop `borderStyle="shadow"` instead']],
-  ].map(([code, errors, options]) => ({
-    code,
+    [invalidOpacityInput, invalidOpacityOutput, generateDefaultMessage(`opacity={0.9}`)],
+    [invalidOverflowInput, invalidOverflowOutput, generateDefaultMessage(`overflow="auto"`)],
+    [invalidPaddingInput, invalidPaddingOutput, generateDefaultMessage(`padding={0}`)],
+    [invalidPositionInput, invalidPositionOutput, generateDefaultMessage(`position="absolute"`)],
+    [invalidRightInput, invalidRightOutput, generateDefaultMessage(`right`)],
+    [invalidTopInput, invalidTopOutput, generateDefaultMessage(`top`)],
+  ].map(([input, output, errors, options]) => ({
+    code: input,
     options: options ?? [],
-    errors: errors.map((error) => ({
-      message: getErrorMessage(error),
-    })),
+    output,
+    errors: [{ message: getErrorMessage(errors) }],
   })),
 });

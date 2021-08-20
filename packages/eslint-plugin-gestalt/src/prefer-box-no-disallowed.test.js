@@ -4,7 +4,7 @@ import {
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
-} from './testHelpers.js';
+} from './helpers/testHelpers.js';
 import rule from './prefer-box-no-disallowed.js';
 
 const ruleName = 'prefer-box-no-disallowed';
