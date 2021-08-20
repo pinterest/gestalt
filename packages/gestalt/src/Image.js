@@ -35,7 +35,7 @@ export default class Image extends PureComponent<Props> {
     alt: PropTypes.string.isRequired,
     children: PropTypes.node,
     color: PropTypes.string,
-    crossOrigin: PropTypes.string,
+    crossOrigin: PropTypes.oneOf(['anonymous', 'use-credentials']),
     elementTiming: PropTypes.string,
     fit: PropTypes.oneOf(['contain', 'cover', 'none']),
     importance: PropTypes.oneOf(['high', 'low', 'auto']),
