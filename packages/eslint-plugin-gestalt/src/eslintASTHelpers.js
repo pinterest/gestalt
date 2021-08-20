@@ -318,9 +318,9 @@ type GetLocalComponentImportNameType = ({|
 
 /** This function returns the local component name, returning the alias.
 Example 1:
-import { Box } from 'gestalt ?? returns Box
+import { Box } from 'gestalt // returns Box
 Example 2:
-import { Box as RenamedBox } from 'gestalt ?? returns RenamedBox
+import { Box as RenamedBox } from 'gestalt // returns RenamedBox
  */
 const getLocalComponentImportName: GetLocalComponentImportNameType = ({
   importNode,

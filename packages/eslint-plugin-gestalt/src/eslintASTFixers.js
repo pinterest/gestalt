@@ -132,13 +132,13 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
 }) => {
   const openingElement =
     elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
-  const completeOpeningNode = `<${newComponentName} ${modifiedPropsString}${
-    elementNode.closingElement ? '' : ' /'
-  }>`;
   const finalNewComponentName = getLocalComponentImportName({
     importNode: gestaltImportNode,
     componentName: newComponentName,
   });
+  const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
+    elementNode.closingElement ? '' : ' /'
+  }>`;
 
   return [openingElement, elementNode.closingElement]
     .map((node, index) => {
