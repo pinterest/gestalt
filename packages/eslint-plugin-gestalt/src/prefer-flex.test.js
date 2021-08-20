@@ -14,33 +14,28 @@ const pathFormatter = getPathFormatterByRuleName(ruleName);
 const validPrepender = getTestTypePrepender('valid');
 const invalidPrepender = getTestTypePrepender('invalid');
 
-const validDisplayFlex = readTestByPath(pathFormatter(validPrepender('display-flex')));
-const validRounding = readTestByPath(pathFormatter(validPrepender('rounding')));
+const mapToValidTestName = (testName) => readTestByPath(pathFormatter(validPrepender(testName)));
+const mapToInvalidTestName = (testName) =>
+  readTestByPath(pathFormatter(invalidPrepender(testName)));
 
-const invalidSingleBoxInput = readTestByPath(pathFormatter(invalidPrepender('single-box.input')));
-const invalidSingleBoxOutput = readTestByPath(pathFormatter(invalidPrepender('single-box.output')));
-const invalidMultipleBoxInput = readTestByPath(
-  pathFormatter(invalidPrepender('multiple-box.input')),
+const validTests = ['display-flex', 'rounding'].map(mapToValidTestName);
+
+const invalidSingleBoxTests = ['single-box.input', 'single-box.output'].map(mapToInvalidTestName);
+const invalidMultipleBoxTests = ['multiple-box.input', 'multiple-box.output'].map(
+  mapToInvalidTestName,
 );
-const invalidMultipleBoxOutput = readTestByPath(
-  pathFormatter(invalidPrepender('multiple-box.output')),
-);
-const invalidMultipleBoxRenamedInput = readTestByPath(
-  pathFormatter(invalidPrepender('multiple-box-renamed.input')),
-);
-const invalidMultipleBoxRenamedOutput = readTestByPath(
-  pathFormatter(invalidPrepender('multiple-box-renamed.output')),
-);
+const invalidMultipleBoxRenamedTests = [
+  'multiple-box-renamed.input',
+  'multiple-box-renamed.output',
+].map(mapToInvalidTestName);
 
 ruleTester.run(ruleName, rule, {
-  valid: [validDisplayFlex, validRounding].map((code) => ({ code })),
-  invalid: [
-    [invalidSingleBoxInput, invalidSingleBoxOutput],
-    [invalidMultipleBoxInput, invalidMultipleBoxOutput],
-    [invalidMultipleBoxRenamedInput, invalidMultipleBoxRenamedOutput],
-  ].map(([input, output]) => ({
-    code: input,
-    output,
-    errors: [{ message: errorMessage }],
-  })),
+  valid: validTests.map((code) => ({ code })),
+  invalid: [invalidSingleBoxTests, invalidMultipleBoxTests, invalidMultipleBoxRenamedTests].map(
+    ([input, output]) => ({
+      code: input,
+      output,
+      errors: [{ message: errorMessage }],
+    }),
+  ),
 });
