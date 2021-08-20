@@ -1,3 +1,9 @@
+## 33.2.1 (Aug 20, 2021)
+
+### Patch
+
+- Internal: fix gestalt-design-tokens variables import (#1643)
+
 ## 33.2.0 (Aug 20, 2021)
 
 ### Minor
