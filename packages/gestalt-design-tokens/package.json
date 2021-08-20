@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "node build.js",
+    "build:prod": "NODE_ENV=production node build.js",
     "watch": "nodemon build.js"
   },
   "browserslist": [
