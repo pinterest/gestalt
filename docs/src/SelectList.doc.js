@@ -105,6 +105,32 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Presenting users with a list of options that utilizes the browser’s or device’s native select functionality.
+          - Presenting users with a list of options to choose from, like display settings.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - When more than 10 options are presented and the ability to filter the list would be beneficial. Use a [ComboBox](/ComboBox) instead.
+          - When extra functionality, like groups, subtext or badges, is needed. Use [Dropdown](/Dropdown) instead.
+          - When the options are links and navigate users to different places. Use Dropdown instead.
+          `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Best practices">
     <MainSection.Subsection columns={2}>
       <MainSection.Card

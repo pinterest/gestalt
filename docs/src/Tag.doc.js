@@ -3,6 +3,7 @@ import type { Node } from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -50,6 +51,29 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - In conjunction with [TextField](/TextField#tagsExample), [TextArea](/TextArea#tagsExample), and [ComboBox](/ComboBox#Tags), or as a standalone element to display selected options.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - As a replacement for the [Badge](/Badge), as the Badge is a singular element that gives context to a specific subject.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

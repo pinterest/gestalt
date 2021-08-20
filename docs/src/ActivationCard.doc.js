@@ -91,6 +91,29 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Use in groups to describe the user's stage in a sequential path toward an overall action.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - As a single element communicating updates to the state or status of the surface. Use [Callout](/Callout) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <Example
     name="Not started and Pending Cards"
     defaultCode={`
