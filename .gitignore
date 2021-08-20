@@ -1,6 +1,8 @@
 node_modules/
 coverage/
+docs/.next/
 docs/build/
+docs/out/
 *.log
 stats.html
 screenshots
@@ -19,3 +21,6 @@ packages/gestalt-design-tokens/dist
 # https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests.html#Configuring-Folder-Structure
 cypress/videos/
 cypress/screenshots/
+
+# Local Netlify folder
+.netlify

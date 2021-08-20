@@ -1,6 +1,6 @@
 describe("What's New Accessibility check", () => {
   beforeEach(() => {
-    cy.visit("/What's New");
+    cy.visit('/Whats_New');
     cy.injectAxe();
   });
 

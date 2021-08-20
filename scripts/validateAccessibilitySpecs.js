@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('@babel/register');
 const globby = require('globby');
-const sidebarIndex = require('../docs/src/components/sidebarIndex.js');
+const sidebarIndex = require('../docs/components/sidebarIndex.js');
 
 const cypressSpecFile = 'cypress/integration/accessibility_*_spec.js';
 
