@@ -56,6 +56,7 @@ const rule: ESLintRule = {
 
   create(context) {
     let hasImportedBox = false;
+    let hasImportedFlex = false;
     let gestaltImportStatement;
     let programNode;
     let isImportFixerExecuted = false;
@@ -70,6 +71,8 @@ const rule: ESLintRule = {
       }
 
       hasImportedBox = decl.specifiers.some((node) => node.imported.name === 'Box');
+      hasImportedFlex = decl.specifiers.some((node) => node.imported.name === 'Flex');
+
       if (hasImportedBox) {
         const boxImportDeclaration = decl.specifiers.find((node) => node.imported.name === 'Box');
         // Hang on to the local name, we'll need this later
@@ -122,12 +125,19 @@ const rule: ESLintRule = {
               .filter(({ value }) => value === boxImportName).length > 1;
           const importsToRemove = hasOtherBoxes ? [] : [boxImportName];
 
+          let renamedFlexImport;
+          // If the file doesn't already import Flex and the Box import was renamed,
+          // let's make a best-guess attempt at honoring that renaming
+          if (!hasImportedFlex && boxImportName !== 'Box' && boxImportName.includes('Box')) {
+            renamedFlexImport = boxImportName.replace('Box', 'Flex');
+          }
+
           // Update the import statement: add Flex if needed, remove Box if no longer needed
           const importFixers = updateGestaltImportFixer({
             fixer,
             gestaltImportNode: gestaltImportStatement,
             importsToRemove,
-            newComponentName: 'Flex',
+            newComponentName: renamedFlexImport ? `Flex as ${renamedFlexImport}` : 'Flex',
             programNode,
           });
 
@@ -152,7 +162,7 @@ const rule: ESLintRule = {
               propsToAdd: additionalProps.join(' '),
               propsToRemove: ['display'],
             }),
-            newComponentName: 'Flex',
+            newComponentName: renamedFlexImport ?? 'Flex',
             tagName: 'Box',
           });
 
