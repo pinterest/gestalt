@@ -1,3 +1,9 @@
+## 33.4.2 (Aug 23, 2021)
+
+### Patch
+
+- Lint rules: Add prefer-flex to the index (#1649)
+
 ## 33.4.1 (Aug 23, 2021)
 
 ### Patch
