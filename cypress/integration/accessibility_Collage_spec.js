@@ -1,6 +1,6 @@
 describe('Collage Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Collage');
+    cy.visit('/collage');
     cy.injectAxe();
   });
 

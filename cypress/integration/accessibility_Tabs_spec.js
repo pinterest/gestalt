@@ -1,6 +1,6 @@
 describe('Tabs Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Tabs');
+    cy.visit('/tabs');
     cy.injectAxe();
   });
 

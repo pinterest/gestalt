@@ -15,7 +15,7 @@ async function generate() {
         `./cypress/integration/accessibility_${page}_spec.js`,
         `describe('${page} Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/${page}');
+    cy.visit('/${page.toLowerCase()}');
     cy.injectAxe();
   });
 

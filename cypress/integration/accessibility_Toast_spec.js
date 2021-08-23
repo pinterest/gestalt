@@ -1,6 +1,6 @@
 describe('Toast Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Toast');
+    cy.visit('/toast');
     cy.injectAxe();
   });
 

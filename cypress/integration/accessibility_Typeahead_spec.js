@@ -1,6 +1,6 @@
 describe('Typeahead Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Typeahead');
+    cy.visit('/typeahead');
     cy.injectAxe();
   });
 

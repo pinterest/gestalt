@@ -1,6 +1,6 @@
 describe('SearchField Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/SearchField');
+    cy.visit('/searchfield');
     cy.injectAxe();
   });
 

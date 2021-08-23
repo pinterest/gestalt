@@ -1,6 +1,6 @@
 describe('Link Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Link');
+    cy.visit('/link');
     cy.injectAxe();
   });
 

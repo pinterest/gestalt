@@ -1,6 +1,6 @@
 describe('Heading Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Heading');
+    cy.visit('/heading');
     cy.injectAxe();
   });
 

@@ -1,6 +1,6 @@
 describe('Module Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Module');
+    cy.visit('/module');
     cy.injectAxe();
   });
 

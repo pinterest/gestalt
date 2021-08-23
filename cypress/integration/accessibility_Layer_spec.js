@@ -1,6 +1,6 @@
 describe('Layer Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Layer');
+    cy.visit('/layer');
     cy.injectAxe();
   });
 

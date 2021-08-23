@@ -1,6 +1,6 @@
 describe('Color Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Color');
+    cy.visit('/color');
     cy.injectAxe();
   });
 

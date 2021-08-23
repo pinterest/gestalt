@@ -1,6 +1,6 @@
 describe('AvatarPair Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/AvatarPair');
+    cy.visit('/avatarpair');
     cy.injectAxe();
   });
 

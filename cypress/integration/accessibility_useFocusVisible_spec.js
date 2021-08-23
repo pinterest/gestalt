@@ -1,6 +1,6 @@
 describe('useFocusVisible Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/useFocusVisible');
+    cy.visit('/usefocusvisible');
     cy.injectAxe();
   });
 

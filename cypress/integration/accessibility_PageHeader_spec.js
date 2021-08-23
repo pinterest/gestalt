@@ -1,6 +1,6 @@
 describe('PageHeader Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/PageHeader');
+    cy.visit('/pageheader');
     cy.injectAxe();
   });
 

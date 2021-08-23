@@ -1,6 +1,6 @@
 describe('Video Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Video');
+    cy.visit('/video');
     cy.injectAxe();
   });
 

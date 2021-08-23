@@ -1,6 +1,6 @@
 describe('Tooltip Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Tooltip');
+    cy.visit('/tooltip');
     cy.injectAxe();
   });
 

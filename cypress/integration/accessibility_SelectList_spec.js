@@ -1,6 +1,6 @@
 describe('SelectList Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/SelectList');
+    cy.visit('/selectlist');
     cy.injectAxe();
   });
 

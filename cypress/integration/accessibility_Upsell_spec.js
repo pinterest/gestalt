@@ -1,6 +1,6 @@
 describe('Upsell Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Upsell');
+    cy.visit('/upsell');
     cy.injectAxe();
   });
 

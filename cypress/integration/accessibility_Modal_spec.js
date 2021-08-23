@@ -1,6 +1,6 @@
 describe('Modal Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Modal');
+    cy.visit('/modal');
     cy.injectAxe();
   });
 

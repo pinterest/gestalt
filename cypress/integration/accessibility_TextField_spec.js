@@ -1,6 +1,6 @@
 describe('TextField Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/TextField');
+    cy.visit('/textfield');
     cy.injectAxe();
   });
 

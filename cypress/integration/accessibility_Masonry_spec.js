@@ -1,6 +1,6 @@
 describe('Masonry Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Masonry');
+    cy.visit('/masonry');
     cy.injectAxe();
   });
 

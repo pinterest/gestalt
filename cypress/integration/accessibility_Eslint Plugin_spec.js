@@ -1,6 +1,6 @@
 describe('Eslint Plugin Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Eslint_Plugin');
+    cy.visit('/eslint_plugin');
     cy.injectAxe();
   });
 

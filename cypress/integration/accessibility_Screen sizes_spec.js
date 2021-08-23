@@ -1,6 +1,6 @@
 describe('Screen sizes Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Screen_Sizes');
+    cy.visit('/screen_sizes');
     cy.injectAxe();
   });
 

@@ -1,6 +1,6 @@
 describe('ColorSchemeProvider Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ColorSchemeProvider');
+    cy.visit('/colorschemeprovider');
     cy.injectAxe();
   });
 

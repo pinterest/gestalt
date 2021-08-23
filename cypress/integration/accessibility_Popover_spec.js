@@ -1,6 +1,6 @@
 describe('Popover Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Popover');
+    cy.visit('/popover');
     cy.injectAxe();
   });
 

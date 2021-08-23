@@ -1,6 +1,6 @@
 describe('OnLinkNavigationProvider Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/OnLinkNavigationProvider');
+    cy.visit('/onlinknavigationprovider');
     cy.injectAxe();
   });
 
