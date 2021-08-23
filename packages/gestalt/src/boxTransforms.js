@@ -171,6 +171,7 @@ const flex: Functor<Flex> = mapping({
   none: layout.flexNone,
   // default: shrink
 });
+const flexBasis: Functor<number | string> = (v) => fromInlineStyle({ flexBasis: v });
 const height: Functor<Dimension> = (h) => fromInlineStyle({ height: h });
 const justifyContent: Functor<JustifyContent> = mapping({
   end: layout.justifyEnd,
@@ -324,6 +325,7 @@ export const propToFn = {
   color,
   fit,
   flex,
+  flexBasis,
   height,
   justifyContent,
   left,
