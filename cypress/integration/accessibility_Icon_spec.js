@@ -1,6 +1,6 @@
 describe('Icon Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Icon');
+    cy.visit('/icon');
     cy.injectAxe();
   });
 

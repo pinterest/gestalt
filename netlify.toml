@@ -8,11 +8,6 @@
   framework = "#custom"
   autoLaunch = true
 
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
-
 [[headers]]
   for = "/*"
     [headers.values]

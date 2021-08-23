@@ -1,6 +1,6 @@
 describe('Status Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Status');
+    cy.visit('/status');
     cy.injectAxe();
   });
 

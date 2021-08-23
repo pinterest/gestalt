@@ -1,6 +1,6 @@
 describe('ButtonGroup Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ButtonGroup');
+    cy.visit('/buttongroup');
     cy.injectAxe();
   });
 

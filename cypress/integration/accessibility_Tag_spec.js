@@ -1,6 +1,6 @@
 describe('Tag Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Tag');
+    cy.visit('/tag');
     cy.injectAxe();
   });
 

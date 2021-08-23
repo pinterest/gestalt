@@ -1,6 +1,6 @@
 describe('Card Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Card');
+    cy.visit('/card');
     cy.injectAxe();
   });
 

@@ -1,6 +1,6 @@
 describe('SegmentedControl Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/SegmentedControl');
+    cy.visit('/segmentedcontrol');
     cy.injectAxe();
   });
 

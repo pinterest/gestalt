@@ -1,6 +1,6 @@
 describe('ActivationCard Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ActivationCard');
+    cy.visit('/activationcard');
     cy.injectAxe();
   });
 

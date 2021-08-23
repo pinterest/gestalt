@@ -1,6 +1,6 @@
 describe('Fieldset Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Fieldset');
+    cy.visit('/fieldset');
     cy.injectAxe();
   });
 

@@ -1,6 +1,6 @@
 describe('TextArea Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/TextArea');
+    cy.visit('/textarea');
     cy.injectAxe();
   });
 

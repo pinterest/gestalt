@@ -1,6 +1,6 @@
 describe('Label Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Label');
+    cy.visit('/label');
     cy.injectAxe();
   });
 

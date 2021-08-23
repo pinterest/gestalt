@@ -1,6 +1,6 @@
 describe('Layouts Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Layouts');
+    cy.visit('/layouts');
     cy.injectAxe();
   });
 

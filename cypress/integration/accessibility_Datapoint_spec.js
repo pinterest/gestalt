@@ -1,6 +1,6 @@
 describe('Datapoint Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Datapoint');
+    cy.visit('/datapoint');
     cy.injectAxe();
   });
 

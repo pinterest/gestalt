@@ -1,6 +1,6 @@
 describe('Faq Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Faq');
+    cy.visit('/faq');
     cy.injectAxe();
   });
 

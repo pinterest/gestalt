@@ -1,6 +1,6 @@
 describe('Sticky Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Sticky');
+    cy.visit('/sticky');
     cy.injectAxe();
   });
 

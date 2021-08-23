@@ -1,6 +1,6 @@
 describe('Divider Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Divider');
+    cy.visit('/divider');
     cy.injectAxe();
   });
 

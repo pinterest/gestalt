@@ -1,6 +1,6 @@
 describe('ComboBox Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ComboBox');
+    cy.visit('/combobox');
     cy.injectAxe();
   });
 

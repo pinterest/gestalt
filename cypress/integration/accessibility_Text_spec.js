@@ -1,6 +1,6 @@
 describe('Text Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Text');
+    cy.visit('/text');
     cy.injectAxe();
   });
 

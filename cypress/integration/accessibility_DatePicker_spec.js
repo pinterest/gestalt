@@ -1,6 +1,6 @@
 describe('DatePicker Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/DatePicker');
+    cy.visit('/datepicker');
     cy.injectAxe();
   });
 

@@ -1,6 +1,6 @@
 describe('Development Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Development');
+    cy.visit('/development');
     cy.injectAxe();
   });
 

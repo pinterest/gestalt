@@ -1,6 +1,6 @@
 describe('Callout Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Callout');
+    cy.visit('/callout');
     cy.injectAxe();
   });
 

@@ -1,6 +1,6 @@
 describe('Table Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Table');
+    cy.visit('/table');
     cy.injectAxe();
   });
 

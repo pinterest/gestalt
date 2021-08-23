@@ -13,7 +13,7 @@ type Props = {|
 |};
 
 export default function CardPage({ cards, page }: Props): Node {
-  const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page}.js`;
+  const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
 
   useEffect(() => {
     if (page && document) {

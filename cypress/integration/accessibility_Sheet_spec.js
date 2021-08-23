@@ -1,6 +1,6 @@
 describe('Sheet Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Sheet');
+    cy.visit('/sheet');
     cy.injectAxe();
   });
 

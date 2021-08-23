@@ -1,6 +1,6 @@
 describe('RadioButton Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/RadioButton');
+    cy.visit('/radiobutton');
     cy.injectAxe();
   });
 

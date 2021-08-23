@@ -1,6 +1,6 @@
 describe('Accessibility page Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Accessibility');
+    cy.visit('/accessibility');
     cy.injectAxe();
   });
 
