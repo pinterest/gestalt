@@ -1,3 +1,9 @@
+## 33.4.1 (Aug 23, 2021)
+
+### Patch
+
+- Docs: fix active link in sidebar (#1647)
+
 ## 33.4.0 (Aug 23, 2021)
 
 ### Minor
