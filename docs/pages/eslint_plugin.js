@@ -74,20 +74,6 @@ card(
     description="The following Eslint rules restrict the usage of Gestalt component props to enforce design consistency and code safety anf best practices."
   >
     <MainSection.Subsection
-      title="gestalt/no-dangerous-style-duplicates"
-      description={`
-        Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented.
-
-        Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle.
-
-        This linter checks for usage of already available props as dangerous styles and suggests the alternative.
-
-        With AUTOFIX!
-
-        [Learn more about Box](/Box).
-      `}
-    />
-    <MainSection.Subsection
       title="gestalt/button-icon-restrictions"
       description={`
         Require specific props when using an icon with Button. Gestalt recommends in adding icons to Buttons. Buttons using \`iconEnd\` must use:
@@ -104,6 +90,20 @@ card(
         * the officially-supported Box props
 
         * the following list of passthrough React / DOM props: \`id\`, \`key\`,\`onAnimationEnd\`, \`onAnimationIteration\`, \`onAnimationStart\`, \`onBlur\`, \`onClick\`, \`onContextMenu\`, \`onDblClick\`, \`onDoubleClick\`, \`onDrag\`, \`onDragEnd\`, \`onDragEnter\`, \`onDragExit\`, \`onDragLeave\`, \`onDragOver\`, \`onDragStart\`, \`onDrop\`, \`onFocus\`, \`onKeyDown\`, \`onKeyPress\`, \`onKeyUp\`, \`onMouseDown\`, \`onMouseEnter\`, \`onMouseLeave\`, \`onMouseMove\`, \`onMouseOut\`, \`onMouseOver\`, \`onMouseUp\`, \`onScroll\`, \`onSelect\`, \`onTouchCancel\`, \`onTouchEnd\`, \`onTouchMove\`, \`onTouchStart\`, \`onTransitionEnd\`, \`onTransitionStart\`, \`onWheel\`, \`ref\`, \`tabIndex\`.
+      `}
+    />
+    <MainSection.Subsection
+      title="gestalt/no-box-dangerous-style-duplicates"
+      description={`
+        Prevent using \`dangerouslySetInlineStyle\` on Box for props that are already directly implemented.
+
+        Box supports some props already that are not widely known and instead are being implemented with \`dangerouslySetInlineStyle\`.
+
+        This linter checks for usage of already available props as dangerous styles and suggests the alternative.
+
+        With AUTOFIX!
+
+        [Learn more about Box](/Box).
       `}
     />
     <MainSection.Subsection

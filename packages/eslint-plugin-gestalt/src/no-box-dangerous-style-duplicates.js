@@ -29,7 +29,8 @@ const rule: ESLintRule = {
         'Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented',
       category: 'Gestalt restrictions',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-dangerous-style-duplicates',
+      url:
+        'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-dangerous-style-duplicates',
     },
     fixable: 'code',
     schema: [

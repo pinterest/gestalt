@@ -5,10 +5,10 @@ import {
   getTestTypePrepender,
   readTestByPath,
 } from './helpers/testHelpers.js';
-import rule from './no-dangerous-style-duplicates.js';
+import rule from './no-box-dangerous-style-duplicates.js';
 import { generateDefaultMessage } from './helpers/styleHelpers.js';
 
-const ruleName = 'no-dangerous-style-duplicates';
+const ruleName = 'no-box-dangerous-style-duplicates';
 const ruleTester = getRuleTester();
 const pathFormatter = getPathFormatterByRuleName(ruleName);
 const validPrepender = getTestTypePrepender('valid');
@@ -66,7 +66,7 @@ const invalidTopOutput = buildInvalidTest('invalid-top-output');
 const getErrorMessage = (error) =>
   `Unnecessary Box dangerous styles found. https://gestalt.netlify.app/Box\n${error ?? ''}`;
 
-ruleTester.run('no-dangerous-style-duplicates', rule, {
+ruleTester.run('no-box-dangerous-style-duplicates', rule, {
   valid: [{ code: validCode }],
   invalid: [
     [

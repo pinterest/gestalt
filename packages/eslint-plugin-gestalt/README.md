@@ -52,7 +52,7 @@ Require specific props when using an icon with Button. Gestalt is more permissiv
 
 Disallow marginLeft/marginRight on Box. In order to have consistent usage of marginLeft/marginRight on Box in production, we update all of them to marginStart/marginEnd
 
-### gestalt/no-dangerous-style-duplicates
+### gestalt/no-box-dangerous-style-duplicates
 
 Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented. Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle. This linter checks for usage of already available props as dangerous styles and suggests the alternative.
 

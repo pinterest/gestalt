@@ -351,7 +351,7 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule](https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-dangerous-style-duplicates.js) to prevent this from happening.`}
+        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule](https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-box-dangerous-style-duplicates.js) to prevent this from happening.`}
         defaultCode={`
 function MenuButtonExample() {
   const firstBoxHeight = 50;
