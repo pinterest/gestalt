@@ -1,3 +1,9 @@
+## 33.4.3 (Aug 23, 2021)
+
+### Patch
+
+- Docs: fix favicon (#1650)
+
 ## 33.4.2 (Aug 23, 2021)
 
 ### Patch
