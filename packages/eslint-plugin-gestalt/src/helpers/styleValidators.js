@@ -68,9 +68,7 @@ export const validateBorder = (value: string): ?string => {
   // If the value is a string:
   // 1) convert everything to lowerCase (css is case-insensitive)
   // 2) sort the values since some found uses have the wrong order
-  const cleanValue =
-    value && value.toLowerCase ? value.toLowerCase().split(' ').sort().join(' ') : value;
-
+  const cleanValue = value?.toLowerCase?.().split(' ').sort().join(' ') ?? value;
   // $FlowFixMe[prop-missing]
   return borderMap[cleanValue];
 };

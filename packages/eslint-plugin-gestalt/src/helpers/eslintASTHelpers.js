@@ -11,14 +11,19 @@ type GetPropertiesFromVariableType = ({|
   variableNode: GenericNode,
 |}) => AnyType;
 
-/** This function returns ...
+/** This function returns the properties from a variable in scope
+Example 1:
+const a = { color: "red"}
+<Box color={a}> >> returns the color property
  */
 const getPropertiesFromVariable: GetPropertiesFromVariableType = ({ variableNode }) =>
   variableNode?.resolved?.defs?.[0]?.node?.init?.properties;
 
 type GetInlineDefinedStylesType = ({| attributeNode: GenericNode |}) => ?GenericNode;
 
-/** This function returns ...
+/** This function returns the inline style defined in Box within dangerouslySetInlineStyle
+Example 1: Return the property color from variable a
+<Box dangerouslySetInlineStyle={{ __style: { color: red }}}> >> returns the color property
  */
 const getInlineDefinedStyles: GetInlineDefinedStylesType = ({ attributeNode }) => {
   const propertyNode = attributeNode?.value?.expression?.properties?.[0];
@@ -29,7 +34,7 @@ type GetOpeningElementType = ({|
   elementNode: GenericNode,
 |}) => GenericNode;
 
-/** This function returns ...
+/** This function returns the opening element independently of the node passed
  */
 const getOpeningElement: GetOpeningElementType = ({ elementNode }) =>
   elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
@@ -38,7 +43,10 @@ type GetVariableDefinedStylesType = ({|
   variableNode: GenericNode,
 |}) => ?GenericNode;
 
-/** This function returns ...
+/** This function returns the style defined a varianle and passed to Box's dangerouslySetInlineStyle
+Example 1: Return the property color from variable a
+const a = { color: "red"}
+<Box dangerouslySetInlineStyle={{ __style: a }}> >> returns the color property
  */
 const getVariableDefinedStyles: GetVariableDefinedStylesType = ({ variableNode }) => {
   const propertyNode = getPropertiesFromVariable({ variableNode })?.[0];
@@ -318,7 +326,7 @@ type HasAttributesType = ({|
   attributes: $ReadOnlyArray<string>,
 |}) => boolean;
 
-/** This function checks is a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
+/** This function checks if a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
 Example 1:
 \<div role="button" \/\> if attribute="role" returns true
 */
@@ -331,7 +339,7 @@ type HasAriaAttributesType = ({|
   tagName: string,
 |}) => boolean;
 
-/** This function checks is a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
+/** This function checks if a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
 Example 1:
 \<div aria-label="test" \/\> returns true
 */
@@ -365,7 +373,7 @@ type IsGestaltComponentType = ({|
   componentName: string,
 |}) => boolean;
 
-/** This function ... */
+/** This function checks if component is a Gestalt import and return true if so */
 const isGestaltComponent: IsGestaltComponentType = ({
   elementNode,
   gestaltImportNode,
