@@ -1,3 +1,9 @@
+## 33.4.0 (Aug 23, 2021)
+
+### Minor
+
+- Lint rules: Add `prefer-flex` rule w/autofix (#1628)
+
 ## 33.3.0 (Aug 23, 2021)
 
 ### Minor
