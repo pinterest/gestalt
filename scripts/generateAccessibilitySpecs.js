@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('@babel/register');
 const fs = require('fs');
-const sidebarIndex = require('../docs/src/components/sidebarIndex.js');
+const sidebarIndex = require('../docs/components/sidebarIndex.js');
 
 async function generate() {
   const pages = sidebarIndex.default.reduce(

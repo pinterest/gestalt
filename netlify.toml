@@ -1,5 +1,5 @@
 [build]
-  publish = "docs/build"
+  publish = "docs/out"
   command = "./scripts/netlify.sh"
 
 [dev]
@@ -17,3 +17,6 @@
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

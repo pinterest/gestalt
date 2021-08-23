@@ -39,7 +39,7 @@ describe('Video loading', () => {
       src: [
         {
           type: 'video/mp4',
-          src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+          src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
         },
       ],
     };
@@ -62,7 +62,7 @@ describe('Video loading', () => {
     const { container, rerender } = render(<Video {...props} />);
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
-    rerender(<Video {...props} src="http://media.w3.org/2010/05/bunny/movie.mp4" />);
+    rerender(<Video {...props} src="https://media.w3.org/2010/05/bunny/movie.mp4" />);
     expect(spy).toHaveBeenCalled();
   });
 
@@ -83,7 +83,7 @@ describe('Video loading', () => {
         src={[
           {
             type: 'video/mp4',
-            src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+            src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
           },
         ]}
       />,
@@ -99,7 +99,7 @@ describe('Video loading', () => {
       src: [
         {
           type: 'video/mp4',
-          src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+          src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
         },
       ],
     };
@@ -133,7 +133,7 @@ describe('Video loading', () => {
         src={[
           {
             type: 'video/mp4',
-            src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+            src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
           },
         ]}
       />,

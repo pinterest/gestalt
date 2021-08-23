@@ -1,10 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box } from 'gestalt';
-import PropTable from './components/PropTable.js';
-import CombinationNew from './components/CombinationNew.js';
-import PageHeader from './components/PageHeader.js';
-import MainSection from './components/MainSection.js';
+import PropTable from '../components/PropTable.js';
+import CombinationNew from '../components/CombinationNew.js';
+import PageHeader from '../components/PageHeader.js';
+import MainSection from '../components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
