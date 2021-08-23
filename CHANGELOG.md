@@ -1,3 +1,9 @@
+## 33.3.0 (Aug 23, 2021)
+
+### Minor
+
+- Interal: Convert docs to Next.js (#1642)
+
 ## 33.2.2 (Aug 23, 2021)
 
 ### Patch
