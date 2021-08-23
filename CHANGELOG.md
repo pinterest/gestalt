@@ -1,3 +1,9 @@
+## 33.2.2 (Aug 23, 2021)
+
+### Patch
+
+- Docs: Remove tokens import temporarily (#1646)
+
 ## 33.2.1 (Aug 20, 2021)
 
 ### Patch
