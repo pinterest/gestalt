@@ -42,6 +42,7 @@ describe('useReducedMotion', () => {
         ...mediaqueryDefaults,
         matches: false,
         addEventListener(event, listener) {
+          // $FlowFixMe[object-this-reference]
           this.matches = true;
           change = listener;
         },

@@ -81,6 +81,7 @@ type State = {|
 // https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
 
 const requestFullscreen = (element: HTMLElement) => {
+  // $FlowFixMe[method-unbinding]
   if (element.requestFullscreen) {
     element.requestFullscreen();
     // $FlowFixMe[prop-missing]
@@ -99,6 +100,7 @@ const requestFullscreen = (element: HTMLElement) => {
 };
 
 const exitFullscreen = () => {
+  // $FlowFixMe[method-unbinding]
   if (document.exitFullscreen) {
     document.exitFullscreen();
     // $FlowFixMe[prop-missing]
@@ -331,6 +333,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Change the video source and re-load the video
   load: () => void = () => {
+    // $FlowFixMe[method-unbinding]
     if (this.video && this.video.load) {
       this.video.load();
     }
