@@ -12,19 +12,20 @@ type GenericNode = {| [string]: any |};
 Fixers are the functions executed in the fix method inside context.report
 */
 
-type InsertGestaltImportTopFileFixerType = ({|
-  context: GenericNode,
+type updateGestaltImportFixerType = ({|
   fixer: GenericNode,
   gestaltImportNode: GenericNode,
+  importsToRemove?: $ReadOnlyArray<string>,
   newComponentName: string,
   programNode: GenericNode,
 |}) => GenericNode;
 
 /** This function updates the imports to include the new Gestalt component if needed. If there's no previous Gestalt import, it's preprended at the top of the file. It mantains aliased imports.
  */
-export const updateGestaltImportFixer: InsertGestaltImportTopFileFixerType = ({
+export const updateGestaltImportFixer: updateGestaltImportFixerType = ({
   fixer,
   gestaltImportNode,
+  importsToRemove,
   newComponentName,
   programNode,
 }) => {
@@ -45,7 +46,11 @@ export const updateGestaltImportFixer: InsertGestaltImportTopFileFixerType = ({
     importsComponentsArray.push([newComponentName, newComponentName]);
   }
 
-  const sortedImports = importsComponentsArray
+  const filteredImportComponents = importsToRemove
+    ? importsComponentsArray.filter((component) => !importsToRemove.includes(component[0]))
+    : importsComponentsArray;
+
+  const sortedImports = filteredImportComponents
     .map((cmp) => {
       if (cmp[0] === cmp[1]) return cmp[0]; // import and local names match
       return `${cmp[0]} as ${cmp[1]}`; // import and local names don't match, keep alias
@@ -81,8 +86,8 @@ export const renameTagFixer: RenameTagFixerType = ({
 }) => {
   return [elementNode.openingElement, elementNode.closingElement]
     .map((node) => {
-      // $FlowFixMe[incompatible-type] Flow is not detecting the method filter(Boolean)
-      if (!node) return false;
+      if (!node) return undefined;
+
       const namedImportsComponents =
         getNamedImportsComponents({
           importNode: gestaltImportNode,
@@ -125,19 +130,19 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
   newComponentName,
   tagName,
 }) => {
-  return [elementNode.openingElement, elementNode.closingElement]
+  const openingElement =
+    elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
+  const finalNewComponentName = getLocalComponentImportName({
+    importNode: gestaltImportNode,
+    componentName: newComponentName,
+  });
+  const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
+    elementNode.closingElement ? '' : ' /'
+  }>`;
+
+  return [openingElement, elementNode.closingElement]
     .map((node, index) => {
-      // $FlowFixMe[incompatible-type] Flow is not detecting the method filter(Boolean)
-      if (!node) return false;
-
-      const finalNewComponentName = getLocalComponentImportName({
-        importNode: gestaltImportNode,
-        componentName: newComponentName,
-      });
-
-      const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
-        elementNode.closingElement ? '' : ' /'
-      }>`;
+      if (!node) return undefined;
 
       return index === 0
         ? fixer.replaceText(node, completeOpeningNode)

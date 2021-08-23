@@ -79,7 +79,6 @@ const rule: ESLintRule = {
           });
 
           const importFixers = updateGestaltImportFixer({
-            context,
             fixer,
             gestaltImportNode,
             newComponentName: 'Box',
