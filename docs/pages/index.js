@@ -6,9 +6,9 @@ export default function Index(): Node {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/Whats_New');
+    router.push('/whats_new');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>Redirecting...</div>;
+  return <div />;
 }
