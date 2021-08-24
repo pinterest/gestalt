@@ -1,3 +1,9 @@
+## 33.4.4 (Aug 24, 2021)
+
+### Patch
+
+- Docs: fix local redirects (#1651)
+
 ## 33.4.3 (Aug 23, 2021)
 
 ### Patch
