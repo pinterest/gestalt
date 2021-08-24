@@ -1,3 +1,9 @@
+## 33.6.0 (Aug 24, 2021)
+
+### Minor
+
+- Image: Add crossorigin property (#1640)
+
 ## 33.5.0 (Aug 24, 2021)
 
 ### Minor
