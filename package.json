@@ -98,7 +98,7 @@
     "a11y:generate": "./scripts/generateAccessibilitySpecs.js",
     "a11y:validate": "./scripts/validateAccessibilitySpecs.js",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
-    "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build && cd ../eslint-plugin-gestalt && yarn build && cd ../gestalt-design-tokens && yarn build && cd ../../docs && yarn build",
+    "build": "cd ../gestalt-design-tokens && yarn build && cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build && cd ../eslint-plugin-gestalt && yarn build && cd ../../docs && yarn build",
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
     "css:validate": "./scripts/cssValidate.js",
     "generate": "./scripts/generateComponent.js",

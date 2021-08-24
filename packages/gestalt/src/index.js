@@ -1,4 +1,5 @@
 // @flow strict
+import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';

@@ -19,10 +19,11 @@ function srcDirectory(item) {
   return path.join(__dirname, '..', 'packages', item, 'src');
 }
 
+// The order of these packages is important!
 const packages = [
+  'gestalt-design-tokens',
   'gestalt',
   'gestalt-datepicker',
-  'gestalt-design-tokens',
   'eslint-plugin-gestalt',
 ];
 const packageJSON = packageJSONPath('gestalt');
