@@ -16,10 +16,11 @@ export type Props = {|
   alignSelf?: AlignSelf,
   children?: Node,
   flex?: Flex,
+  flexBasis?: string | number,
   minWidth?: Dimension,
 |};
 
-const allowedProps = ['alignSelf', 'children', 'flex', 'minWidth'];
+const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'minWidth'];
 
 /**
  * https://gestalt.pinterest.systems/Flex
@@ -40,5 +41,8 @@ FlexItem.propTypes = {
   alignSelf: AlignSelfPropType,
   children: PropTypes.node.isRequired,
   flex: FlexPropType,
+  flexBasis: (PropTypes.oneOf([PropTypes.string, PropTypes.number]): React$PropType$Primitive<
+    string | number,
+  >),
   minWidth: DimensionPropType,
 };

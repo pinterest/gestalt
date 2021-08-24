@@ -137,6 +137,43 @@ card(
 );
 
 card(
+  <PropTable
+    name="Flex.Item"
+    id="Flex.Item"
+    Component={Flex?.Item}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'alignSelf',
+        type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
+        defaultValue: 'stretch',
+        description:
+          'Allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.',
+      },
+      {
+        name: 'flex',
+        type: '"grow" | "shrink" | "none"',
+        defaultValue: 'shrink',
+        description: `Defines how a flex item will be sized. \`"grow"\`, equivalent to \`"flex: 1 1 auto"\`, will size the Flex.Item relative to its parent, growing and shrinking based on available space. \`"shrink"\`, equivalent to \`"flex: 0 1 auto"\` (the browser default), allows the Flex.Item to shrink if compressed but not grow if given extra space. Finally, \`"none"\`, equivalent to \`"flex: 0 0 auto"\`, preserves the Flex.Item's size based on child content regardless of its container's size.`,
+      },
+      {
+        name: 'flexBasis',
+        type: `number | string`,
+        description: `Defines the initial main size of the flex item. Use numbers for pixels: \`flexBasis={100}\` and strings for other units: \`flexBasis="100vh"\`.`,
+      },
+      {
+        name: 'minWidth',
+        type: `number | string`,
+        description: `Use numbers for pixels: \`minWidth={100}\` and strings for percentages: \`minWidth="100%"\`. Can be used to fix overflowing children; see [the example](#FlexItem-minWidth) to learn more.`,
+      },
+    ]}
+  />,
+);
+
+card(
   <Example
     description={`
     When using the 'gap' property, Flex wraps each child in a Flex.Item sub-component. If one of more of those children need custom flex properties, you can use Flex.Item directly.
@@ -157,34 +194,26 @@ card(
 );
 
 card(
-  <PropTable
-    name="Flex.Item"
-    id="Flex.Item"
-    Component={Flex?.Item}
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'alignSelf',
-        type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
-        defaultValue: 'stretch',
-        description:
-          'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
-      },
-      {
-        name: 'flex',
-        type: '"grow" | "shrink" | "none"',
-        defaultValue: 'shrink',
-        description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Flex relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Flex to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Flex's size based on child content regardless of its container's size.`,
-      },
-      {
-        name: 'minWidth',
-        type: `number | string`,
-        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%". Can be used to fix overflowing children; see [the example](#FlexItem-minWidth) to learn more.`,
-      },
-    ]}
+  <Example
+    description={`
+    If an item needs a different width in the flex layout than the content would otherwise indicate, \`flexBasis\` can be used.
+  `}
+    name="Example: Initial item width using flexBasis"
+    defaultCode={`
+<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
+  <Flex alignItems="center" gap={4} width="100%">
+    <Flex.Item flexBasis={200}>
+      <Text>Some text</Text>
+    </Flex.Item>
+
+    <Text>Some text</Text>
+
+    <Flex.Item flexBasis="10em">
+      <Text>Some really really really really really really really long text</Text>
+    </Flex.Item>
+  </Flex>
+</Box>
+`}
   />,
 );
 
