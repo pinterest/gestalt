@@ -1,3 +1,9 @@
+## 33.5.0 (Aug 24, 2021)
+
+### Minor
+
+- Flex: Add `flexBasis` prop to Flex.Item (#1648)
+
 ## 33.4.4 (Aug 24, 2021)
 
 ### Patch
