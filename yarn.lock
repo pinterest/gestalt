@@ -7700,6 +7700,15 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
+gestalt-datepicker@^33.4.3:
+  version "33.4.3"
+  resolved "https://registry.npmjs.org/gestalt-datepicker/-/gestalt-datepicker-33.4.3.tgz#c07c9942ce91b209d7bd7339bf0748e6d8ab3744"
+  integrity sha512-lFddbuY93LNHnRIz5QlvFSnv7O//66oxvYjSdNJfrfikTcKr6TdeRQebZXOCCs7onFtp2w/0iWEVx1iAyVd4QQ==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    react-datepicker "2.15.0"
+
 get-amd-module-type@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-amd-module-type/-/get-amd-module-type-3.0.0.tgz#bb334662fa04427018c937774570de495845c288"
