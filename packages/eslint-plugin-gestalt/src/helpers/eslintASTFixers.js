@@ -135,11 +135,12 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
     importNode: gestaltImportNode,
     componentName: newComponentName,
   });
+  const openingElement = getOpeningElement({ elementNode });
   const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
-    elementNode.closingElement ? '' : ' /'
+    openingElement.selfClosing ? ' /' : ''
   }>`;
 
-  return [getOpeningElement({ elementNode }), elementNode?.closingElement]
+  return [openingElement, elementNode?.closingElement]
     .map((node, index) => {
       if (!node) return undefined;
 

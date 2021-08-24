@@ -39,6 +39,7 @@ type MatchKeyErrorsType = (
 type DimensionFormattingType = ({| keyName: string, value: string |}) => ?string;
 
 const dimensionFormatting: DimensionFormattingType = ({ keyName, value }) => {
+  if (typeof value === 'number') return `${keyName ?? ''}={${value}}`;
   if (value.endsWith('%')) return `${keyName ?? ''}="${value}"`;
   if (value.endsWith('px')) return `${keyName ?? ''}={${value.replace('px', '')}}`;
   return null;
@@ -267,10 +268,9 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
       case 'maxWidth':
         if (includeKey('maxWidth')) {
           const alternative = dimensionFormatting({
-            keyName: alternativeMap.node?.key?.name,
+            keyName: alternativeMap.name,
             value: alternativeMap.value,
           });
-
           accumulatorAlternativesBuilder.push({
             node: alternativeMap.node,
             prop: alternative,
@@ -410,7 +410,6 @@ const buildValidatorResponsesFromStyleProperties: BuildValidatorResponseFromStyl
   styleProperties
     .map((stylePropertyNode) => {
       const { key, type, value } = stylePropertyNode;
-
       return !key || value.value === undefined
         ? { name: type, value: null, node: stylePropertyNode }
         : { name: key.name, value: value.value, node: stylePropertyNode };

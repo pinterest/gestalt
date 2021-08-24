@@ -11,6 +11,8 @@ export default function TestElement() {
           marginLeft: '8px',
         },
       }}
-    />
+    >
+      <Box />
+    </Box>
   );
 }

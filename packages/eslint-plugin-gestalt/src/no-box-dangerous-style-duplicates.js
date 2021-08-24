@@ -85,6 +85,28 @@ const rule: ESLintRule = {
       // exit if not dangerouslySetInlineStyle prop
       if (!attributeNode) return null;
 
+      const styleValuesRegex = new RegExp(
+        /dangerouslySetInlineStyle={{[\s\S]*__style:[\s\S]*{([\s\S]+)}[\s\S]*}[\s\S]*}/,
+        'i',
+      );
+
+      const ignoreCharsRegex = new RegExp(/\?|\+|\*|&|\$|\/|\|/g);
+
+      const completeDangerouslySetInlineStyle = getTextNodeFromSourceCode({
+        context,
+        elementNode: attributeNode,
+      });
+
+      // some edge case characters make cleaning the string dangerouslySetInlineStyle highly complex, just messaging with options, not fixing
+      const isFixable = !ignoreCharsRegex.test(completeDangerouslySetInlineStyle ?? '');
+
+      // reconstructedDangerouslySetInlineStyle contains a string with the dangerouslySetInlineStyle styles
+      let reconstructedDangerouslySetInlineStyle = isFixable
+        ? completeDangerouslySetInlineStyle
+            .replace(/\s/g, '') // remove all spaces
+            .match(styleValuesRegex)?.[1]
+        : ''; // match regex
+
       // 1st: Check if style is declared inline
       const inlineStyleProperties = getInlineDefinedStyles({ attributeNode });
 
@@ -113,71 +135,83 @@ const rule: ESLintRule = {
       });
 
       // exit if there are not style properties alternatives to suggest/autofix
-      if (!validatorResponse.length) return null;
+      if (!validatorResponse.map((a) => !!a.prop).filter(Boolean).length) return null;
 
       const newPropsToAddToBox = validatorResponse
         ?.map((alternative) => alternative.prop)
         .sort()
         .join(' ');
 
-      const attributesToRemoveFromDangerouslySetInlineStyle = validatorResponse.map((alternative) =>
-        getTextNodeFromSourceCode({ context, elementNode: alternative.node }),
-      );
+      const attributesToRemoveFromDangerouslySetInlineStyle = isFixable
+        ? validatorResponse.map(
+            (alternative) =>
+              getTextNodeFromSourceCode({ context, elementNode: alternative.node }).replace(
+                /\s/g,
+                '',
+              ), // remove spaces from attribute match,
+          )
+        : [];
 
       const errorMessage = validatorResponse.map((alternative) => alternative.message).join('\n');
 
-      const styleValuesRegex = new RegExp(
-        /dangerouslySetInlineStyle={{[\s\S]*__style:[\s\S]*{([\s\S]+)}[\s\S]*}[\s\S]*}/,
-        'i',
-      );
+      // remove attributes for which there's a Gestalt alternative being suggested/fixes
+      if (isFixable) {
+        attributesToRemoveFromDangerouslySetInlineStyle.forEach((attribute) => {
+          reconstructedDangerouslySetInlineStyle = reconstructedDangerouslySetInlineStyle?.replace(
+            attribute,
+            '',
+          );
+        });
+      }
 
       const isDangerouslySetInlineStyleEmptyAfterFix =
         styleProperties.length - validatorResponse.length === 0;
 
-      const reconstructedDangerouslySetInlineStyle = isDangerouslySetInlineStyleEmptyAfterFix
-        ? '' // optimization, prop unused and removed
-        : `dangerouslySetInlineStyle={{ __style: { ${
-            // get the full dangerouslySetInlineStyle prop text
-            getTextNodeFromSourceCode({
-              context,
-              elementNode: attributeNode,
-            })
-              .match(styleValuesRegex)?.[1] // isolate all the styles from the full dangerouslySetInlineStyle prop text
-              ?.split(',') // itemize each style attribute
-              .map((a) => a.trim()) // clean up left/right spaces
-              .filter((string) => !attributesToRemoveFromDangerouslySetInlineStyle.includes(string)) // remove attributes for which there's a Gestalt alternative being suggested/fixed
-              .sort() // sort
-              .join(', ') ?? '' // generate final string
-          } } }}`;
+      const dangerouslySetInlineStyle =
+        isDangerouslySetInlineStyleEmptyAfterFix || !isFixable
+          ? '' // optimization, prop unused and removed
+          : `dangerouslySetInlineStyle={{ __style: { ${
+              reconstructedDangerouslySetInlineStyle
+                ?.replace(/,+/g, ',') // remove double commas after attribute removal
+                .replace(/^,/, '') // remove starting commas
+                .replace(/,$/, '') // remove trailing commas
+                .replace(/[,]/g, ', ') // add back space after commas
+                .replace(/[:]/g, ': ') ?? // add back space after colons
+              ''
+            } } }}`;
 
-      const reconstructedBoxProps = `${newPropsToAddToBox} ${reconstructedDangerouslySetInlineStyle}`;
+      const reconstructedBoxProps = `${newPropsToAddToBox} ${dangerouslySetInlineStyle ?? ''}`;
 
-      const builtProps = buildProps({
-        context,
-        elementNode: node,
-        propsToAdd: isDangerouslySetInlineStyleEmptyAfterFix
-          ? newPropsToAddToBox
-          : reconstructedBoxProps,
-        propsToRemove: ['dangerouslySetInlineStyle'],
-      });
+      const builtProps = isFixable
+        ? buildProps({
+            context,
+            elementNode: node,
+            propsToAdd: isDangerouslySetInlineStyleEmptyAfterFix
+              ? newPropsToAddToBox
+              : reconstructedBoxProps,
+            propsToRemove: ['dangerouslySetInlineStyle'],
+          })
+        : '';
 
       return context.report({
         node,
         messageId: 'disallowed',
         data: { errorMessage },
-        fix: (fixer) => {
-          const tagFixers = renameTagWithPropsFixer({
-            context,
-            elementNode: node,
-            fixer,
-            gestaltImportNode,
-            newComponentName: 'Box',
-            modifiedPropsString: builtProps,
-            tagName: 'Box',
-          });
+        fix: isFixable
+          ? (fixer) => {
+              const tagFixers = renameTagWithPropsFixer({
+                context,
+                elementNode: node,
+                fixer,
+                gestaltImportNode,
+                newComponentName: 'Box',
+                modifiedPropsString: builtProps,
+                tagName: 'Box',
+              });
 
-          return tagFixers;
-        },
+              return tagFixers;
+            }
+          : null,
       });
     };
 

@@ -40,6 +40,9 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+    // Exclude test files from Eslint
+    if (context.getFilename().endsWith('.test.js')) return {};
+
     let programNode;
     let gestaltImportNode;
     let importFixerRun = false;

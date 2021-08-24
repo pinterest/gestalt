@@ -150,9 +150,17 @@ const buildProps: RetrieveKeyValuesFromPropsType = ({
     ? openingElement.attributes.filter((prop) => !(propsToRemove ?? []).includes(prop.name.name))
     : openingElement.attributes;
 
-  const previousProps = filteredProps.map(
-    (prop) =>
-      `${prop.name.name}=${getTextNodeFromSourceCode({ context, elementNode: prop.value })}`,
+  const previousProps = filteredProps.map((prop) =>
+    prop.value
+      ? `${prop.name.name}=${getTextNodeFromSourceCode({
+          context,
+          elementNode: prop.value,
+        })}`
+      : // catch boolean props
+        getTextNodeFromSourceCode({
+          context,
+          elementNode: prop,
+        }),
   );
 
   const propsArray = propsToAdd ? [...previousProps, propsToAdd] : previousProps;

@@ -50,6 +50,7 @@ const invalidMultipleInput = buildInvalidTest('invalid-multiple-input');
 const invalidMultipleOutput = buildInvalidTest('invalid-multiple-output');
 const invalidMultipleKeysInput = buildInvalidTest('invalid-multiple-keys-input');
 const invalidMultipleKeysOutput = buildInvalidTest('invalid-multiple-keys-output');
+const invalidMultipleKeysNoAutofix = buildInvalidTest('invalid-multiple-keys-no-autofix');
 const invalidOpacityInput = buildInvalidTest('invalid-opacity-input');
 const invalidOpacityOutput = buildInvalidTest('invalid-opacity-output');
 const invalidOverflowInput = buildInvalidTest('invalid-overflow-input');
@@ -105,6 +106,12 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     [
       invalidMultipleKeysInput,
       invalidMultipleKeysOutput,
+      generateDefaultMessage(`top`),
+      [{ onlyKeys: ['top'] }],
+    ],
+    [
+      invalidMultipleKeysNoAutofix,
+      invalidMultipleKeysNoAutofix,
       generateDefaultMessage(`top`),
       [{ onlyKeys: ['top'] }],
     ],
