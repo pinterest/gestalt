@@ -9,7 +9,7 @@ console.log(`Publishing version: ${version}`);
 
 // Publish command to post to npm - must be run in the same directory as the gestalt package
 // `yarn publish` publishes the package defined by the package.json in the current directory.
-// The order of these packages is important! 
+// The order of these packages is important!
 // The gestalt package depends on the tokens package, so that must be listed first.
 const packages = [
   'gestalt-design-tokens',
