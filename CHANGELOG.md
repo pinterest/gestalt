@@ -1,3 +1,9 @@
+## 33.7.2 (Aug 25, 2021)
+
+### Patch
+
+- Internal: Update build process for new package (#1653)
+
 ## 33.7.1 (Aug 25, 2021)
 
 ### Patch
