@@ -41,6 +41,7 @@ export default function Layer({
       initialPositionRef: initialPositionRef?.current,
     });
 
+    // $FlowFixMe[method-unbinding]
     if (typeof document !== 'undefined' && document.createElement) {
       portalContainer.current = document.createElement('div');
     }

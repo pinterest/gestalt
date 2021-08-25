@@ -69,6 +69,7 @@ describe('useResponsiveMinWidth', () => {
         ...mediaqueryDefaults,
         matches: false,
         addEventListener(event, listener) {
+          // $FlowFixMe[object-this-reference]
           this.matches = query === '(min-width: 768px)';
           change = listener;
         },

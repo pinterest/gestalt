@@ -83,6 +83,7 @@ function setupGlobalFocusEvents() {
   // However, we need to detect other cases when a focus event occurs without
   // a preceding user event (e.g. screen reader focus). Overriding the focus
   // method on HTMLElement.prototype is a bit hacky, but works.
+  // $FlowFixMe[method-unbinding]
   const { focus } = HTMLElement.prototype;
   // $FlowIssue[cannot-write]
   HTMLElement.prototype.focus = function focusElement(...args) {

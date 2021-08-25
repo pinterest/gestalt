@@ -1,5 +1,5 @@
 [version]
-0.145.0
+0.158.0
 
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
@@ -8,7 +8,6 @@
 <PROJECT_ROOT>/scripts/templates/
 
 [options]
-esproposal.optional_chaining=enable
 exact_by_default=true
 include_warnings=true
 react.runtime=automatic
