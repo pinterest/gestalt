@@ -19,7 +19,8 @@ function srcDirectory(item) {
   return path.join(__dirname, '..', 'packages', item, 'src');
 }
 
-// The order of these packages is important!
+// The order of these packages is important! 
+// The gestalt package depends on the tokens package, so that must be listed first.
 const packages = [
   'gestalt-design-tokens',
   'gestalt',
