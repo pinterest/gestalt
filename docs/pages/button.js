@@ -782,6 +782,7 @@ function OnNavigation() {
 );
 */
 
+/*
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
@@ -1114,6 +1115,471 @@ function ButtonPopoverExample() {
         selected={selected}
         text={selected ? "Hide Popover" : "Show Popover"}
         iconEnd="arrow-down"
+      />
+      {selected && (
+        <Popover
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setSelected(false)}
+          shouldFocus={false}
+        >
+          <Box padding={3}>
+            <Text weight="bold">This is a Button with an anchor ref to a Popover component</Text>
+          </Box>
+        </Popover>
+      )}
+    </React.Fragment>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Custom navigation"
+      description={customNavigationDescription('Button')}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
+
+  const onNavigation = ({ href,target }) => {
+    const onNavigationClick = ({ event }) => {
+      event.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <OnLinkNavigationProvider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
+
+  const customOnNavigation = () => {
+    // eslint-disable-next-line no-alert
+    alert('CUSTOM NAVIGATION set on <Button onClick/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
+    window.open('https://help.pinterest.com', '_blank');
+  }
+
+  const onClickHandler = ({ event, disableOnNavigation }) => {
+    if (onNavigationMode === 'provider_disabled') {
+      disableOnNavigation()
+    } else if (onNavigationMode === 'link_custom') {
+      event.preventDefault();
+      disableOnNavigation();
+      customOnNavigation();
+    }
+  }
+
+  const linkProps = {
+    href:"https://pinterest.com",
+    onClick: onClickHandler,
+    target:"blank",
+  }
+
+  return (
+    <OnLinkNavigationProvider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={2}>
+          <Text>Navigation controller:</Text>
+            <RadioButton
+              checked={onNavigationMode === 'provider_disabled'}
+              id="provider_disabled"
+              label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_disabled')}
+              value="provider_disabled"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'provider_custom'}
+              id="provider_custom"
+              label="Custom navigation set on OnLinkNavigationProvider"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_custom')}
+              value="provider_custom"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'link_custom'}
+              id="link_custom"
+              label="Custom navigation set on Button"
+              name="navigation"
+              onChange={() => setOnNavigationMode('link_custom')}
+              value="link_custom"
+            />
+          <Divider/>
+        </Flex>
+        <Button fullWidth {...linkProps} role="link" text="Visit pinterest.com"/>
+      </Flex>
+    </OnLinkNavigationProvider>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+*/
+
+card(
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      title="Size"
+      description={`Button is available in 3 fixed sizes:
+
+1. \`lg\` (48px)
+    Large is the only size that should be used on Pinner surfaces.
+2. \`md\` (40px)
+    Medium is the size used on more dense UI such as business surfaces or internal tools.
+3. \`sm\` (32px)
+    Small IconButton should be used sparingly and only in places where the UI is very dense.
+
+Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
+    >
+      <CombinationNew size={['sm', 'md', 'lg']}>
+        {({ size }) => (
+          <Button accessibilityLabel={`Example size ${size}`} color="red" text="Save" size={size} />
+        )}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Width"
+      description={`
+1. Inline (default)
+    Inline is our default Button width. Use in most cases where you need a Button.
+2. Full-width (\`fullWidth\`)
+    Full-width Buttons can be used in narrower content areas (less than 320px) when the text in the button is close to full width in the content area. This is especially common to see in components such as Callout and Upsell at their smaller breakpoints.
+
+Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
+    >
+      <CombinationNew fullwidth={[false, true]}>
+        {({ fullwidth }) => (
+          <Button
+            accessibilityLabel={`Example width ${fullwidth}`}
+            color="red"
+            text="Save"
+            fullWidth={fullwidth}
+            size="lg"
+          />
+        )}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Color"
+      description={`
+1. Red (Primary)
+    High emphasis, used for primary actions.
+2. Gray (Secondary)
+    Medium emphasis, used for secondary actions.
+3. White (Tertiary)
+    Low emphasis when placed on white backgrounds, used for tertiary actions, and medium emphasis, used for secondary actions when placed on dark backgrounds.
+4. Blue (Shopping)
+    High emphasis, used for primary actions on shopping actions.
+5. Transparent
+    Medium emphasis, used for secondary or tertiary actions on a background
+6. Semi-transparent white
+    [PJ TO FILL OUT]
+`}
+    >
+      <CombinationNew
+        color={['red', 'gray', 'white', 'blue', 'transparent', 'semiTransparentWhite']}
+      >
+        {({ color }) => (
+          <Button
+            accessibilityLabel={`Example width ${color}`}
+            color={color}
+            text="Button"
+            size="lg"
+          />
+        )}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Color on backgrounds"
+      description={`
+1. Dark or colored background
+    Use \`white\` Buttons to denote the primary action and \`semiTransparentWhite\` Buttons to denote the secondary action.
+2. Image background
+    Use \`white\` Buttons to denote the primary action and \`semiTransparentWhite\` Buttons to denote the secondary action.
+`}
+    >
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Box height={300} padding={3} width={250} color='darkGray'>
+  <Flex direction="column" gap={2} height="100%" justifyContent="end">
+    <Button
+      accessibilityLabel='Primary'
+      color="white"
+      text="Primary"
+      fullWidth
+      size="lg"
+      />
+    <Button
+      accessibilityLabel='Secondary'
+      color="semiTransparentWhite"
+      text="Secondary"
+      fullWidth
+      size="lg"
+      />
+  </Flex>
+</Box>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Box height={300} paddingX={2} width={250}>
+  <Image
+  src='https://i.ibb.co/7bQQYkX/stock2.jpg'
+  alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
+  color="rgb(231, 186, 176)"
+  naturalHeight={751}
+  naturalWidth={564}
+  >
+    <Box height="100%" padding={3}>
+      <Flex direction="column" gap={2} height="100%" justifyContent="end">
+        <Button
+          accessibilityLabel='Primary'
+          color="white"
+          text="Primary"
+          fullWidth
+          size="lg"
+          />
+        <Button
+          accessibilityLabel='Secondary'
+          color="semiTransparentWhite"
+          text="Secondary"
+          fullWidth
+          size="lg"
+          />
+      </Flex>
+    </Box>
+  </Image>
+</Box>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Icons"
+      description={`
+1. Icon end
+    Icons at the end of the Button can be used to help visually clarify the Button’s purpose. Note that Icons on Buttons are not accessible for screen readers.
+`}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Button
+  accessibilityLabel='Menu'
+  iconEnd="arrow-down"
+  size="lg"
+  text="Menu"
+/>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Role"
+      description={`
+1. Button (default)
+    The “button” \`role\` is used for actions. This is the default and should be used for most Buttons.
+2. Link
+    The “link” \`role\` is used for navigating by URL. These Buttons should not use a \`selected\` state.
+`}
+    >
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Button
+  accessibilityLabel='Button'
+  size="lg"
+  text="Button"
+  role="button"
+/>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Button
+  accessibilityLabel='Link'
+  iconEnd="arrow-up-right"
+  size="lg"
+  text="Link"
+  role="link"
+  href="https://pinterest.com"
+/>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="rel and target"
+      description={`
+These optional props control the behavior of \`role="link"\` Buttons. External links commonly use \`target="_blank"\` to open the link in a new tab or window, and \`rel="nofollow"\` to provide hints for SEO.
+`}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Button
+  accessibilityLabel='Link'
+  iconEnd="arrow-up-right"
+  size="lg"
+  text="Link"
+  role="link"
+  rel="nofollow"
+  target="_blank"
+  href="https://pinterest.com"
+/>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="States"
+      description={`
+1. Default
+    The typical state of a button that represents it can be interacted with and is not in a selected state.
+2. Disabled
+    Used to block user interaction such as hover, focus and click.
+3. Selected
+  When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state. Do not use this prop with \`role="link"\` Buttons.
+`}
+    >
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Button
+  accessibilityLabel='Save'
+  color="red"
+  text="Save"
+  size="lg"
+/>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Button
+  accessibilityLabel='Save'
+  color="red"
+  disabled
+  text="Save"
+  size="lg"
+/>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Button
+  accessibilityLabel='Following'
+  text="Following"
+  selected
+  size="lg"
+/>
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Writing">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description={`
+- If your object is already described on the screen, Buttons only need a verb.
+- If your object isn’t described on the screen, Buttons need a verb + the object.
+- Use fewer than 3 words.
+- Use sentence case.
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description={`
+- Do not use punctuation.
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Accessibility props: controls, expanded, & popup"
+      description={`
+[TO FILL OUT]
+`}
+    >
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+function MenuButtonExample() {
+  const [selected, setSelected] = React.useState(false);
+  const anchorRef = React.useRef();
+
+  return (
+    <React.Fragment>
+      <Box display="inlineBlock" ref={anchorRef}>
+        <Button
+          accessibilityControls="menu"
+          accessibilityExpanded={selected}
+          accessibilityHaspopup
+          selected={selected}
+          onClick={() => setSelected(!selected)}
+          text="Menu"
+        />
+      </Box>
+
+      {selected && (
+        <Layer>
+          <Popover
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => setSelected(false)}
+            positionRelativeToAnchor={false}
+            size="md"
+          >
+            <Box id="menu" direction="column" display="flex" padding={2}>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 1
+                </Text>
+              </Box>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 2
+                </Text>
+              </Box>
+            </Box>
+          </Popover>
+        </Layer>
+      )}
+    </React.Fragment>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="ref"
+      description={`
+[TO FILL OUT]
+`}
+    >
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+function ButtonPopoverExample() {
+  const [selected, setSelected] = React.useState(false);
+
+  const anchorRef = React.useRef(null);
+
+  return (
+    <React.Fragment>
+      <Button
+        onClick={() => setSelected(!selected)}
+        ref={anchorRef}
+        selected={selected}
+        text={selected ? "Hide Popover" : "Show Popover"}
       />
       {selected && (
         <Popover
