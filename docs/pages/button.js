@@ -298,7 +298,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description='Show the full text on buttons. Buttons should be stacked when they cannot be displayed side by side.'
+        description="Show the full text on buttons. Buttons should be stacked when they cannot be displayed side by side."
         defaultCode={`
 <Flex gap={2} direction="column" alignContent="stretch">
   <Button text="Create account" size="lg" color="red" fullWidth />
@@ -350,9 +350,7 @@ If IconButton is used as a control button to show/hide a Popover-based component
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to IconButton. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityExpanded\`: informs the screen reader whether an anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
-    >
-
-    </MainSection.Subsection>
+    />
   </MainSection>,
 );
 /*
@@ -689,7 +687,12 @@ function MenuButtonExample() {
 );
 */
 
-card(<MainSection name="Localization" description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent." />);
+card(
+  <MainSection
+    name="Localization"
+    description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent."
+  />,
+);
 
 /*
 card(
@@ -796,11 +799,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
     >
       <CombinationNew size={['sm', 'md', 'lg']}>
         {({ size }) => (
-          <Button
-            accessibilityLabel={`Example size ${size}`} color="red"
-            text="Save"
-            size={size}
-          />
+          <Button accessibilityLabel={`Example size ${size}`} color="red" text="Save" size={size} />
         )}
       </CombinationNew>
     </MainSection.Subsection>
@@ -843,7 +842,9 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
     [PJ TO FILL OUT]
 `}
     >
-      <CombinationNew color={['red', 'gray', 'white', 'blue', 'transparent', 'semiTransparentWhite']}>
+      <CombinationNew
+        color={['red', 'gray', 'white', 'blue', 'transparent', 'semiTransparentWhite']}
+      >
         {({ color }) => (
           <Button
             accessibilityLabel={`Example width ${color}`}
@@ -863,32 +864,32 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
     Use \`white\` Buttons to denote the primary action and \`semiTransparentWhite\` Buttons to denote the secondary action.
 `}
     >
-    <MainSection.Card
-      cardSize="md"
-      defaultCode={`
-  <Box height={300} padding={3} width={250} color='darkGray'>
-    <Flex direction="column" gap={2} height="100%" justifyContent="end">
-      <Button
-        accessibilityLabel='Primary'
-        color="white"
-        text="Primary"
-        fullWidth
-        size="lg"
-        />
-      <Button
-        accessibilityLabel='Secondary'
-        color="semiTransparentWhite"
-        text="Secondary"
-        fullWidth
-        size="lg"
-        />
-    </Flex>
-  </Box>
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+<Box height={300} padding={3} width={250} color='darkGray'>
+  <Flex direction="column" gap={2} height="100%" justifyContent="end">
+    <Button
+      accessibilityLabel='Primary'
+      color="white"
+      text="Primary"
+      fullWidth
+      size="lg"
+      />
+    <Button
+      accessibilityLabel='Secondary'
+      color="semiTransparentWhite"
+      text="Secondary"
+      fullWidth
+      size="lg"
+      />
+  </Flex>
+</Box>
 `}
-    />
-    <MainSection.Card
-      cardSize="md"
-      defaultCode={`
+      />
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
 <Box height={300} paddingX={2} width={250}>
   <Image
   src='https://i.ibb.co/7bQQYkX/stock2.jpg'
@@ -918,7 +919,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
   </Image>
 </Box>
 `}
-    />
+      />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Icons"
@@ -927,9 +928,9 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
     Icons at the end of the Button can be used to help visually clarify the Button’s purpose. Note that Icons on Buttons are not accessible for screen readers.
 `}
     >
-    <MainSection.Card
-      cardSize="lg"
-      defaultCode={`
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
 <Button
   accessibilityLabel='Menu'
   iconEnd="arrow-down"
@@ -937,7 +938,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
   text="Menu"
 />
 `}
-    />
+      />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Role"
@@ -979,9 +980,9 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
 These optional props control the behavior of \`role="link"\` Buttons. External links commonly use \`target="_blank"\` to open the link in a new tab or window, and \`rel="nofollow"\` to provide hints for SEO.
 `}
     >
-    <MainSection.Card
-      cardSize="lg"
-      defaultCode={`
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
 <Button
   accessibilityLabel='Link'
   iconEnd="arrow-up-right"
@@ -993,7 +994,7 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
   href="https://pinterest.com"
 />
 `}
-    />
+      />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="States"
@@ -1044,7 +1045,6 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
   </MainSection>,
 );
 
-
 card(
   <MainSection name="Writing">
     <MainSection.Subsection columns={2}>
@@ -1072,55 +1072,55 @@ card(
 [TO FILL OUT]
 `}
     >
-    <MainSection.Card
-      cardSize="md"
-      defaultCode={`
-  function MenuButtonExample() {
-    const [selected, setSelected] = React.useState(false);
-    const anchorRef = React.useRef();
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+function MenuButtonExample() {
+  const [selected, setSelected] = React.useState(false);
+  const anchorRef = React.useRef();
 
-    return (
-      <React.Fragment>
-        <Box display="inlineBlock" ref={anchorRef}>
-          <Button
-            accessibilityControls="menu"
-            accessibilityExpanded={selected}
-            accessibilityHaspopup
-            selected={selected}
-            onClick={() => setSelected(!selected)}
-            text="Menu"
-          />
-        </Box>
+  return (
+    <React.Fragment>
+      <Box display="inlineBlock" ref={anchorRef}>
+        <Button
+          accessibilityControls="menu"
+          accessibilityExpanded={selected}
+          accessibilityHaspopup
+          selected={selected}
+          onClick={() => setSelected(!selected)}
+          text="Menu"
+        />
+      </Box>
 
-        {selected && (
-          <Layer>
-            <Popover
-              anchor={anchorRef.current}
-              idealDirection="down"
-              onDismiss={() => setSelected(false)}
-              positionRelativeToAnchor={false}
-              size="md"
-            >
-              <Box id="menu" direction="column" display="flex" padding={2}>
-                <Box padding={2}>
-                  <Text weight="bold">
-                    Option 1
-                  </Text>
-                </Box>
-                <Box padding={2}>
-                  <Text weight="bold">
-                    Option 2
-                  </Text>
-                </Box>
+      {selected && (
+        <Layer>
+          <Popover
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => setSelected(false)}
+            positionRelativeToAnchor={false}
+            size="md"
+          >
+            <Box id="menu" direction="column" display="flex" padding={2}>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 1
+                </Text>
               </Box>
-            </Popover>
-          </Layer>
-        )}
-      </React.Fragment>
-    );
-  }
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 2
+                </Text>
+              </Box>
+            </Box>
+          </Popover>
+        </Layer>
+      )}
+    </React.Fragment>
+  );
+}
 `}
-    />
+      />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="ref"
@@ -1128,9 +1128,9 @@ card(
 [TO FILL OUT]
 `}
     >
-    <MainSection.Card
-      cardSize="md"
-      defaultCode={`
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
 function ButtonPopoverExample() {
   const [selected, setSelected] = React.useState(false);
 
@@ -1160,7 +1160,7 @@ function ButtonPopoverExample() {
   );
 }
 `}
-    />
+      />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Custom navigation"
