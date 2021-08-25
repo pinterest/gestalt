@@ -1,3 +1,9 @@
+## 33.7.0 (Aug 25, 2021)
+
+### Minor
+
+- Eslint plugin: updated `gestalt/no-dangerous-style-duplicates` w/ autofix (#1641)
+
 ## 33.6.0 (Aug 24, 2021)
 
 ### Minor
