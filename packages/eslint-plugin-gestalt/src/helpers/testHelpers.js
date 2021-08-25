@@ -24,5 +24,5 @@ export const getPathFormatterByRuleName = (ruleName: string): Formatter => (test
 };
 
 export function readTestByPath(codePath: string): string {
-  return readFileSync(path.resolve(__dirname, codePath), 'utf-8');
+  return readFileSync(path.resolve(__dirname, '..', codePath), 'utf-8');
 }

@@ -13,13 +13,13 @@ import {
   hasLonelyAttribute,
   hasSpreadAttributes,
   isTag,
-} from './eslintASTHelpers.js';
+} from './helpers/eslintASTHelpers.js';
 import {
   renameTagFixer,
   renameTagWithPropsFixer,
   updateGestaltImportFixer,
-} from './eslintASTFixers.js';
-import { type ESLintRule } from './eslintFlowTypes.js';
+} from './helpers/eslintASTFixers.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const rule: ESLintRule = {
   meta: {
@@ -40,6 +40,9 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+    // Exclude test files from Eslint
+    if (context.getFilename().endsWith('.test.js')) return {};
+
     let programNode;
     let gestaltImportNode;
     let importFixerRun = false;

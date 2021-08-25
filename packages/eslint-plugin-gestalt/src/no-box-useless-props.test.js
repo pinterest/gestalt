@@ -3,7 +3,7 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule, { errorMessages } from './no-box-useless-props.js';
-import { parserOptions } from './testHelpers.js';
+import { parserOptions } from './helpers/testHelpers.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 

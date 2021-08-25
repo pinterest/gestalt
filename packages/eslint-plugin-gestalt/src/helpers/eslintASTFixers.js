@@ -2,6 +2,7 @@
 import {
   getLocalComponentImportName,
   getNamedImportsComponents,
+  getOpeningElement,
   getTextNodeFromSourceCode,
 } from './eslintASTHelpers.js';
 
@@ -130,17 +131,16 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
   newComponentName,
   tagName,
 }) => {
-  const openingElement =
-    elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
   const finalNewComponentName = getLocalComponentImportName({
     importNode: gestaltImportNode,
     componentName: newComponentName,
   });
+  const openingElement = getOpeningElement({ elementNode });
   const completeOpeningNode = `<${finalNewComponentName} ${modifiedPropsString}${
-    elementNode.closingElement ? '' : ' /'
+    openingElement.selfClosing ? ' /' : ''
   }>`;
 
-  return [openingElement, elementNode.closingElement]
+  return [openingElement, elementNode?.closingElement]
     .map((node, index) => {
       if (!node) return undefined;
 
