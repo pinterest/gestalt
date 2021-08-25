@@ -1,3 +1,9 @@
+## 33.7.1 (Aug 25, 2021)
+
+### Patch
+
+- Internal: Upgrade Flow to 0.158.0 (#1644)
+
 ## 33.7.0 (Aug 25, 2021)
 
 ### Minor
