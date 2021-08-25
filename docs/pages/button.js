@@ -284,7 +284,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Place more than one primary Button per surface."
+        description="Place more than one primary Button per container/area."
         defaultCode={`
 <Flex alignContent="center">
   <ButtonGroup>
@@ -400,19 +400,15 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="Color"
+      title="Color on white backgrounds"
       description={`
 1. Red (Primary)
     High emphasis, used for primary actions.
 2. Blue (Shopping)
-  High emphasis, used for primary actions on shopping actions.
+    The blue Button is only intended for the shopping experience and is used for primary shopping actions.
 3. Gray (Secondary)
     Medium emphasis, used for secondary actions.
-4. White (Tertiary)
-    Low emphasis when placed on white backgrounds, used for tertiary actions in that context. High emphasis when placed on dark/image backgrounds, used for primary actions in that context.
-5. Semi-transparent white
-  Medium emphasis when placed on dark/image backgrounds, used for secondary actions in that context.
-6. Transparent
+4. Transparent (Tertiary)
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. Note, this treatment should be used with caution as it opens up the potential for color contrast issues.
 `}
     >
@@ -431,12 +427,12 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
     </MainSection.Subsection>
     <MainSection.Subsection
       columns={2}
-      title="Color on backgrounds"
+      title="Color on color/image backgrounds"
       description={`
-1. Dark or colored background
-    Use \`white\` Buttons to denote the primary action and \`semiTransparentWhite\` Buttons to denote the secondary action.
-2. Image background
-    Use \`white\` Buttons to denote the primary action and \`semiTransparentWhite\` Buttons to denote the secondary action.
+  1. White (Primary)
+      High emphasis when placed on color/image backgrounds, used for primary actions in that context.
+  2. Semi-transparent white (Secondary)
+      Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 `}
     >
       <MainSection.Card
@@ -573,7 +569,7 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      columns={3}
+      columns={2}
       title="States"
       description={`
 1. Default
