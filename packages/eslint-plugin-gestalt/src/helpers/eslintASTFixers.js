@@ -1,5 +1,6 @@
 // @flow strict
 import {
+  getClosingElement,
   getLocalComponentImportName,
   getNamedImportsComponents,
   getOpeningElement,
@@ -140,7 +141,7 @@ export const renameTagWithPropsFixer: RenameTagWithPropsFixerType = ({
     openingElement.selfClosing ? ' /' : ''
   }>`;
 
-  return [openingElement, elementNode?.closingElement]
+  return [openingElement, getClosingElement({ elementNode })]
     .map((node, index) => {
       if (!node) return undefined;
 
