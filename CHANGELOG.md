@@ -1,3 +1,9 @@
+## 33.7.3 (Aug 25, 2021)
+
+### Patch
+
+- Lint rules: Fix closing element bug in helper (#1655)
+
 ## 33.7.2 (Aug 25, 2021)
 
 ### Patch
