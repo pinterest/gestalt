@@ -866,24 +866,24 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
     <MainSection.Card
       cardSize="md"
       defaultCode={`
-<Box height={300} padding={3} width={250} color='darkGray'>
-  <Flex direction="column" gap={2} height="100%" justifyContent="end">
-    <Button
-      accessibilityLabel='Primary'
-      color="white"
-      text="Primary"
-      fullWidth
-      size="lg"
-      />
-    <Button
-      accessibilityLabel='Secondary'
-      color="semiTransparentWhite"
-      text="Secondary"
-      fullWidth
-      size="lg"
-      />
-  </Flex>
-</Box>
+  <Box height={300} padding={3} width={250} color='darkGray'>
+    <Flex direction="column" gap={2} height="100%" justifyContent="end">
+      <Button
+        accessibilityLabel='Primary'
+        color="white"
+        text="Primary"
+        fullWidth
+        size="lg"
+        />
+      <Button
+        accessibilityLabel='Secondary'
+        color="semiTransparentWhite"
+        text="Secondary"
+        fullWidth
+        size="lg"
+        />
+    </Flex>
+  </Box>
 `}
     />
     <MainSection.Card
@@ -1075,50 +1075,50 @@ card(
     <MainSection.Card
       cardSize="md"
       defaultCode={`
-function MenuButtonExample() {
-  const [selected, setSelected] = React.useState(false);
-  const anchorRef = React.useRef();
+  function MenuButtonExample() {
+    const [selected, setSelected] = React.useState(false);
+    const anchorRef = React.useRef();
 
-  return (
-    <React.Fragment>
-      <Box display="inlineBlock" ref={anchorRef}>
-        <Button
-          accessibilityControls="menu"
-          accessibilityExpanded={selected}
-          accessibilityHaspopup
-          selected={selected}
-          onClick={() => setSelected(!selected)}
-          text="Menu"
-        />
-      </Box>
+    return (
+      <React.Fragment>
+        <Box display="inlineBlock" ref={anchorRef}>
+          <Button
+            accessibilityControls="menu"
+            accessibilityExpanded={selected}
+            accessibilityHaspopup
+            selected={selected}
+            onClick={() => setSelected(!selected)}
+            text="Menu"
+          />
+        </Box>
 
-      {selected && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setSelected(false)}
-            positionRelativeToAnchor={false}
-            size="md"
-          >
-            <Box id="menu" direction="column" display="flex" padding={2}>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 1
-                </Text>
+        {selected && (
+          <Layer>
+            <Popover
+              anchor={anchorRef.current}
+              idealDirection="down"
+              onDismiss={() => setSelected(false)}
+              positionRelativeToAnchor={false}
+              size="md"
+            >
+              <Box id="menu" direction="column" display="flex" padding={2}>
+                <Box padding={2}>
+                  <Text weight="bold">
+                    Option 1
+                  </Text>
+                </Box>
+                <Box padding={2}>
+                  <Text weight="bold">
+                    Option 2
+                  </Text>
+                </Box>
               </Box>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 2
-                </Text>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
+            </Popover>
+          </Layer>
+        )}
+      </React.Fragment>
+    );
+  }
 `}
     />
     </MainSection.Subsection>
