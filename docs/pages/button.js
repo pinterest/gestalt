@@ -830,20 +830,20 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       description={`
 1. Red (Primary)
     High emphasis, used for primary actions.
-2. Gray (Secondary)
+2. Blue (Shopping)
+  High emphasis, used for primary actions on shopping actions.
+3. Gray (Secondary)
     Medium emphasis, used for secondary actions.
-3. White (Tertiary)
-    Low emphasis when placed on white backgrounds, used for tertiary actions, and medium emphasis, used for secondary actions when placed on dark backgrounds.
-4. Blue (Shopping)
-    High emphasis, used for primary actions on shopping actions.
-5. Transparent
-    Medium emphasis, used for secondary or tertiary actions on a background
-6. Semi-transparent white
-    [PJ TO FILL OUT]
+4. White (Tertiary)
+    Low emphasis when placed on white backgrounds, used for tertiary actions in that context. High emphasis when placed on dark/image backgrounds, used for primary actions in that context.
+5. Semi-transparent white
+  Medium emphasis when placed on dark/image backgrounds, used for secondary actions in that context.
+6. Transparent
+    Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. Note, this treatment should be used with caution as it opens up the potential for color contrast issues.
 `}
     >
       <CombinationNew
-        color={['red', 'gray', 'white', 'blue', 'transparent', 'semiTransparentWhite']}
+        color={['red', 'blue', 'gray', 'white', 'semiTransparentWhite', 'transparent']}
       >
         {({ color }) => (
           <Button
@@ -856,6 +856,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
+      columns={2}
       title="Color on backgrounds"
       description={`
 1. Dark or colored background
@@ -941,6 +942,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       />
     </MainSection.Subsection>
     <MainSection.Subsection
+      columns={2}
       title="Role"
       description={`
 1. Button (default)
@@ -997,6 +999,7 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
       />
     </MainSection.Subsection>
     <MainSection.Subsection
+      columns={3}
       title="States"
       description={`
 1. Default
@@ -1022,10 +1025,9 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
         cardSize="md"
         defaultCode={`
 <Button
-  accessibilityLabel='Save'
-  color="red"
+  accessibilityLabel='Submit'
   disabled
-  text="Save"
+  text="Submit"
   size="lg"
 />
 `}
@@ -1042,30 +1044,6 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
 `}
       />
     </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Writing">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
-- If your object is already described on the screen, Buttons only need a verb.
-- If your object isn’t described on the screen, Buttons need a verb + the object.
-- Use fewer than 3 words.
-- Use sentence case.
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`
-- Do not use punctuation.
-`}
-      />
-    </MainSection.Subsection>
     <MainSection.Subsection
       title="Accessibility props: controls, expanded, & popup"
       description={`
@@ -1075,48 +1053,40 @@ card(
       <MainSection.Card
         cardSize="md"
         defaultCode={`
-function MenuButtonExample() {
-  const [selected, setSelected] = React.useState(false);
-  const anchorRef = React.useRef();
+function ActionDropdownExample() {
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState(null);
+  const anchorRef = React.useRef(null);
+  const onSelect = ({ item }) => setSelected(item);
 
   return (
-    <React.Fragment>
-      <Box display="inlineBlock" ref={anchorRef}>
-        <Button
-          accessibilityControls="menu"
-          accessibilityExpanded={selected}
-          accessibilityHaspopup
-          selected={selected}
-          onClick={() => setSelected(!selected)}
-          text="Menu"
-        />
-      </Box>
-
-      {selected && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setSelected(false)}
-            positionRelativeToAnchor={false}
-            size="md"
-          >
-            <Box id="menu" direction="column" display="flex" padding={2}>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 1
-                </Text>
-              </Box>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 2
-                </Text>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
+    <Flex justifyContent="center">
+      <Button
+        accessibilityControls="action-variant-dropdown-example"
+        accessibilityExpanded={open}
+        accessibilityHaspopup
+        iconEnd="arrow-down"
+        onClick={() => setOpen((prevVal) => !prevVal)}
+        ref={anchorRef}
+        selected={open}
+        size="lg"
+        text={selected ? selected.label : 'Display'}
+      />
+      {open && (
+        <Dropdown anchor={anchorRef.current} id="action-variant-dropdown-example" onDismiss={() => setOpen(false)}>
+          <Dropdown.Item
+            onSelect={onSelect}
+            option={{ value: 'Cozy', label: 'Cozy' }}
+            selected={selected}
+          />
+          <Dropdown.Item
+            onSelect={onSelect}
+            option={{ value: 'Comfy', label: 'Comfy' }}
+            selected={selected}
+          />
+        </Dropdown>
       )}
-    </React.Fragment>
+    </Flex>
   );
 }
 `}
@@ -1143,6 +1113,7 @@ function ButtonPopoverExample() {
         ref={anchorRef}
         selected={selected}
         text={selected ? "Hide Popover" : "Show Popover"}
+        iconEnd="arrow-down"
       />
       {selected && (
         <Popover
@@ -1243,6 +1214,31 @@ function OnNavigation() {
 `}
       />
     </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Writing">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description={`
+- If your object is already described on the screen, Buttons only need a verb.
+- If your object isn’t described on the screen, Buttons need a verb + the object.
+- Use fewer than 3 words.
+- Use sentence case.
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description={`
+- Do not use punctuation.
+`}
+      />
+    </MainSection.Subsection>
+
   </MainSection>,
 );
 
