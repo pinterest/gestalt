@@ -804,7 +804,6 @@ card(
 `}
       />
     </MainSection.Subsection>
-
   </MainSection>,
 );
 
