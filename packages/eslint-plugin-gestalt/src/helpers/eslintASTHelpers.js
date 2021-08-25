@@ -35,9 +35,24 @@ type GetOpeningElementType = ({|
 |}) => GenericNode;
 
 /** This function returns the opening element independently of the node passed
+
+    Sometimes we have the parent JSXElement node, sometimes the child JSXOpeningElement node
  */
 const getOpeningElement: GetOpeningElementType = ({ elementNode }) =>
-  elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode.openingElement;
+  elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode?.openingElement;
+
+type GetClosingElementType = ({|
+  elementNode: GenericNode,
+|}) => GenericNode;
+
+/** This function returns the closing element independently of the node passed
+
+    Sometimes we have the parent JSXElement node, sometimes the child JSXOpeningElement node
+ */
+const getClosingElement: GetClosingElementType = ({ elementNode }) =>
+  elementNode.type === 'JSXElement'
+    ? elementNode.closingElement
+    : elementNode?.parent?.closingElement;
 
 type GetVariableDefinedStylesType = ({|
   variableNode: GenericNode,
@@ -400,6 +415,7 @@ export {
   buildProps,
   buildPropsFromKeyValues,
   buildPropsFromKeyValuesVariable,
+  getClosingElement,
   getComponentFromAttribute,
   getComponentNameFromAttribute,
   getHtmlTag,
