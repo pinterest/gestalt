@@ -2,8 +2,6 @@
 import type { Node } from 'react';
 import { Button } from 'gestalt';
 import PropTable from '../components/PropTable.js';
-import Example from '../components/Example.js';
-import Combination from '../components/Combination.js';
 import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
@@ -799,8 +797,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       <CombinationNew size={['sm', 'md', 'lg']}>
         {({ size }) => (
           <Button
-            accessibilityLabel={`Example size ${size}`}
-            color="red"
+            accessibilityLabel={`Example size ${size}`} color="red"
             text="Save"
             size={size}
           />
