@@ -1,3 +1,9 @@
+## 33.7.5 (Aug 26, 2021)
+
+### Patch
+
+- Lint rules: Fix `prefer-flex` import statement Box detection (#1660)
+
 ## 33.7.4 (Aug 26, 2021)
 
 ### Patch
