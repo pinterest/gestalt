@@ -412,9 +412,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. Note, this treatment should be used with caution as it opens up the potential for color contrast issues.
 `}
     >
-      <CombinationNew
-        color={['red', 'blue', 'gray', 'transparent']}
-      >
+      <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
         {({ color }) => (
           <Button
             accessibilityLabel={`Example width ${color}`}
