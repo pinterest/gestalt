@@ -413,7 +413,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
 `}
     >
       <CombinationNew
-        color={['red', 'blue', 'gray', 'white', 'semiTransparentWhite', 'transparent']}
+        color={['red', 'blue', 'gray', 'transparent']}
       >
         {({ color }) => (
           <Button
