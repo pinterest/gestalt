@@ -660,9 +660,9 @@ function ActionDropdownExample() {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="ref"
+      title="Ref"
       description={`
-[TO FILL OUT]
+To control focus, or position any anchor components to IconButton, use ref, as shown in the example below.
 `}
     >
       <MainSection.Card
