@@ -7,7 +7,6 @@ import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import CardPage from '../components/CardPage.js';
-import { customNavigationDescription } from '../components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -172,7 +171,7 @@ card(
         description: [
           'Callback fired when a TapArea component is clicked (pressed and released) with a mouse or keyboard.',
           'Required with button-role + button-type buttons.',
-          'See [custom navigation](#Custom-navigation) variant for examples.',
+          'See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
         ],
         href: 'basic-taparea',
       },
@@ -301,6 +300,8 @@ card(
   <Example
     id="link_buttons"
     description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
+
+TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
   `}
     name="TapArea with Link/Buttons"
     defaultCode={`
@@ -622,115 +623,11 @@ function MenuButtonExample() {
 );
 
 card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Custom navigation"
-      description={customNavigationDescription('TapArea')}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
-function OnNavigation() {
-  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
-
-  const onNavigation = ({ href,target }) => {
-    const onNavigationClick = ({ event }) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert('CUSTOM NAVIGATION set on <OnLinkNavigationProvider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
-      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
-    return onNavigationClick;
-  }
-
-  const customOnNavigation = () => {
-    // eslint-disable-next-line no-alert
-    alert('CUSTOM NAVIGATION set on <TapArea onTap/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
-    window.open('https://help.pinterest.com', '_blank');
-  }
-
-  const onTapHandler = ({ event, disableOnNavigation }) => {
-    if (onNavigationMode === 'provider_disabled') {
-      disableOnNavigation()
-    } else if (onNavigationMode === 'link_custom') {
-      event.preventDefault();
-      disableOnNavigation();
-      customOnNavigation();
-    }
-  }
-
-  const linkProps = {
-    href:"https://pinterest.com",
-    onTap: onTapHandler,
-    target:"blank",
-  }
-
-  return (
-    <OnLinkNavigationProvider onNavigation={onNavigation}>
-      <Flex direction="column" gap={2}>
-        <Flex direction="column" gap={2}>
-          <Text>Navigation controller:</Text>
-            <RadioButton
-              checked={onNavigationMode === 'provider_disabled'}
-              id="provider_disabled"
-              label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_disabled')}
-              value="provider_disabled"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'provider_custom'}
-              id="provider_custom"
-              label="Custom navigation set on OnLinkNavigationProvider"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_custom')}
-              value="provider_custom"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'link_custom'}
-              id="link_custom"
-              label="Custom navigation set on TapArea"
-              name="navigation"
-              onChange={() => setOnNavigationMode('link_custom')}
-              value="link_custom"
-            />
-          <Divider/>
-        </Flex>
-        <Box width={100}>
-          <TapArea
-            {...linkProps}
-            role="link"
-            rounding={2}
-          >
-            <Box color="darkGray" rounding={4} borderStyle="sm">
-              <Mask rounding={2}>
-                <Image
-                  alt="Antelope Canyon"
-                  naturalHeight={1}
-                  naturalWidth={1}
-                  src="https://i.ibb.co/DwYrGy6/stock14.jpg"
-                />
-              </Mask>
-            </Box>
-          </TapArea>
-        </Box>
-      </Flex>
-    </OnLinkNavigationProvider>
-  );
-}
-`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
 **[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
-Provider allows external link navigation control across all children components with link behavior.
-See [custom navigation](#Custom-navigation) variant for examples.
+OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
       `}
     />
   </MainSection>,
