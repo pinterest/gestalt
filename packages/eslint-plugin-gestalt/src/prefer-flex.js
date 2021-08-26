@@ -63,6 +63,7 @@ const rule: ESLintRule = {
     let hasAlignItems = false;
     let hasJustifyContent = false;
     let boxImportName;
+    let unchangedBoxCount = 0;
 
     const importDeclaration = (decl) => {
       // Not a Gestalt import
@@ -87,6 +88,10 @@ const rule: ESLintRule = {
         return;
       }
 
+      // We definitely have a Box, so increment count.
+      // If we'll convert to Flex later, we'll decrement.
+      unchangedBoxCount += 1;
+
       const props = node.attributes.map(({ name, value }) => ({
         key: name?.name,
         value: value?.value,
@@ -107,6 +112,9 @@ const rule: ESLintRule = {
         return;
       }
 
+      // We're replacing with Flex, so let's decrement the count
+      unchangedBoxCount -= 1;
+
       if (props.map(({ key }) => key).includes('alignItems')) {
         hasAlignItems = true;
       }
@@ -119,11 +127,7 @@ const rule: ESLintRule = {
         messageId: 'disallowed',
         fix: (fixer) => {
           // Are there other Box nodes aside from the one we're currently on?
-          const hasOtherBoxes =
-            programNode.tokens
-              .filter(({ type }) => type === 'JSXIdentifier')
-              .filter(({ value }) => value === boxImportName).length > 1;
-          const importsToRemove = hasOtherBoxes ? [] : [boxImportName];
+          const importsToRemove = unchangedBoxCount > 0 ? [] : [boxImportName];
 
           let renamedFlexImport;
           // If the file doesn't already import Flex and the Box import was renamed,
