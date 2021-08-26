@@ -329,7 +329,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description={`Do not add icons to a button to refinforce the text. Icons should be used to denote specific function or interaction (\`arrow-up-right\` for linking to an external URL or \`arrow-down\` for displaying a [Popover](/popover) on click).`}
+        description={`Do not add icons to a button to reinforce the text. Icons should be used to denote specific function or interaction (\`arrow-up-right\` for linking to an external URL or \`arrow-down\` for displaying a [Popover](/popover) on click).`}
         defaultCode={`
           <Button text="Create new Pinterest account" size="lg" color="red" iconEnd='person-add' />
 `}
