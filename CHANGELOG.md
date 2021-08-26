@@ -1,3 +1,9 @@
+## 33.7.4 (Aug 26, 2021)
+
+### Patch
+
+- Docs: fix color page export for Next (#1657)
+
 ## 33.7.3 (Aug 25, 2021)
 
 ### Patch
