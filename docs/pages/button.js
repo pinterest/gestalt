@@ -260,6 +260,85 @@ card(
 );
 
 card(
+  <MainSection name="Best practices">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Place primary Buttons to the right or top of other Button styles."
+        defaultCode={`
+<Flex gap={8} direction="column" alignItems="stretch" alignContent="stretch" flex="grow" width="100%">
+  <Flex direction="column" alignItems="center" alignContent="center" width="100%">
+    <ButtonGroup>
+      <Button text="Visit" size="lg" color="gray" />
+      <Button text="Save" size="lg" color="red" />
+    </ButtonGroup>
+  </Flex>
+  <Divider />
+  <Flex gap={2} direction="column" flex="grow" width="100%">
+    <Button text="Learn more" size="lg" color="red" fullWidth />
+    <Button text="Install now" size="lg" color="gray" fullWidth />
+  </Flex>
+</Flex>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description="Place more than one primary Button per container/area."
+        defaultCode={`
+<Flex alignContent="center">
+  <ButtonGroup>
+    <Button text="Visit" size="lg" color="red" />
+    <Button text="Save" size="lg" color="red" />
+  </ButtonGroup>
+</Flex>
+`}
+      />
+
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Show the full text on buttons. Buttons should be stacked when they cannot be displayed side by side."
+        defaultCode={`
+<Flex gap={2} direction="column" alignContent="stretch">
+  <Button text="Create account" size="lg" color="red" fullWidth />
+  <Button text="View settings" size="lg" color="gray" fullWidth />
+</Flex>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description="Truncate the button text. In rare instances where buttons must remain on one line, truncate the text on the secondary button before truncating on the primary button."
+        defaultCode={`
+<Flex gap={2}>
+  <Button text="Kontoeinst..." size="lg" color="gray" />
+  <Button text="Neues We..." size="lg" color="red" />
+</Flex>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Keep the button text as simple and actionable as possible. Refer to the [Button writing guidelines](#Writing) for more detail."
+        defaultCode={`
+  <Button text="Create account" size="lg" color="red" />
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description={`Do not add icons to a button to refinforce the text. Icons should be used to denote specific function or interaction (\`arrow-up-right\` for linking to an external URL or \`arrow-down\` for displaying a [Popover](/popover) on click).`}
+        defaultCode={`
+          <Button text="Create new Pinterest account" size="lg" color="red" iconEnd='person-add' />
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <Example
     name="Basic Button"
     id="basic-button"
