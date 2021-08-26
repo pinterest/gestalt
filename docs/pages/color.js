@@ -59,6 +59,6 @@ card(
   </MainSection>,
 );
 
-export default function BadgePage(): Node {
-  return <CardPage cards={cards} page="Badge" />;
+export default function ColorPage(): Node {
+  return <CardPage cards={cards} page="Color" />;
 }
