@@ -23,7 +23,8 @@ card(
       {
         name: 'columns',
         type: 'number',
-        description: 'Number of columns (2 - 4)',
+        description:
+          'Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors.',
         required: true,
         href: 'columns',
       },
@@ -124,7 +125,7 @@ card(
         src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
       },
     ];
-    const image = images[index];
+    const image = images[index] || {};
     return (
       <Mask wash width={width} height={height}>
         <Image
@@ -196,7 +197,7 @@ card(
               src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
             },
           ];
-          const image = images[index];
+          const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
               {image ? (
@@ -276,7 +277,7 @@ card(
           src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
         },
       ];
-      const image = images[index];
+      const image = images[index] || {};
       return (
         <Mask wash width={width} height={height}>
           <Image
@@ -402,7 +403,7 @@ card(
               src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
             },
           ];
-          const image = images[index];
+          const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
               {image ? (
@@ -490,7 +491,7 @@ card(
               src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
             },
           ];
-          const image = images[index];
+          const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
               <Image
