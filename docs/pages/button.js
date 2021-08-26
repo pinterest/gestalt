@@ -404,7 +404,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       description={`
 1. Red (Primary)
     High emphasis, used for primary actions.
-2. Blue (Shopping)
+2. Blue (Primary in shopping context)
     The blue Button is only intended for the shopping experience and is used for primary shopping actions.
 3. Gray (Secondary)
     Medium emphasis, used for secondary actions.
