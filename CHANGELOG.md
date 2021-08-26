@@ -1,3 +1,9 @@
+## 33.7.6 (Aug 26, 2021)
+
+### Patch
+
+- Docs: persist scrollbar position across pages (#1661)
+
 ## 33.7.5 (Aug 26, 2021)
 
 ### Patch
