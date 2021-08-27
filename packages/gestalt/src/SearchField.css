@@ -8,7 +8,7 @@
   composes: xsCol12 from "./Column.css";
   appearance: none;
   min-width: 180px;
-  padding: 8px 40px;
+  padding: var(--space-200) calc(var(--space-500) + var(--space-200));
 }
 
 .input::-webkit-search-decoration,
@@ -32,11 +32,11 @@
 }
 
 html:not([dir="rtl"]) .inputActive {
-  padding: 8px 32px 8px 16px;
+  padding: var(--space-200) var(--space-500) var(--space-200) var(--space-300);
 }
 
 html[dir="rtl"] .inputActive {
-  padding: 8px 16px 8px 32px;
+  padding: var(--space-200) var(--space-300) var(--space-200) var(--space-500);
 }
 
 .inputHovered {
@@ -63,10 +63,10 @@ html[dir="rtl"] .inputActive {
 }
 
 html:not([dir="rtl"]) .clear {
-  right: 0;
+  right: var(--space-0);
 }
 
 html[dir="rtl"] .clear {
-  left: 0;
+  left: var(--space-0);
 }
 
