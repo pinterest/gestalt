@@ -1,3 +1,9 @@
+## 33.7.9 (Aug 27, 2021)
+
+### Patch
+
+- Collage: Fix collage bug in Docs (#1662)
+
 ## 33.7.8 (Aug 27, 2021)
 
 ### Patch
