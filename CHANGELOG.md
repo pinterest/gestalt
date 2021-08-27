@@ -1,3 +1,9 @@
+## 33.7.10 (Aug 27, 2021)
+
+### Patch
+
+- Design Tokens: Switch to using new spacing tokens (#1664)
+
 ## 33.7.9 (Aug 27, 2021)
 
 ### Patch
