@@ -2,7 +2,7 @@
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
-  padding: 8px 16px;
+  padding: var(--space-200) var(--space-300);
 }
 
 .textField::placeholder {
@@ -12,8 +12,8 @@
 .unstyledTextField, .textFieldSpacer {
   composes: unstyled from "./FormElement.css";
   composes: Text fontSize3 from "./Text.css";
-  margin-bottom: 4px;
-  padding: 4px 8px;
+  margin-bottom: var(--space-100);
+  padding: var(--space-100) var(--space-200);
 }
 
 .unstyledTextField {
@@ -33,27 +33,27 @@
 .textFieldWrapper {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 4px;
+  padding-bottom: var(--space-100);
 }
 
 html:not([dir="rtl"]) .actionButton {
-  padding-right: 32px;
+  padding-right: var(--space-500);
 }
 
 html[dir="rtl"] .actionButton {
-  padding-left: 32px;
+  padding-left: var(--space-500);
 }
 
 .actionButtonContainer {
-  bottom: 0;
+  bottom: var(--space-0);
   position: absolute;
-  top: 0;
+  top: var(--space-0);
 }
 
 html:not([dir="rtl"]) .actionButtonContainer {
-  right: 0;
+  right: var(--space-0);
 }
 
 html[dir="rtl"] .actionButtonContainer {
-  left: 0;
+  left: var(--space-0);
 }
