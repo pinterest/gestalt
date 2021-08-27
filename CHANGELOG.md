@@ -1,3 +1,9 @@
+## 33.7.7 (Aug 27, 2021)
+
+### Patch
+
+- Lint rules: Another attempt at fixing `prefer-flex` import count bug (#1663)
+
 ## 33.7.6 (Aug 26, 2021)
 
 ### Patch
