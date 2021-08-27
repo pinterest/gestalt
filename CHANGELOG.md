@@ -1,3 +1,9 @@
+## 33.7.8 (Aug 27, 2021)
+
+### Patch
+
+- Docs: cleanup link navigation (#1656)
+
 ## 33.7.7 (Aug 27, 2021)
 
 ### Patch
