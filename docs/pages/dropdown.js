@@ -5,7 +5,6 @@ import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import CardPage from '../components/CardPage.js';
-import { customNavigationDescription } from '../components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -204,7 +203,7 @@ card(
           'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
         description: [
           'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
-          'See the [Custom navigation context](#Custom-navigation-context) variant and [OnLinkNavigationProvider](/OnLinkNavigationProvider) for more info.',
+          'See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
         ],
       },
     ]}
@@ -760,7 +759,8 @@ function ActionDropdownExample() {
       <MainSection.Card
         cardSize="md"
         title="Link"
-        description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`.`}
+        description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
+`}
         defaultCode={`
 function LinkDropdownExample() {
   const [open, setOpen] = React.useState(false);
@@ -1111,106 +1111,6 @@ function BadgesDropdownExample() {
       `}
       />
     </MainSection.Subsection>
-
-    <MainSection.Subsection
-      title="Custom navigation context"
-      description={customNavigationDescription('Dropdown')}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
-function OnNavigation() {
-  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  const onNavigation = ({ href,target }) => {
-    const onNavigationClick = ({ event }) => {
-      event.preventDefault();
-      alert('CUSTOM NAVIGATION set on <OnLinkNavigationProvider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
-      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
-    return onNavigationClick;
-  }
-
-  const customOnNavigation = () => {
-    alert('CUSTOM NAVIGATION set on <Dropdown.Item onClick/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
-    window.open('https://help.pinterest.com', '_blank');
-  }
-
-  const onClickHandler = ({ event, disableOnNavigation }) => {
-    if (onNavigationMode === 'provider_disabled') {
-      disableOnNavigation()
-    } else if (onNavigationMode === 'link_custom') {
-      event.preventDefault();
-      disableOnNavigation();
-      customOnNavigation();
-    }
-  }
-
-  return (
-    <OnLinkNavigationProvider onNavigation={onNavigation}>
-      <Flex direction="column" gap={2}>
-        <Flex direction="column" gap={2}>
-          <Text>Navigation controller:</Text>
-          <RadioButton
-            checked={onNavigationMode === 'provider_disabled'}
-            id="provider_disabled"
-            label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
-            name="navigation"
-            onChange={() => setOnNavigationMode('provider_disabled')}
-            value="provider_disabled"
-          />
-          <RadioButton
-            checked={onNavigationMode === 'provider_custom'}
-            id="provider_custom"
-            label="Custom navigation set on OnLinkNavigationProvider"
-            name="navigation"
-            onChange={() => setOnNavigationMode('provider_custom')}
-            value="provider_custom"
-          />
-          <RadioButton
-            checked={onNavigationMode === 'link_custom'}
-            id="link_custom"
-            label="Custom navigation set on Link"
-            name="navigation"
-            onChange={() => setOnNavigationMode('link_custom')}
-            value="link_custom"
-          />
-          <Divider />
-        </Flex>
-
-        <Flex justifyContent="center">
-          <Button
-            accessibilityControls="basic-dropdown-example"
-            accessibilityExpanded={open}
-            accessibilityHaspopup
-            iconEnd="arrow-down"
-            onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
-            selected={open}
-            size="lg"
-            text="Menu"
-          />
-          {open && (
-            <Dropdown anchor={anchorRef.current} id="basic-dropdown-example" onDismiss={() => setOpen(false)}>
-              <Dropdown.Link
-                href="https://pinterest.com"
-                isExternal
-                onClick={onClickHandler}
-                option={{ value: 'item 3', label: 'Visit Settings page' }}
-              />
-            </Dropdown>
-          )}
-        </Flex>
-      </Flex>
-    </OnLinkNavigationProvider>
-  );
-}
-`}
-      />
-    </MainSection.Subsection>
-
     <MainSection.Subsection
       title="Custom item content"
       description={`
@@ -1295,6 +1195,8 @@ If users need to select from a short, simple list (without needing sections, sub
 **[Typeahead](/Typeahead)**
 If users need the ability to choose an option by typing in an input and filtering a long list of options, use Typeahead.
 
+**[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
+OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 `}
     />
   </MainSection>,

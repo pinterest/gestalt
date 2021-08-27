@@ -7,7 +7,6 @@ import Combination from '../components/Combination.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import CardPage from '../components/CardPage.js';
-import { customNavigationDescription } from '../components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -119,7 +118,7 @@ card(
         defaultValue: null,
         description: [
           'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard. ',
-          'See [custom navigation](#Custom-navigation) variant for examples.',
+          'See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
         ],
         href: 'selected',
       },
@@ -592,98 +591,11 @@ function MenuButtonExample() {
 );
 
 card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Custom navigation"
-      description={customNavigationDescription('Button')}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
-function OnNavigation() {
-  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
-
-  const onNavigation = ({ href,target }) => {
-    const onNavigationClick = ({ event }) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert('CUSTOM NAVIGATION set on <OnLinkNavigationProvider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
-      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
-    return onNavigationClick;
-  }
-
-  const customOnNavigation = () => {
-    // eslint-disable-next-line no-alert
-    alert('CUSTOM NAVIGATION set on <Button onClick/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
-    window.open('https://help.pinterest.com', '_blank');
-  }
-
-  const onClickHandler = ({ event, disableOnNavigation }) => {
-    if (onNavigationMode === 'provider_disabled') {
-      disableOnNavigation()
-    } else if (onNavigationMode === 'link_custom') {
-      event.preventDefault();
-      disableOnNavigation();
-      customOnNavigation();
-    }
-  }
-
-  const linkProps = {
-    href:"https://pinterest.com",
-    onClick: onClickHandler,
-    target:"blank",
-  }
-
-  return (
-    <OnLinkNavigationProvider onNavigation={onNavigation}>
-      <Flex direction="column" gap={2}>
-        <Flex direction="column" gap={2}>
-          <Text>Navigation controller:</Text>
-            <RadioButton
-              checked={onNavigationMode === 'provider_disabled'}
-              id="provider_disabled"
-              label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_disabled')}
-              value="provider_disabled"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'provider_custom'}
-              id="provider_custom"
-              label="Custom navigation set on OnLinkNavigationProvider"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_custom')}
-              value="provider_custom"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'link_custom'}
-              id="link_custom"
-              label="Custom navigation set on Button"
-              name="navigation"
-              onChange={() => setOnNavigationMode('link_custom')}
-              value="link_custom"
-            />
-          <Divider/>
-        </Flex>
-        <Button fullWidth {...linkProps} role="link" text="Visit pinterest.com"/>
-      </Flex>
-    </OnLinkNavigationProvider>
-  );
-}
-`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
 **[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-See [custom navigation](#Custom-navigation) variant for examples.
       `}
     />
   </MainSection>,

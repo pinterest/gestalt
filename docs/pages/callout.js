@@ -4,7 +4,6 @@ import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import CardPage from '../components/CardPage.js';
-import { customNavigationDescription } from '../components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -70,7 +69,7 @@ card(
         required: false,
         defaultValue: null,
         description: `
-          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [custom navigation](#Custom-navigation) variant for examples.
+          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.'
           If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
@@ -82,7 +81,7 @@ card(
         required: false,
         defaultValue: null,
         description: `
-          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [custom navigation](#Custom-navigation) variant for examples.
+          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.'
           If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
@@ -429,6 +428,8 @@ card(
       description={`
         Callouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/Link), by specifying the \`href\` property, or [Buttons](/Buttons), when no \`href\` is supplied.
 
+        Callout actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
+
         For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a Button that opens a [Modal](/Modal) with an application flow. Be sure to localize the labels of the actions.
 
         If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
@@ -556,106 +557,6 @@ function Example(props) {
       `}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Custom navigation"
-      description={customNavigationDescription('Callout')}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
-function OnNavigation() {
-  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
-
-  const onNavigation = ({ href,target }) => {
-    const onNavigationClick = ({ event }) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert('CUSTOM NAVIGATION set on <OnLinkNavigationProvider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
-      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
-    return onNavigationClick;
-  }
-
-  const customOnNavigation = () => {
-    // eslint-disable-next-line no-alert
-    alert('CUSTOM NAVIGATION set on <Callout primaryAction secondaryAction/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
-    window.open('https://help.pinterest.com', '_blank');
-  }
-
-  const onClickHandler = ({ event, disableOnNavigation }) => {
-    if (onNavigationMode === 'provider_disabled') {
-      disableOnNavigation()
-    } else if (onNavigationMode === 'link_custom') {
-      event.preventDefault();
-      disableOnNavigation();
-      customOnNavigation();
-    }
-  }
-
-  const linkProps = {
-    href:"https://pinterest.com",
-    onClick: onClickHandler,
-    target:"blank",
-  }
-
-  return (
-    <OnLinkNavigationProvider onNavigation={onNavigation}>
-      <Flex direction="column" gap={2}>
-        <Flex direction="column" gap={2}>
-          <Text>Navigation controller:</Text>
-            <RadioButton
-              checked={onNavigationMode === 'provider_disabled'}
-              id="provider_disabled"
-              label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_disabled')}
-              value="provider_disabled"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'provider_custom'}
-              id="provider_custom"
-              label="Custom navigation set on OnLinkNavigationProvider"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_custom')}
-              value="provider_custom"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'link_custom'}
-              id="link_custom"
-              label="Custom navigation set on Link"
-              name="navigation"
-              onChange={() => setOnNavigationMode('link_custom')}
-              value="link_custom"
-            />
-          <Divider/>
-        </Flex>
-        <Callout
-          type="info"
-          iconAccessibilityLabel="Info icon"
-          title="Your business account was created!"
-          message="Apply to the Verified Merchant Program!"
-          primaryAction={
-            { ...linkProps,
-              label:'Get started',
-              accessibilityLabel: "Apply to verified merchant program",
-            }}
-          secondaryAction={
-            { ...linkProps,
-              label: 'Learn more',
-              accessibilityLabel: "Learn more: verified merchant program",
-            }}
-          dismissButton={{
-            accessibilityLabel: 'Dismiss banner',
-            onDismiss: () => {},
-          }}
-        />
-      </Flex>
-    </OnLinkNavigationProvider>
-  );
-}
-`}
-      />
-    </MainSection.Subsection>
   </MainSection>,
 );
 
@@ -674,7 +575,6 @@ card(
 
       **[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
       OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-      See [custom navigation](#Custom-navigation) variant for examples.
 
     `}
     />
