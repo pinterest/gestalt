@@ -51,7 +51,7 @@ card(
           'Link-role button to render inside the activation card as a call-to-action to the user.',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
-          '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation',
+          '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
           'ActivationCard can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation',
         ],
       },
