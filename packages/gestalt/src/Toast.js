@@ -24,7 +24,7 @@ export default function Toast({
   thumbnailShape = 'square',
 }: Props): Node {
   return (
-    <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
+    <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw" role="status">
       <Box color={color} fit padding={6} rounding="pill" borderStyle="shadow">
         <Box display="flex" marginStart={-2} marginEnd={-2} alignItems="center">
           {thumbnail ? (

@@ -245,7 +245,7 @@ function ToastExample() {
             <Toast
               thumbnail={
                 <Image
-                  alt="Saved to home decor board"
+                  alt="Modern ceramic vase pin."
                   naturalHeight={564}
                   naturalWidth={564}
                   src="https://i.ibb.co/Lx54BCT/stock1.jpg"
@@ -301,7 +301,7 @@ function ToastExample() {
             <Toast
               thumbnail={
                 <Image
-                  alt="Saved to home decor board"
+                  alt="Modern ceramic vase pin."
                   naturalHeight={564}
                   naturalWidth={564}
                   src="https://i.ibb.co/Lx54BCT/stock1.jpg"
@@ -349,7 +349,7 @@ card(
       null,
       <Image
         key="image-key"
-        alt="Saved to home decor board"
+        alt="Modern ceramic vase pin."
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
@@ -375,7 +375,7 @@ card(
         thumbnail={
           <Image
             key="image-key"
-            alt="Saved to home decor board"
+            alt="Blush and sage plant print."
             naturalHeight={751}
             naturalWidth={564}
             src="https://i.ibb.co/7bQQYkX/stock2.jpg"
