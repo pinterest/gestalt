@@ -1,3 +1,9 @@
+## 33.8.0 (Aug 30, 2021)
+
+### Minor
+
+- Eslint plugin: added schema options to `prefer-box-no-disallowed` rule (#1667)
+
 ## 33.7.10 (Aug 27, 2021)
 
 ### Patch
