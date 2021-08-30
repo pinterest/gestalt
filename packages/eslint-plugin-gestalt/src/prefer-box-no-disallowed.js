@@ -55,20 +55,6 @@ const rule: ESLintRule = {
   },
 
   create(context) {
-    const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
-    // exit if we are excluding tests and file is test
-    if (excludeTests && context.getFilename().endsWith('.test.js')) return null;
-
-    // exit if we are excluding paths and file contains path
-    if (
-      excludePaths?.length !== 0 &&
-      excludePaths?.some((path) => {
-        const pathRegex = new RegExp(`${path}`, 'g');
-        return pathRegex.test(context.getFilename());
-      })
-    )
-      return null;
-
     let programNode;
     let gestaltImportNode;
     let importFixerRun = false;
@@ -100,8 +86,21 @@ const rule: ESLintRule = {
         ...ignoreEslintPluginJsxA11yConflictingAttributes,
       ];
 
-      // First, return if div should stay unmodified
+      const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
+
+      const isTest = excludeTests && context.getFilename().endsWith('.test.js');
+
+      const isExcludedPath =
+        excludePaths?.length !== 0 &&
+        excludePaths?.some((path) => {
+          const pathRegex = new RegExp(`${path}`, 'g');
+          return pathRegex.test(context.getFilename());
+        });
+
+      // First, exit if div should stay unmodified
       if (
+        isTest ||
+        isExcludedPath ||
         !isTag({ elementNode: node.openingElement, tagName: 'div' }) ||
         hasSpreadAttributes({ elementNode: node.openingElement }) ||
         hasAttributes({
