@@ -1,3 +1,9 @@
+## 33.8.3 (Aug 30, 2021)
+
+### Patch
+
+- Internal: fix Element type is invalid (#1666)
+
 ## 33.8.2 (Aug 30, 2021)
 
 ### Patch
