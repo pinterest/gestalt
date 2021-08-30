@@ -3,6 +3,7 @@
 exports[`<Toast /> Red Toast 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
@@ -33,6 +34,7 @@ exports[`<Toast /> Red Toast 1`] = `
 exports[`<Toast /> Text + Image + Button 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
@@ -124,6 +126,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
 exports[`<Toast /> Text + Image 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
@@ -191,6 +194,7 @@ exports[`<Toast /> Text + Image 1`] = `
 exports[`<Toast /> Text Only 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
