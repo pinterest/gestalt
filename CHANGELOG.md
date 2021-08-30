@@ -1,3 +1,9 @@
+## 33.8.1 (Aug 30, 2021)
+
+### Patch
+
+- Toast: Add role of status for accessibility (#1665)
+
 ## 33.8.0 (Aug 30, 2021)
 
 ### Minor
