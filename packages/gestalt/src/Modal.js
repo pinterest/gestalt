@@ -21,54 +21,49 @@ type Props = {|
    */
   _dangerouslyDisableScrollBoundaryContainer?: boolean,
   /**
-   * String that clients such as VoiceOver will read to describe the modal. Always localize the label
-   * https://gestalt.pinterest.systems/Modal#Accessibility
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/modal#Accessibility) for more info.
    */
   accessibilityModalLabel: string,
   /**
-   * Specify the alignment of heading & subHeading strings.
+   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
    */
   align?: 'start' | 'center',
   /**
-   * Supply the element(s) that will be used as Modal's main content
-   * https://gestalt.pinterest.systems/Modal#Best-practices
+   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
    */
   children?: Node,
   /**
-   * Close the modal when you click outside of it.
-   * https://gestalt.pinterest.systems/Modal#Preventing-close-on-outside-click
+   * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/modal#Preventing-close-on-outside-click) for more info.
    */
   closeOnOutsideClick?: boolean,
   /**
-   * Supply the element(s) that will be used as Modal's custom footer
-   * https://gestalt.pinterest.systems/Modal#Best-practices
+   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
    */
   footer?: Node,
   /**
-   * The text used for Modal's heading
-   * https://gestalt.pinterest.systems/Modal#Heading
+   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
    */
   heading?: Node,
   /**
-   * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if closeOnOutsideClick is true).
+   * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
    */
   onDismiss: () => void,
   /**
-   * The underlying ARIA role for the Modal
-   * https://gestalt.pinterest.systems/Modal#Role
+   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/modal#Role) for more info.
+   *
+   * Default: 'dialog'
    */
   role?: 'alertdialog' | 'dialog',
   /**
-   * Determines the width of the Modal
+   * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/modal#Sizes) for more info.
    *
    * sm: `540px` | md: `720px` | lg: `900px` | number
    *
-   * https://gestalt.pinterest.systems/Modal#Sizes
+   * Default: 'sm'
    */
   size?: 'sm' | 'md' | 'lg' | number,
   /**
-   * Subtext for Modal, only renders with heading strings
-   * https://gestalt.pinterest.systems/Modal#Sub-heading
+   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/modal#Sub-heading) for more info.
    */
   subHeading?: string,
 |};
@@ -103,7 +98,7 @@ function Header({
 }
 
 /**
- * https://gestalt.pinterest.systems/Modal
+ * https://gestalt.pinterest.systems/modal
  */
 export default function Modal(props: Props): Node {
   const {
