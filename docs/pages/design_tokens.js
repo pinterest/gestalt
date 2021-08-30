@@ -26,7 +26,7 @@ card(
               <Text weight="bold">CSS Token Name</Text>
             </Table.HeaderCell>
             <Table.HeaderCell>
-              <Text weight="bold">Javescript Prop Name</Text>
+              <Text weight="bold">JavaScript Prop Name</Text>
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Text weight="bold">Value</Text>
