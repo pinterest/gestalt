@@ -32,7 +32,22 @@ const rule: ESLintRule = {
       url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-no-disallowed',
     },
     fixable: 'code',
-    schema: ([]: $ReadOnlyArray<empty>),
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          excludeTests: {
+            type: 'boolean',
+          },
+          excludePaths: {
+            type: 'array',
+            items: { type: 'string' },
+            uniqueItems: true,
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
     messages: {
       disallowedLonelyRef: `Use <Box ref={ref}></Box> or other Gestalt components that support ref.`,
       disallowed: `Use <Box></Box>.`,
@@ -40,8 +55,19 @@ const rule: ESLintRule = {
   },
 
   create(context) {
-    // Exclude test files from Eslint
-    if (context.getFilename().endsWith('.test.js')) return {};
+    const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
+    // exit if we are excluding tests and file is test
+    if (excludeTests && context.getFilename().endsWith('.test.js')) return null;
+
+    // exit if we are excluding paths and file contains path
+    if (
+      excludePaths?.length !== 0 &&
+      excludePaths?.some((path) => {
+        const pathRegex = new RegExp(`${path}`, 'g');
+        return pathRegex.test(context.getFilename());
+      })
+    )
+      return null;
 
     let programNode;
     let gestaltImportNode;

@@ -7,6 +7,7 @@ type AnyType = any;
 
 /** =================  HELPERS =================
  */
+
 type GetPropertiesFromVariableType = ({|
   variableNode: GenericNode,
 |}) => AnyType;
