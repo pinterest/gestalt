@@ -1,3 +1,9 @@
+## 33.8.2 (Aug 30, 2021)
+
+### Patch
+
+- Eslint plugin: fix on 'prefer-box-no-disallowed'  rule (#1668)
+
 ## 33.8.1 (Aug 30, 2021)
 
 ### Patch
