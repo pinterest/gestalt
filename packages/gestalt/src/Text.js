@@ -21,16 +21,74 @@ type Overflow = 'normal' | 'breakWord' | 'noWrap';
 type Size = 'sm' | 'md' | 'lg';
 
 type Props = {|
-  align?: Align,
+  /**
+   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text.
+   *
+   * Default: 'start'
+   * Link: https://gestalt.pinterest.systems/text#align
+   */
+  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   children?: Node,
-  color?: Color,
+  /**
+   * Default: 'darkGray'
+   * Link: https://gestalt.pinterest.systems/text#color
+   */
+  color?:
+    | 'blue'
+    | 'darkGray'
+    | 'eggplant'
+    | 'gray'
+    | 'green'
+    | 'lightGray'
+    | 'maroon'
+    | 'midnight'
+    | 'navy'
+    | 'olive'
+    | 'orange'
+    | 'orchid'
+    | 'pine'
+    | 'purple'
+    | 'red'
+    | 'watermelon'
+    | 'white',
+  /**
+   * Default: false
+   * Link: https://gestalt.pinterest.systems/text#inline
+   */
   inline?: boolean,
+  /**
+   * Default: false
+   * Link: https://gestalt.pinterest.systems/text#styles
+   */
   italic?: boolean,
+  /**
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.
+   *
+   * Link: https://gestalt.pinterest.systems/text#overflow
+   */
   lineClamp?: number,
+  /**
+   * Default: 'breakWord'
+   * Link: https://gestalt.pinterest.systems/text#overflow
+   */
   overflow?: Overflow,
+  /**
+   * sm: `12px`, md: `14px`, lg: `16px`
+   *
+   * Default: 'lg'
+   * Link: https://gestalt.pinterest.systems/text#size
+   */
   size?: Size,
+  /**
+   * Default: 'false'
+   * Link: https://gestalt.pinterest.systems/text#styles
+   */
   underline?: boolean,
-  weight?: FontWeight,
+  /**
+   * Default: 'normal'
+   * Link: https://gestalt.pinterest.systems/text#styles
+   */
+  weight?: 'bold' | 'normal',
 |};
 
 /**
