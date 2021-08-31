@@ -1,3 +1,9 @@
+## 33.9.0 (Aug 31, 2021)
+
+### Minor
+
+- Docs: auto generate prop table from component (#1669)
+
 ## 33.8.3 (Aug 30, 2021)
 
 ### Patch
