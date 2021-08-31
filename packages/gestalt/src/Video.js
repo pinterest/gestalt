@@ -33,6 +33,7 @@ type Props = {|
   crossOrigin?: CrossOrigin,
   children?: Node,
   controls?: boolean,
+  disableRemotePlayback?: boolean,
   loop?: boolean,
   objectFit?: ObjectFit,
   onDurationChange?: ({|
@@ -191,6 +192,7 @@ export default class Video extends PureComponent<Props, State> {
     children: PropTypes.node,
     crossOrigin: PropTypes.oneOf(['use-credentials', 'anonymous']),
     controls: PropTypes.bool,
+    disableRemotePlayback: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onEnded: PropTypes.func,
@@ -226,11 +228,13 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   static defaultProps: {|
+    disableRemotePlayback: boolean,
     playbackRate: number,
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
   |} = {
+    disableRemotePlayback: false,
     playbackRate: 1,
     playing: false,
     preload: 'auto',
@@ -560,6 +564,7 @@ export default class Video extends PureComponent<Props, State> {
       captions,
       children,
       crossOrigin,
+      disableRemotePlayback,
       loop,
       objectFit,
       playing,
@@ -588,6 +593,7 @@ export default class Video extends PureComponent<Props, State> {
             src={typeof src === 'string' ? src : undefined}
             ref={this.setVideoRef}
             className={styles.video}
+            disableRemotePlayback={disableRemotePlayback}
             onCanPlay={this.handleCanPlay}
             onDurationChange={this.handleDurationChange}
             onEnded={this.handleEnded}
