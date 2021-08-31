@@ -11,12 +11,28 @@ function getDefaultValue(
   defaultValue?: string,
 |} {
   const input = description ?? '';
-  const match = input.match(/(?<main>Default: '(?<defaultValue>.*)')/);
+  const match = input.match(/(?<main>Default: (?<defaultValue>.*))/);
   const groups = match?.groups ?? {};
 
   return {
     description: groups.main ? input.replace(groups.main, '') : description,
-    defaultValue: groups.defaultValue ?? null,
+    defaultValue: groups.defaultValue?.replace(/'/g, ''),
+  };
+}
+
+function getHref(
+  description?: string,
+): {|
+  description?: string,
+  href?: string,
+|} {
+  const input = description ?? '';
+  const match = input.match(/(?<main>Link: (?<href>.*))/);
+  const groups = match?.groups ?? {};
+
+  return {
+    description: groups.main ? input.replace(groups.main, '') : description,
+    href: groups.href ? [...groups.href.split('#')].pop() : undefined,
   };
 }
 
@@ -38,18 +54,20 @@ export default function GeneratedPropTable({
       }
 
       const { description: descriptionWithoutDefaultValue = '', defaultValue } = getDefaultValue(
-        description,
+        description?.replace(/https:\/\/gestalt\.pinterest\.systems/, ''),
       );
+      const { description: descriptionWihoutLink, href } = getHref(descriptionWithoutDefaultValue);
 
       return {
         name: key,
-        type: (flowType.raw ?? flowType.name ?? '').replace(/Node/g, 'React.Node'),
-        description: descriptionWithoutDefaultValue.replace(
-          /https:\/\/gestalt\.pinterest\.systems/,
-          '',
+        type: (flowType.raw?.replace(/^\|/, '').trim() ?? flowType.name ?? '').replace(
+          /Node/g,
+          'React.Node',
         ),
+        description: descriptionWihoutLink?.trim(),
         required,
         defaultValue,
+        href,
       };
     })
     .filter(Boolean);
