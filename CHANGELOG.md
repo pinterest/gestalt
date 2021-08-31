@@ -1,3 +1,9 @@
+## 33.9.1 (Aug 31, 2021)
+
+### Patch
+
+- Docs: use generated flow types for Text (#1671)
+
 ## 33.9.0 (Aug 31, 2021)
 
 ### Minor
