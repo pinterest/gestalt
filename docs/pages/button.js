@@ -14,7 +14,13 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Button"
-    description="Buttons allow users to take actions, and make choices, with a single click. They are typically found in forms, dialog, and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus."
+    description={`
+Buttons allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like a Dropdown or Popover.`}
+    defaultCode={`
+      <Flex>
+        <Button color='red' size='lg' text='Save' />
+      </Flex>
+    `}
   />,
 );
 
@@ -342,11 +348,11 @@ card(
     <MainSection.Subsection
       title="ARIA attributes"
       description={`
-IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/Icon). In the example below, the screen reader reads: "More Options."
-If IconButton is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
-- \`accessibilityControls\`: informs the screen reader that IconButton controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
-- \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to IconButton. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
-- \`accessibilityExpanded\`: informs the screen reader whether an anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+When Button text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using accessibilityLabel. Texts like "Click Here", “Follow,” or “Shop” can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the Button text, like “Follow Ryan” or “Shop Wedding Invitations”.
+If Button is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+- \`accessibilityControls\`: informs the screen reader that Button controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to Button. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityExpanded\`: informs the screen reader whether the button-anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
     />
   </MainSection>,
@@ -355,7 +361,7 @@ If IconButton is used as a control button to show/hide a Popover-based component
 card(
   <MainSection
     name="Localization"
-    description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent."
+    description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible."
   />,
 );
 
@@ -369,8 +375,7 @@ card(
 2. \`md\` (40px)
     Medium is the size used on more dense UI such as business surfaces or internal tools.
 3. \`sm\` (32px)
-    Small IconButton should be used sparingly and only in places where the UI is very dense.
-Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
+    Small buttons should be used sparingly and only in places where the UI is very dense.`}
     >
       <CombinationNew size={['sm', 'md', 'lg']}>
         {({ size }) => (
@@ -382,7 +387,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       title="Width"
       description={`
 1. Inline (default)
-    Inline is our default Button width. Use in most cases where you need a Button.
+    Inline is our default Button width.  The width of an inline Buttons is based on the length of its text. Use in most cases where you need a Button.
 2. Full-width (\`fullWidth\`)
     Full-width Buttons can be used in narrower content areas (less than 320px) when the text in the button is close to full width in the content area. This is especially common to see in components such as Callout and Upsell at their smaller breakpoints.
 Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
@@ -409,7 +414,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
 3. Gray (Secondary)
     Medium emphasis, used for secondary actions.
 4. Transparent (Tertiary)
-    Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. Note, this treatment should be used with caution as it opens up the potential for color contrast issues.
+    Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it opens up the potential for color contrast issues.*
 `}
     >
       <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
@@ -436,57 +441,149 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
       <MainSection.Card
         cardSize="md"
         defaultCode={`
-<Box height={300} padding={3} width={250} color='darkGray'>
-  <Flex direction="column" gap={2} height="100%" justifyContent="end">
-    <Button
-      accessibilityLabel='Primary'
-      color="white"
-      text="Primary"
-      fullWidth
-      size="lg"
-      />
-    <Button
-      accessibilityLabel='Secondary'
-      color="semiTransparentWhite"
-      text="Secondary"
-      fullWidth
-      size="lg"
-      />
-  </Flex>
-</Box>
+function WhiteButtonExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+  const viewRef = React.useRef();
+
+  const isInViewport = () => {
+    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
+    const isVisible = rect
+      ? rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      : undefined;
+
+    if (isVisible) {
+      setOpen(true)
+    }
+  }
+
+  React.useEffect(() => {
+    isInViewport()
+    document.addEventListener('scroll', isInViewport), [document, isInViewport]
+  });
+
+  return (
+    <ScrollBoundaryContainer>
+      <Box ref={viewRef} width={300} height={220}>
+        <Box display="flex" justifyContent="center" ref={anchorRef}>
+          <Tabs
+            activeTabIndex={1}
+            onChange={() => {}}
+            tabs={[{ href: '#Anchor', text: 'Created'}]}
+          />
+        </Box>
+      </Box>
+      {open &&
+        <Layer>
+          <Popover
+            anchor={anchorRef.current}
+            color="blue"
+            idealDirection="down"
+            showCaret
+            onDismiss={() => {}}
+            positionRelativeToAnchor={false}
+            size={240}
+          >
+            <Box padding={3}>
+              <Flex alignItems="center" direction="column" gap={4}>
+                <Text color="white" align="center">
+                  New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
+                </Text>
+                <Button
+                  color="white"
+                  onClick={() => setOpen(false)}
+                  size="lg"
+                  text="Got it"
+                />
+              </Flex>
+            </Box>
+          </Popover>
+        </Layer>}
+    </ScrollBoundaryContainer>
+  )
+}
 `}
       />
       <MainSection.Card
         cardSize="md"
         defaultCode={`
-<Box height={300} paddingX={2} width={250}>
-  <Image
-  src='https://i.ibb.co/7bQQYkX/stock2.jpg'
-  alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-  color="rgb(231, 186, 176)"
-  naturalHeight={751}
-  naturalWidth={564}
-  >
-    <Box height="100%" padding={3}>
-      <Flex direction="column" gap={2} height="100%" justifyContent="end">
-        <Button
-          accessibilityLabel='Primary'
-          color="white"
-          text="Primary"
-          fullWidth
-          size="lg"
+function SemiTransparentWhiteButtonExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+  const viewRef = React.useRef();
+
+  const isInViewport = () => {
+    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
+    const isVisible = rect
+      ? rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      : undefined;
+
+    if (isVisible) {
+      setOpen(true)
+    }
+  }
+
+  React.useEffect(() => {
+    isInViewport()
+    document.addEventListener('scroll', isInViewport), [document, isInViewport]
+  });
+
+  return (
+    <ScrollBoundaryContainer>
+      <Box ref={viewRef} width={300} height={220}>
+        <Box display="flex" justifyContent="center" ref={anchorRef}>
+          <Tabs
+            activeTabIndex={1}
+            onChange={() => {}}
+            tabs={[{ href: '#Anchor', text: 'Created'}]}
           />
-        <Button
-          accessibilityLabel='Secondary'
-          color="semiTransparentWhite"
-          text="Secondary"
-          fullWidth
-          size="lg"
-          />
-      </Flex>
-    </Box>
-  </Image>
-</Box>
+        </Box>
+      </Box>
+      {open &&
+        <Layer>
+          <Popover
+            anchor={anchorRef.current}
+            color="blue"
+            idealDirection="down"
+            showCaret
+            onDismiss={() => {}}
+            positionRelativeToAnchor={false}
+            size={240}
+          >
+            <Box padding={3}>
+              <Flex alignItems="center" direction="column" gap={4}>
+                <Text color="white" align="center">
+                  New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
+                </Text>
+                <Flex alignItems="stretch" direction="column" gap={2}>
+                  <Button
+                    color="white"
+                    onClick={() => setOpen(false)}
+                    size="lg"
+                    text="Got it"
+                    fullWidth
+                  />
+                  <Button
+                    color="semiTransparentWhite"
+                    onClick={() => setOpen(false)}
+                    size="lg"
+                    text="Learn more"
+                    fullWidth
+                  />
+                </Flex>
+              </Flex>
+            </Box>
+          </Popover>
+        </Layer>}
+    </ScrollBoundaryContainer>
+  )
+}
 `}
       />
     </MainSection.Subsection>
@@ -573,7 +670,7 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
 1. Default
     The typical state of a button that represents it can be interacted with and is not in a selected state.
 2. Disabled
-    Used to block user interaction such as hover, focus and click.
+Used to block user interaction such as hover, focus and click. Disabled buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons. If you need to explain why a Button is disabled, use an IconButton + Tooltip next to the disabled Button.
 3. Selected
   When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state. Do not use this prop with \`role="link"\` Buttons.
 `}
