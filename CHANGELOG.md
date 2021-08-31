@@ -1,3 +1,9 @@
+## 33.9.3 (Aug 31, 2021)
+
+### Patch
+
+- Docs: Remove broken source links (#1673)
+
 ## 33.9.2 (Aug 31, 2021)
 
 ### Patch
