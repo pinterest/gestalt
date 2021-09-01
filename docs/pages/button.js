@@ -170,7 +170,7 @@ card(
         required: false,
         defaultValue: 0,
         description: [
-          'Use "-1" to remove Button from keyboard navigation. See the Accessibility guidelines to learn more.',
+          'Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
       },
       {
@@ -550,9 +550,9 @@ Adds an icon after the Button text. Icons should only be used to reinforce a spe
         cardSize="md"
         defaultCode={`
 <Button
-  accessibilityLabel='Button'
+  accessibilityLabel='Follow'
   size="lg"
-  text="Button"
+  text="Follow"
   role="button"
 />
 `}
@@ -561,10 +561,10 @@ Adds an icon after the Button text. Icons should only be used to reinforce a spe
         cardSize="md"
         defaultCode={`
 <Button
-  accessibilityLabel='Link'
+  accessibilityLabel='Visit Pinterest'
   iconEnd="arrow-up-right"
   size="lg"
-  text="Link"
+  text="Visit Pinterest"
   role="link"
   href="https://pinterest.com"
 />
@@ -581,10 +581,10 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
         cardSize="lg"
         defaultCode={`
 <Button
-  accessibilityLabel='Link'
+  accessibilityLabel='Visit Pinterest'
   iconEnd="arrow-up-right"
   size="lg"
-  text="Link"
+  text="Visit Pinterest"
   role="link"
   rel="nofollow"
   target="_blank"
@@ -764,7 +764,7 @@ function OnNavigation() {
   }
   return (
     <OnLinkNavigationProvider onNavigation={onNavigation}>
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={4} alignItems='center'>
         <Flex direction="column" gap={2}>
           <Text>Navigation controller:</Text>
             <RadioButton
@@ -793,7 +793,7 @@ function OnNavigation() {
             />
           <Divider/>
         </Flex>
-        <Button fullWidth {...linkProps} role="link" text="Visit pinterest.com"/>
+        <Button {...linkProps} role="link" text="Visit Pinterest" iconEnd='arrow-up-right' size='lg' />
       </Flex>
     </OnLinkNavigationProvider>
   );
