@@ -35,7 +35,7 @@ card(
         description: [
           'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'accessibilityLabel',
+        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'accessibilityControls',
@@ -45,7 +45,7 @@ card(
         description: [
           'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'accessibility',
+        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'accessibilityExpanded',
@@ -55,7 +55,7 @@ card(
         description: [
           'Needed if Button controls a grouping of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'accessibility',
+        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'accessibilityHaspopup',
@@ -65,7 +65,7 @@ card(
         description: [
           'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'accessibility',
+        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'color',
@@ -73,7 +73,7 @@ card(
         required: false,
         defaultValue: 'gray',
         description: ['The background color of Button.'],
-        href: 'color',
+        href: 'Color-on-white-backgrounds',
       },
       {
         name: 'disabled',
@@ -83,7 +83,7 @@ card(
         description: [
           'Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.',
         ],
-        href: 'type-roles',
+        href: 'States',
       },
       {
         name: 'iconEnd',
@@ -101,7 +101,7 @@ card(
         description: [
           'Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.',
         ],
-        href: 'width',
+        href: 'Width',
       },
       {
         name: 'onClick',
@@ -121,7 +121,7 @@ card(
         required: false,
         defaultValue: 'md',
         description: ['sm: 32px, md: 40px, lg: 48px'],
-        href: 'size',
+        href: 'Size',
       },
       {
         name: 'text',
@@ -132,7 +132,6 @@ card(
           'Text to render inside the Button to convey the function and purpose of the Button. The Button text has a fixed size.',
           'Accessibility: Screen readers read the `accessibilityLabel` prop, if present, instead of the `text` prop. See `accessibilityLabel` for more info.',
         ],
-        href: 'basic-button',
       },
       {
         name: 'type',
@@ -140,7 +139,6 @@ card(
         required: false,
         defaultValue: 'button',
         description: ['Use “submit” if Button is used within or associated with a form.'],
-        href: 'type-roles',
       },
       {
         name: 'selected',
@@ -148,7 +146,7 @@ card(
         required: false,
         defaultValue: false,
         description: ['Indicates if Button is currently selected.'],
-        href: 'selected',
+        href: 'States',
       },
       {
         name: 'href',
@@ -156,7 +154,7 @@ card(
         required: false,
         defaultValue: null,
         description: ['Specifies a link URL. Required with `role="link"` Buttons.'],
-        href: 'type-roles',
+        href: 'role',
       },
       {
         name: 'ref',
@@ -174,7 +172,6 @@ card(
         description: [
           'Use "-1" to remove Button from keyboard navigation. See the Accessibility guidelines to learn more.',
         ],
-        href: 'type-roles',
       },
       {
         name: 'role',
@@ -182,7 +179,7 @@ card(
         required: false,
         defaultValue: 'button',
         description: ['Use “link” to indicate Button that is acting as an `<a>` link.'],
-        href: 'type-roles',
+        href: 'roles',
       },
       {
         name: 'rel',
@@ -190,7 +187,7 @@ card(
         required: false,
         defaultValue: 'none',
         description: 'Optional with link-role Buttons.',
-        href: 'type-roles',
+        href: 'rel-and-target',
       },
       {
         name: 'target',
@@ -200,7 +197,7 @@ card(
         description: [
           'Indicates the browsing context where an href will be opened. Optional with `role="link"` Buttons.',
         ],
-        href: 'type-roles',
+        href: 'rel-and-target',
       },
     ]}
   />,
@@ -316,7 +313,7 @@ card(
     <MainSection.Subsection
       title="ARIA attributes"
       description={`
-When Button text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using accessibilityLabel. Texts like "Click Here", “Follow,” or “Shop” can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the Button text, like “Follow Ryan” or “Shop Wedding Invitations”.
+When Button text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using accessibilityLabel. Texts like “Click here“, “Follow“, or “Shop“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the Button text, like “Follow Ryan” or “Shop Wedding Invitations”.
 If Button is used as a control Button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
 - \`accessibilityControls\`: informs the screen reader that Button controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to Button. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
