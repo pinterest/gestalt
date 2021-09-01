@@ -5,6 +5,7 @@ import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import Card from '../components/Card.js';
 import CardPage from '../components/CardPage.js';
+import MainSection from '../components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -105,6 +106,28 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Anytime succinct data needs to be inputted by a user, like a date, email address, name, or Pin title.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Situations where long amounts of text need to be entered, since the full content of the TextField will be obscured. Use [TextArea](/textarea) instead.`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

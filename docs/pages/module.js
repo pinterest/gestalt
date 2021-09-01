@@ -5,6 +5,7 @@ import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
+import MainSection from '../components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -138,6 +139,34 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Grouping and organizing content to keep the page clean and digestible.
+          - Displaying additional related content about a particular subject.
+          - Enabling users to reveal or hide additional content as necessary (with Expandable variant).
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - In a layout that conveys a clear sense of information hierarchy. Use [SegmentedControl](/segmentedcontrol) instead.
+          - When long content can’t be displayed all at once, and scrolling is necessary.
+          - When there is insufficient content to condense, as collapsing can increase cognitive load and interaction cost. Consider the static variant of Module.
+          - When the content is crucial to read in full. Consider the static variant instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

@@ -70,6 +70,30 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - To display a single numerical metric.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - When the information to convey is qualitative (e.g., “In Progress” or “Healthy”). Use [Status](/status) instead.
+          - When the Datapoint’s metric/value is not clear or understandable in isolation.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection
     name="Localization"
     description={`Be sure to localize the \`title\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
