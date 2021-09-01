@@ -382,14 +382,17 @@ card(
 `}
     >
       <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
-        {({ color }) => (
-          <Button
-            accessibilityLabel={`Example width ${color}`}
-            color={color}
-            text="Button"
-            size="lg"
-          />
-        )}
+        {({ color }) => {
+          const map = { red: 'Save', blue: 'Shop', gray: 'Visit', transparent: 'Learn more' };
+          return (
+            <Button
+              accessibilityLabel={`Example width ${color}`}
+              color={color}
+              text={map[color]}
+              size="lg"
+            />
+          );
+        }}
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
