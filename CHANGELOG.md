@@ -1,3 +1,9 @@
+## 33.10.0 (Sep 1, 2021)
+
+### Minor
+
+- Video: add disableRemotePlayback prop (#1670)
+
 ## 33.9.4 (Sep 1, 2021)
 
 ### Patch
