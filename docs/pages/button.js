@@ -15,7 +15,7 @@ card(
   <PageHeader
     name="Button"
     description={`
-Buttons allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like a Dropdown or Popover.`}
+Buttons allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like [Dropdown](/dropdown) or [Popover](/popover).`}
     defaultCode={`
       <Flex>
         <Button color='red' size='lg' text='Save' />
@@ -33,9 +33,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
-          'Use IconButton if you only need a button with an icon and no text.',
-          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of `text`.',
+          'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
         href: 'accessibilityLabel',
       },
@@ -45,9 +43,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.',
-          'Optional with button-role + button-type buttons.',
-          'Accessibility: It populates aria-controls.',
+          'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
         href: 'accessibility',
       },
@@ -57,9 +53,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
-          'Optional with button-role + button-type buttons.',
-          'Accessibility: It populates aria-expanded.',
+          'Needed if Button controls a grouping of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
         href: 'accessibility',
       },
@@ -69,9 +63,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
-          'Optional with button-role + button-type buttons.',
-          'Accessibility: It populates aria-haspopup.',
+          'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
         href: 'accessibility',
       },
@@ -80,10 +72,7 @@ card(
         type: `'gray' | 'red' | 'blue' | 'transparent' |  'semiTransparentWhite' | 'transparentWhiteText' | 'white'`,
         required: false,
         defaultValue: 'gray',
-        description: [
-          'Primary colors to apply to the button background.',
-          'Accessibility: Use `transparentWhiteText` to increase the contrast between a dark background and a transparent-Button text.',
-        ],
+        description: ['The background color of Button.'],
         href: 'color',
       },
       {
@@ -91,8 +80,9 @@ card(
         type: 'boolean',
         required: false,
         defaultValue: null,
-        description:
-          'Set disabled state so buttons look inactive, cannot be interacted with, and actions are not available.',
+        description: [
+          'Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.',
+        ],
         href: 'type-roles',
       },
       {
@@ -100,11 +90,7 @@ card(
         type: '$Keys<typeof icons>',
         required: false,
         defaultValue: false,
-        description: [
-          'Add a Gestalt icon to be displayed after the button text. Sometimes an icon can help clarify the usage of a button. Menus are a common use case.',
-          'Accessibility: Icons on buttons are not accessible for screen readers.',
-          'Use IconButton if you only need buttons with icons and no text.',
-        ],
+        description: ['An icon displayed after the text to help clarify the usage of Button.'],
         href: 'iconEnd',
       },
       {
@@ -112,8 +98,9 @@ card(
         type: 'boolean',
         required: false,
         defaultValue: false,
-        description:
-          'Default buttons are sized by the text within the button whereas full-width buttons expand to the full width of their container.',
+        description: [
+          'Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.',
+        ],
         href: 'width',
       },
       {
@@ -123,7 +110,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard. ',
+          'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
           'See [custom navigation](#Custom-navigation) variant for examples.',
         ],
         href: 'selected',
@@ -133,8 +120,7 @@ card(
         type: `'sm' | 'md' | 'lg'`,
         required: false,
         defaultValue: 'md',
-        description:
-          'Display a button in different sizes. Size changes the component padding modifying its fixed height: sm (32px), md (40px), lg (48px).',
+        description: ['sm: 32px, md: 40px, lg: 48px'],
         href: 'size',
       },
       {
@@ -143,7 +129,7 @@ card(
         required: true,
         defaultValue: null,
         description: [
-          'Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
+          'Text to render inside the Button to convey the function and purpose of the Button. The Button text has a fixed size.',
           'Accessibility: Screen readers read the `accessibilityLabel` prop, if present, instead of the `text` prop. See `accessibilityLabel` for more info.',
         ],
         href: 'basic-button',
@@ -153,11 +139,7 @@ card(
         type: `'submit' | 'button'`,
         required: false,
         defaultValue: 'button',
-        description: [
-          'Select a type of button-role button:',
-          '-`button`: Use to render simple push buttons with no default behavior and control custom functionality inside the `onClick` callback.',
-          '-`submit`: Use to submit forms. The button is inside/associated with a form.',
-        ],
+        description: ['Use “submit” if Button is used within or associated with a form.'],
         href: 'type-roles',
       },
       {
@@ -165,10 +147,7 @@ card(
         type: 'boolean',
         required: false,
         defaultValue: false,
-        description: [
-          'Control the "selected" state of a button component to toggle binary states.',
-          'Optional with button-role + button-type buttons.',
-        ],
+        description: ['Indicates if Button is currently selected.'],
         href: 'selected',
       },
       {
@@ -176,7 +155,7 @@ card(
         type: 'string',
         required: false,
         defaultValue: null,
-        description: ['Specify a link URL.', 'Required with link-role buttons.'],
+        description: ['Specifies a link URL. Required with `role="link"` Buttons.'],
         href: 'type-roles',
       },
       {
@@ -184,7 +163,7 @@ card(
         type: `React.Ref<'button'> | React.Ref<'a'>`,
         required: false,
         defaultValue: null,
-        description: 'Forward the ref to the underlying button or anchor element.',
+        description: ['A React ref to forward to the underlying element.'],
         href: 'ref',
       },
       {
@@ -193,9 +172,7 @@ card(
         required: false,
         defaultValue: 0,
         description: [
-          'Remove the component from sequential keyboard navigation to improve accessibility. The component is not focusable with keyboard navigation but it can be focused with Javascript or visually by clicking with the mouse.',
-          `The default behaviour for the component is to be focusable in sequential keyboard navigation in the order defined by the document's source order.`,
-          `If component is disabled, the component is also unreachable from keyboard navigation.`,
+          'Use "-1" to remove Button from keyboard navigation. See the Accessibility guidelines to learn more.',
         ],
         href: 'type-roles',
       },
@@ -204,12 +181,7 @@ card(
         type: `'button' | 'link'`,
         required: false,
         defaultValue: 'button',
-        description: [
-          `Select a button variant:`,
-          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a \`<button>\`.`,
-          `- 'link': Use for buttons to act like links. The button is rendered as an \`<a>\`.`,
-          `Required with link-role buttons.`,
-        ],
+        description: ['Use “link” to indicate Button that is acting as an `<a>` link.'],
         href: 'type-roles',
       },
       {
@@ -217,7 +189,7 @@ card(
         type: `'none' | 'nofollow'`,
         required: false,
         defaultValue: 'none',
-        description: 'Optional with link-role buttons.',
+        description: 'Optional with link-role Buttons.',
         href: 'type-roles',
       },
       {
@@ -226,11 +198,7 @@ card(
         required: false,
         defaultValue: 'null',
         description: [
-          'Define the frame or window to open the anchor defined on `href`:',
-          '- `null` opens the anchor in the same window.',
-          '- `blank` opens the anchor in a new window.',
-          '- `self` opens an anchor in the same frame.',
-          'Optional with link-role buttons.',
+          'Indicates the browsing context where an href will be opened. Optional with `role="link"` Buttons.',
         ],
         href: 'type-roles',
       },
@@ -304,7 +272,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Show the full text on buttons. Buttons should be stacked when they cannot be displayed side by side."
+        description="Show the full text on Buttons. Buttons should be stacked when they cannot be displayed side by side."
         defaultCode={`
 <Flex gap={2} direction="column" alignContent="stretch">
   <Button text="Create account" size="lg" color="red" fullWidth />
@@ -315,7 +283,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Truncate the button text. In rare instances where buttons must remain on one line, truncate the text on the secondary button before truncating on the primary button."
+        description="Truncate the Button text. In rare instances where Buttons must remain on one line, truncate the text on the secondary Button before truncating on the primary Button."
         defaultCode={`
 <Flex gap={2}>
   <Button text="Kontoeinst..." size="lg" color="gray" />
@@ -326,7 +294,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Keep the button text as simple and actionable as possible. Refer to the [Button writing guidelines](#Writing) for more detail."
+        description="Keep the Button text as simple and actionable as possible. Refer to the [Button writing guidelines](#Writing) for more detail."
         defaultCode={`
   <Button text="Create account" size="lg" color="red" />
 `}
@@ -334,7 +302,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description={`Do not add icons to a button to refinforce the text. Icons should be used to denote specific function or interaction (\`arrow-up-right\` for linking to an external URL or \`arrow-down\` for displaying a [Popover](/popover) on click).`}
+        description={`Do not add icons to a Button to refinforce the text. Icons should be used to denote specific function or interaction (\`arrow-up-right\` for linking to an external URL or \`arrow-down\` for displaying a [Popover](/popover) on click).`}
         defaultCode={`
           <Button text="Create new Pinterest account" size="lg" color="red" iconEnd='person-add' />
 `}
@@ -349,7 +317,7 @@ card(
       title="ARIA attributes"
       description={`
 When Button text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using accessibilityLabel. Texts like "Click Here", “Follow,” or “Shop” can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the Button text, like “Follow Ryan” or “Shop Wedding Invitations”.
-If Button is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+If Button is used as a control Button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
 - \`accessibilityControls\`: informs the screen reader that Button controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to Button. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityExpanded\`: informs the screen reader whether the button-anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
@@ -373,9 +341,9 @@ card(
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
 2. \`md\` (40px)
-    Medium is the size used on more dense UI such as business surfaces or internal tools.
+    Medium is used on more dense UI such as business surfaces or internal tools.
 3. \`sm\` (32px)
-    Small buttons should be used sparingly and only in places where the UI is very dense.`}
+    Small should be used sparingly and only in places where the UI is very dense.`}
     >
       <CombinationNew size={['sm', 'md', 'lg']}>
         {({ size }) => (
@@ -387,10 +355,9 @@ card(
       title="Width"
       description={`
 1. Inline (default)
-    Inline is our default Button width.  The width of an inline Buttons is based on the length of its text. Use in most cases where you need a Button.
+    Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
 2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas (less than 320px) when the text in the button is close to full width in the content area. This is especially common to see in components such as Callout and Upsell at their smaller breakpoints.
-Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
+    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as Callout and Upsell at their smaller breakpoints.`}
     >
       <CombinationNew fullwidth={[false, true]}>
         {({ fullwidth }) => (
@@ -414,7 +381,7 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
 3. Gray (Secondary)
     Medium emphasis, used for secondary actions.
 4. Transparent (Tertiary)
-    Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it opens up the potential for color contrast issues.*
+    Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
 `}
     >
       <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
@@ -446,23 +413,8 @@ function WhiteButtonExample() {
   const anchorRef = React.useRef();
   const viewRef = React.useRef();
 
-  const isInViewport = () => {
-    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
-    const isVisible = rect
-      ? rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      : undefined;
-
-    if (isVisible) {
-      setOpen(true)
-    }
-  }
-
   React.useEffect(() => {
-    isInViewport()
-    document.addEventListener('scroll', isInViewport), [document, isInViewport]
+    setOpen(true)
   });
 
   return (
@@ -483,7 +435,6 @@ function WhiteButtonExample() {
             color="blue"
             idealDirection="down"
             showCaret
-            onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size={240}
           >
@@ -494,7 +445,6 @@ function WhiteButtonExample() {
                 </Text>
                 <Button
                   color="white"
-                  onClick={() => setOpen(false)}
                   size="lg"
                   text="Got it"
                 />
@@ -515,34 +465,19 @@ function SemiTransparentWhiteButtonExample() {
   const anchorRef = React.useRef();
   const viewRef = React.useRef();
 
-  const isInViewport = () => {
-    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
-    const isVisible = rect
-      ? rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      : undefined;
-
-    if (isVisible) {
-      setOpen(true)
-    }
-  }
-
   React.useEffect(() => {
-    isInViewport()
-    document.addEventListener('scroll', isInViewport), [document, isInViewport]
+    setOpen(true)
   });
 
   return (
     <ScrollBoundaryContainer>
       <Box ref={viewRef} width={300} height={220}>
         <Box display="flex" justifyContent="center" ref={anchorRef}>
-          <Tabs
-            activeTabIndex={1}
-            onChange={() => {}}
-            tabs={[{ href: '#Anchor', text: 'Created'}]}
-          />
+        <Tabs
+          activeTabIndex={1}
+          onChange={() => {}}
+          tabs={[{ href: '#Anchor', text: 'Created'}]}
+        />
         </Box>
       </Box>
       {open &&
@@ -564,14 +499,12 @@ function SemiTransparentWhiteButtonExample() {
                 <Flex alignItems="stretch" direction="column" gap={2}>
                   <Button
                     color="white"
-                    onClick={() => setOpen(false)}
                     size="lg"
                     text="Got it"
                     fullWidth
                   />
                   <Button
                     color="semiTransparentWhite"
-                    onClick={() => setOpen(false)}
                     size="lg"
                     text="Learn more"
                     fullWidth
@@ -591,7 +524,7 @@ function SemiTransparentWhiteButtonExample() {
       title="Icons"
       description={`
 1. Icon end
-    Icons at the end of the Button can be used to help visually clarify the Button’s purpose. Note that Icons on Buttons are not accessible for screen readers.
+Adds an icon after the Button text. Icons should only be used to reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`arrow-up-right\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
 `}
     >
       <MainSection.Card
@@ -668,9 +601,9 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
       title="States"
       description={`
 1. Default
-    The typical state of a button that represents it can be interacted with and is not in a selected state.
+    The typical state of a Button that represents it can be interacted with and is not in a selected state.
 2. Disabled
-Used to block user interaction such as hover, focus and click. Disabled buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons. If you need to explain why a Button is disabled, use an IconButton + Tooltip next to the disabled Button.
+Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons. If you need to explain why a Button is disabled, use an IconButton + Tooltip next to the disabled Button.
 3. Selected
   When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state. Do not use this prop with \`role="link"\` Buttons.
 `}
