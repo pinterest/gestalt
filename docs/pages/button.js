@@ -432,6 +432,7 @@ function WhiteButtonExample() {
             color="blue"
             idealDirection="down"
             showCaret
+            onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size={240}
           >
