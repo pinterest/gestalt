@@ -1,3 +1,9 @@
+## 33.9.4 (Sep 1, 2021)
+
+### Patch
+
+- Internal: Upgrade Jest to 27.1.0 (#1674)
+
 ## 33.9.3 (Aug 31, 2021)
 
 ### Patch
