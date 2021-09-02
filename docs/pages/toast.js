@@ -32,7 +32,7 @@ card(
         name: 'text',
         type: 'string | React.Node',
         description:
-          'Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the variant',
+          'Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.',
         href: 'textOnlyExample',
         required: true,
       },
