@@ -112,7 +112,7 @@ function ToastExample() {
             paddingX={1}
             position="fixed"
           >
-            <Toast text={"Section created!"} />
+            <Toast text="Section created!" />
           </Box>
         </Layer>
       )}
