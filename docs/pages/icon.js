@@ -6,6 +6,7 @@ import PropTable from '../components/PropTable.js';
 import Combination from '../components/Combination.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
+import MainSection from '../components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -63,6 +64,33 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - As symbolic communication for elements that do not have room for text, like number of pins in a carousel. In this case, ensure the icon choice is easily recognizable and makes sense to international users.
+          - To convey a critical meaning that cannot be communicated with words, like a downward chevron in a Button to indicate it reveals a menu.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - For purposes that are decorative or for visual embellishment, such as how illustrations are typically used. Contact us if this is needed.
+          - As a visual reinforcement for associated text, without adding new meaning.
+          - To communicate status or health. Use [Status](/status) instead.
+          - As an interactive element (e.g., utilizing hover, focus, click/tap). Use [IconButton](/iconbutton) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

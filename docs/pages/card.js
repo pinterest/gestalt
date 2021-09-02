@@ -4,6 +4,7 @@ import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
+import MainSection from '../components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -43,6 +44,30 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Highlighting content in a grid format.
+          - Displaying related content in a way that is easy to scan, read, and act upon.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - Displaying an unrelated group of information.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
