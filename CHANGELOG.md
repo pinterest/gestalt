@@ -1,3 +1,9 @@
+## 33.10.1 (Sep 2, 2021)
+
+### Patch
+
+- Docs: Add more usage guidelines (#1676)
+
 ## 33.10.0 (Sep 1, 2021)
 
 ### Minor
