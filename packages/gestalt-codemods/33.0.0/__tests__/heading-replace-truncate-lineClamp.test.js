@@ -7,7 +7,9 @@ jest.mock('../heading-replace-truncate-lineClamp', () => {
 });
 
 describe('heading-replace-truncate-lineClamp', () => {
-  ['heading-replace-truncate-lineClamp'].forEach((test) => {
-    defineTest(__dirname, 'heading-replace-truncate-lineClamp', { quote: 'single' }, test);
-  });
+  ['heading-replace-truncate-lineClamp', 'heading-replace-truncate-lineClamp-renamed'].forEach(
+    (test) => {
+      defineTest(__dirname, 'heading-replace-truncate-lineClamp', { quote: 'single' }, test);
+    },
+  );
 });
