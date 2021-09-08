@@ -1,3 +1,9 @@
+## 34.0.0 (Sep 8, 2021)
+
+### Major
+
+- Toast: Replace `color` with `variant` (#1677)
+
 ## 33.10.3 (Sep 8, 2021)
 
 ### Patch
