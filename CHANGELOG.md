@@ -1,3 +1,9 @@
+## 33.10.3 (Sep 8, 2021)
+
+### Patch
+
+- Docs: Update link to accessible design deck (#1678)
+
 ## 33.10.2 (Sep 8, 2021)
 
 ### Patch
