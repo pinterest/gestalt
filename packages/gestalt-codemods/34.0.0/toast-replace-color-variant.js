@@ -5,7 +5,7 @@
  *  <Toast color={color} /> to console.log for manual change />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/next/toast-replace-color-variant.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/34.0.0/toast-replace-color-variant.js relative/path/to/your/code
 
 function getNewAttr({ attr, j, previousValue }) {
   const newAttr = { ...attr };
