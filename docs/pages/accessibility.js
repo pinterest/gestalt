@@ -30,7 +30,7 @@ card(
 card(
   <MainSection
     name="Design considerations"
-    description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. Pinployees: for further detail and matching visual examples, check out our [Accessible Design deck](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit?usp=sharing)."
+    description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](https://www.dropbox.com/s/m1jmveyuvv6p9pq/Pinterest%20Accessible%20Design.pdf?dl=0)."
   >
     <MainSection.Subsection
       title="Visuals"

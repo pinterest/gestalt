@@ -30,7 +30,7 @@ describe('Fieldset', () => {
         legend="What is your favorite dog?"
         legendDisplay="hidden"
         id="fieldset-with-error"
-        errorMessage="Atleast 1 item must be selected"
+        errorMessage="At least 1 item must be selected"
       >
         <Checkbox id="Schnauzer" label="Schnauzer" onChange={() => {}} />
         <Checkbox id="Aussie" label="Aussie" onChange={() => {}} />
