@@ -1,23 +1,23 @@
 // @flow strict
 import type { Node } from 'react';
-import { Popover } from 'gestalt';
-import PropTable from '../components/PropTable.js';
+import docgen from '../components/docgen.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import type { DocGen } from '../components/docgen.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Popover"
-    description={`
+export default function PopoverPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Popover">
+      <PageHeader
+        name="Popover"
+        description={`
 Popover is a floating view that contains a task related to the content on screen. It can be triggered when the user clicks or focuses on an element, typically [Button](/Button) or [IconButton](/IconButton). It can also be triggered automatically, as in the case of user education. Popover is non-modal and can be dismissed by interacting with another part of the screen or an item within Popover.
 
 Popover is most appropriate for desktop screens and can contain a variety of elements, such as [Button](/Button) and [Images](/Images). Popover is also the container used to construct more complex elements like [Dropdown](/Dropdown) and the board picker, pictured below, which allow people to choose the board to save a Pin to.
 `}
-    defaultCode={`
+        defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
@@ -131,124 +131,43 @@ function PopoverExample() {
   );
 }
   `}
-  />,
-);
-
-// Specifying Component gives auto warnings about missing props
-card(
-  <PropTable
-    Component={Popover}
-    props={[
-      {
-        name: 'anchor',
-        type: '?HTMLElement',
-        required: true,
-        description:
-          'The reference element, typically [Button](/Button) or [IconButton](/IconButton), that Popover uses to set its position',
-      },
-      {
-        name: 'onDismiss',
-        type: '() => void',
-        description: `Callback fired when Popover requests to be closed. Must be used to control Popover’s on/off display state.`,
-        required: true,
-      },
-      {
-        name: 'id',
-        type: 'string',
-        description:
-          'Unique id to identify each Popover. Used for [accessibility](#ARIA-attributes) purposes.',
-      },
-      {
-        name: 'idealDirection',
-        type: `'up' | 'right' | 'down' | 'left'`,
-        description:
-          'Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](#Ideal-direction) variant to learn more.',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-        description: 'The content shown in Popover',
-      },
-      {
-        name: 'positionRelativeToAnchor',
-        type: 'boolean',
-        defaultValue: true,
-        description:
-          'Properly positions Popover relative to its anchor element. Set to false when used within [Layer](/Layer). See the [with Layer](#With-layer) variant to learn more.',
-      },
-      {
-        name: 'color',
-        type: `"blue" | "orange" | "red" | "white" | "darkGray"`,
-        defaultValue: 'white',
-        description:
-          'The background color of Popover. See the [color and caret](#Color-and-caret) variant to learn more.',
-      },
-      {
-        name: 'role',
-        type: `"dialog" | "menu" | "listbox"`,
-        description:
-          'The underlying ARIA role for Popover. See the [accessibility](#ARIA-attributes) section for more info.',
-      },
-      {
-        name: 'shouldFocus',
-        type: 'boolean',
-        defaultValue: true,
-        description:
-          'Puts the focus on Popover when it’s triggered. See [accessibility](#Accessibility) to learn more.',
-      },
-      {
-        name: 'showCaret',
-        type: 'boolean',
-        defaultValue: false,
-        description:
-          'Shows a caret on Popover. See the [color and caret](#Color-and-caret) variant to learn more.',
-      },
-      {
-        name: 'size',
-        type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number`,
-        description: 'The maximum width of Popover. See the [size](#Size) variant to learn more.',
-        defaultValue: 'sm',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+      />
+      <GeneratedPropTable
+        generatedDocGen={generatedDocGen}
+        excludeProps={['_dangerouslyDisableScrollBoundaryContainer']}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Providing additional information for related context without cluttering the surface of a workflow.
           - Bringing attention to specific user interface elements for educational purposes. In this case, likely used with a [Pulsar](/Pulsar).
           - Accommodating a variety of features, such as Buttons, Images or SearchFields, that are not available in [Dropdown](/Dropdown).
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - Displaying critical information that prevents users from accomplishing a task.
           - Displaying information out of context.
           - As a replacement for [Tooltip](/Tooltip).
           - For presenting a list of actions or options. Use [Dropdown](/Dropdown) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Use Popover to display a lightweight task related to the content on screen."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Popover to display a lightweight task related to the content on screen."
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
@@ -362,12 +281,12 @@ function PopoverExample() {
   );
 }
   `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Use Popover to communicate critical information, such as an error or interaction feedback. Instead, use the error supplied directly to the form element. See [related](#Related) to learn more."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Popover to communicate critical information, such as an error or interaction feedback. Instead, use the error supplied directly to the form element. See [related](#Related) to learn more."
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -424,14 +343,14 @@ function PopoverExample() {
     </React.Fragment>
   );
 }`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Use Popover to educate users on a new or existing feature. When Popover is triggered automatically, like in the case of user education, be sure to use a blue background and include a caret pointing to the feature. See the [color and caret](#Color-and-caret) variant to learn more."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Popover to educate users on a new or existing feature. When Popover is triggered automatically, like in the case of user education, be sure to use a blue background and include a caret pointing to the feature. See the [color and caret](#Color-and-caret) variant to learn more."
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -471,12 +390,12 @@ function PopoverExample() {
     </React.Fragment>
   );
 }`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Include a caret if Popover was triggered by user interaction, such as clicking or focusing on [Button](/Button) or [IconButton](/IconButton)."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Include a caret if Popover was triggered by user interaction, such as clicking or focusing on [Button](/Button) or [IconButton](/IconButton)."
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
@@ -591,25 +510,22 @@ function PopoverExample() {
   );
 }
   `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Accessibility">
-    <MainSection.Subsection
-      title="Keyboard interaction"
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="Keyboard interaction"
+          description={`
 - When Popover opens, focus moves to the first focusable element in the Popover container.
 - Popovers are also a focus trap, so users should only be able to interact with the content inside the Popover container.
 - Popover should always be dismissible using the ESC key. It could also be dismissed by interacting with another part of the screen, or by interacting with an element inside Popover.
 - When Popover is closed, focus returns to the anchor element that triggered Popover.
 `}
-    />
-    <MainSection.Subsection
-      title="ARIA attributes"
-      description={`
+        />
+        <MainSection.Subsection
+          title="ARIA attributes"
+          description={`
 To assist screen readers, we recommend passing the following ARIA attributes to the anchor element:
 
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover attached to the anchor element. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
@@ -621,10 +537,10 @@ For role attribute, use:
 - 'menu' if the Popover presents a list of choices to the user.
 - 'listbox' if the Popover is a widget that allows the user to select one or more items (whose role is option) from a list. May also include a search option.
 `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
@@ -738,23 +654,17 @@ function PopoverExample() {
   );
 }
   `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection
+        name="Localization"
+        description="Be sure to localize any text elements within Popover. Note that localization can lengthen text by 20 to 30 percent."
       />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Localization"
-    description="Be sure to localize any text elements within Popover. Note that localization can lengthen text by 20 to 30 percent."
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Size"
-      description={`
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Size"
+          description={`
 The maximum width of Popover. Popover has different size configurations:
 - \`"xs"\`: 180px
 - \`"sm"\`: 230px
@@ -766,17 +676,17 @@ The maximum width of Popover. Popover has different size configurations:
 
 We recommend using \`"xs\`" for education Popovers and \`"xl\`" for more complex Popovers. Avoid using other configurations whenever possible as they are legacy sizes.
       `}
-    />
+        />
 
-    <MainSection.Subsection
-      title="Color and caret"
-      description={`
+        <MainSection.Subsection
+          title="Color and caret"
+          description={`
 When building in-product education, be sure to pass in \`color="blue"\` and \`showCaret="true"\`, as seen in the first example, and use [Experience HQ](https://ehq.pinadmin.com/) for the configuration. For Popovers that aren’t education, use the default \`color="white"\` and \`showCaret="false"\`, as seen in the second example. Avoid using any other configurations as they are legacy colors.
 `}
-    >
-      <MainSection.Card
-        cardSize="md"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -819,10 +729,10 @@ function PopoverExample() {
     </ScrollBoundaryContainer>
   );
 }`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
@@ -936,20 +846,19 @@ function PopoverExample() {
   );
 }
   `}
-      />
-    </MainSection.Subsection>
-
-    <MainSection.Subsection
-      title="Anchor"
-      description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Anchor"
+          description={`
 Popover requires a reference element, typically [Button](/Button) or [IconButton](/IconButton), to set its position. The \`anchor\` ref can be directly set on the reference component itself. If the components don’t support \`ref\`, the anchor ref can be set to a parent [Box](/Box).
 
 Popover calculates its position based on the bounding box of the \`anchor\`. Therefore, the \`anchor\` ref should only include the trigger element itself, usually [Button](/Button) or [IconButton](/IconButton), or the specific feature component that requires an educational Popover.
 `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -1014,19 +923,19 @@ function PopoverExample() {
     </ScrollBoundaryContainer>
   )
 }`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="With Layer"
-      description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="With Layer"
+          description={`
 Popover is typically used within [Layer](/Layer). Layer renders Popover outside the DOM hierarchy of the parent allowing it to overlay surrounding content. Popover calculates its position based on the bounding box of the \`anchor\`. Within Layer, Popover no longer shares a relative root with the \`anchor\` and requires \`positionRelativeToAnchor=false\` to properly calculate its position relative to the anchor element.
 
 Using \`Layer\` with Popover eliminates the need to use \`z-index\` to solve stacking context conflicts. Popovers within Modals and Sheets with z-indexes don't require \`zIndex\` in \`Layer\` thanks to the built-in ScrollBoundaryContainer.
 `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ScrollBoundaryContainerExample() {
   const [showSheet, setShowSheet] = React.useState(false);
   const [open, setOpen] = React.useState(false);
@@ -1230,19 +1139,19 @@ function ScrollBoundaryContainerExample() {
   )
 }
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Ideal direction"
-      description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Ideal direction"
+          description={`
 Pass in \`idealDirection\` to specify the preferred position of Popover relative to the anchor, such as [Button](/Button) or [IconButton](/IconButton), that triggered it.
 
 Adjust the \`idealDirection\` as necessary to ensure the visibility of Popover and its contextual information. The default direction is "up", although Popover should be center-aligned directly below the element in most cases. The actual position may change given the available space around the anchor element.
 `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -1323,18 +1232,18 @@ function Example() {
     </ScrollBoundaryContainer>
     )
 }`}
-        shaded
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Within scrolling containers"
-      description={`
+            shaded
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Within scrolling containers"
+          description={`
 [ScrollBoundaryContainer](/ScrollBoundaryContainer) is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Popover remains attached to its anchor when scrolling.
 `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -1406,42 +1315,38 @@ function Example() {
       </Box>
     </ScrollBoundaryContainer>
 )}`}
-        shaded
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Writing">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
+            shaded
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      ,
+      <MainSection name="Writing">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`
 - Be clear and predictable so that people anticipate what will happen when they interact with an item.
 - Focus on the action by beginning with a verb.
 - Use succinct and scannable language.
 - Use sentence case while always capitalizing the word “Pin.”
 `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`
 - Describe the interface element, like “button,” “icon” or “menu” in education messaging, unless it’s absolutely necessary for clarity.
 - Use words like “click” or “tap” in education messaging, if possible, or assume universal accessibility.
 - Use Popover to communicate critical information, such as an error or interaction feedback.
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      ,
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
 **[Dropdown](/Dropdown)**
 Dropdown is an element constructed using Popover as its container. Use Dropdown to display a list of actions or options in a Popover.
 
@@ -1457,10 +1362,14 @@ Layer renders Popover outside the DOM hierarchy of the parent and prevents surro
 **[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
 ScrollBoundaryContainer is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures that Popover remains attached to its anchor when scrolling. See the [within scrolling containers](#Within-scrolling-containers) variant to learn more.
     `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function PopoverPage(): Node {
-  return <CardPage cards={cards} page="Popover" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('Popover') },
+  };
 }
