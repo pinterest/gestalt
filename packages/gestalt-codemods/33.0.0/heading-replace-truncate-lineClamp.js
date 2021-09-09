@@ -70,6 +70,7 @@ export default function transformer(file, api) {
             console.log(
               `${node.openingElement.name.name} components with ${attr?.name?.name} prop must be converted to lineClamp manually (boolean -> number). Location: ${file.path} @line: ${node.loc.start.line}`,
             );
+            return null;
           }
           const renamedAttr = { ...attr };
           renamedAttr.name.name = 'lineClamp';

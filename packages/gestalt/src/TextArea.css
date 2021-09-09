@@ -3,7 +3,7 @@
   composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
   line-height: 1.5;
-  padding: 8px 16px;
+  padding: var(--space-200) var(--space-300);
   resize: none;
 }
 
@@ -21,7 +21,7 @@
 .unstyledTextArea {
   composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
   height: 100%;
-  padding: 4px 8px;
+  padding: var(--space-100) var(--space-200);
   width: 100%;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .textAreaSpacer {
-  padding: 4px 0;
+  padding: var(--space-100) var(--space-0);
   visibility: hidden;
   word-break: break-word;
 }
@@ -41,5 +41,5 @@
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
-  padding-bottom: 4px;
+  padding-bottom: var(--space-100);
 }

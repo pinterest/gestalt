@@ -38,6 +38,7 @@ function throttle(func, wait) {
         timeout = null;
       }
       previous = now;
+      // $FlowFixMe[incompatible-type]
       result = func.apply(context, args);
       if (!timeout) {
         context = null;

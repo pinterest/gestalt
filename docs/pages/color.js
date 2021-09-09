@@ -15,6 +15,7 @@ card(
     description={`
     Our color palettes are shared between Brand and Gestalt, and represent our full range of options. For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/). Please note however that this new color palette is not yet reflected on the Brand website.
     `}
+    showSourceLink={false}
   />,
 );
 
@@ -59,6 +60,6 @@ card(
   </MainSection>,
 );
 
-export default function BadgePage(): Node {
-  return <CardPage cards={cards} page="Badge" />;
+export default function ColorPage(): Node {
+  return <CardPage cards={cards} page="Color" />;
 }

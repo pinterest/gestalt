@@ -1,3 +1,165 @@
+## 34.1.0 (Sep 9, 2021)
+
+### Minor
+
+- Internal: add visual regression tests (#1682)
+
+## 34.0.2 (Sep 9, 2021)
+
+### Patch
+
+- Internal: add license badge to Readme (#1683)
+
+## 34.0.1 (Sep 8, 2021)
+
+### Patch
+
+- Codemods: s/'next'/'34.0.0'/ (#1681)
+
+## 34.0.0 (Sep 8, 2021)
+
+### Major
+
+- Toast: Replace `color` with `variant` (#1677)
+
+## 33.10.3 (Sep 8, 2021)
+
+### Patch
+
+- Docs: Update link to accessible design deck (#1678)
+
+## 33.10.2 (Sep 8, 2021)
+
+### Patch
+
+- Bump next from 11.1.0 to 11.1.1 (#1675)
+
+## 33.10.1 (Sep 2, 2021)
+
+### Patch
+
+- Docs: Add more usage guidelines (#1676)
+
+## 33.10.0 (Sep 1, 2021)
+
+### Minor
+
+- Video: add disableRemotePlayback prop (#1670)
+
+## 33.9.4 (Sep 1, 2021)
+
+### Patch
+
+- Internal: Upgrade Jest to 27.1.0 (#1674)
+
+## 33.9.3 (Aug 31, 2021)
+
+### Patch
+
+- Docs: Remove broken source links (#1673)
+
+## 33.9.2 (Aug 31, 2021)
+
+### Patch
+
+- Bump tar from 6.1.3 to 6.1.11 (#1672)
+
+## 33.9.1 (Aug 31, 2021)
+
+### Patch
+
+- Docs: use generated flow types for Text (#1671)
+
+## 33.9.0 (Aug 31, 2021)
+
+### Minor
+
+- Docs: auto generate prop table from component (#1669)
+
+## 33.8.3 (Aug 30, 2021)
+
+### Patch
+
+- Internal: fix Element type is invalid (#1666)
+
+## 33.8.2 (Aug 30, 2021)
+
+### Patch
+
+- Eslint plugin: fix on 'prefer-box-no-disallowed'  rule (#1668)
+
+## 33.8.1 (Aug 30, 2021)
+
+### Patch
+
+- Toast: Add role of status for accessibility (#1665)
+
+## 33.8.0 (Aug 30, 2021)
+
+### Minor
+
+- Eslint plugin: added schema options to `prefer-box-no-disallowed` rule (#1667)
+
+## 33.7.10 (Aug 27, 2021)
+
+### Patch
+
+- Design Tokens: Switch to using new spacing tokens (#1664)
+
+## 33.7.9 (Aug 27, 2021)
+
+### Patch
+
+- Collage: Fix collage bug in Docs (#1662)
+
+## 33.7.8 (Aug 27, 2021)
+
+### Patch
+
+- Docs: cleanup link navigation (#1656)
+
+## 33.7.7 (Aug 27, 2021)
+
+### Patch
+
+- Lint rules: Another attempt at fixing `prefer-flex` import count bug (#1663)
+
+## 33.7.6 (Aug 26, 2021)
+
+### Patch
+
+- Docs: persist scrollbar position across pages (#1661)
+
+## 33.7.5 (Aug 26, 2021)
+
+### Patch
+
+- Lint rules: Fix `prefer-flex` import statement Box detection (#1660)
+
+## 33.7.4 (Aug 26, 2021)
+
+### Patch
+
+- Docs: fix color page export for Next (#1657)
+
+## 33.7.3 (Aug 25, 2021)
+
+### Patch
+
+- Lint rules: Fix closing element bug in helper (#1655)
+
+## 33.7.2 (Aug 25, 2021)
+
+### Patch
+
+- Internal: Update build process for new package (#1653)
+
+## 33.7.1 (Aug 25, 2021)
+
+### Patch
+
+- Internal: Upgrade Flow to 0.158.0 (#1644)
+
 ## 33.7.0 (Aug 25, 2021)
 
 ### Minor

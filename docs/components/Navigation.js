@@ -21,10 +21,6 @@ function getAlphabetizedComponents() {
 }
 
 function NavList({ sidebarOrganisedBy }: {| sidebarOrganisedBy: string |}) {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-
   return (
     <Fragment key={sidebarOrganisedBy}>
       {sidebarOrganisedBy === 'categorized' ? (

@@ -33,6 +33,7 @@ type Props = {|
   crossOrigin?: CrossOrigin,
   children?: Node,
   controls?: boolean,
+  disableRemotePlayback?: boolean,
   loop?: boolean,
   objectFit?: ObjectFit,
   onDurationChange?: ({|
@@ -81,6 +82,7 @@ type State = {|
 // https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
 
 const requestFullscreen = (element: HTMLElement) => {
+  // $FlowFixMe[method-unbinding]
   if (element.requestFullscreen) {
     element.requestFullscreen();
     // $FlowFixMe[prop-missing]
@@ -99,6 +101,7 @@ const requestFullscreen = (element: HTMLElement) => {
 };
 
 const exitFullscreen = () => {
+  // $FlowFixMe[method-unbinding]
   if (document.exitFullscreen) {
     document.exitFullscreen();
     // $FlowFixMe[prop-missing]
@@ -189,6 +192,7 @@ export default class Video extends PureComponent<Props, State> {
     children: PropTypes.node,
     crossOrigin: PropTypes.oneOf(['use-credentials', 'anonymous']),
     controls: PropTypes.bool,
+    disableRemotePlayback: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onEnded: PropTypes.func,
@@ -224,11 +228,13 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   static defaultProps: {|
+    disableRemotePlayback: boolean,
     playbackRate: number,
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
   |} = {
+    disableRemotePlayback: false,
     playbackRate: 1,
     playing: false,
     preload: 'auto',
@@ -331,6 +337,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Change the video source and re-load the video
   load: () => void = () => {
+    // $FlowFixMe[method-unbinding]
     if (this.video && this.video.load) {
       this.video.load();
     }
@@ -557,6 +564,7 @@ export default class Video extends PureComponent<Props, State> {
       captions,
       children,
       crossOrigin,
+      disableRemotePlayback,
       loop,
       objectFit,
       playing,
@@ -585,6 +593,7 @@ export default class Video extends PureComponent<Props, State> {
             src={typeof src === 'string' ? src : undefined}
             ref={this.setVideoRef}
             className={styles.video}
+            disableRemotePlayback={disableRemotePlayback}
             onCanPlay={this.handleCanPlay}
             onDurationChange={this.handleDurationChange}
             onEnded={this.handleEnded}

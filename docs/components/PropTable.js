@@ -8,7 +8,7 @@ import Markdown from './Markdown.js';
 
 type Props = {|
   props: Array<{|
-    defaultValue?: Node,
+    defaultValue?: boolean | string | number | null,
     description?: string | Array<string>,
     href?: string,
     name: string,
@@ -72,6 +72,23 @@ const Td = ({
     </Box>
   </td>
 );
+
+function isNumeric(value) {
+  return /^-?\d+$/.test(value);
+}
+
+const transformDefaultValue = (input) => {
+  if (input === 'true') {
+    return true;
+  }
+  if (input === 'false') {
+    return false;
+  }
+  if (typeof input === 'string' && isNumeric(input)) {
+    return parseFloat(input);
+  }
+  return input;
+};
 
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
@@ -151,6 +168,7 @@ export default function PropTable({
                     i,
                   ) => {
                     const propNameHasSecondRow = description || responsive;
+                    const transformedDefaultValue = transformDefaultValue(defaultValue);
                     acc.push(
                       <tr key={i}>
                         <Td shrink border={!propNameHasSecondRow}>
@@ -175,7 +193,11 @@ export default function PropTable({
                           color={defaultValue != null ? 'darkGray' : 'gray'}
                           border={!propNameHasSecondRow}
                         >
-                          {defaultValue != null ? <code>{JSON.stringify(defaultValue)}</code> : '-'}
+                          {defaultValue != null ? (
+                            <code>{JSON.stringify(transformedDefaultValue)}</code>
+                          ) : (
+                            '-'
+                          )}
                         </Td>
                       </tr>,
                     );

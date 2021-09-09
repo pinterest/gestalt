@@ -74,7 +74,7 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
     };
 
     function includeKey(keyName) {
-      const { onlyKeys } = context.options[0] || {};
+      const { onlyKeys } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
       return !onlyKeys || onlyKeys.includes(keyName);
     }
 

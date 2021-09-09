@@ -24,6 +24,10 @@ const invalidSingleBoxTests = ['single-box.input', 'single-box.output'].map(mapT
 const invalidMultipleBoxTests = ['multiple-box.input', 'multiple-box.output'].map(
   mapToInvalidTestName,
 );
+const invalidMultipleBoxWithChildrenTests = [
+  'multiple-box-with-children.input',
+  'multiple-box-with-children.output',
+].map(mapToInvalidTestName);
 const invalidMultipleBoxRenamedTests = [
   'multiple-box-renamed.input',
   'multiple-box-renamed.output',
@@ -49,6 +53,7 @@ ruleTester.run(ruleName, rule, {
   invalid: [
     invalidSingleBoxTests,
     invalidMultipleBoxTests,
+    invalidMultipleBoxWithChildrenTests,
     invalidMultipleBoxRenamedTests,
     invalidExistingFlexTests,
     invalidExistingFlexRenamedBoxTests,

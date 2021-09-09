@@ -96,6 +96,13 @@ card(
         href: 'videoControlsExample',
       },
       {
+        name: 'disableRemotePlayback',
+        type: 'boolean',
+        description:
+          'Disable remote playback. See [MDN Web Docs: disableRemotePlayback](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback) for more info.',
+        defaultValue: false,
+      },
+      {
         name: 'loop',
         type: 'boolean',
         description: 'The video will start playing over again when finished',

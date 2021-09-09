@@ -104,6 +104,29 @@ card(
 );
 
 card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - When inputs within a broader form are closely related and would benefit from a shared legend, such as TextFields for a billing address or a group of Checkboxes.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - When the fields are unrelated. Use [TextFields](/textfield) and other input components within a \`<form/>\`.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
   <MainSection name="Accessibility">
     <MainSection.Subsection
       description={`
@@ -276,7 +299,7 @@ function CheckboxExample() {
     const [checkedCh, setCheckedCh] = React.useState(false);
 
   return (
-    <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message" errorMessage="Atleast 1 item must be selected">
+    <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message" errorMessage="At least 1 item must be selected">
       <Flex direction="column" gap={2}>
         <Checkbox
           checked={checkedEn}

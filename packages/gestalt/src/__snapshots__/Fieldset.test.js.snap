@@ -337,7 +337,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
         className="formErrorMessage"
         id="fieldset-with-error-error"
       >
-        Atleast 1 item must be selected
+        At least 1 item must be selected
       </span>
     </div>
   </div>

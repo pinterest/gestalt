@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Fragment } from 'react';
+import { Fragment, type Node } from 'react';
 import { Button, Link, Image, Text, Toast } from 'gestalt';
 import Combination from '../components/Combination.js';
 import Example from '../components/Example.js';
@@ -31,9 +29,12 @@ card(
         href: 'imageTextButtonExample',
       },
       {
-        name: 'color',
-        type: `'white' | 'red'`,
-        href: 'redColorTextAlertExample',
+        name: 'text',
+        type: 'string | React.Node',
+        description:
+          'Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.',
+        href: 'textOnlyExample',
+        required: true,
       },
       {
         name: 'thumbnail',
@@ -47,11 +48,10 @@ card(
         href: 'imageTextExample',
       },
       {
-        name: 'text',
-        type: 'string | React.Node',
-        description:
-          'Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Avoid specifying a Text color within this property, as the color is automatically determined based on the background color',
-        href: 'textOnlyExample',
+        name: 'variant',
+        type: `'default' | 'error'`,
+        defaultValue: 'default',
+        href: 'errorVariantExample',
       },
     ]}
   />,
@@ -90,32 +90,32 @@ card(
     defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
+
   return (
     <Box>
       <Button
-        text={ showToast ? 'Close toast' : 'Show toast' }
-        onClick={() => setShowToast(!showToast)}
+        onClick={() => setShowToast((currVal) => !currVal)}
+        text={showToast ? 'Close toast' : 'Show toast'}
       />
-      <Layer>
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 50,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          {showToast && (
-            <Toast
-              text={"Section created!"}
-            />
-          )}
-        </Box>
-      </Layer>
+
+      {showToast && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
+            <Toast text="Section created!" />
+          </Box>
+        </Layer>
+      )}
     </Box>
   );
 }`}
@@ -126,30 +126,32 @@ card(
   <Example
     id="complexTextExample"
     name="Example: Complex Text"
-    description="When passing in your own Text component for the text property, be careful not to specify a color property, as the Toast component will automatically pick the right text color based on the Toast's background color."
+    description="When passing in your own Text component for `text`, do not specify `color` on Text. Toast will automatically pick the correct text color for the given `variant`."
     defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
+
   return (
     <Box>
       <Button
-        text={ showToast ? 'Close toast' : 'Show toast' }
-        onClick={() => setShowToast(!showToast)}
+        onClick={() => setShowToast((currVal) => !currVal)}
+        text={showToast ? 'Close toast' : 'Show toast'}
       />
-      <Layer>
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 50,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          {showToast && (
+
+      {showToast && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
             <Toast
               text={
                 <React.Fragment>
@@ -162,9 +164,9 @@ function ToastExample() {
                 </React.Fragment>
               }
             />
-          )}
-        </Box>
-      </Layer>
+          </Box>
+        </Layer>
+      )}
     </Box>
   );
 }`}
@@ -173,42 +175,40 @@ function ToastExample() {
 
 card(
   <Example
-    id="redColorTextAlertExample"
-    name="Example: Red background color"
+    id="errorVariantExample"
+    name="Example: Error variant"
     defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
+
   return (
     <Box>
       <Button
-        text={ showToast ? 'Close toast' : 'Show toast' }
-        onClick={() => setShowToast(!showToast)}
+        onClick={() => setShowToast((currVal) => !currVal)}
+        text={showToast ? 'Close toast' : 'Show toast'}
       />
-      <Layer>
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 50,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          {showToast && (
+
+      {showToast && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
             <Toast
-              color="red"
-              text={
-                <React.Fragment>
-                  Oops! Something went wrong. Please try again later.
-                </React.Fragment>
-              }
+              text="Oops! Something went wrong. Please try again later."
+              variant="error"
             />
-          )}
-        </Box>
-      </Layer>
+          </Box>
+        </Layer>
+      )}
     </Box>
   );
 }`}
@@ -222,35 +222,29 @@ card(
     defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
+
   return (
     <Box>
       <Button
-        text={ showToast ? 'Close toast' : 'Show toast' }
-        onClick={() => setShowToast(!showToast)}
+        onClick={() => setShowToast((currVal) => !currVal)}
+        text={showToast ? 'Close toast' : 'Show toast'}
       />
-      <Layer>
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 150,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          {showToast && (
+
+      {showToast && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
             <Toast
-              thumbnail={
-                <Image
-                  alt="Saved to home decor board"
-                  naturalHeight={564}
-                  naturalWidth={564}
-                  src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-                />
-              }
               text={
                 <React.Fragment>
                   Saved to{' '}
@@ -261,10 +255,18 @@ function ToastExample() {
                   </Text>
                 </React.Fragment>
               }
+              thumbnail={
+                <Image
+                  alt="Modern ceramic vase pin."
+                  naturalHeight={564}
+                  naturalWidth={564}
+                  src="https://i.ibb.co/Lx54BCT/stock1.jpg"
+                />
+              }
             />
-          )}
-        </Box>
-      </Layer>
+          </Box>
+        </Layer>
+      )}
     </Box>
   );
 }`}
@@ -278,50 +280,52 @@ card(
     defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
+
   return (
     <Box>
       <Button
-        text={ showToast ? 'Close toast' : 'Show toast' }
-        onClick={() => setShowToast(!showToast)}
+        onClick={() => setShowToast((currVal) => !currVal)}
+        text={showToast ? 'Close toast' : 'Show toast'}
       />
-      <Layer>
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 250,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          {showToast && (
-            <Toast
-              thumbnail={
-                <Image
-                  alt="Saved to home decor board"
-                  naturalHeight={564}
-                  naturalWidth={564}
-                  src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-                />
-              }
-              text={
-                <React.Fragment>
-                  Saved to{' '}
-                  <Text inline weight="bold">
-                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
-                      Home decor
-                    </Link>
-                  </Text>
-                </React.Fragment>
-              }
-              button={<Button key="button-key" text="Undo" size="lg" />}
-            />
-          )}
-        </Box>
-      </Layer>
+
+      {showToast && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
+              <Toast
+                button={<Button key="button-key" text="Undo" size="lg" />}
+                text={
+                  <React.Fragment>
+                    Saved to{' '}
+                    <Text inline weight="bold">
+                      <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                        Home decor
+                      </Link>
+                    </Text>
+                  </React.Fragment>
+                }
+                thumbnail={
+                  <Image
+                    alt="Modern ceramic vase pin."
+                    naturalHeight={564}
+                    naturalWidth={564}
+                    src="https://i.ibb.co/Lx54BCT/stock1.jpg"
+                  />
+                }
+              />
+          </Box>
+        </Layer>
+      )}
     </Box>
   );
 }`}
@@ -349,7 +353,7 @@ card(
       null,
       <Image
         key="image-key"
-        alt="Saved to home decor board"
+        alt="Modern ceramic vase pin."
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
@@ -375,7 +379,7 @@ card(
         thumbnail={
           <Image
             key="image-key"
-            alt="Saved to home decor board"
+            alt="Blush and sage plant print."
             naturalHeight={751}
             naturalWidth={564}
             src="https://i.ibb.co/7bQQYkX/stock2.jpg"

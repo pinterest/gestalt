@@ -12,7 +12,7 @@ card(
   <PageHeader
     name="Collage"
     description="
-Like Masonry, Collage creates a deterministic grid layout that can absolutely position and virtualize images.
+Similar to Masonry, Collage creates a deterministic grid layout that can absolutely position and virtualize images.
 "
   />,
 );
@@ -23,7 +23,8 @@ card(
       {
         name: 'columns',
         type: 'number',
-        description: 'Number of columns (2 - 4)',
+        description:
+          'Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors.',
         required: true,
         href: 'columns',
       },
@@ -60,7 +61,7 @@ card(
       },
       {
         name: 'renderImage',
-        type: '({ width: number, height: number, index: number }) => React.Node',
+        type: '({| width: number, height: number, index: number |}) => React.Node',
         description: 'Render prop for the collage images',
         required: true,
         href: 'basicExample',
@@ -124,7 +125,7 @@ card(
         src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
       },
     ];
-    const image = images[index];
+    const image = images[index] || {};
     return (
       <Mask wash width={width} height={height}>
         <Image
@@ -149,10 +150,15 @@ card(
     name="Different columns"
     description="2 - 4 columns"
     defaultCode={`
-<Box display="flex" wrap>
+<Flex wrap>
   {[2, 3, 4].map((columns) => (
     <Box key={columns} padding={2}>
-      <Box><Text>columns = {columns}</Text></Box>
+      <Box>
+        <Text>
+          columns = {columns}
+        </Text>
+      </Box>
+
       <Collage
         columns={columns}
         height={150}
@@ -196,7 +202,7 @@ card(
               src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
             },
           ];
-          const image = images[index];
+          const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
               {image ? (
@@ -221,7 +227,7 @@ card(
       />
     </Box>
   ))}
-</Box>
+</Flex>
 `}
   />,
 );
@@ -276,7 +282,7 @@ card(
           src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
         },
       ];
-      const image = images[index];
+      const image = images[index] || {};
       return (
         <Mask wash width={width} height={height}>
           <Image
@@ -354,10 +360,15 @@ card(
     name="Different columns with cover image"
     description="2 - 4 columns with cover image"
     defaultCode={`
-<Box display="flex" wrap>
+<Flex wrap>
   {[2, 3, 4].map((columns) => (
     <Box key={columns} padding={2}>
-      <Box><Text>columns = {columns}</Text></Box>
+      <Box>
+        <Text>
+          columns = {columns}
+        </Text>
+      </Box>
+
       <Collage
         columns={columns}
         cover
@@ -402,7 +413,7 @@ card(
               src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
             },
           ];
-          const image = images[index];
+          const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
               {image ? (
@@ -427,7 +438,7 @@ card(
       />
     </Box>
   ))}
-</Box>
+</Flex>
 `}
   />,
 );
@@ -442,10 +453,15 @@ card(
       If there are N layouts available, (layoutKey % N) will determine which layout is used.
       "
     defaultCode={`
-<Box display="flex" wrap>
+<Flex wrap>
   {[0, 1, 2, 3].map((layoutKey) => (
     <Box key={layoutKey} padding={2}>
-      <Box><Text>layoutKey = {layoutKey}</Text></Box>
+      <Box>
+        <Text>
+          layoutKey = {layoutKey}
+        </Text>
+      </Box>
+
       <Collage
         columns={3}
         height={150}
@@ -490,7 +506,7 @@ card(
               src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
             },
           ];
-          const image = images[index];
+          const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
               <Image
@@ -507,7 +523,7 @@ card(
       />
     </Box>
   ))}
-</Box>
+</Flex>
 `}
   />,
 );

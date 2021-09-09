@@ -24,7 +24,6 @@ export default function NavLink({ children, href }: Props): Node {
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
     event.preventDefault();
     router.push(href);
-    window.scrollTo(0, 0);
   };
 
   return (

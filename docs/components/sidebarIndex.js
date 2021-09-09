@@ -27,7 +27,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Guidelines',
-    pages: ['Accessibility', 'Layouts', 'Screen Sizes'],
+    pages: ['Accessibility', 'Design Tokens', 'Color', 'Layouts', 'Screen Sizes'],
   },
   {
     sectionName: 'Foundation',

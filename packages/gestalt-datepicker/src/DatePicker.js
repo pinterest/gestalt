@@ -152,6 +152,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
           if (!innerRef || !refElement) {
             return null;
           }
+          // $FlowFixMe[method-unbinding]
           if (Object.prototype.hasOwnProperty.call(innerRef, 'current')) {
             innerRef.current = refElement.input;
           }

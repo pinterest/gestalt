@@ -29,6 +29,7 @@ function queryFocusableAll(el: HTMLDivElement) {
 }
 
 const focusElement = (el: HTMLElement) => {
+  // $FlowFixMe[method-unbinding]
   if (typeof el.focus === 'function') {
     el.focus();
   }

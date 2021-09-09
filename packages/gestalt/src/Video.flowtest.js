@@ -11,6 +11,7 @@ const Valid = (
     accessibilityUnmuteLabel="Unmute"
     aspectRatio={1}
     captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+    disableRemotePlayback
     src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   />
 );

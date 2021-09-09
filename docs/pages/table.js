@@ -6,6 +6,7 @@ import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import PropTable from '../components/PropTable.js';
 import CardPage from '../components/CardPage.js';
+import MainSection from '../components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -44,6 +45,32 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - Displaying a set of structured data in a scannable way, that populates 2 or more rows.
+          - Allowing users to compare information in rows and columns.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - There will never be enough data to populate at least 2 rows.
+          - Displaying content that doesn’t follow a consistent pattern and can't be broken down into columns.
+          - Providing robust data that doesn't fit in a tabular format. If there is a need to display a more complex data relationship, consider an info-graphic or a non-tabular format.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(

@@ -764,7 +764,7 @@ Use TapArea to make non-button elements interactive, like an Image. This ensures
 Tabs are intended for page-level navigation between multiple URLs.
 **[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation..
+See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
       `}
     />
   </MainSection>,

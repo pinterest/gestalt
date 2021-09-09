@@ -119,11 +119,17 @@ const rule: ESLintRule = {
         messageId: 'disallowed',
         fix: (fixer) => {
           // Are there other Box nodes aside from the one we're currently on?
-          const hasOtherBoxes =
-            programNode.tokens
-              .filter(({ type }) => type === 'JSXIdentifier')
-              .filter(({ value }) => value === boxImportName).length > 1;
-          const importsToRemove = hasOtherBoxes ? [] : [boxImportName];
+          // We can only get a count of tags without opening/closing info, and they're not paired.
+          // This count is _before_ this fix runs, but _after_ previous fixes in the file have run (if applicable).
+          // So first we'll determine how many tags are accounted for by the current node.
+          const currentNodeTagCount = node.selfClosing ? 1 : 2;
+          // Next we'll get a count of all the Box tags in the file
+          const boxTagsCount = programNode.tokens
+            .filter(({ type }) => type === 'JSXIdentifier')
+            .filter(({ value }) => value === boxImportName).length;
+          // Once we remove the current node's tags from the overall Box count, are there Boxes left?
+          // If so, we need to keep the Box import. Otherwise we can remove it.
+          const importsToRemove = boxTagsCount - currentNodeTagCount > 0 ? [] : [boxImportName];
 
           let renamedFlexImport;
           // If the file doesn't already import Flex and the Box import was renamed,

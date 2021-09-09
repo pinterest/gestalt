@@ -174,4 +174,40 @@ describe('Video loading', () => {
     );
     expect(spy).toHaveBeenCalled();
   });
+
+  it('DisableRemotePlayback is set on <video />', () => {
+    const props = {
+      ...A11Y_LABELS,
+      aspectRatio: 1,
+      captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+        },
+      ],
+      disableRemotePlayback: true,
+    };
+
+    const { container } = render(<Video {...props} />);
+    expect(container.querySelector('video').attributes.disableremoteplayback).toBeDefined();
+  });
+
+  it('DisableRemotePlayback is not set on <video />', () => {
+    const props = {
+      ...A11Y_LABELS,
+      aspectRatio: 1,
+      captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+        },
+      ],
+      disableRemotePlayback: false,
+    };
+
+    const { container } = render(<Video {...props} />);
+    expect(container.querySelector('video').attributes.disableremoteplayback).toBeUndefined();
+  });
 });

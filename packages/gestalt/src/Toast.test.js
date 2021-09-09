@@ -13,9 +13,9 @@ describe('<Toast />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('Red Toast', () => {
+  test('Error Toast', () => {
     const tree = create(
-      <Toast color="red" text="Same great profile, slightly new look. Learn more?" />,
+      <Toast text="Same great profile, slightly new look. Learn more?" variant="error" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

@@ -24,6 +24,7 @@ export const toggle = (...classNames: $ReadOnlyArray<string>): ((val?: boolean) 
 //     <Box alignItems="center" />
 //
 export const mapping = (map: { [key: string]: string, ... }): ((val: string) => Style) => (val) =>
+  // $FlowFixMe[method-unbinding]
   Object.prototype.hasOwnProperty.call(map, val) ? fromClassName(map[val]) : identity();
 
 // Maps a range of integers to a range of classnames
