@@ -1,3 +1,9 @@
+## 34.1.1 (Sep 9, 2021)
+
+### Patch
+
+- Internal: Keep URLs in flow docs (#1684)
+
 ## 34.1.0 (Sep 9, 2021)
 
 ### Minor
