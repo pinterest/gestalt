@@ -643,12 +643,7 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
 `}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Accessibility props: controls, expanded, & popup"
-      description={`
-[TO FILL OUT]
-`}
-    >
+    <MainSection.Subsection title="Accessibility props: controls, expanded, & popup">
       <MainSection.Card
         cardSize="md"
         defaultCode={`
