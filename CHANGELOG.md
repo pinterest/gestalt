@@ -1,3 +1,9 @@
+## 34.1.0 (Sep 9, 2021)
+
+### Minor
+
+- Internal: add visual regression tests (#1682)
+
 ## 34.0.2 (Sep 9, 2021)
 
 ### Patch
