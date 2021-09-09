@@ -1,3 +1,9 @@
+## 34.0.2 (Sep 9, 2021)
+
+### Patch
+
+- Internal: add license badge to Readme (#1683)
+
 ## 34.0.1 (Sep 8, 2021)
 
 ### Patch
