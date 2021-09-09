@@ -47,6 +47,7 @@ type Props = {|
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
   rounding?: Rounding,
+  selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   tapStyle?: 'none' | 'compress',
   target?: null | 'self' | 'blank',
@@ -79,6 +80,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     rel,
     tabIndex = 0,
     rounding,
+    selected,
     size,
     tapStyle = 'compress',
     target,
@@ -126,6 +128,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
           [layoutStyles.itemsCenter]: true,
           [buttonStyles.button]: true,
           [buttonStyles.disabled]: disabled,
+          [buttonStyles.selected]: !disabled && selected,
           [buttonStyles.sm]: size === 'sm',
           [buttonStyles.md]: size === 'md',
           [buttonStyles.lg]: size === 'lg',
@@ -133,7 +136,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
     isButton && colorClass
       ? {
-          [buttonStyles[colorClass]]: !disabled,
+          [buttonStyles[colorClass]]: !disabled && !selected,
         }
       : {},
     isTapArea
@@ -265,6 +268,7 @@ InternalLinkWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   rounding: RoundingPropType,
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<

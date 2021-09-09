@@ -209,6 +209,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         ref={innerRef}
         rel={rel}
         tabIndex={tabIndex}
+        selected={selected}
         size={size}
         target={target}
         wrappedComponent="button"
