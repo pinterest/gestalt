@@ -19,6 +19,7 @@ type Source =
 
 type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 type CrossOrigin = 'anonymous' | 'use-credentials';
+type BackgroundColor = 'black' | 'transparent';
 
 type Props = {|
   accessibilityHideCaptionsLabel?: string,
@@ -30,7 +31,7 @@ type Props = {|
   accessibilityPlayLabel: string,
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
-  backgroundColor: 'black' | 'transparent',
+  backgroundColor: BackgroundColor,
   captions: string,
   crossOrigin?: CrossOrigin,
   children?: Node,
@@ -190,7 +191,10 @@ export default class Video extends PureComponent<Props, State> {
     accessibilityPlayLabel: PropTypes.string,
     accessibilityUnmuteLabel: PropTypes.string,
     aspectRatio: PropTypes.number.isRequired,
-    backgroundColor: PropTypes.oneOf(['black', 'transparent']),
+    backgroundColor: (PropTypes.oneOf([
+      'black',
+      'transparent',
+    ]): React$PropType$Primitive<BackgroundColor>),
     captions: PropTypes.string.isRequired,
     children: PropTypes.node,
     crossOrigin: PropTypes.oneOf(['use-credentials', 'anonymous']),
@@ -232,7 +236,7 @@ export default class Video extends PureComponent<Props, State> {
 
   static defaultProps: {|
     disableRemotePlayback: boolean,
-    backgroundColor: 'black' | 'transparent',
+    backgroundColor: BackgroundColor,
     playbackRate: number,
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
