@@ -140,11 +140,6 @@ function cleanSource() {
     shell.exec(`find ${src} -type d -name "__fixtures__" -exec rm -rf {} +`);
     shell.exec(`find ${src} -type d -name "__snapshots__" -exec rm -rf {} +`);
 
-    // Remove URLs in source files so links don't show up twice
-    shell.exec(
-      `find ${src} -type f -name "*.js" -exec sed -i -e 's! \\* http\\(s\\)\\{0,1\\}://[^[:space:]]*!!g' {} \\;`,
-    );
-
     // Convert .js to .js.flow so to disallow imports under `src/*`
     shell.exec(
       `find ${src} -type f -name "*.js" -exec sh -c 'mv "$1" "\${1%.js}.js.flow"' _ {} \\;`,

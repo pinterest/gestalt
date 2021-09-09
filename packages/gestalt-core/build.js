@@ -142,10 +142,11 @@ const plugins = (name) => [
     preferConst: true,
   }),
   babel({
-    babelrc: false,
     babelHelpers: 'bundled',
+    babelrc: false,
     exclude: 'node_modules/**',
     rootMode: 'upward',
+    shouldPrintComment: (comment) => /[#@]__PURE__/.exec(comment),
   }),
   commonjs(),
 ];
