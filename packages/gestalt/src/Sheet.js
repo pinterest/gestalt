@@ -33,7 +33,7 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContainer } from './ScrollBoundaryContainer.js';
+import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
 import { FixedZIndex } from './zIndex.js';
 

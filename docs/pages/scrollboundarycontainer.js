@@ -1,55 +1,35 @@
 // @flow strict
 import type { Node } from 'react';
 import PageHeader from '../components/PageHeader.js';
-import PropTable from '../components/PropTable.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="ScrollBoundaryContainer"
-    description="ScrollBoundaryContainer is used with anchored components such as Popover, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling."
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'height',
-        type: `number | string`,
-        defaultValue: '100%',
-        description: [
-          `Use numbers for pixels: height={100} and strings for percentages: height="100%".`,
-          `Overflow property only works for elements with a specified height, however, it is not required if the parent component sets the height.`,
-        ],
-        href: `Height`,
-      },
-      {
-        name: 'overflow',
-        type: `'scroll' | 'scrollX' | 'scrollY' | 'auto'`,
-        defaultValue: 'auto',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Height"
-      description={`
+export default function ScrollBoundaryContainerPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: DocGen,
+|}): Node {
+  return (
+    <Page title="ScrollBoundaryContainer">
+      <PageHeader
+        name="ScrollBoundaryContainer"
+        description="ScrollBoundaryContainer is used with anchored components such as Popover, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling."
+      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Height"
+          description={`
 When scrolling is desired, we must explicitly set a height. Unless a height is set, the content will push the parent container's height.
 
 In ScrollBoundaryContainer, height is an optional prop with a default value of \`100%\`. If ScrollBoundaryContainer’s immediate parent is a component with a fixed height, do not pass a height to ScrollBoundaryContainer as seen in first example below. On the other hand, if there isn’t an immediate parent fixing the height, you must specify the ScrollBoundaryContainer height as seen in the  second example below.`}
-    >
-      <MainSection.Card
-        title="Popover within ScrollBoundaryContainer"
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            title="Popover within ScrollBoundaryContainer"
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -105,12 +85,12 @@ function Example() {
       </Box>
     </ScrollBoundaryContainer>
 )}`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Card
-      title="Tooltips within ScrollBoundaryContainer"
-      cardSize="lg"
-      defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Card
+          title="Tooltips within ScrollBoundaryContainer"
+          cardSize="lg"
+          defaultCode={`
 function ScrollBoundaryContainerExample() {
   const [content, setContent] = React.useState(null);
   const [claimed, setClaimed] = React.useState(null);
@@ -321,17 +301,17 @@ function ScrollBoundaryContainerExample() {
       </Flex>
     </ScrollBoundaryContainer>
 )}`}
-    />
-    <MainSection.Subsection
-      title="Built-in component"
-      description={`
+        />
+        <MainSection.Subsection
+          title="Built-in component"
+          description={`
 Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
 The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and Typeahead.`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ScrollBoundaryContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [open, setOpen] = React.useState(false);
@@ -615,15 +595,12 @@ function ScrollBoundaryContainerExample() {
     </React.Fragment>
   )
 }`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
       **[Box](/Box)**
       Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Popover](/Popover), [Typeahead](/Typeahead) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
 
@@ -633,10 +610,14 @@ card(
       **[Tooltip](/Tooltip)** / **[Popover](/Popover)** / **[Typeahead](/Typeahead)** / **[Dropdown](/Dropdown)**
       ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollBoundaryContainer isn't needed as it's already built-in.
     `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function ScrollBoundaryContainerPage(): Node {
-  return <CardPage cards={cards} page="ScrollBoundaryContainer" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('ScrollBoundaryContainer') },
+  };
 }
