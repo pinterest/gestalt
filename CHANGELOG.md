@@ -1,3 +1,9 @@
+## 34.3.1 (Sep 10, 2021)
+
+### Patch
+
+- Layouts: Refactor form layout to use Flex (#1687)
+
 ## 34.3.0 (Sep 10, 2021)
 
 ### Minor
