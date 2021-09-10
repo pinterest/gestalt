@@ -34,7 +34,6 @@ card(
         description: [
           'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'accessibilityControls',
@@ -44,7 +43,6 @@ card(
         description: [
           'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'accessibilityExpanded',
@@ -54,7 +52,6 @@ card(
         description: [
           'Needed if Button controls a grouping of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'accessibilityHaspopup',
@@ -64,7 +61,6 @@ card(
         description: [
           'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
-        href: 'Accessibility-props:-controls-expanded-and-popup',
       },
       {
         name: 'color',
@@ -72,7 +68,6 @@ card(
         required: false,
         defaultValue: 'gray',
         description: ['The background color of Button.'],
-        href: 'Color-on-white-backgrounds',
       },
       {
         name: 'disabled',
@@ -82,7 +77,6 @@ card(
         description: [
           'Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.',
         ],
-        href: 'States',
       },
       {
         name: 'iconEnd',
@@ -90,7 +84,6 @@ card(
         required: false,
         defaultValue: false,
         description: ['An icon displayed after the text to help clarify the usage of Button.'],
-        href: 'iconEnd',
       },
       {
         name: 'fullWidth',
@@ -100,7 +93,6 @@ card(
         description: [
           'Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.',
         ],
-        href: 'Width',
       },
       {
         name: 'onClick',
@@ -112,7 +104,6 @@ card(
           'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
           'See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
         ],
-        href: 'selected',
       },
       {
         name: 'size',
@@ -120,7 +111,6 @@ card(
         required: false,
         defaultValue: 'md',
         description: ['sm: 32px, md: 40px, lg: 48px'],
-        href: 'Size',
       },
       {
         name: 'text',
@@ -145,7 +135,6 @@ card(
         required: false,
         defaultValue: false,
         description: ['Indicates if Button is currently selected.'],
-        href: 'States',
       },
       {
         name: 'href',
@@ -153,7 +142,6 @@ card(
         required: false,
         defaultValue: null,
         description: ['Specifies a link URL. Required with `role="link"` Buttons.'],
-        href: 'role',
       },
       {
         name: 'ref',
@@ -161,7 +149,6 @@ card(
         required: false,
         defaultValue: null,
         description: ['A React ref to forward to the underlying element.'],
-        href: 'ref',
       },
       {
         name: 'tabIndex',
@@ -178,7 +165,6 @@ card(
         required: false,
         defaultValue: 'button',
         description: ['Use “link” to indicate Button that is acting as an `<a>` link.'],
-        href: 'roles',
       },
       {
         name: 'rel',
@@ -186,7 +172,6 @@ card(
         required: false,
         defaultValue: 'none',
         description: 'Optional with link-role Buttons.',
-        href: 'rel-and-target',
       },
       {
         name: 'target',
@@ -196,7 +181,6 @@ card(
         description: [
           'Indicates the browsing context where an href will be opened. Optional with `role="link"` Buttons.',
         ],
-        href: 'rel-and-target',
       },
     ]}
   />,
@@ -523,7 +507,7 @@ function SemiTransparentWhiteButtonExample() {
     <MainSection.Subsection
       title="Icons"
       description={`
-1. Icon end
+Icon end
 Adds an icon after the Button text. Icons should only be used to reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`arrow-up-right\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
 `}
     >
