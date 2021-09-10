@@ -1,3 +1,9 @@
+## 34.2.0 (Sep 10, 2021)
+
+### Minor
+
+- ScrollBoundaryContainer: use generated docs (multiple exports) (#1689)
+
 ## 34.1.1 (Sep 9, 2021)
 
 ### Patch
