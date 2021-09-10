@@ -7,27 +7,70 @@ import AddCollaboratorsButton from './AvatarGroupAddCollaboratorsButton.js';
 import CollaboratorAvatar from './AvatarGroupCollaboratorAvatar.js';
 import CollaboratorsCount from './AvatarGroupCollaboratorsCount.js';
 import Flex from './Flex.js';
-import { type CollaboratorDataType } from './Avatar.js';
-import { type Size, SizeProptype } from './AvatarGroupConstants.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 
 type Role = 'link' | 'button';
-
-type Props = {|
-  accessibilityLabel: string,
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
-  addCollaborators?: boolean,
-  collaborators: $ReadOnlyArray<CollaboratorDataType>,
-  href?: string,
-  onClick?: OnTapType,
-  role?: Role,
-  size?: Size,
-|};
+type Size = 'xs' | 'sm' | 'md' | 'fit';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
+type Props = {|
+  /**
+   * Label for the component used for screen readers.
+   *
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/AvatarGroup#Accessibility) for details on proper usage.
+   */
+  accessibilityLabel: string,
+  /**
+   * Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a component so that screen reader users can identify the relationship between elements. Optional with button-role component.
+   *
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/AvatarGroup#Accessibility) for details on proper usage.
+   */
+  accessibilityControls?: string,
+  /**
+   * Indicate that a component hides or exposes collapsible components and expose whether they are currently expanded or collapsed. Optional with button-role component.
+   *
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/AvatarGroup#Accessibility) for details on proper usage.
+   */
+  accessibilityExpanded?: boolean,
+  /**
+   * Indicate that a component controls the appearance of interactive popup elements, such as menu or dialog. Optional with button-role component.
+   *
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/AvatarGroup#Accessibility) for details on proper usage.
+   */
+  accessibilityHaspopup?: boolean,
+  /**
+   * When supplied, it appends an `add` [icon](https://gestalt.pinterest.systems/Icon) to the avatar pile as a call to action to the user. See [Best Practices](https://gestalt.pinterest.systems/AvatarGroup#Best-practices) for more info.
+   */
+  addCollaborators?: boolean,
+  /**
+   * The user group data. See the [collaborators display](https://gestalt.pinterest.systems/AvatarGroup#Collaborators-display) variant to learn more.
+   */
+  collaborators: $ReadOnlyArray<{|
+    name: string,
+    src?: string,
+  |}>,
+  /**
+   * When supplied, wraps the component in a link, and directs users to the url when item is selected. See the [role](https://gestalt.pinterest.systems/AvatarGroup#Role) variant to learn more.
+   */
+  href?: string,
+  /**
+   * Callback fired when the component is clicked (pressed and released) with a mouse or keyboard. See the [role](https://gestalt.pinterest.systems/AvatarGroup#Role) variant to learn more and see [TapArea's `onTap`](https://gestalt.pinterest.systems/taparea#Props-onTap) for more info about `OnTapType`.
+   */
+  onClick?: OnTapType,
+  /**
+   * Forward the ref to the underlying div or anchor element. See the [role](https://gestalt.pinterest.systems/AvatarGroup#Role) variant to learn more.
+   */
+  ref?: UnionRefs, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * Allows user interaction with the component. See the [role](https://gestalt.pinterest.systems/AvatarGroup#Role) variant to learn more.
+   */
+  role?: Role,
+  /**
+   * The maximum height of AvatarGroup. If size is `fit`, AvatarGroup will fill 100% of the parent container width. See the [fixed size](https://gestalt.pinterest.systems/AvatarGroup#Fixed-sizes) and [responsive size](https://gestalt.pinterest.systems/AvatarGroup#Responsive-sizing) variant to learn more.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'fit',
+|};
 
 /**
  * https://gestalt.pinterest.systems/AvatarGroup
@@ -47,7 +90,7 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
     onClick,
     role,
     size = 'fit',
-  },
+  }: Props,
   ref,
 ): Node {
   const [hovered, setHovered] = useState(false);
@@ -180,7 +223,7 @@ AvatarGroupWithForwardRef.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   role: (PropTypes.oneOf(['link', 'button']): React$PropType$Primitive<Role>),
-  size: SizeProptype,
+  size: (PropTypes.oneOf(['xs', 'sm', 'md', 'fit']): React$PropType$Primitive<Size>),
 };
 
 AvatarGroupWithForwardRef.displayName = 'AvatarGroup';

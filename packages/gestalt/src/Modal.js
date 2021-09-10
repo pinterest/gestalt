@@ -100,21 +100,19 @@ function Header({
 /**
  * https://gestalt.pinterest.systems/modal
  */
-export default function Modal(props: Props): Node {
-  const {
-    _dangerouslyDisableScrollBoundaryContainer = false,
-    accessibilityModalLabel,
-    align = 'center',
-    children,
-    closeOnOutsideClick = true,
-    onDismiss,
-    footer,
-    heading,
-    role = 'dialog',
-    size = 'sm',
-    subHeading = undefined,
-  } = props;
-
+export default function Modal({
+  _dangerouslyDisableScrollBoundaryContainer = false,
+  accessibilityModalLabel,
+  align = 'center',
+  children,
+  closeOnOutsideClick = true,
+  onDismiss,
+  footer,
+  heading,
+  role = 'dialog',
+  size = 'sm',
+  subHeading,
+}: Props): Node {
   const [showTopShadow, setShowTopShadow] = useState(false);
   const [showBottomShadow, setShowBottomShadow] = useState(false);
   const contentRef = useRef<?HTMLElement>(null);

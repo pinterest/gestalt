@@ -11,6 +11,10 @@ export type DocGen = {|
   methods: $ReadOnlyArray<string>,
   props: {|
     [key: string]: {|
+      defaultValue: ?{|
+        value: string,
+        computed: boolean,
+      |},
       required: boolean,
       description: string,
       flowType: {|

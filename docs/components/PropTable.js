@@ -99,6 +99,7 @@ export default function PropTable({
   Component,
 }: Props): Node {
   const { propTableVariant, setPropTableVariant } = useAppContext();
+  const propsId = `${id}Props`;
 
   if (process.env.NODE_ENV === 'development' && Component) {
     const { displayName, propTypes } = Component; // eslint-disable-line react/forbid-foreign-prop-types
@@ -120,7 +121,7 @@ export default function PropTable({
 
   return (
     <Card
-      id={`${id}Props`}
+      id={propsId}
       name={proptableName ? `${proptableName} Props` : 'Props'}
       toggle={
         <Tooltip inline text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} props`}>
@@ -172,18 +173,27 @@ export default function PropTable({
                     acc.push(
                       <tr key={i}>
                         <Td shrink border={!propNameHasSecondRow}>
-                          <Flex gap={2}>
-                            <Text overflow="normal" underline={!!href}>
-                              {href ? (
-                                <Link href={`#${href}`}>
+                          <Box
+                            id={`${propsId}-${name}`}
+                            dangerouslySetInlineStyle={{
+                              __style: {
+                                scrollMarginTop: 60,
+                              },
+                            }}
+                          >
+                            <Flex gap={2}>
+                              <Text overflow="normal" underline={!!href}>
+                                {href ? (
+                                  <Link href={`#${href}`}>
+                                    <code>{name}</code>
+                                  </Link>
+                                ) : (
                                   <code>{name}</code>
-                                </Link>
-                              ) : (
-                                <code>{name}</code>
-                              )}
-                            </Text>
-                            {required && <Badge text="Required" />}
-                          </Flex>
+                                )}
+                              </Text>
+                              {required && <Badge text="Required" />}
+                            </Flex>
+                          </Box>
                         </Td>
                         <Td border={!propNameHasSecondRow}>
                           <code>{unifyQuotes(type)}</code>
