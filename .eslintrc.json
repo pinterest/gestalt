@@ -58,6 +58,7 @@
       { "components": ["label"], "allowChildren": true }
     ],
     "no-await-in-loop": "off",
+    "no-constant-condition": "error",
     "no-return-await": "off",
     "prettier/prettier": ["error", { "singleQuote": true }],
     "react-hooks/exhaustive-deps": "error",
