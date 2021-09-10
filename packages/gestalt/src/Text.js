@@ -24,13 +24,11 @@ type Props = {|
   /**
    * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text.
    *
-   * Default: 'start'
    * Link: https://gestalt.pinterest.systems/text#align
    */
   align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   children?: Node,
   /**
-   * Default: 'darkGray'
    * Link: https://gestalt.pinterest.systems/text#color
    */
   color?:
@@ -52,12 +50,10 @@ type Props = {|
     | 'watermelon'
     | 'white',
   /**
-   * Default: false
    * Link: https://gestalt.pinterest.systems/text#inline
    */
   inline?: boolean,
   /**
-   * Default: false
    * Link: https://gestalt.pinterest.systems/text#styles
    */
   italic?: boolean,
@@ -68,24 +64,20 @@ type Props = {|
    */
   lineClamp?: number,
   /**
-   * Default: 'breakWord'
    * Link: https://gestalt.pinterest.systems/text#overflow
    */
   overflow?: Overflow,
   /**
    * sm: `12px`, md: `14px`, lg: `16px`
    *
-   * Default: 'lg'
    * Link: https://gestalt.pinterest.systems/text#size
    */
   size?: Size,
   /**
-   * Default: 'false'
    * Link: https://gestalt.pinterest.systems/text#styles
    */
   underline?: boolean,
   /**
-   * Default: 'normal'
    * Link: https://gestalt.pinterest.systems/text#styles
    */
   weight?: 'bold' | 'normal',
