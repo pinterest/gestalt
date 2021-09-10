@@ -1,11 +1,12 @@
 // @flow strict
 import type { Node } from 'react';
-
+import classnames from 'classnames';
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import ColorSchemeProvider from './contexts/ColorScheme.js';
 import styles from './Video.css';
+import colors from './Colors.css';
 import Box from './Box.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
@@ -18,6 +19,7 @@ type Source =
 
 type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 type CrossOrigin = 'anonymous' | 'use-credentials';
+type BackgroundColor = 'black' | 'transparent';
 
 type Props = {|
   accessibilityHideCaptionsLabel?: string,
@@ -29,6 +31,7 @@ type Props = {|
   accessibilityPlayLabel: string,
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
+  backgroundColor: BackgroundColor,
   captions: string,
   crossOrigin?: CrossOrigin,
   children?: Node,
@@ -188,6 +191,10 @@ export default class Video extends PureComponent<Props, State> {
     accessibilityPlayLabel: PropTypes.string,
     accessibilityUnmuteLabel: PropTypes.string,
     aspectRatio: PropTypes.number.isRequired,
+    backgroundColor: (PropTypes.oneOf([
+      'black',
+      'transparent',
+    ]): React$PropType$Primitive<BackgroundColor>),
     captions: PropTypes.string.isRequired,
     children: PropTypes.node,
     crossOrigin: PropTypes.oneOf(['use-credentials', 'anonymous']),
@@ -229,12 +236,14 @@ export default class Video extends PureComponent<Props, State> {
 
   static defaultProps: {|
     disableRemotePlayback: boolean,
+    backgroundColor: BackgroundColor,
     playbackRate: number,
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
   |} = {
     disableRemotePlayback: false,
+    backgroundColor: 'black',
     playbackRate: 1,
     playing: false,
     preload: 'auto',
@@ -561,6 +570,7 @@ export default class Video extends PureComponent<Props, State> {
   render(): Node {
     const {
       aspectRatio,
+      backgroundColor,
       captions,
       children,
       crossOrigin,
@@ -576,10 +586,15 @@ export default class Video extends PureComponent<Props, State> {
     } = this.props;
     const { currentTime, duration, fullscreen, captionsButton } = this.state;
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
+
+    const playerClasses = classnames(styles.player, {
+      [colors.blackBg]: backgroundColor === 'black',
+      [colors.transparentBg]: backgroundColor === 'transparent',
+    });
     return (
       <div
         ref={this.setPlayerRef}
-        className={styles.player}
+        className={playerClasses}
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
         <ColorSchemeProvider id="Video" colorScheme="light">
