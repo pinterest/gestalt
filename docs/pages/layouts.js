@@ -17,105 +17,80 @@ card(
 
 card(
   <Example
-    description="Responsive &amp; RTL friendly form layout."
+    description="Responsive &amp; RTL-friendly form layout."
     name="Form Layout"
     defaultCode={`
-<Box
-  display="flex"
-  marginStart={-3}
-  marginEnd={-3}
-  marginBottom={-3}
-  marginTop={-3}
-  wrap
-  width="100%"
+<Flex
   direction="column"
+  gap={6}
   maxWidth={800}
+  width="100%"
+  wrap
 >
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <Heading size="sm" accessibilityLevel={2}>
-      Form Title
-    </Heading>
-  </Box>
+  <Heading size="sm" accessibilityLevel={2}>
+    Form Title
+  </Heading>
 
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <TextField
-      label="TextField 1"
-      id="textfield1"
-      onChange={() => {}}
-      placeholder="Placeholder"
-    />
-  </Box>
+  <TextField
+    label="TextField 1"
+    id="textfield1"
+    onChange={() => {}}
+    placeholder="Placeholder"
+  />
 
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <Box
-      display="flex"
-      wrap
-      marginStart={-3}
-      marginEnd={-3}
-      marginBottom={-3}
-      marginTop={-3}
-    >
-      <Box flex="grow" paddingX={3} paddingY={3}>
-        <TextField
-          label="TextField 2"
-          id="textfield2"
-          onChange={() => {}}
-          placeholder="Placeholder"
-        />
-      </Box>
-      <Box flex="grow" paddingX={3} paddingY={3}>
-        <TextField
-          label="TextField 3"
-          id="textfield3"
-          onChange={() => {}}
-          placeholder="Placeholder"
-        />
-      </Box>
+  <Box
+    // Using Box instead of Flex + 'gap' for proper vertical spacing when text fields wrap
+    display="flex"
+    marginStart={-3}
+    marginEnd={-3}
+    marginBottom={-3}
+    marginTop={-3}
+    wrap
+  >
+    <Box flex="grow" minWidth={250} paddingX={3} paddingY={3}>
+      <TextField
+        label="TextField 2"
+        id="textfield2"
+        onChange={() => {}}
+        placeholder="Placeholder"
+      />
+    </Box>
+    <Box flex="grow" minWidth={250} paddingX={3} paddingY={3}>
+      <TextField
+        label="TextField 3"
+        id="textfield3"
+        onChange={() => {}}
+        placeholder="Placeholder"
+      />
     </Box>
   </Box>
 
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <SelectList
-      label="SelectList"
-      id="selectlist"
-      options={[
-        {
-          value: 'belgium',
-          label: 'Belgium',
-        },
-        {
-          value: 'france',
-          label: 'France',
-        },
-        {
-          value: 'usa',
-          label: 'USA',
-        },
-      ]}
-      placeholder="Placeholder"
-      onChange={() => {}}
-    />
-  </Box>
+  <SelectList
+    label="SelectList"
+    id="selectlist"
+    options={[
+      {
+        value: 'belgium',
+        label: 'Belgium',
+      },
+      {
+        value: 'france',
+        label: 'France',
+      },
+      {
+        value: 'usa',
+        label: 'USA',
+      },
+    ]}
+    placeholder="Placeholder"
+    onChange={() => {}}
+  />
 
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <Box
-      justifyContent="end"
-      marginStart={-1}
-      marginEnd={-1}
-      marginTop={-1}
-      marginBottom={-1}
-      display="flex"
-      wrap
-    >
-      <Box paddingX={1} paddingY={1}>
-        <Button text="Cancel" size="lg" />
-      </Box>
-      <Box paddingX={1} paddingY={1}>
-        <Button text="Submit" color="red" size="lg" type="submit" />
-      </Box>
-    </Box>
-  </Box>
-</Box>
+  <Flex gap={2} justifyContent="end" wrap>
+    <Button text="Cancel" size="lg" />
+    <Button text="Submit" color="red" size="lg" type="submit" />
+  </Flex>
+</Flex>
 `}
   />,
 );
