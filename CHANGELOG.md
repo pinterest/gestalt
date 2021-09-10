@@ -1,3 +1,9 @@
+## 34.3.2 (Sep 10, 2021)
+
+### Patch
+
+- Video: add backgroundColor prop (#1610)
+
 ## 34.3.1 (Sep 10, 2021)
 
 ### Patch
