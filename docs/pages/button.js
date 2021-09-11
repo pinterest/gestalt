@@ -50,7 +50,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Needed if Button controls a grouping of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/accessibility) to learn more.',
+          'Needed if Button controls the visibility of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/accessibility) to learn more.',
         ],
       },
       {
@@ -118,8 +118,7 @@ card(
         required: true,
         defaultValue: null,
         description: [
-          'Text to render inside the Button to convey the function and purpose of the Button. The Button text has a fixed size.',
-          'Accessibility: Screen readers read the `accessibilityLabel` prop, if present, instead of the `text` prop. See `accessibilityLabel` for more info.',
+          'Text to render inside the Button to convey the function and purpose of the Button.',
         ],
       },
       {
@@ -274,7 +273,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Keep the Button text as simple and actionable as possible. Refer to the [Button writing guidelines](#Writing) for more detail."
+        description="Keep the Button text as simple and actionable as possible. Refer to the [Button writing guidelines](#Writing) for more detail. If text is not sufficient for accessibility, refer to [Accessibility guidelines](#Accessibility) for more detail."
         defaultCode={`
   <Button text="Create account" size="lg" color="red" />
 `}
@@ -282,9 +281,36 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Do not add icons to a Button to refinforce the text."
+        description="Do not add icons to a Button to reinforce the text."
         defaultCode={`
           <Button text="Create new Pinterest account" size="lg" color="red" iconEnd='person-add' />
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Use an IconButton + Tooltip next to the disabled Button if you need to explain why it is disabled,"
+        defaultCode={`
+  <Flex gap={1}>
+    <Button text="Create account" disabled size="lg" color="red" />
+    <Tooltip text="You need to fill in a username to create an account">
+      <IconButton
+        accessibilityLabel="Additional info."
+        bgColor="white"
+        icon="info-circle"
+        iconColor="gray"
+        size="lg"
+      />
+    </Tooltip>
+  </Flex>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description={`Set a selected state on Buttons with \`role\` set to "link". Buttons used as links should never be able to be in a selected state.`}
+        defaultCode={`
+  <Button text="Visit Help Center" size="lg" role="link" selected />
 `}
       />
     </MainSection.Subsection>
@@ -296,8 +322,11 @@ card(
     <MainSection.Subsection
       title="ARIA attributes"
       description={`
-When Button text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using accessibilityLabel. Texts like “Click here“, “Follow“, or “Shop“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the Button text, like “Follow Ryan” or “Shop Wedding Invitations”.
+When Button text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using \`accessibilityLabel\`.
+Texts like “Click here“, “Follow“, or “Shop“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the Button text, like “Follow Ryan” or “Shop Wedding Invitations”.
+
 If Button is used as a control Button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+- \`accessibilityLabel\`: if present, read by screen readers read instead of the \`text\` prop.
 - \`accessibilityControls\`: informs the screen reader that Button controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to Button. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityExpanded\`: informs the screen reader whether the button-anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
@@ -309,7 +338,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 card(
   <MainSection
     name="Localization"
-    description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible."
+    description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information. "
   />,
 );
 
@@ -317,7 +346,7 @@ card(
   <MainSection name="Variants">
     <MainSection.Subsection
       title="Size"
-      description={`Button is available in 3 fixed sizes:
+      description={`Button is available in 3 fixed sizes. The Button text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
 2. \`md\` (40px)
@@ -508,7 +537,7 @@ function SemiTransparentWhiteButtonExample() {
       title="Icons"
       description={`
 Icon end
-Adds an icon after the Button text. Icons should only be used to reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`arrow-up-right\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
+Adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`arrow-up-right\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
 `}
     >
       <MainSection.Card
@@ -587,7 +616,7 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
 1. Default
     The typical state of a Button that represents it can be interacted with and is not in a selected state.
 2. Disabled
-Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons. If you need to explain why a Button is disabled, use an IconButton + Tooltip next to the disabled Button.
+Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
 3. Selected
   When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state. Do not use this prop with \`role="link"\` Buttons.
 `}
@@ -717,8 +746,8 @@ card(
         cardSize="md"
         type="do"
         description={`
-- If your object is already described on the screen, Buttons only need a verb.
-- If your object isn’t described on the screen, Buttons need a verb + the object.
+- If your object is already described on the screen, Buttons only need a verb (Example: Save).
+- If your object isn’t described on the screen, Buttons need a verb + the object (Example: Create Pin).
 - Use fewer than 3 words.
 - Use sentence case.
 `}
@@ -740,12 +769,16 @@ card(
       description={`
 **[ButtonGroup](/buttongroup)**
 When displaying multiple Buttons in a layout, use ButtonGroup to ensure consistent spacing and wrapping behavior.
+
 **[IconButton](/iconbutton)**
 Use IconButton when only an icon is needed instead of text.
+
 **[TapArea](/taparea)**
 Use TapArea to make non-button elements interactive, like an Image. This ensures the element interaction is accessible and uses Gestalt styles.
+
 **[Tabs](/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
+
 **[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
