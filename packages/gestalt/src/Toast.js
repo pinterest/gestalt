@@ -5,6 +5,8 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
+import styles from './Toast.css';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 type Props = {|
   button?: Node,
@@ -12,6 +14,8 @@ type Props = {|
   thumbnail?: Node,
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
   variant?: 'default' | 'error',
+  // Experimental prop to replace the default color with darkGray
+  _dangerouslyUseDarkGray?: boolean,
 |};
 
 /**
@@ -23,10 +27,37 @@ export default function Toast({
   thumbnail,
   thumbnailShape = 'square',
   variant = 'default',
+  _dangerouslyUseDarkGray,
 }: Props): Node {
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
   const isErrorVariant = variant === 'error';
-  const containerColor = isErrorVariant ? 'red' : 'white';
-  const textColor = isErrorVariant ? 'white' : undefined;
+
+  let containerColor = _dangerouslyUseDarkGray ? 'darkGray' : 'white';
+  let textColor = _dangerouslyUseDarkGray ? 'white' : 'darkGray';
+
+  if (isErrorVariant) {
+    // Error variant does not currently support dark mode
+    containerColor = 'red';
+    textColor = 'white';
+  } else if (isDarkMode) {
+    containerColor = 'white';
+    textColor = 'darkGray';
+  }
+
+  let textColorOverrideStyles = isDarkMode
+    ? styles.textColorOverrideDarkGray
+    : styles.textColorOverrideWhite;
+  if (isErrorVariant) {
+    textColorOverrideStyles = styles.textColorOverrideWhite;
+  }
+
+  const textElement =
+    _dangerouslyUseDarkGray && typeof text !== 'string' ? (
+      <span className={textColorOverrideStyles}>{text}</span>
+    ) : (
+      text
+    );
 
   return (
     <Box marginBottom={3} maxWidth={360} paddingX={4} role="status" width="100vw">
@@ -46,7 +77,7 @@ export default function Toast({
 
           <Flex direction="column" flex="grow" justifyContent="center">
             <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
-              {text}
+              {textElement}
             </Text>
           </Flex>
 
@@ -66,4 +97,5 @@ Toast.propTypes = {
     'circle' | 'rectangle' | 'square',
   >),
   variant: (PropTypes.oneOf(['default', 'error']): React$PropType$Primitive<'default' | 'error'>),
+  _dangerouslyUseDarkGray: PropTypes.bool,
 };
