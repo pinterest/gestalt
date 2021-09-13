@@ -305,14 +305,6 @@ card(
   </Flex>
 `}
       />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`Set a selected state on Buttons with \`role\` set to "link". Buttons used as links should never be able to be in a selected state.`}
-        defaultCode={`
-  <Button text="Visit Help Center" size="lg" role="link" selected />
-`}
-      />
     </MainSection.Subsection>
   </MainSection>,
 );
