@@ -1,3 +1,9 @@
+## 34.3.3 (Sep 14, 2021)
+
+### Patch
+
+- IconButton: Fix `rel` docs typo (#1691)
+
 ## 34.3.2 (Sep 10, 2021)
 
 ### Patch
