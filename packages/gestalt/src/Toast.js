@@ -33,31 +33,32 @@ export default function Toast({
   const isDarkMode = colorSchemeName === 'darkMode';
   const isErrorVariant = variant === 'error';
 
-  let containerColor = _dangerouslyUseDarkGray ? 'darkGray' : 'white';
-  let textColor = _dangerouslyUseDarkGray ? 'white' : 'darkGray';
+  let containerColor = 'white';
+  let textColor = 'darkGray';
+  let textElement = text;
 
+  if (_dangerouslyUseDarkGray) {
+    containerColor = isDarkMode ? 'white' : 'darkGray';
+    textColor = isDarkMode ? 'darkGray' : 'white';
+
+    // If `text` is a Node, we need to override any text colors within to ensure they all match
+    if (typeof text !== 'string') {
+      let textColorOverrideStyles = isDarkMode
+        ? styles.textColorOverrideDarkGray
+        : styles.textColorOverrideWhite;
+      if (isErrorVariant) {
+        textColorOverrideStyles = styles.textColorOverrideWhite;
+      }
+
+      textElement = <span className={textColorOverrideStyles}>{text}</span>;
+    }
+  }
+
+  // Error variant does not currently support dark mode and is the same for the experimental treatment
   if (isErrorVariant) {
-    // Error variant does not currently support dark mode
     containerColor = 'red';
     textColor = 'white';
-  } else if (isDarkMode) {
-    containerColor = 'white';
-    textColor = 'darkGray';
   }
-
-  let textColorOverrideStyles = isDarkMode
-    ? styles.textColorOverrideDarkGray
-    : styles.textColorOverrideWhite;
-  if (isErrorVariant) {
-    textColorOverrideStyles = styles.textColorOverrideWhite;
-  }
-
-  const textElement =
-    _dangerouslyUseDarkGray && typeof text !== 'string' ? (
-      <span className={textColorOverrideStyles}>{text}</span>
-    ) : (
-      text
-    );
 
   return (
     <Box marginBottom={3} maxWidth={360} paddingX={4} role="status" width="100vw">
