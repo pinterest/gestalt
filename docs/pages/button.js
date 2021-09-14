@@ -419,7 +419,7 @@ function WhiteButtonExample() {
 
   React.useEffect(() => {
     setOpen(true)
-  });
+  }, []);
 
   return (
     <ScrollBoundaryContainer>
@@ -472,7 +472,7 @@ function SemiTransparentWhiteButtonExample() {
 
   React.useEffect(() => {
     setOpen(true)
-  });
+  }, []);
 
   return (
     <ScrollBoundaryContainer>
