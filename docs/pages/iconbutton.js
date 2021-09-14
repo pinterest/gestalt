@@ -660,7 +660,7 @@ card(
 * "blank" opens the anchor in a new window.
 * "self" opens an anchor in the same frame.
 
-\`rel\` is optional. Use "follow" for external links to specify to web crawlers not follow the link.
+\`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link.
 
 IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.`}
         defaultCode={`
