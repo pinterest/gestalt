@@ -289,7 +289,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Use an IconButton + Tooltip next to the disabled Button if you need to explain why it is disabled,"
+        description="Use an IconButton + Tooltip next to the disabled Button if you need to explain why it is disabled."
         defaultCode={`
   <Flex gap={1}>
     <Button text="Create account" disabled size="lg" color="red" />
@@ -426,7 +426,7 @@ function WhiteButtonExample() {
       <Box ref={viewRef} width={300} height={220}>
         <Box display="flex" justifyContent="center" ref={anchorRef}>
           <Tabs
-            activeTabIndex={1}
+            activeTabIndex={0}
             onChange={() => {}}
             tabs={[{ href: '#Anchor', text: 'Created'}]}
           />
@@ -692,7 +692,7 @@ function ActionDropdownExample() {
     <MainSection.Subsection
       title="Ref"
       description={`
-To control focus, or position any anchor components to IconButton, use ref, as shown in the example below.
+To control focus or position anchored components relative to Button, use \`ref\` as shown in the example below.
 `}
     >
       <MainSection.Card
