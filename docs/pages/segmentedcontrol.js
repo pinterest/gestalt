@@ -3,6 +3,7 @@ import type { Node } from 'react';
 import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
+import MainSection from '../components/MainSection.js';
 import CardPage from '../components/CardPage.js';
 
 const cards: Array<Node> = [];
@@ -56,6 +57,30 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - To switch between views within a small area of content, such as a [Popover](/popover).
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - To switch between views that represent the main content of a surface. Use [Tabs](/tabs) instead.
+          - To act as as a radio control within a form. Use [RadioButton](/radiobutton) instead.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
