@@ -1,3 +1,9 @@
+## 34.3.4 (Sep 14, 2021)
+
+### Patch
+
+- Updated Button docs (#1654)
+
 ## 34.3.3 (Sep 14, 2021)
 
 ### Patch
