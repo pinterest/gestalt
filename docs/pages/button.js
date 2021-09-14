@@ -479,7 +479,7 @@ function SemiTransparentWhiteButtonExample() {
       <Box ref={viewRef} width={300} height={220}>
         <Box display="flex" justifyContent="center" ref={anchorRef}>
         <Tabs
-          activeTabIndex={1}
+          activeTabIndex={0}
           onChange={() => {}}
           tabs={[{ href: '#Anchor', text: 'Created'}]}
         />
