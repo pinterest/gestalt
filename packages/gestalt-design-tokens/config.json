@@ -18,15 +18,21 @@
       }]
     },
     "android": {
-      "transformGroup": "android",
+      "transformGroup": "android-custom",
       "buildPath": "dist/android/",
       "files": [{
         "destination": "colors.xml",
-        "format": "android/colors"
+        "format": "android/colors",
+        "filter": {
+          "attributes": {
+            "category": "color"
+          }
+        }
       },
       {
         "destination": "space.xml",
         "format": "android/resources",
+        "resourceType": "dimen",
         "filter": {
           "attributes": {
             "category": "space"
