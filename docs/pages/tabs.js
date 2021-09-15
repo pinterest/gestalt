@@ -4,6 +4,7 @@ import { Tabs } from 'gestalt';
 import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
+import MainSection from '../components/MainSection.js';
 import CardPage from '../components/CardPage.js';
 
 const cards: Array<Node> = [];
@@ -68,6 +69,31 @@ card(
       },
     ]}
   />,
+);
+
+card(
+  <MainSection name="Usage guidelines">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        title="When to Use"
+        description={`
+          - To break up a large collection of content into logical, digestible views.
+          - To switch between different, yet related views, such as Updates and Messages.
+        `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        title="When Not to Use"
+        description={`
+          - When any UI or content above the Tabs is altered upon selection. Use [Link](/link) instead.
+          - To break up content that is not related to each other or is not on the same hierarchical level.
+        `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
