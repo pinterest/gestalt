@@ -1,3 +1,9 @@
+## 35.0.1 (Sep 15, 2021)
+
+### Patch
+
+- Docs: Usage guidelines for SearchField, SegmentedControl and Tabs (#1692)
+
 ## 35.0.0 (Sep 15, 2021)
 
 ### Major
