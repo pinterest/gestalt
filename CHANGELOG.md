@@ -1,3 +1,9 @@
+## 35.0.0 (Sep 15, 2021)
+
+### Major
+
+- Design Tokens: Update format for Android (#1679)
+
 ## 34.3.4 (Sep 14, 2021)
 
 ### Patch
