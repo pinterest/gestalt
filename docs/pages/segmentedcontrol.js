@@ -76,7 +76,7 @@ card(
         title="When Not to Use"
         description={`
           - To switch between views that represent the main content of a surface. Use [Tabs](/tabs) instead.
-          - To act as as a radio control within a form. Use [RadioButton](/radiobutton) instead.
+          - To act as a radio control within a form. Use [RadioButton](/radiobutton) instead.
         `}
       />
     </MainSection.Subsection>

@@ -88,7 +88,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - When any UI or content above the Tabs are altered upon selection. Use [Link](/link) instead.
+          - When any UI or content above the Tabs is altered upon selection. Use [Link](/link) instead.
           - To break up content that is not related to each other or is not on the same hierarchical level.
         `}
       />

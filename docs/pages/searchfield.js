@@ -138,7 +138,7 @@ card(
         type="do"
         title="When to Use"
         description={`
-          - To search or filter content within a surface..
+          - To search or filter content within a surface.
         `}
       />
       <MainSection.Card
@@ -146,7 +146,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - As a means of inputting content to a form. Use [TextField](/textfield) instead..
+          - As a means of inputting content to a form. Use [TextField](/textfield) instead.
           - To act as an auto-complete input. Use [ComboBox](/combobox) instead.
         `}
       />
