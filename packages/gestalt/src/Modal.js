@@ -98,7 +98,7 @@ function Header({
 }
 
 /**
- * https://gestalt.pinterest.systems/modal
+ * A [Modal](https://gestalt.pinterest.systems/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. The most common example of Modal is confirming an action the user has taken.
  */
 export default function Modal({
   _dangerouslyDisableScrollBoundaryContainer = false,
