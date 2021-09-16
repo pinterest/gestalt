@@ -240,7 +240,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         aria-expanded={showOptionsList}
         aria-haspopup
         aria-owns={id}
-        minWidth={280}
         position="relative"
         role="combobox"
       >

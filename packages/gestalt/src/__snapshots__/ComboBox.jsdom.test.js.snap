@@ -10,7 +10,6 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
       aria-owns="test"
       class="box relative"
       role="combobox"
-      style="min-width: 280px;"
     >
       <span>
         <label
@@ -89,7 +88,6 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
       aria-owns="test"
       class="box relative"
       role="combobox"
-      style="min-width: 280px;"
     >
       <span>
         <label
@@ -623,7 +621,6 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
       aria-owns="test"
       class="box relative"
       role="combobox"
-      style="min-width: 280px;"
     >
       <span>
         <label
@@ -702,7 +699,6 @@ exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
       aria-owns="test"
       class="box relative"
       role="combobox"
-      style="min-width: 280px;"
     >
       <span>
         <label
