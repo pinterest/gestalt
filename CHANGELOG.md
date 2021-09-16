@@ -1,3 +1,9 @@
+## 35.0.2 (Sep 16, 2021)
+
+### Patch
+
+- ComboBox: removed minWidth (#1695)
+
 ## 35.0.1 (Sep 15, 2021)
 
 ### Patch
