@@ -31,5 +31,15 @@ export default async function docgen(component: string): Promise<DocGen> {
     `/packages/gestalt/src/${component}.js`,
   );
   const contents = await fs.promises.readFile(filePath, 'utf-8');
-  return parse(contents);
+  const parsed = parse(contents);
+
+  if (parsed.description) {
+    parsed.description = parsed.description
+      // Remove the first markdown link from the description so we don't link to the page itself
+      .replace(/\[(.*?)\][[(].*?[\])]/, '$1')
+      // Remove images from the description
+      .replace(/!\[(.*?)\][[(].*?[\])]/g, '');
+  }
+
+  return parsed;
 }

@@ -12,9 +12,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
     <Page title="Modal">
       <PageHeader
         name="Modal"
-        description="Modals display content that requires user interaction. They appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal.
-
-    The most common example of Modal is confirming an action the user has taken."
+        description={generatedDocGen.description}
         defaultCode={`
 <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
 style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}

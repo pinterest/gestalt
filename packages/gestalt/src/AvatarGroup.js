@@ -73,7 +73,10 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/AvatarGroup
+ * [AvatarGroup](https://gestalt.pinterest.systems/AvatarGroup) is used to both display a group of user avatars and, optionally, control actions related to the users group.
+ *
+ * ![AvatarGroup light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/AvatarGroup%20%230.png)
+ * ![AvatarGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/AvatarGroup-dark%20%230.png)
  */
 const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = forwardRef<
   Props,

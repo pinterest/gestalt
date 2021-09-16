@@ -13,7 +13,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
     <Page title="AvatarGroup">
       <PageHeader
         name="AvatarGroup"
-        description="AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group."
+        description={generatedDocGen.description}
         defaultCode={`
   <Box width={300} height={125}>
     <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."

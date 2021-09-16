@@ -13,10 +13,7 @@ export default function ScrollBoundaryContainerPage({
 |}): Node {
   return (
     <Page title="ScrollBoundaryContainer">
-      <PageHeader
-        name="ScrollBoundaryContainer"
-        description="ScrollBoundaryContainer is used with anchored components such as Popover, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling."
-      />
+      <PageHeader name="ScrollBoundaryContainer" description={generatedDocGen.description} />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Variants">
         <MainSection.Subsection

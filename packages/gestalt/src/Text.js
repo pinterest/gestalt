@@ -84,7 +84,10 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Text
+ * The [Text](https://gestalt.pinterest.systems/Text) component should be used for all text on the page.
+ *
+ * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Text%20%230.png)
+ * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Text-dark%20%230.png)
  */
 export default function Text({
   align = 'start',

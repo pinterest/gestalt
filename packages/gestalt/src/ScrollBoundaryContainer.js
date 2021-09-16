@@ -34,8 +34,7 @@ type Props = {|
 |};
 
 /**
- * ScrollBoundaryContainerWithProvider is the ScrollBoundaryContainer to exposed to the Gestalt library, with a limited API.
- * https://gestalt.pinterest.systems/ScrollBoundaryContainer
+ * [ScrollBoundaryContainer](https://gestalt.pinterest.systems/ScrollBoundaryContainer) is used with anchored components such as Popover, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling.
  */
 const ScrollBoundaryContainerWithProvider = ({
   children,
