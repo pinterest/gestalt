@@ -1,3 +1,9 @@
+## 35.1.0 (Sep 16, 2021)
+
+### Minor
+
+- Internal: use visual regression image & description in generated docs (#1694)
+
 ## 35.0.2 (Sep 16, 2021)
 
 ### Patch
