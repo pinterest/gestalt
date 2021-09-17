@@ -1,3 +1,9 @@
+## 35.1.1 (Sep 17, 2021)
+
+### Patch
+
+- Toast: Add experimental prop for dark gray color (#1690)
+
 ## 35.1.0 (Sep 16, 2021)
 
 ### Minor
