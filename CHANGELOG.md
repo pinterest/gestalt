@@ -1,3 +1,9 @@
+## 35.2.1 (Sep 17, 2021)
+
+### Patch
+
+- Button: fix style bug on selected state and role link  (#1685)
+
 ## 35.2.0 (Sep 17, 2021)
 
 ### Minor
