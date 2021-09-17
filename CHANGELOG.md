@@ -1,3 +1,9 @@
+## 35.2.0 (Sep 17, 2021)
+
+### Minor
+
+- Dropdown: add dangerouslyRemoveLayer prop  (#1697)
+
 ## 35.1.1 (Sep 17, 2021)
 
 ### Patch
