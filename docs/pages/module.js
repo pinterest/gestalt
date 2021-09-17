@@ -222,6 +222,40 @@ function ModuleExample() {
 
 card(
   <Example
+    name="Static - IconButton"
+    description={`
+    An IconButton can be provided to be placed after the \`title\` for a supplemental help CTA.
+    `}
+    id="static-iconbutton"
+    defaultCode={`
+function ModuleExample() {
+  return (
+    <Box column={12} maxWidth={800} padding={2}>
+      <Module
+        iconButton={
+          <IconButton 
+            bgColor="lightGray"
+            icon="question-mark"
+            iconColor="darkGray"
+            accessibilityLabel="Get help"
+            size="xs"
+            onClick={() => alert('Help content')}
+          />
+        }
+        id="ModuleExample - icon"
+        title="Title"
+        >
+        <Text size="md">This is example content.</Text>
+      </Module>
+    </Box>
+  );
+}
+`}
+  />,
+);
+
+card(
+  <Example
     name="Static - Badge"
     description={`Badge text can be provided, which will be displayed after the \`title\`. Note that if no title text is provided, the badge will not be displayed.`}
     id="static-badge"

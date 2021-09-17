@@ -5,7 +5,7 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
-import { type BaseModuleTitleProps, type TypeOptions } from './moduleTypes.js';
+import type { BaseModuleTitleProps, TypeOptions } from './moduleTypes.js';
 
 type Props = {|
   ...BaseModuleTitleProps,
@@ -16,47 +16,54 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/Module
  */
-export default function ModuleTitle({
-  badgeText,
-  icon,
-  iconAccessibilityLabel,
-  title,
-  type = 'info',
-}: Props): Node {
+export default function ModuleTitle(props: Props): Node {
+  const { title, type = 'info' } = props;
+
   const TYPE_ICON_ATTRIBUTES = {
-    info: {
-      icon,
-      color: 'darkGray',
-    },
+    info: props.icon
+      ? {
+          icon: props.icon,
+          color: 'darkGray',
+          accessibilityLabel: props.iconAccessibilityLabel,
+        }
+      : {},
     error: {
       icon: 'workflow-status-problem',
       color: 'red',
     },
   };
 
-  const { color, icon: iconName } = TYPE_ICON_ATTRIBUTES[type];
+  const { accessibilityLabel = '', color, icon: iconName } = TYPE_ICON_ATTRIBUTES[type];
 
   return (
-    <Flex gap={2}>
+    <Flex alignItems="center" gap={2}>
       {iconName && (
-        <Icon accessibilityLabel={iconAccessibilityLabel ?? ''} color={color} icon={iconName} />
+        <Flex.Item minWidth={0}>
+          <Icon accessibilityLabel={accessibilityLabel} color={color} icon={iconName} />
+        </Flex.Item>
       )}
 
-      <Flex.Item minWidth={0}>
-        <Text color={color} lineClamp={1} weight="bold">
-          {title}
-        </Text>
-      </Flex.Item>
-
-      {badgeText && (
-        <Box
-          dangerouslySetInlineStyle={{ __style: { top: '1px' } }}
-          marginStart={2}
-          position="relative"
-        >
-          <Badge text={badgeText} />
-        </Box>
+      {title && (
+        <Flex.Item minWidth={0}>
+          <Text color={color} lineClamp={1} weight="bold">
+            {title}
+          </Text>
+        </Flex.Item>
       )}
+
+      {props.badgeText && (
+        <Flex.Item minWidth={0}>
+          <Box
+            dangerouslySetInlineStyle={{ __style: { top: '1px' } }}
+            marginStart={2}
+            position="relative"
+          >
+            <Badge text={props.badgeText} />
+          </Box>
+        </Flex.Item>
+      )}
+
+      {props.iconButton && <Flex.Item minWidth={0}>{props.iconButton}</Flex.Item>}
     </Flex>
   );
 }

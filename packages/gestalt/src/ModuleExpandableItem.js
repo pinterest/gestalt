@@ -23,17 +23,33 @@ type Props = {|
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
-  badgeText,
   children,
-  icon,
-  iconAccessibilityLabel,
   id,
   isCollapsed,
   onModuleClicked,
   summary,
   title,
   type = 'info',
+  ...props
 }: Props): Node {
+  let moduleTitle;
+  if (title) {
+    if (props.badgeText) {
+      moduleTitle = <ModuleTitle badgeText={props.badgeText} title={title} type={type} />;
+    } else if (props.icon || props.iconAccessibilityLabel) {
+      moduleTitle = (
+        <ModuleTitle
+          icon={props.icon}
+          iconAccessibilityLabel={props.iconAccessibilityLabel}
+          title={title}
+          type={type}
+        />
+      );
+    } else if (props.iconButton) {
+      moduleTitle = <ModuleTitle iconButton={props.iconButton} title={title} type={type} />;
+    }
+  }
+
   return (
     <Box padding={6}>
       <Flex direction="column" gap={6}>
@@ -47,15 +63,7 @@ export default function ModuleExpandableItem({
         >
           <Flex>
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
-              <Box column={isCollapsed && summary ? 6 : 12}>
-                <ModuleTitle
-                  badgeText={badgeText}
-                  icon={icon}
-                  iconAccessibilityLabel={iconAccessibilityLabel}
-                  title={title}
-                  type={type}
-                />
-              </Box>
+              <Box column={isCollapsed && summary ? 6 : 12}>{moduleTitle}</Box>
 
               {summary && isCollapsed && (
                 <Box column={6} marginStart={6}>
