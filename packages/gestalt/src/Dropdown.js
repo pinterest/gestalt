@@ -90,6 +90,7 @@ type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Props = {|
   anchor?: ?HTMLElement,
   children: Node,
+  dangerouslyRemoveLayer?: boolean,
   headerContent?: Node,
   id: string,
   idealDirection?: IdealDirection,
@@ -103,6 +104,7 @@ type Props = {|
 export default function Dropdown({
   anchor,
   children,
+  dangerouslyRemoveLayer = false,
   headerContent,
   id,
   idealDirection = 'down',
@@ -175,30 +177,30 @@ export default function Dropdown({
     }
   };
 
-  return (
-    <Layer zIndex={zIndex}>
-      <Popover
-        anchor={anchor}
-        color="white"
-        handleKeyDown={handleKeyDown}
-        id={id}
-        idealDirection={idealDirection}
-        onDismiss={onDismiss}
-        positionRelativeToAnchor={false}
-        role="menu"
-        shouldFocus
-        size="xl"
-      >
-        <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
-          {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
+  const dropdown = (
+    <Popover
+      anchor={anchor}
+      color="white"
+      handleKeyDown={handleKeyDown}
+      id={id}
+      idealDirection={idealDirection}
+      onDismiss={onDismiss}
+      positionRelativeToAnchor={false}
+      role="menu"
+      shouldFocus
+      size="xl"
+    >
+      <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
+        {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
-          <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
-            {renderChildrenWithIndex(dropdownChildrenArray)}
-          </DropdownContextProvider>
-        </Box>
-      </Popover>
-    </Layer>
+        <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
+          {renderChildrenWithIndex(dropdownChildrenArray)}
+        </DropdownContextProvider>
+      </Box>
+    </Popover>
   );
+
+  return dangerouslyRemoveLayer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
 }
 
 Dropdown.propTypes = {

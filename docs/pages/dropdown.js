@@ -96,6 +96,14 @@ card(
         description:
           'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
       },
+
+      {
+        name: 'dangerouslyRemoveLayer',
+        type: 'boolean',
+        defaultValue: false,
+        description:
+          'Removes the Layer component around Popover. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
+      },
       {
         name: 'headerContent',
         type: 'React.Node',
