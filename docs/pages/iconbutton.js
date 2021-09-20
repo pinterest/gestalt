@@ -122,7 +122,7 @@ card(
         name: 'icon',
         type: '$Keys<typeof icons>',
         description:
-          'Icon displayed in IconButton to convey the behavior of the component. Refer to the [Icon](/Icon) component of the documentation regarding the available icon options.',
+          'Icon displayed in IconButton to convey the behavior of the component. Refer to the [iconography](/iconography_and_svgs#Search-icon-library) guidelines regarding the available icon options.',
       },
 
       {
@@ -361,7 +361,8 @@ function HeadingExample(props) {
 </Flex>
 `}
       />
-
+    </MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -483,6 +484,8 @@ function OrderDropdownExample() {
 </Flex>
 `}
       />
+    </MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -778,7 +781,7 @@ Follow these guidelines for \`bgColor\`
     <MainSection.Subsection
       title="Custom icon"
       columns={2}
-      description="IconButton accepts both Gestalt [Icons](/Icon) and custom icons, as shown in the second example. For custom icons, follow our [Icon and SVG guidelines](/Faq#Icons-and-SVGs)."
+      description="IconButton accepts both Gestalt [Icons](/Icon) and custom icons, as shown in the second example. For custom icons, follow our [custom SVG icons](/iconography_and_svgs#Custom-SVG-icons) guidelines."
     >
       <MainSection.Card
         cardSize="md"

@@ -253,6 +253,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
               ? `${id}-item-${hoveredItemIndex}`
               : undefined
           }
+          autoComplete="off"
           disabled={disabled}
           errorMessage={errorMessage}
           hasError={!!errorMessage}
