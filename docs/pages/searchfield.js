@@ -81,7 +81,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="do"
             description="Place SearchField above the content the user will be searching."
             defaultCode={`
-<SearchField accessibilityLabel="Search your Pins" id="bestPracticesDo1" onChange={() => {}} placeholder="Search your Pins" />
+<SearchField accessibilityLabel="Search your Pins" accessibilityClearButtonLabel="Clear search field" id="bestPracticesDo1" onChange={() => {}} placeholder="Search your Pins" />
       `}
           />
           <MainSection.Card
@@ -100,9 +100,17 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="do"
             description="Make the `placeholder` specific. Give the user a hint about the content they're searching and/or what parameters they can use to search."
             defaultCode={`
-<Box width="100%">
-  <SearchField accessibilityLabel="Search by audience name or ID" id="bestPracticesDo2" onChange={() => {}} placeholder="Search by audience name or ID" />
-</Box>
+<Flex alignItems="center" flex="grow">
+  <Flex.Item flex="grow">
+    <SearchField
+      accessibilityLabel="Search by audience name or ID"
+      accessibilityClearButtonLabel="Clear search field"
+      id="bestPracticesDo2"
+      onChange={() => {}}
+      placeholder="Search by audience name or ID"
+    />
+  </Flex.Item>
+</Flex>
       `}
           />
           <MainSection.Card
@@ -110,9 +118,17 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             description="Add critical information to the `placeholder`. The `placeholder` text disappears once the user begins entering data and will therefore be unavailable."
             defaultCode={`
-<Box width="100%">
-  <SearchField accessibilityLabel="Search your Pins" id="bestPracticesDont2" onChange={() => {}} placeholder="Click the submit button to search" />
-</Box>
+<Flex alignItems="center" flex="grow">
+  <Flex.Item flex="grow">
+    <SearchField
+      accessibilityLabel="Search your Pins"
+      accessibilityClearButtonLabel="Clear search field"
+      id="bestPracticesDont2"
+      onChange={() => {}}
+      placeholder="Click the submit button to search"
+    />
+  </Flex.Item>
+</Flex>
 `}
           />
         </MainSection.Subsection>
@@ -124,7 +140,13 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             description="Make sure SearchField is displayed wide enough to completely display common search terms."
             defaultCode={`
 <Box width={300}>
-  <SearchField accessibilityLabel="Search your Pins" id="bestPracticesDo3" onChange={() => {}} value="Homecoming dresses" />
+  <SearchField
+    accessibilityLabel="Search your Pins"
+    accessibilityClearButtonLabel="Clear search field"
+    id="bestPracticesDo3"
+    onChange={() => {}}
+    value="Homecoming dresses"
+  />
 </Box>
 `}
           />
@@ -134,7 +156,13 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             description="Truncate or wrap text within SearchField."
             defaultCode={`
 <Box width={300}>
-  <SearchField accessibilityLabel="Search your Pins" id="bestPracticesDont3" onChange={() => {}} value="Swiss architecure from the 195…" />
+  <SearchField
+    accessibilityLabel="Search your Pins"
+    accessibilityClearButtonLabel="Clear search field"
+    id="bestPracticesDont3"
+    onChange={() => {}}
+    value="Swiss architecure from the 195…"
+  />
 </Box>
 `}
           />
@@ -157,12 +185,12 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
     const [value, setValue] = React.useState('');
 
     return (
-      <Flex gap={4} alignItems="center" flex="grow">
+      <Flex alignItems="center" flex="grow" gap={4}>
         <Icon
-          icon="pinterest"
-          color="red"
-          size={20}
           accessibilityLabel="Pinterest"
+          color="red"
+          icon="pinterest"
+          size={20}
         />
 
         <Flex.Item flex="grow">
@@ -193,7 +221,6 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
 
       <MainSection name="Localization">
         <MainSection.Subsection
-          title="Localization"
           description={`
       Be sure to localize the \`accessibilityLabel\`, \`accessibilityClearButtonLabel\`, \`errorMessage\`, \`label\` and \`placeholder\` prop values. Also localize \`value\` for those cases when it can be translated.
 
@@ -207,19 +234,19 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
     const [value, setValue] = React.useState('');
 
     return (
-      <Flex gap={4} alignItems="center" flex="grow">
+      <Flex alignItems="center" flex="grow" gap={4}>
         <Icon
-          icon="pinterest"
-          color="red"
-          size={20}
           accessibilityLabel="Pinterest"
+          color="red"
+          icon="pinterest"
+          size={20}
         />
 
         <Flex.Item flex="grow">
           <SearchField
             accessibilityLabel="सभी Pinterest खोजें"
             accessibilityClearButtonLabel="खोज फ़ील्ड साफ़ करें"
-            id="searchFieldA11yExample"
+            id="searchFieldLocalizationExample"
             onChange={({value}) => setValue(value)}
             placeholder="खोजें और एक्सप्लोर करें"
             value={value}
@@ -284,8 +311,8 @@ function SearchFieldExample() {
   const [lgValue, setLgValue] = React.useState('');
 
   return (
-    <Flex gap={12} alignItems="center">
-      <Flex gap={4} direction="column" flex="grow">
+    <Flex alignItems="center" gap={12}>
+      <Flex direction="column" flex="grow" gap={4}>
         <Text>Medium (md)</Text>
         <SearchField
           accessibilityLabel=""
@@ -298,7 +325,7 @@ function SearchFieldExample() {
         />
       </Flex>
 
-      <Flex gap={4} direction="column" flex="grow">
+      <Flex direction="column" flex="grow" gap={4}>
         <Text>Large (lg)</Text>
         <SearchField
           accessibilityLabel=""
@@ -329,7 +356,7 @@ function SearchFieldExample() {
   const [value, setValue] = React.useState('pepper#$%');
 
   return (
-    <Flex flex="grow" alignItems="center">
+    <Flex alignItems="center" flex="grow">
       <Flex.Item flex="grow">
         <SearchField
           accessibilityLabel=""
