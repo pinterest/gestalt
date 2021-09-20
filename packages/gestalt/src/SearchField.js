@@ -23,19 +23,19 @@ type Props = {|
    */
   accessibilityClearButtonLabel?: string,
   /**
-   *
+   * The type of autocomplete used, if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more info.
    */
   autoComplete?: 'on' | 'off' | 'username' | 'name',
   /**
-   *
+   * Error text displayed below the input field.
    */
   errorMessage?: string,
   /**
-   *
+   * Must be unique!
    */
   id: string,
   /**
-   * Text used to label this search field. Should be localized. See the [Visible label variant](https://gestalt.pinterest.systems/searchfield#Visible-label) for more info.
+   * Text used to label the input. Be sure to localize the text. See the [Visible label variant](https://gestalt.pinterest.systems/searchfield#Visible-label) for more info.
    */
   label?: string,
   /**
@@ -43,7 +43,7 @@ type Props = {|
    */
   onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
   /**
-   *
+   * Primary callback to handle keyboard input.
    */
   onChange: ({|
     value: string,
@@ -57,18 +57,18 @@ type Props = {|
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
   |}) => void,
   /**
-   * Callback for key stroke events.
+   * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
    */
   onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
   |}) => void,
   /**
-   *
+   * Text displayed before the user has entered anything.
    */
   placeholder?: string,
   /**
-   * Forward the ref to the underlying input element
+   * Ref that is forwarded to the underlying input element.
    */
   ref?: UnionRefs, // eslint-disable-line react/no-unused-prop-types
   /**
@@ -76,7 +76,7 @@ type Props = {|
    */
   size?: 'md' | 'lg',
   /**
-   *
+   * The current value of the input.
    */
   value?: string,
 |};

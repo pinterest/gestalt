@@ -4,7 +4,7 @@ import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import { type DocGen } from '../components/docgen.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -73,11 +73,79 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         </MainSection.Subsection>
       </MainSection>
 
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            showCode={false}
+            type="do"
+            description="Place SearchField above the content the user will be searching."
+            defaultCode={`
+<SearchField accessibilityLabel="Search your Pins" id="bestPracticesDo1" onChange={() => {}} placeholder="Search your Pins" />
+      `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Hide SearchField behind an IconButton if there is enough space for the full component."
+            defaultCode={`
+<IconButton accessibilityLabel="Search your Pins" icon="search" />
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Make the `placeholder` specific. Give the user a hint about the content they're searching and/or what parameters they can use to search."
+            defaultCode={`
+<Box width="100%">
+  <SearchField accessibilityLabel="Search by audience name or ID" id="bestPracticesDo2" onChange={() => {}} placeholder="Search by audience name or ID" />
+</Box>
+      `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Add critical information to the `placeholder`. The `placeholder` text disappears once the user begins entering data and will therefore be unavailable."
+            defaultCode={`
+<Box width="100%">
+  <SearchField accessibilityLabel="Search your Pins" id="bestPracticesDont2" onChange={() => {}} placeholder="Click the submit button to search" />
+</Box>
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Make sure SearchField is displayed wide enough to completely display common search terms."
+            defaultCode={`
+<Box width={300}>
+  <SearchField accessibilityLabel="Search your Pins" id="bestPracticesDo3" onChange={() => {}} value="Homecoming dresses" />
+</Box>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Truncate or wrap text within SearchField."
+            defaultCode={`
+<Box width={300}>
+  <SearchField accessibilityLabel="Search your Pins" id="bestPracticesDont3" onChange={() => {}} value="Swiss architecure from the 195…" />
+</Box>
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Accessibility">
         <MainSection.Subsection
           title="Labels"
           description={`
-      SearchField should ideally have a visible label above the input using the \`label\` prop. However, if need be, \`accessibilityLabel\` can be used to provide screen readers with context about this SearchField.
+      SearchField should ideally have a visible label above the input using the \`label\` prop. However, if need be, \`accessibilityLabel\` can be used to provide screen readers with context about the SearchField.
 
       Be sure to also specify (and localize) a string for the \`accessibilityClearButtonLabel\`.
       `}
@@ -115,6 +183,56 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         />
 
         <IconButton accessibilityLabel="Profile" icon="person" size="md" />
+      </Flex>
+    );
+  }
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Localization">
+        <MainSection.Subsection
+          title="Localization"
+          description={`
+      Be sure to localize the \`accessibilityLabel\`, \`accessibilityClearButtonLabel\`, \`errorMessage\`, \`label\` and \`placeholder\` prop values. Also localize \`value\` for those cases when it can be translated.
+
+      Note that localization can lengthen text by 20 to 30 percent.
+      `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+  function SearchFieldExample() {
+    const [value, setValue] = React.useState('');
+
+    return (
+      <Flex gap={4} alignItems="center" flex="grow">
+        <Icon
+          icon="pinterest"
+          color="red"
+          size={20}
+          accessibilityLabel="Pinterest"
+        />
+
+        <Flex.Item flex="grow">
+          <SearchField
+            accessibilityLabel="सभी Pinterest खोजें"
+            accessibilityClearButtonLabel="खोज फ़ील्ड साफ़ करें"
+            id="searchFieldA11yExample"
+            onChange={({value}) => setValue(value)}
+            placeholder="खोजें और एक्सप्लोर करें"
+            value={value}
+          />
+        </Flex.Item>
+
+        <IconButton
+          accessibilityLabel="सूचनाएं"
+          icon="speech-ellipsis"
+          size="md"
+        />
+
+        <IconButton accessibilityLabel="प्रोफ़ाइल" icon="person" size="md" />
       </Flex>
     );
   }
@@ -166,7 +284,7 @@ function SearchFieldExample() {
   const [lgValue, setLgValue] = React.useState('');
 
   return (
-    <Flex gap={8} alignItems="center">
+    <Flex gap={12} alignItems="center">
       <Flex gap={4} direction="column" flex="grow">
         <Text>Medium (md)</Text>
         <SearchField
@@ -231,86 +349,27 @@ function SearchFieldExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+**[ComboBox](/combobox)**
+ComboBox allows users to filter a list when selecting an option. Choose ComboBox when the user is selecting from a finite list of options.
+
+**[TextField](/textfield)**
+TextField provides an affordance to input small to medium length text. Unless the text is used to search for or filter through content, choose TextField for shorter text input.
+
+**[TextArea](/textarea)**
+TextArea allows for multiline text input, suitable for longer length text. Unless the text is used to search for or filter through content, choose TextArea for longer text input.
+      `}
+        />
+      </MainSection>
     </Page>
   );
 }
 
-/*
-      {
-        name: 'accessibilityClearButtonLabel',
-        type: 'string',
-        description:
-          '',
-      },
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        required: true,
-        description:
-          '',
-      },
-      {
-        name: 'autoComplete',
-        type: `"on" | "off" | "username" | "name"`,
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'label',
-        type: 'string',
-        description:
-          '',
-      },
-      {
-        name: 'onBlur',
-        type: '({ event: SyntheticEvent<HTMLInputElement> }) => void',
-      },
-      {
-        name: 'onChange',
-        type: `({
-        value: string,
-        syntheticEvent: SyntheticEvent<HTMLInputElement>
-      }) => void`,
-        required: true,
-      },
-      {
-        name: 'onFocus',
-        type: `({
-        value: string,
-        syntheticEvent: SyntheticEvent<HTMLInputElement>
-      }) => void`,
-      },
-      {
-        name: 'onKeyDown',
-        type: '({ event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => void',
-        description: '',
-      },
-      {
-        name: 'placeholder',
-        type: 'string',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: '',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: '',
-        defaultValue: 'md',
-      },
-      {
-        name: 'value',
-        type: 'string',
-      },
-      {
-        name: 'errorMessage',
-        type: 'string',
-      },
-    ]}
-*/
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('SearchField') },
+  };
+}
