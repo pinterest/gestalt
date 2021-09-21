@@ -57,7 +57,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Brand"
-      description="These 450 colors are reserved for Brand usage, and should not be used within the product."
+      description="These 450 colors are reserved for Brand usage; they are often also the least accessible colors, so are commonly reserved for larger brand moments, but not commonly used for functional color pairing. and should not be used within the product, except Pushpin 450, which is our hero primary color."
     >
       <Flex direction="column">
         {colors.map((color) => (
