@@ -1,3 +1,9 @@
+## 35.2.6 (Sep 21, 2021)
+
+### Patch
+
+- Color: Add Brand color palette (#1693)
+
 ## 35.2.5 (Sep 21, 2021)
 
 ### Patch
