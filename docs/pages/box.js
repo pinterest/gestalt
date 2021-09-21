@@ -6,7 +6,7 @@ import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../components/docgen.js';
+import docgen, { type DocGen, type DocGenProps } from '../components/docgen.js';
 
 export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -807,9 +807,9 @@ export async function getStaticProps(): Promise<{| props: {| generatedDocGen: Do
   const generatedDocGen = await docgen('Box');
   const filteredProps = Object.keys(generatedDocGen.props)
     .filter((key) => !ignoredProps.includes(key))
-    .reduce((acc, cur) => ({ ...acc, [cur]: generatedDocGen.props[cur] }), {});
-  // $FlowFixMe[incompatible-type]
+    .reduce<DocGenProps>((acc, cur) => ({ ...acc, [cur]: generatedDocGen.props[cur] }), {});
   generatedDocGen.props = filteredProps;
+
   return {
     props: { generatedDocGen },
   };
