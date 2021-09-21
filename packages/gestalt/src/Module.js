@@ -18,19 +18,21 @@ type Props = {|
 export default function Module({ children, id, title, type = 'info', ...props }: Props): Node {
   let moduleTitle;
   if (title) {
+    const commonProps = { title, type };
     if (props.badgeText) {
-      moduleTitle = <ModuleTitle badgeText={props.badgeText} title={title} type={type} />;
+      moduleTitle = <ModuleTitle {...commonProps} badgeText={props.badgeText} />;
     } else if (props.icon || props.iconAccessibilityLabel) {
       moduleTitle = (
         <ModuleTitle
+          {...commonProps}
           icon={props.icon}
           iconAccessibilityLabel={props.iconAccessibilityLabel}
-          title={title}
-          type={type}
         />
       );
     } else if (props.iconButton) {
-      moduleTitle = <ModuleTitle iconButton={props.iconButton} title={title} type={type} />;
+      moduleTitle = <ModuleTitle {...commonProps} iconButton={props.iconButton} />;
+    } else {
+      moduleTitle = <ModuleTitle {...commonProps} />;
     }
   }
 
