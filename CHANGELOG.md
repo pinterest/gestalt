@@ -1,3 +1,9 @@
+## 35.2.7 (Sep 21, 2021)
+
+### Patch
+
+- Color: copyediting (#1703)
+
 ## 35.2.6 (Sep 21, 2021)
 
 ### Patch
