@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { forwardRef, useState, useRef, useImperativeHandle } from 'react';
+import { forwardRef, type Node, useState, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -13,39 +11,84 @@ import FormErrorMessage from './FormErrorMessage.js';
 import FormLabel from './FormLabel.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
+type UnionRefs = HTMLDivElement | HTMLAnchorElement;
+
 type Props = {|
+  /**
+   * String that clients such as VoiceOver will read to describe the element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/searchfield#Accessibility) for more info.
+   */
   accessibilityLabel: string,
+  /**
+   * String that clients such as VoiceOver will read to describe the clear button element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/searchfield#Accessibility) for more info.
+   */
   accessibilityClearButtonLabel?: string,
+  /**
+   * The type of autocomplete used, if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more info.
+   */
   autoComplete?: 'on' | 'off' | 'username' | 'name',
+  /**
+   * Error text displayed below the input field.
+   */
+  errorMessage?: string,
+  /**
+   * Must be unique!
+   */
   id: string,
+  /**
+   * Text used to label the input. Be sure to localize the text. See the [Visible label variant](https://gestalt.pinterest.systems/searchfield#Visible-label) for more info.
+   */
   label?: string,
+  /**
+   *
+   */
   onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
+  /**
+   * Primary callback to handle keyboard input.
+   */
   onChange: ({|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
   |}) => void,
+  /**
+   *
+   */
   onFocus?: ({|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
   |}) => void,
+  /**
+   * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
+   */
   onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Text displayed before the user has entered anything.
+   */
   placeholder?: string,
+  /**
+   * Ref that is forwarded to the underlying input element.
+   */
+  ref?: UnionRefs, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * md: 40px, lg: 48px
+   */
   size?: 'md' | 'lg',
+  /**
+   * The current value of the input.
+   */
   value?: string,
-  errorMessage?: string,
 |};
 
 /**
- * https://gestalt.pinterest.systems/SearchField
+ * [SearchField](https://gestalt.pinterest.systems/SearchField) allows users to search for free-form content.
  */
 const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function SearchField(props, ref): Node {
-  const {
+>(function SearchField(
+  {
     accessibilityLabel,
     accessibilityClearButtonLabel,
     autoComplete,
@@ -59,8 +102,9 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     size = 'md',
     value,
     errorMessage,
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 
