@@ -110,19 +110,19 @@ type Props = {
    */
   as?: As,
   /**
-   * Helper to specify location when using absolute positioning. See the [absolute positioning](#Absolute-positioning) variant for more info.
+   * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.netlify.app/box#Absolute-positioning) variant for more info.
    */
   bottom?: Bottom,
   /**
-   * Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the [borders](#Borders) variant for more details.
+   * Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the [borders](https://gestalt.netlify.app/box#Borders) variant for more details.
    */
   borderStyle?: BorderStyle,
   /**
-   * See the [color](#Color) variant for more info.
+   * See the [color](https://gestalt.netlify.app/box#Color) variant for more info.
    */
   color?: Color,
   /**
-   * See the [column layout](#Column-layout) variant for more info.
+   * See the [column layout](https://gestalt.netlify.app/box#Column-layout) variant for more info.
    *
    * Also available in responsive sizes: `smColumn`, `mdColumn`, `lgColumn`
    */
@@ -140,7 +140,7 @@ type Props = {
   mdDirection?: Direction,
   lgDirection?: Direction,
   /**
-   * The display style, which can be customized at different breakpoints. See the [Accessibility guidelines](#Visually-hidden-content) to learn more about using \`visuallyHidden\`.
+   * The display style, which can be customized at different breakpoints. See the [Accessibility guidelines](https://gestalt.netlify.app/box#Visually-hidden-content) to learn more about using \`visuallyHidden\`.
    *
    * Also available in responsive sizes: `smDisplay`, `mdDisplay`, `lgDisplay`
    */
@@ -149,7 +149,7 @@ type Props = {
   mdDisplay?: Display,
   lgDisplay?: Display,
   /**
-   * Sets the max-width of the Box to 100%. See the [sizing](#Sizing) variant for more info.
+   * Sets the max-width of the Box to 100%. See the [sizing](https://gestalt.netlify.app/box#Sizing) variant for more info.
    */
   fit?: Fit,
   /**
@@ -157,7 +157,7 @@ type Props = {
    */
   flex?: Flex,
   /**
-   * Use numbers for pixels: height={100} and strings for percentages: height="100%". See the [sizing](#Sizing) variant for more info.
+   * Use numbers for pixels: height={100} and strings for percentages: height="100%". See the [sizing](https://gestalt.netlify.app/box#Sizing) variant for more info.
    */
   height?: Dimension,
   /**
@@ -165,7 +165,7 @@ type Props = {
    */
   justifyContent?: JustifyContent,
   /**
-   * Helper to specify location when using absolute positioning. See the [absolute positioning](#Absolute-positioning) variant for more info.
+   * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.netlify.app/box#Absolute-positioning) variant for more info.
    */
   left?: Left,
 
@@ -193,7 +193,7 @@ type Props = {
   mdMarginBottom?: Margin,
   lgMarginBottom?: Margin,
   /**
-   * Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](#Page-direction) to learn more about using `marginStart`.
+   * Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](https://gestalt.netlify.app/box#Page-direction) to learn more about using `marginStart`.
    *
    * Also available in responsive sizes: `smMarginStart`, `mdMarginStart`, `lgMarginStart`
    */
@@ -202,7 +202,7 @@ type Props = {
   mdMarginStart?: Margin,
   lgMarginStart?: Margin,
   /**
-   * Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](#Page-direction) to learn more about using `marginEnd`.
+   * Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](https://gestalt.netlify.app/box#Page-direction) to learn more about using `marginEnd`.
    *
    * Also available in responsive sizes: `smMarginEnd`, `mdMarginEnd`, `lgMarginEnd`
    */
@@ -212,34 +212,34 @@ type Props = {
   lgMarginEnd?: Margin,
 
   /**
-   * Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%". See the [sizing](#Sizing) variant for more info.
+   * Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%". See the [sizing](https://gestalt.netlify.app/box#Sizing) variant for more info.
    */
   maxHeight?: Dimension,
   /**
-   * Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%". See the [sizing](#Sizing) variant for more info.
+   * Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%". See the [sizing](https://gestalt.netlify.app/box#Sizing) variant for more info.
    */
   maxWidth?: Dimension,
   /**
-   * Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%". See the [sizing](#Sizing) variant for more info.
+   * Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%". See the [sizing](https://gestalt.netlify.app/box#Sizing) variant for more info.
    */
   minHeight?: Dimension,
   /**
-   * Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%". See the [sizing](#Sizing) variant for more info.
+   * Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%". See the [sizing](https://gestalt.netlify.app/box#Sizing) variant for more info.
    */
   minWidth?: Dimension,
 
   /**
-   * See the [opacity](#Opacity) variant for more info.
+   * See the [opacity](https://gestalt.netlify.app/box#Opacity) variant for more info.
    */
   opacity?: Opacity,
 
   /**
-   * See the [overflow](#Overflow) variant for more info.
+   * See the [overflow](https://gestalt.netlify.app/box#Overflow) variant for more info.
    */
   overflow?: Overflow,
 
   /**
-   * Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](#Responsive-padding) variant for more info.
+   * Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](https://gestalt.netlify.app/box#Responsive-padding) variant for more info.
    *
    * Also available in responsive sizes: `smPadding`, `mdPadding`, `lgPadding`
    */
@@ -269,31 +269,31 @@ type Props = {
   lgPaddingY?: Padding,
 
   /**
-   * See the [absolute positioning](#Absolute-positioning) variant for more info.
+   * See the [absolute positioning](https://gestalt.netlify.app/box#Absolute-positioning) variant for more info.
    */
   position?: Position,
   /**
-   * Ref that is forwarded to the underlying input element. See the [using as a ref](#Using-as-a-ref) variant for more info.
+   * Ref that is forwarded to the underlying input element. See the [using as a ref](https://gestalt.netlify.app/box#Using-as-a-ref) variant for more info.
    */
   ref?: UnionRefs,
   /**
-   * Helper to specify location when using absolute positioning. See the [absolute positioning](#Absolute-positioning) variant for more info.
+   * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.netlify.app/box#Absolute-positioning) variant for more info.
    */
   right?: Right,
   /**
-   * Used to designate the Box as a type of element or landmark using ARIA roles. See the [Accessibility guidelines](#Using-role) to learn more about using `role`.
+   * Used to designate the Box as a type of element or landmark using ARIA roles. See the [Accessibility guidelines](https://gestalt.netlify.app/box#Using-role) to learn more about using `role`.
    */
   role?: Role,
   /**
-   * See the [rounding](#Rounding) variant for more info.
+   * See the [rounding](https://gestalt.netlify.app/box#Rounding) variant for more info.
    */
   rounding?: Rounding,
   /**
-   * Helper to specify location when using absolute positioning. See the [absolute positioning](#Absolute-positioning) variant for more info.
+   * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.netlify.app/box#Absolute-positioning) variant for more info.
    */
   top?: Top,
   /**
-   * Use numbers for pixels: width={100} and strings for percentages: width="100%". See the [sizing](#Sizing) variant for more info.
+   * Use numbers for pixels: width={100} and strings for percentages: width="100%". See the [sizing](https://gestalt.netlify.app/box#Sizing) variant for more info.
    */
   width?: Dimension,
   /**
@@ -305,7 +305,7 @@ type Props = {
    */
   userSelect?: UserSelect,
   /**
-   * An object representing the zIndex value of the Box. See the [Z-Index](#Z-Index) variant for more info.
+   * An object representing the zIndex value of the Box. See the [Z-Index](https://gestalt.netlify.app/box#Z-Index) variant for more info.
    */
   zIndex?: Indexable,
   ...
