@@ -1,3 +1,9 @@
+## 35.2.4 (Sep 21, 2021)
+
+### Patch
+
+- Bump nth-check from 2.0.0 to 2.0.1 (#1701)
+
 ## 35.2.3 (Sep 21, 2021)
 
 ### Patch
