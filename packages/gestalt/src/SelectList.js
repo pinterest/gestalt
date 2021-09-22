@@ -70,7 +70,7 @@ export default function SelectList({
   label,
   name,
   onChange,
-  options = [],
+  options,
   placeholder,
   size = 'md',
   value,
@@ -147,7 +147,7 @@ export default function SelectList({
               {placeholder}
             </option>
           )}
-          {options.map((option) => (
+          {(options ?? []).map((option) => (
             <option key={option.value} value={option.value} disabled={option.disabled}>
               {option.label}
             </option>

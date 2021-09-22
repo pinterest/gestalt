@@ -43,3 +43,16 @@ export default async function docgen(component: string): Promise<DocGen> {
 
   return parsed;
 }
+
+export function overrideTypes(docGen: DocGen, typeOverrides: {| [string]: string |}): DocGen {
+  Object.keys(typeOverrides).forEach((key) => {
+    if (docGen?.props?.[key]) {
+      // eslint-disable-next-line no-param-reassign
+      docGen.props[key].flowType = {
+        name: 'union',
+        raw: typeOverrides[key],
+      };
+    }
+  });
+  return docGen;
+}

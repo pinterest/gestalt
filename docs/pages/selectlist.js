@@ -4,7 +4,7 @@ import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../components/docgen.js';
+import docgen, { overrideTypes, type DocGen } from '../components/docgen.js';
 
 export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -438,7 +438,11 @@ If users need the ability to choose between a yes/no option, use Checkbox.
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const docGen = await docgen('SelectList');
+  const overriddenDocGen = overrideTypes(docGen, {
+    onChange: '({| event: SyntheticInputEvent<HTMLSelectElement>, value: string |}) => void',
+  });
   return {
-    props: { generatedDocGen: await docgen('SelectList') },
+    props: { generatedDocGen: overriddenDocGen },
   };
 }
