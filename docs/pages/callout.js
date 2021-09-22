@@ -1,168 +1,104 @@
 // @flow strict
-import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import { type Node } from 'react';
+import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Callout"
-    description={`
+export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Callout">
+      <PageHeader
+        name="Callout"
+        description={`
     Callout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
 
     ⚠️ Please note: Callout is not currently supported in dark mode.
     `}
-    defaultCode={`
+        defaultCode={`
     <Callout
-      type="info"
-      iconAccessibilityLabel="Info"
-      title="Your business account was created!"
-      message="Apply to the Verified Merchant Program"
-      primaryAction={{href: "https://pinterest.com", label: "Get started", target: "blank", accessibilityLabel: "Get started: Verified Merchant Program"}}
-      secondaryAction={{href: "https://pinterest.com", label: "Learn more", target: "blank", accessibilityLabel: "Learn more: Verified Merchant Program"}}
       dismissButton={{
         accessibilityLabel: 'Dismiss this banner',
-        onDismiss: ()=>{},
+        onDismiss: () => {},
       }}
+      iconAccessibilityLabel="Info"
+      message="Apply to the Verified Merchant Program"
+      primaryAction={{
+        accessibilityLabel: "Get started: Verified Merchant Program",
+        href: "https://pinterest.com",
+        label: "Get started",
+        target: "blank",
+      }}
+      secondaryAction={{
+        accessibilityLabel: "Learn more: Verified Merchant Program",
+        href: "https://pinterest.com",
+        label: "Learn more",
+        target: "blank",
+      }}
+      title="Your business account was created!"
+      type="info"
     />
     `}
-  />,
-);
+      />
 
-card(
-  <PropTable
-    props={[
-      {
-        name: 'message',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: `
-          Main content of Callout. Content should be [localized](#Localization).
-          See [Best Practices](#Best-practices) for more info.`,
-      },
-      {
-        name: 'dismissButton',
-        type: '{| accessibilityLabel: string, onDismiss: () => void, |}',
-        defaultValue: null,
-        description: `
-          Adds a dismiss button to Callout. See the [Dismissible variant](#Dismissible) for more info.
-          The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).`,
-      },
-      {
-        name: 'iconAccessibilityLabel',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: `
-          Label to describe the icon’s purpose. See the [Accessibility guidelines](#Accessibility) for details on proper usage.
-        `,
-      },
-      {
-        name: 'primaryAction',
-        type:
-          '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
-        required: false,
-        defaultValue: null,
-        description: `
-          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.'
-          If no \`href\` is supplied, the action will be a button.
-          The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
-        `,
-      },
-      {
-        name: 'secondaryAction',
-        type:
-          '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
-        required: false,
-        defaultValue: null,
-        description: `
-          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.'
-          If no \`href\` is supplied, the action will be a button.
-          The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
-        `,
-      },
-      {
-        name: 'type',
-        type: `"error" | "info" | "warning"`,
-        required: true,
-        defaultValue: null,
-        description: `
-        The category of Callout. See the [Variants](#Variants) to learn more.
-        `,
-      },
-      {
-        name: 'title',
-        type: 'string',
-        defaultValue: null,
-        description: `Brief title summarizing Callout. Content should be [localized](#Localization).`,
-      },
-    ]}
-  />,
-);
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
-          - Displaying high priority, surface-level information to the user.
-          - Providing persistent, non-blocking feedback.
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
+          - When displaying high priority, surface-level information to the user.
+          - When providing persistent, non-blocking feedback.
           - When communicating updates to the state or status of the surface.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
-          - Providing messaging/guidance for specific elements or areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
-          - Displaying information that is intended for promotional/marketing purposes. Use [Upsell](/Upsell) instead.
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
+          - When providing messaging/guidance for specific elements or areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
+          - When displaying information that is intended for promotional/marketing purposes. Use [Upsell](/Upsell) instead.
           - When interacting with the Callout is required for the user to proceed with a task or flow. Use [Modal](/Modal) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="lg"
-        type="do"
-        description="Use Callouts for messages coming from the product or user interaction. Can be used in both Business and Pinner products."
-        defaultCode={`
+      <MainSection name="Best practices">
+        <MainSection.Subsection>
+          <MainSection.Card
+            cardSize="lg"
+            type="do"
+            description="Use Callout for messages coming from the product or user interaction. Can be used in both Business and Pinner products."
+            defaultCode={`
           <Callout
-            type="error"
-            title="Pinterest tag needs attention"
             iconAccessibilityLabel="Error"
             message="Your tag has errors, so information may be outdated. Fix your tag for the most accurate metrics."
             primaryAction={{
+              accessibilityLabel: 'Fix Pinterest Tag',
               href: "https://pinterest.com",
               label: "Fix tag",
               target: "blank",
-              accessibilityLabel: 'Fix Pinterest Tag'
             }}
+            title="Pinterest tag needs attention"
+            type="error"
           />
         `}
-      />
-      <MainSection.Card
-        cardSize="lg"
-        type="do"
-        description={`
-        Place Callout at the top of the page under the primary navigation or page header when possible.
+          />
+          <MainSection.Card
+            cardSize="lg"
+            type="do"
+            description={`
+        Place Callout at the top of the page, under the primary navigation or page header when possible.
         `}
-        defaultCode={`
-          <Box>
-            <Box marginBottom={4} display="flex" alignItems="center">
+            defaultCode={`
+          <Flex direction="column" gap={4}>
+            <Flex alignItems="center" justifyContent="start">
               <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
               <ButtonGroup>
                 <Button color="transparent" iconEnd="arrow-down" text="Business" />
@@ -170,54 +106,61 @@ card(
                 <Button color="transparent" iconEnd="arrow-down" text="Analytics" />
                 <Button color="transparent" iconEnd="arrow-down" text="Ads" />
               </ButtonGroup>
-            </Box>
+            </Flex>
+
             <Divider/>
-            <Box marginTop={8}>
+
+            <Box marginTop={4}>
               <Callout
-                type="info"
-                iconAccessibilityLabel="Info"
-                title="We have not yet detected your tag"
-                message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
-                primaryAction={{label: "Verify Tag", accessibilityLabel: "Manually verify tag"}}
                 dismissButton={{
                   accessibilityLabel: 'Dismiss this banner',
-                  onDismiss: ()=>{},
+                  onDismiss: () => {},
                 }}
+                iconAccessibilityLabel="Info"
+                message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
+                primaryAction={{
+                  accessibilityLabel: "Manually verify tag",
+                  label: "Verify Tag",
+                }}
+                title="We have not yet detected your tag"
+                type="info"
               />
             </Box>
-          </Box>
+          </Flex>
         `}
-      />
-      <MainSection.Card
-        cardSize="lg"
-        type="don't"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description={`
         Use Callouts for marketing new products or features. Use [Upsell](/Upsell) instead.
         `}
-        defaultCode={`
+            defaultCode={`
           <Callout
-            type="info"
-            iconAccessibilityLabel="Info"
-            title="Give $30, get $60 in ads credit"
-            message="Earn $60 of ads credit, and send $30 of ads credit to a friend"
-            primaryAction={{label: "Send invite", accessibilityLabel: "Send ads invite"}}
             dismissButton={{
               accessibilityLabel: 'Dismiss this banner',
-              onDismiss: ()=>{},
+              onDismiss: () => {},
             }}
+            iconAccessibilityLabel="Info"
+            message="Earn $60 of ads credit, and send $30 of ads credit to a friend"
+            primaryAction={{
+              accessibilityLabel: "Send ads invite",
+              label: "Send invite",
+            }}
+            title="Give $30, get $60 in ads credit"
+            type="info"
           />
         `}
-      />
-
-      <MainSection.Card
-        cardSize="lg"
-        type="don't"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description={`
         Stack Callouts. In the case that banners must be stacked, Callouts should come before Upsells.
         `}
-        defaultCode={`
-        <Box>
-          <Box marginBottom={4} display="flex" alignItems="center">
+            defaultCode={`
+        <Flex direction="column" gap={4}>
+          <Flex alignItems="center" justifyContent="start">
             <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
             <ButtonGroup>
               <Button color="transparent" iconEnd="arrow-down" text="Business" />
@@ -225,207 +168,208 @@ card(
               <Button color="transparent" iconEnd="arrow-down" text="Analytics" />
               <Button color="transparent" iconEnd="arrow-down" text="Ads" />
             </ButtonGroup>
-          </Box>
+          </Flex>
+
           <Divider/>
-          <Box marginTop={8}>
+
+          <Box marginTop={4}>
             <Flex gap={2} direction="column">
               <Upsell
                 imageData={{
                   component: <Icon icon="send" accessibilityLabel="Send" color="darkGray" size={32}/>
                 }}
-                title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
                 message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-                primaryAction={{label: "Claim now", accessibilityLabel: "Claim ads credit now"}}
+                primaryAction={{
+                  accessibilityLabel: "Claim ads credit now",
+                  label: "Claim now",
+                }}
+                title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
               />
               <Callout
-                type="info"
-                iconAccessibilityLabel="Info"
-                title="We have not yet detected your tag"
-                message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
-                primaryAction={{
-                  label: "Verify Tag",
-                  accessibilityLabel: "Manually verify tag"
-                }}
                 dismissButton={{
                   accessibilityLabel: 'Dismiss this banner',
-                  onDismiss: ()=>{},
+                  onDismiss: () => {},
                 }}
+                iconAccessibilityLabel="Info"
+                message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
+                primaryAction={{
+                  accessibilityLabel: "Manually verify tag",
+                  label: "Verify Tag",
+                }}
+                title="We have not yet detected your tag"
+                type="info"
               />
             </Flex>
           </Box>
-        </Box>
+        </Flex>
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection name="Accessibility">
-    <MainSection.Subsection
-      title="Labels"
-      description={`
-      \`iconAccessibilityLabel\`, \`dismissButton\`, \`primaryAction\`, and \`secondaryAction\` each require a short, descriptive label for screen readers. These labels should communicate the intent of the icon, such as “Error”, “Info” or “Warning”. They should also be localized.
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="Labels"
+          description={`
+      \`iconAccessibilityLabel\`, \`dismissButton\`, \`primaryAction\` and \`secondaryAction\` each require a short, descriptive label for screen readers. These labels should communicate the intent of the icon, such as “Error”, “Info” or “Warning”. They should also be localized.
 
-      In the case of action [Buttons](/Button) or [Links](/Link), alternative text should be provided through the \`accessibilityLabel\` prop to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
+      When using \`primaryAction\` or \`secondaryAction\`, alternative text should be provided through the \`accessibilityLabel\` prop to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
 
-      For the \`dismissButton\` [IconButton](/IconButton), the label provided should indicate the intent, like “Dismiss this banner”.
+      For the \`dismissButton\`, the label provided should indicate the intent, like “Dismiss this banner”.
       `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Callout
-  type="info"
+  dismissButton={{
+    accessibilityLabel: 'Dismiss this banner',
+    onDismiss: () => {},
+  }}
   iconAccessibilityLabel="Info"
-  title="Your business account was created!"
   message="Apply to the Verified Merchant Program"
   primaryAction={{
+    accessibilityLabel: "Get started: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Get started",
     target: "blank",
-    accessibilityLabel: "Get started: Verified Merchant Program"
   }}
   secondaryAction={{
+    accessibilityLabel: "Learn more: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Learn more",
     target: "blank",
-    accessibilityLabel: "Learn more: Verified Merchant Program"
   }}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss this banner',
-    onDismiss: ()=>{},
-  }}
+  title="Your business account was created!"
+  type="info"
 />
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection
-    name="Localization"
-    description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
-  >
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+      <MainSection
+        name="Localization"
+        description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
+      >
+        <MainSection.Subsection>
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Callout
-  type="info"
+  dismissButton={{
+    accessibilityLabel: 'Dismiss this banner',
+    onDismiss: () => {},
+  }}
   iconAccessibilityLabel="Info"
-  title="Ihr Geschäftskonto wurde erstellt!"
   message="Bewerben Sie sich beim Verified Merchant Program"
   primaryAction={{
+    accessibilityLabel: "Loslegen: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Loslegen",
     target: "blank",
-    accessibilityLabel: "Loslegen: Verified Merchant Program"
   }}
   secondaryAction={{
+    accessibilityLabel: "Erfahren Sie mehr: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Erfahren Sie mehr",
     target: "blank",
-    accessibilityLabel: "Erfahren Sie mehr: Verified Merchant Program"
   }}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss this banner',
-    onDismiss: ()=>{},
-  }}
+  title="Ihr Geschäftskonto wurde erstellt!"
+  type="info"
 />
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Info"
-      description="Info Callouts communicate helpful messages to users about the product. In most cases, they should provide an action for users to take."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Info"
+          description="Info Callouts communicate helpful messages to users about the product. In most cases, they should provide an action for users to take."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Callout
-  type="info"
+  dismissButton={{
+    accessibilityLabel: 'Dismiss this banner',
+    onDismiss: () => {},
+  }}
   iconAccessibilityLabel="Info"
-  title="Your business account was created!"
   message="Apply to the Verified Merchant Program"
   primaryAction={{
+    accessibilityLabel: "Get started: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Get started",
     target: "blank",
-    accessibilityLabel: "Get started: Verified Merchant Program"
   }}
   secondaryAction={{
+    accessibilityLabel: "Learn more: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Learn more",
     target: "blank",
-    accessibilityLabel: "Learn more: Verified Merchant Program"
   }}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss this banner',
-    onDismiss: ()=>{},
-  }}
+  title="Your business account was created!"
+  type="info"
 />
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Warning"
-      description="Warning Callouts communicate cautionary messages to users. Action shouldn't be required. The Callout should provide clear guidance on how to correct an issue and/or learn more about it."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Warning"
+          description="Warning Callouts communicate cautionary messages to users. Action shouldn't be required. The Callout should provide clear guidance on how to correct an issue and/or learn more about it."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Callout
-  type="warning"
-  iconAccessibilityLabel="Warning"
-  title="Unused audiences are going away"
-  message="We have noticed that you have audiences in your advertiser account that have been used in an ad campaign. Pinterest will be deleting any unused audiences on May 30, 2020."
-  primaryAction={{
-    href: "https://pinterest.com",
-    target: "blank",
-    label: "View audiences",
-    accessibilityLabel: "View unused audiences"
-  }}
   dismissButton={{
     accessibilityLabel: 'Dismiss warning',
-    onDismiss: ()=>{},
+    onDismiss: () => {},
   }}
+  iconAccessibilityLabel="Warning"
+  message="We have noticed that you have audiences in your advertiser account that have been used in an ad campaign. Pinterest will be deleting any unused audiences on May 30, 2020."
+  primaryAction={{
+    accessibilityLabel: "View unused audiences",
+    href: "https://pinterest.com",
+    label: "View audiences",
+    target: "blank",
+  }}
+  title="Unused audiences are going away"
+  type="warning"
 />
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Error"
-      description="Error Callouts inform users of problems that require immediate action to correct. Further actions on the page might be blocked if users don't correct the problems. The Callout should also provide clear guidance on how to correct the issue and/or learn more about it."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Error"
+          description="Error Callouts inform users of problems that require immediate action to correct. Further actions on the page might be blocked if users don't correct the problems. The Callout should also provide clear guidance on how to correct the issue and/or learn more about it."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Callout
-  type="error"
-  title="Pinterest tag needs attention"
   iconAccessibilityLabel="Error"
   message="Your tag has errors, so information may be outdated. Fix your tag for the most accurate metrics."
   primaryAction={{
-    href: "https://pinterest.com",
-    target: "blank",
-    label: "Fix tag",
     accessibilityLabel: "Fix Pinterest tag",
+    href: "https://pinterest.com",
+    label: "Fix tag",
+    target: "blank",
   }}
-
+  title="Pinterest tag needs attention"
+  type="error"
 />
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Actions"
-      description={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Actions"
+          description={`
         Callouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/Link), by specifying the \`href\` property, or [Buttons](/Buttons), when no \`href\` is supplied.
 
         Callout actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
@@ -435,53 +379,66 @@ card(
         If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
 
         `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
+  const toggleModal = () => {
+    setShowModal((currState) => !currState);
+  };
 
   return (
     <Box marginStart={-1} marginEnd={-1}>
       <Callout
-        type="info"
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
         iconAccessibilityLabel="Info"
-        title="Your business account was created!"
         message="Apply to the Verified Merchant Program"
         primaryAction={{
-          label: "Apply now",
           accessibilityLabel: "Apply now: verified merchant program",
-          onClick: () => { setShowModal(!showModal) }
+          label: "Apply now",
+          onClick: toggleModal,
         }}
         secondaryAction={{
+          accessibilityLabel: "Learn more: Verified Merchant Program",
           href: "https://help.pinterest.com/en/business/article/verified-merchant-program",
           label: "Learn more",
           target: "blank",
-          accessibilityLabel: "Learn more: Verified Merchant Program"
         }}
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: ()=>{},
-        }}
+        title="Your business account was created!"
+        type="info"
       />
+
       {showModal && (
         <Layer>
           <Modal
             accessibilityModalLabel="Apply for the Verified Merchant Program"
-            heading="Verified Merchant Program Application"
-            onDismiss={() => { setShowModal(!showModal) }}
             footer={
               <Flex flex="grow" justifyContent="end">
                   <ButtonGroup>
-                    <Button text="Cancel" onClick={() => { setShowModal(!showModal) }} size="lg" />
-                    <Button color="red" text="Save" size="lg" />
+                    <Button
+                      onClick={toggleModal}
+                      size="lg"
+                      text="Cancel"
+                    />
+                    <Button
+                      color="red"
+                      onClick={toggleModal}
+                      size="lg"
+                      text="Save"
+                    />
                   </ButtonGroup>
               </Flex>
             }
+            heading="Verified Merchant Program Application"
+            onDismiss={toggleModal}
             size="md"
           >
-            <Box display="flex" direction="row" position="relative">
+            <Flex>
               <Column span={12}>
                 <Box paddingY={2} paddingX={8} display="flex">
                   <Column span={4}>
@@ -492,9 +449,10 @@ function Example(props) {
                     </Label>
                   </Column>
                   <Column span={8}>
-                    <TextField id="name" onChange={() => undefined} />
+                    <TextField id="name" onChange={() => {}} />
                   </Column>
                 </Box>
+
                 <Box paddingY={2} paddingX={8} display="flex">
                   <Column span={4}>
                     <Label htmlFor="desc">
@@ -504,11 +462,11 @@ function Example(props) {
                     </Label>
                   </Column>
                   <Column span={8}>
-                    <TextArea id="desc" onChange={() => undefined} />
+                    <TextArea id="desc" onChange={() => {}} />
                   </Column>
                 </Box>
               </Column>
-            </Box>
+            </Flex>
           </Modal>
         </Layer>
       )}
@@ -516,54 +474,52 @@ function Example(props) {
   );
 }
         `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Dismissible"
-      description={`
-        \`dismissButton\` can be used when Callout doesn't indicate a persistent state. This will most commonly be used in info Callouts.
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Dismissible"
+          description={`
+        \`dismissButton\` can be used when Callout doesn't indicate a persistent state. This will most commonly be used in \`type="info"\` Callouts.
 
         Don't use dismiss buttons in the following cases:
-
         - There is a persistent account or page status that the user must address.
         - The user must access Callout's information again in order to perform a task.
         `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Callout
-  type="info"
+  dismissButton={{
+    accessibilityLabel: 'Dismiss this banner',
+    onDismiss: () => {},
+  }}
   iconAccessibilityLabel="Info"
-  title="Your business account was created!"
   message="Apply to the Verified Merchant Program"
   primaryAction={{
+    accessibilityLabel: "Get started: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Get started",
     target: "blank",
-    accessibilityLabel: "Get started: Verified Merchant Program"
   }}
   secondaryAction={{
+    accessibilityLabel: "Learn more: Verified Merchant Program",
     href: "https://pinterest.com",
     label: "Learn more",
     target: "blank",
-    accessibilityLabel: "Learn more: Verified Merchant Program"
   }}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss this banner',
-    onDismiss: ()=>{},
-  }}
+  title="Your business account was created!"
+  type="info"
 />
       `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
       **[Upsell](/Upsell)**
       If marketing new products or features, or encouraging upgrades, use Upsell instead.
 
@@ -577,10 +533,14 @@ card(
       OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 
     `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function CalloutPage(): Node {
-  return <CardPage cards={cards} page="Callout" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('Callout') },
+  };
 }

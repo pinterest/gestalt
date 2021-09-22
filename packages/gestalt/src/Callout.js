@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -12,15 +12,72 @@ import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType, type DismissButtonType, ActionDataPropType } from './commonTypes.js';
+import { type ActionDataType, ActionDataPropType } from './commonTypes.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
-  dismissButton?: DismissButtonType,
+  /**
+   * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/callout#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   */
+  dismissButton?: {| accessibilityLabel: string, onDismiss: () => void |},
+  /**
+   * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility) for details on proper usage.
+   */
   iconAccessibilityLabel: string,
+  /**
+   * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/callout#Localization).
+   *
+   * See [Best Practices](https://gestalt.pinterest.systems/callout#Best-practices) for more info.
+   */
   message: string,
-  primaryAction?: ActionDataType,
-  secondaryAction?: ActionDataType,
+  /**
+   * Main action for users to take on Upsell. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   */
+  primaryAction?: {|
+    accessibilityLabel: string,
+    disabled?: boolean,
+    href?: string,
+    label: string,
+    onClick?: AbstractEventHandler<
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+      {| disableOnNavigation: () => void |},
+    >,
+    rel?: 'none' | 'nofollow',
+    target?: null | 'self' | 'blank',
+  |},
+  /**
+   * Secondary action for users to take on Upsell. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   */
+  secondaryAction?: {|
+    accessibilityLabel: string,
+    disabled?: boolean,
+    href?: string,
+    label: string,
+    onClick?: AbstractEventHandler<
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+      {| disableOnNavigation: () => void |},
+    >,
+    rel?: 'none' | 'nofollow',
+    target?: null | 'self' | 'blank',
+  |},
+  /**
+   * The category of Callout. See [Variants](https://gestalt.pinterest.systems/callout#Variants) to learn more.
+   */
   type: 'error' | 'info' | 'warning',
+  /**
+   * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/callout#Localization).
+   */
   title?: string,
 |};
 
