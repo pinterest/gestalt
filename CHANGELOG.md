@@ -1,3 +1,9 @@
+## 35.2.8 (Sep 22, 2021)
+
+### Patch
+
+- SelectList: use generated props table in docs (#1704)
+
 ## 35.2.7 (Sep 21, 2021)
 
 ### Patch
