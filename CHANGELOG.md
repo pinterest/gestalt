@@ -1,3 +1,9 @@
+## 35.2.10 (Sep 22, 2021)
+
+### Patch
+
+- SelectList: Tweaks to generated props (#1706)
+
 ## 35.2.9 (Sep 22, 2021)
 
 ### Patch
