@@ -5,32 +5,82 @@ import IconButton from './IconButton.js';
 
 export type TypeOptions = 'error' | 'info';
 
-type BaseModuleProps = {|
-  title?: string,
-  type?: TypeOptions,
-|};
-
-type ModuleBadgeProps = {|
-  ...BaseModuleProps,
+type BaseBadgeProps = {|
   badgeText?: string,
 |};
 
-type ModuleIconProps = {|
-  ...BaseModuleProps,
+type BaseIconProps = {|
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
 |};
 
-type ModuleIconButtonProps = {|
-  ...BaseModuleProps,
+type BaseIconButtonProps = {|
   iconButton?: Element<typeof IconButton>,
 |};
 
-export type BaseModuleTitleProps = ModuleBadgeProps | ModuleIconProps | ModuleIconButtonProps;
+// Props for ModuleTitle
+type BaseModuleTitleProps = {|
+  title?: string,
+  type?: TypeOptions,
+|};
+export type ModuleTitleProps = {|
+  ...BaseModuleTitleProps,
+  ...BaseBadgeProps,
+  ...BaseIconProps,
+  ...BaseIconButtonProps,
+|};
 
-export type ModuleExpandableItemBaseProps = {|
+// Props for Module
+type BaseModuleProps = {|
   ...BaseModuleTitleProps,
   children?: Node,
-  summary?: $ReadOnlyArray<string>,
+  id: string,
+|};
+
+type ModuleBadgeProps = {|
+  ...BaseModuleProps,
+  ...BaseBadgeProps,
+|};
+
+type ModuleIconProps = {|
+  ...BaseModuleProps,
+  ...BaseIconProps,
+|};
+
+type ModuleIconButtonProps = {|
+  ...BaseModuleProps,
+  ...BaseIconButtonProps,
+|};
+
+export type PublicModuleProps = ModuleBadgeProps | ModuleIconProps | ModuleIconButtonProps;
+
+// Props for ModuleExpandable
+type BaseModuleExpandableItemProps = {| summary?: $ReadOnlyArray<string> |};
+
+export type PublicModuleExpandableItemProps = {|
+  ...PublicModuleProps,
+  ...BaseModuleExpandableItemProps,
   title: string, // overwriting to be required
+|};
+
+export type ModuleExpandableItemProps = {|
+  ...BaseModuleExpandableItemProps,
+  ...BaseModuleTitleProps,
+  ...BaseBadgeProps,
+  ...BaseIconProps,
+  ...BaseIconButtonProps,
+  ...BaseModuleProps,
+  accessibilityCollapseLabel: string,
+  accessibilityExpandLabel: string,
+  isCollapsed: boolean,
+  onModuleClicked: (boolean) => void,
+|};
+
+export type PublicModuleExpandableProps = {|
+  accessibilityCollapseLabel: string,
+  accessibilityExpandLabel: string,
+  expandedIndex?: ?number,
+  id: string,
+  items: $ReadOnlyArray<PublicModuleExpandableItemProps>,
+  onExpandedChange?: (?number) => void,
 |};

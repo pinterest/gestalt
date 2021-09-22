@@ -377,12 +377,14 @@ function ModuleExample2() {
 
 card(
   <Example
-    name="Expandable - Icon and Badge"
+    name="Expandable - Icon, Badge and IconButton"
     description={`
     An Icon can be provided to be placed before the \`title\`.
     It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
 
-    Badge text can also be provided, which will be displayed after the \`title\`.`}
+    Badge text can also be provided, which will be displayed after the \`title\`.
+    
+    An IconButton can be provided to be placed after the \`title\` for a supplemental help CTA.`}
     defaultCode={`
 function ModuleExample3() {
   return (
@@ -403,6 +405,18 @@ function ModuleExample3() {
             children: <Text size="md">Children2</Text>,
             title: 'Example with badge',
           },
+          {
+            children: <Text size="md">Children3</Text>,
+            iconButton: <IconButton 
+              bgColor="lightGray"
+              icon="question-mark"
+              iconColor="darkGray"
+              accessibilityLabel="Get help"
+              size="xs"
+              onClick={() => alert('Help content')}
+            />,            
+            title: 'Example with icon button',
+          }
         ]}>
       </Module.Expandable>
     </Box>

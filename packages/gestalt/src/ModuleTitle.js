@@ -1,22 +1,16 @@
 // @flow strict
-import { type Node } from 'react';
+import type { Node } from 'react';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
-import type { BaseModuleTitleProps, TypeOptions } from './moduleTypes.js';
-
-type Props = {|
-  ...BaseModuleTitleProps,
-  title: string, // overwriting to be required
-  type: TypeOptions, // overwriting to be required
-|};
+import type { ModuleTitleProps } from './moduleTypes.js';
 
 /**
  * https://gestalt.pinterest.systems/Module
  */
-export default function ModuleTitle(props: Props): Node {
+export default function ModuleTitle(props: ModuleTitleProps): Node {
   const { title, type = 'info' } = props;
 
   const TYPE_ICON_ATTRIBUTES = {

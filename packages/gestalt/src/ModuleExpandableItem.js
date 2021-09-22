@@ -6,16 +6,7 @@ import Icon from './Icon.js';
 import ModuleTitle from './ModuleTitle.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type ModuleExpandableItemBaseProps } from './moduleTypes.js';
-
-type Props = {|
-  ...ModuleExpandableItemBaseProps,
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  id: string,
-  isCollapsed: boolean,
-  onModuleClicked: (boolean) => void,
-|};
+import type { ModuleExpandableItemProps } from './moduleTypes.js';
 
 /**
  * https://gestalt.pinterest.systems/Module
@@ -31,27 +22,7 @@ export default function ModuleExpandableItem({
   title,
   type = 'info',
   ...props
-}: Props): Node {
-  let moduleTitle;
-  if (title) {
-    const commonProps = { title, type };
-    if (props.badgeText) {
-      moduleTitle = <ModuleTitle {...commonProps} badgeText={props.badgeText} />;
-    } else if (props.icon || props.iconAccessibilityLabel) {
-      moduleTitle = (
-        <ModuleTitle
-          {...commonProps}
-          icon={props.icon}
-          iconAccessibilityLabel={props.iconAccessibilityLabel}
-        />
-      );
-    } else if (props.iconButton) {
-      moduleTitle = <ModuleTitle {...commonProps} iconButton={props.iconButton} />;
-    } else {
-      moduleTitle = <ModuleTitle {...commonProps} />;
-    }
-  }
-
+}: ModuleExpandableItemProps): Node {
   return (
     <Box padding={6}>
       <Flex direction="column" gap={6}>
@@ -65,7 +36,18 @@ export default function ModuleExpandableItem({
         >
           <Flex>
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
-              <Box column={isCollapsed && summary ? 6 : 12}>{moduleTitle}</Box>
+              <Box column={isCollapsed && summary ? 6 : 12}>
+                <ModuleTitle
+                  badgeText={props.badgeText ? props.badgeText : undefined}
+                  icon={props.icon ? props.icon : undefined}
+                  iconAccessibilityLabel={
+                    props.iconAccessibilityLabel ? props.iconAccessibilityLabel : undefined
+                  }
+                  iconButton={props.iconButton ? props.iconButton : undefined}
+                  title={title}
+                  type={type}
+                />
+              </Box>
 
               {summary && isCollapsed && (
                 <Box column={6} marginStart={6}>

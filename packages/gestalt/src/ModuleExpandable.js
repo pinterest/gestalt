@@ -3,20 +3,14 @@ import { Fragment, type Node, useCallback, useState, useEffect } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
-import { type ModuleExpandableItemBaseProps } from './moduleTypes.js';
+import type {
+  PublicModuleExpandableProps,
+  PublicModuleExpandableItemProps,
+} from './moduleTypes.js';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
 }
-
-type Props = {|
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  expandedIndex?: ?number,
-  id: string,
-  items: $ReadOnlyArray<ModuleExpandableItemBaseProps>,
-  onExpandedChange?: (?number) => void,
-|};
 
 /**
  * https://gestalt.pinterest.systems/Module
@@ -28,7 +22,7 @@ export default function ModuleExpandable({
   id,
   items,
   onExpandedChange,
-}: Props): Node {
+}: PublicModuleExpandableProps): Node {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
 
   useEffect(() => {
@@ -47,53 +41,30 @@ export default function ModuleExpandable({
 
   return (
     <Box borderStyle="shadow" rounding={4}>
-      {items.map((props: ModuleExpandableItemBaseProps, index) => {
+      {items.map((props: PublicModuleExpandableItemProps, index) => {
         const { children, summary, title, type } = props;
-
-        const commonProps = {
-          accessibilityCollapseLabel,
-          accessibilityExpandLabel,
-          id: `${id}-${index}`,
-          isCollapsed: expandedId !== index,
-          onModuleClicked: onModuleClickedHandler(index),
-          summary,
-          title,
-          type,
-        };
-
-        let moduleExpandableItem;
-        if (props.badgeText) {
-          moduleExpandableItem = (
-            <ModuleExpandableItem {...commonProps} badgeText={props.badgeText}>
-              {children}
-            </ModuleExpandableItem>
-          );
-        } else if (props.icon || props.iconAccessibilityLabel) {
-          moduleExpandableItem = (
-            <ModuleExpandableItem
-              {...commonProps}
-              icon={props.icon}
-              iconAccessibilityLabel={props.iconAccessibilityLabel}
-            >
-              {children}
-            </ModuleExpandableItem>
-          );
-        } else if (props.iconButton) {
-          moduleExpandableItem = (
-            <ModuleExpandableItem {...commonProps} iconButton={props.iconButton}>
-              {children}
-            </ModuleExpandableItem>
-          );
-        } else {
-          moduleExpandableItem = (
-            <ModuleExpandableItem {...commonProps}>{children}</ModuleExpandableItem>
-          );
-        }
 
         return (
           <Fragment key={index}>
             {index > 0 && <Divider />}
-            {moduleExpandableItem}
+            <ModuleExpandableItem
+              accessibilityCollapseLabel={accessibilityCollapseLabel}
+              accessibilityExpandLabel={accessibilityExpandLabel}
+              badgeText={props.badgeText ? props.badgeText : undefined}
+              icon={props.icon ? props.icon : undefined}
+              iconAccessibilityLabel={
+                props.iconAccessibilityLabel ? props.iconAccessibilityLabel : undefined
+              }
+              iconButton={props.iconButton ? props.iconButton : undefined}
+              id={`${id}-${index}`}
+              isCollapsed={expandedId !== index}
+              onModuleClicked={onModuleClickedHandler(index)}
+              summary={summary}
+              title={title}
+              type={type}
+            >
+              {children}
+            </ModuleExpandableItem>
           </Fragment>
         );
       })}
