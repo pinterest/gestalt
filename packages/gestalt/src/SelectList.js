@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useState } from 'react';
+import { type Node, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -14,23 +12,50 @@ import Icon from './Icon.js';
 import styles from './SelectList.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-type Option = {|
-  label: string,
-  value: string,
-  disabled?: boolean,
-|};
-
 type Props = {|
-  errorMessage?: string,
+  /**
+   * Used to disable the entire SelectList.
+   */
   disabled?: boolean,
+  /**
+   * Used to communicate error information to the user. Be sure to localize the text. See the [error message](https://gestalt.pinterest.systems/selectlist#Error-message) variant to learn more.
+   */
+  errorMessage?: string,
+  /**
+   * Used to provide more information about the form field. Be sure to localize the text. See the [helper text](https://gestalt.pinterest.systems/selectlist#Helper-text) variant to learn more.
+   */
   helperText?: string,
+  /**
+   * A unique identifier to connect the underlying `<select>` with the associated label.
+   */
   id: string,
+  /**
+   * The label shown above the input. Be sure to localize the label.
+   */
   label?: string,
+  /**
+   * Used to specify the name of the control.
+   */
   name?: string,
+  /**
+   * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/selectlist#Controlled-component) variant to learn more.
+   */
   onChange: AbstractEventHandler<SyntheticInputEvent<HTMLSelectElement>, {| value: string |}>,
-  options: $ReadOnlyArray<Option>,
+  /**
+   * The options displayed in the dropdown list. Note that ``disabled`` here is used to disable a single option. Be sure to localize the label.
+   */
+  options: $ReadOnlyArray<{| label: string, value: string, disabled?: boolean |}>,
+  /**
+   * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/selectlist#Controlled-component) variant to learn more.
+   */
   placeholder?: string,
+  /**
+   * md: 40px, lg: 48px. See the [size](https://gestalt.pinterest.systems/selectlist#Size) variant to learn more.
+   */
   size?: 'md' | 'lg',
+  /**
+   * The currently-selected value. See the [controlled component](https://gestalt.pinterest.systems/selectlist#Controlled-component) variant to learn more.
+   */
   value?: ?string,
 |};
 
@@ -152,7 +177,6 @@ SelectList.propTypes = {
     }),
   ),
   placeholder: PropTypes.string,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg']),
+  size: (PropTypes.oneOf(['md', 'lg']): React$PropType$Primitive<'md' | 'lg'>),
   value: PropTypes.string,
 };
