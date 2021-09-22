@@ -24,6 +24,7 @@ export default function ModuleTitle(props: ModuleTitleProps): Node {
     error: {
       icon: 'workflow-status-problem',
       color: 'red',
+      accessibilityLabel: props.iconAccessibilityLabel,
     },
   };
 

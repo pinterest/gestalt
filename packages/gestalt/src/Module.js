@@ -9,7 +9,14 @@ import type { PublicModuleProps } from './moduleTypes.js';
 /**
  * https://gestalt.pinterest.systems/Module
  */
-export default function Module({ children, id, title, type, ...props }: PublicModuleProps): Node {
+export default function Module({
+  children,
+  iconAccessibilityLabel,
+  id,
+  title,
+  type,
+  ...props
+}: PublicModuleProps): Node {
   return (
     <Box borderStyle="shadow" id={id} padding={6} rounding={4}>
       <Flex direction="column" gap={6}>
@@ -17,9 +24,7 @@ export default function Module({ children, id, title, type, ...props }: PublicMo
           <ModuleTitle
             badgeText={props.badgeText ? props.badgeText : undefined}
             icon={props.icon ? props.icon : undefined}
-            iconAccessibilityLabel={
-              props.iconAccessibilityLabel ? props.iconAccessibilityLabel : undefined
-            }
+            iconAccessibilityLabel={iconAccessibilityLabel}
             iconButton={props.iconButton ? props.iconButton : undefined}
             title={title}
             type={type}

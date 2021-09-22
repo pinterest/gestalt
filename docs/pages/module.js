@@ -281,6 +281,7 @@ card(
   <Example
     name="Static - Error"
     id="static-error"
+    description={`When using \`type\` as "error", be sure to provide an \`iconAccessibilityLabel\`.`}
     defaultCode={`
 function ModuleExample() {
   const [value, setValue] = React.useState('');
@@ -290,6 +291,7 @@ function ModuleExample() {
       <Module
         id="ModuleExample - error"
         title="Personal Info"
+        iconAccessibilityLabel={!value ? "This module contains an error" : null}
         type={!value ? "error" : "info"}
       >
         <Flex direction="column" gap={4}>
@@ -429,11 +431,13 @@ function ModuleExample3() {
 card(
   <Example
     name="Expandable - Error"
+    description={`When using \`type\` as "error", be sure to provide an \`iconAccessibilityLabel\`.`}
     defaultCode={`
 function ModuleExample4() {
   const [value, setValue] = React.useState('');
   const moduleType = !value ? 'error' : 'info';
   const summaryInfo = !value ? 'Name is missing' : 'Name: ' + value;
+  const iconAccessibilityLabel = !value ? "This module contains an error" : null;
 
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -452,7 +456,7 @@ function ModuleExample4() {
                 value={value}
               />
             </Text>,
-            iconAccessibilityLabel: "error icon",
+            iconAccessibilityLabel,
             summary: [summaryInfo],
             title: 'Personal Info',
             type: moduleType

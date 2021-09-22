@@ -5,13 +5,24 @@ import Module from './Module.js';
 const ValidWithMinimumProps = <Module id="module-id" />;
 
 const ValidWithBaseProps = (
-  <Module id="module-id" title="Module Title" type="error">
+  <Module
+    id="module-id"
+    iconAccessibilityLabel="There is an error"
+    title="Module Title"
+    type="error"
+  >
     <hr />
   </Module>
 );
 
 const ValidWithBadgeTextProps = (
-  <Module badgeText="badge-text" id="module-id" title="Module Title" type="error">
+  <Module
+    badgeText="badge-text"
+    iconAccessibilityLabel="There is an error"
+    id="module-id"
+    title="Module Title"
+    type="error"
+  >
     <hr />
   </Module>
 );
@@ -30,6 +41,7 @@ const ValidWithIconProps = (
 
 const ValidWithIconButtonProps = (
   <Module
+    iconAccessibilityLabel="There is an error"
     iconButton={
       <IconButton
         bgColor="lightGray"

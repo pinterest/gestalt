@@ -42,7 +42,7 @@ export default function ModuleExpandable({
   return (
     <Box borderStyle="shadow" rounding={4}>
       {items.map((props: PublicModuleExpandableItemProps, index) => {
-        const { children, summary, title, type } = props;
+        const { children, iconAccessibilityLabel, summary, title, type } = props;
 
         return (
           <Fragment key={index}>
@@ -52,9 +52,7 @@ export default function ModuleExpandable({
               accessibilityExpandLabel={accessibilityExpandLabel}
               badgeText={props.badgeText ? props.badgeText : undefined}
               icon={props.icon ? props.icon : undefined}
-              iconAccessibilityLabel={
-                props.iconAccessibilityLabel ? props.iconAccessibilityLabel : undefined
-              }
+              iconAccessibilityLabel={iconAccessibilityLabel}
               iconButton={props.iconButton ? props.iconButton : undefined}
               id={`${id}-${index}`}
               isCollapsed={expandedId !== index}

@@ -12,7 +12,7 @@ exports[`Module renders a badge correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 xsDirectionRow"
+        className="Flex rowGap2 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
@@ -36,6 +36,11 @@ exports[`Module renders a badge correctly 1`] = `
         </div>
         <div
           className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
         >
           <div
             className="box marginStart2 relative"
@@ -79,7 +84,7 @@ exports[`Module renders a title correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 xsDirectionRow"
+        className="Flex rowGap2 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
@@ -122,14 +127,19 @@ exports[`Module renders an error correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 xsDirectionRow"
+        className="Flex rowGap2 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
         >
           <svg
             aria-hidden={null}
-            aria-label="locked"
+            aria-label="there is an error"
             className="icon red iconBlock"
             height={16}
             role="img"
@@ -176,6 +186,105 @@ exports[`Module renders an error correctly 1`] = `
 </div>
 `;
 
+exports[`Module renders an icon button correctly 1`] = `
+<div
+  className="box paddingX6 paddingY6 rounding4 shadow"
+  id="module-test"
+>
+  <div
+    className="Flex columnGap6 xsDirectionColumn"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="Flex rowGap2 itemsCenter xsDirectionRow"
+      >
+        <div
+          className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
+            title="Testing"
+          >
+            Testing
+          </div>
+        </div>
+        <div
+          className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <button
+            aria-label="Get help"
+            className="button tapTransition enabled"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="pog lightGray"
+              style={
+                Object {
+                  "height": 24,
+                  "width": 24,
+                }
+              }
+            >
+              <svg
+                aria-hidden={true}
+                aria-label=""
+                className="icon darkGray iconBlock"
+                height={12}
+                role="img"
+                viewBox="0 0 24 24"
+                width={12}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+      >
+        Testing
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Module renders an icon correctly 1`] = `
 <div
   className="box paddingX6 paddingY6 rounding4 shadow"
@@ -188,10 +297,15 @@ exports[`Module renders an icon correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 xsDirectionRow"
+        className="Flex rowGap2 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
         >
           <svg
             aria-hidden={null}

@@ -15,6 +15,7 @@ export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
   children,
+  iconAccessibilityLabel,
   id,
   isCollapsed,
   onModuleClicked,
@@ -40,9 +41,7 @@ export default function ModuleExpandableItem({
                 <ModuleTitle
                   badgeText={props.badgeText ? props.badgeText : undefined}
                   icon={props.icon ? props.icon : undefined}
-                  iconAccessibilityLabel={
-                    props.iconAccessibilityLabel ? props.iconAccessibilityLabel : undefined
-                  }
+                  iconAccessibilityLabel={iconAccessibilityLabel}
                   iconButton={props.iconButton ? props.iconButton : undefined}
                   title={title}
                   type={type}
