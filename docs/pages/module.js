@@ -30,7 +30,7 @@ card(
         href: 'static-badge',
         type: 'string',
         description:
-          'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Be sure to localize the text.',
+          'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text.',
       },
       {
         name: 'children',
@@ -42,14 +42,22 @@ card(
         name: 'icon',
         href: 'static-icon',
         type: 'string',
-        description: 'Name of icon to display in front of title',
+        description:
+          'Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `iconButton`.',
       },
       {
         name: 'iconAccessibilityLabel',
         href: 'static-icon',
         type: 'string',
         description:
-          'Label to provide information about the icon used for screen readers. Be sure to localize the label.',
+          'Label to provide information about the icon used for screen readers. Can be used in two scenarios: to describe the error icon that appears when `type` is `error`, and to describe the provided `icon` prop when `type` is `info`. Be sure to localize the label.',
+      },
+      {
+        name: 'iconButton',
+        href: 'static-iconbutton',
+        type: 'React.Element<IconButton>',
+        description:
+          'IconButton element to be placed after the `title` for a supplemental help CTA. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.',
       },
       {
         name: 'id',
@@ -69,7 +77,8 @@ card(
         href: 'static-error',
         type: '"info" | "error"',
         defaultValue: 'info',
-        description: 'If set to `error`, displays error icon and changes title to red text',
+        description:
+          'If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`.',
       },
     ]}
   />,
@@ -121,6 +130,7 @@ card(
           children: ?React.Node,
           icon?: $Keys<typeof icons>,
           iconAccessibilityLabel?: string,
+          iconButton?: Element<typeof IconButton>,
           summary?: Array<string>,
           title: string,
           type?: "info" | "error" |}>
@@ -281,7 +291,7 @@ card(
   <Example
     name="Static - Error"
     id="static-error"
-    description={`When using \`type\` as "error", be sure to provide an \`iconAccessibilityLabel\`.`}
+    description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
     defaultCode={`
 function ModuleExample() {
   const [value, setValue] = React.useState('');
@@ -431,7 +441,7 @@ function ModuleExample3() {
 card(
   <Example
     name="Expandable - Error"
-    description={`When using \`type\` as "error", be sure to provide an \`iconAccessibilityLabel\`.`}
+    description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
     defaultCode={`
 function ModuleExample4() {
   const [value, setValue] = React.useState('');
