@@ -32,7 +32,7 @@ type Props = {|
    */
   message: string,
   /**
-   * Main action for users to take on Upsell. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
+   * Main action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
    */
@@ -52,7 +52,7 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Secondary action for users to take on Upsell. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
+   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
    */
