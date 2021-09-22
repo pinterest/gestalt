@@ -1,3 +1,9 @@
+## 35.2.9 (Sep 22, 2021)
+
+### Patch
+
+- Callout: use generated props table in docs (#1705)
+
 ## 35.2.8 (Sep 22, 2021)
 
 ### Patch
