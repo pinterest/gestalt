@@ -18,6 +18,8 @@ type BaseIconButtonProps = {|
   iconButton?: Element<typeof IconButton>,
 |};
 
+type MutuallyExclusiveProps = BaseBadgeProps | BaseIconProps | BaseIconButtonProps;
+
 // Props for ModuleTitle
 type BaseModuleTitleProps = {|
   title?: string,
@@ -37,41 +39,32 @@ type BaseModuleProps = {|
   id: string,
 |};
 
-type ModuleBadgeProps = {|
+export type PublicModuleProps = {|
   ...BaseModuleProps,
-  ...BaseBadgeProps,
+  ...MutuallyExclusiveProps,
 |};
-
-type ModuleIconProps = {|
-  ...BaseModuleProps,
-  ...BaseIconProps,
-|};
-
-type ModuleIconButtonProps = {|
-  ...BaseModuleProps,
-  ...BaseIconButtonProps,
-|};
-
-export type PublicModuleProps = ModuleBadgeProps | ModuleIconProps | ModuleIconButtonProps;
 
 // Props for ModuleExpandable
-type BaseModuleExpandableItemProps = {| summary?: $ReadOnlyArray<string> |};
+type BaseModuleExpandableItemProps = {|
+  ...BaseModuleTitleProps,
+  children?: Node,
+  summary?: $ReadOnlyArray<string>,
+  title: string, // overwriting to be required
+|};
 
 export type PublicModuleExpandableItemProps = {|
-  ...PublicModuleProps,
   ...BaseModuleExpandableItemProps,
-  title: string, // overwriting to be required
+  ...MutuallyExclusiveProps,
 |};
 
 export type ModuleExpandableItemProps = {|
   ...BaseModuleExpandableItemProps,
-  ...BaseModuleTitleProps,
   ...BaseBadgeProps,
   ...BaseIconProps,
   ...BaseIconButtonProps,
-  ...BaseModuleProps,
   accessibilityCollapseLabel: string,
   accessibilityExpandLabel: string,
+  id: string,
   isCollapsed: boolean,
   onModuleClicked: (boolean) => void,
 |};
