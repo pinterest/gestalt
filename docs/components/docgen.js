@@ -1,29 +1,28 @@
 // @flow strict
+
 import { parse } from 'react-docgen';
 import path from 'path';
 import fs from 'fs';
 import nextConfig from 'next/config';
 
-export type DocGenProps = {|
-  [key: string]: {|
-    defaultValue: ?{|
-      value: string,
-      computed: boolean,
-    |},
-    required: boolean,
-    description: string,
-    flowType: {|
-      raw?: string,
-      name: string,
-    |},
-  |},
-|};
-
 export type DocGen = {|
   description: string,
   displayName: string,
   methods: $ReadOnlyArray<string>,
-  props: DocGenProps,
+  props: {|
+    [key: string]: {|
+      defaultValue: ?{|
+        value: string,
+        computed: boolean,
+      |},
+      required: boolean,
+      description: string,
+      flowType: {|
+        raw?: string,
+        name: string,
+      |},
+    |},
+  |},
 |};
 
 export default async function docgen(component: string): Promise<DocGen> {
