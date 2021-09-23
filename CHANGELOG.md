@@ -1,3 +1,9 @@
+## 35.2.11 (Sep 23, 2021)
+
+### Patch
+
+- Internal: add ability to override default value and type in generated docs (#1708)
+
 ## 35.2.10 (Sep 22, 2021)
 
 ### Patch
