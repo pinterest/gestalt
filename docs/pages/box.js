@@ -44,7 +44,7 @@ const ignoredProps = [
   'lgPaddingY',
 ];
 
-export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Box">
       <PageHeader
