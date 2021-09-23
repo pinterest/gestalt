@@ -60,6 +60,39 @@ type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 // to work, we had to copy those types here. Ideally we can undo that copying in the
 // future if we figure out how to get docgen to resolve types defined elsewhere. =(
 
+type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Dimension = number | string;
+type Direction = 'row' | 'column';
+type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
+type Margin =
+  | -12
+  | -11
+  | -10
+  | -9
+  | -8
+  | -7
+  | -6
+  | -5
+  | -4
+  | -3
+  | -2
+  | -1
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 'auto';
+type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
 // Please update `eslint-plugin-gestalt/no-box-disallowed-props` if you make changes to these props
 type Props = {
   /**
@@ -149,10 +182,10 @@ type Props = {
    *
    * Also available in responsive sizes: `smColumn`, `mdColumn`, `lgColumn`
    */
-  column?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  smColumn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  mdColumn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  lgColumn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+  column?: Column,
+  smColumn?: Column,
+  mdColumn?: Column,
+  lgColumn?: Column,
   /**
    * Establishes the main-axis, thus defining the direction flex items are placed in the flex container.
    *
@@ -160,20 +193,20 @@ type Props = {
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
    * Default: 'row'
    */
-  direction?: 'row' | 'column',
-  smDirection?: 'row' | 'column',
-  mdDirection?: 'row' | 'column',
-  lgDirection?: 'row' | 'column',
+  direction?: Direction,
+  smDirection?: Direction,
+  mdDirection?: Direction,
+  lgDirection?: Direction,
   /**
    * The display style, which can be customized at different breakpoints. See the [Accessibility guidelines](https://gestalt.pinterest.systems/box#Visually-hidden-content) to learn more about using \`visuallyHidden\`.
    *
    * Also available in responsive sizes: `smDisplay`, `mdDisplay`, `lgDisplay`
    * Default: 'block'
    */
-  display?: 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden',
-  smDisplay?: 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden',
-  mdDisplay?: 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden',
-  lgDisplay?: 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden',
+  display?: Display,
+  smDisplay?: Display,
+  mdDisplay?: Display,
+  lgDisplay?: Display,
   /**
    * Sets the max-width of the Box to 100%. See the [sizing](https://gestalt.pinterest.systems/box#Sizing) variant for more info.
    * Default: false
@@ -188,7 +221,7 @@ type Props = {
   /**
    * Use numbers for pixels: height={100} and strings for percentages: height="100%". See the [sizing](https://gestalt.pinterest.systems/box#Sizing) variant for more info.
    */
-  height?: number | string,
+  height?: Dimension,
   /**
    * Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
@@ -206,582 +239,62 @@ type Props = {
    * Also available in responsive sizes: `smMargin`, `mdMargin`, `lgMargin`
    * Default: 0
    */
-  margin?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  smMargin?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  mdMargin?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  lgMargin?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
+  margin?: Margin,
+  smMargin?: Margin,
+  mdMargin?: Margin,
+  lgMargin?: Margin,
   /**
    * Also available in responsive sizes: `smMarginTop`, `mdMarginTop`, `lgMarginTop`
    * Default: 0
    */
-  marginTop?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  smMarginTop?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  mdMarginTop?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  lgMarginTop?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
+  marginTop?: Margin,
+  smMarginTop?: Margin,
+  mdMarginTop?: Margin,
+  lgMarginTop?: Margin,
   /**
    * Also available in responsive sizes: `smMarginBottom`, `mdMarginBottom`, `lgMarginBottom`
    * Default: 0
    */
-  marginBottom?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  smMarginBottom?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  mdMarginBottom?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  lgMarginBottom?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
+  marginBottom?: Margin,
+  smMarginBottom?: Margin,
+  mdMarginBottom?: Margin,
+  lgMarginBottom?: Margin,
   /**
    * Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/box#Page-direction) to learn more about using `marginStart`.
    *
    * Also available in responsive sizes: `smMarginStart`, `mdMarginStart`, `lgMarginStart`
    * Default: 0
    */
-  marginStart?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  smMarginStart?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  mdMarginStart?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  lgMarginStart?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
+  marginStart?: Margin,
+  smMarginStart?: Margin,
+  mdMarginStart?: Margin,
+  lgMarginStart?: Margin,
   /**
    * Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/box#Page-direction) to learn more about using `marginEnd`.
    *
    * Also available in responsive sizes: `smMarginEnd`, `mdMarginEnd`, `lgMarginEnd`
    * Default: 0
    */
-  marginEnd?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  smMarginEnd?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  mdMarginEnd?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
-  lgMarginEnd?:
-    | -12
-    | -11
-    | -10
-    | -9
-    | -8
-    | -7
-    | -6
-    | -5
-    | -4
-    | -3
-    | -2
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 'auto',
+  marginEnd?: Margin,
+  smMarginEnd?: Margin,
+  mdMarginEnd?: Margin,
+  lgMarginEnd?: Margin,
   /**
    * Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%". See the [sizing](https://gestalt.pinterest.systems/box#Sizing) variant for more info.
    */
-  maxHeight?: number | string,
+  maxHeight?: Dimension,
   /**
    * Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%". See the [sizing](https://gestalt.pinterest.systems/box#Sizing) variant for more info.
    */
-  maxWidth?: number | string,
+  maxWidth?: Dimension,
   /**
    * Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%". See the [sizing](https://gestalt.pinterest.systems/box#Sizing) variant for more info.
    */
-  minHeight?: number | string,
+  minHeight?: Dimension,
   /**
    * Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%". See the [sizing](https://gestalt.pinterest.systems/box#Sizing) variant for more info.
    */
-  minWidth?: number | string,
+  minWidth?: Dimension,
   /**
    * See the [opacity](https://gestalt.pinterest.systems/box#Opacity) variant for more info.
    */
@@ -797,30 +310,30 @@ type Props = {
    * Also available in responsive sizes: `smPadding`, `mdPadding`, `lgPadding`
    * Default: 0
    */
-  padding?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  smPadding?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  mdPadding?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  lgPadding?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+  padding?: Padding,
+  smPadding?: Padding,
+  mdPadding?: Padding,
+  lgPadding?: Padding,
   /**
    * Horizontal padding (left/right)
    *
    * Also available in responsive sizes: `smPaddingX`, `mdPaddingX`, `lgPaddingX`
    * Default: 0
    */
-  paddingX?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  smPaddingX?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  mdPaddingX?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  lgPaddingX?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+  paddingX?: Padding,
+  smPaddingX?: Padding,
+  mdPaddingX?: Padding,
+  lgPaddingX?: Padding,
   /**
    * Vertical padding (top/bottom)
    *
    * Also available in responsive sizes: `smPaddingY`, `mdPaddingY`, `lgPaddingY`
    * Default: 0
    */
-  paddingY?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  smPaddingY?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  mdPaddingY?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  lgPaddingY?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+  paddingY?: Padding,
+  smPaddingY?: Padding,
+  mdPaddingY?: Padding,
+  lgPaddingY?: Padding,
   /**
    * See the [absolute positioning](https://gestalt.pinterest.systems/box#Absolute-positioning) variant for more info.
    * Default: 'static'
@@ -856,7 +369,7 @@ type Props = {
   /**
    * Use numbers for pixels: width={100} and strings for percentages: width="100%". See the [sizing](https://gestalt.pinterest.systems/box#Sizing) variant for more info.
    */
-  width?: number | string,
+  width?: Dimension,
   /**
    * By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
@@ -937,22 +450,6 @@ BoxWithForwardRef.propTypes = {
     __style: PropTypes.object,
   }),
 
-  display: DisplayPropType,
-  direction: DirectionPropType,
-  column: ColumnPropType,
-
-  smDisplay: DisplayPropType,
-  smDirection: DirectionPropType,
-  smColumn: ColumnPropType,
-
-  mdDisplay: DisplayPropType,
-  mdDirection: DirectionPropType,
-  mdColumn: ColumnPropType,
-
-  lgDisplay: DisplayPropType,
-  lgDirection: DirectionPropType,
-  lgColumn: ColumnPropType,
-
   alignContent: AlignContentPropType,
   alignItems: AlignItemsPropType,
   alignSelf: AlignSelfPropType,
@@ -960,6 +457,22 @@ BoxWithForwardRef.propTypes = {
   bottom: PropTypes.bool,
   borderStyle: BorderStylePropType,
   color: ColorPropType,
+
+  column: ColumnPropType,
+  smColumn: ColumnPropType,
+  mdColumn: ColumnPropType,
+  lgColumn: ColumnPropType,
+
+  direction: DirectionPropType,
+  smDirection: DirectionPropType,
+  mdDirection: DirectionPropType,
+  lgDirection: DirectionPropType,
+
+  display: DisplayPropType,
+  smDisplay: DisplayPropType,
+  mdDisplay: DisplayPropType,
+  lgDisplay: DisplayPropType,
+
   fit: PropTypes.bool,
   flex: FlexPropType,
   height: DimensionPropType,
@@ -967,27 +480,28 @@ BoxWithForwardRef.propTypes = {
   left: PropTypes.bool,
 
   margin: MarginPropType,
-  marginTop: MarginPropType,
-  marginBottom: MarginPropType,
-  marginStart: MarginPropType,
-  marginEnd: MarginPropType,
-
   smMargin: MarginPropType,
-  smMarginTop: MarginPropType,
-  smMarginBottom: MarginPropType,
-  smMarginStart: MarginPropType,
-  smMarginEnd: MarginPropType,
-
   mdMargin: MarginPropType,
-  mdMarginTop: MarginPropType,
-  mdMarginBottom: MarginPropType,
-  mdMarginStart: MarginPropType,
-  mdMarginEnd: MarginPropType,
-
   lgMargin: MarginPropType,
+
+  marginTop: MarginPropType,
+  smMarginTop: MarginPropType,
+  mdMarginTop: MarginPropType,
   lgMarginTop: MarginPropType,
+
+  marginBottom: MarginPropType,
+  smMarginBottom: MarginPropType,
+  mdMarginBottom: MarginPropType,
   lgMarginBottom: MarginPropType,
+
+  marginStart: MarginPropType,
+  smMarginStart: MarginPropType,
+  mdMarginStart: MarginPropType,
   lgMarginStart: MarginPropType,
+
+  marginEnd: MarginPropType,
+  smMarginEnd: MarginPropType,
+  mdMarginEnd: MarginPropType,
   lgMarginEnd: MarginPropType,
 
   maxHeight: DimensionPropType,
@@ -996,23 +510,21 @@ BoxWithForwardRef.propTypes = {
   minWidth: DimensionPropType,
 
   opacity: OpacityPropType,
-
   overflow: OverflowPropType,
 
   padding: PaddingPropType,
-  paddingX: PaddingPropType,
-  paddingY: PaddingPropType,
-
   smPadding: PaddingPropType,
-  smPaddingX: PaddingPropType,
-  smPaddingY: PaddingPropType,
-
   mdPadding: PaddingPropType,
-  mdPaddingX: PaddingPropType,
-  mdPaddingY: PaddingPropType,
-
   lgPadding: PaddingPropType,
+
+  paddingX: PaddingPropType,
+  smPaddingX: PaddingPropType,
+  mdPaddingX: PaddingPropType,
   lgPaddingX: PaddingPropType,
+
+  paddingY: PaddingPropType,
+  smPaddingY: PaddingPropType,
+  mdPaddingY: PaddingPropType,
   lgPaddingY: PaddingPropType,
 
   position: PositionPropType,
@@ -1020,9 +532,8 @@ BoxWithForwardRef.propTypes = {
   role: PropTypes.string,
   rounding: RoundingPropType,
   top: PropTypes.bool,
+  userSelect: UserSelectPropType,
   width: DimensionPropType,
   wrap: PropTypes.bool,
-
-  userSelect: UserSelectPropType,
   zIndex: UnsafeIndexablePropType,
 };
