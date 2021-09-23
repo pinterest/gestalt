@@ -1,6 +1,14 @@
 // @flow strict
 import {
-  genBointLookup,
+  dimensionFormatting,
+  marginLookup,
+  marginBottomLookup,
+  marginLeftLookup,
+  marginRightLookup,
+  marginTopLookup,
+  opacityLookup,
+  overflowLookup,
+  paddingLookup,
   validateBackgroundColor,
   validateBorder,
   validateBorderRadius,
@@ -11,19 +19,6 @@ import {
 type GenericType = any;
 
 type GenericNode = GenericType;
-
-type GenOpacityLookupType = () => {| [string | number]: string |};
-
-const genOpacityLookup: GenOpacityLookupType = () => {
-  const lookupMap = {};
-  for (let i = 0; i <= 10; i += 1) {
-    const val = i / 10; // Why not increment i by 0.1? Floats
-    const msg = `opacity={${val}}`;
-    lookupMap[val] = msg;
-    lookupMap[`${val}`] = msg;
-  }
-  return lookupMap;
-};
 
 type MatchKeyErrorsAccType = $ReadOnlyArray<{|
   node: GenericNode,
@@ -36,359 +31,178 @@ type MatchKeyErrorsType = (
   { [string]: GenericType },
 ) => MatchKeyErrorsAccType;
 
-type DimensionFormattingType = ({| keyName: string, value: string |}) => ?string;
-
-const dimensionFormatting: DimensionFormattingType = ({ keyName, value }) => {
-  if (typeof value === 'number') return `${keyName ?? ''}={${value}}`;
-  if (value.endsWith('%')) return `${keyName ?? ''}="${value}"`;
-  if (value.endsWith('px')) return `${keyName ?? ''}={${value.replace('px', '')}}`;
-  return null;
-};
-
 type GenerateDefaultMessageType = (?string | number) => ?string;
 
+/** This function returns the default messages for all change suggestions
+ */
 const generateDefaultMessage: GenerateDefaultMessageType = (prop) =>
   prop ? `  Use prop \`${prop}\` instead` : '';
 
 type GetMatchKeyErrorsReducerType = ({| context: GenericNode |}) => MatchKeyErrorsType;
 
-/** This function returns ...
+/** This function is a reducer for buildValidatorResponsesFromStyleProperties
  */
 const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => {
-  // this function is return at the end with context in scope
-  const matchKeyErrors: MatchKeyErrorsType = (accumulatorAlternatives, alternativeMap) => {
+  // This function is returned at the end with context in scope
+  const matchKeyErrors: MatchKeyErrorsType = (accumulatorAlternatives, { name, node, value }) => {
     const accumulatorAlternativesBuilder = [...accumulatorAlternatives];
-    const marginLookup = genBointLookup('margin', -12);
-    const marginBottomLookup = genBointLookup('marginBottom', -12);
-    const marginLeftLookup = genBointLookup('marginLeft', -12);
-    const marginRightLookup = genBointLookup('marginRight', -12);
-    const marginTopLookup = genBointLookup('marginTop', -12);
-    const opacityLookup = genOpacityLookup();
-    const paddingLookup = genBointLookup('padding', 0);
 
-    const overflowLookup = {
-      visible: `overflow="visible"`,
-      hidden: `overflow="hidden"`,
-      scroll: `overflow="scroll"`,
-      auto: `overflow="auto"`,
+    // This function manages all suggested alternatives, if existing
+    const handleAlternative = ({ alternative }) => {
+      if (alternative) {
+        accumulatorAlternativesBuilder.push({
+          node,
+          prop: alternative,
+          message: generateDefaultMessage(alternative),
+        });
+      }
     };
 
+    // This function is guard clause for those opt-out props from Eslint configuration
     function includeKey(keyName) {
       const { onlyKeys } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
       return !onlyKeys || onlyKeys.includes(keyName);
     }
 
-    switch (alternativeMap.name) {
-      case 'backgroundColor':
-        if (includeKey('backgroundColor')) {
-          const alternative = validateBackgroundColor(
-            typeof alternativeMap.value === 'string' ? alternativeMap.value : '',
-          );
-          if (alternative) {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: alternative,
-              message: generateDefaultMessage(alternative),
-            });
-          }
-        }
-        break;
-      case 'borderRadius':
-        if (includeKey('borderRadius')) {
-          const alternative = validateBorderRadius(
-            typeof alternativeMap.value === 'string' ? alternativeMap.value : '',
-          );
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: alternative,
-            message: generateDefaultMessage(alternative),
+    if (includeKey(name)) {
+      switch (name) {
+        case 'backgroundColor':
+          handleAlternative({
+            alternative: validateBackgroundColor(typeof value === 'string' ? value : ''),
           });
-        }
-        break;
-      case 'border':
-        if (includeKey('border')) {
-          const alternative = validateBorder(
-            typeof alternativeMap.value === 'string' ? alternativeMap.value : '',
-          );
-          if (alternative) {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: alternative,
-              message: generateDefaultMessage(alternative),
-            });
-          }
-        }
-        break;
-      case 'boxShadow':
-        if (includeKey('boxShadow')) {
-          const alternative = validateBoxShadow(
-            typeof alternativeMap.value === 'string' ? alternativeMap.value : '',
-          );
-          if (alternative) {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: alternative,
-              message: generateDefaultMessage(alternative),
-            });
-          }
-        }
-        break;
-      case 'bottom':
-        if (
-          (includeKey('bottom') && alternativeMap.value === '0px') ||
-          alternativeMap.value === 0
-        ) {
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: 'bottom',
-            message: generateDefaultMessage('bottom'),
+          break;
+
+        case 'borderRadius':
+          handleAlternative({
+            alternative: validateBorderRadius(typeof value === 'string' ? value : ''),
           });
-        }
-        break;
-      case 'left':
-        if ((includeKey('left') && alternativeMap.value === '0px') || alternativeMap.value === 0) {
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: 'left',
-            message: generateDefaultMessage('left'),
+          break;
+
+        case 'border':
+          handleAlternative({
+            alternative: validateBorder(typeof value === 'string' ? value : ''),
           });
-        }
-        break;
-      case 'margin':
-        if (includeKey('margin')) {
-          if (alternativeMap.value === 'auto') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `margin="auto"`,
-              message: generateDefaultMessage('margin="auto"'),
-            });
-          } else {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: marginLookup[alternativeMap.value],
-              message: generateDefaultMessage(marginLookup[alternativeMap.value]),
-            });
-          }
-        }
-        break;
-      case 'marginBottom':
-        if (includeKey('marginBottom')) {
-          if (alternativeMap.value === 'auto') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `marginBottom="auto"`,
-              message: '  Use prop `marginBottom="auto"` instead',
-            });
-          } else {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: marginBottomLookup[alternativeMap.value],
-              message: generateDefaultMessage(marginBottomLookup[alternativeMap.value]),
-            });
-          }
-        }
-        break;
-      case 'marginLeft':
-        if (includeKey('marginTop')) {
-          if (alternativeMap.value === 'auto') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `marginStart="auto"`,
-              message: generateDefaultMessage(`marginStart="auto"`),
-            });
-          } else {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: marginLeftLookup[alternativeMap.value],
-              message: generateDefaultMessage(marginLeftLookup[alternativeMap.value]),
-            });
-          }
-        }
-        break;
-      case 'marginRight':
-        if (includeKey('marginRight')) {
-          if (alternativeMap.value === 'auto') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `marginEnd="auto"`,
-              message: generateDefaultMessage(`marginEnd="auto"`),
-            });
-          } else {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: marginRightLookup[alternativeMap.value],
-              message: generateDefaultMessage(marginRightLookup[alternativeMap.value]),
-            });
-          }
-        }
-        break;
-      case 'marginTop':
-        if (includeKey('marginTop')) {
-          if (alternativeMap.value === 'auto') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `marginTop="auto"`,
-              message: generateDefaultMessage(`marginTop="auto"`),
-            });
-          } else {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: marginTopLookup[alternativeMap.value],
-              message: generateDefaultMessage(marginTopLookup[alternativeMap.value]),
-            });
-          }
-        }
-        break;
-      case 'maxHeight':
-        if (includeKey('maxHeight')) {
-          const alternative = dimensionFormatting({
-            keyName: alternativeMap.node?.key?.name ?? '',
-            value: alternativeMap.value,
+          break;
+
+        case 'boxShadow':
+          handleAlternative({
+            alternative: validateBoxShadow(typeof value === 'string' ? value : ''),
           });
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: alternative,
-            message: generateDefaultMessage(alternative),
+          break;
+
+        case 'bottom':
+          handleAlternative({
+            alternative: ['0px', 0, '0'].includes(value) ? 'bottom' : undefined,
           });
-        }
-        break;
-      case 'minHeight':
-        if (includeKey('minHeight')) {
-          const alternative = dimensionFormatting({
-            keyName: alternativeMap.node?.key?.name,
-            value: alternativeMap.value,
+          break;
+
+        case 'left':
+          handleAlternative({
+            alternative: ['0px', 0, '0'].includes(value) ? 'left' : undefined,
           });
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: alternative,
-            message: generateDefaultMessage(alternative),
+          break;
+
+        case 'right':
+          handleAlternative({
+            alternative: ['0px', 0, '0'].includes(value) ? 'right' : undefined,
           });
-        }
-        break;
-      case 'maxWidth':
-        if (includeKey('maxWidth')) {
-          const alternative = dimensionFormatting({
-            keyName: alternativeMap.name,
-            value: alternativeMap.value,
+          break;
+
+        case 'top':
+          handleAlternative({
+            alternative: ['0px', 0, '0'].includes(value) ? 'top' : undefined,
           });
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: alternative,
-            message: generateDefaultMessage(alternative),
+          break;
+
+        case 'margin':
+          handleAlternative({
+            alternative: value === 'auto' ? `margin="auto"` : marginLookup[value],
           });
-        }
-        break;
-      case 'minWidth':
-        if (includeKey('minWidth')) {
-          const alternative = dimensionFormatting({
-            keyName: alternativeMap.node?.key?.name,
-            value: alternativeMap.value,
+          break;
+
+        case 'marginBottom':
+          handleAlternative({
+            alternative: value === 'auto' ? `marginBottom="auto"` : marginBottomLookup[value],
           });
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: alternative,
-            message: generateDefaultMessage(alternative),
+          break;
+
+        case 'marginLeft':
+          handleAlternative({
+            alternative: value === 'auto' ? `marginStart="auto"` : marginLeftLookup[value],
           });
-        }
-        break;
-      case 'opacity':
-        if (includeKey('opacity')) {
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: opacityLookup[alternativeMap.value],
-            message: generateDefaultMessage(opacityLookup[alternativeMap.value]),
+          break;
+
+        case 'marginRight':
+          handleAlternative({
+            alternative: value === 'auto' ? `marginEnd="auto"` : marginRightLookup[value],
           });
-        }
-        break;
-      case 'overflow':
-        if (includeKey('overflow')) {
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: overflowLookup[alternativeMap.value],
-            message: generateDefaultMessage(overflowLookup[alternativeMap.value]),
+          break;
+
+        case 'marginTop':
+          handleAlternative({
+            alternative: value === 'auto' ? `marginTop="auto"` : marginTopLookup[value],
           });
-        }
-        break;
-      case 'overflow-x':
-        if (includeKey('overflow')) {
-          if (alternativeMap.value === 'scroll') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `overflow="scrollX"`,
-              message: generateDefaultMessage(`overflow="scrollX"`),
-            });
-          }
-        }
-        break;
-      case 'overflow-y':
-        if (includeKey('overflow')) {
-          if (alternativeMap.value === 'scroll') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `overflow="scrollY"`,
-              message: generateDefaultMessage(`overflow="scrollY"`),
-            });
-          }
-        }
-        break;
-      case 'padding':
-        if (includeKey('padding')) {
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: paddingLookup[alternativeMap.value],
-            message: generateDefaultMessage(paddingLookup[alternativeMap.value]),
+          break;
+
+        case 'maxHeight':
+          handleAlternative({
+            alternative: dimensionFormatting({ keyName: node?.key?.name ?? '', value }),
           });
-        }
-        break;
-      case 'position':
-        if (includeKey('position')) {
-          if (alternativeMap.value === 'absolute') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `position="absolute"`,
-              message: generateDefaultMessage(`position="absolute"`),
-            });
-          } else if (alternativeMap.value === 'static') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `position="static"`,
-              message: generateDefaultMessage(`position="static"`),
-            });
-          } else if (alternativeMap.value === 'relative') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `position="relative"`,
-              message: generateDefaultMessage(`position="relative"`),
-            });
-          } else if (alternativeMap.value === 'fixed') {
-            accumulatorAlternativesBuilder.push({
-              node: alternativeMap.node,
-              prop: `position="fixed"`,
-              message: generateDefaultMessage(`position="fixed"`),
-            });
-          }
-        }
-        break;
-      case 'right':
-        if ((includeKey('right') && alternativeMap.value === '0px') || alternativeMap.value === 0) {
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: 'right',
-            message: generateDefaultMessage('right'),
+          break;
+
+        case 'minHeight':
+          handleAlternative({
+            alternative: dimensionFormatting({ keyName: node?.key?.name, value }),
           });
-        }
-        break;
-      case 'top':
-        if ((includeKey('top') && alternativeMap.value === '0px') || alternativeMap.value === 0) {
-          accumulatorAlternativesBuilder.push({
-            node: alternativeMap.node,
-            prop: 'top',
-            message: generateDefaultMessage('top'),
+          break;
+
+        case 'maxWidth':
+          handleAlternative({
+            alternative: dimensionFormatting({ keyName: name, value }),
           });
-        }
-        break;
-      default:
-        break;
+          break;
+
+        case 'minWidth':
+          handleAlternative({
+            alternative: dimensionFormatting({ keyName: node?.key?.name, value }),
+          });
+          break;
+
+        case 'opacity':
+          handleAlternative({ alternative: opacityLookup[value] });
+          break;
+
+        case 'overflow':
+          handleAlternative({ alternative: overflowLookup[value] });
+          break;
+
+        case 'overflow-x':
+          handleAlternative({
+            alternative: value === 'scroll' ? `overflow="scrollX"` : undefined,
+          });
+          break;
+
+        case 'overflow-y':
+          handleAlternative({
+            alternative: value === 'scroll' ? `overflow="scrollY"` : undefined,
+          });
+          break;
+
+        case 'padding':
+          handleAlternative({ alternative: paddingLookup[value] });
+          break;
+
+        case 'position':
+          handleAlternative({
+            alternative: ['absolute', 'static', 'relative', 'fixed'].includes(value)
+              ? `position="${value}"`
+              : undefined,
+          });
+          break;
+
+        default:
+          break;
+      }
     }
     return accumulatorAlternativesBuilder.filter((x) => x);
   };

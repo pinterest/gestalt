@@ -40,11 +40,13 @@ const borderMap = {
   '2px lightgray solid': `borderStyle="lg"`,
 };
 
+type GenBointLookupType = {| [string | number]: string |};
+
 export function genBointLookup(
   propName: string,
   start: number,
   end: number = 12,
-): {| [string | number]: string |} {
+): GenBointLookupType {
   const lookupMap = {};
   for (let i = start; i <= end; i += 1) {
     const px = i * 4;
@@ -61,6 +63,33 @@ export function genBointLookup(
   }
   return lookupMap;
 }
+
+type GenOpacityLookupType = () => {| [string | number]: string |};
+
+const genOpacityLookup: GenOpacityLookupType = () => {
+  const lookupMap = {};
+  for (let i = 0; i <= 10; i += 1) {
+    const val = i / 10; // Why not increment i by 0.1? Floats
+    const msg = `opacity={${val}}`;
+    lookupMap[val] = msg;
+    lookupMap[`${val}`] = msg;
+  }
+  return lookupMap;
+};
+
+export const marginLookup: GenBointLookupType = genBointLookup('margin', -12);
+export const marginBottomLookup: GenBointLookupType = genBointLookup('marginBottom', -12);
+export const marginLeftLookup: GenBointLookupType = genBointLookup('marginLeft', -12);
+export const marginRightLookup: GenBointLookupType = genBointLookup('marginRight', -12);
+export const marginTopLookup: GenBointLookupType = genBointLookup('marginTop', -12);
+export const opacityLookup: GenBointLookupType = genOpacityLookup();
+export const overflowLookup: GenBointLookupType = {
+  visible: `overflow="visible"`,
+  hidden: `overflow="hidden"`,
+  scroll: `overflow="scroll"`,
+  auto: `overflow="auto"`,
+};
+export const paddingLookup: GenBointLookupType = genBointLookup('padding', 0);
 
 export const validateBackgroundColor = (value: string): ?string => colorMap[value];
 
@@ -96,7 +125,16 @@ export const validateBoxShadow = (value: string): ?string => {
 
   const pixelPortion = value.replace(rgbaRegex, '');
   const cleanPixelPortion = pixelPortion.replace(/px/g, '').replace(/ /g, '');
-  const pixelsMatch = ['008', '0080'].includes(cleanPixelPortion);
+  const pixelsMatch = ['008'].includes(cleanPixelPortion);
 
-  return rgbaMatch || pixelsMatch ? 'borderStyle="shadow"' : undefined;
+  return rgbaMatch && pixelsMatch ? 'borderStyle="shadow"' : undefined;
+};
+
+type DimensionFormattingType = ({| keyName: string, value: string |}) => ?string;
+
+export const dimensionFormatting: DimensionFormattingType = ({ keyName, value }) => {
+  if (typeof value === 'number') return `${keyName ?? ''}={${value}}`;
+  if (value.endsWith('%')) return `${keyName ?? ''}="${value}"`;
+  if (value.endsWith('px')) return `${keyName ?? ''}={${value.replace('px', '')}}`;
+  return null;
 };
