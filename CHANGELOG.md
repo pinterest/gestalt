@@ -1,3 +1,9 @@
+## 35.2.13 (Sep 23, 2021)
+
+### Patch
+
+- Internal: Upgrade Flow to 0.160.2 (#1710)
+
 ## 35.2.12 (Sep 23, 2021)
 
 ### Patch
