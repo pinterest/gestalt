@@ -11,30 +11,22 @@ import type { ModuleTitleProps } from './moduleTypes.js';
  * https://gestalt.pinterest.systems/Module
  */
 export default function ModuleTitle(props: ModuleTitleProps): Node {
-  const { title, type = 'info' } = props;
+  const { iconAccessibilityLabel = '', title, type = 'info' } = props;
 
-  const TYPE_ICON_ATTRIBUTES = {
-    info: props.icon
-      ? {
-          icon: props.icon,
-          color: 'darkGray',
-          accessibilityLabel: props.iconAccessibilityLabel,
-        }
-      : {},
-    error: {
-      icon: 'workflow-status-problem',
-      color: 'red',
-      accessibilityLabel: props.iconAccessibilityLabel,
-    },
-  };
-
-  const { accessibilityLabel = '', color, icon: iconName } = TYPE_ICON_ATTRIBUTES[type];
+  const decoration = ['icon', 'badgeText', 'iconButton'].find((prop) => !!props[prop]);
+  const hasError = type === 'error';
+  const hasIcon = hasError || decoration === 'icon';
+  const color = hasError ? 'red' : 'darkGray';
 
   return (
     <Flex alignItems="center" gap={2}>
-      {iconName && (
+      {hasIcon && (
         <Flex.Item minWidth={0}>
-          <Icon accessibilityLabel={accessibilityLabel} color={color} icon={iconName} />
+          <Icon
+            accessibilityLabel={iconAccessibilityLabel}
+            color={color}
+            icon={hasError ? 'workflow-status-problem' : props.icon}
+          />
         </Flex.Item>
       )}
 
@@ -46,7 +38,7 @@ export default function ModuleTitle(props: ModuleTitleProps): Node {
         </Flex.Item>
       )}
 
-      {props.badgeText && (
+      {decoration === 'badgeText' && props.badgeText && (
         <Flex.Item minWidth={0}>
           <Box
             dangerouslySetInlineStyle={{ __style: { top: '1px' } }}
@@ -58,7 +50,7 @@ export default function ModuleTitle(props: ModuleTitleProps): Node {
         </Flex.Item>
       )}
 
-      {props.iconButton && <Flex.Item minWidth={0}>{props.iconButton}</Flex.Item>}
+      {decoration === 'iconButton' && <Flex.Item minWidth={0}>{props.iconButton}</Flex.Item>}
     </Flex>
   );
 }

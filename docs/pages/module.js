@@ -57,7 +57,7 @@ card(
         href: 'static-iconbutton',
         type: 'React.Element<IconButton>',
         description:
-          'IconButton element to be placed after the `title` for a supplemental help CTA. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.',
+          'IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.',
       },
       {
         name: 'id',
@@ -234,7 +234,7 @@ card(
   <Example
     name="Static - IconButton"
     description={`
-    An IconButton can be provided to be placed after the \`title\` for a supplemental help CTA.
+    An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA).
     `}
     id="static-iconbutton"
     defaultCode={`
@@ -415,7 +415,7 @@ card(
 
     Badge text can also be provided, which will be displayed after the \`title\`.
     
-    An IconButton can be provided to be placed after the \`title\` for a supplemental help CTA. Be sure to prevent the \`onClick\` event from bubbling up and expanding/collapsing the module by adding \`event.preventDefault();
+    An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA). Be sure to prevent the \`onClick\` event from bubbling up and expanding/collapsing the module by adding \`event.preventDefault();
     event.stopPropagation();\``}
     defaultCode={`
 function ModuleExample3() {

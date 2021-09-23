@@ -29,7 +29,7 @@ export default function ModuleExpandable({
     setExpandedId(getExpandedId(expandedIndex));
   }, [expandedIndex, setExpandedId]);
 
-  const onModuleClickedHandler = useCallback(
+  const buildOnModuleClickHandler = useCallback(
     (index: number) => (isExpanded: boolean): void => {
       if (onExpandedChange) {
         onExpandedChange(isExpanded ? null : index);
@@ -56,7 +56,7 @@ export default function ModuleExpandable({
               iconButton={props.iconButton ? props.iconButton : undefined}
               id={`${id}-${index}`}
               isCollapsed={expandedId !== index}
-              onModuleClicked={onModuleClickedHandler(index)}
+              onModuleClicked={buildOnModuleClickHandler(index)}
               summary={summary}
               title={title}
               type={type}
