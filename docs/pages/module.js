@@ -239,7 +239,8 @@ card(
     id="static-iconbutton"
     defaultCode={`
 function ModuleExample() {
-  const [showToast, setShowToast] = React.useState(false);
+  const [showPopover, setShowPopover] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -252,33 +253,28 @@ function ModuleExample() {
             accessibilityLabel="Get help"
             size="xs"
             onClick={({ event }) => {
-              setShowToast((currVal) => !currVal);
+              setShowPopover((currVal) => !currVal);
             }}
+            ref={anchorRef}
           />
         }
-        id="ModuleExample - icon"
+        id="ModuleExample - iconButton"
         title="Title"
         >
         <Text size="md">This is example content.</Text>
       </Module>
 
-      {showToast && (
-        <Layer>
-          <Box
-            dangerouslySetInlineStyle={{
-              __style: {
-                bottom: 50,
-                left: '50%',
-                transform: 'translateX(-50%)',
-              },
-            }}
-            fit
-            paddingX={1}
-            position="fixed"
+      {showPopover && (
+        <Popover
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setShowPopover(false)}
+          shouldFocus={false}
           >
-            <Toast text="Help content!" />
-          </Box>
-        </Layer>
+            <Box padding={3}>
+              <Text weight="bold">Help content!</Text>
+            </Box>
+        </Popover>
       )}
     </Box>
   );
@@ -423,7 +419,8 @@ card(
     event.stopPropagation();\``}
     defaultCode={`
 function ModuleExample3() {
-  const [showToast, setShowToast] = React.useState(false);
+  const [showPopover, setShowPopover] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -454,31 +451,26 @@ function ModuleExample3() {
               onClick={({event}) => {
                 event.preventDefault();
                 event.stopPropagation();
-                setShowToast((currVal) => !currVal);
+                setShowPopover((currVal) => !currVal);
               }}
+              ref={anchorRef}
             />,            
             title: 'Example with icon button',
           }
         ]}>
       </Module.Expandable>
 
-      {showToast && (
-        <Layer>
-          <Box
-            dangerouslySetInlineStyle={{
-              __style: {
-                bottom: 50,
-                left: '50%',
-                transform: 'translateX(-50%)',
-              },
-            }}
-            fit
-            paddingX={1}
-            position="fixed"
+      {showPopover && (
+        <Popover
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setShowPopover(false)}
+          shouldFocus={false}
           >
-            <Toast text="Help content!" />
-          </Box>
-        </Layer>
+            <Box padding={3}>
+              <Text weight="bold">Help content!</Text>
+            </Box>
+        </Popover>
       )}
     </Box>
   );
