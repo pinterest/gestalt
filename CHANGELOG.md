@@ -1,3 +1,9 @@
+## 35.2.14 (Sep 23, 2021)
+
+### Patch
+
+- Eslint plugin: gestalt/no-box-dangerous-style-duplicates fixes and refactor  (#1709)
+
 ## 35.2.13 (Sep 23, 2021)
 
 ### Patch
