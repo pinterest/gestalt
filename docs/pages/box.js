@@ -6,7 +6,43 @@ import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import docgen, { type DocGen, type DocGenProps } from '../components/docgen.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+
+const ignoredProps = [
+  'smColumn',
+  'mdColumn',
+  'lgColumn',
+  'smDirection',
+  'mdDirection',
+  'lgDirection',
+  'smDisplay',
+  'mdDisplay',
+  'lgDisplay',
+  'smMargin',
+  'mdMargin',
+  'lgMargin',
+  'smMarginBottom',
+  'mdMarginBottom',
+  'lgMarginBottom',
+  'smMarginEnd',
+  'mdMarginEnd',
+  'lgMarginEnd',
+  'smMarginStart',
+  'mdMarginStart',
+  'lgMarginStart',
+  'smMarginTop',
+  'mdMarginTop',
+  'lgMarginTop',
+  'smPadding',
+  'mdPadding',
+  'lgPadding',
+  'smPaddingX',
+  'mdPaddingX',
+  'lgPaddingX',
+  'smPaddingY',
+  'mdPaddingY',
+  'lgPaddingY',
+];
 
 export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -16,7 +52,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         description="Box is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content."
       />
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
@@ -767,48 +803,8 @@ function Example() {
   );
 }
 
-const ignoredProps = [
-  'smColumn',
-  'mdColumn',
-  'lgColumn',
-  'smDirection',
-  'mdDirection',
-  'lgDirection',
-  'smDisplay',
-  'mdDisplay',
-  'lgDisplay',
-  'smMargin',
-  'mdMargin',
-  'lgMargin',
-  'smMarginBottom',
-  'mdMarginBottom',
-  'lgMarginBottom',
-  'smMarginEnd',
-  'mdMarginEnd',
-  'lgMarginEnd',
-  'smMarginStart',
-  'mdMarginStart',
-  'lgMarginStart',
-  'smMarginTop',
-  'mdMarginTop',
-  'lgMarginTop',
-  'smPadding',
-  'mdPadding',
-  'lgPadding',
-  'smPaddingX',
-  'mdPaddingX',
-  'lgPaddingX',
-  'smPaddingY',
-  'mdPaddingY',
-  'lgPaddingY',
-];
-
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen('Box');
-  const filteredProps = Object.keys(generatedDocGen.props)
-    .filter((key) => !ignoredProps.includes(key))
-    .reduce<DocGenProps>((acc, cur) => ({ ...acc, [cur]: generatedDocGen.props[cur] }), {});
-  generatedDocGen.props = filteredProps;
 
   return {
     props: { generatedDocGen },
