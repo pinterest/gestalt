@@ -239,6 +239,8 @@ card(
     id="static-iconbutton"
     defaultCode={`
 function ModuleExample() {
+  const [showToast, setShowToast] = React.useState(false);
+
   return (
     <Box column={12} maxWidth={800} padding={2}>
       <Module
@@ -249,7 +251,9 @@ function ModuleExample() {
             iconColor="darkGray"
             accessibilityLabel="Get help"
             size="xs"
-            onClick={() => alert('Help content')}
+            onClick={({ event }) => {
+              setShowToast((currVal) => !currVal);
+            }}
           />
         }
         id="ModuleExample - icon"
@@ -257,6 +261,25 @@ function ModuleExample() {
         >
         <Text size="md">This is example content.</Text>
       </Module>
+
+      {showToast && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
+            <Toast text="Help content!" />
+          </Box>
+        </Layer>
+      )}
     </Box>
   );
 }
@@ -396,9 +419,12 @@ card(
 
     Badge text can also be provided, which will be displayed after the \`title\`.
     
-    An IconButton can be provided to be placed after the \`title\` for a supplemental help CTA.`}
+    An IconButton can be provided to be placed after the \`title\` for a supplemental help CTA. Be sure to prevent the \`onClick\` event from bubbling up and expanding/collapsing the module by adding \`event.preventDefault();
+    event.stopPropagation();\``}
     defaultCode={`
 function ModuleExample3() {
+  const [showToast, setShowToast] = React.useState(false);
+
   return (
     <Box column={12} maxWidth={800} padding={2}>
       <Module.Expandable
@@ -425,12 +451,35 @@ function ModuleExample3() {
               iconColor="darkGray"
               accessibilityLabel="Get help"
               size="xs"
-              onClick={() => alert('Help content')}
+              onClick={({event}) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setShowToast((currVal) => !currVal);
+              }}
             />,            
             title: 'Example with icon button',
           }
         ]}>
       </Module.Expandable>
+
+      {showToast && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
+            <Toast text="Help content!" />
+          </Box>
+        </Layer>
+      )}
     </Box>
   );
 }
