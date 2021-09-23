@@ -9,10 +9,12 @@ import {
   opacityLookup,
   overflowLookup,
   paddingLookup,
+  kebabToCamelCase,
   validateBackgroundColor,
   validateBorder,
   validateBorderRadius,
   validateBoxShadow,
+  validateFlex,
 } from './styleValidators.js';
 
 // $FlowFixMe[unclear-type]\
@@ -66,6 +68,45 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
 
     if (includeKey(name)) {
       switch (name) {
+        case 'alignContent':
+          handleAlternative({
+            alternative: [
+              'start',
+              'end',
+              'center',
+              'space-between',
+              'space-around',
+              'space-evenly',
+              'stretch',
+            ].includes(value)
+              ? `alignContent="${value.replace('space-', '')}"`
+              : undefined,
+          });
+          break;
+
+        case 'alignItems':
+          handleAlternative({
+            alternative: ['start', 'end', 'center', 'baseline', 'stretch'].includes(value)
+              ? `alignItems="${value}"`
+              : undefined,
+          });
+          break;
+
+        case 'alignSelf':
+          handleAlternative({
+            alternative: [
+              'auto',
+              'self-start',
+              'self-end',
+              'center',
+              'baseline',
+              'stretch',
+            ].includes(value)
+              ? `alignSelf="${value.replace('self-', '')}"`
+              : undefined,
+          });
+          break;
+
         case 'backgroundColor':
           handleAlternative({
             alternative: validateBackgroundColor(typeof value === 'string' ? value : ''),
@@ -93,6 +134,41 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
         case 'bottom':
           handleAlternative({
             alternative: ['0px', 0, '0'].includes(value) ? 'bottom' : undefined,
+          });
+          break;
+
+        case 'display':
+          handleAlternative({
+            alternative: ['none', 'flex', 'block', 'inline-block'].includes(value)
+              ? `display="${kebabToCamelCase({ attribute: value })}"`
+              : undefined,
+          });
+          break;
+
+        case 'flex':
+          handleAlternative({
+            alternative: validateFlex(value),
+          });
+          break;
+
+        case 'flexWrap':
+          handleAlternative({
+            alternative: value === 'wrap' ? 'wrap' : undefined,
+          });
+          break;
+
+        case 'justifyContent':
+          handleAlternative({
+            alternative: [
+              'flex-start',
+              'flex-end',
+              'center',
+              'space-between',
+              'space-around',
+              'space-evenly',
+            ].includes(value)
+              ? `justifyContent="${value.replace('flex-', '').replace('space-', '')}"`
+              : undefined,
           });
           break;
 
@@ -144,6 +220,12 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
           });
           break;
 
+        case 'height':
+          handleAlternative({
+            alternative: dimensionFormatting({ keyName: node?.key?.name ?? '', value }),
+          });
+          break;
+
         case 'maxHeight':
           handleAlternative({
             alternative: dimensionFormatting({ keyName: node?.key?.name ?? '', value }),
@@ -156,9 +238,15 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
           });
           break;
 
-        case 'maxWidth':
+        case 'width':
           handleAlternative({
             alternative: dimensionFormatting({ keyName: name, value }),
+          });
+          break;
+
+        case 'maxWidth':
+          handleAlternative({
+            alternative: value === '100%' ? 'fit' : dimensionFormatting({ keyName: name, value }),
           });
           break;
 
@@ -198,6 +286,10 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
               ? `position="${value}"`
               : undefined,
           });
+          break;
+
+        case 'role':
+          handleAlternative({ alternative: `role="${value}"` });
           break;
 
         default:
