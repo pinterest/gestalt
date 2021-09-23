@@ -53,10 +53,10 @@ export type Color =
   | 'white';
 export type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type Dimension = number | string;
-export type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
 export type Direction = 'row' | 'column';
-export type Flex = 'grow' | 'shrink' | 'none';
+export type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
 export type Fit = boolean;
+export type Flex = 'grow' | 'shrink' | 'none';
 export type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type JustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
 export type Left = boolean;
