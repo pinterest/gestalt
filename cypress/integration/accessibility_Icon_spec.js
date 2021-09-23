@@ -8,7 +8,7 @@ describe('Icon Accessibility check', () => {
     cy.configureAxe({
       rules: [
         {
-          id: 'aria-command-name',
+          id: 'aria-command-name', // caused by: Tooltip wrapping TapArea on Icon with a11yLabel empty for redundancy with tooltip
           enabled: false,
         },
       ],

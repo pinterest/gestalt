@@ -87,7 +87,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Don't create interactive Icons using TapArea. Use [IconButton](/iconbutton) instead."
             defaultCode={`
-<Tooltip text="Pinterest">
+<Tooltip text="Share pin">
   <TapArea>
     <Icon icon="share" accessibilityLabel="" color="darkGray" />
   </TapArea>

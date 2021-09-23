@@ -4,9 +4,16 @@ describe('Iconography and SVGs Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // Disable the test for now since it's timing out on GitHub CI
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the Iconography and SVGs page', () => {
+  it('Tests accessibility on the Iconography and SVGs page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'aria-command-name', // caused by: Tooltip wrapping TapArea on Icon with a11yLabel empty for redundancy with tooltip
+          enabled: false,
+        },
+      ],
+    });
+
     cy.checkA11y();
   });
 });

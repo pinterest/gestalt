@@ -16,9 +16,9 @@ type Size = 'xs' | 'sm' | 'md' | 'fit';
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 type Props = {|
   /**
-   * Label for screen readers to announce Icon.
+   * Label for screen readers to announce AvatarGroup.
    *
-   * See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/AvatarGroup#Accessibility) for details on proper usage.
    */
   accessibilityLabel: string,
   /**
