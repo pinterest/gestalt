@@ -1,3 +1,9 @@
+## 35.3.0 (Sep 23, 2021)
+
+### Minor
+
+- Eslint plugin: add full Box props coverage to gestalt/no-box-dangerous-style-duplicates (#1711)
+
 ## 35.2.14 (Sep 23, 2021)
 
 ### Patch
