@@ -40,6 +40,17 @@ const borderMap = {
   '2px lightgray solid': `borderStyle="lg"`,
 };
 
+const flexMap = {
+  '1 1 auto': 'grow',
+  '0 1 auto': 'shrink',
+  '0 0 auto': 'none',
+};
+
+type KebabToCamelCaseType = ({| attribute: string |}) => string;
+
+export const kebabToCamelCase: KebabToCamelCaseType = ({ attribute }) =>
+  attribute.replace(/-([a-z])/gi, (s, group1) => group1.toUpperCase());
+
 type GenBointLookupType = {| [string | number]: string |};
 
 export function genBointLookup(
@@ -92,6 +103,9 @@ export const overflowLookup: GenBointLookupType = {
 export const paddingLookup: GenBointLookupType = genBointLookup('padding', 0);
 
 export const validateBackgroundColor = (value: string): ?string => colorMap[value];
+
+export const validateFlex = (value: string): ?string =>
+  flexMap[value] ? `flex="${flexMap[value]}"` : undefined;
 
 export const validateBorder = (value: string): ?string => {
   // If the value is a string:

@@ -18,6 +18,12 @@ const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
 const buildInvalidTest = (name) => readTestByPath(pathFormatter(invalidPrepender(name)));
 
+const invalidAlignContentInput = buildInvalidTest('invalid-alignContent-input');
+const invalidAlignContentOutput = buildInvalidTest('invalid-alignContent-output');
+const invalidAlignItemsInput = buildInvalidTest('invalid-alignItems-input');
+const invalidAlignItemsOutput = buildInvalidTest('invalid-alignItems-output');
+const invalidAlignSelfInput = buildInvalidTest('invalid-alignSelf-input');
+const invalidAlignSelfOutput = buildInvalidTest('invalid-alignSelf-output');
 const invalidBackgroundColorInput = buildInvalidTest('invalid-backgroundColor-input');
 const invalidBackgroundColorOutput = buildInvalidTest('invalid-backgroundColor-output');
 const invalidBorderInput = buildInvalidTest('invalid-border-input');
@@ -28,8 +34,16 @@ const invalidBottomInput = buildInvalidTest('invalid-bottom-input');
 const invalidBottomOutput = buildInvalidTest('invalid-bottom-output');
 const invalidBoxShadowInput = buildInvalidTest('invalid-boxShadow-input');
 const invalidBoxShadowOutput = buildInvalidTest('invalid-boxShadow-output');
+const invalidDisplayInput = buildInvalidTest('invalid-display-input');
+const invalidDisplayOutput = buildInvalidTest('invalid-display-output');
+const invalidFlexInput = buildInvalidTest('invalid-flex-input');
+const invalidFlexOutput = buildInvalidTest('invalid-flex-output');
+const invalidHeightInput = buildInvalidTest('invalid-height-input');
+const invalidHeightOutput = buildInvalidTest('invalid-height-output');
 const invalidInVariableInput = buildInvalidTest('invalid-in-variable-input');
 const invalidInVariableOutput = buildInvalidTest('invalid-in-variable-output');
+const invalidJustifyContentInput = buildInvalidTest('invalid-justifyContent-input');
+const invalidJustifyContentOutput = buildInvalidTest('invalid-justifyContent-output');
 const invalidLeftInput = buildInvalidTest('invalid-left-input');
 const invalidLeftOutput = buildInvalidTest('invalid-left-output');
 const invalidMinHeightInput = buildInvalidTest('invalid-minHeight-input');
@@ -61,8 +75,14 @@ const invalidPositionInput = buildInvalidTest('invalid-position-input');
 const invalidPositionOutput = buildInvalidTest('invalid-position-output');
 const invalidRightInput = buildInvalidTest('invalid-right-input');
 const invalidRightOutput = buildInvalidTest('invalid-right-output');
+const invalidRoleInput = buildInvalidTest('invalid-role-input');
+const invalidRoleOutput = buildInvalidTest('invalid-role-output');
 const invalidTopInput = buildInvalidTest('invalid-top-input');
 const invalidTopOutput = buildInvalidTest('invalid-top-output');
+const invalidWidthInput = buildInvalidTest('invalid-width-input');
+const invalidWidthOutput = buildInvalidTest('invalid-width-output');
+const invalidWrapInput = buildInvalidTest('invalid-wrap-input');
+const invalidWrapOutput = buildInvalidTest('invalid-wrap-output');
 
 const getErrorMessage = (error) =>
   `Unnecessary Box dangerous styles found. https://gestalt.netlify.app/Box\n${error ?? ''}`;
@@ -70,6 +90,17 @@ const getErrorMessage = (error) =>
 ruleTester.run('no-box-dangerous-style-duplicates', rule, {
   valid: [{ code: validCode }],
   invalid: [
+    [
+      invalidAlignContentInput,
+      invalidAlignContentOutput,
+      generateDefaultMessage(`alignContent="between"`),
+    ],
+    [
+      invalidAlignItemsInput,
+      invalidAlignItemsOutput,
+      generateDefaultMessage(`alignItems="baseline"`),
+    ],
+    [invalidAlignSelfInput, invalidAlignSelfOutput, generateDefaultMessage(`alignSelf="start"`)],
     [
       invalidBackgroundColorInput,
       invalidBackgroundColorOutput,
@@ -83,7 +114,14 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     ],
     [invalidBottomInput, invalidBottomOutput, generateDefaultMessage(`bottom`)],
     [invalidBoxShadowInput, invalidBoxShadowOutput, generateDefaultMessage(`borderStyle="shadow"`)],
+    [invalidDisplayInput, invalidDisplayOutput, generateDefaultMessage(`display="inlineBlock"`)],
+    [invalidFlexInput, invalidFlexOutput, generateDefaultMessage(`flex="grow"`)],
     [invalidInVariableInput, invalidInVariableOutput, generateDefaultMessage(`color="white"`)],
+    [
+      invalidJustifyContentInput,
+      invalidJustifyContentOutput,
+      generateDefaultMessage(`justifyContent="between"`),
+    ],
     [invalidLeftInput, invalidLeftOutput, generateDefaultMessage(`left`)],
     [
       invalidMarginNegativeInput,
@@ -92,8 +130,11 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     ],
     [invalidMarginLeftInput, invalidMarginLeftOutput, generateDefaultMessage(`marginStart={2}`)],
     [invalidMarginTopInput, invalidMarginTopOutput, generateDefaultMessage(`marginTop={1}`)],
+
+    [invalidHeightInput, invalidHeightOutput, generateDefaultMessage(`height={8}`)],
+    [invalidWidthInput, invalidWidthOutput, generateDefaultMessage(`width={8}`)],
     [invalidMaxHeightInput, invalidMaxHeightOutput, generateDefaultMessage(`maxHeight={8}`)],
-    [invalidMaxWidthInput, invalidMaxWidthOutput, generateDefaultMessage(`maxWidth={8}`)],
+    [invalidMaxWidthInput, invalidMaxWidthOutput, generateDefaultMessage(`fit`)],
     [invalidMinHeightInput, invalidMinHeightOutput, generateDefaultMessage(`minHeight="100%"`)],
     [invalidMinWidthInput, invalidMinWidthOutput, generateDefaultMessage(`minWidth="100%"`)],
     [
@@ -120,7 +161,9 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     [invalidPaddingInput, invalidPaddingOutput, generateDefaultMessage(`padding={0}`)],
     [invalidPositionInput, invalidPositionOutput, generateDefaultMessage(`position="absolute"`)],
     [invalidRightInput, invalidRightOutput, generateDefaultMessage(`right`)],
+    [invalidRoleInput, invalidRoleOutput, generateDefaultMessage(`role="banner"`)],
     [invalidTopInput, invalidTopOutput, generateDefaultMessage(`top`)],
+    [invalidWrapInput, invalidWrapOutput, generateDefaultMessage(`wrap`)],
   ].map(([input, output, errors, options]) => ({
     code: input,
     options: options ?? [],
