@@ -16,7 +16,7 @@ type Size = 'xs' | 'sm' | 'md' | 'fit';
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 type Props = {|
   /**
-   * Label for the component used for screen readers.
+   * Label for screen readers to announce AvatarGroup.
    *
    * See the [Accessibility guidelines](https://gestalt.pinterest.systems/AvatarGroup#Accessibility) for details on proper usage.
    */

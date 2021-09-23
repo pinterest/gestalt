@@ -1,10 +1,10 @@
-describe('Icon Accessibility check', () => {
+describe('Iconography and SVGs Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/icon');
+    cy.visit('/iconography_and_svgs');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the Icon page', () => {
+  it('Tests accessibility on the Iconography and SVGs page', () => {
     cy.configureAxe({
       rules: [
         {
