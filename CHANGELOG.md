@@ -1,3 +1,9 @@
+## 35.4.0 (Sep 27, 2021)
+
+### Minor
+
+- Module: iconButton prop (#1707)
+
 ## 35.3.1 (Sep 27, 2021)
 
 ### Patch
