@@ -30,7 +30,7 @@ card(
         href: 'static-badge',
         type: 'string',
         description:
-          'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Be sure to localize the text.',
+          'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text.',
       },
       {
         name: 'children',
@@ -42,14 +42,22 @@ card(
         name: 'icon',
         href: 'static-icon',
         type: 'string',
-        description: 'Name of icon to display in front of title',
+        description:
+          'Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `iconButton`.',
       },
       {
         name: 'iconAccessibilityLabel',
         href: 'static-icon',
         type: 'string',
         description:
-          'Label to provide information about the icon used for screen readers. Be sure to localize the label.',
+          'Label to provide information about the icon used for screen readers. Can be used in two scenarios: to describe the error icon that appears when `type` is `error`, and to describe the provided `icon` prop when `type` is `info`. Be sure to localize the label.',
+      },
+      {
+        name: 'iconButton',
+        href: 'static-iconbutton',
+        type: 'React.Element<IconButton>',
+        description:
+          'IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.',
       },
       {
         name: 'id',
@@ -69,7 +77,8 @@ card(
         href: 'static-error',
         type: '"info" | "error"',
         defaultValue: 'info',
-        description: 'If set to `error`, displays error icon and changes title to red text',
+        description:
+          'If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`.',
       },
     ]}
   />,
@@ -121,6 +130,7 @@ card(
           children: ?React.Node,
           icon?: $Keys<typeof icons>,
           iconAccessibilityLabel?: string,
+          iconButton?: Element<typeof IconButton>,
           summary?: Array<string>,
           title: string,
           type?: "info" | "error" |}>
@@ -222,6 +232,59 @@ function ModuleExample() {
 
 card(
   <Example
+    name="Static - IconButton"
+    description={`
+    An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA).
+    `}
+    id="static-iconbutton"
+    defaultCode={`
+function ModuleExample() {
+  const [showPopover, setShowPopover] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  return (
+    <Box column={12} maxWidth={800} padding={2}>
+      <Module
+        iconButton={
+          <IconButton 
+            bgColor="lightGray"
+            icon="question-mark"
+            iconColor="darkGray"
+            accessibilityLabel="Get help"
+            size="xs"
+            onClick={({ event }) => {
+              setShowPopover((currVal) => !currVal);
+            }}
+            ref={anchorRef}
+          />
+        }
+        id="ModuleExample - iconButton"
+        title="Title"
+        >
+        <Text size="md">This is example content.</Text>
+      </Module>
+
+      {showPopover && (
+        <Popover
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setShowPopover(false)}
+          shouldFocus={false}
+          >
+            <Box padding={3}>
+              <Text weight="bold">Help content!</Text>
+            </Box>
+        </Popover>
+      )}
+    </Box>
+  );
+}
+`}
+  />,
+);
+
+card(
+  <Example
     name="Static - Badge"
     description={`Badge text can be provided, which will be displayed after the \`title\`. Note that if no title text is provided, the badge will not be displayed.`}
     id="static-badge"
@@ -247,6 +310,7 @@ card(
   <Example
     name="Static - Error"
     id="static-error"
+    description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
     defaultCode={`
 function ModuleExample() {
   const [value, setValue] = React.useState('');
@@ -256,6 +320,7 @@ function ModuleExample() {
       <Module
         id="ModuleExample - error"
         title="Personal Info"
+        iconAccessibilityLabel={!value ? "This module contains an error" : null}
         type={!value ? "error" : "info"}
       >
         <Flex direction="column" gap={4}>
@@ -343,14 +408,20 @@ function ModuleExample2() {
 
 card(
   <Example
-    name="Expandable - Icon and Badge"
+    name="Expandable - Icon, Badge and IconButton"
     description={`
     An Icon can be provided to be placed before the \`title\`.
     It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
 
-    Badge text can also be provided, which will be displayed after the \`title\`.`}
+    Badge text can also be provided, which will be displayed after the \`title\`.
+    
+    An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA). Be sure to prevent the \`onClick\` event from bubbling up and expanding/collapsing the module by adding \`event.preventDefault();
+    event.stopPropagation();\``}
     defaultCode={`
 function ModuleExample3() {
+  const [showPopover, setShowPopover] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
   return (
     <Box column={12} maxWidth={800} padding={2}>
       <Module.Expandable
@@ -369,8 +440,38 @@ function ModuleExample3() {
             children: <Text size="md">Children2</Text>,
             title: 'Example with badge',
           },
+          {
+            children: <Text size="md">Children3</Text>,
+            iconButton: <IconButton 
+              bgColor="lightGray"
+              icon="question-mark"
+              iconColor="darkGray"
+              accessibilityLabel="Get help"
+              size="xs"
+              onClick={({event}) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setShowPopover((currVal) => !currVal);
+              }}
+              ref={anchorRef}
+            />,            
+            title: 'Example with icon button',
+          }
         ]}>
       </Module.Expandable>
+
+      {showPopover && (
+        <Popover
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setShowPopover(false)}
+          shouldFocus={false}
+          >
+            <Box padding={3}>
+              <Text weight="bold">Help content!</Text>
+            </Box>
+        </Popover>
+      )}
     </Box>
   );
 }
@@ -381,11 +482,13 @@ function ModuleExample3() {
 card(
   <Example
     name="Expandable - Error"
+    description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
     defaultCode={`
 function ModuleExample4() {
   const [value, setValue] = React.useState('');
   const moduleType = !value ? 'error' : 'info';
   const summaryInfo = !value ? 'Name is missing' : 'Name: ' + value;
+  const iconAccessibilityLabel = !value ? "This module contains an error" : null;
 
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -404,7 +507,7 @@ function ModuleExample4() {
                 value={value}
               />
             </Text>,
-            iconAccessibilityLabel: "error icon",
+            iconAccessibilityLabel,
             summary: [summaryInfo],
             title: 'Personal Info',
             type: moduleType

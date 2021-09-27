@@ -6,16 +6,7 @@ import Icon from './Icon.js';
 import ModuleTitle from './ModuleTitle.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type ModuleExpandableItemBaseProps } from './moduleTypes.js';
-
-type Props = {|
-  ...ModuleExpandableItemBaseProps,
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  id: string,
-  isCollapsed: boolean,
-  onModuleClicked: (boolean) => void,
-|};
+import type { ModuleExpandableItemProps } from './moduleTypes.js';
 
 /**
  * https://gestalt.pinterest.systems/Module
@@ -23,9 +14,7 @@ type Props = {|
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
-  badgeText,
   children,
-  icon,
   iconAccessibilityLabel,
   id,
   isCollapsed,
@@ -33,7 +22,8 @@ export default function ModuleExpandableItem({
   summary,
   title,
   type = 'info',
-}: Props): Node {
+  ...props
+}: ModuleExpandableItemProps): Node {
   return (
     <Box padding={6}>
       <Flex direction="column" gap={6}>
@@ -49,9 +39,10 @@ export default function ModuleExpandableItem({
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
               <Box column={isCollapsed && summary ? 6 : 12}>
                 <ModuleTitle
-                  badgeText={badgeText}
-                  icon={icon}
+                  badgeText={props.badgeText ? props.badgeText : undefined}
+                  icon={props.icon ? props.icon : undefined}
                   iconAccessibilityLabel={iconAccessibilityLabel}
+                  iconButton={props.iconButton ? props.iconButton : undefined}
                   title={title}
                   type={type}
                 />

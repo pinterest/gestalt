@@ -4,39 +4,32 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import ModuleTitle from './ModuleTitle.js';
 import ModuleExpandable from './ModuleExpandable.js';
-import { type BaseModuleTitleProps } from './moduleTypes.js';
-
-type Props = {|
-  ...BaseModuleTitleProps,
-  children?: Node,
-  id: string,
-|};
+import type { PublicModuleProps } from './moduleTypes.js';
 
 /**
  * https://gestalt.pinterest.systems/Module
  */
 export default function Module({
-  badgeText,
   children,
-  icon,
   iconAccessibilityLabel,
   id,
   title,
-  type = 'info',
-}: Props): Node {
+  type,
+  ...props
+}: PublicModuleProps): Node {
   return (
     <Box borderStyle="shadow" id={id} padding={6} rounding={4}>
       <Flex direction="column" gap={6}>
         {title && (
           <ModuleTitle
-            badgeText={badgeText}
-            icon={icon}
+            badgeText={props.badgeText ? props.badgeText : undefined}
+            icon={props.icon ? props.icon : undefined}
             iconAccessibilityLabel={iconAccessibilityLabel}
+            iconButton={props.iconButton ? props.iconButton : undefined}
             title={title}
             type={type}
           />
         )}
-
         {/* Flex.Item necessary to prevent gap from being applied to each child */}
         <Flex.Item>{children}</Flex.Item>
       </Flex>

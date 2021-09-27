@@ -45,7 +45,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 itemsCenter xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -160,7 +160,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 itemsCenter xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -275,10 +275,15 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 itemsCenter xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <svg
                       aria-hidden={true}
@@ -411,7 +416,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 itemsCenter xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -560,7 +565,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                 className="box xsCol12"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 itemsCenter xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -657,7 +662,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 itemsCenter xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -772,10 +777,15 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 itemsCenter xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <svg
                       aria-hidden={true}

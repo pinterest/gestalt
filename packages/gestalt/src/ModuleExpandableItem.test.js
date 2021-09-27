@@ -1,5 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
+import IconButton from './IconButton.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
 
 describe('ModuleExpandableItem', () => {
@@ -57,6 +58,33 @@ describe('ModuleExpandableItem', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test('renders correctly with icon button', () => {
+    const tree = renderer
+      .create(
+        <ModuleExpandableItem
+          id="uniqueTestID"
+          accessibilityExpandLabel="click to expand"
+          accessibilityCollapseLabel="click to collapse"
+          title="test title"
+          isCollapsed
+          iconButton={
+            <IconButton
+              bgColor="lightGray"
+              icon="question-mark"
+              iconColor="darkGray"
+              accessibilityLabel="Get help"
+              size="xs"
+              onClick={() => {}}
+            />
+          }
+          type="info"
+          onModuleClicked={() => {}}
+        />,
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   test('renders correctly with summary', () => {
     const tree = renderer
       .create(
@@ -83,6 +111,7 @@ describe('ModuleExpandableItem', () => {
           accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
           title="test title"
+          iconAccessibilityLabel="there is an error"
           isCollapsed
           type="error"
           onModuleClicked={() => {}}

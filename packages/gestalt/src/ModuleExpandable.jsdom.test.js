@@ -1,6 +1,7 @@
 // @flow strict
 import { render, fireEvent, screen } from '@testing-library/react';
 import ModuleExpandable from './ModuleExpandable.js';
+import IconButton from './IconButton.js';
 
 describe('ModuleExpandable', () => {
   const props = {
@@ -27,6 +28,27 @@ describe('ModuleExpandable', () => {
         iconAccessibilityLabel: 'error icon label',
         type: 'error',
       },
+      {
+        title: 'Title4',
+        summary: ['summary4'],
+        children: 'Children4',
+        badgeText: 'badge text',
+      },
+      {
+        title: 'Title5',
+        summary: ['summary5'],
+        children: 'Children5',
+        iconButton: (
+          <IconButton
+            bgColor="lightGray"
+            icon="question-mark"
+            iconColor="darkGray"
+            accessibilityLabel="Get help"
+            size="xs"
+            onClick={() => {}}
+          />
+        ),
+      },
     ],
   };
 
@@ -46,6 +68,16 @@ describe('ModuleExpandable', () => {
     expect(screen.getByRole('img', { name: /Error icon/i })).toBeInTheDocument();
     expect(screen.queryByText(/summary3/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children3/i)).toBeNull();
+
+    expect(screen.getByText(/Title4/i)).toBeInTheDocument();
+    expect(screen.getByText(/badge text/i)).toBeInTheDocument();
+    expect(screen.queryByText(/summary4/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Children4/i)).toBeNull();
+
+    expect(screen.getByText(/Title5/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Get help/i })).toBeInTheDocument();
+    expect(screen.queryByText(/summary5/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Children5/i)).toBeNull();
   });
 
   it('should expand the module correctly when clicked', () => {
@@ -58,16 +90,22 @@ describe('ModuleExpandable', () => {
     expect(screen.getByText(/Children1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children2/i)).toBeNull();
     expect(screen.queryByText(/Children3/i)).toBeNull();
+    expect(screen.queryByText(/Children4/i)).toBeNull();
+    expect(screen.queryByText(/Children5/i)).toBeNull();
 
     fireEvent.click(expandButtons[1]);
     expect(screen.queryByText(/Children1/i)).toBeNull();
     expect(screen.getByText(/Children2/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children3/i)).toBeNull();
+    expect(screen.queryByText(/Children4/i)).toBeNull();
+    expect(screen.queryByText(/Children5/i)).toBeNull();
 
     fireEvent.click(expandButtons[2]);
     expect(screen.queryByText(/Children1/i)).toBeNull();
     expect(screen.queryByText(/Children2/i)).toBeNull();
     expect(screen.getByText(/Children3/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Children4/i)).toBeNull();
+    expect(screen.queryByText(/Children5/i)).toBeNull();
   });
 
   it('should expand the module correctly with expandedId', () => {
@@ -82,6 +120,8 @@ describe('ModuleExpandable', () => {
     expect(screen.getByText(/Children1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children2/i)).toBeNull();
     expect(screen.queryByText(/Children3/i)).toBeNull();
+    expect(screen.queryByText(/Children4/i)).toBeNull();
+    expect(screen.queryByText(/Children5/i)).toBeNull();
 
     // Click on Item with index 0 to collapse the item
     const button1 = screen.getByRole('button', {
@@ -94,7 +134,7 @@ describe('ModuleExpandable', () => {
     const expandButtons = screen.getAllByRole('button', {
       name: /click to expand/i,
     });
-    expect(expandButtons).toHaveLength(3);
+    expect(expandButtons).toHaveLength(5);
     fireEvent.click(expandButtons[1]);
     expect(newProps.onExpandedChange).toHaveBeenCalledWith(1);
   });
