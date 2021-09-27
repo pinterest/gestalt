@@ -1,3 +1,9 @@
+## 35.3.1 (Sep 27, 2021)
+
+### Patch
+
+- Tooltip: fix "disabled elements" link in docs (#1712)
+
 ## 35.3.0 (Sep 23, 2021)
 
 ### Minor
