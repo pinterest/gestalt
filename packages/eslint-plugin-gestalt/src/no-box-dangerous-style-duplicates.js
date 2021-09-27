@@ -17,7 +17,7 @@ import {
   getVariableDefinedStyles,
   getVariableNodeInScopeFromName,
 } from './helpers/eslintASTHelpers.js';
-import { renameTagWithPropsFixer } from './helpers/eslintASTFixers.js';
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
 import { buildValidatorResponsesFromStyleProperties } from './helpers/styleHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
@@ -52,7 +52,10 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+    let programNode;
     let gestaltImportNode;
+    let isImportFixerExecuted = false;
+    let addfixedZIndex = false;
 
     const importDeclarationFnc = (node) => {
       if (!node) return;
@@ -138,7 +141,12 @@ const rule: ESLintRule = {
       if (!validatorResponse.map((a) => !!a.prop).filter(Boolean).length) return null;
 
       const newPropsToAddToBox = validatorResponse
-        ?.map((alternative) => alternative.prop)
+        ?.map((alternative) => {
+          if (typeof alternative.prop === 'string' && alternative.prop.startsWith('zIndex')) {
+            addfixedZIndex = true;
+          }
+          return alternative.prop;
+        })
         .sort()
         .join(' ');
 
@@ -209,13 +217,27 @@ const rule: ESLintRule = {
                 tagName: 'Box',
               });
 
-              return tagFixers;
+              const importFixers = updateGestaltImportFixer({
+                fixer,
+                gestaltImportNode,
+                newComponentName: 'FixedZIndex',
+                programNode,
+              });
+
+              const fixers =
+                addfixedZIndex && !isImportFixerExecuted ? [...tagFixers, importFixers] : tagFixers;
+              isImportFixerExecuted = true;
+
+              return fixers;
             }
           : null,
       });
     };
 
     return {
+      Program: (node) => {
+        programNode = node;
+      },
       ImportDeclaration: importDeclarationFnc,
       JSXOpeningElement: jSXOpeningElementFnc,
     };

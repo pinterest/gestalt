@@ -292,6 +292,12 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
           handleAlternative({ alternative: `role="${value}"` });
           break;
 
+        case 'zIndex':
+          handleAlternative({
+            alternative: value ? `zIndex={new FixedZIndex(${value})}` : undefined,
+          });
+          break;
+
         default:
           break;
       }
