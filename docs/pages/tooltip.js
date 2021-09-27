@@ -217,7 +217,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Pair Tooltip with a disabled element. See [disabled items](#Disabled-items) to learn more."
+        description="Pair Tooltip with a disabled element. See [disabled elements](#Disabled-elements) to learn more."
         defaultCode={`
 <Tooltip
   link={
