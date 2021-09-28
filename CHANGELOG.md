@@ -1,3 +1,9 @@
+## 35.5.1 (Sep 28, 2021)
+
+### Patch
+
+- Upsell: don't render empty div if no actions and no children (#1714)
+
 ## 35.5.0 (Sep 28, 2021)
 
 ### Minor
