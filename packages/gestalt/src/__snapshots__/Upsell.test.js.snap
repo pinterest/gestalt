@@ -34,9 +34,6 @@ exports[`<Upsell /> Basic Upsell 1`] = `
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;
@@ -840,9 +837,6 @@ exports[`<Upsell /> message + title 1`] = `
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;
