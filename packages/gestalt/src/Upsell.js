@@ -109,6 +109,7 @@ export default function Upsell({
     headingStyles.TextLikeHeadingSm,
     responsiveMinWidth === 'xs' && typography.alignCenter,
   );
+  const hasActions = Boolean(primaryAction || secondaryAction);
 
   return (
     <Box
@@ -182,7 +183,7 @@ export default function Upsell({
             )}
           </Box>
         </Box>
-        {!children && (
+        {!children && hasActions && (
           <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
               <UpsellAction type="secondary" data={secondaryAction} />
