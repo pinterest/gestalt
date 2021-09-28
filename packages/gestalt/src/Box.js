@@ -54,8 +54,6 @@ extra runtime typechecks in the transformers for performance.
 
 */
 
-type UnionRefs = HTMLDivElement | HTMLAnchorElement;
-
 // These types are mostly defined in boxTypes.js. Unfortunately to get generated docs
 // to work, we had to copy those types here. Ideally we can undo that copying in the
 // future if we figure out how to get docgen to resolve types defined elsewhere. =(
@@ -108,19 +106,22 @@ type Props = {
 
   /**
    * Aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.
+   *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
    * Default: 'stretch'
    */
   alignContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch',
   /**
    * Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).
+   *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
    * Default: 'stretch'
    */
   alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   /**
    * Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
-   * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
+
+   ** Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
    * Default: 'stretch'
    */
   alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch',
@@ -189,8 +190,9 @@ type Props = {
   /**
    * Establishes the main-axis, thus defining the direction flex items are placed in the flex container.
    *
-   * Also available in responsive sizes: `smDirection`, `mdDirection`, `lgDirection`
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
+   *
+   * Also available in responsive sizes: `smDirection`, `mdDirection`, `lgDirection`
    * Default: 'row'
    */
   direction?: Direction,
@@ -214,6 +216,7 @@ type Props = {
   fit?: boolean,
   /**
    * Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Box relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Box to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Box's size based on child content regardless of its container's size.
+   *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
    * Default: 'shrink'
    */
@@ -224,6 +227,7 @@ type Props = {
   height?: Dimension,
   /**
    * Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.
+   *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
    * Default: 'start'
    */
@@ -342,7 +346,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element. See the [using as a ref](https://gestalt.pinterest.systems/box#Using-as-a-ref) variant for more info.
    */
-  ref?: UnionRefs,
+  ref?: HTMLDivElement,
   /**
    * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.pinterest.systems/box#Absolute-positioning) variant for more info.
    * Default: false
@@ -372,6 +376,7 @@ type Props = {
   width?: Dimension,
   /**
    * By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.
+   *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
    * Default: false
    */
