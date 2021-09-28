@@ -1,3 +1,9 @@
+## 35.5.0 (Sep 28, 2021)
+
+### Minor
+
+- Eslint plugin: add zIndex props coverage to gestalt/no-box-dangerous-style-duplicates (#1713)
+
 ## 35.4.0 (Sep 27, 2021)
 
 ### Minor
