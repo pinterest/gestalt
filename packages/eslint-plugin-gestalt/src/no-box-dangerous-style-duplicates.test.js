@@ -83,6 +83,8 @@ const invalidWidthInput = buildInvalidTest('invalid-width-input');
 const invalidWidthOutput = buildInvalidTest('invalid-width-output');
 const invalidWrapInput = buildInvalidTest('invalid-wrap-input');
 const invalidWrapOutput = buildInvalidTest('invalid-wrap-output');
+const invalidZIndexInput = buildInvalidTest('invalid-zIndex-input');
+const invalidZIndexOutput = buildInvalidTest('invalid-zIndex-output');
 
 const getErrorMessage = (error) =>
   `Unnecessary Box dangerous styles found. https://gestalt.netlify.app/Box\n${error ?? ''}`;
@@ -164,6 +166,11 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     [invalidRoleInput, invalidRoleOutput, generateDefaultMessage(`role="banner"`)],
     [invalidTopInput, invalidTopOutput, generateDefaultMessage(`top`)],
     [invalidWrapInput, invalidWrapOutput, generateDefaultMessage(`wrap`)],
+    [
+      invalidZIndexInput,
+      invalidZIndexOutput,
+      generateDefaultMessage(`zIndex={new FixedZIndex(1000)}`),
+    ],
   ].map(([input, output, errors, options]) => ({
     code: input,
     options: options ?? [],
