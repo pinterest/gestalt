@@ -55,7 +55,7 @@ const rule: ESLintRule = {
     let programNode;
     let gestaltImportNode;
     let isImportFixerExecuted = false;
-    let addfixedZIndex = false;
+    let addFixedZIndex = false;
 
     const importDeclarationFnc = (node) => {
       if (!node) return;
@@ -143,7 +143,7 @@ const rule: ESLintRule = {
       const newPropsToAddToBox = validatorResponse
         ?.map((alternative) => {
           if (typeof alternative.prop === 'string' && alternative.prop.startsWith('zIndex')) {
-            addfixedZIndex = true;
+            addFixedZIndex = true;
           }
           return alternative.prop;
         })
@@ -225,7 +225,7 @@ const rule: ESLintRule = {
               });
 
               const fixers =
-                addfixedZIndex && !isImportFixerExecuted ? [...tagFixers, importFixers] : tagFixers;
+                addFixedZIndex && !isImportFixerExecuted ? [...tagFixers, importFixers] : tagFixers;
               isImportFixerExecuted = true;
 
               return fixers;
