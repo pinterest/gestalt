@@ -89,7 +89,7 @@ card(
     <MainSection.Subsection
       description={`
       **[Link](/Link)** / **[Button](/Button)** / **[IconButton](/IconButton)** / **[TapArea](/TapArea)**  / **[DropDown](/DropDown)** / **[Callout](/Callout)** / **[Upsell](/Upsell)** / **[ActivationCard](/ActivationCard)**
-      If these components are under a ColorSchemeProvider, their link behavior defaults to the logic defined in ColorSchemeProvider. In order to disable the onNavigation logic, we can return "disableOnNavigation" in the \`onClick\` callback. See each component page for more information.
+      If these components are under a ColorSchemeProvider, their link behavior defaults to the logic defined in ColorSchemeProvider. In order to disable the onNavigation logic, we can return "dangerouslyDisableOnNavigation" in the \`onClick\` callback. See each component page for more information.
     `}
     />
   </MainSection>,

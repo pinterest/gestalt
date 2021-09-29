@@ -128,7 +128,7 @@ card(
       {
         name: 'onClick',
         type:
-          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| disableOnNavigation: () => void |}> |}) => void',
+          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
         description:
           'Callback fired when the component is clicked, pressed or tapped. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
       },

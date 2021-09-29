@@ -12,7 +12,7 @@ type PublicProps = {|
   isExternal?: boolean,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation: () => void |},
+    {| dangerouslyDisableOnNavigation: () => void |},
   >,
   option: OptionItemType,
 |};

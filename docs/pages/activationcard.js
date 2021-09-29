@@ -44,7 +44,7 @@ card(
       {
         name: 'link',
         type:
-          '{| accessibilityLabel: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }, {| disableOnNavigation: () => void |}) => void |}',
+          '{| accessibilityLabel: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }, {| dangerouslyDisableOnNavigation: () => void |}) => void |}',
         required: false,
         defaultValue: null,
         description: [

@@ -35,7 +35,7 @@ type Props = {|
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation: () => void |},
+    {| dangerouslyDisableOnNavigation: () => void |},
   >,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
@@ -169,7 +169,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     if (onClick && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed
       event.preventDefault();
-      onClick({ event, disableOnNavigation: () => {} });
+      onClick({ event, dangerouslyDisableOnNavigation: () => {} });
     }
   };
 
@@ -186,13 +186,13 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       }}
       onClick={(event) => {
         let defaultOnNavigationIsEnabled = true;
-        const disableOnNavigation = () => {
+        const dangerouslyDisableOnNavigation = () => {
           defaultOnNavigationIsEnabled = false;
         };
 
         onClick?.({
           event,
-          disableOnNavigation,
+          dangerouslyDisableOnNavigation,
         });
         if (defaultOnNavigation && defaultOnNavigationIsEnabled) {
           defaultOnNavigation({ event });

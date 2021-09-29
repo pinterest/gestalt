@@ -21,7 +21,7 @@ type LinkData = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| disableOnNavigation: () => void |},
+    {| dangerouslyDisableOnNavigation: () => void |},
   >,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
