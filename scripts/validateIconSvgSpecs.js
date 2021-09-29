@@ -6,7 +6,7 @@ const fs = require('fs');
 const iconSvgValidation = async () => {
   const files = await globby(['packages/gestalt/src/icons/*.svg']);
   const templateRegexp = new RegExp(
-    /<svg height="24" width="24" xmlns="http:\/\/www.w3.org\/2000\/svg"><path d="([a-z]|[A-Z]|[0-9.\-,\s])*"\/><\/svg>/,
+    /<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="24" height="24"><path d="([a-z]|[A-Z]|[0-9.\-,\s])*"\/><\/svg>/,
     'g',
   );
 
@@ -33,7 +33,7 @@ ${nonConformatFiles.join('\n')}
 
 Icon svg files must adhere the following pattern:
 
-<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="<replace with icon path"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="<replace with icon path"/></svg>
       `,
     );
   }

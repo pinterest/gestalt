@@ -142,8 +142,6 @@ However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with 
 
 Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the Icon to Gestalt.
 
-We recommend streamlining (removing strokes, transforms, ...) and optimizing the SVGs to improve the performance and the pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac)
-
 Gestalt Icon svg files follow a particular format and use automatic file validation testing.
 
 \`<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +149,16 @@ Gestalt Icon svg files follow a particular format and use automatic file validat
 </svg>\`
 
 We override the color in the Gestalt Icon component and Gestalt only uses the \`d\` attribute in the \`path\` tag and the basic attributes for visualizing the raw file in the \`svg\` tag . For consistency, we don't include unnecessary attributes in the \`svg\` and \`path\` tags.
-`}
+
+We recommend streamlining (removing strokes, transforms, ...) and optimizing the SVGs to improve the performance and the pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac)
+
+To use svgo, install
+
+\`npm -g install svgo\`
+
+and run
+
+\`svgo -f packages/gestalt/src/icons --config=packages/gestalt/src/icons/svgo.config.js\`.`}
         />
       </MainSection>
       <MainSection
