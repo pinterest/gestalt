@@ -38,11 +38,19 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/DatePicker
  */
+/**
+ * [DatePicker](https://gestalt.pinterest.systems/DatePicker) is used when the user has to select a date or date range.
+ *
+ * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-closed%20%230.png)
+ * ![DatePicker open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-open%20%230.png)
+ * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-closed-dark%20%230.png)
+ * ![DatePicker open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-open-dark%20%230.png)
+ */
 const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
   HTMLDivElement,
->(function DatePicker(props, ref): Element<'div'> {
-  const {
+>(function DatePicker(
+  {
     disabled,
     errorMessage,
     excludeDates,
@@ -61,8 +69,9 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
     rangeSelector,
     rangeStartDate,
     value: dateValue,
-  } = props;
-
+  }: Props,
+  ref,
+): Element<'div'> {
   const innerRef = useRef(null);
   useImperativeHandle(ref, () => innerRef.current);
 
