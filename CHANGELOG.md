@@ -1,3 +1,9 @@
+## 36.0.0 (Sep 30, 2021)
+
+### Major
+
+- Link/Button/IconButton/TapArea +composed components: rename disableOnNavigation to dangerouslyDisableOnNavigation (#1717)
+
 ## 35.5.2 (Sep 29, 2021)
 
 ### Patch
