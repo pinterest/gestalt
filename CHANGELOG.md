@@ -1,3 +1,9 @@
+## 36.0.1 (Sep 30, 2021)
+
+### Patch
+
+- Internal: Upgrade Flow to 0.161.0 (#1718)
+
 ## 36.0.0 (Sep 30, 2021)
 
 ### Major
