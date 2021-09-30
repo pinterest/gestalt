@@ -69,7 +69,7 @@ card(
       {
         name: 'onClick',
         type:
-          'AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| disableOnNavigation: () => void |}>',
+          'AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}>',
         description:
           'Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
         href: 'Custom-navigation',

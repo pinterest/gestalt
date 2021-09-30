@@ -28,7 +28,7 @@ export type OnTapType = AbstractEventHandler<
   | SyntheticKeyboardEvent<HTMLDivElement>
   | SyntheticMouseEvent<HTMLAnchorElement>
   | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  {| disableOnNavigation: () => void |},
+  {| dangerouslyDisableOnNavigation: () => void |},
 >;
 
 type BaseTapArea = {|
@@ -137,17 +137,20 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed
       event.preventDefault();
-      onTap({ event, disableOnNavigation: () => {} });
+      onTap({ event, dangerouslyDisableOnNavigation: () => {} });
     }
   };
 
-  const handleClick = (event, disableOnNavigation) =>
+  const handleClick = (event, dangerouslyDisableOnNavigation) =>
     !disabled && onTap
-      ? onTap({ event, disableOnNavigation: disableOnNavigation ?? (() => {}) })
+      ? onTap({
+          event,
+          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
+        })
       : undefined;
 
-  const handleLinkClick = ({ event, disableOnNavigation }) =>
-    handleClick(event, disableOnNavigation);
+  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
+    handleClick(event, dangerouslyDisableOnNavigation);
 
   const handleOnBlur = (event) => {
     if (!disabled && onBlur) {

@@ -31,7 +31,7 @@ type BaseIconButton = {|
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation: () => void |},
+    {| dangerouslyDisableOnNavigation: () => void |},
   >,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
@@ -129,13 +129,16 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     );
   };
 
-  const handleClick = (event, disableOnNavigation) =>
+  const handleClick = (event, dangerouslyDisableOnNavigation) =>
     onClick
-      ? onClick({ event, disableOnNavigation: disableOnNavigation ?? (() => {}) })
+      ? onClick({
+          event,
+          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
+        })
       : undefined;
 
-  const handleLinkClick = ({ event, disableOnNavigation }) =>
-    handleClick(event, disableOnNavigation);
+  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
+    handleClick(event, dangerouslyDisableOnNavigation);
 
   const handleOnBlur = () => {
     setFocused(false);

@@ -46,7 +46,7 @@ type Props = {|
       | SyntheticMouseEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| disableOnNavigation: () => void |},
+      {| dangerouslyDisableOnNavigation: () => void |},
     >,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',
@@ -66,7 +66,7 @@ type Props = {|
       | SyntheticMouseEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| disableOnNavigation: () => void |},
+      {| dangerouslyDisableOnNavigation: () => void |},
     >,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',

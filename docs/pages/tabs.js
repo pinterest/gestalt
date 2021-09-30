@@ -52,7 +52,7 @@ card(
       },
       {
         name: 'onChange',
-        type: `({| +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number, disableOnNavigation: () => void  |}) => void`,
+        type: `({| +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number, dangerouslyDisableOnNavigation: () => void  |}) => void`,
         required: true,
         description:
           'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',

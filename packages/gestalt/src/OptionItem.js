@@ -31,7 +31,7 @@ type Props = {|
   isExternal?: boolean,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation: () => void |},
+    {| dangerouslyDisableOnNavigation: () => void |},
   >,
   onSelect?: ({|
     item: OptionItemType,
