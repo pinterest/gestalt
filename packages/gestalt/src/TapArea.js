@@ -136,6 +136,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     // Check to see if space or enter were pressed
     if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed
+      // TODO: this may be preventing ENTER keypress events coming from Buttons/IconButtons within a TapArea
       event.preventDefault();
       onTap({ event, dangerouslyDisableOnNavigation: () => {} });
     }

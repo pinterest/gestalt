@@ -31,7 +31,10 @@ export default function ModuleExpandableItem({
           accessibilityControls={id}
           accessibilityExpanded={!isCollapsed}
           accessibilityLabel={isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel}
-          onTap={() => {
+          onTap={({ event }) => {
+            if (event?.target instanceof Element && event.target.closest('button') !== null) {
+              return;
+            }
             onModuleClicked(!isCollapsed);
           }}
         >
