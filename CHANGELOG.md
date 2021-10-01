@@ -1,3 +1,9 @@
+## 36.0.4 (Oct 1, 2021)
+
+### Patch
+
+- Icon: visual testing implementation (#1720)
+
 ## 36.0.3 (Oct 1, 2021)
 
 ### Patch
