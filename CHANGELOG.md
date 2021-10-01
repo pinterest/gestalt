@@ -1,3 +1,9 @@
+## 36.0.5 (Oct 1, 2021)
+
+### Patch
+
+- Icon: optimize SVG with svgo (#1716)
+
 ## 36.0.4 (Oct 1, 2021)
 
 ### Patch
