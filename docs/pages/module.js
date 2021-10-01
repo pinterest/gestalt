@@ -415,8 +415,7 @@ card(
 
     Badge text can also be provided, which will be displayed after the \`title\`.
     
-    An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA). Be sure to prevent the \`onClick\` event from bubbling up and expanding/collapsing the module by adding \`event.preventDefault();
-    event.stopPropagation();\``}
+    An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA).`}
     defaultCode={`
 function ModuleExample3() {
   const [showPopover, setShowPopover] = React.useState(false);
@@ -448,11 +447,7 @@ function ModuleExample3() {
               iconColor="darkGray"
               accessibilityLabel="Get help"
               size="xs"
-              onClick={({event}) => {
-                event.preventDefault();
-                event.stopPropagation();
-                setShowPopover((currVal) => !currVal);
-              }}
+              onClick={({event}) => setShowPopover((currVal) => !currVal)}
               ref={anchorRef}
             />,            
             title: 'Example with icon button',
