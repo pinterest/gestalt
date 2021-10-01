@@ -1,3 +1,9 @@
+## 36.0.3 (Oct 1, 2021)
+
+### Patch
+
+- DatePicker: visual testing implementation (#1719)
+
 ## 36.0.2 (Oct 1, 2021)
 
 ### Patch
