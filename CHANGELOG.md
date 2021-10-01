@@ -1,3 +1,9 @@
+## 36.0.7 (Oct 1, 2021)
+
+### Patch
+
+- Status: use generated props table, general cleanup, add test for subtext (#1723)
+
 ## 36.0.6 (Oct 1, 2021)
 
 ### Patch
