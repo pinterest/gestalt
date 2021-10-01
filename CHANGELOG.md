@@ -1,3 +1,9 @@
+## 36.0.6 (Oct 1, 2021)
+
+### Patch
+
+- Prevent iconButton firing collapse/expand events on Module.Expandable (#1722)
+
 ## 36.0.5 (Oct 1, 2021)
 
 ### Patch
