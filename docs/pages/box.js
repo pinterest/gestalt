@@ -1,258 +1,70 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box } from 'gestalt';
-import PropTable from '../components/PropTable.js';
+import Page from '../components/Page.js';
 import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const ignoredProps = [
+  'smColumn',
+  'mdColumn',
+  'lgColumn',
+  'smDirection',
+  'mdDirection',
+  'lgDirection',
+  'smDisplay',
+  'mdDisplay',
+  'lgDisplay',
+  'smMargin',
+  'mdMargin',
+  'lgMargin',
+  'smMarginBottom',
+  'mdMarginBottom',
+  'lgMarginBottom',
+  'smMarginEnd',
+  'mdMarginEnd',
+  'lgMarginEnd',
+  'smMarginStart',
+  'mdMarginStart',
+  'lgMarginStart',
+  'smMarginTop',
+  'mdMarginTop',
+  'lgMarginTop',
+  'smPadding',
+  'mdPadding',
+  'lgPadding',
+  'smPaddingX',
+  'mdPaddingX',
+  'lgPaddingX',
+  'smPaddingY',
+  'mdPaddingY',
+  'lgPaddingY',
+];
 
-card(
-  <PageHeader
-    name="Box"
-    description="Box is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content."
-  />,
-);
+export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Box">
+      <PageHeader
+        name="Box"
+        description="Box is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content."
+      />
 
-card(
-  <PropTable
-    Component={Box}
-    props={[
-      {
-        name: 'dangerouslySetInlineStyle',
-        type: '{ __style: { [key: string]: string | number | void } }',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'as',
-        type: `"article" | "aside" | "details" | "div" | "figcaption" | "figure" | "footer" | "header" | "main" | "nav" | "section" | "summary"`,
-        defaultValue: 'div',
-        description: `Changes the underlying DOM element when needed for accessibility or SEO reasons. Note that currently only block-level elements are available.`,
-      },
-      {
-        name: 'display',
-        type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
-        defaultValue: 'block',
-        responsive: true,
-        description: `The display style, which can be customized at different breakpoints. See the [Accessibility guidelines](#Visually-hidden-content) to learn more about using \`visuallyHidden\`.`,
-      },
-      {
-        name: 'direction',
-        type: `"row" | "column"`,
-        defaultValue: 'row',
-        responsive: true,
-        description:
-          'Establishes the main-axis, thus defining the direction flex items are placed in the flex container.',
-      },
-      {
-        name: 'alignContent',
-        type: `"start" | "end" | "center" | "between" | "around" | "evenly" | "stretch"`,
-        defaultValue: 'stretch',
-        description:
-          "Aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.",
-      },
-      {
-        name: 'alignItems',
-        type: `"start" | "end" | "center" | "baseline" | "stretch"`,
-        defaultValue: 'stretch',
-        description:
-          'Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
-      },
-      {
-        name: 'alignSelf',
-        type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
-        defaultValue: 'stretch',
-        description:
-          'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
-      },
-      {
-        name: 'borderStyle',
-        type: `"sm" | "lg" | "shadow" | "none"`,
-        defaultValue: 'none',
-        description: `Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the [borders](#Borders) variant for more details.`,
-      },
-      {
-        name: 'color',
-        type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
-        defaultValue: 'transparent',
-        description: 'See the [color](#Color) variant for more info.',
-      },
-      {
-        name: 'fit',
-        type: 'boolean',
-        defaultValue: false,
-        description:
-          'Sets the max-width of the Box to 100%. See the [sizing](#Sizing) variant for more info.',
-      },
-      {
-        name: 'flex',
-        type: '"grow" | "shrink" | "none"',
-        defaultValue: 'shrink',
-        description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Box relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Box to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Box's size based on child content regardless of its container's size.`,
-      },
-      {
-        name: 'justifyContent',
-        type: `"start" | "end" | "center" | "between" | "around" | "evenly"`,
-        defaultValue: 'start',
-        description:
-          'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
-      },
-      ...['left', 'right', 'top', 'bottom'].map((name) => ({
-        name,
-        type: 'boolean',
-        defaultValue: false,
-        description:
-          'Helper to specify location when using absolute positioning. See the [absolute positioning](#Absolute-positioning) variant for more info.',
-      })),
-      ...[
-        {
-          name: 'margin',
-          description:
-            'Scale is in 4px increments so a margin of 2 is 8px. Supports 3 responsive breakpoints: sm, md, lg. Each sets the margin from that breakpoint and up.',
-        },
-        { name: 'marginTop' },
-        { name: 'marginBottom' },
-        {
-          name: 'marginStart',
-          description:
-            'Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](#Page-direction) to learn more about using `marginStart`.',
-        },
-        {
-          name: 'marginEnd',
-          description:
-            'Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](#Page-direction) to learn more about using `marginEnd`.',
-        },
-      ].map((prop: {| name: string, description?: string |}) => ({
-        name: prop.name,
-        type: '-12 ... 12 | "auto"',
-        defaultValue: 0,
-        responsive: true,
-        description: prop.description,
-      })),
-      {
-        name: 'column',
-        type: `0 .. 12`,
-        responsive: true,
-        description: 'See the [column layout](#Column-layout) variant for more info.',
-      },
-      {
-        name: 'maxHeight',
-        type: `number | string`,
-        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%". See the [sizing](#Sizing) variant for more info.`,
-      },
-      {
-        name: 'maxWidth',
-        type: `number | string`,
-        description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%". See the [sizing](#Sizing) variant for more info.`,
-      },
-      {
-        name: 'minHeight',
-        type: `number | string`,
-        description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%". See the [sizing](#Sizing) variant for more info.`,
-      },
-      {
-        name: 'minWidth',
-        type: `number | string`,
-        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%". See the [sizing](#Sizing) variant for more info.`,
-      },
-      {
-        name: 'height',
-        type: `number | string`,
-        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%". See the [sizing](#Sizing) variant for more info.`,
-      },
-      {
-        name: 'width',
-        type: `number | string`,
-        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%". See the [sizing](#Sizing) variant for more info.`,
-      },
-      {
-        name: 'opacity',
-        type: `0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1`,
-        description: 'See the [opacity](#Opacity) variant for more info.',
-      },
-      {
-        name: 'overflow',
-        type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
-        defaultValue: 'visible',
-        description: 'See the [overflow](#Overflow) variant for more info.',
-      },
-      ...[
-        {
-          name: 'padding',
-          description:
-            'Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](#Responsive-padding) variant for more info.',
-        },
-        { name: 'paddingX', description: 'Horizontal padding (left/right)' },
-        { name: 'paddingY', description: 'Vertical padding (top/bottom)' },
-      ].map(({ description = '', name }) => ({
-        description,
-        name,
-        type: '0 .. 12',
-        defaultValue: 0,
-        responsive: true,
-      })),
-      {
-        name: 'position',
-        type: `"static" | "absolute" | "relative" | "fixed"`,
-        defaultValue: 'static',
-        description: 'See the [absolute positioning](#Absolute-positioning) variant for more info.',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'div'>",
-        description:
-          'Forward the ref to the underlying div element. See the [using as a ref](#Using-as-a-ref) variant for more info.',
-      },
-      {
-        name: 'role',
-        type: 'string',
-        description:
-          'Used to designate the Box as a type of element or landmark using ARIA roles. See the [Accessibility guidelines](#Using-role) to learn more about using `role`.',
-      },
-      {
-        name: 'rounding',
-        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        description: 'See the [rounding](#Rounding) variant for more info.',
-      },
-      {
-        name: 'userSelect',
-        type: `"auto" | "none"`,
-        defaultValue: 'auto',
-        description: `Controls whether or not user can select text`,
-      },
-      {
-        name: 'wrap',
-        type: 'boolean',
-        defaultValue: false,
-        description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
-      },
-      {
-        name: 'zIndex',
-        type: 'interface Indexable { index(): number; }',
-        description: `An object representing the zIndex value of the Box. See the [Z-Index](#Z-Index) variant for more info.`,
-      },
-    ]}
-  />,
-);
+      <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`
         Use Box as a building block when creating other components or layouts that do not rely on flexbox. The included properties should cover any variations needed to create a diverse range of options.
 
         If you find yourself using Box for flexbox layouts, consider [Flex](/Flex) instead.
         `}
-        defaultCode={`
+            defaultCode={`
 <Box column={12}>
   <Box column={12}>
     <Box color="midnight" height={50} width="100%">
@@ -274,16 +86,16 @@ card(
   </Box>
 </Box>
 `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`Don’t use the \`onClick\`, \`className\` and \`style\` properties.
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`Don’t use the \`onClick\`, \`className\` and \`style\` properties.
 
 Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/Button) or [TapArea](/TapArea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
 
 If you need to use these features for animation purposes, use a \`<div>\` instead.`}
-        defaultCode={`
+            defaultCode={`
 <Box
   className="This class name will not appear"
   style={{backgroundColor: "orange"}}
@@ -302,14 +114,15 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
   </Box>
 </Box>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`When addressing the spacing of the Box, use padding before you use margins, as padding will compose better and won't collapse. Padding is applied in 4px increments and is always symmetric. Learn more about [margin collapsing](https://css-tricks.com/what-you-should-know-about-collapsing-margins/).`}
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`When addressing the spacing of the Box, use padding before you use margins, as padding will compose better and won't collapse. Padding is applied in 4px increments and is always symmetric. Learn more about [margin collapsing](https://css-tricks.com/what-you-should-know-about-collapsing-margins/).`}
+            defaultCode={`
 <Box>
   <Box marginTop={4} color="blue" width={200} height={50}>
     <Box
@@ -347,12 +160,12 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
   </Box>
 </Box>
 `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule](https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-box-dangerous-style-duplicates.js) to prevent this from happening.`}
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule](https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-box-dangerous-style-duplicates.js) to prevent this from happening.`}
+            defaultCode={`
 function MenuButtonExample() {
   const firstBoxHeight = 50;
   const secondBoxHeight = 25;
@@ -393,45 +206,43 @@ function MenuButtonExample() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection
-    name="Accessibility"
-    description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/checkboxes). `}
-  >
-    <MainSection.Subsection
-      title="Visually hidden content"
-      description={`
+      <MainSection
+        name="Accessibility"
+        description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/checkboxes). `}
+      >
+        <MainSection.Subsection
+          title="Visually hidden content"
+          description={`
     Setting \`display="visuallyHidden"\` on Box allows for an element to be visually hidden but still be read by screen readers.
   `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box>
   <Text>Enable your screen reader to hear the following text:</Text>
   <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
 </Box>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Using 'as' property"
-      description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Using 'as' property"
+          description={`
         By default, the Box component renders a \`div\` element, which is a non-semantic element that doesn't provide much meaning to the user or assistive technology. Use the \`as\` prop to inform which semantic HTML element should be rendered by the Box component instead of a \`div\` to ensure a more meaningful experience for both the user and the browser.
 
         When using a Box component as a custom element, it is your responsibility to address all the accessibility implications. Both the \`role\` and \`as\` properties semantically classify the Box; however, the \`as\` prop defines a more concise way to describe the HTML element by modifying the underlying DOM element directly, which helps support both accessibility and SEO. Use the \`as\` prop whenever possible, making sure that the prop type is semantically associated with the Box content.
 
         Review the [available options for the as prop](#Props). For some of the options, like \`nav\`, you will also need to specify a \`title\` to ensure unique landmarks on the page. Learn more about [semantics in HTML](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html).
       `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Flex direction="column" flex="grow">
   <Flex alignItems="top">
     <Box
@@ -485,22 +296,22 @@ card(
       </Box>
     </Box>
   </Flex>
-</Flex>;
-
+</Flex>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Using 'role' property"
-      description={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Using 'role' property"
+          description={`
         Setting the  \`role\` property on Box classifies the Box as the semantically appropriate HTML element through the use of an ARIA role while leaving the underlying element as a \`div\`. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page hierarchy, allowing assistive technology to classify the Box appropriately.
 
         Using the \`role\` property creates more specific element classification and gives the user better context on the layout of the page, especially when the ability to specify the ['as' property](#Using-'as'-property) is not available. Learn more about [ARIA roles](https://www.w3.org/TR/wai-aria/#usage_intro).
       `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box column={12}>
   <Box role="feed" color="midnight" width="100%" padding={2}>
     <Text color="white" weight="bold">
@@ -529,18 +340,16 @@ card(
   <Text>{"Everything above will render as a <div>"}</Text>
 </Box>
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection
-    name="Localization"
-    description={`Utilizing the \`marginStart\` and \`marginEnd\`  properties will account for right-to-left languages and maintain proper spacing.`}
-  >
-    <MainSection.Subsection
-      description={`
+      <MainSection
+        name="Localization"
+        description={`Utilizing the \`marginStart\` and \`marginEnd\`  properties will account for right-to-left languages and maintain proper spacing.`}
+      >
+        <MainSection.Subsection
+          description={`
     Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. For this reason, we use \`marginStart\` and \`marginEnd\` (as opposed to left and right options) to support RTL. If specific left and right options are needed, use \`dangerouslySetInlineStyle\`.
 
     \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
@@ -549,11 +358,11 @@ card(
 
     You can toggle the page direction using the button below to see this behavior.
     `}
-      title="Page direction"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          title="Page direction"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const MarginSwatch = (props) => (
     <Box
@@ -592,99 +401,103 @@ function Example() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width, while specifying "shadow" adds a box-shadow instead.`}
-      title="Borders"
-    >
-      <CombinationNew borderStyle={['sm', 'lg', 'shadow']}>
-        {(props) => (
-          <Box
-            width={60}
-            height={60}
-            rounding="circle"
-            color="white"
-            borderStyle={props.borderStyle}
-          />
-        )}
-      </CombinationNew>
-    </MainSection.Subsection>
-    <MainSection.Subsection title="Colors">
-      <CombinationNew
-        color={[
-          'red',
-          'white',
-          'lightGray',
-          'gray',
-          'darkGray',
-          'green',
-          'pine',
-          'olive',
-          'blue',
-          'navy',
-          'midnight',
-          'purple',
-          'orchid',
-          'eggplant',
-          'maroon',
-          'watermelon',
-          'orange',
-          'transparent',
-          'transparentDarkGray',
-          'lightWash',
-          'darkWash',
-        ]}
-      >
-        {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
-      </CombinationNew>
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`The \`rounding\` property sets a border radius for the Box. Options are \`circle\` or \`pill\` for fully rounded corners or 0-8 representing the radius in 4px increments.`}
-      title="Rounding"
-    >
-      <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
-        {(props) => (
-          <Box
-            color="gray"
-            width={props.rounding === 'pill' ? 120 : 70}
-            height={70}
-            rounding={props.rounding}
-          />
-        )}
-      </CombinationNew>
-    </MainSection.Subsection>
-    <MainSection.Subsection description="" title="Opacity">
-      <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
-        {(props) => <Box color="darkGray" width={60} height={60} opacity={props.opacity} />}
-      </CombinationNew>
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width, while specifying "shadow" adds a box-shadow instead.`}
+          title="Borders"
+        >
+          <CombinationNew borderStyle={['sm', 'lg', 'shadow']}>
+            {(props) => (
+              <Box
+                width={60}
+                height={60}
+                rounding="circle"
+                color="white"
+                borderStyle={props.borderStyle} // eslint-disable-line react/prop-types
+              />
+            )}
+          </CombinationNew>
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Colors">
+          <CombinationNew
+            color={[
+              'red',
+              'white',
+              'lightGray',
+              'gray',
+              'darkGray',
+              'green',
+              'pine',
+              'olive',
+              'blue',
+              'navy',
+              'midnight',
+              'purple',
+              'orchid',
+              'eggplant',
+              'maroon',
+              'watermelon',
+              'orange',
+              'transparent',
+              'transparentDarkGray',
+              'lightWash',
+              'darkWash',
+            ]}
+          >
+            {/* eslint-disable-next-line react/prop-types */}
+            {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
+          </CombinationNew>
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`The \`rounding\` property sets a border radius for the Box. Options are \`circle\` or \`pill\` for fully rounded corners or 0-8 representing the radius in 4px increments.`}
+          title="Rounding"
+        >
+          <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
+            {(props) => (
+              <Box
+                color="gray"
+                width={props.rounding === 'pill' ? 120 : 70} // eslint-disable-line react/prop-types
+                height={70}
+                rounding={props.rounding} // eslint-disable-line react/prop-types
+              />
+            )}
+          </CombinationNew>
+        </MainSection.Subsection>
+
+        <MainSection.Subsection description="" title="Opacity">
+          <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
+            {/* eslint-disable-next-line react/prop-types */}
+            {(props) => <Box color="darkGray" width={60} height={60} opacity={props.opacity} />}
+          </CombinationNew>
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
     The \`column\` property allows for automatic widths based on a 12-column grid. To create responsive layouts, specify different values for \`smColumn\`, \`mdColumn\`, and \`lgColumn\`.
   `}
-      title="Column layout"
-    >
-      <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
-        {(props) => <Box height={100} color="midnight" column={props.column} />}
-      </CombinationNew>
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`
+          title="Column layout"
+        >
+          <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
+            {/* eslint-disable-next-line react/prop-types */}
+            {(props) => <Box height={100} color="midnight" column={props.column} />}
+          </CombinationNew>
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
     Box can also be sized using a mixture of \`width\`, \`height\`, \`max/min width\`, \`max/min height\`, and \`fit\`.
 
     When setting the size of a Box, the \`overflow\` property may need to be set in order to hide or scroll content that is outside the bounds of the Box.
     `}
-      title="Sizing"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          title="Sizing"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box borderStyle="lg" column={12}>
   <Box width="25%" minHeight={25} maxHeight={100} overflow="hidden" padding={2} borderStyle="sm" color="eggplant">
     <Text color="white"> Add or remove text in the editor to see the min and max heights take affect.</Text>
@@ -700,15 +513,16 @@ card(
   </Box>
 </Box>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`When content overflows the bounds of Box, there are multiple options to control the overflow behavior. The default is \`overflow="visible"\`, but the most common use case is supplying \`overflow="auto"\` to ensure overflow content can be accessed. Learn more about [CSS overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow).`}
-      title="Overflow"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`When content overflows the bounds of Box, there are multiple options to control the overflow behavior. The default is \`overflow="visible"\`, but the most common use case is supplying \`overflow="auto"\` to ensure overflow content can be accessed. Learn more about [CSS overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow).`}
+          title="Overflow"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function BoxPopoverExample() {
   const longText =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo. Maecenas tincidunt neque elit, eu pretium arcu dictum ac. Donec vehicula mauris ut erat dictum, eget tempus elit luctus. In volutpat felis justo, et venenatis arcu viverra in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin enim lorem, vulputate eget imperdiet nec, dapibus sed diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse rhoncus ut leo non gravida. Nulla tincidunt tellus sit amet ornare venenatis. Sed quis lorem cursus, porttitor tellus sed, commodo ex. Praesent blandit pretium faucibus. Aenean orci tellus, vulputate id sapien sit amet, porta fermentum quam. Praesent sem risus, tristique sit amet pulvinar in, scelerisque sit amet massa.';
@@ -810,16 +624,17 @@ function BoxPopoverExample() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
       Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding by 4px for every breakpoint in either all directions, the x-axis only or the y-axis only.`}
-      title="Responsive padding"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          title="Responsive padding"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Flex gap={3}>
   <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="darkWash">
     <Box width={40} height={40} color="maroon" />
@@ -832,36 +647,38 @@ function BoxPopoverExample() {
   </Box>
 </Flex>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
       Auto margin is a useful tool when positioning items without using flexbox layouts. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
 
       This can be seen below, where the 5-column width Box is centered using \`margin="auto"\` and the 3-column width Box uses \`marginStart="auto"\` to automatically adjust the Box to the far edge.
       `}
-      title="Auto margins"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          title="Auto margins"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box color="midnight" marginStart={12} marginEnd={12} column={12}>
   <Box borderStyle="sm" color="maroon" margin="auto" column={5} height={100}/>
   <Box borderStyle="sm" color="eggplant" marginStart="auto" column={3} height={100}/>
 </Box>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
     Position is static by default but can be made absolute. Box has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
 
     `}
-      title="Absolute positioning"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          title="Absolute positioning"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box height={100}>
   <Box position="absolute" top left padding={2} color="midnight">
     <Text color="white">Top Left</Text>
@@ -878,15 +695,16 @@ function BoxPopoverExample() {
   <Box color="maroon" width={400} height="100%"/>
 </Box>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`The \`ref\` property can be used to anchor a [Popover](/Popover) to a Box.`}
-      title="Using as a ref"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`The \`ref\` property can be used to anchor a [Popover](/Popover) to a Box.`}
+          title="Using as a ref"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function BoxPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
@@ -922,15 +740,16 @@ function BoxPopoverExample() {
     </React.Fragment>
   );
 }`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it. Visit our [Z-Index documentation](/ZIndex%20Classes) for more details on how to use these utility classes.`}
-      title="Z-Index"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it. Visit our [Z-Index documentation](/ZIndex%20Classes) for more details on how to use these utility classes.`}
+          title="Z-Index"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const HEADER_ZINDEX = new FixedZIndex(100);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
@@ -956,15 +775,13 @@ function Example() {
     </Box>
 )}
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
         **[Flex](/Flex)**
         Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
 
@@ -980,10 +797,16 @@ card(
         **[Sticky](/Sticky)**
         Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
       `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function BoxPage(): Node {
-  return <CardPage cards={cards} page="Box" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const generatedDocGen = await docgen('Box');
+
+  return {
+    props: { generatedDocGen },
+  };
 }

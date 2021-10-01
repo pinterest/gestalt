@@ -89,12 +89,13 @@ export default function GeneratedPropTable({
         descriptionWithoutDefault,
       );
 
-      // Replace "Node" with "React.Node" to match docs convention
-      const transformedType = (
-        flowType.raw?.replace(/^\|/, '').trim() ??
-        flowType.name ??
-        ''
-      ).replace(/Node/g, 'React.Node');
+      // Trim leading `|`
+      const transformedType = (flowType.raw?.replace(/^\|/, '').trim() ?? flowType.name ?? '')
+        // Replace "Node" with "React.Node" to match docs convention
+        .replace(/Node/g, 'React.Node')
+        // Replace "Element" with "React.Element" to match docs convention
+        // Includes `<` to avoid picking up `HTMLDivElement` and similar
+        .replace(/Element</g, 'React.Element<');
 
       return {
         name: key,
