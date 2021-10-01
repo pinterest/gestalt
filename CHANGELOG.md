@@ -1,3 +1,9 @@
+## 36.0.2 (Oct 1, 2021)
+
+### Patch
+
+- Box: use generated props table (#1702)
+
 ## 36.0.1 (Sep 30, 2021)
 
 ### Patch
