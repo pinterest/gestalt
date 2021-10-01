@@ -34,6 +34,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Iconography and SVGs',
       'Layouts',
       'Screen Sizes',
+      'Tooling',
     ],
   },
   {
