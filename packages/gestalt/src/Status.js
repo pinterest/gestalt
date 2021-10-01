@@ -41,13 +41,17 @@ type StatusType = 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'ca
 
 type Props = {|
   /**
-   * Additional contextual information around the status. See [localization](https://gestalt.pinterest.systems/status#Localization)  to learn more.
+   * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/status#Localization) the label.
+   */
+  accessibilityLabel?: string,
+  /**
+   * Additional contextual information around the status. Only for use with `title`. See [localization](https://gestalt.pinterest.systems/status#Localization) to learn more.
    */
   subtext?: string,
   /**
-   * A label to reinforce the meaning of the status icon. See [localization](https://gestalt.pinterest.systems/status#Localization)  to learn more.
+   * A label to reinforce the meaning of the status icon. See [localization](https://gestalt.pinterest.systems/status#Localization) to learn more.
    */
-  title: string,
+  title?: string,
   /**
    * The type of status to display.
    */
@@ -57,17 +61,17 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/Status
  */
-export default function Status({ subtext, title, type }: Props): Node {
+export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
   const { icon, color } = ICON_COLOR_MAP[type];
 
   return (
     <Flex direction="column">
       <Flex alignItems="center" gap={2}>
-        <Icon accessibilityLabel="" color={color} icon={icon} size={16} />
-        <Text size="md">{title}</Text>
+        <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
+        {title && <Text size="md">{title}</Text>}
       </Flex>
 
-      {subtext && (
+      {subtext && title && (
         <Box marginStart={6}>
           <Text color="gray" size="md">
             {subtext}
