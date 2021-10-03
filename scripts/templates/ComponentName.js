@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './ComponentName.css';
 
@@ -18,7 +17,3 @@ export default function ComponentName({ accessibilityLabel }: Props): Node {
     </Box>
   );
 }
-
-ComponentName.propTypes = {
-  accessibilityLabel: PropTypes.string,
-};

@@ -40,7 +40,6 @@
 
 */
 import { type Node } from 'react';
-import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 
 type Props = {|
@@ -94,21 +93,3 @@ export default function Collection(props: Props): Node {
     </div>
   );
 }
-
-Collection.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  Item: PropTypes.any,
-  // $FlowFixMe[signature-verification-failure]
-  layout: PropTypes.arrayOf(
-    PropTypes.shape({
-      top: PropTypes.number.isRequired,
-      left: PropTypes.number.isRequired,
-      width: PropTypes.number.isRequired,
-      height: PropTypes.number.isRequired,
-    }).isRequired,
-  ),
-  viewportHeight: PropTypes.number,
-  viewportLeft: PropTypes.number,
-  viewportTop: PropTypes.number,
-  viewportWidth: PropTypes.number,
-};

@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTypes from 'prop-types';
 import OptionItem, { type OptionItemType } from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 
@@ -62,29 +61,3 @@ export default function DropdownItem({
 
 // displayName is necessary for children identification in Dropdown
 DropdownItem.displayName = 'DropdownItem';
-
-DropdownItem.propTypes = {
-  badgeText: PropTypes.string,
-  onSelect: PropTypes.func.isRequired,
-  // $FlowFixMe[incompatible-exact] Why Flow doesn't accept this as exact is beyond me
-  option: (PropTypes.exact({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    subtext: PropTypes.string,
-  }).isRequired: React$PropType$Primitive<OptionItemType>),
-  // $FlowFixMe[signature-verification-failure] Beware, this thing is a mess to properly type
-  selected: PropTypes.oneOfType([
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      subtext: PropTypes.string,
-    }),
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        subtext: PropTypes.string,
-      }),
-    ),
-  ]),
-};

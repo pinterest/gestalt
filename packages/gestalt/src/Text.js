@@ -1,11 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
-import { allowedColors, type Align, type Color, type FontWeight } from './textTypes.js';
+import { allowedColors } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -134,26 +133,3 @@ export default function Text({
     </Tag>
   );
 }
-
-Text.propTypes = {
-  align: (PropTypes.oneOf([
-    'start',
-    'end',
-    'center',
-    'justify',
-    'forceLeft',
-    'forceRight',
-  ]): React$PropType$Primitive<Align>),
-  children: PropTypes.node,
-  color: (PropTypes.oneOf(allowedColors): React$PropType$Primitive<Color>),
-  inline: PropTypes.bool,
-  italic: PropTypes.bool,
-  lineClamp: PropTypes.number,
-  overflow: (PropTypes.oneOf([
-    'normal',
-    'breakWord',
-    'noWrap',
-  ]): React$PropType$Primitive<Overflow>),
-  size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
-  weight: (PropTypes.oneOf(['bold', 'normal']): React$PropType$Primitive<FontWeight>),
-};

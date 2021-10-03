@@ -1,6 +1,5 @@
 // @flow strict
 import { Children, cloneElement, type Node, useState } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
@@ -8,7 +7,7 @@ import DropdownItem from './DropdownItem.js';
 import DropdownLink from './DropdownLink.js';
 import DropdownSection from './DropdownSection.js';
 import { DropdownContextProvider } from './DropdownContext.js';
-import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
+import { type Indexable } from './zIndex.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 
@@ -202,26 +201,6 @@ export default function Dropdown({
 
   return dangerouslyRemoveLayer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
 }
-
-Dropdown.propTypes = {
-  // $FlowFixMe[incompatible-cast]
-  anchor: (PropTypes.shape({
-    contains: PropTypes.func,
-    focus: PropTypes.func,
-    getBoundingClientRect: PropTypes.func,
-  }): ?HTMLElement),
-  children: PropTypes.node,
-  headerContent: PropTypes.node,
-  id: PropTypes.string.isRequired,
-  idealDirection: (PropTypes.oneOf([
-    'up',
-    'right',
-    'down',
-    'left',
-  ]): React$PropType$Primitive<IdealDirection>),
-  onDismiss: PropTypes.func.isRequired,
-  zIndex: UnsafeIndexablePropType,
-};
 
 Dropdown.Item = DropdownItem;
 Dropdown.Link = DropdownLink;

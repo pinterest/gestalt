@@ -1,6 +1,5 @@
 // @flow strict
 import type { Element, Node } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';
@@ -88,15 +87,3 @@ export default function Toast({
     </Box>
   );
 }
-
-Toast.propTypes = {
-  button: PropTypes.node,
-  text: (PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired: React$PropType$Primitive<string | Element<*>>),
-  thumbnail: PropTypes.node,
-  thumbnailShape: (PropTypes.oneOf(['circle', 'rectangle', 'square']): React$PropType$Primitive<
-    'circle' | 'rectangle' | 'square',
-  >),
-  variant: (PropTypes.oneOf(['default', 'error']): React$PropType$Primitive<'default' | 'error'>),
-  _dangerouslyUseDarkGray: PropTypes.bool,
-};

@@ -1,8 +1,7 @@
 // @flow strict
-import PropTypes from 'prop-types';
 import { type Node } from 'react';
 import Box from './Box.js';
-import { type Size, SizeProptype, SIZE_MAP } from './AvatarGroupConstants.js';
+import { type Size, SIZE_MAP } from './AvatarGroupConstants.js';
 
 type Props = {|
   children: Node,
@@ -43,10 +42,3 @@ export default function PositioningWrapper({ size, pileCount, index, children }:
     </Box>
   );
 }
-
-PositioningWrapper.propTypes = {
-  children: PropTypes.node,
-  pileCount: PropTypes.number,
-  size: SizeProptype,
-  index: PropTypes.number,
-};

@@ -1,6 +1,5 @@
 // @flow strict
 import { forwardRef, type Node, useState, useRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
@@ -239,22 +238,6 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     </span>
   );
 });
-
-SearchFieldWithForwardRef.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
-  accessibilityClearButtonLabel: PropTypes.string,
-  autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  value: PropTypes.string,
-  errorMessage: PropTypes.string,
-};
 
 SearchFieldWithForwardRef.displayName = 'SearchField';
 

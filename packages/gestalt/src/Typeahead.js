@@ -2,7 +2,6 @@
 import type { Element, Node } from 'react';
 
 import { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
 import MenuOption, { type OptionItemType } from './OptionItem.js';
 import Box from './Box.js';
@@ -11,7 +10,7 @@ import Popover from './Popover.js';
 import Layer from './Layer.js';
 import Tag from './Tag.js';
 import handleContainerScrolling, { type DirectionOptionType } from './utils/keyboardNavigation.js';
-import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
+import { type Indexable } from './zIndex.js';
 
 type Props = {|
   id: string,
@@ -51,7 +50,7 @@ type Props = {|
 const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function Typeahead(props, ref): Node {
+>(function Typeahead(props: Props, ref): Node {
   const {
     id,
     label,
@@ -293,30 +292,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     </Box>
   );
 });
-
-TypeaheadWithForwardRef.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  noResultText: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onSelect: PropTypes.func,
-  options: PropTypes.arrayOf(
-    PropTypes.exact({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      // eslint-disable-next-line react/no-unused-prop-types
-      subtext: PropTypes.string,
-    }),
-  ).isRequired,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  tags: PropTypes.arrayOf(PropTypes.node),
-  value: PropTypes.string,
-  zIndex: UnsafeIndexablePropType,
-};
 
 TypeaheadWithForwardRef.displayName = 'Typeahead';
 

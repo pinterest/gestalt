@@ -1,6 +1,5 @@
 // @flow strict
 import type { Element, Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -14,12 +13,7 @@ import styles from './Upsell.css';
 import headingStyles from './Heading.css';
 import typography from './Typography.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import {
-  ActionDataPropType,
-  DismissButtonPropType,
-  type ActionDataType,
-  type DismissButtonType,
-} from './commonTypes.js';
+import { type ActionDataType, type DismissButtonType } from './commonTypes.js';
 
 type Props = {|
   children?: Element<typeof UpsellForm>,
@@ -210,23 +204,5 @@ export default function Upsell({
     </Box>
   );
 }
-
-Upsell.propTypes = {
-  children: PropTypes.node,
-  dismissButton: DismissButtonPropType,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  imageData: PropTypes.exact({
-    component: PropTypes.node.isRequired,
-    mask: PropTypes.shape({
-      rounding: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle']),
-      wash: PropTypes.bool,
-    }),
-    width: PropTypes.number,
-  }),
-  message: PropTypes.string.isRequired,
-  primaryAction: ActionDataPropType,
-  secondaryAction: ActionDataPropType,
-  title: PropTypes.string,
-};
 
 Upsell.Form = UpsellForm;

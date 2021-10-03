@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 
 import { forwardRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
@@ -32,7 +31,7 @@ type Props = {|
 const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function RadioButton(props, ref): Node {
+>(function RadioButton(props: Props, ref): Node {
   const {
     checked = false,
     disabled = false,
@@ -144,19 +143,6 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     </Box>
   );
 });
-
-RadioButtonWithForwardRef.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  image: PropTypes.node,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['sm', 'md']),
-  subtext: PropTypes.string,
-};
 
 RadioButtonWithForwardRef.displayName = 'RadioButton';
 

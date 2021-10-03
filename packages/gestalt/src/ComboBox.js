@@ -10,7 +10,6 @@ import {
   type Element,
   type Node,
 } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
@@ -70,7 +69,7 @@ type Props = {|
 const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function ComboBox(props, ref): Node {
+>(function ComboBox(props: Props, ref): Node {
   const {
     accessibilityClearButtonLabel,
     disabled,
@@ -356,41 +355,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     </Fragment>
   );
 });
-
-ComboBoxWithForwardRef.propTypes = {
-  // REQUIRED
-  accessibilityClearButtonLabel: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  noResultText: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.exact({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      subtext: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
-    }),
-  ).isRequired,
-  // OPTIONAL
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  helperText: PropTypes.string,
-  inputValue: PropTypes.string,
-  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
-  onBlur: PropTypes.func,
-  onClear: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onSelect: PropTypes.func,
-  placeholder: PropTypes.string,
-  selectedOption: PropTypes.exact({
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    subtext: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
-  }),
-  size: (PropTypes.oneOf(['md', 'lg']): React$PropType$Primitive<Size>),
-  tags: PropTypes.arrayOf(PropTypes.node),
-};
 
 ComboBoxWithForwardRef.displayName = 'ComboBox';
 

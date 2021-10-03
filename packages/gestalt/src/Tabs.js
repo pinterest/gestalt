@@ -1,6 +1,5 @@
 // @flow strict
 import { forwardRef, type AbstractComponent, type Node, useState } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import TapArea from './TapArea.js';
@@ -109,7 +108,7 @@ const colors = {
 export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
   HTMLElement,
->(function Tab({ bgColor, href, indicator, id, index, isActive, onChange, text }, ref) {
+>(function Tab({ bgColor, href, indicator, id, index, isActive, onChange, text }: TabProps, ref) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
@@ -227,38 +226,3 @@ export default function Tabs({
     </Flex>
   );
 }
-
-const TabItemPropType = {
-  href: PropTypes.string.isRequired,
-  id: PropTypes.string,
-  indicator: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  text: PropTypes.node.isRequired,
-};
-const BgColorPropType = (PropTypes.oneOf([
-  'default',
-  'transparent',
-]): React$PropType$Primitive<BgColor>);
-
-TabWithForwardRef.propTypes = {
-  ...TabItemPropType,
-  bgColor: BgColorPropType,
-  index: PropTypes.number.isRequired,
-  isActive: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
-
-Tabs.propTypes = {
-  activeTabIndex: PropTypes.number.isRequired,
-  bgColor: BgColorPropType,
-  onChange: PropTypes.func.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      ...TabItemPropType,
-      // type from this SO answer: https://stackoverflow.com/a/51127130/5253702
-      // eslint-disable-next-line react/forbid-prop-types
-      ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
-    }),
-  ).isRequired,
-  wrap: PropTypes.bool,
-};

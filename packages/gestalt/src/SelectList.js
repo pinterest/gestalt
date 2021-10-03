@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import formElement from './FormElement.css';
@@ -159,24 +158,3 @@ export default function SelectList({
     </Box>
   );
 }
-
-SelectList.propTypes = {
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  options: PropTypes.arrayOf(
-    PropTypes.exact({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      disabled: PropTypes.bool,
-    }),
-  ),
-  placeholder: PropTypes.string,
-  size: (PropTypes.oneOf(['md', 'lg']): React$PropType$Primitive<'md' | 'lg'>),
-  value: PropTypes.string,
-};

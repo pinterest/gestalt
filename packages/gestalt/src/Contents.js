@@ -3,7 +3,6 @@ import type { Node } from 'react';
 
 import { Component } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import Caret from './Caret.js';
 import styles from './Contents.css';
 import borders from './Borders.css';
@@ -70,37 +69,7 @@ type State = {|
   popoverRef: ?HTMLElement,
 |};
 
-const ContentProptypes = {
-  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-  border: PropTypes.bool,
-  caret: PropTypes.bool,
-  children: PropTypes.node,
-  id: PropTypes.string,
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  onKeyDown: PropTypes.func.isRequired,
-  onResize: PropTypes.func.isRequired,
-  relativeOffset: PropTypes.shape({
-    x: PropTypes.number,
-    y: PropTypes.number,
-  }),
-  positionRelativeToAnchor: PropTypes.bool,
-  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
-  rounding: PropTypes.oneOf([2, 4]),
-  shouldFocus: PropTypes.bool,
-  triggerBoundingClientRect: PropTypes.shape({
-    bottom: PropTypes.number,
-    height: PropTypes.number,
-    left: PropTypes.number,
-    right: PropTypes.number,
-    top: PropTypes.number,
-    width: PropTypes.number,
-  }),
-  width: PropTypes.number,
-};
-
 class Contents extends Component<Props, State> {
-  static propTypes = ContentProptypes;
-
   static defaultProps: {| border: boolean, caret: boolean |} = {
     border: true,
     caret: true,

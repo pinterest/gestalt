@@ -1,6 +1,5 @@
 // @flow strict
 import { forwardRef, Fragment, type Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Badge from './Badge.js';
 import Box from './Box.js';
@@ -48,23 +47,23 @@ type Props = {|
 const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
->(function OptionItem(props, ref): Node {
+>(function OptionItem(props: Props, ref): Node {
   const {
-    badgeText, // eslint-disable-line react/prop-types
-    children, // eslint-disable-line react/prop-types
+    badgeText,
+    children,
     onSelect,
     hoveredItemIndex,
     href,
     id,
     index,
-    isExternal, // eslint-disable-line react/prop-types
+    isExternal,
     onClick,
     option,
-    role, // eslint-disable-line react/prop-types
+    role,
     selected,
     setHoveredItemIndex,
-    shouldTruncate = false, // eslint-disable-line react/prop-types
-    textWeight = 'normal', // eslint-disable-line react/prop-types
+    shouldTruncate = false,
+    textWeight = 'normal',
   } = props;
 
   const matches = (Array.isArray(selected) ? selected : []).filter(
@@ -192,32 +191,3 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
 OptionItemWithForwardRef.displayName = 'OptionItem';
 
 export default OptionItemWithForwardRef;
-
-OptionItemWithForwardRef.propTypes = {
-  hoveredItemIndex: PropTypes.number,
-  href: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-  onClick: PropTypes.func,
-  onSelect: PropTypes.func,
-  option: PropTypes.exact({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    subtext: PropTypes.string,
-  }).isRequired,
-  selected: PropTypes.oneOfType([
-    PropTypes.exact({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      subtext: PropTypes.string,
-    }),
-    PropTypes.arrayOf(
-      PropTypes.exact({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        subtext: PropTypes.string,
-      }),
-    ),
-  ]),
-  setHoveredItemIndex: PropTypes.func,
-};

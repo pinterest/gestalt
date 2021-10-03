@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Flex from './Flex.js';
@@ -115,11 +114,3 @@ export default function Tag(props: Props): Node {
     </Box>
   );
 }
-
-Tag.propTypes = {
-  text: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  onRemove: PropTypes.func,
-  removeIconAccessibilityLabel: PropTypes.string,
-};

@@ -5,11 +5,10 @@ import { forwardRef, useEffect, useImperativeHandle, useState, useRef } from 're
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
-import PropTypes from 'prop-types';
 import DatePickerTextField from './DatePickerTextField.js';
 import styles from './DatePicker.css';
 import dateFormat from './dateFormat.js';
-import { LocaleDataPropTypes, type LocaleData } from './LocaleDataTypes.js';
+import { type LocaleData } from './LocaleDataTypes.js';
 
 type Props = {|
   disabled?: boolean,
@@ -183,32 +182,6 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
     </div>
   );
 });
-
-DatePickerWithForwardRef.propTypes = {
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  excludeDates: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
-  helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  includeDates: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
-  label: PropTypes.string,
-  localeData: LocaleDataPropTypes,
-  maxDate: PropTypes.instanceOf(Date),
-  minDate: PropTypes.instanceOf(Date),
-  nextRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.node,
-    }),
-  ]),
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  rangeEndDate: PropTypes.instanceOf(Date),
-  rangeSelector: PropTypes.oneOf(['start', 'end']),
-  rangeStartDate: PropTypes.instanceOf(Date),
-  value: PropTypes.instanceOf(Date),
-};
 
 DatePickerWithForwardRef.displayName = 'DatePicker';
 

@@ -1,6 +1,5 @@
 // @flow strict
 import { forwardRef, type Element, type Node } from 'react';
-import PropTypes from 'prop-types';
 import Tag from './Tag.js';
 import InternalTextField from './InternalTextField.js';
 
@@ -42,7 +41,7 @@ type Props = {|
 const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function TextField(props, ref): Node {
+>(function TextField(props: Props, ref): Node {
   const {
     autoComplete,
     disabled = false,
@@ -86,33 +85,6 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     />
   );
 });
-
-TextFieldWithForwardRef.propTypes = {
-  autoComplete: PropTypes.oneOf([
-    'current-password',
-    'new-password',
-    'on',
-    'off',
-    'username',
-    'email',
-  ]),
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.node,
-  hasError: PropTypes.bool,
-  helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  tags: PropTypes.arrayOf(PropTypes.node),
-  type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
-  value: PropTypes.string,
-};
 
 TextFieldWithForwardRef.displayName = 'TextField';
 

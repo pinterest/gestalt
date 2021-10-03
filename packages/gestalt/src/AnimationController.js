@@ -92,7 +92,6 @@ function AnimationExample() {
 import type { Context, Element, Node } from 'react';
 
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import useReducedMotion from './useReducedMotion.js';
 
 export type AnimationStateType = 'in' | 'postIn' | 'out' | 'postOut' | null;
@@ -161,10 +160,5 @@ function AnimationController({
     </AnimationContext.Provider>
   );
 }
-
-AnimationController.propTypes = {
-  children: PropTypes.func.isRequired,
-  onDismissEnd: PropTypes.func.isRequired,
-};
 
 export default AnimationController;

@@ -1,20 +1,10 @@
 // @flow strict
 import { Children, type Node } from 'react';
-import PropTypes from 'prop-types';
 import FlexItem from './FlexItem.js';
 import styles from './Flex.css';
 import wrapWithComponent from './utils/wrapWithComponent.js';
 import { buildStyles } from './boxTransforms.js';
 import {
-  AlignContentPropType,
-  AlignItemsPropType,
-  AlignSelfPropType,
-  DimensionPropType,
-  DirectionPropType,
-  FlexPropType,
-  GapPropType,
-  JustifyContentPropType,
-  OverflowPropType,
   type AlignContent,
   type AlignItems,
   type AlignSelf,
@@ -107,22 +97,3 @@ export default function Flex({
 Flex.Item = FlexItem;
 
 Flex.displayName = 'Flex';
-
-Flex.propTypes = {
-  alignContent: AlignContentPropType,
-  alignItems: AlignItemsPropType,
-  alignSelf: AlignSelfPropType,
-  children: PropTypes.node,
-  direction: DirectionPropType,
-  flex: FlexPropType,
-  gap: GapPropType,
-  height: DimensionPropType,
-  justifyContent: JustifyContentPropType,
-  maxHeight: DimensionPropType,
-  maxWidth: DimensionPropType,
-  minHeight: DimensionPropType,
-  minWidth: DimensionPropType,
-  overflow: OverflowPropType,
-  width: DimensionPropType,
-  wrap: PropTypes.bool,
-};

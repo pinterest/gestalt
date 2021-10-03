@@ -2,15 +2,8 @@
 import type { Context, Element, Node } from 'react';
 
 import { useContext, useEffect, useState, createContext } from 'react';
-import PropTypes from 'prop-types';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
-
-export const ColorSchemePropType: React$PropType$Primitive<ColorScheme> = PropTypes.oneOf([
-  'light',
-  'dark',
-  'userPreference',
-]);
 
 type Theme = {|
   name: string,
@@ -168,11 +161,6 @@ ${themeToStyles(theme)} }`,
     </ThemeContext.Provider>
   );
 }
-
-ColorSchemeProvider.propTypes = {
-  children: PropTypes.node,
-  colorScheme: ColorSchemePropType,
-};
 
 export function useColorScheme(): Theme {
   const theme = useContext(ThemeContext);

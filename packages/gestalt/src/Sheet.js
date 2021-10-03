@@ -20,7 +20,6 @@ c. Sheet is the actual component logic which includes the internal components <H
 
 import type { Node } from 'react';
 import { useCallback, useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
 import AnimationController, { useAnimation } from './AnimationController.js';
@@ -268,19 +267,6 @@ function Sheet(props: SheetProps): Node {
   );
 }
 
-Sheet.propTypes = {
-  accessibilityDismissButtonLabel: PropTypes.string.isRequired,
-  accessibilitySheetLabel: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  closeOnOutsideClick: PropTypes.bool,
-  footer: PropTypes.node,
-  heading: PropTypes.string,
-  onAnimationEnd: PropTypes.func,
-  onDismiss: PropTypes.func.isRequired,
-  size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
-  subHeading: PropTypes.node,
-};
-
 /**
  * <AnimatedSheet> component: adds animation capabilities
  */
@@ -324,15 +310,3 @@ export default function AnimatedSheet(props: AnimatedSheetProps): Node {
     </AnimationController>
   );
 }
-
-// TODO: remove $FlowFixMe once this PR is released: https://github.com/facebook/flow/pull/8476
-
-AnimatedSheet.propTypes = {
-  ...Sheet.propTypes,
-  // $FlowFixMe[signature-verification-failure]
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  footer: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  subHeading: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-};

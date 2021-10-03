@@ -1,5 +1,4 @@
 // @flow strict
-import PropTypes from 'prop-types';
 
 // flowlint unclear-type:off
 
@@ -35,35 +34,3 @@ export type LocaleData = {|
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
   |},
 |};
-
-// $FlowFixMe[signature-verification-failure]
-export const LocaleDataPropTypes = PropTypes.shape({
-  code: PropTypes.string,
-  formatDistance: PropTypes.func,
-  formatRelative: PropTypes.func,
-  localize: PropTypes.shape({
-    ordinalNumber: PropTypes.func,
-    era: PropTypes.func,
-    quarter: PropTypes.func,
-    month: PropTypes.func,
-    day: PropTypes.func,
-    dayPeriod: PropTypes.func,
-  }),
-  formatLong: PropTypes.shape({
-    date: PropTypes.func,
-    time: PropTypes.func,
-    dateTime: PropTypes.func,
-  }),
-  match: PropTypes.shape({
-    ordinalNumber: PropTypes.func,
-    era: PropTypes.func,
-    quarter: PropTypes.func,
-    month: PropTypes.func,
-    day: PropTypes.func,
-    dayPeriod: PropTypes.func,
-  }),
-  options: PropTypes.shape({
-    weekStartsOn: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
-    firstWeekContainsDate: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
-  }),
-});

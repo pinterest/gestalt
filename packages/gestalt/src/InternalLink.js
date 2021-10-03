@@ -7,7 +7,6 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import buttonStyles from './Button.css';
 import focusStyles from './Focus.css';
@@ -18,8 +17,8 @@ import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { AriaCurrentPropType, type AriaCurrent } from './ariaTypes.js';
-import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
+import { type AriaCurrent } from './ariaTypes.js';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
 
 type Props = {|
@@ -57,7 +56,7 @@ type Props = {|
 const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
   HTMLAnchorElement,
->(function Link(props, ref): Element<'a'> {
+>(function Link(props: Props, ref): Element<'a'> {
   const {
     accessibilityCurrent,
     accessibilityLabel,
@@ -236,46 +235,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     </a>
   );
 });
-
-InternalLinkWithForwardRef.propTypes = {
-  accessibilityCurrent: AriaCurrentPropType,
-  accessibilityLabel: PropTypes.string,
-  children: PropTypes.node,
-  colorClass: PropTypes.string,
-  disabled: PropTypes.bool,
-  fullHeight: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  href: PropTypes.string.isRequired,
-  id: PropTypes.string,
-  mouseCursor: PropTypes.oneOf([
-    'copy',
-    'grab',
-    'grabbing',
-    'move',
-    'noDrop',
-    'pointer',
-    'zoomIn',
-    'zoomOut',
-  ]),
-  onClick: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onMouseDown: PropTypes.func,
-  onMouseUp: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  tabIndex: PropTypes.oneOf([-1, 0]),
-  rounding: RoundingPropType,
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-  wrappedComponent: PropTypes.oneOf(['button', 'iconButton', 'tapArea']),
-};
 
 InternalLinkWithForwardRef.displayName = 'InternalLink';
 

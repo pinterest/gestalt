@@ -1,6 +1,5 @@
 // @flow strict
 import { forwardRef, type Element, type Node, useState } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
@@ -42,7 +41,7 @@ type Props = {|
 const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
   Props,
   HTMLTextAreaElement,
->(function TextArea(props, ref): Node {
+>(function TextArea(props: Props, ref): Node {
   const {
     disabled = false,
     errorMessage,
@@ -154,24 +153,6 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
     </span>
   );
 });
-
-TextAreaWithForwardRef.propTypes = {
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.node,
-  hasError: PropTypes.bool,
-  helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  label: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  rows: PropTypes.number,
-  tags: PropTypes.arrayOf(PropTypes.node),
-  value: PropTypes.string,
-};
 
 TextAreaWithForwardRef.displayName = 'TextArea';
 

@@ -2,7 +2,6 @@
 import type { Node as ReactNode } from 'react';
 
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 import { ESCAPE } from './keyCodes.js';
 import Contents, { type Role } from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
@@ -45,32 +44,7 @@ type State = {|
   triggerBoundingRect: ClientRect,
 |};
 
-const ControllerProptypes = {
-  anchor: PropTypes.shape({
-    contains: PropTypes.func,
-    getBoundingClientRect: PropTypes.func,
-  }),
-  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-  border: PropTypes.bool,
-  caret: PropTypes.bool,
-  children: PropTypes.node,
-  handleKeyDown: PropTypes.func,
-  id: PropTypes.string,
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  onDismiss: PropTypes.func.isRequired,
-  positionRelativeToAnchor: PropTypes.bool,
-  rounding: PropTypes.oneOf([2, 4]),
-  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
-  shouldFocus: PropTypes.bool,
-  size: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
-  ]),
-};
-
 class Controller extends Component<Props, State> {
-  static propTypes = ControllerProptypes;
-
   static defaultProps: {|
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
   |} = {

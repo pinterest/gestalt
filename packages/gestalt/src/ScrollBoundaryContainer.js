@@ -13,9 +13,7 @@
 // @flow strict
 import type { Node } from 'react';
 
-import PropTypes from 'prop-types';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
-import { DimensionPropType } from './boxTypes.js';
 import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainerWithForwardRef.js';
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto';
@@ -49,16 +47,5 @@ const ScrollBoundaryContainerWithProvider = ({
 );
 
 ScrollBoundaryContainerWithProvider.displayName = 'ScrollBoundaryContainer';
-
-ScrollBoundaryContainerWithProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-  height: DimensionPropType,
-  overflow: (PropTypes.oneOf([
-    'scroll',
-    'scrollX',
-    'scrollY',
-    'auto',
-  ]): React$PropType$Primitive<ScrollBoundaryContainerOverflow>),
-};
 
 export default ScrollBoundaryContainerWithProvider;

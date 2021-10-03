@@ -1,6 +1,5 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
@@ -95,13 +94,3 @@ export default function Avatar(props: Props): Node {
     </Box>
   );
 }
-
-Avatar.propTypes = {
-  accessibilityLabel: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  outline: PropTypes.bool,
-  src: PropTypes.string,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
-  verified: PropTypes.bool,
-};

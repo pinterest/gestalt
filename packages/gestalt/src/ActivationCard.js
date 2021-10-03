@@ -1,7 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
 import { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
@@ -230,25 +229,3 @@ export default function ActivationCard({
     </Box>
   );
 }
-
-ActivationCard.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dismissButton: PropTypes.shape({
-    accessibilityLabel: PropTypes.string.isRequired,
-    onDismiss: PropTypes.func.isRequired,
-  }),
-  message: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  link: PropTypes.shape({
-    href: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    accessibilityLabel: PropTypes.string.isRequired,
-    rel: PropTypes.oneOf(['none', 'nofollow']),
-    target: PropTypes.oneOf([null, 'self', 'blank']),
-  }),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  status: PropTypes.oneOf(['notStarted', 'pending', 'needsAttention', 'complete']).isRequired,
-  statusMessage: PropTypes.string,
-  title: PropTypes.string.isRequired,
-};

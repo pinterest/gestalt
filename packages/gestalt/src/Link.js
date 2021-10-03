@@ -2,13 +2,12 @@
 import type { AbstractComponent, Node, Element } from 'react';
 
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
@@ -43,7 +42,7 @@ type Props = {|
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
   HTMLAnchorElement,
->(function Link(props, ref): Element<'a'> {
+>(function Link(props: Props, ref): Element<'a'> {
   const {
     accessibilityLabel,
     accessibilitySelected,
@@ -165,29 +164,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     </a>
   );
 });
-
-LinkWithForwardRef.propTypes = {
-  accessibilityLabel: PropTypes.string,
-  accessibilitySelected: PropTypes.bool,
-  children: PropTypes.node,
-  hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
-    'none' | 'underline',
-  >),
-  href: PropTypes.string.isRequired,
-  id: PropTypes.string,
-  inline: PropTypes.bool,
-  onBlur: PropTypes.func,
-  onClick: PropTypes.func,
-  onFocus: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
-  rounding: RoundingPropType,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-  disabled: PropTypes.bool,
-};
 
 LinkWithForwardRef.displayName = 'Link';
 

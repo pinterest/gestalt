@@ -2,7 +2,6 @@
 import type { Context, Element, Node } from 'react';
 
 import { useContext, createContext } from 'react';
-import PropTypes from 'prop-types';
 
 type EventHandlerType = ({|
   +event: SyntheticEvent<>,
@@ -41,8 +40,3 @@ export function useOnLinkNavigation({ href, target }: OnLinkNavigationArgs): ?Ev
   const onLinkNavigationHandler = onLinkNavigationContext?.onNavigation({ href, target });
   return onLinkNavigationHandler;
 }
-
-OnLinkNavigationProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-  onNavigation: PropTypes.func,
-};

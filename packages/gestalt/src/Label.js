@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Label.css';
 import boxStyles from './Box.css';
@@ -30,9 +29,3 @@ export default function Label(props: Props): Node {
     </label>
   );
 }
-
-Label.propTypes = {
-  children: PropTypes.node,
-  htmlFor: PropTypes.string.isRequired,
-  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
-};

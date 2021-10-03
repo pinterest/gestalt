@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './Mask.css';
 import getRoundingClassName from './getRoundingClassName.js';
@@ -33,17 +32,3 @@ export default function Mask(props: Props): Node {
     </div>
   );
 }
-
-// $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-const RoundingPropType = PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle']);
-
-Mask.propTypes = {
-  children: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  rounding: RoundingPropType,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  willChangeTransform: PropTypes.bool,
-  wash: PropTypes.bool,
-};

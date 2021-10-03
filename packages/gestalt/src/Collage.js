@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import Collection from './Collection.js';
 
 type Column = 2 | 3 | 4;
@@ -179,14 +178,3 @@ export default function Collage(props: Props): Node {
     />
   );
 }
-
-Collage.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  columns: PropTypes.oneOf([2, 3, 4]).isRequired,
-  cover: PropTypes.bool,
-  gutter: PropTypes.number,
-  height: PropTypes.number.isRequired,
-  layoutKey: PropTypes.number,
-  renderImage: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired,
-};

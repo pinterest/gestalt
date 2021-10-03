@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
@@ -77,11 +76,3 @@ export default function Switch({
     </div>
   );
 }
-
-Switch.propTypes = {
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  switched: PropTypes.bool,
-};

@@ -1,8 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import layout from './Layout.css';
-import { FixedZIndex, type Indexable, UnsafeIndexablePropType } from './zIndex.js';
+import { FixedZIndex, type Indexable } from './zIndex.js';
 
 type PositionType = number | string;
 
@@ -34,9 +33,13 @@ export default function Sticky(props: Props): Node {
   const zIndex = props.zIndex || DEFAULT_ZINDEX;
   const style = {
     ...(height !== undefined ? { height } : {}),
+    // eslint-disable-next-line react/prop-types
     top: props.top != null ? props.top : undefined,
+    // eslint-disable-next-line react/prop-types
     left: props.left != null ? props.left : undefined,
+    // eslint-disable-next-line react/prop-types
     right: props.right != null ? props.right : undefined,
+    // eslint-disable-next-line react/prop-types
     bottom: props.bottom != null ? props.bottom : undefined,
     zIndex: zIndex.index(),
   };
@@ -46,18 +49,3 @@ export default function Sticky(props: Props): Node {
     </div>
   );
 }
-
-const PositionPropType: React$PropType$Primitive<PositionType> = PropTypes.oneOfType([
-  PropTypes.number,
-  PropTypes.string,
-]);
-
-Sticky.propTypes = {
-  children: PropTypes.node,
-  top: PositionPropType,
-  left: PositionPropType,
-  bottom: PositionPropType,
-  right: PositionPropType,
-  height: PropTypes.number,
-  zIndex: UnsafeIndexablePropType,
-};

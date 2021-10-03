@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Column.css';
 
@@ -27,11 +26,3 @@ export default function Column(props: ColumnProps): Node {
   );
   return <div className={cs}>{children}</div>;
 }
-
-Column.propTypes = {
-  children: PropTypes.node,
-  span: PropTypes.number,
-  smSpan: PropTypes.number,
-  mdSpan: PropTypes.number,
-  lgSpan: PropTypes.number,
-};
