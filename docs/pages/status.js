@@ -45,8 +45,44 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
       </MainSection>
 
       <MainSection
+        name="Accessibility"
+        description="Icons are a great way to help users who have difficulties with reading, focus attention, and low vision impairments. For such use cases, Status can be used without accompanying `title` text."
+      >
+        <MainSection.Subsection
+          title="ARIA attributes"
+          columns={2}
+          description={`
+If Status appears without \`title\` text, \`accessibilityLabel\` should be used to provide a text description for screen readers to announce and communicate the represented icon, as shown in the first example.
+
+Avoid using the generic words like  "image" or "icon"; instead, use verbs that describe the meaning of the icon, for example: "there is a problem with this item".
+
+If using \`title\` to describe what the icon represents, \`accessibilityLabel\` does not need to be provided, as shown in the second example.
+`}
+        >
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
+<Flex gap={1}>
+  <Status accessibilityLabel="This item has a problem" type="problem" />
+  <Text weight="bold" size="lg">Dynamic retargeting</Text>
+</Flex>`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
+<Flex alignItems="end" direction="column" gap={1}>
+  <Status title="This item has a problem" type="problem" />
+  <Text align="center" weight="bold">
+    Dynamic retargeting
+  </Text>
+</Flex>`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection
         name="Localization"
-        description={`Be sure to localize the \`title\` and \`subtext\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+        description={`Be sure to localize the \`title\`, \`subtext\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
       />
 
       <MainSection name="Variants">
