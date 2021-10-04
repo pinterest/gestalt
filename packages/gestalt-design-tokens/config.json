@@ -4,90 +4,103 @@
     "css": {
       "transformGroup": "css",
       "buildPath": "dist/css/",
-      "files": [{
-        "destination": "variables.css",
-        "format": "css/variables"
-      }]
+      "files": [
+        {
+          "destination": "variables.css",
+          "format": "css/variables"
+        }
+      ]
     },
     "json": {
       "transformGroup": "css",
       "buildPath": "dist/json/",
-      "files": [{
-        "destination": "variables.json",
-        "format": "json/flat"
-      }]
+      "files": [
+        {
+          "destination": "variables.json",
+          "format": "json/flat"
+        }
+      ]
     },
     "android": {
       "transformGroup": "android-custom",
       "buildPath": "dist/android/",
-      "files": [{
-        "destination": "colors.xml",
-        "format": "android/colors",
-        "filter": {
-          "attributes": {
-            "category": "color"
+      "files": [
+        {
+          "destination": "colors.xml",
+          "format": "android/colors",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "destination": "space.xml",
+          "format": "android/resources",
+          "resourceType": "dimen",
+          "filter": {
+            "attributes": {
+              "category": "space"
+            }
           }
         }
-      },
-      {
-        "destination": "space.xml",
-        "format": "android/resources",
-        "resourceType": "dimen",
-        "filter": {
-          "attributes": {
-            "category": "space"
-          }
-        }
-      }]
+      ]
     },
     "ios": {
       "transformGroup": "ios",
       "buildPath": "dist/ios/",
-      "files": [{
-        "destination": "GestaltDesignTokensColor.h",
-        "format": "ios/colors.h",
-        "className": "GestaltDesignTokensColor",
-        "type": "GestaltDesignTokensColorName",
-        "filter": {
-          "attributes": {
-            "category": "color"
+      "files": [
+        {
+          "destination": "GestaltDesignTokensColor.h",
+          "format": "ios/colors.h",
+          "className": "GestaltDesignTokensColor",
+          "type": "GestaltDesignTokensColorName",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "destination": "GestaltDesignTokensColor.m",
+          "format": "ios/colors.m",
+          "className": "GestaltDesignTokensColor",
+          "type": "GestaltDesignTokensColorName",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
           }
         }
-      },{
-        "destination": "GestaltDesignTokensColor.m",
-        "format": "ios/colors.m",
-        "className": "GestaltDesignTokensColor",
-        "type": "GestaltDesignTokensColorName",
-        "filter": {
-          "attributes": {
-            "category": "color"
-          }
-        }
-      }]
+      ]
     },
     "ios-swift": {
       "transformGroup": "ios-swift",
       "buildPath": "dist/ios-swift/",
-      "files": [{
-        "destination": "GestaltDesignTokens.swift",
-        "format": "ios-swift/class.swift",
-        "className": "GestaltDesignTokens",
-        "filter": {}
-      }]
+      "files": [
+        {
+          "destination": "GestaltDesignTokens.swift",
+          "format": "ios-swift/class.swift",
+          "className": "GestaltDesignTokens",
+          "filter": {}
+        }
+      ]
     },
     "ios-swift-separate-enums": {
       "transformGroup": "ios-swift-separate",
       "buildPath": "dist/ios-swift/",
-      "files": [{
-        "destination": "GestaltDesignTokensColor.swift",
-        "format": "ios-swift/enum.swift",
-        "className": "GestaltDesignTokensColor",
-        "filter": {
-          "attributes": {
-            "category": "color"
+      "files": [
+        {
+          "destination": "GestaltDesignTokensColor.swift",
+          "format": "ios-swift/enum.swift",
+          "className": "GestaltDesignTokensColor",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
           }
         }
-      }]
+      ]
     }
   }
 }

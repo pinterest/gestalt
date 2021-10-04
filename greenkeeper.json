@@ -10,7 +10,5 @@
       ]
     }
   },
-  "ignore": [
-    "flow-bin"
-  ]
+  "ignore": ["flow-bin"]
 }

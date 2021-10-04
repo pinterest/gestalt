@@ -92,7 +92,7 @@
 
 ### Patch
 
-- Eslint plugin: gestalt/no-box-dangerous-style-duplicates fixes and refactor  (#1709)
+- Eslint plugin: gestalt/no-box-dangerous-style-duplicates fixes and refactor (#1709)
 
 ## 35.2.13 (Sep 23, 2021)
 
@@ -170,13 +170,13 @@
 
 ### Patch
 
-- Button: fix style bug on selected state and role link  (#1685)
+- Button: fix style bug on selected state and role link (#1685)
 
 ## 35.2.0 (Sep 17, 2021)
 
 ### Minor
 
-- Dropdown: add dangerouslyRemoveLayer prop  (#1697)
+- Dropdown: add dangerouslyRemoveLayer prop (#1697)
 
 ## 35.1.1 (Sep 17, 2021)
 
@@ -338,7 +338,7 @@
 
 ### Patch
 
-- Eslint plugin: fix on 'prefer-box-no-disallowed'  rule (#1668)
+- Eslint plugin: fix on 'prefer-box-no-disallowed' rule (#1668)
 
 ## 33.8.1 (Aug 30, 2021)
 
@@ -566,7 +566,7 @@
 
 ### Patch
 
--  Avatar, AvatarGroup, AvatarPair: Add usage guidelines (#1624)
+- Avatar, AvatarGroup, AvatarPair: Add usage guidelines (#1624)
 
 ## 31.3.1 (Aug 12, 2021)
 
@@ -686,7 +686,7 @@
 
 ### Patch
 
-- Eslint Plugin: Add missing rules to Docs, categorize, and standardize rule config   (#1601)
+- Eslint Plugin: Add missing rules to Docs, categorize, and standardize rule config (#1601)
 
 ## 29.6.0 (Jul 27, 2021)
 
@@ -1034,7 +1034,7 @@
 
 ### Minor
 
-- Revert "Internal: src/ directories: remove test files &  only publish .js.flow (#1525)" (#1528)
+- Revert "Internal: src/ directories: remove test files & only publish .js.flow (#1525)" (#1528)
 
 ## 22.3.0 (May 27, 2021)
 
@@ -1052,7 +1052,7 @@
 
 ### Minor
 
-- Internal: src/ directories: remove test files &  only publish .js.flow (#1525)
+- Internal: src/ directories: remove test files & only publish .js.flow (#1525)
 
 ## 22.1.0 (May 26, 2021)
 
@@ -1376,7 +1376,7 @@
 
 ### Patch
 
-- Modal: temp _dangerouslyDisableScrollBoundaryContainer prop to disable ScrollBoundaryContainer in Modals (#1461)
+- Modal: temp \_dangerouslyDisableScrollBoundaryContainer prop to disable ScrollBoundaryContainer in Modals (#1461)
 
 ## 21.5.0 (Apr 7, 2021)
 
@@ -1400,7 +1400,7 @@
 
 ### Patch
 
-- Modal/Sheet: Remove experimental _dangerousScrollableExperimentEnabled to implement ScrollBoundaryContainer (#1456)
+- Modal/Sheet: Remove experimental \_dangerousScrollableExperimentEnabled to implement ScrollBoundaryContainer (#1456)
 
 ## 21.4.5 (Apr 6, 2021)
 
@@ -1552,7 +1552,7 @@
 
 ### Patch
 
-- SearchField: Add onKeyDown prop  (#1400)
+- SearchField: Add onKeyDown prop (#1400)
 
 ## 20.3.1 (Mar 16, 2021)
 
@@ -1858,7 +1858,7 @@
 
 ### Patch
 
-- Box: fix margin-family props not overriding default 'auto' by @media  with boints (#1362)
+- Box: fix margin-family props not overriding default 'auto' by @media with boints (#1362)
 
 ## 16.10.1 (Feb 3, 2021)
 

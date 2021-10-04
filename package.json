@@ -52,7 +52,6 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-react-hooks": "^4.1.2",
     "flow-bin": "0.161.0",
@@ -114,6 +113,7 @@
     "lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
     "lint:js": "eslint --max-warnings 0 .",
     "precommit": "lint-staged",
+    "prettier": "prettier",
     "start": "netlify dev -c \"yarn dev\"",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
     "test": "./scripts/test.sh"
