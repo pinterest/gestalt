@@ -82,7 +82,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
 
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`title\` and \`subtext\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+        description={`Be sure to localize the \`title\`, \`subtext\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
       />
 
       <MainSection name="Variants">
