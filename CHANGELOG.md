@@ -1,3 +1,9 @@
+## 37.0.1 (Oct 4, 2021)
+
+### Patch
+
+- Internal: run prettier directly (#1728)
+
 ## 37.0.0 (Oct 4, 2021)
 
 ### Major
