@@ -1,3 +1,9 @@
+## 37.0.0 (Oct 4, 2021)
+
+### Major
+
+- Internal: remove prop-types (#1726)
+
 ## 36.0.7 (Oct 1, 2021)
 
 ### Patch
