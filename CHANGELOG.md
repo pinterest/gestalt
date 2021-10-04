@@ -1,3 +1,9 @@
+## 37.0.2 (Oct 4, 2021)
+
+### Patch
+
+- Status: make `title` optional, add `accessibilityLabel` (#1724)
+
 ## 37.0.1 (Oct 4, 2021)
 
 ### Patch
