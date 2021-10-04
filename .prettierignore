@@ -1,8 +1,10 @@
+__fixtures__
 __testfixtures__
+*.css
 build
 coverage
 dist
+docs/.next/
 flow-typed
 node_modules
 package.json
-*.css
