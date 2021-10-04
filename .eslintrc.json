@@ -6,6 +6,7 @@
     "plugin:flowtype/recommended",
     "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@next/next/recommended",
     "plugin:react/recommended",
     "prettier",
     "prettier/flowtype",
@@ -26,6 +27,11 @@
     "react-hooks",
     "import"
   ],
+  "settings": {
+    "next": {
+      "rootDir": "docs/"
+    }
+  },
   "rules": {
     "eslint-comments/no-unused-disable": "error",
     "flowtype/no-mutable-array": "error",
@@ -81,6 +87,12 @@
         "flowtype/no-mutable-array": "off",
         "flowtype/require-exact-type": "off",
         "flowtype/require-valid-file-annotation": "off"
+      }
+    },
+    {
+      "files": ["packages/**/*.js"],
+      "rules": {
+        "@next/next/no-img-element": "off"
       }
     },
     {
