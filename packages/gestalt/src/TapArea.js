@@ -1,13 +1,12 @@
 // @flow strict
 import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
 import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { AriaCurrentPropType, type AriaCurrent } from './ariaTypes.js';
+import { type AriaCurrent } from './ariaTypes.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
@@ -76,7 +75,7 @@ type unionRefs = HTMLDivElement | HTMLAnchorElement;
 const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
->(function TapArea(props, ref): Node {
+>(function TapArea(props: unionProps, ref): Node {
   const {
     accessibilityLabel,
     children,
@@ -266,47 +265,6 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     </div>
   );
 });
-
-TapAreaWithForwardRef.propTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityCurrent: AriaCurrentPropType,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string,
-  children: PropTypes.node,
-  disabled: PropTypes.bool,
-  fullHeight: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  href: PropTypes.string,
-  mouseCursor: (PropTypes.oneOf([
-    'copy',
-    'grab',
-    'grabbing',
-    'move',
-    'noDrop',
-    'pointer',
-    'zoomIn',
-    'zoomOut',
-  ]): React$PropType$Primitive<
-    'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
-  >),
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onMouseDown: PropTypes.func,
-  onMouseUp: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-  onTap: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  tabIndex: PropTypes.oneOf([-1, 0]),
-  role: PropTypes.oneOf(['tapArea', 'link']),
-  rounding: RoundingPropType,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-};
 
 TapAreaWithForwardRef.displayName = 'TapArea';
 

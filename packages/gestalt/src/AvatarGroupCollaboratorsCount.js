@@ -1,8 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTypes from 'prop-types';
 import AvatarFoundation from './AvatarFoundation.js';
-import { type BaseStackType, SizeProptype } from './AvatarGroupConstants.js';
+import { type BaseStackType } from './AvatarGroupConstants.js';
 import PositioningWrapper from './AvatarGroupPositioningWrapper.js';
 import HoverOverlay from './AvatarGroupHoverOverlay.js';
 
@@ -37,11 +36,3 @@ export default function AvatarGroupCollaboratorsCount({
     </PositioningWrapper>
   );
 }
-
-AvatarGroupCollaboratorsCount.propTypes = {
-  count: PropTypes.number,
-  showAddCollaboratorsButton: PropTypes.bool,
-  hovered: PropTypes.bool,
-  pileCount: PropTypes.number,
-  size: SizeProptype,
-};

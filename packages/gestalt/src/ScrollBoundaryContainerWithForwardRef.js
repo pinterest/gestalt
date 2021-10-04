@@ -2,10 +2,9 @@
 import type { Node, AbstractComponent } from 'react';
 
 import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import Box from './Box.js';
-import { type Dimension, DimensionPropType, type Padding, PaddingPropType } from './boxTypes.js';
+import { type Dimension, type Padding } from './boxTypes.js';
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto';
 
@@ -23,7 +22,7 @@ const ScrollBoundaryContainerWithForwardRef: AbstractComponent<
   InternalProps,
   HTMLElement,
 > = forwardRef<InternalProps, HTMLElement>(function ScrollBoundaryContainer(
-  { children, onScroll, padding = 0, height = '100%', overflow = 'auto' },
+  { children, onScroll, padding = 0, height = '100%', overflow = 'auto' }: InternalProps,
   ref,
 ): Node {
   const { addRef } = useScrollBoundaryContainer();
@@ -53,18 +52,5 @@ const ScrollBoundaryContainerWithForwardRef: AbstractComponent<
 });
 
 ScrollBoundaryContainerWithForwardRef.displayName = 'InternalScrollBoundaryContainer';
-
-ScrollBoundaryContainerWithForwardRef.propTypes = {
-  children: PropTypes.node,
-  onScroll: PropTypes.func,
-  padding: PaddingPropType,
-  height: DimensionPropType,
-  overflow: (PropTypes.oneOf([
-    'scroll',
-    'scrollX',
-    'scrollY',
-    'auto',
-  ]): React$PropType$Primitive<ScrollBoundaryContainerOverflow>),
-};
 
 export default ScrollBoundaryContainerWithForwardRef;

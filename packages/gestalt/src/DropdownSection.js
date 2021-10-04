@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
 import styles from './Dropdown.css';
@@ -26,8 +25,3 @@ export default function DropdownSection({ label, children }: Props): Node {
 
 // displayName is necessary for children identification in Dropdown
 DropdownSection.displayName = 'DropdownSection';
-
-DropdownSection.propTypes = {
-  children: PropTypes.node.isRequired,
-  label: PropTypes.string.isRequired,
-};

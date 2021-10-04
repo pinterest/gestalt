@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Card.css';
@@ -50,11 +49,3 @@ export default function Card(props: Props): Node {
     </Box>
   );
 }
-
-Card.propTypes = {
-  active: PropTypes.bool,
-  children: PropTypes.node,
-  image: PropTypes.node,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-};

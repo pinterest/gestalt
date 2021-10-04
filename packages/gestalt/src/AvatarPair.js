@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import Avatar, { type CollaboratorDataType } from './Avatar.js';
 import Box from './Box.js';
 
@@ -41,15 +40,3 @@ export default function AvatarPair({ collaborators, size = 'fit' }: Props): Node
     </Box>
   );
 }
-
-AvatarPair.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  collaborators: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      src: PropTypes.string,
-    }),
-  ).isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg', 'fit']),
-};

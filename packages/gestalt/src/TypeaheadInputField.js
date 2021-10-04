@@ -2,7 +2,6 @@
 import type { Element, Node, Ref } from 'react';
 
 import { forwardRef, Fragment, useState, useRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import layout from './Layout.css';
@@ -16,6 +15,7 @@ import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 
 type Props = {|
+  // eslint-disable-next-line react/no-unused-prop-types
   forwardedRef?: Ref<'input'>,
   id: string,
   label?: string,
@@ -46,7 +46,7 @@ type Props = {|
 const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   Props,
   HTMLInputElement,
-> = forwardRef<Props, HTMLInputElement>(function InputField(props, ref): Node {
+> = forwardRef<Props, HTMLInputElement>(function InputField(props: Props, ref): Node {
   const {
     id,
     label,
@@ -228,22 +228,6 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     </Fragment>
   );
 });
-
-TypeaheadInputFieldWithForwardRef.propTypes = {
-  label: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onClear: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onKeyNavigation: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  setContainer: PropTypes.func,
-  tags: PropTypes.arrayOf(PropTypes.node),
-  value: PropTypes.string,
-};
 
 TypeaheadInputFieldWithForwardRef.displayName = 'TypeaheadInputField';
 

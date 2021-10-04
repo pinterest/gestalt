@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 import classnames from 'classnames';
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import ColorSchemeProvider from './contexts/ColorScheme.js';
 import styles from './Video.css';
@@ -181,59 +180,6 @@ export default class Video extends PureComponent<Props, State> {
 
   player: ?HTMLDivElement;
 
-  static propTypes = {
-    accessibilityHideCaptionsLabel: PropTypes.string,
-    accessibilityShowCaptionsLabel: PropTypes.string,
-    accessibilityMaximizeLabel: PropTypes.string,
-    accessibilityMinimizeLabel: PropTypes.string,
-    accessibilityMuteLabel: PropTypes.string,
-    accessibilityPauseLabel: PropTypes.string,
-    accessibilityPlayLabel: PropTypes.string,
-    accessibilityUnmuteLabel: PropTypes.string,
-    aspectRatio: PropTypes.number.isRequired,
-    backgroundColor: (PropTypes.oneOf([
-      'black',
-      'transparent',
-    ]): React$PropType$Primitive<BackgroundColor>),
-    captions: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    crossOrigin: PropTypes.oneOf(['use-credentials', 'anonymous']),
-    controls: PropTypes.bool,
-    disableRemotePlayback: PropTypes.bool,
-    loop: PropTypes.bool,
-    onDurationChange: PropTypes.func,
-    onEnded: PropTypes.func,
-    onError: PropTypes.func,
-    onFullscreenChange: PropTypes.func,
-    onLoadedChange: PropTypes.func,
-    onLoadStart: PropTypes.func,
-    onPause: PropTypes.func,
-    onPlay: PropTypes.func,
-    onPlaying: PropTypes.func,
-    onReady: PropTypes.func,
-    onSeek: PropTypes.func,
-    onSeeking: PropTypes.func,
-    onStalled: PropTypes.func,
-    onTimeChange: PropTypes.func,
-    onVolumeChange: PropTypes.func,
-    onWaiting: PropTypes.func,
-    playbackRate: PropTypes.number,
-    playing: PropTypes.bool,
-    playsInline: PropTypes.bool,
-    poster: PropTypes.string,
-    preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
-    src: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(
-        PropTypes.shape({
-          type: PropTypes.oneOf(['video/m3u8', 'video/mp4', 'video/ogg']).isRequired,
-          src: PropTypes.string.isRequired,
-        }),
-      ),
-    ]).isRequired,
-    volume: PropTypes.number,
-  };
-
   static defaultProps: {|
     disableRemotePlayback: boolean,
     backgroundColor: BackgroundColor,
@@ -243,10 +189,15 @@ export default class Video extends PureComponent<Props, State> {
     volume: number,
   |} = {
     disableRemotePlayback: false,
+    // eslint-disable-next-line react/default-props-match-prop-types
     backgroundColor: 'black',
+    // eslint-disable-next-line react/default-props-match-prop-types
     playbackRate: 1,
+    // eslint-disable-next-line react/default-props-match-prop-types
     playing: false,
+    // eslint-disable-next-line react/default-props-match-prop-types
     preload: 'auto',
+    // eslint-disable-next-line react/default-props-match-prop-types
     volume: 0,
   };
 

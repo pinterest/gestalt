@@ -1,7 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
 import { useCallback, useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
 import Box from './Box.js';
@@ -214,22 +213,3 @@ export default function Modal({
     </StopScrollBehavior>
   );
 }
-
-Modal.propTypes = {
-  _dangerouslyDisableScrollBoundaryContainer: PropTypes.string,
-  accessibilityModalLabel: PropTypes.string.isRequired,
-  align: (PropTypes.oneOf(['start', 'center']): React$PropType$Primitive<'start' | 'center'>),
-  children: PropTypes.node,
-  closeOnOutsideClick: PropTypes.bool,
-  footer: PropTypes.node,
-  heading: PropTypes.node,
-  onDismiss: PropTypes.func,
-  role: (PropTypes.oneOf(['alertdialog', 'dialog']): React$PropType$Primitive<
-    'alertdialog' | 'dialog',
-  >),
-  size: (PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['sm', 'md', 'lg']),
-  ]): React$PropType$Primitive<'sm' | 'md' | 'lg' | number>),
-  subHeading: PropTypes.string,
-};

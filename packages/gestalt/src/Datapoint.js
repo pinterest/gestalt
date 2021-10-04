@@ -1,6 +1,5 @@
 // @flow strict
 import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
 import Text from './Text.js';
 import Heading from './Heading.js';
 import Flex from './Flex.js';
@@ -13,8 +12,6 @@ type TrendObject = {|
   accessibilityLabel: string,
   value: number,
 |};
-
-type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 
 type Props = {|
   tooltipText?: string,
@@ -69,22 +66,3 @@ export default function Datapoint({
     </Flex>
   );
 }
-
-Datapoint.propTypes = {
-  tooltipText: PropTypes.string,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg']),
-  title: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  trend: PropTypes.shape({
-    accessibilityLabel: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired,
-  }),
-  trendSentiment: (PropTypes.oneOf([
-    'good',
-    'bad',
-    'neutral',
-    'auto',
-  ]): React$PropType$Primitive<Sentiment>),
-  value: PropTypes.string.isRequired,
-};

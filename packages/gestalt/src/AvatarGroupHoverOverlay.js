@@ -1,11 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import { FixedZIndex } from './zIndex.js';
 import styles from './AvatarGroup.css';
 import Box from './Box.js';
-import { type Size, SizeProptype, SIZE_MAP } from './AvatarGroupConstants.js';
+import { type Size, SIZE_MAP } from './AvatarGroupConstants.js';
 
 type Props = {|
   children: Node,
@@ -28,9 +27,3 @@ export default function AvatarGroupHoverOverlay({ children, hovered, size }: Pro
     </Box>
   );
 }
-
-AvatarGroupHoverOverlay.propTypes = {
-  children: PropTypes.node,
-  hovered: PropTypes.bool,
-  size: SizeProptype,
-};

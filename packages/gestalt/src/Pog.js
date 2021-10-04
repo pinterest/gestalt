@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
@@ -106,33 +105,3 @@ export default function Pog(props: Props): Node {
     </div>
   );
 }
-
-Pog.propTypes = {
-  accessibilityLabel: PropTypes.string,
-  active: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  bgColor: PropTypes.oneOf([
-    'transparent',
-    'darkGray',
-    'transparentDarkGray',
-    'gray',
-    'lightGray',
-    'white',
-    'red',
-  ]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  focused: PropTypes.bool,
-  hovered: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  icon: PropTypes.oneOf(Object.keys(icons)),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
-  selected: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-};

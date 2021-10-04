@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -41,11 +40,3 @@ export default function Spinner({
     <div />
   );
 }
-
-Spinner.propTypes = {
-  show: PropTypes.bool.isRequired,
-  accessibilityLabel: PropTypes.string.isRequired,
-  delay: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['sm', 'md']),
-};

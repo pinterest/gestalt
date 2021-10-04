@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Image.css';
 
@@ -31,31 +30,13 @@ type Props = {|
  * https://gestalt.pinterest.systems/Image
  */
 export default class Image extends PureComponent<Props> {
-  static propTypes = {
-    alt: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    color: PropTypes.string,
-    crossOrigin: PropTypes.oneOf(['anonymous', 'use-credentials']),
-    elementTiming: PropTypes.string,
-    fit: PropTypes.oneOf(['contain', 'cover', 'none']),
-    importance: PropTypes.oneOf(['high', 'low', 'auto']),
-    loading: PropTypes.oneOf(['eager', 'lazy', 'auto']),
-    naturalHeight: PropTypes.number.isRequired,
-    naturalWidth: PropTypes.number.isRequired,
-    onError: PropTypes.func,
-    onLoad: PropTypes.func,
-    role: PropTypes.oneOf(['img', 'presentation']),
-    sizes: PropTypes.string,
-    src: PropTypes.string.isRequired,
-    srcSet: PropTypes.string,
-  };
-
   static defaultProps: {|
     color: string,
     fit?: 'contain' | 'cover' | 'none',
     importance?: 'high' | 'low' | 'auto',
     loading?: 'eager' | 'lazy' | 'auto',
   |} = {
+    // eslint-disable-next-line react/default-props-match-prop-types
     color: 'transparent',
     fit: 'none',
     importance: 'auto',

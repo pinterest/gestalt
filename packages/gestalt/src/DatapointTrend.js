@@ -1,6 +1,5 @@
 // @flow strict
 import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
 import Text from './Text.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
@@ -53,14 +52,3 @@ export default function DatapointTrend({
     </Flex>
   );
 }
-
-DatapointTrend.propTypes = {
-  iconAccessibilityLabel: PropTypes.string,
-  sentiment: (PropTypes.oneOf([
-    'good',
-    'bad',
-    'neutral',
-    'auto',
-  ]): React$PropType$Primitive<Sentiment>),
-  value: PropTypes.number,
-};

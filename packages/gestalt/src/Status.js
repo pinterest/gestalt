@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
@@ -77,17 +76,3 @@ export default function Status({ subtext, title, type }: Props): Node {
     </Flex>
   );
 }
-
-Status.propTypes = {
-  subtext: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  type: (PropTypes.oneOf([
-    'unstarted',
-    'inProgress',
-    'halted',
-    'ok',
-    'problem',
-    'canceled',
-    'warning',
-  ]).isRequired: React$PropType$Primitive<StatusType>),
-};

@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 
 import { Children, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 
 /**
@@ -30,9 +29,5 @@ function ButtonGroup({ children }: {| children?: Node |}): Node {
     </Box>
   );
 }
-
-ButtonGroup.propTypes = {
-  children: PropTypes.node,
-};
 
 export default ButtonGroup;

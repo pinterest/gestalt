@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -12,7 +11,7 @@ import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType, ActionDataPropType } from './commonTypes.js';
+import { type ActionDataType } from './commonTypes.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
@@ -259,18 +258,3 @@ export default function Callout({
     </Box>
   );
 }
-
-Callout.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dismissButton: PropTypes.exact({
-    accessibilityLabel: PropTypes.string.isRequired,
-    onDismiss: PropTypes.func.isRequired,
-  }),
-  iconAccessibilityLabel: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
-  primaryAction: ActionDataPropType,
-  secondaryAction: ActionDataPropType,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  type: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
-  title: PropTypes.string,
-};

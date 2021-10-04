@@ -1,6 +1,5 @@
 // @flow strict
 import { forwardRef, useState, type Node } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
 import AddCollaboratorsButton from './AvatarGroupAddCollaboratorsButton.js';
@@ -9,9 +8,6 @@ import CollaboratorsCount from './AvatarGroupCollaboratorsCount.js';
 import Flex from './Flex.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;
-
-type Role = 'link' | 'button';
-type Size = 'xs' | 'sm' | 'md' | 'fit';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 type Props = {|
@@ -65,7 +61,7 @@ type Props = {|
   /**
    * Allows user interaction with the component. See the [role](https://gestalt.pinterest.systems/AvatarGroup#Role) variant to learn more.
    */
-  role?: Role,
+  role?: 'link' | 'button',
   /**
    * The maximum height of AvatarGroup. If size is `fit`, AvatarGroup will fill 100% of the parent container width. See the [fixed size](https://gestalt.pinterest.systems/AvatarGroup#Fixed-sizes) and [responsive size](https://gestalt.pinterest.systems/AvatarGroup#Responsive-sizing) variant to learn more.
    */
@@ -210,24 +206,6 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
   // Display-only role
   return <AvatarGroupStack />;
 });
-
-AvatarGroupWithForwardRef.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  addCollaborators: PropTypes.bool,
-  collaborators: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      src: PropTypes.string,
-    }),
-  ).isRequired,
-  href: PropTypes.string,
-  onClick: PropTypes.func,
-  role: (PropTypes.oneOf(['link', 'button']): React$PropType$Primitive<Role>),
-  size: (PropTypes.oneOf(['xs', 'sm', 'md', 'fit']): React$PropType$Primitive<Size>),
-};
 
 AvatarGroupWithForwardRef.displayName = 'AvatarGroup';
 

@@ -1,7 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
@@ -96,13 +95,3 @@ export default function SegmentedControl({
     </div>
   );
 }
-
-SegmentedControl.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  items: PropTypes.arrayOf(PropTypes.node).isRequired,
-  onChange: PropTypes.func.isRequired,
-  responsive: PropTypes.bool,
-  selectedItemIndex: PropTypes.number.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg']),
-};

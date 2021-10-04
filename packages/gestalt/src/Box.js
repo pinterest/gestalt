@@ -11,37 +11,15 @@ This guide will help you navigate and understand its design. This file is roughl
   3. Box itself
   4. PropTypes
 
-I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the Flow Types & PropTypes (even though they look scary).
+I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the Flow Types  (even though they look scary).
 
 */
 
 import { forwardRef, type Node, type AbstractComponent, type Element } from 'react';
-import PropTypes from 'prop-types';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';
-import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
-import {
-  type As,
-  AlignContentPropType,
-  AlignItemsPropType,
-  AlignSelfPropType,
-  AsPropType,
-  BorderStylePropType,
-  ColorPropType,
-  ColumnPropType,
-  DimensionPropType,
-  DirectionPropType,
-  DisplayPropType,
-  FlexPropType,
-  JustifyContentPropType,
-  MarginPropType,
-  OpacityPropType,
-  OverflowPropType,
-  PaddingPropType,
-  PositionPropType,
-  RoundingPropType,
-  UserSelectPropType,
-} from './boxTypes.js';
+import { type Indexable } from './zIndex.js';
+import { type As } from './boxTypes.js';
 
 /*
 
@@ -452,105 +430,3 @@ const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Prop
 BoxWithForwardRef.displayName = 'Box';
 
 export default BoxWithForwardRef;
-
-/*
-
-# PropTypes
-
-And we're done here :)
-
-*/
-
-BoxWithForwardRef.propTypes = {
-  children: PropTypes.node,
-  dangerouslySetInlineStyle: PropTypes.exact({
-    __style: PropTypes.object,
-  }),
-
-  alignContent: AlignContentPropType,
-  alignItems: AlignItemsPropType,
-  alignSelf: AlignSelfPropType,
-  as: AsPropType,
-  bottom: PropTypes.bool,
-  borderStyle: BorderStylePropType,
-  color: ColorPropType,
-
-  column: ColumnPropType,
-  smColumn: ColumnPropType,
-  mdColumn: ColumnPropType,
-  lgColumn: ColumnPropType,
-
-  direction: DirectionPropType,
-  smDirection: DirectionPropType,
-  mdDirection: DirectionPropType,
-  lgDirection: DirectionPropType,
-
-  display: DisplayPropType,
-  smDisplay: DisplayPropType,
-  mdDisplay: DisplayPropType,
-  lgDisplay: DisplayPropType,
-
-  fit: PropTypes.bool,
-  flex: FlexPropType,
-  height: DimensionPropType,
-  justifyContent: JustifyContentPropType,
-  left: PropTypes.bool,
-
-  margin: MarginPropType,
-  smMargin: MarginPropType,
-  mdMargin: MarginPropType,
-  lgMargin: MarginPropType,
-
-  marginTop: MarginPropType,
-  smMarginTop: MarginPropType,
-  mdMarginTop: MarginPropType,
-  lgMarginTop: MarginPropType,
-
-  marginBottom: MarginPropType,
-  smMarginBottom: MarginPropType,
-  mdMarginBottom: MarginPropType,
-  lgMarginBottom: MarginPropType,
-
-  marginStart: MarginPropType,
-  smMarginStart: MarginPropType,
-  mdMarginStart: MarginPropType,
-  lgMarginStart: MarginPropType,
-
-  marginEnd: MarginPropType,
-  smMarginEnd: MarginPropType,
-  mdMarginEnd: MarginPropType,
-  lgMarginEnd: MarginPropType,
-
-  maxHeight: DimensionPropType,
-  maxWidth: DimensionPropType,
-  minHeight: DimensionPropType,
-  minWidth: DimensionPropType,
-
-  opacity: OpacityPropType,
-  overflow: OverflowPropType,
-
-  padding: PaddingPropType,
-  smPadding: PaddingPropType,
-  mdPadding: PaddingPropType,
-  lgPadding: PaddingPropType,
-
-  paddingX: PaddingPropType,
-  smPaddingX: PaddingPropType,
-  mdPaddingX: PaddingPropType,
-  lgPaddingX: PaddingPropType,
-
-  paddingY: PaddingPropType,
-  smPaddingY: PaddingPropType,
-  mdPaddingY: PaddingPropType,
-  lgPaddingY: PaddingPropType,
-
-  position: PositionPropType,
-  right: PropTypes.bool,
-  role: PropTypes.string,
-  rounding: RoundingPropType,
-  top: PropTypes.bool,
-  userSelect: UserSelectPropType,
-  width: DimensionPropType,
-  wrap: PropTypes.bool,
-  zIndex: UnsafeIndexablePropType,
-};

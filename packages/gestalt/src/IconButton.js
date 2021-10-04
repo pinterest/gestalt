@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 
 import { forwardRef, useImperativeHandle, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
 import InternalLink from './InternalLink.js';
@@ -66,7 +65,7 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
->(function IconButton(props, ref): Node {
+>(function IconButton(props: unionProps, ref): Node {
   const {
     accessibilityLabel,
     bgColor,
@@ -230,39 +229,6 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     </button>
   );
 });
-
-IconButtonWithForwardRef.propTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string.isRequired,
-  bgColor: PropTypes.oneOf([
-    'transparent',
-    'darkGray',
-    'transparentDarkGray',
-    'gray',
-    'lightGray',
-    'white',
-    'red',
-  ]),
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  icon: PropTypes.oneOf(Object.keys(icons)),
-  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
-  onClick: PropTypes.func,
-  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  tabIndex: PropTypes.oneOf([-1, 0]),
-  role: PropTypes.oneOf(['button', 'link']),
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-};
 
 IconButtonWithForwardRef.displayName = 'IconButton';
 

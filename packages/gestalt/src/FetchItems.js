@@ -12,7 +12,6 @@
 
 // @flow strict
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 type Props = {|
   containerHeight: number,
@@ -52,12 +51,3 @@ export default function FetchItems({
 
   return null;
 }
-
-FetchItems.propTypes = {
-  containerHeight: PropTypes.number.isRequired,
-  fetchMore: PropTypes.func,
-  isAtEnd: PropTypes.bool,
-  isFetching: PropTypes.bool.isRequired,
-  scrollHeight: PropTypes.number.isRequired,
-  scrollTop: PropTypes.number.isRequired,
-};

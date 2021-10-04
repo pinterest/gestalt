@@ -1,6 +1,5 @@
 // @flow strict
 import { createElement, type Node } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
@@ -81,29 +80,3 @@ export default function Heading({
 
   return createElement(headingLevel === 'none' ? 'div' : `h${headingLevel}`, newProps, children);
 }
-
-Heading.propTypes = {
-  accessibilityLevel: (PropTypes.oneOf([
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    'none',
-  ]): React$PropType$Primitive<AccessibilityLevel>),
-  align: (PropTypes.oneOf([
-    'start',
-    'end',
-    'center',
-    'justify',
-    'forceLeft',
-    'forceRight',
-  ]): React$PropType$Primitive<Align>),
-  children: PropTypes.node,
-  color: (PropTypes.oneOf(allowedColors): React$PropType$Primitive<Color>),
-  id: PropTypes.string,
-  lineClamp: PropTypes.number,
-  overflow: (PropTypes.oneOf(['normal', 'breakWord']): React$PropType$Primitive<Overflow>),
-  size: (PropTypes.oneOf(['sm', 'md', 'lg']): React$PropType$Primitive<Size>),
-};

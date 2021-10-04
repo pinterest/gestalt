@@ -2,7 +2,6 @@
 import type { Context, Element, Node } from 'react';
 
 import { useContext, useState, useCallback, createContext } from 'react';
-import PropTypes from 'prop-types';
 
 type ScrollBoundaryContainerContextType = {|
   scrollBoundaryContainerRef: ?HTMLElement,
@@ -41,7 +40,3 @@ function useScrollBoundaryContainer(): ScrollBoundaryContainerContextType {
 }
 
 export { ScrollBoundaryContainerProvider, useScrollBoundaryContainer };
-
-ScrollBoundaryContainerProvider.propTypes = {
-  children: PropTypes.node,
-};

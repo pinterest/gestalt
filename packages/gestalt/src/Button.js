@@ -1,7 +1,6 @@
 // @flow strict
 import { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import icons from './icons/index.js';
@@ -108,7 +107,7 @@ const IconEnd = ({
 const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
->(function Button(props, ref): Node {
+>(function Button(props: unionProps, ref): Node {
   const {
     accessibilityLabel,
     color = 'gray',
@@ -289,30 +288,6 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     </button>
   );
 });
-
-ButtonWithForwardRef.propTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'transparentWhiteText', 'white']),
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  iconEnd: PropTypes.oneOf(Object.keys(icons)),
-  fullWidth: PropTypes.bool,
-  name: PropTypes.string,
-  onClick: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  tabIndex: PropTypes.oneOf([-1, 0]),
-  role: PropTypes.oneOf(['button', 'link']),
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['button', 'submit']),
-};
 
 ButtonWithForwardRef.displayName = 'Button';
 

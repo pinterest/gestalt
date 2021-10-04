@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import Controller from './Controller.js';
 import { type Role } from './Contents.js';
 
@@ -66,34 +65,3 @@ export default function Popover(props: Props): null | Node {
     </Controller>
   );
 }
-
-Popover.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  anchor: PropTypes.shape({
-    contains: PropTypes.func,
-    getBoundingClientRect: PropTypes.func,
-  }),
-  children: PropTypes.node,
-  id: PropTypes.string,
-  idealDirection: (PropTypes.oneOf([
-    'up',
-    'right',
-    'down',
-    'left',
-  ]): React$PropType$Primitive<IdealDirection>),
-  onDismiss: PropTypes.func.isRequired,
-  positionRelativeToAnchor: PropTypes.bool,
-  color: (PropTypes.oneOf([
-    'blue',
-    'orange',
-    'red',
-    'white',
-    'darkGray',
-  ]): React$PropType$Primitive<Color>),
-  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
-  size: (PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'flexible']), // default: sm
-  ]): React$PropType$Primitive<Size>),
-  showCaret: PropTypes.bool,
-};

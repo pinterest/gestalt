@@ -1,7 +1,6 @@
 // @flow strict
 import { useImperativeHandle, useRef, forwardRef, type Element, type Node, useState } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import TapArea from './TapArea.js';
 import Icon from './Icon.js';
@@ -64,7 +63,7 @@ type Props = {|
 const InternalTextFieldWithForwardRef: React$AbstractComponent<
   Props,
   HTMLInputElement,
-> = forwardRef<Props, HTMLInputElement>(function TextField(props, ref): Node {
+> = forwardRef<Props, HTMLInputElement>(function TextField(props: Props, ref): Node {
   const {
     accessibilityControls,
     accessibilityActiveDescendant,
@@ -254,40 +253,6 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     </span>
   );
 });
-
-InternalTextFieldWithForwardRef.propTypes = {
-  accessibilityActiveDescendant: PropTypes.string,
-  accessibilityClearButtonLabel: PropTypes.string,
-  accessibilityControls: PropTypes.string,
-  autoComplete: PropTypes.oneOf([
-    'current-password',
-    'new-password',
-    'on',
-    'off',
-    'username',
-    'email',
-  ]),
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.node,
-  hasError: PropTypes.bool,
-  helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func,
-  onClickIconButton: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  tags: PropTypes.arrayOf(PropTypes.node),
-  textfieldIconButton: PropTypes.oneOf(['clear', 'expand']),
-  type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
-  value: PropTypes.string,
-};
 
 InternalTextFieldWithForwardRef.displayName = 'InternalTextField';
 

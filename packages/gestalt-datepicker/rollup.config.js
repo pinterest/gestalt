@@ -11,7 +11,6 @@ const rollupConfig = {
       exports: 'named',
       globals: {
         react: 'React',
-        'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
@@ -26,7 +25,6 @@ const rollupConfig = {
       exports: 'named',
       globals: {
         react: 'React',
-        'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
@@ -35,14 +33,7 @@ const rollupConfig = {
       sourcemap: 'inline',
     },
   ],
-  external: [
-    'react',
-    'prop-types',
-    'classnames/bind',
-    'classnames',
-    'react-dom',
-    'react-datepicker',
-  ],
+  external: ['react', 'classnames/bind', 'classnames', 'react-dom', 'react-datepicker'],
   plugins: plugins('gestalt-datepicker'),
 };
 

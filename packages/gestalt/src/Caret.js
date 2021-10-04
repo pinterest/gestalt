@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 
 const PATHS = {
   down:
@@ -30,12 +29,3 @@ export default function Caret(props: Props): Node {
     </svg>
   );
 }
-
-Caret.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  direction: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  height: PropTypes.oneOf([4, 12]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  width: PropTypes.oneOf([4, 12]),
-};

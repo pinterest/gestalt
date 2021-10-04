@@ -1,7 +1,6 @@
 // @flow strict
 
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
 
@@ -14,7 +13,3 @@ export default function FormHelperText({ text }: {| text: string |}): Node {
     </Box>
   );
 }
-
-FormHelperText.propTypes = {
-  text: PropTypes.string.isRequired,
-};

@@ -2,7 +2,6 @@
 import type { Node } from 'react';
 
 import { forwardRef, useImperativeHandle, useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
@@ -38,7 +37,7 @@ type Props = {|
 const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function Checkbox(props, ref): Node {
+>(function Checkbox(props: Props, ref): Node {
   const {
     checked = false,
     disabled = false,
@@ -188,22 +187,6 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     </Box>
   );
 });
-
-CheckboxWithForwardRef.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  hasError: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  image: PropTypes.node,
-  indeterminate: PropTypes.bool,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['sm', 'md']),
-  subtext: PropTypes.string,
-};
 
 CheckboxWithForwardRef.displayName = 'Checkbox';
 

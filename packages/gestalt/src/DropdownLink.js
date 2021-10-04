@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTypes from 'prop-types';
 import OptionItem, { type OptionItemType } from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -63,16 +62,3 @@ export default function DropdownLink({
 
 // displayName is necessary for children identification in Dropdown
 DropdownLink.displayName = 'DropdownLink';
-
-DropdownLink.propTypes = {
-  badgeText: PropTypes.string,
-  href: PropTypes.string.isRequired,
-  isExternal: PropTypes.bool,
-  onClick: PropTypes.func,
-  // $FlowFixMe[incompatible-exact] Why Flow doesn't accept this as exact is beyond me
-  option: (PropTypes.exact({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    subtext: PropTypes.string,
-  }).isRequired: React$PropType$Primitive<OptionItemType>),
-};

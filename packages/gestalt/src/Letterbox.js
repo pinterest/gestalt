@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import Mask from './Mask.js';
 
 /*
@@ -51,10 +50,3 @@ export default function Letterbox({ children, contentAspectRatio, height, width 
     </Mask>
   );
 }
-
-Letterbox.propTypes = {
-  children: PropTypes.node,
-  contentAspectRatio: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
-  width: PropTypes.number.isRequired,
-};

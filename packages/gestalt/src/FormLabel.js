@@ -1,7 +1,6 @@
 // @flow strict
 
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import styles from './FormLabel.css';
 import Text from './Text.js';
 import Label, { type LabelDisplay } from './Label.js';
@@ -17,9 +16,3 @@ export default function FormLabel({ id, label, labelDisplay }: Props): Node {
     </Label>
   );
 }
-
-FormLabel.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  labelDisplay: (PropTypes.oneOf(['visible', 'hidden']): React$PropType$Primitive<LabelDisplay>),
-};

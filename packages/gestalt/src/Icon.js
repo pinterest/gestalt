@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index.js';
@@ -131,36 +130,3 @@ export default function Icon({
 }
 
 Icon.icons = IconNames;
-
-Icon.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf([
-    'blue',
-    'darkGray',
-    'eggplant',
-    'gray',
-    'green',
-    'lightGray',
-    'maroon',
-    'midnight',
-    'navy',
-    'olive',
-    'orange',
-    'orchid',
-    'pine',
-    'purple',
-    'red',
-    'watermelon',
-    'white',
-  ]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  icon: PropTypes.oneOf(IconNames),
-  inline: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-};
