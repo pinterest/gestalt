@@ -1,3 +1,9 @@
+## 37.1.0 (Oct 4, 2021)
+
+### Minor
+
+- Internal: enable Next.js ESLint linter (#1727)
+
 ## 37.0.2 (Oct 4, 2021)
 
 ### Patch
