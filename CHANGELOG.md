@@ -1,3 +1,9 @@
+## 38.0.0 (Oct 6, 2021)
+
+### Major
+
+- Table: add required accessibilityLabel to fix a11y (#1730)
+
 ## 37.1.2 (Oct 6, 2021)
 
 ### Patch
