@@ -4,6 +4,7 @@ export default function TestElement() {
     <Box>
       <Box aria-label="test" as="article" onMouseEnter={() => {}} width={100}></Box>
       <Box aria-label="test" as="aside" data-test-id="test"></Box>
+      <Box aria-label="test" as="caption" data-test-id="test"></Box>
       <Box aria-label="test" as="details" data-test-id="test"></Box>
       <Box aria-label="test" as="figcaption" data-test-id="test"></Box>
       <Box aria-label="test" as="figure" data-test-id="test"></Box>

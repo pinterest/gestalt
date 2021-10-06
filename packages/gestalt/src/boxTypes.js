@@ -16,6 +16,7 @@ export type AlignSelf = 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stre
 export type As =
   | 'article'
   | 'aside'
+  | 'caption'
   | 'details'
   | 'div'
   | 'figcaption'

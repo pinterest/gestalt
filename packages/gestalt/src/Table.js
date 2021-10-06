@@ -17,6 +17,7 @@ import { TableContextProvider } from './contexts/TableContext.js';
 
 type Props = {|
   children: Node,
+  accessibilityLabel: string,
   borderStyle?: 'sm' | 'none',
   maxHeight?: number | string,
   stickyColumns?: ?number,
@@ -26,7 +27,7 @@ type Props = {|
  * https://gestalt.pinterest.systems/Table
  */
 export default function Table(props: Props): Node {
-  const { borderStyle, children, maxHeight, stickyColumns } = props;
+  const { accessibilityLabel, borderStyle, children, maxHeight, stickyColumns } = props;
   const [showShadowScroll, setShowShadowScroll] = useState<'left' | 'right' | null>(null);
   const tableRef = useRef<?HTMLElement>(null);
 
@@ -66,6 +67,18 @@ export default function Table(props: Props): Node {
       ref={tableRef}
     >
       <table className={classNames}>
+        <Box
+          width={1}
+          height={1}
+          overflow="hidden"
+          position="absolute"
+          as="caption"
+          dangerouslySetInlineStyle={{
+            __style: { clip: 'rect(1px, 1px, 1px, 1px)', whiteSpace: 'nowrap' },
+          }}
+        >
+          {accessibilityLabel}
+        </Box>
         <TableContextProvider stickyColumns={stickyColumns}>{children}</TableContextProvider>
       </table>
     </Box>

@@ -50,6 +50,7 @@ With AUTOFIX!
 
         \`article\`,
         \`aside\`,
+        \`caption\`,
         \`details\`,
         \`figcaption\`,
         \`figure\`,

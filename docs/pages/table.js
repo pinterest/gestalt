@@ -77,7 +77,7 @@ card(
   <Example
     name="Example: Basic Table"
     defaultCode={`
-<Table>
+<Table accessibilityLabel="Basic Table">
   <Table.Header>
     <Table.Row>
       <Table.HeaderCell>
@@ -223,7 +223,7 @@ card(
     id="stickyHeader"
     name="Example: Sticky header"
     defaultCode={`
-<Table maxHeight={200}>
+<Table accessibilityLabel="Sticky header" maxHeight={200}>
   <Table.Header sticky>
     <Table.Row>
       <Table.HeaderCell>
@@ -299,7 +299,7 @@ card(
     description="Try scrolling horizontally to see the first column remain in place."
     defaultCode={`
 <Box width="50%" overflow="auto">
-  <Table maxHeight={200} stickyColumns={1}>
+  <Table accessibilityLabel="Sticky Column" maxHeight={200} stickyColumns={1}>
 
     <Table.Header>
       <Table.Row>
@@ -402,7 +402,7 @@ card(
     description="Try scrolling horizontally to see the first 3 columns remain in place."
     defaultCode={`
 <Box width="60%" overflow="auto">
-  <Table maxHeight={200} stickyColumns={3} borderStyle="none">
+  <Table accessibilityLabel="Multiple sticky columns" maxHeight={200} stickyColumns={3} borderStyle="none">
 
     <Table.Header>
       <Table.Row>
@@ -537,7 +537,7 @@ card(
     description="Try scrolling horizontally and vertically to see the columns and header remain in place."
     defaultCode={`
 <Box width="60%" overflow="auto">
-  <Table maxHeight={200} stickyColumns={3} borderStyle="none">
+  <Table accessibilityLabel="Sticky header and sticky columns" maxHeight={200} stickyColumns={3} borderStyle="none">
 
     <Table.Header sticky>
       <Table.Row>
@@ -782,7 +782,7 @@ card(
       };
 
       return(
-        <Table>
+        <Table accessibilityLabel="Table Row Expandable">
 
           <Table.Header>
             <Table.Row>
@@ -994,7 +994,7 @@ card(
 
       return(
       <Box width="60%" overflow="auto">
-        <Table stickyColumns={3}>
+        <Table accessibilityLabel="Table Row Expandable with Sticky Columns" stickyColumns={3}>
 
           <Table.Header>
             <Table.Row>
@@ -1279,7 +1279,7 @@ card(
       }
 
       return (
-        <Table>
+        <Table accessibilityLabel="Sortable header cells">
           <Table.Header>
             <Table.Row>
               <Table.SortableHeaderCell onSortChange={() => onSortChange('name')} sortOrder={sortOrder} status={sortCol === 'name' ? 'active' : 'inactive'}>
@@ -1317,7 +1317,7 @@ card(
 
       return (
         <Box width="70%" overflow="auto">
-          <Table stickyColumns={2}>
+          <Table accessibilityLabel="Sortable header cells with sticky columns" stickyColumns={2}>
             <Table.Header>
               <Table.Row>
                 <Table.SortableHeaderCell onSortChange={() => onSortChange('name')} sortOrder={sortOrder} status={sortCol === 'name' ? 'active' : 'inactive'}>

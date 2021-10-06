@@ -20,7 +20,7 @@ card(
 card(
   <MainSection name="Token Values">
     <MainSection.Subsection title="Spacing">
-      <Table>
+      <Table accessibilityLabel="Spacing token values">
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>
