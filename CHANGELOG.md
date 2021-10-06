@@ -1,3 +1,9 @@
+## 37.1.1 (Oct 6, 2021)
+
+### Patch
+
+- ColorSchemeProvider, OnLinkNavigation: fix source links (#1731)
+
 ## 37.1.0 (Oct 4, 2021)
 
 ### Minor
