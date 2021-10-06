@@ -42,7 +42,7 @@ export default function Navigation(): Node {
   const { sidebarOrganisedBy, isSidebarOpen } = useNavigationContext();
 
   return (
-    <Box role="navigation">
+    <Box aria-label="main" role="navigation">
       {isSidebarOpen && (
         <Fragment>
           <HeaderMenu />

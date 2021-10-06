@@ -146,6 +146,7 @@ export default function Toc({ cards }: Props): Node {
 
   return (
     <Box
+      aria-label="component page"
       // Accounting for the footer height as set in App.js
       dangerouslySetInlineStyle={{ __style: { marginBottom: '90px' } }}
       // These margins counter the padding set on the <Box role="main"> in App.js
@@ -157,6 +158,7 @@ export default function Toc({ cards }: Props): Node {
       overflow="auto"
       paddingY={8} // re-apply just the padding we need
       position="fixed"
+      role="navigation"
     >
       {anchors.map((anchor) => {
         const isActive = activeState === anchor.id;
