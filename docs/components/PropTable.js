@@ -153,6 +153,18 @@ export default function PropTable({
               tableLayout: 'auto',
             }}
           >
+            <Box
+              width={1}
+              height={1}
+              overflow="hidden"
+              position="absolute"
+              as="caption"
+              dangerouslySetInlineStyle={{
+                __style: { clip: 'rect(1px, 1px, 1px, 1px)', whiteSpace: 'nowrap' },
+              }}
+            >
+              {proptableName ? `${proptableName} subcomponent props` : 'Component props'}
+            </Box>
             <thead>
               <tr>
                 <Th>Name</Th>

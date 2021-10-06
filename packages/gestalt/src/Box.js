@@ -110,6 +110,7 @@ type Props = {
   as?:
     | 'article'
     | 'aside'
+    | 'caption'
     | 'details'
     | 'div'
     | 'figcaption'

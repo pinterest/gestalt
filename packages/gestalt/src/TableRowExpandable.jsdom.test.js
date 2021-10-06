@@ -11,7 +11,7 @@ const mockOnExpand = jest.fn();
 
 test('TableRowExpandable handles expand contents call', () => {
   const { getByText } = render(
-    <Table>
+    <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
           accessibilityExpandLabel="Expand"
@@ -37,7 +37,7 @@ test('TableRowExpandable handles expand contents call', () => {
 
 test('TableRowExpandable handles onExpand callback', () => {
   const { getByText } = render(
-    <Table>
+    <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
           accessibilityExpandLabel="Expand"

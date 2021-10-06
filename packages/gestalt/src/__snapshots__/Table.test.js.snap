@@ -12,6 +12,19 @@ exports[`renders correctly 1`] = `
   <table
     className="table"
   >
+    <caption
+      className="absolute box overflowHidden"
+      style={
+        Object {
+          "clip": "rect(1px, 1px, 1px, 1px)",
+          "height": 1,
+          "whiteSpace": "nowrap",
+          "width": 1,
+        }
+      }
+    >
+      test
+    </caption>
     <div>
       rest of table
     </div>
@@ -31,6 +44,19 @@ exports[`renders correctly with border 1`] = `
   <table
     className="table"
   >
+    <caption
+      className="absolute box overflowHidden"
+      style={
+        Object {
+          "clip": "rect(1px, 1px, 1px, 1px)",
+          "height": 1,
+          "whiteSpace": "nowrap",
+          "width": 1,
+        }
+      }
+    >
+      test
+    </caption>
     <div>
       rest of table
     </div>
@@ -50,6 +76,19 @@ exports[`renders correctly with maxHeight 1`] = `
   <table
     className="table"
   >
+    <caption
+      className="absolute box overflowHidden"
+      style={
+        Object {
+          "clip": "rect(1px, 1px, 1px, 1px)",
+          "height": 1,
+          "whiteSpace": "nowrap",
+          "width": 1,
+        }
+      }
+    >
+      test
+    </caption>
     <div>
       rest of table
     </div>
@@ -69,6 +108,19 @@ exports[`renders correctly with stickyColumns 1`] = `
   <table
     className="table"
   >
+    <caption
+      className="absolute box overflowHidden"
+      style={
+        Object {
+          "clip": "rect(1px, 1px, 1px, 1px)",
+          "height": 1,
+          "whiteSpace": "nowrap",
+          "width": 1,
+        }
+      }
+    >
+      test
+    </caption>
     <div>
       rest of table
     </div>

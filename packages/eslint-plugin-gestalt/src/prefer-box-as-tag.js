@@ -10,6 +10,7 @@ import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 export const SUPPORTED_HTML_TAGS = [
   'article',
   'aside',
+  'caption',
   'details',
   'figcaption',
   'figure',
