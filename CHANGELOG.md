@@ -1,3 +1,9 @@
+## 37.1.2 (Oct 6, 2021)
+
+### Patch
+
+- Docs: fixes navigation a11y issues (#1729)
+
 ## 37.1.1 (Oct 6, 2021)
 
 ### Patch
