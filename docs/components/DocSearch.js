@@ -40,6 +40,18 @@ function handleKeyDown(event: KeyboardEvent) {
 
 export default function DocSearch(): Node {
   useEffect(() => {
+    if (typeof window === 'undefined' || !window.docsearch) {
+      return;
+    }
+    window.docsearch({
+      apiKey: 'a22bd809b2fb174c5defd3c0f44cab8c',
+      debug: false, // Set debug to true if you want to keep open and inspect the dropdown
+      indexName: 'gestalt',
+      inputSelector: '#algolia-doc-search',
+    });
+  }, []);
+
+  useEffect(() => {
     document.addEventListener('keydown', handleKeyDown, false);
 
     return () => {
