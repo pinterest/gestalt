@@ -1,3 +1,9 @@
+## 38.0.1 (Oct 7, 2021)
+
+### Patch
+
+- Docs: fix search (#1733)
+
 ## 38.0.0 (Oct 6, 2021)
 
 ### Major
