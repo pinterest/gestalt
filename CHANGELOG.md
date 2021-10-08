@@ -1,3 +1,9 @@
+## 38.0.2 (Oct 8, 2021)
+
+### Patch
+
+- Table: add a11yLabel to prop table (#1735)
+
 ## 38.0.1 (Oct 7, 2021)
 
 ### Patch
