@@ -23,6 +23,12 @@ card(
     Component={Table}
     props={[
       {
+        name: 'accessibilityLabel',
+        type: 'string',
+        description: 'Label for screen readers to announce Table.',
+        required: true,
+      },
+      {
         name: 'children',
         type: 'React.Node',
       },
