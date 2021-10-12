@@ -2,7 +2,7 @@
 
 exports[`Avatar renders an outline 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "boxShadow": "0 0 0 1px #fff",
@@ -50,7 +50,7 @@ exports[`Avatar renders an outline 1`] = `
 
 exports[`Avatar renders multi-byte character initial 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": "",
@@ -97,7 +97,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
 
 exports[`Avatar renders the checkmark on verified default 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": 48,
@@ -179,7 +179,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
 
 exports[`Avatar renders the correct size - lg 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": 64,
@@ -224,7 +224,7 @@ exports[`Avatar renders the correct size - lg 1`] = `
 
 exports[`Avatar renders the correct size - md 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": 48,
@@ -269,7 +269,7 @@ exports[`Avatar renders the correct size - md 1`] = `
 
 exports[`Avatar renders the correct size - sm 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": 32,
@@ -314,7 +314,7 @@ exports[`Avatar renders the correct size - sm 1`] = `
 
 exports[`Avatar renders the correct size - xl 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": 24,
@@ -359,7 +359,7 @@ exports[`Avatar renders the correct size - xl 1`] = `
 
 exports[`Avatar renders the correct size - xs 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": 24,
@@ -404,7 +404,7 @@ exports[`Avatar renders the correct size - xs 1`] = `
 
 exports[`Avatar renders the correct src 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": "",
@@ -449,7 +449,7 @@ exports[`Avatar renders the correct src 1`] = `
 
 exports[`Avatar renders the verified icon 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": "",
@@ -533,7 +533,7 @@ exports[`Avatar renders the verified icon 1`] = `
 
 exports[`Avatar renders with an empty name shows default icon 1`] = `
 <div
-  className="box circle relative whiteBg"
+  className="box circle relative"
   style={
     Object {
       "height": "",
