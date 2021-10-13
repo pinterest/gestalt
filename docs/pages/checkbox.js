@@ -53,7 +53,7 @@ card(
         type: 'React.Node',
         href: 'images',
         description:
-          'An optional `<Image/>` component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
+          'An optional `Image` component can be supplied to add an image to each checkbox. Spacing is already accounted for; simply specify the width and height.',
       },
       {
         name: 'indeterminate',
@@ -233,7 +233,7 @@ function CheckboxExample() {
           checked={checkedSp}
           id="spanish-info"
           label="Spanish"
-          subtext="Mexico, Columbia, and Spain are the top three Spanish speaking countries"
+          subtext="Mexico, Colombia, and Spain are the top three Spanish-speaking countries"
           name="languages"
           onChange={({ checked }) => {
             setCheckedSp(checked);
@@ -243,7 +243,7 @@ function CheckboxExample() {
           checked={checkedCh}
           id="chinese-info"
           label="Chinese"
-          subtext="Chinese has two varieties: Cantonese and Mandarin"
+          subtext="Chinese has many varieties, including Cantonese and Mandarin"
           name="languages"
           onChange={({ checked }) => {
             setCheckedCh(checked);
@@ -264,33 +264,32 @@ card(
     name="Example: With Images"
     defaultCode={`
 function CheckboxExample() {
-    const [checkedEn, setCheckedEn] = React.useState(false);
-    const [checkedSp, setCheckedSp] = React.useState(false);
-    const [checkedCh, setCheckedCh] = React.useState(false);
+    const [checkedCoral, setCheckedCoral] = React.useState(false);
+    const [checkedBlue, setCheckedBlue] = React.useState(false);
 
   return (
     <Fieldset legend="Which backgrounds would you like to use?" legendDisplay="hidden">
       <Flex direction="column" gap={4}>
         <Checkbox
-          checked={checkedEn}
+          checked={checkedCoral}
           id="coral"
           label="Coral"
           subtext="Botanical art in coral and green"
           image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
-            setCheckedEn(checked);
+            setCheckedCoral(checked);
           }}
         />
         <Checkbox
-          checked={checkedSp}
+          checked={checkedBlue}
           id="blue"
           label="Blue"
           subtext="Typography and shoe in blue"
           image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
-            setCheckedSp(checked);
+            setCheckedBlue(checked);
           }}
         />
       </Flex>
@@ -327,11 +326,11 @@ card(
   <Example
     id="refExample"
     name="Example: ref"
-    description={`The innermost \`Checkbox\` element can be accessed via \`ref\``}
+    description={`The underlying \`input\` element can be accessed via \`ref\`.`}
     defaultCode={`
 function CheckboxExample() {
   const ref = React.useRef();
-  const [label, setLabel] = React.useState("24px Checkbox");
+  const [label, setLabel] = React.useState('24');
   const [size, setSize] = React.useState('md');
   const [switched, setSwitched] = React.useState(false);
 
@@ -353,11 +352,12 @@ function CheckboxExample() {
           />
           <Text>Toggle Checkbox to small size</Text>
         </Flex>
+
       </Label>
         <Checkbox
           id="sizing"
           checked={true}
-          label={label + 'px Checkbox'}
+          label={\`\${label}px Checkbox\`}
           onChange={() => {} }
           value="value"
           ref={ref}
