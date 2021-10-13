@@ -4,13 +4,13 @@ import { Box, Flex, Link, Text } from 'gestalt';
 
 export default function Footer(): Node {
   return (
-    <Box padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
+    <Box color="lightGray" padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
       <Box paddingX={2} paddingY={1}>
         <Flex alignItems="center" gap={4} justifyContent="between">
           <Text>
             Interested in working with Gestalt? Check out our{' '}
             <Link href="https://www.pinterestcareers.com/" inline>
-              Careers page!
+              <Text underline>Careers page!</Text>
             </Link>
           </Text>
 
