@@ -1,3 +1,9 @@
+## 38.0.4 (Oct 14, 2021)
+
+### Patch
+
+- Tooling: new Tooling page (#1725)
+
 ## 38.0.3 (Oct 14, 2021)
 
 ### Patch
