@@ -48,7 +48,7 @@ const MainSectionSubsection = ({
                   inline
                   text={
                     badge === 'beta'
-                      ? 'This tool is on beta. We are still working on it! Have feedback? Reach out to us on Slack #gestalt-web!'
+                      ? 'This tool is in beta. We are still working on it! Have feedback? Reach out to us on Slack #gestalt-web!'
                       : 'This tool is under development. More components will be supported in the future! The team is currently working on it.'
                   }
                 >

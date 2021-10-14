@@ -3,14 +3,28 @@ import { type Node } from 'react';
 import { Box, Button, Flex, Icon, Link, Image, Text, Table, TapArea, Tooltip } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import { MAX_WIDTH } from '../components/MainSectionSubsection.js';
-
+import trackButtonClick from '../components/buttons/trackButtonClick.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
+
+const LockIcon = ({ size }: {| size: 12 | 14 |}) => (
+  <Tooltip text="Access is restricted to Pinterest employees">
+    <TapArea rounding="circle">
+      <Icon accessibilityLabel="" icon="lock" size={size} />{' '}
+    </TapArea>
+  </Tooltip>
+);
 
 const ListElement = ({ text, href }: {| text: string, href: string |}) => (
   <li>
     <Flex alignItems="center" gap={1}>
-      <Link accessibilityLabel={`${text}, opens new window`} target="blank" inline href={href}>
+      <Link
+        accessibilityLabel={`${text}, opens new window`}
+        target="blank"
+        inline
+        href={href}
+        onClick={() => trackButtonClick(text)}
+      >
         <Text underline inline>
           {text}
         </Text>
@@ -18,13 +32,7 @@ const ListElement = ({ text, href }: {| text: string, href: string |}) => (
       <Box aria-hidden>
         <Icon accessibilityLabel="" icon="visit" size={14} />
       </Box>
-      {href.startsWith('http://go') ? (
-        <Tooltip text="This link is private. You must be a Pinterest employee to access it.">
-          <TapArea rounding="circle">
-            <Icon accessibilityLabel="" icon="lock" size={14} />{' '}
-          </TapArea>
-        </Tooltip>
-      ) : null}
+      {href.startsWith('http://go') ? <LockIcon size={14} /> : null}
     </Flex>
   </li>
 );
@@ -42,7 +50,7 @@ const TableEntry = ({
     <Table.Row>
       <Table.Cell>
         <Flex alignItems="center" gap={1}>
-          <Link href={href} target="blank">
+          <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
             <Text size="sm" underline overflow="noWrap">
               {metric}
             </Text>
@@ -50,9 +58,7 @@ const TableEntry = ({
           <Box aria-hidden>
             <Icon accessibilityLabel="" icon="visit" size={12} />
           </Box>
-          <Tooltip text="This link is private. You must be a Pinterest employee to access it.">
-            <Icon accessibilityLabel="" icon="lock" size={12} />
-          </Tooltip>
+          <LockIcon size={12} />
         </Flex>
       </Table.Cell>
       <Table.Cell>
@@ -92,7 +98,7 @@ export default function ToolingPage(): Node {
           description={`
 Gestalt is supported by an ecosystem of tools with the main goal of simplifying processes and automating tasks.
 
-Gestalt's tooling ecosystem has different customers: the Gestalt development team, Pinterest engineers and designers, and non-Pinterest users of Gestalt.
+Gestalt's tooling ecosystem has several customers: the Gestalt development team, Pinterest engineers and designers, and non-Pinterest users of Gestalt.
 
 The Gestalt team can highly benefit from measurement tools that support the communication of Gestalt's impact as well as inform Gestalt development decisions, generic codemods to modify Gestalt components after API changes, and generic scripts to locate Gestalt components in a codebase to simplify component usage analysis.
 
@@ -116,13 +122,14 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
         />
         <MainSection.Subsection
           title="Playground sandbox"
-          description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/k5plvp9v8v) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size code examples to share with peers.`}
+          description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/k5plvp9v8v) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
         >
           <Flex maxWidth={MAX_WIDTH} justifyContent="center">
             <Button
               color="gray"
               target="blank"
               role="link"
+              onClick={() => trackButtonClick('Playground sandbox')}
               text="Create a sandbox snippet"
               href="https://codesandbox.io/s/k5plvp9v8v"
             />
@@ -182,6 +189,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
             <Button
               color="gray"
               target="blank"
+              onClick={() => trackButtonClick('Visual Studio Code extension')}
               role="link"
               text="Install the extension"
               href="https://marketplace.visualstudio.com/items?itemName=pinterest.vscode-gestalt"
@@ -203,6 +211,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <Link
                     inline
+                    onClick={() => trackButtonClick('Gestalt Usage Visualizer')}
                     target="blank"
                     hoverStyle="underline"
                     // eslint-disable-next-line no-script-url
@@ -249,9 +258,9 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
           title="Metric dashboards"
           description={`Monitor Gestalt usage metrics with a full suite of dashboards.
 
-To effectively communicate the impact of Gestalt, we must measure and track adoption. Moreover, the quantitative measurement of adoption becomes an important metric to determine if we're making forward progress towards system usage and reflect a healthy design systems usage.
+To effectively communicate the impact of Gestalt, we measure and track adoption. The quantitative measurement of adoption is an important metric to determine if we're making forward progress towards system usage.
 
-The following table lists the currently available metrics to track Gestalt adoption. Most metrics are in absolute (#) units while just a few are expressed in relative units (%)`}
+The following table lists the currently available metrics to track Gestalt adoption. Most metrics are in absolute (#) units, while a few are expressed in relative units (%)`}
         >
           <Table accessibilityLabel="Gestalt usage metrics">
             <Table.Header>
