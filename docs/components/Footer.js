@@ -8,9 +8,8 @@ export default function Footer(): Node {
       <Box paddingX={2} paddingY={1}>
         <Flex alignItems="center" gap={4} justifyContent="between">
           <Text>
-            Interested in working with Gestalt? Check out our{' '}
-            <Link href="https://www.pinterestcareers.com/" inline>
-              <Text underline>Careers page!</Text>
+            <Link href="https://www.pinterestcareers.com/">
+              Interested in working with Gestalt? Check out our Careers page!
             </Link>
           </Text>
 
