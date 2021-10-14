@@ -2,20 +2,29 @@
 import type { Node } from 'react';
 
 import { Children } from 'react';
-import { Box, Flex, Heading } from 'gestalt';
+import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import slugify from 'slugify';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
 import Markdown from './Markdown.js';
 import { copyToClipboard } from './Card.js';
 
+export const MAX_WIDTH = 572;
+
 type Props = {|
+  badge?: 'beta' | 'alpha',
   children?: Node,
   columns?: 1 | 2,
   description?: string,
   title?: string,
 |};
 
-const MainSectionSubsection = ({ children, columns = 1, description, title }: Props): Node => {
+const MainSectionSubsection = ({
+  badge,
+  children,
+  columns = 1,
+  description,
+  title,
+}: Props): Node => {
   const slugifiedId = slugify(title || '');
   const arrayChildren = Children.toArray(children);
 
@@ -34,6 +43,18 @@ const MainSectionSubsection = ({ children, columns = 1, description, title }: Pr
           >
             <Flex alignItems="center" gap={2}>
               <Heading size="sm">{title}</Heading>
+              {badge ? (
+                <Tooltip
+                  inline
+                  text={
+                    badge === 'beta'
+                      ? 'This tool is in beta. We are still working on it! Have feedback? Reach out to us on Slack #gestalt-web!'
+                      : 'This tool is under development. More components will be supported in the future! The team is currently working on it.'
+                  }
+                >
+                  <Badge text={badge === 'beta' ? 'Beta' : 'Alpha'} position="top" />
+                </Tooltip>
+              ) : null}
               <CopyLinkButton
                 name={title}
                 onClick={() => {
@@ -45,7 +66,7 @@ const MainSectionSubsection = ({ children, columns = 1, description, title }: Pr
         )}
 
         {description && (
-          <Box maxWidth={572} marginTop={title ? 2 : 0} color="white">
+          <Box maxWidth={MAX_WIDTH} marginTop={title ? 2 : 0} color="white">
             <Markdown text={description} />
           </Box>
         )}
