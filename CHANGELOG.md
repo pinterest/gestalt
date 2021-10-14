@@ -1,3 +1,9 @@
+## 38.0.3 (Oct 14, 2021)
+
+### Patch
+
+- Docs: add Careers page link in footer (#1734)
+
 ## 38.0.2 (Oct 8, 2021)
 
 ### Patch
