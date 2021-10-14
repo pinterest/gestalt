@@ -23,7 +23,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
               class=""
             >
               <div
-                class="box circle relative whiteBg"
+                class="box circle relative"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -125,7 +125,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                 class=""
               >
                 <div
-                  class="box circle relative whiteBg"
+                  class="box circle relative"
                   style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
                 >
                   <div
@@ -222,7 +222,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               class=""
             >
               <div
-                class="box circle relative whiteBg"
+                class="box circle relative"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -261,7 +261,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               class=""
             >
               <div
-                class="box circle relative whiteBg"
+                class="box circle relative"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -358,7 +358,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
               class=""
             >
               <div
-                class="box circle relative whiteBg"
+                class="box circle relative"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -431,7 +431,7 @@ exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
                 class=""
               >
                 <div
-                  class="box circle relative whiteBg"
+                  class="box circle relative"
                   style="box-shadow: 0 0 0 1px #fff; width: 100%;"
                 >
                   <div
@@ -488,7 +488,7 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
               class=""
             >
               <div
-                class="box circle relative whiteBg"
+                class="box circle relative"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -544,7 +544,7 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
               class=""
             >
               <div
-                class="box circle relative whiteBg"
+                class="box circle relative"
                 style="box-shadow: 0 0 0 1px #fff; width: 32px; height: 32px;"
               >
                 <div
@@ -600,7 +600,7 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
               class=""
             >
               <div
-                class="box circle relative whiteBg"
+                class="box circle relative"
                 style="box-shadow: 0 0 0 1px #fff; width: 24px; height: 24px;"
               >
                 <div

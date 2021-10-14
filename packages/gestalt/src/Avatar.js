@@ -42,7 +42,6 @@ export default function Avatar(props: Props): Node {
 
   return (
     <Box
-      color="white"
       {...(outline
         ? {
             dangerouslySetInlineStyle: {
