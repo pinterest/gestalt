@@ -1,3 +1,9 @@
+## 38.0.6 (Oct 14, 2021)
+
+### Patch
+
+- Avatar: fix to bug (White bgcolor on Avatar component looks bad on dark backgrounds)  (#1736)
+
 ## 38.0.5 (Oct 14, 2021)
 
 ### Patch
