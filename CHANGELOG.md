@@ -1,3 +1,9 @@
+## 38.0.7 (Oct 15, 2021)
+
+### Patch
+
+- Iconography: fix source link (#1740)
+
 ## 38.0.6 (Oct 14, 2021)
 
 ### Patch
