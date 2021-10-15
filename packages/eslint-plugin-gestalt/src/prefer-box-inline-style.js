@@ -13,7 +13,7 @@ import {
   validateBorderRadius,
 } from './helpers/styleValidators.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import { generateDefaultMessage } from './helpers/styleHelpers.js';
+import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;

@@ -16,35 +16,20 @@ import {
   validateBoxShadow,
   validateFlex,
 } from './styleValidators.js';
-
-// $FlowFixMe[unclear-type]\
-type GenericType = any;
-
-type GenericNode = GenericType;
-
-type MatchKeyErrorsAccType = $ReadOnlyArray<{|
-  node: GenericNode,
-  prop?: ?string | number,
-  message: ?string | number,
-|}>;
-
-type MatchKeyErrorsType = (
-  MatchKeyErrorsAccType,
-  { [string]: GenericType },
-) => MatchKeyErrorsAccType;
-
-type GenerateDefaultMessageType = (?string | number) => ?string;
+import {
+  type MatchKeyErrorsType,
+  type GenerateDefaultMessageType,
+  type ReducerType,
+} from './reducerTypes.js';
 
 /** This function returns the default messages for all change suggestions
  */
 const generateDefaultMessage: GenerateDefaultMessageType = (prop) =>
   prop ? `  Use prop \`${prop}\` instead` : '';
 
-type GetMatchKeyErrorsReducerType = ({| context: GenericNode |}) => MatchKeyErrorsType;
-
-/** This function is a reducer for buildValidatorResponsesFromStyleProperties
+/** This function is a reducer
  */
-const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => {
+const noBoxDangerousStyleDuplicatesReducer: ReducerType = ({ context }) => {
   // This function is returned at the end with context in scope
   const matchKeyErrors: MatchKeyErrorsType = (accumulatorAlternatives, { name, node, value }) => {
     const accumulatorAlternativesBuilder = [...accumulatorAlternatives];
@@ -63,7 +48,7 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
     // This function is guard clause for those opt-out props from Eslint configuration
     function includeKey(keyName) {
       const { onlyKeys } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
-      return !onlyKeys || onlyKeys.includes(keyName);
+      return !onlyKeys || onlyKeys.includes(keyName); // replacer function p1 returns the match between '()' in the RegExp
     }
 
     if (includeKey(name)) {
@@ -308,24 +293,4 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
   return matchKeyErrors;
 };
 
-type BuildValidatorResponseFromStylePropertiesType = ({|
-  context: GenericNode,
-  styleProperties: GenericNode,
-|}) => $ReadOnlyArray<{| node: GenericNode, prop?: ?string | number, message: string | number |}>;
-
-/** This function returns ...
- */
-const buildValidatorResponsesFromStyleProperties: BuildValidatorResponseFromStylePropertiesType = ({
-  context,
-  styleProperties,
-}) =>
-  styleProperties
-    .map((stylePropertyNode) => {
-      const { key, type, value } = stylePropertyNode;
-      return !key || value.value === undefined
-        ? { name: type, value: null, node: stylePropertyNode }
-        : { name: key.name, value: value.value, node: stylePropertyNode };
-    })
-    .reduce(getMatchKeyErrorsReducer({ context }), []);
-
-export { buildValidatorResponsesFromStyleProperties, generateDefaultMessage };
+export { noBoxDangerousStyleDuplicatesReducer, generateDefaultMessage };
