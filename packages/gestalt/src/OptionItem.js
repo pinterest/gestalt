@@ -42,6 +42,7 @@ type Props = {|
   setHoveredItemIndex: (number) => void,
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
+  dataTestId?: string,
 |};
 
 const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
@@ -64,6 +65,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     setHoveredItemIndex,
     shouldTruncate = false,
     textWeight = 'normal',
+    dataTestId,
   } = props;
 
   const matches = (Array.isArray(selected) ? selected : []).filter(
@@ -163,6 +165,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       role={role}
       rounding={2}
       tabIndex={-1}
+      data-test-id={dataTestId}
     >
       <Box
         color={index === hoveredItemIndex ? 'lightGray' : 'transparent'}

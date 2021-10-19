@@ -12,6 +12,7 @@ type PublicProps = {|
   |}) => void,
   option: OptionItemType,
   selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
+  dataTestId?: string,
 |};
 
 type PrivateProps = {|
@@ -30,6 +31,7 @@ export default function DropdownItem({
   badgeText,
   children,
   onSelect,
+  dataTestId,
   index = 0,
   option,
   selected,
@@ -51,6 +53,7 @@ export default function DropdownItem({
           setHoveredItemIndex={setHoveredItem}
           shouldTruncate
           textWeight="bold"
+          dataTestId={dataTestId}
         >
           {children}
         </OptionItem>
