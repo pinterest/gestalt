@@ -1,3 +1,9 @@
+## 38.0.8 (Oct 20, 2021)
+
+### Patch
+
+- Docs: fix header height on SSR (#1745)
+
 ## 38.0.7 (Oct 15, 2021)
 
 ### Patch
