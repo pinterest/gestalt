@@ -33,13 +33,13 @@ export default function Datapoint({
   trendSentiment = 'auto',
   value,
 }: Props): Node {
-  const valueSize = size === 'lg' ? 'lg' : 'sm';
+  const valueSize = size === 'lg' ? 'md' : 'sm';
   const percentChangeGap = size === 'lg' ? 4 : 2;
 
   return (
     <Flex gap={1} direction="column">
       <Flex gap={1} alignItems="center" minHeight={24}>
-        <Text size="sm">{title}</Text>
+        <Text size="md">{title}</Text>
         {tooltipText && (
           <Tooltip text={tooltipText} idealDirection="up">
             {/* Interactive elements require an a11yLabel on them or their children. In this particular case,
