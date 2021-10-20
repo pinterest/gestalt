@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useEffect, type Node } from 'react';
-import { Box, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
+import { type Node, useCallback, useEffect, useState } from 'react';
+import { Box, Flex, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import HeaderMenu from './HeaderMenu.js';
 import Link from './Link.js';
@@ -22,32 +22,22 @@ function Header() {
       role="banner"
     >
       <Box marginStart={-2} marginEnd={-2}>
-        <Text color="white" weight="bold">
-          <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
-            <Box padding={2}>
-              <Box
-                display="flex"
-                direction="row"
-                alignItems="center"
-                marginStart={-1}
-                marginEnd={-1}
-              >
-                <Box paddingX={1}>
-                  <Icon
-                    icon="pinterest"
-                    color="white"
-                    size={24}
-                    accessibilityLabel="Pinterest Logo"
-                  />
-                </Box>
-                <Box paddingX={1}>Gestalt</Box>
-              </Box>
-            </Box>
-          </Link>
-        </Text>
+        <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
+          <Box padding={2}>
+            <Flex alignItems="center" gap={2}>
+              <Icon icon="pinterest" color="white" size={24} accessibilityLabel="Pinterest Logo" />
+              <Text color="white" weight="bold">
+                Gestalt
+              </Text>
+            </Flex>
+          </Box>
+        </Link>
       </Box>
+
+      {/* Spacer element */}
       <Box flex="grow" />
-      <Box display="flex" alignItems="center">
+
+      <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
         <DocSearch />
         <HeaderMenu isHeader />
         <Box display="flex" mdDisplay="none" alignItems="center">
@@ -67,18 +57,25 @@ function Header() {
   );
 }
 
+const isReducedHeight = () => typeof window !== 'undefined' && window.innerHeight < 709;
+
 export default function StickyHeader(): Node {
-  const isReducedHeight = () => typeof window !== 'undefined' && window.innerHeight < 709;
-  const [reducedHeight, setReducedHeight] = useState(isReducedHeight());
+  const [reducedHeight, setReducedHeight] = useState(false);
+
+  const handleResizeHeight = useCallback(() => {
+    if (isReducedHeight() !== reducedHeight) {
+      setReducedHeight(isReducedHeight());
+    }
+  }, [reducedHeight]);
 
   useEffect(() => {
-    function handleResizeHeight() {
-      if (isReducedHeight() !== reducedHeight) {
-        setReducedHeight(isReducedHeight());
-      }
-    }
+    // Within a useEffect to ensure this only runs on the client, avoiding hydration mismatches
+    handleResizeHeight();
     window.addEventListener('resize', handleResizeHeight);
-  });
+    return () => {
+      window.removeEventListener('resize', handleResizeHeight);
+    };
+  }, [handleResizeHeight]);
 
   return reducedHeight ? (
     <Header />
