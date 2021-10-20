@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, useEffect, type Node } from 'react';
+import { type Node, useCallback, useEffect, useState } from 'react';
 import { Box, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import HeaderMenu from './HeaderMenu.js';
@@ -67,18 +67,24 @@ function Header() {
   );
 }
 
+const isReducedHeight = () => typeof window !== 'undefined' && window.innerHeight < 709;
+
 export default function StickyHeader(): Node {
-  const isReducedHeight = () => typeof window !== 'undefined' && window.innerHeight < 709;
-  const [reducedHeight, setReducedHeight] = useState(isReducedHeight());
+  const [reducedHeight, setReducedHeight] = useState(false);
+
+  const handleResizeHeight = useCallback(() => {
+    if (isReducedHeight() !== reducedHeight) {
+      setReducedHeight(isReducedHeight());
+    }
+  }, [reducedHeight]);
 
   useEffect(() => {
-    function handleResizeHeight() {
-      if (isReducedHeight() !== reducedHeight) {
-        setReducedHeight(isReducedHeight());
-      }
-    }
+    handleResizeHeight();
     window.addEventListener('resize', handleResizeHeight);
-  });
+    return () => {
+      window.removeEventListener('resize', handleResizeHeight);
+    };
+  }, [handleResizeHeight]);
 
   return reducedHeight ? (
     <Header />
