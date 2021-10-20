@@ -22,16 +22,22 @@ function Header() {
       role="banner"
     >
       <Box marginStart={-2} marginEnd={-2}>
-        <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
-          <Box padding={2}>
-            <Flex alignItems="center" gap={2}>
-              <Icon icon="pinterest" color="white" size={24} accessibilityLabel="Pinterest Logo" />
-              <Text color="white" weight="bold">
+        {/* <Text> is out here to get proper underline styles on link */}
+        <Text color="white" weight="bold">
+          <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
+            <Box padding={2}>
+              <Flex alignItems="center" gap={2}>
+                <Icon
+                  icon="pinterest"
+                  color="white"
+                  size={24}
+                  accessibilityLabel="Pinterest Logo"
+                />
                 Gestalt
-              </Text>
-            </Flex>
-          </Box>
-        </Link>
+              </Flex>
+            </Box>
+          </Link>
+        </Text>
       </Box>
 
       {/* Spacer element */}
