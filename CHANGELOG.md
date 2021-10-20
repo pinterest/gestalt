@@ -1,3 +1,9 @@
+## 38.0.10 (Oct 20, 2021)
+
+### Patch
+
+- Docs: fix home link styling in header (#1748)
+
 ## 38.0.9 (Oct 20, 2021)
 
 ### Patch
