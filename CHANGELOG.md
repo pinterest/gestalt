@@ -1,3 +1,9 @@
+## 38.0.9 (Oct 20, 2021)
+
+### Patch
+
+- Tag: add visual diff testing (#1747)
+
 ## 38.0.8 (Oct 20, 2021)
 
 ### Patch
