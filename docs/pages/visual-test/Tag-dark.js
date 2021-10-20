@@ -4,7 +4,7 @@ import { ColorSchemeProvider, Flex, Tag } from 'gestalt';
 
 export default function TagSpec(): Node {
   return (
-    <ColorSchemeProvider colorScheme="light">
+    <ColorSchemeProvider colorScheme="dark">
       <Flex direction="column" gap={2}>
         <Tag onRemove={() => {}} removeIconAccessibilityLabel="Remove" text="New" />
         <Tag disabled text="Disabled" />
