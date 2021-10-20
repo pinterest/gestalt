@@ -34,6 +34,7 @@ function Header() {
         </Link>
       </Box>
 
+      {/* Spacer element */}
       <Box flex="grow" />
 
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
