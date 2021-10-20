@@ -1,3 +1,9 @@
+## 38.0.11 (Oct 20, 2021)
+
+### Patch
+
+- PageHeader: generated docs, add note about padding (#1749)
+
 ## 38.0.10 (Oct 20, 2021)
 
 ### Patch
