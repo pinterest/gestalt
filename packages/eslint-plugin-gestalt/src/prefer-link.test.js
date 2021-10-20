@@ -21,7 +21,7 @@ const buildInvalidTestNoDisallowed = (name) =>
 const invalidImportInput = buildInvalidTestNoDisallowed('no-gestalt-import-input');
 const invalidImportOutput = buildInvalidTestNoDisallowed('no-gestalt-import-output');
 
-const errorMessageNoDisallowed = `Use <Link href="">Text</Link>.`;
+const errorMessageNoDisallowed = `Use Link from Gestalt: <Link href="">Text</Link>.`;
 
 ruleTester.run('prefer-link', rule, {
   valid: [{ code: validCode }],

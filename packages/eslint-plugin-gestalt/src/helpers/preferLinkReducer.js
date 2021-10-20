@@ -1,14 +1,13 @@
 // @flow strict
-import { type MatchKeyErrorsType, type ReducerType } from './reducerTypes.js';
+import { type BuildReducerType, type ReducerType } from './reducerTypes.js';
 import { getTextNodeFromSourceCode } from './eslintASTHelpers.js';
 
-/** This function is a reducer
- */
-const preferLinkReducer: ReducerType = ({ context }) => {
+const buildPreferLinkReducer: BuildReducerType = ({ context }) => {
   // This function is returned at the end with context in scope
-  const matchKeyErrors: MatchKeyErrorsType = (accumulatorAlternatives, { name, node, value }) => {
+  const preferLinkReducer: ReducerType = (accumulatorAlternatives, { name, node, value }) => {
     const accumulatorAlternativesBuilder = [...accumulatorAlternatives];
     // This function manages all suggested alternatives, if existing
+
     const handleAlternative = ({ alternative }) => {
       if (alternative) {
         accumulatorAlternativesBuilder.push({
@@ -78,7 +77,7 @@ const preferLinkReducer: ReducerType = ({ context }) => {
     return accumulatorAlternativesBuilder.filter(Boolean);
   };
 
-  return matchKeyErrors;
+  return preferLinkReducer;
 };
 
-export default preferLinkReducer;
+export default buildPreferLinkReducer;

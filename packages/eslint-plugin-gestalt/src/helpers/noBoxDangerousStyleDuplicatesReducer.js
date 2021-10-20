@@ -17,9 +17,9 @@ import {
   validateFlex,
 } from './styleValidators.js';
 import {
-  type MatchKeyErrorsType,
-  type GenerateDefaultMessageType,
   type ReducerType,
+  type GenerateDefaultMessageType,
+  type BuildReducerType,
 } from './reducerTypes.js';
 
 /** This function returns the default messages for all change suggestions
@@ -27,11 +27,12 @@ import {
 const generateDefaultMessage: GenerateDefaultMessageType = (prop) =>
   prop ? `  Use prop \`${prop}\` instead` : '';
 
-/** This function is a reducer
- */
-const noBoxDangerousStyleDuplicatesReducer: ReducerType = ({ context }) => {
+const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }) => {
   // This function is returned at the end with context in scope
-  const matchKeyErrors: MatchKeyErrorsType = (accumulatorAlternatives, { name, node, value }) => {
+  const noBoxDangerousStyleDuplicatesReducer: ReducerType = (
+    accumulatorAlternatives,
+    { name, node, value },
+  ) => {
     const accumulatorAlternativesBuilder = [...accumulatorAlternatives];
 
     // This function manages all suggested alternatives, if existing
@@ -48,7 +49,7 @@ const noBoxDangerousStyleDuplicatesReducer: ReducerType = ({ context }) => {
     // This function is guard clause for those opt-out props from Eslint configuration
     function includeKey(keyName) {
       const { onlyKeys } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
-      return !onlyKeys || onlyKeys.includes(keyName); // replacer function p1 returns the match between '()' in the RegExp
+      return !onlyKeys || onlyKeys.includes(keyName);
     }
 
     if (includeKey(name)) {
@@ -290,7 +291,7 @@ const noBoxDangerousStyleDuplicatesReducer: ReducerType = ({ context }) => {
     return accumulatorAlternativesBuilder.filter((x) => x);
   };
 
-  return matchKeyErrors;
+  return noBoxDangerousStyleDuplicatesReducer;
 };
 
-export { noBoxDangerousStyleDuplicatesReducer, generateDefaultMessage };
+export { buildNoBoxDangerousStyleDuplicatesReducer, generateDefaultMessage };

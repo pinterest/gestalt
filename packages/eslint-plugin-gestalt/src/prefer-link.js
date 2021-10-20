@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prefer Link: prevent <a> tags that don't contain unsupported attributes in Gestalt Link
+ * @fileoverview Prefer Link: Prevent anchor tags that only contain attributes matching supported props in Gestalt Link
  */
 
 // @flow strict
@@ -11,7 +11,7 @@ import {
   hasAttributes,
   hasDataAttributes,
   hasImport,
-  hasSupportedAttributes,
+  hasUnsupportedAttributes,
   hasSpreadAttributes,
   isTag,
 } from './helpers/eslintASTHelpers.js';
@@ -24,7 +24,7 @@ const rule: ESLintRule = {
     type: 'suggestion',
     docs: {
       description:
-        "Prefer Link: prevent <a> tags that don't contain unsupported attributes in Gestalt Link. Use Gestalt Link, instead",
+        'Prefer Link: Prevent anchor tags that only contain attributes matching supported props in Gestalt Link. Use Gestalt Link, instead',
       category: 'Gestalt alternatives',
       recommended: true,
       url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-link',
@@ -47,7 +47,7 @@ const rule: ESLintRule = {
       },
     ],
     messages: {
-      errorMessage: `Use <Link href="">Text</Link>.`,
+      errorMessage: `Use Link from Gestalt: <Link href="">Text</Link>.`,
     },
   },
 
@@ -102,7 +102,7 @@ const rule: ESLintRule = {
           tagName: 'a',
           attributes: boxDisallowedAttributes,
         }) ||
-        hasSupportedAttributes({
+        hasUnsupportedAttributes({
           elementNode: node.openingElement,
           tagName: 'a',
           supportedAttributes: supportedLinkAttributes,
@@ -126,7 +126,7 @@ const rule: ESLintRule = {
           elementNode: node.openingElement,
           nodeType: 'openingElementNode',
         }),
-        reducer: preferLinkReducer,
+        reducerCallbackFn: preferLinkReducer,
       });
 
       // exit if there are not prop alternatives to suggest/autofix

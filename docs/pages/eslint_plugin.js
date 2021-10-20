@@ -68,7 +68,7 @@ With AUTOFIX!
     />
     <MainSection.Subsection
       title="gestalt/prefer-link"
-      description={`Prevent <a> tags that don't contain unsupported attributes in Gestalt Link. Use Gestalt Link, instead.
+      description={`Prevent anchor tags that only contain attributes matching supported props in Gestalt Link.
 
 [Read more about Link](/Link).
 

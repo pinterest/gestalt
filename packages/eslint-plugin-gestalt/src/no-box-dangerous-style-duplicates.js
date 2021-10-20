@@ -19,7 +19,7 @@ import {
   getVariableDefinedStyles,
   getVariableNodeInScopeFromName,
 } from './helpers/eslintASTHelpers.js';
-import { noBoxDangerousStyleDuplicatesReducer } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
+import { buildNoBoxDangerousStyleDuplicatesReducer } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
@@ -140,7 +140,7 @@ const rule: ESLintRule = {
           elementNode: styleProperties,
           nodeType: 'styleProperties',
         }),
-        reducer: noBoxDangerousStyleDuplicatesReducer,
+        reducerCallbackFn: buildNoBoxDangerousStyleDuplicatesReducer,
       });
 
       // exit if there are not style properties alternatives to suggest/autofix

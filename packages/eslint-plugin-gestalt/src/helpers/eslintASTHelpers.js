@@ -2,8 +2,8 @@
 import {
   type GenericNode,
   type GenericType,
-  type MatchKeyErrorsType,
-  type MatchKeyErrorsAccType,
+  type ReducerType,
+  type ReducerAccType,
 } from './reducerTypes.js';
 
 /** =================  HELPERS =================
@@ -386,7 +386,7 @@ type HasSupportedAttributesType = ({|
 Example 1:
 \<div aria-label="test" \/\> returns true
 */
-const hasSupportedAttributes: HasSupportedAttributesType = ({
+const hasUnsupportedAttributes: HasSupportedAttributesType = ({
   elementNode,
   tagName,
   supportedAttributes,
@@ -485,17 +485,17 @@ const buildKeyValueTypeArray: BuildKeyValueTypeArrayType = ({ elementNode, nodeT
 type BuildValidatorResponseFromPropertiesType = ({|
   context: GenericNode,
   keyValueTypeArray: KeyValueTypeArrayType,
-  reducer: ({| context: GenericNode |}) => MatchKeyErrorsType,
-|}) => MatchKeyErrorsAccType;
+  reducerCallbackFn: ({| context: GenericNode |}) => ReducerType,
+|}) => ReducerAccType;
 
 /** This function returns props fixes and the associated messages
  */
 const buildValidatorResponsesFromProperties: BuildValidatorResponseFromPropertiesType = ({
   context,
   keyValueTypeArray,
-  reducer,
+  reducerCallbackFn,
 }) => {
-  return keyValueTypeArray.reduce(reducer({ context }), []);
+  return keyValueTypeArray.reduce(reducerCallbackFn({ context }), []);
 };
 
 // This export acts as an index of all helper functions for quick reference of helpers available
@@ -523,7 +523,7 @@ export {
   hasAttributes,
   hasDataAttributes,
   hasImport,
-  hasSupportedAttributes,
+  hasUnsupportedAttributes,
   hasLonelyAttribute,
   hasSpreadAttributes,
   isGestaltComponent,
