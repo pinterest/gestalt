@@ -11,11 +11,26 @@ import Text from './Text.js';
 import { type Dimension } from './boxTypes.js';
 
 type Props = {|
-  title: string,
+  /**
+   * Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`. See the [max width](https://gestalt.pinterest.systems/pageheader#Max-width) variant for more info.
+   */
   maxWidth?: Dimension,
+  /**
+   * The primary action of the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
+   */
   primaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
+  /**
+   * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
+   */
   secondaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
+  /**
+   * Used for metadata related to the current page, not designed to describe the title or the current surface. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization).
+   */
   subtext?: string,
+  /**
+   * Page title. Will always be a level 1 heading. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization).
+   */
+  title: string,
 |};
 
 /**
@@ -42,6 +57,7 @@ export default function PageHeader({
               </Box>
             )}
           </Box>
+
           {primaryAction && (
             <Flex alignItems="center" gap={2} flex="none">
               {secondaryAction}

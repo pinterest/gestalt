@@ -138,10 +138,11 @@ html[dir="rtl"] .Markdown ul + pre {
     Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
   height: 32px;
+  max-width: 200px;
+  min-width: 100px;
   position: relative;
   visibility: visible;
   white-space: nowrap;
-  width: 200px;
 }
 
 .searchbox .algolia-autocomplete {

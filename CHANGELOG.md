@@ -1,3 +1,33 @@
+## 38.0.11 (Oct 20, 2021)
+
+### Patch
+
+- PageHeader: generated docs, add note about padding (#1749)
+
+## 38.0.10 (Oct 20, 2021)
+
+### Patch
+
+- Docs: fix home link styling in header (#1748)
+
+## 38.0.9 (Oct 20, 2021)
+
+### Patch
+
+- Tag: add visual diff testing (#1747)
+
+## 38.0.8 (Oct 20, 2021)
+
+### Patch
+
+- Docs: fix header height on SSR (#1745)
+
+## 38.0.7 (Oct 15, 2021)
+
+### Patch
+
+- Iconography: fix source link (#1740)
+
 ## 38.0.6 (Oct 14, 2021)
 
 ### Patch

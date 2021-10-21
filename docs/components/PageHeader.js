@@ -6,32 +6,43 @@ import MainSection from './MainSection.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
 type Props = {|
-  name: string,
-  description?: string,
   badge?: 'pilot' | 'deprecated',
-  fileName?: string, // only use if name !== file name
-  showSourceLink?: boolean,
   defaultCode?: string,
+  description?: string,
+  fileName?: string, // only use if name !== file name
+  folderName?: string, // only use if name !== file name and the link should point to a directory
+  name: string,
   shadedCodeExample?: boolean,
+  showSourceLink?: boolean,
 |};
 
-const gestaltPath = (component) => {
-  const packageName = component === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
-  return `packages/${packageName}/src/${component}.js`;
+const buildSourceLinkPath = (componentName) => {
+  const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
+  return `packages/${packageName}/src/${componentName}.js`;
 };
 
-const githubUrl = (component) =>
-  ['https://github.com/pinterest/gestalt/blob/master', gestaltPath(component)].join('/');
+const buildSourceLinkUrl = (componentName) =>
+  ['https://github.com/pinterest/gestalt/blob/master', buildSourceLinkPath(componentName)].join(
+    '/',
+  );
 
-export default function ComponentHeader({
+export default function PageHeader({
   badge,
-  name,
+  defaultCode,
   description = '',
   fileName,
-  showSourceLink = true,
-  defaultCode,
+  folderName,
+  name,
   shadedCodeExample,
+  showSourceLink = true,
 }: Props): Node {
+  const sourcePathName = folderName ?? fileName ?? name;
+  let sourceLink = buildSourceLinkUrl(sourcePathName);
+  if (folderName) {
+    // Strip the file extension if linking to a folder
+    sourceLink = sourceLink.replace(/\.js$/, '');
+  }
+
   return (
     <Box
       marginBottom={defaultCode ? 0 : 12}
@@ -59,10 +70,11 @@ export default function ComponentHeader({
               </Tooltip>
             ) : null}
           </Heading>
+
           {showSourceLink && (
             <a
-              href={githubUrl(fileName ?? name)}
-              onClick={() => trackButtonClick('View source on GitHub', fileName ?? name)}
+              href={sourceLink}
+              onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
               target="blank"
             >
               <Text underline>View source on GitHub</Text>
@@ -70,7 +82,9 @@ export default function ComponentHeader({
           )}
         </Flex>
       </Box>
+
       {description && <Markdown text={description} />}
+
       {defaultCode && (
         <Box marginTop={8}>
           <MainSection.Card
