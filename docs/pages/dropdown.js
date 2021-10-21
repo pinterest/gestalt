@@ -147,6 +147,11 @@ const commonDropdownItemProps = [
       "When supplied, will display a [Badge](/Badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
   },
   {
+    name: 'dataTestId',
+    type: 'string',
+    description: 'When supplied, will add a data-testid prop to the dom element.',
+  },
+  {
     name: 'children',
     type: 'React.Node',
     description:

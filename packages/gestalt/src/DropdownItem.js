@@ -6,13 +6,13 @@ import { DropdownContextConsumer } from './DropdownContext.js';
 type PublicProps = {|
   badgeText?: string,
   children?: Node,
+  dataTestId?: string,
   onSelect: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     item: OptionItemType,
   |}) => void,
   option: OptionItemType,
   selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
-  dataTestId?: string,
 |};
 
 type PrivateProps = {|
@@ -30,9 +30,9 @@ type Props = {|
 export default function DropdownItem({
   badgeText,
   children,
-  onSelect,
   dataTestId,
   index = 0,
+  onSelect,
   option,
   selected,
 }: Props): Node {
@@ -41,6 +41,7 @@ export default function DropdownItem({
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <OptionItem
           badgeText={badgeText}
+          dataTestId={dataTestId}
           hoveredItemIndex={hoveredItem}
           id={id}
           index={index}
@@ -53,7 +54,6 @@ export default function DropdownItem({
           setHoveredItemIndex={setHoveredItem}
           shouldTruncate
           textWeight="bold"
-          dataTestId={dataTestId}
         >
           {children}
         </OptionItem>

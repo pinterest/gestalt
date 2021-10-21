@@ -23,6 +23,7 @@ export type OptionItemType = {|
 type Props = {|
   badgeText?: string,
   children?: Node,
+  dataTestId?: string,
   hoveredItemIndex: ?number,
   href?: string,
   id: string,
@@ -42,7 +43,6 @@ type Props = {|
   setHoveredItemIndex: (number) => void,
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
-  dataTestId?: string,
 |};
 
 const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
@@ -52,6 +52,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
   const {
     badgeText,
     children,
+    dataTestId,
     onSelect,
     hoveredItemIndex,
     href,
@@ -65,7 +66,6 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     setHoveredItemIndex,
     shouldTruncate = false,
     textWeight = 'normal',
-    dataTestId,
   } = props;
 
   const matches = (Array.isArray(selected) ? selected : []).filter(
@@ -152,6 +152,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     <div
       aria-selected={isSelectedItem}
       className={className}
+      data-testid={dataTestId}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
       onKeyPress={(event) => {
@@ -165,7 +166,6 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       role={role}
       rounding={2}
       tabIndex={-1}
-      data-test-id={dataTestId}
     >
       <Box
         color={index === hoveredItemIndex ? 'lightGray' : 'transparent'}
