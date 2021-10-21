@@ -66,6 +66,15 @@ With AUTOFIX!
         [Read more about the as prop in Box](/Box#Using-'as'-property).
       `}
     />
+    <MainSection.Subsection
+      title="gestalt/prefer-link"
+      description={`Prevent anchor tags that only contain attributes matching supported props in Gestalt Link.
+
+[Read more about Link](/Link).
+
+With AUTOFIX!
+      `}
+    />
   </MainSection>,
 );
 
@@ -124,6 +133,15 @@ card(
         Instead, write the component's props out.
 
         With AUTOFIX!
+      `}
+    />
+    <MainSection.Subsection
+      title="gestalt/prefer-flex"
+      description={`Prevent \`Box\` usages in those cases where they can be replaced with \`Flex\`.
+
+[Read more about Flex](/Flex).
+
+With AUTOFIX!
       `}
     />
     <MainSection.Subsection

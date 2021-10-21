@@ -8,7 +8,9 @@
 
 // @flow strict
 import {
+  buildKeyValueTypeArray,
   buildProps,
+  buildValidatorResponsesFromProperties,
   hasImport,
   isGestaltComponent,
   getNodeFromPropName,
@@ -17,8 +19,8 @@ import {
   getVariableDefinedStyles,
   getVariableNodeInScopeFromName,
 } from './helpers/eslintASTHelpers.js';
+import { buildNoBoxDangerousStyleDuplicatesReducer } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
-import { buildValidatorResponsesFromStyleProperties } from './helpers/styleHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const rule: ESLintRule = {
@@ -132,9 +134,13 @@ const rule: ESLintRule = {
       if (!styleProperties) return null;
 
       // Check if there are Gestalt alternatives to the style properties to suggest/autofix
-      const validatorResponse = buildValidatorResponsesFromStyleProperties({
+      const validatorResponse = buildValidatorResponsesFromProperties({
         context,
-        styleProperties,
+        keyValueTypeArray: buildKeyValueTypeArray({
+          elementNode: styleProperties,
+          nodeType: 'styleProperties',
+        }),
+        reducerCallbackFn: buildNoBoxDangerousStyleDuplicatesReducer,
       });
 
       // exit if there are not style properties alternatives to suggest/autofix

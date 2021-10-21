@@ -1,16 +1,17 @@
 // @flow strict
-
-// $FlowFixMe[unclear-type]
-type GenericNode = {| [string]: any |};
-// $FlowFixMe[unclear-type]
-type AnyType = any;
+import {
+  type GenericNode,
+  type GenericType,
+  type ReducerType,
+  type ReducerAccType,
+} from './reducerTypes.js';
 
 /** =================  HELPERS =================
  */
 
 type GetPropertiesFromVariableType = ({|
   variableNode: GenericNode,
-|}) => AnyType;
+|}) => GenericType;
 
 /** This function returns the properties from a variable in scope
 Example 1:
@@ -74,7 +75,7 @@ type GetNodeFromPropNameType = ({|
   propName: string,
 |}) => GenericNode;
 
-/** This function returns the attribute node within a component node (elementNode)  if names (propName) match.
+/** This function returns the attribute node within a component node (elementNode) if names (propName) match.
  */
 const getNodeFromPropName: GetNodeFromPropNameType = ({ elementNode, propName }) =>
   getOpeningElement({ elementNode })?.attributes?.find((prop) => prop?.name?.name === propName);
@@ -360,16 +361,56 @@ const hasAttributes: HasAttributesType = ({ elementNode, tagName, attributes }) 
 
 type HasAriaAttributesType = ({|
   elementNode: GenericNode,
+  ignoreAttributes?: $ReadOnlyArray<string>,
   tagName: string,
 |}) => boolean;
 
-/** This function checks if a given tag (tagName) in a node (elementNode) contains an ARIA attribute (attribute), and returns true if so.
+/** This function checks if a given tag (tagName) in a node (elementNode) contains an ARIA attribute, and returns true if so. Pass ignoreAttributes if not all aria attributes should be considered.
 Example 1:
 \<div aria-label="test" \/\> returns true
 */
-const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, tagName }) =>
+const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, ignoreAttributes, tagName }) =>
   isTag({ elementNode, tagName }) &&
-  elementNode?.attributes.some((nodeAttribute) => nodeAttribute?.name?.name.startsWith('aria-'));
+  elementNode?.attributes.some((nodeAttribute) => {
+    const attributeName = nodeAttribute?.name?.name;
+    return !ignoreAttributes?.includes(attributeName) && attributeName.startsWith('aria-');
+  });
+
+type HasSupportedAttributesType = ({|
+  elementNode: GenericNode,
+  tagName: string,
+  supportedAttributes: $ReadOnlyArray<string>,
+|}) => boolean;
+
+/** This function checks if a given tag (tagName) in a node (elementNode) contains attribute that are not supported by the Gestalt alternative (supportedAttributes), and returns true if so.
+Example 1:
+\<div aria-label="test" \/\> returns true
+*/
+const hasUnsupportedAttributes: HasSupportedAttributesType = ({
+  elementNode,
+  tagName,
+  supportedAttributes,
+}) => {
+  return (
+    isTag({ elementNode, tagName }) &&
+    elementNode?.attributes.some((nodeAttribute) => {
+      return !supportedAttributes.includes(nodeAttribute?.name?.name);
+    })
+  );
+};
+
+type HasDataAttributesType = ({|
+  elementNode: GenericNode,
+  tagName: string,
+|}) => boolean;
+
+/** This function checks if a given tag (tagName) in a node (elementNode) contains an data-* attribute (attribute), and returns true if so.
+Example 1:
+\<div data-test-id="test" \/\> returns true
+*/
+const hasDataAttributes: HasDataAttributesType = ({ elementNode, tagName }) =>
+  isTag({ elementNode, tagName }) &&
+  elementNode?.attributes.some((nodeAttribute) => nodeAttribute?.name?.name.startsWith('data-'));
 
 type GetLocalComponentImportNameType = ({|
   importNode: GenericNode,
@@ -410,12 +451,61 @@ const isGestaltComponent: IsGestaltComponentType = ({
   return importedBoxName === elementNode.name.name;
 };
 
+type KeyValueTypeArrayType = $ReadOnlyArray<{|
+  name: ?string,
+  value?: ?string | number,
+  node: GenericNode,
+|}>;
+
+type BuildKeyValueTypeArrayType = ({|
+  elementNode: GenericNode,
+  nodeType: 'openingElementNode' | 'styleProperties',
+|}) => KeyValueTypeArrayType;
+
+/** This function stores attributes/properties into an array store
+ */
+const buildKeyValueTypeArray: BuildKeyValueTypeArrayType = ({ elementNode, nodeType }) => {
+  if (nodeType === 'styleProperties') {
+    return elementNode.map((stylePropertyNode) => {
+      const { key, type, value } = stylePropertyNode;
+      return !key || value.value === undefined
+        ? { name: type, value: null, node: stylePropertyNode }
+        : { name: key.name, value: value.value, node: stylePropertyNode };
+    });
+  }
+  if (nodeType === 'openingElementNode') {
+    return elementNode.attributes.map((propertyNode) => {
+      const { name, value } = propertyNode;
+      return { name: name.name, value: value.value, node: propertyNode };
+    });
+  }
+  return [{ name: undefined, value: undefined, node: undefined }];
+};
+
+type BuildValidatorResponseFromPropertiesType = ({|
+  context: GenericNode,
+  keyValueTypeArray: KeyValueTypeArrayType,
+  reducerCallbackFn: ({| context: GenericNode |}) => ReducerType,
+|}) => ReducerAccType;
+
+/** This function returns props fixes and the associated messages
+ */
+const buildValidatorResponsesFromProperties: BuildValidatorResponseFromPropertiesType = ({
+  context,
+  keyValueTypeArray,
+  reducerCallbackFn,
+}) => {
+  return keyValueTypeArray.reduce(reducerCallbackFn({ context }), []);
+};
+
 // This export acts as an index of all helper functions for quick reference of helpers available
 export {
+  buildKeyValueTypeArray,
   buildLiteralValueString,
   buildProps,
   buildPropsFromKeyValues,
   buildPropsFromKeyValuesVariable,
+  buildValidatorResponsesFromProperties,
   getClosingElement,
   getComponentFromAttribute,
   getComponentNameFromAttribute,
@@ -431,7 +521,9 @@ export {
   getVariableNodeInScopeFromName,
   hasAriaAttributes,
   hasAttributes,
+  hasDataAttributes,
   hasImport,
+  hasUnsupportedAttributes,
   hasLonelyAttribute,
   hasSpreadAttributes,
   isGestaltComponent,

@@ -16,37 +16,23 @@ import {
   validateBoxShadow,
   validateFlex,
 } from './styleValidators.js';
-
-// $FlowFixMe[unclear-type]\
-type GenericType = any;
-
-type GenericNode = GenericType;
-
-type MatchKeyErrorsAccType = $ReadOnlyArray<{|
-  node: GenericNode,
-  prop?: ?string | number,
-  message: ?string | number,
-|}>;
-
-type MatchKeyErrorsType = (
-  MatchKeyErrorsAccType,
-  { [string]: GenericType },
-) => MatchKeyErrorsAccType;
-
-type GenerateDefaultMessageType = (?string | number) => ?string;
+import {
+  type ReducerType,
+  type GenerateDefaultMessageType,
+  type BuildReducerType,
+} from './reducerTypes.js';
 
 /** This function returns the default messages for all change suggestions
  */
 const generateDefaultMessage: GenerateDefaultMessageType = (prop) =>
   prop ? `  Use prop \`${prop}\` instead` : '';
 
-type GetMatchKeyErrorsReducerType = ({| context: GenericNode |}) => MatchKeyErrorsType;
-
-/** This function is a reducer for buildValidatorResponsesFromStyleProperties
- */
-const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => {
+const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }) => {
   // This function is returned at the end with context in scope
-  const matchKeyErrors: MatchKeyErrorsType = (accumulatorAlternatives, { name, node, value }) => {
+  const noBoxDangerousStyleDuplicatesReducer: ReducerType = (
+    accumulatorAlternatives,
+    { name, node, value },
+  ) => {
     const accumulatorAlternativesBuilder = [...accumulatorAlternatives];
 
     // This function manages all suggested alternatives, if existing
@@ -305,27 +291,7 @@ const getMatchKeyErrorsReducer: GetMatchKeyErrorsReducerType = ({ context }) => 
     return accumulatorAlternativesBuilder.filter((x) => x);
   };
 
-  return matchKeyErrors;
+  return noBoxDangerousStyleDuplicatesReducer;
 };
 
-type BuildValidatorResponseFromStylePropertiesType = ({|
-  context: GenericNode,
-  styleProperties: GenericNode,
-|}) => $ReadOnlyArray<{| node: GenericNode, prop?: ?string | number, message: string | number |}>;
-
-/** This function returns ...
- */
-const buildValidatorResponsesFromStyleProperties: BuildValidatorResponseFromStylePropertiesType = ({
-  context,
-  styleProperties,
-}) =>
-  styleProperties
-    .map((stylePropertyNode) => {
-      const { key, type, value } = stylePropertyNode;
-      return !key || value.value === undefined
-        ? { name: type, value: null, node: stylePropertyNode }
-        : { name: key.name, value: value.value, node: stylePropertyNode };
-    })
-    .reduce(getMatchKeyErrorsReducer({ context }), []);
-
-export { buildValidatorResponsesFromStyleProperties, generateDefaultMessage };
+export { buildNoBoxDangerousStyleDuplicatesReducer, generateDefaultMessage };
