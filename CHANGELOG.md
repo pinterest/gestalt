@@ -1,3 +1,9 @@
+## 38.1.0 (Oct 21, 2021)
+
+### Minor
+
+- Eslint plugin: prefer-link, convert anchor tag to Gestalt Link (#1741)
+
 ## 38.0.11 (Oct 20, 2021)
 
 ### Patch
