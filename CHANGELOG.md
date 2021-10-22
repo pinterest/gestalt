@@ -1,3 +1,9 @@
+## 38.1.3 (Oct 22, 2021)
+
+### Patch
+
+- Docs: use generated description for many components (#1753)
+
 ## 38.1.2 (Oct 22, 2021)
 
 ### Patch
