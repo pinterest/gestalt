@@ -163,7 +163,7 @@ card(
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         defaultValue: 'md',
         description:
-          'The maximum height and width of IconButton. See the [size](#Size-and-padding) variant to learn more.',
+          'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
       },
     ]}
   />,
