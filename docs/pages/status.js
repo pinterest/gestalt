@@ -11,7 +11,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
     <Page title="Status">
       <PageHeader
         name="Status"
-        description="Status is an indicator with an icon that provides information to a user."
+        description={generatedDocGen?.description}
         defaultCode={`
 <Flex>
   <Status type='ok' title="OK" subtext="Updated 2 days ago" />

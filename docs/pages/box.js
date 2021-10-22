@@ -47,10 +47,7 @@ const ignoredProps = [
 export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Box">
-      <PageHeader
-        name="Box"
-        description="Box is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content."
-      />
+      <PageHeader name="Box" description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 

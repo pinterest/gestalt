@@ -13,7 +13,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <Page title="Icon">
       <PageHeader
         name="Icon"
-        description="Icons are the symbolic representation of an action or information, providing visual context and improving usability."
+        description={generatedDocGen?.description}
         defaultCode={`
           <Flex gap={1}>
               <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />

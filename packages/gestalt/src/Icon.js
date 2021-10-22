@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index.js';
@@ -89,7 +89,7 @@ const flipOnRtlIconNames = [
 ];
 
 /**
- * https://gestalt.pinterest.systems/Icon
+ * [Icons](https://gestalt.pinterest.systems/Icon) are the symbolic representation of an action or information, providing visual context and improving usability.
  */
 export default function Icon({
   accessibilityLabel,

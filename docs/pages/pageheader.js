@@ -11,7 +11,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
     <Page title="PageHeader">
       <DocsPageHeader
         name="PageHeader"
-        description="PageHeader is used to indicate the title of the current page, as well as optional actions."
+        description={generatedDocGen?.description}
         shadedCodeExample
         defaultCode={`
       function IntroPageHeaderExample() {
