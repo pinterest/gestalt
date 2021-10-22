@@ -23,6 +23,7 @@ export type OptionItemType = {|
 type Props = {|
   badgeText?: string,
   children?: Node,
+  dataTestId?: string,
   hoveredItemIndex: ?number,
   href?: string,
   id: string,
@@ -51,6 +52,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
   const {
     badgeText,
     children,
+    dataTestId,
     onSelect,
     hoveredItemIndex,
     href,
@@ -150,6 +152,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     <div
       aria-selected={isSelectedItem}
       className={className}
+      data-testid={dataTestId}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
       onKeyPress={(event) => {

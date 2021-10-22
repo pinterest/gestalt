@@ -7,6 +7,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 type PublicProps = {|
   badgeText?: string,
   children?: Node,
+  dataTestId?: string,
   href: string,
   isExternal?: boolean,
   onClick?: AbstractEventHandler<
@@ -28,6 +29,7 @@ type Props = {|
 export default function DropdownLink({
   badgeText,
   children,
+  dataTestId,
   href,
   index = 0,
   isExternal,
@@ -39,6 +41,7 @@ export default function DropdownLink({
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <OptionItem
           badgeText={badgeText}
+          dataTestId={dataTestId}
           hoveredItemIndex={hoveredItem}
           href={href}
           id={id}
