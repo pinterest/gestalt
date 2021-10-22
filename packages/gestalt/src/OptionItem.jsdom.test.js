@@ -1,6 +1,5 @@
 // @flow strict
-import userEvent from '@testing-library/user-event';
-import { act, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import OptionItem from './OptionItem.js';
 
 describe('OptionItem', () => {
@@ -30,10 +29,8 @@ describe('OptionItem', () => {
 
   it('Should call set hover item index function when clicked', () => {
     render(<OptionItem {...props} />);
+    fireEvent.mouseOver(screen.getByText(/Option item label/i));
 
-    act(() => {
-      userEvent.click(screen.getByText(/Option item label/i));
-    });
     expect(props.setHoveredItemIndex).toHaveBeenCalledWith(0);
   });
 
