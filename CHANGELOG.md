@@ -1,3 +1,9 @@
+## 38.1.1 (Oct 22, 2021)
+
+### Patch
+
+- Dropdown: adds data-test-id prop to Dropdown.Item component (#1742)
+
 ## 38.1.0 (Oct 21, 2021)
 
 ### Minor
