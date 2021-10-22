@@ -1,63 +1,44 @@
 // @flow strict
-import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import { type Node } from 'react';
+import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="AvatarPair">
+      <PageHeader name="AvatarPair" description="Show avatars in pairs" />
 
-card(<PageHeader name="AvatarPair" description="Show avatars in pairs" />);
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-card(
-  <PropTable
-    props={[
-      {
-        name: 'collaborators',
-        type: 'Array<{| name: string, src?: string |}>',
-        required: true,
-      },
-      {
-        name: 'size',
-        type: `"md" | "lg" | "fit"`,
-        defaultValue: 'fit',
-        description:
-          'md: 48px, lg: 64px. If size is `fit`, AvatarPair will fill 100% of the parent container width',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - To represent a group of people, companies and/or brands in a square format.
           - In cases where the space to represent user(s) can either be a single person/company or a group of people/companies.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - In cases where a square format is not required. Use [AvatarGroup](/AvatarGroup) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <Example
-    name="Example: Basic"
-    defaultCode={`
+      <Example
+        name="Example: Basic"
+        defaultCode={`
 <AvatarPair size="md"
   collaborators={[
     {
@@ -71,16 +52,14 @@ card(
   ]}
 />
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    description={`
+      <Example
+        description={`
     The size of the avatars is defined by their container. In this case the container is 64px wide & tall and each avatar is 48px.
   `}
-    name="Example: Fit container width"
-    defaultCode={`
+        name="Example: Fit container width"
+        defaultCode={`
 <Box width={64}>
   <AvatarPair
     collaborators={[
@@ -96,9 +75,13 @@ card(
   />
 </Box>
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function AvatarPairPage(): Node {
-  return <CardPage cards={cards} page="AvatarPair" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('AvatarPair') },
+  };
 }

@@ -1,10 +1,19 @@
 // @flow strict
-import type { Node } from 'react';
-import Avatar, { type CollaboratorDataType } from './Avatar.js';
+import { type Node } from 'react';
+import Avatar from './Avatar.js';
 import Box from './Box.js';
 
 type Props = {|
-  collaborators: $ReadOnlyArray<CollaboratorDataType>,
+  /**
+   * The users to be displayed.
+   */
+  collaborators: $ReadOnlyArray<{|
+    name: string,
+    src?: string,
+  |}>,
+  /**
+   * md: 48px, lg: 64px. If size is `fit`, AvatarPair will fill 100% of the parent container width.
+   */
   size?: 'md' | 'lg' | 'fit',
 |};
 
