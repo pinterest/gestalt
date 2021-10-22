@@ -1,3 +1,9 @@
+## 38.1.2 (Oct 22, 2021)
+
+### Patch
+
+- ActivationCard, Avatar, AvatarPair, Badge: convert to generated props tables (#1751)
+
 ## 38.1.1 (Oct 22, 2021)
 
 ### Patch
