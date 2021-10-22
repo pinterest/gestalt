@@ -1,6 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-import { Fragment } from 'react';
+import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
@@ -10,6 +9,13 @@ import Button from './Button.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
+
+const STATUS_ICONS = {
+  notStarted: undefined,
+  pending: { symbol: 'clock', color: 'gray' },
+  needsAttention: { symbol: 'workflow-status-problem', color: 'red' },
+  complete: { symbol: 'check-circle', color: 'green' },
+};
 
 type LinkData = {|
   accessibilityLabel: string,
@@ -27,23 +33,44 @@ type LinkData = {|
 |};
 
 type Props = {|
+  /**
+   * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
+   * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
+   * Accessibility: `accessibilityLabel` populates aria-label.
+   */
   dismissButton?: {|
     accessibilityLabel: string,
     onDismiss: () => void,
   |},
+  /**
+   * Text to render inside the activation card to convey detailed information to the user. The message text has a fixed size.
+   */
   message: string,
+  /**
+   * Link-role button to render inside the activation card as a call-to-action to the user.',
+   * - label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
+   * - accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.
+   * - onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.
+   * ActivationCard can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
+   */
   link?: LinkData,
+  /**
+   * Select the activation card status:
+   * - `notStarted`: A task that has not be started
+   * - `pending`: A task that is pending action
+   * - `needsAttention`: A task that requires the user's attention
+   * - `complete`: A task that has been completed
+   */
   status: 'notStarted' | 'pending' | 'needsAttention' | 'complete',
+  /**
+   * A message to indicate the current status of the activation card.
+   */
   statusMessage: string,
+  /**
+   * Heading to render inside the activation card above the message to convey the activation card topic to the user.
+   */
   title: string,
 |};
-
-const STATUS_ICONS = {
-  notStarted: undefined,
-  pending: { symbol: 'clock', color: 'gray' },
-  needsAttention: { symbol: 'workflow-status-problem', color: 'red' },
-  complete: { symbol: 'check-circle', color: 'green' },
-};
 
 const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;

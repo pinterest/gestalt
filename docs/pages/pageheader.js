@@ -6,7 +6,7 @@ import docgen, { type DocGen } from '../components/docgen.js';
 import DocsPageHeader from '../components/PageHeader.js'; // renaming to avoid confusion
 import MainSection from '../components/MainSection.js';
 
-export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="PageHeader">
       <DocsPageHeader

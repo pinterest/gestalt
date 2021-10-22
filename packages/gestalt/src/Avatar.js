@@ -7,19 +7,6 @@ import Mask from './Mask.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import DefaultAvatar from './DefaultAvatar.js';
 
-export type CollaboratorDataType = {|
-  name: string,
-  src?: string,
-|};
-
-type Props = {|
-  ...CollaboratorDataType,
-  accessibilityLabel?: string,
-  outline?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
-  verified?: boolean,
-|};
-
 const sizes = {
   xs: 24,
   sm: 32,
@@ -27,6 +14,33 @@ const sizes = {
   lg: 64,
   xl: 120,
 };
+
+type Props = {|
+  /**
+   * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
+   */
+  accessibilityLabel?: string,
+  /**
+   * The name of the user. This is used for the placeholder treatment if an image is not available.
+   */
+  name: string,
+  /**
+   * Adds a white border around Avatar so it's visible when displayed on other images.
+   */
+  outline?: boolean,
+  /**
+   * xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, Avatar will fill 100% of the parent container width.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
+  /**
+   * The URL of the user's image.
+   */
+  src?: string,
+  /**
+   * Used to indicate if the user is verified.
+   */
+  verified?: boolean,
+|};
 
 /**
  * https://gestalt.pinterest.systems/Avatar

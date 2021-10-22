@@ -1,97 +1,72 @@
 // @flow strict
-import type { Node } from 'react';
-
-import PropTable from '../components/PropTable.js';
+import { type Node } from 'react';
+import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
 import MainSection from '../components/MainSection.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Badge"
-    description={`
-      The \`Badge\` component helps to label text.
+export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Badge">
+      <PageHeader
+        name="Badge"
+        description={`
+      Badge helps to label text.
     `}
-    defaultCode={`
+        defaultCode={`
       <Text>Update your pronouns in your profile settings <Badge text="New" /></Text>
     `}
-  />,
-);
+      />
 
-card(
-  <PropTable
-    props={[
-      {
-        name: 'text',
-        type: `string`,
-        required: true,
-        description: 'Text displayed inside of the Badge. Sentence case is best.',
-      },
-      {
-        name: 'position',
-        type: `"middle" | "top"`,
-        defaultValue: 'middle',
-        description: 'Badge position relative to its parent element.',
-      },
-    ]}
-  />,
-);
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Labeling and bringing awareness to a specific element or feature (e.g., something is new or required).
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - Providing feedback at the element level (e.g., displaying error messages). Use inline text instead.
           - Requiring interaction from users since Badges are always static and non-interactive.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <Example
-    description="
+      <Example
+        description="
     The `Badge` component is rendered inline within parent element."
-    name="Example"
-    defaultCode={`
+        name="Example"
+        defaultCode={`
 <Text>Some text that uses Badge component as its child <Badge text="New" /></Text>
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    description="
+      <Example
+        description="
     Larger text example rendered with a top positioned `Badge`."
-    name="Example: positioning"
-    defaultCode={`
+        name="Example: positioning"
+        defaultCode={`
   <Heading>Heading <Badge text="Beta" position="top"/></Heading>
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    description={`
+      <Example
+        description={`
     Components like [Module](/Module) and [Dropdown](/Dropdown) support Badges within the component.`}
-    name="Example: within other components"
-    defaultCode={`
+        name="Example: within other components"
+        defaultCode={`
 function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -106,9 +81,13 @@ function ModuleExample() {
   );
 }
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function BadgePage(): Node {
-  return <CardPage cards={cards} page="Badge" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('Badge') },
+  };
 }

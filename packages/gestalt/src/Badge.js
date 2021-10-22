@@ -8,7 +8,13 @@ import { useColorScheme } from './contexts/ColorScheme.js';
 type Position = 'middle' | 'top';
 
 type Props = {|
+  /**
+   * Badge position relative to its parent element.
+   */
   position?: Position,
+  /**
+   * Text displayed inside of the Badge. Sentence case is preferred.
+   */
   text: string,
 |};
 
