@@ -14,10 +14,7 @@ export default function ActivationCardPage({
 |}): Node {
   return (
     <Page title="ActivationCard">
-      <PageHeader
-        name="ActivationCard"
-        description="Activation cards are used in groups to communicate a user’s stage in a series of steps toward an overall action."
-      />
+      <PageHeader name="ActivationCard" description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

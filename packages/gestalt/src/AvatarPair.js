@@ -23,7 +23,7 @@ const sizes = {
 };
 
 /**
- * https://gestalt.pinterest.systems/AvatarPair
+ * [AvatarPair](https://gestalt.pinterest.systems/AvatarPair) displays two avatars in an overlapping grouping.
  */
 export default function AvatarPair({ collaborators, size = 'fit' }: Props): Node {
   const width = size === 'fit' ? '100%' : sizes[size];

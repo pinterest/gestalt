@@ -10,7 +10,7 @@ import docgen from '../components/docgen.js';
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Text">
-      <PageHeader name="Text" description={generatedDocGen.description} />
+      <PageHeader name="Text" description={generatedDocGen?.description} />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <Example
         description="Use this to adjust the positioning of text within wrapper elements."

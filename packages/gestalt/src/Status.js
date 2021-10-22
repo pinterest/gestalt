@@ -58,7 +58,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Status
+ * [Status](https://gestalt.pinterest.systems/Status) is an indicator with an icon that provides information to a user.
  */
 export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
   const { icon, color } = ICON_COLOR_MAP[type];

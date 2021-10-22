@@ -411,7 +411,7 @@ const disallowedProps = [
 type OutputType = Element<As>;
 
 /**
- * https://gestalt.pinterest.systems/Box
+ * [Box](https://gestalt.pinterest.systems/Box) is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content.
  */
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }: Props, ref): OutputType {

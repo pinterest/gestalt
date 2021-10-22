@@ -12,7 +12,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
     <Page title="Modal">
       <PageHeader
         name="Modal"
-        description={generatedDocGen.description}
+        description={generatedDocGen?.description}
         defaultCode={`
 <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
 style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}

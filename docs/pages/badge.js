@@ -12,9 +12,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
     <Page title="Badge">
       <PageHeader
         name="Badge"
-        description={`
-      Badge helps to label text.
-    `}
+        description={generatedDocGen?.description}
         defaultCode={`
       <Text>Update your pronouns in your profile settings <Badge text="New" /></Text>
     `}

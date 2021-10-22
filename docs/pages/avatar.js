@@ -10,10 +10,7 @@ import MainSection from '../components/MainSection.js';
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Avatar">
-      <PageHeader
-        name="Avatar"
-        description="Use Avatar to represent a user. Every Avatar image has a subtle color wash."
-      />
+      <PageHeader name="Avatar" description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

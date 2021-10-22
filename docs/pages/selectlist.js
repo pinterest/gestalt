@@ -11,8 +11,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
     <Page title="SelectList">
       <PageHeader
         name="SelectList"
-        description={`
-    SelectList displays a list of actions or options using the browser’s native select.`}
+        description={generatedDocGen?.description}
         defaultCode={`
       <SelectList
         id="selectlistexample1"

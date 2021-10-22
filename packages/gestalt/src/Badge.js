@@ -19,7 +19,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Badge
+ * [Badge](https://gestalt.pinterest.systems/Badge) helps to label text.
  */
 export default function Badge({ position = 'middle', text }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();

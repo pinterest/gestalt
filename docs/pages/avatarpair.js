@@ -10,7 +10,7 @@ import MainSection from '../components/MainSection.js';
 export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="AvatarPair">
-      <PageHeader name="AvatarPair" description="Show avatars in pairs" />
+      <PageHeader name="AvatarPair" description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
