@@ -19,7 +19,7 @@ exports[`Datapoint renders 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
         >
           Title
         </div>
@@ -99,7 +99,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
         >
           Title
         </div>
