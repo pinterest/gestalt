@@ -61,7 +61,6 @@ import TextArea from './TextArea.js';
 import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
-import Typeahead from './Typeahead.js';
 import Upsell from './Upsell.js';
 import Video from './Video.js';
 import useFocusVisible from './useFocusVisible.js';
@@ -132,7 +131,6 @@ export {
   TextField,
   Toast,
   Tooltip,
-  Typeahead,
   Upsell,
   Video,
   useColorScheme,

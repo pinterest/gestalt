@@ -304,7 +304,7 @@ function ScrollBoundaryContainerExample() {
           description={`
 Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and Typeahead.`}
+The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown.`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -549,41 +549,6 @@ function ScrollBoundaryContainerExample() {
                     </Box>
                   </Box>
                 </Box>
-                <Box
-                  flex="grow"
-                  paddingX={3}
-                  paddingY={3}
-                >
-                  <Typeahead
-                    autocomplete={false}
-                    id="Country"
-                    options={[
-                      {
-                        value: "United States",
-                        label: "United States" ,
-                      },{
-                        value: "Canada",
-                        label: "Canada" ,
-                      },{
-                        value: "United Kingdom",
-                        label: "United Kingdom" ,
-                      },{
-                        value: "Brazil",
-                        label: "Brazil" ,
-                      },{
-                        value: "Japan",
-                        label: "Japan" ,
-                      }
-                    ]}
-                    onChange={() => {}}
-                    onSelect={() => {}}
-                    placeholder="Select a Country"
-                    noResultText="No Results"
-                    label="Country"
-                    value="United States"
-                    zIndex={ANCHORED_Z_INDEX}
-                  />
-                </Box>
               </Box>
             </Flex>
           </ParentComponent>
@@ -599,12 +564,12 @@ function ScrollBoundaryContainerExample() {
         <MainSection.Subsection
           description={`
       **[Box](/Box)**
-      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Popover](/Popover), [Typeahead](/Typeahead) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
+      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Popover](/Popover) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
 
       **[Modal](/Modal)** / **[Sheet](/Sheet)**
       Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-      **[Tooltip](/Tooltip)** / **[Popover](/Popover)** / **[Typeahead](/Typeahead)** / **[Dropdown](/Dropdown)**
+      **[Tooltip](/Tooltip)** / **[Popover](/Popover)** / **[Dropdown](/Dropdown)**
       ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollBoundaryContainer isn't needed as it's already built-in.
     `}
         />
