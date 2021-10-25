@@ -1,3 +1,9 @@
+## 38.2.0 (Oct 25, 2021)
+
+### Minor
+
+- Datapoint: text sizing adjustments (#1746)
+
 ## 38.1.3 (Oct 22, 2021)
 
 ### Patch
