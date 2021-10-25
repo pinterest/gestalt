@@ -65,6 +65,10 @@ card(
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
                 />
+                <Dropdown.Link
+                  href="/combobox"
+                  option={{ value: "item 6", label: "Item 6 navigates internally" }}
+                />
               </Dropdown>
             )}
           </Flex>
@@ -323,6 +327,10 @@ card(
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
+                />
+                <Dropdown.Link
+                  href="/combobox"
+                  option={{ value: "item 6", label: "Item 6 navigates internally" }}
                 />
               </Dropdown>
             )}
@@ -1196,6 +1204,9 @@ ScrollableContainer is needed for proper positioning when the Dropdown is locate
 
 **[SelectList](/SelectList)**
 If users need to select from a short, simple list (without needing sections, subtext details, or the ability to filter the list), use SelectList.
+
+**[ComboBox](/combobox)**
+If users need the ability to choose an option by typing in an input and filtering a long list of options, use ComboBox.
 
 **[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.

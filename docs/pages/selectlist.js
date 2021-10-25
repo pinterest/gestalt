@@ -421,6 +421,9 @@ function Example(props) {
 **[Dropdown](/Dropdown)**
 If additional functionality is needed in the menu, such as subtext, headers or custom styling, use Dropdown.
 
+**[ComboBox](/combobox)**
+If users need the ability to choose an option by entering text to filter a long list of options, use ComboBox.
+
 **[RadioButton](/RadioButton)**
 If users need the ability to choose between fewer than 4 options, use RadioButton.
 

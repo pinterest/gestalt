@@ -550,6 +550,40 @@ function ScrollBoundaryContainerExample() {
                   </Box>
                 </Box>
               </Box>
+              <Box
+                flex="grow"
+                paddingX={3}
+                paddingY={3}
+              >
+                <ComboBox
+                  id="Country"
+                  accessibilityClearButtonLabel="Clear countries"
+                  options={[
+                    {
+                      value: "United States",
+                      label: "United States" ,
+                    },{
+                      value: "Canada",
+                      label: "Canada" ,
+                    },{
+                      value: "United Kingdom",
+                      label: "United Kingdom" ,
+                    },{
+                      value: "Brazil",
+                      label: "Brazil" ,
+                    },{
+                      value: "Japan",
+                      label: "Japan" ,
+                    }
+                  ]}
+                  onChange={() => {}}
+                  onSelect={() => {}}
+                  placeholder="Select a Country"
+                  noResultText="No Results"
+                  label="Country"
+                  value="United States"
+                />
+              </Box>
             </Flex>
           </ParentComponent>
         </Layer>
@@ -564,7 +598,7 @@ function ScrollBoundaryContainerExample() {
         <MainSection.Subsection
           description={`
       **[Box](/Box)**
-      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Popover](/Popover) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
+      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Popover](/Popover), [ComboBox](/ComboBox)  or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
 
       **[Modal](/Modal)** / **[Sheet](/Sheet)**
       Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.

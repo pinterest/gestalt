@@ -505,7 +505,7 @@ function ScrollBoundaryContainerExample() {
       description={`
 [Modal](/Modal) and [Sheet](/Sheet) always require a parent [Layer](/Layer) to position themselves outside the DOM hierarchy.
 
-Components built on top of [Popover](/Popover), such as [Tooltip](/Tooltip) and [Dropdown](/Dropdown), have a built-in Layer to be positioned outside the DOM hierarchy.  To set the internal z-index value of Layer, these Popover-based components have \`zIndex\` props as well. This is used when placing the Popover-based components within another component wrapped in Layer that has a z-index set.
+Components built on top of [Popover](/Popover), such as [Tooltip](/Tooltip), [Dropdown](/Dropdown) and [ComboBox](/combobox), have a built-in Layer to be positioned outside the DOM hierarchy.  To set the internal z-index value of Layer, these Popover-based components have \`zIndex\` props as well. This is used when placing the Popover-based components within another component wrapped in Layer that has a z-index set.
 
 However, Modal and Sheet have a built-in [ScrollBoundaryContainer](/ScrollBoundaryContainer) wrapping their children, so you shouldn’t need to pass z-index values when using Popover-based children.
 
