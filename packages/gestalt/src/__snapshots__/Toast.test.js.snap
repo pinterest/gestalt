@@ -47,7 +47,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
+    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -81,28 +81,32 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           className="Flex columnGap0 flexGrow justifyCenter xsDirectionColumn"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize3 white alignStart breakWord fontWeightNormal"
           >
-            Saved to
-             
-            <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-              href="https://www.pinterest.com/search/pins/?q=home%20decor"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-              target={null}
+            <span
+              className="textColorOverrideWhite"
             >
-              Home decor
-            </a>
+              Saved to
+               
+              <a
+                className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Home decor
+              </a>
+            </span>
           </div>
         </div>
       </div>
@@ -147,7 +151,7 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
+    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -181,28 +185,32 @@ exports[`<Toast /> Text + Image 1`] = `
           className="Flex columnGap0 flexGrow justifyCenter xsDirectionColumn"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize3 white alignStart breakWord fontWeightNormal"
           >
-            Saved to
-             
-            <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-              href="https://www.pinterest.com/search/pins/?q=home%20decor"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-              target={null}
+            <span
+              className="textColorOverrideWhite"
             >
-              Home decor
-            </a>
+              Saved to
+               
+              <a
+                className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Home decor
+              </a>
+            </span>
           </div>
         </div>
       </div>
@@ -223,7 +231,7 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
+    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -235,7 +243,7 @@ exports[`<Toast /> Text Only 1`] = `
           className="Flex columnGap0 flexGrow justifyCenter xsDirectionColumn"
         >
           <div
-            className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
           >
             Same great profile, slightly new look. Learn more?
           </div>

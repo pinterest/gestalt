@@ -4,8 +4,7 @@ import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import type { DocGen } from '../components/docgen.js';
-import docgen from '../components/docgen.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

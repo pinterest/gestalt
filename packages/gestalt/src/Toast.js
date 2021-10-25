@@ -8,17 +8,32 @@ import styles from './Toast.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 
 type Props = {|
+  /**
+   * Add an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
+   */
   button?: Node,
+  /**
+   * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
+   */
   text: string | Element<*>,
+  /**
+   * An optional thumbnail image to displayed next to the text.
+   */
   thumbnail?: Node,
+  /**
+   * The masked shape of the thumbnail.
+   */
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
+  /**
+   * Use the `'error'` variant to indicate an error message. Generally not recommended given the ephemeral nature of Toasts.
+   */
   variant?: 'default' | 'error',
-  // Experimental prop to replace the default color with darkGray
-  _dangerouslyUseDarkGray?: boolean,
 |};
 
 /**
- * https://gestalt.pinterest.systems/Toast
+ * [Toasts](https://gestalt.pinterest.systems/Toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
+ *
+ * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
  */
 export default function Toast({
   button,
@@ -26,34 +41,28 @@ export default function Toast({
   thumbnail,
   thumbnailShape = 'square',
   variant = 'default',
-  _dangerouslyUseDarkGray,
 }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
   const isErrorVariant = variant === 'error';
 
-  let containerColor = 'white';
-  let textColor = 'darkGray';
+  let containerColor = isDarkMode ? 'white' : 'darkGray';
+  let textColor = isDarkMode ? 'darkGray' : 'white';
   let textElement = text;
 
-  if (_dangerouslyUseDarkGray) {
-    containerColor = isDarkMode ? 'white' : 'darkGray';
-    textColor = isDarkMode ? 'darkGray' : 'white';
-
-    // If `text` is a Node, we need to override any text colors within to ensure they all match
-    if (typeof text !== 'string') {
-      let textColorOverrideStyles = isDarkMode
-        ? styles.textColorOverrideDarkGray
-        : styles.textColorOverrideWhite;
-      if (isErrorVariant) {
-        textColorOverrideStyles = styles.textColorOverrideWhite;
-      }
-
-      textElement = <span className={textColorOverrideStyles}>{text}</span>;
+  // If `text` is a Node, we need to override any text colors within to ensure they all match
+  if (typeof text !== 'string') {
+    let textColorOverrideStyles = isDarkMode
+      ? styles.textColorOverrideDarkGray
+      : styles.textColorOverrideWhite;
+    if (isErrorVariant) {
+      textColorOverrideStyles = styles.textColorOverrideWhite;
     }
+
+    textElement = <span className={textColorOverrideStyles}>{text}</span>;
   }
 
-  // Error variant does not currently support dark mode and is the same for the experimental treatment
+  // Error variant does not currently support dark mode
   if (isErrorVariant) {
     containerColor = 'red';
     textColor = 'white';
