@@ -53,7 +53,12 @@ const toReactAttribute = (key, value) => {
     case 'string':
       return `${key}=${JSON.stringify(value)}`;
     default:
-      return `${key}={${JSON.stringify(value)}}`;
+      try {
+        return `${key}={${JSON.stringify(value)}}`;
+      } catch (err) {
+        // Handle React components and other circular objects gracefully
+        return null;
+      }
   }
 };
 
