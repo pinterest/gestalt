@@ -304,7 +304,7 @@ function ScrollBoundaryContainerExample() {
           description={`
 Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown.`}
+The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and ComboBox.`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -603,7 +603,7 @@ function ScrollBoundaryContainerExample() {
       **[Modal](/Modal)** / **[Sheet](/Sheet)**
       Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-      **[Tooltip](/Tooltip)** / **[Popover](/Popover)** / **[Dropdown](/Dropdown)**
+      **[Tooltip](/Tooltip)** / **[Popover](/Popover)** / **[Dropdown](/Dropdown)** / **[ComboBox](/combobox)**
       ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollBoundaryContainer isn't needed as it's already built-in.
     `}
         />
