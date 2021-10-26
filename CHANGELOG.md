@@ -1,3 +1,9 @@
+## 39.0.0 (Oct 26, 2021)
+
+### Major
+
+- Typeahead: Remove component and references from Gestalt + codemod (#1755)
+
 ## 38.2.0 (Oct 25, 2021)
 
 ### Minor
