@@ -1,6 +1,6 @@
 /**
  * ScrollBoundaryContainer is an optional wrapper component that ensures that anchor-based
- * components such as Popover, Tooltip, Dropdown, and Typeahead, are  correctly positioned inside
+ * components such as Popover, Tooltip, Dropdown and ComboBox, are  correctly positioned inside
  * scrolling containers.
  *
  * Note that this component requires ScrollBoundaryContainerProvider to store in context a node ref that
@@ -32,7 +32,7 @@ type Props = {|
 |};
 
 /**
- * [ScrollBoundaryContainer](https://gestalt.pinterest.systems/ScrollBoundaryContainer) is used with anchored components such as Popover, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling.
+ * [ScrollBoundaryContainer](https://gestalt.pinterest.systems/ScrollBoundaryContainer) is used with anchored components such as Popover, Tooltip, Dropdown or ComboBox. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling.
  */
 const ScrollBoundaryContainerWithProvider = ({
   children,

@@ -112,7 +112,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
   const isNotControlled = !isControlledInput && !tags;
 
-  // ==== TAGS: Force disable state in Tags if Typeahead is disabled as well ====
+  // ==== TAGS: Force disable state in Tags if ComboBox is disabled as well ====
 
   let selectedTags = tags;
   if (disabled && !!tags && tags.length > 0) {
@@ -161,7 +161,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     setShowOptionsList(false);
   };
 
-  // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by Typeahead while onClick selection is handled in ComboBoxOption ====
+  // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxOption ====
 
   const handleKeyNavigation = (event, direction: DirectionOptionType) => {
     if (!showOptionsList) setShowOptionsList(true);
