@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, Fragment, type Node } from 'react';
+import { forwardRef, Fragment, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import Badge from './Badge.js';
 import Box from './Box.js';
@@ -45,7 +45,7 @@ type Props = {|
   textWeight?: FontWeight,
 |};
 
-const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
 >(function OptionItem(props: Props, ref): Node {

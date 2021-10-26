@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import type { Node, AbstractComponent } from 'react';
 
 import { forwardRef, useState } from 'react';
 import classnames from 'classnames';
@@ -28,7 +28,7 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/RadioButton
  */
-const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const RadioButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function RadioButton(props: Props, ref): Node {

@@ -9,6 +9,7 @@ import {
   useState,
   type Element,
   type Node,
+  type AbstractComponent,
 } from 'react';
 import Box from './Box.js';
 import Layer from './Layer.js';
@@ -66,7 +67,7 @@ type Props = {|
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
 |};
 
-const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function ComboBox(props: Props, ref): Node {

@@ -1,5 +1,5 @@
 // @flow strict
-import type { Context, Element, Node } from 'react';
+import type { Context, Node } from 'react';
 
 import { createContext, useContext } from 'react';
 
@@ -18,7 +18,7 @@ const TableContext: Context<TableContextType> = createContext<TableContextType>(
 
 const { Provider } = TableContext;
 
-function TableContextProvider({ children, stickyColumns }: Props): Element<typeof Provider> {
+function TableContextProvider({ children, stickyColumns }: Props): Node {
   return <Provider value={{ stickyColumns }}>{children}</Provider>;
 }
 

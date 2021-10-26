@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Element, type Node } from 'react';
+import { forwardRef, type Element, type Node, type AbstractComponent } from 'react';
 import Tag from './Tag.js';
 import InternalTextField from './InternalTextField.js';
 
@@ -38,7 +38,7 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/TextField
  */
-const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function TextField(props: Props, ref): Node {

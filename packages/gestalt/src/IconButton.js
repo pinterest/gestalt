@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import type { Node, AbstractComponent } from 'react';
 
 import { forwardRef, useImperativeHandle, useState, useRef } from 'react';
 import classnames from 'classnames';
@@ -62,7 +62,7 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 /**
  * https://gestalt.pinterest.systems/IconButton
  */
-const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function IconButton(props: unionProps, ref): Node {

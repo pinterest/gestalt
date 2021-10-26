@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type Node, useImperativeHandle, useRef, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import styles from './Touchable.css';
 import InternalLink from './InternalLink.js';
@@ -72,7 +72,7 @@ type unionRefs = HTMLDivElement | HTMLAnchorElement;
 /**
  * https://gestalt.pinterest.systems/TapArea
  */
-const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function TapArea(props: unionProps, ref): Node {

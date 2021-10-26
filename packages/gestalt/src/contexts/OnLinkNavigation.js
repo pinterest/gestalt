@@ -1,5 +1,5 @@
 // @flow strict
-import type { Context, Element, Node } from 'react';
+import type { Context, Node } from 'react';
 
 import { useContext, createContext } from 'react';
 
@@ -28,10 +28,7 @@ const { Provider } = OnLinkNavigationContext;
 /**
  * https://gestalt.pinterest.systems/OnLinkNavigationProvider
  */
-export default function OnLinkNavigationProvider({
-  onNavigation,
-  children,
-}: Props): Element<typeof Provider> {
+export default function OnLinkNavigationProvider({ onNavigation, children }: Props): Node {
   return <Provider value={onNavigation ? { onNavigation } : undefined}>{children}</Provider>;
 }
 

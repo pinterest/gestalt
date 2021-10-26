@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Element, type Node, useState } from 'react';
+import { forwardRef, type Element, type Node, useState, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
@@ -38,7 +38,7 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/TextArea
  */
-const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
+const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
   Props,
   HTMLTextAreaElement,
 >(function TextArea(props: Props, ref): Node {

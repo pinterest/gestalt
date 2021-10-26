@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node, useState, useRef, useImperativeHandle } from 'react';
+import { forwardRef, type Node, useState, useRef, useImperativeHandle,  type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
@@ -83,7 +83,7 @@ type Props = {|
 /**
  * [SearchField](https://gestalt.pinterest.systems/SearchField) allows users to search for free-form content.
  */
-const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function SearchField(

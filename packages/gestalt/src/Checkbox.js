@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import type { Node, AbstractComponent } from 'react';
 
 import { forwardRef, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
@@ -34,7 +34,7 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/Checkbox
  */
-const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function Checkbox(props: Props, ref): Node {

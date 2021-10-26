@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
+import { forwardRef, useImperativeHandle, useRef, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
@@ -104,7 +104,7 @@ const IconEnd = ({
 /**
  * https://gestalt.pinterest.systems/Button
  */
-const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function Button(props: unionProps, ref): Node {

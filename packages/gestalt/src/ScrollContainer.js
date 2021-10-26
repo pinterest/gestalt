@@ -63,7 +63,7 @@ export default class ScrollContainer extends Component<Props> {
     this.scrollContainer.addEventListener('scroll', this.handleScroll);
   }
 
-  render(): React$Node {
+  render(): Node {
     return Children.only(this.props.children);
   }
 }

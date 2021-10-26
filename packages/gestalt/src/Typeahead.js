@@ -1,5 +1,5 @@
 // @flow strict
-import type { Element, Node } from 'react';
+import type { Element, Node, AbstractComponent } from 'react';
 
 import { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react';
 import TypeaheadInputField from './TypeaheadInputField.js';
@@ -47,7 +47,7 @@ type Props = {|
 /**
  * https://gestalt.pinterest.systems/Typeahead
  */
-const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const TypeaheadWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function Typeahead(props: Props, ref): Node {

@@ -1,5 +1,5 @@
 // @flow strict
-import type { Element, Node, Ref } from 'react';
+import type { Element, Node, Ref, AbstractComponent } from 'react';
 
 import { forwardRef, Fragment, useState, useRef, useImperativeHandle } from 'react';
 import classnames from 'classnames';
@@ -43,10 +43,10 @@ type Props = {|
   value?: string,
 |};
 
-const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
+const TypeaheadInputFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
-> = forwardRef<Props, HTMLInputElement>(function InputField(props: Props, ref): Node {
+>(function InputField(props: Props, ref): Node {
   const {
     id,
     label,

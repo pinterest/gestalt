@@ -12,6 +12,7 @@
     "dist",
     "src"
   ],
+  "types": "/typescript/index.d.ts",
   "dependencies": {
     "classnames": "^2.2.6",
     "gestalt-design-tokens": ">0.0.0"

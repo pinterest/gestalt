@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "node",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "typescript/"
+  },
+  "include": ["./scripts/typescript/**/*"],
+  "exclude": []
+}

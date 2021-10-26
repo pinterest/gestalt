@@ -10,7 +10,6 @@ import throttle from './throttle.js';
 import type { Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
-import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
 import defaultLayout from './defaultLayout.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
@@ -18,10 +17,9 @@ import LegacyMasonryLayout from './layouts/MasonryLayout.js';
 import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
 
 type Layout =
-  | typeof DefaultLayoutSymbol
-  | typeof UniformRowLayoutSymbol
   | LegacyMasonryLayout
   | LegacyUniformRowLayout
+  | 'default'
   | 'basic'
   | 'basicCentered'
   | 'flexible'
@@ -81,7 +79,7 @@ type Props<T> = {|
         ?{|
           from: number,
         |},
-      ) => void | boolean | { ... }),
+      ) => void | boolean | any),
   /**
    * Function that the grid calls to get the scroll container.
    * This is required if the grid is expected to be scrollable.
@@ -114,8 +112,8 @@ const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 /**
  * https://gestalt.pinterest.systems/Masonry
  */
-export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
-  static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
+export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
+  static createMeasurementStore<T1, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
 
@@ -173,7 +171,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           ?{|
             from: number,
           |},
-        ) => void | boolean | { ... }),
+        ) => void | boolean | any),
     minCols: number,
     virtualize?: boolean,
   |} = {
@@ -266,12 +264,12 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   }
 
   static getDerivedStateFromProps(
-    props: Props<T>,
-    state: State<T>,
+    props: Props<>,
+    state: State<>,
   ): null | {|
     hasPendingMeasurements: boolean,
     isFetching?: boolean,
-    items: $ReadOnlyArray<T>,
+    items: $ReadOnlyArray<>,
   |} {
     const { items } = props;
     const { measurementStore } = state;
@@ -454,11 +452,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         idealColumnWidth: columnWidth,
         width,
       });
-    } else if (
-      layout === UniformRowLayoutSymbol ||
-      layout instanceof LegacyUniformRowLayout ||
-      layout === 'uniformRow'
-    ) {
+    } else if (layout instanceof LegacyUniformRowLayout || layout === 'uniformRow') {
       getPositions = uniformRowLayout({
         cache: measurementStore,
         columnWidth,
