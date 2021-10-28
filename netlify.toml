@@ -1,5 +1,5 @@
 [build]
-  publish = "docs/out"
+  publish = "docs/.next"
   command = "./scripts/netlify.sh"
 
 [dev]
