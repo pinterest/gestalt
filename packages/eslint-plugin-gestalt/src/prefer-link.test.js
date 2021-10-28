@@ -18,18 +18,41 @@ const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 const buildInvalidTestNoDisallowed = (name) =>
   readTestByPath(pathFormatter(invalidPrependerNoDisallowed(name)));
 
-const invalidImportInput = buildInvalidTestNoDisallowed('no-gestalt-import-input');
-const invalidImportOutput = buildInvalidTestNoDisallowed('no-gestalt-import-output');
-
-const errorMessageNoDisallowed = `Use Link from Gestalt: <Link href="">Text</Link>.`;
+const invalidImportSingleInput = buildInvalidTestNoDisallowed('no-gestalt-import-single-input');
+const invalidImportSingleOutput = buildInvalidTestNoDisallowed('no-gestalt-import-single-output');
+const invalidImportMultipleInput = buildInvalidTestNoDisallowed('no-gestalt-import-multiple-input');
+const invalidImportMultipleOutput = buildInvalidTestNoDisallowed(
+  'no-gestalt-import-multiple-output',
+);
+const invalidImportSingleTapAreaSuggestion = buildInvalidTestNoDisallowed(
+  'no-gestalt-import-single-taparea-suggestion',
+);
+const invalidImportMultipleTapAreaSuggestion = buildInvalidTestNoDisallowed(
+  'no-gestalt-import-multiple-taparea-suggestion',
+);
 
 ruleTester.run('prefer-link', rule, {
   valid: [{ code: validCode }],
-  invalid: [[invalidImportInput, invalidImportOutput, errorMessageNoDisallowed]].map(
-    ([input, output, errorMessage]) => ({
-      code: input,
-      output,
-      errors: [{ message: errorMessage }],
-    }),
-  ),
+  invalid: [
+    [invalidImportSingleInput, invalidImportSingleOutput, invalidImportSingleTapAreaSuggestion],
+    [
+      invalidImportMultipleInput,
+      invalidImportMultipleOutput,
+      invalidImportMultipleTapAreaSuggestion,
+    ],
+  ].map(([input, output, suggestion]) => ({
+    code: input,
+    output,
+    errors: [
+      {
+        messageId: 'fixMessageLink',
+        suggestions: [
+          {
+            output: suggestion,
+            messageId: 'suggestionMessageTapArea',
+          },
+        ],
+      },
+    ],
+  })),
 });

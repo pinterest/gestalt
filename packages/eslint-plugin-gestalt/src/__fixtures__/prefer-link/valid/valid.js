@@ -8,7 +8,6 @@ export default function TestElement() {
       <a href={undefined} className={undefined} />
       <a href={undefined} style={undefined} />
       <a href={undefined} tabIndex={-1} />
-      <a href={undefined} rel="noopener" />
       <a {...props} />
     </Link>
   );
