@@ -1,3 +1,9 @@
+## 39.1.0 (Oct 28, 2021)
+
+### Minor
+
+- Internal: Upgrade to Next.js 12 (#1758)
+
 ## 39.0.0 (Oct 26, 2021)
 
 ### Major
