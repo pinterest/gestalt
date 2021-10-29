@@ -79,6 +79,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Fieldset',
       'IconButton',
       'Label',
+      'NumberField',
       'Pog',
       'Popover',
       'RadioButton',

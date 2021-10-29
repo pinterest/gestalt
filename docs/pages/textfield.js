@@ -1,143 +1,47 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import Example from '../components/Example.js';
-import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import Card from '../components/Card.js';
-import CardPage from '../components/CardPage.js';
 import MainSection from '../components/MainSection.js';
+import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+export default function TextFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="TextField">
+      <PageHeader name="TextField" description={generatedDocGen?.description} />
 
-card(<PageHeader name="TextField" description="TextField allows for text input." />);
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-card(
-  <PropTable
-    props={[
-      {
-        name: 'autoComplete',
-        type: `"current-password" | "new-password" | "on" | "off" | "username" | "email"`,
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: 'false',
-        href: 'disabledExample',
-      },
-      {
-        name: 'errorMessage',
-        type: 'React.Node',
-        href: 'errorMessageExample',
-        description:
-          'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
-      },
-      {
-        name: 'helperText',
-        type: 'string',
-        description: 'More information about how to complete the form field',
-        href: 'helperText',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-      },
-      {
-        name: 'onBlur',
-        type: '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<HTMLInputElement>, value: string }) => void',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'onFocus',
-        type: '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
-      },
-      {
-        name: 'onKeyDown',
-        type: '({ event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => void',
-      },
-      {
-        name: 'placeholder',
-        type: 'string',
-        href: 'basicExample',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-      {
-        name: 'tags',
-        type: 'Array<Element<typeof Tag>>',
-        description: 'List of tags to display in the component',
-        href: 'tagsExample',
-      },
-      {
-        name: 'type',
-        type: `"date" | "email" | "number" | "password" | "text" | "url"`,
-        defaultValue: 'text',
-        href: 'basicExample',
-      },
-      {
-        name: 'value',
-        type: 'string',
-        href: 'basicExample',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
-          - Anytime succinct data needs to be inputted by a user, like a date, email address, name, or Pin title.
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
+          - Any time succinct data needs to be entered by a user, like a date, email address, name, or Pin title.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
-          - Situations where long amounts of text need to be entered, since the full content of the TextField will be obscured. Use [TextArea](/textarea) instead.`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
+          - Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](/textarea) instead.`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-card(
-  <Example
-    id="basicExample"
-    name="Example"
-    description={`
-    A \`TextField\` will expand to fill the width of the parent container.
+      <Example
+        id="basicExample"
+        name="Example"
+        description={`
+    TextField will expand to fill the width of the parent container.
   `}
-    defaultCode={`
+        defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
@@ -153,14 +57,12 @@ function Example(props) {
   );
 }
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    id="disabledExample"
-    name="Example: Disabled"
-    defaultCode={`
+      <Example
+        id="disabledExample"
+        name="Example: Disabled"
+        defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
@@ -175,15 +77,13 @@ function Example(props) {
   );
 }
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    id="helperText"
-    name="Example: Helper Text"
-    description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
-    defaultCode={`
+      <Example
+        id="helperText"
+        name="Example: Helper Text"
+        description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
+        defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
@@ -199,17 +99,15 @@ function Example(props) {
   );
 }
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    id="errorMessageExample"
-    name="Example: Error message"
-    description={`
-    A TextField can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will handle the rest.`}
-    defaultCode={`
+      <Example
+        id="errorMessageExample"
+        name="Example: Error message"
+        description={`
+    TextField can display an error message.
+    Simply pass in an \`errorMessage\` when there is an error present and we will handle the rest. Be sure to localize the text!`}
+        defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
@@ -223,20 +121,18 @@ function Example(props) {
   );
 }
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    id="tagsExample"
-    name="Example: Tags"
-    description={`
+      <Example
+        id="tagsExample"
+        name="Example: Tags"
+        description={`
     You can include [Tag](/Tag) elements in the input using the \`tags\` prop.
 
-    Note that the \`TextField\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
+    Note that TextField does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
 
     This example showcases the recommended behavior. In addition, it creates new tags by splitting the input on spaces, commas, semicolons.`}
-    defaultCode={`
+        defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('');
   const [tags, setTags] = React.useState(['a@pinterest.com', 'b@pinterest.com']);
@@ -297,17 +193,15 @@ function Example(props) {
   );
 }
 `}
-  />,
-);
+      />
 
-card(
-  <Example
-    id="ref example"
-    name="Example: ref"
-    description={`
-    A \`TextField\` with an anchor ref to a Popover component
+      <Example
+        id="ref example"
+        name="Example: ref"
+        description={`
+    TextField with an anchor ref to a Popover component
   `}
-    defaultCode={`
+        defaultCode={`
 function TextFieldPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
@@ -338,36 +232,36 @@ function TextFieldPopoverExample() {
   );
 }
 `}
-  />,
-);
+      />
 
-card(
-  <Card
-    description={`
-    \`TextField\` intentionally lacks support for autofocus. Generally speaking,
+      <Card
+        description={`
+    TextField intentionally lacks support for autofocus. Generally speaking,
     autofocus interrupts normal page flow for screen readers making it an
     anti-pattern for accessibility.
   `}
-    name="Autofocus"
-  />,
-);
+        name="Autofocus"
+      />
 
-card(
-  <Card
-    description={`
-    \`TextField\` is commonly used as an input in forms alongside submit buttons.
+      <Card
+        description={`
+    TextField is commonly used as an input in forms alongside submit buttons.
     In these cases, users expect that pressing Enter or Return with the input
     focused will submit the form.
 
-    Out of the box, \`TextField\` doesn't expose an \`onSubmit\` handler or
+    Out of the box, TextField doesn't expose an \`onSubmit\` handler or
     individual key event handlers due to the complexities of handling these
-    properly. Instead, developers are encouraged to wrap the \`TextField\`
-    in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
+    properly. Instead, developers are encouraged to wrap TextField
+    in a \`<form>\` and attach an \`onSubmit\` handler to that \`<form>\`.
   `}
-    name="onSubmit"
-  />,
-);
+        name="onSubmit"
+      />
+    </Page>
+  );
+}
 
-export default function TextFieldPage(): Node {
-  return <CardPage cards={cards} page="TextField" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('TextField') },
+  };
 }

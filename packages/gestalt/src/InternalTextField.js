@@ -34,6 +34,8 @@ type Props = {|
   helperText?: string,
   label?: string,
   labelDisplay?: LabelDisplay,
+  max?: number,
+  min?: number,
   name?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -54,6 +56,7 @@ type Props = {|
   |}) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
+  step?: number,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   textfieldIconButton?: 'clear' | 'expand',
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
@@ -63,8 +66,8 @@ type Props = {|
 const InternalTextFieldWithForwardRef: React$AbstractComponent<
   Props,
   HTMLInputElement,
-> = forwardRef<Props, HTMLInputElement>(function TextField(props: Props, ref): Node {
-  const {
+> = forwardRef<Props, HTMLInputElement>(function TextField(
+  {
     accessibilityControls,
     accessibilityActiveDescendant,
     accessibilityClearButtonLabel,
@@ -76,6 +79,8 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     id,
     label,
     labelDisplay,
+    max,
+    min,
     name,
     onBlur,
     onChange,
@@ -85,12 +90,14 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     onKeyDown,
     placeholder,
     size = 'md',
+    step,
     tags,
     textfieldIconButton,
     type = 'text',
     value,
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   // ==== REFS ====
 
   const innerRef = useRef(null);
@@ -160,6 +167,8 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
       className={tags ? unstyledClasses : styledClasses}
       disabled={disabled}
       id={id}
+      max={type === 'number' ? max : undefined}
+      min={type === 'number' ? min : undefined}
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
@@ -170,6 +179,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
       // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
       pattern={type === 'number' ? '\\d*' : undefined}
       placeholder={placeholder}
+      step={type === 'number' ? step : undefined}
       {...(tags ? {} : { ref: innerRef })}
       type={type}
       value={value}

@@ -59,6 +59,7 @@ describe('TextField', () => {
   it('TextField with autocomplete', () => {
     const tree = create(
       <TextField
+        autoComplete="email"
         name="email"
         id="test"
         onChange={jest.fn()}
