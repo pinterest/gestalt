@@ -90,7 +90,7 @@ type Props = {|
   /**
    * The current value of the input.
    */
-  value?: number | typeof undefined,
+  value?: number | void,
 |};
 
 /**
