@@ -435,6 +435,20 @@ function TabExample() {
   />,
 );
 
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+**[Link](/Link)**
+Link is used to navigate to different areas of the product or to external sites. Link is the preferred component in cases where you want to direct the user to unrelated content.
+
+**[SegmentedControl](/SegmentedControl)**
+SegmentedControl is used to switch between views within a small area of content, such as a [Popover](/Popover). SegmentedControl is preferred when changing state or selection within a view.
+`}
+    />
+  </MainSection>,
+);
+
 export default function TabsPage(): Node {
   return <CardPage cards={cards} page="Tabs" />;
 }
