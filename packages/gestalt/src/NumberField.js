@@ -6,7 +6,8 @@ import InternalTextField from './InternalTextField.js';
 // So we parse what we get from InternalTextField and we stringify what we give it.
 // $FlowExpectedError[unclear-type] We don't need a more specific type, and `event` polymorphism is problematic
 const parseHandlerValue = (handler?: Function) => ({ event, value }) => {
-  handler?.({ event, value: parseFloat(value) });
+  const parsedValue = parseFloat(value);
+  handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
 };
 
 type Props = {|
@@ -89,7 +90,7 @@ type Props = {|
   /**
    * The current value of the input.
    */
-  value?: number,
+  value?: number | typeof undefined,
 |};
 
 /**
