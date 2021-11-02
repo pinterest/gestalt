@@ -52,28 +52,28 @@ type Props = {|
    */
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
-    value: number,
+    value: number | void,
   |}) => void,
   /**
    * Callback triggered when the value of the input changes, whether by keyboard entry or the input's arrows.
    */
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
-    value: number,
+    value: number | void,
   |}) => void,
   /**
    * Callback triggered when the user focuses the input.
    */
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
-    value: number,
+    value: number | void,
   |}) => void,
   /**
    * Callback triggered when the user presses any key while the input is focused.
    */
   onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
-    value: number,
+    value: number | void,
   |}) => void,
   /**
    * Placeholder text shown the the user has not yet input a value.
