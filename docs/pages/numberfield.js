@@ -178,7 +178,9 @@ function Example(props) {
         id="ref example"
         name="Example: ref"
         description={`
-    Set a ref on NumberField to use the [Constraint validation API](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation) or to anchor a Popover-based element.
+    Set a ref on NumberField to use the [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation) or to anchor a Popover-based element.
+
+    Note that while the arrow buttons will not exceed the min/max (if set), the user is free to enter any number using the keyboard. Validation should be performed explicitly using the Constraint Validation API to ensure the value is within the specified range.
   `}
         defaultCode={`
 function Example(props) {
@@ -206,6 +208,7 @@ function Example(props) {
       }}
       placeholder="Enter a number from 1–9"
       ref={ref}
+      step={2}
       value={value}
     />
   );
