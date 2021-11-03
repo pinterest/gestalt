@@ -30,6 +30,7 @@ exports[`TextField TextField with autocomplete 1`] = `
     <input
       aria-describedby={null}
       aria-invalid="false"
+      autoComplete="email"
       className="textField base enabled normal medium truncate"
       disabled={false}
       id="test"

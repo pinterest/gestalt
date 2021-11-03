@@ -1,13 +1,20 @@
 // @flow strict
-import { forwardRef, type Element, type Node } from 'react';
-import Tag from './Tag.js';
+import { forwardRef, type Node } from 'react';
 import InternalTextField from './InternalTextField.js';
+
+// <input> deals with strings, but we only want numbers for this component.
+// So we parse what we get from InternalTextField and we stringify what we give it.
+// $FlowExpectedError[unclear-type] We don't need a more specific type, and `event` polymorphism is problematic
+const parseHandlerValue = (handler?: Function) => ({ event, value }) => {
+  const parsedValue = parseFloat(value);
+  handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
+};
 
 type Props = {|
   /**
-   * Indicate if autocomplete should be available on the input, and the type of autocomplete.
+   * Indicate if autocomplete should be available on the input.
    */
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
+  autoComplete?: 'on' | 'off',
   /**
    * Indicate if the input is disabled.
    */
@@ -17,11 +24,7 @@ type Props = {|
    */
   errorMessage?: Node,
   /**
-   * This field is deprecated and will be removed soon. Please do not use.
-   */
-  hasError?: boolean,
-  /**
-   * More information about how to complete the form field.
+   * More information for the user about how to complete the form field.
    */
   helperText?: string,
   /**
@@ -33,6 +36,14 @@ type Props = {|
    */
   label?: string,
   /**
+   * The upper bound of valid input, inclusive.
+   */
+  max?: number,
+  /**
+   * The lower bound of valid input, inclusive.
+   */
+  min?: number,
+  /**
    * A unique name for the input.
    */
   name?: string,
@@ -41,66 +52,63 @@ type Props = {|
    */
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
+    value: number | void,
   |}) => void,
   /**
-   * Callback triggered when the value of the input changes.
+   * Callback triggered when the value of the input changes, whether by keyboard entry or the input's arrows.
    */
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
-    value: string,
+    value: number | void,
   |}) => void,
   /**
    * Callback triggered when the user focuses the input.
    */
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
+    value: number | void,
   |}) => void,
   /**
    * Callback triggered when the user presses any key while the input is focused.
    */
   onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
-    value: string,
+    value: number | void,
   |}) => void,
   /**
    * Placeholder text shown the the user has not yet input a value.
    */
   placeholder?: string,
   /**
-   * List of tags to display in the component.
-   */
-  tags?: $ReadOnlyArray<Element<typeof Tag>>,
-  /**
-   * The type of input. For numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
-   */
-  type?: 'date' | 'email' | 'password' | 'text' | 'url',
-  /**
    * md: 40px, lg: 48px
    */
   size?: 'md' | 'lg',
   /**
+   * Indicates the amount the value will increase or decrease when using the input's arrows.
+   */
+  step?: number,
+  /**
    * The current value of the input.
    */
-  value?: string,
+  value?: number | void,
 |};
 
 /**
- * [TextField](https://gestalt.pinterest.systems/TextField) allows for text input.
+ * [NumberField](https://gestalt.pinterest.systems/NumberField) allows for numerical input.
  */
-const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const NumberFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function TextField(
+>(function NumberField(
   {
     autoComplete,
     disabled = false,
     errorMessage,
-    hasError = false,
     helperText,
     id,
     label,
+    max,
+    min,
     name,
     onBlur,
     onChange,
@@ -108,8 +116,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     onKeyDown,
     placeholder,
     size = 'md',
-    tags,
-    type = 'text',
+    step,
     value,
   }: Props,
   ref,
@@ -119,25 +126,27 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       autoComplete={autoComplete}
       disabled={disabled}
       errorMessage={errorMessage}
-      hasError={hasError}
       helperText={helperText}
       id={id}
       label={label}
+      max={max}
+      min={min}
       name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
+      onBlur={parseHandlerValue(onBlur)}
+      onChange={parseHandlerValue(onChange)}
+      onFocus={parseHandlerValue(onFocus)}
+      onKeyDown={parseHandlerValue(onKeyDown)}
       placeholder={placeholder}
       size={size}
+      step={step}
       ref={ref}
-      tags={tags}
-      type={type}
-      value={value}
+      type="number"
+      // See comment above — we need to stringify what we give InternalTextField
+      value={value === undefined ? value : String(value)}
     />
   );
 });
 
-TextFieldWithForwardRef.displayName = 'TextField';
+NumberFieldWithForwardRef.displayName = 'NumberField';
 
-export default TextFieldWithForwardRef;
+export default NumberFieldWithForwardRef;
