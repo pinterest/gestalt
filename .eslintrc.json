@@ -14,7 +14,7 @@
     "browser": true,
     "es6": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": [
     "eslint-comments",
     "flowtype",
