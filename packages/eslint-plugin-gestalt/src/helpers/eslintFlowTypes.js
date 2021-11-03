@@ -56,6 +56,7 @@ export type ESLintRuleMetaData = {|
   schema?: any,
   deprecated?: boolean,
   type?: 'problem' | 'suggestion' | 'layout',
+  hasSuggestions?: boolean,
 |};
 
 export type ESLintRule = {|
