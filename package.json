@@ -55,7 +55,7 @@
     "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-hooks": "^4.2.1-alpha-255221c86-20211103",
     "flow-bin": "0.162.0",
     "husky": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
