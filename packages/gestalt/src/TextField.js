@@ -75,7 +75,7 @@ type Props = {|
   /**
    * The type of input. For numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
    */
-  type?: 'date' | 'email' | 'password' | 'text' | 'url',
+  type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   /**
    * md: 40px, lg: 48px
    */
