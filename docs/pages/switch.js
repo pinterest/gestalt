@@ -120,13 +120,13 @@ card(
     layout="4column"
   >
     {(props, i) => (
-        <Box borderStyle="lg" padding={2}>
-          <Label htmlFor={`example-${i}`}>
-            <Text>{`Switch ${i + 1}`}</Text>
-          </Label>
-          <Switch id={`example-${i}`} onChange={() => {}} {...props} />
-        </Box>
-      )}
+      <Box borderStyle="lg" padding={2}>
+        <Label htmlFor={`example-${i}`}>
+          <Text>{`Switch ${i + 1}`}</Text>
+        </Label>
+        <Switch id={`example-${i}`} onChange={() => {}} {...props} />
+      </Box>
+    )}
   </Combination>,
 );
 

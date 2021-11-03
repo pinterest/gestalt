@@ -112,19 +112,19 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   });
 
   const renderPogComponent = (selected?: boolean): Node => (
-      <Pog
-        active={!disabled && isActive}
-        bgColor={bgColor}
-        dangerouslySetSvgPath={dangerouslySetSvgPath}
-        focused={!disabled && isFocusVisible && isFocused}
-        hovered={!disabled && isHovered}
-        icon={icon}
-        iconColor={iconColor}
-        padding={padding}
-        selected={selected}
-        size={size}
-      />
-    );
+    <Pog
+      active={!disabled && isActive}
+      bgColor={bgColor}
+      dangerouslySetSvgPath={dangerouslySetSvgPath}
+      focused={!disabled && isFocusVisible && isFocused}
+      hovered={!disabled && isHovered}
+      icon={icon}
+      iconColor={iconColor}
+      padding={padding}
+      selected={selected}
+      size={size}
+    />
+  );
 
   const handleClick = (event, dangerouslyDisableOnNavigation) =>
     onClick

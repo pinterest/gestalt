@@ -46,25 +46,25 @@ const TableEntry = ({
   description: string,
   href: string,
 |}) => (
-    <Table.Row>
-      <Table.Cell>
-        <Flex alignItems="center" gap={1}>
-          <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
-            <Text size="sm" underline overflow="noWrap">
-              {metric}
-            </Text>
-          </Link>
-          <Box aria-hidden>
-            <Icon accessibilityLabel="" icon="visit" size={12} />
-          </Box>
-          <LockIcon size={12} />
-        </Flex>
-      </Table.Cell>
-      <Table.Cell>
-        <Text size="sm">{description}</Text>
-      </Table.Cell>
-    </Table.Row>
-  );
+  <Table.Row>
+    <Table.Cell>
+      <Flex alignItems="center" gap={1}>
+        <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
+          <Text size="sm" underline overflow="noWrap">
+            {metric}
+          </Text>
+        </Link>
+        <Box aria-hidden>
+          <Icon accessibilityLabel="" icon="visit" size={12} />
+        </Box>
+        <LockIcon size={12} />
+      </Flex>
+    </Table.Cell>
+    <Table.Cell>
+      <Text size="sm">{description}</Text>
+    </Table.Cell>
+  </Table.Row>
+);
 
 export default function ToolingPage(): Node {
   return (
@@ -85,7 +85,9 @@ export default function ToolingPage(): Node {
                 'Documentation site in gestalt.pinterest.systems',
                 'https://gestalt.pinterest.systems/',
               ],
-            ].map((item, idx) => <ListElement key={idx} text={item[0]} href={item[1]} />)}
+            ].map((item, idx) => (
+              <ListElement key={idx} text={item[0]} href={item[1]} />
+            ))}
           </ul>
         </Flex>
       </MainSection>
@@ -342,13 +344,13 @@ The following table lists the currently available metrics to track Gestalt adopt
                   'http://go/metrics_dangerouslySetInlineStyle_keys',
                 ],
               ].map((item, idx) => (
-                  <TableEntry
-                    key={`table_entry_${idx}`}
-                    metric={item[0]}
-                    description={item[1]}
-                    href={item[2]}
-                  />
-                ))}
+                <TableEntry
+                  key={`table_entry_${idx}`}
+                  metric={item[0]}
+                  description={item[1]}
+                  href={item[2]}
+                />
+              ))}
             </Table.Body>
           </Table>
         </MainSection.Subsection>

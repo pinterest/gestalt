@@ -1,8 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../heading-replace-truncate-lineClamp', () => Object.assign(jest.requireActual('../heading-replace-truncate-lineClamp'), {
+jest.mock('../heading-replace-truncate-lineClamp', () =>
+  Object.assign(jest.requireActual('../heading-replace-truncate-lineClamp'), {
     parser: 'flow',
-  }));
+  }),
+);
 
 describe('heading-replace-truncate-lineClamp', () => {
   ['heading-replace-truncate-lineClamp', 'heading-replace-truncate-lineClamp-renamed'].forEach(

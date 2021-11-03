@@ -189,15 +189,15 @@ export default class Video extends PureComponent<Props, State> {
     volume: number,
   |} = {
     disableRemotePlayback: false,
-     
+
     backgroundColor: 'black',
-     
+
     playbackRate: 1,
-     
+
     playing: false,
-     
+
     preload: 'auto',
-     
+
     volume: 0,
   };
 

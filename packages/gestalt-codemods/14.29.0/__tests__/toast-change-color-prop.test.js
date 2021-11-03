@@ -1,8 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../toast-change-color-prop', () => Object.assign(jest.requireActual('../toast-change-color-prop'), {
+jest.mock('../toast-change-color-prop', () =>
+  Object.assign(jest.requireActual('../toast-change-color-prop'), {
     parser: 'flow',
-  }));
+  }),
+);
 
 describe('toast-change-color-prop', () => {
   ['toast-change-color-prop'].forEach((test) => {

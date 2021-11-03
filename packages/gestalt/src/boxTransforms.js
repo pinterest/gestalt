@@ -282,10 +282,9 @@ const userSelect: Functor<UserSelect> = mapping({
 });
 const width: Functor<Dimension> = (w) => fromInlineStyle({ width: w });
 const wrap: Functor<boolean> = toggle(layout.flexWrap);
-const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = (value) => 
+const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = (value) =>
   // eslint-disable-next-line no-underscore-dangle
-   value && value.__style ? fromInlineStyle(value.__style) : identity()
-;
+  value && value.__style ? fromInlineStyle(value.__style) : identity();
 const zIndex: Functor<?Indexable> = (value) => {
   if (!value) {
     return identity();

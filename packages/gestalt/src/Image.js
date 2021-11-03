@@ -36,7 +36,6 @@ export default class Image extends PureComponent<Props> {
     importance?: 'high' | 'low' | 'auto',
     loading?: 'eager' | 'lazy' | 'auto',
   |} = {
-     
     color: 'transparent',
     fit: 'none',
     importance: 'auto',

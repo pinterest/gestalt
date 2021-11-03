@@ -10,9 +10,7 @@ const duplicateVariablesDifferentValues = async () => {
   ]);
 
   const combined = (
-    await Promise.all(
-      files.map(async (file) => await fs.promises.readFile(file, 'utf8')),
-    )
+    await Promise.all(files.map(async (file) => await fs.promises.readFile(file, 'utf8')))
   ).join('');
 
   const astRoot = postcss.parse(combined);

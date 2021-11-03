@@ -1,8 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../tabs-size', () => Object.assign(jest.requireActual('../tabs-size'), {
+jest.mock('../tabs-size', () =>
+  Object.assign(jest.requireActual('../tabs-size'), {
     parser: 'flow',
-  }));
+  }),
+);
 
 describe('tabs-size', () => {
   ['tabs-size', 'tabs-size-renamed'].forEach((test) => {

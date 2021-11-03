@@ -136,7 +136,9 @@ const rule: ESLintRule = {
         }
 
         // FLEX PROPS
-        const displayProps = props.filter(({ name }) => displayPropNames.includes(getAttributeName(name)));
+        const displayProps = props.filter(({ name }) =>
+          displayPropNames.includes(getAttributeName(name)),
+        );
         const isFlexDisplay = displayProps.some(({ value }) => {
           const propValue = getAttributeValue(value);
           return Array.isArray(propValue) ? propValue.includes('flex') : propValue === 'flex';

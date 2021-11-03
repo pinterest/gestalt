@@ -1,8 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../avatar-update-sizes-remove-icon', () => Object.assign(jest.requireActual('../avatar-update-sizes-remove-icon'), {
+jest.mock('../avatar-update-sizes-remove-icon', () =>
+  Object.assign(jest.requireActual('../avatar-update-sizes-remove-icon'), {
     parser: 'flow',
-  }));
+  }),
+);
 
 describe('avatar-update-sizes-remove-icon', () => {
   [

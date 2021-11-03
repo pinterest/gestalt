@@ -1,11 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../scrollableContainer-rename-scrollBoundaryContainer', () => Object.assign(
-    jest.requireActual('../scrollableContainer-rename-scrollBoundaryContainer'),
-    {
-      parser: 'flow',
-    },
-  ));
+jest.mock('../scrollableContainer-rename-scrollBoundaryContainer', () =>
+  Object.assign(jest.requireActual('../scrollableContainer-rename-scrollBoundaryContainer'), {
+    parser: 'flow',
+  }),
+);
 
 describe('scrollableContainer-rename-scrollBoundaryContainer', () => {
   [

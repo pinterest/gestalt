@@ -64,20 +64,20 @@ const MainSectionCard = ({
   const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
 
   const PreviewCard = ({ children: cardChildren }: PreviewCardProps): Node => (
-      <Box
-        alignItems="center"
-        borderStyle="sm"
-        color={shaded ? 'lightGray' : 'white'}
-        display="flex"
-        height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-        justifyContent="center"
-        padding={8}
-        position="relative"
-        rounding={2}
-      >
-        {cardChildren}
-      </Box>
-    );
+    <Box
+      alignItems="center"
+      borderStyle="sm"
+      color={shaded ? 'lightGray' : 'white'}
+      display="flex"
+      height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+      justifyContent="center"
+      padding={8}
+      position="relative"
+      rounding={2}
+    >
+      {cardChildren}
+    </Box>
+  );
 
   const TitleAndDescription = (
     <Box

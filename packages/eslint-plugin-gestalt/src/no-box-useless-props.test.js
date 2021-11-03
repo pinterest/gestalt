@@ -7,7 +7,8 @@ import { parserOptions } from './helpers/testHelpers.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 
-const mapFileNameToPath = (pathPart) => (fileName) => `./__fixtures__/no-box-useless-props/${pathPart}/${fileName}.js`;
+const mapFileNameToPath = (pathPart) => (fileName) =>
+  `./__fixtures__/no-box-useless-props/${pathPart}/${fileName}.js`;
 
 function mapPathsToCode(codePath) {
   return readFileSync(path.resolve(__dirname, codePath), 'utf-8');

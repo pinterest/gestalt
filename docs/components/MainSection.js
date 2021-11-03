@@ -12,10 +12,10 @@ type Props = {|
 |};
 
 const MainSection = ({ children, description, name, showHeading = true }: Props): Node => (
-    <Card name={name} showHeading={showHeading} description={description}>
-      {children}
-    </Card>
-  );
+  <Card name={name} showHeading={showHeading} description={description}>
+    {children}
+  </Card>
+);
 
 MainSection.Card = MainSectionCard;
 

@@ -390,9 +390,10 @@ const hasUnsupportedAttributes: HasSupportedAttributesType = ({
   elementNode,
   tagName,
   supportedAttributes,
-}) => (
-    isTag({ elementNode, tagName }) &&
-    elementNode?.attributes.some((nodeAttribute) => !supportedAttributes.includes(nodeAttribute?.name?.name))
+}) =>
+  isTag({ elementNode, tagName }) &&
+  elementNode?.attributes.some(
+    (nodeAttribute) => !supportedAttributes.includes(nodeAttribute?.name?.name),
   );
 
 type HasDataAttributesType = ({|

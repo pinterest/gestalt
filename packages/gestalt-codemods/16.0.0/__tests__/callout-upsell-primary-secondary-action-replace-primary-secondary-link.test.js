@@ -1,11 +1,13 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../callout-upsell-primary-secondary-action-replace-primary-secondary-link', () => Object.assign(
+jest.mock('../callout-upsell-primary-secondary-action-replace-primary-secondary-link', () =>
+  Object.assign(
     jest.requireActual('../callout-upsell-primary-secondary-action-replace-primary-secondary-link'),
     {
       parser: 'flow',
     },
-  ));
+  ),
+);
 
 describe('callout-upsell-primary-secondary-action-replace-primary-secondary-link', () => {
   ['callout-upsell-primary-secondary-action-replace-primary-secondary-link'].forEach((test) => {

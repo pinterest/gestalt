@@ -10,9 +10,11 @@ async function generate() {
   );
 
   await Promise.all(
-    pages.map(async (page) => await fs.promises.writeFile(
-        `./cypress/integration/accessibility_${page}_spec.js`,
-        `describe('${page} Accessibility check', () => {
+    pages.map(
+      async (page) =>
+        await fs.promises.writeFile(
+          `./cypress/integration/accessibility_${page}_spec.js`,
+          `describe('${page} Accessibility check', () => {
   beforeEach(() => {
     cy.visit('/${page.toLowerCase()}');
     cy.injectAxe();
@@ -23,7 +25,8 @@ async function generate() {
   });
 });
 `,
-      )),
+        ),
+    ),
   );
 }
 

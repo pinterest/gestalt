@@ -19,7 +19,9 @@ export default function transformer(file, api) {
   }
 
   function modifyAttributes(properties) {
-    const newProperties = properties.map(({ key, value }) => createPaddingAttribute({ axis: key.name, value: value.value }));
+    const newProperties = properties.map(({ key, value }) =>
+      createPaddingAttribute({ axis: key.name, value: value.value }),
+    );
     return newProperties;
   }
 
