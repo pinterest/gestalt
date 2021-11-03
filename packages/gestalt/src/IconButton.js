@@ -111,8 +111,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
   });
 
-  const renderPogComponent = (selected?: boolean): Node => {
-    return (
+  const renderPogComponent = (selected?: boolean): Node => (
       <Pog
         active={!disabled && isActive}
         bgColor={bgColor}
@@ -126,7 +125,6 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
         size={size}
       />
     );
-  };
 
   const handleClick = (event, dangerouslyDisableOnNavigation) =>
     onClick

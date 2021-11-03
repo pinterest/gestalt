@@ -1,10 +1,8 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../convert-roundedX', () => {
-  return Object.assign(jest.requireActual('../convert-roundedX'), {
+jest.mock('../convert-roundedX', () => Object.assign(jest.requireActual('../convert-roundedX'), {
     parser: 'flow',
-  });
-});
+  }));
 
 describe('convert-roundedX', () => {
   [

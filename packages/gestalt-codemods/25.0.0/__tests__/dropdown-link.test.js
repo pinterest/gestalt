@@ -1,10 +1,8 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../dropdown-link', () => {
-  return Object.assign(jest.requireActual('../dropdown-link'), {
+jest.mock('../dropdown-link', () => Object.assign(jest.requireActual('../dropdown-link'), {
     parser: 'flow',
-  });
-});
+  }));
 
 describe('dropdown-link', () => {
   ['dropdown-link', 'dropdown-link-renamed'].forEach((test) => {

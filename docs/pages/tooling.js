@@ -45,8 +45,7 @@ const TableEntry = ({
   metric: string,
   description: string,
   href: string,
-|}) => {
-  return (
+|}) => (
     <Table.Row>
       <Table.Cell>
         <Flex alignItems="center" gap={1}>
@@ -66,7 +65,6 @@ const TableEntry = ({
       </Table.Cell>
     </Table.Row>
   );
-};
 
 export default function ToolingPage(): Node {
   return (
@@ -87,9 +85,7 @@ export default function ToolingPage(): Node {
                 'Documentation site in gestalt.pinterest.systems',
                 'https://gestalt.pinterest.systems/',
               ],
-            ].map((item, idx) => {
-              return <ListElement key={idx} text={item[0]} href={item[1]} />;
-            })}
+            ].map((item, idx) => <ListElement key={idx} text={item[0]} href={item[1]} />)}
           </ul>
         </Flex>
       </MainSection>
@@ -345,16 +341,14 @@ The following table lists the currently available metrics to track Gestalt adopt
                   '# most used CSS attributes passed to dangerouslySetInlineStyle; # per site',
                   'http://go/metrics_dangerouslySetInlineStyle_keys',
                 ],
-              ].map((item, idx) => {
-                return (
+              ].map((item, idx) => (
                   <TableEntry
                     key={`table_entry_${idx}`}
                     metric={item[0]}
                     description={item[1]}
                     href={item[2]}
                   />
-                );
-              })}
+                ))}
             </Table.Body>
           </Table>
         </MainSection.Subsection>

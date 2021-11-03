@@ -63,8 +63,7 @@ const MainSectionCard = ({
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
   const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
 
-  const PreviewCard = ({ children: cardChildren }: PreviewCardProps): Node => {
-    return (
+  const PreviewCard = ({ children: cardChildren }: PreviewCardProps): Node => (
       <Box
         alignItems="center"
         borderStyle="sm"
@@ -79,7 +78,6 @@ const MainSectionCard = ({
         {cardChildren}
       </Box>
     );
-  };
 
   const TitleAndDescription = (
     <Box

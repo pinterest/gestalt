@@ -10,8 +10,7 @@ async function generate() {
   );
 
   await Promise.all(
-    pages.map(async (page) => {
-      return await fs.promises.writeFile(
+    pages.map(async (page) => await fs.promises.writeFile(
         `./cypress/integration/accessibility_${page}_spec.js`,
         `describe('${page} Accessibility check', () => {
   beforeEach(() => {
@@ -24,8 +23,7 @@ async function generate() {
   });
 });
 `,
-      );
-    }),
+      )),
   );
 }
 

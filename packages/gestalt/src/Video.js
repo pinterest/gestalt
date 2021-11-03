@@ -189,15 +189,15 @@ export default class Video extends PureComponent<Props, State> {
     volume: number,
   |} = {
     disableRemotePlayback: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
+     
     backgroundColor: 'black',
-    // eslint-disable-next-line react/default-props-match-prop-types
+     
     playbackRate: 1,
-    // eslint-disable-next-line react/default-props-match-prop-types
+     
     playing: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
+     
     preload: 'auto',
-    // eslint-disable-next-line react/default-props-match-prop-types
+     
     volume: 0,
   };
 

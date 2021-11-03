@@ -38,8 +38,7 @@ export default function IconPage(): Node {
     setSelected(item);
   };
 
-  const ClickableIcon = ({ iconName }: {| iconName: string |}) => {
-    return (
+  const ClickableIcon = ({ iconName }: {| iconName: string |}) => (
       <Tooltip text={iconName}>
         <TapArea
           rounding="circle"
@@ -62,7 +61,6 @@ export default function IconPage(): Node {
         </TapArea>
       </Tooltip>
     );
-  };
 
   return (
     <Page title="Iconography and SVGs">

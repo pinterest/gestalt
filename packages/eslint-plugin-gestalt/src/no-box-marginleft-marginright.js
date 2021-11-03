@@ -48,9 +48,7 @@ const rule: ESLintRule = {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        importedComponent = decl.specifiers.some((node) => {
-          return node.imported.name === 'Box';
-        });
+        importedComponent = decl.specifiers.some((node) => node.imported.name === 'Box');
       },
       JSXOpeningElement(node) {
         if (!importedComponent) {

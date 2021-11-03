@@ -1,10 +1,8 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../gestaltprovider-to-provider', () => {
-  return Object.assign(jest.requireActual('../gestaltprovider-to-provider'), {
+jest.mock('../gestaltprovider-to-provider', () => Object.assign(jest.requireActual('../gestaltprovider-to-provider'), {
     parser: 'flow',
-  });
-});
+  }));
 
 describe('gestaltprovider-to-provider', () => {
   [

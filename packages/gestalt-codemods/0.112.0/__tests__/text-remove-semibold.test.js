@@ -1,10 +1,8 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../text-remove-semibold', () => {
-  return Object.assign(jest.requireActual('../text-remove-semibold'), {
+jest.mock('../text-remove-semibold', () => Object.assign(jest.requireActual('../text-remove-semibold'), {
     parser: 'flow',
-  });
-});
+  }));
 
 describe('text-remove-semibold', () => {
   [

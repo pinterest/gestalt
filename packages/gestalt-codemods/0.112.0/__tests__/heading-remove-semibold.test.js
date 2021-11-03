@@ -1,10 +1,8 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../heading-remove-semibold', () => {
-  return Object.assign(jest.requireActual('../heading-remove-semibold'), {
+jest.mock('../heading-remove-semibold', () => Object.assign(jest.requireActual('../heading-remove-semibold'), {
     parser: 'flow',
-  });
-});
+  }));
 
 describe('heading-remove-semibold', () => {
   ['heading-remove-semibold-dynamic', 'heading-remove-semibold-static'].forEach((test) => {

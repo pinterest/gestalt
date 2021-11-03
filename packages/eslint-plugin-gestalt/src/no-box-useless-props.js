@@ -113,9 +113,7 @@ const rule: ESLintRule = {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        localBoxName = decl.specifiers.find((node) => {
-          return node.imported.name === 'Box';
-        })?.local?.name;
+        localBoxName = decl.specifiers.find((node) => node.imported.name === 'Box')?.local?.name;
       },
 
       JSXOpeningElement(node) {
@@ -138,9 +136,7 @@ const rule: ESLintRule = {
         }
 
         // FLEX PROPS
-        const displayProps = props.filter(({ name }) => {
-          return displayPropNames.includes(getAttributeName(name));
-        });
+        const displayProps = props.filter(({ name }) => displayPropNames.includes(getAttributeName(name)));
         const isFlexDisplay = displayProps.some(({ value }) => {
           const propValue = getAttributeValue(value);
           return Array.isArray(propValue) ? propValue.includes('flex') : propValue === 'flex';

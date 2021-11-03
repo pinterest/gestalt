@@ -63,6 +63,7 @@
     "no-await-in-loop": "off",
     "no-constant-condition": "error",
     "no-return-await": "off",
+    "prefer-arrow-callback": "off",
     "react-hooks/exhaustive-deps": "error",
     "react-hooks/rules-of-hooks": "error",
     "react/destructuring-assignment": "off",
@@ -73,6 +74,7 @@
     "react/no-array-index-key": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
+    "react/sort-comp": "off",
     "react/state-in-constructor": ["error", "never"],
     "react/static-property-placement": ["error", "static public field"]
   },

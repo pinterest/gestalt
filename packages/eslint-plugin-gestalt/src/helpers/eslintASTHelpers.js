@@ -390,14 +390,10 @@ const hasUnsupportedAttributes: HasSupportedAttributesType = ({
   elementNode,
   tagName,
   supportedAttributes,
-}) => {
-  return (
+}) => (
     isTag({ elementNode, tagName }) &&
-    elementNode?.attributes.some((nodeAttribute) => {
-      return !supportedAttributes.includes(nodeAttribute?.name?.name);
-    })
+    elementNode?.attributes.some((nodeAttribute) => !supportedAttributes.includes(nodeAttribute?.name?.name))
   );
-};
 
 type HasDataAttributesType = ({|
   elementNode: GenericNode,
@@ -494,9 +490,7 @@ const buildValidatorResponsesFromProperties: BuildValidatorResponseFromPropertie
   context,
   keyValueTypeArray,
   reducerCallbackFn,
-}) => {
-  return keyValueTypeArray.reduce(reducerCallbackFn({ context }), []);
-};
+}) => keyValueTypeArray.reduce(reducerCallbackFn({ context }), []);
 
 // This export acts as an index of all helper functions for quick reference of helpers available
 export {
