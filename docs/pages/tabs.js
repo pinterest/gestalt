@@ -317,14 +317,13 @@ card(
       title="Keyboard"
       description={`
       Tab key navigates the tabs.
-      Enter/return key activates a tab (i.e., it navigates to the link href).`}
+      Enter/return key activates a tab (i.e., it navigates to the link \`href\`).`}
       columns={2}
     />
     <MainSection.Subsection
       title="Screen Reader"
       description={`
-      The tab/link **must** announce a state of "current" if the HREF matches the current window URL.
-      The tab/link **must** announce "tab" behavior.`}
+      The tab/link **must** announce a state of "current" if the \`href\` matches the current window URL.`}
     />
     <MainSection.Card />
   </MainSection>,
@@ -333,8 +332,8 @@ card(
 card(
   <MainSection
     name="Localization"
-    description={`Be sure to localize text and accessibilityLabel.
-    The Tab's title should be 3 words or less, long enough to be understood by users but short enough to prevent text wrapping. Aim for a single word when possible.`}
+    description={`Be sure to localize \`text\` and \`accessibilityLabel\`.
+    The Tab's title should be 3 words or less: long enough to be understood by users but short enough to prevent text wrapping. Aim for a single word when possible.`}
   />,
 );
 
