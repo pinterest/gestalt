@@ -1,3 +1,9 @@
+## 39.2.1 (Nov 3, 2021)
+
+### Patch
+
+- TextField: re-add "number" type for now (#1763)
+
 ## 39.2.0 (Nov 3, 2021)
 
 ### Minor
