@@ -333,6 +333,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                     id={id}
                     index={index}
                     key={`${option.label}${index}`}
+                    lineClamp={1}
                     option={option}
                     onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
                     selected={selectedOption ?? selectedItem}
