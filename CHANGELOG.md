@@ -1,3 +1,9 @@
+## 39.2.2 (Nov 3, 2021)
+
+### Patch
+
+- Eslint plugin: prefer-link fixes and added suggestions (#1759)
+
 ## 39.2.1 (Nov 3, 2021)
 
 ### Patch
