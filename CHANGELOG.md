@@ -1,3 +1,9 @@
+## 39.2.0 (Nov 3, 2021)
+
+### Minor
+
+- NumberField: add new component (#1760)
+
 ## 39.1.0 (Oct 28, 2021)
 
 ### Minor
