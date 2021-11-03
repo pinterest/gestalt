@@ -8,9 +8,7 @@
     "plugin:jsx-a11y/recommended",
     "plugin:@next/next/recommended",
     "plugin:react/recommended",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
+    "prettier"
   ],
   "env": {
     "browser": true,
