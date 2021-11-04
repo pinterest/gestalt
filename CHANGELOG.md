@@ -1,3 +1,9 @@
+## 39.2.4 (Nov 4, 2021)
+
+### Patch
+
+- Tabs: Add Best Practices and Accessibility guidelines (#1761)
+
 ## 39.2.3 (Nov 4, 2021)
 
 ### Patch
