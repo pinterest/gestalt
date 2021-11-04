@@ -48,8 +48,8 @@ type Props = {|
 const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
->(function OptionItem(props: Props, ref): Node {
-  const {
+>(function OptionItem(
+  {
     badgeText,
     children,
     dataTestId,
@@ -66,8 +66,9 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     setHoveredItemIndex,
     shouldTruncate = false,
     textWeight = 'normal',
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
   );
