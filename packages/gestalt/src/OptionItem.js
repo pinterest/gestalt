@@ -152,7 +152,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     <div
       aria-selected={isSelectedItem}
       className={className}
-      data-testid={dataTestId}
+      data-test-id={dataTestId}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
       onKeyPress={(event) => {

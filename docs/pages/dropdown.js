@@ -149,7 +149,7 @@ const commonDropdownItemProps = [
   {
     name: 'dataTestId',
     type: 'string',
-    description: 'When supplied, will add a data-testid prop to the dom element.',
+    description: 'When supplied, will add a data-test-id prop to the dom element.',
   },
   {
     name: 'children',
