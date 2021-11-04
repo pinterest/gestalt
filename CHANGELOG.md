@@ -1,3 +1,9 @@
+## 39.2.3 (Nov 4, 2021)
+
+### Patch
+
+- Internal: upgrade Eslint to 8.1.0, + configs+plugins (#1762)
+
 ## 39.2.2 (Nov 3, 2021)
 
 ### Patch
