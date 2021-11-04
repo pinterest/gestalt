@@ -1,3 +1,9 @@
+## 39.2.6 (Nov 4, 2021)
+
+### Patch
+
+- Internal: Changes test id prop to 'data-test-id' #1767
+
 ## 39.2.5 (Nov 4, 2021)
 
 ### Patch
