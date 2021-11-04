@@ -21,9 +21,7 @@ type Props = {|
   id?: string,
 |};
 
-const unifyQuotes = (input) => {
-  return input?.replace(/'/g, '"');
-};
+const unifyQuotes = (input) => input?.replace(/'/g, '"');
 
 const Description = (lines: Array<string>): Node => (
   <Flex alignItems="start" direction="column" gap={2}>

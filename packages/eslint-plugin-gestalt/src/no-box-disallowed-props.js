@@ -155,9 +155,7 @@ const rule: ESLintRule = {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        localBoxName = decl.specifiers.find((node) => {
-          return node.imported.name === 'Box';
-        })?.local?.name;
+        localBoxName = decl.specifiers.find((node) => node.imported.name === 'Box')?.local?.name;
       },
       JSXOpeningElement(node) {
         if (!localBoxName || node?.name?.name !== localBoxName) {

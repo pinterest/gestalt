@@ -1,10 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../toast-replace-color-variant', () => {
-  return Object.assign(jest.requireActual('../toast-replace-color-variant'), {
+jest.mock('../toast-replace-color-variant', () =>
+  Object.assign(jest.requireActual('../toast-replace-color-variant'), {
     parser: 'flow',
-  });
-});
+  }),
+);
 
 describe('toast-replace-color-variant', () => {
   [

@@ -1,10 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../rename-link-icon-to-visit', () => {
-  return Object.assign(jest.requireActual('../rename-link-icon-to-visit'), {
+jest.mock('../rename-link-icon-to-visit', () =>
+  Object.assign(jest.requireActual('../rename-link-icon-to-visit'), {
     parser: 'flow',
-  });
-});
+  }),
+);
 
 describe('rename-link-icon-to-visit', () => {
   ['rename-link-icon-to-visit'].forEach((test) => {

@@ -116,19 +116,17 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
   const pileCount =
     displayedCollaborators.length + showCollaboratorsCount + showAddCollaboratorsButton;
 
-  const collaboratorStack = displayedCollaborators.map(({ src, name }, index) => {
-    return (
-      <CollaboratorAvatar
-        hovered={hovered}
-        index={index}
-        key={`collaboratorStack-${name}-${index}`}
-        name={name}
-        pileCount={pileCount}
-        size={size}
-        src={src || ''}
-      />
-    );
-  });
+  const collaboratorStack = displayedCollaborators.map(({ src, name }, index) => (
+    <CollaboratorAvatar
+      hovered={hovered}
+      index={index}
+      key={`collaboratorStack-${name}-${index}`}
+      name={name}
+      pileCount={pileCount}
+      size={size}
+      src={src || ''}
+    />
+  ));
 
   if (showCollaboratorsCount) {
     collaboratorStack.push(

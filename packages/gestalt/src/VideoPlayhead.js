@@ -38,6 +38,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
+  // eslint-disable-next-line class-methods-use-this
   stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => event.stopPropagation();
 
   handleMouseDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {

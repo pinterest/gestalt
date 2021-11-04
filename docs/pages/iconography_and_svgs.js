@@ -38,31 +38,29 @@ export default function IconPage(): Node {
     setSelected(item);
   };
 
-  const ClickableIcon = ({ iconName }: {| iconName: string |}) => {
-    return (
-      <Tooltip text={iconName}>
-        <TapArea
-          rounding="circle"
-          tapStyle="compress"
-          onTap={() => {
-            try {
-              navigator.clipboard.writeText(iconName);
-              setShowToastText(`Icon name ("${iconName}") successfully copied!`);
-              setTimeout(() => setShowToastText(), 3000);
-            } catch (err) {
-              return undefined;
-            }
+  const ClickableIcon = ({ iconName }: {| iconName: string |}) => (
+    <Tooltip text={iconName}>
+      <TapArea
+        rounding="circle"
+        tapStyle="compress"
+        onTap={() => {
+          try {
+            navigator.clipboard.writeText(iconName);
+            setShowToastText(`Icon name ("${iconName}") successfully copied!`);
+            setTimeout(() => setShowToastText(), 3000);
+          } catch (err) {
             return undefined;
-          }}
-        >
-          <Box padding={2}>
-            {/* $FlowFixMe[prop-missing] */}
-            <Icon color="darkGray" accessibilityLabel="" icon={iconName} />
-          </Box>
-        </TapArea>
-      </Tooltip>
-    );
-  };
+          }
+          return undefined;
+        }}
+      >
+        <Box padding={2}>
+          {/* $FlowFixMe[prop-missing] */}
+          <Icon color="darkGray" accessibilityLabel="" icon={iconName} />
+        </Box>
+      </TapArea>
+    </Tooltip>
+  );
 
   return (
     <Page title="Iconography and SVGs">

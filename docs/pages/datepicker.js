@@ -476,16 +476,14 @@ card(
     layout="4column"
     idealDirection={['down', 'left', 'right', 'up']}
   >
-    {({ idealDirection }) => {
-      return (
-        <DatePicker
-          id={`example-idealDirection-${idealDirection}`}
-          label={`Direction ${idealDirection}`}
-          onChange={() => {}}
-          idealDirection={idealDirection}
-        />
-      );
-    }}
+    {({ idealDirection }) => (
+      <DatePicker
+        id={`example-idealDirection-${idealDirection}`}
+        label={`Direction ${idealDirection}`}
+        onChange={() => {}}
+        idealDirection={idealDirection}
+      />
+    )}
   </Combination>,
 );
 

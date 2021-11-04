@@ -1,10 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../heading-size-replace', () => {
-  return Object.assign(jest.requireActual('../heading-size-replace'), {
+jest.mock('../heading-size-replace', () =>
+  Object.assign(jest.requireActual('../heading-size-replace'), {
     parser: 'flow',
-  });
-});
+  }),
+);
 
 describe('heading-size-replace', () => {
   [

@@ -1,10 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../column_deprecate_size_props', () => {
-  return Object.assign(jest.requireActual('../column_deprecate_size_props'), {
+jest.mock('../column_deprecate_size_props', () =>
+  Object.assign(jest.requireActual('../column_deprecate_size_props'), {
     parser: 'flow',
-  });
-});
+  }),
+);
 
 describe('column_deprecate_size_props', () => {
   ['column_deprecate_size_props'].forEach((test) => {
