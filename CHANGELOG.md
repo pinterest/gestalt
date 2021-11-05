@@ -1,3 +1,9 @@
+## 39.2.7 (Nov 5, 2021)
+
+### Patch
+
+- Internal: standardize the forwardRef implementation in preparation for inline documentation
+
 ## 39.2.6 (Nov 4, 2021)
 
 ### Patch
