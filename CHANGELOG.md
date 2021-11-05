@@ -1,3 +1,9 @@
+## 39.2.8 (Nov 5, 2021)
+
+### Patch
+
+- ComboBox: added lineClamp to ComboBoxOptionItem #1766
+
 ## 39.2.7 (Nov 5, 2021)
 
 ### Patch
