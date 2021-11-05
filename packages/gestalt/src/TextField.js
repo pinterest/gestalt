@@ -87,7 +87,7 @@ type Props = {|
 |};
 
 /**
- * [TextField](https://gestalt.pinterest.systems/TextField) allows for text input.
+ * [TextField](https://gestalt.pinterest.systems/textfield) allows for text input.
  */
 const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

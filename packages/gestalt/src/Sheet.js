@@ -272,7 +272,7 @@ function Sheet(props: SheetProps): Node {
  */
 
 /**
- * https://gestalt.pinterest.systems/Sheet
+ * https://gestalt.pinterest.systems/sheet
  */
 export default function AnimatedSheet(props: AnimatedSheetProps): Node {
   const {

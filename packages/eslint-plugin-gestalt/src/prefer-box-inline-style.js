@@ -37,7 +37,7 @@ const rule: ESLintRule = {
       description: 'Warns over div inline styling that is already available as Box props',
       category: 'Gestalt alternatives',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-inline-style',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-box-inline-style',
     },
     schema: [
       {

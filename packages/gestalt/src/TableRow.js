@@ -9,7 +9,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Table
+ * https://gestalt.pinterest.systems/table
  */
 export default function TableRow(props: Props): Node {
   const { stickyColumns } = useTableContext();

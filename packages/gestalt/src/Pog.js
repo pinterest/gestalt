@@ -56,7 +56,7 @@ const defaultIconButtonIconColors = {
 };
 
 /**
- * https://gestalt.pinterest.systems/Pog
+ * https://gestalt.pinterest.systems/pog
  */
 export default function Pog(props: Props): Node {
   const {

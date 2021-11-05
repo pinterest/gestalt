@@ -84,7 +84,7 @@ card(
         name: 'children',
         type: 'React.Node',
         required: true,
-        description: `The content of Fieldset, typically [RadioButtons](/RadioButton), [Checkboxes](/Checkbox) or [TextFields](/TextField).`,
+        description: `The content of Fieldset, typically [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).`,
       },
       {
         name: 'id',
@@ -130,7 +130,7 @@ card(
   <MainSection name="Accessibility">
     <MainSection.Subsection
       description={`
-      Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioButtons](/RadioButton), [Checkboxes](/Checkbox) or [TextFields](/TextField).
+      Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).
 
       In the example below, the pet RadioButtons are surrounded by a fieldset and include a \`legend\` of "Favorite pet". Learn more about the [use of fieldset and legend](https://www.w3.org/WAI/tutorials/forms/grouping/#associating-related-controls-with-fieldset).`}
     >
@@ -345,7 +345,7 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-      **[Label](/Label)**
+      **[Label](/label)**
       If a label is needed for a single form item (instead of a group of items), use Label.
     `}
     />

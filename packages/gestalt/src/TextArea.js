@@ -36,7 +36,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/TextArea
+ * https://gestalt.pinterest.systems/textArea
  */
 const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
   Props,

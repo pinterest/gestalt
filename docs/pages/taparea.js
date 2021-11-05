@@ -171,7 +171,7 @@ card(
         description: [
           'Callback fired when a TapArea component is clicked (pressed and released) with a mouse or keyboard.',
           'Required with button-role + button-type buttons.',
-          'See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
+          'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
         ],
         href: 'basic-taparea',
       },
@@ -301,7 +301,7 @@ card(
     id="link_buttons"
     description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
-TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
+TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
   `}
     name="TapArea with Link/Buttons"
     defaultCode={`
@@ -626,7 +626,7 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
+**[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
       `}
     />

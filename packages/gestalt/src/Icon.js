@@ -89,7 +89,7 @@ const flipOnRtlIconNames = [
 ];
 
 /**
- * [Icons](https://gestalt.pinterest.systems/Icon) are the symbolic representation of an action or information, providing visual context and improving usability.
+ * [Icons](https://gestalt.pinterest.systems/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
  */
 export default function Icon({
   accessibilityLabel,

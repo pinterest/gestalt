@@ -13,7 +13,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Tag"
-    description="Tags are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](/TextField#tagsExample), [TextAreas](/TextArea#tagsExample), [ComboBox](/combobox#Tags) or as standalone components."
+    description="Tags are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](/textfield#tagsExample), [TextAreas](/textarea#tagsExample), [ComboBox](/combobox#Tags) or as standalone components."
   />,
 );
 
@@ -63,7 +63,7 @@ card(
         type="do"
         title="When to Use"
         description={`
-          - In conjunction with [TextField](/TextField#tagsExample), [TextArea](/TextArea#tagsExample), and [ComboBox](/ComboBox#Tags), or as a standalone element to display selected options.
+          - In conjunction with [TextField](/textfield#tagsExample), [TextArea](/textarea#tagsExample), and [ComboBox](/combobox#Tags), or as a standalone element to display selected options.
         `}
       />
       <MainSection.Card
@@ -71,7 +71,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - As a replacement for the [Badge](/Badge), as the Badge is a singular element that gives context to a specific subject.
+          - As a replacement for the [Badge](/badge), as the Badge is a singular element that gives context to a specific subject.
         `}
       />
     </MainSection.Subsection>

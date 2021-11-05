@@ -9,7 +9,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Pulsar
+ * https://gestalt.pinterest.systems/pulsar
  */
 export default function Pulsar({ paused, size = 136 }: Props): Node {
   return (

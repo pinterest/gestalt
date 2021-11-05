@@ -32,7 +32,7 @@ type Props = {|
 |};
 
 /**
- * [ScrollBoundaryContainer](https://gestalt.pinterest.systems/ScrollBoundaryContainer) is used with anchored components such as Popover, Tooltip, Dropdown or ComboBox. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling.
+ * [ScrollBoundaryContainer](https://gestalt.pinterest.systems/scrollboundarycontainer) is used with anchored components such as Popover, Tooltip, Dropdown or ComboBox. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling.
  */
 const ScrollBoundaryContainerWithProvider = ({
   children,

@@ -64,7 +64,7 @@ card(
         type="do"
         title="When to Use"
         description={`
-          - Calling attention to a specific element within a surface. Note: a Pulsar should be used in conjunction with a [Popover](/Popover).
+          - Calling attention to a specific element within a surface. Note: a Pulsar should be used in conjunction with a [Popover](/popover).
         `}
       />
       <MainSection.Card
@@ -72,8 +72,8 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - In the case of a user error or warning that needs attention. Use [Callout](/Callout) or form errors states instead.
-          - When the focus of the attention is at the surface level. Use [Callout](/Callout) instead.
+          - In the case of a user error or warning that needs attention. Use [Callout](/callout) or form errors states instead.
+          - When the focus of the attention is at the surface level. Use [Callout](/callout) instead.
         `}
       />
     </MainSection.Subsection>

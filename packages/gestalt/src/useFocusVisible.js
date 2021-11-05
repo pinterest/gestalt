@@ -113,7 +113,7 @@ function setupGlobalFocusEvents() {
 }
 
 /**
- * https://gestalt.pinterest.systems/useFocusVisible
+ * https://gestalt.pinterest.systems/usefocusvisible
  */
 export default function useFocusVisible(): {|
   isFocusVisible: boolean,

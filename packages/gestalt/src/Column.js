@@ -14,7 +14,7 @@ type ColumnProps = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Column
+ * https://gestalt.pinterest.systems/column
  */
 export default function Column(props: ColumnProps): Node {
   const { children } = props;

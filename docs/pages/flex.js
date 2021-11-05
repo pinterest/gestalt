@@ -15,7 +15,7 @@ card(
   <PageHeader
     name="Flex"
     description={`
-      Flex is a layout component with a very limited subset of the props available to [Box](/Box) and a few special props of its own.
+      Flex is a layout component with a very limited subset of the props available to [Box](/box) and a few special props of its own.
 
       Use this component for flex layouts, especially when even spacing between elements is desired (see the 'gap' property!).
     `}

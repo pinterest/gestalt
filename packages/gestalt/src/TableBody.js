@@ -7,7 +7,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Table
+ * https://gestalt.pinterest.systems/table
  */
 export default function TableBody(props: Props): Node {
   return <tbody className={styles.tbody}>{props.children}</tbody>;

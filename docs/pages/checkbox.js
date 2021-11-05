@@ -122,8 +122,8 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Situations where users can only choose one out of multiple, related options. Use [RadioButtons](/RadioButton) instead.
-          - When a selection takes immediate effect, especially on mobile. Use [Switch](/Switch) instead.
+          - Situations where users can only choose one out of multiple, related options. Use [RadioButtons](/radiobutton) instead.
+          - When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.
         `}
       />
     </MainSection.Subsection>
@@ -157,7 +157,7 @@ function CheckboxExample() {
 card(
   <Example
     id="group"
-    description="Here is an example of an accessible group of checkboxes. When creating a group of Checkboxes, be sure to wrap them in a [Fieldset](/Fieldset)."
+    description="Here is an example of an accessible group of checkboxes. When creating a group of Checkboxes, be sure to wrap them in a [Fieldset](/fieldset)."
     name="Example: Group"
     defaultCode={`
 function CheckboxExample() {

@@ -19,7 +19,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Fieldset
+ * https://gestalt.pinterest.systems/fieldset
  */
 export default function Fieldset({
   id = '',

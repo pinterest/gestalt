@@ -54,7 +54,7 @@ const allowedProps = [
 ];
 
 /**
- * https://gestalt.pinterest.systems/Flex
+ * https://gestalt.pinterest.systems/flex
  */
 export default function Flex({
   alignItems,

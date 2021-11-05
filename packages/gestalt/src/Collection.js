@@ -57,7 +57,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Collection
+ * https://gestalt.pinterest.systems/collection
  */
 export default function Collection(props: Props): Node {
   const { Item, layout = [], viewportTop = 0, viewportLeft = 0 } = props;

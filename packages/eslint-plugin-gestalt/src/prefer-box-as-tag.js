@@ -31,7 +31,7 @@ const rule: ESLintRule = {
       )}, instead',
       category: 'Gestalt alternatives`,
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-as-tag',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-box-as-tag',
     },
     fixable: 'code',
     schema: ([]: $ReadOnlyArray<empty>),

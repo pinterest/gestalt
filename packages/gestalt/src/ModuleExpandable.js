@@ -13,7 +13,7 @@ function getExpandedId(expandedIndex: ?number): ?number {
 }
 
 /**
- * https://gestalt.pinterest.systems/Module
+ * https://gestalt.pinterest.systems/module
  */
 export default function ModuleExpandable({
   accessibilityExpandLabel,

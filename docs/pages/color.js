@@ -42,7 +42,7 @@ card(
 card(
   <MainSection
     name="Full Palettes"
-    description={`In order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/Text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.`}
+    description={`In order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.`}
   >
     <MainSection.Subsection title="Colors">
       <Flex gap={12} wrap>

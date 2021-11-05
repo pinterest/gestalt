@@ -224,7 +224,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/TextField) with type=”date”.
+          - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/textfield) with type=”date”.
         `}
       />
     </MainSection.Subsection>

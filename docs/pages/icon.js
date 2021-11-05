@@ -103,7 +103,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="ARIA attributes"
           columns={2}
           description={`
-If the icon appears without text, the Icon requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/Icon), as shown in the first example.
+If the icon appears without text, the Icon requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/icon), as shown in the first example.
 
 Avoid using the generic words like  "image" or "icon"; instead, use verbs that describe the meaning of the icon, for example: “pins".
 
@@ -213,10 +213,10 @@ Use a descriptive label to describe the Icon
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[IconButton](/IconButton)**
+**[IconButton](/iconbutton)**
 Use IconButton when only an icon is needed to represent an action instead of text.
 
-**[Button](/Button)**
+**[Button](/button)**
 Use Button to allow users to take an action.
     `}
         />

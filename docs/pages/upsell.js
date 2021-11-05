@@ -64,7 +64,7 @@ card(
           '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
         defaultValue: null,
         description:
-          'Either an [Icon](/Icon) or an [Image](/Image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
+          'Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
       },
       {
         name: 'message',
@@ -79,7 +79,7 @@ card(
           '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
         defaultValue: null,
         description: `
-          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.'
+          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
           If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
@@ -90,7 +90,7 @@ card(
           '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
         defaultValue: null,
         description: `
-          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.'
+          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
           If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
@@ -115,7 +115,7 @@ card(
         name: 'children',
         type: 'React.Node',
         required: true,
-        description: `Contents of the form, typically inputs like [TextField(s)](/TextField).`,
+        description: `Contents of the form, typically inputs like [TextField(s)](/textfield).`,
       },
       {
         name: 'onSubmit',
@@ -162,7 +162,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Anything related to state or status within the surface. Consider a [Callout](/Callout) instead.
+          - Anything related to state or status within the surface. Consider a [Callout](/callout) instead.
           - Promoting or highlighting specific elements / areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
         `}
       />
@@ -279,7 +279,7 @@ card(
         cardSize="lg"
         type="don't"
         description={`
-          Use Upsells for critical information, such as errors or warnings. Use [Callout](/Callout) instead. Upsells should not be used for general information either.
+          Use Upsells for critical information, such as errors or warnings. Use [Callout](/callout) instead. Upsells should not be used for general information either.
         `}
         defaultCode={`
 <Upsell
@@ -301,7 +301,7 @@ card(
         cardSize="lg"
         type="don't"
         description={`
-        Stack Upsells on a page. In the case that they must be stacked, [Callouts](/Callout) will appear above Upsells.
+        Stack Upsells on a page. In the case that they must be stacked, [Callouts](/callout) will appear above Upsells.
         `}
         defaultCode={`
 <Box>
@@ -396,11 +396,11 @@ card(
       description={`
       \`dismissButton\`, \`primaryAction\`, \`secondaryAction\`, and \`submitButtonAccessibilityLabel\` each require a short, descriptive label for screen readers, which should also be localized.
 
-      In the case of action [Buttons](/Button) or [Links](/Link), alternative text should be provided through the \`accessibilityLabel\` prop to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
+      In the case of action [Buttons](/button) or [Links](/link), alternative text should be provided through the \`accessibilityLabel\` prop to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
 
-      For the \`dismissButton\` [IconButton](/IconButton), the label provided should indicate the intent, like “Dismiss this banner”.
+      For the \`dismissButton\` [IconButton](/iconbutton), the label provided should indicate the intent, like “Dismiss this banner”.
 
-      The [Image](/Image) or [Icon](/Icon) supplied to \`imageData\` should only supply an \`alt\` or \`accessibilityLabel\`, respectively, if the Image or Icon supplies extra context or information. Icons in Upsells are often purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`.
+      The [Image](/image) or [Icon](/icon) supplied to \`imageData\` should only supply an \`alt\` or \`accessibilityLabel\`, respectively, if the Image or Icon supplies extra context or information. Icons in Upsells are often purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`.
       `}
     >
       <MainSection.Card
@@ -478,7 +478,7 @@ card(
 
     <MainSection.Subsection
       title="Icon"
-      description="The Icon is used to add additional meaning to the Upsell. The icon can reference a Pinterest product, feature or an action from our [Icon library](/Icon)."
+      description="The Icon is used to add additional meaning to the Upsell. The icon can reference a Pinterest product, feature or an action from our [Icon library](/icon)."
     >
       <MainSection.Card
         cardSize="lg"
@@ -506,7 +506,7 @@ card(
 
     <MainSection.Subsection
       title="Image"
-      description="The [Image](/Image) in Upsell is used to add visual interest and draw the user’s attention. Images should relate to the message of the Upsell. Upsell images should use approved photography or be illustrations using our brand colors. Images will always be 128px wide."
+      description="The [Image](/image) in Upsell is used to add visual interest and draw the user’s attention. Images should relate to the message of the Upsell. Upsell images should use approved photography or be illustrations using our brand colors. Images will always be 128px wide."
     >
       <MainSection.Card
         cardSize="lg"
@@ -547,9 +547,9 @@ card(
       description={`
       Upsells can have either one primary action, or a primary action and a secondary action. These actions can be buttons, when no \`href\` is supplied, or links, by specifying the \`href\`  property.
 
-      Upsell actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
+      Upsell actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
 
-      For example, “Learn more” may link to a separate documentation site, while “Send invite” could be a button that opens a [Modal](/Modal) with an invite flow. Be sure to localize the labels of the actions.
+      For example, “Learn more” may link to a separate documentation site, while “Send invite” could be a button that opens a [Modal](/modal) with an invite flow. Be sure to localize the labels of the actions.
 
       If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
       `}
@@ -787,16 +787,16 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-      **[Callout](/Callout)**
+      **[Callout](/callout)**
       Use Callout when communicating critical information, such as an error or warning. Callout can also be used to present the user with general information and further actions they can take, like the successful creation of a business account.
 
-      **[Toast](/Toast)**
+      **[Toast](/toast)**
       Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
-      **[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
+      **[OnLinkNavigationProvider](/onlinknavigationprovider)**
       OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 
-      **[ActivationCard](/ActivationCard)**
+      **[ActivationCard](/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
 
     `}

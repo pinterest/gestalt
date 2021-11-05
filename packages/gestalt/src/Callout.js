@@ -157,7 +157,7 @@ const CalloutAction = ({
 };
 
 /**
- * [Callout](https://gestalt.pinterest.systems/Callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
+ * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
  *
  * ⚠️ Please note: Callout is not currently supported in dark mode.
  */

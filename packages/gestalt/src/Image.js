@@ -27,7 +27,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Image
+ * https://gestalt.pinterest.systems/image
  */
 export default class Image extends PureComponent<Props> {
   static defaultProps: {|

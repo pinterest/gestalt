@@ -38,7 +38,7 @@ const rule: ESLintRule = {
       description: 'Encourage usage of Flex instead of Box',
       category: 'Gestalt alternatives',
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-flex',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-flex',
     },
 
     fixable: 'code',

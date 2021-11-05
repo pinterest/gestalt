@@ -29,7 +29,7 @@ const rule: ESLintRule = {
         "Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick. Use Gestalt Box, instead",
       category: 'Gestalt alternatives',
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-box-no-disallowed',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-box-no-disallowed',
     },
     fixable: 'code',
     schema: [

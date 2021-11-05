@@ -8,7 +8,7 @@ import Text from './Text.js';
 import type { ModuleTitleProps } from './moduleTypes.js';
 
 /**
- * https://gestalt.pinterest.systems/Module
+ * https://gestalt.pinterest.systems/module
  */
 export default function ModuleTitle(props: ModuleTitleProps): Node {
   const { iconAccessibilityLabel = '', title, type = 'info' } = props;

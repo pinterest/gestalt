@@ -125,8 +125,8 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Getting user confirmation on an action. Use a [Modal](/Modal) instead.
-          - Displaying system errors or notices. Consider a [Callout](/Callout) instead.
+          - Getting user confirmation on an action. Use a [Modal](/modal) instead.
+          - Displaying system errors or notices. Consider a [Callout](/callout) instead.
           - Any time a separate, designated URL is desired.
         `}
       />
@@ -186,7 +186,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         type="don't"
-        description="Use Sheet if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Modules](/Module) to section out content."
+        description="Use Sheet if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Modules](/module) to section out content."
         defaultCode={`
 
 `}
@@ -194,7 +194,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         type="don't"
-        description="Use Sheet to confirm actions or display alerts. Use a [Modal](/Modal) or [Toast](/Toast) instead."
+        description="Use Sheet to confirm actions or display alerts. Use a [Modal](/modal) or [Toast](/toast) instead."
         defaultCode={`
 
 `}
@@ -1113,10 +1113,10 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Modal](/Modal)**
+**[Modal](/modal)**
 For alerts, actions or acknowledgments that should block the user’s current flow, use Modal.
 
-**[Toast](/Toast)**
+**[Toast](/toast)**
 Toast provides feedback on an interaction. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of being attached to any particular element on the interface.
     `}
     />

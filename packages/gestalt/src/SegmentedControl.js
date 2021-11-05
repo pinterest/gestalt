@@ -66,7 +66,7 @@ function SegmentedControlItem({
 }
 
 /**
- * https://gestalt.pinterest.systems/SegmentedControl
+ * https://gestalt.pinterest.systems/segmentedcontrol
  */
 export default function SegmentedControl({
   items,

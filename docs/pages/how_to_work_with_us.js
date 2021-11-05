@@ -78,7 +78,7 @@ We always appreciate the help and contributions of other engineers across Pinter
 2. **Tech Design Doc**
    Create a technical design doc (TDD), using [this template](https://paper.dropbox.com/doc/Gestalt-TDD-ComponentName--BF5cp4OG2JXR_Vo7d5hsnVFEAg-A8wHbLtDhwbGjlyOTIg86), for any net-new components or component additions/updates within Gestalt. This allows everyone to discuss the component API and functionality before starting to build.
 3. **Pull request**
-   Once the TDD has been finalized, make a pull request for your changes by following the [development guidelines](/Development). Your changes will be reviewed by the gestalt-core GitHub Team and a Gestalt designer. We ensure each component is built to spec, accessible, performant and works well with other components.
+   Once the TDD has been finalized, make a pull request for your changes by following the [development guidelines](/development). Your changes will be reviewed by the gestalt-core GitHub Team and a Gestalt designer. We ensure each component is built to spec, accessible, performant and works well with other components.
 4. **Release**
    Now the fun part - releasing your component! After someone from the Gestalt team merges your change, feel free to announce it on the [#gestalt-web](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100) slack channel.`}
     />

@@ -102,7 +102,7 @@ const IconEnd = ({
 );
 
 /**
- * https://gestalt.pinterest.systems/Button
+ * https://gestalt.pinterest.systems/button
  */
 const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,

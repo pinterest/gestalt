@@ -81,7 +81,7 @@ type Props = {|
 |};
 
 /**
- * [SearchField](https://gestalt.pinterest.systems/SearchField) allows users to search for free-form content.
+ * [SearchField](https://gestalt.pinterest.systems/searchfield) allows users to search for free-form content.
  */
 const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

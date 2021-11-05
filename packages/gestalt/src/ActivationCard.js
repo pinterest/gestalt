@@ -209,7 +209,7 @@ const UncompletedCard = ({
 };
 
 /**
- * [ActivationCards](https://gestalt.pinterest.systems/ActivationCard) are used in groups to communicate a user’s stage in a series of steps toward an overall action.
+ * [ActivationCards](https://gestalt.pinterest.systems/activationcard) are used in groups to communicate a user’s stage in a series of steps toward an overall action.
  */
 export default function ActivationCard({
   dismissButton,

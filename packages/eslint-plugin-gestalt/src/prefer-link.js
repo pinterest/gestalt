@@ -36,7 +36,7 @@ const rule: ESLintRule = {
         'Prefer Link: Prevent anchor tags that only contain attributes matching supported props in Gestalt Link. Use Gestalt Link, instead',
       category: 'Gestalt alternatives',
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-link',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-link',
     },
     fixable: 'code',
     schema: [

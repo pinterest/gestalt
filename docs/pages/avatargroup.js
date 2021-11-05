@@ -52,7 +52,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             title="When Not to Use"
             description={`
-            - Displaying a group of people, companies and/or brands in a square format. Use [AvatarPair](/AvatarPair) instead.
+            - Displaying a group of people, companies and/or brands in a square format. Use [AvatarPair](/avatarpair) instead.
           `}
           />
         </MainSection.Subsection>
@@ -159,7 +159,7 @@ function Example() {
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Fixed sizes"
-          description="AvatarGroup is available in 3 fixed height sizes: `xs` (24px) , `sm` (32px), and `md` (48px)."
+          description="AvatarGroup is available in 3 fixed height sizes: `xs` (24px), `sm` (32px), and `md` (48px)."
         >
           <CombinationNew size={['xs', 'sm', 'md']}>
             {({ size }) => (
