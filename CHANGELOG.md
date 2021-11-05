@@ -1,3 +1,9 @@
+## 40.0.0 (Nov 5, 2021)
+
+### Major
+
+- Icons: rename story-pin icon to idea-pin + codemod #1768
+
 ## 39.2.9 (Nov 5, 2021)
 
 ### Patch
