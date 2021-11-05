@@ -37,7 +37,7 @@ type Props = {|
   disabled?: boolean,
   errorMessage?: Node,
   helperText?: string,
-  inputValue?: string,
+  inputValue?: string | null,
   labelDisplay?: LabelDisplay,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
@@ -69,8 +69,8 @@ type Props = {|
 const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function ComboBox(props: Props, ref): Node {
-  const {
+>(function ComboBox(
+  {
     accessibilityClearButtonLabel,
     disabled,
     errorMessage,
@@ -91,8 +91,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     tags,
     selectedOption,
     inputValue: controlledInputValue = null,
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   // ==== REFS ====
 
   const innerRef = useRef(null);

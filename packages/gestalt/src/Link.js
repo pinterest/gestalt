@@ -42,8 +42,8 @@ type Props = {|
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
   HTMLAnchorElement,
->(function Link(props: Props, ref): Element<'a'> {
-  const {
+>(function Link(
+  {
     accessibilityLabel,
     accessibilitySelected,
     children,
@@ -60,8 +60,9 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     tapStyle = 'none',
     target = null,
     disabled,
-  } = props;
-
+  }: Props,
+  ref,
+): Element<'a'> {
   const innerRef = useRef(null);
 
   useImperativeHandle(ref, () => innerRef.current);
