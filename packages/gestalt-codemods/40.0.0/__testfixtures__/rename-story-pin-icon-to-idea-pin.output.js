@@ -2,6 +2,7 @@
 import { Box, Icon, IconButton, Pog, Button, Icon as RenamedIcon } from 'gestalt';
 
 export default function TestBox() {
+  const a = true;
   return (
     <Box>
       <Icon icon='idea-pin' size={16}/>
@@ -9,6 +10,8 @@ export default function TestBox() {
       <Pog icon='idea-pin'/>
       <Button iconEnd='idea-pin'/>
       <RenamedIcon icon='idea-pin'/>
+      <Icon icon={ a ? 'idea-pin' : 'pin'}/>
+      <Icon icon={ a ? 'pin' : 'idea-pin'}/>
     </Box>
   );
 }
