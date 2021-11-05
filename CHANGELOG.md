@@ -1,3 +1,9 @@
+## 39.2.9 (Nov 5, 2021)
+
+### Patch
+
+- Internal: Upgrade to Node.js 16 (#1769)
+
 ## 39.2.8 (Nov 5, 2021)
 
 ### Patch
