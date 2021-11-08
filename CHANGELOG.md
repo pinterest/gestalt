@@ -1,3 +1,9 @@
+## 40.0.1 (Nov 8, 2021)
+
+### Patch
+
+- Codemods: add README (#1771)
+
 ## 40.0.0 (Nov 5, 2021)
 
 ### Major
