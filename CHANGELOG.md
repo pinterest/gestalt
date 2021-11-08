@@ -1,3 +1,9 @@
+## 40.0.2 (Nov 8, 2021)
+
+### Patch
+
+- Docs: update Development page (#1772)
+
 ## 40.0.1 (Nov 8, 2021)
 
 ### Patch
