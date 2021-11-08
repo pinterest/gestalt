@@ -17,25 +17,31 @@ card(
       <ul>
         <li>
           <Text>
-            Install a source-code editor. We recommend{' '}
-            <Link href="https://code.visualstudio.com/download" inline>
-              <Text weight="bold">VSCode</Text>
+            Install a code editor - we recommend{' '}
+            <Link href="https://code.visualstudio.com/download" inline target="blank">
+              <Text weight="bold">VS Code</Text>
             </Link>
           </Text>
         </li>
         <li>
           <Text weight="bold">
-            <Link href="https://github.com/creationix/nvm#install-script">Install nvm</Link>
+            <Link href="https://github.com/creationix/nvm#install-script" target="blank">
+              Install nvm
+            </Link>
           </Text>
         </li>
         <li>
           <Text weight="bold">
-            <Link href="https://github.com/nvm-sh/nvm#usage">Install node</Link>
+            <Link href="https://github.com/nvm-sh/nvm#usage" target="blank">
+              Install node
+            </Link>
           </Text>
         </li>
         <li>
           <Text weight="bold">
-            <Link href="https://classic.yarnpkg.com/en/docs/install">Install yarn</Link>
+            <Link href="https://classic.yarnpkg.com/en/docs/install" target="blank">
+              Install yarn
+            </Link>
           </Text>
         </li>
       </ul>
@@ -49,7 +55,7 @@ card(
       <ul>
         <li>
           <Text>
-            Clone the Repo: Fork the Gestalt Repo and work of your forked repo, not the{' '}
+            Clone the repo: Fork the Gestalt repo and work off your forked repo, not the{' '}
             <code>pinterest/gestalt</code> repo.
           </Text>
         </li>
@@ -73,9 +79,9 @@ cd gestalt && nvm use
 ~~~"
           />
           <Text>
-            If the node version isn&apos;t available,{' '}
-            <Link href="https://github.com/nvm-sh/nvm#usage" inline>
-              <Text weight="bold">install it locally</Text>
+            If the node version isn&apos;t available, you will need to{' '}
+            <Link href="https://github.com/nvm-sh/nvm#usage" inline target="blank">
+              <Text weight="bold">install it</Text>
             </Link>
             .
           </Text>
@@ -86,7 +92,7 @@ cd gestalt && nvm use
         <li>
           <Text>
             Install project dependencies. Do not run <code>npm install</code> because it will create
-            a <code>package-lock.json</code> file.
+            a <code>package-lock.json</code> file (and also takes considerably longer).
           </Text>
           <Markdown
             text="
@@ -97,7 +103,8 @@ yarn
         </li>
         <li>
           <Text>
-            Add <code>pinterest/gestalt</code> as a remote upstream (do this once).
+            Add <code>pinterest/gestalt</code> as a remote upstream (you&apos;ll only need to do
+            this once).
           </Text>
           <Markdown
             text="
@@ -107,7 +114,7 @@ git remote add upstream git@github.com:pinterest/gestalt.git
           />
         </li>
         <li>
-          <Text>Check your remote.</Text>
+          <Text>Check your remote configuration.</Text>
           <Markdown
             text="
 ~~~bash
@@ -125,26 +132,26 @@ git remote -v
 );
 
 card(
-  <Card name="Set up VSCode">
+  <Card name="Set up VS Code">
     <Flex alignItems="start" direction="column" gap={4}>
       <ul>
         <li>
           <Text>
-            Open the new <code>/gestalt</code> folder with VSCode.
+            Open the new <code>/gestalt</code> folder with VS Code.
           </Text>
         </li>
         <li>
           <Text>
-            Install the suggested VSCode extensions including <code>vscode-stylelint</code> to lint
-            CSS files.
+            Install the suggested VS Code extensions including <code>vs code-stylelint</code> to
+            lint CSS files.
           </Text>
         </li>
         <li>
-          <Text>If you want to automatically launch the docs when you open VSCode:</Text>
+          <Text>If you want to automatically launch the docs when you open VS Code:</Text>
           <ul>
             <li>
               <Text>
-                In VSCode type <code>CMD+Shift+p</code>
+                In VS Code type <code>CMD+Shift+p</code>
               </Text>
             </li>
             <li>
@@ -154,7 +161,7 @@ card(
               <Text>Select Allow &quot;Automatic Tasks in Folder&quot;</Text>
             </li>
             <li>
-              <Text>Relaunch VSCode</Text>
+              <Text>Relaunch VS Code</Text>
             </li>
           </ul>
         </li>
@@ -170,8 +177,10 @@ card(
         Whenever you make changes to Gestalt, please test them out locally before making a PR.
       </Text>
       <Text>
-        To start the documentation server run <code>yarn start</code> &amp; open{' '}
-        <Link inline href="http://localhost:8888">
+        To start the documentation server, run <code>yarn start</code>, which will automatically
+        open the docs in a new browser tab. If for some reason that tab doesn&apos;t launch,
+        navigate to{' '}
+        <Link inline href="http://localhost:8888" target="blank">
           http://localhost:8888
         </Link>
         .
@@ -211,8 +220,9 @@ git checkout -b <feature-branch> upstream/master
           <ul>
             <li>
               <Text>
-                Run the following command to generate the scaffolding for new components. Replace
-                &lsquo;ComponentName&lsquo; with the name of your component.
+                If you are introducing a new component, run the scaffolding command to generate the
+                necessary files. Replace &lsquo;ComponentName&lsquo; with the name of your
+                component.
                 <Markdown
                   text="
 ~~~bash
@@ -253,9 +263,9 @@ yarn run flow-generate:css
 
         <li>
           <Text>
-            Push the changes up to your branch. Follow naming conventions for the PR:{' '}
+            Commit the changes to your branch. Follow naming conventions for the PR:{' '}
             <code>&lt;Component&gt;: &lt;Commit Change Description&gt;</code>. Follow these steps
-            again for any additional updates to your branch.
+            again for any additional updates to your branch. When you are done, push your branch up.
           </Text>
           <Markdown
             text='
@@ -269,7 +279,7 @@ git push -f origin HEAD
         <li>
           <Text>
             Go to{' '}
-            <Link inline href="https://github.com/pinterest/gestalt">
+            <Link inline href="https://github.com/pinterest/gestalt" target="blank">
               <Text weight="bold">https://github.com/pinterest/gestalt</Text>
             </Link>
             . A new banner will be displayed, click on &apos;Compare &amp; Create Pull
@@ -277,12 +287,18 @@ git push -f origin HEAD
           </Text>
         </li>
         <li>
-          <Text>Add useful summary and screenshots.</Text>
+          <Text>
+            Add useful summary and screenshots. We provide a template for the summary to make sure
+            you include all necessary information.
+          </Text>
         </li>
         <li>
           <Text>
-            Click on <code>Create Pull Request</code> or <code>Create Draft</code> if it is not
-            ready for review and approval.
+            Click on <code>Create Draft Pull Request</code> to create your PR. Once you are done
+            committing changes to it, and all the CI tests have passed, click the &quot;Ready for
+            Review&quot; button. (Keeping the PR as a draft until it is ready for review reduces the
+            number of unneeded notifications for maintainers.) If you are a Pinterest employee,
+            please let us know on Slack (#gestalt-web) that your PR is ready for review.
           </Text>
         </li>
         <li>
@@ -299,7 +315,8 @@ git push -f origin HEAD
         <li>
           <Text>
             After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the
-            release process is initiated automatically.
+            PR will be ready to merge. Coordinate with the reviewer to determine when the PR should
+            be merged.
           </Text>
         </li>
       </ul>
@@ -315,14 +332,14 @@ card(
       <Text>
         When pushing new changes to GitHub, your PR title should be aligned with the scope of your
         work. If your goal was to change the default color of a component, keep the scope of changes
-        to that specific task and get the title exactly reflect those changes.
+        to that specific task and word the title to exactly reflect those changes.
       </Text>
       <Heading id="versioning" size="sm">
         Versioning
       </Heading>
       <Text>
         Our versioning guidelines follow those outlined at{' '}
-        <Link href="https://semver.org/" inline>
+        <Link href="https://semver.org/" inline target="blank">
           <Text weight="bold">semver.org</Text>
         </Link>
         :
@@ -345,16 +362,28 @@ card(
           </li>
         </ul>
       </Text>
+
       <Heading id="codemods" size="sm">
         Codemods
       </Heading>
       <Text>
-        When a release will cause breaking changes — in usage or in typing — we provide a codemod to
+        When a release will cause breaking changes (in usage or in typing) we provide a codemod to
         ease the upgrade process. Codemods are organized by release number in{' '}
         <Text inline italic>
           /packages/gestalt-codemods
         </Text>
         . The name of the folder should reflect the resulting version number of your PR.
+      </Text>
+      <Text>
+        Check out our{' '}
+        <Link
+          href="https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods"
+          inline
+          target="blank"
+        >
+          <Text weight="bold">codemod README</Text>
+        </Link>{' '}
+        for a walkthrough of the development process.
       </Text>
       <Text>
         Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo):
@@ -407,7 +436,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
         <li>
           <Text>
             Boolean props: For example, instead of <code>isRTL: boolean</code> or{' '}
-            <code>isStart: boolean</code> or <code>isEnd: boolean</code> use more declarative props
+            <code>isStart: boolean</code> or <code>isEnd: boolean</code>, use more declarative props
             such as <code>layoutDirection: rtl | ltr</code> or{' '}
             <code>role: startInput | endInput</code>.
           </Text>
