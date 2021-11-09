@@ -2,129 +2,146 @@
 import type { Node } from 'react';
 import { Module } from 'gestalt';
 import PropTable from '../components/PropTable.js';
-import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
 import MainSection from '../components/MainSection.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Module"
-    description="
+export default function ModulePage(): Node {
+  return (
+    <Page title="Module">
+      <PageHeader
+        name="Module"
+        description="
       A Module is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
     "
-  />,
-);
-
-card(
-  <PropTable
-    Component={Module}
-    name="Static Module"
-    id="static-Module"
-    props={[
-      {
-        name: 'badgeText',
-        href: 'static-badge',
-        type: 'string',
-        description:
-          'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text.',
-      },
-      {
-        name: 'children',
-        href: 'static-default',
-        type: 'React.Node',
-        description: 'Content to display underneath Module title',
-      },
-      {
-        name: 'icon',
-        href: 'static-icon',
-        type: 'string',
-        description:
-          'Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `iconButton`.',
-      },
-      {
-        name: 'iconAccessibilityLabel',
-        href: 'static-icon',
-        type: 'string',
-        description:
-          'Label to provide information about the icon used for screen readers. Can be used in two scenarios: to describe the error icon that appears when `type` is `error`, and to describe the provided `icon` prop when `type` is `info`. Be sure to localize the label.',
-      },
-      {
-        name: 'iconButton',
-        href: 'static-iconbutton',
-        type: 'React.Element<IconButton>',
-        description:
-          'IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.',
-      },
-      {
-        name: 'id',
-        href: 'static-default',
-        type: 'string',
-        required: true,
-        description: 'Unique id to identify this Module',
-      },
-      {
-        name: 'title',
-        href: 'static-default',
-        type: 'string',
-        description: 'Title of this Module. Be sure to localize the text.',
-      },
-      {
-        name: 'type',
-        href: 'static-error',
-        type: '"info" | "error"',
-        defaultValue: 'info',
-        description:
-          'If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`.',
-      },
-    ]}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Module?.Expandable}
-    name="Expandable Module"
-    id="expandable-module"
-    props={[
-      {
-        name: 'accessibilityExpandLabel',
-        href: 'expandable-default',
-        type: 'string',
-        required: true,
-        description:
-          'Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module". Be sure to localize the label.',
-      },
-      {
-        name: 'accessibilityCollapseLabel',
-        href: 'expandable-default',
-        type: 'string',
-        required: true,
-        description:
-          'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label.',
-      },
-      {
-        name: 'expandedIndex',
-        type: '?number',
-        required: false,
-        description: [
-          'The 0-based index indicating the item that should currently be expanded. This must be updated via onExpandedChange to ensure the correct item is expanded.',
-        ],
-      },
-      {
-        name: 'id',
-        href: 'expandable-default',
-        type: 'string',
-        required: true,
-        description: 'Unique id to identify this Module',
-      },
-      {
-        name: 'items',
-        href: 'expandable-items',
-        type: `
+      />
+      <PropTable
+        Component={Module}
+        id="static-Module"
+        props={[
+          {
+            name: 'badgeText',
+            href: 'static-badge',
+            type: 'string',
+            description:
+              'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text.',
+          },
+          {
+            name: 'children',
+            href: 'static-default',
+            type: 'React.Node',
+            description: 'Content to display underneath Module title',
+          },
+          {
+            name: 'icon',
+            href: 'static-icon',
+            type: 'string',
+            description:
+              'Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `iconButton`.',
+          },
+          {
+            name: 'iconAccessibilityLabel',
+            href: 'static-icon',
+            type: 'string',
+            description:
+              'Label to provide information about the icon used for screen readers. Can be used in two scenarios: to describe the error icon that appears when `type` is `error`, and to describe the provided `icon` prop when `type` is `info`. Be sure to localize the label.',
+          },
+          {
+            name: 'iconButton',
+            href: 'static-iconbutton',
+            type: 'React.Element<IconButton>',
+            description:
+              'IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.',
+          },
+          {
+            name: 'id',
+            href: 'static-default',
+            type: 'string',
+            required: true,
+            description: 'Unique id to identify this Module',
+          },
+          {
+            name: 'title',
+            href: 'static-default',
+            type: 'string',
+            description: 'Title of this Module. Be sure to localize the text.',
+          },
+          {
+            name: 'type',
+            href: 'static-error',
+            type: '"info" | "error"',
+            defaultValue: 'info',
+            description:
+              'If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`.',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
+          - Grouping and organizing content to keep the page clean and digestible.
+          - Displaying additional related content about a particular subject.
+          - Enabling users to reveal or hide additional content as necessary (with Expandable variant).
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
+          - In a layout that conveys a clear sense of information hierarchy. Use [SegmentedControl](/segmentedcontrol) instead.
+          - When long content can’t be displayed all at once, and scrolling is necessary.
+          - When there is insufficient content to condense, as collapsing can increase cognitive load and interaction cost. Consider the static variant of Module.
+          - When the content is crucial to read in full. Consider the static variant instead.
+        `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Subcomponents" />
+      <PropTable
+        Component={Module?.Expandable}
+        name="Module.Expandable"
+        id="expandable-module"
+        props={[
+          {
+            name: 'accessibilityExpandLabel',
+            href: 'expandable-default',
+            type: 'string',
+            required: true,
+            description:
+              'Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module". Be sure to localize the label.',
+          },
+          {
+            name: 'accessibilityCollapseLabel',
+            href: 'expandable-default',
+            type: 'string',
+            required: true,
+            description:
+              'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label.',
+          },
+          {
+            name: 'expandedIndex',
+            type: '?number',
+            required: false,
+            description: [
+              'The 0-based index indicating the item that should currently be expanded. This must be updated via onExpandedChange to ensure the correct item is expanded.',
+            ],
+          },
+          {
+            name: 'id',
+            href: 'expandable-default',
+            type: 'string',
+            required: true,
+            description: 'Unique id to identify this Module',
+          },
+          {
+            name: 'items',
+            href: 'expandable-items',
+            type: `
         Array<{|
           badgeText?: string,
           children: ?React.Node,
@@ -135,56 +152,28 @@ card(
           title: string,
           type?: "info" | "error" |}>
         `,
-        required: true,
-        description:
-          'Array of modules displayed in a stack. Only one item can be expanded at a time.',
-      },
-      {
-        name: 'onExpandedChange',
-        type: '(?number) => void',
-        required: false,
-        description: [
-          'Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded.',
-        ],
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
-          - Grouping and organizing content to keep the page clean and digestible.
-          - Displaying additional related content about a particular subject.
-          - Enabling users to reveal or hide additional content as necessary (with Expandable variant).
-        `}
+            required: true,
+            description:
+              'Array of modules displayed in a stack. Only one item can be expanded at a time.',
+          },
+          {
+            name: 'onExpandedChange',
+            type: '(?number) => void',
+            required: false,
+            description: [
+              'Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded.',
+            ],
+          },
+        ]}
       />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
-          - In a layout that conveys a clear sense of information hierarchy. Use [SegmentedControl](/segmentedcontrol) instead.
-          - When long content can’t be displayed all at once, and scrolling is necessary.
-          - When there is insufficient content to condense, as collapsing can increase cognitive load and interaction cost. Consider the static variant of Module.
-          - When the content is crucial to read in full. Consider the static variant instead.
-        `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    name="Static"
-    description={`A Module is a container that can hold any content, and can optionally have a \`title\` that describes the content inside. The default, static Module is used to display information that should always be visible.`}
-    id="static-default"
-    defaultCode={`
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Static"
+          description={`A Module is a container that can hold any content, and can optionally have a \`title\` that describes the content inside. The default, static Module is used to display information that should always be visible.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample() {
   return (
     <Flex direction="column" gap={2} maxWidth={800}>
@@ -199,19 +188,19 @@ function ModuleExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Static - Icon"
-    description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Static - Icon"
+          description={`
     An Icon can be provided to be placed before the \`title\`.
 
     It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
     `}
-    id="static-icon"
-    defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -227,17 +216,17 @@ function ModuleExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Static - IconButton"
-    description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Static - IconButton"
+          description={`
     An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA).
     `}
-    id="static-iconbutton"
-    defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample() {
   const [showPopover, setShowPopover] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -246,7 +235,7 @@ function ModuleExample() {
     <Box column={12} maxWidth={800} padding={2}>
       <Module
         iconButton={
-          <IconButton 
+          <IconButton
             bgColor="lightGray"
             icon="question-mark"
             iconColor="darkGray"
@@ -280,15 +269,15 @@ function ModuleExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Static - Badge"
-    description={`Badge text can be provided, which will be displayed after the \`title\`. Note that if no title text is provided, the badge will not be displayed.`}
-    id="static-badge"
-    defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Static - Badge"
+          description={`Badge text can be provided, which will be displayed after the \`title\`. Note that if no title text is provided, the badge will not be displayed.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -303,15 +292,15 @@ function ModuleExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Static - Error"
-    id="static-error"
-    description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
-    defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Static - Error"
+          description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample() {
   const [value, setValue] = React.useState('');
 
@@ -339,15 +328,15 @@ function ModuleExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Expandable"
-    id="expandable-default"
-    description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present. The collapsed state shows optional \`summary\` content, while the expanded state shows any content desired.`}
-    defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Expandable"
+          description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present. The collapsed state shows optional \`summary\` content, while the expanded state shows any content desired.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample1() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -366,15 +355,15 @@ function ModuleExample1() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Expandable - Group"
-    description="Multiple expandable items can be stacked together into a Module group. However, only one Module will be expanded at any time."
-    id="expandable-multiple"
-    defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Expandable - Group"
+          description="Multiple expandable items can be stacked together into a Module group. However, only one Module will be expanded at any time."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample2() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -403,20 +392,21 @@ function ModuleExample2() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Expandable - Icon, Badge and IconButton"
-    description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="ExpExpandable - Icon, Badge and IconButton"
+          description={`
     An Icon can be provided to be placed before the \`title\`.
     It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
 
     Badge text can also be provided, which will be displayed after the \`title\`.
-    
+
     An IconButton can be provided to be placed after the \`title\` for a supplemental Call To Action (CTA).`}
-    defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample3() {
   const [showPopover, setShowPopover] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -441,7 +431,7 @@ function ModuleExample3() {
           },
           {
             children: <Text size="md">Children3</Text>,
-            iconButton: <IconButton 
+            iconButton: <IconButton
               bgColor="lightGray"
               icon="question-mark"
               iconColor="darkGray"
@@ -449,7 +439,7 @@ function ModuleExample3() {
               size="xs"
               onClick={({event}) => setShowPopover((currVal) => !currVal)}
               ref={anchorRef}
-            />,            
+            />,
             title: 'Example with icon button',
           }
         ]}>
@@ -471,14 +461,15 @@ function ModuleExample3() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Expandable - Error"
-    description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
-    defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Expandable - Error"
+          description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample4() {
   const [value, setValue] = React.useState('');
   const moduleType = !value ? 'error' : 'info';
@@ -512,13 +503,12 @@ function ModuleExample4() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Example with external control"
-    defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Example with external control">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ModuleExample5() {
   const [extExpandedId, setExtExpandedId] = React.useState(null);
   const mapIds = {
@@ -586,9 +576,9 @@ function ModuleExample5() {
   );
 }
 `}
-  />,
-);
-
-export default function ModulePage(): Node {
-  return <CardPage cards={cards} page="Module" />;
+          />
+        </MainSection.Subsection>
+      </MainSection>
+    </Page>
+  );
 }

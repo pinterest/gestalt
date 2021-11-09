@@ -82,7 +82,6 @@ function SectionsIconButtonDropdownExample() {
 card(
   <PropTable
     Component={IconButton}
-    name="IconButton"
     id="IconButton"
     props={[
       {

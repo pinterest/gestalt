@@ -81,18 +81,20 @@ function CardExample() {
   return (
     <Box maxWidth={236} padding={2} column={12}>
       <Card image={<Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" />}>
-        <Text align="center" weight="bold">
-          <Link href="https://pinterest.com">
-            <Box paddingX={3} paddingY={2}>
-              James Jones
-            </Box>
-          </Link>
+        <Flex direction="column" justifyContent="center">
+          <Text align="center" weight="bold">
+            <Link href="https://pinterest.com">
+              <Box paddingX={3} paddingY={2}>
+                James Jones
+              </Box>
+            </Link>
         </Text>
         <Button
           accessibilityLabel="Follow James Jones"
           color="red"
           text="Follow"
         />
+        </Flex>
       </Card>
     </Box>
   );

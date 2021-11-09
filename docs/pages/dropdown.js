@@ -80,7 +80,6 @@ card(
 card(
   <PropTable
     Component={Dropdown}
-    name="Dropdown"
     id="Dropdown"
     props={[
       {
@@ -164,86 +163,6 @@ const commonDropdownItemProps = [
     description: 'Object detailing the label, value, and optional subtext for this item.',
   },
 ];
-
-card(
-  <PropTable
-    Component={Dropdown?.Item}
-    name="Dropdown.Item"
-    id="Dropdown.Item"
-    props={[
-      ...commonDropdownItemProps,
-      {
-        name: 'onSelect',
-        type:
-          '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
-        required: true,
-        description: 'Callback when the user selects an item using the mouse or keyboard.',
-      },
-      {
-        name: 'selected',
-        type:
-          '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
-        description:
-          'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.',
-      },
-    ]}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Dropdown?.Link}
-    name="Dropdown.Link"
-    id="Dropdown.Link"
-    props={[
-      ...commonDropdownItemProps,
-      {
-        name: 'href',
-        type: 'string',
-        required: true,
-        description:
-          'Directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
-      },
-      {
-        name: 'isExternal',
-        type: 'boolean',
-        description:
-          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
-      },
-      {
-        name: 'onClick',
-        type:
-          'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-        description: [
-          'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
-          'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-        ],
-      },
-    ]}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Dropdown?.Section}
-    name="Dropdown.Section"
-    id="Dropdown.Section"
-    props={[
-      {
-        name: 'children',
-        type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
-        required: true,
-        description: 'Any Dropdown.Items and/or Dropdown.Links to be rendered',
-      },
-      {
-        name: 'label',
-        type: 'string',
-        required: true,
-        description: 'Label for the section. See the [Sections](#Sections) variant for more info.',
-      },
-    ]}
-  />,
-);
 
 card(
   <MainSection name="Usage guidelines">
@@ -722,6 +641,88 @@ function TruncationDropdownExample() {
       />
     </MainSection.Subsection>
   </MainSection>,
+);
+
+card(<MainSection name="Subcomponents" />);
+
+card(
+  <PropTable
+    Component={Dropdown?.Item}
+    name="Dropdown.Item"
+    id="Dropdown.Item"
+    props={[
+      ...commonDropdownItemProps,
+      {
+        name: 'onSelect',
+        type:
+          '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
+        required: true,
+        description: 'Callback when the user selects an item using the mouse or keyboard.',
+      },
+      {
+        name: 'selected',
+        type:
+          '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
+        description:
+          'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.',
+      },
+    ]}
+  />,
+);
+
+card(
+  <PropTable
+    Component={Dropdown?.Link}
+    name="Dropdown.Link"
+    id="Dropdown.Link"
+    props={[
+      ...commonDropdownItemProps,
+      {
+        name: 'href',
+        type: 'string',
+        required: true,
+        description:
+          'Directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
+      },
+      {
+        name: 'isExternal',
+        type: 'boolean',
+        description:
+          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
+      },
+      {
+        name: 'onClick',
+        type:
+          'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
+        description: [
+          'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
+          'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+        ],
+      },
+    ]}
+  />,
+);
+
+card(
+  <PropTable
+    Component={Dropdown?.Section}
+    name="Dropdown.Section"
+    id="Dropdown.Section"
+    props={[
+      {
+        name: 'children',
+        type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
+        required: true,
+        description: 'Any Dropdown.Items and/or Dropdown.Links to be rendered',
+      },
+      {
+        name: 'label',
+        type: 'string',
+        required: true,
+        description: 'Label for the section. See the [Sections](#Sections) variant for more info.',
+      },
+    ]}
+  />,
 );
 
 card(
