@@ -173,7 +173,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 };
 
 /**
- * https://gestalt.pinterest.systems/Video
+ * https://gestalt.pinterest.systems/video
  */
 export default class Video extends PureComponent<Props, State> {
   video: ?HTMLVideoElement;

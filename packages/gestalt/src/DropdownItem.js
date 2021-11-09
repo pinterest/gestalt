@@ -25,7 +25,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Dropdown
+ * https://gestalt.pinterest.systems/dropdown
  */
 export default function DropdownItem({
   badgeText,

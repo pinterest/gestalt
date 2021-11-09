@@ -13,7 +13,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Tabs"
-    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](/SegmentedControl).`}
+    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](/segmentedcontrol).`}
     defaultCode={`
     function DefaultExample() {
       const [activeIndex, setActiveIndex] = React.useState(0);
@@ -159,7 +159,7 @@ function TabExample() {
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Use Tabs as a way to filter content. Consider using [SegmentedControl](/SegmentedControl) in this use-case."
+        description="Use Tabs as a way to filter content. Consider using [SegmentedControl](/segmentedcontrol) in this use-case."
         defaultCode={`
         function FilterExample() {
           const [activeIndex, setActiveIndex] = React.useState(0);
@@ -438,11 +438,11 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Link](/Link)**
+**[Link](/link)**
 Link is used to navigate to different areas of the product or to external sites. Link is the preferred component in cases where you want to direct the user to unrelated content.
 
-**[SegmentedControl](/SegmentedControl)**
-SegmentedControl is used to switch between views within a small area of content, such as a [Popover](/Popover). SegmentedControl is preferred when changing state or selection within a view.
+**[SegmentedControl](/segmentedcontrol)**
+SegmentedControl is used to switch between views within a small area of content, such as a [Popover](/popover). SegmentedControl is preferred when changing state or selection within a view.
 `}
     />
   </MainSection>,

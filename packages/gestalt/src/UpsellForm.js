@@ -20,7 +20,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Upsell
+ * https://gestalt.pinterest.systems/upsell
  */
 export default function UpsellForm({
   children,

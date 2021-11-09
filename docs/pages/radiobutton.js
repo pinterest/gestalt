@@ -105,8 +105,8 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Any time users can choose more than one option. Use [Checkboxes](/Checkbox) instead.
-          - As a solitary option. RadioButtons should always appear in groups of 2 or more. Consider a [Checkbox](/Checkbox) or [Switch](/Switch) instead.
+          - Any time users can choose more than one option. Use [Checkboxes](/checkbox) instead.
+          - As a solitary option. RadioButtons should always appear in groups of 2 or more. Consider a [Checkbox](/checkbox) or [Switch](/switch) instead.
         `}
       />
     </MainSection.Subsection>
@@ -116,7 +116,7 @@ card(
 card(
   <Example
     description="
-    Here is an example of an accessible group of radio buttons. All radio buttons should be wrapped in a [Fieldset](/Fieldset).
+    Here is an example of an accessible group of radio buttons. All radio buttons should be wrapped in a [Fieldset](/fieldset).
   "
     name="RadioButton Group"
     defaultCode={`

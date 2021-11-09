@@ -95,7 +95,7 @@ const rule: ESLintRule = {
       description: `Don't allow useless props combinations on Box`,
       category: 'Gestalt restrictions',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-useless-props',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-useless-props',
     },
     schema: [
       {

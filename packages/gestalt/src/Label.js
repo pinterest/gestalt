@@ -13,7 +13,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Label
+ * https://gestalt.pinterest.systems/label
  */
 export default function Label(props: Props): Node {
   const { children, htmlFor, labelDisplay } = props;

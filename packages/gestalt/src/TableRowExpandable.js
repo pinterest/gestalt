@@ -27,7 +27,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Table
+ * https://gestalt.pinterest.systems/table
  */
 export default function TableRowExpandable(props: Props): Node {
   const {

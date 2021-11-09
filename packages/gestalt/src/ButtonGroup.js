@@ -10,7 +10,7 @@ type Props = {|
 |};
 
 /**
- * [ButtonGroup](https://gestalt.pinterest.systems/ButtonGroup) is used to display a series of buttons.
+ * [ButtonGroup](https://gestalt.pinterest.systems/buttongroup) is used to display a series of buttons.
  */
 function ButtonGroup({ children }: Props): Node {
   if (Children.count(children) === 0) {

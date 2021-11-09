@@ -10,7 +10,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Dropdown
+ * https://gestalt.pinterest.systems/dropdown
  */
 export default function DropdownSection({ label, children }: Props): Node {
   return (

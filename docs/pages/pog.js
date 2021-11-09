@@ -14,7 +14,7 @@ card(
   <PageHeader
     name="Pog"
     description="
-A lower-level functional component to show the active, hovered, & focused states of an [IconButton](#/IconButton).
+A lower-level functional component to show the active, hovered, & focused states of an [IconButton](/iconbutton).
 
 This abstraction to allow for links that look like an IconButton.
 "

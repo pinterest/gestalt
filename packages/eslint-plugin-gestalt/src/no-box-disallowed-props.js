@@ -137,7 +137,7 @@ const rule: ESLintRule = {
       description: `Don't allow props different from the officially-supported Box props and the allowed-list of passthrough React / DOM props`,
       category: 'Gestalt restrictions',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-disallowed-props',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-disallowed-props',
     },
     schema: [
       {

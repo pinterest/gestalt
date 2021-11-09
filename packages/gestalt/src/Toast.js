@@ -31,7 +31,7 @@ type Props = {|
 |};
 
 /**
- * [Toasts](https://gestalt.pinterest.systems/Toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
+ * [Toasts](https://gestalt.pinterest.systems/toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
  *
  * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
  */

@@ -9,7 +9,7 @@ import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.j
 import { getContainerNode } from './utils/positioningUtils.js';
 
 /**
- * https://gestalt.pinterest.systems/Layer
+ * https://gestalt.pinterest.systems/layer
  */
 export default function Layer({
   children,

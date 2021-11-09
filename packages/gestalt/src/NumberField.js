@@ -94,7 +94,7 @@ type Props = {|
 |};
 
 /**
- * [NumberField](https://gestalt.pinterest.systems/NumberField) allows for numerical input.
+ * [NumberField](https://gestalt.pinterest.systems/numberfield) allows for numerical input.
  */
 const NumberFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

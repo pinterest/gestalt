@@ -60,7 +60,7 @@ type unionProps = IconButtonType | LinkIconButtonType;
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 /**
- * https://gestalt.pinterest.systems/IconButton
+ * https://gestalt.pinterest.systems/iconbutton
  */
 const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,

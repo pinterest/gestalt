@@ -12,7 +12,7 @@ card(
   <PageHeader
     name="Tooltip"
     description={`
-Tooltip is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/IconButton). It’s displayed continuously as long as the user hovers over or focuses on the element.`}
+Tooltip is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.`}
     defaultCode={`
       <Flex>
         <Tooltip text="Align left">
@@ -53,7 +53,7 @@ card(
       {
         name: 'children',
         type: 'React.Node',
-        description: `The anchor element, usually [Icon Button](/IconButton), that triggers Tooltip on hover or focus`,
+        description: `The anchor element, usually [Icon Button](/iconbutton), that triggers Tooltip on hover or focus`,
         required: true,
       },
       {
@@ -66,7 +66,7 @@ card(
       {
         name: 'inline',
         type: 'boolean',
-        description: `Properly positions Tooltip relative to an inline element, such as [Icon Button](/IconButton) using the inline property. See the [inline](#Inline) variant to learn more.`,
+        description: `Properly positions Tooltip relative to an inline element, such as [Icon Button](/iconbutton) using the inline property. See the [inline](#Inline) variant to learn more.`,
         defaultValue: 'false',
         href: 'Inline',
       },
@@ -114,7 +114,7 @@ card(
         title="When Not to Use"
         description={`
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
-          - Offering context at the surface-level scope. Consider a [Callout](/Callout) instead.
+          - Offering context at the surface-level scope. Consider a [Callout](/callout) instead.
         `}
       />
     </MainSection.Subsection>
@@ -127,7 +127,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/IconButton), in as few words as possible."
+        description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/iconbutton), in as few words as possible."
         defaultCode={`
 <Tooltip text="Send Pin">
   <IconButton
@@ -201,7 +201,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/IconButton)."
+        description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/iconbutton)."
         defaultCode={`
 <Tooltip text="Total ad spend in the select time period">
   <IconButton
@@ -245,7 +245,7 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-When using Tooltip with [IconButton](/IconButton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` can expand upon that intention, as seen with the \`cog\` IconButton. If Tooltip \`text\` and IconButton \`accessibilityLabel\` contain the same content, pass an empty string to \`accessibilityLabel\`, as seen with the \`send\` IconButton.`}
+When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` can expand upon that intention, as seen with the \`cog\` IconButton. If Tooltip \`text\` and IconButton \`accessibilityLabel\` contain the same content, pass an empty string to \`accessibilityLabel\`, as seen with the \`send\` IconButton.`}
       columns={2}
     >
       <MainSection.Card
@@ -280,9 +280,9 @@ When using Tooltip with [IconButton](/IconButton), avoid repetitive labeling. Th
     <MainSection.Subsection
       title="Disabled elements"
       description={`
-Tooltips must be paired with an interactive, focusable element, like [Button](/Button) or [IconButton](/IconButton). They cannot be paired with anything disabled or static, because this prevents keyboard users from triggering Tooltip and consuming its content. To test if you’re using Tooltip properly, use your keyboard rather than your mouse to trigger Tooltip.
+Tooltips must be paired with an interactive, focusable element, like [Button](/button) or [IconButton](/iconbutton). They cannot be paired with anything disabled or static, because this prevents keyboard users from triggering Tooltip and consuming its content. To test if you’re using Tooltip properly, use your keyboard rather than your mouse to trigger Tooltip.
 
-If you need to explain why an item is disabled, consider adding plain [Text](/Text) near the disabled item, or an \`info-circle\` [IconButton](/IconButton) adjacent to the disabled element.
+If you need to explain why an item is disabled, consider adding plain [Text](/text) near the disabled item, or an \`info-circle\` [IconButton](/iconbutton) adjacent to the disabled element.
 `}
     />
     <MainSection.Card />
@@ -367,7 +367,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Inline"
-      description="Use inline to properly position Tooltip relative to an inline element, such as an [Icon Button](/IconButton)"
+      description="Use inline to properly position Tooltip relative to an inline element, such as an [Icon Button](/iconbutton)"
     >
       <MainSection.Card
         cardSize="lg"
@@ -459,7 +459,7 @@ function SectionsIconButtonDropdownExample() {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Z-index"
-      description={`Tooltip has [Layer](/Layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/ZIndex%20Classes#FixedZIndex) used in [Modal](/Modal) and [CompositeZIndex](ZIndex%20Classes#CompositeZIndex) to layer Tooltip on top.
+      description={`Tooltip has [Layer](/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/zindex%20classes#FixedZIndex) used in [Modal](/modal) and [CompositeZIndex](ZIndex%20Classes#CompositeZIndex) to layer Tooltip on top.
 
 `}
     >
@@ -860,13 +860,13 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Popover](/Popover)**
-Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Buttons](/Buttons) and [Images](/Images).
+**[Popover](/popover)**
+Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Buttons](/button) and [Images](/image).
 
-**[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
+**[ScrollBoundaryContainer](/scrollboundarycontainer)**
 ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling. See the [within scrolling containers](#Within-scrolling-containers) variant to learn more.
 
-**[Toast](/Toast)**
+**[Toast](/toast)**
 Toast provides feedback on an interaction. One example of Toast is the confirmation that appears when a Pin has been saved. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of being attached to any particular element on the interface.
     `}
     />

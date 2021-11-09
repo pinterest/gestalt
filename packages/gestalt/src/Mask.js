@@ -16,7 +16,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Mask
+ * https://gestalt.pinterest.systems/mask
  */
 export default function Mask(props: Props): Node {
   const { children, rounding = 0, width, height, willChangeTransform = true, wash = false } = props;

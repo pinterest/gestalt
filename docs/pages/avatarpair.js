@@ -30,7 +30,7 @@ export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: 
             type="don't"
             title="When Not to Use"
             description={`
-          - In cases where a square format is not required. Use [AvatarGroup](/AvatarGroup) instead.
+          - In cases where a square format is not required. Use [AvatarGroup](/avatargroup) instead.
         `}
           />
         </MainSection.Subsection>

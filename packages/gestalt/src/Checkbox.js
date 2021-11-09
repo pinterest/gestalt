@@ -32,7 +32,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Checkbox
+ * https://gestalt.pinterest.systems/checkbox
  */
 const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

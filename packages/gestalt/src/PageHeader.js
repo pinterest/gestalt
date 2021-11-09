@@ -34,7 +34,7 @@ type Props = {|
 |};
 
 /**
- * [PageHeader](https://gestalt.pinterest.systems/PageHeader) is used to indicate the title of the current page, as well as optional actions.
+ * [PageHeader](https://gestalt.pinterest.systems/pageheader) is used to indicate the title of the current page, as well as optional actions.
  */
 export default function PageHeader({
   maxWidth = '100%',

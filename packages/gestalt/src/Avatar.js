@@ -43,7 +43,7 @@ type Props = {|
 |};
 
 /**
- * Use [Avatar](https://gestalt.pinterest.systems/Avatar) to represent a user. Every Avatar image has a subtle color wash.
+ * [Avatar](https://gestalt.pinterest.systems/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
  */
 export default function Avatar(props: Props): Node {
   const [isImageLoaded, setIsImageLoaded] = useState(true);

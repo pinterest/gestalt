@@ -25,18 +25,18 @@ card(
       description={`
         Prevent using \`<div>\` inline styling for attributes that are already implemented in Box.
 
-        [Learn more about Box](/Box).
+        [Learn more about Box](/box).
       `}
     />
     <MainSection.Subsection
       title="gestalt/prefer-box-no-disallowed"
       description={`Prevent \`<div>\` tags that don't contain disallowed attributes: className and onClick. Use Gestalt Box, instead. Other attributes are disallowed as well so this Eslint rule doesn't conflict with [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
 
-[Read more about Box](/Box).
+[Read more about Box](/box).
 
 It also prevents \`<div>\` tags used to only contain a \`ref\` attribute. \`ref\` is supported in Box and other elements such as Button or TextField.
 
-[Read more about the ref prop in Box](/Box#Using-as-a-ref).
+[Read more about the ref prop in Box](/box#Using-as-a-ref).
 
 With AUTOFIX!
       `}
@@ -63,14 +63,14 @@ With AUTOFIX!
 
         With AUTOFIX!
 
-        [Read more about the as prop in Box](/Box#Using-'as'-property).
+        [Read more about the as prop in Box](/box#Using-'as'-property).
       `}
     />
     <MainSection.Subsection
       title="gestalt/prefer-link"
       description={`Prevent anchor tags that only contain attributes matching supported props in Gestalt Link.
 
-[Read more about Link](/Link).
+[Read more about Link](/link).
 
 With AUTOFIX!
       `}
@@ -113,7 +113,7 @@ card(
 
         With AUTOFIX!
 
-        [Learn more about Box](/Box).
+        [Learn more about Box](/box).
       `}
     />
     <MainSection.Subsection
@@ -139,7 +139,7 @@ card(
       title="gestalt/prefer-flex"
       description={`Prevent \`Box\` usages in those cases where they can be replaced with \`Flex\`.
 
-[Read more about Flex](/Flex).
+[Read more about Flex](/flex).
 
 With AUTOFIX!
       `}
@@ -228,7 +228,7 @@ card(
   <MainSection
     name="Releasing"
     description={`
-    Every commit to master performs a release. See the main docs [releasing information](/Installation#Releasing) for more details.
+    Every commit to master performs a release. See the main docs [releasing information](/installation#Releasing) for more details.
   `}
   />,
 );
@@ -251,7 +251,7 @@ card(
       description={`
         Do not allow role=&apos;link&apos; on Button, TapArea, and IconButton in cases where an alternative with additional functionality must be used instead such as for use with a routing library.
 
-        Deprecation due to: [OnLinkNavigationProvider](/OnLinkNavigationProvider) enables external link navigation in Gestalt components.
+        Deprecation due to: [OnLinkNavigationProvider](/onlinknavigationprovider) enables external link navigation in Gestalt components.
       `}
     />
   </MainSection>,

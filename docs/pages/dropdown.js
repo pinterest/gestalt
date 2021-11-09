@@ -87,7 +87,7 @@ card(
         name: 'anchor',
         type: '?HTMLElement',
         description:
-          'Ref for the element that the Dropdown will attach to, will most likely be a [Button](/Button). See the [Accessibility](#Accessibility) guidelines to learn more.',
+          'Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](#Accessibility) guidelines to learn more.',
       },
       {
         name: 'children',
@@ -133,7 +133,7 @@ card(
         name: 'zIndex',
         type: 'interface Indexable { index(): number; }',
         description:
-          'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/ZIndex%20Classes)',
+          'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/zindex%20classes)',
       },
     ]}
   />,
@@ -144,7 +144,7 @@ const commonDropdownItemProps = [
     name: 'badgeText',
     type: 'string',
     description:
-      "When supplied, will display a [Badge](/Badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
+      "When supplied, will display a [Badge](/badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
   },
   {
     name: 'dataTestId',
@@ -216,7 +216,7 @@ card(
           'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
         description: [
           'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
-          'See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
+          'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
         ],
       },
     ]}
@@ -254,7 +254,7 @@ card(
         title="When to Use"
         description={`
           - Displaying a list of actions, options, or links. Usually displays 3 or more options.
-          - Allowing complex functionality that a [SelectList](/SelectList) can't accomplish.
+          - Allowing complex functionality that a [SelectList](/selectlist) can't accomplish.
           - Taking immediate action or navigating users to another view.
         `}
       />
@@ -263,9 +263,9 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/RadioButton) or [Checkboxes](/Checkbox) instead.
-          - When it is desirable to filter a long list of options. Use [ComboBox](/ComboBox) instead.
-          - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/SelectList) instead.
+          - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/radiobutton) or [Checkboxes](/checkbox) instead.
+          - When it is desirable to filter a long list of options. Use [ComboBox](/combobox) instead.
+          - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/selectlist) instead.
         `}
       />
     </MainSection.Subsection>
@@ -278,7 +278,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/SelectList)."
+        description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/selectlist)."
         defaultCode={`
       function BestPracticeDropdownExample() {
         const [open, setOpen] = React.useState(false);
@@ -342,7 +342,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Use Dropdown for a simple list of items. Use [SelectList](/SelectList) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
+        description="Use Dropdown for a simple list of items. Use [SelectList](/selectlist) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
         defaultCode={`
     function SimpleListDropdownExample() {
       const [open, setOpen] = React.useState(false);
@@ -772,7 +772,7 @@ function ActionDropdownExample() {
       <MainSection.Card
         cardSize="md"
         title="Link"
-        description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
+        description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
 `}
         defaultCode={`
 function LinkDropdownExample() {
@@ -1058,7 +1058,7 @@ function SubtextDropdownExample() {
 
     <MainSection.Subsection
       title="Badges"
-      description={`A [Badge](/Badge) can be used to indicate a new product surface or feature within the Dropdown using \`badgeText\`. Multiple badges within a Dropdown should be avoided when possible.`}
+      description={`A [Badge](/badge) can be used to indicate a new product surface or feature within the Dropdown using \`badgeText\`. Multiple badges within a Dropdown should be avoided when possible.`}
     >
       <MainSection.Card
         cardSize="lg"
@@ -1196,19 +1196,19 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Button](/Button), [IconButton](/IconButton)**
+**[Button](/button), [IconButton](/iconbutton)**
 It is most common to anchor Dropdown to Button or IconButton.
 
-**[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
+**[ScrollBoundaryContainer](/scrollboundarycontainer)**
 ScrollableContainer is needed for proper positioning when the Dropdown is located within a scrolling container. The use of ScrollableContainer ensures the Dropdown remains attached to its anchor when scrolling.
 
-**[SelectList](/SelectList)**
+**[SelectList](/selectlist)**
 If users need to select from a short, simple list (without needing sections, subtext details, or the ability to filter the list), use SelectList.
 
 **[ComboBox](/combobox)**
 If users need the ability to choose an option by typing in an input and filtering a long list of options, use ComboBox.
 
-**[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
+**[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 `}
     />

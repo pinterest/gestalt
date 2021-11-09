@@ -30,7 +30,7 @@ const rule: ESLintRule = {
         'Enforce usage of Right-to-Left (RTL)-compliant marginStart/marginEnd over marginLeft/marginRight',
       category: 'Deprecated ESlint rules',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-marginleft-marginright',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-marginleft-marginright',
     },
     schema: [
       {

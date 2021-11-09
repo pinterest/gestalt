@@ -38,7 +38,7 @@ const SIZE_SCALE = {
 };
 
 /**
- * https://gestalt.pinterest.systems/Heading
+ * https://gestalt.pinterest.systems/heading
  */
 export default function Heading({
   accessibilityLevel,

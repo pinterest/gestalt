@@ -9,7 +9,7 @@ import Text from './Text.js';
 import type { ModuleExpandableItemProps } from './moduleTypes.js';
 
 /**
- * https://gestalt.pinterest.systems/Module
+ * https://gestalt.pinterest.systems/module
  */
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,

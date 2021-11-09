@@ -198,7 +198,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Tabs
+ * https://gestalt.pinterest.systems/tabs
  */
 export default function Tabs({
   activeTabIndex,

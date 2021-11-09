@@ -328,7 +328,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
 
       <MainSection
         name="Accessibility"
-        description={`Be sure to follow any accessibility guidelines for the components used within PageHeader. The heading within PageHeader will be rendered as a level 1 heading, so ensure there are no other level 1 headings present on the page. For headings level 2-6, use [Heading](/Heading). Learn more about <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="blank">creating accessible headings</a>.`}
+        description={`Be sure to follow any accessibility guidelines for the components used within PageHeader. The heading within PageHeader will be rendered as a level 1 heading, so ensure there are no other level 1 headings present on the page. For headings level 2-6, use [Heading](/heading). Learn more about <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="blank">creating accessible headings</a>.`}
       >
         <MainSection.Card
           cardSize="lg"
@@ -408,7 +408,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`PageHeader supports an optional \`primaryAction\`. It can be a [Button](Button), a [Link](/Link) or an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown). Any Buttons or IconButtons should be \`size="lg"\`.`}
+          description={`PageHeader supports an optional \`primaryAction\`. It can be a [Button](/button), a [Link](/link) or an [IconButton](/iconbutton) with a [Tooltip](/tooltip) and optional [Dropdown](/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.`}
           title="Primary action"
         >
           <MainSection.Card
@@ -506,7 +506,7 @@ function PrimaryActionExample() {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`PageHeader also supports an optional \`secondaryAction\`. It will likely be a [Button](Button) or an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown). Any Buttons or IconButtons should be \`size="lg"\`.`}
+          description={`PageHeader also supports an optional \`secondaryAction\`. It will likely be a [Button](/button) or an [IconButton](/iconbutton) with a [Tooltip](/tooltip) and optional [Dropdown](/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.`}
           title="Secondary action"
         >
           <MainSection.Card
@@ -648,7 +648,7 @@ function SecondaryActionExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Heading](/Heading)**
+      **[Heading](/heading)**
       Heading should be used to create level 2-6 headings on a page. If a level 1 heading is needed, use PageHeader.
     `}
         />

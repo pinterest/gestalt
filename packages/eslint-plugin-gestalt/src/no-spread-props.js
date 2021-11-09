@@ -21,7 +21,7 @@ const rule: ESLintRule = {
         'Prevent spreading props in Gestalt components to enable AST codemods and usage-metrics scripts.',
       category: 'Gestalt alternatives',
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-spread-props',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-spread-props',
     },
     fixable: 'code',
     schema: ([]: $ReadOnlyArray<empty>),
