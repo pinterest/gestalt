@@ -6,9 +6,7 @@ import { AppContextProvider, AppContextConsumer } from './appContext.js';
 import { NavigationContextProvider } from './navigationContext.js';
 import AppLayout from './AppLayout.js';
 
-type Props = {|
-  children?: Node,
-|};
+type Props = {| children?: Node |};
 
 export default function App({ children }: Props): Node {
   const router = useRouter();

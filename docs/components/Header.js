@@ -1,11 +1,12 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useState } from 'react';
-import { Box, Flex, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
+import { Box, Flex, FixedZIndex, Text, IconButton, Sticky } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import HeaderMenu from './HeaderMenu.js';
 import Link from './Link.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
+import GestaltLogo from './GestaltLogo.js';
 
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
@@ -27,12 +28,7 @@ function Header() {
           <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
             <Box padding={2}>
               <Flex alignItems="center" gap={2}>
-                <Icon
-                  icon="pinterest"
-                  color="white"
-                  size={24}
-                  accessibilityLabel="Pinterest Logo"
-                />
+                <GestaltLogo />
                 Gestalt
               </Flex>
             </Box>

@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { getLogoVariant } from '../components/GestaltLogo.js';
 
 class GestaltDocument extends Document {
   // $FlowFixMe[signature-verification-failure]
@@ -33,7 +34,7 @@ gtag('config', 'UA-12967896-44');
 `,
             }}
           />
-          <link rel="shortcut icon" href="/pinterest_favicon.png" />
+          <link rel="shortcut icon" href={`/gestalt_logo_${getLogoVariant}_favicon.png`} />
         </Head>
         <body>
           <Main />
