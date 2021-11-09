@@ -1,17 +1,16 @@
 // @flow strict
 import type { ComponentType, Node } from 'react';
-
 import { Component as ReactComponent } from 'react';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
-import throttle from './throttle.js';
 import type { Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
 import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
 import defaultLayout from './defaultLayout.js';
+import throttle from './throttle.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
@@ -87,6 +86,9 @@ type Props<T> = {|
    * This is required if the grid is expected to be scrollable.
    */
   scrollContainer?: () => HTMLElement,
+  deferScrollPositionUpdate?: boolean,
+  virtualBoundsTop?: number,
+  virtualBoundsBottom?: number,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
   /**
@@ -109,6 +111,16 @@ const RESIZE_DEBOUNCE = 300;
 // The amount of extra buffer space for populating visible items.
 const VIRTUAL_BUFFER_FACTOR = 0.7;
 
+// Duration for the function that we'll use to see if scroll is still happening.
+// One mouse scroll creates many addEventListener('scroll', ()=>{}) type events,
+// so if this timeout is reached (not reset by another scroll event), we know scroll
+// is over and perform post scroll tasks.
+<<<<<<< HEAD
+const SCROLL_TIMEOUT_WAIT = 100;
+=======
+const SCROLL_TIMEOUT_WAIT=100;
+>>>>>>> e766dbd8... chore: minor code review changes. Smoke tested w/Pinterest
+
 const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
 /**
@@ -129,10 +141,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     }
   }, RESIZE_DEBOUNCE);
 
-  // Using throttle here to schedule the handler async, outside of the event
-  // loop that produced the event.
   // $FlowFixMe[signature-verification-failure]
-  updateScrollPosition = throttle(() => {
+  updateScrollPosition = () => {
     if (!this.scrollContainer) {
       return;
     }
@@ -145,7 +155,25 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.setState({
       scrollTop: getScrollPos(scrollContainer),
     });
-  });
+  };
+
+  // $FlowFixMe[signature-verification-failure]
+  throttledUpdateScrollPosition = throttle(this.updateScrollPosition);
+
+  scrollTimeoutId: ?TimeoutID = null;
+
+  // The browser scroll event API will fire LOTS of events. This waits until the events
+  // stop coming in to set the final scroll position
+  handleScroll: () => void = () => {
+    if (this.scrollTimeoutId) {
+      clearTimeout(this.scrollTimeoutId);
+    }
+    this.scrollTimeoutId = setTimeout(this.updateScrollPosition, SCROLL_TIMEOUT_WAIT);
+  };
+
+  clearScrollTimeout: () => void = () => {
+    clearTimeout(this.scrollTimeoutId);
+  };
 
   // $FlowFixMe[signature-verification-failure]
   measureContainerAsync = debounce(() => {
@@ -260,8 +288,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     // Make sure async methods are cancelled.
     this.measureContainerAsync.clearTimeout();
     this.handleResize.clearTimeout();
-    this.updateScrollPosition.clearTimeout();
-
+    if (this.props.deferScrollPositionUpdate) {
+      this.clearScrollTimeout();
+    } else {
+      this.updateScrollPosition.clearTimeout();
+    }
     window.removeEventListener('resize', this.handleResize);
   }
 
@@ -440,6 +471,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       items,
       layout,
       minCols,
+      deferScrollPositionUpdate,
       scrollContainer,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
@@ -587,7 +619,9 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     return scrollContainer ? (
       <ScrollContainer
         ref={this.setScrollContainerRef}
-        onScroll={this.updateScrollPosition}
+        onScroll={
+          deferScrollPositionUpdate ? this.handleScroll : this.throttledUpdateScrollPosition
+        }
         scrollContainer={scrollContainer}
       >
         {gridBody}
