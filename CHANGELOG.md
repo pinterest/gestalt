@@ -1,3 +1,9 @@
+## 40.0.3 (Nov 9, 2021)
+
+### Patch
+
+- Docs: fix broken links 🔗 #1770
+
 ## 40.0.2 (Nov 8, 2021)
 
 ### Patch
