@@ -1,3 +1,9 @@
+## 40.0.5 (Nov 10, 2021)
+
+### Patch
+
+- Divider: Add vertical example to docs (#1778)
+
 ## 40.0.4 (Nov 10, 2021)
 
 ### Patch
