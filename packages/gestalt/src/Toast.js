@@ -73,7 +73,7 @@ export default function Toast({
       <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
         <Flex alignItems="center" gap={4}>
           {thumbnail ? (
-            <Flex flex="none" justifyContent="center">
+            <Flex.Item flex="none">
               <Mask
                 height={thumbnailShape === 'rectangle' ? 64 : 48}
                 rounding={thumbnailShape === 'circle' ? 'circle' : 2}
@@ -81,14 +81,14 @@ export default function Toast({
               >
                 {thumbnail}
               </Mask>
-            </Flex>
+            </Flex.Item>
           ) : null}
 
-          <Flex direction="column" flex="grow" justifyContent="center">
+          <Flex.Item flex="grow">
             <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
               {textElement}
             </Text>
-          </Flex>
+          </Flex.Item>
 
           {button ? <Flex.Item flex="none">{button}</Flex.Item> : null}
         </Flex>
