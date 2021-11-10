@@ -3,7 +3,7 @@ import type { Node } from 'react';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
-import MainSection from '../components/MainSection';
+import MainSection from '../components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
