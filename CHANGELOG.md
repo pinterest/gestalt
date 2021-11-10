@@ -1,3 +1,9 @@
+## 40.0.4 (Nov 10, 2021)
+
+### Patch
+
+- Toast: fix layout issues (#1775)
+
 ## 40.0.3 (Nov 9, 2021)
 
 ### Patch
