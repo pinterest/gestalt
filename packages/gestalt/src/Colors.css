@@ -7,7 +7,7 @@
   --g-colorGray100: #efefef;
   --g-colorGray150: #ddd;
   --g-colorGray200: #767676;
-  --g-colorGray300: #111;
+  --g-colorGray300: var(--color-text-default);
   --g-colorGray400: #000;
 
   /* secondary colors */
@@ -67,7 +67,7 @@
 /* white */
 
 .white {
-  color: var(--g-colorGray0);
+  color: var(--color-text-inverted);
 }
 
 .whiteBg {
@@ -113,7 +113,7 @@
 /* darkGray */
 
 .darkGray {
-  color: var(--g-colorGray300);
+  color: var(--color-text-default);
 }
 
 .darkGrayBg {

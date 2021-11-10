@@ -1,9 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
-import { Table, Text, Box } from 'gestalt';
+import { Heading, Table, Text, Box } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
+import ColorTile from '../components/ColorTile.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -205,6 +206,100 @@ card(
               <Text>-64px</Text>
             </Table.Cell>
             <Table.Cell>{null}</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </MainSection.Subsection>
+    <MainSection.Subsection title="Color">
+      <Table accessibilityLabel="Spacing token values">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>
+              <Text weight="bold">CSS Token Name</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">JavaScript Prop Name</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Value</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Example</Text>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>
+              <Text>--color-text-default</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>colorTextDefault</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>#111111</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Box padding={4}>
+                <Heading size="md" accessibilityLevel="none">
+                  Gestalt
+                </Heading>
+              </Box>
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>
+              <Text>--color-text-inverse</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>colorTextInverse</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>#FFFFFF</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Box color="darkGray" padding={4}>
+                <Heading size="md" accessibilityLevel="none" color="white">
+                  Gestalt
+                </Heading>
+              </Box>
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>
+              <Text>--color-text-success</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>colorTextSuccess</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>#</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Box padding={4}>
+                <Heading size="md" accessibilityLevel="none" color="pine">
+                  Gestalt
+                </Heading>
+              </Box>
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>
+              <Text>--color-text-error</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>colorTextError</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Text>#</Text>
+            </Table.Cell>
+            <Table.Cell>
+              <Box padding={4}>
+                <Heading size="md" accessibilityLevel="none" color="red">
+                  Gestalt
+                </Heading>
+              </Box>
+            </Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
