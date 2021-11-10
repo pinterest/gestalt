@@ -1,0 +1,24 @@
+{
+  "color": {
+    "text": {
+      "default": {
+        "value": "{color.black.cosmicore.900.value}"
+      },
+      "subtle": {
+        "value": "{color.gray.roboflow.500.value}"
+      },
+      "success": {
+        "value": "{color.green.matchacado.600.value}"
+      },
+      "error": {
+        "value": "{color.red.pushpin.450.value}"
+      },
+      "warning": {
+        "value": "{color.yellow.caramellow.500.value}"
+      },
+      "inverse": {
+        "value": "{color.white.mochimalist.0.value}"
+      }
+    }
+  }
+}
