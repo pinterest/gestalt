@@ -6,18 +6,42 @@ import boxStyles from './Box.css';
 
 export type LabelDisplay = 'visible' | 'hidden';
 
-type Props = {|
+type NormalProps = {|
+  /**
+   *
+   */
   children?: Node,
+  /**
+   * Id of the element this label is describing.
+   */
   htmlFor: string,
+  /**
+   *
+   */
   labelDisplay?: LabelDisplay,
 |};
 
-/**
- * https://gestalt.pinterest.systems/Label
- */
-export default function Label(props: Props): Node {
-  const { children, htmlFor, labelDisplay } = props;
+type RequiredProps = {|
+  /*
+   * Required.
+   */
+  children: Node,
+  /*
+   * Id of the element this label is describing. Required.
+   */
+  htmlFor: string,
+  /*
+   * Required.
+   */
+  labelDisplay: LabelDisplay,
+|};
 
+type Props = NormalProps | RequiredProps;
+
+/**
+ * Use [Label](https://gestalt.pinterest.systems/Label) to connect a label with a form component in an accessible way.
+ */
+export default function Label({ children, htmlFor, labelDisplay }: Props): Node {
   return (
     <label
       className={classnames(styles.label, {

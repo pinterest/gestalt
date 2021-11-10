@@ -1,44 +1,23 @@
 // @flow strict
-import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import { type Node } from 'react';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+export default function LabelPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Label">
+      <PageHeader name="Label" description={generatedDocGen?.description} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-card(
-  <PageHeader
-    name="Label"
-    description="Use the Label component to connect a label with a form component in an accessible way."
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'htmlFor',
-        type: 'string',
-        required: true,
-        description: 'Id of the element this label is describing',
-      },
-    ]}
-  />,
-);
-
-card(
-  <Example
-    description={`
+      <Example
+        description={`
     Whenever you are using a [SelectList](#/SelectList), [Switch](#/Switch), [TextField](#/TextField) or [TextArea](#/TextArea) component, you should use a \`Label\`.
   `}
-    name="Example"
-    defaultCode={`
+        name="Example"
+        defaultCode={`
 function LabelExample() {
   const [switched, setSwitched] = React.useState(false);
 
@@ -58,9 +37,13 @@ function LabelExample() {
   );
 }
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function LabelPage(): Node {
-  return <CardPage cards={cards} page="Label" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('Label') },
+  };
 }
