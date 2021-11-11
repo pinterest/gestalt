@@ -1,3 +1,9 @@
+## 40.0.6 (Nov 11, 2021)
+
+### Patch
+
+- Internal: upgrade stylelint to 14.0.1 (#1777)
+
 ## 40.0.5 (Nov 10, 2021)
 
 ### Patch
