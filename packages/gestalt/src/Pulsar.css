@@ -2,7 +2,7 @@
   composes: borderBox from "./Layout.css";
   animation-duration: 5s;
   animation-iteration-count: inherit;
-  animation-name: PulseAnimation;
+  animation-name: pulse-animation;
   border: 8px solid #0074e8;
   border-radius: 50%;
   height: 100%;
@@ -20,11 +20,11 @@
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
-  animation-name: AppearAnimation;
+  animation-name: appear-animation;
   opacity: 0;
 }
 
-@keyframes AppearAnimation {
+@keyframes appear-animation {
   from {
     opacity: 0;
   }
@@ -34,7 +34,7 @@
   }
 }
 
-@keyframes PulseAnimation {
+@keyframes pulse-animation {
   0% {
     opacity: 0;
     transform: scale(0.8);

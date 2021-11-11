@@ -2,7 +2,7 @@
   composes: absolute from "./Layout.css";
   composes: rounding2 from "./Borders.css";
   composes: top0 right0 bottom0 left0 contentBox from "./Layout.css";
-  background: rgba(0, 0, 0, 0.064);
+  background: rgb(0 0 0 / 0.064);
   height: 100%;
   opacity: 0;
   pointer-events: none;

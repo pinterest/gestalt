@@ -40,12 +40,12 @@
   --g-blueActive: #4a85c9;
 
   /* transparent colors */
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray800: rgba(0, 0, 0, 0.8);
+  --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
+  --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
+  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
+  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
+  --g-colorTransparentGray500: rgb(0 0 0 / 0.1);
+  --g-colorTransparentGray800: rgb(0 0 0 / 0.8);
 }
 
 /** PRIMARY COLORS **/

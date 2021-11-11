@@ -14,6 +14,6 @@
   composes: left0 from "./Layout.css";
   composes: right0 from "./Layout.css";
   composes: top0 from "./Layout.css";
-  background: rgba(0, 0, 0, 0.04);
+  background: rgb(0 0 0 / 0.04);
   pointer-events: none;
 }
