@@ -1,5 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
+import { useCookies } from 'react-cookie';
 
 import { useEffect } from 'react';
 import createHydra, { type Hydra } from './createHydra.js';
@@ -29,14 +30,11 @@ const {
 }: Hydra<AppContextType> = createHydra<AppContextType>('AppContext');
 
 function AppContextProvider({ children }: {| children?: Node |}): Node {
+  const [cookies, setCookie] = useCookies(['gestalt-color-scheme']);
+
   const [propTableVariant, setPropTableVariant] = useLocalStorage<PropTableVariant>(
     propTableVariantKey,
     'expanded',
-  );
-
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>(
-    localStorageColorSchemeKey,
-    'light',
   );
 
   const [textDirection, setTextDirection] = useLocalStorage<DirectionScheme>(
@@ -55,8 +53,10 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
       value={{
         propTableVariant,
         setPropTableVariant,
-        colorScheme,
-        setColorScheme,
+        colorScheme: cookies['gestalt-color-scheme'] || 'light',
+        setColorScheme: (newColorScheme) => {
+          setCookie('gestalt-color-scheme', newColorScheme);
+        },
         textDirection,
         setTextDirection,
       }}
