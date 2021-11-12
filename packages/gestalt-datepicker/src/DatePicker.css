@@ -1,6 +1,6 @@
 :root {
   /* transparent colors */
-  --g-color-focus: rgba(0, 132, 255, 0.5);
+  --g-color-focus: rgb(0 132 255 / 0.5);
 
   /* border & dimensions */
   --g-borderRadius-circle: 50%;

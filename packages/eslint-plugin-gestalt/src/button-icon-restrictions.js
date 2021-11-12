@@ -18,7 +18,7 @@ const rule: ESLintRule = {
       description: 'Button icon restrictions',
       category: 'Gestalt restrictions',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltbutton-icon-restrictions',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltbutton-icon-restrictions',
     },
     schema: [
       {

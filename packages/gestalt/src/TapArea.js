@@ -70,7 +70,7 @@ type unionProps = TapAreaType | LinkTapAreaType;
 type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
 /**
- * https://gestalt.pinterest.systems/TapArea
+ * https://gestalt.pinterest.systems/tapArea
  */
 const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,

@@ -74,7 +74,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Choosing between related options. Each Switch should be considered a solitary, standalone option. For multiple, related choices, use [Checkboxes](Checkbox) or [RadioButtons](/RadioButton) instead.
+          - Choosing between related options. Each Switch should be considered a solitary, standalone option. For multiple, related choices, use [Checkboxes](/checkbox) or [RadioButtons](/radiobutton) instead.
         `}
       />
     </MainSection.Subsection>
@@ -85,7 +85,7 @@ card(
   <Example
     id="basicExample"
     description={`
-    Whenever you are using a \`Switch\` component, you should use a [Label](#/Label) with it to make your component accessible.
+    Whenever you are using a \`Switch\` component, you should use a [Label](/label) with it to make your component accessible.
   `}
     name="Example: Using a label"
     defaultCode={`
@@ -119,16 +119,14 @@ card(
     hasCheckerboard={false}
     layout="4column"
   >
-    {(props, i) => {
-      return (
-        <Box borderStyle="lg" padding={2}>
-          <Label htmlFor={`example-${i}`}>
-            <Text>{`Switch ${i + 1}`}</Text>
-          </Label>
-          <Switch id={`example-${i}`} onChange={() => {}} {...props} />
-        </Box>
-      );
-    }}
+    {(props, i) => (
+      <Box borderStyle="lg" padding={2}>
+        <Label htmlFor={`example-${i}`}>
+          <Text>{`Switch ${i + 1}`}</Text>
+        </Label>
+        <Switch id={`example-${i}`} onChange={() => {}} {...props} />
+      </Box>
+    )}
   </Combination>,
 );
 

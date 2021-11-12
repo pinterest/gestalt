@@ -60,8 +60,8 @@ describe('<SearchField />', () => {
     expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
   });
 
-  it('should call onKeyDown callback when keyboard input is entered', () => {
-    return new Promise((resolve) => {
+  it('should call onKeyDown callback when keyboard input is entered', () =>
+    new Promise((resolve) => {
       const { getByRole } = render(
         <SearchField
           accessibilityLabel="Demo Search Field"
@@ -78,6 +78,5 @@ describe('<SearchField />', () => {
         />,
       );
       fireEvent.keyDown(getByRole('searchbox'), { key: 'a' });
-    });
-  });
+    }));
 });

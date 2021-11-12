@@ -25,7 +25,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Dropdown
+ * https://gestalt.pinterest.systems/dropdown
  */
 export default function DropdownItem({
   badgeText,
@@ -46,13 +46,13 @@ export default function DropdownItem({
           id={id}
           index={index}
           key={`${option.value + index}`}
+          lineClamp={1}
           onSelect={onSelect}
           option={option}
           ref={setOptionRef}
           role="menuitem"
           selected={selected}
           setHoveredItemIndex={setHoveredItem}
-          shouldTruncate
           textWeight="bold"
         >
           {children}

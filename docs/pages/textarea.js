@@ -116,7 +116,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - For inputs that expect a certain format, like a date or email. Use a [DatePicker](/datepicker) or [TextField](/textF=field) instead.
+          - For inputs that expect a certain format, like a date or email. Use a [DatePicker](/datepicker) or [TextField](/textfield) instead.
         `}
       />
     </MainSection.Subsection>
@@ -265,7 +265,7 @@ card(
     id="tagsExample"
     name="Example: Tags"
     description={`
-    You can include [Tag](/Tag) elements in the input using the \`tags\` prop.
+    You can include [Tag](/tag) elements in the input using the \`tags\` prop.
 
     Note that the \`TextArea\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
 

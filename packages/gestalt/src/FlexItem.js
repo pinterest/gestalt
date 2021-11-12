@@ -15,7 +15,7 @@ export type Props = {|
 const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'minWidth'];
 
 /**
- * https://gestalt.pinterest.systems/Flex
+ * https://gestalt.pinterest.systems/flex
  */
 export default function FlexItem(props: Props): Node {
   const { passthroughProps, propsStyles } = buildStyles<Props>({

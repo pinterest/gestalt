@@ -99,7 +99,7 @@ card(
         type: 'boolean',
         defaultValue: false,
         description:
-          'When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](#TYags) variant to learn more.',
+          'When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](#Tags) variant to learn more.',
       },
       {
         name: 'helperText',
@@ -223,7 +223,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Use ComboBox for a simple list of items. Use [SelectList](/SelectList) instead for the added native mobile functionality."
+        description="Use ComboBox for a simple list of items. Use [SelectList](/selectlist) instead for the added native mobile functionality."
       />
     </MainSection.Subsection>
   </MainSection>,
@@ -661,11 +661,11 @@ function ComboBoxExample(props) {
     </MainSection.Subsection>
     <MainSection.Subsection
       description={`
-    Include [Tag](/Tag) elements in the input using the \`tags\` prop.
+    Include [Tag](/tag) elements in the input using the \`tags\` prop.
 
     Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled). A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`tags\`.
 
-    To use ComboBox with [tags](/Tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
+    To use ComboBox with [tags](/tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
       title="Tags"
     >
       <MainSection.Card
@@ -879,13 +879,13 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[SelectList](/SelectList)**
+**[SelectList](/selectlist)**
 If users need to select from a short, simple list (without needing sections, subtext details, or the ability to filter the list), use SelectList.
 
-**[Dropdown](/Dropdown)**
+**[Dropdown](/dropdown)**
 Dropdown is an element constructed using Popover as its container. Use Dropdown to display a list of actions or options in a Popover.
 
-**[Fieldset](/Fieldset)**
+**[Fieldset](/fieldset)**
 Use Fieldset to group related form items.
     `}
     />

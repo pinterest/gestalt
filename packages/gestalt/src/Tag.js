@@ -33,7 +33,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Tag
+ * https://gestalt.pinterest.systems/tag
  *
  * ![Tag light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tag%20%230.png)
  * ![Tag dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tag-dark%20%230.png)

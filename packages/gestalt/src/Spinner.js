@@ -18,7 +18,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Spinner
+ * https://gestalt.pinterest.systems/spinner
  */
 export default function Spinner({
   accessibilityLabel,

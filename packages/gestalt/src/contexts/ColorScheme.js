@@ -120,7 +120,7 @@ const getTheme = (colorScheme: ?ColorScheme) =>
     : lightModeTheme;
 
 /**
- * https://gestalt.pinterest.systems/ColorSchemeProvider
+ * https://gestalt.pinterest.systems/colorschemeprovider
  */
 export default function ColorSchemeProvider({
   children,

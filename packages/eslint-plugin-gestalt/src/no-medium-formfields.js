@@ -14,7 +14,7 @@ const rule: ESLintRule = {
       description: 'Disallow medium form fields',
       category: 'Gestalt restrictions',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-medium-formfields',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-medium-formfields',
     },
     schema: [
       {

@@ -26,13 +26,13 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/RadioButton
+ * https://gestalt.pinterest.systems/radiobutton
  */
 const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function RadioButton(props: Props, ref): Node {
-  const {
+>(function RadioButton(
+  {
     checked = false,
     disabled = false,
     id,
@@ -43,8 +43,9 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     subtext,
     value,
     size = 'md',
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 

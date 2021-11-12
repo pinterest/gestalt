@@ -85,8 +85,8 @@ export const renameTagFixer: RenameTagFixerType = ({
   gestaltImportNode,
   newComponentName,
   tagName,
-}) => {
-  return [elementNode.openingElement, elementNode.closingElement]
+}) =>
+  [elementNode.openingElement, elementNode.closingElement]
     .map((node) => {
       if (!node) return undefined;
 
@@ -106,7 +106,6 @@ export const renameTagFixer: RenameTagFixerType = ({
       return fixer.replaceText(node, replacedText);
     })
     .filter(Boolean);
-};
 
 type RenameTagWithPropsFixerType = ({|
   context: GenericNode,

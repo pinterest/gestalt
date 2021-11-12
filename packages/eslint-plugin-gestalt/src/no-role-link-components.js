@@ -15,7 +15,7 @@ const rule: ESLintRule = {
       description: 'Disallow role-link on Gestalt components',
       category: 'Deprecated ESlint rules',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-role-link-components',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-role-link-components',
     },
     schema: [
       {

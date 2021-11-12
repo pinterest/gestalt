@@ -24,7 +24,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Table
+ * https://gestalt.pinterest.systems/table
  */
 export default function Table(props: Props): Node {
   const { accessibilityLabel, borderStyle, children, maxHeight, stickyColumns } = props;

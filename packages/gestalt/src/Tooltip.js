@@ -55,7 +55,7 @@ const reducer = (state, action) => {
 };
 
 /**
- * https://gestalt.pinterest.systems/Tooltip
+ * https://gestalt.pinterest.systems/tooltip
  */
 export default function Tooltip({
   children,

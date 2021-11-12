@@ -48,9 +48,9 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
             type="don't"
             title="When Not to Use"
             description={`
-          - When more than 10 options are presented and the ability to filter the list would be beneficial. Use [ComboBox](/ComboBox) instead.
-          - When extra functionality, like groups, subtext or badges, is needed. Use [Dropdown](/Dropdown) instead.
-          - When the options are links and navigate users to different places. Use [Dropdown](/Dropdown) instead.
+          - When more than 10 options are presented and the ability to filter the list would be beneficial. Use [ComboBox](/comboBox) instead.
+          - When extra functionality, like groups, subtext or badges, is needed. Use [Dropdown](/dropdown) instead.
+          - When the options are links and navigate users to different places. Use [Dropdown](/dropdown) instead.
           `}
           />
         </MainSection.Subsection>
@@ -81,7 +81,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use SelectList when additional functionality such as subtext or images are needed. Use [Dropdown](/Dropdown) instead."
+            description="Use SelectList when additional functionality such as subtext or images are needed. Use [Dropdown](/dropdown) instead."
             defaultCode={`
 <SelectList
   id="selectlistexample3"
@@ -123,7 +123,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use [RadioButton](/RadioButton) instead."
+            description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use [RadioButton](/radiobutton) instead."
             defaultCode={`
 <SelectList
   id="selectlistexample5"
@@ -142,7 +142,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/Dropdown), use Dropdown for all the items in the group."
+            description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/dropdown), use Dropdown for all the items in the group."
             defaultCode={`
 <Flex gap={2}>
   <SelectList
@@ -180,7 +180,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Mix [Dropdown](/Dropdown) and SelectList in a group of items."
+            description="Mix [Dropdown](/dropdown) and SelectList in a group of items."
             defaultCode={`
   function SubtextIconButtonFlyoutExample() {
     const [open, setOpen] = React.useState(false);
@@ -267,7 +267,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         <MainSection.Subsection
           title="Labels"
           description={`
-      SelectList comes with [Label](/Label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.`}
+      SelectList comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.`}
         />
       </MainSection>
 
@@ -316,7 +316,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Helper text"
-          description="Helper text should be used when additional description may be required to understand the SelectList. Common examples include text that is legally required to be displayed, or instructions to fill out a form (e.g. proper formatting). If the text is optional, [Tooltip](/Tooltip) could be used instead."
+          description="Helper text should be used when additional description may be required to understand the SelectList. Common examples include text that is legally required to be displayed, or instructions to fill out a form (e.g. proper formatting). If the text is optional, [Tooltip](/tooltip) could be used instead."
         >
           <MainSection.Card
             cardSize="lg"
@@ -418,16 +418,16 @@ function Example(props) {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Dropdown](/Dropdown)**
+**[Dropdown](/dropdown)**
 If additional functionality is needed in the menu, such as subtext, headers or custom styling, use Dropdown.
 
 **[ComboBox](/combobox)**
 If users need the ability to choose an option by entering text to filter a long list of options, use ComboBox.
 
-**[RadioButton](/RadioButton)**
+**[RadioButton](/radiobutton)**
 If users need the ability to choose between fewer than 4 options, use RadioButton.
 
-**[Checkbox](/Checkbox)**
+**[Checkbox](/checkbox)**
 If users need the ability to choose between a yes/no option, use Checkbox.
 `}
         />

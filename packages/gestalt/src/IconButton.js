@@ -60,7 +60,7 @@ type unionProps = IconButtonType | LinkIconButtonType;
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 /**
- * https://gestalt.pinterest.systems/IconButton
+ * https://gestalt.pinterest.systems/iconbutton
  */
 const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
@@ -111,22 +111,20 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
   });
 
-  const renderPogComponent = (selected?: boolean): Node => {
-    return (
-      <Pog
-        active={!disabled && isActive}
-        bgColor={bgColor}
-        dangerouslySetSvgPath={dangerouslySetSvgPath}
-        focused={!disabled && isFocusVisible && isFocused}
-        hovered={!disabled && isHovered}
-        icon={icon}
-        iconColor={iconColor}
-        padding={padding}
-        selected={selected}
-        size={size}
-      />
-    );
-  };
+  const renderPogComponent = (selected?: boolean): Node => (
+    <Pog
+      active={!disabled && isActive}
+      bgColor={bgColor}
+      dangerouslySetSvgPath={dangerouslySetSvgPath}
+      focused={!disabled && isFocusVisible && isFocused}
+      hovered={!disabled && isHovered}
+      icon={icon}
+      iconColor={iconColor}
+      padding={padding}
+      selected={selected}
+      size={size}
+    />
+  );
 
   const handleClick = (event, dangerouslyDisableOnNavigation) =>
     onClick

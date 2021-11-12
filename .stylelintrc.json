@@ -3,6 +3,7 @@
   "ignoreFiles": ["packages/*/dist/**/*.css", "packages/**/*.js"],
   "plugins": ["stylelint-order"],
   "rules": {
+    "alpha-value-notation": null,
     "color-named": [
       "never",
       {
@@ -35,6 +36,7 @@
     "no-descending-specificity": true,
     "no-duplicate-selectors": true,
     "no-unknown-animations": true,
+    "number-max-precision": 5,
     "order/properties-order": [
       ["composes"],
       {
@@ -54,6 +56,7 @@
         "except": ["first-nested"]
       }
     ],
+    "selector-class-pattern": "[a-z]+((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?",
     "selector-max-id": 0,
     "selector-no-vendor-prefix": true,
     "selector-pseudo-class-no-unknown": [

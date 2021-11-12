@@ -30,8 +30,8 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="don't"
             title="When Not to Use"
             description={`
-          - Grouping 4 or more actions, consider using an ellipses [IconButton](/IconButton) after 3 options.
-          - Switching between different views. Use [SegmentedControl](/SegmentedControl) instead.
+          - Grouping 4 or more actions, consider using an ellipses [IconButton](/iconbutton) after 3 options.
+          - Switching between different views. Use [SegmentedControl](/segmentedcontrol) instead.
         `}
           />
         </MainSection.Subsection>

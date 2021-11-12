@@ -36,13 +36,13 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/TextArea
+ * https://gestalt.pinterest.systems/textArea
  */
 const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
   Props,
   HTMLTextAreaElement,
->(function TextArea(props: Props, ref): Node {
-  const {
+>(function TextArea(
+  {
     disabled = false,
     errorMessage,
     hasError = false,
@@ -58,7 +58,9 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
     rows = 3,
     tags,
     value,
-  } = props;
+  }: Props,
+  ref,
+): Node {
   const [focused, setFocused] = useState(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLTextAreaElement>) => {

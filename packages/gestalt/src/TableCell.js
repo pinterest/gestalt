@@ -13,7 +13,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Table
+ * https://gestalt.pinterest.systems/table
  */
 export default function TableCell(props: Props): Node {
   const {

@@ -236,7 +236,7 @@ const canvas = (
         cardSize="lg"
         type="do"
         description={`
-Use Layer instead of z-index when a component needs to visually break out of its parent container, for example, in the case of [modals](/Modal), [sheets](/Sheet) and [tooltips](/Tooltip). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
+Use Layer instead of z-index when a component needs to visually break out of its parent container, for example, in the case of [modals](/modal), [sheets](/sheet) and [tooltips](/tooltip). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
 ~~~jsx
 const modal = (
   <Layer>
@@ -252,7 +252,7 @@ const modal = (
         cardSize="lg"
         type="don't"
         description={`
-Use Box with high fixed z-index values to position your components at the top of the stacking context or use them redundantly with [Layer](/Layer). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
+Use Box with high fixed z-index values to position your components at the top of the stacking context or use them redundantly with [Layer](/layer). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
 ~~~jsx
 import { FixedZIndex } from 'gestalt';
 
@@ -289,11 +289,11 @@ card(
     <MainSection.Subsection
       title="z-index in foundational components"
       description={`
-[Box](/Box), [Sticky](/Sticky), and [Layer](/Layer) are foundational components that have \`zIndex\` props. If any other components need to be positioned within their stacking context, wrap with one of these foundational components to set the z-index.
+[Box](/box), [Sticky](/sticky), and [Layer](/layer) are foundational components that have \`zIndex\` props. If any other components need to be positioned within their stacking context, wrap with one of these foundational components to set the z-index.
 
 Layer creates a new stacking context. Unless there's a conflict with another z-index, don't pass unnecessary \`zIndex\` to Layer.
 
-The following example sets a z-index in the Layer wrapping [Sheet](/Sheet) to position Sheet over the page header in the Docs. Set \`PAGE_HEADER_ZINDEX\` below 10 to see the importance of z-index in this example.`}
+The following example sets a z-index in the Layer wrapping [Sheet](/sheet) to position Sheet over the page header in the Docs. Set \`PAGE_HEADER_ZINDEX\` below 10 to see the importance of z-index in this example.`}
     >
       <MainSection.Card
         cardSize="lg"
@@ -503,13 +503,13 @@ function ScrollBoundaryContainerExample() {
     <MainSection.Subsection
       title="z-index in Layer"
       description={`
-[Modal](/Modal) and [Sheet](/Sheet) always require a parent [Layer](/Layer) to position themselves outside the DOM hierarchy.
+[Modal](/modal) and [Sheet](/sheet) always require a parent [Layer](/layer) to position themselves outside the DOM hierarchy.
 
-Components built on top of [Popover](/Popover), such as [Tooltip](/Tooltip), [Dropdown](/Dropdown) and [ComboBox](/combobox), have a built-in Layer to be positioned outside the DOM hierarchy.  To set the internal z-index value of Layer, these Popover-based components have \`zIndex\` props as well. This is used when placing the Popover-based components within another component wrapped in Layer that has a z-index set.
+Components built on top of [Popover](/popover), such as [Tooltip](/tooltip), [Dropdown](/dropdown) and [ComboBox](/combobox), have a built-in Layer to be positioned outside the DOM hierarchy.  To set the internal z-index value of Layer, these Popover-based components have \`zIndex\` props as well. This is used when placing the Popover-based components within another component wrapped in Layer that has a z-index set.
 
-However, Modal and Sheet have a built-in [ScrollBoundaryContainer](/ScrollBoundaryContainer) wrapping their children, so you shouldn’t need to pass z-index values when using Popover-based children.
+However, Modal and Sheet have a built-in [ScrollBoundaryContainer](/scrollboundarycontainer) wrapping their children, so you shouldn’t need to pass z-index values when using Popover-based children.
 
-The following example sets a z-index in the Layer wrapping [Modal](/Modal) to position Modal over the page header in the Docs. Thanks to ScrollBoundaryContainer, child Tooltips don't require z-index.`}
+The following example sets a z-index in the Layer wrapping [Modal](/modal) to position Modal over the page header in the Docs. Thanks to ScrollBoundaryContainer, child Tooltips don't require z-index.`}
     >
       <MainSection.Card
         cardSize="lg"
@@ -681,7 +681,7 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Layer](/Layer)**
+**[Layer](/layer)**
 Layer allows you to render children outside the DOM hierarchy of the parent. This is useful for places you might otherwise need to use z-index to overlay the screen, simplifying the stacking context complexity in the app. See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
     `}
     />

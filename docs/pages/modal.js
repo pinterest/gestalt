@@ -43,7 +43,7 @@ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-ori
             title="When Not to Use"
             description={`
           - Any time a separate, designated URL is desired.
-          - Requesting large forms of information. Consider a [Sheet](/Sheet) or new page instead.
+          - Requesting large forms of information. Consider a [Sheet](/sheet) or new page instead.
           - Any action that should not interrupt users from their current work stream.
           - On top of another modal, since this can create usability issues and confusion.
         `}
@@ -95,7 +95,7 @@ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-ori
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use Modal for content that should have a dedicated surface, like login flows. Think about the core areas of your product that could appear in navigation. If a dedicated URL would be beneficial, use a full page instead. If the user interaction is an optional sub-task, consider using a [Sheet](/Sheet)."
+            description="Use Modal for content that should have a dedicated surface, like login flows. Think about the core areas of your product that could appear in navigation. If a dedicated URL would be beneficial, use a full page instead. If the user interaction is an optional sub-task, consider using a [Sheet](/sheet)."
             defaultCode={`
 
 `}
@@ -583,10 +583,10 @@ function PreventCloseExample(props) {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Sheet](/Sheet)**
+**[Sheet](/sheet)**
 To allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page, use Sheet.
 
-**[Toast](/Toast)**
+**[Toast](/toast)**
 Toast provides temporary feedback on an interaction. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of blocking the entire page.
       `}
         />

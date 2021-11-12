@@ -112,7 +112,7 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
 /**
- * https://gestalt.pinterest.systems/Masonry
+ * https://gestalt.pinterest.systems/masonry
  */
 export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {

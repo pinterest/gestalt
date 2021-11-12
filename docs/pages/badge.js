@@ -62,7 +62,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
 
       <Example
         description={`
-    Components like [Module](/Module) and [Dropdown](/Dropdown) support Badges within the component.`}
+    Components like [Module](/module) and [Dropdown](/dropdown) support Badges within the component.`}
         name="Example: within other components"
         defaultCode={`
 function ModuleExample() {

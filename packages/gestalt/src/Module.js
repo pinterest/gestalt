@@ -7,7 +7,7 @@ import ModuleExpandable from './ModuleExpandable.js';
 import type { PublicModuleProps } from './moduleTypes.js';
 
 /**
- * https://gestalt.pinterest.systems/Module
+ * https://gestalt.pinterest.systems/module
  */
 export default function Module({
   children,

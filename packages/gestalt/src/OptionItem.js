@@ -29,6 +29,7 @@ type Props = {|
   id: string,
   index: number,
   isExternal?: boolean,
+  lineClamp?: 1 | 2,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| dangerouslyDisableOnNavigation: () => void |},
@@ -41,15 +42,14 @@ type Props = {|
   role?: 'option' | 'menuitem',
   selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
   setHoveredItemIndex: (number) => void,
-  shouldTruncate?: boolean,
   textWeight?: FontWeight,
 |};
 
 const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
->(function OptionItem(props: Props, ref): Node {
-  const {
+>(function OptionItem(
+  {
     badgeText,
     children,
     dataTestId,
@@ -59,15 +59,16 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     id,
     index,
     isExternal,
+    lineClamp,
     onClick,
     option,
     role,
     selected,
     setHoveredItemIndex,
-    shouldTruncate = false,
     textWeight = 'normal',
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
   );
@@ -96,12 +97,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text
-                color="darkGray"
-                inline
-                lineClamp={shouldTruncate ? 1 : undefined}
-                weight={textWeight}
-              >
+              <Text color="darkGray" inline lineClamp={lineClamp} weight={textWeight}>
                 {option?.label}
               </Text>
               {badgeText && (

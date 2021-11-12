@@ -102,7 +102,7 @@ card(
         defaultValue: null,
         description: [
           'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
-          'See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
+          'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
         ],
       },
       {
@@ -203,8 +203,8 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Directing users to a new page or different part within the same page. Instead, use [Link](/Link).
-          - Limited space available. Consider using an [IconButton](/IconButton) instead.
+          - Directing users to a new page or different part within the same page. Instead, use [Link](/link).
+          - Limited space available. Consider using an [IconButton](/iconbutton) instead.
         `}
       />
     </MainSection.Subsection>
@@ -771,9 +771,9 @@ Use TapArea to make non-button elements interactive, like an Image. This ensures
 **[Tabs](/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
 
-**[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
+**[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
+See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
       `}
     />
   </MainSection>,

@@ -32,7 +32,7 @@ const rule: ESLintRule = {
       category: 'Gestalt restrictions',
       recommended: false,
       url:
-        'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-dangerous-style-duplicates',
+        'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-dangerous-style-duplicates',
     },
     fixable: 'code',
     schema: [

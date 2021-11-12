@@ -31,7 +31,7 @@ type Props = {|
 |};
 
 /**
- * [Toasts](https://gestalt.pinterest.systems/Toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
+ * [Toasts](https://gestalt.pinterest.systems/toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
  *
  * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
  */
@@ -73,7 +73,7 @@ export default function Toast({
       <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
         <Flex alignItems="center" gap={4}>
           {thumbnail ? (
-            <Flex flex="none" justifyContent="center">
+            <Flex.Item flex="none">
               <Mask
                 height={thumbnailShape === 'rectangle' ? 64 : 48}
                 rounding={thumbnailShape === 'circle' ? 'circle' : 2}
@@ -81,14 +81,14 @@ export default function Toast({
               >
                 {thumbnail}
               </Mask>
-            </Flex>
+            </Flex.Item>
           ) : null}
 
-          <Flex direction="column" flex="grow" justifyContent="center">
+          <Flex.Item flex="grow">
             <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
               {textElement}
             </Text>
-          </Flex>
+          </Flex.Item>
 
           {button ? <Flex.Item flex="none">{button}</Flex.Item> : null}
         </Flex>

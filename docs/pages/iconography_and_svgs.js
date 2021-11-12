@@ -38,31 +38,29 @@ export default function IconPage(): Node {
     setSelected(item);
   };
 
-  const ClickableIcon = ({ iconName }: {| iconName: string |}) => {
-    return (
-      <Tooltip text={iconName}>
-        <TapArea
-          rounding="circle"
-          tapStyle="compress"
-          onTap={() => {
-            try {
-              navigator.clipboard.writeText(iconName);
-              setShowToastText(`Icon name ("${iconName}") successfully copied!`);
-              setTimeout(() => setShowToastText(), 3000);
-            } catch (err) {
-              return undefined;
-            }
+  const ClickableIcon = ({ iconName }: {| iconName: string |}) => (
+    <Tooltip text={iconName}>
+      <TapArea
+        rounding="circle"
+        tapStyle="compress"
+        onTap={() => {
+          try {
+            navigator.clipboard.writeText(iconName);
+            setShowToastText(`Icon name ("${iconName}") successfully copied!`);
+            setTimeout(() => setShowToastText(), 3000);
+          } catch (err) {
             return undefined;
-          }}
-        >
-          <Box padding={2}>
-            {/* $FlowFixMe[prop-missing] */}
-            <Icon color="darkGray" accessibilityLabel="" icon={iconName} />
-          </Box>
-        </TapArea>
-      </Tooltip>
-    );
-  };
+          }
+          return undefined;
+        }}
+      >
+        <Box padding={2}>
+          {/* $FlowFixMe[prop-missing] */}
+          <Icon color="darkGray" accessibilityLabel="" icon={iconName} />
+        </Box>
+      </TapArea>
+    </Tooltip>
+  );
 
   return (
     <Page title="Iconography and SVGs">
@@ -136,9 +134,9 @@ export default function IconPage(): Node {
       <MainSection name="Custom SVG icons">
         <MainSection.Subsection
           description={`
-If you need a new icon for an experiment that is not listed on our [Icon](/Icon) documentation, use the \`dangerouslySetSvgPath\` prop on [Icon](/Icon), [IconButton](/IconButton), and [Pog](/Pog).
+If you need a new icon for an experiment that is not listed on our [Icon](/icon) documentation, use the \`dangerouslySetSvgPath\` prop on [Icon](/icon), [IconButton](/iconbutton), and [Pog](/pog).
 
-However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/Box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
+However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
 
 Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the Icon to Gestalt.
 

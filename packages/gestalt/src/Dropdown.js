@@ -50,15 +50,14 @@ function getChildrenOptions(childrenArray) {
  * used for keyboard navigation,
  * we must clone the item and inject the index prop
  */
-const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) => {
-  return dropdownChildren.map((child, idx) => {
+const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
+  dropdownChildren.map((child, idx) => {
     if (dropdownItemDisplayNames.includes(child.type.displayName)) {
       const index = idx + idxBase;
       return cloneElement(child, { index });
     }
     return child;
   });
-};
 
 const renderChildrenWithIndex = (childrenArray) => {
   let numItemsRendered = 0;
@@ -98,7 +97,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Dropdown
+ * https://gestalt.pinterest.systems/dropdown
  */
 export default function Dropdown({
   anchor,

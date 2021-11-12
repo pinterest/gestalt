@@ -59,7 +59,7 @@ type Props = {|
 |};
 
 /**
- * [SelectList](https://gestalt.pinterest.systems/SelectList) displays a list of actions or options using the browser’s native select.
+ * [SelectList](https://gestalt.pinterest.systems/selectlist) displays a list of actions or options using the browser’s native select.
  */
 export default function SelectList({
   disabled = false,

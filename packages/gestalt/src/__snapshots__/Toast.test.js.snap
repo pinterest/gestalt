@@ -18,16 +18,12 @@ exports[`<Toast /> Error Toast 1`] = `
       className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="FlexItem"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Flex columnGap0 flexGrow justifyCenter xsDirectionColumn"
+          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
         >
-          <div
-            className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
-          >
-            Same great profile, slightly new look. Learn more?
-          </div>
+          Same great profile, slightly new look. Learn more?
         </div>
       </div>
     </div>
@@ -53,61 +49,53 @@ exports[`<Toast /> Text + Image + Button 1`] = `
       className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="FlexItem"
+        className="FlexItem flexNone"
       >
         <div
-          className="Flex rowGap0 flexNone justifyCenter xsDirectionRow"
-        >
-          <div
-            className="Mask rounding2 willChangeTransform"
-            style={
-              Object {
-                "height": 48,
-                "width": 48,
-              }
+          className="Mask rounding2 willChangeTransform"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
             }
-          >
-            <img
-              alt=""
-              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-            />
-          </div>
+          }
+        >
+          <img
+            alt=""
+            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+          />
         </div>
       </div>
       <div
-        className="FlexItem"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Flex columnGap0 flexGrow justifyCenter xsDirectionColumn"
+          className="Text fontSize3 white alignStart breakWord fontWeightNormal"
         >
-          <div
-            className="Text fontSize3 white alignStart breakWord fontWeightNormal"
+          <span
+            className="textColorOverrideWhite"
           >
-            <span
-              className="textColorOverrideWhite"
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
             >
-              Saved to
-               
-              <a
-                className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-                target={null}
-              >
-                Home decor
-              </a>
-            </span>
-          </div>
+              Home decor
+            </a>
+          </span>
         </div>
       </div>
       <div
@@ -157,61 +145,53 @@ exports[`<Toast /> Text + Image 1`] = `
       className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="FlexItem"
+        className="FlexItem flexNone"
       >
         <div
-          className="Flex rowGap0 flexNone justifyCenter xsDirectionRow"
-        >
-          <div
-            className="Mask rounding2 willChangeTransform"
-            style={
-              Object {
-                "height": 48,
-                "width": 48,
-              }
+          className="Mask rounding2 willChangeTransform"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
             }
-          >
-            <img
-              alt=""
-              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-            />
-          </div>
+          }
+        >
+          <img
+            alt=""
+            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+          />
         </div>
       </div>
       <div
-        className="FlexItem"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Flex columnGap0 flexGrow justifyCenter xsDirectionColumn"
+          className="Text fontSize3 white alignStart breakWord fontWeightNormal"
         >
-          <div
-            className="Text fontSize3 white alignStart breakWord fontWeightNormal"
+          <span
+            className="textColorOverrideWhite"
           >
-            <span
-              className="textColorOverrideWhite"
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
             >
-              Saved to
-               
-              <a
-                className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-                target={null}
-              >
-                Home decor
-              </a>
-            </span>
-          </div>
+              Home decor
+            </a>
+          </span>
         </div>
       </div>
     </div>
@@ -237,16 +217,12 @@ exports[`<Toast /> Text Only 1`] = `
       className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="FlexItem"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Flex columnGap0 flexGrow justifyCenter xsDirectionColumn"
+          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
         >
-          <div
-            className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
-          >
-            Same great profile, slightly new look. Learn more?
-          </div>
+          Same great profile, slightly new look. Learn more?
         </div>
       </div>
     </div>

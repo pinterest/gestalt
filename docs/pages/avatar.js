@@ -29,7 +29,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             title="When Not to Use"
             description={`
-          - To represent a group of people, companies and/or brands. Use [AvatarGroup](/AvatarGroup) instead.
+          - To represent a group of people, companies and/or brands. Use [AvatarGroup](/avatargroup) instead.
         `}
           />
         </MainSection.Subsection>

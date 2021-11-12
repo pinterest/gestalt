@@ -23,7 +23,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Datapoint
+ * https://gestalt.pinterest.systems/datapoint
  */
 export default function Datapoint({
   tooltipText,

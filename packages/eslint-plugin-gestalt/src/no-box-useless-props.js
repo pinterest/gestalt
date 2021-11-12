@@ -95,7 +95,7 @@ const rule: ESLintRule = {
       description: `Don't allow useless props combinations on Box`,
       category: 'Gestalt restrictions',
       recommended: false,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltno-box-useless-props',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-useless-props',
     },
     schema: [
       {
@@ -113,9 +113,7 @@ const rule: ESLintRule = {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        localBoxName = decl.specifiers.find((node) => {
-          return node.imported.name === 'Box';
-        })?.local?.name;
+        localBoxName = decl.specifiers.find((node) => node.imported.name === 'Box')?.local?.name;
       },
 
       JSXOpeningElement(node) {
@@ -138,9 +136,9 @@ const rule: ESLintRule = {
         }
 
         // FLEX PROPS
-        const displayProps = props.filter(({ name }) => {
-          return displayPropNames.includes(getAttributeName(name));
-        });
+        const displayProps = props.filter(({ name }) =>
+          displayPropNames.includes(getAttributeName(name)),
+        );
         const isFlexDisplay = displayProps.some(({ value }) => {
           const propValue = getAttributeValue(value);
           return Array.isArray(propValue) ? propValue.includes('flex') : propValue === 'flex';

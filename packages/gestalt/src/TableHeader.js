@@ -9,7 +9,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Table
+ * https://gestalt.pinterest.systems/table
  */
 export default function TableHeader(props: Props): Node {
   const cs = cx(styles.thead, props.sticky && styles.sticky);

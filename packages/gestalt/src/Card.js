@@ -16,7 +16,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Card
+ * https://gestalt.pinterest.systems/card
  */
 export default function Card(props: Props): Node {
   const [hovered, setHovered] = useState(false);

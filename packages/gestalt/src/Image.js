@@ -27,7 +27,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Image
+ * https://gestalt.pinterest.systems/image
  */
 export default class Image extends PureComponent<Props> {
   static defaultProps: {|
@@ -36,7 +36,6 @@ export default class Image extends PureComponent<Props> {
     importance?: 'high' | 'low' | 'auto',
     loading?: 'eager' | 'lazy' | 'auto',
   |} = {
-    // eslint-disable-next-line react/default-props-match-prop-types
     color: 'transparent',
     fit: 'none',
     importance: 'auto',

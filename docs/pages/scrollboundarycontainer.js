@@ -597,13 +597,13 @@ function ScrollBoundaryContainerExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Box](/Box)**
-      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Popover](/Popover), [ComboBox](/ComboBox)  or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
+      **[Box](/box)**
+      Box's [\`overflow\` prop](/box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/tooltip), [Popover](/popover), [ComboBox](/combobox)  or [Dropdown](/dropdown), are used within a container that could potentially scroll.
 
-      **[Modal](/Modal)** / **[Sheet](/Sheet)**
+      **[Modal](/modal)** / **[Sheet](/sheet)**
       Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-      **[Tooltip](/Tooltip)** / **[Popover](/Popover)** / **[Dropdown](/Dropdown)** / **[ComboBox](/combobox)**
+      **[Tooltip](/tooltip)** / **[Popover](/popover)** / **[Dropdown](/dropdown)** / **[ComboBox](/combobox)**
       ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollBoundaryContainer isn't needed as it's already built-in.
     `}
         />

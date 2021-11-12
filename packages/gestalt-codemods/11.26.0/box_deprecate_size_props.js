@@ -54,15 +54,14 @@ export default function transformer(file, api) {
 
       const newAppendAttr = [];
 
-      const buildProp = (attr, property) => {
-        return j.jsxIdentifier(
+      const buildProp = (attr, property) =>
+        j.jsxIdentifier(
           attr.name.name === 'xs'
             ? property.key.name
             : `${attr.name.name}${
                 property.key.name.charAt(0).toUpperCase() + property.key.name.slice(1)
               }`,
         );
-      };
 
       const buildValue = (property) => {
         if (typeof property.value.value === 'string') {

@@ -59,7 +59,7 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
             description={`
         Use Box as a building block when creating other components or layouts that do not rely on flexbox. The included properties should cover any variations needed to create a diverse range of options.
 
-        If you find yourself using Box for flexbox layouts, consider [Flex](/Flex) instead.
+        If you find yourself using Box for flexbox layouts, consider [Flex](/flex) instead.
         `}
             defaultCode={`
 <Box column={12}>
@@ -89,7 +89,7 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
             type="don't"
             description={`Don’t use the \`onClick\`, \`className\` and \`style\` properties.
 
-Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/Button) or [TapArea](/TapArea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
+Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/button) or [TapArea](/taparea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
 
 If you need to use these features for animation purposes, use a \`<div>\` instead.`}
             defaultCode={`
@@ -696,7 +696,7 @@ function BoxPopoverExample() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`The \`ref\` property can be used to anchor a [Popover](/Popover) to a Box.`}
+          description={`The \`ref\` property can be used to anchor a [Popover](/popover) to a Box.`}
           title="Using as a ref"
         >
           <MainSection.Card
@@ -741,7 +741,7 @@ function BoxPopoverExample() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it. Visit our [Z-Index documentation](/ZIndex%20Classes) for more details on how to use these utility classes.`}
+          description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it. Visit our [Z-Index documentation](/zindex%20classes) for more details on how to use these utility classes.`}
           title="Z-Index"
         >
           <MainSection.Card
@@ -779,19 +779,19 @@ function Example() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-        **[Flex](/Flex)**
+        **[Flex](/flex)**
         Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
 
-        **[Container](/Container)**
+        **[Container](/container)**
         Use Container to responsively layout content with a max-width on large screens.
 
-        **[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
+        **[ScrollBoundaryContainer](/scrollboundarycontainer)**
         For proper positioning when using anchored components (Popover, Tooltip, etc.) within a container that could scroll, use ScrollBoundaryContainer.
 
-        **[TapArea](/TapArea)**
+        **[TapArea](/taparea)**
         If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
 
-        **[Sticky](/Sticky)**
+        **[Sticky](/sticky)**
         Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
       `}
         />

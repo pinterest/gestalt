@@ -35,10 +35,10 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/DatePicker
+ * https://gestalt.pinterest.systems/datepicker
  */
 /**
- * [DatePicker](https://gestalt.pinterest.systems/DatePicker) is used when the user has to select a date or date range.
+ * [DatePicker](https://gestalt.pinterest.systems/datepicker) is used when the user has to select a date or date range.
  *
  * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-closed%20%230.png)
  * ![DatePicker open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-open%20%230.png)

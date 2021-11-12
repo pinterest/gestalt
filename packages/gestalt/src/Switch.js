@@ -16,7 +16,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Switch
+ * https://gestalt.pinterest.systems/switch
  */
 export default function Switch({
   disabled = false,

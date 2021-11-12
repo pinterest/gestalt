@@ -32,13 +32,13 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Checkbox
+ * https://gestalt.pinterest.systems/checkbox
  */
 const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function Checkbox(props: Props, ref): Node {
-  const {
+>(function Checkbox(
+  {
     checked = false,
     disabled = false,
     errorMessage,
@@ -52,8 +52,9 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     onClick,
     size = 'md',
     subtext,
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   const innerRef = useRef(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()

@@ -71,7 +71,7 @@ card(
         type:
           'AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}>',
         description:
-          'Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.',
+          'Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
         href: 'Custom-navigation',
       },
       {
@@ -132,7 +132,7 @@ card(
         type="don't"
         title="When Not to Use"
         description={`
-          - Performing actions, such as "Save", "Cancel" or "Delete". Use [Button](/Button) instead.
+          - Performing actions, such as "Save", "Cancel" or "Delete". Use [Button](/button) instead.
           - Submitting a form or opening a modal. Use Button instead.
         `}
       />
@@ -283,7 +283,7 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
+**[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
       `}
     />

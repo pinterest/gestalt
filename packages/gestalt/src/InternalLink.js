@@ -56,8 +56,8 @@ type Props = {|
 const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
   HTMLAnchorElement,
->(function Link(props: Props, ref): Element<'a'> {
-  const {
+>(function Link(
+  {
     accessibilityCurrent,
     accessibilityLabel,
     children,
@@ -84,8 +84,9 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     tapStyle = 'compress',
     target,
     wrappedComponent,
-  } = props;
-
+  }: Props,
+  ref,
+): Element<'a'> {
   const innerRef = useRef(null);
 
   useImperativeHandle(ref, () => innerRef.current);

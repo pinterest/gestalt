@@ -17,7 +17,16 @@ import {
 } from './helpers/eslintASTHelpers.js';
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+
 import preferLinkReducer from './helpers/preferLinkReducer.js';
+
+export const MESSAGES = {
+  fixMessageLink: `Use Link from Gestalt: <Link href="">Text</Link> \n
+  OR use TapArea, see suggestion below to autofix\n
+  OR use Button, <Button role='link' href="" target="" rel="" text=""/>\n
+  OR use IconButton, <IconButton role='link' href="" target="" rel="" icon=""/>`,
+  suggestionMessageTapArea: `Use TapArea to provide a Node with navigation behavior: <TapArea role="link" href="" onTap={}>{ Node }</TapArea>.`,
+};
 
 const rule: ESLintRule = {
   meta: {
@@ -27,7 +36,7 @@ const rule: ESLintRule = {
         'Prefer Link: Prevent anchor tags that only contain attributes matching supported props in Gestalt Link. Use Gestalt Link, instead',
       category: 'Gestalt alternatives',
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/Eslint%20Plugin#gestaltprefer-link',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-link',
     },
     fixable: 'code',
     schema: [
@@ -47,8 +56,10 @@ const rule: ESLintRule = {
       },
     ],
     messages: {
-      errorMessage: `Use Link from Gestalt: <Link href="">Text</Link>.`,
+      fixMessageLink: MESSAGES.fixMessageLink,
+      suggestionMessageTapArea: MESSAGES.suggestionMessageTapArea,
     },
+    hasSuggestions: true,
   },
 
   create(context) {
@@ -129,18 +140,49 @@ const rule: ESLintRule = {
         reducerCallbackFn: preferLinkReducer,
       });
 
-      // exit if there are not prop alternatives to suggest/autofix
-      if (!validatorResponse.map((a) => !!a.prop).filter(Boolean).length) return null;
+      const newPropsToAddToLink = ({ alternativeComponent }) => {
+        const newResponse =
+          alternativeComponent === 'Link'
+            ? [...validatorResponse]
+            : [...validatorResponse, { prop: 'role="link"' }];
 
-      const newPropsToAddToLink = validatorResponse
-        ?.map((alternative) => alternative.prop)
-        .sort()
-        .join(' ');
+        switch (alternativeComponent) {
+          case 'Link':
+            return newResponse
+              ?.map((alternative) => alternative.prop)
+              .sort()
+              .join(' ');
 
+          case 'TapArea':
+            return newResponse
+              ?.map((alternative) => {
+                if (
+                  typeof alternative.prop === 'string' &&
+                  alternative.prop.startsWith('accessibilitySelected')
+                ) {
+                  return false;
+                }
+                if (
+                  typeof alternative.prop === 'string' &&
+                  alternative.prop.startsWith('onKeyPress')
+                ) {
+                  return false;
+                }
+                return alternative.prop;
+              })
+              .filter(Boolean)
+              .sort()
+              .join(' ')
+              .replace('onClick', 'onTap');
+
+          default:
+            return '';
+        }
+      };
       // For any other anchor tag modification
       return context.report({
         node,
-        messageId: 'errorMessage',
+        messageId: 'fixMessageLink',
         fix: (fixer) => {
           const tagFixers = renameTagWithPropsFixer({
             context,
@@ -152,7 +194,7 @@ const rule: ESLintRule = {
               context,
               elementNode: node,
               propSorting: false,
-              propsToAdd: newPropsToAddToLink,
+              propsToAdd: newPropsToAddToLink({ alternativeComponent: 'Link' }),
               propsToRemove: [
                 ...supportedAriaAttributes,
                 ...supportedEventAttributes,
@@ -174,6 +216,43 @@ const rule: ESLintRule = {
           importFixerRun = true;
           return fixers;
         },
+        suggest: [
+          {
+            messageId: 'suggestionMessageTapArea',
+            fix: (fixer) => {
+              const tagFixers = renameTagWithPropsFixer({
+                context,
+                elementNode: node,
+                fixer,
+                gestaltImportNode,
+                newComponentName: 'TapArea',
+                modifiedPropsString: buildProps({
+                  context,
+                  elementNode: node,
+                  propSorting: false,
+                  propsToAdd: newPropsToAddToLink({ alternativeComponent: 'TapArea' }),
+                  propsToRemove: [
+                    ...supportedAriaAttributes,
+                    ...supportedEventAttributes,
+                    'rel',
+                    'target',
+                  ],
+                }),
+                tagName: 'a',
+              });
+
+              const importFixers = updateGestaltImportFixer({
+                gestaltImportNode,
+                fixer,
+                newComponentName: 'TapArea',
+                programNode,
+              });
+
+              const fixers = [...tagFixers, importFixers];
+              return fixers;
+            },
+          },
+        ],
       });
     };
 

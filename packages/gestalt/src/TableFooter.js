@@ -6,7 +6,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/Table
+ * https://gestalt.pinterest.systems/table
  */
 export default function TableFooter(props: Props): Node {
   return <tfoot>{props.children}</tfoot>;
