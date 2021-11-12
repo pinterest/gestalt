@@ -53,7 +53,7 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
       value={{
         propTableVariant,
         setPropTableVariant,
-        colorScheme: cookies[cookieColorSchemeKey] || 'light',
+        colorScheme: cookies[cookieColorSchemeKey] === 'dark' ? 'dark' : 'light',
         setColorScheme: (newColorScheme) => setCookie(cookieColorSchemeKey, newColorScheme),
         textDirection,
         setTextDirection,
