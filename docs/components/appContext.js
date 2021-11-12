@@ -7,8 +7,8 @@ import createHydra, { type Hydra } from './createHydra.js';
 import useLocalStorage from './useLocalStorage.js';
 
 const propTableVariantKey = 'gestalt-propTable-variant';
-const localStorageColorSchemeKey = 'gestalt-color-scheme';
 const localStorageTextDirectionKey = 'gestalt-text-direction';
+const cookieColorSchemeKey = 'gestalt-color-scheme';
 
 type PropTableVariant = 'collapsed' | 'expanded';
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
@@ -30,7 +30,7 @@ const {
 }: Hydra<AppContextType> = createHydra<AppContextType>('AppContext');
 
 function AppContextProvider({ children }: {| children?: Node |}): Node {
-  const [cookies, setCookie] = useCookies(['gestalt-color-scheme']);
+  const [cookies, setCookie] = useCookies([cookieColorSchemeKey]);
 
   const [propTableVariant, setPropTableVariant] = useLocalStorage<PropTableVariant>(
     propTableVariantKey,
@@ -53,9 +53,9 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
       value={{
         propTableVariant,
         setPropTableVariant,
-        colorScheme: cookies['gestalt-color-scheme'] || 'light',
+        colorScheme: cookies[cookieColorSchemeKey] || 'light',
         setColorScheme: (newColorScheme) => {
-          setCookie('gestalt-color-scheme', newColorScheme);
+          setCookie(cookieColorSchemeKey, newColorScheme);
         },
         textDirection,
         setTextDirection,
