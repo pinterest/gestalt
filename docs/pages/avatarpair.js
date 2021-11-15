@@ -10,7 +10,24 @@ import MainSection from '../components/MainSection.js';
 export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="AvatarPair">
-      <PageHeader name="AvatarPair" description={generatedDocGen?.description} />
+      <PageHeader
+        name="AvatarPair"
+        description={generatedDocGen?.description}
+        defaultCode={`
+          <AvatarPair size="lg"
+            collaborators={[
+              {
+                name: 'Keerthi',
+                src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+              },
+              {
+                name: 'Shanice',
+                src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+              },
+            ]}
+          />
+        `}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
