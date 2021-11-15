@@ -71,7 +71,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            description={`Use the default alternative if no image source is available. This should be the first character of the provided name.`}
+            description="Use the default alternative if no image source is available. This will be the first character of the provided name."
             defaultCode={`
               <Avatar
                 size="lg"
@@ -82,7 +82,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Use alternative graphics or icons`}
+            description="Use alternative graphics or icons"
             defaultCode={`
               <Avatar
                 size="lg"
@@ -93,7 +93,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            description={`Use round avatars in the appropriate size for your need. Learn more about [avatar sizing](/avatar#Fixed-Sizes). `}
+            description="Use round Avatars in the appropriate size for your need. Learn more about [avatar sizing](/avatar#Fixed-Sizes)."
             defaultCode={`
               <Flex gap={4} wrap>
                 <Avatar
@@ -127,7 +127,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Scale or change the shape of an avatar. Instead use the designated Avatar sizes and style.`}
+            description="Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style."
             defaultCode={`
                 <Mask rounding={3} width={150} height={150}>
                   <Image
@@ -144,7 +144,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            description={`Use an avatar to represent a person, organization or group ([Avatar Group](/avatargroup)).`}
+            description="Use Avatar to represent a person, organization or group ([Avatar Group](/avatargroup))."
             defaultCode={`
               <Flex direction="column" gap={2} alignItems="center">
                 <Avatar
@@ -159,7 +159,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Use Avatar to represent metaphorical ideas, like a Board. Instead, consider an icon or the appropriate interactive component.`}
+            description="Use Avatar to represent metaphorical ideas, like a Board. Instead, consider an icon or the appropriate interactive component."
             defaultCode={`
               <Flex direction="column" gap={2} alignItems="center">
                 <Avatar
@@ -174,7 +174,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            description={`Use the collaborator’s name nearby or in an alternative view if possible.`}
+            description="Use the collaborator’s name nearby or in an alternative view if possible."
             defaultCode={`
               <Flex direction="column" gap={2} alignItems="center">
                 <Avatar
@@ -189,7 +189,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Place elements like washes, text or icons over avatars.`}
+            description="Place elements like washes, text or icons over Avatars."
             defaultCode={`
               <Box position="relative">
                 <Mask wash>

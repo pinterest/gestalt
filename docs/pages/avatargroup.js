@@ -62,7 +62,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="do"
-            description={`Use the default alternative if no image source is available. This should be the first character of the provided name.`}
+            description="Use the default alternative if no image source is available. This should be the first character of the provided name."
             defaultCode={`
               <Box width={150} height={125}>
                 <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
@@ -86,7 +86,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Use alternative graphics or icons`}
+            description="Use alternative graphics or icons"
             defaultCode={`
               <Box width={150} height={125}>
                 <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
@@ -109,7 +109,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="do"
-            description={`Use AvatarGroup to represent a group of people and/or organizations.`}
+            description="Use AvatarGroup to represent a group of people and/or organizations."
             defaultCode={`
               <Box width={150} height={125}>
                 <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
@@ -134,7 +134,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an [Image](/image) or the appropriate interactive component.`}
+            description="Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an [Image](/image) or the appropriate interactive component."
             defaultCode={`
             <Box width={150} height={125}>
               <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
