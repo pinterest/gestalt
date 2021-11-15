@@ -547,6 +547,17 @@ function LinkExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+        **[Avatar](/avatar)**
+        Avatar is the ideal component in cases where only one person or brand needs to be displayed.
+
+        **[AvatarPair](/avatarpair)**
+        AvatarPair is the ideal solution when you wish to communicate a group of people/brands (ideally two) laid out in a square format.
+      `}
+        />
+      </MainSection>
     </Page>
   );
 }

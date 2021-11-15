@@ -6,6 +6,7 @@ import docgen, { type DocGen } from '../components/docgen.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
+import MainSectionCard from '../components/MainSectionCard.js';
 
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -216,12 +217,19 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           Make sure that the alternative text properly describes the information and function of the avatar image(s). Depending on the situation, it may be helpful to state the collaborator or company name and/or their verification status.
         `}
       />
-      <Example
-        description={`
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize any content in the \`accessibilityLabel\` that isn’t a name.`}
+      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          description={`
           There are 5 sizes available for Avatar. For certain designs you may need a [container-based size](#Container-Based-Sizes).
         `}
-        name="Fixed Sizes"
-        defaultCode={`
+          title="Fixed sizes"
+        >
+          <MainSection.Card
+            defaultCode={`
 <Flex gap={4} wrap>
   <Avatar
     size="xs"
@@ -250,19 +258,21 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
   />
 </Flex>
 `}
-      />
-
-      <Example
-        description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`
     Avatars without a \`size\` prop will expand to fit the width of their
     parent container. A common use case is to achieve column-based sizing.
 
     Resize the browser to see these Avatar change to match the width of the \`Column\` they
     have been placed in.
   `}
-        name="Container-Based Sizes"
-        defaultCode={`
-<Flex>
+          title="Container-based sizes"
+        >
+          <MainSection.Card
+            defaultCode={`
+<Flex flex="grow">
   <Box width={40}>
     <Avatar name="Julia" />
   </Box>
@@ -274,36 +284,54 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
   </Box>
 </Flex>
   `}
-      />
-
-      <Example
-        description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`
     If there is no image source provided to the Avatar, the first character of
     the name provided will be used as a placeholder.
   `}
-        name="Without an image"
-        defaultCode={`
+          title="Without an image"
+        >
+          <MainSection.Card
+            defaultCode={`
 <Avatar
   name="Keerthi"
   size="lg"
 />
   `}
-      />
-
-      <Example
-        description={`
-    For users with verified accounts, use the \`verified\` prop to add a checkmark.
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`
+    For users with verified accounts, use the \`verified\` prop to add a checkmark. Be sure to update the \`accessibilityLabel\` to include this information as well.
   `}
-        name="Verified"
-        defaultCode={`
+          title="Verified"
+        >
+          <MainSection.Card
+            defaultCode={`
 <Avatar
   name="Shanice"
+  accessibilityLabel="Shanice, Verified account"
   size="lg"
   src="https://i.ibb.co/7tGKGvb/shanice.jpg"
   verified
 />
   `}
-      />
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+        **[AvatarGroup](/avatargroup)**
+        AvatarGroup is the ideal component in cases where multiple people/brands need to be displayed.
+
+        **[AvatarPair](/avatarpair)**
+        AvatarPair is the ideal solution when you wish to communicate a group of people/brands (ideally two) laid out in a square format.
+      `}
+        />
+      </MainSection>
     </Page>
   );
 }
