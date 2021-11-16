@@ -260,11 +260,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`
-    Avatars without a \`size\` prop will expand to fit the width of their
-    parent container. A common use case is to achieve column-based sizing.
+    Avatars without a \`size\` prop will expand to fit the width of their parent container. A common use case is to achieve column-based sizing.
 
-    Resize the browser to see these Avatar change to match the width of the \`Column\` they
-    have been placed in.
+    Resize the browser to see these Avatar change to match the width of the \`Column\` they have been placed in.
   `}
           title="Container-based sizes"
         >
