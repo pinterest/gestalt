@@ -1,16 +1,17 @@
 // @flow strict
 import type { ComponentType, Node } from 'react';
+
 import { Component as ReactComponent } from 'react';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
+import throttle from './throttle.js';
 import type { Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
 import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
 import defaultLayout from './defaultLayout.js';
-import throttle from './throttle.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
@@ -89,8 +90,6 @@ type Props<T> = {|
   deferScrollPositionUpdate?: boolean,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
-  virtualBoundsTop?: number,
-  virtualBoundsBottom?: number,
   /**
    * Whether or not to use actual virtualization
    */
@@ -115,11 +114,7 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 // One mouse scroll creates many addEventListener('scroll', ()=>{}) type events,
 // so if this timeout is reached (not reset by another scroll event), we know scroll
 // is over and perform post scroll tasks.
-<<<<<<< HEAD
 const SCROLL_TIMEOUT_WAIT = 100;
-=======
-const SCROLL_TIMEOUT_WAIT=100;
->>>>>>> e766dbd8... chore: minor code review changes. Smoke tested w/Pinterest
 
 const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
