@@ -1,3 +1,9 @@
+## 40.0.7 (Nov 16, 2021)
+
+### Patch
+
+- Avatar: Update docs and add Best Practices (#1781)
+
 ## 40.0.6 (Nov 11, 2021)
 
 ### Patch
