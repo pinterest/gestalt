@@ -57,6 +57,107 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Best Practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use the default alternative if no image source is available. This should be the first character of the provided name."
+            defaultCode={`
+              <Box width={150} height={125}>
+                <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
+                  collaborators={[
+                    {
+                      name: 'Keerthi',
+                    },
+                    {
+                      name: 'Alberto',
+                      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+                    },
+                      {
+                      name: 'Shanice',
+                      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+                    },
+                  ]}
+                />
+              </Box>
+            `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use alternative graphics or icons"
+            defaultCode={`
+              <Box width={150} height={125}>
+                <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
+                  collaborators={[
+                    {
+                      name: 'Keerthi',
+                    },
+                    {
+                      name: '🎉',
+                    },
+                      {
+                      name: 'Shanice',
+                      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+                    },
+                  ]}
+                />
+              </Box>
+            `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use AvatarGroup to represent a group of people and/or organizations."
+            defaultCode={`
+              <Box width={150} height={125}>
+                <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
+                  collaborators={[
+                    {
+                      name: 'PinAble',
+                      src: 'https://i.pinimg.com/75x75_RS/93/ad/66/93ad660e38e4f4315869424ea90e7ea4.jpg',
+                    },
+                    {
+                      name: 'Alberto',
+                      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+                    },
+                      {
+                      name: 'Shanice',
+                      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+                    },
+                  ]}
+                />
+              </Box>
+            `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an [Image](/image) or the appropriate interactive component."
+            defaultCode={`
+            <Box width={150} height={125}>
+              <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
+                collaborators={[
+                  {
+                    name: 'Art 1',
+                    src: 'https://i.ibb.co/d0pQsJz/stock3.jpg',
+                  },
+                  {
+                    name: 'Art 2',
+                    src: 'https://i.ibb.co/SB0pXgS/stock4.jpg',
+                  },
+                    {
+                    name: 'Art 3',
+                    src: 'https://i.ibb.co/jVR29XV/stock5.jpg',
+                  },
+                ]}
+              />
+            </Box>
+            `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
       <MainSection name="Accessibility">
         <MainSection.Subsection
           title="ARIA attributes"
@@ -154,6 +255,11 @@ function Example() {
     `}
           />
         </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Keyboard Interaction"
+          description={`If AvatarGroup is acting as a button or link, the Tab key will focus the AvatarGroup.
+          Hitting the Enter or Return key opens a dialog or redirects to a new page (depending on the role) and the user can then add or view collaborators.`}
+        />
       </MainSection>
       <MainSection name="Localization" description="Be sure to localize  `accessibilityLabel`." />
       <MainSection name="Variants">
@@ -333,6 +439,7 @@ function Example() {
           description="AvatarGroup can be display only, but can also act as a button or link. It will only be clickable if role is set to `button` or `link`. For button role, `onClick` is required. For link role, `href` is required."
         >
           <MainSection.Card
+            title={'role="button"'}
             cardSize="md"
             defaultCode={`
 function ButtonExample() {
@@ -406,6 +513,7 @@ const List = () => (
     `}
           />
           <MainSection.Card
+            title={'role="link"'}
             cardSize="md"
             defaultCode={`
 function LinkExample() {
@@ -438,6 +546,17 @@ function LinkExample() {
     `}
           />
         </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+        **[Avatar](/avatar)**
+        Avatar is the ideal component in cases where only one person or brand needs to be displayed.
+
+        **[AvatarPair](/avatarpair)**
+        AvatarPair is the ideal solution when you wish to communicate a group of people/brands (ideally two) laid out in a square format.
+      `}
+        />
       </MainSection>
     </Page>
   );
