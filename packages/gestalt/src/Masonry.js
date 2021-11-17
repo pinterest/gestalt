@@ -87,7 +87,9 @@ type Props<T> = {|
    * This is required if the grid is expected to be scrollable.
    */
   scrollContainer?: () => HTMLElement,
-  deferScrollPositionUpdate?: boolean,
+  // Prop to help us conditionally/experimentally test a new React.setState(scrollPos) strategy.
+  // See this.handleScroll fn for more details
+  _deferScrollPositionUpdate?: boolean,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
   /**
@@ -157,7 +159,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   scrollTimeoutId: ?TimeoutID = null;
 
-  // The browser scroll event API will fire LOTS of events. This waits until the events
+  // The browser scroll event API will fire LOTS of scroll events. This waits until the events
   // stop coming in to set the final scroll position
   handleScroll: () => void = () => {
     if (this.scrollTimeoutId) {
@@ -283,7 +285,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     // Make sure async methods are cancelled.
     this.measureContainerAsync.clearTimeout();
     this.handleResize.clearTimeout();
-    if (this.props.deferScrollPositionUpdate) {
+    if (this.props._deferScrollPositionUpdate) {
       this.clearScrollTimeout();
     } else {
       this.updateScrollPosition.clearTimeout();
@@ -466,7 +468,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       items,
       layout,
       minCols,
-      deferScrollPositionUpdate,
+      _deferScrollPositionUpdate,
       scrollContainer,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
@@ -615,7 +617,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       <ScrollContainer
         ref={this.setScrollContainerRef}
         onScroll={
-          deferScrollPositionUpdate ? this.handleScroll : this.throttledUpdateScrollPosition
+          _deferScrollPositionUpdate ? this.handleScroll : this.throttledUpdateScrollPosition
         }
         scrollContainer={scrollContainer}
       >
