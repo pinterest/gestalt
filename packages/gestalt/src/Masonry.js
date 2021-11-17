@@ -285,6 +285,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     // Make sure async methods are cancelled.
     this.measureContainerAsync.clearTimeout();
     this.handleResize.clearTimeout();
+    // eslint-disable-next-line no-underscore-dangle
     if (this.props._deferScrollPositionUpdate) {
       this.clearScrollTimeout();
     } else {
