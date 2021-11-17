@@ -1,3 +1,9 @@
+## 40.1.1 (Nov 17, 2021)
+
+### Patch
+
+- Masonry: fix error in downstream consumers (#1783)
+
 ## 40.1.0 (Nov 17, 2021)
 
 ### Minor
