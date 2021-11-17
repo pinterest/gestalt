@@ -289,7 +289,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     if (this.props._deferScrollPositionUpdate) {
       this.clearScrollTimeout();
     } else {
-      this.updateScrollPosition.clearTimeout();
+      this.throttledUpdateScrollPosition.clearTimeout();
     }
     window.removeEventListener('resize', this.handleResize);
   }
