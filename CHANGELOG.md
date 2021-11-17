@@ -1,3 +1,9 @@
+## 40.1.0 (Nov 17, 2021)
+
+### Minor
+
+- Masonry: delay updating React scroll state until scroll events stop coming in (#1774)
+
 ## 40.0.7 (Nov 16, 2021)
 
 ### Patch
