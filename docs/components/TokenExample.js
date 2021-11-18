@@ -1,6 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import { Box, Text } from 'gestalt';
+import { Box } from 'gestalt';
 
 type Token = {|
   name: string,
@@ -13,44 +13,39 @@ type Props = {|
   token: Token,
 |};
 
-export const ColorBox = ({ token }: Props): Node => {
-  return (
-    <Box
-      dangerouslySetInlineStyle={{
-        __style: { backgroundColor: `var(--${token?.name})` },
-      }}
-      height={50}
-      width={250}
-      display="flex"
-      alignItems="center"
-      justifyContent="between"
-      paddingX={2}
-    />
-  );
-};
+export const ColorBox = ({ token }: Props): Node => (
+  <Box
+    dangerouslySetInlineStyle={{
+      __style: { backgroundColor: `var(--${token?.name})` },
+    }}
+    height={50}
+    width={250}
+    display="flex"
+    alignItems="center"
+    justifyContent="between"
+    paddingX={2}
+  />
+);
 
-export const SpacingBox = ({ token }: Props): Node => {
-  return <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />;
-};
-
-export const TextColorBox = ({ token }: Props): Node => {
-  return (
-    <Box
-      dangerouslySetInlineStyle={{
-        __style: { color: `var(--${token.name}) !important`, fontSize: '32px' },
-      }}
-      height={50}
-      width={150}
-      display="flex"
-      alignItems="center"
-      justifyContent="between"
-      paddingX={2}
-      color={token.name.includes('inverse') ? 'darkGray' : undefined}
-    >
-      Gestalt
-    </Box>
-  );
-};
+export const SpacingBox = ({ token }: Props): Node => (
+  <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />
+);
+export const TextColorBox = ({ token }: Props): Node => (
+  <Box
+    dangerouslySetInlineStyle={{
+      __style: { color: `var(--${token.name}) !important`, fontSize: '32px' },
+    }}
+    height={50}
+    width={150}
+    display="flex"
+    alignItems="center"
+    justifyContent="between"
+    paddingX={2}
+    color={token.name.includes('inverse') ? 'darkGray' : undefined}
+  >
+    Gestalt
+  </Box>
+);
 
 type ExampleProps = {|
   token: Token,

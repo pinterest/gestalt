@@ -1,13 +1,13 @@
 // @flow strict
 
 import type { Node } from 'react';
-import { Box, Flex, Heading, Table, Text } from 'gestalt';
+import { Flex, Table, Text } from 'gestalt';
+// $FlowExpectedError[untyped-import]
+import tokens from 'gestalt-design-tokens/dist/js/token.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
 import { TokenExample } from '../components/TokenExample.js';
-// $FlowExpectedError[untyped-import]
-import tokens from 'gestalt-design-tokens/dist/js/token.js';
 
 type Token = {|
   name: string,
@@ -56,7 +56,7 @@ card(
 card(
   <MainSection name="Token Values">
     {tokenCategories.map((category) => (
-      <MainSection.Subsection title={category.name}>
+      <MainSection.Subsection key={`table${category.name}`} title={category.name}>
         <Table accessibilityLabel={`${category.name} Values`}>
           {tableHeaders}
           <Table.Body>
