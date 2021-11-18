@@ -16,7 +16,7 @@ type Props = {|
 export const ColorBox = ({ token }: Props): Node => (
   <Box
     dangerouslySetInlineStyle={{
-      __style: { backgroundColor: `var(--${token?.name})` },
+      __style: { backgroundColor: `var(--${token.name})` },
     }}
     height={50}
     width={250}
@@ -24,6 +24,7 @@ export const ColorBox = ({ token }: Props): Node => (
     alignItems="center"
     justifyContent="between"
     paddingX={2}
+    borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
   />
 );
 
@@ -33,7 +34,7 @@ export const SpacingBox = ({ token }: Props): Node => (
 export const TextColorBox = ({ token }: Props): Node => (
   <Box
     dangerouslySetInlineStyle={{
-      __style: { color: `var(--${token.name}) !important`, fontSize: '32px' },
+      __style: { color: `var(--${token.name})`, fontSize: '32px' },
     }}
     height={50}
     width={150}

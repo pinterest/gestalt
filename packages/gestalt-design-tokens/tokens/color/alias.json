@@ -113,7 +113,7 @@
         "base": {
           "value": "{color.black.cosmicore.900.value}"
         },
-        "weaker": {
+        "weak": {
           "value": "{color.gray.roboflow.700.value}"
         }
       },
