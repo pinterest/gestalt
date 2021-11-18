@@ -2,22 +2,131 @@
   "color": {
     "text": {
       "default": {
-        "value": "{color.black.cosmicore.900.value}"
+        "value": "{color.black.cosmicore.900.value}",
+        "comment": "Default text color"
       },
       "subtle": {
-        "value": "{color.gray.roboflow.500.value}"
+        "value": "{color.gray.roboflow.500.value}",
+        "comment": "Secondary, subtle text color"
       },
       "success": {
-        "value": "{color.green.matchacado.600.value}"
+        "value": "{color.green.matchacado.600.value}",
+        "comment": "Text color to indicate success"
       },
       "error": {
-        "value": "{color.red.pushpin.450.value}"
+        "value": "{color.red.pushpin.500.value}",
+        "comment": "Text color to indicate an error"
       },
       "warning": {
-        "value": "{color.yellow.caramellow.500.value}"
+        "value": "{color.yellow.caramellow.500.value}",
+        "comment": "Text color to indicate a warning or caution"
       },
       "inverse": {
-        "value": "{color.white.mochimalist.0.value}"
+        "value": "{color.white.mochimalist.0.value}",
+        "comment": "Text color to use on dark backgrounds"
+      },
+      "icon": {
+        "default": {
+          "value": "{color.black.cosmicore.900.value}"
+        },
+        "subtle": {
+          "value": "{color.gray.roboflow.500.value}"
+        },
+        "success": {
+          "value": "{color.green.matchacado.600.value}"
+        },
+        "error": {
+          "value": "{color.red.pushpin.500.value}"
+        },
+        "warning": {
+          "value": "{color.yellow.caramellow.500.value}"
+        },
+        "inverse": {
+          "value": "{color.white.mochimalist.0.value}"
+        }
+      }
+    },
+    "background": {
+      "info": {
+        "base": {
+          "value": "{color.blue.skycicle.500.value}"
+        },
+        "weak": {
+          "value": "{color.blue.skycicle.50.value}"
+        }
+      },
+      "error": {
+        "base": {
+          "value": "{color.red.pushpin.500.value}"
+        },
+        "weak": {
+          "value": "{color.red.pushpin.50.value}"
+        }
+      },
+      "warning": {
+        "base": {
+          "value": "{color.yellow.caramellow.500.value}"
+        },
+        "weak": {
+          "value": "{color.orange.firetini.50.value}"
+        }
+      },
+      "success": {
+        "base": {
+          "value": "{color.green.matchacado.500.value}"
+        },
+        "weak": {
+          "value": "{color.green.matchacado.50.value}"
+        }
+      },
+      "elevated": {
+        "value": "{color.black.cosmicore.900.value}"
+      },
+      "shopping": {
+        "value": "{color.blue.skycicle.500.value}"
+      },
+      "primary": {
+        "base": {
+          "value": "{color.red.pushpin.450.value}"
+        },
+        "strong": {
+          "value": "{color.red.pushpin.600.value}"
+        }
+      },
+      "secondary": {
+        "base": {
+          "value": "{color.gray.roboflow.500.value}"
+        },
+        "strong":{
+          "value": "{color.gray.roboflow.700.value}"
+        }
+      },
+      "tertiary": {
+        "base": {
+          "value": "{color.gray.roboflow.200.value}"
+        },
+        "strong": {
+          "value": "{color.gray.roboflow.400.value}"
+        }
+      },
+      "selected": {
+        "base": {
+          "value": "{color.black.cosmicore.900.value}"
+        },
+        "weaker": {
+          "value": "{color.gray.roboflow.700.value}"
+        }
+      },
+      "inverse": {
+        "base": {
+          "value": "{color.white.mochimalist.0.value}"
+        },
+        "strong": {
+          "value": "{color.gray.roboflow.200.value}"
+        }
+      },
+      "brand": {
+        "value": "{color.red.pushpin.450.value}"
       }
     }
   }

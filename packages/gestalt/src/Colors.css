@@ -67,7 +67,7 @@
 /* white */
 
 .white {
-  color: var(--color-text-inverted);
+  color: var(--color-text-inverse);
 }
 
 .whiteBg {

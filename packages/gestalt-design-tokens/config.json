@@ -21,6 +21,16 @@
         }
       ]
     },
+    "js": {
+      "transformGroup": "css",
+      "buildPath": "dist/js/",
+      "files": [
+        {
+          "destination": "token.js",
+          "format": "customJSArrayFormat"
+        }
+      ]
+    },
     "android": {
       "transformGroup": "android-custom",
       "buildPath": "dist/android/",

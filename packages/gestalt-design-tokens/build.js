@@ -13,6 +13,21 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerFormat({
+  name: 'customJSArrayFormat',
+  formatter: function ({ dictionary }) {
+    let tokenArray = dictionary.allTokens.map((token) => {
+      return JSON.stringify({
+        name: token.name,
+        value: token.value,
+        comment: token.comment,
+        category: token.attributes.category,
+      });
+    });
+    return `module.exports = [${tokenArray}]`;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'android-custom',
   transforms: ['attribute/cti', 'name/cti/snake', 'color/hex8android', 'size/pxToDp'],
