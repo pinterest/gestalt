@@ -82,7 +82,7 @@ We ask that any ideas that change the functionality of an existing Gestalt compo
     OK, great. You went to office hours and we all agree on what we're making. Now it's time to start bringing your designs into Gestalt.
 
     - Create a Branch file in our main file. New to Branching? Don't worry, our design team will support you with that.
-    - Follow the name convention: Your initials + Component name +What you are doing, for example: CR - Tab: Adding a badge variant.
+    - Follow the name convention: Your initials + Component name + What you are doing, for example: CR - Tab: Adding a badge variant.
     - Iterate in your designer, considering states, truncation, responsive behavior, and dark mode support.
     - Our design team will pair directly with you to support you as you design.
 
