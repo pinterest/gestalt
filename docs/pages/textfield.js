@@ -20,7 +20,7 @@ function Example(props) {
     <Box width={500}>
       <TextField
         autoComplete="username"
-        id="username"
+        id="header-example"
         label="Username"
         onChange={({ value }) => setValue(value)}
         placeholder="Please enter your username"
@@ -70,7 +70,7 @@ function Example(props) {
       <TextField
         autoComplete="new-password"
         helperText="Password should be at least 20 characters in length"
-        id="new-password"
+        id="best-practices-do-helper-text"
         label="New password"
         onChange={({ value }) => setValue(value)}
         type="password"
@@ -93,7 +93,7 @@ function Example(props) {
     <Box padding={2} color="white">
       <TextField
         autoComplete="new-password"
-        id="new-password"
+        id="best-practices-dont-placeholder"
         label=""
         onChange={({ value }) => setValue(value)}
         placeholder="Password should be at least 20 characters in length"
@@ -120,7 +120,7 @@ function Example(props) {
     <Box padding={2} color="white">
       <TextField
         autoComplete="username"
-        id="username"
+        id="best-practices-do-label"
         label="Username"
         onChange={({ value }) => setValue(value)}
         type="text"
@@ -143,7 +143,7 @@ function Example(props) {
     <Box padding={2} color="white">
       <TextField
         autoComplete="username"
-        id="username"
+        id="best-practices-dont-label"
         label=""
         onChange={({ value }) => setValue(value)}
         type="username"
@@ -169,14 +169,14 @@ function Example(props) {
   return (
     <Flex gap={4}>
       <TextField
-        id="city"
+        id="best-practices-do-related-city"
         label="City"
         onChange={({ value }) => setCityValue(value)}
         type="text"
         value={cityValue}
       />
       <TextField
-        id="state"
+        id="best-practices-do-related-state"
         label="State"
         onChange={({ value }) => setStateValue(value)}
         type="text"
@@ -200,14 +200,14 @@ function Example(props) {
     <Flex gap={4}>
       <TextField
         autoComplete="new-password"
-        id="password"
+        id="best-practices-dont-related-password"
         label="Password"
         onChange={({ value }) => setPasswordValue(value)}
         type="password"
         value={passwordValue}
       />
       <TextField
-        id="zip-code"
+        id="best-practices-dont-related-zip-code"
         label="ZIP Code"
         onChange={({ value }) => setZipCodeValue(value)}
         type="number"
@@ -234,7 +234,7 @@ function Example(props) {
       <TextField
         autoComplete="new-password"
         errorMessage="Password is too short! You need 20+ characters"
-        id="password"
+        id="best-practices-do-error-message"
         label="Password"
         onChange={({ value }) => setValue(value)}
         type="password"
@@ -258,7 +258,7 @@ function Example(props) {
       <TextField
         autoComplete="new-password"
         errorMessage="There is an error"
-        id="password"
+        id="best-practices-dont-error-message"
         label="Password"
         onChange={({ value }) => setValue(value)}
         type="password"
@@ -287,21 +287,21 @@ function Example(props) {
   return (
     <Flex direction="column" gap={3}>
       <TextField
-        id="firstName"
+        id="best-practices-do-required-firstName"
         label="First name"
         onChange={({ value }) => setName((name) => ({ ...name, first: value }))}
         type="text"
         value={name.first}
       />
       <TextField
-        id="middleName"
+        id="best-practices-do-required-middleName"
         label="Middle name (optional)"
         onChange={({ value }) => setName((name) => ({ ...name, middle: value }))}
         type="text"
         value={name.middle}
       />
       <TextField
-        id="lastName"
+        id="best-practices-do-required-lastName"
         label="Last name"
         onChange={({ value }) => setName((name) => ({ ...name, last: value }))}
         type="text"
@@ -324,14 +324,14 @@ function Example(props) {
     <Flex direction="column" gap={3}>
       <TextField
         helperText="* This field is required."
-        id="firstName"
+        id="best-practices-dont-required-firstName"
         label="First name"
         onChange={({ value }) => setName((name) => ({ ...name, first: value }))}
         type="text"
         value={name.first}
       />
       <TextField
-        id="middleName"
+        id="best-practices-dont-required-middleName"
         label="Middle name"
         onChange={({ value }) => setName((name) => ({ ...name, middle: value }))}
         type="text"
@@ -339,7 +339,7 @@ function Example(props) {
       />
       <TextField
         helperText="* This field is required."
-        id="lastName"
+        id="best-practices-dont-required-lastName"
         label="Last name"
         onChange={({ value }) => setName((name) => ({ ...name, last: value }))}
         type="text"
@@ -419,7 +419,7 @@ function Example(props) {
   return (
     <TextField
       disabled
-      id="name"
+      id="variants-disabled"
       label="Disabled"
       onChange={({ value }) => setValue(value)}
       placeholder="Name"
@@ -447,7 +447,7 @@ function Example(props) {
       <TextField
         autoComplete="new-password"
         helperText="Password should be at least 20 characters long"
-        id="password"
+        id="variants-helper-text"
         label="Password"
         onChange={({ value }) => setValue(value)}
         type="password"
@@ -476,7 +476,7 @@ function Example(props) {
   return (
     <TextField
       errorMessage={!value ? "This field can't be blank!" : null}
-      id="aboutme"
+      id="variants-error-message"
       label="With an error message"
       onChange={({ value }) => setValue(value)}
       value={value}
@@ -547,7 +547,7 @@ function Example(props) {
     <Box padding={2} color="white">
       <TextField
         autoComplete="off"
-        id="tags"
+        id="variants-tags"
         label="Emails"
         ref={ref}
         onChange={onChangeTagManagement}
@@ -577,7 +577,7 @@ function TextFieldPopoverExample() {
   return (
     <Box padding={2} color="white">
       <TextField
-        id="my-example"
+        id="variants-refs"
         label="Focus the TextField to show the Popover"
         onChange={() => {}}
         onBlur={() => setOpen(false)}
