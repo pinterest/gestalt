@@ -68,6 +68,37 @@ We ask that any ideas that change the functionality of an existing Gestalt compo
 );
 
 card(
+  <MainSection name="How can you make design contributions to Gestalt?">
+    <MainSection.Subsection
+      description={`
+We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
+
+1. **Present your idea or suggestion during our Office Hour meetings**
+    - Sign up for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the ask and why it is needed.
+    - Coordinate with other designers if there are overlapping needs to help us better prioritize in our roadmap.
+    - Be able to explain how this component should be used or not used. This helps us in testing the component against existing components and product surfaces.
+    - Have a rough project timeline available. This allows us to determine if we’re able to accommodate the work.
+2. **Create a Branch in our main file following the steps**
+    OK, great. You went to office hours and we all agree on what we're making. Now it's time to start bringing your designs into Gestalt.
+
+    - Create a Branch file in our main file. New to Branching? Don't worry, our design team will support you with that.
+    - Follow the name convention: Your initials + Component name +What you are doing, for example: CR - Tab: Adding a badge variant.
+    - Iterate in your designer, considering states, truncation, responsive behavior, and dark mode support.
+    - Our design team will pair directly with you to support you as you design.
+
+    See [Branching in Figma](https://www.figma.com/best-practices/branching-in-figma/) for more details and self-education.
+3. **Present your work in a Design System Crit with Gestalt team members**
+    - After your Branch file is ready, our design team will schedule a meeting to present your work.
+    - Take notes and ask all the questions you want!
+4. **Send your Branch to review**
+    - Update your Branch based on the feedback you got.
+    - Add a Gestalt reviewer to your Branch. The reviewer will be the designer who supported you through the whole process.
+    - Don't merge the Branch! Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!`}
+    />
+  </MainSection>,
+);
+
+card(
   <MainSection name="How can you contribute to Gestalt as an engineer?">
     <MainSection.Subsection
       description={`
