@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useState } from 'react';
-import { Box, Flex, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
+import { Box, Flex, FixedZIndex, Text, Icon, IconButton, Sticky, Image } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import HeaderMenu from './HeaderMenu.js';
 import Link from './Link.js';
@@ -15,25 +15,26 @@ function Header() {
       paddingY={2}
       paddingX={4}
       mdPaddingX={6}
-      color="pine"
+      color="white"
       display="flex"
       direction="row"
       alignItems="center"
       role="banner"
+      borderStyle="shadow"
     >
       <Box marginStart={-2} marginEnd={-2}>
         {/* <Text> is out here to get proper underline styles on link */}
-        <Text color="white" weight="bold">
+        <Text color="darkGray" weight="bold">
           <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
             <Box padding={2}>
               <Flex alignItems="center" gap={2}>
                 <Icon
                   icon="pinterest"
-                  color="white"
+                  color="darkGray"
                   size={24}
                   accessibilityLabel="Pinterest Logo"
                 />
-                Gestalt
+                Gestalt Design System
               </Flex>
             </Box>
           </Link>
@@ -41,16 +42,17 @@ function Header() {
       </Box>
 
       {/* Spacer element */}
-      <Box flex="grow" />
+      <Flex flex="grow" alignItems="center" justifyContent="center">
+        <DocSearch />
+      </Flex>
 
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
-        <DocSearch />
         <HeaderMenu isHeader />
         <Box display="flex" mdDisplay="none" alignItems="center">
           <IconButton
             size="md"
             accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
-            iconColor="white"
+            iconColor="darkGray"
             icon="menu"
             onClick={() => {
               window.scrollTo(0, 0);

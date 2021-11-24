@@ -1,6 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
+import { SearchField } from 'gestalt';
 
 function filterKeyboardEvent(event: KeyboardEvent) {
   const target = event.target || event.srcElement;
@@ -39,6 +40,7 @@ function handleKeyDown(event: KeyboardEvent) {
 }
 
 export default function DocSearch(): Node {
+  const [value, setValue] = React.useState('');
   useEffect(() => {
     if (typeof window === 'undefined' || !window.docsearch) {
       return;
@@ -62,12 +64,13 @@ export default function DocSearch(): Node {
   return (
     <form className="searchbox">
       <div className="searchbox__wrapper">
-        <input
+        <SearchField
+          accessibilityLabel=""
+          accessibilityClearButtonLabel="Clear search field"
           id="algolia-doc-search"
-          className="searchbox__input"
-          type="search"
-          placeholder="Search"
-          aria-label="Search docs"
+          onChange={({value}) => setValue(value)}
+          placeholder="Search the docs"
+          value={value}
         />
       </div>
     </form>

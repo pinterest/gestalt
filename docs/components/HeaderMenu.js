@@ -19,7 +19,7 @@ export default function HeaderMenu({ isHeader }: {| isHeader?: boolean |}): Node
   return (
     <Box
       alignItems="center"
-      color="pine"
+      color="white"
       display={isHeader ? 'none' : 'flex'}
       mdDisplay={isHeader ? 'flex' : 'none'}
       justifyContent={isHeader ? undefined : 'center'}
@@ -36,7 +36,7 @@ export default function HeaderMenu({ isHeader }: {| isHeader?: boolean |}): Node
       />
 
       <Tooltip inline text="Opens CodeSandbox ready to start coding with Gestalt">
-        <Text color="white">
+        <Text color="darkGray">
           <GestaltLink
             href="https://codesandbox.io/s/k5plvp9v8v"
             onClick={() => trackButtonClick('Playground')}
@@ -47,7 +47,7 @@ export default function HeaderMenu({ isHeader }: {| isHeader?: boolean |}): Node
         </Text>
       </Tooltip>
 
-      <Text color="white">
+      <Text color="darkGray">
         <GestaltLink
           href="https://github.com/pinterest/gestalt"
           onClick={() => trackButtonClick('GitHub')}

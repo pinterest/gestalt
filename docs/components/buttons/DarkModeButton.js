@@ -17,7 +17,7 @@ export default function DarkModeButton({ colorScheme, onClick }: Props): Node {
       <IconButton
         accessibilityLabel="Toggle color scheme: light / dark mode views"
         icon="workflow-status-in-progress"
-        iconColor="white"
+        iconColor="darkGray"
         onClick={() => {
           trackButtonClick('Toggle color scheme', colorSchemeCopy);
           onClick();

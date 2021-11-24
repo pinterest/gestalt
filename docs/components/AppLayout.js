@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Divider } from 'gestalt';
+import { Box, Flex, Divider } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 import Footer from './Footer.js';
@@ -23,11 +23,10 @@ export default function AppLayout({ children }: Props): Node {
 
         <Box width="100%" minWidth={0}>
           <Box padding={4} mdPadding={6} lgPadding={8} width="100%" role="main">
-            {children}
+            <Flex width="100%" justifyContent="center">
+              {children}
+            </Flex>
           </Box>
-
-          <Divider />
-
           <Footer />
         </Box>
       </Box>
