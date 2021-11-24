@@ -137,9 +137,9 @@ html[dir="rtl"] .Markdown ul + pre {
     Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
     Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
-  height: 32px;
-  max-width: 200px;
+  max-width: 400px;
   min-width: 100px;
+  width: 100%;
   position: relative;
   visibility: visible;
   white-space: nowrap;
@@ -156,45 +156,6 @@ html[dir="rtl"] .Markdown ul + pre {
   position: relative;
   width: 100%;
   z-index: 1;
-}
-
-.searchbox__input {
-  appearance: none;
-  background: var(--g-colorGray0);
-  border: 0;
-  border-radius: 999px;
-  box-sizing: border-box;
-  caret-color: var(--g-colorGray300);
-  color: var(--g-colorGray300);
-  display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
-  height: 100%;
-  padding: 0 32px 0 26px;
-  vertical-align: middle;
-  white-space: normal;
-  width: 100%;
-}
-
-.searchbox__input::-webkit-search-decoration,
-.searchbox__input::-webkit-search-cancel-button,
-.searchbox__input::-webkit-search-results-button,
-.searchbox__input::-webkit-search-results-decoration {
-  display: none;
-}
-
-.searchbox__input:focus,
-.searchbox__input:active {
-  box-shadow: 0 0 0 4px rgb(0 132 255 / 0.5);
-  outline: 0;
-}
-
-.searchbox__input::placeholder {
-  color: var(--g-colorGray200);
 }
 
 .searchbox__submit {

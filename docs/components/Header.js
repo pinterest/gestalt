@@ -12,7 +12,7 @@ function Header() {
 
   return (
     <Box
-      paddingY={2}
+      height={64}
       paddingX={4}
       mdPaddingX={6}
       color="white"

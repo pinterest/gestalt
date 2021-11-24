@@ -71,6 +71,7 @@ export default function DocSearch(): Node {
           onChange={({value}) => setValue(value)}
           placeholder="Search the docs"
           value={value}
+          size="sm"
         />
       </div>
     </form>
