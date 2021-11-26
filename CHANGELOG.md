@@ -1,3 +1,27 @@
+## 40.1.2 (Nov 17, 2021)
+
+### Patch
+
+- Bump aws-sdk from 2.726.0 to 2.1030.0 (#1782)
+
+## 40.1.1 (Nov 17, 2021)
+
+### Patch
+
+- Masonry: fix error in downstream consumers (#1783)
+
+## 40.1.0 (Nov 17, 2021)
+
+### Minor
+
+- Masonry: delay updating React scroll state until scroll events stop coming in (#1774)
+
+## 40.0.7 (Nov 16, 2021)
+
+### Patch
+
+- Avatar: Update docs and add Best Practices (#1781)
+
 ## 40.0.6 (Nov 11, 2021)
 
 ### Patch
