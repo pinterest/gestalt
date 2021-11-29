@@ -1,3 +1,9 @@
+## 40.1.3 (Nov 29, 2021)
+
+### Patch
+
+- TextField: add "tel" option for `type` prop (#1790)
+
 ## 40.1.2 (Nov 17, 2021)
 
 ### Patch
