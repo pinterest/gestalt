@@ -604,6 +604,21 @@ function TextFieldPopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+      **[TextArea](/textarea)**
+      When users need to enter long amounts of text, use TextArea to ensure the full content will be shown.
+
+      **[NumberField](/numberfield)**
+      For numerical input, use NumberField. (For telephone numbers, use \`<TextField type="tel" />\`.)
+
+      **[SearchField](/searchfield)**
+      If the input is used for searching content, use SearchField.
+    `}
+        />
+      </MainSection>
     </Page>
   );
 }

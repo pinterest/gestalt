@@ -73,7 +73,7 @@ type Props = {|
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   /**
-   * The type of input. For numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
+   * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
    */
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   /**
