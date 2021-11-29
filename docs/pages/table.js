@@ -207,13 +207,13 @@ function Example() {
         <BaseRow
           id={tableID}
           checked={true}
-          text="Macy's pincycle"
+          text="Mary's pincycle"
           campaign="Catalogs"
         />
         <BaseRow
           id={tableID}
           checked={false}
-          text="Best Buy Wins"
+          text="Best Purchase Wins"
           campaign="Awareness"
         />
         <BaseRow
@@ -315,7 +315,7 @@ function Example() {
           checked={true}
           bold
           italic
-          text="Macy's pincycle"
+          text="Mary's pincycle"
           campaign="Catalogs"
           color="red"
         />
@@ -323,7 +323,7 @@ function Example() {
           id={tableID}
           checked={false}
           underline
-          text="BEST BUY WINS"
+          text="BEST PURCHASE WINS"
           campaign="Awareness"
           color="purple"
         />
@@ -421,13 +421,13 @@ function Example() {
         <BaseRow
           id={tableID}
           checked={true}
-          text="Macy's pincycle"
+          text="Mary's pincycle"
           spend="$1.75"
         />
         <BaseRow
           id={tableID}
           checked={false}
-          text="Best Buy Wins"
+          text="Best Purchase Wins"
           spend="$51,650,500.54"
         />
         <BaseRow
@@ -445,8 +445,7 @@ function Example() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Don’t
-Align content so that it makes it harder to scan, read, and compare.
+            description={`Align content so that it makes it harder to scan, read, and compare.
 - Center-align content
 - Use proportional figures for numbers as they don’t quite align
 - End-align text and combo-content (combinations of text, numbers and/or graphics)
@@ -526,14 +525,14 @@ function Example() {
         <BaseRow
           id={tableID}
           checked={true}
-          text="Macy's pincycle"
+          text="Mary's pincycle"
           subtext="07/15/22"
           spend="$1.750"
         />
         <BaseRow
           id={tableID}
           checked={false}
-          text="Best Buy Wins"
+          text="Best Purchase Wins"
           subtext="06/15/22"
           spend="$51,650,500.54"
         />
@@ -1303,7 +1302,7 @@ Wrap important table content instead of truncating. Use truncation only for seco
         <MainSection.Subsection
           title="Labels"
           description={`
-Use  \`accessibilityLabel\` to properly announce the content of the table. For example, use “Ad Groups Table” instead of “Table”.
+Use  \`accessibilityLabel\` to properly announce the content of the table. For example, use "Campaign Status Information".
 
 Don’t include the word “table” as part of the label to prevent redundancy: the VoiceOver already appends “table” to the label and the Category “Table” in the rotor already describes the nature of the component.
 
@@ -1729,7 +1728,6 @@ function Example() {
           ]}
         />
       </MainSection>
-      s
       <MainSection name="Variants">
         <MainSection.Subsection title="Sticky header">
           <MainSection.Card
