@@ -5,8 +5,9 @@ describe('TextField Accessibility check', () => {
   });
 
   it('Tests accessibility on the TextField page', () => {
-    cy.checkA11y({
+    cy.configureAxe({
       exclude: ['#best-practices-dont-label'],
     });
+    cy.checkA11y();
   });
 });
