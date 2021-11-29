@@ -59,7 +59,7 @@ type Props = {|
   step?: number,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   textfieldIconButton?: 'clear' | 'expand',
-  type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
+  type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   value?: string,
 |};
 
