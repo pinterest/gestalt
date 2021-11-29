@@ -3,14 +3,18 @@ import { type Node } from 'react';
 import '../docs.css';
 import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
+import Cookies from 'universal-cookie';
+import NextApp from 'next/app';
+import type { AppInitialProps } from 'next/app';
+import { CookiesProvider } from 'react-cookie';
 import { useRouter } from 'next/router';
 import { Box } from 'gestalt';
 import App from '../components/App.js';
 
 // This default export is required in a new `pages/_app.js` file.
-export default function GestaltApp(
+function GestaltApp(
   // $FlowFixMe[signature-verification-failure]
-  { Component, pageProps }, // eslint-disable-line react/prop-types
+  { Component, pageProps, cookieHeader }, // eslint-disable-line react/prop-types
 ): Node {
   const router = useRouter();
 
@@ -24,8 +28,24 @@ export default function GestaltApp(
   }
 
   return (
-    <App>
-      <Component {...pageProps} />
-    </App>
+    <CookiesProvider cookies={new Cookies(cookieHeader)}>
+      <App>
+        <Component {...pageProps} />
+      </App>
+    </CookiesProvider>
   );
 }
+
+GestaltApp.getInitialProps = async (appInitialProps: AppInitialProps): Promise<AppInitialProps> => {
+  const initialProps = await NextApp.getInitialProps(appInitialProps);
+
+  const cookieHeader = appInitialProps?.ctx?.req?.headers?.cookie;
+
+  if (cookieHeader) {
+    return { ...initialProps, cookieHeader };
+  }
+
+  return { ...initialProps };
+};
+
+export default GestaltApp;
