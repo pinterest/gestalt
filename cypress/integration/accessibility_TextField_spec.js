@@ -5,11 +5,8 @@ describe('TextField Accessibility check', () => {
   });
 
   it('Tests accessibility on the TextField page', () => {
-    cy.checkA11y(null, {
-      rules: {
-        // Disabled to allow for label-less "Don't" example
-        label: { enabled: false },
-      },
+    cy.checkA11y({
+      exclude: ['#best-practices-dont-label'],
     });
   });
 });
