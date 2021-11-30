@@ -6,7 +6,7 @@ describe('TextField Accessibility check', () => {
 
   it('Tests accessibility on the TextField page', () => {
     cy.checkA11y({
-      exclude: [['#best-practices-dont-label']],
+      exclude: '#best-practices-dont-label',
     });
   });
 });
