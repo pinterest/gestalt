@@ -1,3 +1,9 @@
+## 40.1.4 (Nov 30, 2021)
+
+### Patch
+
+- Table: Update design guidelines in Docs (#1779)
+
 ## 40.1.3 (Nov 29, 2021)
 
 ### Patch
