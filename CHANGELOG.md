@@ -1,3 +1,9 @@
+## 40.1.6 (Nov 30, 2021)
+
+### Patch
+
+- fix: upgrade react-datepicker from 2.15.0 to 2.16.0 (#1787)
+
 ## 40.1.5 (Nov 30, 2021)
 
 ### Patch
