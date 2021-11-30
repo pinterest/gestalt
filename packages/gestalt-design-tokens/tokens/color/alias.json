@@ -27,106 +27,133 @@
       },
       "icon": {
         "default": {
-          "value": "{color.black.cosmicore.900.value}"
+          "value": "{color.black.cosmicore.900.value}",
+          "comment": "Default color for icons"
         },
         "subtle": {
-          "value": "{color.gray.roboflow.500.value}"
+          "value": "{color.gray.roboflow.500.value}",
+          "comment": "Subtle, secondary color for icons"
         },
         "success": {
-          "value": "{color.green.matchacado.600.value}"
+          "value": "{color.green.matchacado.600.value}",
+          "comment": "Icon color to indicate success"
         },
         "error": {
-          "value": "{color.red.pushpin.500.value}"
+          "value": "{color.red.pushpin.500.value}",
+          "comment": "Icon color to indicate an error"
         },
         "warning": {
-          "value": "{color.yellow.caramellow.500.value}"
+          "value": "{color.yellow.caramellow.500.value}",
+          "comment": "Icon color to indicate a warning or caution"
         },
         "inverse": {
-          "value": "{color.white.mochimalist.0.value}"
+          "value": "{color.white.mochimalist.0.value}",
+          "comment": "Icon color to use on dark backgrounds"
         }
       }
     },
     "background": {
       "info": {
         "base": {
-          "value": "{color.blue.skycicle.500.value}"
+          "value": "{color.blue.skycicle.500.value}",
+          "comment": "Background color to indicate neutral information"
         },
         "weak": {
-          "value": "{color.blue.skycicle.50.value}"
+          "value": "{color.blue.skycicle.50.value}",
+          "comment": "Weak background color to indicate neutral information, can be used behind text"
         }
       },
       "error": {
         "base": {
-          "value": "{color.red.pushpin.500.value}"
+          "value": "{color.red.pushpin.500.value}",
+          "comment": "Background color to indicate errors"
         },
         "weak": {
-          "value": "{color.red.pushpin.50.value}"
+          "value": "{color.red.pushpin.50.value}",
+          "comment": "Weak background color to indicate errors, can be used behind text"
         }
       },
       "warning": {
         "base": {
-          "value": "{color.yellow.caramellow.500.value}"
+          "value": "{color.yellow.caramellow.500.value}",
+          "comment": "Background color to indicate warnings"
         },
         "weak": {
-          "value": "{color.orange.firetini.50.value}"
+          "value": "{color.orange.firetini.50.value}",
+          "comment": "Weak background color to indicate warnings, can be used behind text"
         }
       },
       "success": {
         "base": {
-          "value": "{color.green.matchacado.500.value}"
+          "value": "{color.green.matchacado.500.value}",
+          "comment": "Background color to indicate success"
         },
         "weak": {
-          "value": "{color.green.matchacado.50.value}"
+          "value": "{color.green.matchacado.50.value}",
+          "comment": "Weak background color to indicate success, can be used behind text"
         }
       },
-      "elevated": {
-        "value": "{color.black.cosmicore.900.value}"
-      },
       "shopping": {
-        "value": "{color.blue.skycicle.500.value}"
+        "value": "{color.blue.skycicle.500.value}",
+        "comment": "Background color to indicate shopping-related features"
       },
       "primary": {
         "base": {
-          "value": "{color.red.pushpin.450.value}"
+          "value": "{color.red.pushpin.450.value}",
+          "comment": "Primary background color"
         },
         "strong": {
-          "value": "{color.red.pushpin.600.value}"
+          "value": "{color.red.pushpin.600.value}",
+          "comment": "Strong version of the primary background color, used for hover"
         }
       },
       "secondary": {
         "base": {
-          "value": "{color.gray.roboflow.500.value}"
+          "value": "{color.gray.roboflow.500.value}",
+          "comment": "Secondary background color"
         },
         "strong":{
-          "value": "{color.gray.roboflow.700.value}"
+          "value": "{color.gray.roboflow.700.value}",
+          "comment": "Strong version of secondary background color, used for hover"
         }
       },
       "tertiary": {
         "base": {
-          "value": "{color.gray.roboflow.200.value}"
+          "value": "{color.gray.roboflow.200.value}",
+          "comment": "Tertiary background color"
         },
         "strong": {
-          "value": "{color.gray.roboflow.400.value}"
+          "value": "{color.gray.roboflow.400.value}",
+          "comment": "Strong version of tertiary background color, used for hover"
         }
       },
       "selected": {
         "base": {
-          "value": "{color.black.cosmicore.900.value}"
+          "value": "{color.black.cosmicore.900.value}",
+          "comment": "Background color to indicate selected state, like a selected IconButton"
         },
         "weak": {
-          "value": "{color.gray.roboflow.700.value}"
+          "value": "{color.gray.roboflow.700.value}",
+          "comment": "Weak version of the selected background color, used for hover"
         }
       },
       "inverse": {
         "base": {
-          "value": "{color.white.mochimalist.0.value}"
+          "value": "{color.white.mochimalist.0.value}",
+          "comment": "Background color for use on dark backgrounds"
         },
         "strong": {
-          "value": "{color.gray.roboflow.200.value}"
+          "value": "{color.gray.roboflow.200.value}",
+          "comment": "Strong version of inverse background color, used for hover"
         }
       },
       "brand": {
-        "value": "{color.red.pushpin.450.value}"
+        "value": "{color.red.pushpin.450.value}",
+        "comment": "Background color to signify the Pinterest brand"
+      },
+      "education": {
+        "value": "{color.blue.skycicle.500.value}",
+        "comment": "Background color to indicate educational moments or messages"
       }
     }
   }

@@ -26,7 +26,7 @@
       "buildPath": "dist/js/",
       "files": [
         {
-          "destination": "token.js",
+          "destination": "tokens.js",
           "format": "customJSArrayFormat"
         }
       ]

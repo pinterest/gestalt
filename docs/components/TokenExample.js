@@ -31,6 +31,7 @@ export const ColorBox = ({ token }: Props): Node => (
 export const SpacingBox = ({ token }: Props): Node => (
   <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />
 );
+
 export const TextColorBox = ({ token }: Props): Node => (
   <Box
     dangerouslySetInlineStyle={{

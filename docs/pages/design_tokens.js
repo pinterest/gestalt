@@ -3,7 +3,7 @@
 import type { Node } from 'react';
 import { Flex, Table, Text } from 'gestalt';
 // $FlowExpectedError[untyped-import]
-import tokens from 'gestalt-design-tokens/dist/js/token.js';
+import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
