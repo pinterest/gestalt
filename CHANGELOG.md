@@ -1,3 +1,9 @@
+## 40.1.5 (Nov 30, 2021)
+
+### Patch
+
+- TextField: Update docs with Best Practices, Accessibility, Localization (#1785)
+
 ## 40.1.4 (Nov 30, 2021)
 
 ### Patch
