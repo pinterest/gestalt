@@ -73,7 +73,7 @@ type Props = {|
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   /**
-   * The type of input. For numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
+   * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
    */
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   /**
@@ -87,7 +87,7 @@ type Props = {|
 |};
 
 /**
- * [TextField](https://gestalt.pinterest.systems/textfield) allows for text input.
+ * [TextField](https://gestalt.pinterest.systems/textfield) allows for multiple types of text input.
  */
 const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
