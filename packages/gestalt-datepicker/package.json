@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
-    "react-datepicker": "2.15.0"
+    "react-datepicker": "2.16.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0",
