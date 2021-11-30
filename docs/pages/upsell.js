@@ -42,7 +42,6 @@ card(
 
 card(
   <PropTable
-    name="Upsell"
     Component={Upsell}
     props={[
       {
