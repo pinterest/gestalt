@@ -30,7 +30,7 @@ const tableHeaders = (
   <Table.Header>
     <Table.Row>
       {headers.map((header) => (
-        <Table.HeaderCell>
+        <Table.HeaderCell key={`header-${header}`}>
           <Text weight="bold">{header}</Text>
         </Table.HeaderCell>
       ))}
