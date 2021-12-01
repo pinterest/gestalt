@@ -26,7 +26,7 @@ function Example() {
       </Box>
       <Divider />
       <Box paddingX={4}>
-        <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images yu find online." />
+        <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online." />
       </Box>
     </Flex>
   );
@@ -34,12 +34,14 @@ function Example() {
 `}
       />
       <MainSection name="Usage guidelines">
-        <MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
-            description={`
-Dividers can be a subtle way to separate content; however, white space can be used to accomplish the same goal. Use dividers sparingly to avoid creating unnecessary clutter. Dividers should be used mainly to separate groups of related content.
-        `}
+            description="- Use Dividers or whitespace subt to seperate groups of related content."
+          />
+          <MainSection.Card
+            type="don't"
+            description="- Overuse Dividers as this can lead to uncessary clutter on the page."
           />
         </MainSection.Subsection>
       </MainSection>
@@ -61,7 +63,7 @@ function Example() {
   return (
     <Flex direction="column" gap={10}>
       <Block title="Discover ideas" text="Use the search bar to discover ideas, people and trends. Explore suggested topics or search for topics of your own." />
-      <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images yu find online." />
+      <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online." />
     </Flex>
   );
 }
@@ -85,7 +87,7 @@ function Example() {
       <Divider />
       <Block title="Discover ideas" text="Use the search bar to discover ideas, people and trends. Explore suggested topics or search for topics of your own." />
       <Divider />
-      <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images yu find online." />
+      <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online." />
       <Divider />
     </Flex>
   );
@@ -202,7 +204,7 @@ function Example() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Inset the Divider in a way that causes it to be free-floating or separated from content."
+            description="Inset Divider in a way that causes it to be free-floating or separated from content."
             defaultCode={`
 function Example() {
   const Block = ({ title, url, locked }) => (
@@ -267,36 +269,33 @@ function Example() {
   return (
     <Flex width="100%" height="100%">
       <Box paddingX={4}>
-        <Flex direction="column" gap={2} width={120}>
-        {["Public profile", "Account settings", "Home feed tuner", "Claim", "Permissions", "Notifications"].map((item, idx) => <Text underline={idx === 0}weight="bold" key={idx} size="md" wrap="none">{item}</Text>)}
+        <Flex direction="column" width={150}>
+          {['Public profile', 'Account settings', 'Home feed tuner', 'Claim', 'Permissions'].map(
+            (item, idx) => (
+              <Tabs
+                activeTabIndex={idx}
+                onChange={() => {}}
+                tabs={[{ text: item, href: '#Best-practices' }]}
+              />
+            ),
+          )}
         </Flex>
       </Box>
       <Divider />
       <Box marginStart={12}>
         <Flex direction="column" gap={4}>
-          <Heading accessibilityLevel="none" size="md">Public profile</Heading>
-          <Avatar
-            size="lg"
-            src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-            name="Keerthi"
-          />
-          <TextField
-            id="first"
-            onChange={() => {}}
-            label="First name"
-            value="Kate"
-          />
-          <TextField
-            id="last"
-            onChange={() => {}}
-            label="Last name"
-            value="Dommeti"
-          />
+          <Heading accessibilityLevel="none" size="md">
+            Public profile
+          </Heading>
+          <Avatar size="lg" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />
+          <TextField id="first" onChange={() => {}} label="First name" value="Kate" />
+          <TextField id="last" onChange={() => {}} label="Last name" value="Dommeti" />
         </Flex>
       </Box>
     </Flex>
   );
 }
+
 `}
           />
           <MainSection.Card
@@ -322,16 +321,16 @@ function Example() {
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Accessibility">
-        <MainSection.Subsection description="The Divider is not focusable and is treated as decorative. Screen readers on tab navigation don't announce Dividers but do announce them on left/right quick navigation." />
+        <MainSection.Subsection description="Divider is not focusable and is treated as decorative. Screen readers on tab navigation don't announce Dividers but do announce them on left/right quick navigation." />
       </MainSection>
       <MainSection name="Localization">
-        <MainSection.Subsection description="If you are aligning the Divider to content, ensure that it switches sides according to the content's start-end alignment." />
+        <MainSection.Subsection description="If you are aligning Divider to content, ensure that it switches sides according to the content's start-end alignment." />
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Orientation"
           columns={2}
-          description="You can use this component for a visual divider between two elements. Placing it within a [Flex](/flex) layout with a direction of `row` will cause the Divider to become vertical."
+          description="You can use this component as a vertical divider between two elements. Placing it within a Flex layout with a direction of `row` will shift Divider to a vertical orientation."
         >
           <MainSection.Card
             cardSize="md"
@@ -349,7 +348,7 @@ function Example() {
     <Flex direction="column" gap={10}>
       <Block title="Discover ideas" text="Use the search bar to discover ideas, people and trends. Explore suggested topics or search for topics of your own." />
       <Divider />
-      <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images yu find online." />
+      <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online." />
     </Flex>
   );
 }
@@ -374,7 +373,7 @@ function Example() {
       </Box>
       <Divider />
       <Box paddingX={4}>
-        <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images yu find online." />
+        <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online." />
       </Box>
     </Flex>
   );
