@@ -2,7 +2,6 @@
 
 import type { Node } from 'react';
 import { Flex, Table, Text } from 'gestalt';
-// $FlowExpectedError[untyped-import]
 import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
@@ -12,7 +11,7 @@ import { TokenExample } from '../components/TokenExample.js';
 type Token = {|
   name: string,
   value: string,
-  comment: string,
+  comment?: string,
   category: string,
 |};
 
@@ -25,21 +24,16 @@ const tokenCategories = [
   { name: 'Text color', category: 'text-color', id: 'text' },
 ];
 
+const headers = ['CSS Token Name', 'JavaScript Prop Name', 'Value', 'Example'];
+
 const tableHeaders = (
   <Table.Header>
     <Table.Row>
-      <Table.HeaderCell>
-        <Text weight="bold">CSS Token Name</Text>
-      </Table.HeaderCell>
-      <Table.HeaderCell>
-        <Text weight="bold">JavaScript Prop Name</Text>
-      </Table.HeaderCell>
-      <Table.HeaderCell>
-        <Text weight="bold">Value</Text>
-      </Table.HeaderCell>
-      <Table.HeaderCell>
-        <Text weight="bold">Example</Text>
-      </Table.HeaderCell>
+      {headers.map((header) => (
+        <Table.HeaderCell>
+          <Text weight="bold">{header}</Text>
+        </Table.HeaderCell>
+      ))}
     </Table.Row>
   </Table.Header>
 );

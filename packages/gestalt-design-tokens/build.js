@@ -1,6 +1,16 @@
 // @flow strict
 // $FlowExpectedError[untyped-import]
 const StyleDictionary = require('style-dictionary').extend('config.json');
+const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
+
+StyleDictionary.registerFileHeader({
+  name: 'flowCustomHeader',
+  fileHeader: (defaultMessage) => {
+    // defaultMessage contains the 2 lines that appear in the default file header
+
+    return [`@flow strict`, ...defaultMessage];
+  },
+});
 
 StyleDictionary.registerTransform({
   name: 'size/pxToDp',
@@ -15,7 +25,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerFormat({
   name: 'customJSArrayFormat',
-  formatter: ({ dictionary }) => {
+  formatter: ({ dictionary, file }) => {
     const tokenArray = dictionary.allTokens.map((token) =>
       JSON.stringify({
         name: token.name,
@@ -24,7 +34,7 @@ StyleDictionary.registerFormat({
         category: token.attributes.category,
       }),
     );
-    return `module.exports = [${tokenArray}]`;
+    return fileHeader({ file }) + `module.exports = [${tokenArray}]`;
   },
 });
 

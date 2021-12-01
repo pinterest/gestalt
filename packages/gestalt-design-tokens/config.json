@@ -23,11 +23,15 @@
     },
     "js": {
       "transformGroup": "css",
+      "showFileHeader": true,
       "buildPath": "dist/js/",
       "files": [
         {
           "destination": "tokens.js",
-          "format": "customJSArrayFormat"
+          "format": "customJSArrayFormat",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
         }
       ]
     },

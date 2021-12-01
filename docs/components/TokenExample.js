@@ -5,7 +5,7 @@ import { Box } from 'gestalt';
 type Token = {|
   name: string,
   value: string,
-  comment: string,
+  comment?: string,
   category: string,
 |};
 
