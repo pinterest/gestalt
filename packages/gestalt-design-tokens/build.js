@@ -32,7 +32,7 @@ StyleDictionary.registerFormat({
         category: token.attributes.category,
       }),
     );
-    return `${fileHeader({ file })} module.exports = [${tokenArray}]`;
+    return `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
   },
 });
 
