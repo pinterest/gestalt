@@ -1,5 +1,7 @@
 // @flow strict
 import {
+  useCallback,
+  Profiler,
   cloneElement,
   forwardRef,
   Fragment,
@@ -16,7 +18,7 @@ import Popover from './Popover.js';
 import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
-import ComboBoxOption, { type OptionItemType } from './OptionItem.js';
+import ComboBoxOption, { type OptionItemType } from './ComboBoxOption.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
@@ -153,78 +155,87 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   // ==== EVENT HANDLING ====
 
-  const handleSelectOptionItem = ({ event, item }) => {
-    onSelect?.({ event, item });
-    if (isNotControlled) {
-      setSelectedItem(item);
-      setTextfieldInput(item.label);
-    }
-    setShowOptionsList(false);
-  };
+  const handleSelectOptionItem = useCallback(
+    ({ event, item }) => {
+      onSelect?.({ event, item });
+      if (isNotControlled) {
+        setSelectedItem(item);
+        setTextfieldInput(item.label);
+      }
+      setShowOptionsList(false);
+    },
+    [isNotControlled, onSelect],
+  );
 
   // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxOption ====
 
-  const handleKeyNavigation = (event, direction: DirectionOptionType) => {
-    if (!showOptionsList) setShowOptionsList(true);
+  const handleKeyNavigation = useCallback(
+    (event, direction: DirectionOptionType) => {
+      if (!showOptionsList) setShowOptionsList(true);
 
-    const getNextHoveredIndex = (keyboardDirection) => {
-      if (keyboardDirection === UP_ARROW) {
-        return direction + (hoveredItemIndex || 0);
+      const getNextHoveredIndex = (keyboardDirection) => {
+        if (keyboardDirection === UP_ARROW) {
+          return direction + (hoveredItemIndex || 0);
+        }
+
+        return hoveredItemIndex === null ? 0 : direction + hoveredItemIndex;
+      };
+
+      const nextHoveredIndex = getNextHoveredIndex(direction);
+      const optionsCount = suggestedOptions.length - 1;
+
+      // If there's an existing item, navigate from that position
+      let cursorIndex = nextHoveredIndex;
+
+      // If we've reached the end, start at the top
+      if (nextHoveredIndex > optionsCount) {
+        cursorIndex = 0;
       }
 
-      return hoveredItemIndex === null ? 0 : direction + hoveredItemIndex;
-    };
+      // If we're at the top going backwards, start at the last item
+      else if (nextHoveredIndex < 0) {
+        cursorIndex = optionsCount;
+      }
 
-    const nextHoveredIndex = getNextHoveredIndex(direction);
-    const optionsCount = suggestedOptions.length - 1;
+      // IMPORTANT: handleContainerScrolling must be placed before we update hoveredItemIndex
+      handleContainerScrolling({
+        direction,
+        containerRef: dropdownRef,
+        currentHoveredOption: optionRef.current,
+      });
 
-    // If there's an existing item, navigate from that position
-    let cursorIndex = nextHoveredIndex;
+      setHoveredItemIndex(cursorIndex);
 
-    // If we've reached the end, start at the top
-    if (nextHoveredIndex > optionsCount) {
-      cursorIndex = 0;
-    }
+      const optionItem = suggestedOptions[cursorIndex];
 
-    // If we're at the top going backwards, start at the last item
-    else if (nextHoveredIndex < 0) {
-      cursorIndex = optionsCount;
-    }
+      if (optionItem && direction === KEYS.ENTER) {
+        handleSelectOptionItem({ event, item: optionItem });
+      }
+    },
+    [handleSelectOptionItem, hoveredItemIndex, showOptionsList, suggestedOptions],
+  );
 
-    // IMPORTANT: handleContainerScrolling must be placed before we update hoveredItemIndex
-    handleContainerScrolling({
-      direction,
-      containerRef: dropdownRef,
-      currentHoveredOption: optionRef.current,
-    });
+  const handleKeyDown = useCallback(
+    (event) => {
+      const { keyCode } = event;
 
-    setHoveredItemIndex(cursorIndex);
-
-    const optionItem = suggestedOptions[cursorIndex];
-
-    if (optionItem && direction === KEYS.ENTER) {
-      handleSelectOptionItem({ event, item: optionItem });
-    }
-  };
-
-  const handleKeyDown = (event) => {
-    const { keyCode } = event;
-
-    if (keyCode === UP_ARROW) {
-      handleKeyNavigation(event, KEYS.UP);
-      event.preventDefault();
-    } else if (keyCode === DOWN_ARROW) {
-      handleKeyNavigation(event, KEYS.DOWN);
-      event.preventDefault();
-    } else if (keyCode === ENTER) {
-      handleKeyNavigation(event, KEYS.ENTER);
-      event.stopPropagation();
-    } else if (keyCode === ESCAPE) {
-      if (innerRef) innerRef.current?.focus();
-    } else if (keyCode === TAB) {
-      setShowOptionsList(false);
-    }
-  };
+      if (keyCode === UP_ARROW) {
+        handleKeyNavigation(event, KEYS.UP);
+        event.preventDefault();
+      } else if (keyCode === DOWN_ARROW) {
+        handleKeyNavigation(event, KEYS.DOWN);
+        event.preventDefault();
+      } else if (keyCode === ENTER) {
+        handleKeyNavigation(event, KEYS.ENTER);
+        event.stopPropagation();
+      } else if (keyCode === ESCAPE) {
+        if (innerRef) innerRef.current?.focus();
+      } else if (keyCode === TAB) {
+        setShowOptionsList(false);
+      }
+    },
+    [handleKeyNavigation],
+  );
 
   const textfieldIconButton =
     (controlledInputValue && controlledInputValue !== '') ||
@@ -232,6 +243,18 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     (tags && tags.length > 0)
       ? 'clear'
       : 'expand';
+
+  function onRenderCallback(
+    idx, // the "id" prop of the Profiler tree that has just committed
+    phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+    actualDuration, // time spent rendering the committed update
+    baseDuration, // estimated time to render the entire subtree without memoization
+    startTime, // when React began rendering this update
+    commitTime, // when React committed this update
+    interactions, // the Set of interactions belonging to this update
+  ) {
+    console.log(idx, phase, actualDuration, baseDuration, startTime, commitTime, interactions);
+  }
 
   return (
     <Fragment>
@@ -261,16 +284,19 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           id={`combobox-${id}`}
           label={label}
           labelDisplay={labelDisplay}
-          onBlur={({ event, value }) => onBlur?.({ event, value })}
-          onChange={({ event, value }) => {
-            setHoveredItemIndex(null);
-            if (isNotControlled) {
-              setSelectedItem(null);
-              setTextfieldInput(value);
-            }
-            if (showOptionsList === false) setShowOptionsList(true);
-            onChange?.({ event, value });
-          }}
+          onBlur={useCallback(({ event, value }) => onBlur?.({ event, value }), [onBlur])}
+          onChange={useCallback(
+            ({ event, value }) => {
+              setHoveredItemIndex(null);
+              if (isNotControlled) {
+                setSelectedItem(null);
+                setTextfieldInput(value);
+              }
+              if (showOptionsList === false) setShowOptionsList(true);
+              onChange?.({ event, value });
+            },
+            [isNotControlled, onChange, showOptionsList],
+          )}
           onClickIconButton={
             textfieldIconButton === 'clear'
               ? () => {
@@ -288,11 +314,11 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                 }
           }
           onClick={() => setShowOptionsList(true)}
-          onFocus={({ event, value }) => onFocus?.({ event, value })}
-          onKeyDown={({ event, value }) => {
+          onFocus={useCallback(({ event, value }) => onFocus?.({ event, value }), [onFocus])}
+          onKeyDown={useCallback(({ event, value }) => {
             if (!showOptionsList && event.keyCode !== TAB) setShowOptionsList(true);
             onKeyDown?.({ event, value });
-          }}
+          }, [onKeyDown, showOptionsList])}
           placeholder={tags && tags.length > 0 ? '' : placeholder}
           ref={innerRef}
           size={size}
@@ -327,29 +353,31 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
               rounding={4}
               width={innerRef?.current?.offsetWidth}
             >
-              {suggestedOptions.length > 0 ? (
-                suggestedOptions.map((option, index) => (
-                  <ComboBoxOption
-                    hoveredItemIndex={hoveredItemIndex}
-                    id={id}
-                    index={index}
-                    key={`${option.label}${index}`}
-                    lineClamp={1}
-                    option={option}
-                    onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
-                    selected={selectedOption ?? selectedItem}
-                    setHoveredItemIndex={setHoveredItemIndex}
-                    ref={optionRef}
-                    role="option"
-                  />
-                ))
-              ) : (
-                <Box width="100%" paddingX={2} paddingY={4}>
-                  <Text lineClamp={1} color="gray">
-                    {noResultText}
-                  </Text>
-                </Box>
-              )}
+              <Profiler id="Navigation" onRender={onRenderCallback}>
+                {suggestedOptions.length > 0 ? (
+                  suggestedOptions.map((option, index) => (
+                    <ComboBoxOption
+                      isHovered={index === hoveredItemIndex}
+                      id={id}
+                      index={index}
+                      key={`${option.label}${index}`}
+                      label={option.label}
+                      subtext={option?.subtext}
+                      value={option.value}
+                      onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
+                      selectedValue={selectedOption?.value ?? selectedItem?.value}
+                      setHoveredItemIndex={setHoveredItemIndex}
+                      ref={optionRef}
+                    />
+                  ))
+                ) : (
+                  <Box width="100%" paddingX={2} paddingY={4}>
+                    <Text lineClamp={1} color="gray">
+                      {noResultText}
+                    </Text>
+                  </Box>
+                )}
+              </Profiler>
             </Box>
           </Popover>
         </Layer>
@@ -361,3 +389,21 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 ComboBoxWithForwardRef.displayName = 'ComboBox';
 
 export default ComboBoxWithForwardRef;
+
+// suggestedOptions.map((option, index) => (
+//                     <ComboBoxOption
+//                       hoveredItemIndex={hoveredItemIndex}
+//                       id={id}
+//                       index={index}
+//                       key={`${option.label}${index}`}
+//                       lineClamp={1}
+//                       option={option}
+//                       onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
+//                       selected={selectedOption ?? selectedItem}
+//                       setHoveredItemIndex={setHoveredItemIndex}
+//                       ref={optionRef}
+//                       role="option"
+//                     />
+//                   ))
+
+// suggestedOptions.map((option, index) => <Text key={index}>{option.label}</Text>)
