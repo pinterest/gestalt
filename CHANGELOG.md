@@ -1,3 +1,9 @@
+## 40.1.7 (Dec 1, 2021)
+
+### Patch
+
+- Docs: add a couple of tooltips to header elements (#1795)
+
 ## 40.1.6 (Nov 30, 2021)
 
 ### Patch
