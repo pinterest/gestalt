@@ -1,3 +1,9 @@
+## 40.1.8 (Dec 1, 2021)
+
+### Patch
+
+- NumberField: add Usage guidelines, Best practices, A11y+L10n (#1792)
+
 ## 40.1.7 (Dec 1, 2021)
 
 ### Patch
