@@ -47,15 +47,17 @@ export default function HeaderMenu({ isHeader }: {| isHeader?: boolean |}): Node
         </Text>
       </Tooltip>
 
-      <Text color="white">
-        <GestaltLink
-          href="https://github.com/pinterest/gestalt"
-          onClick={() => trackButtonClick('GitHub')}
-          target="blank"
-        >
-          <Box padding={2}>GitHub</Box>
-        </GestaltLink>
-      </Text>
+      <Tooltip inline text="Check out the source code on GitHub">
+        <Text color="white">
+          <GestaltLink
+            href="https://github.com/pinterest/gestalt"
+            onClick={() => trackButtonClick('GitHub')}
+            target="blank"
+          >
+            <Box padding={2}>GitHub</Box>
+          </GestaltLink>
+        </Text>
+      </Tooltip>
     </Box>
   );
 }

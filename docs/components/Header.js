@@ -45,7 +45,11 @@ function Header() {
 
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
         <DocSearch />
+
+        {/* > small-screen buttons/links */}
         <HeaderMenu isHeader />
+
+        {/* Small-screen menu button */}
         <Box display="flex" mdDisplay="none" alignItems="center">
           <IconButton
             size="md"

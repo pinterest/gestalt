@@ -1,6 +1,6 @@
 // @flow strict
-import type { Node } from 'react';
-import { useEffect } from 'react';
+import { type Node, useEffect } from 'react';
+import { Tooltip } from 'gestalt';
 
 function filterKeyboardEvent(event: KeyboardEvent) {
   const target = event.target || event.srcElement;
@@ -60,16 +60,18 @@ export default function DocSearch(): Node {
   }, []);
 
   return (
-    <form className="searchbox">
-      <div className="searchbox__wrapper">
-        <input
-          id="algolia-doc-search"
-          className="searchbox__input"
-          type="search"
-          placeholder="Search"
-          aria-label="Search docs"
-        />
-      </div>
-    </form>
+    <Tooltip inline text="Pro tip: press '/' to quickly access search">
+      <form className="searchbox">
+        <div className="searchbox__wrapper">
+          <input
+            id="algolia-doc-search"
+            className="searchbox__input"
+            type="search"
+            placeholder="Search"
+            aria-label="Search docs"
+          />
+        </div>
+      </form>
+    </Tooltip>
   );
 }
