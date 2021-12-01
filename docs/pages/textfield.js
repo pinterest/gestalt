@@ -163,8 +163,8 @@ function Example(props) {
             description="Only place related fields on the same line."
             defaultCode={`
 function Example(props) {
-  const [cityValue, setCityValue] = React.useState('')
-  const [stateValue, setStateValue] = React.useState('')
+  const [cityValue, setCityValue] = React.useState('');
+  const [stateValue, setStateValue] = React.useState('');
 
   return (
     <Flex gap={4}>
@@ -193,8 +193,8 @@ function Example(props) {
             description="Place unrelated text fields on the same line, as this can create comprehension issues."
             defaultCode={`
 function Example(props) {
-  const [passwordValue, setPasswordValue] = React.useState('')
-  const [zipCodeValue, setZipCodeValue] = React.useState('')
+  const [passwordValue, setPasswordValue] = React.useState('');
+  const [zipCodeValue, setZipCodeValue] = React.useState('');
 
   return (
     <Flex gap={4}>
@@ -318,7 +318,11 @@ function Example(props) {
             description="Mark fields as required."
             defaultCode={`
 function Example(props) {
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState({
+    first: '',
+    second: '',
+    third: '',
+  });
 
   return (
     <Flex direction="column" gap={3}>
@@ -403,7 +407,7 @@ function Example(props) {
 
       <MainSection
         name="Localization"
-        description={`Be sure to localize \`accessibilityLabel\`, \`errorMessage\`, \`helperText\`, \`label\`, and \`placeholder\`.`}
+        description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, and \`placeholder\`.`}
       />
 
       <MainSection name="Variants">
