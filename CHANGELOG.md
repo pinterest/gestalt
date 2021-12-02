@@ -1,3 +1,9 @@
+## 40.2.1 (Dec 2, 2021)
+
+### Patch
+
+- Divider: updated design guidelines (#1791)
+
 ## 40.2.0 (Dec 2, 2021)
 
 ### Minor
