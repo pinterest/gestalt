@@ -68,8 +68,9 @@ We ask that any ideas that change the functionality of an existing Gestalt compo
 );
 
 card(
-  <MainSection name="How can you make design contributions to Gestalt?">
+  <MainSection name="How can you contribute to Gestalt?">
     <MainSection.Subsection
+      title='Making a design contribution'
       description={`
 We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
 
@@ -95,12 +96,8 @@ We ask that any ideas that change the functionality of an existing Gestalt compo
     - Add a Gestalt reviewer to your Branch. The reviewer will be the designer who supported you through the whole process.
     - Don't merge the Branch! Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!`}
     />
-  </MainSection>,
-);
-
-card(
-  <MainSection name="How can you contribute to Gestalt as an engineer?">
     <MainSection.Subsection
+      title='Making an engineering contribution'
       description={`
 We always appreciate the help and contributions of other engineers across Pinterest. It could be new variants, simple bug fixes or building out entire components. Before any code happens though, be sure to follow our [request process](#What-is-the-process-to-request-new-additions-or-changes).
 
@@ -113,12 +110,8 @@ We always appreciate the help and contributions of other engineers across Pinter
 4. **Release**
    Now the fun part - releasing your component! After someone from the Gestalt team merges your change, feel free to announce it on the [#gestalt-web](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100) slack channel.`}
     />
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Other ways to contribute">
     <MainSection.Subsection
+      title='Other ways to contribute'
       description={`
 **Bugs**
 If you think you’ve found a bug with Gestalt components or documentation, first check our [Gestalt Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639) to see if it’s already been reported. If it hasn’t, please file a bug within the [Bugs](https://jira.pinadmin.com/projects/BUG?selectedItem=com.atlassian.jira.jira-projects-plugin:components-page) JIRA project and set the component=”gestalt”. We are not actively using GitHub issues, so the best way to file is through JIRA.
