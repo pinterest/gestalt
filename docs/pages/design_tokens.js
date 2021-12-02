@@ -1,12 +1,42 @@
 // @flow strict
+
 import type { Node } from 'react';
-import { Table, Text, Box } from 'gestalt';
+import { Flex, Table, Text } from 'gestalt';
+import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import CardPage from '../components/CardPage.js';
+import { TokenExample } from '../components/TokenExample.js';
+
+type Token = {|
+  name: string,
+  value: string,
+  comment?: string,
+  category: string,
+|};
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
+
+const tokenCategories = [
+  { name: 'Spacing', category: 'spacing', id: 'space' },
+  { name: 'Background color', category: 'background-color', id: 'background' },
+  { name: 'Text color', category: 'text-color', id: 'text' },
+];
+
+const headers = ['CSS Token Name', 'JavaScript Prop Name', 'Value', 'Example'];
+
+const tableHeaders = (
+  <Table.Header>
+    <Table.Row>
+      {headers.map((header) => (
+        <Table.HeaderCell key={`header-${header}`}>
+          <Text weight="bold">{header}</Text>
+        </Table.HeaderCell>
+      ))}
+    </Table.Row>
+  </Table.Header>
+);
 
 card(
   <PageHeader
@@ -19,196 +49,36 @@ card(
 
 card(
   <MainSection name="Token Values">
-    <MainSection.Subsection title="Spacing">
-      <Table accessibilityLabel="Spacing token values">
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>
-              <Text weight="bold">CSS Token Name</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">JavaScript Prop Name</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Value</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Example</Text>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-0</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>space0</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>0px</Text>
-            </Table.Cell>
-            <Table.Cell>{null}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-100</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>space100</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>4px</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Box color="eggplant" width="4px" height="4px" />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-200</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>space200</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>8px</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Box color="eggplant" width="8px" height="8px" />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-300</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>space300</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>16px</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Box color="eggplant" width="16px" height="16px" />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-400</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>space400</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>24px</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Box color="eggplant" width="24px" height="24px" />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-500</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>space500</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>32px</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Box color="eggplant" width="32px" height="32px" />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-600</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>space600</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>64px</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Box color="eggplant" width="64px" height="64px" />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-negative-100</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>spaceNegative100</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>-4px</Text>
-            </Table.Cell>
-            <Table.Cell>{null}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-negative-200</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>spaceNegative200</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>-8px</Text>
-            </Table.Cell>
-            <Table.Cell>{null}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-negative-300</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>spaceNegative300</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>-16px</Text>
-            </Table.Cell>
-            <Table.Cell>{null}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-negative-400</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>spaceNegative400</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>-24px</Text>
-            </Table.Cell>
-            <Table.Cell>{null}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-negative-500</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>spaceNegative500</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>-32px</Text>
-            </Table.Cell>
-            <Table.Cell>{null}</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>
-              <Text>--space-negative-600</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>spaceNegative600</Text>
-            </Table.Cell>
-            <Table.Cell>
-              <Text>-64px</Text>
-            </Table.Cell>
-            <Table.Cell>{null}</Table.Cell>
-          </Table.Row>
-        </Table.Body>
-      </Table>
-    </MainSection.Subsection>
+    {tokenCategories.map((category) => (
+      <MainSection.Subsection key={`table${category.name}`} title={category.name}>
+        <Table accessibilityLabel={`${category.name} Values`}>
+          {tableHeaders}
+          <Table.Body>
+            {tokens
+              .filter((token) => token.name.includes(`${category.id}`))
+              .map((token: Token) => (
+                <Table.Row key={`token${token.name}`}>
+                  <Table.Cell>
+                    <Flex direction="column" gap={2}>
+                      <Text>${token.name}</Text>
+                      <Text color="gray">{token.comment || ''}</Text>
+                    </Flex>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{token.name.replace(/-./g, (x) => x[1].toUpperCase())}</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{token.value}</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <TokenExample token={token} category={category.category} />
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+          </Table.Body>
+        </Table>
+      </MainSection.Subsection>
+    ))}
   </MainSection>,
 );
 
