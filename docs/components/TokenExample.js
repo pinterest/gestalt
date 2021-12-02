@@ -1,6 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box } from 'gestalt';
+import { string } from 'prop-types';
 
 type Token = {|
   name: string,
@@ -11,6 +12,7 @@ type Token = {|
 
 type Props = {|
   token: Token,
+  type?: string,
 |};
 
 export const ColorBox = ({ token }: Props): Node => (
@@ -49,6 +51,32 @@ export const TextColorBox = ({ token }: Props): Node => (
   </Box>
 );
 
+export const FontBox = ({ token, type }: Props): Node => {
+  const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
+  const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
+  const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
+
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: {
+          fontWeight: fontWeightStyle,
+          fontFamily: fontFamilyStyle,
+          fontSize: fontSizeStyle,
+        },
+      }}
+      height={50}
+      width={150}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+    >
+      {token.name.includes('japanese') ? 'ゲシュタルト' : 'Gestalt'}
+    </Box>
+  );
+};
+
 type ExampleProps = {|
   token: Token,
   category: string,
@@ -62,6 +90,12 @@ export const TokenExample = ({ token, category }: ExampleProps): Node => {
       return <SpacingBox token={token} />;
     case 'text-color':
       return <TextColorBox token={token} />;
+    case 'font-size':
+      return <FontBox token={token} type="size" />;
+    case 'font-weight':
+      return <FontBox token={token} type="weight" />;
+    case 'font-family':
+      return <FontBox token={token} type="family" />;
     default:
       return <Box>{token.value}</Box>;
   }
