@@ -1,3 +1,9 @@
+## 40.2.0 (Dec 2, 2021)
+
+### Minor
+
+- Design tokens: Add Color alias tokens for text and background (#1784)
+
 ## 40.1.9 (Dec 2, 2021)
 
 ### Patch
