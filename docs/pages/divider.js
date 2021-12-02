@@ -9,7 +9,7 @@ export default function DividerPage(): Node {
     <Page title="Divider">
       <PageHeader
         name="Divider"
-        description="If you have two elements that need to be separated, put a Divider between them."
+        description="A light gray 1px horizontal or vertical line which groups and divides content in lists and layouts."
         defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
@@ -37,11 +37,9 @@ function Example() {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
-            description="- Use Dividers or whitespace subt to seperate groups of related content."
-          />
-          <MainSection.Card
-            type="don't"
-            description="- Overuse Dividers as this can lead to uncessary clutter on the page."
+            cardSize="md"
+            description="- Dividers should be used to bring clarity and structure to a layout. Primarily, Dividers help to separate groups of related elements or break up dense content.
+"
           />
         </MainSection.Subsection>
       </MainSection>
