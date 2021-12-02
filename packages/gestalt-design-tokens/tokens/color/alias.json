@@ -112,7 +112,7 @@
           "value": "{color.gray.roboflow.500.value}",
           "comment": "Secondary background color"
         },
-        "strong":{
+        "strong": {
           "value": "{color.gray.roboflow.700.value}",
           "comment": "Strong version of secondary background color, used for hover"
         }
