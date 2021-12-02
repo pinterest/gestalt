@@ -94,7 +94,8 @@ We ask that any ideas that change the functionality of an existing Gestalt compo
 4. **Send your Branch to review**
     - Update your Branch based on the feedback you got.
     - Add a Gestalt reviewer to your Branch. The reviewer will be the designer who supported you through the whole process.
-    - Don't merge the Branch! Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!`}
+    - Don't merge the Branch! Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!
+`}
     />
     <MainSection.Subsection
       title='Making an engineering contribution'
@@ -108,7 +109,8 @@ We always appreciate the help and contributions of other engineers across Pinter
 3. **Pull request**
    Once the TDD has been finalized, make a pull request for your changes by following the [development guidelines](/development). Your changes will be reviewed by the gestalt-core GitHub Team and a Gestalt designer. We ensure each component is built to spec, accessible, performant and works well with other components.
 4. **Release**
-   Now the fun part - releasing your component! After someone from the Gestalt team merges your change, feel free to announce it on the [#gestalt-web](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100) slack channel.`}
+   Now the fun part - releasing your component! After someone from the Gestalt team merges your change, feel free to announce it on the [#gestalt-web](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100) slack channel.
+`}
     />
     <MainSection.Subsection
       title='Other ways to contribute'
@@ -117,7 +119,8 @@ We always appreciate the help and contributions of other engineers across Pinter
 If you think you’ve found a bug with Gestalt components or documentation, first check our [Gestalt Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639) to see if it’s already been reported. If it hasn’t, please file a bug within the [Bugs](https://jira.pinadmin.com/projects/BUG?selectedItem=com.atlassian.jira.jira-projects-plugin:components-page) JIRA project and set the component=”gestalt”. We are not actively using GitHub issues, so the best way to file is through JIRA.
 
 **Surveys**
-The Gestalt team sends out surveys to the design and engineering orgs. Filling out this survey is one way to help inform our team on what is working and what is not working about out design system.`}
+The Gestalt team sends out surveys to the design and engineering orgs. Filling out this survey is one way to help inform our team on what is working and what is not working about out design system.
+`}
     />
   </MainSection>,
 );
@@ -128,7 +131,8 @@ card(
       description={`
 We are always happy to help answer questions regarding Gestalt component design and usage, design system best practices, accessibility, Icons and colors. Essentially, if it’s part of Gestalt, we’re here to help! If it’s outside of the realm of our design system, we’ll try our best to answer and/or point you to the person who can.
 
-We also offer documentation on this site ([go/GestaltWeb](https://gestalt.netlify.app/)) and a [Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/01.-Web-Sticker-Sheet?node-id=2219%3A5757) of components that exist within Gestalt.`}
+We also offer documentation on this site ([go/GestaltWeb](https://gestalt.netlify.app/)) and a [Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/01.-Web-Sticker-Sheet?node-id=2219%3A5757) of components that exist within Gestalt.
+`}
     />
   </MainSection>,
 );
@@ -150,7 +154,8 @@ Before reaching out, take a look at our [documentation](http://gestalt.netlifyap
 
 [#gestalt-design](https://pinterest.slack.com/archives/C0HUV5J93) is the best way to reach the Gestalt design team for design focused questions.
 
-[#gestalt-web](https://pinterest.slack.com/archives/C13KLG5P0) is for more engineering-focused questions.`}
+[#gestalt-web](https://pinterest.slack.com/archives/C13KLG5P0) is for more engineering-focused questions.
+`}
     />
     <MainSection.Subsection
       title="Meetings and events"
@@ -173,7 +178,7 @@ We offer two different meetings for the community to come with questions, commen
       A group of designers who represent the design org as a design system council. We decided to create a group in order to keep crits productive and a manageable size across the entire design team. We've worked with all the managers across design to come up with the initial participants. In addition, we will invite designers outside of this group to give feedback when their teams are immediate users of the component. Agenda can be found in the meeting invite. Please continue to bring component work to office hours.
     - Cadence
       Bi-weekly on Friday 1-2pm. Please sign up through the link in the calendar invite.
-    `}
+`}
     />
   </MainSection>,
 );
