@@ -1,3 +1,9 @@
+## 40.2.2 (Dec 2, 2021)
+
+### Patch
+
+- Docs: Adding a section for making design contributions to Gestalt (#1786)
+
 ## 40.2.1 (Dec 2, 2021)
 
 ### Patch
