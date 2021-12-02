@@ -1,3 +1,9 @@
+## 40.1.9 (Dec 2, 2021)
+
+### Patch
+
+- Internal: upgrade Flow to 0.165.1 (#1797)
+
 ## 40.1.8 (Dec 1, 2021)
 
 ### Patch
