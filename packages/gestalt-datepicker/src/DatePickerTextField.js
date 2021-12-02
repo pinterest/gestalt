@@ -23,7 +23,8 @@ type InjectedProps = {|
 
 type Props = {|
   id: string,
-  forwardedRef?: ElementRef<*>,
+    // $FlowFixMe[unclear-type]
+forwardedRef?: ElementRef<*>,
   ...InjectedProps,
 |};
 

@@ -181,6 +181,7 @@ const getPins = () => {
 class ExampleMasonry extends Component<Props, State> {
   // ref on a component gets the mounted instance of the component
   // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
+  // $FlowFixMe[unclear-type]
   grid: ?Masonry<*>;
 
   scrollContainer: ?HTMLElement;

@@ -58,6 +58,7 @@ type Props<T> = {|
   /**
    * Measurement Store
    */
+  // $FlowFixMe[unclear-type]
   measurementStore?: Cache<T, *>,
   /**
    * Minimum number of columns to display.
@@ -99,6 +100,7 @@ type Props<T> = {|
 |};
 
 type State<T> = {|
+  // $FlowFixMe[unclear-type]
   measurementStore: Cache<T, *>,
   hasPendingMeasurements: boolean,
   isFetching: boolean,
@@ -215,6 +217,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.containerHeight = 0;
     this.containerOffset = 0;
 
+    // $FlowFixMe[unclear-type]
     const measurementStore: Cache<T, *> =
       props.measurementStore || Masonry.createMeasurementStore();
 
@@ -408,6 +411,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
+  // $FlowFixMe[unclear-type]
   renderMasonryComponent: (itemData: T, idx: number, position: *) => Node = (
     itemData,
     idx,

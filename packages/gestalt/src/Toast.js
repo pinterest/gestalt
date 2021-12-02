@@ -15,6 +15,7 @@ type Props = {|
   /**
    * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
    */
+  // $FlowFixMe[unclear-type]
   text: string | Element<*>,
   /**
    * An optional thumbnail image to displayed next to the text.

@@ -41,6 +41,7 @@ const defaultLayout = <T>({
   minCols?: number,
   rawItemCount: number,
   width?: ?number,
+  // $FlowFixMe[unclear-type]
 |}): ((items: $ReadOnlyArray<*>) => $ReadOnlyArray<Position>) => (
   items,
 ): $ReadOnlyArray<Position> => {
