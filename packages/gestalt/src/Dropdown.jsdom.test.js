@@ -454,4 +454,23 @@ describe('Dropdown', () => {
     // fireEvent.click(screen.getByText(/External Item 3/));
     // expect(onClickMock).toHaveBeenCalledTimes(1);
   });
+
+  it('stop propagation of on focus event when hovering over options', () => {
+    const handleOnFocus = jest.fn();
+    const mockOnDismiss = jest.fn();
+    const onSelectMock = jest.fn();
+    const element = document.createElement('button');
+
+    render(
+      <div onFocus={handleOnFocus}>
+        <Dropdown anchor={element} id="ex-8" onDismiss={mockOnDismiss}>
+          <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 1', label: 'Item 1' }} />
+          <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 2', label: 'Item 2' }} />
+        </Dropdown>
+      </div>,
+    );
+
+    fireEvent.mouseOver(screen.getByText(/Item 2/i));
+    expect(handleOnFocus).toHaveBeenCalledTimes(0);
+  });
 });

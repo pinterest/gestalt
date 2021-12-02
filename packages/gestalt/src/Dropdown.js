@@ -188,7 +188,14 @@ export default function Dropdown({
       shouldFocus
       size="xl"
     >
-      <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
+      <Box
+        alignItems="center"
+        direction="column"
+        display="flex"
+        flex="grow"
+        margin={2}
+        onFocus={(event) => event.stopPropagation()}
+      >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
         <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
