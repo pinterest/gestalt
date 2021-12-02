@@ -117,8 +117,7 @@ We always appreciate the help and contributions of other engineers across Pinter
 If you think you’ve found a bug with Gestalt components or documentation, first check our [Gestalt Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639) to see if it’s already been reported. If it hasn’t, please file a bug within the [Bugs](https://jira.pinadmin.com/projects/BUG?selectedItem=com.atlassian.jira.jira-projects-plugin:components-page) JIRA project and set the component=”gestalt”. We are not actively using GitHub issues, so the best way to file is through JIRA.
 
 **Surveys**
-The Gestalt team sends out surveys to the design and engineering orgs. Filling out this survey is one way to help inform our team on what is working and what is not working about out design system.
-`}
+The Gestalt team sends out surveys to the design and engineering orgs. Filling out this survey is one way to help inform our team on what is working and what is not working about out design system.`}
     />
   </MainSection>,
 );
