@@ -3,13 +3,14 @@ import type { Node } from 'react';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
-export default function DividerPage(): Node {
+export default function DividerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Divider">
       <PageHeader
         name="Divider"
-        description="A light gray 1px horizontal or vertical line which groups and divides content in lists and layouts."
+        description={generatedDocGen?.description}
         defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
@@ -37,9 +38,11 @@ function Example() {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
-            cardSize="md"
-            description="- Dividers should be used to bring clarity and structure to a layout. Primarily, Dividers help to separate groups of related elements or break up dense content.
-"
+            description="Dividers should be used to bring clarity and structure to a layout. Primarily, Dividers help to separate groups of related elements or break up dense content."
+          />
+          <MainSection.Card
+            type="don't"
+            description="Dividers shouldn't be used if elements can be separated using white space."
           />
         </MainSection.Subsection>
       </MainSection>
@@ -382,4 +385,10 @@ function Example() {
       </MainSection>
     </Page>
   );
+}
+
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('Divider') },
+  };
 }
