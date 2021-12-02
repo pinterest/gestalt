@@ -76,6 +76,7 @@ export const getTriggerRect = ({
   anchor: HTMLElement,
   positionRelativeToAnchor: boolean,
   scrollBoundaryContainerRef: ?HTMLElement,
+  // $FlowFixMe[unclear-type]
 |}): * => {
   let triggerBoundingRect;
   let relativeOffset;

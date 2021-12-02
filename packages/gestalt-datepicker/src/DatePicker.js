@@ -22,6 +22,7 @@ type Props = {|
   localeData?: LocaleData,
   maxDate?: Date,
   minDate?: Date,
+  // $FlowFixMe[unclear-type]
   nextRef?: ElementRef<*>,
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,

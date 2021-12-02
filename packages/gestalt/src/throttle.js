@@ -6,12 +6,14 @@
 
 // @flow strict
 export default function throttle(
+  // $FlowFixMe[unclear-type]
   fn: (...args: *) => void,
   threshhold: number = 100,
   // $FlowFixMe[signature-verification-failure]
 ) {
   let last: number | void;
   let deferTimer: TimeoutID | void;
+  // $FlowFixMe[unclear-type]
   const throttled = (...args: *) => {
     const now = Date.now();
     if (last !== undefined && now - last < threshhold) {

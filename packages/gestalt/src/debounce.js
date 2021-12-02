@@ -6,12 +6,14 @@
 
 // @flow strict
 export default function debounce(
+  // $FlowFixMe[unclear-type]
   fn: (...args: *) => void,
   threshhold: number = 100,
   // $FlowFixMe[signature-verification-failure]
 ) {
   let deferTimer: TimeoutID | null = null;
 
+  // $FlowFixMe[unclear-type]
   const debounced = (...args: *) => {
     if (deferTimer) {
       clearTimeout(deferTimer);
