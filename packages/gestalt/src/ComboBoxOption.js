@@ -1,13 +1,9 @@
 // @flow strict
 import { useCallback, useMemo, forwardRef, type Node } from 'react';
-import classnames from 'classnames';
 import Box from './Box.js';
 import Text from './Text.js';
-import styles from './Touchable.css';
-import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
-import useFocusVisible from './useFocusVisible.js';
 
 export type OptionItemType = {|
   label: string,
@@ -50,21 +46,10 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
   // Determine if the option is a current selected item
   const isSelectedItem = value === selectedValue;
 
-  const className = useMemo(
-    () =>
-      classnames(
-        getRoundingClassName(2),
-        focusStyles.hideOutline,
-        styles.fullWidth,
-        styles.pointer,
-      ),
-    [],
-  );
-
   return (
     <div
       aria-selected={isSelectedItem}
-      className={className}
+      className={focusStyles.hideOutline}
       id={`${id}-item-${index}`}
       onClick={useCallback((event) => onSelect?.({ event, item: { label, subtext, value } }), [
         onSelect,
@@ -77,36 +62,48 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       onMouseEnter={useCallback(() => setHoveredItemIndex(index), [index, setHoveredItemIndex])}
       ref={isHovered ? ref : null}
       role="option"
-      rounding={2}
       tabIndex={-1}
+      style={{
+        cursor: 'pointer',
+        width: '100%',
+        borderRadius: '8px',
+      }}
     >
-      <Box
-        color={isHovered ? 'lightGray' : 'transparent'}
-        direction="column"
-        display="flex"
-        padding={2}
-        rounding={2}
+      <div
+        style={{
+          backgroundColor: isHovered ? '#efefef' : 'transparent',
+          display: 'flex',
+          padding: '8px',
+          borderRadius: '8px',
+        }}
       >
-        <Box display="flex" direction="column" flex="grow" gap={1}>
-          <Box display="flex" alignItems="center">
+        <div style={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             <Text color="darkGray" inline lineClamp={1}>
               {label}
             </Text>
-          </Box>
+          </div>
           {subtext && (
-            <Text size="md" color="gray">
+            <Text size="md" color="gray" lineClamp={1}>
               {subtext}
             </Text>
           )}
-        </Box>
-        <Box alignItems="center" color="transparent" display="flex" justifyContent="center">
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'transparent',
+          }}
+        >
           {isSelectedItem ? (
             <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
           ) : (
-            <Box width={12} />
+            <div style={{ width: '12px' }} />
           )}
-        </Box>
-      </Box>
+        </div>
+      </div>
     </div>
   );
 });

@@ -256,6 +256,43 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     console.log(idx, phase, actualDuration, baseDuration, startTime, commitTime, interactions);
   }
 
+  const handleOnClickIconButtonClear = useCallback(() => {
+    setHoveredItemIndex(null);
+    if (isNotControlled) {
+      setSelectedItem(null);
+      setTextfieldInput('');
+      setSuggestedOptions(options);
+    }
+    onClear?.();
+    innerRef?.current?.focus();
+  }, [isNotControlled, onClear, options]);
+
+  const handleSetShowOptionsList = useCallback(() => setShowOptionsList(true), []);
+
+  const handleOnChange = useCallback(
+    ({ event, value }) => {
+      setHoveredItemIndex(null);
+      if (isNotControlled) {
+        setSelectedItem(null);
+        setTextfieldInput(value);
+      }
+      if (showOptionsList === false) setShowOptionsList(true);
+      onChange?.({ event, value });
+    },
+    [isNotControlled, onChange, showOptionsList],
+  );
+
+  const handleOnFocus = useCallback(({ event, value }) => onFocus?.({ event, value }), [onFocus]);
+  const handleOnBlur = useCallback(({ event, value }) => onBlur?.({ event, value }), [onBlur]);
+  const handleOnDismiss = useCallback(() => setShowOptionsList(false), []);
+  const handleOnKeyDown = useCallback(
+    ({ event, value }) => {
+      if (!showOptionsList && event.keyCode !== TAB) setShowOptionsList(true);
+      onKeyDown?.({ event, value });
+    },
+    [onKeyDown, showOptionsList],
+  );
+  
   return (
     <Fragment>
       <Box
@@ -284,41 +321,16 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           id={`combobox-${id}`}
           label={label}
           labelDisplay={labelDisplay}
-          onBlur={useCallback(({ event, value }) => onBlur?.({ event, value }), [onBlur])}
-          onChange={useCallback(
-            ({ event, value }) => {
-              setHoveredItemIndex(null);
-              if (isNotControlled) {
-                setSelectedItem(null);
-                setTextfieldInput(value);
-              }
-              if (showOptionsList === false) setShowOptionsList(true);
-              onChange?.({ event, value });
-            },
-            [isNotControlled, onChange, showOptionsList],
-          )}
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
           onClickIconButton={
             textfieldIconButton === 'clear'
-              ? () => {
-                  setHoveredItemIndex(null);
-                  if (isNotControlled) {
-                    setSelectedItem(null);
-                    setTextfieldInput('');
-                    setSuggestedOptions(options);
-                  }
-                  onClear?.();
-                  innerRef?.current?.focus();
-                }
-              : () => {
-                  setShowOptionsList(true);
-                }
+              ? handleOnClickIconButtonClear
+              : handleSetShowOptionsList
           }
-          onClick={() => setShowOptionsList(true)}
-          onFocus={useCallback(({ event, value }) => onFocus?.({ event, value }), [onFocus])}
-          onKeyDown={useCallback(({ event, value }) => {
-            if (!showOptionsList && event.keyCode !== TAB) setShowOptionsList(true);
-            onKeyDown?.({ event, value });
-          }, [onKeyDown, showOptionsList])}
+          onClick={handleSetShowOptionsList}
+          onFocus={handleOnFocus}
+          onKeyDown={handleOnKeyDown}
           placeholder={tags && tags.length > 0 ? '' : placeholder}
           ref={innerRef}
           size={size}
@@ -334,7 +346,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
             anchor={innerRef.current}
             handleKeyDown={handleKeyDown}
             idealDirection="down"
-            onDismiss={() => setShowOptionsList(false)}
+            onDismiss={handleOnDismiss}
             positionRelativeToAnchor={false}
             size="flexible"
           >
@@ -360,11 +372,11 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                       isHovered={index === hoveredItemIndex}
                       id={id}
                       index={index}
-                      key={`${option.label}${index}`}
+                      key={`${id}${index}`}
                       label={option.label}
                       subtext={option?.subtext}
                       value={option.value}
-                      onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
+                      onSelect={handleSelectOptionItem}
                       selectedValue={selectedOption?.value ?? selectedItem?.value}
                       setHoveredItemIndex={setHoveredItemIndex}
                       ref={optionRef}
@@ -389,21 +401,3 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 ComboBoxWithForwardRef.displayName = 'ComboBox';
 
 export default ComboBoxWithForwardRef;
-
-// suggestedOptions.map((option, index) => (
-//                     <ComboBoxOption
-//                       hoveredItemIndex={hoveredItemIndex}
-//                       id={id}
-//                       index={index}
-//                       key={`${option.label}${index}`}
-//                       lineClamp={1}
-//                       option={option}
-//                       onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
-//                       selected={selectedOption ?? selectedItem}
-//                       setHoveredItemIndex={setHoveredItemIndex}
-//                       ref={optionRef}
-//                       role="option"
-//                     />
-//                   ))
-
-// suggestedOptions.map((option, index) => <Text key={index}>{option.label}</Text>)
