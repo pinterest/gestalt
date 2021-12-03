@@ -32,7 +32,9 @@ export default function AppLayout({ children }: Props): Node {
             lgDisplay="flex"
             justifyContent="center"
           >
-            {children}
+            <Box width="100%" maxWidth={1440}>
+              {children}
+            </Box>
           </Box>
 
           <Divider />
