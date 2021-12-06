@@ -1,7 +1,7 @@
 ### Summary
 
 <!--
-What is the purpose of this PR?
+What is the purpose of this PR? Please include the context around these changes for Future Us. In addition to _what_ is changing, we need to know _why_ these changes are needed.
 
 Have you [formatted the PR title](https://github.com/pinterest/gestalt/#releasing)? `ComponentName: Description`
 -->
