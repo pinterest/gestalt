@@ -6,9 +6,13 @@ What is the purpose of this PR? Please include the context around these changes 
 Have you [formatted the PR title](https://github.com/pinterest/gestalt/#releasing)? `ComponentName: Description`
 -->
 
+#### What changed?
+
+#### Why?
+
 ### Links
 
-- [Jira](link to Jira ticket(s))
+- [Jira](https://jira.pinadmin.com/browse/GESTALT-XXXX)
 - [TDD](link to Paper doc)
 - [Figma](link to Figma file)
 
