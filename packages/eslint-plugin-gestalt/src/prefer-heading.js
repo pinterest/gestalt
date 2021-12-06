@@ -1,0 +1,189 @@
+/**
+ * @fileoverview Prefer Heading: Prevent heading tags (h1 ... h6), use Gestalt Heading, instead
+ */
+
+// @flow strict
+import {
+  hasAttributes,
+  hasImport,
+  hasUnsupportedAttributes,
+  hasSpreadAttributes,
+  isTag,
+  getHtmlTag,
+} from './helpers/eslintASTHelpers.js';
+import {
+  renameTagFixer,
+  renameTagWithPropsFixer,
+  updateGestaltImportFixer,
+} from './helpers/eslintASTFixers.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+
+export const MESSAGES = {
+  fixMessageHeading: `Use Heading from Gestalt with accessibility instead: <Heading accessibilityLevel={}>Text</Heading>\nNote: accessibilityLevel={| 1 | 2 | 3 | 4 | 5 | 6 |}`,
+  suggestionMessageA11yLevelNone: `Use a presentational Heading from Gestalt instead: <Heading accessibilityLevel="none">Text</Heading>\n 'none' removes access from assistive technology to Heading`,
+};
+
+const rule: ESLintRule = {
+  meta: {
+    type: 'suggestion',
+    docs: {
+      description: 'Prefer Heading: Prevent heading tags (h1 ... h6), use Gestalt Heading, instead',
+      category: 'Gestalt alternatives',
+      recommended: true,
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-link',
+    },
+    fixable: 'code',
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          excludeTests: {
+            type: 'boolean',
+          },
+          excludePaths: {
+            type: 'array',
+            items: { type: 'string' },
+            uniqueItems: true,
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
+    messages: {
+      fixMessageHeading: MESSAGES.fixMessageHeading,
+      suggestionMessageA11yLevelNone: MESSAGES.suggestionMessageA11yLevelNone,
+    },
+    hasSuggestions: true,
+  },
+
+  create(context) {
+    let programNode;
+    let gestaltImportNode;
+    let importFixerRun = false;
+    const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+    const importDeclarationFnc = (node) => {
+      if (!node) return;
+
+      const isGestaltImportNode = hasImport({ importNode: node, path: 'gestalt' });
+
+      if (!isGestaltImportNode) return;
+
+      gestaltImportNode = node;
+    };
+
+    const jSXElementFnc = (node) => {
+      const headingDisallowedAttributes = ['className'];
+
+      const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
+
+      const isTest = excludeTests && context.getFilename().endsWith('.test.js');
+
+      const isExcludedPath =
+        excludePaths?.length !== 0 &&
+        excludePaths?.some((path) => {
+          const pathRegex = new RegExp(`${path}`, 'g');
+          return pathRegex.test(context.getFilename());
+        });
+
+      // First, exit if anchor tag should stay unmodified
+      if (
+        isTest ||
+        isExcludedPath ||
+        !isTag({ elementNode: node.openingElement, tagName: headingTags }) ||
+        hasSpreadAttributes({ elementNode: node.openingElement }) ||
+        hasAttributes({
+          elementNode: node.openingElement,
+          tagName: headingTags,
+          attributes: headingDisallowedAttributes,
+        }) ||
+        hasUnsupportedAttributes({
+          elementNode: node.openingElement,
+          tagName: headingTags,
+          supportedAttributes: [],
+        })
+      ) {
+        return null;
+      }
+
+      const headingTag = getHtmlTag({ elementNode: node });
+      const a11yLevel = headingTag.replace('h', '');
+      const a11yLevelProp = `accessibilityLevel={${a11yLevel}}`;
+      const a11yLevelNoneProp = `accessibilityLevel="none"`;
+
+      // For any other anchor tag modification
+      return context.report({
+        node,
+        messageId: 'fixMessageHeading',
+        fix: (fixer) => {
+          const tagFixers =
+            a11yLevel !== '1'
+              ? renameTagWithPropsFixer({
+                  context,
+                  elementNode: node,
+                  fixer,
+                  gestaltImportNode,
+                  newComponentName: 'Heading',
+                  modifiedPropsString: a11yLevelProp,
+                  tagName: headingTag,
+                })
+              : renameTagFixer({
+                  context,
+                  elementNode: node,
+                  fixer,
+                  gestaltImportNode,
+                  newComponentName: 'Heading',
+                  tagName: headingTag,
+                });
+
+          const importFixers = updateGestaltImportFixer({
+            gestaltImportNode,
+            fixer,
+            newComponentName: 'Heading',
+            programNode,
+          });
+
+          const fixers = !importFixerRun ? [...tagFixers, importFixers] : tagFixers;
+          importFixerRun = true;
+          return fixers;
+        },
+        suggest: [
+          {
+            messageId: 'suggestionMessageA11yLevelNone',
+            fix: (fixer) => {
+              const tagFixers = renameTagWithPropsFixer({
+                context,
+                elementNode: node,
+                fixer,
+                gestaltImportNode,
+                newComponentName: 'Heading',
+                modifiedPropsString: a11yLevelNoneProp,
+                tagName: headingTag,
+              });
+
+              const importFixers = updateGestaltImportFixer({
+                gestaltImportNode,
+                fixer,
+                newComponentName: 'Heading',
+                programNode,
+              });
+
+              const fixers = [...tagFixers, importFixers];
+              return fixers;
+            },
+          },
+        ],
+      });
+    };
+
+    return {
+      Program: (node) => {
+        programNode = node;
+      },
+      ImportDeclaration: importDeclarationFnc,
+      JSXElement: jSXElementFnc,
+    };
+  },
+};
+
+export default rule;

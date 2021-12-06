@@ -11,6 +11,7 @@ import preferBoxInlineStyle from './prefer-box-inline-style.js';
 import preferBoxNoClassname from './prefer-box-no-disallowed.js';
 import preferBoxAsTag from './prefer-box-as-tag.js';
 import preferFlex from './prefer-flex.js';
+import preferHeading from './prefer-heading.js';
 import preferLink from './prefer-link.js';
 
 module.exports = {
@@ -27,6 +28,7 @@ module.exports = {
     'prefer-box-no-disallowed': preferBoxNoClassname,
     'prefer-box-as-tag': preferBoxAsTag,
     'prefer-flex': preferFlex,
+    'prefer-heading': preferHeading,
     'prefer-link': preferLink,
   },
 };

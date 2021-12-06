@@ -75,6 +75,15 @@ With AUTOFIX!
 With AUTOFIX!
       `}
     />
+    <MainSection.Subsection
+      title="gestalt/prefer-heading"
+      description={`Prevent heading tags (h1 ... h6) using Gestalt Heading with the corresponding accessibilityLevel, instead.
+
+[Read more about Heading](/heading).
+
+With AUTOFIX!
+      `}
+    />
   </MainSection>,
 );
 
