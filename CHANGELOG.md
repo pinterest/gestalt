@@ -1,3 +1,9 @@
+## 40.2.3 (Dec 6, 2021)
+
+### Patch
+
+- Internal: enable `no-access-state-in-setstate` lint rule (#1801)
+
 ## 40.2.2 (Dec 2, 2021)
 
 ### Patch
