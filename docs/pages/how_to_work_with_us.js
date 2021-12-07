@@ -131,7 +131,7 @@ card(
       description={`
 We are always happy to help answer questions regarding Gestalt component design and usage, design system best practices, accessibility, Icons and colors. Essentially, if it’s part of Gestalt, we’re here to help! If it’s outside of the realm of our design system, we’ll try our best to answer and/or point you to the person who can.
 
-We also offer documentation on this site ([go/GestaltWeb](https://gestalt.netlify.app/)) and a [Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/01.-Web-Sticker-Sheet?node-id=2219%3A5757) of components that exist within Gestalt.
+We also offer documentation on this site ([go/GestaltWeb](https://gestalt.pinterest.systems/)) and a [Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/01.-Web-Sticker-Sheet?node-id=2219%3A5757) of components that exist within Gestalt.
 `}
     />
   </MainSection>,

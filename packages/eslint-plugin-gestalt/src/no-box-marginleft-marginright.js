@@ -20,7 +20,7 @@ const disallowedProps = [
 ];
 
 export const errorMessage =
-  'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';
+  'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.pinterest.systems/Box';
 
 const rule: ESLintRule = {
   meta: {

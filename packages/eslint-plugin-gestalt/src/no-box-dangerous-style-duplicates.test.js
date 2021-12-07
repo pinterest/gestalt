@@ -87,7 +87,7 @@ const invalidZIndexInput = buildInvalidTest('invalid-zIndex-input');
 const invalidZIndexOutput = buildInvalidTest('invalid-zIndex-output');
 
 const getErrorMessage = (error) =>
-  `Unnecessary Box dangerous styles found. https://gestalt.netlify.app/Box\n${error ?? ''}`;
+  `Unnecessary Box dangerous styles found. https://gestalt.pinterest.systems/Box\n${error ?? ''}`;
 
 ruleTester.run('no-box-dangerous-style-duplicates', rule, {
   valid: [{ code: validCode }],
