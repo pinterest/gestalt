@@ -19,8 +19,12 @@ import {
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 export const MESSAGES = {
-  fixMessageHeading: `Use Heading from Gestalt with accessibility instead: <Heading accessibilityLevel={}>Text</Heading>\nNote: accessibilityLevel={| 1 | 2 | 3 | 4 | 5 | 6 |}`,
-  suggestionMessageA11yLevelNone: `Use a presentational Heading from Gestalt instead: <Heading accessibilityLevel="none">Text</Heading>\n 'none' removes access from assistive technology to Heading`,
+  fixMessageHeading: `Use Heading from Gestalt with accessibilityLevel (default autofix):\n
+  <Heading accessibilityLevel={| 1 | 2 | 3 | 4 | 5 | 6 |}>Text</Heading>\n
+  OR Use a presentational Heading from Gestalt:\n
+  <Heading accessibilityLevel="none">Text</Heading>\n
+  'none' hides Heading from assistive technology: see suggested options below to autofix`,
+  suggestionMessageA11yLevelNone: `Use a presentational Heading from Gestalt instead (accessibilityLevel="none")`,
 };
 
 const rule: ESLintRule = {
@@ -117,22 +121,22 @@ const rule: ESLintRule = {
         messageId: 'fixMessageHeading',
         fix: (fixer) => {
           const tagFixers =
-            a11yLevel !== '1'
-              ? renameTagWithPropsFixer({
+            a11yLevel === '1'
+              ? renameTagFixer({
+                  context,
+                  elementNode: node,
+                  fixer,
+                  gestaltImportNode,
+                  newComponentName: 'Heading',
+                  tagName: headingTag,
+                })
+              : renameTagWithPropsFixer({
                   context,
                   elementNode: node,
                   fixer,
                   gestaltImportNode,
                   newComponentName: 'Heading',
                   modifiedPropsString: a11yLevelProp,
-                  tagName: headingTag,
-                })
-              : renameTagFixer({
-                  context,
-                  elementNode: node,
-                  fixer,
-                  gestaltImportNode,
-                  newComponentName: 'Heading',
                   tagName: headingTag,
                 });
 

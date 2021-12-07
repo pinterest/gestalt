@@ -1,11 +1,12 @@
-Thanks for creating a PR! *Please follow this template and delete items/sections that are not relevant to your changes, including these instructions.*
+Thanks for creating a PR! Please follow this template and delete items/sections that are not relevant to your changes, including these instructions.
 
 Please also make sure your [PR title](https://github.com/pinterest/gestalt/#releasing) matches our format: `ComponentName: Description`
 
 ### Summary
+
 #### What changed?
 
- From a high level, what are the changes this PR introduces? (No need to recount line-by-line, we can see that.)
+From a high level, what are the changes this PR introduces? (No need to recount line-by-line, we can see that.)
 
 #### Why?
 
