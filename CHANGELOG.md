@@ -1,3 +1,9 @@
+## 40.2.4 (Dec 7, 2021)
+
+### Patch
+
+- Internal: update straggling references to the old docs domain (#1804)
+
 ## 40.2.3 (Dec 6, 2021)
 
 ### Patch
