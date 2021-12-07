@@ -225,7 +225,7 @@ card(
       <Text>
         When a release will cause breaking changes — in usage or in typing — we provide a codemod to
         ease the upgrade process.{' '}
-        <Link href="https://gestalt.netlify.app/Installation#Codemods" inline>
+        <Link href="https://gestalt.pinterest.systems/Installation#Codemods" inline>
           <Text weight="bold">Read more about Codemods.</Text>
         </Link>
       </Text>

@@ -49,7 +49,7 @@ const rule: ESLintRule = {
       },
     ],
     messages: {
-      disallowed: `Unnecessary Box dangerous styles found. https://gestalt.netlify.app/Box\n{{errorMessage}}`,
+      disallowed: `Unnecessary Box dangerous styles found. https://gestalt.pinterest.systems/Box\n{{errorMessage}}`,
     },
   },
 

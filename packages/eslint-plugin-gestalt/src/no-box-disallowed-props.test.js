@@ -58,15 +58,15 @@ ruleTester.run('no-box-disallowedProps', rule, {
   invalid: [
     [
       disallowedProps,
-      'backgroundColor is not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.',
+      'backgroundColor is not allowed on Box. Please see https://gestalt.pinterest.systems/Box for all allowed props.',
     ],
     [
       disallowedPropsRenamed,
-      'backgroundColor is not allowed on Box (imported as GestaltBox). Please see https://gestalt.netlify.app/Box for all allowed props.',
+      'backgroundColor is not allowed on Box (imported as GestaltBox). Please see https://gestalt.pinterest.systems/Box for all allowed props.',
     ],
     [
       disallowedPropsInvalid,
-      'backgroundColor, invalidProp are not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.',
+      'backgroundColor, invalidProp are not allowed on Box. Please see https://gestalt.pinterest.systems/Box for all allowed props.',
     ],
   ].map(([code, errorMessage]) => ({ code, errors: [{ message: errorMessage }] })),
 });

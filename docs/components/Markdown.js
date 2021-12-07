@@ -70,7 +70,7 @@ const formatComponentName = (listitem) => {
   if (namesAndUpdate.length > 1) {
     const componentLinks = namesAndUpdate[0].replace(/\w+/gm, (match) => {
       if (currentComponents.includes(match)) {
-        return `<a href="https://gestalt.netlify.app/${match.toLowerCase()}">${match}</a>`;
+        return `<a href="https://gestalt.pinterest.systems/${match.toLowerCase()}">${match}</a>`;
       }
       return match;
     });

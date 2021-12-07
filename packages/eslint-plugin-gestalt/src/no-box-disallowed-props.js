@@ -128,7 +128,7 @@ const allowedPrefixProps = ['data-', 'aria-'];
 const errorMessage = (props: $ReadOnlyArray<string>, localBoxName: string): string =>
   `${props.length === 1 ? `${props[0]} is` : `${props.join(', ')} are`} not allowed on Box${
     localBoxName !== 'Box' ? ` (imported as ${localBoxName})` : ''
-  }. Please see https://gestalt.netlify.app/Box for all allowed props.`;
+  }. Please see https://gestalt.pinterest.systems/Box for all allowed props.`;
 
 const rule: ESLintRule = {
   meta: {
