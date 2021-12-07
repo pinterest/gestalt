@@ -53,7 +53,7 @@ export default function PageHeader({
       }}
     >
       <Box marginBottom={2}>
-        <Flex direction="row" gap={2} justifyContent="between" alignItems="baseline">
+        <Flex alignItems="baseline" direction="row" gap={2} justifyContent="between" wrap>
           <Heading>
             {name}{' '}
             {badge === 'pilot' ? (
