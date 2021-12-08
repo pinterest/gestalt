@@ -1,7 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box } from 'gestalt';
-import { string } from 'prop-types';
 
 type Token = {|
   name: string,

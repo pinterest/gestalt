@@ -57,6 +57,17 @@
               "category": "space"
             }
           }
+        },
+        {
+          "destination": "font-size.xml",
+          "format": "android/resources",
+          "resourceType": "dimen",
+          "filter": {
+            "attributes": {
+              "category": "font",
+              "type": "size"
+            }
+          }
         }
       ]
     },

@@ -136,7 +136,7 @@
     "gray": {
       "roboflow": {
         "50": { "value": "#F9F9F9" },
-        "100": { "value": "#F3F1F1" },
+        "100": { "value": "#F1F1F1" },
         "200": { "value": "#E9E9E9" },
         "300": { "value": "#CDCDCD" },
         "400": { "value": "#A5A5A5" },

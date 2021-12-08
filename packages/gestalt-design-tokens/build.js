@@ -11,13 +11,15 @@ StyleDictionary.registerFileHeader({
 });
 
 StyleDictionary.registerTransform({
-  name: 'size/pxToDp',
+  name: 'size/pxToDpOrSp',
   type: 'value',
   matcher(prop) {
     return prop.value.match(/^-?[\d.]+px$/);
   },
   transformer(prop) {
-    return prop.value.replace(/px$/, 'dp');
+    return prop.name.includes('font')
+      ? prop.value.replace(/px$/, 'sp')
+      : prop.value.replace(/px$/, 'dp');
   },
 });
 
@@ -38,7 +40,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerTransformGroup({
   name: 'android-custom',
-  transforms: ['attribute/cti', 'name/cti/snake', 'color/hex8android', 'size/pxToDp'],
+  transforms: ['attribute/cti', 'name/cti/snake', 'color/hex8android', 'size/pxToDpOrSp'],
 });
 
 StyleDictionary.buildAllPlatforms();
