@@ -32,7 +32,7 @@ card(
       description={`
 **Please note:** The process below applies to Pinterest employees.
 
-What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [**partnership meetings**](#Meetings-and-events) to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
+What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [partnership meetings](#Meetings-and-events) to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
 
 We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
 1. **Present work early in our [partnership meetings](#Meetings-and-events)**
