@@ -30,24 +30,18 @@ card(
   <MainSection name="What is the process to request new additions or changes?">
     <MainSection.Subsection
       description={`
+**Please note:** The process below applies to Pinterest employees.
+
 What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [**partnership meetings**](#Meetings-and-events) to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
 
 We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
 1. **Present work early in our [partnership meetings](#Meetings-and-events)**
-    - Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the ask and why it is needed.
+    - Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs.
     - Coordinate with other designers if there are overlapping needs to help us better prioritize in our roadmap.
     - Be able to explain how this component should be used or not used. This helps us in testing the component against existing components and product surfaces.
     - Have a rough project timeline available. This allows us to determine if we’re able to accommodate the work.
 2. **Iterate on solutions**
-    We love to see more iteration from the product designer asking for the component, if they have the time. If not, the component will follow our prioritization process.
-    After an initial crit, the designer (product designer or Gestalt designer) must ensure all edge cases have been considered and come back to component crit as needed.
-
-    Some things to finalize before we can build the component:
-    - Empty states
-    - Focus states
-    - Truncation/internationalization options
-    - Responsive behavior
-    - Dark mode support
+    We love to see more iteration from the product designer asking for the component, if they have the time. If not, the component will follow our prioritization process. The designer (product designer or Gestalt designer) must ensure all edge cases have been considered.
 3. **Prioritization by the Gestalt team**
   If our team takes on the work, we will add it to our [backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100) and prioritize it appropriately. Typically the determining factor for taking on work is capacity: if your designers or engineers have the capacity, we’d love for them to [contribute to Gestalt](#How-can-you-contribute-to-gestalt-as-an-engineer) with our support. Otherwise, the Gestalt designers and engineers will prioritize the work against our current workload based on the following criteria.
 
@@ -72,29 +66,16 @@ card(
     <MainSection.Subsection
       title="Making a design contribution"
       description={`
-We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
+We love the help and contributions of other engineers across Pinterest, and we ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
 
 1. **Present your idea or suggestion during our Office Hour meetings**
-    - Sign up for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the ask and why it is needed.
-    - Coordinate with other designers if there are overlapping needs to help us better prioritize in our roadmap.
-    - Be able to explain how this component should be used or not used. This helps us in testing the component against existing components and product surfaces.
-    - Have a rough project timeline available. This allows us to determine if we’re able to accommodate the work.
-2. **Create a Branch in our main file following the steps**
-    OK, great. You went to office hours and we all agree on what we're making. Now it's time to start bringing your designs into Gestalt.
-
-    - Create a Branch file in our main file. New to Branching? Don't worry, our design team will support you with that.
-    - Follow the name convention: Your initials + Component name + What you are doing, for example: CR - Tab: Adding a badge variant.
-    - Iterate in your designer, considering states, truncation, responsive behavior, and dark mode support.
-    - Our design team will pair directly with you to support you as you design.
-
-    See [Branching in Figma](https://www.figma.com/best-practices/branching-in-figma/) for more details and self-education.
+    Sign up for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the ask and why it is needed.
+2. **Create a Branch in our design library**
+    Create a Branch file in our main file. Don't worry, our design team will support you with that. See [Branching in Figma](https://www.figma.com/best-practices/branching-in-figma/) for more details and self-education.
 3. **Present your work in a Design System Crit with Gestalt team members**
-    - After your Branch file is ready, our design team will schedule a meeting to present your work.
-    - Take notes and ask all the questions you want!
+    After your Branch file is ready, our design team will schedule a meeting to present your work.
 4. **Send your Branch to review**
-    - Update your Branch based on the feedback you got.
-    - Add a Gestalt reviewer to your Branch. The reviewer will be the designer who supported you through the whole process.
-    - Don't merge the Branch! Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!
+    Update your Branch based on the feedback you got, and add a Gestalt reviewer (designer) to your Branch. Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!
 `}
     />
     <MainSection.Subsection
@@ -175,7 +156,7 @@ We offer two different meetings for the community to come with questions, commen
     - Purpose
       For Systems designers to get feedback from the larger design org on systems-related designs.
     - Audience
-      A group of designers who represent the design org as a design system council. We decided to create a group in order to keep crits productive and a manageable size across the entire design team. We've worked with all the managers across design to come up with the initial participants. In addition, we will invite designers outside of this group to give feedback when their teams are immediate users of the component. Agenda can be found in the meeting invite. Please continue to bring component work to office hours.
+      Pinterest designers. The Agenda can be found in the meeting invite. Please continue to bring component work to office hours.
     - Cadence
       Bi-weekly on Friday 1-2pm. Please sign up through the link in the calendar invite.
 `}
