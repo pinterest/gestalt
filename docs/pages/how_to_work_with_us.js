@@ -66,7 +66,7 @@ card(
     <MainSection.Subsection
       title="Making a design contribution"
       description={`
-We love the help and contributions of other engineers across Pinterest, and we ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
+We love the help and contributions of other designers across Pinterest, and we ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
 
 1. **Present your idea or suggestion during our Office Hour meetings**
     Sign up for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the ask and why it is needed.
@@ -156,7 +156,7 @@ We offer two different meetings for the community to come with questions, commen
     - Purpose
       For Systems designers to get feedback from the larger design org on systems-related designs.
     - Audience
-      Pinterest designers. The Agenda can be found in the meeting invite. Please continue to bring component work to office hours.
+      Pinterest designers. The agenda for the Crit can be found in the recurring calendar invite. Please continue to bring component work to office hours.
     - Cadence
       Bi-weekly on Friday 1-2pm. Please sign up through the link in the calendar invite.
 `}
