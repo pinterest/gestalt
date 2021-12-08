@@ -1,3 +1,9 @@
+## 40.3.2 (Dec 8, 2021)
+
+### Patch
+
+- Docs: Updated the design section of the page "How to work with us" (#1807)
+
 ## 40.3.1 (Dec 8, 2021)
 
 ### Patch
