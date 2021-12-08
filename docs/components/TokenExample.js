@@ -9,12 +9,21 @@ type Token = {|
   category: string,
 |};
 
-type Props = {|
+type BaseProps = {|
   token: Token,
+|};
+
+type FontBoxProps = {|
+  ...BaseProps,
   type?: string,
 |};
 
-export const ColorBox = ({ token }: Props): Node => (
+type ExampleProps = {|
+  ...BaseProps,
+  category: string,
+|};
+
+export const ColorBox = ({ token }: BaseProps): Node => (
   <Box
     dangerouslySetInlineStyle={{
       __style: { backgroundColor: `var(--${token.name})` },
@@ -29,11 +38,11 @@ export const ColorBox = ({ token }: Props): Node => (
   />
 );
 
-export const SpacingBox = ({ token }: Props): Node => (
+export const SpacingBox = ({ token }: BaseProps): Node => (
   <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />
 );
 
-export const TextColorBox = ({ token }: Props): Node => (
+export const TextColorBox = ({ token }: BaseProps): Node => (
   <Box
     dangerouslySetInlineStyle={{
       __style: { color: `var(--${token.name})`, fontSize: '32px' },
@@ -50,7 +59,7 @@ export const TextColorBox = ({ token }: Props): Node => (
   </Box>
 );
 
-export const FontBox = ({ token, type }: Props): Node => {
+export const FontBox = ({ token, type }: FontBoxProps): Node => {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
   const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
@@ -75,11 +84,6 @@ export const FontBox = ({ token, type }: Props): Node => {
     </Box>
   );
 };
-
-type ExampleProps = {|
-  token: Token,
-  category: string,
-|};
 
 export const TokenExample = ({ token, category }: ExampleProps): Node => {
   switch (category) {
