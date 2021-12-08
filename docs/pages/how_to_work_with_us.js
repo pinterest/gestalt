@@ -123,7 +123,7 @@ card(
     <MainSection.Subsection
       title="Dashboards, JIRA, and OKRs"
       description={`
-If you’re curious what we’re working on, you can check out our Gestalt [Sprint Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29640), our [full backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100), and our [Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639). You can also reference our [go/GestaltTracker](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630) to see the immediate, larger component changes that are in the pipeline.
+If you’re curious what we’re working on, you can check out our Gestalt [Sprint Dashboard](http://pinch.pinadmin.com/gestaltSprint), our [full backlog](http://pinch.pinadmin.com/gestaltBacklog), and our [Bugs Dashboard](http://pinch.pinadmin.com/gestaltJiraBugs).
 
 To see the bigger picture, you can view our [OKRs](https://coda.io/d/Pinterest-2021-EPD-OKR-Tracker_de-g0jv4ClO/Gestalt-Design_suAbV#_luyId) to understand our roadmap and priorities for each quarter. These priorities are determined through our [partnership meetings](#Meetings-and-events), which we use to learn about component needs and coordinate with designers to determine the timelines.
 `}
