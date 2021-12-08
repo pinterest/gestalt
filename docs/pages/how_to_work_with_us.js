@@ -72,7 +72,7 @@ We love the help and contributions of other designers across Pinterest, and we a
     Sign up for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the ask and why it is needed.
 2. **Create a Branch in our design library**
     Create a Branch file in our main file. Don't worry, our design team will support you with that. See [Branching in Figma](https://www.figma.com/best-practices/branching-in-figma/) for more details and self-education.
-3. **Present your work in a Design System Crit with Gestalt team members**
+3. **Present your work in a Design System Crit**
     After your Branch file is ready, our design team will schedule a meeting to present your work.
 4. **Send your Branch to review**
     Update your Branch based on the feedback you got, and add a Gestalt reviewer (designer) to your Branch. Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!
