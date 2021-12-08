@@ -1,3 +1,9 @@
+## 40.3.0 (Dec 8, 2021)
+
+### Minor
+
+- Eslint plugin: `prefer-heading` + autofix/suggestions (#1802)
+
 ## 40.2.4 (Dec 7, 2021)
 
 ### Patch
