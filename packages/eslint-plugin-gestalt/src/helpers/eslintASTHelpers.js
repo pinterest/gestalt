@@ -311,14 +311,20 @@ Examples:
 */
 const getHtmlTag: GetHtmlTagType = ({ elementNode }) => elementNode?.openingElement?.name?.name;
 
-type IsTagType = ({| elementNode: GenericNode, tagName: string |}) => boolean;
+type IsTagType = ({|
+  elementNode: GenericNode,
+  tagName: string | $ReadOnlyArray<string>,
+|}) => boolean;
 /** This function checks if a given node (elementNode) contains a given tag (tagName), and returns true if so.
 Example 1:
 \<div \/\> >> tagName="div" returns true
 Example 2:
 \<div \/\> >> tagName="button" returns false
 */
-const isTag: IsTagType = ({ elementNode, tagName }) => elementNode?.name?.name === tagName;
+const isTag: IsTagType = ({ elementNode, tagName }) =>
+  Array.isArray(tagName)
+    ? tagName.includes(elementNode?.name?.name)
+    : elementNode?.name?.name === tagName;
 
 type HasSpreadAttributesType = ({| elementNode: GenericNode |}) => boolean;
 /** This function checks if a given node (elementNode) contains spread attributes
@@ -347,7 +353,7 @@ const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagName, attr
 
 type HasAttributesType = ({|
   elementNode: GenericNode,
-  tagName: string,
+  tagName: string | $ReadOnlyArray<string>,
   attributes: $ReadOnlyArray<string>,
 |}) => boolean;
 
@@ -362,7 +368,7 @@ const hasAttributes: HasAttributesType = ({ elementNode, tagName, attributes }) 
 type HasAriaAttributesType = ({|
   elementNode: GenericNode,
   ignoreAttributes?: $ReadOnlyArray<string>,
-  tagName: string,
+  tagName: string | $ReadOnlyArray<string>,
 |}) => boolean;
 
 /** This function checks if a given tag (tagName) in a node (elementNode) contains an ARIA attribute, and returns true if so. Pass ignoreAttributes if not all aria attributes should be considered.
@@ -378,7 +384,7 @@ const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, ignoreAttribute
 
 type HasSupportedAttributesType = ({|
   elementNode: GenericNode,
-  tagName: string,
+  tagName: string | $ReadOnlyArray<string>,
   supportedAttributes: $ReadOnlyArray<string>,
 |}) => boolean;
 
@@ -398,7 +404,7 @@ const hasUnsupportedAttributes: HasSupportedAttributesType = ({
 
 type HasDataAttributesType = ({|
   elementNode: GenericNode,
-  tagName: string,
+  tagName: string | $ReadOnlyArray<string>,
 |}) => boolean;
 
 /** This function checks if a given tag (tagName) in a node (elementNode) contains an data-* attribute (attribute), and returns true if so.

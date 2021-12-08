@@ -21,8 +21,8 @@ import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 import preferLinkReducer from './helpers/preferLinkReducer.js';
 
 export const MESSAGES = {
-  fixMessageLink: `Use Link from Gestalt: <Link href="">Text</Link> \n
-  OR use TapArea, see suggestion below to autofix\n
+  fixMessageLink: `Use Link from Gestalt (default autofix): <Link href="">Text</Link>\n
+  OR use TapArea, see suggested options below to autofix\n
   OR use Button, <Button role='link' href="" target="" rel="" text=""/>\n
   OR use IconButton, <IconButton role='link' href="" target="" rel="" icon=""/>`,
   suggestionMessageTapArea: `Use TapArea to provide a Node with navigation behavior: <TapArea role="link" href="" onTap={}>{ Node }</TapArea>.`,
