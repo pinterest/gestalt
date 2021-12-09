@@ -4,10 +4,6 @@ describe('OnLinkNavigationProvider Accessibility check', () => {
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the OnLinkNavigationProvider page', () => {
-    cy.checkA11y();
-  });
-
   // Keep disabled until converting to new Code editor
   cy.configureAxe({
     rules: [
@@ -17,5 +13,8 @@ describe('OnLinkNavigationProvider Accessibility check', () => {
       },
     ],
   });
-  cy.checkA11y();
+
+  it('Tests accessibility on the OnLinkNavigationProvider page', () => {
+    cy.checkA11y();
+  });
 });

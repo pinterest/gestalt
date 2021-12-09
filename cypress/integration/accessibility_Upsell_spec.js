@@ -11,19 +11,12 @@ describe('Upsell Accessibility check', () => {
           id: 'scrollable-region-focusable',
           enabled: false,
         },
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
       ],
     });
     cy.checkA11y();
   });
-
-  // Keep disabled until converting to new Code editor
-  cy.configureAxe({
-    rules: [
-      {
-        id: 'color-contrast',
-        enabled: false,
-      },
-    ],
-  });
-  cy.checkA11y();
 });
