@@ -4,17 +4,16 @@ describe('OnLinkNavigationProvider Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // Keep disabled until converting to new Code editor
-  cy.configureAxe({
-    rules: [
-      {
-        id: 'color-contrast',
-        enabled: false,
-      },
-    ],
-  });
-
   it('Tests accessibility on the OnLinkNavigationProvider page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
+
     cy.checkA11y();
   });
 });
