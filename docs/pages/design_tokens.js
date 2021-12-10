@@ -22,6 +22,9 @@ const tokenCategories = [
   { name: 'Spacing', category: 'spacing', id: 'space' },
   { name: 'Background color', category: 'background-color', id: 'background' },
   { name: 'Text color', category: 'text-color', id: 'text' },
+  { name: 'Font size', category: 'font-size', id: 'font-size' },
+  { name: 'Font weight', category: 'font-weight', id: 'font-weight' },
+  { name: 'Font family', category: 'font-family', id: 'font-family' },
 ];
 
 const headers = ['CSS Token Name', 'JavaScript Prop Name', 'Value', 'Example'];
