@@ -1,5 +1,7 @@
 // @flow strict
 import {
+  Profiler,
+  useCallback,
   cloneElement,
   forwardRef,
   Fragment,
@@ -233,6 +235,18 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
       ? 'clear'
       : 'expand';
 
+  const onRenderCallback = useCallback((
+    idx, // the "id" prop of the Profiler tree that has just committed
+    phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+    actualDuration, // time spent rendering the committed update
+    baseDuration, // estimated time to render the entire subtree without memoization
+    startTime, // when React began rendering this update
+    commitTime, // when React committed this update
+    interactions, // the Set of interactions belonging to this update
+  ) => {
+    console.log(idx, phase, actualDuration, baseDuration, startTime, commitTime, interactions);
+  }, []);
+
   return (
     <Fragment>
       <Box
@@ -303,56 +317,60 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         />
       </Box>
       {showOptionsList && innerRef.current ? (
-        <Layer>
-          <Popover
-            anchor={innerRef.current}
-            handleKeyDown={handleKeyDown}
-            idealDirection="down"
-            onDismiss={() => setShowOptionsList(false)}
-            positionRelativeToAnchor={false}
-            size="flexible"
-          >
-            <Box
-              aria-expanded={showOptionsList}
-              alignItems="center"
-              direction="column"
-              display="flex"
-              flex="grow"
-              id={id}
-              maxHeight="30vh"
-              overflow="auto"
-              padding={2}
-              ref={dropdownRef}
-              role="listbox"
-              rounding={4}
-              width={innerRef?.current?.offsetWidth}
+        <Profiler id="Popover" onRender={onRenderCallback}>
+          <Layer>
+            <Popover
+              anchor={innerRef.current}
+              handleKeyDown={handleKeyDown}
+              idealDirection="down"
+              onDismiss={() => setShowOptionsList(false)}
+              positionRelativeToAnchor={false}
+              size="flexible"
             >
-              {suggestedOptions.length > 0 ? (
-                suggestedOptions.map((option, index) => (
-                  <ComboBoxItem
-                    hoveredItemIndex={hoveredItemIndex}
-                    id={id}
-                    index={index}
-                    key={`${option.label}${index}`}
-                    lineClamp={1}
-                    option={option}
-                    onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
-                    selected={selectedOption ?? selectedItem}
-                    setHoveredItemIndex={setHoveredItemIndex}
-                    ref={optionRef}
-                    role="option"
-                  />
-                ))
-              ) : (
-                <Box width="100%" paddingX={2} paddingY={4}>
-                  <Text lineClamp={1} color="gray">
-                    {noResultText}
-                  </Text>
-                </Box>
-              )}
-            </Box>
-          </Popover>
-        </Layer>
+              <Box
+                aria-expanded={showOptionsList}
+                alignItems="center"
+                direction="column"
+                display="flex"
+                flex="grow"
+                id={id}
+                maxHeight="30vh"
+                overflow="auto"
+                padding={2}
+                ref={dropdownRef}
+                role="listbox"
+                rounding={4}
+                width={innerRef?.current?.offsetWidth}
+              >
+                <Profiler id="ComboBoxItem" onRender={onRenderCallback}>
+                  {suggestedOptions.length > 0 ? (
+                    suggestedOptions.map((option, index) => (
+                      <ComboBoxItem
+                        hoveredItemIndex={hoveredItemIndex}
+                        id={id}
+                        index={index}
+                        key={`${option.label}${index}`}
+                        lineClamp={1}
+                        option={option}
+                        onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
+                        selected={selectedOption ?? selectedItem}
+                        setHoveredItemIndex={setHoveredItemIndex}
+                        ref={optionRef}
+                        role="option"
+                      />
+                    ))
+                  ) : (
+                    <Box width="100%" paddingX={2} paddingY={4}>
+                      <Text lineClamp={1} color="gray">
+                        {noResultText}
+                      </Text>
+                    </Box>
+                  )}
+                </Profiler>
+              </Box>
+            </Popover>
+          </Layer>
+        </Profiler>
       ) : null}
     </Fragment>
   );
