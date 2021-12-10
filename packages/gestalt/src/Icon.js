@@ -90,6 +90,8 @@ const flipOnRtlIconNames = [
 
 /**
  * [Icons](https://gestalt.pinterest.systems/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
+ *
+ * See the [Iconography and SVG guidelines](/iconography_and_svgs) to explore the full icon library.
  */
 export default function Icon({
   accessibilityLabel,
