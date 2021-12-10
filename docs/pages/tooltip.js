@@ -205,7 +205,7 @@ card(
         defaultCode={`
         <Flex direction="column" gap={1}>
           <Flex alignItems="center" gap={1}>
-            <Label for="end-date-field">
+            <Label htmlFor="business-url-field">
               <Text size="sm">Business URL</Text>
             </Label>
             <Tooltip text="This is the site users will be redirected to when interacting with your ad">
@@ -220,7 +220,7 @@ card(
             </Tooltip>
           </Flex>
           <TextField
-            id="end-date-field"
+            id="business-url-field"
             onChange={() => {}}
           />
         </Flex>
