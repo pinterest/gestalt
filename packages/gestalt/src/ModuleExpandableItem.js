@@ -1,12 +1,13 @@
 // @flow strict
-import type { Node } from 'react';
+import type { Element as ReactElement, Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
+import IconButton from './IconButton.js';
+import icons from './icons/index.js';
 import ModuleTitle from './ModuleTitle.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import type { ModuleExpandableItemProps } from './moduleTypes.js';
 
 /**
  * https://gestalt.pinterest.systems/module
@@ -14,16 +15,32 @@ import type { ModuleExpandableItemProps } from './moduleTypes.js';
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
+  badgeText,
   children,
+  icon,
   iconAccessibilityLabel,
+  iconButton,
   id,
   isCollapsed,
   onModuleClicked,
   summary,
   title,
   type = 'info',
-  ...props
-}: ModuleExpandableItemProps): Node {
+}: {|
+  accessibilityCollapseLabel: string,
+  accessibilityExpandLabel: string,
+  badgeText?: string,
+  children?: Node,
+  icon?: $Keys<typeof icons>,
+  iconAccessibilityLabel?: string,
+  iconButton?: ReactElement<typeof IconButton>,
+  id: string,
+  isCollapsed: boolean,
+  onModuleClicked: (boolean) => void,
+  summary?: $ReadOnlyArray<string>,
+  title: string,
+  type?: 'error' | 'info',
+|}): Node {
   return (
     <Box padding={6}>
       <Flex direction="column" gap={6}>
@@ -42,10 +59,10 @@ export default function ModuleExpandableItem({
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
               <Box column={isCollapsed && summary ? 6 : 12}>
                 <ModuleTitle
-                  badgeText={props.badgeText ? props.badgeText : undefined}
-                  icon={props.icon ? props.icon : undefined}
+                  badgeText={badgeText}
+                  icon={icon}
                   iconAccessibilityLabel={iconAccessibilityLabel}
-                  iconButton={props.iconButton ? props.iconButton : undefined}
+                  iconButton={iconButton}
                   title={title}
                   type={type}
                 />

@@ -1,16 +1,24 @@
 // @flow strict
-import type { Node } from 'react';
+import type { Node, Element } from 'react';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
+import IconButton from './IconButton.js';
+import icons from './icons/index.js';
 import Text from './Text.js';
-import type { ModuleTitleProps } from './moduleTypes.js';
 
 /**
  * https://gestalt.pinterest.systems/module
  */
-export default function ModuleTitle(props: ModuleTitleProps): Node {
+export default function ModuleTitle(props: {|
+  badgeText?: string,
+  icon?: $Keys<typeof icons>,
+  iconAccessibilityLabel?: string,
+  iconButton?: Element<typeof IconButton>,
+  title: string,
+  type?: 'error' | 'info',
+|}): Node {
   const { iconAccessibilityLabel = '', title, type = 'info' } = props;
 
   const decoration = ['icon', 'badgeText', 'iconButton'].find((prop) => !!props[prop]);

@@ -5,77 +5,15 @@ import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import docgen from '../components/docgen.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import type { DocGen } from '../components/docgen.js';
 
-export default function ModulePage(): Node {
+export default function ModulePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Module">
-      <PageHeader
-        name="Module"
-        description="
-      A Module is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
-    "
-      />
-      <PropTable
-        Component={Module}
-        id="static-Module"
-        props={[
-          {
-            name: 'badgeText',
-            href: 'static-badge',
-            type: 'string',
-            description:
-              'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text.',
-          },
-          {
-            name: 'children',
-            href: 'static-default',
-            type: 'React.Node',
-            description: 'Content to display underneath Module title',
-          },
-          {
-            name: 'icon',
-            href: 'static-icon',
-            type: 'string',
-            description:
-              'Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `iconButton`.',
-          },
-          {
-            name: 'iconAccessibilityLabel',
-            href: 'static-icon',
-            type: 'string',
-            description:
-              'Label to provide information about the icon used for screen readers. Can be used in two scenarios: to describe the error icon that appears when `type` is `error`, and to describe the provided `icon` prop when `type` is `info`. Be sure to localize the label.',
-          },
-          {
-            name: 'iconButton',
-            href: 'static-iconbutton',
-            type: 'React.Element<IconButton>',
-            description:
-              'IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.',
-          },
-          {
-            name: 'id',
-            href: 'static-default',
-            type: 'string',
-            required: true,
-            description: 'Unique id to identify this Module',
-          },
-          {
-            name: 'title',
-            href: 'static-default',
-            type: 'string',
-            description: 'Title of this Module. Be sure to localize the text.',
-          },
-          {
-            name: 'type',
-            href: 'static-error',
-            type: '"info" | "error"',
-            defaultValue: 'info',
-            description:
-              'If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`.',
-          },
-        ]}
-      />
+      <PageHeader name="Module" description={generatedDocGen.description} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -581,4 +519,20 @@ function ModuleExample5() {
       </MainSection>
     </Page>
   );
+}
+
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const generatedDocGen = await docgen({ componentName: 'Module' });
+
+  generatedDocGen.props.icon = {
+    ...generatedDocGen.props.icon,
+    flowType: {
+      name: 'string',
+      raw: 'Icon[icon]',
+    },
+  };
+
+  return {
+    props: { generatedDocGen },
+  };
 }
