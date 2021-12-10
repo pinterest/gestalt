@@ -1,3 +1,9 @@
+## 40.4.2 (Dec 10, 2021)
+
+### Patch
+
+- Docs: Center main content for large screens (#1800)
+
 ## 40.4.1 (Dec 10, 2021)
 
 ### Patch
