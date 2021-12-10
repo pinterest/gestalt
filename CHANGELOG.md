@@ -1,3 +1,9 @@
+## 40.4.1 (Dec 10, 2021)
+
+### Patch
+
+- Tooltip: Add example alongside Label and TextField (#1808)
+
 ## 40.4.0 (Dec 10, 2021)
 
 ### Minor
