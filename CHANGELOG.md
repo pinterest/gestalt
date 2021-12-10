@@ -1,3 +1,9 @@
+## 40.4.0 (Dec 10, 2021)
+
+### Minor
+
+- Design tokens: Add font tokens for size, weight, and family (#1799)
+
 ## 40.3.2 (Dec 8, 2021)
 
 ### Patch
