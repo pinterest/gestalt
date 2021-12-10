@@ -210,7 +210,7 @@ card(
             </Label>
             <Tooltip text="This is the site users will be redirected to when interacting with your ad">
               <IconButton
-                accessibilityLabel="Additional info."
+                accessibilityLabel="Additional info"
                 bgColor="white"
                 icon="info-circle"
                 iconColor="darkGray"
