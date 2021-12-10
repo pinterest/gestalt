@@ -203,15 +203,27 @@ card(
         type="do"
         description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/iconbutton)."
         defaultCode={`
-<Tooltip text="Total ad spend in the select time period">
-  <IconButton
-    accessibilityLabel="Additional info."
-    bgColor="white"
-    icon="info-circle"
-    iconColor="darkGray"
-    size="lg"
-  />
-  </Tooltip>
+        <Flex direction="column" gap={1}>
+          <Flex alignItems="center" gap={1}>
+            <Label htmlFor="business-url-field">
+              <Text size="sm">Business URL</Text>
+            </Label>
+            <Tooltip text="This is the site users will be redirected to when interacting with your ad">
+              <IconButton
+                accessibilityLabel="Additional info"
+                bgColor="white"
+                icon="info-circle"
+                iconColor="darkGray"
+                size="md"
+                padding={1}
+              />
+            </Tooltip>
+          </Flex>
+          <TextField
+            id="business-url-field"
+            onChange={() => {}}
+          />
+        </Flex>
 `}
       />
       <MainSection.Card
