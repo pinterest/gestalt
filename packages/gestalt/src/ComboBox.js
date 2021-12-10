@@ -16,7 +16,7 @@ import Popover from './Popover.js';
 import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
-import ComboBoxOption, { type OptionItemType } from './OptionItem.js';
+import ComboBoxItem, { type OptionItemType } from './ComboBoxItem.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
@@ -329,7 +329,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
             >
               {suggestedOptions.length > 0 ? (
                 suggestedOptions.map((option, index) => (
-                  <ComboBoxOption
+                  <ComboBoxItem
                     hoveredItemIndex={hoveredItemIndex}
                     id={id}
                     index={index}
