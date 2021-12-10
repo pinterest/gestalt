@@ -22,8 +22,19 @@ export default function AppLayout({ children }: Props): Node {
         <Divider />
 
         <Box width="100%" minWidth={0}>
-          <Box padding={4} mdPadding={6} lgPadding={8} width="100%" role="main">
-            {children}
+          <Box
+            padding={4}
+            mdPadding={6}
+            lgPadding={8}
+            marginBottom={12}
+            width="100%"
+            role="main"
+            lgDisplay="flex"
+            justifyContent="center"
+          >
+            <Box width="100%" maxWidth={1544}>
+              {children}
+            </Box>
           </Box>
 
           <Divider />

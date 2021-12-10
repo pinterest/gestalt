@@ -5,6 +5,15 @@ describe('OnLinkNavigationProvider Accessibility check', () => {
   });
 
   it('Tests accessibility on the OnLinkNavigationProvider page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
+
     cy.checkA11y();
   });
 });
