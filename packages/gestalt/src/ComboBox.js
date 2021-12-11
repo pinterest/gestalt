@@ -1,6 +1,5 @@
 // @flow strict
 import {
-  Profiler,
   useMemo,
   useCallback,
   cloneElement,
@@ -290,19 +289,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   );
 
   // ==== MAPPING ComboBoxItem ====
-
-  const onRenderCallback = useCallback((
-    idx, // the "id" prop of the Profiler tree that has just committed
-    phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
-    actualDuration, // time spent rendering the committed update
-    baseDuration, // estimated time to render the entire subtree without memoization
-    startTime, // when React began rendering this update
-    commitTime, // when React committed this update
-    interactions, // the Set of interactions belonging to this update
-  ) => {
-    console.log(idx, phase, actualDuration, baseDuration, startTime, commitTime, interactions);
-  }, []);
-
   const comboBoxItemList = useMemo(() => {
     const buildComboBoxItemCallback = ({ label: comboBoxItemlabel, subtext, value }, index) => {
       const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
@@ -381,46 +367,42 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         />
       </Box>
       {showOptionsList && innerRef.current ? (
-        <Profiler id="Popover" onRender={onRenderCallback}>
-          <Layer>
-            <Popover
-              anchor={innerRef.current}
-              handleKeyDown={handleKeyDown}
-              idealDirection="down"
-              onDismiss={handleOnDismiss}
-              positionRelativeToAnchor={false}
-              size="flexible"
+        <Layer>
+          <Popover
+            anchor={innerRef.current}
+            handleKeyDown={handleKeyDown}
+            idealDirection="down"
+            onDismiss={handleOnDismiss}
+            positionRelativeToAnchor={false}
+            size="flexible"
+          >
+            <Box
+              aria-expanded={showOptionsList}
+              alignItems="center"
+              direction="column"
+              display="flex"
+              flex="grow"
+              id={id}
+              maxHeight="30vh"
+              overflow="auto"
+              padding={2}
+              ref={dropdownRef}
+              role="listbox"
+              rounding={4}
+              width={innerRef?.current?.offsetWidth}
             >
-              <Box
-                aria-expanded={showOptionsList}
-                alignItems="center"
-                direction="column"
-                display="flex"
-                flex="grow"
-                id={id}
-                maxHeight="30vh"
-                overflow="auto"
-                padding={2}
-                ref={dropdownRef}
-                role="listbox"
-                rounding={4}
-                width={innerRef?.current?.offsetWidth}
-              >
-                <Profiler id="ComboBoxItem" onRender={onRenderCallback}>
-                  {suggestedOptions.length > 0 ? (
-                    comboBoxItemList
-                  ) : (
-                    <Box width="100%" paddingX={2} paddingY={4}>
-                      <Text lineClamp={1} color="gray">
-                        {noResultText}
-                      </Text>
-                    </Box>
-                  )}
-                </Profiler>
-              </Box>
-            </Popover>
-          </Layer>
-        </Profiler>
+              {suggestedOptions.length > 0 ? (
+                comboBoxItemList
+              ) : (
+                <Box width="100%" paddingX={2} paddingY={4}>
+                  <Text lineClamp={1} color="gray">
+                    {noResultText}
+                  </Text>
+                </Box>
+              )}
+            </Box>
+          </Popover>
+        </Layer>
       ) : null}
     </Fragment>
   );
