@@ -1,7 +1,6 @@
 // @flow strict
 import { useCallback, forwardRef, type Node } from 'react';
 import Box from './Box.js';
-import Flex from './Flex.js';
 import Text from './Text.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
@@ -72,19 +71,17 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
         padding={2}
         rounding={2}
       >
-        <Flex>
-          <Flex direction="column" flex="grow" gap={1}>
-            <Flex alignItems="center">
-              <Text color="darkGray" inline lineClamp={1}>
-                {label}
-              </Text>
-            </Flex>
+        <Box display="flex">
+          <Box display="flex" direction="column" flex="grow">
+            <Text color="darkGray" inline lineClamp={1}>
+              {label}
+            </Text>
             {subtext && (
               <Text size="md" color="gray">
                 {subtext}
               </Text>
             )}
-          </Flex>
+          </Box>
           <Box alignItems="center" color="transparent" display="flex" justifyContent="center">
             {isSelected ? (
               <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
@@ -92,7 +89,7 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
               <Box width={12} />
             )}
           </Box>
-        </Flex>
+        </Box>
       </Box>
     </div>
   );

@@ -291,12 +291,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   // ==== MAPPING ComboBoxItem ====
 
   const buildComboBoxItemCallback = ({ label: comboBoxItemlabel, subtext, value }, index) => {
-    console.log(
-      (selectedOption?.value ?? selectedItem?.value) === value,
-      selectedOption?.value,
-      selectedItem?.value,
-      value,
-    );
     const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
     return (
       <ComboBoxItem
