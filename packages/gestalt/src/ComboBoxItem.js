@@ -8,7 +8,6 @@ import styles from './Touchable.css';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
-import useFocusVisible from './useFocusVisible.js';
 
 export type OptionItemType = {|
   label: string,
@@ -46,11 +45,7 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
     onSelect?.({ event, item: option });
   };
 
-  const { isFocusVisible } = useFocusVisible();
-
   const className = classnames(getRoundingClassName(2), focusStyles.hideOutline, {
-    [focusStyles.accessibilityOutline]: isFocusVisible,
-    [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
     [styles.fullWidth]: true,
     [styles.pointer]: true,
   });
