@@ -115,6 +115,13 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
   const isNotControlled = !isControlledInput && !tags;
 
+  const textfieldIconButton =
+    (controlledInputValue && controlledInputValue !== '') ||
+    (textfieldInput && textfieldInput !== '') ||
+    (tags && tags.length > 0)
+      ? 'clear'
+      : 'expand';
+
   // ==== TAGS: Force disable state in Tags if ComboBox is disabled as well ====
 
   let selectedTags = tags;
@@ -138,7 +145,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     }
   }, [isNotControlled, options, selectedItem, showOptionsList, textfieldInput]);
 
-  // ==== CONTROLLED COMBOBOX ====
+  // ==== CONTROLLED COMBOBOX: Set all variables ====
 
   useEffect(() => {
     if (isControlledInput) {
@@ -153,9 +160,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     }
   }, [isControlledInput, options, selectedOption, suggestedOptions]);
 
-  // ==== EVENT HANDLING ====
+  // ==== EVENT HANDLING: ComboBoxItem ====
 
-  const handleSelectOptionItem = useCallback(
+  const handleSelectItem = useCallback(
     ({ event, item }) => {
       onSelect?.({ event, item });
       if (isNotControlled) {
@@ -167,7 +174,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     [isNotControlled, onSelect],
   );
 
-  // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxOption ====
+  // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxItem ====
 
   const handleKeyNavigation = useCallback(
     (event, direction: DirectionOptionType) => {
@@ -209,11 +216,13 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
       const optionItem = suggestedOptions[cursorIndex];
 
       if (optionItem && direction === KEYS.ENTER) {
-        handleSelectOptionItem({ event, item: optionItem });
+        handleSelectItem({ event, item: optionItem });
       }
     },
-    [handleSelectOptionItem, hoveredItemIndex, showOptionsList, suggestedOptions],
+    [handleSelectItem, hoveredItemIndex, showOptionsList, suggestedOptions],
   );
+
+  // ==== EVENT HANDLING: Popover ====
 
   const handleKeyDown = useCallback(
     (event) => {
@@ -237,12 +246,74 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     [handleKeyNavigation],
   );
 
-  const textfieldIconButton =
-    (controlledInputValue && controlledInputValue !== '') ||
-    (textfieldInput && textfieldInput !== '') ||
-    (tags && tags.length > 0)
-      ? 'clear'
-      : 'expand';
+  const handleOnDismiss = useCallback(() => setShowOptionsList(false), []);
+
+  // ==== EVENT HANDLING: InternalTextField ====
+
+  const handleOnBlur = useCallback(({ event, value }) => onBlur?.({ event, value }), [onBlur]);
+
+  const handleOnFocus = useCallback(({ event, value }) => onFocus?.({ event, value }), [onFocus]);
+
+  const handleSetShowOptionsList = useCallback(() => setShowOptionsList(true), []);
+
+  const handleOnChange = useCallback(
+    ({ event, value }) => {
+      setHoveredItemIndex(null);
+      if (isNotControlled) {
+        setSelectedItem(null);
+        setTextfieldInput(value);
+      }
+      if (showOptionsList === false) setShowOptionsList(true);
+      onChange?.({ event, value });
+    },
+    [isNotControlled, onChange, showOptionsList],
+  );
+
+  const handleOnClickIconButtonClear = useCallback(() => {
+    setHoveredItemIndex(null);
+    if (isNotControlled) {
+      setSelectedItem(null);
+      setTextfieldInput('');
+      setSuggestedOptions(options);
+    }
+    onClear?.();
+    innerRef?.current?.focus();
+  }, [isNotControlled, onClear, options]);
+
+  const handleOnKeyDown = useCallback(
+    ({ event, value }) => {
+      if (!showOptionsList && event.keyCode !== TAB) setShowOptionsList(true);
+      onKeyDown?.({ event, value });
+    },
+    [onKeyDown, showOptionsList],
+  );
+
+  // ==== MAPPING ComboBoxItem ====
+
+  const buildComboBoxItemCallback = ({ label: comboBoxItemlabel, subtext, value }, index) => {
+    console.log(
+      (selectedOption?.value ?? selectedItem?.value) === value,
+      selectedOption?.value,
+      selectedItem?.value,
+      value,
+    );
+    const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
+    return (
+      <ComboBoxItem
+        isHovered={index === hoveredItemIndex}
+        id={id}
+        index={index}
+        key={`${id}${index}`}
+        label={comboBoxItemlabel}
+        subtext={subtext}
+        value={value}
+        onSelect={handleSelectItem}
+        isSelected={isSelectedValue}
+        setHoveredItemIndex={setHoveredItemIndex}
+        ref={optionRef}
+      />
+    );
+  };
 
   const onRenderCallback = useCallback((
     idx, // the "id" prop of the Profiler tree that has just committed
@@ -284,38 +355,16 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           id={`combobox-${id}`}
           label={label}
           labelDisplay={labelDisplay}
-          onBlur={({ event, value }) => onBlur?.({ event, value })}
-          onChange={({ event, value }) => {
-            setHoveredItemIndex(null);
-            if (isNotControlled) {
-              setSelectedItem(null);
-              setTextfieldInput(value);
-            }
-            if (showOptionsList === false) setShowOptionsList(true);
-            onChange?.({ event, value });
-          }}
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
           onClickIconButton={
             textfieldIconButton === 'clear'
-              ? () => {
-                  setHoveredItemIndex(null);
-                  if (isNotControlled) {
-                    setSelectedItem(null);
-                    setTextfieldInput('');
-                    setSuggestedOptions(options);
-                  }
-                  onClear?.();
-                  innerRef?.current?.focus();
-                }
-              : () => {
-                  setShowOptionsList(true);
-                }
+              ? handleOnClickIconButtonClear
+              : handleSetShowOptionsList
           }
-          onClick={() => setShowOptionsList(true)}
-          onFocus={({ event, value }) => onFocus?.({ event, value })}
-          onKeyDown={({ event, value }) => {
-            if (!showOptionsList && event.keyCode !== TAB) setShowOptionsList(true);
-            onKeyDown?.({ event, value });
-          }}
+          onClick={handleSetShowOptionsList}
+          onFocus={handleOnFocus}
+          onKeyDown={handleOnKeyDown}
           placeholder={tags && tags.length > 0 ? '' : placeholder}
           ref={innerRef}
           size={size}
@@ -332,7 +381,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
               anchor={innerRef.current}
               handleKeyDown={handleKeyDown}
               idealDirection="down"
-              onDismiss={() => setShowOptionsList(false)}
+              onDismiss={handleOnDismiss}
               positionRelativeToAnchor={false}
               size="flexible"
             >
@@ -353,21 +402,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
               >
                 <Profiler id="ComboBoxItem" onRender={onRenderCallback}>
                   {suggestedOptions.length > 0 ? (
-                    suggestedOptions.map((option, index) => (
-                      <ComboBoxItem
-                        hoveredItemIndex={hoveredItemIndex}
-                        id={id}
-                        index={index}
-                        key={`${option.label}${index}`}
-                        lineClamp={1}
-                        option={option}
-                        onSelect={({ event, item }) => handleSelectOptionItem({ event, item })}
-                        selected={selectedOption ?? selectedItem}
-                        setHoveredItemIndex={setHoveredItemIndex}
-                        ref={optionRef}
-                        role="option"
-                      />
-                    ))
+                    suggestedOptions.map(buildComboBoxItemCallback)
                   ) : (
                     <Box width="100%" paddingX={2} paddingY={4}>
                       <Text lineClamp={1} color="gray">

@@ -1,11 +1,8 @@
 // @flow strict
-import { forwardRef, type Node } from 'react';
-import classnames from 'classnames';
+import { useCallback, forwardRef, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
-import styles from './Touchable.css';
-import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 
@@ -16,90 +13,86 @@ export type OptionItemType = {|
 |};
 
 type Props = {|
-  hoveredItemIndex: ?number,
+  isHovered: boolean,
   id: string,
   index: number,
   onSelect?: ({|
     item: OptionItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
-  option: OptionItemType,
-  selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
+  label: string,
+  isSelected: boolean,
   setHoveredItemIndex: (number) => void,
+  subtext?: string,
+  value: string,
 |};
 
 const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
 >(function OptionItem(
-  { onSelect, hoveredItemIndex, id, index, option, selected, setHoveredItemIndex }: Props,
+  { onSelect, isHovered, id, index, label, isSelected, setHoveredItemIndex, subtext, value }: Props,
   ref,
 ): Node {
-  const matches = (Array.isArray(selected) ? selected : []).filter(
-    ({ value }) => value === option.value,
+  const handleEventPreventDefault = useCallback((event) => event.preventDefault(), []);
+
+  const handleOnTap = useCallback(
+    (event) => onSelect?.({ event, item: { label, value, subtext } }),
+    [onSelect, label, value, subtext],
   );
-  // Determine if the option is a current selected item
-  const isSelectedItem = matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
 
-  const handleOnTap = (event) => {
-    onSelect?.({ event, item: option });
-  };
-
-  const className = classnames(getRoundingClassName(2), focusStyles.hideOutline, {
-    [styles.fullWidth]: true,
-    [styles.pointer]: true,
-  });
-
-  const optionItemContent = (
-    <Flex>
-      <Flex direction="column" flex="grow" gap={1}>
-        <Flex alignItems="center">
-          <Text color="darkGray" inline lineClamp={1}>
-            {option?.label}
-          </Text>
-        </Flex>
-        {option.subtext && (
-          <Text size="md" color="gray">
-            {option.subtext}
-          </Text>
-        )}
-      </Flex>
-      <Box alignItems="center" color="transparent" display="flex" justifyContent="center">
-        {isSelectedItem ? (
-          <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
-        ) : (
-          <Box width={12} />
-        )}
-      </Box>
-    </Flex>
-  );
+  const handleOnMouseEnter = useCallback(() => setHoveredItemIndex(index), [
+    index,
+    setHoveredItemIndex,
+  ]);
 
   return (
     <div
-      aria-selected={isSelectedItem}
-      className={className}
+      aria-selected={isSelected}
+      className={focusStyles.hideOutline}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
-      onKeyPress={(event) => {
-        event.preventDefault();
-      }}
-      onMouseDown={(event) => {
-        event.preventDefault();
-      }}
-      onMouseEnter={() => setHoveredItemIndex(index)}
-      ref={index === hoveredItemIndex ? ref : null}
+      onKeyPress={handleEventPreventDefault}
+      onMouseDown={handleEventPreventDefault}
+      onMouseEnter={handleOnMouseEnter}
+      ref={isHovered ? ref : null}
       role="option"
       rounding={2}
+      style={{
+        cursor: 'pointer',
+        width: '100%',
+        borderRadius: '8px',
+      }}
       tabIndex={-1}
     >
       <Box
-        color={index === hoveredItemIndex ? 'lightGray' : 'transparent'}
+        color={isHovered ? 'lightGray' : 'transparent'}
         direction="column"
         display="flex"
         padding={2}
         rounding={2}
       >
-        {optionItemContent}
+        <Flex>
+          <Flex direction="column" flex="grow" gap={1}>
+            <Flex alignItems="center">
+              <Text color="darkGray" inline lineClamp={1}>
+                {label}
+              </Text>
+            </Flex>
+            {subtext && (
+              <Text size="md" color="gray">
+                {subtext}
+              </Text>
+            )}
+          </Flex>
+          <Box alignItems="center" color="transparent" display="flex" justifyContent="center">
+            {isSelected ? (
+              <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
+            ) : (
+              <Box width={12} />
+            )}
+          </Box>
+        </Flex>
       </Box>
     </div>
   );
