@@ -95,7 +95,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text color="darkGray" inline weight={textWeight}>
+              <Text color="darkGray" inline lineClamp={1} weight={textWeight}>
                 {option?.label}
               </Text>
               {badgeText && (
