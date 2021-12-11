@@ -46,7 +46,6 @@ export default function DropdownItem({
           id={id}
           index={index}
           key={`${option.value + index}`}
-          lineClamp={1}
           onSelect={onSelect}
           option={option}
           ref={setOptionRef}

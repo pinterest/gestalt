@@ -29,7 +29,6 @@ type Props = {|
   id: string,
   index: number,
   isExternal?: boolean,
-  lineClamp?: 1 | 2,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| dangerouslyDisableOnNavigation: () => void |},
@@ -59,7 +58,6 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     id,
     index,
     isExternal,
-    lineClamp,
     onClick,
     option,
     role,
@@ -97,7 +95,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text color="darkGray" inline lineClamp={lineClamp} weight={textWeight}>
+              <Text color="darkGray" inline weight={textWeight}>
                 {option?.label}
               </Text>
               {badgeText && (

@@ -1,6 +1,5 @@
 // @flow strict
 import { useCallback, forwardRef, type Node } from 'react';
-import Box from './Box.js';
 import Text from './Text.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
@@ -12,15 +11,15 @@ export type OptionItemType = {|
 |};
 
 type Props = {|
-  isHovered: boolean,
   id: string,
   index: number,
+  isHovered: boolean,
+  isSelected: boolean,
+  label: string,
   onSelect?: ({|
     item: OptionItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
-  label: string,
-  isSelected: boolean,
   setHoveredItemIndex: (number) => void,
   subtext?: string,
   value: string,
@@ -30,7 +29,7 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
   Props,
   ?HTMLElement,
 >(function OptionItem(
-  { onSelect, isHovered, id, index, label, isSelected, setHoveredItemIndex, subtext, value }: Props,
+  { isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value }: Props,
   ref,
 ): Node {
   const handleEventPreventDefault = useCallback((event) => event.preventDefault(), []);
@@ -56,41 +55,41 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
       onMouseEnter={handleOnMouseEnter}
       ref={isHovered ? ref : null}
       role="option"
-      rounding={2}
-      style={{
-        cursor: 'pointer',
-        width: '100%',
-        borderRadius: '8px',
-      }}
+      style={{ cursor: 'pointer', width: '100%' }}
       tabIndex={-1}
     >
-      <Box
-        color={isHovered ? 'lightGray' : 'transparent'}
-        direction="column"
-        display="flex"
-        padding={2}
-        rounding={2}
+      <div
+        style={{
+          display: 'flex',
+          padding: '8px',
+          borderRadius: '8px',
+          backgroundColor: isHovered ? '#efefef' : 'transparent',
+        }}
       >
-        <Box display="flex">
-          <Box display="flex" direction="column" flex="grow">
-            <Text color="darkGray" inline lineClamp={1}>
-              {label}
+        <div style={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
+          <Text color="darkGray" inline lineClamp={1}>
+            {label}
+          </Text>
+          {subtext && (
+            <Text size="md" inline color="gray" lineClamp={2}>
+              {subtext}
             </Text>
-            {subtext && (
-              <Text size="md" color="gray">
-                {subtext}
-              </Text>
-            )}
-          </Box>
-          <Box alignItems="center" color="transparent" display="flex" justifyContent="center">
-            {isSelected ? (
-              <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
-            ) : (
-              <Box width={12} />
-            )}
-          </Box>
-        </Box>
-      </Box>
+          )}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {isSelected ? (
+            <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
+          ) : (
+            <div style={{ width: '12px' }} />
+          )}
+        </div>
+      </div>
     </div>
   );
 });
