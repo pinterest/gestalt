@@ -1,6 +1,7 @@
 // @flow strict
 import {
   Profiler,
+  useMemo,
   useCallback,
   cloneElement,
   forwardRef,
@@ -290,25 +291,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   // ==== MAPPING ComboBoxItem ====
 
-  const buildComboBoxItemCallback = ({ label: comboBoxItemlabel, subtext, value }, index) => {
-    const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
-    return (
-      <ComboBoxItem
-        isHovered={index === hoveredItemIndex}
-        id={id}
-        index={index}
-        key={`${id}${index}`}
-        label={comboBoxItemlabel}
-        subtext={subtext}
-        value={value}
-        onSelect={handleSelectItem}
-        isSelected={isSelectedValue}
-        setHoveredItemIndex={setHoveredItemIndex}
-        ref={optionRef}
-      />
-    );
-  };
-
   const onRenderCallback = useCallback((
     idx, // the "id" prop of the Profiler tree that has just committed
     phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
@@ -320,6 +302,36 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   ) => {
     console.log(idx, phase, actualDuration, baseDuration, startTime, commitTime, interactions);
   }, []);
+
+  const comboBoxItemList = useMemo(() => {
+    const buildComboBoxItemCallback = ({ label: comboBoxItemlabel, subtext, value }, index) => {
+      const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
+      return (
+        <ComboBoxItem
+          isHovered={index === hoveredItemIndex}
+          id={id}
+          index={index}
+          key={`${id}${index}`}
+          label={comboBoxItemlabel}
+          subtext={subtext}
+          value={value}
+          onSelect={handleSelectItem}
+          isSelected={isSelectedValue}
+          setHoveredItemIndex={setHoveredItemIndex}
+          ref={optionRef}
+        />
+      );
+    };
+
+    return suggestedOptions.map(buildComboBoxItemCallback);
+  }, [
+    suggestedOptions,
+    handleSelectItem,
+    hoveredItemIndex,
+    id,
+    selectedItem?.value,
+    selectedOption?.value,
+  ]);
 
   return (
     <Fragment>
@@ -396,7 +408,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
               >
                 <Profiler id="ComboBoxItem" onRender={onRenderCallback}>
                   {suggestedOptions.length > 0 ? (
-                    suggestedOptions.map(buildComboBoxItemCallback)
+                    comboBoxItemList
                   ) : (
                     <Box width="100%" paddingX={2} paddingY={4}>
                       <Text lineClamp={1} color="gray">
