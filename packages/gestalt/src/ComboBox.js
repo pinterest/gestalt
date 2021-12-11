@@ -155,78 +155,87 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   // ==== EVENT HANDLING ====
 
-  const handleSelectOptionItem = ({ event, item }) => {
-    onSelect?.({ event, item });
-    if (isNotControlled) {
-      setSelectedItem(item);
-      setTextfieldInput(item.label);
-    }
-    setShowOptionsList(false);
-  };
+  const handleSelectOptionItem = useCallback(
+    ({ event, item }) => {
+      onSelect?.({ event, item });
+      if (isNotControlled) {
+        setSelectedItem(item);
+        setTextfieldInput(item.label);
+      }
+      setShowOptionsList(false);
+    },
+    [isNotControlled, onSelect],
+  );
 
   // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxOption ====
 
-  const handleKeyNavigation = (event, direction: DirectionOptionType) => {
-    if (!showOptionsList) setShowOptionsList(true);
+  const handleKeyNavigation = useCallback(
+    (event, direction: DirectionOptionType) => {
+      if (!showOptionsList) setShowOptionsList(true);
 
-    const getNextHoveredIndex = (keyboardDirection) => {
-      if (keyboardDirection === UP_ARROW) {
-        return direction + (hoveredItemIndex || 0);
+      const getNextHoveredIndex = (keyboardDirection) => {
+        if (keyboardDirection === UP_ARROW) {
+          return direction + (hoveredItemIndex || 0);
+        }
+
+        return hoveredItemIndex === null ? 0 : direction + hoveredItemIndex;
+      };
+
+      const nextHoveredIndex = getNextHoveredIndex(direction);
+      const optionsCount = suggestedOptions.length - 1;
+
+      // If there's an existing item, navigate from that position
+      let cursorIndex = nextHoveredIndex;
+
+      // If we've reached the end, start at the top
+      if (nextHoveredIndex > optionsCount) {
+        cursorIndex = 0;
       }
 
-      return hoveredItemIndex === null ? 0 : direction + hoveredItemIndex;
-    };
+      // If we're at the top going backwards, start at the last item
+      else if (nextHoveredIndex < 0) {
+        cursorIndex = optionsCount;
+      }
 
-    const nextHoveredIndex = getNextHoveredIndex(direction);
-    const optionsCount = suggestedOptions.length - 1;
+      // IMPORTANT: handleContainerScrolling must be placed before we update hoveredItemIndex
+      handleContainerScrolling({
+        direction,
+        containerRef: dropdownRef,
+        currentHoveredOption: optionRef.current,
+      });
 
-    // If there's an existing item, navigate from that position
-    let cursorIndex = nextHoveredIndex;
+      setHoveredItemIndex(cursorIndex);
 
-    // If we've reached the end, start at the top
-    if (nextHoveredIndex > optionsCount) {
-      cursorIndex = 0;
-    }
+      const optionItem = suggestedOptions[cursorIndex];
 
-    // If we're at the top going backwards, start at the last item
-    else if (nextHoveredIndex < 0) {
-      cursorIndex = optionsCount;
-    }
+      if (optionItem && direction === KEYS.ENTER) {
+        handleSelectOptionItem({ event, item: optionItem });
+      }
+    },
+    [handleSelectOptionItem, hoveredItemIndex, showOptionsList, suggestedOptions],
+  );
 
-    // IMPORTANT: handleContainerScrolling must be placed before we update hoveredItemIndex
-    handleContainerScrolling({
-      direction,
-      containerRef: dropdownRef,
-      currentHoveredOption: optionRef.current,
-    });
+  const handleKeyDown = useCallback(
+    (event) => {
+      const { keyCode } = event;
 
-    setHoveredItemIndex(cursorIndex);
-
-    const optionItem = suggestedOptions[cursorIndex];
-
-    if (optionItem && direction === KEYS.ENTER) {
-      handleSelectOptionItem({ event, item: optionItem });
-    }
-  };
-
-  const handleKeyDown = (event) => {
-    const { keyCode } = event;
-
-    if (keyCode === UP_ARROW) {
-      handleKeyNavigation(event, KEYS.UP);
-      event.preventDefault();
-    } else if (keyCode === DOWN_ARROW) {
-      handleKeyNavigation(event, KEYS.DOWN);
-      event.preventDefault();
-    } else if (keyCode === ENTER) {
-      handleKeyNavigation(event, KEYS.ENTER);
-      event.stopPropagation();
-    } else if (keyCode === ESCAPE) {
-      if (innerRef) innerRef.current?.focus();
-    } else if (keyCode === TAB) {
-      setShowOptionsList(false);
-    }
-  };
+      if (keyCode === UP_ARROW) {
+        handleKeyNavigation(event, KEYS.UP);
+        event.preventDefault();
+      } else if (keyCode === DOWN_ARROW) {
+        handleKeyNavigation(event, KEYS.DOWN);
+        event.preventDefault();
+      } else if (keyCode === ENTER) {
+        handleKeyNavigation(event, KEYS.ENTER);
+        event.stopPropagation();
+      } else if (keyCode === ESCAPE) {
+        if (innerRef) innerRef.current?.focus();
+      } else if (keyCode === TAB) {
+        setShowOptionsList(false);
+      }
+    },
+    [handleKeyNavigation],
+  );
 
   const textfieldIconButton =
     (controlledInputValue && controlledInputValue !== '') ||
