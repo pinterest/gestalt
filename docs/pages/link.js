@@ -1,177 +1,47 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
-import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Link"
-    description="The Link component allows you to show links on the page, open them in a new window, and change the color."
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilitySelected',
-        type: 'boolean',
-        href: 'tab',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'hoverStyle',
-        type: `'none' | 'underline'`,
-        defaultValue: 'underline',
-        href: 'Permutations',
-      },
-      {
-        name: 'href',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        description: 'id attribute of the anchor tag',
-      },
-      {
-        name: 'inline',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'advancedExample',
-      },
-      {
-        name: 'onBlur',
-        type: '() => void',
-      },
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          "Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like `Click Here,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text.",
-          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'onClick',
-        type:
-          'AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}>',
-        description:
-          'Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-        href: 'Custom-navigation',
-      },
-      {
-        name: 'onFocus',
-        type: '() => void',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'a'>",
-        description: 'Forward the ref to the underlying anchor element',
-      },
-      {
-        name: 'rel',
-        type: `"none" | "nofollow"`,
-        defaultValue: 'none',
-      },
-      {
-        name: 'role',
-        type: `"tab"`,
-        href: 'tab',
-      },
-      {
-        name: 'rounding',
-        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        defaultValue: '0',
-        href: 'advancedExample',
-      },
-      {
-        name: 'tapStyle',
-        type: `"none" | "compress"`,
-        defaultValue: 'none',
-        href: 'Permutations',
-      },
-      {
-        name: 'target',
-        type: `"null" | "self" | "blank"`,
-        defaultValue: 'null',
-        href: 'PreventDefault',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+export default function LinkPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Link">
+      <PageHeader name="Link" description={generatedDocGen?.description} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - For navigation within or directly accompanying a sentence.
           - Directing users to another page or a different portion of the same page.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - Performing actions, such as "Save", "Cancel" or "Delete". Use [Button](/button) instead.
           - Submitting a form or opening a modal. Use Button instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    description={`
-    You should wrap \`Link\` components inside of a \`Text\` component to get the correct font & underline color.
-  `}
-    name="Example"
-    defaultCode={`
-<Box>
-  <Link href="https://pinterest.com">
-    <Box padding={2}>
-      <Text color="red" weight="bold">
-        Incorrect underline color: Pinterest.com
-      </Text>
-    </Box>
-  </Link>
-  <Text color="red" weight="bold">
-    <Link href="https://pinterest.com">
-      <Box padding={2}>Correct underline color: Pinterest.com</Box>
-    </Link>
-  </Text>
-</Box>`}
-  />,
-);
-
-card(
-  <Example
-    id="accessibility"
-    description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          description={`
     When providing the content for the link, avoid phrases like "click here" or "go to".
   `}
-    name="Accessible Content"
-    defaultCode={`
+          title="Accessible Content"
+        >
+          <MainSection.Card
+            defaultCode={`
 <Box>
   <Heading>Bad ❌</Heading>
   <Text>
@@ -197,17 +67,42 @@ card(
   </Box>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    id="tab"
-    description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          description={`
+    You should wrap \`Link\` components inside of a \`Text\` component to get the correct font & underline color.
+  `}
+          title="Inherited Text style"
+        >
+          <MainSection.Card
+            defaultCode={`
+<Box>
+  <Link href="https://pinterest.com">
+    <Box padding={2}>
+      <Text color="red" weight="bold">
+        Incorrect underline color: Pinterest.com
+      </Text>
+    </Box>
+  </Link>
+  <Text color="red" weight="bold">
+    <Link href="https://pinterest.com">
+      <Box padding={2}>Correct underline color: Pinterest.com</Box>
+    </Link>
+  </Text>
+</Box>`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Accessible Tab Link"
+          description={`
     Use accessibilitySelected and role when using it as a Tab.
   `}
-    name="Accessible Tab Link"
-    defaultCode={`
+        >
+          <MainSection.Card
+            defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   return (
@@ -239,15 +134,32 @@ function TabExample() {
     </Box>
   );
 }`}
-  />,
-);
-
-card(
-  <Example
-    id="Permutations"
-    name="Permutations: tapStyle and hoverStyle"
-    defaultCode={`
-function PermutationsExample() {
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Icons">
+          <MainSection.Card
+            defaultCode={`
+function IconsExample() {
+  return (
+    <Text inline>Pinterest acquires
+      <Link
+        href="https://vochi.ai/"
+        newTabIcon="visit"
+        target="blank"
+        inline
+      >
+      Vochi
+      </Link>, a video creation and editing app
+    </Text>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="tapStyle and hoverStyle">
+          <MainSection.Card
+            defaultCode={`
+function StyleExample() {
   return (
     <Box>
       {[
@@ -276,20 +188,23 @@ function PermutationsExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
 **[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
       `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function LinkPage(): Node {
-  return <CardPage cards={cards} page="Link" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen('Link') },
+  };
 }
