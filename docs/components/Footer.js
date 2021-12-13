@@ -8,7 +8,7 @@ export default function Footer(): Node {
     <Box color="lightGray" padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
       <Box paddingX={2} paddingY={1}>
         <Flex alignItems="center" gap={4} justifyContent="between">
-          <Text color="red" weight="bold">
+          <Text color="darkGray" weight="bold">
             <Link
               href="https://www.pinterest.com"
               onClick={() => trackButtonClick('Pinterest logo')}
