@@ -127,6 +127,6 @@ export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: 
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('AvatarPair') },
+    props: { generatedDocGen: await docgen({ componentName: 'AvatarPair' }) },
   };
 }

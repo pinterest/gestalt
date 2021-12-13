@@ -19,7 +19,7 @@ import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type AriaCurrent } from './ariaTypes.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 
 type Props = {|
   accessibilityCurrent?: AriaCurrent,

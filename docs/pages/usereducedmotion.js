@@ -2,15 +2,14 @@
 import type { Node } from 'react';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="useReducedMotion"
-    description={`
+export default function DocsPage(): Node {
+  return (
+    <Page title="useReducedMotion">
+      <PageHeader
+        name="useReducedMotion"
+        description={`
     \`useReducedMotion\` allows a user to request that the system minimize the amount of non-essential motion.
 
     Users can experience distraction or nausea from animated content. For example, scrolling a page which causes elements to move (other than the essential movement associated with scrolling) can trigger vestibular disorders.
@@ -23,14 +22,11 @@ card(
       <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
     </ul>
     `}
-  />,
-);
-
-card(
-  <Example
-    id="basicExample"
-    name="Example"
-    defaultCode={`
+      />
+      <Example
+        id="basicExample"
+        name="Example"
+        defaultCode={`
 function Example() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -66,9 +62,7 @@ function Example() {
     </React.Fragment>
   );
 }`}
-  />,
-);
-
-export default function UseReducedMotionPage(): Node {
-  return <CardPage cards={cards} page="useReducedMotion" />;
+      />
+    </Page>
+  );
 }

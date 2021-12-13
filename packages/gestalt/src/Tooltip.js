@@ -55,7 +55,7 @@ const reducer = (state, action) => {
 };
 
 /**
- * https://gestalt.pinterest.systems/tooltip
+ * [Tooltip](https://gestalt.pinterest.systems/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.
  */
 export default function Tooltip({
   children,

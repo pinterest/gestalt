@@ -18,7 +18,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/spinner
+ * [Spinners](https://gestalt.pinterest.systems/spinner ) help indicate that a surface's content or portion of content is currently loading.
  */
 export default function Spinner({
   accessibilityLabel,

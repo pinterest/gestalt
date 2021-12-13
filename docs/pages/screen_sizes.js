@@ -1,27 +1,22 @@
 // @flow strict
 import type { Node } from 'react';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
 import PageHeader from '../components/PageHeader.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Screen sizes"
-    description="There are a multitude of screen sizes that Pinterest operates on. Our design system is built to flex to any and all screen sizes across platforms, but for consistency and ease of handoff, we only design for a handful of screen sizes per platform. Our screen sizes are always at 1x."
-    showSourceLink={false}
-  />,
-);
-
-card(
-  <MainSection name="Web (px)">
-    <MainSection.Card
-      cardSize="lg"
-      showCode={false}
-      defaultCode={`
+export default function DocsPage(): Node {
+  return (
+    <Page title="Screen sizes guidelines">
+      <PageHeader
+        name="Screen sizes"
+        description="There are a multitude of screen sizes that Pinterest operates on. Our design system is built to flex to any and all screen sizes across platforms, but for consistency and ease of handoff, we only design for a handful of screen sizes per platform. Our screen sizes are always at 1x."
+        showSourceLink={false}
+      />
+      <MainSection name="Web (px)">
+        <MainSection.Card
+          cardSize="lg"
+          showCode={false}
+          defaultCode={`
       <Box width={'100%'}>
         <Table>
           <Table.Header>
@@ -78,15 +73,13 @@ card(
         </Table>
       </Box>
       `}
-    />
-  </MainSection>,
-);
-card(
-  <MainSection name="iOS (pt)">
-    <MainSection.Card
-      cardSize="lg"
-      showCode={false}
-      defaultCode={`
+        />
+      </MainSection>
+      <MainSection name="iOS (pt)">
+        <MainSection.Card
+          cardSize="lg"
+          showCode={false}
+          defaultCode={`
       <Box width={'100%'}>
         <Table>
           <Table.Header>
@@ -128,15 +121,13 @@ card(
         </Table>
       </Box>
       `}
-    />
-  </MainSection>,
-);
-card(
-  <MainSection name="Android (dp)">
-    <MainSection.Card
-      cardSize="lg"
-      showCode={false}
-      defaultCode={`
+        />
+      </MainSection>
+      <MainSection name="Android (dp)">
+        <MainSection.Card
+          cardSize="lg"
+          showCode={false}
+          defaultCode={`
       <Box width={'100%'}>
         <Table>
           <Table.Header>
@@ -178,10 +169,8 @@ card(
         </Table>
       </Box>
       `}
-    />
-  </MainSection>,
-);
-
-export default function ScreenSizesPage(): Node {
-  return <CardPage cards={cards} page="Screen Sizes" />;
+        />
+      </MainSection>
+    </Page>
+  );
 }

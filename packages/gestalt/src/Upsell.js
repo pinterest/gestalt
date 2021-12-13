@@ -86,7 +86,9 @@ const UpsellAction = ({
 };
 
 /**
- * https://gestalt.pinterest.systems/upsell
+ * [Upsells](https://gestalt.pinterest.systems/upsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.
+ *
+ * ⚠️ Please note: Upsell is not currently supported in dark mode.
  */
 export default function Upsell({
   children,

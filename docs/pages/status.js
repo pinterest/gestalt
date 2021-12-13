@@ -117,6 +117,6 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('Status') },
+    props: { generatedDocGen: await docgen({ componentName: 'Status' }) },
   };
 }

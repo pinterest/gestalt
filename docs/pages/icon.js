@@ -226,7 +226,7 @@ Use Button to allow users to take an action.
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const docGen = await docgen('Icon');
+  const docGen = await docgen({ componentName: 'Icon' });
   const overriddenDocGen = overrideTypes(docGen, {
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),
   });

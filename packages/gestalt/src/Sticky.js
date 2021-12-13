@@ -28,6 +28,9 @@ type Props = {|
 
 const DEFAULT_ZINDEX = new FixedZIndex(1);
 
+/**
+ * [Sticky](https://gestalt.pinterest.systems/sticky) allows an element to become fixed when it reaches a threshold (top, left, bottom, or right).
+ */
 export default function Sticky(props: Props): Node {
   const { children, height } = props;
   const zIndex = props.zIndex || DEFAULT_ZINDEX;

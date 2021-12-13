@@ -26,7 +26,7 @@ const OnLinkNavigationContext: Context<OnLinkNavigationContextType | void> = cre
 const { Provider } = OnLinkNavigationContext;
 
 /**
- * https://gestalt.pinterest.systems/onlinknavigationprovider
+ * [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to externally control the link behaviour of components further down the tree
  */
 export default function OnLinkNavigationProvider({
   onNavigation,

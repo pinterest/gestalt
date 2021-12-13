@@ -27,7 +27,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/image
+ * [Image](https://gestalt.pinterest.systems/image) is the workhorse of Pinterest. If you define Pinterest to be all about collecting ideas, then images are how we choose to represent those ideas. In response, we've added a few extra superpowers to the regular img tag to make it even more awesome.
  */
 export default class Image extends PureComponent<Props> {
   static defaultProps: {|

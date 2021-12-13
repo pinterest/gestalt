@@ -6,270 +6,261 @@ import Combination from '../components/Combination.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="TapArea"
-    description="TapArea allows components to be clickable and touchable in an accessible way."
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Supply a short, descriptive label for screen-readers to replace TapArea texts that do not provide sufficient context about the button component behavior.',
-          'Accessibility: It populates aria-label.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'accessibilityControls',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.',
-          'Optional with button-role.',
-          'Accessibility: It populates aria-controls.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'accessibilityExpanded',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
-          'Optional with button-role.',
-          'Accessibility: It populates aria-expanded.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'accessibilityHaspopup',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
-          'Optional with button-role.',
-          'Accessibility: It populates aria-haspopup.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-        required: true,
-        defaultValue: null,
-        description:
-          'TapArea is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.',
-        href: 'basic-taparea',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description:
-          'Set disabled state so TapArea cannot be interacted with and actions are not available.',
-        href: 'roles',
-      },
-      {
-        name: 'fullHeight',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description: 'Set the TapArea height to expand to the full height of the parent.',
-        href: 'fullHeightWidth',
-      },
-      {
-        name: 'fullWidth',
-        type: 'boolean',
-        required: false,
-        defaultValue: true,
-        description: 'Set the TapArea width to expand to the full width of the parent.',
-        href: 'fullHeightWidth',
-      },
-      {
-        name: 'mouseCursor',
-        type: `"copy" | "grab" | "grabbing" | "move" | "noDrop" | "pointer" | "zoomIn" | "zoomOut"`,
-        required: false,
-        defaultValue: 'pointer',
-        description: ['Select a mouse cursor type to convey the TapArea expected behavior .'],
-        href: 'mouseCursor',
-      },
-      {
-        name: 'onBlur',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
-        required: false,
-        defaultValue: null,
-        description: ['Callback fired when a TapArea component loses focus.'],
-        href: 'basicExample',
-      },
-      {
-        name: 'onFocus',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Callback fired when a TapArea component gets focus via keyboard navigation, mouse click (pressed), or focus method',
-        ],
-        href: 'basicExample',
-      },
-      {
-        name: 'onMouseDown',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
-        required: false,
-        defaultValue: null,
-        description: ['Callback fired when a click event begins.'],
-      },
-      {
-        name: 'onMouseUp',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
-        required: false,
-        defaultValue: null,
-        description: ['Callback fired when a click event ends.'],
-      },
-      {
-        name: 'onMouseEnter',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
-        required: false,
-        defaultValue: null,
-        description: ['Callback fired when a mouse pointer moves onto a TapArea component.'],
-      },
-      {
-        name: 'onMouseLeave',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
-        required: false,
-        defaultValue: null,
-        description: ['Callback fired when a mouse pointer moves out a TapArea component.'],
-      },
-      {
-        name: 'onTap',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) }) => void',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Callback fired when a TapArea component is clicked (pressed and released) with a mouse or keyboard.',
-          'Required with button-role + button-type buttons.',
-          'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-        ],
-        href: 'basic-taparea',
-      },
-      {
-        name: 'ref',
-        type: `React.Ref<'div'> | React.Ref<'a'>`,
-        required: false,
-        defaultValue: null,
-        description: 'Forward the ref to the underlying div or anchor element.',
-        href: 'ref',
-      },
-      {
-        name: 'tabIndex',
-        type: `-1 | 0`,
-        required: false,
-        defaultValue: 0,
-        description: [
-          'Remove the component from sequential keyboard navigation to improve accessibility. The component is not focusable with keyboard navigation but it can be focused with Javascript or visually by clicking with the mouse.',
-          `The default behaviour for the component is to be focusable in sequential keyboard navigation in the order defined by the document's source order.`,
-          `If component is disabled, the component is also unreachable from keyboard navigation.`,
-        ],
-        href: 'roles',
-      },
-      {
-        name: 'rounding',
-        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        required: false,
-        defaultValue: null,
-        description: [
-          'Sets a border radius for the TapArea. Select a rounding option that aligns with its children.',
-          'Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in boints.',
-        ],
-        href: 'rounding',
-      },
-      {
-        name: 'href',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: ['Specify a link URL.', 'Required with role=link.'],
-        href: 'roles',
-      },
-      {
-        name: 'role',
-        type: `'button' | 'link'`,
-        required: false,
-        defaultValue: 'button',
-        description: [
-          `Select a TapArea variant:`,
-          `- 'button': Use for TapArea to act like buttons. The TapArea is rendered as a \`<div>\`.`,
-          `- 'link': Use for TapArea to act like links. The button is rendered as an \`<a>\`.`,
-          `Required with role=link.`,
-        ],
-        href: 'roles',
-      },
-      {
-        name: 'rel',
-        type: `'none' | 'nofollow'`,
-        required: false,
-        defaultValue: 'none',
-        description: 'Optional with role=link.',
-        href: 'roles',
-      },
-      {
-        name: 'target',
-        type: `null | 'self' | 'blank'`,
-        required: false,
-        defaultValue: 'null',
-        description: [
-          'Define the frame or window to open the anchor defined on `href`:',
-          `- 'null' opens the anchor in the same window.`,
-          `- 'blank' opens the anchor in a new window.`,
-          `- 'self' opens an anchor in the same frame.`,
-          'Optional with role=link.',
-        ],
-        href: 'roles',
-      },
-      {
-        name: 'tapStyle',
-        type: `none | 'compress'`,
-        required: false,
-        defaultValue: 'none',
-        description: [
-          'Set a compressing behavior when the TapArea is clicked / touched.',
-          `- 'none' does not compress TapArea.`,
-          `- 'compress' scales down TapArea.`,
-        ],
-        href: 'roles',
-      },
-    ]}
-  />,
-);
-
-card(
-  <Example
-    name="Basic TapArea"
-    id="basic-taparea"
-    defaultCode={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="TapArea">
+      <PageHeader name="TapArea" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'accessibilityLabel',
+            type: 'string',
+            required: false,
+            defaultValue: null,
+            description: [
+              'Supply a short, descriptive label for screen-readers to replace TapArea texts that do not provide sufficient context about the button component behavior.',
+              'Accessibility: It populates aria-label.',
+            ],
+            href: 'accessibility',
+          },
+          {
+            name: 'accessibilityControls',
+            type: 'string',
+            required: false,
+            defaultValue: null,
+            description: [
+              'Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.',
+              'Optional with button-role.',
+              'Accessibility: It populates aria-controls.',
+            ],
+            href: 'accessibility',
+          },
+          {
+            name: 'accessibilityExpanded',
+            type: 'boolean',
+            required: false,
+            defaultValue: null,
+            description: [
+              'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
+              'Optional with button-role.',
+              'Accessibility: It populates aria-expanded.',
+            ],
+            href: 'accessibility',
+          },
+          {
+            name: 'accessibilityHaspopup',
+            type: 'boolean',
+            required: false,
+            defaultValue: null,
+            description: [
+              'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
+              'Optional with button-role.',
+              'Accessibility: It populates aria-haspopup.',
+            ],
+            href: 'accessibility',
+          },
+          {
+            name: 'children',
+            type: 'React.Node',
+            required: true,
+            defaultValue: null,
+            description:
+              'TapArea is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.',
+            href: 'basic-taparea',
+          },
+          {
+            name: 'disabled',
+            type: 'boolean',
+            required: false,
+            defaultValue: null,
+            description:
+              'Set disabled state so TapArea cannot be interacted with and actions are not available.',
+            href: 'roles',
+          },
+          {
+            name: 'fullHeight',
+            type: 'boolean',
+            required: false,
+            defaultValue: null,
+            description: 'Set the TapArea height to expand to the full height of the parent.',
+            href: 'fullHeightWidth',
+          },
+          {
+            name: 'fullWidth',
+            type: 'boolean',
+            required: false,
+            defaultValue: true,
+            description: 'Set the TapArea width to expand to the full width of the parent.',
+            href: 'fullHeightWidth',
+          },
+          {
+            name: 'mouseCursor',
+            type: `"copy" | "grab" | "grabbing" | "move" | "noDrop" | "pointer" | "zoomIn" | "zoomOut"`,
+            required: false,
+            defaultValue: 'pointer',
+            description: ['Select a mouse cursor type to convey the TapArea expected behavior .'],
+            href: 'mouseCursor',
+          },
+          {
+            name: 'onBlur',
+            type:
+              '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
+            required: false,
+            defaultValue: null,
+            description: ['Callback fired when a TapArea component loses focus.'],
+            href: 'basicExample',
+          },
+          {
+            name: 'onFocus',
+            type:
+              '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
+            required: false,
+            defaultValue: null,
+            description: [
+              'Callback fired when a TapArea component gets focus via keyboard navigation, mouse click (pressed), or focus method',
+            ],
+            href: 'basicExample',
+          },
+          {
+            name: 'onMouseDown',
+            type:
+              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
+            required: false,
+            defaultValue: null,
+            description: ['Callback fired when a click event begins.'],
+          },
+          {
+            name: 'onMouseUp',
+            type:
+              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
+            required: false,
+            defaultValue: null,
+            description: ['Callback fired when a click event ends.'],
+          },
+          {
+            name: 'onMouseEnter',
+            type:
+              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
+            required: false,
+            defaultValue: null,
+            description: ['Callback fired when a mouse pointer moves onto a TapArea component.'],
+          },
+          {
+            name: 'onMouseLeave',
+            type:
+              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
+            required: false,
+            defaultValue: null,
+            description: ['Callback fired when a mouse pointer moves out a TapArea component.'],
+          },
+          {
+            name: 'onTap',
+            type:
+              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) }) => void',
+            required: false,
+            defaultValue: null,
+            description: [
+              'Callback fired when a TapArea component is clicked (pressed and released) with a mouse or keyboard.',
+              'Required with button-role + button-type buttons.',
+              'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+            ],
+            href: 'basic-taparea',
+          },
+          {
+            name: 'ref',
+            type: `React.Ref<'div'> | React.Ref<'a'>`,
+            required: false,
+            defaultValue: null,
+            description: 'Forward the ref to the underlying div or anchor element.',
+            href: 'ref',
+          },
+          {
+            name: 'tabIndex',
+            type: `-1 | 0`,
+            required: false,
+            defaultValue: 0,
+            description: [
+              'Remove the component from sequential keyboard navigation to improve accessibility. The component is not focusable with keyboard navigation but it can be focused with Javascript or visually by clicking with the mouse.',
+              `The default behaviour for the component is to be focusable in sequential keyboard navigation in the order defined by the document's source order.`,
+              `If component is disabled, the component is also unreachable from keyboard navigation.`,
+            ],
+            href: 'roles',
+          },
+          {
+            name: 'rounding',
+            type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
+            required: false,
+            defaultValue: null,
+            description: [
+              'Sets a border radius for the TapArea. Select a rounding option that aligns with its children.',
+              'Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in boints.',
+            ],
+            href: 'rounding',
+          },
+          {
+            name: 'href',
+            type: 'string',
+            required: false,
+            defaultValue: null,
+            description: ['Specify a link URL.', 'Required with role=link.'],
+            href: 'roles',
+          },
+          {
+            name: 'role',
+            type: `'button' | 'link'`,
+            required: false,
+            defaultValue: 'button',
+            description: [
+              `Select a TapArea variant:`,
+              `- 'button': Use for TapArea to act like buttons. The TapArea is rendered as a \`<div>\`.`,
+              `- 'link': Use for TapArea to act like links. The button is rendered as an \`<a>\`.`,
+              `Required with role=link.`,
+            ],
+            href: 'roles',
+          },
+          {
+            name: 'rel',
+            type: `'none' | 'nofollow'`,
+            required: false,
+            defaultValue: 'none',
+            description: 'Optional with role=link.',
+            href: 'roles',
+          },
+          {
+            name: 'target',
+            type: `null | 'self' | 'blank'`,
+            required: false,
+            defaultValue: 'null',
+            description: [
+              'Define the frame or window to open the anchor defined on `href`:',
+              `- 'null' opens the anchor in the same window.`,
+              `- 'blank' opens the anchor in a new window.`,
+              `- 'self' opens an anchor in the same frame.`,
+              'Optional with role=link.',
+            ],
+            href: 'roles',
+          },
+          {
+            name: 'tapStyle',
+            type: `none | 'compress'`,
+            required: false,
+            defaultValue: 'none',
+            description: [
+              'Set a compressing behavior when the TapArea is clicked / touched.',
+              `- 'none' does not compress TapArea.`,
+              `- 'compress' scales down TapArea.`,
+            ],
+            href: 'roles',
+          },
+        ]}
+      />
+      <Example
+        name="Basic TapArea"
+        id="basic-taparea"
+        defaultCode={`
 function TapAreaExample() {
   return (
     <Box rounding={4} borderStyle="sm" width={170}>
@@ -293,18 +284,15 @@ function TapAreaExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="link_buttons"
-    description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
+      />
+      <Example
+        id="link_buttons"
+        description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
 TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
   `}
-    name="TapArea with Link/Buttons"
-    defaultCode={`
+        name="TapArea with Link/Buttons"
+        defaultCode={`
 function TapAreaExample() {
   const [touches, setTouches] = React.useState(0);
 
@@ -343,14 +331,11 @@ function TapAreaExample() {
     </Box>  );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Roles & Compress Behavior"
-    id="roles"
-    defaultCode={`
+      />
+      <Example
+        name="Roles & Compress Behavior"
+        id="roles"
+        defaultCode={`
 function Example() {
   const [disabled, setDisabled] = React.useState(false);
   const [compressed, setCompressed] = React.useState('compress');
@@ -443,14 +428,11 @@ function Example() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Height & Width"
-    id="fullHeightWidth"
-    defaultCode={`
+      />
+      <Example
+        name="Height & Width"
+        id="fullHeightWidth"
+        defaultCode={`
 <Box color="olive" display="flex" width={500} height={250}>
   <Box borderStyle="sm" margin={3} column={6}>
     <TapArea fullHeight>
@@ -472,55 +454,49 @@ card(
   </Box>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Combination
-    id="mouseCursor"
-    name="Mouse Cursor"
-    mouseCursor={['copy', 'grab', 'grabbing', 'move', 'noDrop', 'pointer', 'zoomIn', 'zoomOut']}
-  >
-    {(props, i) => (
-      <TapArea id={`example-${i}`} {...props}>
-        <Box borderStyle="lg" padding={3} color="white">
-          <Text>{props.mouseCursor}</Text>
-        </Box>
-      </TapArea>
-    )}
-  </Combination>,
-);
-
-card(
-  <Combination
-    id="rounding"
-    name="Rounding"
-    rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}
-  >
-    {(props, i) => (
-      <TapArea id={`example-${i}`} {...props}>
-        <Box
-          color="white"
-          borderStyle="lg"
-          width={props.rounding === 'pill' ? 120 : 70}
-          height={70}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          {...props}
-        >
-          <Text>{props.rounding}</Text>
-        </Box>
-      </TapArea>
-    )}
-  </Combination>,
-);
-
-card(
-  <Example
-    id="ref"
-    name="ref"
-    defaultCode={`
+      />
+      <Combination
+        id="mouseCursor"
+        name="Mouse Cursor"
+        mouseCursor={['copy', 'grab', 'grabbing', 'move', 'noDrop', 'pointer', 'zoomIn', 'zoomOut']}
+      >
+        {(props, i) => (
+          <TapArea id={`example-${i}`} {...props}>
+            <Box borderStyle="lg" padding={3} color="white">
+              {/* eslint-disable-next-line react/prop-types */}
+              <Text>{props.mouseCursor}</Text>
+            </Box>
+          </TapArea>
+        )}
+      </Combination>
+      <Combination
+        id="rounding"
+        name="Rounding"
+        rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}
+      >
+        {(props, i) => (
+          <TapArea id={`example-${i}`} {...props}>
+            <Box
+              color="white"
+              borderStyle="lg"
+              // eslint-disable-next-line react/prop-types
+              width={props.rounding === 'pill' ? 120 : 70}
+              height={70}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              {...props}
+            >
+              {/* eslint-disable-next-line react/prop-types */}
+              <Text>{props.rounding}</Text>
+            </Box>
+          </TapArea>
+        )}
+      </Combination>
+      <Example
+        id="ref"
+        name="ref"
+        defaultCode={`
 function TapAreaRefExample() {
   const ref = React.useRef();
   const [focus, setFocus] = React.useState(0);
@@ -547,14 +523,11 @@ function TapAreaRefExample() {
     </Flex>
   );
 }`}
-  />,
-);
-
-card(
-  <Example
-    name="Accessibility: label, controls, expanded, & popup"
-    id="accessibility"
-    defaultCode={`
+      />
+      <Example
+        name="Accessibility: label, controls, expanded, & popup"
+        id="accessibility"
+        defaultCode={`
 function MenuButtonExample() {
   const [selected, setSelected] = React.useState(false);
   const anchorRef = React.useRef();
@@ -619,20 +592,21 @@ function MenuButtonExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+      />
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
 **[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
       `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function TapAreaPage(): Node {
-  return <CardPage cards={cards} page="TapArea" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'TapArea' }) },
+  };
 }

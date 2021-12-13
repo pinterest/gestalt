@@ -4,45 +4,38 @@ import PropTable from '../components/PropTable.js';
 import Card from '../components/Card.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(<PageHeader name="Column" description="Gestalt supports a 12-column system." />);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'span',
-        type: '0 .. 12',
-        required: true,
-        responsive: true,
-      },
-    ]}
-  />,
-);
-
-card(
-  <Card
-    description={`
+export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Column">
+      <PageHeader name="Column" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'children',
+            type: 'React.Node',
+          },
+          {
+            name: 'span',
+            type: '0 .. 12',
+            required: true,
+            responsive: true,
+          },
+        ]}
+      />
+      <Card
+        description={`
     Column is a basic layout component to help you size your UI. A full width is composed
     of 12 units, each equal to 1/12 of the total width. By setting the \`span\` prop you
     dictate the percent width an element can occupy.
   `}
-    name="Static columns"
-  />,
-);
-
-card(
-  <Example
-    name="Example: Basic Column Unit"
-    defaultCode={`
+        name="Static columns"
+      />
+      <Example
+        name="Example: Basic Column Unit"
+        defaultCode={`
 <Box display="flex" direction="row" paddingY={2}>
   {Array(12).fill().map((_, i) => (
     <Column span={1} key={i}>
@@ -55,13 +48,10 @@ card(
   ))}
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Example: Three Equal Columns"
-    defaultCode={`
+      />
+      <Example
+        name="Example: Three Equal Columns"
+        defaultCode={`
 <Box display="flex" direction="row" paddingY={2}>
   <Column span={4}>
     <Box color="lightGray" padding={1}>
@@ -86,13 +76,10 @@ card(
   </Column>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Example: Two Equal Columns"
-    defaultCode={`
+      />
+      <Example
+        name="Example: Two Equal Columns"
+        defaultCode={`
 <Box display="flex" direction="row" paddingY={2}>
   <Column span={6}>
     <Box color="lightGray" padding={1}>
@@ -110,13 +97,10 @@ card(
   </Column>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Example: Two Unequal Columns"
-    defaultCode={`
+      />
+      <Example
+        name="Example: Two Unequal Columns"
+        defaultCode={`
 <Box display="flex" direction="row" paddingY={2}>
   <Column span={8}>
     <Box color="lightGray" padding={1}>
@@ -134,24 +118,18 @@ card(
   </Column>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Card
-    description={`
+      />
+      <Card
+        description={`
     Column supports setting a span at our 3 responsive breakpoints: sm, md, lg. Each
     sets the span of the column from that breakpoint and up. If you don't want your
     column to be responsive, only set the \`span\` prop.
   `}
-    name="Responsive columns"
-  />,
-);
-
-card(
-  <Example
-    name="Example: Stacking Columns"
-    defaultCode={`
+        name="Responsive columns"
+      />
+      <Example
+        name="Example: Stacking Columns"
+        defaultCode={`
 <Box display="flex" direction="row" wrap paddingY={2}>
   <Column span={12} mdSpan={6}>
     <Box color="lightGray" padding={1}>
@@ -179,13 +157,10 @@ card(
   </Column>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Example: Resizing Columns"
-    defaultCode={`
+      />
+      <Example
+        name="Example: Resizing Columns"
+        defaultCode={`
 <Box display="flex" direction="row" wrap paddingY={2}>
   {Array(4).fill().map((_, i) => (
     <Column span={6} mdSpan={3} key={i}>
@@ -203,14 +178,11 @@ card(
   ))}
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    description="Unlike traditional CSS columns, using flex columns makes each column equal height by default."
-    name="Example: Equal height columns"
-    defaultCode={`
+      />
+      <Example
+        description="Unlike traditional CSS columns, using flex columns makes each column equal height by default."
+        name="Example: Equal height columns"
+        defaultCode={`
 <Box display="flex" direction="row">
   <Column span={6}>
     <Box color="darkGray" padding={2}>
@@ -227,14 +199,11 @@ card(
   </Column>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    description="Column gutters can be created through composition and negative margins."
-    name="Example: Gutters"
-    defaultCode={`
+      />
+      <Example
+        description="Column gutters can be created through composition and negative margins."
+        name="Example: Gutters"
+        defaultCode={`
 <Box paddingY={2} color="darkGray">
   <Box paddingX={2} marginBottom={2}>
     <Text color="white">Content</Text>
@@ -266,9 +235,13 @@ card(
   </Box>
 </Box>
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function ColumnPage(): Node {
-  return <CardPage cards={cards} page="Column" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Column' }) },
+  };
 }

@@ -120,7 +120,7 @@ const getTheme = (colorScheme: ?ColorScheme) =>
     : lightModeTheme;
 
 /**
- * https://gestalt.pinterest.systems/colorschemeprovider
+ * [ColorSchemeProvider](https://gestalt.pinterest.systems/colorschemeprovider) is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode
  */
 export default function ColorSchemeProvider({
   children,

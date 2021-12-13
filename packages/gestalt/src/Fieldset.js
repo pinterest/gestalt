@@ -19,7 +19,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/fieldset
+ * [Fieldset](https://gestalt.pinterest.systems/fieldset) creates a fieldset and legend for a group of related form items, like [RadioButtons](https://gestalt.pinterest.systems/radiobutton) or [CheckBoxes](https://gestalt.pinterest.systems/checkbox), in order to clearly indicate related form items."
  */
 export default function Fieldset({
   id = '',

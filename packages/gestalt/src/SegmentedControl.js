@@ -66,7 +66,9 @@ function SegmentedControlItem({
 }
 
 /**
- * https://gestalt.pinterest.systems/segmentedcontrol
+ * [SegmentedControls](https://gestalt.pinterest.systems/segmentedcontrol)  may be used to group between multiple selections. The controls display the current state and related state.
+ *
+ * Create layout to convey clear sense of information hierarchy. When a control is engaged, information below the control should get updated.
  */
 export default function SegmentedControl({
   items,

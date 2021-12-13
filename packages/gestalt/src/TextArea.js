@@ -36,7 +36,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/textArea
+ * [TextArea](https://gestalt.pinterest.systems/textArea) allows for multi-line input.
  */
 const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
   Props,
