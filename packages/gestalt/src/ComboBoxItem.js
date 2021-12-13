@@ -1,5 +1,5 @@
 // @flow strict
-import { useCallback, forwardRef, type Node } from 'react';
+import { forwardRef, type Node } from 'react';
 import Text from './Text.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
@@ -32,17 +32,11 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
   { isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value }: Props,
   ref,
 ): Node {
-  const handleEventPreventDefault = useCallback((event) => event.preventDefault(), []);
+  const handleEventPreventDefault = (event) => event.preventDefault();
 
-  const handleOnTap = useCallback(
-    (event) => onSelect?.({ event, item: { label, value, subtext } }),
-    [onSelect, label, value, subtext],
-  );
+  const handleOnTap = (event) => onSelect?.({ event, item: { label, value, subtext } });
 
-  const handleOnMouseEnter = useCallback(() => setHoveredItemIndex(index), [
-    index,
-    setHoveredItemIndex,
-  ]);
+  const handleOnMouseEnter = () => setHoveredItemIndex(index);
 
   return (
     <div
