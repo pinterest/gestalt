@@ -1,11 +1,13 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useState } from 'react';
-import { Box, Flex, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
+import { Box, Flex, FixedZIndex, Text, IconButton, Sticky } from 'gestalt';
+import Image from 'next/image';
 import DocSearch from './DocSearch.js';
 import HeaderMenu from './HeaderMenu.js';
 import Link from './Link.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
+import gestaltLogo from '../public/gestalt-logo-250.png';
 
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
@@ -15,7 +17,7 @@ function Header() {
       paddingY={2}
       paddingX={4}
       mdPaddingX={6}
-      color="pine"
+      color="lightGray"
       display="flex"
       direction="row"
       alignItems="center"
@@ -23,17 +25,17 @@ function Header() {
     >
       <Box marginStart={-2} marginEnd={-2}>
         {/* <Text> is out here to get proper underline styles on link */}
-        <Text color="white" weight="bold">
-          <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
-            <Box padding={2}>
+        <Text color="darkGray" weight="bold">
+          <Link
+            accessibilityLabel="Gestalt home"
+            href="/"
+            onClick={() => trackButtonClick('Gestalt logo')}
+          >
+            <Box paddingX={2}>
               <Flex alignItems="center" gap={2}>
-                <Icon
-                  icon="pinterest"
-                  color="white"
-                  size={24}
-                  accessibilityLabel="Pinterest Logo"
-                />
-                Gestalt
+                <Image alt="Gestalt logo" height={40} src={gestaltLogo} width={40} />
+                {/* slight tweak to vertically center to logo image */}
+                <Box dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}>Gestalt</Box>
               </Flex>
             </Box>
           </Link>
@@ -54,7 +56,7 @@ function Header() {
           <IconButton
             size="md"
             accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
-            iconColor="white"
+            iconColor="darkGray"
             icon="menu"
             onClick={() => {
               window.scrollTo(0, 0);

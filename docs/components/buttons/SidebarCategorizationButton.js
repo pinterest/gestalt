@@ -19,7 +19,7 @@ export default function SidebarCategorizationButton({ onClick, sidebarOrganisedB
         <IconButton
           accessibilityLabel="Toggle sidebar categorization"
           icon={sidebarOrganisedBy === 'categorized' ? 'arrow-circle-down' : 'folder'}
-          iconColor="white"
+          iconColor="darkGray"
           onClick={() => {
             trackButtonClick('Sidebar Categorization', sidebarOrganisedByCopy);
             onClick();
