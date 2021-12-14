@@ -1,3 +1,9 @@
+## 40.4.4 (Dec 14, 2021)
+
+### Patch
+
+- Internal: CardPage.js deprecation in all Docs pages in favor of Page.js (#1814)
+
 ## 40.4.3 (Dec 13, 2021)
 
 ### Patch
