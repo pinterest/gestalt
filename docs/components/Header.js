@@ -26,7 +26,11 @@ function Header() {
       <Box marginStart={-2} marginEnd={-2}>
         {/* <Text> is out here to get proper underline styles on link */}
         <Text color="darkGray" weight="bold">
-          <Link href="/" onClick={() => trackButtonClick('Pinterest logo')}>
+          <Link
+            accessibilityLabel="Gestalt home"
+            href="/"
+            onClick={() => trackButtonClick('Gestalt logo')}
+          >
             <Box paddingX={2}>
               <Flex alignItems="center" gap={2}>
                 <Image alt="Gestalt logo" height={40} src={gestaltLogo} width={40} />
