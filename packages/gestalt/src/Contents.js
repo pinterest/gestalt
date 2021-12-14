@@ -94,14 +94,14 @@ class Contents extends Component<Props, State> {
     const { onResize, onKeyDown, shouldFocus } = this.props;
     const { popoverRef } = this.state;
 
-    function draw() {
+    function focusPopoverRef() {
       if (shouldFocus && popoverRef) {
         popoverRef.focus();
       }
-      requestAnimationFrame(draw);
+      requestAnimationFrame(focusPopoverRef);
     }
 
-    draw();
+    focusPopoverRef();
     window.addEventListener('resize', onResize);
     window.addEventListener('keydown', onKeyDown);
   }

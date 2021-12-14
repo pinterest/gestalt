@@ -1,10 +1,17 @@
 // @flow strict
 import { forwardRef, type Node } from 'react';
+import classnames from 'classnames';
 import Text from './Text.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
+import touchableStyles from './Touchable.css';
+import layoutStyles from './Layout.css';
+import flexStyles from './Flex.css';
+import bordersStyles from './Borders.css';
+import boxWhitespaceStyles from './boxWhitespace.css';
+import colorStyles from './Colors.css';
 
-export type OptionItemType = {|
+export type ComboBoxItemType = {|
   label: string,
   subtext?: string,
   value: string,
@@ -17,7 +24,7 @@ type Props = {|
   isSelected: boolean,
   label: string,
   onSelect?: ({|
-    item: OptionItemType,
+    item: ComboBoxItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
   setHoveredItemIndex: (number) => void,
@@ -41,7 +48,11 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
   return (
     <div
       aria-selected={isSelected}
-      className={focusStyles.hideOutline}
+      className={classnames(
+        focusStyles.hideOutline,
+        touchableStyles.fullWidth,
+        touchableStyles.pointer,
+      )}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
       onKeyPress={handleEventPreventDefault}
@@ -49,18 +60,20 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
       onMouseEnter={handleOnMouseEnter}
       ref={isHovered ? ref : null}
       role="option"
-      style={{ cursor: 'pointer', width: '100%' }}
       tabIndex={-1}
     >
       <div
-        style={{
-          display: 'flex',
-          padding: '8px',
-          borderRadius: '8px',
-          backgroundColor: isHovered ? '#efefef' : 'transparent',
-        }}
+        className={classnames(
+          flexStyles.Flex,
+          bordersStyles.rounding2,
+          boxWhitespaceStyles.paddingX2,
+          boxWhitespaceStyles.paddingY2,
+          { [colorStyles.lightGrayBg]: isHovered, [colorStyles.transparentBg]: !isHovered },
+        )}
       >
-        <div style={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
+        <div
+          className={classnames(layoutStyles.flexGrow, flexStyles.Flex, layoutStyles.flexColumn)}
+        >
           <Text color="darkGray" inline lineClamp={1}>
             {label}
           </Text>
@@ -71,11 +84,11 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
           )}
         </div>
         <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          className={classnames(
+            flexStyles.Flex,
+            layoutStyles.itemsCenter,
+            layoutStyles.justifyCenter,
+          )}
         >
           {isSelected ? (
             <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />

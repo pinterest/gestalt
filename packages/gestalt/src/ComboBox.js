@@ -18,7 +18,7 @@ import Popover from './Popover.js';
 import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
-import ComboBoxItem, { type OptionItemType } from './ComboBoxItem.js';
+import ComboBoxItem, { type ComboBoxItemType } from './ComboBoxItem.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
@@ -33,7 +33,7 @@ type Props = {|
   accessibilityClearButtonLabel: string,
   id: string,
   label: string,
-  options: $ReadOnlyArray<OptionItemType>,
+  options: $ReadOnlyArray<ComboBoxItemType>,
   noResultText: string,
   // OPTIONAL
   disabled?: boolean,
@@ -60,10 +60,10 @@ type Props = {|
   |}) => void,
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: OptionItemType,
+    item: ComboBoxItemType,
   |}) => void,
   placeholder?: string,
-  selectedOption?: OptionItemType,
+  selectedOption?: ComboBoxItemType,
   size?: Size,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
 |};
@@ -108,19 +108,17 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<?OptionItemType>(null);
-  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionItemType>>(options);
+  const [selectedItem, setSelectedItem] = useState<?ComboBoxItemType>(null);
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<ComboBoxItemType>>(
+    options,
+  );
   const [textfieldInput, setTextfieldInput] = useState<string>('');
 
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
   const isNotControlled = !isControlledInput && !tags;
 
   const textfieldIconButton =
-    (controlledInputValue && controlledInputValue !== '') ||
-    (textfieldInput && textfieldInput !== '') ||
-    (tags && tags.length > 0)
-      ? 'clear'
-      : 'expand';
+    controlledInputValue || textfieldInput || (tags && tags.length > 0) ? 'clear' : 'expand';
 
   // ==== TAGS: Force disable state in Tags if ComboBox is disabled as well ====
 
@@ -289,35 +287,35 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   );
 
   // ==== MAPPING ComboBoxItem ====
-  const comboBoxItemList = useMemo(() => {
-    const buildComboBoxItemCallback = ({ label: comboBoxItemlabel, subtext, value }, index) => {
-      const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
-      return (
-        <ComboBoxItem
-          isHovered={index === hoveredItemIndex}
-          id={id}
-          index={index}
-          key={`${id}${index}`}
-          label={comboBoxItemlabel}
-          subtext={subtext}
-          value={value}
-          onSelect={handleSelectItem}
-          isSelected={isSelectedValue}
-          setHoveredItemIndex={setHoveredItemIndex}
-          ref={optionRef}
-        />
-      );
-    };
-
-    return suggestedOptions.map(buildComboBoxItemCallback);
-  }, [
-    suggestedOptions,
-    handleSelectItem,
-    hoveredItemIndex,
-    id,
-    selectedItem?.value,
-    selectedOption?.value,
-  ]);
+  const comboBoxItemList = useMemo(
+    () =>
+      suggestedOptions.map(({ label: comboBoxItemlabel, subtext, value }, index) => {
+        const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
+        return (
+          <ComboBoxItem
+            isHovered={index === hoveredItemIndex}
+            id={id}
+            index={index}
+            key={`${id}${index}`}
+            label={comboBoxItemlabel}
+            subtext={subtext}
+            value={value}
+            onSelect={handleSelectItem}
+            isSelected={isSelectedValue}
+            setHoveredItemIndex={setHoveredItemIndex}
+            ref={optionRef}
+          />
+        );
+      }),
+    [
+      suggestedOptions,
+      handleSelectItem,
+      hoveredItemIndex,
+      id,
+      selectedItem?.value,
+      selectedOption?.value,
+    ],
+  );
 
   return (
     <Fragment>
