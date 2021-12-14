@@ -1,3 +1,9 @@
+## 40.4.6 (Dec 14, 2021)
+
+### Patch
+
+- Docs: Fixed links under Labels on the Accessibiity page (#1815)
+
 ## 40.4.5 (Dec 14, 2021)
 
 ### Patch
