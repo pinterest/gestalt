@@ -80,8 +80,8 @@ export default function AccessibilityGuidelinesPage(): Node {
           description={`
       One of the most common ways to influence the ARIA attributes in our Gestalt components is through our \`accessibilityLabel\` props. These props allow users to create concise descriptions about components and their interactive elements in order to provide the best possible experience to those using assistive technology, like a screen reader. Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
 
-      - In [AvatarGroup](/AvatarGroup#ARIA-attributes), \`accessibilityLabel\` is used to describe an interactive Avatar face-pile that also acts as a button. A good \`accessibilityLabel\` may be "Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
-      - In [Callout](/Callout#Accessibility) and [Upsell](/Upsell#Accessibility), \`accessibilityLabel\` can be specified for each primary and secondary action to create better context. If the button texts are "Learn More" and "Invite", the accessibility labels should be "Learn more about ads credit" and "Invite friends for ads credit". If the button text is already descriptive enough, the accessibilityLabel can be an empty string.
+      - In [AvatarGroup](/avatargroup#ARIA-attributes), \`accessibilityLabel\` is used to describe an interactive Avatar face-pile that also acts as a button. A good \`accessibilityLabel\` may be "Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
+      - In [Callout](/callout#accessibility) and [Upsell](/upsell#accessibility), \`accessibilityLabel\` can be specified for each primary and secondary action to create better context. If the button texts are "Learn More" and "Invite", the accessibility labels should be "Learn more about ads credit" and "Invite friends for ads credit". If the button text is already descriptive enough, the accessibilityLabel can be an empty string.
     `}
         />
         <MainSection.Subsection
