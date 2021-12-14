@@ -3,7 +3,7 @@ import type { AbstractComponent, Node, Element } from 'react';
 
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
@@ -37,7 +37,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/link
+ * The [Link](https://gestalt.pinterest.systems/link) component allows you to show links on the page, open them in a new window, and change the color.
  */
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,

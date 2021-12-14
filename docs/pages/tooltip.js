@@ -3,17 +3,16 @@ import type { Node } from 'react';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Tooltip"
-    description={`
-Tooltip is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.`}
-    defaultCode={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Tooltip">
+      <PageHeader
+        name="Tooltip"
+        description={generatedDocGen?.description}
+        defaultCode={`
       <Flex>
         <Tooltip text="Align left">
           <IconButton
@@ -44,91 +43,82 @@ Tooltip is a floating text label that succinctly describes the function of an in
         </Tooltip>
       </Flex>
     `}
-  />,
-);
+      />
+      <PropTable
+        props={[
+          {
+            name: 'children',
+            type: 'React.Node',
+            description: `The anchor element, usually [Icon Button](/iconbutton), that triggers Tooltip on hover or focus`,
+            required: true,
+          },
+          {
+            name: 'idealDirection',
+            type: `'up' | 'right' | 'down' | 'left'`,
+            description: `Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](#Ideal-direction) variant to learn more.`,
+            defaultValue: 'down',
+            href: 'Ideal-direction',
+          },
+          {
+            name: 'inline',
+            type: 'boolean',
+            description: `Properly positions Tooltip relative to an inline element, such as [Icon Button](/iconbutton) using the inline property. See the [inline](#Inline) variant to learn more.`,
+            defaultValue: 'false',
+            href: 'Inline',
+          },
 
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-        description: `The anchor element, usually [Icon Button](/iconbutton), that triggers Tooltip on hover or focus`,
-        required: true,
-      },
-      {
-        name: 'idealDirection',
-        type: `'up' | 'right' | 'down' | 'left'`,
-        description: `Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](#Ideal-direction) variant to learn more.`,
-        defaultValue: 'down',
-        href: 'Ideal-direction',
-      },
-      {
-        name: 'inline',
-        type: 'boolean',
-        description: `Properly positions Tooltip relative to an inline element, such as [Icon Button](/iconbutton) using the inline property. See the [inline](#Inline) variant to learn more.`,
-        defaultValue: 'false',
-        href: 'Inline',
-      },
-
-      {
-        name: 'text',
-        type: 'string',
-        description:
-          'The text shown in Tooltip to describe its anchor element. See [localization ](#Localization) to learn more.',
-        required: true,
-      },
-      {
-        name: 'link',
-        type: 'React.Node',
-        description:
-          'Displays a link at the bottom of Tooltip. See the [link](#Link) variant to learn more.',
-        href: 'Link',
-      },
-      {
-        name: 'zIndex',
-        type: 'interface Indexable { index(): number; }',
-        description:
-          'Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](#Z-index) variant to learn more.',
-        href: 'Z-index',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+          {
+            name: 'text',
+            type: 'string',
+            description:
+              'The text shown in Tooltip to describe its anchor element. See [localization ](#Localization) to learn more.',
+            required: true,
+          },
+          {
+            name: 'link',
+            type: 'React.Node',
+            description:
+              'Displays a link at the bottom of Tooltip. See the [link](#Link) variant to learn more.',
+            href: 'Link',
+          },
+          {
+            name: 'zIndex',
+            type: 'interface Indexable { index(): number; }',
+            description:
+              'Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](#Z-index) variant to learn more.',
+            href: 'Z-index',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Providing helpful, but non-essential context to a UI element.
           - Enhancing a baseline understanding of an element or feature.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
           - Offering context at the surface-level scope. Consider a [Callout](/callout) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/iconbutton), in as few words as possible."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/iconbutton), in as few words as possible."
+            defaultCode={`
 <Tooltip text="Send Pin">
   <IconButton
     accessibilityLabel=""
@@ -138,24 +128,24 @@ card(
     size="lg"
   />
 </Tooltip>`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Use Tooltip to restate text already visible on screen."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Tooltip to restate text already visible on screen."
+            defaultCode={`
 <Tooltip text="Save">
   <Button color="red" text="Save" size="lg" />
 </Tooltip>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Use Tooltip to distinguish related actions with visually similar iconography."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Tooltip to distinguish related actions with visually similar iconography."
+            defaultCode={`
 <Flex>
   <Tooltip text="Align left">
     <IconButton
@@ -185,24 +175,24 @@ card(
     />
   </Tooltip>
 </Flex>`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Use Tooltip to communicate critical information, such as an error, instructions for performing a task or interaction feedback."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Tooltip to communicate critical information, such as an error, instructions for performing a task or interaction feedback."
+            defaultCode={`
 <Tooltip text="Pssst! Looks like you've already saved this Pin.">
   <Button color="red" text="Save" size="lg" />
 </Tooltip>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/iconbutton)."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/iconbutton)."
+            defaultCode={`
         <Flex direction="column" gap={1}>
           <Flex alignItems="center" gap={1}>
             <Label htmlFor="business-url-field">
@@ -225,12 +215,12 @@ card(
           />
         </Flex>
 `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Pair Tooltip with a disabled element. See [disabled elements](#Disabled-elements) to learn more."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Pair Tooltip with a disabled element. See [disabled elements](#Disabled-elements) to learn more."
+            defaultCode={`
 <Tooltip
   link={
     <Text color="white" size="sm" weight="bold">
@@ -247,22 +237,19 @@ card(
   <Button size="lg" disabled text="Convert to personal account" />
 </Tooltip>
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Accessibility">
-    <MainSection.Subsection
-      title="Labels"
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="Labels"
+          description={`
 When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` can expand upon that intention, as seen with the \`cog\` IconButton. If Tooltip \`text\` and IconButton \`accessibilityLabel\` contain the same content, pass an empty string to \`accessibilityLabel\`, as seen with the \`send\` IconButton.`}
-      columns={2}
-    >
-      <MainSection.Card
-        cardSize="md"
-        defaultCode={`
+          columns={2}
+        >
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
 <Tooltip text="Customize performance stats for your paid ads">
   <IconButton
     accessibilityLabel="Settings"
@@ -273,10 +260,10 @@ When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. Th
   />
 </Tooltip>
 `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
 <Tooltip text="Send Pin">
   <IconButton
     accessibilityLabel=""
@@ -287,36 +274,30 @@ When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. Th
   />
 </Tooltip>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Disabled elements"
-      description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Disabled elements"
+          description={`
 Tooltips must be paired with an interactive, focusable element, like [Button](/button) or [IconButton](/iconbutton). They cannot be paired with anything disabled or static, because this prevents keyboard users from triggering Tooltip and consuming its content. To test if you’re using Tooltip properly, use your keyboard rather than your mouse to trigger Tooltip.
 
 If you need to explain why an item is disabled, consider adding plain [Text](/text) near the disabled item, or an \`info-circle\` [IconButton](/iconbutton) adjacent to the disabled element.
 `}
-    />
-    <MainSection.Card />
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Localization"
-    description={`Be sure to localize the \`text\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Ideal direction"
-      description={`Pass in \`idealDirection\` to specify the preferred position of Tooltip relative to its anchor element. The default direction is "down", which should be used in most cases. The actual position may change given the available space around the anchor element.`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        />
+        <MainSection.Card />
+      </MainSection>
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize the \`text\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Ideal direction"
+          description={`Pass in \`idealDirection\` to specify the preferred position of Tooltip relative to its anchor element. The default direction is "down", which should be used in most cases. The actual position may change given the available space around the anchor element.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
         function ExampleTooltip() {
   const [idealDirection, setIdealDirection] = React.useState('down');
 
@@ -375,15 +356,15 @@ card(
   )
 }
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Inline"
-      description="Use inline to properly position Tooltip relative to an inline element, such as an [Icon Button](/iconbutton)"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Inline"
+          description="Use inline to properly position Tooltip relative to an inline element, such as an [Icon Button](/iconbutton)"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function SectionsIconButtonDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -429,19 +410,19 @@ function SectionsIconButtonDropdownExample() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Link"
-      description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Link"
+          description={`
       Pass in \`link\` to display a link at the bottom of Tooltip.
 
       ⚠️ Note: this feature will soon be deprecated, as it is not accessible. Please do not use it in new designs or features.
       `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
   <Flex gap={2} justifyContent="center" alignItems="center">
     <Text>Enable expanded targeting</Text>
     <Tooltip
@@ -467,17 +448,17 @@ function SectionsIconButtonDropdownExample() {
     </Tooltip>
   </Flex>
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Z-index"
-      description={`Tooltip has [Layer](/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/zindex%20classes#FixedZIndex) used in [Modal](/modal) and [CompositeZIndex](ZIndex%20Classes#CompositeZIndex) to layer Tooltip on top.
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Z-index"
+          description={`Tooltip has [Layer](/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/zindex%20classes#FixedZIndex) used in [Modal](/modal) and [CompositeZIndex](ZIndex%20Classes#CompositeZIndex) to layer Tooltip on top.
 
 `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ScrollBoundaryContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [alignText, setAlignText] = React.useState('left')
@@ -616,15 +597,15 @@ function ScrollBoundaryContainerExample() {
     </>
   )
 }`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Within scrolling containers"
-      description="ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Within scrolling containers"
+          description="ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ScrollBoundaryContainerExample() {
   const [content, setContent] = React.useState(null);
   const [claimed, setClaimed] = React.useState(null);
@@ -836,42 +817,36 @@ function ScrollBoundaryContainerExample() {
       </Flex>
     </ScrollBoundaryContainer>
 )}`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Writing">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Writing">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`
 - Describe only the element that triggers Tooltip.
 - Focus on the action by beginning with a verb.
 - Use succinct and scannable language.
 - As much as possible, limit Tooltip's text to a maximum of 60 to 75 characters.
 - Use sentence case while always capitalizing the word “Pin.”
 `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`
 - Describe elements other than the one that triggers Tooltip.
 - Use Tooltip to restate text already visible on screen.
 - Use Tooltip to communicate critical information, such as an error, instructions for performing a task, or interaction feedback.
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
 **[Popover](/popover)**
 Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Buttons](/button) and [Images](/image).
 
@@ -881,9 +856,14 @@ ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchore
 **[Toast](/toast)**
 Toast provides feedback on an interaction. One example of Toast is the confirmation that appears when a Pin has been saved. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of being attached to any particular element on the interface.
     `}
-    />
-  </MainSection>,
-);
-export default function TooltipPage(): Node {
-  return <CardPage cards={cards} page="Tooltip" />;
+        />
+      </MainSection>
+    </Page>
+  );
+}
+
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Tooltip' }) },
+  };
 }

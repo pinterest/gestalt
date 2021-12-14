@@ -5,16 +5,15 @@ import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Tabs"
-    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](/segmentedcontrol).`}
-    defaultCode={`
+export default function DocsPage(): Node {
+  return (
+    <Page title="Tabs">
+      <PageHeader
+        name="Tabs"
+        description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](/segmentedcontrol).`}
+        defaultCode={`
     function DefaultExample() {
       const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -32,78 +31,69 @@ card(
       );
     }
     `}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Tabs}
-    props={[
-      {
-        name: 'activeTabIndex',
-        type: 'number',
-        required: true,
-      },
-      {
-        name: 'bgColor',
-        type: `"default" | "transparent"`,
-        defaultValue: 'default',
-        description: `If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color](#Background-color) example to learn more.`,
-      },
-      {
-        name: 'onChange',
-        type: `({| +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number, dangerouslyDisableOnNavigation: () => void  |}) => void`,
-        required: true,
-        description:
-          'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
-      },
-      {
-        name: 'tabs',
-        type: `Array<{| href: string, text: React.Node, id?: string, indicator?: 'dot' | number, ref?: {| current: ?HTMLElement |} |}>`,
-        required: true,
-      },
-      {
-        name: 'wrap',
-        type: 'boolean',
-        description: `By default, flex items will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.`,
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+      />
+      <PropTable
+        Component={Tabs}
+        props={[
+          {
+            name: 'activeTabIndex',
+            type: 'number',
+            required: true,
+          },
+          {
+            name: 'bgColor',
+            type: `"default" | "transparent"`,
+            defaultValue: 'default',
+            description: `If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color](#Background-color) example to learn more.`,
+          },
+          {
+            name: 'onChange',
+            type: `({| +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number, dangerouslyDisableOnNavigation: () => void  |}) => void`,
+            required: true,
+            description:
+              'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
+          },
+          {
+            name: 'tabs',
+            type: `Array<{| href: string, text: React.Node, id?: string, indicator?: 'dot' | number, ref?: {| current: ?HTMLElement |} |}>`,
+            required: true,
+          },
+          {
+            name: 'wrap',
+            type: 'boolean',
+            description: `By default, flex items will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.`,
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - To break up a large collection of content into logical, digestible views.
           - To switch between different, yet related views, such as Updates and Messages.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - When any UI or content above the Tabs is altered upon selection. Use [Link](/link) instead.
           - To break up content that is not related to each other or is not on the same hierarchical level.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Place Tabs directly above the target content."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Place Tabs directly above the target content."
+            defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(1);
   const [switched, setSwitched] = React.useState(true);
@@ -155,12 +145,12 @@ function TabExample() {
   );
 }
   `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Use Tabs as a way to filter content. Consider using [SegmentedControl](/segmentedcontrol) in this use-case."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Tabs as a way to filter content. Consider using [SegmentedControl](/segmentedcontrol) in this use-case."
+            defaultCode={`
         function FilterExample() {
           const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -184,14 +174,14 @@ function TabExample() {
           );
         }
           `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Keep Tab labels concise, ideally one to two words."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Keep Tab labels concise, ideally one to two words."
+            defaultCode={`
         function ConciseExample() {
           const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -215,12 +205,12 @@ function TabExample() {
           );
         }
           `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Truncate labels in Tabs. If there is not enough horizontal space, allow the Tabs to scroll horizontally."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Truncate labels in Tabs. If there is not enough horizontal space, allow the Tabs to scroll horizontally."
+            defaultCode={`
         function TruncateExample() {
           const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -244,14 +234,14 @@ function TabExample() {
           );
         }
           `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Order Tabs by relevance — the first tab should be the most logical starting view. Ideally, sequence Tabs by association — tabs with similar content should be adjacent to each other."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Order Tabs by relevance — the first tab should be the most logical starting view. Ideally, sequence Tabs by association — tabs with similar content should be adjacent to each other."
+            defaultCode={`
         function OrderExample() {
           const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -275,12 +265,12 @@ function TabExample() {
           );
         }
           `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Disable or hide Tabs if a Tab's content is empty. There should always be at least 2 Tabs. We don't support applying a disabled state for the Tab as it can cause usability and accessibility issues."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Disable or hide Tabs if a Tab's content is empty. There should always be at least 2 Tabs. We don't support applying a disabled state for the Tab as it can cause usability and accessibility issues."
+            defaultCode={`
         function FilterExample() {
           const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -302,45 +292,36 @@ function TabExample() {
           );
         }
           `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Accessibility"
-    description="Tabs are intended for page-level navigation between multiple URLs.
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection
+        name="Accessibility"
+        description="Tabs are intended for page-level navigation between multiple URLs.
   Each tab must have an individual title that precisely describes the tab content. Provide a short, descriptive label for screen-readers using `accessibilityLabel`. It is helpful for users of assistive technologies so they have the necessary information to navigate the content efficiently."
-  >
-    <MainSection.Subsection
-      title="Keyboard"
-      description={`
+      >
+        <MainSection.Subsection
+          title="Keyboard"
+          description={`
       Tab key navigates the tabs.
       Enter/return key activates a tab (i.e., it navigates to the link \`href\`).`}
-      columns={2}
-    />
-    <MainSection.Subsection
-      title="Screen Reader"
-      description={`
+          columns={2}
+        />
+        <MainSection.Subsection
+          title="Screen Reader"
+          description={`
       The tab/link **must** announce a state of "current" if the \`href\` matches the current window URL.`}
-    />
-    <MainSection.Card />
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Localization"
-    description={`Be sure to localize \`text\` and \`accessibilityLabel\`.
+        />
+        <MainSection.Card />
+      </MainSection>
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize \`text\` and \`accessibilityLabel\`.
     The Tab's title should be 3 words or less: long enough to be understood by users but short enough to prevent text wrapping. Aim for a single word when possible.`}
-  />,
-);
-
-card(
-  <Example
-    name="Example"
-    defaultCode={`
+      />
+      <Example
+        name="Example"
+        defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [wrap, setWrap] = React.useState(false);
@@ -382,13 +363,10 @@ function TabExample() {
   );
 }
   `}
-  />,
-);
-
-card(
-  <Example
-    name="Background color"
-    defaultCode={`
+      />
+      <Example
+        name="Background color"
+        defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [wrap, setWrap] = React.useState(false);
@@ -431,23 +409,18 @@ function TabExample() {
   );
 }
   `}
-  />,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+      />
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
 **[Link](/link)**
 Link is used to navigate to different areas of the product or to external sites. Link is the preferred component in cases where you want to direct the user to unrelated content.
 
 **[SegmentedControl](/segmentedcontrol)**
 SegmentedControl is used to switch between views within a small area of content, such as a [Popover](/popover). SegmentedControl is preferred when changing state or selection within a view.
 `}
-    />
-  </MainSection>,
-);
-
-export default function TabsPage(): Node {
-  return <CardPage cards={cards} page="Tabs" />;
+        />
+      </MainSection>
+    </Page>
+  );
 }

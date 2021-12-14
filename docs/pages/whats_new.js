@@ -1,14 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
-
 import { useState, useEffect } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
-
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+import Page from '../components/Page.js';
 
 function Changelog() {
   const [changelogData, setChangelogData] = useState('Loading changelog from GitHub...');
@@ -66,8 +62,10 @@ function Changelog() {
   );
 }
 
-card(<Changelog />);
-
-export default function WhatsNewPage(): Node {
-  return <CardPage cards={cards} page="What's New" />;
+export default function DocsPage(): Node {
+  return (
+    <Page title="Changelog">
+      <Changelog />
+    </Page>
+  );
 }

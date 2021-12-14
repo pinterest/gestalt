@@ -4,7 +4,7 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import DefaultAvatar from './DefaultAvatar.js';
 
 const sizes = {

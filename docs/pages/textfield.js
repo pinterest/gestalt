@@ -629,6 +629,6 @@ function TextFieldPopoverExample() {
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('TextField') },
+    props: { generatedDocGen: await docgen({ componentName: 'TextField' }) },
   };
 }

@@ -9,7 +9,7 @@ import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.j
 import { getContainerNode } from './utils/positioningUtils.js';
 
 /**
- * https://gestalt.pinterest.systems/layer
+ * [Layers](https://gestalt.pinterest.systems/layer) allow you to render children outside the DOM hierarchy of the parent. It's a wrapper around React createPortal that lets you use it as a component. This is particularly useful for places you might have needed to use z-index to overlay the screen before.
  */
 export default function Layer({
   children,

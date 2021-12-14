@@ -3,85 +3,74 @@ import type { Node } from 'react';
 import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Collage"
-    description="
-Similar to Masonry, Collage creates a deterministic grid layout that can absolutely position and virtualize images.
-"
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'columns',
-        type: 'number',
-        description:
-          'Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors.',
-        required: true,
-        href: 'columns',
-      },
-      {
-        name: 'cover',
-        type: 'boolean',
-        description: 'Whether or not the first image is a cover image',
-        defaultValue: false,
-        href: 'coverImage',
-      },
-      {
-        name: 'gutter',
-        type: 'number',
-        description: 'The amount of vertical & horizontal space between images',
-        defaultValue: 0,
-        href: 'gutter',
-      },
-      {
-        name: 'height',
-        type: 'number',
-        description: 'Height of the collage',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'layoutKey',
-        type: 'number',
-        description: `
+export default function CollagePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Collage">
+      <PageHeader name="Collage" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'columns',
+            type: 'number',
+            description:
+              'Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors.',
+            required: true,
+            href: 'columns',
+          },
+          {
+            name: 'cover',
+            type: 'boolean',
+            description: 'Whether or not the first image is a cover image',
+            defaultValue: false,
+            href: 'coverImage',
+          },
+          {
+            name: 'gutter',
+            type: 'number',
+            description: 'The amount of vertical & horizontal space between images',
+            defaultValue: 0,
+            href: 'gutter',
+          },
+          {
+            name: 'height',
+            type: 'number',
+            description: 'Height of the collage',
+            required: true,
+            href: 'basicExample',
+          },
+          {
+            name: 'layoutKey',
+            type: 'number',
+            description: `
         Depending on the number of columns of the collage, there may be multiple layouts available.
         If there are N layouts available, (layoutKey % N) will determine which layout is used.
         `,
-        defaultValue: 0,
-        href: 'layoutKey',
-      },
-      {
-        name: 'renderImage',
-        type: '({| width: number, height: number, index: number |}) => React.Node',
-        description: 'Render prop for the collage images',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'width',
-        type: 'number',
-        description: 'Width of the collage',
-        required: true,
-        href: 'basicExample',
-      },
-    ]}
-  />,
-);
-
-card(
-  <Example
-    id="basicExample"
-    name="Basic example"
-    defaultCode={`
+            defaultValue: 0,
+            href: 'layoutKey',
+          },
+          {
+            name: 'renderImage',
+            type: '({| width: number, height: number, index: number |}) => React.Node',
+            description: 'Render prop for the collage images',
+            required: true,
+            href: 'basicExample',
+          },
+          {
+            name: 'width',
+            type: 'number',
+            description: 'Width of the collage',
+            required: true,
+            href: 'basicExample',
+          },
+        ]}
+      />
+      <Example
+        id="basicExample"
+        name="Basic example"
+        defaultCode={`
 <Collage
   columns={3}
   height={300}
@@ -141,15 +130,12 @@ card(
   }}
 />
 `}
-  />,
-);
-
-card(
-  <Example
-    id="columns"
-    name="Different columns"
-    description="2 - 4 columns"
-    defaultCode={`
+      />
+      <Example
+        id="columns"
+        name="Different columns"
+        description="2 - 4 columns"
+        defaultCode={`
 <Flex wrap>
   {[2, 3, 4].map((columns) => (
     <Box key={columns} padding={2}>
@@ -229,14 +215,11 @@ card(
   ))}
 </Flex>
 `}
-  />,
-);
-
-card(
-  <Example
-    id="gutter"
-    name="Gutter"
-    defaultCode={`
+      />
+      <Example
+        id="gutter"
+        name="Gutter"
+        defaultCode={`
 <Box color="gray" width={300} height={300}>
   <Collage
     columns={3}
@@ -299,14 +282,11 @@ card(
   />
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    id="coverImage"
-    name="Cover image"
-    defaultCode={`
+      />
+      <Example
+        id="coverImage"
+        name="Cover image"
+        defaultCode={`
 <Box color="gray" width={300} height={300}>
   <Collage
     columns={3}
@@ -352,14 +332,11 @@ card(
   />
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    name="Different columns with cover image"
-    description="2 - 4 columns with cover image"
-    defaultCode={`
+      />
+      <Example
+        name="Different columns with cover image"
+        description="2 - 4 columns with cover image"
+        defaultCode={`
 <Flex wrap>
   {[2, 3, 4].map((columns) => (
     <Box key={columns} padding={2}>
@@ -440,19 +417,16 @@ card(
   ))}
 </Flex>
 `}
-  />,
-);
-
-card(
-  <Example
-    id="layoutKey"
-    name="Layout key"
-    description="
+      />
+      <Example
+        id="layoutKey"
+        name="Layout key"
+        description="
       You can pick a layout using the layout key (layout key is 0 by default).
       Depending on the number of columns of the collage, there may be multiple layouts available.
       If there are N layouts available, (layoutKey % N) will determine which layout is used.
       "
-    defaultCode={`
+        defaultCode={`
 <Flex wrap>
   {[0, 1, 2, 3].map((layoutKey) => (
     <Box key={layoutKey} padding={2}>
@@ -525,9 +499,13 @@ card(
   ))}
 </Flex>
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function CollagePage(): Node {
-  return <CardPage cards={cards} page="Collage" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Collage' }) },
+  };
 }

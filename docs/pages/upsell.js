@@ -4,21 +4,16 @@ import { Upsell } from 'gestalt';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Upsell"
-    description={`
-
-    Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.
-
-    ⚠️ Please note: Upsell is not currently supported in dark mode.
-    `}
-    defaultCode={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Upsell">
+      <PageHeader
+        name="Upsell"
+        description={generatedDocGen?.description}
+        defaultCode={`
       <Upsell
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
@@ -37,146 +32,134 @@ card(
         title="Give $30, get $60 in ads credit"
       />;
     `}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Upsell}
-    props={[
-      {
-        name: 'children',
-        type: 'typeof Upsell.Form',
-        description: `To create forms within Upsell, pass Upsell.Form as children`,
-      },
-      {
-        name: 'dismissButton',
-        type: '{| accessibilityLabel: string, onDismiss: () => void, |}',
-        defaultValue: null,
-        description: `
+      />
+      <PropTable
+        Component={Upsell}
+        props={[
+          {
+            name: 'children',
+            type: 'typeof Upsell.Form',
+            description: `To create forms within Upsell, pass Upsell.Form as children`,
+          },
+          {
+            name: 'dismissButton',
+            type: '{| accessibilityLabel: string, onDismiss: () => void, |}',
+            defaultValue: null,
+            description: `
         Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility)
         `,
-      },
-      {
-        name: 'imageData',
-        type:
-          '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
-        defaultValue: null,
-        description:
-          'Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
-      },
-      {
-        name: 'message',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: `Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.`,
-      },
-      {
-        name: 'primaryAction',
-        type:
-          '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-        defaultValue: null,
-        description: `
+          },
+          {
+            name: 'imageData',
+            type:
+              '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
+            defaultValue: null,
+            description:
+              'Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
+          },
+          {
+            name: 'message',
+            type: 'string',
+            required: true,
+            defaultValue: null,
+            description: `Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.`,
+          },
+          {
+            name: 'primaryAction',
+            type:
+              '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
+            defaultValue: null,
+            description: `
           Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
           If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
-      },
-      {
-        name: 'secondaryAction',
-        type:
-          '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-        defaultValue: null,
-        description: `
+          },
+          {
+            name: 'secondaryAction',
+            type:
+              '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
+            defaultValue: null,
+            description: `
           Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
           If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
-      },
-      {
-        name: 'title',
-        type: 'string',
-        defaultValue: null,
-        description: `Brief title summarizing the Upsell. Content should be [localized](#Localization).`,
-      },
-    ]}
-  />,
-);
-
-card(
-  <PropTable
-    name="Upsell.Form"
-    id="Upsell.Form"
-    Component={Upsell?.Form}
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-        required: true,
-        description: `Contents of the form, typically inputs like [TextField(s)](/textfield).`,
-      },
-      {
-        name: 'onSubmit',
-        type:
-          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
-        required: true,
-        description: `Actions to perform when the form has been submitted.`,
-      },
-      {
-        name: 'submitButtonText',
-        type: 'string',
-        required: true,
-        description: `Content of the submit button.`,
-      },
-      {
-        name: 'submitButtonAccessibilityLabel',
-        type: 'string',
-        required: true,
-        description: `Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](#Accessibility).`,
-      },
-      {
-        name: 'submitButtonDisabled',
-        type: 'boolean',
-        description: `Disables the submit button when \`true\`.`,
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+          },
+          {
+            name: 'title',
+            type: 'string',
+            defaultValue: null,
+            description: `Brief title summarizing the Upsell. Content should be [localized](#Localization).`,
+          },
+        ]}
+      />
+      <PropTable
+        name="Upsell.Form"
+        id="Upsell.Form"
+        Component={Upsell?.Form}
+        props={[
+          {
+            name: 'children',
+            type: 'React.Node',
+            required: true,
+            description: `Contents of the form, typically inputs like [TextField(s)](/textfield).`,
+          },
+          {
+            name: 'onSubmit',
+            type:
+              '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
+            required: true,
+            description: `Actions to perform when the form has been submitted.`,
+          },
+          {
+            name: 'submitButtonText',
+            type: 'string',
+            required: true,
+            description: `Content of the submit button.`,
+          },
+          {
+            name: 'submitButtonAccessibilityLabel',
+            type: 'string',
+            required: true,
+            description: `Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](#Accessibility).`,
+          },
+          {
+            name: 'submitButtonDisabled',
+            type: 'boolean',
+            description: `Disables the submit button when \`true\`.`,
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Displaying promotional information to a user that is not tied to a task or state on the surface.
           - Sharing updates or changes to the features and offerings of the product.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - Anything related to state or status within the surface. Consider a [Callout](/callout) instead.
           - Promoting or highlighting specific elements / areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="lg"
-        type="do"
-        description="Use Upsells for marketing new products or encouraging upgrades."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection>
+          <MainSection.Card
+            cardSize="lg"
+            type="do"
+            description="Use Upsells for marketing new products or encouraging upgrades."
+            defaultCode={`
 <Upsell
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -195,14 +178,14 @@ card(
   title="Give $30, get $60 in ads credit"
 />;
         `}
-      />
-      <MainSection.Card
-        cardSize="lg"
-        type="do"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="lg"
+            type="do"
+            description={`
         Place Upsell at the top of the page under the primary navigation when possible.
         `}
-        defaultCode={`
+            defaultCode={`
 <Box>
   <Box alignItems="center" display="flex" marginBottom={4}>
     <Icon accessibilityLabel="" color="red" icon="pinterest" size={32} />
@@ -237,15 +220,15 @@ card(
   </Box>
 </Box>;
         `}
-      />
+          />
 
-      <MainSection.Card
-        cardSize="lg"
-        type="do"
-        description={`
+          <MainSection.Card
+            cardSize="lg"
+            type="do"
+            description={`
         Plan for the timing of your Upsells with new product launches. Try to create different messages for each time an Upsell appears to the user.
         `}
-        defaultCode={`
+            defaultCode={`
 <Flex gap={4} direction="column">
   <Text>First Upsell:</Text>
   <Upsell
@@ -272,15 +255,15 @@ card(
   />
 </Flex>;
         `}
-      />
+          />
 
-      <MainSection.Card
-        cardSize="lg"
-        type="don't"
-        description={`
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description={`
           Use Upsells for critical information, such as errors or warnings. Use [Callout](/callout) instead. Upsells should not be used for general information either.
         `}
-        defaultCode={`
+            defaultCode={`
 <Upsell
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -294,15 +277,15 @@ card(
   title="Could not link account"
 />;
         `}
-      />
+          />
 
-      <MainSection.Card
-        cardSize="lg"
-        type="don't"
-        description={`
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description={`
         Stack Upsells on a page. In the case that they must be stacked, [Callouts](/callout) will appear above Upsells.
         `}
-        defaultCode={`
+            defaultCode={`
 <Box>
   <Box alignItems="center" display="flex" marginBottom={4}>
     <Icon accessibilityLabel="" color="red" icon="pinterest" size={32} />
@@ -347,15 +330,15 @@ card(
   </Box>
 </Box>;
         `}
-      />
+          />
 
-      <MainSection.Card
-        cardSize="lg"
-        type="don't"
-        description={`
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description={`
         Keep showing the same Upsell once it has been dismissed. Upsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
         `}
-        defaultCode={`
+            defaultCode={`
 <Flex direction="column" gap={4}>
   <Upsell
     dismissButton={{
@@ -383,16 +366,13 @@ card(
   />
 </Flex>;
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Accessibility">
-    <MainSection.Subsection
-      title="Labels"
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="Labels"
+          description={`
       \`dismissButton\`, \`primaryAction\`, \`secondaryAction\`, and \`submitButtonAccessibilityLabel\` each require a short, descriptive label for screen readers, which should also be localized.
 
       In the case of action [Buttons](/button) or [Links](/link), alternative text should be provided through the \`accessibilityLabel\` prop to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
@@ -401,10 +381,10 @@ card(
 
       The [Image](/image) or [Icon](/icon) supplied to \`imageData\` should only supply an \`alt\` or \`accessibilityLabel\`, respectively, if the Image or Icon supplies extra context or information. Icons in Upsells are often purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`.
       `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Upsell
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -423,20 +403,17 @@ card(
   title="Give $30, get $60 in ads credit"
 />;
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Localization"
-    description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
-  >
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection
+        name="Localization"
+        description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
+      >
+        <MainSection.Subsection>
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Upsell
   imageData={{
     component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
@@ -450,20 +427,17 @@ card(
   title="Fast fertig! Beenden Sie die Installation Ihres Pinterest-Tags und erhalten Sie ein Guthaben von 10 Euro"
 />;
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Text-only"
-      description="Used to convey a short message that requires no action, except dismiss."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Text-only"
+          description="Used to convey a short message that requires no action, except dismiss."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Upsell
   dismissButton={{
     accessibilityLabel: 'Dismiss this banner',
@@ -472,16 +446,16 @@ card(
   message="Single line Upsell with no title or call to action."
 />;
 `}
-      />
-    </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-    <MainSection.Subsection
-      title="Icon"
-      description="The Icon is used to add additional meaning to the Upsell. The icon can reference a Pinterest product, feature or an action from our [Icon library](/icon)."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        <MainSection.Subsection
+          title="Icon"
+          description="The Icon is used to add additional meaning to the Upsell. The icon can reference a Pinterest product, feature or an action from our [Icon library](/icon)."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Upsell
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -500,16 +474,16 @@ card(
   title="Give $30, get $60 in ads credit"
 />;
         `}
-      />
-    </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-    <MainSection.Subsection
-      title="Image"
-      description="The [Image](/image) in Upsell is used to add visual interest and draw the user’s attention. Images should relate to the message of the Upsell. Upsell images should use approved photography or be illustrations using our brand colors. Images will always be 128px wide."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        <MainSection.Subsection
+          title="Image"
+          description="The [Image](/image) in Upsell is used to add visual interest and draw the user’s attention. Images should relate to the message of the Upsell. Upsell images should use approved photography or be illustrations using our brand colors. Images will always be 128px wide."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Upsell
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -538,12 +512,12 @@ card(
   title="Stay healthy and safe"
 />;
         `}
-      />
-    </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-    <MainSection.Subsection
-      title="Actions"
-      description={`
+        <MainSection.Subsection
+          title="Actions"
+          description={`
       Upsells can have either one primary action, or a primary action and a secondary action. These actions can be buttons, when no \`href\` is supplied, or links, by specifying the \`href\`  property.
 
       Upsell actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
@@ -552,10 +526,10 @@ card(
 
       If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
       `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
 
@@ -660,17 +634,17 @@ function Example(props) {
   );
 }
         `}
-      />
-    </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-    <MainSection.Subsection
-      title="Forms"
-      description={`Inputs can be added to Upsells to collect information from users (ex: name or email) through the use of \`Upsell.Form\`. Most Upsells should have no more than 2 inputs. If more inputs are needed, direct users to a full page using the \`primaryAction\`.`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        title="Single TextField"
-        defaultCode={`
+        <MainSection.Subsection
+          title="Forms"
+          description={`Inputs can be added to Upsells to collect information from users (ex: name or email) through the use of \`Upsell.Form\`. Most Upsells should have no more than 2 inputs. If more inputs are needed, direct users to a full page using the \`primaryAction\`.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            title="Single TextField"
+            defaultCode={`
 function FormExample(props) {
   const [value, setValue] = React.useState('');
   const handleSubmit = ({ event }) => {
@@ -706,12 +680,12 @@ function FormExample(props) {
   );
 }
       `}
-      />
+          />
 
-      <MainSection.Card
-        cardSize="lg"
-        title="Multiple TextFields"
-        defaultCode={`
+          <MainSection.Card
+            cardSize="lg"
+            title="Multiple TextFields"
+            defaultCode={`
 function Example(props) {
   const [nameValue, setNameValue] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
@@ -777,15 +751,12 @@ function Example(props) {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
       **[Callout](/callout)**
       Use Callout when communicating critical information, such as an error or warning. Callout can also be used to present the user with general information and further actions they can take, like the successful creation of a business account.
 
@@ -799,10 +770,14 @@ card(
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
 
     `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function UpsellPage(): Node {
-  return <CardPage cards={cards} page="Upsell" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Upsell' }) },
+  };
 }

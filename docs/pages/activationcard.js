@@ -119,6 +119,6 @@ OnLinkNavigationProvider allows external link navigation control across all chil
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('ActivationCard') },
+    props: { generatedDocGen: await docgen({ componentName: 'ActivationCard' }) },
   };
 }

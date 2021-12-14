@@ -659,6 +659,6 @@ function SecondaryActionExample() {
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('PageHeader') },
+    props: { generatedDocGen: await docgen({ componentName: 'PageHeader' }) },
   };
 }

@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import typography from './Typography.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import icons from './icons/index.js';
 import styles from './Icon.css';
 import colors from './Colors.css';

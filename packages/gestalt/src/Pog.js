@@ -56,7 +56,9 @@ const defaultIconButtonIconColors = {
 };
 
 /**
- * https://gestalt.pinterest.systems/pog
+ * [Pog](https://gestalt.pinterest.systems/pog) is a lower-level functional component to show the active, hovered, & focused states of an [IconButton](/iconbutton).
+ *
+ *This abstraction to allow for links that look like an IconButton.
  */
 export default function Pog(props: Props): Node {
   const {

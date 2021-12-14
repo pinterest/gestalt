@@ -5,7 +5,7 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
 import Icon from './Icon.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import touchableStyles from './Touchable.css';
@@ -33,7 +33,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/tag
+ * [Tags](https://gestalt.pinterest.systems/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/combobox#Tags) or as standalone components.
  *
  * ![Tag light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tag%20%230.png)
  * ![Tag dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tag-dark%20%230.png)

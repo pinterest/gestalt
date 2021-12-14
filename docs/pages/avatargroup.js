@@ -564,6 +564,6 @@ function LinkExample() {
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('AvatarGroup') },
+    props: { generatedDocGen: await docgen({ componentName: 'AvatarGroup' }) },
   };
 }

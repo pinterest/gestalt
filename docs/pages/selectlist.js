@@ -437,7 +437,7 @@ If users need the ability to choose between a yes/no option, use Checkbox.
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const docGen = await docgen('SelectList');
+  const docGen = await docgen({ componentName: 'SelectList' });
   const overriddenDocGen = overrideTypes(docGen, {
     onChange: '({| event: SyntheticInputEvent<HTMLSelectElement>, value: string |}) => void',
   });

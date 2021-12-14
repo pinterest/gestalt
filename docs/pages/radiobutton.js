@@ -6,120 +6,106 @@ import PropTable from '../components/PropTable.js';
 import Combination from '../components/Combination.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="RadioButton"
-    description="Use radio buttons when you have a few options that a user can choose from. Never use
-radio buttons if the user can select more than one option from a list.
-"
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'checked',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'radio-button-combos',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'radio-button-combos',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'image',
-        type: 'React.Node',
-        href: 'images',
-        description:
-          'An optional `<Image/>` component can be supplied to add an image to each radio button. Spacing is already accounted for, simply specify the width and height.',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-        description: 'The name given for all radio buttons in a single group',
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
-        required: true,
-      },
-      {
-        name: 'value',
-        type: 'string',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-        href: 'ref',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md"`,
-        description: `sm: 16px, md: 24px`,
-        defaultValue: 'md',
-        href: 'ref',
-      },
-      {
-        name: 'subtext',
-        type: 'string',
-        href: 'subtext',
-        description:
-          'Optional description for the radio button, used to provide more detail about an option',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="RadioButton">
+      <PageHeader name="RadioButton" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'checked',
+            type: 'boolean',
+            defaultValue: false,
+            href: 'radio-button-combos',
+          },
+          {
+            name: 'disabled',
+            type: 'boolean',
+            defaultValue: false,
+            href: 'radio-button-combos',
+          },
+          {
+            name: 'id',
+            type: 'string',
+            required: true,
+          },
+          {
+            name: 'image',
+            type: 'React.Node',
+            href: 'images',
+            description:
+              'An optional `<Image/>` component can be supplied to add an image to each radio button. Spacing is already accounted for, simply specify the width and height.',
+          },
+          {
+            name: 'label',
+            type: 'string',
+          },
+          {
+            name: 'name',
+            type: 'string',
+            description: 'The name given for all radio buttons in a single group',
+          },
+          {
+            name: 'onChange',
+            type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
+            required: true,
+          },
+          {
+            name: 'value',
+            type: 'string',
+          },
+          {
+            name: 'ref',
+            type: "React.Ref<'input'>",
+            description: 'Forward the ref to the underlying input element',
+            href: 'ref',
+          },
+          {
+            name: 'size',
+            type: `"sm" | "md"`,
+            description: `sm: 16px, md: 24px`,
+            defaultValue: 'md',
+            href: 'ref',
+          },
+          {
+            name: 'subtext',
+            type: 'string',
+            href: 'subtext',
+            description:
+              'Optional description for the radio button, used to provide more detail about an option',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Situations where users can only choose one out of multiple, related options.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - Any time users can choose more than one option. Use [Checkboxes](/checkbox) instead.
           - As a solitary option. RadioButtons should always appear in groups of 2 or more. Consider a [Checkbox](/checkbox) or [Switch](/switch) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    description="
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <Example
+        description="
     Here is an example of an accessible group of radio buttons. All radio buttons should be wrapped in a [Fieldset](/fieldset).
   "
-    name="RadioButton Group"
-    defaultCode={`
+        name="RadioButton Group"
+        defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState(undefined);
   const [favoriteFood, setFavoriteFood] = React.useState(undefined);
@@ -186,17 +172,14 @@ function RadioButtonExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="subtext"
-    description="
+      />
+      <Example
+        id="subtext"
+        description="
     Here is an example of a group of radio buttons with subtext.
   "
-    name="Example: With Subtext"
-    defaultCode={`
+        name="Example: With Subtext"
+        defaultCode={`
 function RadioButtonExample() {
   const [availability, setAvailability] = React.useState(undefined);
 
@@ -235,17 +218,14 @@ function RadioButtonExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="images"
-    description="
+      />
+      <Example
+        id="images"
+        description="
     Here is an example of a group of radio buttons with images. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context.
   "
-    name="Example: With Images"
-    defaultCode={`
+        name="Example: With Images"
+        defaultCode={`
 function RadioButtonExample() {
   const [artPreference, setArtPreference] = React.useState(undefined);
 
@@ -288,15 +268,12 @@ function RadioButtonExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="ref"
-    name="Example: ref"
-    description={`The innermost \`RadioButton\` element can be accessed via \`ref\``}
-    defaultCode={`
+      />
+      <Example
+        id="ref"
+        name="Example: ref"
+        description={`The innermost \`RadioButton\` element can be accessed via \`ref\``}
+        defaultCode={`
 function RadioButtonExample() {
   const ref = React.useRef();
   const [label, setLabel] = React.useState("24 px RadioButton");
@@ -334,17 +311,14 @@ function RadioButtonExample() {
     </Flex>
   );
 }`}
-  />,
-);
-
-card(
-  <Example
-    name="Example: RadioButton and Popover"
-    description={`
+      />
+      <Example
+        name="Example: RadioButton and Popover"
+        description={`
     A \`RadioButton\` with an anchor ref to a Popover component doesn't pass the correct positioning to the Popover. Instead set the anchor ref to the parent container.
   `}
-    skipContrastCheck
-    defaultCode={`
+        skipContrastCheck
+        defaultCode={`
 
 function RadioButtonPopoverExample() {
   const [open, setOpen] = React.useState(false);
@@ -418,24 +392,25 @@ function RadioButtonPopoverExample() {
   );
 }
 `}
-  />,
-);
+      />
+      <Combination
+        checked={[false, true]}
+        disabled={[false, true]}
+        size={['sm', 'md']}
+        id="radio-state-combos"
+        hasCheckerboard={false}
+        labelPrefix="radio-state-combos"
+      >
+        {(props, i) => (
+          <RadioButton id={`radio-state-combos-${i}`} onChange={() => {}} value="" {...props} />
+        )}
+      </Combination>
+    </Page>
+  );
+}
 
-card(
-  <Combination
-    checked={[false, true]}
-    disabled={[false, true]}
-    size={['sm', 'md']}
-    id="radio-state-combos"
-    hasCheckerboard={false}
-    labelPrefix="radio-state-combos"
-  >
-    {(props, i) => (
-      <RadioButton id={`radio-state-combos-${i}`} onChange={() => {}} value="" {...props} />
-    )}
-  </Combination>,
-);
-
-export default function RadioButtonPage(): Node {
-  return <CardPage cards={cards} page="RadioButton" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'RadioButton' }) },
+  };
 }

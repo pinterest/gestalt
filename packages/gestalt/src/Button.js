@@ -11,7 +11,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import InternalLink from './InternalLink.js';
 import Icon, { type IconColor } from './Icon.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 const DEFAULT_TEXT_COLORS = {
@@ -102,7 +102,7 @@ const IconEnd = ({
 );
 
 /**
- * https://gestalt.pinterest.systems/button
+ * [Buttons](https://gestalt.pinterest.systems/button) allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like [Dropdown](https://gestalt.pinterest.systems/dropdown) or [Popover](https://gestalt.pinterest.systems/popover).
  */
 const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,

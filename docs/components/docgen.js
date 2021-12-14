@@ -25,10 +25,16 @@ export type DocGen = {|
   |},
 |};
 
-export default async function docgen(component: string): Promise<DocGen> {
+export default async function docgen({
+  componentName,
+  alternativeSubdirectory = '',
+}: {|
+  componentName: string,
+  alternativeSubdirectory?: string,
+|}): Promise<DocGen> {
   const filePath = path.join(
     nextConfig().serverRuntimeConfig.GESTALT_ROOT,
-    `/packages/gestalt/src/${component}.js`,
+    alternativeSubdirectory || `/packages/gestalt/src/${componentName}.js`,
   );
   const contents = await fs.promises.readFile(filePath, 'utf-8');
   const parsed = parse(contents);

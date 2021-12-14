@@ -70,7 +70,7 @@ type unionProps = TapAreaType | LinkTapAreaType;
 type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
 /**
- * https://gestalt.pinterest.systems/tapArea
+ * [TapArea](https://gestalt.pinterest.systems/tapArea) allows components to be clickable and touchable in an accessible way
  */
 const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
