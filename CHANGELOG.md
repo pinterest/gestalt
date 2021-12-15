@@ -1,3 +1,9 @@
+## 40.4.9 (Dec 15, 2021)
+
+### Patch
+
+- Upsell: convert to use generated props table (#1817)
+
 ## 40.4.8 (Dec 15, 2021)
 
 ### Patch
