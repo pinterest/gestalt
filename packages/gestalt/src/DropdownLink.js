@@ -48,7 +48,6 @@ export default function DropdownLink({
           index={index}
           isExternal={isExternal}
           key={`${option.value + index}`}
-          lineClamp={1}
           onClick={onClick}
           option={option}
           role="menuitem"
