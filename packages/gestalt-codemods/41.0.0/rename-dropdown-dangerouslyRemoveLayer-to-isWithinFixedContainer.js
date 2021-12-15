@@ -67,7 +67,7 @@ export default function transformer(file, api) {
           if (typeof propValueVariableName === 'string') {
             // eslint-disable-next-line no-console
             console.log(
-              `${node.openingElement.name.name} components with ${attr?.name?.name} prop must be converted to lineClamp manually (boolean -> number). Location: ${file.path} @line: ${node.loc.start.line}`,
+              `${node.openingElement.name.name} components with ${attr?.name?.name} prop must be converted to isWithinFixedContainer manually. Location: ${file.path} @line: ${node.loc.start.line}`,
             );
             return null;
           }
