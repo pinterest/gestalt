@@ -88,7 +88,7 @@ type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Props = {|
   anchor?: ?HTMLElement,
   children: Node,
-  dangerouslyRemoveLayer?: boolean,
+  isWithinFixed?: boolean,
   headerContent?: Node,
   id: string,
   idealDirection?: IdealDirection,
@@ -102,7 +102,7 @@ type Props = {|
 export default function Dropdown({
   anchor,
   children,
-  dangerouslyRemoveLayer = false,
+  isWithinFixed = false,
   headerContent,
   id,
   idealDirection = 'down',
@@ -183,7 +183,7 @@ export default function Dropdown({
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      positionRelativeToAnchor={false}
+      positionRelativeToAnchor={isWithinFixed}
       role="menu"
       shouldFocus
       size="xl"
