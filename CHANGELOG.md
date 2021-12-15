@@ -1,3 +1,9 @@
+## 40.4.8 (Dec 15, 2021)
+
+### Patch
+
+- Docs: Fixed broken links on Accessibility page (#1818)
+
 ## 40.4.7 (Dec 15, 2021)
 
 ### Patch
