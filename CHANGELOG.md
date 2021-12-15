@@ -1,3 +1,9 @@
+## 41.0.0 (Dec 15, 2021)
+
+### Major
+
+- Dropdown: fix position inside fixed container bug (#1819)
+
 ## 40.4.9 (Dec 15, 2021)
 
 ### Patch
