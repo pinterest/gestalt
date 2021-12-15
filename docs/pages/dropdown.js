@@ -123,7 +123,7 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
             type: 'boolean',
             defaultValue: false,
             description:
-              'Removes the Layer component around Popover. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
+              'Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
           },
           {
             name: 'headerContent',
@@ -168,7 +168,7 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
           - Displaying a list of actions, options, or links. Usually displays 3 or more options.
           - Allowing complex functionality that a [SelectList](/selectlist) can't accomplish.
           - Taking immediate action or navigating users to another view.
-        `}
+            `}
           />
           <MainSection.Card
             cardSize="md"
@@ -178,7 +178,7 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
           - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/radiobutton) or [Checkboxes](/checkbox) instead.
           - When it is desirable to filter a long list of options. Use [ComboBox](/combobox) instead.
           - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/selectlist) instead.
-        `}
+            `}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -549,7 +549,7 @@ function CustomContentDropdownExample() {
     * \`accessibilityControls\`: lets the screen reader know that this element controls the Dropdown menu (should match the \`id\` property passed to Dropdown). Populates the [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
     * \`accessibilityHaspopup\`: lets the screen reader know that there is a Dropdown menu linked to the trigger. Populates the [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
     * \`accessibilityExpanded\`: informs the screen reader whether the Dropdown menu is currently open or closed. Populates the [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
-  `}
+          `}
         />
         <MainSection.Subsection
           title="Keyboard interaction"
@@ -559,7 +559,7 @@ function CustomContentDropdownExample() {
     * Arrow keys are used to navigate items within the menu
     * \`Enter\` key selects an item within the Menu
     * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
-  `}
+          `}
         />
       </MainSection>
       <MainSection name="Localization">
@@ -567,7 +567,7 @@ function CustomContentDropdownExample() {
           title="Truncation"
           description={`
       When the text of the Dropdown.Item becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.
-      `}
+          `}
         >
           <MainSection.Card
             cardSize="lg"
@@ -746,7 +746,7 @@ function ActionDropdownExample() {
             cardSize="md"
             title="Link"
             description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
-`}
+            `}
             defaultCode={`
 function LinkDropdownExample() {
   const [open, setOpen] = React.useState(false);
@@ -859,7 +859,7 @@ function SectionsIconButtonDropdownExample() {
     </Flex>
   );
 }
-      `}
+            `}
           />
         </MainSection.Subsection>
 
@@ -942,7 +942,7 @@ function CustomHeaderExample() {
     </Flex>
   );
 }
-      `}
+            `}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1025,7 +1025,7 @@ function SubtextDropdownExample() {
     </Flex>
   );
 }
-      `}
+            `}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1093,7 +1093,7 @@ function BadgesDropdownExample() {
     </Flex>
   );
 }
-      `}
+            `}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1102,7 +1102,7 @@ function BadgesDropdownExample() {
       If needed, users can supply custom content to each Dropdown.Item or Dropdown.Link. This can be useful when extra functionality is needed. However, please use with caution and only when absolutely necessary.
 
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
-    `}
+          `}
         >
           <MainSection.Card
             cardSize="lg"
@@ -1158,7 +1158,7 @@ function CustomIconButtonPopoverExample() {
     </Flex>
   );
 }
-      `}
+            `}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -1179,7 +1179,7 @@ If users need the ability to choose an option by typing in an input and filterin
 
 **[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-`}
+          `}
         />
       </MainSection>
     </Page>

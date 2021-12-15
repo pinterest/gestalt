@@ -88,7 +88,7 @@ type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Props = {|
   anchor?: ?HTMLElement,
   children: Node,
-  dangerouslyRemoveLayer?: boolean,
+  isWithinFixedContainer?: boolean,
   headerContent?: Node,
   id: string,
   idealDirection?: IdealDirection,
@@ -102,7 +102,7 @@ type Props = {|
 export default function Dropdown({
   anchor,
   children,
-  dangerouslyRemoveLayer = false,
+  isWithinFixedContainer = false,
   headerContent,
   id,
   idealDirection = 'down',
@@ -183,7 +183,7 @@ export default function Dropdown({
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      positionRelativeToAnchor={false}
+      positionRelativeToAnchor={isWithinFixedContainer}
       role="menu"
       shouldFocus
       size="xl"
@@ -198,7 +198,7 @@ export default function Dropdown({
     </Popover>
   );
 
-  return dangerouslyRemoveLayer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
+  return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
 }
 
 Dropdown.Item = DropdownItem;
