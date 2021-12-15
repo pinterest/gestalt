@@ -1,9 +1,9 @@
 /*
  * Converts
- *  <Dropdown  dangerouslyRemoveLayer /> to <Heading isWithinFixed />
+ *  <Dropdown  dangerouslyRemoveLayer /> to <Dropdown isWithinFixedContainer />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/41.0.0/rename-dropdown-dangerouslyRemoveLayer-to-isWithinFixed.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/41.0.0/rename-dropdown-dangerouslyRemoveLayer-to-isWithinFixedContainer.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
@@ -18,14 +18,14 @@ export default function transformer(file, api) {
       return null;
     }
 
-    // Find the local names of Heading imports
+    // Find the local names of Dropdown imports
     localIdentifierName = decl.specifiers
       .filter((node) => node.imported.name === 'Dropdown')
       .map((node) => node.local.name);
     return null;
   });
 
-  // No Heading imports, bail
+  // No Dropdown imports, bail
   if (!localIdentifierName) {
     return null;
   }
@@ -43,7 +43,7 @@ export default function transformer(file, api) {
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove dynamic Heading properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
+          `Remove dynamic Dropdown properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
@@ -72,13 +72,10 @@ export default function transformer(file, api) {
             return null;
           }
           const renamedAttr = { ...attr };
-          renamedAttr.name.name = 'isWithinFixed';
+          renamedAttr.name.name = 'isWithinFixedContainer';
           return renamedAttr;
         })
         .filter(Boolean);
-
-      /* console.log('new attrs');
-       * console.log(newAttrs); */
 
       fileHasModifications = true;
       node.openingElement.attributes = newAttrs;

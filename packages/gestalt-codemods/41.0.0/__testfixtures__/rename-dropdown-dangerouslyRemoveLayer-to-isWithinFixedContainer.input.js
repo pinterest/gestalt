@@ -7,10 +7,10 @@ export default function TestBox() {
       <Dropdown id="test-id" onDismiss={() => {}}>
         <Dropdown.Item onSelect={() => {}} option={{ label: 'Test Option', value: 0 }} />
       </Dropdown>
-      <Dropdown id="test-id" onDismiss={() => {}}>
+      <Dropdown id="test-id" onDismiss={() => {}} dangerouslyRemoveLayer={false}>
         <Dropdown.Item onSelect={() => {}} option={{ label: 'Test Option', value: 0 }} />
       </Dropdown>
-      <Dropdown id="test-id" onDismiss={() => {}} isWithinFixed>
+      <Dropdown id="test-id" onDismiss={() => {}} dangerouslyRemoveLayer>
         <Dropdown.Item onSelect={() => {}} option={{ label: 'Test Option', value: 0 }} />
       </Dropdown>
     </Box>
