@@ -13,36 +13,28 @@ import styles from './Upsell.css';
 import headingStyles from './Heading.css';
 import typography from './Typography.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType, type DismissButtonType } from './commonTypes.js';
+import { type ActionDataType } from './commonTypes.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-type Props = {|
-  children?: Element<typeof UpsellForm>,
-  dismissButton?: DismissButtonType,
-  imageData?: {|
-    component: Element<typeof Image | typeof Icon>,
-    mask?: {|
-      rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
-      wash?: boolean,
-    |},
-    width?: number,
-  |},
-  message: string,
-  primaryAction?: ActionDataType,
-  secondaryAction?: ActionDataType,
-  title?: string,
-|};
-
-const UpsellAction = ({
-  data,
-  stacked,
-  type,
-}: {|
+type UpsellActionProps = {|
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|}): Node => {
+|};
+
+const UpsellAction = ({ data, stacked, type }: UpsellActionProps): Node => {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, href, label, onClick, rel, target } = data;
+
+  const commonProps = {
+    accessibilityLabel,
+    color,
+    disabled,
+    fullWidth: true,
+    onClick,
+    size: 'lg',
+    text: label,
+  };
 
   return (
     <Box
@@ -56,34 +48,86 @@ const UpsellAction = ({
       smMarginBottom="auto"
     >
       {href ? (
-        <Button
-          accessibilityLabel={accessibilityLabel}
-          color={color}
-          disabled={disabled}
-          href={href}
-          fullWidth
-          onClick={onClick}
-          rel={rel}
-          role="link"
-          size="lg"
-          target={target}
-          text={label}
-        />
+        <Button {...commonProps} href={href} rel={rel} role="link" target={target} />
       ) : (
-        <Button
-          accessibilityLabel={accessibilityLabel}
-          color={color}
-          disabled={disabled}
-          fullWidth
-          onClick={onClick}
-          role="button"
-          size="lg"
-          text={label}
-        />
+        <Button {...commonProps} role="button" />
       )}
     </Box>
   );
 };
+
+type Props = {|
+  /**
+   * To create forms within Upsell, pass Upsell.Form as children.
+   */
+  children?: Element<typeof UpsellForm>,
+  /**
+   * Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   */
+  dismissButton?: {|
+    accessibilityLabel: string,
+    onDismiss: () => void,
+  |},
+  /**
+   * Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.
+   */
+  imageData?: {|
+    component: Element<typeof Image | typeof Icon>,
+    mask?: {|
+      rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
+      wash?: boolean,
+    |},
+    width?: number,
+  |},
+  /**
+   * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.
+   */
+  message: string,
+  /**
+   * Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
+   * If no \`href\` is supplied, the action will be a button.
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   */
+  primaryAction?: {|
+    accessibilityLabel: string,
+    disabled?: boolean,
+    href?: string,
+    label: string,
+    onClick?: AbstractEventHandler<
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+      {| dangerouslyDisableOnNavigation: () => void |},
+    >,
+    rel?: 'none' | 'nofollow',
+    target?: null | 'self' | 'blank',
+  |},
+  /**
+   * Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
+   * If no \`href\` is supplied, the action will be a button.
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   */
+  secondaryAction?: {|
+    accessibilityLabel: string,
+    disabled?: boolean,
+    href?: string,
+    label: string,
+    onClick?: AbstractEventHandler<
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+      {| dangerouslyDisableOnNavigation: () => void |},
+    >,
+    rel?: 'none' | 'nofollow',
+    target?: null | 'self' | 'blank',
+  |},
+  /**
+   * Brief title summarizing the Upsell. Content should be [localized](#Localization).
+   */
+  title?: string,
+|};
 
 /**
  * [Upsells](https://gestalt.pinterest.systems/upsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.

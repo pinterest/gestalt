@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Upsell } from 'gestalt';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
@@ -33,67 +34,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       />;
     `}
       />
-      <PropTable
-        Component={Upsell}
-        props={[
-          {
-            name: 'children',
-            type: 'typeof Upsell.Form',
-            description: `To create forms within Upsell, pass Upsell.Form as children`,
-          },
-          {
-            name: 'dismissButton',
-            type: '{| accessibilityLabel: string, onDismiss: () => void, |}',
-            defaultValue: null,
-            description: `
-        Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility)
-        `,
-          },
-          {
-            name: 'imageData',
-            type:
-              '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
-            defaultValue: null,
-            description:
-              'Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
-          },
-          {
-            name: 'message',
-            type: 'string',
-            required: true,
-            defaultValue: null,
-            description: `Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.`,
-          },
-          {
-            name: 'primaryAction',
-            type:
-              '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-            defaultValue: null,
-            description: `
-          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
-          If no \`href\` is supplied, the action will be a button.
-          The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
-        `,
-          },
-          {
-            name: 'secondaryAction',
-            type:
-              '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-            defaultValue: null,
-            description: `
-          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
-          If no \`href\` is supplied, the action will be a button.
-          The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
-        `,
-          },
-          {
-            name: 'title',
-            type: 'string',
-            defaultValue: null,
-            description: `Brief title summarizing the Upsell. Content should be [localized](#Localization).`,
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <PropTable
         name="Upsell.Form"
         id="Upsell.Form"
@@ -131,6 +74,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
         ]}
       />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -153,6 +97,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection>
           <MainSection.Card
@@ -369,6 +314,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Accessibility">
         <MainSection.Subsection
           title="Labels"
@@ -406,6 +352,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection
         name="Localization"
         description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
@@ -430,6 +377,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Text-only"
@@ -754,6 +702,7 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
