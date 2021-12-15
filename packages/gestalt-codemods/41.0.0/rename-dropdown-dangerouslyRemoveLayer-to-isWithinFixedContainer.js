@@ -51,7 +51,7 @@ export default function transformer(file, api) {
         .map((attr) => {
           const propName = attr?.name?.name;
 
-          // Not truncate, bail
+          // Not dangerouslyRemoveLayer prop, bail
           if (propName !== 'dangerouslyRemoveLayer') {
             return attr;
           }
