@@ -5,10 +5,12 @@ import InternalTextField from './InternalTextField.js';
 // <input> deals with strings, but we only want numbers for this component.
 // So we parse what we get from InternalTextField and we stringify what we give it.
 // $FlowExpectedError[unclear-type] We don't need a more specific type, and `event` polymorphism is problematic
-const parseHandlerValue = (handler?: Function) => ({ event, value }) => {
-  const parsedValue = parseFloat(value);
-  handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
-};
+const parseHandlerValue =
+  (handler?: Function) =>
+  ({ event, value }) => {
+    const parsedValue = parseFloat(value);
+    handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
+  };
 
 type Props = {|
   /**

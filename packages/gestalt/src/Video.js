@@ -408,15 +408,14 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when playback of the media starts after having been paused.
-  handlePlay: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
-    const { onPlay } = this.props;
+  handlePlay: (event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>) => void =
+    (event) => {
+      const { onPlay } = this.props;
 
-    if (onPlay) {
-      onPlay({ event });
-    }
-  };
+      if (onPlay) {
+        onPlay({ event });
+      }
+    };
 
   // Sent when playback of the media is ready to start after having been paused.
   handlePlaying: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
@@ -444,15 +443,14 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when playback is paused.
-  handlePause: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
-    const { onPause } = this.props;
+  handlePause: (event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>) => void =
+    (event) => {
+      const { onPause } = this.props;
 
-    if (onPause) {
-      onPause({ event });
-    }
-  };
+      if (onPause) {
+        onPause({ event });
+      }
+    };
 
   // Sent periodically to inform interested parties of progress downloading the media
   handleProgress: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {

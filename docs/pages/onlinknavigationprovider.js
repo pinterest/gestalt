@@ -14,8 +14,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         props={[
           {
             name: 'onNavigation',
-            type:
-              '({| href: string, target?: null | "self" | "blank" }) => ?({|+event: SyntheticEvent<>|}) => void |}',
+            type: '({| href: string, target?: null | "self" | "blank" }) => ?({|+event: SyntheticEvent<>|}) => void |}',
             description:
               'If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation contex](#Custom-navigation-context) variant for examples.',
           },

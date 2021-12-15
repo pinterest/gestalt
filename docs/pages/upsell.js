@@ -51,8 +51,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'imageData',
-            type:
-              '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
+            type: '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
             defaultValue: null,
             description:
               'Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
@@ -66,8 +65,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'primaryAction',
-            type:
-              '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
+            type: '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
             defaultValue: null,
             description: `
           Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
@@ -77,8 +75,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'secondaryAction',
-            type:
-              '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
+            type: '{| accessibilityLabel: string, disabled?: boolean, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
             defaultValue: null,
             description: `
           Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
@@ -107,8 +104,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'onSubmit',
-            type:
-              '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
+            type: '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
             required: true,
             description: `Actions to perform when the form has been submitted.`,
           },

@@ -12,12 +12,11 @@ type Props = {|
   children: Node,
 |};
 
-const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType> = createContext<ScrollBoundaryContainerContextType>(
-  {
+const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType> =
+  createContext<ScrollBoundaryContainerContextType>({
     scrollBoundaryContainerRef: null,
     addRef: () => {},
-  },
-);
+  });
 
 const { Provider } = ScrollBoundaryContainerContext;
 

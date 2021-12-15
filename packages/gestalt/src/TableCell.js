@@ -16,14 +16,8 @@ type Props = {|
  * https://gestalt.pinterest.systems/table
  */
 export default function TableCell(props: Props): Node {
-  const {
-    children,
-    colSpan,
-    rowSpan,
-    shouldBeSticky,
-    previousTotalWidth,
-    shouldHaveShadow,
-  } = props;
+  const { children, colSpan, rowSpan, shouldBeSticky, previousTotalWidth, shouldHaveShadow } =
+    props;
   const cs = cx(
     styles.td,
     shouldBeSticky && styles.columnSticky,

@@ -112,8 +112,7 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
           {
             name: 'children',
             required: true,
-            type:
-              'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
+            type: 'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
             description:
               'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
           },
@@ -634,15 +633,13 @@ function TruncationDropdownExample() {
           ...commonDropdownItemProps,
           {
             name: 'onSelect',
-            type:
-              '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
+            type: '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
             required: true,
             description: 'Callback when the user selects an item using the mouse or keyboard.',
           },
           {
             name: 'selected',
-            type:
-              '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
+            type: '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
             description:
               'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.',
           },
@@ -669,8 +666,7 @@ function TruncationDropdownExample() {
           },
           {
             name: 'onClick',
-            type:
-              'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
+            type: 'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
             description: [
               'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
               'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',

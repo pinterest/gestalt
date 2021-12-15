@@ -129,10 +129,8 @@ function Sheet(props: SheetProps): Node {
 
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-  const {
-    animationState: animationStateFromHook,
-    onAnimationEnd: onAnimationEndFromHook,
-  } = useAnimation();
+  const { animationState: animationStateFromHook, onAnimationEnd: onAnimationEndFromHook } =
+    useAnimation();
   const containerRef = useRef<?HTMLDivElement>(null);
   const contentRef = useRef<?HTMLElement>(null);
 

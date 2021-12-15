@@ -253,8 +253,7 @@ export default function DocsPage(): Node {
           },
           {
             name: 'src',
-            type:
-              'string | Array<{| type: "video/m3u8" | "video/mp4" | "video/ogg, src: string |}>',
+            type: 'string | Array<{| type: "video/m3u8" | "video/mp4" | "video/ogg, src: string |}>',
             description: `The URL of the video file to play. This can also be supplied as a list of video types to respective
           video source urls in fallback order for support on various browsers.`,
             required: true,

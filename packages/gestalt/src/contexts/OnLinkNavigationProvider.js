@@ -21,7 +21,8 @@ type Props = {|
   onNavigation: OnLinkNavigationType,
 |};
 
-const OnLinkNavigationContext: Context<OnLinkNavigationContextType | void> = createContext<OnLinkNavigationContextType | void>();
+const OnLinkNavigationContext: Context<OnLinkNavigationContextType | void> =
+  createContext<OnLinkNavigationContextType | void>();
 
 const { Provider } = OnLinkNavigationContext;
 

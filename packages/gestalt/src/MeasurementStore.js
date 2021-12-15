@@ -2,7 +2,8 @@
 import type { Cache } from './Cache.js';
 
 export default class MeasurementStore<T: { ... } | $ReadOnlyArray<mixed>, V>
-  implements Cache<T, V> {
+  implements Cache<T, V>
+{
   map: WeakMap<T, V> = new WeakMap();
 
   get(key: T): ?V {

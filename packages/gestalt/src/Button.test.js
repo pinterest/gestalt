@@ -34,8 +34,9 @@ describe('<Button />', () => {
   });
 
   test('accessibilityControls', () => {
-    const instance = create(<Button text="Hello World" accessibilityControls="another-element" />)
-      .root;
+    const instance = create(
+      <Button text="Hello World" accessibilityControls="another-element" />,
+    ).root;
     expect(instance.find((element) => element.type === 'button').props['aria-controls']).toContain(
       'another-element',
     );

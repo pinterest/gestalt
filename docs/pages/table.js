@@ -1712,8 +1712,7 @@ function Example() {
             {
               name: 'onSortChange',
               required: true,
-              type:
-                '({ event: SyntheticMouseEvent<HTMLTableCellElement> | SyntheticKeyboardEvent<HTMLTableCellElement> }) => void',
+              type: '({ event: SyntheticMouseEvent<HTMLTableCellElement> | SyntheticKeyboardEvent<HTMLTableCellElement> }) => void',
             },
             {
               name: 'sortOrder',
