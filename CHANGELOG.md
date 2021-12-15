@@ -1,3 +1,9 @@
+## 40.4.7 (Dec 15, 2021)
+
+### Patch
+
+- ComboBox: performance optimization (#1810)
+
 ## 40.4.6 (Dec 14, 2021)
 
 ### Patch
