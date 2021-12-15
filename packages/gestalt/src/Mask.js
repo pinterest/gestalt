@@ -16,7 +16,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/mask
+ * [Mask](https://gestalt.pinterest.systems/mask) is used when you have an item you need to fit into a shape, you can achieve this by putting a \`Mask\` on it.
  */
 export default function Mask(props: Props): Node {
   const { children, rounding = 0, width, height, willChangeTransform = true, wash = false } = props;

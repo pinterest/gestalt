@@ -357,6 +357,6 @@ function ToastExample() {
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('Toast') },
+    props: { generatedDocGen: await docgen({ componentName: 'Toast' }) },
   };
 }

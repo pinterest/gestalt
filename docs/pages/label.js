@@ -3,42 +3,33 @@ import type { Node } from 'react';
 import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Label"
-    description="Use the Label component to connect a label with a form component in an accessible way."
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'htmlFor',
-        type: 'string',
-        required: true,
-        description: 'Id of the element this label is describing',
-      },
-    ]}
-  />,
-);
-
-card(
-  <Example
-    description={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Label">
+      <PageHeader name="Label" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'children',
+            type: 'React.Node',
+          },
+          {
+            name: 'htmlFor',
+            type: 'string',
+            required: true,
+            description: 'Id of the element this label is describing',
+          },
+        ]}
+      />
+      <Example
+        description={`
     Whenever you are using a [SelectList](/selectlist), [Switch](/switch), [TextField](/textfield) or [TextArea](/textarea) component, you should use a \`Label\`.
   `}
-    name="Example"
-    defaultCode={`
+        name="Example"
+        defaultCode={`
 function LabelExample() {
   const [switched, setSwitched] = React.useState(false);
 
@@ -58,9 +49,13 @@ function LabelExample() {
   );
 }
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function LabelPage(): Node {
-  return <CardPage cards={cards} page="Label" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Label' }) },
+  };
 }

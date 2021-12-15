@@ -7,7 +7,7 @@ import Caret from './Caret.js';
 import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import type {
   CaretOffset,
@@ -91,15 +91,17 @@ class Contents extends Component<Props, State> {
   };
 
   componentDidMount() {
-    const { onResize, onKeyDown } = this.props;
+    const { onResize, onKeyDown, shouldFocus } = this.props;
     const { popoverRef } = this.state;
 
-    setTimeout(() => {
-      if (this.props.shouldFocus && popoverRef) {
+    function focusPopoverRef() {
+      if (shouldFocus && popoverRef) {
         popoverRef.focus();
       }
-    });
+      requestAnimationFrame(focusPopoverRef);
+    }
 
+    focusPopoverRef();
     window.addEventListener('resize', onResize);
     window.addEventListener('keydown', onKeyDown);
   }

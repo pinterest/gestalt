@@ -4,18 +4,16 @@ import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Pulsar"
-    description="Pulsars bring focus to a specific element on the screen and act like training wheels
-to guide people towards the normal way to perform that action. They are used in isolation
-or combination with other education components for more instructions."
-    defaultCode={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Pulsar">
+      <PageHeader
+        name="Pulsar"
+        description={generatedDocGen?.description}
+        defaultCode={`
   function PulsarExample() {
     const [isPulsing, setIsPulsing] = React.useState(true);
 
@@ -35,58 +33,49 @@ or combination with other education components for more instructions."
     );
   }
 `}
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'paused',
-        type: 'boolean',
-        defaultValue: false,
-      },
-      {
-        name: 'size',
-        type: `number`,
-        description: `Use numbers for pixel sizes`,
-        defaultValue: 136,
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+      />
+      <PropTable
+        props={[
+          {
+            name: 'paused',
+            type: 'boolean',
+            defaultValue: false,
+          },
+          {
+            name: 'size',
+            type: `number`,
+            description: `Use numbers for pixel sizes`,
+            defaultValue: 136,
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Calling attention to a specific element within a surface. Note: a Pulsar should be used in conjunction with a [Popover](/popover).
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - In the case of a user error or warning that needs attention. Use [Callout](/callout) or form errors states instead.
           - When the focus of the attention is at the surface level. Use [Callout](/callout) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <Example
+        description={`
     Pulsars can be shown and hidden using the \`paused\` prop.
   `}
-    name="Example"
-    defaultCode={`
+        name="Example"
+        defaultCode={`
   function PulsarExample() {
     const [isPulsing, setIsPulsing] = React.useState(true);
 
@@ -106,16 +95,13 @@ card(
     );
   }
 `}
-  />,
-);
-
-card(
-  <Example
-    description="
+      />
+      <Example
+        description="
 
   "
-    name="Example: Popover"
-    defaultCode={`
+        name="Example: Popover"
+        defaultCode={`
 class PopoverExample extends React.Component {
   constructor(props) {
     super(props);
@@ -170,9 +156,13 @@ class PopoverExample extends React.Component {
   }
 }
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function PulsarPage(): Node {
-  return <CardPage cards={cards} page="Pulsar" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Pulsar' }) },
+  };
 }

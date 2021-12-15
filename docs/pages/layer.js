@@ -4,52 +4,40 @@ import Card from '../components/Card.js';
 import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Layer"
-    description="Layers allow you to render children outside the DOM hierarchy of the parent. It's a wrapper around React createPortal that lets you use it as a component. This is particularly useful for places you might have needed to use z-index to overlay the screen before."
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-        required: true,
-      },
-      {
-        name: 'zIndex',
-        type: 'interface Indexable { index(): number; }',
-        description: `An object representing the zIndex value of the Layer.`,
-      },
-    ]}
-  />,
-);
-
-card(
-  <Card
-    description="
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Layer">
+      <PageHeader name="Layer" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'children',
+            type: 'React.Node',
+            required: true,
+          },
+          {
+            name: 'zIndex',
+            type: 'interface Indexable { index(): number; }',
+            description: `An object representing the zIndex value of the Layer.`,
+          },
+        ]}
+      />
+      <Card
+        description="
     Because creating a portal in Layer depends on DOM manipulation, if document is not present,
     such as in a server rendering environment, the children will not be rendered.
   "
-    name="Server Rendering"
-  />,
-);
-
-card(
-  <Example
-    description="
+        name="Server Rendering"
+      />
+      <Example
+        description="
     Child content will be rendered outside the DOM hierarchy for easy overlaying. Click to see an example.
   "
-    name="Overlaying Content"
-    defaultCode={`
+        name="Overlaying Content"
+        defaultCode={`
 function Example() {
 
   const [showLayer, setShowLayer] = React.useState(false);
@@ -80,16 +68,13 @@ function Example() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    description="
+      />
+      <Example
+        description="
 The example below shows using a \`FixedZIndex\` for the header zIndex and a \`CompositeZIndex\` to stack the Layer on top of it. Visit our [Z-Index documentation](/zindex%20classes) for more details on how to use these utility classes.
     "
-    name="zIndex"
-    defaultCode={`
+        name="zIndex"
+        defaultCode={`
 function zIndexExample() {
   const [showLayer, setShowLayer] = React.useState(false);
   const HEADER_ZINDEX = new FixedZIndex(100);
@@ -122,9 +107,13 @@ function zIndexExample() {
   );
 }
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function LayerPage(): Node {
-  return <CardPage cards={cards} page="Layer" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Layer' }) },
+  };
 }

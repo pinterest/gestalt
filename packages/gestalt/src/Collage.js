@@ -153,7 +153,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/collage
+ *  [Collage](https://gestalt.pinterest.systems/collage), similarly to [Masonry](https://gestalt.pinterest.systems/masonry), creates a deterministic grid layout that can absolutely position and virtualize images.
  */
 export default function Collage(props: Props): Node {
   const { columns, cover, gutter, height, layoutKey, renderImage, width } = props;

@@ -1,3 +1,39 @@
+## 40.4.8 (Dec 15, 2021)
+
+### Patch
+
+- Docs: Fixed broken links on Accessibility page (#1818)
+
+## 40.4.7 (Dec 15, 2021)
+
+### Patch
+
+- ComboBox: performance optimization (#1810)
+
+## 40.4.6 (Dec 14, 2021)
+
+### Patch
+
+- Docs: Fixed links under Labels on the Accessibiity page (#1815)
+
+## 40.4.5 (Dec 14, 2021)
+
+### Patch
+
+- Docs: add logo!! (#1813)
+
+## 40.4.4 (Dec 14, 2021)
+
+### Patch
+
+- Internal: CardPage.js deprecation in all Docs pages in favor of Page.js (#1814)
+
+## 40.4.3 (Dec 13, 2021)
+
+### Patch
+
+- Internal: Upgrade Flow to 0.167.1 (#1811)
+
 ## 40.4.2 (Dec 10, 2021)
 
 ### Patch

@@ -16,7 +16,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/card
+ * [Cards](https://gestalt.pinterest.systems/card) are meant to highlight content in grids. It visually shows that items belong together and highlights the items on hover.
  */
 export default function Card(props: Props): Node {
   const [hovered, setHovered] = useState(false);

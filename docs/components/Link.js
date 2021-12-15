@@ -4,20 +4,21 @@ import { Link as GestaltLink } from 'gestalt';
 import { useRouter } from 'next/router';
 
 type Props = {|
-  children?: Node,
-  target?: null | 'self' | 'blank',
-  onClick: () => void,
-  href: string,
+  accessibilityLabel?: $ElementType<React$ElementConfig<typeof GestaltLink>, 'accessibilityLabel'>,
+  children?: $ElementType<React$ElementConfig<typeof GestaltLink>, 'children'>,
+  href: $ElementType<React$ElementConfig<typeof GestaltLink>, 'href'>,
+  onClick?: () => void,
+  target?: $ElementType<React$ElementConfig<typeof GestaltLink>, 'target'>,
 |};
 
 const isModifiedEvent = (event) =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
-export default function Link({ children, href, target, onClick }: Props): Node {
+export default function Link({ accessibilityLabel, children, href, target, onClick }: Props): Node {
   const router = useRouter();
 
   const handleClick = ({ event }) => {
-    if (onClick) onClick();
+    onClick?.();
 
     if (
       !event.defaultPrevented && // onClick prevented default
@@ -32,7 +33,12 @@ export default function Link({ children, href, target, onClick }: Props): Node {
   };
 
   return (
-    <GestaltLink target={target} onClick={handleClick} href={href}>
+    <GestaltLink
+      accessibilityLabel={accessibilityLabel}
+      href={href}
+      onClick={handleClick}
+      target={target}
+    >
       {children}
     </GestaltLink>
   );

@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 type Position = 'middle' | 'top';
 

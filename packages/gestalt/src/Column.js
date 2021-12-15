@@ -14,7 +14,7 @@ type ColumnProps = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/column
+ * [Column](https://gestalt.pinterest.systems/column). Gestalt supports a 12-column system.
  */
 export default function Column(props: ColumnProps): Node {
   const { children } = props;

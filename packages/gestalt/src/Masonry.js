@@ -1,6 +1,5 @@
 // @flow strict
 import type { ComponentType, Node } from 'react';
-
 import { Component as ReactComponent } from 'react';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
@@ -123,7 +122,7 @@ const SCROLL_TIMEOUT_WAIT = 100;
 const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
 /**
- * https://gestalt.pinterest.systems/masonry
+ * [Masonry](https://gestalt.pinterest.systems/masonry) creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
  */
 export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {

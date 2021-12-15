@@ -152,6 +152,6 @@ Code for this example goes here
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('ComponentName') },
+    props: { generatedDocGen: await docgen({ componentName: 'ComponentName' }) },
   };
 }

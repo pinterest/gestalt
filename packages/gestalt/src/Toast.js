@@ -5,7 +5,7 @@ import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
 import styles from './Toast.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 type Props = {|
   /**

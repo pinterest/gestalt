@@ -13,7 +13,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/label
+ * Use the [Label](https://gestalt.pinterest.systems/labels) component to connect a label with a form component in an accessible way.
  */
 export default function Label(props: Props): Node {
   const { children, htmlFor, labelDisplay } = props;

@@ -2,15 +2,14 @@
 import type { Node } from 'react';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="useFocusVisible"
-    description={`
+export default function DocsPage(): Node {
+  return (
+    <Page title="useFocusVisible">
+      <PageHeader
+        name="useFocusVisible"
+        description={`
     \`useFocusVisible\` manages focus interactions on the page and determines whether a focus ring should be shown. When using the \`useFocusVisible\` hook, if a user interacts with a mouse or by touch, then the focus indicator is not visible. When the user interacts with the keyboard however, the focus indicator will be visible.
 
     References:
@@ -19,13 +18,10 @@ card(
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
     </ul>
     `}
-  />,
-);
-
-card(
-  <Example
-    name="Example"
-    defaultCode={`
+      />
+      <Example
+        name="Example"
+        defaultCode={`
 function Example() {
   const { isFocusVisible } = useFocusVisible();
   const [ focusedButton1, setFocusedButton1 ] = React.useState(false);
@@ -62,9 +58,7 @@ function Example() {
     </Flex>
   );
 }`}
-  />,
-);
-
-export default function UseFocusVisiblePage(): Node {
-  return <CardPage cards={cards} page="useFocusVisible" />;
+      />
+    </Page>
+  );
 }

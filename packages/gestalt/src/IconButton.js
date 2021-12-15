@@ -60,7 +60,9 @@ type unionProps = IconButtonType | LinkIconButtonType;
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 /**
- * https://gestalt.pinterest.systems/iconbutton
+ * [IconButton](https://gestalt.pinterest.systems/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
+ Some buttons are specialized for particular tasks, such as navigation or presenting menus.
+
  */
 const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,

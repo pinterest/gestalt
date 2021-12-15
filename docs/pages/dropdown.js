@@ -4,19 +4,43 @@ import { Dropdown } from 'gestalt';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const commonDropdownItemProps = [
+  {
+    name: 'badgeText',
+    type: 'string',
+    description:
+      "When supplied, will display a [Badge](/badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
+  },
+  {
+    name: 'dataTestId',
+    type: 'string',
+    description: 'When supplied, will add a data-test-id prop to the dom element.',
+  },
+  {
+    name: 'children',
+    type: 'React.Node',
+    description:
+      'If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](#Custom-item-content) variant to learn more.',
+  },
+  {
+    name: 'option',
+    type: '{| label: string, value: string, subtext?: string |}',
+    required: true,
+    description: 'Object detailing the label, value, and optional subtext for this item.',
+  },
+];
 
-card(
-  <PageHeader
-    name="Dropdown"
-    description={`
-    Dropdown displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
-    `}
-    badge="pilot"
-    defaultCode={`
+export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Dropdown">
+      <PageHeader
+        name="Dropdown"
+        description={generatedDocGen?.description}
+        badge="pilot"
+        defaultCode={`
       function IntroMenuButtonDropdownExample() {
         const [open, setOpen] = React.useState(false);
         const [selected, setSelected] = React.useState(null);
@@ -74,131 +98,97 @@ card(
           </Flex>
         );
       }`}
-  />,
-);
+      />
+      <PropTable
+        Component={Dropdown}
+        id="Dropdown"
+        props={[
+          {
+            name: 'anchor',
+            type: '?HTMLElement',
+            description:
+              'Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](#Accessibility) guidelines to learn more.',
+          },
+          {
+            name: 'children',
+            required: true,
+            type:
+              'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
+            description:
+              'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
+          },
 
-card(
-  <PropTable
-    Component={Dropdown}
-    id="Dropdown"
-    props={[
-      {
-        name: 'anchor',
-        type: '?HTMLElement',
-        description:
-          'Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](#Accessibility) guidelines to learn more.',
-      },
-      {
-        name: 'children',
-        required: true,
-        type: 'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
-        description:
-          'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
-      },
-
-      {
-        name: 'isWithinFixed',
-        type: 'boolean',
-        defaultValue: false,
-        description:
-          'Enables correct behavior when the Dropdown is within a fixed container. To achieve this it removes the Layer component around Popover and enables position relative to anchor. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
-      },
-      {
-        name: 'headerContent',
-        type: 'React.Node',
-        description:
-          'Content to display at the top of the Dropdown before any items or sections. See the [Custom header](#Custom-header) variant to learn more.',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-        description:
-          'Unique id to identify each Dropdown. Used for [Accessibility](#Accessibility) purposes.',
-      },
-      {
-        name: 'idealDirection',
-        type: `'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the Dropdown to open.',
-        defaultValue: 'down',
-      },
-      {
-        name: 'onDismiss',
-        type: '() => void',
-        required: true,
-        description: 'Callback fired when the menu is closed.',
-      },
-      {
-        name: 'zIndex',
-        type: 'interface Indexable { index(): number; }',
-        description:
-          'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/zindex%20classes)',
-      },
-    ]}
-  />,
-);
-
-const commonDropdownItemProps = [
-  {
-    name: 'badgeText',
-    type: 'string',
-    description:
-      "When supplied, will display a [Badge](/badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
-  },
-  {
-    name: 'dataTestId',
-    type: 'string',
-    description: 'When supplied, will add a data-test-id prop to the dom element.',
-  },
-  {
-    name: 'children',
-    type: 'React.Node',
-    description:
-      'If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](#Custom-item-content) variant to learn more.',
-  },
-  {
-    name: 'option',
-    type: '{| label: string, value: string, subtext?: string |}',
-    required: true,
-    description: 'Object detailing the label, value, and optional subtext for this item.',
-  },
-];
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+          {
+            name: 'dangerouslyRemoveLayer',
+            type: 'boolean',
+            defaultValue: false,
+            description:
+              'Removes the Layer component around Popover. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
+          },
+          {
+            name: 'headerContent',
+            type: 'React.Node',
+            description:
+              'Content to display at the top of the Dropdown before any items or sections. See the [Custom header](#Custom-header) variant to learn more.',
+          },
+          {
+            name: 'id',
+            type: 'string',
+            required: true,
+            description:
+              'Unique id to identify each Dropdown. Used for [Accessibility](#Accessibility) purposes.',
+          },
+          {
+            name: 'idealDirection',
+            type: `'up' | 'right' | 'down' | 'left'`,
+            description: 'Preferred direction for the Dropdown to open.',
+            defaultValue: 'down',
+          },
+          {
+            name: 'onDismiss',
+            type: '() => void',
+            required: true,
+            description: 'Callback fired when the menu is closed.',
+          },
+          {
+            name: 'zIndex',
+            type: 'interface Indexable { index(): number; }',
+            description:
+              'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/zindex%20classes)',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Displaying a list of actions, options, or links. Usually displays 3 or more options.
           - Allowing complex functionality that a [SelectList](/selectlist) can't accomplish.
           - Taking immediate action or navigating users to another view.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/radiobutton) or [Checkboxes](/checkbox) instead.
           - When it is desirable to filter a long list of options. Use [ComboBox](/combobox) instead.
           - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/selectlist) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/selectlist)."
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/selectlist)."
+            defaultCode={`
       function BestPracticeDropdownExample() {
         const [open, setOpen] = React.useState(false);
         const [selected, setSelected] = React.useState(null);
@@ -256,13 +246,13 @@ card(
           </Flex>
         );
       }`}
-      />
+          />
 
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Use Dropdown for a simple list of items. Use [SelectList](/selectlist) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
-        defaultCode={`
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Dropdown for a simple list of items. Use [SelectList](/selectlist) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
+            defaultCode={`
     function SimpleListDropdownExample() {
       const [open, setOpen] = React.useState(false);
       const [selected, setSelected] = React.useState(null);
@@ -319,15 +309,15 @@ card(
         </Flex>
           );
         }`}
-      />
-    </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Order the items in Dropdown either alphabetically or by usage. Place destructive actions at the bottom."
-        defaultCode={`
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Order the items in Dropdown either alphabetically or by usage. Place destructive actions at the bottom."
+            defaultCode={`
 function OrderDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -377,12 +367,12 @@ function OrderDropdownExample() {
     </Flex>
   );
 }`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Attach Tooltips to menu items. Use the \`subtext\` property if additional explanation is needed."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Attach Tooltips to menu items. Use the \`subtext\` property if additional explanation is needed."
+            defaultCode={`
 function NoTooltipsDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -436,14 +426,14 @@ function NoTooltipsDropdownExample() {
     </Flex>
   );
 }`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`Add an icon indicator when links are external using the \`isExternal\` prop. External links are either links outside of Pinterest or another sub-site of Pinterest.`}
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`Add an icon indicator when links are external using the \`isExternal\` prop. External links are either links outside of Pinterest or another sub-site of Pinterest.`}
+            defaultCode={`
 function ExternalLinksDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -491,12 +481,12 @@ function ExternalLinksDropdownExample() {
     </Flex>
   );
 }`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Add custom elements within Dropdown. While some custom elements may be technically possible, it is best to avoid customization that becomes difficult to maintain."
-        defaultCode={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Add custom elements within Dropdown. While some custom elements may be technically possible, it is best to avoid customization that becomes difficult to maintain."
+            defaultCode={`
 function CustomContentDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -547,47 +537,41 @@ function CustomContentDropdownExample() {
     </Flex>
   );
 }`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Accessibility">
-    <MainSection.Subsection
-      title="ARIA attributes"
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="ARIA attributes"
+          description={`
     Remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
 
     * \`accessibilityControls\`: lets the screen reader know that this element controls the Dropdown menu (should match the \`id\` property passed to Dropdown). Populates the [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
     * \`accessibilityHaspopup\`: lets the screen reader know that there is a Dropdown menu linked to the trigger. Populates the [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
     * \`accessibilityExpanded\`: informs the screen reader whether the Dropdown menu is currently open or closed. Populates the [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
   `}
-    />
-    <MainSection.Subsection
-      title="Keyboard interaction"
-      description={`
+        />
+        <MainSection.Subsection
+          title="Keyboard interaction"
+          description={`
     * Hitting \`Enter\` or \`Space\` key on the Dropdown's trigger opens the menu
     * \`Escape\` key closes the menu, while moving focus back on the Dropdown's trigger
     * Arrow keys are used to navigate items within the menu
     * \`Enter\` key selects an item within the Menu
     * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
   `}
-    />
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Localization">
-    <MainSection.Subsection
-      title="Truncation"
-      description={`
+        />
+      </MainSection>
+      <MainSection name="Localization">
+        <MainSection.Subsection
+          title="Truncation"
+          description={`
       When the text of the Dropdown.Item becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.
       `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function TruncationDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -638,98 +622,89 @@ function TruncationDropdownExample() {
     </Flex>
   );
 }`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Subcomponents" />
+      <PropTable
+        Component={Dropdown?.Item}
+        name="Dropdown.Item"
+        id="Dropdown.Item"
+        props={[
+          ...commonDropdownItemProps,
+          {
+            name: 'onSelect',
+            type:
+              '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
+            required: true,
+            description: 'Callback when the user selects an item using the mouse or keyboard.',
+          },
+          {
+            name: 'selected',
+            type:
+              '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
+            description:
+              'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.',
+          },
+        ]}
       />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(<MainSection name="Subcomponents" />);
-
-card(
-  <PropTable
-    Component={Dropdown?.Item}
-    name="Dropdown.Item"
-    id="Dropdown.Item"
-    props={[
-      ...commonDropdownItemProps,
-      {
-        name: 'onSelect',
-        type: '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
-        required: true,
-        description: 'Callback when the user selects an item using the mouse or keyboard.',
-      },
-      {
-        name: 'selected',
-        type: '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
-        description:
-          'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.',
-      },
-    ]}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Dropdown?.Link}
-    name="Dropdown.Link"
-    id="Dropdown.Link"
-    props={[
-      ...commonDropdownItemProps,
-      {
-        name: 'href',
-        type: 'string',
-        required: true,
-        description:
-          'Directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
-      },
-      {
-        name: 'isExternal',
-        type: 'boolean',
-        description:
-          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
-      },
-      {
-        name: 'onClick',
-        type: 'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-        description: [
-          'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
-          'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-        ],
-      },
-    ]}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Dropdown?.Section}
-    name="Dropdown.Section"
-    id="Dropdown.Section"
-    props={[
-      {
-        name: 'children',
-        type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
-        required: true,
-        description: 'Any Dropdown.Items and/or Dropdown.Links to be rendered',
-      },
-      {
-        name: 'label',
-        type: 'string',
-        required: true,
-        description: 'Label for the section. See the [Sections](#Sections) variant for more info.',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection title="Types of items" columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        title="Action/Selection"
-        description={`Typically a Dropdown item triggers an action, like “Hide a Pin”, or makes a selection, like “Cozy” for a layout setting. Use Dropdown.Item for these use cases. \`onSelect\` handles the user interaction, with the optional \`selected\` indicating the currently-selected item.`}
-        defaultCode={`
+      <PropTable
+        Component={Dropdown?.Link}
+        name="Dropdown.Link"
+        id="Dropdown.Link"
+        props={[
+          ...commonDropdownItemProps,
+          {
+            name: 'href',
+            type: 'string',
+            required: true,
+            description:
+              'Directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
+          },
+          {
+            name: 'isExternal',
+            type: 'boolean',
+            description:
+              'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
+          },
+          {
+            name: 'onClick',
+            type:
+              'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
+            description: [
+              'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
+              'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+            ],
+          },
+        ]}
+      />
+      <PropTable
+        Component={Dropdown?.Section}
+        name="Dropdown.Section"
+        id="Dropdown.Section"
+        props={[
+          {
+            name: 'children',
+            type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
+            required: true,
+            description: 'Any Dropdown.Items and/or Dropdown.Links to be rendered',
+          },
+          {
+            name: 'label',
+            type: 'string',
+            required: true,
+            description:
+              'Label for the section. See the [Sections](#Sections) variant for more info.',
+          },
+        ]}
+      />
+      <MainSection name="Variants">
+        <MainSection.Subsection title="Types of items" columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            title="Action/Selection"
+            description={`Typically a Dropdown item triggers an action, like “Hide a Pin”, or makes a selection, like “Cozy” for a layout setting. Use Dropdown.Item for these use cases. \`onSelect\` handles the user interaction, with the optional \`selected\` indicating the currently-selected item.`}
+            defaultCode={`
 function ActionDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -766,13 +741,13 @@ function ActionDropdownExample() {
     </Flex>
   );
 }`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        title="Link"
-        description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+          />
+          <MainSection.Card
+            cardSize="md"
+            title="Link"
+            description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
 `}
-        defaultCode={`
+            defaultCode={`
 function LinkDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -815,16 +790,16 @@ function LinkDropdownExample() {
     </Flex>
   );
 }`}
-      />
-    </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-    <MainSection.Subsection
-      title="Sections"
-      description="Dropdown can also be composed of Dropdown.Section(s), which simply require a label. Use Dropdown.Section(s) to create hierarchy within a single Dropdown. Dropdown.Sections, Dropdown.Items and Dropdown.Links can be mixed as needed."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        <MainSection.Subsection
+          title="Sections"
+          description="Dropdown can also be composed of Dropdown.Section(s), which simply require a label. Use Dropdown.Section(s) to create hierarchy within a single Dropdown. Dropdown.Sections, Dropdown.Items and Dropdown.Links can be mixed as needed."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function SectionsIconButtonDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
@@ -885,16 +860,16 @@ function SectionsIconButtonDropdownExample() {
   );
 }
       `}
-      />
-    </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-    <MainSection.Subsection
-      title="Custom header"
-      description={`Dropdown can also contain a custom header by specifying \`headerContent\`, which always appears at the very top of the menu. It can be used instead of a section header if the menu contains only one type of content that needs additional description. It can contain anything, but most often will contain just text and/or a link.`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        <MainSection.Subsection
+          title="Custom header"
+          description={`Dropdown can also contain a custom header by specifying \`headerContent\`, which always appears at the very top of the menu. It can be used instead of a section header if the menu contains only one type of content that needs additional description. It can contain anything, but most often will contain just text and/or a link.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function CustomHeaderExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -968,15 +943,15 @@ function CustomHeaderExample() {
   );
 }
       `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Subtext"
-      description={`Each Dropdown item can also contain \`subtext\` below the label. This \`subtext\` will wrap if needed. Use this text to add an additional description of the Dropdown item.`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Subtext"
+          description={`Each Dropdown item can also contain \`subtext\` below the label. This \`subtext\` will wrap if needed. Use this text to add an additional description of the Dropdown item.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function SubtextDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
@@ -1051,16 +1026,15 @@ function SubtextDropdownExample() {
   );
 }
       `}
-      />
-    </MainSection.Subsection>
-
-    <MainSection.Subsection
-      title="Badges"
-      description={`A [Badge](/badge) can be used to indicate a new product surface or feature within the Dropdown using \`badgeText\`. Multiple badges within a Dropdown should be avoided when possible.`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Badges"
+          description={`A [Badge](/badge) can be used to indicate a new product surface or feature within the Dropdown using \`badgeText\`. Multiple badges within a Dropdown should be avoided when possible.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function BadgesDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
@@ -1120,19 +1094,19 @@ function BadgesDropdownExample() {
   );
 }
       `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Custom item content"
-      description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Custom item content"
+          description={`
       If needed, users can supply custom content to each Dropdown.Item or Dropdown.Link. This can be useful when extra functionality is needed. However, please use with caution and only when absolutely necessary.
 
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
     `}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function CustomIconButtonPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -1185,15 +1159,12 @@ function CustomIconButtonPopoverExample() {
   );
 }
       `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
 **[Button](/button), [IconButton](/iconbutton)**
 It is most common to anchor Dropdown to Button or IconButton.
 
@@ -1209,10 +1180,14 @@ If users need the ability to choose an option by typing in an input and filterin
 **[OnLinkNavigationProvider](/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function DropdownPage(): Node {
-  return <CardPage cards={cards} page="Dropdown" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Dropdown' }) },
+  };
 }

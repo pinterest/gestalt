@@ -26,7 +26,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/radiobutton
+ *  Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list.
  */
 const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

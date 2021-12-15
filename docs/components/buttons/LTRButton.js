@@ -23,7 +23,7 @@ export default function LTRButton({ onClick, textDirection }: Props): Node {
       <IconButton
         accessibilityLabel="Toggle page direction: Left-To-Right / Right-To-Left View"
         dangerouslySetSvgPath={togglePageDirSvgPath}
-        iconColor="white"
+        iconColor="darkGray"
         onClick={() => {
           trackButtonClick('Toggle page direction', directionCopy);
           onClick();

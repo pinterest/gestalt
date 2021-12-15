@@ -68,6 +68,6 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('ButtonGroup') },
+    props: { generatedDocGen: await docgen({ componentName: 'ButtonGroup' }) },
   };
 }

@@ -3,38 +3,28 @@ import type { Node } from 'react';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="OnLinkNavigationProvider"
-    fileName="contexts/OnLinkNavigation"
-    description="OnLinkNavigationProvider is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to externally control the link behaviour of components further down the tree"
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'onNavigation',
-        type:
-          '({| href: string, target?: null | "self" | "blank" }) => ?({|+event: SyntheticEvent<>|}) => void |}',
-        description:
-          'If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation contex](#Custom-navigation-context) variant for examples.',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Custom link navigation context"
-      description={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="On Link Navigation Provider">
+      <PageHeader name="OnLinkNavigationProvider" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'onNavigation',
+            type:
+              '({| href: string, target?: null | "self" | "blank" }) => ?({|+event: SyntheticEvent<>|}) => void |}',
+            description:
+              'If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation contex](#Custom-navigation-context) variant for examples.',
+          },
+        ]}
+      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Custom link navigation context"
+          description={`
 Components with links use simple \`<a>\` tags. In order to replace the default link behavior with custom ones (e.g. [react-router](https://www.google.com/search?q=react-router&oq=react-router&aqs=chrome..69i57j0l9.2115j0j7&sourceid=chrome&ie=UTF-8)), \`onNavigation\` provides an interface to pass external logic into the 'onClick' event handler in children links.
 
 This example illustrates a custom navigation implementations to externally control the link functionality of Link: setting a default navigation logic with [OnLinkNavigationProvider](/onlinknavigationprovider).
@@ -50,11 +40,11 @@ In this example, the \`useOnNavigation\` hook function is passed to OnLinkNaviga
 
 The returned \`onNavigationClick\` function inside the hook function uses the event access to [preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault). It could also be used to [stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation).
       `}
-    >
-      <MainSection.Card
-        title="Examples from start to end: Link, Button, IconButton, TapArea"
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            title="Examples from start to end: Link, Button, IconButton, TapArea"
+            cardSize="lg"
+            defaultCode={`
 function OnNavigation() {
   const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
 
@@ -141,11 +131,11 @@ function OnNavigation() {
   );
 }
 `}
-      />
-      <MainSection.Card
-        title="Examples from top to bottom: Callout, Upsell, ActivationCard"
-        cardSize="lg"
-        defaultCode={`
+          />
+          <MainSection.Card
+            title="Examples from top to bottom: Callout, Upsell, ActivationCard"
+            cardSize="lg"
+            defaultCode={`
 function OnNavigation() {
   const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
 
@@ -247,11 +237,11 @@ function OnNavigation() {
   );
 }
 `}
-      />
-      <MainSection.Card
-        title="With a Dropdown"
-        cardSize="lg"
-        defaultCode={`
+          />
+          <MainSection.Card
+            title="With a Dropdown"
+            cardSize="lg"
+            defaultCode={`
 function OnNavigation() {
   const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
   const [open, setOpen] = React.useState(false);
@@ -327,22 +317,28 @@ function OnNavigation() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
       **[Link](/link)** / **[Button](/button)** / **[IconButton](/iconbutton)** / **[TapArea](/taparea)**  / **[DropDown](/dropdown)** / **[Callout](/callout)** / **[Upsell](/upsell)** / **[ActivationCard](/activationcard)**
       If these components are under a OnLinkNavigationProvider, their link behavior defaults to the logic defined in OnLinkNavigationProvider. In order to disable the onNavigation logic, we can return "dangerouslyDisableOnNavigation" in the \`onClick\` callback. See each component page for more information.
     `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function OnLinkNavigationProviderPage(): Node {
-  return <CardPage cards={cards} page="OnLinkNavigationProvider" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: {
+      generatedDocGen: await docgen({
+        componentName: 'OnLinkNavigationProvider',
+        alternativeSubdirectory: '/packages/gestalt/src/contexts/OnLinkNavigationProvider.js',
+      }),
+    },
+  };
 }

@@ -8,7 +8,7 @@ import Button from './Button.js';
 import Text from './Text.js';
 import headingStyles from './Heading.css';
 import typography from './Typography.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { type ActionDataType } from './commonTypes.js';

@@ -1,6 +1,5 @@
 // @flow strict-local
 import type { Node } from 'react';
-
 import { useState } from 'react';
 import DatePicker from 'gestalt-datepicker';
 import {
@@ -37,16 +36,13 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
-
-import CardPage from '../components/CardPage.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import PropTable from '../components/PropTable.js';
 import Combination from '../components/Combination.js';
 import MainSection from '../components/MainSection.js';
-
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
 const localeMap = {
   'ar-SA': { localeData: arSA, lang: ' Arabic (Saudi Arabia)' },
@@ -83,11 +79,13 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: ' Chinese (Traditional)' },
 };
 
-card(
-  <PageHeader
-    name="DatePicker"
-    description="Use Datepicker when the user has to select a date or date range."
-    defaultCode={`
+export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="DatePicker">
+      <PageHeader
+        name="DatePicker"
+        description={generatedDocGen?.description}
+        defaultCode={`
       function DatePickerExample() {
         const handleChange = (value) => value;
 
@@ -100,144 +98,135 @@ card(
         )
       }
     `}
-  />,
-);
+      />
+      <PropTable
+        props={[
+          { name: 'id', required: true, type: 'string' },
+          {
+            name: 'onChange',
+            required: true,
+            type: '({event: SyntheticInputEvent<>, value: Date }) => void',
+          },
+          { name: 'disabled', type: 'boolean', href: 'disabled' },
+          { name: 'errorMessage', type: 'string', href: 'errorMessage' },
+          {
+            name: 'excludeDates',
+            type: 'Array<Date>',
+            description: 'Array of disabled dates.',
+            href: 'exclude',
+          },
+          {
+            name: 'helperText',
+            type: 'string',
+            description: 'More information about how to complete the date picker field.',
+            href: 'helperText',
+          },
+          {
+            name: 'idealDirection',
+            type: `'up'|'right'|'down'|'left'`,
+            description: 'Preferred direction for the calendar popover to open.',
+            href: 'idealDirection',
+            defaultValue: 'down',
+          },
+          {
+            name: 'includeDates',
+            type: 'Array<Date>',
+            description: 'Array of enabled dates.',
+            href: 'include',
+          },
+          { name: 'label', type: 'string' },
+          {
+            name: 'localeData',
+            type: 'date-fns locale objects',
+            description: `DatePicker accepts imported locales from the open source date utility library date-fns.`,
+            href: 'localeData',
+          },
+          {
+            name: 'maxDate',
+            type: 'Date',
+            description: 'Disable dates outside a max date.',
+            href: 'maxMinDates',
+          },
+          {
+            name: 'minDate',
+            type: 'Date',
+            description: 'Disable dates outside a min date.',
+            href: 'maxMinDates',
+          },
+          {
+            name: 'nextRef',
+            type: 'React.ElementRef',
+            description:
+              'Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field.',
+            href: 'rangePicker',
+          },
+          {
+            name: 'placeholder',
+            type: 'string',
+            defaultValue: 'date format for locale',
+          },
+          {
+            name: 'rangeEndDate',
+            type: 'Date',
+            description: 'Required for date range selection. End date on a date range selection.',
+            href: 'disabled-past',
+          },
 
-card(
-  <PropTable
-    props={[
-      { name: 'id', required: true, type: 'string' },
-      {
-        name: 'onChange',
-        required: true,
-        type: '({event: SyntheticInputEvent<>, value: Date }) => void',
-      },
-      { name: 'disabled', type: 'boolean', href: 'disabled' },
-      { name: 'errorMessage', type: 'string', href: 'errorMessage' },
-      {
-        name: 'excludeDates',
-        type: 'Array<Date>',
-        description: 'Array of disabled dates.',
-        href: 'exclude',
-      },
-      {
-        name: 'helperText',
-        type: 'string',
-        description: 'More information about how to complete the date picker field.',
-        href: 'helperText',
-      },
-      {
-        name: 'idealDirection',
-        type: `'up'|'right'|'down'|'left'`,
-        description: 'Preferred direction for the calendar popover to open.',
-        href: 'idealDirection',
-        defaultValue: 'down',
-      },
-      {
-        name: 'includeDates',
-        type: 'Array<Date>',
-        description: 'Array of enabled dates.',
-        href: 'include',
-      },
-      { name: 'label', type: 'string' },
-      {
-        name: 'localeData',
-        type: 'date-fns locale objects',
-        description: `DatePicker accepts imported locales from the open source date utility library date-fns.`,
-        href: 'localeData',
-      },
-      {
-        name: 'maxDate',
-        type: 'Date',
-        description: 'Disable dates outside a max date.',
-        href: 'maxMinDates',
-      },
-      {
-        name: 'minDate',
-        type: 'Date',
-        description: 'Disable dates outside a min date.',
-        href: 'maxMinDates',
-      },
-      {
-        name: 'nextRef',
-        type: 'React.ElementRef',
-        description:
-          'Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field.',
-        href: 'rangePicker',
-      },
-      {
-        name: 'placeholder',
-        type: 'string',
-        defaultValue: 'date format for locale',
-      },
-      {
-        name: 'rangeEndDate',
-        type: 'Date',
-        description: 'Required for date range selection. End date on a date range selection.',
-        href: 'disabled-past',
-      },
-
-      {
-        name: 'rangeSelector',
-        type: `'start'|'end'`,
-        description:
-          'Required for date range selection. Defines the datepicker start/end role in a date range selection.',
-        href: 'rangePicker',
-      },
-      {
-        name: 'rangeStartDate',
-        type: 'Date',
-        description: 'Required for date range selection. Start date on a date range selection.',
-        href: 'disabled-past',
-      },
-      {
-        name: 'ref',
-        type: 'React.ElementRef',
-        description:
-          'Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field.',
-        href: 'rangePicker',
-      },
-      {
-        name: 'value',
-        type: 'Date',
-        description: 'Pre-selected date value.',
-        href: 'preselectedValue',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+          {
+            name: 'rangeSelector',
+            type: `'start'|'end'`,
+            description:
+              'Required for date range selection. Defines the datepicker start/end role in a date range selection.',
+            href: 'rangePicker',
+          },
+          {
+            name: 'rangeStartDate',
+            type: 'Date',
+            description: 'Required for date range selection. Start date on a date range selection.',
+            href: 'disabled-past',
+          },
+          {
+            name: 'ref',
+            type: 'React.ElementRef',
+            description:
+              'Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field.',
+            href: 'rangePicker',
+          },
+          {
+            name: 'value',
+            type: 'Date',
+            description: 'Pre-selected date value.',
+            href: 'preselectedValue',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Allowing users to choose a date or date range by clicking through the calendar popup or typing in the text field.
           - Limiting date options to a specific range of dates.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/textfield) with type=”date”.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    description="
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <Example
+        description="
     Use DatePicker to select date inputs.
   "
-    name="Example: Basic Date Picker"
-    defaultCode={`
+        name="Example: Basic Date Picker"
+        defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -250,17 +239,14 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    description="
+      />
+      <Example
+        description="
     Provide pre-selected date values to DatePicker.
   "
-    id="preselectedValue"
-    name="Example: Preselected Date"
-    defaultCode={`
+        id="preselectedValue"
+        name="Example: Preselected Date"
+        defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -274,17 +260,14 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="rangePicker"
-    description="
+      />
+      <Example
+        id="rangePicker"
+        description="
     Use DatePicker to select date range inputs.
   "
-    name="Example: Date Range Picker"
-    defaultCode={`
+        name="Example: Date Range Picker"
+        defaultCode={`
 function DatePickerRangeExample() {
   const [startDate, setStartDate] = React.useState(undefined);
   const [endDate, setEndDate] = React.useState(undefined);
@@ -321,14 +304,11 @@ function DatePickerRangeExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="disabled"
-    name="Example: Disabled"
-    defaultCode={`
+      />
+      <Example
+        id="disabled"
+        name="Example: Disabled"
+        defaultCode={`
 function DatePickerExample() {
   const [date, setDate] = React.useState(new Date());
 
@@ -343,17 +323,14 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="maxMinDates"
-    description="
+      />
+      <Example
+        id="maxMinDates"
+        description="
     Disable dates outside of a min and max date range.
   "
-    name="Example: Delimited selection period"
-    defaultCode={`
+        name="Example: Delimited selection period"
+        defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -368,17 +345,14 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="include"
-    description="
+      />
+      <Example
+        id="include"
+        description="
     Enable an array of dates.
   "
-    name="Example: Enabled dates"
-    defaultCode={`
+        name="Example: Enabled dates"
+        defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -392,17 +366,14 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="exclude"
-    description="
+      />
+      <Example
+        id="exclude"
+        description="
     Disable an array of dates.
   "
-    name="Example: Disabled dates"
-    defaultCode={`
+        name="Example: Disabled dates"
+        defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -417,17 +388,14 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="helperText"
-    description="
+      />
+      <Example
+        id="helperText"
+        description="
     Display a helper message for cases where you want to provide more information about the date field.
   "
-    name="Example: Helper Text"
-    defaultCode={`
+        name="Example: Helper Text"
+        defaultCode={`
 function DatePickerExample() {
   return (
     <DatePicker
@@ -440,17 +408,14 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="errorMessage"
-    description="
+      />
+      <Example
+        id="errorMessage"
+        description="
     Display an error message. Error message overrides the helper text.
   "
-    name="Example: Error Message"
-    defaultCode={`
+        name="Example: Error Message"
+        defaultCode={`
 function DatePickerExample() {
   const [date, setDate] = React.useState(undefined);
 
@@ -465,33 +430,27 @@ function DatePickerExample() {
   )
 }
 `}
-  />,
-);
-
-card(
-  <Combination
-    id="idealDirection"
-    name="Example: Ideal Direction"
-    description="Define the preferred direction for the DatePicker popover to open. If that placement doesn't fit, the opposite direction will be used."
-    layout="4column"
-    idealDirection={['down', 'left', 'right', 'up']}
-  >
-    {({ idealDirection }) => (
-      <DatePicker
-        id={`example-idealDirection-${idealDirection}`}
-        label={`Direction ${idealDirection}`}
-        onChange={() => {}}
-        idealDirection={idealDirection}
       />
-    )}
-  </Combination>,
-);
-
-card(
-  <Combination
-    id="localeData"
-    name="Example: Locales"
-    description="
+      <Combination
+        id="idealDirection"
+        name="Example: Ideal Direction"
+        description="Define the preferred direction for the DatePicker popover to open. If that placement doesn't fit, the opposite direction will be used."
+        layout="4column"
+        idealDirection={['down', 'left', 'right', 'up']}
+      >
+        {({ idealDirection }) => (
+          <DatePicker
+            id={`example-idealDirection-${idealDirection}`}
+            label={`Direction ${idealDirection}`}
+            onChange={() => {}}
+            idealDirection={idealDirection}
+          />
+        )}
+      </Combination>
+      <Combination
+        id="localeData"
+        name="Example: Locales"
+        description="
 Adjust the date format to each date-fns locale (https://date-fns.org/v2.14.0/docs/Locale).
 The following locale examples show the different locale format variants.
 IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
@@ -501,25 +460,35 @@ import { it } from 'date-fns/locale';
 <DatePicker localeData={it}/>
 ~~~
   "
-    layout="4column"
-    localeDataCode={Object.keys(localeMap)}
-  >
-    {({ localeDataCode }) => {
-      const [date, setDate] = useState(new Date());
+        layout="4column"
+        localeDataCode={Object.keys(localeMap)}
+      >
+        {({ localeDataCode }) => {
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          const [date, setDate] = useState(new Date());
 
-      return (
-        <DatePicker
-          id={`example-${localeDataCode}`}
-          label={localeMap[localeDataCode].lang}
-          onChange={({ value }) => setDate(value)}
-          value={date}
-          localeData={localeMap[localeDataCode].localeData}
-        />
-      );
-    }}
-  </Combination>,
-);
+          return (
+            <DatePicker
+              id={`example-${localeDataCode}`}
+              label={localeMap[localeDataCode].lang}
+              onChange={({ value }) => setDate(value)}
+              value={date}
+              localeData={localeMap[localeDataCode].localeData}
+            />
+          );
+        }}
+      </Combination>
+    </Page>
+  );
+}
 
-export default function DatePickerPage(): Node {
-  return <CardPage cards={cards} page="DatePicker" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: {
+      generatedDocGen: await docgen({
+        componentName: 'DatePicker',
+        alternativeSubdirectory: `/packages/gestalt-datepicker/src/DatePicker.js`,
+      }),
+    },
+  };
 }

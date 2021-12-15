@@ -6,135 +6,123 @@ import Example from '../components/Example.js';
 import Combination from '../components/Combination.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Checkbox"
-    description="We recommending using a Checkbox over a Switch when you have a long list (>3) of toggles."
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'checked',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'combinations',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'combinations',
-      },
-      {
-        name: 'errorMessage',
-        type: 'string',
-      },
-      {
-        name: 'hasError',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'hasError',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'image',
-        type: 'React.Node',
-        href: 'images',
-        description:
-          'An optional `Image` component can be supplied to add an image to each checkbox. Spacing is already accounted for; simply specify the width and height.',
-      },
-      {
-        name: 'indeterminate',
-        type: 'boolean',
-        defaultValue: false,
-        description: `Indeterminism is
+export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Checkbox">
+      <PageHeader name="Checkbox" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'checked',
+            type: 'boolean',
+            defaultValue: false,
+            href: 'combinations',
+          },
+          {
+            name: 'disabled',
+            type: 'boolean',
+            defaultValue: false,
+            href: 'combinations',
+          },
+          {
+            name: 'errorMessage',
+            type: 'string',
+          },
+          {
+            name: 'hasError',
+            type: 'boolean',
+            defaultValue: false,
+            href: 'hasError',
+          },
+          {
+            name: 'id',
+            type: 'string',
+            required: true,
+          },
+          {
+            name: 'image',
+            type: 'React.Node',
+            href: 'images',
+            description:
+              'An optional `Image` component can be supplied to add an image to each checkbox. Spacing is already accounted for; simply specify the width and height.',
+          },
+          {
+            name: 'indeterminate',
+            type: 'boolean',
+            defaultValue: false,
+            description: `Indeterminism is
 purely presentational - the value of
 a checkbox and its indeterminism are independent.`,
-        href: 'combinations',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-      },
-      {
-        name: 'onChange',
-        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
-        required: true,
-      },
-      {
-        name: 'onClick',
-        type: `({ event: SyntheticInputEvent<HTMLInputElement>, checked: boolean }) => void`,
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-        href: 'refExample',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md"`,
-        defaultValue: 'md',
-        description: `"sm" is 16px & "md" is 24px`,
-        href: 'combinations',
-      },
-      {
-        name: 'subtext',
-        type: 'string',
-        href: 'subtext',
-        description:
-          'Optional description for the checkbox, used to provide more detail about an option',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+            href: 'combinations',
+          },
+          {
+            name: 'label',
+            type: 'string',
+          },
+          {
+            name: 'name',
+            type: 'string',
+          },
+          {
+            name: 'onChange',
+            type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
+            required: true,
+          },
+          {
+            name: 'onClick',
+            type: `({ event: SyntheticInputEvent<HTMLInputElement>, checked: boolean }) => void`,
+          },
+          {
+            name: 'ref',
+            type: "React.Ref<'input'>",
+            description: 'Forward the ref to the underlying input element',
+            href: 'refExample',
+          },
+          {
+            name: 'size',
+            type: `"sm" | "md"`,
+            defaultValue: 'md',
+            description: `"sm" is 16px & "md" is 24px`,
+            href: 'combinations',
+          },
+          {
+            name: 'subtext',
+            type: 'string',
+            href: 'subtext',
+            description:
+              'Optional description for the checkbox, used to provide more detail about an option',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - Presenting users with a list of multiple, related options where users can select all, some, or none of the options. With Checkboxes, users can select more than one option.
           - Presenting users with a single option that can be selected or not.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - Situations where users can only choose one out of multiple, related options. Use [RadioButtons](/radiobutton) instead.
           - When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    id="single"
-    name="Example"
-    defaultCode={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <Example
+        id="single"
+        name="Example"
+        defaultCode={`
 function CheckboxExample() {
   const [checked, setChecked] = React.useState(true);
 
@@ -151,15 +139,12 @@ function CheckboxExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="group"
-    description="Here is an example of an accessible group of checkboxes. When creating a group of Checkboxes, be sure to wrap them in a [Fieldset](/fieldset)."
-    name="Example: Group"
-    defaultCode={`
+      />
+      <Example
+        id="group"
+        description="Here is an example of an accessible group of checkboxes. When creating a group of Checkboxes, be sure to wrap them in a [Fieldset](/fieldset)."
+        name="Example: Group"
+        defaultCode={`
 function CheckboxExample() {
     const [checkedEn, setCheckedEn] = React.useState(false);
     const [checkedSp, setCheckedSp] = React.useState(false);
@@ -202,15 +187,12 @@ function CheckboxExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="subtext"
-    description="Here is an example of a group of checkboxes with additional subtext applied."
-    name="Example: With Subtext"
-    defaultCode={`
+      />
+      <Example
+        id="subtext"
+        description="Here is an example of a group of checkboxes with additional subtext applied."
+        name="Example: With Subtext"
+        defaultCode={`
 function CheckboxExample() {
     const [checkedEn, setCheckedEn] = React.useState(false);
     const [checkedSp, setCheckedSp] = React.useState(false);
@@ -254,15 +236,12 @@ function CheckboxExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="images"
-    description="Here is an example of a group of checkboxes with images included. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context."
-    name="Example: With Images"
-    defaultCode={`
+      />
+      <Example
+        id="images"
+        description="Here is an example of a group of checkboxes with images included. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context."
+        name="Example: With Images"
+        defaultCode={`
 function CheckboxExample() {
     const [checkedCoral, setCheckedCoral] = React.useState(false);
     const [checkedBlue, setCheckedBlue] = React.useState(false);
@@ -297,16 +276,13 @@ function CheckboxExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    description="Here is an example of a checkbox showing an error message."
-    id="hasError"
-    name="Example: Error state"
-    skipContrastCheck
-    defaultCode={`
+      />
+      <Example
+        description="Here is an example of a checkbox showing an error message."
+        id="hasError"
+        name="Example: Error state"
+        skipContrastCheck
+        defaultCode={`
 function CheckboxExample() {
   return (
       <Checkbox
@@ -319,15 +295,12 @@ function CheckboxExample() {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="refExample"
-    name="Example: ref"
-    description={`The underlying \`input\` element can be accessed via \`ref\`.`}
-    defaultCode={`
+      />
+      <Example
+        id="refExample"
+        name="Example: ref"
+        description={`The underlying \`input\` element can be accessed via \`ref\`.`}
+        defaultCode={`
 function CheckboxExample() {
   const ref = React.useRef();
   const [label, setLabel] = React.useState('24');
@@ -366,24 +339,27 @@ function CheckboxExample() {
     </Flex>
   );
 }`}
-  />,
-);
+      />
+      <Combination
+        checked={[false, true]}
+        disabled={[false, true]}
+        hasCheckerboard={false}
+        hasError={[false, true]}
+        id="combinations"
+        indeterminate={[false, true]}
+        size={['sm', 'md']}
+        labelPrefix="checkbox-combinations"
+      >
+        {(props, i) => (
+          <Checkbox id={`checkbox-combinations-${i}`} onChange={() => {}} {...props} />
+        )}
+      </Combination>
+    </Page>
+  );
+}
 
-card(
-  <Combination
-    checked={[false, true]}
-    disabled={[false, true]}
-    hasCheckerboard={false}
-    hasError={[false, true]}
-    id="combinations"
-    indeterminate={[false, true]}
-    size={['sm', 'md']}
-    labelPrefix="checkbox-combinations"
-  >
-    {(props, i) => <Checkbox id={`checkbox-combinations-${i}`} onChange={() => {}} {...props} />}
-  </Combination>,
-);
-
-export default function CheckboxPage(): Node {
-  return <CardPage cards={cards} page="Checkbox" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Checkbox' }) },
+  };
 }

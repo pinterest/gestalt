@@ -1,5 +1,5 @@
 // @flow strict
-import ColorSchemeProvider from './contexts/ColorScheme.js';
+import ColorSchemeProvider from './ColorSchemeProvider.js';
 
 const Valid = <ColorSchemeProvider>Test</ColorSchemeProvider>;
 

@@ -38,7 +38,7 @@ const SIZE_SCALE = {
 };
 
 /**
- * https://gestalt.pinterest.systems/heading
+ * [Heading](https://gestalt.pinterest.systems/heading) allows you to show headings on the page & has a bigger line height than regular text.
  */
 export default function Heading({
   accessibilityLevel,

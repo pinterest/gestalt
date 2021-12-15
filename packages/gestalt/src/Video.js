@@ -3,7 +3,7 @@ import type { Node } from 'react';
 import classnames from 'classnames';
 import { PureComponent } from 'react';
 import VideoControls from './VideoControls.js';
-import ColorSchemeProvider from './contexts/ColorScheme.js';
+import ColorSchemeProvider from './contexts/ColorSchemeProvider.js';
 import styles from './Video.css';
 import colors from './Colors.css';
 import Box from './Box.js';
@@ -173,7 +173,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 };
 
 /**
- * https://gestalt.pinterest.systems/video
+ * Like an Image, [Video](https://gestalt.pinterest.systems/video) is used for media layout. This component is supercharged with lots of goodies to turn a regular video in a full blown viewing experience.
  */
 export default class Video extends PureComponent<Props, State> {
   video: ?HTMLVideoElement;

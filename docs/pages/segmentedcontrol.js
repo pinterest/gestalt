@@ -4,94 +4,76 @@ import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="SegmentedControl"
-    description="
-Segmented Controls may be used to group between multiple selections.
-The controls display the current state and related state.
-
-Create layout to convey clear sense of information hierarchy.
-When a control is engaged, information below the control should get updated.
-"
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'items',
-        type: 'Array<React.Node>',
-        required: true,
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticMouseEvent<>, activeIndex: number }) => void',
-        required: true,
-      },
-      {
-        name: 'responsive',
-        type: 'boolean',
-        required: false,
-        description:
-          'By default, items have equal widths. If this prop is true, the width of an item is based on its content.',
-      },
-      {
-        name: 'selectedItemIndex',
-        type: 'number',
-        required: true,
-        description: 'Index of element in `items` that is selected.',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="SegmentedControl">
+      <PageHeader name="SegmentedControl" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'items',
+            type: 'Array<React.Node>',
+            required: true,
+          },
+          {
+            name: 'onChange',
+            type: '({ event: SyntheticMouseEvent<>, activeIndex: number }) => void',
+            required: true,
+          },
+          {
+            name: 'responsive',
+            type: 'boolean',
+            required: false,
+            description:
+              'By default, items have equal widths. If this prop is true, the width of an item is based on its content.',
+          },
+          {
+            name: 'selectedItemIndex',
+            type: 'number',
+            required: true,
+            description: 'Index of element in `items` that is selected.',
+          },
+          {
+            name: 'size',
+            type: '"md" | "lg"',
+            required: false,
+            description: 'md: 40px, lg: 48px',
+            defaultValue: 'md',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - To switch between views within a small area of content, such as a [Popover](/popover).
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - To switch between views that represent the main content of a surface. Use [Tabs](/tabs) instead.
           - To act as a radio control within a form. Use [RadioButton](/radiobutton) instead.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <Example
-    description="Segmented Controls are naive components, meaning you need to wire up the behavior when you click on an item.
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <Example
+        description="Segmented Controls are naive components, meaning you need to wire up the behavior when you click on an item.
 
     If you'd like the tabs to control hiding or showing content, that state should
     live in a parent component.
     "
-    name="Example"
-    defaultCode={`
+        name="Example"
+        defaultCode={`
 function SegmentedControlExample() {
 
   const [itemIndex, setItemIndex] = React.useState(0);
@@ -116,14 +98,11 @@ function SegmentedControlExample() {
   );
 }
     `}
-  />,
-);
-
-card(
-  <Example
-    description="Segmented Controls can have responsive widths where the width of an item is based on its content."
-    name="Example: Responsive"
-    defaultCode={`
+      />
+      <Example
+        description="Segmented Controls can have responsive widths where the width of an item is based on its content."
+        name="Example: Responsive"
+        defaultCode={`
 function SegmentedControlExample() {
 
   const [itemIndex, setItemIndex] = React.useState(0);
@@ -144,9 +123,13 @@ function SegmentedControlExample() {
   );
 }
     `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function SegmentedControlPage(): Node {
-  return <CardPage cards={cards} page="SegmentedControl" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'SegmentedControl' }) },
+  };
 }

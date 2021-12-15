@@ -3,47 +3,41 @@ import type { Node } from 'react';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import Page from '../components/Page.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="ColorSchemeProvider"
-    fileName="contexts/ColorScheme"
-    description="ColorSchemeProvider is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode"
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'colorScheme',
-        type: `'light' | 'dark' | 'userPreference'`,
-        defaultValue: 'light',
-        description: `The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](#Custom-navigation-context) variant for examples.`,
-      },
-      {
-        name: 'id',
-        type: 'string',
-        description:
-          'An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Color scheme"
-      description="Specify a light or dark color scheme for components"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+export default function ColorSchemeProviderPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: DocGen,
+|}): Node {
+  return (
+    <Page title="Color Scheme Provider">
+      <PageHeader name="ColorSchemeProvider" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'colorScheme',
+            type: `'light' | 'dark' | 'userPreference'`,
+            defaultValue: 'light',
+            description: `The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](#Custom-navigation-context) variant for examples.`,
+          },
+          {
+            name: 'id',
+            type: 'string',
+            description:
+              'An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).',
+          },
+        ]}
+      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Color scheme"
+          description="Specify a light or dark color scheme for components"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example(props) {
   const [scheme, setScheme] = React.useState('light')
   const schemeOptions = [
@@ -80,22 +74,28 @@ function Example(props) {
     </ColorSchemeProvider>
   );
 }`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
       **[Link](/link)** / **[Button](/button)** / **[IconButton](/iconbutton)** / **[TapArea](/taparea)**  / **[DropDown](/dropdown)** / **[Callout](/callout)** / **[Upsell](/upsell)** / **[ActivationCard](/activationcard)**
       If these components are under a ColorSchemeProvider, their link behavior defaults to the logic defined in ColorSchemeProvider. In order to disable the onNavigation logic, we can return "dangerouslyDisableOnNavigation" in the \`onClick\` callback. See each component page for more information.
     `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function ColorSchemeProviderPage(): Node {
-  return <CardPage cards={cards} page="ColorSchemeProvider" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: {
+      generatedDocGen: await docgen({
+        componentName: 'ColorSchemeProvider',
+        alternativeSubdirectory: '/packages/gestalt/src/contexts/ColorSchemeProvider.js',
+      }),
+    },
+  };
 }

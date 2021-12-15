@@ -4,17 +4,17 @@ import { Fieldset } from 'gestalt';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Fieldset"
-    badge="pilot"
-    description="Fieldset creates a fieldset and legend for a group of related form items, like RadioButtons or Checkboxes, in order to clearly indicate related form items."
-    defaultCode={`
+export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Fieldset">
+      <PageHeader
+        name="Fieldset"
+        badge="pilot"
+        description={generatedDocGen?.description}
+        defaultCode={`
       function RadioButtonExample() {
         const [favorite, setFavorite] = React.useState(undefined);
 
@@ -59,84 +59,75 @@ card(
         );
       }
 `}
-  />,
-);
-
-card(
-  <PropTable
-    Component={Fieldset}
-    props={[
-      {
-        name: 'legend',
-        type: 'string',
-        required: true,
-        description:
-          'Caption that clearly and concisely describes the form elements grouped in the fieldset.',
-      },
-      {
-        name: 'legendDisplay',
-        type: "'visible' | 'hidden'",
-        defaultValue: 'visible',
-        description:
-          'Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](#Legend-visibility) for more info.',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-        required: true,
-        description: `The content of Fieldset, typically [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).`,
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: false,
-        description:
-          'A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added',
-      },
-      {
-        name: 'errorMessage',
-        type: 'React.Node',
-        description:
-          'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
-      },
-    ]}
-  />,
-);
-
-card(
-  <MainSection name="Usage guidelines">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        title="When to Use"
-        description={`
+      />
+      <PropTable
+        Component={Fieldset}
+        props={[
+          {
+            name: 'legend',
+            type: 'string',
+            required: true,
+            description:
+              'Caption that clearly and concisely describes the form elements grouped in the fieldset.',
+          },
+          {
+            name: 'legendDisplay',
+            type: "'visible' | 'hidden'",
+            defaultValue: 'visible',
+            description:
+              'Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](#Legend-visibility) for more info.',
+          },
+          {
+            name: 'children',
+            type: 'React.Node',
+            required: true,
+            description: `The content of Fieldset, typically [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).`,
+          },
+          {
+            name: 'id',
+            type: 'string',
+            required: false,
+            description:
+              'A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added',
+          },
+          {
+            name: 'errorMessage',
+            type: 'React.Node',
+            description:
+              'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
+          },
+        ]}
+      />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to Use"
+            description={`
           - When inputs within a broader form are closely related and would benefit from a shared legend, such as TextFields for a billing address or a group of Checkboxes.
         `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        title="When Not to Use"
-        description={`
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When Not to Use"
+            description={`
           - When the fields are unrelated. Use [TextFields](/textfield) and other input components within a \`<form/>\`.
         `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Accessibility">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          description={`
       Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).
 
       In the example below, the pet RadioButtons are surrounded by a fieldset and include a \`legend\` of "Favorite pet". Learn more about the [use of fieldset and legend](https://www.w3.org/WAI/tutorials/forms/grouping/#associating-related-controls-with-fieldset).`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState(undefined);
   const [name, setName] = React.useState('')
@@ -194,26 +185,22 @@ function RadioButtonExample() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(<MainSection name="Localization" description={`Be sure to localize the \`legend\` text.`} />);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Localization" description={`Be sure to localize the \`legend\` text.`} />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          description={`
       By default, the \`legend\` is visible above the items in the Fieldset. However, if the form items are labelled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the legend. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
       In the example below, the "Company Account Goals" text is acting as a heading and a legend for the checkboxes, so instead of repeating another legend, we visually hide the Fieldset \`legend\`. When a user focuses on the first checkbox, a screen reader will announce "Sell more products, unchecked, checkbox, Choose up to 3 company account goals, group".
       `}
-      title="Legend visibility"
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          title="Legend visibility"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function CheckboxExample() {
   const [checkedSell, setCheckedSell] = React.useState(false);
   const [checkedLeads, setCheckedLeads] = React.useState(false);
@@ -287,12 +274,12 @@ function CheckboxExample() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection title="Error message">
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Error message">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function CheckboxExample() {
     const [checkedEn, setCheckedEn] = React.useState(false);
     const [checkedSp, setCheckedSp] = React.useState(false);
@@ -336,22 +323,23 @@ function CheckboxExample() {
   );
 }
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
       **[Label](/label)**
       If a label is needed for a single form item (instead of a group of items), use Label.
     `}
-    />
-  </MainSection>,
-);
+        />
+      </MainSection>
+    </Page>
+  );
+}
 
-export default function FieldsetPage(): Node {
-  return <CardPage cards={cards} page="Fieldset" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Fieldset' }) },
+  };
 }

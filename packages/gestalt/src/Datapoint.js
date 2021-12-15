@@ -23,7 +23,9 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/datapoint
+ * [Datapoint](https://gestalt.pinterest.systems/datapoint) displays at-a-glance data for a user to quickly view key metrics.
+ *
+ * ⚠️ Please note: Datapoint is not currently supported in dark mode.
  */
 export default function Datapoint({
   tooltipText,

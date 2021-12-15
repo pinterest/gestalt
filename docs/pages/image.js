@@ -4,127 +4,113 @@ import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import Card from '../components/Card.js';
-import CardPage from '../components/CardPage.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Image"
-    description={`
-This component is the workhorse of Pinterest. If you define Pinterest to be all
-about collecting ideas, then images are how we choose to represent those ideas.
-In response, we've added a few extra superpowers to the regular \`<img>\` tag to
-make it even more awesome.
-`}
-  />,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'alt',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'color',
-        type: 'string',
-        required: true,
-        href: 'placeholders',
-      },
-      {
-        name: 'crossOrigin',
-        type: `"anonymous" | "use-credentials"`,
-      },
-      {
-        name: 'elementTiming',
-        type: 'string',
-        description: `HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.`,
-      },
-      {
-        name: 'fit',
-        type: `"cover" | "contain" | "none"`,
-        defaultValue: 'none',
-        description: `Doesn't work with srcSet or sizes.`,
-        href: 'fit',
-      },
-      {
-        name: 'importance',
-        type: `"high" | "low" | "auto"`,
-        defaultValue: 'auto',
-        description: `Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.`,
-        href: 'fit',
-      },
-      {
-        name: 'loading',
-        type: `"eager" | "lazy" | "auto"`,
-        defaultValue: 'auto',
-        description: `
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  return (
+    <Page title="Image">
+      <PageHeader name="Image" description={generatedDocGen?.description} />
+      <PropTable
+        props={[
+          {
+            name: 'alt',
+            type: 'string',
+            required: true,
+          },
+          {
+            name: 'children',
+            type: 'React.Node',
+          },
+          {
+            name: 'color',
+            type: 'string',
+            required: true,
+            href: 'placeholders',
+          },
+          {
+            name: 'crossOrigin',
+            type: `"anonymous" | "use-credentials"`,
+          },
+          {
+            name: 'elementTiming',
+            type: 'string',
+            description: `HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.`,
+          },
+          {
+            name: 'fit',
+            type: `"cover" | "contain" | "none"`,
+            defaultValue: 'none',
+            description: `Doesn't work with srcSet or sizes.`,
+            href: 'fit',
+          },
+          {
+            name: 'importance',
+            type: `"high" | "low" | "auto"`,
+            defaultValue: 'auto',
+            description: `Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.`,
+            href: 'fit',
+          },
+          {
+            name: 'loading',
+            type: `"eager" | "lazy" | "auto"`,
+            defaultValue: 'auto',
+            description: `
         Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource.
         `,
-        href: 'fit',
-      },
-      {
-        name: 'naturalHeight',
-        type: 'number',
-        required: true,
-        description: 'Exact height of source image',
-        href: 'fit',
-      },
-      {
-        name: 'naturalWidth',
-        type: 'number',
-        required: true,
-        description: 'Exact width of source image',
-        href: 'fit',
-      },
-      {
-        name: 'onError',
-        type: '() => void',
-      },
-      {
-        name: 'onLoad',
-        type: '() => void',
-      },
-      {
-        name: 'role',
-        type: `"img" | "presentation"`,
-        defaultValue: 'img',
-        description: `When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility.`,
-        href: 'Presentational-Images-with-Role',
-      },
-      {
-        name: 'sizes',
-        type: 'string',
-        description:
-          'A list of one or more strings separated by commas indicating a set of source sizes',
-      },
-      {
-        name: 'src',
-        type: 'string',
-        required: true,
-        href: 'placeholders',
-      },
-      {
-        name: 'srcSet',
-        type: 'string',
-        description:
-          'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
-      },
-    ]}
-  />,
-);
-
-card(
-  <Card
-    description={`
+            href: 'fit',
+          },
+          {
+            name: 'naturalHeight',
+            type: 'number',
+            required: true,
+            description: 'Exact height of source image',
+            href: 'fit',
+          },
+          {
+            name: 'naturalWidth',
+            type: 'number',
+            required: true,
+            description: 'Exact width of source image',
+            href: 'fit',
+          },
+          {
+            name: 'onError',
+            type: '() => void',
+          },
+          {
+            name: 'onLoad',
+            type: '() => void',
+          },
+          {
+            name: 'role',
+            type: `"img" | "presentation"`,
+            defaultValue: 'img',
+            description: `When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility.`,
+            href: 'Presentational-Images-with-Role',
+          },
+          {
+            name: 'sizes',
+            type: 'string',
+            description:
+              'A list of one or more strings separated by commas indicating a set of source sizes',
+          },
+          {
+            name: 'src',
+            type: 'string',
+            required: true,
+            href: 'placeholders',
+          },
+          {
+            name: 'srcSet',
+            type: 'string',
+            description:
+              'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
+          },
+        ]}
+      />
+      <Card
+        description={`
     One thing that might be unusual is that the \`width\` and the \`height\` of the
     component are required, yet the image will scale to the size of its container.
     This is so that the placeholder's size can be calculated before the image has
@@ -134,20 +120,17 @@ card(
     considered), you should always try to try to supply the exact dimensions of the
     source image requested.
   `}
-    name="Dimensions"
-  />,
-);
-
-card(
-  <Example
-    id="placeholders"
-    description={`
+        name="Dimensions"
+      />
+      <Example
+        id="placeholders"
+        description={`
     The color you pass into \`Image\` will be used to fill the placeholder that shows up
     as an image loads. The example shown has an empty \`src\` prop provided so it remains
     a placeholder.
   `}
-    name="Placeholders"
-    defaultCode={`
+        name="Placeholders"
+        defaultCode={`
 <Column span={6}>
   <Image
     alt="example.com"
@@ -158,16 +141,13 @@ card(
   />
 </Column>
 `}
-  />,
-);
-
-card(
-  <Example
-    description="
+      />
+      <Example
+        description="
     You can overlay content on an Image by passing it children.
   "
-    name="Overlay"
-    defaultCode={`
+        name="Overlay"
+        defaultCode={`
 <Box height={500} paddingX={2} width={250}>
   <Image
     alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
@@ -188,13 +168,10 @@ card(
   </Image>
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    id="fit"
-    description={`
+      />
+      <Example
+        id="fit"
+        description={`
     In some cases, you may want to scale an image to fit into its container.
     To achieve that, you can set \`fit\` to either \`"cover"\` or \`"contain"\`, depending on the effect you wish to achieve.
 
@@ -217,8 +194,8 @@ card(
     * When using \`"cover"\`/\`"contain"\`, \`naturalHeight\` and \`naturalWidth\` are ignored since the aspect ratio is handled by the browser.
     * In order for \`"cover"\`/\`"contain"\` to work properly, the container must have some sort of implicit height.
   `}
-    name="Fit"
-    defaultCode={`
+        name="Fit"
+        defaultCode={`
 <Flex alignItems="start" direction="column" gap={2} wrap>
   <Flex direction="column">
     <h3>Square content: contain vs cover</h3>
@@ -305,16 +282,13 @@ card(
   </Flex>
 </Flex>
 `}
-  />,
-);
-
-card(
-  <Example
-    description="
+      />
+      <Example
+        description="
     You can delay loading images that are off-screen with the loading attribute.
   "
-    name="Lazy"
-    defaultCode={`
+        name="Lazy"
+        defaultCode={`
 <Box column={6} paddingX={2}>
   <Image
     alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
@@ -326,16 +300,13 @@ card(
   />
 </Box>
 `}
-  />,
-);
-
-card(
-  <Example
-    description={`
+      />
+      <Example
+        description={`
       Sometimes Images are purely presentational. For example, an Image used above an article title may be used to draw people's attention visually, but doesn't add any additional information or context about the article. In this case, the \`role\` should be set to "presentation" in order to inform screen readers and other assistive technology that this image does not need alternative text or any additional label.
     `}
-    name="Presentational Images with Role"
-    defaultCode={`
+        name="Presentational Images with Role"
+        defaultCode={`
 <Box
   display="flex"
   alignContent="center"
@@ -359,9 +330,13 @@ card(
   <Heading align="center" size="lg">Article Title</Heading>
 </Box>
 `}
-  />,
-);
+      />
+    </Page>
+  );
+}
 
-export default function ImagePage(): Node {
-  return <CardPage cards={cards} page="Image" />;
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Image' }) },
+  };
 }

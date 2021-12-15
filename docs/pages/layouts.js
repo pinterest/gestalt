@@ -1,25 +1,21 @@
 // @flow strict
 import type { Node } from 'react';
 import Example from '../components/Example.js';
-import CardPage from '../components/CardPage.js';
 import PageHeader from '../components/PageHeader.js';
+import Page from '../components/Page.js';
 
-const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
-
-card(
-  <PageHeader
-    name="Layouts"
-    description="A list of easy-to-copy layouts which have been battle tested."
-    showSourceLink={false}
-  />,
-);
-
-card(
-  <Example
-    description="Responsive &amp; RTL-friendly form layout."
-    name="Form Layout"
-    defaultCode={`
+export default function DocsPage(): Node {
+  return (
+    <Page title="Layouts guidelines">
+      <PageHeader
+        name="Layouts"
+        description="A list of easy-to-copy layouts which have been battle tested."
+        showSourceLink={false}
+      />
+      <Example
+        description="Responsive &amp; RTL-friendly form layout."
+        name="Form Layout"
+        defaultCode={`
 <Flex
   direction="column"
   gap={6}
@@ -92,9 +88,7 @@ card(
   </Flex>
 </Flex>
 `}
-  />,
-);
-
-export default function Layouts(): Node {
-  return <CardPage cards={cards} page="Layouts" />;
+      />
+    </Page>
+  );
 }

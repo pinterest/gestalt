@@ -148,6 +148,6 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen('Text') },
+    props: { generatedDocGen: await docgen({ componentName: 'Text' }) },
   };
 }

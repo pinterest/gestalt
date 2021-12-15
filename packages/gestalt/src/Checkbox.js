@@ -32,7 +32,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/checkbox
+ * [Checkbox](https://gestalt.pinterest.systems/checkbox)is used over [Switch](https://gestalt.pinterest.systems/switch) when you have a long list (>3) of toggles.
  */
 const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

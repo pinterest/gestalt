@@ -7,7 +7,7 @@ type Props = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/container
+ * [Containers](https://gestalt.pinterest.systems/container ) are useful in responsively laying out content on different screens.
  */
 export default function Container(props: Props): Node {
   const { children } = props;
