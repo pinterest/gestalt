@@ -72,7 +72,7 @@ export default function AccessibilityGuidelinesPage(): Node {
 
       Please note, HTML 5 covers many common patterns and interactions by default, so ARIA should only be used to fill gaps, not in place of correct semantic HTML. For instance, it is always preferred to use the native \`<button>\` instead of adding \`role="button"\`. Better yet, use the Gestalt [Button](/Button), and you won't have to worry about a thing!
 
-      In general, ARIA is best used to provide extra information about a component, like using \`aria-expanded\` to signal when a [Popover](/Popover#ARIA-attributes) is open or closed. Learn more about [ARIA and its use cases](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
+      In general, ARIA is best used to provide extra information about a component, like using \`aria-expanded\` to signal when a [Popover](/popover#ARIA-attributes) is open or closed. Learn more about [ARIA and its use cases](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
     `}
         />
         <MainSection.Subsection
