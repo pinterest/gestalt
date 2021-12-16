@@ -1,30 +1,21 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Card from '../components/Card.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 
+const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
+
 export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Column">
       <PageHeader name="Column" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'span',
-            type: '0 .. 12',
-            required: true,
-            responsive: true,
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
+
       <Card
         description={`
     Column is a basic layout component to help you size your UI. A full width is composed
