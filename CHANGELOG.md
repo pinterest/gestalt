@@ -1,3 +1,9 @@
+## 41.0.1 (Dec 16, 2021)
+
+### Patch
+
+- Docs: Fixed broken Popover link on Accessibility page (#1822)
+
 ## 41.0.0 (Dec 15, 2021)
 
 ### Major
