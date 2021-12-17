@@ -1,3 +1,9 @@
+## 41.0.6 (Dec 17, 2021)
+
+### Patch
+
+- Box, Column: add comments for responsive props (#1825)
+
 ## 41.0.5 (Dec 17, 2021)
 
 ### Patch
