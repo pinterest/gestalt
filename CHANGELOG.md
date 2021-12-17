@@ -1,3 +1,9 @@
+## 41.0.4 (Dec 17, 2021)
+
+### Patch
+
+- Card, Checkbox, Column: refactor to use generated props tables (#1821)
+
 ## 41.0.3 (Dec 17, 2021)
 
 ### Patch
