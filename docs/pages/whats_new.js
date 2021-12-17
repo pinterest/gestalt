@@ -1,13 +1,13 @@
 // @flow strict
 import type { Node } from 'react';
 import { useState, useEffect } from 'react';
-import { Box, Flex, Link, Text } from 'gestalt';
+import { Box, Flex, Link, Text, Spinner } from 'gestalt';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 
 function Changelog() {
-  const [changelogData, setChangelogData] = useState('Loading changelog from GitHub...');
+  const [changelogData, setChangelogData] = useState('');
 
   useEffect(() => {
     const fetchChangelog = async () => {
@@ -57,7 +57,16 @@ function Changelog() {
         </Text>
       </Flex>
 
-      <Markdown text={changelogData} type="changelog" />
+      {changelogData ? (
+        <Markdown text={changelogData} type="changelog" />
+      ) : (
+        <Box padding={10}>
+          <Flex gap={2} direction="column" alignItems="center">
+            <Spinner show accessibilityLabel="" />
+            <Text weight="bold">Loading changelog from GitHub...</Text>
+          </Flex>
+        </Box>
+      )}
     </Box>
   );
 }
