@@ -1,3 +1,9 @@
+## 41.0.5 (Dec 17, 2021)
+
+### Patch
+
+- Module: use generated proptable (#1809)
+
 ## 41.0.4 (Dec 17, 2021)
 
 ### Patch
