@@ -16,8 +16,17 @@ type ColumnProps = {|
    * Also available in responsive sizes: `smSpan`, `mdSpan`, `lgSpan`
    */
   span: Columns,
+  /**
+   * The number of units in a 12-unit width that this element will occupy in sm and larger viewports.
+   */
   smSpan?: Columns,
+  /**
+   * The number of units in a 12-unit width that this element will occupy in md and larger viewports.
+   */
   mdSpan?: Columns,
+  /**
+   * The number of units in a 12-unit width that this element will occupy in lg and larger viewports.
+   */
   lgSpan?: Columns,
 |};
 
