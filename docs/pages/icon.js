@@ -230,6 +230,7 @@ export async function getStaticProps(): Promise<{| props: {| generatedDocGen: Do
   const overriddenDocGen = overrideTypes(docGen, {
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),
   });
+
   return {
     props: { generatedDocGen: overriddenDocGen },
   };

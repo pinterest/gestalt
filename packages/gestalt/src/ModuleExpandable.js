@@ -1,12 +1,10 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useState, useEffect } from 'react';
+import { Fragment, type Node, useCallback, useState, useEffect, type Element } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
-import type {
-  PublicModuleExpandableProps,
-  PublicModuleExpandableItemProps,
-} from './moduleTypes.js';
+import icons from './icons/index.js';
+import IconButton from './IconButton.js';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
@@ -22,7 +20,23 @@ export default function ModuleExpandable({
   id,
   items,
   onExpandedChange,
-}: PublicModuleExpandableProps): Node {
+}: {|
+  accessibilityCollapseLabel: string,
+  accessibilityExpandLabel: string,
+  expandedIndex?: ?number,
+  id: string,
+  items: $ReadOnlyArray<{|
+    badgeText?: string,
+    children?: Node,
+    icon?: $Keys<typeof icons>,
+    iconAccessibilityLabel?: string,
+    iconButton?: Element<typeof IconButton>,
+    summary?: $ReadOnlyArray<string>,
+    title: string,
+    type?: 'error' | 'info',
+  |}>,
+  onExpandedChange?: (?number) => void,
+|}): Node {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
 
   useEffect(() => {
@@ -41,19 +55,20 @@ export default function ModuleExpandable({
 
   return (
     <Box borderStyle="shadow" rounding={4}>
-      {items.map((props: PublicModuleExpandableItemProps, index) => {
-        const { children, iconAccessibilityLabel, summary, title, type } = props;
-
-        return (
+      {items.map(
+        (
+          { badgeText, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },
+          index,
+        ) => (
           <Fragment key={index}>
             {index > 0 && <Divider />}
             <ModuleExpandableItem
               accessibilityCollapseLabel={accessibilityCollapseLabel}
               accessibilityExpandLabel={accessibilityExpandLabel}
-              badgeText={props.badgeText ? props.badgeText : undefined}
-              icon={props.icon ? props.icon : undefined}
+              badgeText={badgeText}
+              icon={icon}
               iconAccessibilityLabel={iconAccessibilityLabel}
-              iconButton={props.iconButton ? props.iconButton : undefined}
+              iconButton={iconButton}
               id={`${id}-${index}`}
               isCollapsed={expandedId !== index}
               onModuleClicked={buildOnModuleClickHandler(index)}
@@ -64,8 +79,8 @@ export default function ModuleExpandable({
               {children}
             </ModuleExpandableItem>
           </Fragment>
-        );
-      })}
+        ),
+      )}
     </Box>
   );
 }
