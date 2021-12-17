@@ -5306,7 +5306,7 @@ Run codemods for breaking changes in order:
 
 ## 0.93.0 (March 13, 2019)
 
-- Mask: add new prop `willChangeTransform` default true which can turn off `willChange:transform` property in CSS (#494)
+- Mask: add new prop `willChangeTransform` default true which can turn off willChange:transform property in CSS (#494)
 
 ## 0.92.0 (March 7, 2019)
 
