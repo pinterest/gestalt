@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { forwardRef, useImperativeHandle, useEffect, useRef, useState } from 'react';
+import { forwardRef, type Node, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
@@ -11,28 +9,71 @@ import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 
 type Props = {|
+  /**
+   * Is the element currently checked?
+   */
   checked?: boolean,
+  /**
+   * Is the element currently disabled? Disabled Checkboxes do not respond to mouse events and cannot be reached by the keyboard.
+   */
   disabled?: boolean,
+  /**
+   * Displays an error message and error state. Be sure the error message helps the user resolve the problem.
+   */
   errorMessage?: string,
+  /**
+   * This field is deprecated and will be removed soon. Please do not use.
+   */
   hasError?: boolean,
+  /**
+   * A unique identifier for the input.
+   */
   id: string,
+  /**
+   * An optional Image component can be supplied to add an image to each checkbox. Spacing is already accounted for; simply specify the width and height.
+   */
   image?: Node,
+  /**
+   * Used to indicate a state that is neither checked nor unchecked — e.g. a "Select all" checkbox when not all items are selected or unselected.
+   * Indeterminism is purely presentational - the value of a checkbox and its indeterminism are independent.
+   */
   indeterminate?: boolean,
+  /**
+   * The label for the input. Be sure to localize the text.
+   */
   label?: string,
+  /**
+   * A unique name for the input.
+   */
   name?: string,
-  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
-  onClick?: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
+  /**
+   * Callback triggered when the state of the input changes.
+   */
+  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  /**
+   * Callback triggered when the user clicks on the input.
+   */
+  onClick?: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  /**
+   * Ref that is forwarded to the underlying input element.
+   */
+  ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * sm: 16px, md: 24px
+   */
   size?: 'sm' | 'md',
+  /**
+   * Optional description for the checkbox, used to provide more detail about an option.
+   */
   subtext?: string,
 |};
 
 /**
- * [Checkbox](https://gestalt.pinterest.systems/checkbox)is used over [Switch](https://gestalt.pinterest.systems/switch) when you have a long list (>3) of toggles.
+ * Use [Checkbox](https://gestalt.pinterest.systems/checkbox) instead of [Switch](https://gestalt.pinterest.systems/switch) when displaying 3 or more toggle inputs.
  */
 const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

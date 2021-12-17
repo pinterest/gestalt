@@ -1,39 +1,46 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useState } from 'react';
+import { type Node, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Card.css';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
+  /**
+   * Used to force the "active" hover state visually.
+   */
   active?: ?boolean,
+  /**
+   *
+   */
   children?: Node,
+  /**
+   * An optional [Image](https://gestalt.pinterest.systems/image) to be displayed at the top of the layout.
+   */
   image?: Node,
-  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  /**
+   * Optional callback fired when the user mouses over Card.
+   */
+  onMouseEnter?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  /**
+   * Optional callback fired when the user away from Card.
+   */
+  onMouseLeave?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
 |};
 
 /**
- * [Cards](https://gestalt.pinterest.systems/card) are meant to highlight content in grids. It visually shows that items belong together and highlights the items on hover.
+ * [Card](https://gestalt.pinterest.systems/card) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
  */
-export default function Card(props: Props): Node {
+export default function Card({ active, children, image, onMouseEnter, onMouseLeave }: Props): Node {
   const [hovered, setHovered] = useState(false);
-  const { active, children, image, onMouseEnter, onMouseLeave } = props;
 
   const handleMouseEnter = (event) => {
     setHovered(true);
-    if (onMouseEnter) {
-      onMouseEnter({ event });
-    }
+    onMouseEnter?.({ event });
   };
 
   const handleMouseLeave = (event) => {
     setHovered(false);
-    if (onMouseLeave) {
-      onMouseLeave({ event });
-    }
+    onMouseLeave?.({ event });
   };
 
   const classes = classnames(styles.card, {

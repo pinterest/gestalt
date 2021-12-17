@@ -1,6 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
@@ -11,31 +11,9 @@ export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen
   return (
     <Page title="Card">
       <PageHeader name="Card" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'active',
-            type: '?boolean',
-            defaultValue: false,
-          },
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'image',
-            type: 'React.Node',
-          },
-          {
-            name: 'onMouseEnter',
-            type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
-          },
-          {
-            name: 'onMouseLeave',
-            type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
