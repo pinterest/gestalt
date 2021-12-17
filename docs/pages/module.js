@@ -12,7 +12,7 @@ import type { DocGen } from '../components/docgen.js';
 export default function ModulePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Module">
-      <PageHeader name="Module" description={generatedDocGen.description} />
+      <PageHeader name="Module" description={generatedDocGen?.description} />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
