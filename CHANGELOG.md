@@ -1,3 +1,9 @@
+## 41.0.3 (Dec 17, 2021)
+
+### Patch
+
+- Docs: avoid spinner on What's new page (#1824)
+
 ## 41.0.2 (Dec 17, 2021)
 
 ### Patch
