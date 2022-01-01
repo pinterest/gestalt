@@ -1,17 +1,15 @@
 // @flow strict
 import type { Node } from 'react';
-
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import createHydra, { type Hydra } from './createHydra.js';
-import useLocalStorage from './useLocalStorage.js';
 
+const colorSchemeKey = 'gestalt-color-scheme';
 const propTableVariantKey = 'gestalt-propTable-variant';
-const cookieColorSchemeKey = 'gestalt-color-scheme';
-const localStorageTextDirectionKey = 'gestalt-text-direction';
+const textDirectionKey = 'gestalt-text-direction';
 
 type PropTableVariant = 'collapsed' | 'expanded';
-export type ColorScheme = 'light' | 'dark' | 'userPreference';
+type ColorScheme = 'light' | 'dark';
 type DirectionScheme = 'ltr' | 'rtl';
 
 export type AppContextType = {|
@@ -30,17 +28,16 @@ const {
 }: Hydra<AppContextType> = createHydra<AppContextType>('AppContext');
 
 function AppContextProvider({ children }: {| children?: Node |}): Node {
-  const [cookies, setCookie] = useCookies([cookieColorSchemeKey]);
+  const [cookies, setCookies] = useCookies([colorSchemeKey, propTableVariantKey, textDirectionKey]);
 
-  const [propTableVariant, setPropTableVariant] = useLocalStorage<PropTableVariant>(
-    propTableVariantKey,
-    'expanded',
-  );
+  const colorScheme: ColorScheme = cookies[colorSchemeKey] === 'dark' ? 'dark' : 'light';
+  const propTableVariant: PropTableVariant =
+    cookies[propTableVariantKey] === 'collapsed' ? 'collapsed' : 'expanded';
+  const textDirection: DirectionScheme = cookies[textDirectionKey] === 'rtl' ? 'rtl' : 'ltr';
 
-  const [textDirection, setTextDirection] = useLocalStorage<DirectionScheme>(
-    localStorageTextDirectionKey,
-    'ltr',
-  );
+  const setColorScheme = (newColorScheme) => setCookies(colorSchemeKey, newColorScheme);
+  const setPropTableVariant = (variant) => setCookies(propTableVariantKey, variant);
+  const setTextDirection = (direction) => setCookies(textDirectionKey, direction);
 
   useEffect(() => {
     if (document && document.documentElement) {
@@ -53,8 +50,8 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
       value={{
         propTableVariant,
         setPropTableVariant,
-        colorScheme: cookies[cookieColorSchemeKey] === 'dark' ? 'dark' : 'light',
-        setColorScheme: (newColorScheme) => setCookie(cookieColorSchemeKey, newColorScheme),
+        colorScheme,
+        setColorScheme,
         textDirection,
         setTextDirection,
       }}

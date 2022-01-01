@@ -1,11 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
 import { IconButton, Tooltip } from 'gestalt';
-import { type ColorScheme } from '../appContext.js';
 import trackButtonClick from './trackButtonClick.js';
 
 type Props = {|
-  colorScheme: ColorScheme,
+  colorScheme: 'light' | 'dark',
   onClick: () => void,
 |};
 
