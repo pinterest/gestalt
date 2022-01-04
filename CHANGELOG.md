@@ -1,3 +1,9 @@
+## 41.1.3 (Jan 4, 2022)
+
+### Patch
+
+- Docs: use inline SVG for header logo (#1826)
+
 ## 41.1.2 (Jan 4, 2022)
 
 ### Patch
