@@ -1,9 +1,8 @@
 // @flow strict
 import type { Node } from 'react';
-
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import createHydra, { type Hydra } from './createHydra.js';
-import useLocalStorage from './useLocalStorage.js';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by';
 
@@ -25,10 +24,12 @@ const {
 function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const [sidebarOrganisedBy, setSidebarOrganizedBy] = useLocalStorage<SidebarOrganisedBy>(
-    localStorageOrganizedByKey,
-    'categorized',
-  );
+  const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);
+
+  const sidebarOrganisedBy: SidebarOrganisedBy =
+    cookies[localStorageOrganizedByKey] === 'alphabetical' ? 'alphabetical' : 'categorized';
+  const setSidebarOrganizedBy = (organizedBy) =>
+    setCookies(localStorageOrganizedByKey, organizedBy);
 
   return (
     <Provider
