@@ -1,3 +1,9 @@
+## 41.1.2 (Jan 4, 2022)
+
+### Patch
+
+- Dropdown: Remove aria selected from menutiems (#1837)
+
 ## 41.1.1 (Jan 4, 2022)
 
 ### Patch
