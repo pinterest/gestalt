@@ -91,3 +91,17 @@ jobs:
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
           cd ../eslint-plugin-gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
+      - name: Trigger VSCode Gestalt release
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'pinterest',
+              repo: 'vscode-gestalt',
+              workflow_id: 'workflows/publish.yml',
+              ref: 'main',
+              inputs: {
+                version: `${steps.release.outputs.VERSION}`
+              }
+            });
