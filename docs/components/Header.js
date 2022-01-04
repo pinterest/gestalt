@@ -1,13 +1,12 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useState } from 'react';
 import { Box, Flex, FixedZIndex, Text, IconButton, Sticky } from 'gestalt';
-import Image from 'next/image';
 import DocSearch from './DocSearch.js';
+import GestaltLogo from './GestaltLogo.js';
 import HeaderMenu from './HeaderMenu.js';
 import Link from './Link.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
-import gestaltLogo from '../public/gestalt-logo-250.png';
 
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
@@ -33,8 +32,8 @@ function Header() {
           >
             <Box paddingX={2}>
               <Flex alignItems="center" gap={2}>
-                <Image alt="Gestalt logo" height={40} src={gestaltLogo} width={40} />
-                {/* slight tweak to vertically center to logo image */}
+                <GestaltLogo height={40} width={40} />
+                {/* slight tweak to vertically center to logo */}
                 <Box dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}>Gestalt</Box>
               </Flex>
             </Box>
@@ -48,7 +47,7 @@ function Header() {
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
         <DocSearch />
 
-        {/* > small-screen buttons/links */}
+        {/* Medium & larger-screen buttons/links */}
         <HeaderMenu isHeader />
 
         {/* Small-screen menu button */}
