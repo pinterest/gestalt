@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Tabs, { TabWithForwardRef } from './Tabs.js';
+import Tabs from './Tabs.js';
 
 describe('<Tabs />', () => {
   // TODO: we no longer support this, but we should
@@ -24,7 +24,7 @@ describe('<Tabs />', () => {
   //   expect(tabs[2].props['aria-selected']).toEqual(false);
   // });
 
-  test('Adds id only if given', () => {
+  test('Adds id when given', () => {
     const instance = create(
       <Tabs
         activeTabIndex={0}
@@ -36,10 +36,7 @@ describe('<Tabs />', () => {
       />,
     ).root;
 
-    const tabs = instance.findAllByType(TabWithForwardRef);
-
-    expect(tabs[0].props.id).toEqual('news-tab');
-    expect(tabs[1].props.id).toBeUndefined();
+    expect(instance.findByProps({ id: 'news-tab' })).toBeDefined();
   });
 
   test('matches snapshot with default props', () => {
