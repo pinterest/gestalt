@@ -126,14 +126,6 @@
         "jest/expect-expect": "off",
         "flowtype/require-valid-file-annotation": "off"
       }
-    },
-    {
-      "files": ["scripts/danger/*.js"],
-      "globals": {
-        "danger": true,
-        "markdown": true,
-        "warn": true
-      }
     }
   ]
 }
