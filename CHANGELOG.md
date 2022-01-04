@@ -1,3 +1,9 @@
+## 41.0.9 (Jan 4, 2022)
+
+### Patch
+
+- Internal: Update GitHub actions to latest version (#1832)
+
 ## 41.0.8 (Jan 4, 2022)
 
 ### Patch
