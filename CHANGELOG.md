@@ -1,3 +1,9 @@
+## 41.0.10 (Jan 4, 2022)
+
+### Patch
+
+- Docs: move all user preferences to cookies (#1831)
+
 ## 41.0.9 (Jan 4, 2022)
 
 ### Patch
