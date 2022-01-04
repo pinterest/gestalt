@@ -1,3 +1,9 @@
+## 41.0.8 (Jan 4, 2022)
+
+### Patch
+
+- Internal: remove unused danger (#1829)
+
 ## 41.0.7 (Jan 4, 2022)
 
 ### Patch
