@@ -1,3 +1,9 @@
+## 41.0.7 (Jan 4, 2022)
+
+### Patch
+
+- Internal: optimize Gestalt logos (#1828)
+
 ## 41.0.6 (Dec 17, 2021)
 
 ### Patch
