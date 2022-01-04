@@ -1,3 +1,9 @@
+## 41.1.1 (Jan 4, 2022)
+
+### Patch
+
+- Internal: avoid TabWithForwardRef export to fix generated types (#1836)
+
 ## 41.1.0 (Jan 4, 2022)
 
 ### Minor
