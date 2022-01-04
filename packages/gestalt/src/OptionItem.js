@@ -144,7 +144,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
 
   return (
     <div
-      aria-selected={isSelectedItem}
+      aria-selected={role === 'option' ? isSelectedItem : null}
       className={className}
       data-test-id={dataTestId}
       id={`${id}-item-${index}`}

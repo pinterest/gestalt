@@ -25,7 +25,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
             >
               <div
-                aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-0"
                 role="menuitem"
@@ -68,7 +67,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-1"
                 role="menuitem"
@@ -111,7 +109,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-2"
                 role="menuitem"
@@ -177,7 +174,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-3"
                 role="menuitem"
@@ -234,7 +230,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-4"
                 role="menuitem"
@@ -314,7 +309,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-5"
                 role="menuitem"
