@@ -105,7 +105,7 @@ const colors = {
   },
 };
 
-export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
+const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
   HTMLElement,
 >(function Tab({ bgColor, href, indicator, id, index, isActive, onChange, text }: TabProps, ref) {
