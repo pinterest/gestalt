@@ -1,3 +1,9 @@
+## 41.1.0 (Jan 4, 2022)
+
+### Minor
+
+- Internal: publish a new version of VSCode Gestalt for every Gestalt change (#1833)
+
 ## 41.0.10 (Jan 4, 2022)
 
 ### Patch
