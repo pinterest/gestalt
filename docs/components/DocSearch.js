@@ -44,7 +44,8 @@ export default function DocSearch(): Node {
       return;
     }
     window.docsearch({
-      apiKey: 'a22bd809b2fb174c5defd3c0f44cab8c',
+      appId: 'GS3KDMZW6P',
+      apiKey: '88c1825a5951ee68c92b4fbf4e85ec7f',
       debug: false, // Set debug to true if you want to keep open and inspect the dropdown
       indexName: 'gestalt',
       inputSelector: '#algolia-doc-search',
