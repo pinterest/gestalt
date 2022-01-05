@@ -154,7 +154,7 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
             name: 'zIndex',
             type: 'interface Indexable { index(): number; }',
             description:
-              'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/zindex%20classes)',
+              'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/zindex_classes)',
           },
         ]}
       />

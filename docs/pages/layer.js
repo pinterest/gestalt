@@ -71,7 +71,7 @@ function Example() {
       />
       <Example
         description="
-The example below shows using a \`FixedZIndex\` for the header zIndex and a \`CompositeZIndex\` to stack the Layer on top of it. Visit our [Z-Index documentation](/zindex%20classes) for more details on how to use these utility classes.
+The example below shows using a \`FixedZIndex\` for the header zIndex and a \`CompositeZIndex\` to stack the Layer on top of it. Visit our [Z-Index documentation](/zindex_classes) for more details on how to use these utility classes.
     "
         name="zIndex"
         defaultCode={`
