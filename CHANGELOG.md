@@ -5340,7 +5340,7 @@ Run codemods for breaking changes in order:
 
 - Icon: add calendar icon to gestalt (#512)
 - Icon: add lightning bolt icon (#513)
-- Flow: upgrade version to [0.97.0](https://github.com/facebook/flow/releases/tag/v0.97.0) (#515)
+- Flow: upgrade version to 0.97.0 (#515)
 
 ## 0.95.0 (April 10, 2019)
 
@@ -5348,7 +5348,7 @@ Run codemods for breaking changes in order:
 
 - Tooltip: remove focus from revealing Tooltip (#506)
 - TextField: Add autocomplete prop value to TextField (#508)
-- Upgrade flow version to [0.96.0](https://github.com/facebook/flow/releases/tag/v0.96.0) (#509)
+- Upgrade flow version to 0.96.0 (#509)
 
 ### Patch
 
@@ -5711,7 +5711,7 @@ Run codemods for breaking changes in order:
 - Internal: Add eslint-plugin-jest with recommended settings (#181)
 - Internal: Add Flow type checking to Jest test files (#184)
 - Video: Better existing callbacks, new playback rate prop, new loading callback (#174)
-- Internal: Turn the [import/first](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md) rule back on (#186)
+- Internal: Turn the import/first rule back on (#186)
 
 ## 0.69.0 (May 10, 2018)
 
@@ -5893,13 +5893,13 @@ Run codemods for breaking changes in order:
 - TextField: Remove duplicate logic opening the error flyout (#34)
 - Internal: Re-exports flowtypes (#35)
 
-## [0.57.1] (Feb 22, 2018)
+## 0.57.1 (Feb 22, 2018)
 
 ### Patch
 
 - Internal: Fix docs (StateRecorder) + run development mode locally + fix propType error #25
 
-## [0.57.0] (Feb 22, 2018)
+## 0.57.0 (Feb 22, 2018)
 
 ## Minor
 
@@ -5921,6 +5921,3 @@ Run codemods for breaking changes in order:
 - Docs: Removes function syntax from cards (#7)
 - Build: Fixes repo url in docs build script (#4)
 - Internal: Webpack 3 upgrade (#11)
-
-[0.57.1]: https://deploy-preview-26--gestalt.netlify.com/
-[0.57.0]: https://deploy-preview-24--gestalt.netlify.com/
