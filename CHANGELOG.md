@@ -1,3 +1,9 @@
+## 41.1.4 (Jan 5, 2022)
+
+### Patch
+
+- Docs: Update Algolia keys (#1835)
+
 ## 41.1.3 (Jan 4, 2022)
 
 ### Patch
