@@ -452,7 +452,7 @@ function SectionsIconButtonDropdownExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Z-index"
-          description={`Tooltip has [Layer](/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/zindex%20classes#FixedZIndex) used in [Modal](/modal) and [CompositeZIndex](ZIndex%20Classes#CompositeZIndex) to layer Tooltip on top.
+          description={`Tooltip has [Layer](/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/zindex_classes#FixedZIndex) used in [Modal](/modal) and [CompositeZIndex](zindex_classes#CompositeZIndex) to layer Tooltip on top.
 
 `}
         >

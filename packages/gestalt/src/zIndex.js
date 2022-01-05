@@ -5,7 +5,7 @@ export interface Indexable {
 }
 
 /**
- * https://gestalt.pinterest.systems/zindex%20classes
+ * https://gestalt.pinterest.systems/zindex_classes#FixedZIndex
  */
 export class FixedZIndex implements Indexable {
   +z: number;
@@ -20,7 +20,7 @@ export class FixedZIndex implements Indexable {
 }
 
 /**
- * https://gestalt.pinterest.systems/zindex%20classes
+ * https://gestalt.pinterest.systems/zindex_classes#CompositeZIndex
  */
 export class CompositeZIndex implements Indexable {
   +deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>;
