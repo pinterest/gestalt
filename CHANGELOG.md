@@ -1,3 +1,9 @@
+## 41.1.5 (Jan 5, 2022)
+
+### Patch
+
+- Docs: fix links to zIndex page (#1839)
+
 ## 41.1.4 (Jan 5, 2022)
 
 ### Patch
