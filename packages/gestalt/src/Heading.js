@@ -4,26 +4,11 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
 import typography from './Typography.css';
-import { allowedColors, type Align, type Color } from './textTypes.js';
+import { allowedColors } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
 }
-
-type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
-type Overflow = 'normal' | 'breakWord';
-type Size = 'sm' | 'md' | 'lg';
-
-type Props = {|
-  align?: Align,
-  accessibilityLevel?: AccessibilityLevel,
-  children?: Node,
-  color?: Color,
-  id?: string,
-  lineClamp?: number,
-  overflow?: Overflow,
-  size?: Size,
-|};
 
 const defaultHeadingLevels = {
   sm: 3,
@@ -36,6 +21,63 @@ const SIZE_SCALE = {
   md: 2,
   lg: 3,
 };
+
+type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
+type Overflow = 'normal' | 'breakWord';
+type Size = 'sm' | 'md' | 'lg';
+
+type Props = {|
+  /**
+   * Allows you to override the default heading level for the given `size`.
+   */
+  accessibilityLevel?: AccessibilityLevel,
+  /**
+   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [example below](#align) for more details.
+   */
+  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
+  /**
+   *
+   */
+  children?: Node,
+  /**
+   * The color of the text. See [example below](#colors) for more details.
+   */
+  color?:
+    | 'blue'
+    | 'darkGray'
+    | 'eggplant'
+    | 'gray'
+    | 'green'
+    | 'lightGray'
+    | 'maroon'
+    | 'midnight'
+    | 'navy'
+    | 'olive'
+    | 'orange'
+    | 'orchid'
+    | 'pine'
+    | 'purple'
+    | 'red'
+    | 'watermelon'
+    | 'white',
+  /**
+   * A unique identifier for the element.
+   */
+  id?: string,
+  /**
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See [example below](#overflowTruncation) for more details.
+   */
+  lineClamp?: number,
+  /**
+   * How truncation is handled when text overflows the line. See [example below](#overflowTruncation) for more details.
+   */
+  overflow?: Overflow,
+  /**
+   * The font size of the text. See [example below](#sizes) for more details.
+   * sm: 20px, md: 28px, lg: 36px
+   */
+  size?: Size,
+|};
 
 /**
  * [Heading](https://gestalt.pinterest.systems/heading) allows you to show headings on the page & has a bigger line height than regular text.

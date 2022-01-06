@@ -1,6 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
@@ -10,58 +10,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   return (
     <Page title="Heading">
       <PageHeader name="Heading" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'accessibilityLevel',
-            type: '1 | 2 | 3 | 4 | 5 | 6 | "none"',
-            description: 'Allows you to override the default heading level for the given `size`',
-            href: 'levels',
-          },
-          {
-            name: 'align',
-            type: `"start" | "end" | "center" | "justify" | "forceLeft" | "forceRight"`,
-            defaultValue: 'start',
-            href: 'align',
-            description:
-              '`"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text.',
-          },
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'color',
-            type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
-            defaultValue: 'darkGray',
-            href: 'colors',
-          },
-          {
-            name: 'id',
-            type: 'string',
-          },
-          {
-            name: 'lineClamp',
-            type: 'number',
-            description:
-              'Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.',
-            href: 'overflowTruncation',
-          },
-          {
-            name: 'overflow',
-            type: '"normal" | "breakWord"',
-            defaultValue: 'breakWord',
-            href: 'overflowTruncation',
-          },
-          {
-            name: 'size',
-            type: `"sm" | "md" | "lg"`,
-            description: `sm: 20px, md: 28px, lg: 36px`,
-            defaultValue: 'lg',
-            href: 'sizes',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <Example
         id="sizes"
         name="Example: Sizes"

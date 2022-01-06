@@ -1,7 +1,6 @@
 // @flow strict
-import React, { type Node } from 'react';
-import { Datapoint } from 'gestalt';
-import PropTable from '../components/PropTable.js';
+import { type Node } from 'react';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
@@ -18,47 +17,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 `}
         badge="pilot"
       />
-      <PropTable
-        Component={Datapoint}
-        props={[
-          {
-            name: 'tooltipText',
-            type: 'string',
-            description:
-              'Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](#Tooltip-text) variant to learn more.',
-          },
-          {
-            name: 'size',
-            type: `'md' | 'lg'`,
-            defaultValue: 'md',
-            description:
-              'Used to set the size of the datapoint. See the [size](#Size) variant to learn more.',
-          },
-          {
-            name: 'title',
-            type: 'string',
-            description: 'The header for the component.',
-            required: true,
-          },
-          {
-            name: 'trend',
-            type: '{| accessibilityLabel: string, value: number |}',
-            description: `Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](#Trend) variant to learn more.`,
-          },
-          {
-            name: 'trendSentiment',
-            type: `'good' | 'bad' | 'neutral' | 'auto'`,
-            defaultValue: 'auto',
-            description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](#Trend-sentiment) variant to learn more.`,
-          },
-          {
-            name: 'value',
-            type: 'string',
-            description: 'The main datapoint value (e.g., 1.23M)',
-            required: true,
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

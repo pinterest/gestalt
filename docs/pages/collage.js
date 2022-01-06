@@ -1,6 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
@@ -10,63 +10,9 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
   return (
     <Page title="Collage">
       <PageHeader name="Collage" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'columns',
-            type: 'number',
-            description:
-              'Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors.',
-            required: true,
-            href: 'columns',
-          },
-          {
-            name: 'cover',
-            type: 'boolean',
-            description: 'Whether or not the first image is a cover image',
-            defaultValue: false,
-            href: 'coverImage',
-          },
-          {
-            name: 'gutter',
-            type: 'number',
-            description: 'The amount of vertical & horizontal space between images',
-            defaultValue: 0,
-            href: 'gutter',
-          },
-          {
-            name: 'height',
-            type: 'number',
-            description: 'Height of the collage',
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'layoutKey',
-            type: 'number',
-            description: `
-        Depending on the number of columns of the collage, there may be multiple layouts available.
-        If there are N layouts available, (layoutKey % N) will determine which layout is used.
-        `,
-            defaultValue: 0,
-            href: 'layoutKey',
-          },
-          {
-            name: 'renderImage',
-            type: '({| width: number, height: number, index: number |}) => React.Node',
-            description: 'Render prop for the collage images',
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'width',
-            type: 'number',
-            description: 'Width of the collage',
-            required: true,
-            href: 'basicExample',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <Example
         id="basicExample"
         name="Basic example"
