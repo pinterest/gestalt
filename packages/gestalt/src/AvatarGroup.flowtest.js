@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import AvatarGroup from './AvatarGroup.js';
 
 const Valid = (
