@@ -1,9 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
-import path from 'path';
-import fs from 'fs';
-import nextConfig from 'next/config';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
@@ -49,10 +46,11 @@ export default function Changelog({ changelog }: {| changelog: string |}): Node 
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| changelog: string |} |}> {
-  const filePath = path.join(nextConfig().serverRuntimeConfig.GESTALT_ROOT, `CHANGELOG.md`);
-  const changelog = await fs.promises.readFile(filePath, 'utf-8');
+export async function getServerSideProps(): Promise<{| props: {| changelog: string |} |}> {
+  const result = await fetch(
+    'https://raw.githubusercontent.com/pinterest/gestalt/master/CHANGELOG.md',
+  );
   return {
-    props: { changelog },
+    props: { changelog: await result.text() },
   };
 }
