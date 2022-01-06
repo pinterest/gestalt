@@ -1,3 +1,9 @@
+## 41.1.10 (Jan 6, 2022)
+
+### Patch
+
+- Internal: upgrade actions/checkout in integration test workflow (#1846)
+
 ## 41.1.9 (Jan 6, 2022)
 
 ### Patch
