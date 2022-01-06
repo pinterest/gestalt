@@ -1,3 +1,9 @@
+## 41.1.6 (Jan 6, 2022)
+
+### Patch
+
+- Internal: disallow any ESLint warnings (#1841)
+
 ## 41.1.5 (Jan 5, 2022)
 
 ### Patch
