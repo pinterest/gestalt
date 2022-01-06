@@ -1,3 +1,9 @@
+## 41.1.8 (Jan 6, 2022)
+
+### Patch
+
+- Docs: fix SSR on what's new page (#1845)
+
 ## 41.1.7 (Jan 6, 2022)
 
 ### Patch
