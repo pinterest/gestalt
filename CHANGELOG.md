@@ -1,3 +1,9 @@
+## 41.1.11 (Jan 6, 2022)
+
+### Patch
+
+- Docs: update How to Work With Us page (#1842)
+
 ## 41.1.10 (Jan 6, 2022)
 
 ### Patch
