@@ -1,3 +1,9 @@
+## 41.1.9 (Jan 6, 2022)
+
+### Patch
+
+- Docs: fix cookie issues (#1840)
+
 ## 41.1.8 (Jan 6, 2022)
 
 ### Patch

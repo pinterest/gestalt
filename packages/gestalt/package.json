@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "41.1.8",
+  "version": "41.1.9",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "A set of React UI components which enforce Pinterest’s design language",
