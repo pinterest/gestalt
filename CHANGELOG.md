@@ -1,3 +1,9 @@
+## 41.1.7 (Jan 6, 2022)
+
+### Patch
+
+- Internal: fix steps is not defined exception on VSCode Gestalt release step (#1847)
+
 ## 41.1.6 (Jan 6, 2022)
 
 ### Patch
