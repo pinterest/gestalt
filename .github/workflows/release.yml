@@ -100,8 +100,5 @@ jobs:
               owner: 'pinterest',
               repo: 'vscode-gestalt',
               workflow_id: 'workflows/publish.yml',
-              ref: 'main',
-              inputs: {
-                version: `${steps.release.outputs.VERSION}`
-              }
+              ref: 'main'
             });
