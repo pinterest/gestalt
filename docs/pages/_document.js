@@ -1,17 +1,28 @@
 // @flow strict
 import { type Node } from 'react';
+import Cookies from 'universal-cookie';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class GestaltDocument extends Document {
   // $FlowFixMe[signature-verification-failure]
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
+
+    const cookieHeader = ctx?.req?.headers?.cookie;
+    if (cookieHeader) {
+      return { ...initialProps, cookieHeader };
+    }
+
     return { ...initialProps };
   }
 
   render(): Node {
+    const { props } = this;
+    const cookies = new Cookies(props.cookieHeader);
+    const dir = cookies.cookies['gestalt-text-direction'];
+
     return (
-      <Html lang="en">
+      <Html lang="en" dir={dir}>
         <Head>
           {/* eslint-disable-next-line @next/next/no-sync-scripts */}
           <script

@@ -27,8 +27,10 @@ function GestaltApp(
     );
   }
 
+  const cookies = new Cookies(cookieHeader);
+
   return (
-    <CookiesProvider cookies={new Cookies(cookieHeader)}>
+    <CookiesProvider cookies={cookies}>
       <App>
         <Component {...pageProps} />
       </App>
@@ -38,14 +40,8 @@ function GestaltApp(
 
 GestaltApp.getInitialProps = async (appInitialProps: AppInitialProps): Promise<AppInitialProps> => {
   const initialProps = await NextApp.getInitialProps(appInitialProps);
-
   const cookieHeader = appInitialProps?.ctx?.req?.headers?.cookie;
-
-  if (cookieHeader) {
-    return { ...initialProps, cookieHeader };
-  }
-
-  return { ...initialProps };
+  return { ...initialProps, ...(cookieHeader ? { cookieHeader } : {}) };
 };
 
 export default GestaltApp;
