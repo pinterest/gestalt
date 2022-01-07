@@ -23,6 +23,7 @@ export class FixedZIndex implements Indexable {
  * https://gestalt.pinterest.systems/zindex_classes#CompositeZIndex
  */
 export class CompositeZIndex implements Indexable {
+  // eslint-disable-next-line no-use-before-define
   +deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>;
 
   constructor(deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>) {
