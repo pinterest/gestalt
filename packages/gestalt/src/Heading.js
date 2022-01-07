@@ -32,7 +32,7 @@ type Props = {|
    */
   accessibilityLevel?: AccessibilityLevel,
   /**
-   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [example below](#align) for more details.
+   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [Align example](https://gestalt.pinterest.systems#align) for more details.
    */
   align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   /**
@@ -40,7 +40,7 @@ type Props = {|
    */
   children?: Node,
   /**
-   * The color of the text. See [example below](#colors) for more details.
+   * The color of the text. See [Colors example](https://gestalt.pinterest.systems#colors) for more details.
    */
   color?:
     | 'blue'
@@ -65,15 +65,15 @@ type Props = {|
    */
   id?: string,
   /**
-   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See [example below](#overflowTruncation) for more details.
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See [Truncation example](https://gestalt.pinterest.systems#overflowTruncation) for more details.
    */
   lineClamp?: number,
   /**
-   * How truncation is handled when text overflows the line. See [example below](#overflowTruncation) for more details.
+   * How truncation is handled when text overflows the line. See [Truncation example](https://gestalt.pinterest.systems#overflowTruncation) for more details.
    */
   overflow?: Overflow,
   /**
-   * The font size of the text. See [example below](#sizes) for more details.
+   * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems#sizes) for more details.
    * sm: 20px, md: 28px, lg: 36px
    */
   size?: Size,

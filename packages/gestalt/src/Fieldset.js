@@ -12,7 +12,7 @@ import whitespaceStyles from './Whitespace.css';
 
 type Props = {|
   /**
-   * The content of Fieldset, typically [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).
+   * The content of Fieldset, typically [RadioButtons](https://gestalt.pinterest.systems/radiobutton), [Checkboxes](https://gestalt.pinterest.systems/checkbox) or [TextFields](https://gestalt.pinterest.systems/textfield).
    */
   children: Node,
   /**
@@ -28,7 +28,7 @@ type Props = {|
    */
   legend: string,
   /**
-   * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](#Legend-visibility) for more info.
+   * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](https://gestalt.pinterest.systems#Legend-visibility) for more info.
    */
   legendDisplay?: 'visible' | 'hidden',
 |};
