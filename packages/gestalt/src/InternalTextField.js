@@ -14,7 +14,6 @@ import layout from './Layout.css';
 import styles from './InternalTextField.css';
 import { TAB, SPACE, ENTER } from './keyCodes.js';
 import typography from './Typography.css';
-import { type LabelDisplay } from './Label.js';
 
 type Props = {|
   // REQUIRED
@@ -33,7 +32,7 @@ type Props = {|
   hasError?: boolean,
   helperText?: string,
   label?: string,
-  labelDisplay?: LabelDisplay,
+  labelDisplay?: 'visible' | 'hidden',
   max?: number,
   min?: number,
   name?: string,

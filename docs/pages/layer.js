@@ -1,30 +1,19 @@
 // @flow strict
 import type { Node } from 'react';
 import Card from '../components/Card.js';
-import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
-import Page from '../components/Page.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Layer">
       <PageHeader name="Layer" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-            required: true,
-          },
-          {
-            name: 'zIndex',
-            type: 'interface Indexable { index(): number; }',
-            description: `An object representing the zIndex value of the Layer.`,
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <Card
         description="
     Because creating a portal in Layer depends on DOM manipulation, if document is not present,
