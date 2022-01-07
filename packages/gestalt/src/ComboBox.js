@@ -1,16 +1,16 @@
 // @flow strict
 import {
-  useMemo,
-  useCallback,
   cloneElement,
   forwardRef,
   Fragment,
-  useEffect,
-  useRef,
-  useImperativeHandle,
-  useState,
   type Element,
   type Node,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
 } from 'react';
 import Box from './Box.js';
 import Layer from './Layer.js';
@@ -24,7 +24,6 @@ import handleContainerScrolling, {
   KEYS,
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
-import { type LabelDisplay } from './Label.js';
 
 type Size = 'md' | 'lg';
 
@@ -40,7 +39,7 @@ type Props = {|
   errorMessage?: Node,
   helperText?: string,
   inputValue?: string | null,
-  labelDisplay?: LabelDisplay,
+  labelDisplay?: 'visible' | 'hidden',
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
