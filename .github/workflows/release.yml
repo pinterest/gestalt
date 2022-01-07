@@ -99,6 +99,6 @@ jobs:
             await github.rest.actions.createWorkflowDispatch({
               owner: 'pinterest',
               repo: 'vscode-gestalt',
-              workflow_id: 'workflows/publish.yml',
+              workflow_id: 'publish.yml',
               ref: 'main'
             });
