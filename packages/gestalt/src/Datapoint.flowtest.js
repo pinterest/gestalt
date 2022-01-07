@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Datapoint from './Datapoint.js';
 
 const Valid = (

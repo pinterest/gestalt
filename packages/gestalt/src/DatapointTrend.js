@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node } from 'react';
 import Text from './Text.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
