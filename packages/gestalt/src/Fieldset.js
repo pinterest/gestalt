@@ -6,7 +6,7 @@ import boxWhitespaceStyles from './boxWhitespace.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import formLabelStyles from './FormLabel.css';
 import formStyles from './FormElement.css';
-import labelStyles from './Label.css';
+import labelStyles from './InternalLabel.css';
 import Text from './Text.js';
 import whitespaceStyles from './Whitespace.css';
 
