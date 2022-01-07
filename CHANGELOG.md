@@ -1,3 +1,9 @@
+## 41.1.12 (Jan 7, 2022)
+
+### Patch
+
+- Collage, Container, Datapoint, Fieldset, Heading: use generated props tables (#1843)
+
 ## 41.1.11 (Jan 6, 2022)
 
 ### Patch
