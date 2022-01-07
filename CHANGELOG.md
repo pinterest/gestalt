@@ -1,3 +1,9 @@
+## 41.1.13 (Jan 7, 2022)
+
+### Patch
+
+- Internal: fix workflow id for VSCode Gestalt release step (#1850)
+
 ## 41.1.12 (Jan 7, 2022)
 
 ### Patch
