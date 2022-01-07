@@ -1,114 +1,19 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
-import Example from '../components/Example.js';
-import PageHeader from '../components/PageHeader.js';
 import Card from '../components/Card.js';
-import docgen, { type DocGen } from '../components/docgen.js';
+import Example from '../components/Example.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Image">
       <PageHeader name="Image" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'alt',
-            type: 'string',
-            required: true,
-          },
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'color',
-            type: 'string',
-            required: true,
-            href: 'placeholders',
-          },
-          {
-            name: 'crossOrigin',
-            type: `"anonymous" | "use-credentials"`,
-          },
-          {
-            name: 'elementTiming',
-            type: 'string',
-            description: `HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.`,
-          },
-          {
-            name: 'fit',
-            type: `"cover" | "contain" | "none"`,
-            defaultValue: 'none',
-            description: `Doesn't work with srcSet or sizes.`,
-            href: 'fit',
-          },
-          {
-            name: 'importance',
-            type: `"high" | "low" | "auto"`,
-            defaultValue: 'auto',
-            description: `Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.`,
-            href: 'fit',
-          },
-          {
-            name: 'loading',
-            type: `"eager" | "lazy" | "auto"`,
-            defaultValue: 'auto',
-            description: `
-        Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource.
-        `,
-            href: 'fit',
-          },
-          {
-            name: 'naturalHeight',
-            type: 'number',
-            required: true,
-            description: 'Exact height of source image',
-            href: 'fit',
-          },
-          {
-            name: 'naturalWidth',
-            type: 'number',
-            required: true,
-            description: 'Exact width of source image',
-            href: 'fit',
-          },
-          {
-            name: 'onError',
-            type: '() => void',
-          },
-          {
-            name: 'onLoad',
-            type: '() => void',
-          },
-          {
-            name: 'role',
-            type: `"img" | "presentation"`,
-            defaultValue: 'img',
-            description: `When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility.`,
-            href: 'Presentational-Images-with-Role',
-          },
-          {
-            name: 'sizes',
-            type: 'string',
-            description:
-              'A list of one or more strings separated by commas indicating a set of source sizes',
-          },
-          {
-            name: 'src',
-            type: 'string',
-            required: true,
-            href: 'placeholders',
-          },
-          {
-            name: 'srcSet',
-            type: 'string',
-            description:
-              'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <Card
         description={`
     One thing that might be unusual is that the \`width\` and the \`height\` of the
@@ -122,6 +27,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   `}
         name="Dimensions"
       />
+
       <Example
         id="placeholders"
         description={`
@@ -142,6 +48,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Column>
 `}
       />
+
       <Example
         description="
     You can overlay content on an Image by passing it children.
@@ -169,6 +76,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Box>
 `}
       />
+
       <Example
         id="fit"
         description={`
@@ -283,9 +191,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Flex>
 `}
       />
+
       <Example
         description="
-    You can delay loading images that are off-screen with the loading attribute.
+    You can delay loading images that are off-screen with the loading attribute. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading) for more details.
   "
         name="Lazy"
         defaultCode={`
@@ -301,6 +210,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Box>
 `}
       />
+
       <Example
         description={`
       Sometimes Images are purely presentational. For example, an Image used above an article title may be used to draw people's attention visually, but doesn't add any additional information or context about the article. In this case, the \`role\` should be set to "presentation" in order to inform screen readers and other assistive technology that this image does not need alternative text or any additional label.

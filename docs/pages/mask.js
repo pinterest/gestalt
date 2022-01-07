@@ -1,55 +1,20 @@
 // @flow strict
 import type { Node } from 'react';
 import { Mask } from 'gestalt';
-import PropTable from '../components/PropTable.js';
-import Example from '../components/Example.js';
 import Combination from '../components/Combination.js';
+import Example from '../components/Example.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
-import Page from '../components/Page.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Mask">
       <PageHeader name="Mask" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'height',
-            type: `number | string`,
-            href: 'basicExample',
-            description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
-          },
-          {
-            name: 'width',
-            type: `number | string`,
-            href: 'basicExample',
-            description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
-          },
-          {
-            name: 'rounding',
-            type: `"circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-            defaultValue: 0,
-            href: 'roundingCombinations',
-          },
-          {
-            name: 'wash',
-            type: 'boolean',
-            defaultValue: false,
-            href: 'wash',
-          },
-          {
-            name: 'willChangeTransform',
-            type: 'boolean',
-            defaultValue: true,
-            href: 'willChangeTransform',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <Example
         id="basicExample"
         name="Example"
@@ -59,6 +24,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Mask>
 `}
       />
+
       <Example
         description="
     You can compose images with other content (like images or videos) to produce different shapes like rounded rectangles or circles.
@@ -76,6 +42,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Box>
 `}
       />
+
       <Example
         id="wash"
         description="
@@ -94,6 +61,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Box>
 `}
       />
+
       <Combination
         id="roundingCombinations"
         name="Rounding Combinations"
@@ -105,10 +73,11 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           </Mask>
         )}
       </Combination>
+
       <Example
         id="willChangeTransform"
         description="
-  If you want to turn off the `willChange:transform` property for rendering reasons, you can set this to false.
+  If you want to turn off the `willChange:transform` property for rendering reasons, you can set this to false. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change) for more details.
   "
         name="Example: willChangeTransform"
         defaultCode={`
