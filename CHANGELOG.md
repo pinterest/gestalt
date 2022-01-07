@@ -1,3 +1,9 @@
+## 41.1.14 (Jan 7, 2022)
+
+### Patch
+
+- Internal: upgrade eslint to 8.6.0 (#1851)
+
 ## 41.1.13 (Jan 7, 2022)
 
 ### Patch
