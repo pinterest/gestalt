@@ -1,3 +1,9 @@
+## 41.1.15 (Jan 7, 2022)
+
+### Patch
+
+- Image, Label, Layer, Letterbox, Mask: use generated props tables (#1849)
+
 ## 41.1.14 (Jan 7, 2022)
 
 ### Patch
