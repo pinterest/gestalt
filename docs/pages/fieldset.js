@@ -1,7 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import { Fieldset } from 'gestalt';
-import PropTable from '../components/PropTable.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
@@ -60,44 +59,9 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
       }
 `}
       />
-      <PropTable
-        Component={Fieldset}
-        props={[
-          {
-            name: 'legend',
-            type: 'string',
-            required: true,
-            description:
-              'Caption that clearly and concisely describes the form elements grouped in the fieldset.',
-          },
-          {
-            name: 'legendDisplay',
-            type: "'visible' | 'hidden'",
-            defaultValue: 'visible',
-            description:
-              'Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](#Legend-visibility) for more info.',
-          },
-          {
-            name: 'children',
-            type: 'React.Node',
-            required: true,
-            description: `The content of Fieldset, typically [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).`,
-          },
-          {
-            name: 'id',
-            type: 'string',
-            required: false,
-            description:
-              'A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added',
-          },
-          {
-            name: 'errorMessage',
-            type: 'React.Node',
-            description:
-              'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

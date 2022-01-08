@@ -1,3 +1,27 @@
+## 41.1.15 (Jan 7, 2022)
+
+### Patch
+
+- Image, Label, Layer, Letterbox, Mask: use generated props tables (#1849)
+
+## 41.1.14 (Jan 7, 2022)
+
+### Patch
+
+- Internal: upgrade eslint to 8.6.0 (#1851)
+
+## 41.1.13 (Jan 7, 2022)
+
+### Patch
+
+- Internal: fix workflow id for VSCode Gestalt release step (#1850)
+
+## 41.1.12 (Jan 7, 2022)
+
+### Patch
+
+- Collage, Container, Datapoint, Fieldset, Heading: use generated props tables (#1843)
+
 ## 41.1.11 (Jan 6, 2022)
 
 ### Patch

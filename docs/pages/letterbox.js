@@ -1,41 +1,18 @@
 // @flow strict
 import type { Node } from 'react';
 import Example from '../components/Example.js';
-import PropTable from '../components/PropTable.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
-import Page from '../components/Page.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Letterbox">
       <PageHeader name="Letterbox" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'contentAspectRatio',
-            type: 'number',
-            required: true,
-            description: 'Proportional relationship between width and height of element',
-          },
-          {
-            name: 'height',
-            type: 'number',
-            required: true,
-            description: 'Desired final height of element',
-          },
-          {
-            name: 'width',
-            type: 'number',
-            required: true,
-            description: 'Desired final width of element',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <Example
         name="Tall content (564:806)"
         defaultCode={`

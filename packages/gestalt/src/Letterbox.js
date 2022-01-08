@@ -14,9 +14,21 @@ import Mask from './Mask.js';
 const aspectRatio = (width, height) => width / height;
 
 type Props = {|
+  /**
+   *
+   */
   children?: Node,
+  /**
+   * Proportional relationship between width and height of element.
+   */
   contentAspectRatio: number,
+  /**
+   * Desired final height of element.
+   */
   height: number,
+  /**
+   * Desired final width of element.
+   */
   width: number,
 |};
 

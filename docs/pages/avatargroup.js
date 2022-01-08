@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node } from 'react';
 import { AvatarGroup } from 'gestalt';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
