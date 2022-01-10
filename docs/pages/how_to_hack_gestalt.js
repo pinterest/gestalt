@@ -6,63 +6,60 @@ import PageHeader from '../components/PageHeader.js';
 
 export default function DocsPage(): Node {
   return (
-    <Page title="How to Work with Us">
+    <Page title="How to Hack Gestalt">
       <PageHeader
-        name="How to Work with Us"
-        description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute."
+        name="How to Hack Gestalt"
+        description="Guidelines for customizing Gestalt components."
         showSourceLink={false}
       />
 
-      <MainSection name="What goes into Gestalt?">
+      <MainSection name="Disclaimer">
         <MainSection.Subsection
           description={`
-    The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
+    For the vast majority of use cases, please do _not_ use these techniques. Gestalt's components enforce the design system by restricting possible usage. This is by design! However, in certain scenarios — experimental usage, usage on internal tools or other non-Pinner/M10n surfaces, etc. — it may be necessary to circumvent those restrictions to build the desired experience. With that in mind, here are some of the common techniques and the trade-offs for each.
     `}
         />
       </MainSection>
 
-      <MainSection name="What is the process to request new additions or changes?">
+      <MainSection name="Creating new components">
         <MainSection.Subsection
+          title="Forking components"
           description={`
-**Please note:** The process below applies to Pinterest employees.
-What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [partnership meetings](#Meetings-and-events) to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
-We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
-1. **Present work early in our [partnership meetings](#Meetings-and-events)**
-    - Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs.
-    - Coordinate with other designers if there are overlapping needs to help us better prioritize in our roadmap.
-    - Be able to explain how this component should be used or not used. This helps us in testing the component against existing components and product surfaces.
-    - Have a rough project timeline available. This allows us to determine if we’re able to accommodate the work.
-2. **Iterate on solutions**
-    We love to see more iteration from the product designer asking for the component, if they have the time. If not, the component will follow our prioritization process. The designer (product designer or Gestalt designer) must ensure all edge cases have been considered.
-3. **Prioritization by the Gestalt team**
-  If our team takes on the work, we will add it to our [backlog](https://pinch.pinadmin.com/gestaltBacklog) and prioritize it appropriately. Typically the determining factor for taking on work is capacity: if your designers or engineers have the capacity, we’d love for them to [contribute to Gestalt](#How-can-you-contribute-to-gestalt-as-an-engineer) with our support. Otherwise, the Gestalt designers and engineers will prioritize the work against our current workload based on the following criteria.
-  Some questions we ask ourselves when prioritizing:
-    1. How many products/surfaces will benefit?
-        - Ideally, we build things into Gestalt that 2 or more teams need with more teams meaning higher priority.
-    2. How easy or difficult is it to build?
-        - How many engineering hours will it take to build?
-        - Are there accessibility concerns that should ideally be handled by Gestalt?
-    3. Is it a dependency to other future work we need to do within Gestalt?
-        - Will this unlock additional functionality that other teams need?
-  We prioritize work following the same cycles as product teams within Pinterest. Knowing other teams needs before prioritization starts will help inform our roadmap. If we do no have capacity for the work, but believe we should add it to Gestalt, we may ask if a product team can continue the work. Otherwise, it will go into our [backlog](https://pinch.pinadmin.com/gestaltBacklog).
-4. **Build or follow along**
-    Our engineering team will pair directly with your engineer if they are the ones who will be taking on the work and help them follow the process below. If the Gestalt team is building the component, we will take on the work and follow the same process. As we develop the documentation, Figma files, and code for the updated or new component, we’d love for you to help review and be part of a final sanity check.`}
+When a Gestalt component doesn't quite match the desired design spec, a common idea is to fork the component: copy/paste the component's code into the target repo where it can be modified.
+_Pro:_
+- Complete freedom to make whatever changes are desired
+
+_Con:_
+- Duplicate code
+- Drift from the original component can make re-integration difficult/impossible
+- Heavy maintenance burden: any future updates to Gestalt (changes to color, rounding, etc) will need to be made manually, and will likely lead to a broken/outdated UI in the meantime
+
+_Alternative:_ Chat with the Gestalt team about your needs and let's see how we can accommodate them. Often features that we don't support are for accessibility or other reasons — but we're happy to see how we can support you!
+`}
+        />
+
+        <MainSection.Subsection
+          title="Custom components"
+          description={`
+Custom components can also be made from scratch, using native DOM elements and CSS/SCSS.
+_Pro:_
+- Complete freedom to build whatever UI is desired
+
+_Con:_
+- Adds to bundle size with custom stylesheets instead of taking advantage of Gestalt's common styles
+- Creates disjointed app feel by not working within the design system
+- Heavy maintenance burden: no support from Gestalt team for future updates
+
+_Alternative:_ Chat with the Gestalt team about your needs and let's see how we can accommodate them. If we can't officially support your needs, at least use Gestalt primitives (Box, TapArea, etc) when building your custom UI to ensure that your feature is accessible and fits in with the rest of the design system.
+        `}
         />
       </MainSection>
 
-      <MainSection name="How can you contribute to Gestalt?">
+      <MainSection name="Modifications to Existing Components">
         <MainSection.Subsection
-          title="Making a design contribution"
+          title={`Box's \`dangerouslySetInlineStyle\``}
           description={`
-We love the help and contributions of other designers across Pinterest, and we ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
-1. **Present your idea or suggestion during our Office Hour meetings**
-    [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the request and why it is needed.
-2. **Create a Branch in our design library**
-    Create a Branch file in our main file. Don't worry, our design team will support you with that. See [Branching in Figma](https://www.figma.com/best-practices/branching-in-figma/) for more details and self-education.
-3. **Present your work in a Design System Crit**
-    After your Branch file is ready, our design team will schedule a meeting to present your work.
-4. **Send your Branch to review**
-    Update your Branch based on the feedback you received, and add a Gestalt reviewer (designer) to your Branch. Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!
+
 `}
         />
         <MainSection.Subsection
