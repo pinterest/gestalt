@@ -1,3 +1,9 @@
+## 41.1.18 (Jan 10, 2022)
+
+### Patch
+
+- Internal: add resolution for `node-forge` to fix vulnerability (#1855)
+
 ## 41.1.17 (Jan 10, 2022)
 
 ### Patch
