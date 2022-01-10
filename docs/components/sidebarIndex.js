@@ -22,7 +22,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Installation',
       'Development',
       'Eslint Plugin',
-      'Faq',
+      'FAQ',
     ],
   },
   {
