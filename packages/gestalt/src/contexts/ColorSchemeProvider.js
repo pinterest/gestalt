@@ -182,7 +182,8 @@ export default function ColorSchemeProvider({
 ${themeToStyles(darkModeTheme)} }
 }`
               : `${selector} {
-${themeToStyles(theme)} }`,
+${themeToStyles(theme)}
+}`,
         }}
       />
       <div className={className}>{children}</div>
