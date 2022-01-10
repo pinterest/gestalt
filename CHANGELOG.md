@@ -1,3 +1,9 @@
+## 41.1.17 (Jan 10, 2022)
+
+### Patch
+
+- Internal: upgrade postcss to 8.4.5 (#1854)
+
 ## 41.1.16 (Jan 10, 2022)
 
 ### Patch
