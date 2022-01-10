@@ -2,6 +2,7 @@
 import type { Context, Element, Node } from 'react';
 
 import { useContext, useEffect, useState, createContext } from 'react';
+import darkTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -107,6 +108,14 @@ const themeToStyles = (theme) => {
       styles += `  --g-${key}: ${theme[key]};\n`;
     }
   });
+  if (theme.name === 'darkMode') {
+    Object.keys(darkTokens).forEach((key) => {
+      if (key.startsWith('color')) {
+        styles += `  --${key}: ${darkTokens[key]};\n`;
+      }
+    });
+  }
+
   return styles;
 };
 
@@ -154,7 +163,8 @@ export default function ColorSchemeProvider({
 ${themeToStyles(darkModeTheme)} }
 }`
               : `${selector} {
-${themeToStyles(theme)} }`,
+${themeToStyles(theme)}
+}`,
         }}
       />
       <div className={className}>{children}</div>
