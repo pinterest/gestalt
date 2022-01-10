@@ -2,7 +2,7 @@
 import type { Context, Element, Node } from 'react';
 
 import { useContext, useEffect, useState, createContext } from 'react';
-import darkTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -109,9 +109,9 @@ const themeToStyles = (theme) => {
     }
   });
   if (theme.name === 'darkMode') {
-    Object.keys(darkTokens).forEach((key) => {
+    Object.keys(darkColorDesignTokens).forEach((key) => {
       if (key.startsWith('color')) {
-        styles += `  --${key}: ${darkTokens[key]};\n`;
+        styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
       }
     });
   }

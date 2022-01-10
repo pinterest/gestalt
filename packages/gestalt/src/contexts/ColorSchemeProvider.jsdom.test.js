@@ -44,7 +44,8 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-       }
+
+      }
       </style>
     `);
   });
@@ -78,7 +79,8 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-       }
+
+      }
       </style>
     `);
   });
@@ -112,7 +114,28 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
         --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
-       }
+        --color-text-default: #f9f9f9;
+        --color-text-subtle: #a5a5a5;
+        --color-text-success: #39d377;
+        --color-text-error: #eb4242;
+        --color-text-warning: #e18d00;
+        --color-text-inverse: #111111;
+        --color-text-icon-default: #f9f9f9;
+        --color-text-icon-subtle: #a5a5a5;
+        --color-text-icon-success: #39d377;
+        --color-text-icon-error: #eb4242;
+        --color-text-icon-warning: #e18d00;
+        --color-text-icon-inverse: #111111;
+        --color-background-shopping: #45a3fe;
+        --color-background-primary-base: #eb4242;
+        --color-background-secondary-base: #a5a5a5;
+        --color-background-tertiary-base: #767676;
+        --color-background-selected-base: #e9e9e9;
+        --color-background-inverse-base: #111111;
+        --color-background-brand: #eb4242;
+        --color-background-education: #45a3fe;
+
+      }
       </style>
     `);
   });
@@ -147,6 +170,26 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
         --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
+        --color-text-default: #f9f9f9;
+        --color-text-subtle: #a5a5a5;
+        --color-text-success: #39d377;
+        --color-text-error: #eb4242;
+        --color-text-warning: #e18d00;
+        --color-text-inverse: #111111;
+        --color-text-icon-default: #f9f9f9;
+        --color-text-icon-subtle: #a5a5a5;
+        --color-text-icon-success: #39d377;
+        --color-text-icon-error: #eb4242;
+        --color-text-icon-warning: #e18d00;
+        --color-text-icon-inverse: #111111;
+        --color-background-shopping: #45a3fe;
+        --color-background-primary-base: #eb4242;
+        --color-background-secondary-base: #a5a5a5;
+        --color-background-tertiary-base: #767676;
+        --color-background-selected-base: #e9e9e9;
+        --color-background-inverse-base: #111111;
+        --color-background-brand: #eb4242;
+        --color-background-education: #45a3fe;
        }
       }
       </style>
@@ -181,7 +224,8 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-       }
+
+      }
       </style>
     `);
   });
