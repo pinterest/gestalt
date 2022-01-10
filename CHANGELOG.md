@@ -1,3 +1,9 @@
+## 41.1.19 (Jan 10, 2022)
+
+### Patch
+
+- Table: Added Related section (#1848)
+
 ## 41.1.18 (Jan 10, 2022)
 
 ### Patch
