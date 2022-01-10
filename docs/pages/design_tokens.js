@@ -7,10 +7,12 @@ import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import { TokenExample } from '../components/TokenExample.js';
 import Page from '../components/Page.js';
+import { useAppContext } from '../components/appContext.js';
 
-type Token = {|
+export type Token = {|
   name: string,
   value: string,
+  darkValue?: string,
   comment?: string,
   category: string,
 |};
@@ -39,6 +41,8 @@ const tableHeaders = (
 );
 
 export default function DesignTokensPage(): Node {
+  const { colorScheme } = useAppContext();
+
   return (
     <Page title="Design Tokens Guidelines">
       <PageHeader
@@ -67,7 +71,11 @@ export default function DesignTokensPage(): Node {
                         <Text>{token.name.replace(/-./g, (x) => x[1].toUpperCase())}</Text>
                       </Table.Cell>
                       <Table.Cell>
-                        <Text>{token.value}</Text>
+                        <Text>
+                          {colorScheme === 'dark' && token.darkValue
+                            ? token.darkValue
+                            : token.value}
+                        </Text>
                       </Table.Cell>
                       <Table.Cell>
                         <TokenExample token={token} category={category.category} />

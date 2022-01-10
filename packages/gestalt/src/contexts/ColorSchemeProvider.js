@@ -2,6 +2,7 @@
 import type { Context, Element, Node } from 'react';
 
 import { useContext, useEffect, useState, createContext } from 'react';
+// $FlowExpectedError[untyped-import]
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
