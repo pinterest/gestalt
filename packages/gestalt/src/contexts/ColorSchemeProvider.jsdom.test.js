@@ -44,8 +44,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-
-      }
+       }
       </style>
     `);
   });
@@ -79,8 +78,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-
-      }
+       }
       </style>
     `);
   });
@@ -134,8 +132,7 @@ describe('ColorSchemeProvider', () => {
         --color-background-inverse-base: #111111;
         --color-background-brand: #eb4242;
         --color-background-education: #45a3fe;
-
-      }
+       }
       </style>
     `);
   });
@@ -224,8 +221,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
         --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-
-      }
+       }
       </style>
     `);
   });
