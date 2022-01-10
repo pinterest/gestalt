@@ -1,3 +1,9 @@
+## 41.1.16 (Jan 10, 2022)
+
+### Patch
+
+- Docs: make FAQ uppercase in sidebar index (#1853)
+
 ## 41.1.15 (Jan 7, 2022)
 
 ### Patch
