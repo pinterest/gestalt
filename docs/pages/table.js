@@ -2705,7 +2705,7 @@ function Example() {
         />
       </MainSection.Subsection>
       <MainSection name="Related">
-      <MainSection.Subsection
+        <MainSection.Subsection
           description={`
 **[Module](/module)**
 Modules are another way to stack multiple rows of content. However, they are used to show 2 to 3 blocks of related content, whereas Tables are used for large data sets that can be easily scanned and compared across multiple rows and columns.
