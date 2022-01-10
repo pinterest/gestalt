@@ -48,6 +48,72 @@
   --g-colorTransparentGray800: rgb(0 0 0 / 0.8);
 }
 
+/** Design Token Colors **/
+
+.infoBase {
+  background-color: var(--color-background-info-base);
+}
+
+.infoWeak {
+  background-color: var(--color-background-info-weak);
+}
+
+.errorBase {
+  background-color: var(--color-background-error-base);
+}
+
+.errorWeak {
+  background-color: var(--color-background-error-weak);
+}
+
+.warningBase {
+  background-color: var(--color-background-warning-base);
+}
+
+.warningWeak {
+  background-color: var(--color-background-warning-weak);
+}
+
+.successBase {
+  background-color: var(--color-background-success-base);
+}
+
+.successWeak {
+  background-color: var(--color-background-success-weak);
+}
+
+.shopping {
+  background-color: var(--color-background-shopping);
+}
+
+.primary {
+  background-color: var(--color-background-primary-base);
+}
+
+.secondary {
+  background-color: var(--color-background-secondary-base);
+}
+
+.tertiary {
+  background-color: var(--color-background-tertiary-base);
+}
+
+.selected {
+  background-color: var(--color-background-selected-base);
+}
+
+.inverse {
+  background-color: var(--color-background-inverse-base);
+}
+
+.brand {
+  background-color: var(--color-background-brand);
+}
+
+.education {
+  background-color: var(--color-background-education);
+}
+
 /** PRIMARY COLORS **/
 
 /* red */

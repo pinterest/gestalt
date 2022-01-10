@@ -156,7 +156,23 @@ type Props = {
     | 'transparent'
     | 'transparentDarkGray'
     | 'watermelon'
-    | 'white',
+    | 'white'
+    | 'infoBase'
+    | 'infoWeak'
+    | 'errorBase'
+    | 'errorWeak'
+    | 'warningBase'
+    | 'warningWeak'
+    | 'successBase'
+    | 'successWeak'
+    | 'shopping'
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'selected'
+    | 'inverse'
+    | 'brand'
+    | 'education',
   /**
    * See the [column layout](https://gestalt.pinterest.systems/box#Column-layout) variant for more info.
    *
