@@ -103,7 +103,7 @@ export default function TablePage(): Node {
           {
             name: 'stickyColumns',
             type: `number`,
-            description: `Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](#stickyColumn) example for details.`,
+            description: `Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](#Sticky-Column) example for details.`,
           },
         ]}
       />
