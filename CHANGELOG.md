@@ -1,3 +1,9 @@
+## 41.1.20 (Jan 11, 2022)
+
+### Patch
+
+- Table: fix docs link (#1857)
+
 ## 41.1.19 (Jan 10, 2022)
 
 ### Patch
