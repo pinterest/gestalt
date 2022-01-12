@@ -1,3 +1,9 @@
+## 41.2.0 (Jan 12, 2022)
+
+### Minor
+
+- Design Tokens: Add dark mode values for alias tokens (#1852)
+
 ## 41.1.20 (Jan 11, 2022)
 
 ### Patch
