@@ -1,3 +1,9 @@
+## 41.2.2 (Jan 12, 2022)
+
+### Patch
+
+- Bump follow-redirects from 1.14.1 to 1.14.7 (#1860)
+
 ## 41.2.1 (Jan 12, 2022)
 
 ### Patch
