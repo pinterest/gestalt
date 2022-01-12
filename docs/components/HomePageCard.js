@@ -24,7 +24,9 @@ const HomePageCard = ({ image, description, title, color, href }: Props): Node =
                   backgroundColor: `var(--color-${color}-450)`,
                 },
               }}
-            />
+            >
+              {image}
+            </Box>
             <Box
               color="white"
               height="50%"
