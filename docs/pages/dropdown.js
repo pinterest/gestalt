@@ -117,14 +117,6 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
             description:
               'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
           },
-
-          {
-            name: 'dangerouslyRemoveLayer',
-            type: 'boolean',
-            defaultValue: false,
-            description:
-              'Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
-          },
           {
             name: 'headerContent',
             type: 'React.Node',
@@ -143,6 +135,13 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
             type: `'up' | 'right' | 'down' | 'left'`,
             description: 'Preferred direction for the Dropdown to open.',
             defaultValue: 'down',
+          },
+          {
+            name: 'isWithinFixedContainer',
+            type: 'boolean',
+            defaultValue: false,
+            description:
+              'Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
           },
           {
             name: 'onDismiss',
