@@ -1,6 +1,6 @@
 // @flow strict
 // $FlowExpectedError[untyped-import]
-const StyleDictionary = require('style-dictionary').extend('config.json');
+const StyleDictionary = require('style-dictionary');
 
 const { fileHeader } = StyleDictionary.formatHelpers;
 
@@ -30,6 +30,7 @@ StyleDictionary.registerFormat({
       JSON.stringify({
         name: token.name,
         value: token.value,
+        darkValue: token.darkValue,
         comment: token.comment,
         category: token.attributes.category,
       }),
@@ -38,9 +39,46 @@ StyleDictionary.registerFormat({
   },
 });
 
+function darkFormatWrapper(format) {
+  return (args) => {
+    const dictionary = { ...args.dictionary };
+    // Override each token's `value` with `darkValue`
+    dictionary.allTokens = dictionary.allTokens.map((token) => {
+      const { darkValue } = token;
+      if (darkValue) {
+        return { ...token, value: token.darkValue };
+      }
+      return token;
+    });
+    // Use the built-in format but with our customized dictionary object
+    // so it will output the darkValue instead of the value
+    return StyleDictionary.format[format]({
+      ...args,
+      dictionary,
+    });
+  };
+}
+
+StyleDictionary.registerFormat({
+  name: 'cssDark',
+  formatter: darkFormatWrapper(`css/variables`),
+});
+
+StyleDictionary.registerFormat({
+  name: 'cssDarkJson',
+  formatter: darkFormatWrapper(`json/flat`),
+});
+
+StyleDictionary.registerFilter({
+  name: 'customDarkColorFilter',
+  matcher(token) {
+    return token.darkValue && token.attributes.category === `color`;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'android-custom',
   transforms: ['attribute/cti', 'name/cti/snake', 'color/hex8android', 'size/pxToDpOrSp'],
 });
 
-StyleDictionary.buildAllPlatforms();
+StyleDictionary.extend('config.json').buildAllPlatforms();

@@ -2,6 +2,8 @@
 import type { Context, Element, Node } from 'react';
 
 import { useContext, useEffect, useState, createContext } from 'react';
+// $FlowExpectedError[untyped-import]
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -107,6 +109,14 @@ const themeToStyles = (theme) => {
       styles += `  --g-${key}: ${theme[key]};\n`;
     }
   });
+  if (theme.name === 'darkMode') {
+    Object.keys(darkColorDesignTokens).forEach((key) => {
+      if (key.startsWith('color')) {
+        styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
+      }
+    });
+  }
+
   return styles;
 };
 

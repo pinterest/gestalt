@@ -1,13 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box } from 'gestalt';
-
-type Token = {|
-  name: string,
-  value: string,
-  comment?: string,
-  category: string,
-|};
+import { type Token } from '../pages/design_tokens.js';
 
 type BaseProps = {|
   token: Token,
@@ -71,6 +65,7 @@ export const FontBox = ({ token, type }: FontBoxProps): Node => {
           fontWeight: fontWeightStyle,
           fontFamily: fontFamilyStyle,
           fontSize: fontSizeStyle,
+          color: 'var(--color-text-default)',
         },
       }}
       height={50}
