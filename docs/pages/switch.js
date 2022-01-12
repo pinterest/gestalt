@@ -1,51 +1,21 @@
 // @flow strict
 import type { Node } from 'react';
 import { Box, Label, Switch, Text } from 'gestalt';
-import PropTable from '../components/PropTable.js';
-import Example from '../components/Example.js';
 import Combination from '../components/Combination.js';
-import PageHeader from '../components/PageHeader.js';
+import Example from '../components/Example.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Switch">
       <PageHeader name="Switch" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'disabled',
-            type: 'boolean',
-            defaultValue: false,
-            href: 'switchCombinations',
-          },
-          {
-            name: 'id',
-            type: 'string',
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'name',
-            type: 'string',
-            href: 'basicExample',
-          },
-          {
-            name: 'onChange',
-            type: '({ event: SyntheticInputEvent<>, value: boolean }) => void',
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'switched',
-            type: 'boolean',
-            defaultValue: false,
-            href: 'switchCombinations',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

@@ -1,11 +1,11 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
-import PageHeader from '../components/PageHeader.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -34,21 +34,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   }
 `}
       />
-      <PropTable
-        props={[
-          {
-            name: 'paused',
-            type: 'boolean',
-            defaultValue: false,
-          },
-          {
-            name: 'size',
-            type: `number`,
-            description: `Use numbers for pixel sizes`,
-            defaultValue: 136,
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

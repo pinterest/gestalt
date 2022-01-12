@@ -1,84 +1,21 @@
 // @flow strict
 import type { Node } from 'react';
 import { RadioButton } from 'gestalt';
-import Example from '../components/Example.js';
-import PropTable from '../components/PropTable.js';
 import Combination from '../components/Combination.js';
-import PageHeader from '../components/PageHeader.js';
+import Example from '../components/Example.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="RadioButton">
       <PageHeader name="RadioButton" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'checked',
-            type: 'boolean',
-            defaultValue: false,
-            href: 'radio-button-combos',
-          },
-          {
-            name: 'disabled',
-            type: 'boolean',
-            defaultValue: false,
-            href: 'radio-button-combos',
-          },
-          {
-            name: 'id',
-            type: 'string',
-            required: true,
-          },
-          {
-            name: 'image',
-            type: 'React.Node',
-            href: 'images',
-            description:
-              'An optional `<Image/>` component can be supplied to add an image to each radio button. Spacing is already accounted for, simply specify the width and height.',
-          },
-          {
-            name: 'label',
-            type: 'string',
-          },
-          {
-            name: 'name',
-            type: 'string',
-            description: 'The name given for all radio buttons in a single group',
-          },
-          {
-            name: 'onChange',
-            type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
-            required: true,
-          },
-          {
-            name: 'value',
-            type: 'string',
-          },
-          {
-            name: 'ref',
-            type: "React.Ref<'input'>",
-            description: 'Forward the ref to the underlying input element',
-            href: 'ref',
-          },
-          {
-            name: 'size',
-            type: `"sm" | "md"`,
-            description: `sm: 16px, md: 24px`,
-            defaultValue: 'md',
-            href: 'ref',
-          },
-          {
-            name: 'subtext',
-            type: 'string',
-            href: 'subtext',
-            description:
-              'Optional description for the radio button, used to provide more detail about an option',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
