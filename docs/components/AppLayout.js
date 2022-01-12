@@ -2,8 +2,10 @@
 import { type Node } from 'react';
 import { Box, Divider } from 'gestalt';
 import Header from './Header.js';
-import Navigation from './Navigation.js';
+import Navigation, { MIN_NAV_WIDTH_PX } from './Navigation.js';
 import Footer from './Footer.js';
+
+const CONTENT_MAX_WIDTH_PX = 1544;
 
 type Props = {|
   children?: Node,
@@ -15,7 +17,7 @@ export default function AppLayout({ children }: Props): Node {
       <Header />
 
       <Box mdDisplay="flex">
-        <Box minWidth={240}>
+        <Box minWidth={MIN_NAV_WIDTH_PX}>
           <Navigation />
         </Box>
 
@@ -32,7 +34,7 @@ export default function AppLayout({ children }: Props): Node {
             lgDisplay="flex"
             justifyContent="center"
           >
-            <Box width="100%" maxWidth={1544}>
+            <Box width="100%" data-test-id="FOO" maxWidth={CONTENT_MAX_WIDTH_PX}>
               {children}
             </Box>
           </Box>

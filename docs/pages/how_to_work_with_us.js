@@ -4,7 +4,7 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
-export default function DividerPage(): Node {
+export default function DocsPage(): Node {
   return (
     <Page title="How to Work with Us">
       <PageHeader
