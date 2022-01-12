@@ -22,7 +22,7 @@ function Header() {
       alignItems="center"
       role="banner"
     >
-      <Box marginStart={-2} marginEnd={-2}>
+      <Box marginStart={-2} marginEnd={-2} display="flex" alignItems="center">
         {/* <Text> is out here to get proper underline styles on link */}
         <Text color="darkGray" weight="bold">
           <Link
@@ -34,10 +34,15 @@ function Header() {
               <Flex alignItems="center" gap={2}>
                 <GestaltLogo height={40} width={40} />
                 {/* slight tweak to vertically center to logo */}
-                <Box dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}>Gestalt</Box>
+                <Box dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}>
+                  Gestalt Design System
+                </Box>
               </Flex>
             </Box>
           </Link>
+        </Text>
+        <Text size="sm" weight="bold">
+          vFIX ME
         </Text>
       </Box>
 

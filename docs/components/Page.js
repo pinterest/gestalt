@@ -7,10 +7,13 @@ import Toc from './Toc.js';
 type Props = {|
   children: Node,
   title: string,
+  isFullWidth?: boolean,
 |};
 
-export default function Page({ title: page, children }: Props): Node {
+export default function Page({ title: page, children, isFullWidth = false }: Props): Node {
   const sections = Children.toArray(children);
+
+  const DETAIL_PAGE_MAX_WIDTH = 1312;
 
   const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
 
@@ -22,7 +25,7 @@ export default function Page({ title: page, children }: Props): Node {
 
   return (
     <Flex>
-      <Box flex="grow" maxWidth={1312}>
+      <Box flex="grow" maxWidth={isFullWidth ? '100%' : DETAIL_PAGE_MAX_WIDTH}>
         <SearchContent>
           <Flex gap={8} direction="column">
             {sections.map((card, i) => (
@@ -50,18 +53,20 @@ export default function Page({ title: page, children }: Props): Node {
         </Box>
       </Box>
 
-      <Box
-        minWidth={200}
-        maxWidth={240}
-        marginStart={4}
-        mdMarginStart={6}
-        lgMarginStart={8}
-        display="none"
-        lgDisplay="block"
-        flex="none"
-      >
-        <Toc cards={sections} />
-      </Box>
+      {!isFullWidth && (
+        <Box
+          minWidth={200}
+          maxWidth={240}
+          marginStart={4}
+          mdMarginStart={6}
+          lgMarginStart={8}
+          display="none"
+          lgDisplay="block"
+          flex="none"
+        >
+          <Toc cards={sections} />
+        </Box>
+      )}
     </Flex>
   );
 }
