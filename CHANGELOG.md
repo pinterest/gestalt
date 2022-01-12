@@ -1,3 +1,9 @@
+## 41.2.1 (Jan 12, 2022)
+
+### Patch
+
+- Docs: add "How to Hack Gestalt" page (#1856)
+
 ## 41.2.0 (Jan 12, 2022)
 
 ### Minor
