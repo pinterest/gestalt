@@ -22,7 +22,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Installation',
       'Development',
       'Eslint Plugin',
-      'How to Hack Gestalt',
+      'How to Hack Around Gestalt',
       'FAQ',
     ],
   },
