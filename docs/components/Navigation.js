@@ -1,13 +1,13 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Fragment } from 'react';
+import { Fragment, type Node } from 'react';
 import { Box } from 'gestalt';
 import HeaderMenu from './HeaderMenu.js';
 import SidebarSection from './SidebarSection.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 import sidebarIndex from './sidebarIndex.js';
 import { useNavigationContext } from './navigationContext.js';
+
+export const MIN_NAV_WIDTH_PX = 255;
 
 function getAlphabetizedComponents() {
   return Array.from(
@@ -58,7 +58,7 @@ export default function Navigation(): Node {
           position="fixed"
           overflow="auto"
           maxHeight="calc(100% - 60px)"
-          minWidth={240}
+          minWidth={MIN_NAV_WIDTH_PX}
         >
           <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
         </Box>
