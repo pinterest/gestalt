@@ -12,8 +12,11 @@ import {
   Color,
   DesignTokens,
 } from '../graphics/HomePageIcons.js';
+import { useAppContext } from '../components/appContext.js';
 
 export default function HomePage(): Node {
+  const { colorScheme } = useAppContext();
+
   return (
     <Page title="Welcome to Gestalt" isFullWidth>
       <Box width="100%">
@@ -29,7 +32,7 @@ export default function HomePage(): Node {
                 </Text>
                 <Button text={"What's New"} role="link" rel="nofollow" href="/whats_new" />
               </Flex>
-              <Flex.Item minWidth="50%">
+              <Flex.Item minWidth="60%">
                 <Box borderStyle="sm" height={400}>
                   Image
                 </Box>
@@ -37,7 +40,10 @@ export default function HomePage(): Node {
             </Flex>
           </HomePageSection>
           {/* Getting Started */}
-          <HomePageSection color="var(--color-blue-skycicle-50)" title="Getting started">
+          <HomePageSection
+            color={colorScheme === 'dark' ? 'blue-skycicle-900' : 'blue-skycicle-50'}
+            title="Getting started"
+          >
             <HomePageCard
               href="/how_to_work_with_us"
               title="How to Work with Us"
@@ -63,7 +69,10 @@ export default function HomePage(): Node {
             />
           </HomePageSection>
           {/* Guidelines */}
-          <HomePageSection color="var(--color-teal-spabattical-50)" title="Guidelines">
+          <HomePageSection
+            color={colorScheme === 'dark' ? 'teal-spabattical-900' : 'teal-spabattical-50'}
+            title="Guidelines"
+          >
             <HomePageCard
               href="/accessibility"
               title="Accessibility"

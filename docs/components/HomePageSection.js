@@ -19,14 +19,14 @@ const HomePageSection = ({ children, color, title }: Props): Node => (
     mdPaddingX={8}
     dangerouslySetInlineStyle={{
       __style: {
-        backgroundColor: color,
+        backgroundColor: `var(--color-${color})`,
       },
     }}
-    paddingY={11}
+    paddingY={10}
     justifyContent="center"
     display="flex"
   >
-    <Flex direction="column" gap={3} maxWidth={1200} width="100%">
+    <Flex direction="column" gap={4} maxWidth={1200} width="100%">
       {title && (
         <Heading accessibilityLevel={2} size="md">
           {title}
