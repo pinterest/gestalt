@@ -34,7 +34,7 @@ export default function AppLayout({ children }: Props): Node {
             lgDisplay="flex"
             justifyContent="center"
           >
-            <Box width="100%" data-test-id="FOO" maxWidth={CONTENT_MAX_WIDTH_PX}>
+            <Box width="100%" maxWidth={CONTENT_MAX_WIDTH_PX}>
               {children}
             </Box>
           </Box>

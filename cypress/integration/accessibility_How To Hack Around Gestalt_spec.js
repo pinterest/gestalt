@@ -4,17 +4,7 @@ describe('How to Hack Around Gestalt Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // Disable the test for now since it's timing out on GitHub CI
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the How To Hack Around Gestalt page', () => {
-    cy.configureAxe({
-      rules: [
-        // {
-        //   id: 'link-name',
-        //   enabled: false,
-        // },
-      ],
-    });
+  it('Tests accessibility on the How To Hack Around Gestalt page', () => {
     cy.checkA11y();
   });
 });
