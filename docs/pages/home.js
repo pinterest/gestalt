@@ -4,6 +4,14 @@ import type { Node } from 'react';
 import HomePageCard from '../components/HomePageCard.js';
 import HomePageSection from '../components/HomePageSection.js';
 import Page from '../components/Page.js';
+import {
+  HowToWork,
+  Development,
+  FAQ,
+  A11Y,
+  Color,
+  DesignTokens,
+} from '../graphics/HomePageIcons.js';
 
 export default function HomePage(): Node {
   return (
@@ -29,12 +37,13 @@ export default function HomePage(): Node {
             </Flex>
           </HomePageSection>
           {/* Getting Started */}
-          <HomePageSection color="var(--color-blue-skycicle-100)" title="Getting started">
+          <HomePageSection color="var(--color-blue-skycicle-50)" title="Getting started">
             <HomePageCard
               href="/how_to_work_with_us"
               title="How to Work with Us"
               description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute."
               color="blue-skycicle"
+              image={<HowToWork />}
             />
 
             <HomePageCard
@@ -42,6 +51,7 @@ export default function HomePage(): Node {
               title="Development"
               description="How to set up for development and create pull requests."
               color="blue-skycicle"
+              image={<Development />}
             />
 
             <HomePageCard
@@ -49,15 +59,17 @@ export default function HomePage(): Node {
               href="/faq"
               description="A quick guide to the most common questions designers and engineers have."
               color="blue-skycicle"
+              image={<FAQ />}
             />
           </HomePageSection>
           {/* Guidelines */}
-          <HomePageSection color="var(--color-teal-spabattical-0)" title="Guidelines">
+          <HomePageSection color="var(--color-teal-spabattical-50)" title="Guidelines">
             <HomePageCard
               href="/accessibility"
               title="Accessibility"
               description="How to create an inclusive product that brings inspiration to everyone. "
               color="teal-spabattical"
+              image={<A11Y />}
             />
 
             <HomePageCard
@@ -65,6 +77,7 @@ export default function HomePage(): Node {
               title="Color"
               description="A full range of options based on Pinterest’s brand color palette."
               color="teal-spabattical"
+              image={<Color />}
             />
 
             <HomePageCard
@@ -72,6 +85,7 @@ export default function HomePage(): Node {
               href="/design_tokens"
               description="Values used to construct layouts and components, such as spacing and color."
               color="teal-spabattical"
+              image={<DesignTokens />}
             />
           </HomePageSection>
         </Flex>
