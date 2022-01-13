@@ -1,3 +1,9 @@
+## 41.2.4 (Jan 13, 2022)
+
+### Patch
+
+- Internal: enable a11y test, remove test id (#1861)
+
 ## 41.2.3 (Jan 13, 2022)
 
 ### Patch
