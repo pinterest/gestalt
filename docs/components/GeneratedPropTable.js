@@ -72,7 +72,7 @@ export default function GeneratedPropTable({
 
       // Remove domain so local development (localhost) isn't broken
       const descriptionWithoutDomain = description?.replace(
-        /https:\/\/gestalt\.pinterest\.systems/,
+        /https:\/\/gestalt\.pinterest\.systems/g,
         '',
       );
 

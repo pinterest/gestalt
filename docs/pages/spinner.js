@@ -1,11 +1,11 @@
 // @flow strict
 import type { Node } from 'react';
 import Example from '../components/Example.js';
-import PropTable from '../components/PropTable.js';
-import PageHeader from '../components/PageHeader.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -32,37 +32,9 @@ function SpinnerExample() {
 }
 `}
       />
-      <PropTable
-        props={[
-          {
-            name: 'accessibilityLabel',
-            type: 'string',
-            required: true,
-            description:
-              'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
-          },
-          {
-            name: 'show',
-            type: 'boolean',
-            required: true,
-            defaultValue: false,
-          },
-          {
-            name: 'delay',
-            type: 'boolean',
-            required: false,
-            defaultValue: true,
-            description:
-              'Whether or not to render with a 300ms delay. The delay is for perceived performance so you should rarely need to remove it.',
-          },
-          {
-            name: 'size',
-            type: `"sm" | "md"`,
-            description: `sm: 32px, md: 40px`,
-            defaultValue: 'md',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

@@ -4,7 +4,13 @@ import Box from './Box.js';
 import styles from './Pulsar.css';
 
 type Props = {|
+  /**
+   * Used to hide the element.
+   */
   paused?: boolean,
+  /**
+   * The size of the element in pixels.
+   */
   size?: number,
 |};
 

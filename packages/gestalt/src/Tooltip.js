@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useReducer, useRef } from 'react';
+import { type Node, useReducer, useRef } from 'react';
 import useDebouncedCallback from './useDebouncedCallback.js';
 import Controller from './Controller.js';
 import Text from './Text.js';
@@ -11,15 +9,6 @@ import { type Indexable } from './zIndex.js';
 
 const noop = () => {};
 const TIMEOUT = 100;
-
-type Props = {|
-  children: Node,
-  link?: Node,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  inline?: boolean,
-  text: string,
-  zIndex?: Indexable,
-|};
 
 const initialState = { hoveredIcon: false, hoveredText: false, isOpen: false };
 
@@ -53,6 +42,33 @@ const reducer = (state, action) => {
       throw new Error();
   }
 };
+
+type Props = {|
+  /**
+   * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/iconbutton), that triggers Tooltip on hover or focus.
+   */
+  children: Node,
+  /**
+   * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/tooltip#Ideal-direction) variant to learn more.
+   */
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  /**
+   * Properly positions Tooltip relative to an inline element, such as [Icon Button](https://gestalt.pinterest.systems/iconbutton) using the inline property. See the [inline](https://gestalt.pinterest.systems/tooltip#Inline) variant to learn more.
+   */
+  inline?: boolean,
+  /**
+   * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/tooltip#Link) variant to learn more.
+   */
+  link?: Node,
+  /**
+   * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/tooltip#Localization) to learn more.
+   */
+  text: string,
+  /**
+   * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/tooltip#Z-index) variant to learn more.
+   */
+  zIndex?: Indexable,
+|};
 
 /**
  * [Tooltip](https://gestalt.pinterest.systems/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.

@@ -1,10 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
-import Page from '../components/Page.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -44,52 +44,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </Flex>
     `}
       />
-      <PropTable
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-            description: `The anchor element, usually [Icon Button](/iconbutton), that triggers Tooltip on hover or focus`,
-            required: true,
-          },
-          {
-            name: 'idealDirection',
-            type: `'up' | 'right' | 'down' | 'left'`,
-            description: `Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](#Ideal-direction) variant to learn more.`,
-            defaultValue: 'down',
-            href: 'Ideal-direction',
-          },
-          {
-            name: 'inline',
-            type: 'boolean',
-            description: `Properly positions Tooltip relative to an inline element, such as [Icon Button](/iconbutton) using the inline property. See the [inline](#Inline) variant to learn more.`,
-            defaultValue: 'false',
-            href: 'Inline',
-          },
 
-          {
-            name: 'text',
-            type: 'string',
-            description:
-              'The text shown in Tooltip to describe its anchor element. See [localization ](#Localization) to learn more.',
-            required: true,
-          },
-          {
-            name: 'link',
-            type: 'React.Node',
-            description:
-              'Displays a link at the bottom of Tooltip. See the [link](#Link) variant to learn more.',
-            href: 'Link',
-          },
-          {
-            name: 'zIndex',
-            type: 'interface Indexable { index(): number; }',
-            description:
-              'Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](#Z-index) variant to learn more.',
-            href: 'Z-index',
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

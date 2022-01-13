@@ -1,22 +1,35 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useState } from 'react';
+import { type Node, useState } from 'react';
 import classnames from 'classnames';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';
 
 type Props = {|
+  /**
+   * Indicates if the input is currently disabled. See [Switch combinations](https://gestalt.pinterest.systems/switch#switchCombinations) for more details.
+   */
   disabled?: boolean,
+  /**
+   * A unique identifier for the element.
+   */
   id: string,
+  /**
+   * A unique name for the element.
+   */
   name?: string,
+  /**
+   * Callback triggered when the user interacts with the input.
+   */
   onChange: ({| event: SyntheticInputEvent<>, value: boolean |}) => void,
+  /**
+   * Indicates the current value of the input. See [Switch combinations](https://gestalt.pinterest.systems/switch#switchCombinations) for more details.
+   */
   switched?: boolean,
 |};
 
 /**
- * Use [switches](https://gestalt.pinterest.systems/switch) for single cell options that can be turned on and off only. If you have a cell with multiple options that can activated, consider using check marks.
+ * Use [Switch](https://gestalt.pinterest.systems/switch) for single cell options that can be turned on and off only. If you have a cell with multiple options that can activated, consider using [Checkbox](https://gestalt.pinterest.systems/checkbox).
  *
  * Switch supports right-to-left(RTL) language locales layout (auto flip on RTL locales like Arabic).
  */
