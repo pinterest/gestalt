@@ -1,3 +1,9 @@
+## 41.3.0 (Jan 13, 2022)
+
+### Minor
+
+- Icon: updated shopping-bag icon
+
 ## 41.2.4 (Jan 13, 2022)
 
 ### Patch
