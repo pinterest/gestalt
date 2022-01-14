@@ -39,6 +39,7 @@
 }
 
 .tapTransition {
+  /* Compression must be considered when compressed components are used to anchor Popovers. setTimeout is necessary to prevent positioning shifts on rerender */
   transition: transform 85ms ease-out;
 }
 
