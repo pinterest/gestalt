@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, cloneElement, type Node, useState } from 'react';
+import { useEffect, Children, cloneElement, type Node, useState } from 'react';
 import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
@@ -110,6 +110,7 @@ export default function Dropdown({
   zIndex,
 }: Props): Node {
   const [hoveredItem, setHoveredItem] = useState<number>(0);
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   const dropdownChildrenArray = Children.toArray(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
@@ -175,6 +176,11 @@ export default function Dropdown({
     }
   };
 
+  useEffect(() => {
+    // This setTimeout is necessary to prevent a 1px shift in the Dropdown position on rerender due to a different initial Button position during compression. 85ms is the timing of the ease-out compression transition in Button.
+    setTimeout(() => setShowDropdown(true), 85);
+  }, []);
+
   const dropdown = (
     <Popover
       anchor={anchor}
@@ -197,8 +203,10 @@ export default function Dropdown({
       </Box>
     </Popover>
   );
-
-  return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
+  if (showDropdown) {
+    return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
+  }
+  return null;
 }
 
 Dropdown.Item = DropdownItem;
