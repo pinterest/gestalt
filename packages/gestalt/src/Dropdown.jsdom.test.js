@@ -1,11 +1,17 @@
 // @flow strict
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes.js';
 import Dropdown from './Dropdown.js';
 
 describe('Dropdown', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
   afterEach(() => {
     jest.restoreAllMocks();
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
   });
 
   it('renders a menu of 6 items', () => {
@@ -52,6 +58,10 @@ describe('Dropdown', () => {
         />
       </Dropdown>,
     );
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -104,6 +114,10 @@ describe('Dropdown', () => {
         </Dropdown.Section>
       </Dropdown>,
     );
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
 
     const sectionLabels = screen.getAllByRole('presentation');
     expect(sectionLabels).toHaveLength(2);
@@ -163,6 +177,10 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
     expect(screen.getByText('This is my custom header')).toBeVisible();
   });
 
@@ -210,6 +228,10 @@ describe('Dropdown', () => {
         />
       </Dropdown>,
     );
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
 
     fireEvent.keyDown(window.document, {
       keyCode: ESCAPE,
@@ -262,9 +284,14 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
     fireEvent.keyDown(window.document, {
       keyCode: TAB,
     });
+
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
 
@@ -312,6 +339,10 @@ describe('Dropdown', () => {
         />
       </Dropdown>,
     );
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
 
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-0');
 
@@ -376,6 +407,10 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
     expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-0');
 
     fireEvent.keyDown(window.document, {
@@ -435,6 +470,10 @@ describe('Dropdown', () => {
         />
       </Dropdown>,
     );
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
 
     expect(document.activeElement).toHaveAttribute('id', 'ex-8-item-0');
 
