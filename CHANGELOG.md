@@ -1,3 +1,9 @@
+## 41.3.2 (Jan 18, 2022)
+
+### Patch
+
+- Internal: Bump marked from 2.0.0 to 4.0.10 (#1868)
+
 ## 41.3.1 (Jan 18, 2022)
 
 ### Patch
