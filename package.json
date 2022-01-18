@@ -74,7 +74,7 @@
     "rollup": "^2.45.2",
     "rollup-plugin-inline-svg": "^2.0.0",
     "semver": "^7.3.2",
-    "shelljs": "^0.8.4",
+    "shelljs": "^0.8.5",
     "slugify": "^1.4.5",
     "stylelint": "^14.0.1",
     "stylelint-config-prettier": "^9.0.3",
