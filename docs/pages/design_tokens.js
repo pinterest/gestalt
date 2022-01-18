@@ -25,7 +25,7 @@ const tokenCategories = [
   { name: 'Font family', category: 'font-family', id: 'font-family' },
 ];
 
-const headers = ['CSS Token Name', 'JavaScript Prop Name', 'Value', 'Dark Mode Value', 'Example'];
+const headers = ['CSS Token Name', 'Value', 'Dark Mode Value', 'Example'];
 
 const tableHeaders = (category: string): Node => (
   <Table.Header>
@@ -68,9 +68,6 @@ export default function DesignTokensPage(): Node {
                           <Text>${token.name}</Text>
                           <Text color="gray">{token.comment || ''}</Text>
                         </Flex>
-                      </Table.Cell>
-                      <Table.Cell>
-                        <Text>{token.name.replace(/-./g, (x) => x[1].toUpperCase())}</Text>
                       </Table.Cell>
                       <Table.Cell>
                         <Text>{token.value}</Text>
