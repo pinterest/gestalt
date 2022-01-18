@@ -132,7 +132,7 @@ type Props = {
    */
   bottom?: boolean,
   /**
-   * See the [color](https://gestalt.pinterest.systems/box#Color) variant for more info.
+   * See the [color](https://gestalt.pinterest.systems/box#Colors) variant for more info.
    * Default: 'transparent'
    */
   color?:

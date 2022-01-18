@@ -419,7 +419,14 @@ function Example() {
             )}
           </CombinationNew>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Colors">
+        <MainSection.Subsection
+          title="Colors"
+          description={`
+          The following colors can be used to change the background of Box.
+
+          ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
+        `}
+        >
           <CombinationNew
             color={[
               'infoBase',
