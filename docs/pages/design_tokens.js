@@ -7,7 +7,6 @@ import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import { TokenExample } from '../components/TokenExample.js';
 import Page from '../components/Page.js';
-import { useAppContext } from '../components/appContext.js';
 
 export type Token = {|
   name: string,
@@ -26,23 +25,26 @@ const tokenCategories = [
   { name: 'Font family', category: 'font-family', id: 'font-family' },
 ];
 
-const headers = ['CSS Token Name', 'JavaScript Prop Name', 'Value', 'Example'];
+const headers = ['CSS Token Name', 'JavaScript Prop Name', 'Value', 'Dark Mode Value', 'Example'];
 
-const tableHeaders = (
+const tableHeaders = (category: string): Node => (
   <Table.Header>
     <Table.Row>
-      {headers.map((header) => (
-        <Table.HeaderCell key={`header-${header}`}>
-          <Text weight="bold">{header}</Text>
-        </Table.HeaderCell>
-      ))}
+      {headers.map((header) => {
+        if (header === 'Dark Mode Value' && !category.includes('color')) {
+          return null;
+        }
+        return (
+          <Table.HeaderCell key={`header-${header}`}>
+            <Text weight="bold">{header}</Text>
+          </Table.HeaderCell>
+        );
+      })}
     </Table.Row>
   </Table.Header>
 );
 
 export default function DesignTokensPage(): Node {
-  const { colorScheme } = useAppContext();
-
   return (
     <Page title="Design Tokens Guidelines">
       <PageHeader
@@ -55,7 +57,7 @@ export default function DesignTokensPage(): Node {
         {tokenCategories.map((category) => (
           <MainSection.Subsection key={`table${category.name}`} title={category.name}>
             <Table accessibilityLabel={`${category.name} Values`}>
-              {tableHeaders}
+              {tableHeaders(category.name)}
               <Table.Body>
                 {tokens
                   .filter((token) => token.name.includes(`${category.id}`))
@@ -71,12 +73,13 @@ export default function DesignTokensPage(): Node {
                         <Text>{token.name.replace(/-./g, (x) => x[1].toUpperCase())}</Text>
                       </Table.Cell>
                       <Table.Cell>
-                        <Text>
-                          {colorScheme === 'dark' && token.darkValue
-                            ? token.darkValue
-                            : token.value}
-                        </Text>
+                        <Text>{token.value}</Text>
                       </Table.Cell>
+                      {category.name.includes('color') && (
+                        <Table.Cell>
+                          <Text>{token.darkValue || '--'}</Text>
+                        </Table.Cell>
+                      )}
                       <Table.Cell>
                         <TokenExample token={token} category={category.category} />
                       </Table.Cell>
