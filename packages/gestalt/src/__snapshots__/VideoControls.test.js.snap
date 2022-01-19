@@ -67,6 +67,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={905}
         aria-valuemin="0"
         aria-valuenow={905}
@@ -242,6 +243,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={15}
         aria-valuemin="0"
         aria-valuenow={15}
@@ -417,6 +419,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={65}
         aria-valuemin="0"
         aria-valuenow={65}
@@ -592,6 +595,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={5}
         aria-valuemin="0"
         aria-valuenow={5}
@@ -767,6 +771,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={67.3}
         aria-valuemin="0"
         aria-valuenow={67.3}

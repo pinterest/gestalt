@@ -15,6 +15,7 @@ type Props = {|
   accessibilityMuteLabel: string,
   accessibilityPauseLabel: string,
   accessibilityPlayLabel: string,
+  accessibilityProgressBarLabel: string,
   accessibilityUnmuteLabel: string,
   captionsButton: 'enabled' | 'disabled' | null,
   currentTime: number,
@@ -62,6 +63,7 @@ function VideoControls({
   accessibilityMuteLabel,
   accessibilityPauseLabel,
   accessibilityPlayLabel,
+  accessibilityProgressBarLabel,
   accessibilityUnmuteLabel,
   captionsButton,
   currentTime,
@@ -138,6 +140,7 @@ function VideoControls({
       </Box>
       <Box padding={2} flex="grow">
         <VideoPlayhead
+          accessibilityProgressBarLabel={accessibilityProgressBarLabel}
           currentTime={currentTime}
           duration={duration}
           onPlayheadDown={onPlayheadDown}

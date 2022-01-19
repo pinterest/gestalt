@@ -8,6 +8,7 @@ const A11Y_LABELS = Object.freeze({
   accessibilityMuteLabel: 'Mute',
   accessibilityPauseLabel: 'Pause',
   accessibilityPlayLabel: 'Play',
+  accessibilityProgressBarLabel: 'Progress bar',
   accessibilityUnmuteLabel: 'Unmute',
 });
 

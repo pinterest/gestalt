@@ -7,6 +7,7 @@ test('VideoPlayhead handles on mouse down and up events', () => {
   const mockOnPlayheadUp = jest.fn();
   const { getByRole } = render(
     <VideoPlayhead
+      accessibilityProgressBarLabel="Progress bar"
       currentTime={50}
       duration={100}
       seek={() => {}}
@@ -32,6 +33,7 @@ test('VideoPlayhead ends seek when mouse leaves', () => {
   const mockOnPlayheadUp = jest.fn();
   const { getByRole } = render(
     <VideoPlayhead
+      accessibilityProgressBarLabel="Progress bar"
       currentTime={50}
       duration={100}
       seek={() => {}}
