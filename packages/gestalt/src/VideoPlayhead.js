@@ -6,6 +6,7 @@ import Box from './Box.js';
 import styles from './Video.css';
 
 type Props = {|
+  accessibilityProgressBarLabel: string,
   currentTime: number,
   duration: number,
   onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
@@ -74,11 +75,12 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   };
 
   render(): Node {
-    const { currentTime, duration } = this.props;
+    const { accessibilityProgressBarLabel, currentTime, duration } = this.props;
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
     return (
       <Box position="relative" display="flex" flex="grow" alignItems="center" height={16}>
         <div
+          aria-label={accessibilityProgressBarLabel}
           aria-valuemax={duration}
           aria-valuemin="0"
           aria-valuenow={currentTime}

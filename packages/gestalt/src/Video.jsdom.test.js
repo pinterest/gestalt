@@ -1,5 +1,5 @@
 // @flow strict
-import { render } from '@testing-library/react';
+import { getByLabelText, render } from '@testing-library/react';
 import Video from './Video.js';
 
 const A11Y_LABELS = Object.freeze({
@@ -8,6 +8,7 @@ const A11Y_LABELS = Object.freeze({
   accessibilityMuteLabel: 'Mute',
   accessibilityPauseLabel: 'Pause',
   accessibilityPlayLabel: 'Play',
+  accessibilityProgressBarLabel: 'Progress bar',
   accessibilityUnmuteLabel: 'Unmute',
 });
 
@@ -209,5 +210,23 @@ describe('Video loading', () => {
 
     const { container } = render(<Video {...props} />);
     expect(container.querySelector('video').attributes.disableremoteplayback).toBeUndefined();
+  });
+
+  it('Progress bar label is set', () => {
+    const props = {
+      ...A11Y_LABELS,
+      aspectRatio: 1,
+      captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
+      controls: true,
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+        },
+      ],
+    };
+
+    const { container } = render(<Video {...props} />);
+    expect(getByLabelText(container, 'Progress bar')).toBeDefined();
   });
 });

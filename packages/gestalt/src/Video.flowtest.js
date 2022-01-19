@@ -8,6 +8,7 @@ const Valid = (
     accessibilityMuteLabel="Mute"
     accessibilityPauseLabel="Pause"
     accessibilityPlayLabel="Play"
+    accessibilityProgressBarLabel="Progress bar"
     accessibilityUnmuteLabel="Unmute"
     aspectRatio={1}
     captions="https://media.w3.org/2010/05/sintel/captions.vtt"

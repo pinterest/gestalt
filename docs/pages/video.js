@@ -58,6 +58,13 @@ export default function DocsPage(): Node {
             href: 'videoControlsExample',
           },
           {
+            name: 'accessibilityProgressBarLabel',
+            type: 'string',
+            description: 'Accessibility label for progress bar',
+            required: true,
+            href: 'videoControlsExample',
+          },
+          {
             name: 'accessibilityUnmuteLabel',
             type: 'string',
             description: 'Accessibility label for the unmute button if controls are shown',
@@ -341,6 +348,7 @@ export default function DocsPage(): Node {
   accessibilityMuteLabel="Mute"
   accessibilityPauseLabel="Pause"
   accessibilityPlayLabel="Play"
+  accessibilityProgressBarLabel="Progress bar"
   accessibilityUnmuteLabel="Unmute"
   aspectRatio={853 / 480}
   captions=""
@@ -362,6 +370,7 @@ export default function DocsPage(): Node {
   accessibilityMuteLabel="Mute"
   accessibilityPauseLabel="Pause"
   accessibilityPlayLabel="Play"
+  accessibilityProgressBarLabel="Progress bar"
   accessibilityUnmuteLabel="Unmute"
   aspectRatio={853 / 480}
   captions=""
@@ -447,6 +456,7 @@ function Example() {
         accessibilityMuteLabel="Mute"
         accessibilityPauseLabel="Pause"
         accessibilityPlayLabel="Play"
+        accessibilityProgressBarLabel="Progress bar"
         accessibilityUnmuteLabel="Unmute"
         aspectRatio={853 / 480}
         captions=""

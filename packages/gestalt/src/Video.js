@@ -28,6 +28,7 @@ type Props = {|
   accessibilityMuteLabel: string,
   accessibilityPauseLabel: string,
   accessibilityPlayLabel: string,
+  accessibilityProgressBarLabel: string,
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   backgroundColor: BackgroundColor,
@@ -596,6 +597,7 @@ export default class Video extends PureComponent<Props, State> {
               accessibilityMuteLabel={this.props.accessibilityMuteLabel}
               accessibilityPauseLabel={this.props.accessibilityPauseLabel}
               accessibilityPlayLabel={this.props.accessibilityPlayLabel}
+              accessibilityProgressBarLabel={this.props.accessibilityProgressBarLabel}
               accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
               captionsButton={captionsButton}
               currentTime={currentTime}
