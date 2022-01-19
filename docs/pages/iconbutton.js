@@ -160,6 +160,11 @@ function SectionsIconButtonDropdownExample() {
             description:
               'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
           },
+          {
+            name: 'tooltip',
+            type: `{| text: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
+            description: `Adds a Tooltip on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
+          },
         ]}
       />
       <PropTable
@@ -753,6 +758,24 @@ Follow these guidelines for \`bgColor\`
               />
             )}
           </CombinationNew>
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="With Tooltip"
+          description="By specifying the `tooltip` property, a [Tooltip](/tooltip) will automatically be triggered when IconButton is hovered or focused."
+        >
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
+<IconButton
+  accessibilityLabel="Sharing"
+  icon="share"
+  tooltip={{
+    text: "This Pin is private unless you share it with others.",
+    idealDirection: "up"
+  }}
+/>
+`}
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Custom icon"

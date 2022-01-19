@@ -6,11 +6,13 @@ import classnames from 'classnames';
 import icons from './icons/index.js';
 import InternalLink from './InternalLink.js';
 import Pog from './Pog.js';
+import Tooltip from './Tooltip.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
+import { type Indexable } from './zIndex.js';
 
 type BaseIconButton = {|
   accessibilityLabel: string,
@@ -35,6 +37,12 @@ type BaseIconButton = {|
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
   tabIndex?: -1 | 0,
+  tooltip?: {|
+    text: string,
+    inline?: boolean,
+    idealDirection?: 'up' | 'right' | 'down' | 'left',
+    zIndex?: Indexable,
+  |},
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
@@ -78,6 +86,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     onClick,
     padding,
     tabIndex = 0,
+    tooltip,
     size,
   } = props;
 
@@ -128,6 +137,9 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     />
   );
 
+  const renderTooltipComponent = (children: Node): Node =>
+    tooltip ? <Tooltip {...tooltip}>{children}</Tooltip> : null;
+
   const handleClick = (event, dangerouslyDisableOnNavigation) =>
     onClick
       ? onClick({
@@ -167,7 +179,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   if (props.role === 'link') {
     const { href, rel, target } = props;
 
-    return (
+    const linkIconButton = (
       <InternalLink
         accessibilityLabel={accessibilityLabel}
         disabled={disabled}
@@ -188,11 +200,15 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
         {renderPogComponent()}
       </InternalLink>
     );
+    if (tooltip) {
+      return renderTooltipComponent(linkIconButton);
+    }
+    return linkIconButton;
   }
 
   const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
 
-  return (
+  const iconButton = (
     <button
       aria-controls={accessibilityControls}
       aria-expanded={accessibilityExpanded}
@@ -228,6 +244,11 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
       {renderPogComponent(selected)}
     </button>
   );
+
+  if (tooltip) {
+    return renderTooltipComponent(iconButton);
+  }
+  return iconButton;
 });
 
 IconButtonWithForwardRef.displayName = 'IconButton';
