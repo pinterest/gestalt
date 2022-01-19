@@ -1,3 +1,9 @@
+## 42.0.0 (Jan 19, 2022)
+
+### Major
+
+- Video: Add required accessibilityProgressbarLabel prop (#1870)
+
 ## 41.3.2 (Jan 18, 2022)
 
 ### Patch
