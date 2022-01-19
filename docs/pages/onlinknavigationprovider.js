@@ -1,26 +1,18 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
-import PageHeader from '../components/PageHeader.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="On Link Navigation Provider">
+    <Page title="OnLinkNavigationProvider">
       <PageHeader name="OnLinkNavigationProvider" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'onNavigation',
-            type:
-              '({| href: string, target?: null | "self" | "blank" }) => ?({|+event: SyntheticEvent<>|}) => void |}',
-            description:
-              'If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation contex](#Custom-navigation-context) variant for examples.',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Custom link navigation context"

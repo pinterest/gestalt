@@ -13,11 +13,27 @@ type OnChange = AbstractEventHandler<
   SyntheticMouseEvent<HTMLButtonElement>,
   {| activeIndex: number |},
 >;
+
 type Props = {|
+  /**
+   * Selection items. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
+   */
   items: $ReadOnlyArray<Node>,
+  /**
+   * Callback triggered when the user selects an item.
+   */
   onChange: OnChange,
+  /**
+   * By default, items have equal widths. If this prop is true, the width of an item is based on its content. See the [responsive example](https://gestalt.pinterest.systems/segmentedcontrol#Example:-Responsive) for more details.
+   */
   responsive?: boolean,
+  /**
+   * Index of element in `items` that is currently selected.
+   */
   selectedItemIndex: number,
+  /**
+   * The height of the element. md: 40px, lg: 48px
+   */
   size?: 'md' | 'lg',
 |};
 
@@ -66,9 +82,9 @@ function SegmentedControlItem({
 }
 
 /**
- * [SegmentedControls](https://gestalt.pinterest.systems/segmentedcontrol)  may be used to group between multiple selections. The controls display the current state and related state.
+ * [SegmentedControl](https://gestalt.pinterest.systems/segmentedcontrol)  may be used to group multiple selections. The controls display the current state and related state.
  *
- * Create layout to convey clear sense of information hierarchy. When a control is engaged, information below the control should get updated.
+ * Create layout to convey clear sense of information hierarchy. When a control is engaged, information below the control should also be updated.
  */
 export default function SegmentedControl({
   items,
