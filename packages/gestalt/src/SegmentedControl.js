@@ -16,7 +16,7 @@ type OnChange = AbstractEventHandler<
 
 type Props = {|
   /**
-   * Selection items. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
+   * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
    */
   items: $ReadOnlyArray<Node>,
   /**

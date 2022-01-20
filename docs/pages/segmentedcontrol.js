@@ -92,21 +92,26 @@ function SegmentedControlExample() {
   const items = ['Short', 'Really really really long title'];
 
   return (
-    <Box>
-      <h3>Equal widths</h3>
-      <SegmentedControl
-       items={items}
-       onChange={({ activeIndex }) => { setItem1Index(activeIndex); }}
-       selectedItemIndex={item1Index}
-       />
-      <h3>Responsive widths</h3>
-      <SegmentedControl
-       items={items}
-       onChange={({ activeIndex }) => { setItem2Index(activeIndex); }}
-       responsive
-       selectedItemIndex={item2Index}
-       />
-    </Box>
+    <Flex direction="column" gap={6}>
+      <Flex direction="column" gap={2}>
+        <Heading size="sm">Equal widths</Heading>
+        <SegmentedControl
+        items={items}
+        onChange={({ activeIndex }) => { setItem1Index(activeIndex); }}
+        selectedItemIndex={item1Index}
+        />
+      </Flex>
+
+      <Flex direction="column" gap={2}>
+        <Heading size="sm">Responsive widths</Heading>
+        <SegmentedControl
+        items={items}
+        onChange={({ activeIndex }) => { setItem2Index(activeIndex); }}
+        responsive
+        selectedItemIndex={item2Index}
+        />
+      </Flex>
+    </Flex>
   );
 }
     `}
