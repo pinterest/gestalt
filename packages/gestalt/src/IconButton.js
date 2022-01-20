@@ -137,9 +137,6 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     />
   );
 
-  const renderTooltipComponent = (children: Node): Node =>
-    tooltip && tooltip.text ? <Tooltip {...tooltip}>{children}</Tooltip> : children;
-
   const handleClick = (event, dangerouslyDisableOnNavigation) =>
     onClick
       ? onClick({
@@ -176,39 +173,34 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     setHovered(false);
   };
 
-  if (props.role === 'link') {
-    const { href, rel, target } = props;
-
-    const linkIconButton = (
-      <InternalLink
-        accessibilityLabel={accessibilityLabel}
-        disabled={disabled}
-        href={href}
-        onClick={handleLinkClick}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-        onMouseDown={handleOnMouseDown}
-        onMouseUp={handleOnMouseUp}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        ref={innerRef}
-        rel={rel}
-        tabIndex={tabIndex}
-        target={target}
-        wrappedComponent="iconButton"
-      >
-        {renderPogComponent()}
-      </InternalLink>
-    );
-    if (tooltip) {
-      return renderTooltipComponent(linkIconButton);
-    }
-    return linkIconButton;
-  }
-
-  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
+  const linkIconButton = (href, rel, target) => (
+    <InternalLink
+      accessibilityLabel={accessibilityLabel}
+      disabled={disabled}
+      href={href}
+      onClick={handleLinkClick}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
+      onMouseDown={handleOnMouseDown}
+      onMouseUp={handleOnMouseUp}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      ref={innerRef}
+      rel={rel}
+      tabIndex={tabIndex}
+      target={target}
+      wrappedComponent="iconButton"
+    >
+      {renderPogComponent()}
+    </InternalLink>
+  );
 
   const iconButton = (
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    selected,
+  ) => (
     <button
       aria-controls={accessibilityControls}
       aria-expanded={accessibilityExpanded}
@@ -245,10 +237,28 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     </button>
   );
 
-  if (tooltip) {
-    return renderTooltipComponent(iconButton);
+  const renderTooltipComponent = (children: Node): Node =>
+    tooltip?.text ? <Tooltip {...tooltip}>{children}</Tooltip> : children;
+
+  let buttonComponentToRender = null;
+
+  if (props.role === 'link') {
+    const { href, rel, target } = props;
+    buttonComponentToRender = linkIconButton(href, rel, target);
+  } else {
+    const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
+    buttonComponentToRender = iconButton(
+      accessibilityControls,
+      accessibilityExpanded,
+      accessibilityHaspopup,
+      selected,
+    );
   }
-  return iconButton;
+
+  if (tooltip) {
+    return renderTooltipComponent(buttonComponentToRender);
+  }
+  return buttonComponentToRender;
 });
 
 IconButtonWithForwardRef.displayName = 'IconButton';
