@@ -138,7 +138,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   );
 
   const renderTooltipComponent = (children: Node): Node =>
-    tooltip ? <Tooltip {...tooltip}>{children}</Tooltip> : null;
+    tooltip && tooltip.text ? <Tooltip {...tooltip}>{children}</Tooltip> : children;
 
   const handleClick = (event, dangerouslyDisableOnNavigation) =>
     onClick
