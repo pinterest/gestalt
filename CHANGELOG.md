@@ -1,3 +1,9 @@
+## 42.0.2 (Jan 20, 2022)
+
+### Patch
+
+- Upsell: Fix layout bug at small sizes (#1872)
+
 ## 42.0.1 (Jan 20, 2022)
 
 ### Patch
