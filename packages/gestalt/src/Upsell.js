@@ -156,7 +156,8 @@ export default function Upsell({
       display="flex"
       direction="column"
       smDirection="row"
-      padding={6}
+      paddingY={6}
+      paddingX={12}
       smPadding={8}
       position="relative"
       rounding={4}
