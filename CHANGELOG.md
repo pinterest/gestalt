@@ -1,3 +1,9 @@
+## 42.1.0 (Jan 21, 2022)
+
+### Minor
+
+- Tooltip: add optional accessibilityLabel prop & fix Datapoint a11y integration test (#1873)
+
 ## 42.0.2 (Jan 20, 2022)
 
 ### Patch
