@@ -58,11 +58,10 @@ export default function Datapoint({
       <Flex gap={1} alignItems="center" minHeight={24}>
         <Text size="md">{title}</Text>
         {tooltipText && (
-          <Tooltip text={tooltipText} idealDirection="up">
-            {/* Interactive elements require an a11yLabel on them or their children. In this particular case,
-            screenreaders do read the Tooltip text that provides the context to the interactive children.
-            Therefore no a11yLabel is needed and integration tests can be safely disabled. */}
-            <TapArea accessibilityLabel="" rounding="circle" tapStyle="none">
+          <Tooltip accessibilityLabel="" text={tooltipText} idealDirection="up">
+            {/* Interactive elements require an a11yLabel on them or their children.
+            That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
+            <TapArea accessibilityLabel={tooltipText} rounding="circle" tapStyle="none">
               <Icon accessibilityLabel="" size={16} icon="info-circle" color="gray" />
             </TapArea>
           </Tooltip>

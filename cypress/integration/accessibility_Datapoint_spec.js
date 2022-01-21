@@ -5,14 +5,7 @@ describe('Datapoint Accessibility check', () => {
   });
 
   it('Tests accessibility on the Datapoint page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'aria-command-name', // Tooltip provides description to the button
-          enabled: false,
-        },
-      ],
-    });
+    cy.configureAxe();
     cy.checkA11y();
   });
 });

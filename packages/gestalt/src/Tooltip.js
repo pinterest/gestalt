@@ -45,6 +45,10 @@ const reducer = (state, action) => {
 
 type Props = {|
   /**
+   * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Should only be used in very rare cases
+   */
+  accessibilityLabel?: string,
+  /**
    * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/iconbutton), that triggers Tooltip on hover or focus.
    */
   children: Node,
@@ -74,6 +78,7 @@ type Props = {|
  * [Tooltip](https://gestalt.pinterest.systems/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.
  */
 export default function Tooltip({
+  accessibilityLabel,
   children,
   link,
   idealDirection = 'down',
@@ -108,7 +113,7 @@ export default function Tooltip({
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
-        aria-label={text}
+        aria-label={accessibilityLabel != null ? accessibilityLabel : text}
         ref={childRef}
         onFocus={handleIconMouseEnter}
         onBlur={handleIconMouseLeave}
