@@ -14,6 +14,21 @@ import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
 import { type Indexable } from './zIndex.js';
 
+type TooltipType = {|
+  text: string,
+  inline?: boolean,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  zIndex?: Indexable,
+|};
+
+const TooltipComponent = ({
+  children,
+  tooltipProps,
+}: {|
+  children: Node,
+  tooltipProps: TooltipType,
+|}): Node => (tooltipProps.text ? <Tooltip {...tooltipProps}>{children}</Tooltip> : children);
+
 type BaseIconButton = {|
   accessibilityLabel: string,
   bgColor?:
@@ -37,12 +52,7 @@ type BaseIconButton = {|
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
   tabIndex?: -1 | 0,
-  tooltip?: {|
-    text: string,
-    inline?: boolean,
-    idealDirection?: 'up' | 'right' | 'down' | 'left',
-    zIndex?: Indexable,
-  |},
+  tooltip?: TooltipType,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
@@ -237,9 +247,6 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     </button>
   );
 
-  const renderTooltipComponent = (children: Node): Node =>
-    tooltip?.text ? <Tooltip {...tooltip}>{children}</Tooltip> : children;
-
   let buttonComponentToRender = null;
 
   if (props.role === 'link') {
@@ -256,7 +263,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   }
 
   if (tooltip) {
-    return renderTooltipComponent(buttonComponentToRender);
+    return <TooltipComponent tooltipProps={tooltip}>{buttonComponentToRender}</TooltipComponent>;
   }
   return buttonComponentToRender;
 });
