@@ -321,6 +321,7 @@ function HeadingExample(props) {
         icon="edit"
         onClick={() => setShouldShow(true)}
         size="lg"
+        tooltip={{text: "Edit Pin"}}
       />
       {shouldShow && (
         <Layer zIndex={modalZIndex}>
@@ -366,21 +367,21 @@ function OrderDropdownExample() {
     <Flex gap={2}>
       <Tooltip text="Go back to previous page">
         <IconButton
-          accessibilityLabel=""
+          accessibilityLabel="Backe"
           icon="arrow-back"
           size="md"
         />
       </Tooltip>
-      <Tooltip text="Share pin">
+      <Tooltip text="Send pin">
         <IconButton
-          accessibilityLabel=""
+          accessibilityLabel="Share"
           icon="share"
           size="md"
         />
       </Tooltip>
-      <Tooltip text="Edit pin">
+      <Tooltip text="Edit board details">
         <IconButton
-          accessibilityLabel=""
+          accessibilityLabel="Edit"
           icon="edit"
           size="md"
         />
@@ -395,6 +396,7 @@ function OrderDropdownExample() {
         ref={anchorRef}
         selected={open}
         size="md"
+        tooltip={{text: "More options"}}
       />
       <Button text="Visit" size="md"/>
       <Button color="red" text="Save" size="md"/>
@@ -433,37 +435,37 @@ function OrderDropdownExample() {
             description="Display more than 4 icon buttons in a single row as it can cause cognitive load and usability issues."
             defaultCode={`
 <Flex gap={2}>
-  <Tooltip text="Go back to previous page">
+  <Tooltip text="Navigate to previous page">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Back"
       icon="arrow-back"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Share pin">
+  <Tooltip text="Send pin">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Share"
       icon="share"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Edit pin">
+  <Tooltip text="Edit board details and sections">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Customize"
       icon="edit"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Create new pin">
+  <Tooltip text="Create new pin or board">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Create"
       icon="add"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Search board">
+  <Tooltip text="Search this board">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Search"
       icon="search"
       size="md"
     />
@@ -479,13 +481,12 @@ function OrderDropdownExample() {
             type="do"
             description="Display a [Tooltip](/tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
             defaultCode={`
-<Tooltip text="Send pin">
   <IconButton
-    accessibilityLabel=""
+    accessibilityLabel="Share"
     icon="share"
     size="lg"
+    tooltip={{text: "Send pin to others"}}
   />
-</Tooltip>
 `}
           />
           <MainSection.Card
@@ -648,15 +649,14 @@ function Example(props) {
 
 IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.`}
             defaultCode={`
-<Tooltip text="Link">
-  <IconButton
-    accessibilityLabel="This IconButton is an example of IconButton acting as a link"
-    icon="visit"
-    role="link"
-    target="blank"
-    href="https://www.pinterest.com"
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+  icon="visit"
+  role="link"
+  target="blank"
+  href="https://www.pinterest.com"
+  tooltip={{text: "Link example"}}
+/>
 `}
           />
           <MainSection.Card
@@ -664,13 +664,12 @@ IconButtons that act as links can be paired with OnLinkNavigationProvider. See [
             title="role = button"
             description="If IconButton acts as a button, pass role-specific [props](#role_buttonProps)."
             defaultCode={`
-<Tooltip text="Button">
-  <IconButton
-    accessibilityLabel="This IconButton is an example of IconButton acting as a button"
-    icon="share"
-    onClick={() => {}}
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="This IconButton is an example of IconButton acting as a button"
+  icon="share"
+  onClick={() => {}}
+  tooltip={{text: "Button Example"}}
+/>
 `}
           />
         </MainSection.Subsection>
