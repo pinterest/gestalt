@@ -25,6 +25,21 @@ test('IconButton renders with svg', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('IconButton renders with tooltip', () => {
+  const component = create(
+    <IconButton
+      accessibilityLabel="Share"
+      icon="share"
+      tooltip={{
+        text: 'This Pin is private unless you share it with others.',
+        idealDirection: 'up',
+      }}
+    />,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('accessibilityControls', () => {
   const instance = create(
     <IconButton accessibilityLabel="" accessibilityControls="another-element" />,

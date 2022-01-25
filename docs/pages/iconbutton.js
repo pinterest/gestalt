@@ -41,6 +41,7 @@ function SectionsIconButtonDropdownExample() {
         ref={anchorRef}
         selected={open}
         size="lg"
+        tooltip={{text: "Create", idealDirection: "up"}}
       />
       {open && (
         <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
@@ -159,6 +160,11 @@ function SectionsIconButtonDropdownExample() {
             defaultValue: 'md',
             description:
               'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
+          },
+          {
+            name: 'tooltip',
+            type: `{| text: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
+            description: `Adds a [Tooltip](/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
           },
         ]}
       />
@@ -316,6 +322,7 @@ function HeadingExample(props) {
         icon="edit"
         onClick={() => setShouldShow(true)}
         size="lg"
+        tooltip={{text: "Edit Pin"}}
       />
       {shouldShow && (
         <Layer zIndex={modalZIndex}>
@@ -361,21 +368,21 @@ function OrderDropdownExample() {
     <Flex gap={2}>
       <Tooltip text="Go back to previous page">
         <IconButton
-          accessibilityLabel=""
+          accessibilityLabel="Back"
           icon="arrow-back"
           size="md"
         />
       </Tooltip>
-      <Tooltip text="Share pin">
+      <Tooltip text="Send pin">
         <IconButton
-          accessibilityLabel=""
+          accessibilityLabel="Share"
           icon="share"
           size="md"
         />
       </Tooltip>
-      <Tooltip text="Edit pin">
+      <Tooltip text="Edit board details">
         <IconButton
-          accessibilityLabel=""
+          accessibilityLabel="Edit"
           icon="edit"
           size="md"
         />
@@ -390,6 +397,7 @@ function OrderDropdownExample() {
         ref={anchorRef}
         selected={open}
         size="md"
+        tooltip={{text: "More options"}}
       />
       <Button text="Visit" size="md"/>
       <Button color="red" text="Save" size="md"/>
@@ -428,37 +436,37 @@ function OrderDropdownExample() {
             description="Display more than 4 icon buttons in a single row as it can cause cognitive load and usability issues."
             defaultCode={`
 <Flex gap={2}>
-  <Tooltip text="Go back to previous page">
+  <Tooltip text="Navigate to previous page">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Back"
       icon="arrow-back"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Share pin">
+  <Tooltip text="Send pin">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Share"
       icon="share"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Edit pin">
+  <Tooltip text="Edit board details and sections">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Customize"
       icon="edit"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Create new pin">
+  <Tooltip text="Create new pin or board">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Create"
       icon="add"
       size="md"
     />
   </Tooltip>
-  <Tooltip text="Search board">
+  <Tooltip text="Search this board">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Search"
       icon="search"
       size="md"
     />
@@ -474,13 +482,12 @@ function OrderDropdownExample() {
             type="do"
             description="Display a [Tooltip](/tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
             defaultCode={`
-<Tooltip text="Send pin">
   <IconButton
-    accessibilityLabel=""
+    accessibilityLabel="Share"
     icon="share"
     size="lg"
+    tooltip={{text: "Send pin to others"}}
   />
-</Tooltip>
 `}
           />
           <MainSection.Card
@@ -553,6 +560,7 @@ function Example() {
         ref={anchorRef}
         selected={open}
         size="lg"
+        tooltip={{text: "Create Pin", idealDirection: "up"}}
       />
       {open && (
         <Dropdown
@@ -613,6 +621,7 @@ function Example(props) {
           size="xs"
           tabIndex="-1"
           target="blank"
+          tooltip={{text: "Edit name"}}
         />
       </Flex>
     </Flex>
@@ -643,15 +652,14 @@ function Example(props) {
 
 IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.`}
             defaultCode={`
-<Tooltip text="Link">
-  <IconButton
-    accessibilityLabel="This IconButton is an example of IconButton acting as a link"
-    icon="visit"
-    role="link"
-    target="blank"
-    href="https://www.pinterest.com"
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+  icon="visit"
+  role="link"
+  target="blank"
+  href="https://www.pinterest.com"
+  tooltip={{text: "Link example"}}
+/>
 `}
           />
           <MainSection.Card
@@ -659,13 +667,12 @@ IconButtons that act as links can be paired with OnLinkNavigationProvider. See [
             title="role = button"
             description="If IconButton acts as a button, pass role-specific [props](#role_buttonProps)."
             defaultCode={`
-<Tooltip text="Button">
-  <IconButton
-    accessibilityLabel="This IconButton is an example of IconButton acting as a button"
-    icon="share"
-    onClick={() => {}}
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="This IconButton is an example of IconButton acting as a button"
+  icon="share"
+  onClick={() => {}}
+  tooltip={{text: "Button Example"}}
+/>
 `}
           />
         </MainSection.Subsection>
@@ -755,6 +762,24 @@ Follow these guidelines for \`bgColor\`
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
+          title="With Tooltip"
+          description="By specifying the `tooltip` property, a [Tooltip](/tooltip) will automatically be triggered when IconButton is hovered or focused."
+        >
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
+<IconButton
+  accessibilityLabel="Sharing"
+  icon="share"
+  tooltip={{
+    text: "This Pin is private unless you share it with others.",
+    idealDirection: "up"
+  }}
+/>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
           title="Custom icon"
           columns={2}
           description="IconButton accepts both Gestalt [Icons](/icon) and custom icons, as shown in the second example. For custom icons, follow our [custom SVG icons](/iconography_and_svgs#Custom-SVG-icons) guidelines."
@@ -762,23 +787,21 @@ Follow these guidelines for \`bgColor\`
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Tooltip text="Built-in Gestalt Icon">
-  <IconButton
-    accessibilityLabel="Go to next steps"
-    icon="directional-arrow-right"
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="Go to next steps"
+  icon="directional-arrow-right"
+  tooltip={{text: "Built-in Gestalt Icon"}}
+/>
 `}
           />
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Tooltip text="Custom Icon">
-  <IconButton
-    accessibilityLabel="Go to next steps"
-    dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="Go to next steps"
+  dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
+  tooltip={{text: "Custom Icon"}}
+/>
 `}
           />
         </MainSection.Subsection>
@@ -815,6 +838,7 @@ function SectionsIconButtonDropdownExample() {
         ref={anchorRef}
         selected={open}
         size="lg"
+        tooltip={{text: "Create", idealDirection: "up"}}
       />
       {open && (
         <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
@@ -872,6 +896,7 @@ function IconButtonPopoverExample() {
         onClick={() => { setOpen(true), setChecked(!checked) } }
         selected={checked}
         ref={anchorRef}
+        tooltip={{text: "Favorite pin"}}
       />
       {open && checked &&(
         <Popover

@@ -8,10 +8,6 @@ describe('IconButton Accessibility check', () => {
     cy.configureAxe({
       rules: [
         {
-          id: 'button-name',
-          enabled: false,
-        },
-        {
           id: 'color-contrast',
           enabled: false,
         },
