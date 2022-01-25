@@ -212,8 +212,8 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                     onClick={() => trackButtonClick('Gestalt Usage Visualizer')}
                     target="blank"
                     hoverStyle="underline"
-                    // eslint-disable-next-line no-script-url
-                    href="javascript:(function(){if(!document.getElementById('gestalt-usuage-visualizer')) {var script = document.createElement('script');script.id = 'gestalt-usuage-visualizer';script.src = 'https://unpkg.com/gestalt-usage-visualizer/index.js';document.head.appendChild(script);}})();"
+                    // eslint-disable-next-line no-script-url, no-template-curly-in-string
+                    href="javascript:(function(){[...document.querySelectorAll('[style]'),...document.querySelectorAll('[class]')].filter(el=>[...el.classList].some(classname=>classname.length>3)||el.classList=='').forEach(el=>{el.setAttribute('style',`${el.getAttribute('style')||''};border:solid 1px#ff0000;`)})})();"
                   >
                     <Text underline inline>
                       Gestalt Usage Visualiser
