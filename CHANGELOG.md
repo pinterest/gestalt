@@ -1,3 +1,9 @@
+## 42.2.0 (Jan 25, 2022)
+
+### Minor
+
+- IconButton: Add Tooltip prop (#1871)
+
 ## 42.1.2 (Jan 25, 2022)
 
 ### Patch
