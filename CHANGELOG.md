@@ -1,3 +1,9 @@
+## 42.2.1 (Jan 25, 2022)
+
+### Patch
+
+- Docs: fix Gestalt Visualizer script (#1875)
+
 ## 42.2.0 (Jan 25, 2022)
 
 ### Minor
