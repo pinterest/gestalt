@@ -49,7 +49,7 @@ exports[`<Callout /> Error Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever error callout message here
           </div>
@@ -109,7 +109,7 @@ exports[`<Callout /> Info Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -169,7 +169,7 @@ exports[`<Callout /> Warning Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever warning callout message here
           </div>
@@ -238,7 +238,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -273,7 +273,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -387,7 +387,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -422,7 +422,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Learn more
           </div>
@@ -453,7 +453,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -522,7 +522,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -557,7 +557,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -626,7 +626,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -655,7 +655,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -724,7 +724,7 @@ exports[`<Callout /> message + title 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>

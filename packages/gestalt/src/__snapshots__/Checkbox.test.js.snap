@@ -40,7 +40,7 @@ exports[`Checkbox 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -104,7 +104,7 @@ exports[`Checkbox checked 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -168,7 +168,7 @@ exports[`Checkbox disabled & checked 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize2 gray alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -218,7 +218,7 @@ exports[`Checkbox disabled 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize2 gray alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -282,7 +282,7 @@ exports[`Checkbox indeterminate 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -332,7 +332,7 @@ exports[`Checkbox small 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -409,7 +409,7 @@ exports[`Checkbox with an image 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -459,7 +459,7 @@ exports[`Checkbox with error 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -470,13 +470,13 @@ exports[`Checkbox with error 1`] = `
     className="box marginTop2"
   >
     <div
-      className="Text fontSize1 red alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
     >
       <div
         className="box marginTop2"
       >
         <div
-          className="Text fontSize1 red alignStart breakWord fontWeightNormal"
+          className="Text fontSize100 red alignStart breakWord fontWeightNormal"
         >
           <span
             className="formErrorMessage"
@@ -531,7 +531,7 @@ exports[`Checkbox with subtext 1`] = `
         className="box paddingX1"
       >
         <div
-          className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
         >
           Name
         </div>
@@ -539,7 +539,7 @@ exports[`Checkbox with subtext 1`] = `
           className="box paddingY1"
         >
           <div
-            className="Text fontSize2 gray alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
           >
             <div
               className="box xsDisplayVisuallyHidden"

@@ -21,7 +21,7 @@ exports[`<Toast /> Error Toast 1`] = `
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>
@@ -70,7 +70,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 white alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
         >
           <span
             className="textColorOverrideWhite"
@@ -116,7 +116,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Undo
           </div>
@@ -166,7 +166,7 @@ exports[`<Toast /> Text + Image 1`] = `
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 white alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
         >
           <span
             className="textColorOverrideWhite"
@@ -220,7 +220,7 @@ exports[`<Toast /> Text Only 1`] = `
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>

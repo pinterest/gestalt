@@ -1,6 +1,6 @@
 .textField {
   composes: borderBox from "./Layout.css";
-  composes: Text fontSize3 from "./Text.css";
+  composes: Text fontSize300 from "./Text.css";
   composes: xsCol12 from "./Column.css";
   padding: var(--space-200) var(--space-300);
 }
@@ -11,7 +11,7 @@
 
 .unstyledTextField, .textFieldSpacer {
   composes: unstyled from "./FormElement.css";
-  composes: Text fontSize3 from "./Text.css";
+  composes: Text fontSize300 from "./Text.css";
   margin-bottom: var(--space-100);
   padding: var(--space-100) var(--space-200);
 }
