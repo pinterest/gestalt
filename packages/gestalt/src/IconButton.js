@@ -183,7 +183,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     setHovered(false);
   };
 
-  const linkIconButton = (href, rel, target) => (
+  const createLinkIconButton = (href, rel, target) => (
     <InternalLink
       accessibilityLabel={accessibilityLabel}
       disabled={disabled}
@@ -205,7 +205,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     </InternalLink>
   );
 
-  const iconButton = (
+  const createIconButton = (
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
@@ -251,21 +251,21 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
 
   if (props.role === 'link') {
     const { href, rel, target } = props;
-    buttonComponentToRender = linkIconButton(href, rel, target);
+    buttonComponentToRender = createLinkIconButton(href, rel, target);
   } else {
     const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
-    buttonComponentToRender = iconButton(
+    buttonComponentToRender = createIconButton(
       accessibilityControls,
       accessibilityExpanded,
       accessibilityHaspopup,
       selected,
     );
   }
-
-  if (tooltip) {
-    return <TooltipComponent tooltipProps={tooltip}>{buttonComponentToRender}</TooltipComponent>;
-  }
-  return buttonComponentToRender;
+  return tooltip ? (
+    <TooltipComponent tooltipProps={tooltip}>{buttonComponentToRender}</TooltipComponent>
+  ) : (
+    buttonComponentToRender
+  );
 });
 
 IconButtonWithForwardRef.displayName = 'IconButton';

@@ -41,6 +41,7 @@ function SectionsIconButtonDropdownExample() {
         ref={anchorRef}
         selected={open}
         size="lg"
+        tooltip={{text: "Create", idealDirection: "up"}}
       />
       {open && (
         <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
@@ -163,7 +164,7 @@ function SectionsIconButtonDropdownExample() {
           {
             name: 'tooltip',
             type: `{| text: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
-            description: `Adds a Tooltip on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
+            description: `Adds a [Tooltip](/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
           },
         ]}
       />
@@ -367,7 +368,7 @@ function OrderDropdownExample() {
     <Flex gap={2}>
       <Tooltip text="Go back to previous page">
         <IconButton
-          accessibilityLabel="Backe"
+          accessibilityLabel="Back"
           icon="arrow-back"
           size="md"
         />
@@ -559,6 +560,7 @@ function Example() {
         ref={anchorRef}
         selected={open}
         size="lg"
+        tooltip={{text: "Create Pin", idealDirection: "up"}}
       />
       {open && (
         <Dropdown
@@ -619,6 +621,7 @@ function Example(props) {
           size="xs"
           tabIndex="-1"
           target="blank"
+          tooltip={{text: "Edit name"}}
         />
       </Flex>
     </Flex>
@@ -784,23 +787,21 @@ Follow these guidelines for \`bgColor\`
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Tooltip text="Built-in Gestalt Icon">
-  <IconButton
-    accessibilityLabel="Go to next steps"
-    icon="directional-arrow-right"
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="Go to next steps"
+  icon="directional-arrow-right"
+  tooltip={{text: "Built-in Gestalt Icon"}}
+/>
 `}
           />
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Tooltip text="Custom Icon">
-  <IconButton
-    accessibilityLabel="Go to next steps"
-    dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
-  />
-</Tooltip>
+<IconButton
+  accessibilityLabel="Go to next steps"
+  dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
+  tooltip={{text: "Custom Icon"}}
+/>
 `}
           />
         </MainSection.Subsection>
@@ -837,6 +838,7 @@ function SectionsIconButtonDropdownExample() {
         ref={anchorRef}
         selected={open}
         size="lg"
+        tooltip={{text: "Create", idealDirection: "up"}}
       />
       {open && (
         <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
@@ -894,6 +896,7 @@ function IconButtonPopoverExample() {
         onClick={() => { setOpen(true), setChecked(!checked) } }
         selected={checked}
         ref={anchorRef}
+        tooltip={{text: "Favorite pin"}}
       />
       {open && checked &&(
         <Popover
