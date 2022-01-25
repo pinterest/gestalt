@@ -17,7 +17,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         id="sizes"
         name="Example: Sizes"
         defaultCode={`
-<Box maxWidth="8em">
+<Box>
   <Heading size="sm">Heading small</Heading>
   <span lang="ja">
     <Heading size="sm">こんにちは</Heading>
@@ -103,7 +103,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         id="align"
         name="Example: Alignment"
         defaultCode={`
-<Box maxWidth="24em">
+<Box>
   <Heading align="start" size="sm">Start-aligned heading (default)</Heading>
   <Heading align="end" size="sm">End-aligned heading</Heading>
   <Heading align="center" size="sm">Center-aligned heading</Heading>

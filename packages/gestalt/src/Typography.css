@@ -8,30 +8,22 @@
 /* fonts */
 
 .sansSerif {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-default-latin);
 }
 
 :lang(ja) .sansSerif {
-  font-family: "SF Pro JP", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
-    "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3",
-    "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-default-japanese);
   quotes: "「" "」";
 }
 
 /* font weight */
 
 .fontWeightNormal {
-  font-weight: normal;
+  font-weight: var(--font-weight-normal);
 }
 
 .fontWeightBold {
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 /* emphasis */

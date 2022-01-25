@@ -11,9 +11,9 @@ function isNotNullish(val): boolean {
 }
 
 const SIZE_SCALE = {
-  sm: 1,
-  md: 2,
-  lg: 3,
+  sm: 100,
+  md: 200,
+  lg: 300,
 };
 
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
