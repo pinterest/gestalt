@@ -61,10 +61,6 @@ type Props = {|
    */
   inline?: boolean,
   /**
-   * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/tooltip#Link) variant to learn more.
-   */
-  link?: Node,
-  /**
    * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/tooltip#Localization) to learn more.
    */
   text: string,
@@ -148,7 +144,6 @@ export default function Tooltip({
               <Text color="white" size="sm">
                 {text}
               </Text>
-              {Boolean(link) && <Box marginTop={1}>{link}</Box>}
             </Box>
           </Controller>
         </Layer>

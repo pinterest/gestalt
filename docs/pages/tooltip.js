@@ -76,9 +76,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/iconbutton), in as few words as possible."
             defaultCode={`
-<Tooltip text="Send Pin">
+<Tooltip text="Share Pin with others">
   <IconButton
-    accessibilityLabel=""
+    accessibilityLabel="Share"
     bgColor="white"
     icon="share"
     iconColor="darkGray"
@@ -106,7 +106,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 <Flex>
   <Tooltip text="Align left">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Alignment"
       bgColor="white"
       icon="text-align-left"
       iconColor="darkGray"
@@ -115,7 +115,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   </Tooltip>
   <Tooltip text="Align center">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Alignment"
       bgColor="white"
       icon="text-align-center"
       iconColor="darkGray"
@@ -124,7 +124,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   </Tooltip>
   <Tooltip text="Align right">
     <IconButton
-      accessibilityLabel="Align right"
+      accessibilityLabel="Alignment"
       bgColor="white"
       icon="text-align-right"
       iconColor="darkGray"
@@ -179,16 +179,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Pair Tooltip with a disabled element. See [disabled elements](#Disabled-elements) to learn more."
             defaultCode={`
 <Tooltip
-  link={
-    <Text color="white" size="sm" weight="bold">
-      <Link
-        href="https://help.pinterest.com/en/business/article/get-a-business-account"
-        target="blank"
-      >
-        Learn more
-      </Link>
-    </Text>
-  }
   text="There was a problem converting to a personal account."
 >
   <Button size="lg" disabled text="Convert to personal account" />
@@ -221,9 +211,9 @@ When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. Th
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Tooltip text="Send Pin">
+<Tooltip text="Share Pin">
   <IconButton
-    accessibilityLabel=""
+    accessibilityLabel="Share"
     bgColor="white"
     icon="share"
     iconColor="darkGray"
@@ -334,7 +324,7 @@ function SectionsIconButtonDropdownExample() {
             accessibilityControls="sections-dropdown-example"
             accessibilityHaspopup
             accessibilityExpanded={open}
-            accessibilityLabel=""
+            accessibilityLabel="Menu"
             bgColor="lightGray"
             icon="ellipsis"
             iconColor="darkGray"
@@ -366,44 +356,6 @@ function SectionsIconButtonDropdownExample() {
     </Box>
   );
 }
-`}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Link"
-          description={`
-      Pass in \`link\` to display a link at the bottom of Tooltip.
-
-      ⚠️ Note: this feature will soon be deprecated, as it is not accessible. Please do not use it in new designs or features.
-      `}
-        >
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
-  <Flex gap={2} justifyContent="center" alignItems="center">
-    <Text>Enable expanded targeting</Text>
-    <Tooltip
-      text="Use your Pin to expand your targeting."
-      link={
-        <Text color="white" size="sm" weight="bold">
-          <Link
-            href="https://help.pinterest.com/en/business/article/expanded-targeting"
-            target="blank"
-          >
-            Learn more
-          </Link>
-        </Text>
-      }
-    >
-      <IconButton
-        accessibilityLabel="Additional info."
-        bgColor="white"
-        icon="info-circle"
-        iconColor="darkGray"
-        size="sm"
-      />
-    </Tooltip>
-  </Flex>
 `}
           />
         </MainSection.Subsection>

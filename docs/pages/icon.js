@@ -89,7 +89,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Tooltip text="Share pin">
   <TapArea>
-    <Icon icon="share" accessibilityLabel="" color="darkGray" />
+    <Icon icon="share" accessibilityLabel="Share" color="darkGray" />
   </TapArea>
 </Tooltip>`}
           />
@@ -138,7 +138,7 @@ If an icon has a visible label that describes what the icon represents, \`access
       <MainSection name="Variants">
         <MainSection.Subsection title="Primary-color combinations">
           <CombinationNew color={['gray', 'darkGray', 'red']}>
-            {({ color }) => <Icon icon="heart" accessibilityLabel="" color={color} />}
+            {({ color }) => <Icon icon="heart" accessibilityLabel="Favorite Pin" color={color} />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
