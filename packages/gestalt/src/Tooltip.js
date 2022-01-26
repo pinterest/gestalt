@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node, useReducer, useRef } from 'react';
-import useDebouncedCallback from './useDebouncedCallback.js';
 import Controller from './Controller.js';
 import Text from './Text.js';
 import Box from './Box.js';
@@ -8,7 +7,6 @@ import Layer from './Layer.js';
 import { type Indexable } from './zIndex.js';
 
 const noop = () => {};
-const TIMEOUT = 100;
 
 const initialState = { hoveredIcon: false, hoveredText: false, isOpen: false };
 
@@ -76,7 +74,6 @@ type Props = {|
 export default function Tooltip({
   accessibilityLabel,
   children,
-  link,
   idealDirection = 'down',
   inline,
   text,
@@ -88,23 +85,13 @@ export default function Tooltip({
   const childRef = useRef<?HTMLElement>(null);
   const { current: anchor } = childRef;
 
-  const mouseLeaveDelay = link ? TIMEOUT : 0;
-
   const handleIconMouseEnter = () => {
     dispatch({ type: 'hoverInIcon' });
   };
 
-  const handleIconMouseLeave = useDebouncedCallback(() => {
+  const handleIconMouseLeave = () => {
     dispatch({ type: 'hoverOutIcon' });
-  }, mouseLeaveDelay);
-
-  const handleTextMouseEnter = () => {
-    dispatch({ type: 'hoverInText' });
   };
-
-  const handleTextMouseLeave = useDebouncedCallback(() => {
-    dispatch({ type: 'hoverOutText' });
-  }, mouseLeaveDelay);
 
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
@@ -131,16 +118,7 @@ export default function Tooltip({
             rounding={2}
             size={null}
           >
-            <Box
-              maxWidth={180}
-              padding={2}
-              onBlur={link ? handleTextMouseLeave : undefined}
-              onFocus={link ? handleTextMouseEnter : undefined}
-              onMouseEnter={link ? handleTextMouseEnter : undefined}
-              onMouseLeave={link ? handleTextMouseLeave : undefined}
-              role="tooltip"
-              tabIndex={0}
-            >
+            <Box maxWidth={180} padding={2} role="tooltip" tabIndex={0}>
               <Text color="white" size="sm">
                 {text}
               </Text>
