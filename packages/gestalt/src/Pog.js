@@ -21,30 +21,6 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
   xl: 24,
 };
 
-type Props = {|
-  // Omit accessibilityLabel if and only if an ancestor element already has the aria-label set.
-  // This is similar to having empty `alt` attributes:
-  // https://davidwalsh.name/accessibility-tip-empty-alt-attributes
-  accessibilityLabel?: string,
-  active?: boolean,
-  bgColor?:
-    | 'transparent'
-    | 'darkGray'
-    | 'transparentDarkGray'
-    | 'gray'
-    | 'lightGray'
-    | 'white'
-    | 'red',
-  dangerouslySetSvgPath?: {| __path: string |},
-  focused?: boolean,
-  hovered?: boolean,
-  icon?: $Keys<typeof icons>,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
-  padding?: 1 | 2 | 3 | 4 | 5,
-  selected?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-|};
-
 const defaultIconButtonIconColors = {
   darkGray: 'white',
   gray: 'white',
@@ -55,26 +31,79 @@ const defaultIconButtonIconColors = {
   white: 'gray',
 };
 
-/**
- * [Pog](https://gestalt.pinterest.systems/pog) is a lower-level functional component to show the active, hovered, & focused states of an [IconButton](/iconbutton).
- *
- *This abstraction to allow for links that look like an IconButton.
- */
-export default function Pog(props: Props): Node {
-  const {
-    accessibilityLabel = '',
-    active = false,
-    bgColor = 'transparent',
-    dangerouslySetSvgPath,
-    focused = false,
-    hovered = false,
-    icon,
-    iconColor,
-    padding,
-    selected = false,
-    size = 'md',
-  } = props;
+type Props = {|
+  /**
+   * Omit if and only if an ancestor element already has the aria-label set.
+   * This is similar to having [empty alt attributes](https://davidwalsh.name/accessibility-tip-empty-alt-attributes).
+   */
+  accessibilityLabel?: string,
+  /**
+   * Indicate if Pog is in an active state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   */
+  active?: boolean,
+  /**
+   * The background color. See [color combinations](https://gestalt.pinterest.systems/pog#backgroundColorCombinations) for more details.
+   */
+  bgColor?:
+    | 'transparent'
+    | 'darkGray'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'white'
+    | 'red',
+  /**
+   * Used for custom icons within Pog. Make sure that the viewbox around the SVG path is 24x24.
+   */
+  dangerouslySetSvgPath?: {| __path: string |},
+  /**
+   * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   */
+  focused?: boolean,
+  /**
+   * Indicate if Pog is in a hovered state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   */
+  hovered?: boolean,
+  /**
+   * Icon displayed in Pog to convey the behavior of the component. Refer to the [iconography](/iconography_and_svgs#Search-icon-library) guidelines regarding the available icon options.
+   */
+  icon?: $Keys<typeof icons>,
+  /**
+   * Color applied to the [Icon](https://gestalt.pinterest.systems/pog/icon). See [color combinations](https://gestalt.pinterest.systems/pog#iconColorCombinations) for more details.
+   */
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
+  /**
+   * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/pog#paddingCombinations) for more details.
+   */
+  padding?: 1 | 2 | 3 | 4 | 5,
+  /**
+   * Indicate if Pog is in a selected state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   */
+  selected?: boolean,
+  /**
+   * This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If padding is omitted, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px). See [size combinations](https://gestalt.pinterest.systems/pog#sizeCombinations) for more details.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+|};
 
+/**
+ * [Pog](https://gestalt.pinterest.systems/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/pog/iconbutton).
+ *
+ *This abstraction to allow for links that look like IconButton.
+ */
+export default function Pog({
+  accessibilityLabel = '',
+  active = false,
+  bgColor = 'transparent',
+  dangerouslySetSvgPath,
+  focused = false,
+  hovered = false,
+  icon,
+  iconColor,
+  padding,
+  selected = false,
+  size = 'md',
+}: Props): Node {
   const iconSizeInPx = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
   const paddingInPx = padding ? padding * 4 : SIZE_NAME_TO_PADDING_PIXEL[size];
 
