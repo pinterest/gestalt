@@ -135,7 +135,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](https://gestalt.pinterest.systems/colorschemeprovider#Custom-navigation-context) variant for examples.
+   * The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](https://gestalt.pinterest.systems/colorschemeprovider#Color-scheme) variant for examples.
    */
   colorScheme?: ColorScheme,
   /**
