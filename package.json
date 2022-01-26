@@ -93,6 +93,7 @@
     "immer": "8.0.1",
     "lodash": "4.17.21",
     "multicast-dns": "7.2.3",
+    "node-fetch": "^2.6.7",
     "node-forge": "^1.0.0",
     "normalize-url": "4.5.1",
     "serialize-javascript": "3.1.0",
