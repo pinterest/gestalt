@@ -1,35 +1,18 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
-import PageHeader from '../components/PageHeader.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 
-export default function ColorSchemeProviderPage({
-  generatedDocGen,
-}: {|
-  generatedDocGen: DocGen,
-|}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Color Scheme Provider">
+    <Page title="ColorSchemeProvider">
       <PageHeader name="ColorSchemeProvider" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'colorScheme',
-            type: `'light' | 'dark' | 'userPreference'`,
-            defaultValue: 'light',
-            description: `The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](#Custom-navigation-context) variant for examples.`,
-          },
-          {
-            name: 'id',
-            type: 'string',
-            description:
-              'An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Color scheme"
@@ -76,14 +59,6 @@ function Example(props) {
 }`}
           />
         </MainSection.Subsection>
-      </MainSection>
-      <MainSection name="Related">
-        <MainSection.Subsection
-          description={`
-      **[Link](/link)** / **[Button](/button)** / **[IconButton](/iconbutton)** / **[TapArea](/taparea)**  / **[DropDown](/dropdown)** / **[Callout](/callout)** / **[Upsell](/upsell)** / **[ActivationCard](/activationcard)**
-      If these components are under a ColorSchemeProvider, their link behavior defaults to the logic defined in ColorSchemeProvider. In order to disable the onNavigation logic, we can return "dangerouslyDisableOnNavigation" in the \`onClick\` callback. See each component page for more information.
-    `}
-        />
       </MainSection>
     </Page>
   );
