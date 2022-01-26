@@ -67,7 +67,17 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const generatedDocGen = await docgen({ componentName: 'Pog' });
+
+  generatedDocGen.props.icon = {
+    ...generatedDocGen.props.icon,
+    flowType: {
+      name: 'string',
+      raw: 'Icon[icon]',
+    },
+  };
+
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Pog' }) },
+    props: { generatedDocGen },
   };
 }
