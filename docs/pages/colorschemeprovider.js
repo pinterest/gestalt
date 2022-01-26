@@ -60,15 +60,6 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
-
-      <MainSection name="Related">
-        <MainSection.Subsection
-          description={`
-      **[Link](/link)** / **[Button](/button)** / **[IconButton](/iconbutton)** / **[TapArea](/taparea)**  / **[DropDown](/dropdown)** / **[Callout](/callout)** / **[Upsell](/upsell)** / **[ActivationCard](/activationcard)**
-      If these components are under a ColorSchemeProvider, their link behavior defaults to the logic defined in ColorSchemeProvider. In order to disable the onNavigation logic, we can return "dangerouslyDisableOnNavigation" in the \`onClick\` callback. See each component page for more information.
-    `}
-        />
-      </MainSection>
     </Page>
   );
 }
