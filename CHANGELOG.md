@@ -1,3 +1,9 @@
+## 42.2.5 (Jan 26, 2022)
+
+### Patch
+
+- Internal: add resolution for `node-fetch` to fix vulnerability (#1881)
+
 ## 42.2.4 (Jan 26, 2022)
 
 ### Patch
