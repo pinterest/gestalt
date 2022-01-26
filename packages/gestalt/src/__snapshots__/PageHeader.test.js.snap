@@ -34,7 +34,7 @@ exports[`PageHeader renders 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
           style={
             Object {
               "WebkitLineClamp": 1,
@@ -84,7 +84,7 @@ exports[`PageHeader renders primary action 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
           style={
             Object {
               "WebkitLineClamp": 1,
@@ -124,7 +124,7 @@ exports[`PageHeader renders primary action 1`] = `
               type="button"
             >
               <div
-                className="Text fontSize3 white alignCenter fontWeightBold"
+                className="Text fontSize300 white alignCenter fontWeightBold"
               >
                 Create
               </div>
@@ -171,7 +171,7 @@ exports[`PageHeader renders secondary action 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
           style={
             Object {
               "WebkitLineClamp": 1,
@@ -233,7 +233,7 @@ exports[`PageHeader renders secondary action 1`] = `
               type="button"
             >
               <div
-                className="Text fontSize3 white alignCenter fontWeightBold"
+                className="Text fontSize300 white alignCenter fontWeightBold"
               >
                 Create
               </div>
@@ -280,7 +280,7 @@ exports[`PageHeader renders subtext 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
           style={
             Object {
               "WebkitLineClamp": 1,
@@ -294,7 +294,7 @@ exports[`PageHeader renders subtext 1`] = `
           className="box marginTop2"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -345,7 +345,7 @@ exports[`PageHeader renders within a max width 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignStart breakWord lineClamp"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
           style={
             Object {
               "WebkitLineClamp": 1,
@@ -359,7 +359,7 @@ exports[`PageHeader renders within a max width 1`] = `
           className="box marginTop2"
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,

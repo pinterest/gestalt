@@ -16,10 +16,11 @@ const defaultHeadingLevels = {
   lg: 1,
 };
 
+// Corresponds to the font-size design tokens
 const SIZE_SCALE = {
-  sm: 1,
-  md: 2,
-  lg: 3,
+  sm: 400,
+  md: 500,
+  lg: 600,
 };
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';

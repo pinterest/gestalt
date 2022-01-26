@@ -22,7 +22,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       type="button"
     >
       <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        className="Text fontSize300 darkGray alignCenter fontWeightBold"
       >
         Button 1
       </div>
@@ -46,7 +46,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       type="button"
     >
       <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        className="Text fontSize300 darkGray alignCenter fontWeightBold"
       >
         Button 2
       </div>
@@ -79,7 +79,7 @@ exports[`ButtonGroup Renders the child without container when 1 child is passed 
       type="button"
     >
       <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        className="Text fontSize300 darkGray alignCenter fontWeightBold"
       >
         Button 1
       </div>
