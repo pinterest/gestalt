@@ -1,3 +1,9 @@
+## 42.2.4 (Jan 26, 2022)
+
+### Patch
+
+- Typography: update components to use new design tokens (#1877)
+
 ## 42.2.3 (Jan 26, 2022)
 
 ### Patch
