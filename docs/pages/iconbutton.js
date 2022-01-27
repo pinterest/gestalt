@@ -522,7 +522,7 @@ function OrderDropdownExample() {
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
-IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/icon). In the example below, the screen reader reads: "More Options. The label should describe the intent of the action, not the Icon itself."
+IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
 
 If IconButton is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
 
