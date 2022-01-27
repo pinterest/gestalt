@@ -45,7 +45,7 @@ const reducer = (state, action) => {
 
 type Props = {|
   /**
-   * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Should only be used in very rare cases
+   * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/tooltip#Labels) section.
    */
   accessibilityLabel?: string,
   /**
