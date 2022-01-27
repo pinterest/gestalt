@@ -1,3 +1,9 @@
+## 42.3.1 (Jan 27, 2022)
+
+### Patch
+
+- Docs: update Visual Studio Code extension for Gestalt extension information (#1884)
+
 ## 42.3.0 (Jan 27, 2022)
 
 ### Minor
