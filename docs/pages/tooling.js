@@ -194,7 +194,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                   />
                   <Text size="sm" align="center">
                     <Box as="figcaption" marginTop={3}>
-                      {`List Gestalt components by typing <`}
+                      {`List Gestalt components by typing "<"`}
                     </Box>
                   </Text>
                 </Box>
