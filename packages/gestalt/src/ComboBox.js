@@ -11,6 +11,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type Ref,
 } from 'react';
 import Box from './Box.js';
 import Layer from './Layer.js';
@@ -43,7 +44,11 @@ type Props = {|
   /**
    * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/combobox#With-subtext) variant to learn more.
    */
-  options: $ReadOnlyArray<ComboBoxItemType>,
+  options: $ReadOnlyArray<{|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>,
   /**
    * The text shown when the input value returns no matches.
    */
@@ -105,16 +110,29 @@ type Props = {|
    */
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: ComboBoxItemType,
+    item: {|
+      label: string,
+      subtext?: string,
+      value: string,
+    |},
   |}) => void,
   /**
    * Specify a short description that suggests the expected input for the field.
    */
   placeholder?: string,
+  // The ref prop is unused and listed here just for documentation purposes.
+  /**
+   * Forward the ref to the underlying component container element. See the [Ref](https://gestalt.pinterest.systems/combobox#Ref) variant to learn more about focus management.
+   */
+  ref?: Ref<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
    * The selected option in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/combobox#Controlled-vs-Uncontrolled) variant to learn more.
    */
-  selectedOption?: ComboBoxItemType,
+  selectedOption?: {|
+    label: string,
+    subtext?: string,
+    value: string,
+  |},
   /**
    * Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.
    */

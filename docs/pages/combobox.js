@@ -2,7 +2,7 @@
 import type { Node } from 'react';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { overrideTypes, type DocGen } from '../components/docgen.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
@@ -751,32 +751,7 @@ Use Fieldset to group related form items.
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const generatedDocGen = await docgen({ componentName: 'ComboBox' });
-
-  const ComboBoxItemTypeNote = `*ComboBoxItemType = {|
-  label: string,
-  subtext?: string,
-  value: string,
-|}`;
-
-  const overriddenDocGen = overrideTypes(generatedDocGen, {
-    options: `${generatedDocGen.props.options.flowType.raw || 'ComboBoxItemType'}
-    ${ComboBoxItemTypeNote}`,
-    onSelect: `${generatedDocGen.props.onSelect.flowType.raw || 'ComboBoxItemType'}
-    ${ComboBoxItemTypeNote}`,
-    selectedOption: `${generatedDocGen.props.selectedOption.flowType.raw || 'ComboBoxItemType'}
-    ${ComboBoxItemTypeNote}`,
-  });
-
-  overriddenDocGen.props.ref = {
-    defaultValue: null,
-    description:
-      'Forward the ref to the underlying component container element. See the [Ref](https://gestalt.pinterest.systems/combobox#Ref) variant to learn more about focus management.',
-    flowType: { name: 'string', raw: 'React.Ref<"input">' },
-    required: false,
-  };
-
   return {
-    props: { generatedDocGen: overriddenDocGen },
+    props: { generatedDocGen: await docgen({ componentName: 'ComboBox' }) },
   };
 }
