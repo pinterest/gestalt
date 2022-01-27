@@ -201,7 +201,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Labels"
           description={`
-When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` can expand upon that intention, as seen with the \`cog\` IconButton. If Tooltip \`text\` and IconButton \`accessibilityLabel\` contain the same content, pass an empty string to \`accessibilityLabel\`, as seen with the \`send\` IconButton.`}
+When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` should expand upon that intention, as seen in the "cog" example below. If Tooltip \`text\` is the same as IconButton \`accessibilityLabel\`, then add \`accessibilityLabel=""\` to the Tooltip, as seen with the "share" example below`}
           columns={2}
         >
           <MainSection.Card
@@ -221,7 +221,7 @@ When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. Th
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Tooltip text="Send Pin">
+<Tooltip text="Share" accessibilityLabel="">
   <IconButton
     accessibilityLabel=""
     bgColor="white"
