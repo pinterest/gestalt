@@ -1,3 +1,9 @@
+## 42.2.6 (Jan 27, 2022)
+
+### Patch
+
+- Toast: show examples directly in docs (#1883)
+
 ## 42.2.5 (Jan 26, 2022)
 
 ### Patch
