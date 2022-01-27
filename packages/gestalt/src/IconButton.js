@@ -16,6 +16,7 @@ import { type Indexable } from './zIndex.js';
 
 type TooltipType = {|
   text: string,
+  accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   zIndex?: Indexable,

@@ -14,7 +14,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         description={generatedDocGen?.description}
         defaultCode={`
       <Flex>
-        <Tooltip text="Align left">
+        <Tooltip text="Align left" accessibilityLabel="">
           <IconButton
             accessibilityLabel="Align left"
             bgColor="white"
@@ -23,7 +23,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             size="lg"
           />
         </Tooltip>
-        <Tooltip text="Align center">
+        <Tooltip text="Align center" accessibilityLabel="">
           <IconButton
             accessibilityLabel="Align center"
             bgColor="white"
@@ -32,7 +32,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             size="lg"
           />
         </Tooltip>
-        <Tooltip text="Align right">
+        <Tooltip text="Align right" accessibilityLabel="">
           <IconButton
             accessibilityLabel="Align right"
             bgColor="white"
@@ -76,9 +76,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/iconbutton), in as few words as possible."
             defaultCode={`
-<Tooltip text="Send Pin">
+<Tooltip text="Send Pin" accessibilityLabel="">
   <IconButton
-    accessibilityLabel=""
+    accessibilityLabel="Send Pin"
     bgColor="white"
     icon="share"
     iconColor="darkGray"
@@ -104,25 +104,25 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Use Tooltip to distinguish related actions with visually similar iconography."
             defaultCode={`
 <Flex>
-  <Tooltip text="Align left">
+  <Tooltip text="Align left" accessibilityLabel="">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Align left"
       bgColor="white"
       icon="text-align-left"
       iconColor="darkGray"
       size="lg"
     />
   </Tooltip>
-  <Tooltip text="Align center">
+  <Tooltip text="Align center" accessibilityLabel="">
     <IconButton
-      accessibilityLabel=""
+      accessibilityLabel="Align center"
       bgColor="white"
       icon="text-align-center"
       iconColor="darkGray"
       size="lg"
     />
   </Tooltip>
-  <Tooltip text="Align right">
+  <Tooltip text="Align right" accessibilityLabel="">
     <IconButton
       accessibilityLabel="Align right"
       bgColor="white"
@@ -201,7 +201,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Labels"
           description={`
-When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` can expand upon that intention, as seen with the \`cog\` IconButton. If Tooltip \`text\` and IconButton \`accessibilityLabel\` contain the same content, pass an empty string to \`accessibilityLabel\`, as seen with the \`send\` IconButton.`}
+When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` should expand upon that intention, as seen in the "cog" example below. If Tooltip \`text\` is the same as IconButton \`accessibilityLabel\`, then add \`accessibilityLabel=""\` to the Tooltip, as seen with the "share" example below`}
           columns={2}
         >
           <MainSection.Card
@@ -221,9 +221,9 @@ When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. Th
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Tooltip text="Send Pin">
+<Tooltip text="Share" accessibilityLabel="">
   <IconButton
-    accessibilityLabel=""
+    accessibilityLabel="Share"
     bgColor="white"
     icon="share"
     iconColor="darkGray"
@@ -298,6 +298,7 @@ If you need to explain why an item is disabled, consider adding plain [Text](/te
         idealDirection={idealDirection}
         inline
         text="Share"
+        accessibilityLabel=""
         >
           <IconButton
             accessibilityLabel="Share this Pin"
@@ -329,12 +330,12 @@ function SectionsIconButtonDropdownExample() {
   return (
     <Box width={600}>
       <Heading accessibilityLevel={4}>Sugar-Free Strawberry-Chocolate Greek Yogurt Bark Three-Step Recipe.
-        <Tooltip inline text="More board options" idealDirection="right">
+        <Tooltip inline text="More board options" idealDirection="right" accessibilityLabel="">
           <IconButton
             accessibilityControls="sections-dropdown-example"
             accessibilityHaspopup
             accessibilityExpanded={open}
-            accessibilityLabel=""
+            accessibilityLabel="More board options"
             bgColor="lightGray"
             icon="ellipsis"
             iconColor="darkGray"

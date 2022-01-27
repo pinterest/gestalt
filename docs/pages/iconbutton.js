@@ -163,7 +163,7 @@ function SectionsIconButtonDropdownExample() {
           },
           {
             name: 'tooltip',
-            type: `{| text: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
+            type: `{| text: string, accessibilityLabel?: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
             description: `Adds a [Tooltip](/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
           },
         ]}
@@ -522,7 +522,7 @@ function OrderDropdownExample() {
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
-IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/icon). In the example below, the screen reader reads: "More Options."
+IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
 
 If IconButton is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
 
@@ -763,19 +763,32 @@ Follow these guidelines for \`bgColor\`
         </MainSection.Subsection>
         <MainSection.Subsection
           title="With Tooltip"
-          description="By specifying the `tooltip` property, a [Tooltip](/tooltip) will automatically be triggered when IconButton is hovered or focused."
+          description={`
+            By specifying the \`tooltip\` property, a [Tooltip](/tooltip) will automatically be triggered when IconButton is hovered or focused. If the Tooltip \`text\` does not provide more information than the IconButton \`accessibilityLabel\`, set the tooltip prop's \`accessibilityLabel\` to an empty string, as seen below in the Edit example.
+          `}
         >
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<IconButton
-  accessibilityLabel="Sharing"
-  icon="share"
-  tooltip={{
-    text: "This Pin is private unless you share it with others.",
-    idealDirection: "up"
-  }}
-/>
+<Flex gap={4}>
+  <IconButton
+    accessibilityLabel="Sharing"
+    icon="share"
+    tooltip={{
+      text: "This Pin is private unless you share it with others.",
+      idealDirection: "up"
+    }}
+  />
+  <IconButton
+    accessibilityLabel="Edit"
+    icon="edit"
+    tooltip={{
+      text: "Edit",
+      accessibilityLabel: "",
+      idealDirection: "up"
+    }}
+  />
+</Flex>
 `}
           />
         </MainSection.Subsection>
@@ -838,7 +851,7 @@ function SectionsIconButtonDropdownExample() {
         ref={anchorRef}
         selected={open}
         size="lg"
-        tooltip={{text: "Create", idealDirection: "up"}}
+        tooltip={{text: "Create", accessibilityLabel: "", idealDirection: "up"}}
       />
       {open && (
         <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
@@ -889,14 +902,14 @@ function IconButtonPopoverExample() {
   return (
     <React.Fragment>
       <IconButton
-        accessibilityLabel="Love Reaction to a Pin"
+        accessibilityLabel="Favorite this Pin"
         bgColor="white"
         icon="heart"
         iconColor="red"
         onClick={() => { setOpen(true), setChecked(!checked) } }
         selected={checked}
         ref={anchorRef}
-        tooltip={{text: "Favorite pin"}}
+        tooltip={{text: "Favorite this pin", accessibilityLabel: ""}}
       />
       {open && checked &&(
         <Popover

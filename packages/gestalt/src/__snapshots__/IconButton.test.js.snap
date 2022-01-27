@@ -189,3 +189,60 @@ exports[`IconButton renders with tooltip 1`] = `
   </div>
 </div>
 `;
+
+exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
+<div
+  className="box xsDisplayBlock"
+>
+  <div
+    aria-label=""
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <button
+      aria-label="Share"
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon gray iconBlock"
+          height={18}
+          role="img"
+          viewBox="0 0 24 24"
+          width={18}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </div>
+</div>
+`;

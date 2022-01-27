@@ -1,6 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import { IconButton, Tooltip } from 'gestalt';
+import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick.js';
 
 type Props = {|
@@ -13,17 +13,16 @@ export default function CollapseExpandCodeButton({ expanded, name, onClick }: Pr
   const label = `${expanded ? 'Collapse' : 'Expand'} code example`;
 
   return (
-    <Tooltip inline text={label} idealDirection="up">
-      <IconButton
-        accessibilityLabel={`${label} for ${name}`}
-        iconColor="darkGray"
-        icon={expanded ? 'minimize' : 'maximize'}
-        onClick={() => {
-          trackButtonClick(label, name);
-          onClick();
-        }}
-        size="xs"
-      />
-    </Tooltip>
+    <IconButton
+      accessibilityLabel={`${label} for ${name}`}
+      iconColor="darkGray"
+      icon={expanded ? 'minimize' : 'maximize'}
+      onClick={() => {
+        trackButtonClick(label, name);
+        onClick();
+      }}
+      size="xs"
+      tooltip={{ text: label, inline: true, idealDirection: 'up', accessibilityLabel: '' }}
+    />
   );
 }
