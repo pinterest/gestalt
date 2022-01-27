@@ -162,12 +162,64 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
-          badge="beta"
           title="Visual Studio Code extension for Gestalt"
-          description="Get Gestalt component snippets right on your VSCode editor!"
+          description="Access Gestalt component snippets and documentation right on your VSCode editor. Right at your fingertips!"
         >
+          <Text weight="bold">Quick access to Gestalt</Text>
           <Flex maxWidth={MAX_WIDTH} direction="column" alignItems="center">
             <Box marginBottom={6}>
+              <Flex direction="column">
+                <Box as="figure" width={400}>
+                  <Image
+                    alt=""
+                    color="white"
+                    naturalHeight={1036}
+                    naturalWidth={1228}
+                    src="https://i.ibb.co/G2PMw6f/Screen-Shot-2022-01-27-at-4-24-36-PM.png"
+                  />
+                  <Text size="sm" align="center">
+                    <Box as="figcaption" marginTop={3}>
+                      Quick access to Gestalt components and documentation on the VSCode sidebar.
+                      Check for the Gestalt logo on the sidebar.
+                    </Box>
+                  </Text>
+                </Box>
+                <Box as="figure" width={400}>
+                  <Image
+                    alt=""
+                    color="white"
+                    naturalHeight={978}
+                    naturalWidth={1398}
+                    src="https://i.ibb.co/9Vjhyrm/Screen-Shot-2022-01-27-at-4-45-42-PM.png"
+                  />
+                  <Text size="sm" align="center">
+                    <Box as="figcaption" marginTop={3}>
+                      {`List Gestalt components by typing "<"`}
+                    </Box>
+                  </Text>
+                </Box>
+                <Box as="figure" width={400}>
+                  <Image
+                    alt=""
+                    color="white"
+                    naturalHeight={982}
+                    naturalWidth={1218}
+                    src="https://i.ibb.co/BTCtDQk/Screen-Shot-2022-01-27-at-4-42-36-PM.png"
+                  />
+                  <Text size="sm" align="center">
+                    <Box as="figcaption" marginTop={3}>
+                      List Gestalt components by pressing Alt+G/Option+G
+                    </Box>
+                  </Text>
+                </Box>
+              </Flex>
+            </Box>
+            <Flex direction="column" gap={4}>
+              <Text weight="bold">Snippets</Text>
+              <Text>Using Gestalt snippets has the following benefits:</Text>
+              <Text>- Auto-import</Text>
+              <Text>- Required props are included</Text>
+              <Text>- Quick select boolean & enum props</Text>
               <Box as="figure" width={400}>
                 <Image
                   alt=""
@@ -183,7 +235,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                   </Box>
                 </Text>
               </Box>
-            </Box>
+            </Flex>
             <Button
               color="gray"
               target="blank"
