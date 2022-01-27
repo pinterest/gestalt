@@ -1,3 +1,9 @@
+## 42.3.0 (Jan 27, 2022)
+
+### Minor
+
+- IconButton, Tooltip: Update accessibility guidance (#1882)
+
 ## 42.2.6 (Jan 27, 2022)
 
 ### Patch
