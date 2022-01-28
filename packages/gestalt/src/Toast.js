@@ -7,6 +7,10 @@ import Text from './Text.js';
 import styles from './Toast.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
+const TOAST_MAX_WIDTH_PX = 500;
+const TOAST_WIDTH_PX = 360;
+const TEXT_MAX_WIDTH_PX = 200;
+
 type Props = {|
   /**
    * Add an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
@@ -69,8 +73,17 @@ export default function Toast({
     textColor = 'white';
   }
 
+  const hasImage = thumbnail != null;
+  const hasButton = button != null;
+
   return (
-    <Box marginBottom={3} maxWidth={360} paddingX={4} role="status" width="100vw">
+    <Box
+      marginBottom={3}
+      maxWidth={TOAST_MAX_WIDTH_PX}
+      paddingX={4}
+      role="status"
+      width={hasImage && hasButton != null ? undefined : TOAST_WIDTH_PX}
+    >
       <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
         <Flex alignItems="center" gap={4}>
           {thumbnail ? (
@@ -85,7 +98,10 @@ export default function Toast({
             </Flex.Item>
           ) : null}
 
-          <Flex.Item flex="grow">
+          <Flex.Item
+            flex="grow"
+            maxWidth={hasImage && hasButton != null ? TEXT_MAX_WIDTH_PX : undefined}
+          >
             <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
               {textElement}
             </Text>
