@@ -98,6 +98,8 @@ export default function GeneratedPropTable({
       const transformedType = (flowType.raw?.replace(/^\|/, '').trim() ?? flowType.name ?? '')
         // Replace "Node" with "React.Node" to match docs convention
         .replace(/Node/g, 'React.Node')
+        // Replace "ComponentType" with "React.ComponentType" to match docs convention
+        .replace(/ComponentType/g, 'React.ComponentType')
         // Replace "Element" with "React.Element" to match docs convention
         // Includes `<` to avoid picking up `HTMLDivElement` and similar
         .replace(/Element</g, 'React.Element<');

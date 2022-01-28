@@ -28,12 +28,12 @@ type Layout =
 
 type Props<T> = {|
   /**
-   * The preferred/target item width. If `flexible` is set, the item width will
+   * The preferred/target item width. If 'flexible' is set, the item width will
    * grow to fill column space, and shrink to fit if below min columns.
    */
   columnWidth?: number,
   /**
-   * The component to render.
+   * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    */
   comp: ComponentType<{|
     data: T,
@@ -41,39 +41,26 @@ type Props<T> = {|
     isMeasuring: boolean,
   |}>,
   /**
-   * The preferred/target item width. Item width will grow to fill
-   * column space, and shrink to fit if below min columns.
+   * Item width will grow to fill column space and shrink to fit if below min columns.
    */
   flexible?: boolean,
   /**
-   * The amount of space between each item.
+   * The amount of vertical and horizontal space between each item, specified in pixels.
    */
   gutterWidth?: number,
-
   /**
-   * An array of all objects to display in the grid.
+   * An array of items to display that contains the information that `comp` needs to render.
    */
   items: $ReadOnlyArray<T>,
   /**
-   * Measurement Store
-   */
-  // $FlowFixMe[unclear-type]
-  measurementStore?: Cache<T, *>,
-  /**
-   * Minimum number of columns to display.
-   */
-  minCols: number,
-  /**
-   * Layout system to use for items
+   * MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.
    */
   layout?: Layout,
-  // Support legacy loadItems usage.
-  // TODO: Simplify non falsey flowtype.
-
   /**
    * A callback which the grid calls when we need to load more items as the user scrolls.
    * The callback should update the state of the items, and pass those in as props
    * to this component.
+   * Note that `scrollContainer` must be specified.
    */
   loadItems?:
     | false
@@ -83,27 +70,43 @@ type Props<T> = {|
         |},
       ) => void | boolean | { ... }),
   /**
-   * Function that the grid calls to get the scroll container.
+   * Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
+   */
+  // $FlowFixMe[unclear-type]
+  measurementStore?: Cache<T, *>,
+  /**
+   * Minimum number of columns to display.
+   */
+  minCols: number,
+  /**
+   * A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
    * This is required if the grid is expected to be scrollable.
    */
   scrollContainer?: () => HTMLElement,
+  /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
+   */
+  virtualBoundsBottom?: number,
+  /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.
+   */
+  virtualBoundsTop?: number,
+  /**
+   * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
+   */
+  virtualize?: boolean,
+
   // Prop to help us conditionally/experimentally test a new React.setState(scrollPos) strategy.
   // See this.handleScroll fn for more details
   _deferScrollPositionUpdate?: boolean,
-  virtualBoundsTop?: number,
-  virtualBoundsBottom?: number,
-  /**
-   * Whether or not to use actual virtualization
-   */
-  virtualize?: boolean,
 |};
 
 type State<T> = {|
-  // $FlowFixMe[unclear-type]
-  measurementStore: Cache<T, *>,
   hasPendingMeasurements: boolean,
   isFetching: boolean,
   items: $ReadOnlyArray<T>,
+  // $FlowFixMe[unclear-type]
+  measurementStore: Cache<T, *>,
   scrollTop: number,
   width: ?number,
 |};
