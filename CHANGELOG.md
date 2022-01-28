@@ -1,3 +1,9 @@
+## 42.3.2 (Jan 28, 2022)
+
+### Patch
+
+- Docs: automatically filter out "_fooProp" internal-only props (#1886)
+
 ## 42.3.1 (Jan 27, 2022)
 
 ### Patch
