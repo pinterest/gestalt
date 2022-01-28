@@ -1,3 +1,9 @@
+## 42.3.3 (Jan 28, 2022)
+
+### Patch
+
+- Masonry: use generated props table (#1887)
+
 ## 42.3.2 (Jan 28, 2022)
 
 ### Patch
