@@ -4,15 +4,16 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-type OnChangeHandler = AbstractEventHandler<
-  | SyntheticMouseEvent<HTMLAnchorElement>
-  | SyntheticKeyboardEvent<HTMLAnchorElement>
-  | SyntheticMouseEvent<HTMLDivElement>
-  | SyntheticKeyboardEvent<HTMLDivElement>,
-  {| +activeTabIndex: number, dangerouslyDisableOnNavigation: () => void |},
->;
+type OnChangeHandler = ({|
+  event:
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>,
+  +activeTabIndex: number,
+  dangerouslyDisableOnNavigation: () => void,
+|}) => void;
 
 function Dot() {
   return (
@@ -190,15 +191,36 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
 TabWithForwardRef.displayName = 'Tab';
 
 type Props = {|
+  /**
+   * The index of the active tab.
+   */
   activeTabIndex: number,
+  /**
+   * If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color example](https://gestalt.pinterest.systems/tabs#Background-color) to learn more.
+   */
   bgColor?: BgColor,
+  /**
+   * If your app uses a tool such as `react-router` to navigate between pages, be sure to use `onChange` to navigate instead of getting a full page refresh with `href`.
+   */
   onChange: OnChangeHandler,
-  tabs: $ReadOnlyArray<{| ...TabType, ref?: {| current: ?HTMLElement |} |}>,
+  /**
+   *
+   */
+  tabs: $ReadOnlyArray<{|
+    href: string,
+    id?: string,
+    indicator?: 'dot' | number,
+    ref?: {| current: ?HTMLElement |},
+    text: Node,
+  |}>,
+  /**
+   * By default, tabs will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.
+   */
   wrap?: boolean,
 |};
 
 /**
- * https://gestalt.pinterest.systems/tabs
+ * [Tabs](https://gestalt.pinterest.systems/tabs) may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](https://gestalt.pinterest.systems/segmentedcontrol).
  */
 export default function Tabs({
   activeTabIndex,

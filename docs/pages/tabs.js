@@ -1,18 +1,18 @@
 // @flow strict
 import type { Node } from 'react';
-import { Tabs } from 'gestalt';
-import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
-import PageHeader from '../components/PageHeader.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Tabs">
       <PageHeader
         name="Tabs"
-        description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](/segmentedcontrol).`}
+        description={generatedDocGen?.description}
         defaultCode={`
     function DefaultExample() {
       const [activeIndex, setActiveIndex] = React.useState(0);
@@ -32,39 +32,9 @@ export default function DocsPage(): Node {
     }
     `}
       />
-      <PropTable
-        Component={Tabs}
-        props={[
-          {
-            name: 'activeTabIndex',
-            type: 'number',
-            required: true,
-          },
-          {
-            name: 'bgColor',
-            type: `"default" | "transparent"`,
-            defaultValue: 'default',
-            description: `If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color](#Background-color) example to learn more.`,
-          },
-          {
-            name: 'onChange',
-            type: `({| +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number, dangerouslyDisableOnNavigation: () => void  |}) => void`,
-            required: true,
-            description:
-              'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
-          },
-          {
-            name: 'tabs',
-            type: `Array<{| href: string, text: React.Node, id?: string, indicator?: 'dot' | number, ref?: {| current: ?HTMLElement |} |}>`,
-            required: true,
-          },
-          {
-            name: 'wrap',
-            type: 'boolean',
-            description: `By default, flex items will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.`,
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -423,4 +393,10 @@ SegmentedControl is used to switch between views within a small area of content,
       </MainSection>
     </Page>
   );
+}
+
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Tabs' }) },
+  };
 }

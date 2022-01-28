@@ -9,29 +9,86 @@ import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
 import styles from './TextArea.css';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
 
 type Props = {|
+  /**
+   * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/textArea#disabledExample) for more details.
+   */
   disabled?: boolean,
+  /**
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/textArea#errorMessageExample) for more details.
+   */
   errorMessage?: Node,
+  /**
+   * This field is deprecated and will be removed soon. Please do not use.
+   */
   hasError?: boolean,
+  /**
+   * More information about how to complete the form field. See the [helper text example](https://gestalt.pinterest.systems/textArea#helperText) for more details.
+   */
   helperText?: string,
+  /**
+   * A unique identifier for the input.
+   */
   id: string,
+  /**
+   * The label for the input. Be sure to localize the text.
+   */
   label?: string,
+  /**
+   * A unique name for the input.
+   */
   name?: string,
-  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLTextAreaElement>, {| value: string |}>,
-  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLTextAreaElement>, {| value: string |}>,
-  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLTextAreaElement>, {| value: string |}>,
-  onKeyDown?: AbstractEventHandler<
-    SyntheticKeyboardEvent<HTMLTextAreaElement>,
-    {| value: string |},
-  >,
+  /**
+   * Callback triggered when the user blurs the input.!
+   */
+  onBlur?: ({|
+    event: SyntheticFocusEvent<HTMLTextAreaElement>,
+    value: string,
+  |}) => void,
+  /**
+   * Callback triggered when the value of the input changes.
+   */
+  onChange: ({|
+    event: SyntheticInputEvent<HTMLTextAreaElement>,
+    value: string,
+  |}) => void,
+  /**
+   * Callback triggered when the user focuses the input.
+   */
+  onFocus?: ({|
+    event: SyntheticFocusEvent<HTMLTextAreaElement>,
+    value: string,
+  |}) => void,
+  /**
+   * Callback triggered when the user presses any key while the input is focused.
+   */
+  onKeyDown?: ({|
+    event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
+    value: string,
+  |}) => void,
+  /**
+   * Placeholder text shown the the user has not yet input a value.
+   */
   placeholder?: string,
+  /**
+   * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/textArea#refExample) for more details.
+   */
+  ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.
+   */
   rows?: number,
+  /**
+   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/textArea#tagsExample) for more details.
+   */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
+  /**
+   * The current value of the input.
+   */
   value?: string,
 |};
 

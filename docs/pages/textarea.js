@@ -1,101 +1,20 @@
 // @flow strict
 import type { Node } from 'react';
-import Example from '../components/Example.js';
-import PropTable from '../components/PropTable.js';
-import PageHeader from '../components/PageHeader.js';
 import Card from '../components/Card.js';
+import Example from '../components/Example.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="TextArea">
       <PageHeader name="TextArea" description={generatedDocGen?.description} />
-      <PropTable
-        props={[
-          {
-            name: 'disabled',
-            type: 'boolean',
-            defaultValue: 'false',
-            href: 'disabledExample',
-          },
-          {
-            name: 'errorMessage',
-            type: 'React.Node',
-            href: 'errorMessageExample',
-            description:
-              'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
-          },
-          {
-            name: 'ref',
-            type: "React.Ref<'textarea'>",
-            description: 'Forward the ref to the underlying textarea element',
-            href: 'refExample',
-          },
-          {
-            name: 'helperText',
-            type: 'string',
-            description: 'More information about how to complete the form field',
-            href: 'helperText',
-          },
-          {
-            name: 'id',
-            type: 'string',
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'label',
-            type: 'string',
-          },
-          {
-            name: 'name',
-            type: 'string',
-          },
-          {
-            name: 'onBlur',
-            type: '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
-          },
-          {
-            name: 'onChange',
-            type: '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => void',
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'onFocus',
-            type: '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
-          },
-          {
-            name: 'onKeyDown',
-            type: '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
-          },
-          {
-            name: 'placeholder',
-            type: 'string',
-            href: 'basicExample',
-          },
-          {
-            name: 'rows',
-            type: 'number',
-            description:
-              'Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.',
-            defaultValue: 3,
-          },
-          {
-            name: 'tags',
-            type: 'Array<Element<typeof Tag>>',
-            description: 'List of tags to display in the component',
-            href: 'tagsExample',
-          },
-          {
-            name: 'value',
-            type: 'string',
-            href: 'basicExample',
-          },
-        ]}
-      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
