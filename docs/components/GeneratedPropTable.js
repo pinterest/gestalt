@@ -65,6 +65,11 @@ export default function GeneratedPropTable({
     .map((key: string) => {
       const { flowType, description, required, defaultValue } = generatedDocGen.props[key];
 
+      // Filter out "_fooInternalProp" internal props that we don't want to document
+      if (key.startsWith('_')) {
+        return null;
+      }
+
       // Filter out PropType only types & excluded props
       if (!flowType || excludeProps.includes(key)) {
         return null;
