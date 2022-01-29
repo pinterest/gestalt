@@ -80,6 +80,10 @@ type Props = {|
    */
   placeholder?: string,
   /**
+   * Ref that is forwarded to the underlying input element.
+   */
+  ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
    * md: 40px, lg: 48px
    */
   size?: 'md' | 'lg',
