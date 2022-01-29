@@ -1,3 +1,9 @@
+## 42.3.5 (Jan 29, 2022)
+
+### Patch
+
+- Tabs, TextArea: use generated props tables (#1889)
+
 ## 42.3.4 (Jan 28, 2022)
 
 ### Patch
