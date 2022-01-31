@@ -1,45 +1,22 @@
 // @flow strict
 import { type Node } from 'react';
 import { Dropdown } from 'gestalt';
-import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
+import { multipledocgen, type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
-const commonDropdownItemProps = [
-  {
-    name: 'badgeText',
-    type: 'string',
-    description:
-      "When supplied, will display a [Badge](/badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
-  },
-  {
-    name: 'dataTestId',
-    type: 'string',
-    description: 'When supplied, will add a data-test-id prop to the dom element.',
-  },
-  {
-    name: 'children',
-    type: 'React.Node',
-    description:
-      'If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](#Custom-item-content) variant to learn more.',
-  },
-  {
-    name: 'option',
-    type: '{| label: string, value: string, subtext?: string |}',
-    required: true,
-    description: 'Object detailing the label, value, and optional subtext for this item.',
-  },
-];
-
-export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DropdownPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: Array<DocGen>,
+|}): Node {
   return (
     <Page title="Dropdown">
       <PageHeader
         name="Dropdown"
-        description={generatedDocGen?.description}
+        description={generatedDocGen[0]?.description}
         badge="pilot"
         defaultCode={`
       function IntroMenuButtonDropdownExample() {
@@ -100,7 +77,7 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
         );
       }`}
       />
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen[0]} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -570,77 +547,23 @@ function TruncationDropdownExample() {
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Subcomponents" />
-      <PropTable
+      <GeneratedPropTable
         Component={Dropdown?.Item}
         name="Dropdown.Item"
         id="Dropdown.Item"
-        props={[
-          ...commonDropdownItemProps,
-          {
-            name: 'onSelect',
-            type:
-              '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
-            required: true,
-            description: 'Callback when the user selects an item using the mouse or keyboard.',
-          },
-          {
-            name: 'selected',
-            type:
-              '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
-            description:
-              'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.',
-          },
-        ]}
+        generatedDocGen={generatedDocGen[1]}
       />
-      <PropTable
+      <GeneratedPropTable
         Component={Dropdown?.Link}
         name="Dropdown.Link"
         id="Dropdown.Link"
-        props={[
-          ...commonDropdownItemProps,
-          {
-            name: 'href',
-            type: 'string',
-            required: true,
-            description:
-              'Directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
-          },
-          {
-            name: 'isExternal',
-            type: 'boolean',
-            description:
-              'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
-          },
-          {
-            name: 'onClick',
-            type:
-              'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-            description: [
-              'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
-              'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-            ],
-          },
-        ]}
+        generatedDocGen={generatedDocGen[2]}
       />
-      <PropTable
+      <GeneratedPropTable
         Component={Dropdown?.Section}
         name="Dropdown.Section"
         id="Dropdown.Section"
-        props={[
-          {
-            name: 'children',
-            type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
-            required: true,
-            description: 'Any Dropdown.Items and/or Dropdown.Links to be rendered',
-          },
-          {
-            name: 'label',
-            type: 'string',
-            required: true,
-            description:
-              'Label for the section. See the [Sections](#Sections) variant for more info.',
-          },
-        ]}
+        generatedDocGen={generatedDocGen[3]}
       />
       <MainSection name="Variants">
         <MainSection.Subsection title="Types of items" columns={2}>
@@ -1130,8 +1053,14 @@ OnLinkNavigationProvider allows external link navigation control across all chil
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getStaticProps(): Promise<{|
+  props: {| generatedDocGen: Array<DocGen> | DocGen |},
+|}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Dropdown' }) },
+    props: {
+      generatedDocGen: await multipledocgen({
+        componentName: ['Dropdown', 'DropdownItem', 'DropdownLink', 'DropdownSection'],
+      }),
+    },
   };
 }
