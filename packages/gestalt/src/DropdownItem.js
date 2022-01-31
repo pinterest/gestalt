@@ -1,7 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import OptionItem, { type OptionItemType } from './OptionItem.js';
+import OptionItem from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
+
+type OptionItemType = {|
+  label: string,
+  subtext?: string,
+  value: string,
+|};
 
 type Props = {|
   /**
@@ -20,7 +26,11 @@ type Props = {|
    * Callback when the user selects an item using the mouse or keyboard.
    */ onSelect: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: OptionItemType,
+    item: {|
+      label: string,
+      subtext?: string,
+      value: string,
+    |},
   |}) => void,
   /**
    * Object detailing the label, value, and optional subtext for this item.
@@ -29,7 +39,18 @@ type Props = {|
   /**
    * Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.
    */
-  selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
+  selected?:
+    | {|
+        label: string,
+        subtext?: string,
+        value: string,
+      |}
+    | $ReadOnlyArray<{|
+        label: string,
+        subtext?: string,
+        value: string,
+      |}>
+    | null,
   /**
    * Private prop used for accessibility purposes
    */ index?: number,

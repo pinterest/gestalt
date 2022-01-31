@@ -1,8 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
-import OptionItem, { type OptionItemType } from './OptionItem.js';
+import OptionItem from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+
+type OptionItemType = {|
+  label: string,
+  subtext?: string,
+  value: string,
+|};
 
 type Props = {|
   /**
@@ -10,7 +16,7 @@ type Props = {|
    */
   badgeText?: string,
   /**
-   * If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](https://gestalt.pinterest.systems/dropdown#Custom-item-content) variant to learn more.
+   * If needed, users can supply custom content to each Dropdown Link. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](https://gestalt.pinterest.systems/dropdown#Custom-item-content) variant to learn more.
    */
   children?: Node,
   /**
