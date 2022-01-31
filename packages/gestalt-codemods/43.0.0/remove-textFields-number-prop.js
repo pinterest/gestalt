@@ -56,8 +56,7 @@ export default function transformer(file, api) {
 
       if (propValue === 'number') {
         throw new Error(
-          'Please, prefer use the `NumberField` component rather than use the `type="number"` prop. ' +
-            `Location: ${file.path} @line: ${node.loc.start.line}`,
+          `Please, use "NumberField" instead of TextField with deprecated type="number". Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
     });
