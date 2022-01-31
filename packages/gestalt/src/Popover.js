@@ -1,19 +1,19 @@
 // @flow strict
 import type { Node } from 'react';
 import Controller from './Controller.js';
-import { type Role } from './Contents.js';
 
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
+type Role = 'dialog' | 'listbox' | 'menu';
 
 type Props = {|
   /**
-   * The reference element, typically [Button](https://gestalt.pinterest.systems/button) or [IconButton](https://gestalt.pinterest.systems/iconbutton), that Popover uses to set its position
+   * The reference element, typically [Button](https://gestalt.pinterest.systems/button) or [IconButton](https://gestalt.pinterest.systems/iconbutton), that Popover uses to set its position.
    */
   anchor: ?HTMLElement,
   /**
-   * The content shown in Popover
+   * The content shown in Popover.
    */
   children?: Node,
   /**
@@ -25,7 +25,7 @@ type Props = {|
    */
   handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
   /**
-   * Unique id to identify each Popover. Used for [accessibility](https://gestalt.pinterest.systems/popover#ARIA-attributes) purposes
+   * Unique id to identify each Popover. Used for [accessibility](https://gestalt.pinterest.systems/popover#ARIA-attributes) purposes.
    */
   id?: string,
   /**
@@ -53,7 +53,7 @@ type Props = {|
    */
   showCaret?: boolean,
   /**
-   * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/popover#Size) variant to learn more.'
+   * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/popover#Size) variant to learn more.
    */
   size?: Size,
 |};
@@ -63,22 +63,20 @@ type Props = {|
  *
  * Popover is most appropriate for desktop screens and can contain a variety of elements, such as [Button](/button) and [Images](/image). Popover is also the container used to construct more complex elements like [Dropdown](/dropdown) and the board picker, pictured below, which allow people to choose the board to save a Pin to.
  */
-export default function Popover(props: Props): null | Node {
-  const {
-    anchor,
-    children,
-    handleKeyDown,
-    id,
-    idealDirection,
-    onDismiss,
-    positionRelativeToAnchor = true,
-    color = 'white',
-    role,
-    shouldFocus = true,
-    showCaret = false,
-    size = 'sm',
-  } = props;
-
+export default function Popover({
+  anchor,
+  children,
+  handleKeyDown,
+  id,
+  idealDirection,
+  onDismiss,
+  positionRelativeToAnchor = true,
+  color = 'white',
+  role,
+  shouldFocus = true,
+  showCaret = false,
+  size = 'sm',
+}: Props): null | Node {
   if (!anchor) {
     return null;
   }

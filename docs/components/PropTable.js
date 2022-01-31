@@ -14,6 +14,7 @@ type Props = {|
     name: string,
     required?: boolean,
     responsive?: boolean,
+    nullable: ?boolean,
     type: string,
   |}>,
   Component?: ComponentType<any>, // flowlint-line unclear-type:off
@@ -176,7 +177,16 @@ export default function PropTable({
                 sortBy(properties, ({ required, name }) => `${required ? 'a' : 'b'}${name}`).reduce(
                   (
                     acc,
-                    { defaultValue, description = '', href, name, required, responsive, type },
+                    {
+                      defaultValue,
+                      description = '',
+                      href,
+                      name,
+                      required,
+                      responsive,
+                      nullable,
+                      type,
+                    },
                     i,
                   ) => {
                     const propNameHasSecondRow = description || responsive;
@@ -207,7 +217,7 @@ export default function PropTable({
                           </Box>
                         </Td>
                         <Td border={!propNameHasSecondRow}>
-                          <code>{unifyQuotes(type)}</code>
+                          <code>{nullable ? `?${unifyQuotes(type)}` : unifyQuotes(type)}</code>
                         </Td>
                         <Td
                           shrink
