@@ -2,7 +2,7 @@
 
 ### Major
 
-- TextField: Remove type="number" and create codemod  (#1890)
+- TextField: Remove type="number" and create codemod (#1890)
 
 ## 42.3.6 (Jan 31, 2022)
 
