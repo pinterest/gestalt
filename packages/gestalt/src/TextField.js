@@ -79,7 +79,7 @@ type Props = {|
   /**
    * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
    */
-  type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
+  type?: 'date' | 'email' | 'password' | 'tel' | 'text' | 'url',
   /**
    * md: 40px, lg: 48px
    */
