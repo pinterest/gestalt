@@ -1,7 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
 import classnames from 'classnames';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
 import layout from './Layout.css';
@@ -9,10 +8,7 @@ import styles from './SegmentedControl.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type OnChange = AbstractEventHandler<
-  SyntheticMouseEvent<HTMLButtonElement>,
-  {| activeIndex: number |},
->;
+type OnChange = ({| event: SyntheticMouseEvent<HTMLButtonElement>, activeIndex: number |}) => void;
 
 type Props = {|
   /**
@@ -31,10 +27,6 @@ type Props = {|
    * Index of element in `items` that is currently selected.
    */
   selectedItemIndex: number,
-  /**
-   * The height of the element. md: 40px, lg: 48px
-   */
-  size?: 'md' | 'lg',
 |};
 
 function SegmentedControlItem({
@@ -42,14 +34,12 @@ function SegmentedControlItem({
   item,
   isSelected,
   onChange,
-  size,
   width,
 }: {|
   index: number,
   item: Node,
   isSelected: boolean,
   onChange: OnChange,
-  size?: 'md' | 'lg',
   width: ?string,
 |}) {
   const { isFocusVisible } = useFocusVisible();
@@ -69,7 +59,7 @@ function SegmentedControlItem({
       style={{ width }}
     >
       {typeof item === 'string' ? (
-        <Text color="darkGray" align="center" size={size} weight="bold">
+        <Text color="darkGray" align="center" size="md" weight="bold">
           {item}
         </Text>
       ) : (
@@ -91,14 +81,10 @@ export default function SegmentedControl({
   onChange,
   responsive,
   selectedItemIndex,
-  size = 'md',
 }: Props): Node {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
-    <div
-      className={classnames(styles.SegmentedControl, size === 'md' ? layout.medium : layout.large)}
-      role="tablist"
-    >
+    <div className={classnames(styles.SegmentedControl, layout.medium)} role="tablist">
       {items.map((item, i) => (
         <SegmentedControlItem
           key={i}
@@ -106,7 +92,6 @@ export default function SegmentedControl({
           item={item}
           isSelected={i === selectedItemIndex}
           onChange={onChange}
-          size={size}
           width={buttonWidth}
         />
       ))}
