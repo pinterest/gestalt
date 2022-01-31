@@ -2,7 +2,7 @@
  * Alerts
  * Identify the <TextField type="number" /> and alert the user to the manual fix
  */
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/42.0.0/remove-textFields-number-prop.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/43.0.0/remove-textFields-number-prop.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
