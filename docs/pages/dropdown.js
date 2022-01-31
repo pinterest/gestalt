@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
 const commonDropdownItemProps = [
   {
@@ -99,64 +100,8 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
         );
       }`}
       />
-      <PropTable
-        Component={Dropdown}
-        id="Dropdown"
-        props={[
-          {
-            name: 'anchor',
-            type: '?HTMLElement',
-            description:
-              'Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](#Accessibility) guidelines to learn more.',
-          },
-          {
-            name: 'children',
-            required: true,
-            type:
-              'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
-            description:
-              'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
-          },
-          {
-            name: 'headerContent',
-            type: 'React.Node',
-            description:
-              'Content to display at the top of the Dropdown before any items or sections. See the [Custom header](#Custom-header) variant to learn more.',
-          },
-          {
-            name: 'id',
-            type: 'string',
-            required: true,
-            description:
-              'Unique id to identify each Dropdown. Used for [Accessibility](#Accessibility) purposes.',
-          },
-          {
-            name: 'idealDirection',
-            type: `'up' | 'right' | 'down' | 'left'`,
-            description: 'Preferred direction for the Dropdown to open.',
-            defaultValue: 'down',
-          },
-          {
-            name: 'isWithinFixedContainer',
-            type: 'boolean',
-            defaultValue: false,
-            description:
-              'Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
-          },
-          {
-            name: 'onDismiss',
-            type: '() => void',
-            required: true,
-            description: 'Callback fired when the menu is closed.',
-          },
-          {
-            name: 'zIndex',
-            type: 'interface Indexable { index(): number; }',
-            description:
-              'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/zindex_classes)',
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

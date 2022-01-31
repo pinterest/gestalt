@@ -83,16 +83,38 @@ const renderChildrenWithIndex = (childrenArray) => {
   }, []);
 };
 
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
-
 type Props = {|
+  /**
+   * Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](https://gestalt.netlify.app/dropdown#Accessibility) guidelines to learn more.
+   */
   anchor?: ?HTMLElement,
+  /**
+   * Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](https://gestalt.netlify.app/dropdown#Types-of-items) variant to learn more.
+   */
   children: Node,
+  /**
+   * Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.
+   */
   isWithinFixedContainer?: boolean,
+  /**
+   * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.netlify.app/dropdown#Custom-header) variant to learn more.
+   */
   headerContent?: Node,
+  /**
+   * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.netlify.app/dropdown#Accessibility) purposes.
+   */
   id: string,
-  idealDirection?: IdealDirection,
+  /**
+   * Preferred direction for the Dropdown to open.
+   */
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  /**
+   * Callback fired when the menu is closed.
+   */
   onDismiss: () => void,
+  /**
+   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.netlify.app/zindex_classes)'
+   */
   zIndex?: Indexable,
 |};
 
