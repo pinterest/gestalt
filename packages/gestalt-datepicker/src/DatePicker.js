@@ -1,7 +1,13 @@
 // @flow strict-local
-import type { ElementRef, Element } from 'react';
-
-import { forwardRef, useEffect, useImperativeHandle, useState, useRef } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+  useRef,
+  type Ref,
+  type Element,
+} from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
@@ -11,27 +17,84 @@ import dateFormat from './dateFormat.js';
 import { type LocaleData } from './LocaleDataTypes.js';
 
 type Props = {|
+  /**
+   *
+   */
   disabled?: boolean,
+  /**
+   * See the [error message example](https://gestalt.pinterest.systems/datepicker#errorMessage) to learn more.
+   */
   errorMessage?: string,
+  /**
+   * Array of disabled dates. See the [disabled dates example](https://gestalt.pinterest.systems/datepicker#exclude) to learn more.
+   */
   excludeDates?: $ReadOnlyArray<Date>,
+  /**
+   * More information about how to complete the date picker field. See the [helper text example](https://gestalt.pinterest.systems/datepicker#helperText) to learn more.
+   */
   helperText?: string,
+  /**
+   *
+   */
   id: string,
+  /**
+   * Preferred direction for the calendar popover to open. See the [ideal direction example](https://gestalt.pinterest.systems/datepicker#idealDirection) to learn more.
+   */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
+  /**
+   * Array of enabled dates. See the [enabled dates example](https://gestalt.pinterest.systems/datepicker#include) to learn more.
+   */
   includeDates?: $ReadOnlyArray<Date>,
+  /**
+   *
+   */
   label?: string,
+  /**
+   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/datepicker#localeData) to learn more.
+   */
   localeData?: LocaleData,
+  /**
+   * Disable dates outside a max date. See the [delimited selection period example](https://gestalt.pinterest.systems/datepicker#maxMinDates) to learn more.
+   */
   maxDate?: Date,
+  /**
+   * Disable dates outside a min date. See the [delimited selection period example](https://gestalt.pinterest.systems/datepicker#maxMinDates) to learn more.
+   */
   minDate?: Date,
-  // $FlowFixMe[unclear-type]
-  nextRef?: ElementRef<*>,
+  /**
+   * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   */
+  nextRef?: Ref<'input'>,
+  /**
+   *
+   */
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: Date,
   |}) => void,
+  /**
+   * Date format for locale.
+   */
   placeholder?: string,
+  /**
+   * Required for date range selection. End date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   */
   rangeEndDate?: Date,
+  /**
+   * Required for date range selection. Defines the datepicker start/end role in a date range selection.See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   */
   rangeSelector?: 'start' | 'end',
+  /**
+   * Required for date range selection. Start date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   */
   rangeStartDate?: Date,
+  /**
+   * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   */
+  ref?: Ref<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * Pre-selected date value. See the [preselected date example](https://gestalt.pinterest.systems/datepicker#preselectedValue) to learn more.
+   */
   value?: Date,
 |};
 
@@ -110,6 +173,8 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       (rangeSelector === 'end' && !rangeStartDate)
     ) {
       if (nextRef && submitted) {
+        // $FlowFixMe[prop-missing]
+        // $FlowFixMe[cannot-read]
         nextRef.current.focus();
       }
     }

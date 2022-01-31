@@ -38,11 +38,11 @@ import {
 } from 'date-fns/locale';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import PropTable from '../components/PropTable.js';
 import Combination from '../components/Combination.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
 const localeMap = {
   'ar-SA': { localeData: arSA, lang: ' Arabic (Saudi Arabia)' },
@@ -93,113 +93,13 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           <DatePicker
             id="example-page-header"
             label="Select a date"
-            onChange={({value}) => handleChange(value)}
+            onChange={({ value }) => handleChange(value)}
           />
         )
       }
     `}
       />
-      <PropTable
-        props={[
-          { name: 'id', required: true, type: 'string' },
-          {
-            name: 'onChange',
-            required: true,
-            type: '({event: SyntheticInputEvent<>, value: Date }) => void',
-          },
-          { name: 'disabled', type: 'boolean', href: 'disabled' },
-          { name: 'errorMessage', type: 'string', href: 'errorMessage' },
-          {
-            name: 'excludeDates',
-            type: 'Array<Date>',
-            description: 'Array of disabled dates.',
-            href: 'exclude',
-          },
-          {
-            name: 'helperText',
-            type: 'string',
-            description: 'More information about how to complete the date picker field.',
-            href: 'helperText',
-          },
-          {
-            name: 'idealDirection',
-            type: `'up'|'right'|'down'|'left'`,
-            description: 'Preferred direction for the calendar popover to open.',
-            href: 'idealDirection',
-            defaultValue: 'down',
-          },
-          {
-            name: 'includeDates',
-            type: 'Array<Date>',
-            description: 'Array of enabled dates.',
-            href: 'include',
-          },
-          { name: 'label', type: 'string' },
-          {
-            name: 'localeData',
-            type: 'date-fns locale objects',
-            description: `DatePicker accepts imported locales from the open source date utility library date-fns.`,
-            href: 'localeData',
-          },
-          {
-            name: 'maxDate',
-            type: 'Date',
-            description: 'Disable dates outside a max date.',
-            href: 'maxMinDates',
-          },
-          {
-            name: 'minDate',
-            type: 'Date',
-            description: 'Disable dates outside a min date.',
-            href: 'maxMinDates',
-          },
-          {
-            name: 'nextRef',
-            type: 'React.ElementRef',
-            description:
-              'Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field.',
-            href: 'rangePicker',
-          },
-          {
-            name: 'placeholder',
-            type: 'string',
-            defaultValue: 'date format for locale',
-          },
-          {
-            name: 'rangeEndDate',
-            type: 'Date',
-            description: 'Required for date range selection. End date on a date range selection.',
-            href: 'disabled-past',
-          },
-
-          {
-            name: 'rangeSelector',
-            type: `'start'|'end'`,
-            description:
-              'Required for date range selection. Defines the datepicker start/end role in a date range selection.',
-            href: 'rangePicker',
-          },
-          {
-            name: 'rangeStartDate',
-            type: 'Date',
-            description: 'Required for date range selection. Start date on a date range selection.',
-            href: 'disabled-past',
-          },
-          {
-            name: 'ref',
-            type: 'React.ElementRef',
-            description:
-              'Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field.',
-            href: 'rangePicker',
-          },
-          {
-            name: 'value',
-            type: 'Date',
-            description: 'Pre-selected date value.',
-            href: 'preselectedValue',
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
