@@ -8,7 +8,6 @@ export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
   let localIdentifierName;
-  let fileHasModifications = false;
 
   src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
@@ -62,6 +61,8 @@ export default function transformer(file, api) {
         );
       }
     });
+
+    return null;
   });
 
   return null;
