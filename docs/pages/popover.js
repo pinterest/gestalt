@@ -1,11 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
-import { Popover } from 'gestalt';
-import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -128,82 +127,7 @@ function PopoverExample() {
 }
   `}
       />
-      <PropTable
-        Component={Popover}
-        props={[
-          {
-            name: 'anchor',
-            type: '?HTMLElement',
-            required: true,
-            description:
-              'The reference element, typically [Button](/button) or [IconButton](/iconbutton), that Popover uses to set its position',
-          },
-          {
-            name: 'onDismiss',
-            type: '() => void',
-            description: `Callback fired when Popover requests to be closed. Must be used to control Popover’s on/off display state.`,
-            required: true,
-          },
-          {
-            name: 'id',
-            type: 'string',
-            description:
-              'Unique id to identify each Popover. Used for [accessibility](#ARIA-attributes) purposes.',
-          },
-          {
-            name: 'idealDirection',
-            type: `'up' | 'right' | 'down' | 'left'`,
-            description:
-              'Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](#Ideal-direction) variant to learn more.',
-          },
-          {
-            name: 'children',
-            type: 'React.Node',
-            description: 'The content shown in Popover',
-          },
-          {
-            name: 'positionRelativeToAnchor',
-            type: 'boolean',
-            defaultValue: true,
-            description:
-              'Properly positions Popover relative to its anchor element. Set to false when used within [Layer](/layer). See the [with Layer](#With-layer) variant to learn more.',
-          },
-          {
-            name: 'color',
-            type: `"blue" | "orange" | "red" | "white" | "darkGray"`,
-            defaultValue: 'white',
-            description:
-              'The background color of Popover. See the [color and caret](#Color-and-caret) variant to learn more.',
-          },
-          {
-            name: 'role',
-            type: `"dialog" | "menu" | "listbox"`,
-            description:
-              'The underlying ARIA role for Popover. See the [accessibility](#ARIA-attributes) section for more info.',
-          },
-          {
-            name: 'shouldFocus',
-            type: 'boolean',
-            defaultValue: true,
-            description:
-              'Puts the focus on Popover when it’s triggered. See [accessibility](#Accessibility) to learn more.',
-          },
-          {
-            name: 'showCaret',
-            type: 'boolean',
-            defaultValue: false,
-            description:
-              'Shows a caret on Popover. See the [color and caret](#Color-and-caret) variant to learn more.',
-          },
-          {
-            name: 'size',
-            type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number`,
-            description:
-              'The maximum width of Popover. See the [size](#Size) variant to learn more.',
-            defaultValue: 'sm',
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
