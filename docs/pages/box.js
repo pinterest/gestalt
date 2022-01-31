@@ -422,7 +422,7 @@ function Example() {
         <MainSection.Subsection
           title="Colors"
           description={`
-          The following colors can be used to change the background of Box.
+          The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case.
 
           ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
         `}
