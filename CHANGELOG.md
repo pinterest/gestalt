@@ -1,3 +1,9 @@
+## 42.3.6 (Jan 31, 2022)
+
+### Patch
+
+- Internal: upgrade @netlify/plugin-nextjs to address vulnerability (#1893)
+
 ## 42.3.5 (Jan 29, 2022)
 
 ### Patch
