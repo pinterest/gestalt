@@ -1,10 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
 export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -56,135 +56,8 @@ function ComboBoxExample(props) {
 }
 `}
       />
-      <PropTable
-        props={[
-          {
-            name: 'options',
-            type: 'Array<{| label: string, value: string, subtext: string |}>',
-            description:
-              'The data for each selection option. See [subtext](#With-subtext) variant to learn more',
-            required: true,
-          },
-          {
-            name: 'inputValue',
-            type: 'string',
-            description:
-              'The user input in ComboBox for controlled components. See [controlled ComboBox](#Controlled-vs-Uncontrolled) variant to learn more.',
-          },
-          {
-            name: 'id',
-            type: 'string',
-            description:
-              'Unique id to identify each ComboBox. Used for [accessibility](#Accessibility) purposes.',
-            required: true,
-          },
-          {
-            name: 'label',
-            type: 'string',
-            description: 'Provide a label to identify the ComboBox field.',
-            required: true,
-          },
-          {
-            name: 'labelDisplay',
-            type: `'visible'|'hidden'`,
-            defaultValue: 'visible',
-            description:
-              'Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](#Label-visibility) for more info.',
-          },
-          {
-            name: 'disabled',
-            type: 'boolean',
-            defaultValue: false,
-            description:
-              'When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](#Tags) variant to learn more.',
-          },
-          {
-            name: 'helperText',
-            type: 'string',
-            description: 'Provides additional information about how to select a ComboBox option.',
-          },
-          {
-            name: 'accessibilityClearButtonLabel',
-            type: 'string',
-            required: true,
-            description: "Label to describe the clear button's purpose.",
-          },
-          {
-            name: 'errorMessage',
-            type: 'string',
-            description:
-              'Provide feedback when an error on selection occurs. See [error message](#Error-message) variant.',
-          },
-          {
-            name: 'noResultText',
-            type: 'string',
-            required: true,
-            description: 'The text shown when the input value returns no matches',
-          },
-          {
-            name: 'onBlur',
-            type:
-              '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
-            description: 'Callback when you focus outside the component ',
-          },
-          {
-            name: 'onChange',
-            type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-            description: 'Callback when user types into the control input field',
-          },
-          {
-            name: 'onClear',
-            type: '() => void',
-            description: 'Callback when user clicks on clear button',
-          },
-          {
-            name: 'onFocus',
-            type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
-            description: 'Callback when you focus on the component',
-          },
-          {
-            name: 'onKeyDown',
-            type: '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
-            description: 'Callback for key stroke events. See [tags](#Tags) variant to learn more.',
-          },
-          {
-            name: 'onSelect',
-            type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-            description: 'Callback when an item is selected',
-          },
-          {
-            name: 'placeholder',
-            type: 'string',
-            description:
-              'Specify a short description that suggests the expected input for the field',
-          },
-          {
-            name: 'selectedOption',
-            type: '{| label: string, value: string, subtext: string |}',
-            description:
-              'The selected option in ComboBox for controlled components. See [controlled ComboBox](#Controlled-vs-Uncontrolled) variant to learn more.',
-          },
-          {
-            name: 'size',
-            type: '"md" | "lg"',
-            description:
-              'Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.',
-            defaultValue: 'md',
-          },
-          {
-            name: 'tags',
-            type: 'Array<Element<typeof Tag>>',
-            description:
-              'List of tags to display in the component. See [tags](#Tags) variant to learn more.',
-          },
-          {
-            name: 'ref',
-            type: "React.Ref<'input'>",
-            description:
-              'Forward the ref to the underlying component container element. See [focus management](#Ref) variant to learn more',
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -834,7 +707,10 @@ function ComboBoxExample(props) {
 }`}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="Error message">
+        <MainSection.Subsection
+          title="Error message"
+          description="For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/link) or [TapArea](https://gestalt.pinterest.systems/taparea)"
+        >
           <MainSection.Card
             cardSize="lg"
             defaultCode={`

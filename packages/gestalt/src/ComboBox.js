@@ -3,14 +3,15 @@ import {
   cloneElement,
   forwardRef,
   Fragment,
-  type Element,
-  type Node,
   useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
   useState,
+  type Ref,
+  type Element,
+  type Node,
 } from 'react';
 import Box from './Box.js';
 import Layer from './Layer.js';
@@ -18,7 +19,7 @@ import Popover from './Popover.js';
 import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
-import ComboBoxItem, { type ComboBoxItemType } from './ComboBoxItem.js';
+import ComboBoxItem from './ComboBoxItem.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
@@ -26,44 +27,120 @@ import handleContainerScrolling, {
 } from './utils/keyboardNavigation.js';
 
 type Size = 'md' | 'lg';
+type OptionType = {|
+  label: string,
+  subtext?: string,
+  value: string,
+|};
 
 type Props = {|
-  // REQUIRED
+  /**
+   * Label to describe the clear button's purpose.
+   */
   accessibilityClearButtonLabel: string,
-  id: string,
-  label: string,
-  options: $ReadOnlyArray<ComboBoxItemType>,
-  noResultText: string,
-  // OPTIONAL
+  /**
+   * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/combobox#Tags) variant to learn more.
+   */
   disabled?: boolean,
+  /**
+   * Provide feedback when an error on selection occurs. See [error message](https://gestalt.pinterest.systems/combobox#Error-message) variant.
+   */
   errorMessage?: Node,
+  /**
+   * Provides additional information about how to select a ComboBox option.
+   */
   helperText?: string,
+  /**
+   * The user input in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/combobox#Controlled-vs-Uncontrolled) variant to learn more.
+   */
   inputValue?: string | null,
+  /**
+   * Unique id to identify each ComboBox. Used for [accessibility](https://gestalt.pinterest.systems/combobox#Accessibility) purposes.
+   */
+  id: string,
+  /**
+   * Provide a label to identify the ComboBox field.
+   */
+  label: string,
+  /**
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems/combobox#Label-visibility) for more info.
+   */
   labelDisplay?: 'visible' | 'hidden',
+  /**
+   * The text shown when the input value returns no matches.
+   */
+  noResultText: string,
+  /**
+   * Callback when you focus outside the component.
+   */
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback when user types into the control input field.
+   */
   onChange?: ({|
-    value: string,
     event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
   |}) => void,
+  /**
+   * Callback when user clicks on clear button.
+   */
   onClear?: () => void,
+  /**
+   * Callback when you focus on the component.
+   */
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback for key stroke events. See [tags](#Tags) variant to learn more.
+   */
   onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback when an item is selected.
+   */
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: ComboBoxItemType,
+    item: {|
+      label: string,
+      subtext?: string,
+      value: string,
+    |},
   |}) => void,
+  /**
+   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/combobox#With-subtext) variant to learn more.
+   */
+  options: $ReadOnlyArray<{|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>,
+  /**
+   * Specify a short description that suggests the expected input for the field.
+   */
   placeholder?: string,
-  selectedOption?: ComboBoxItemType,
+  // The ref prop is unused and listed here just for documentation purposes.
+  /**
+   * Forward the ref to the underlying component container element. See the [Ref](https://gestalt.pinterest.systems/combobox#Ref) variant to learn more about focus management.
+   */
+  ref?: Ref<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * The selected option in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/combobox#Controlled-vs-Uncontrolled) variant to learn more.
+   */
+  selectedOption?: OptionType,
+  /**
+   * Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.
+   */
   size?: Size,
+  /**
+   * List of tags to display in the component. See [tags](https://gestalt.pinterest.systems/combobox#Tags) variant to learn more.
+   */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
 |};
 
@@ -76,10 +153,11 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 >(function ComboBox(
   {
     accessibilityClearButtonLabel,
-    disabled,
+    disabled = false,
     errorMessage,
     helperText,
     id,
+    inputValue: controlledInputValue = null,
     label,
     labelDisplay = 'visible',
     noResultText,
@@ -91,10 +169,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     onSelect,
     options,
     placeholder,
-    size,
-    tags,
+    size = 'md',
     selectedOption,
-    inputValue: controlledInputValue = null,
+    tags,
   }: Props,
   ref,
 ): Node {
@@ -110,10 +187,8 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<?ComboBoxItemType>(null);
-  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<ComboBoxItemType>>(
-    options,
-  );
+  const [selectedItem, setSelectedItem] = useState<?OptionType>(null);
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionType>>(options);
   const [textfieldInput, setTextfieldInput] = useState<string>('');
 
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
