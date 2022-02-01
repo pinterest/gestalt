@@ -19,7 +19,7 @@ import Popover from './Popover.js';
 import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
 import Tag from './Tag.js';
-import ComboBoxItem, { type ComboBoxItemType } from './ComboBoxItem.js';
+import ComboBoxItem from './ComboBoxItem.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
@@ -27,6 +27,11 @@ import handleContainerScrolling, {
 } from './utils/keyboardNavigation.js';
 
 type Size = 'md' | 'lg';
+type OptionType = {|
+  label: string,
+  subtext?: string,
+  value: string,
+|};
 
 type Props = {|
   /**
@@ -110,11 +115,7 @@ type Props = {|
    */
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: {|
-      label: string,
-      subtext?: string,
-      value: string,
-    |},
+    item: OptionType,
   |}) => void,
   /**
    * Specify a short description that suggests the expected input for the field.
@@ -128,11 +129,7 @@ type Props = {|
   /**
    * The selected option in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/combobox#Controlled-vs-Uncontrolled) variant to learn more.
    */
-  selectedOption?: {|
-    label: string,
-    subtext?: string,
-    value: string,
-  |},
+  selectedOption?: OptionType,
   /**
    * Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.
    */
@@ -186,8 +183,8 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<?ComboBoxItemType>(null);
-  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<ComboBoxItemType>>(
+  const [selectedItem, setSelectedItem] = useState<?OptionType>(null);
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionType>>(
     options,
   );
   const [textfieldInput, setTextfieldInput] = useState<string>('');
