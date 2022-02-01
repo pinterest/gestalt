@@ -110,7 +110,7 @@ export default function GeneratedPropTable({
         description: descriptionWithoutTypeOverride?.trim(),
         required,
         defaultValue: defaultValueOverride ?? defaultValue?.value?.replace(/'/g, ''),
-        nullable: flowType?.nullable,
+        nullable: flowType?.nullable || false,
         href,
       };
     })

@@ -14,7 +14,7 @@ type Props = {|
     name: string,
     required?: boolean,
     responsive?: boolean,
-    nullable: ?boolean,
+    nullable?: boolean,
     type: string,
   |}>,
   Component?: ComponentType<any>, // flowlint-line unclear-type:off
