@@ -1,3 +1,9 @@
+## 43.1.0 (Feb 1, 2022)
+
+### Minor
+
+- Box: Add new background colors (#1867)
+
 ## 43.0.2 (Feb 1, 2022)
 
 ### Patch
