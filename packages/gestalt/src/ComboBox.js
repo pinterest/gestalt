@@ -3,8 +3,6 @@ import {
   cloneElement,
   forwardRef,
   Fragment,
-  type Element,
-  type Node,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -12,6 +10,8 @@ import {
   useRef,
   useState,
   type Ref,
+  type Element,
+  type Node,
 } from 'react';
 import Box from './Box.js';
 import Layer from './Layer.js';
@@ -39,26 +39,6 @@ type Props = {|
    */
   accessibilityClearButtonLabel: string,
   /**
-   * Unique id to identify each ComboBox. Used for [accessibility](https://gestalt.pinterest.systems/combobox#Accessibility) purposes.
-   */
-  id: string,
-  /**
-   * Provide a label to identify the ComboBox field.
-   */
-  label: string,
-  /**
-   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/combobox#With-subtext) variant to learn more.
-   */
-  options: $ReadOnlyArray<{|
-    label: string,
-    subtext?: string,
-    value: string,
-  |}>,
-  /**
-   * The text shown when the input value returns no matches.
-   */
-  noResultText: string,
-  /**
    * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/combobox#Tags) variant to learn more.
    */
   disabled?: boolean,
@@ -75,9 +55,21 @@ type Props = {|
    */
   inputValue?: string | null,
   /**
+   * Unique id to identify each ComboBox. Used for [accessibility](https://gestalt.pinterest.systems/combobox#Accessibility) purposes.
+   */
+  id: string,
+  /**
+   * Provide a label to identify the ComboBox field.
+   */
+  label: string,
+  /**
    * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems/combobox#Label-visibility) for more info.
    */
   labelDisplay?: 'visible' | 'hidden',
+  /**
+   * The text shown when the input value returns no matches.
+   */
+  noResultText: string,
   /**
    * Callback when you focus outside the component.
    */
@@ -89,8 +81,8 @@ type Props = {|
    * Callback when user types into the control input field.
    */
   onChange?: ({|
-    value: string,
     event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
   |}) => void,
   /**
    * Callback when user clicks on clear button.
@@ -115,8 +107,20 @@ type Props = {|
    */
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: OptionType,
+    item: {|
+      label: string,
+      subtext?: string,
+      value: string,
+    |},
   |}) => void,
+  /**
+   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/combobox#With-subtext) variant to learn more.
+   */
+  options: $ReadOnlyArray<{|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>,
   /**
    * Specify a short description that suggests the expected input for the field.
    */
@@ -149,10 +153,11 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 >(function ComboBox(
   {
     accessibilityClearButtonLabel,
-    disabled,
+    disabled = false,
     errorMessage,
     helperText,
     id,
+    inputValue: controlledInputValue = null,
     label,
     labelDisplay = 'visible',
     noResultText,
@@ -164,10 +169,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     onSelect,
     options,
     placeholder,
-    size,
-    tags,
+    size = 'md',
     selectedOption,
-    inputValue: controlledInputValue = null,
+    tags,
   }: Props,
   ref,
 ): Node {
@@ -184,9 +188,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<?OptionType>(null);
-  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionType>>(
-    options,
-  );
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionType>>(options);
   const [textfieldInput, setTextfieldInput] = useState<string>('');
 
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
