@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* eslint import/no-dynamic-require: 0, no-console: 0 */
 const path = require('path');
+const prettier = require('prettier');
 const shell = require('shelljs');
 const semver = require('semver');
 const fsPromises = require('fs').promises;
@@ -88,18 +89,25 @@ async function bumpPackageVersion() {
   return { previousVersion, newVersion, releaseType };
 }
 
+async function formatWithPrettier({ filePath, text }) {
+  const options = await prettier.resolveConfig(filePath);
+  return prettier.format(text, options);
+}
+
 async function updateChangelog({ releaseNotes }) {
   const changelogPath = './CHANGELOG.md';
   const previousChangelog = await fsPromises.readFile(changelogPath, {
     encoding: 'utf8',
   });
 
-  await fsPromises.writeFile(
-    changelogPath,
-    `${releaseNotes}
+  const output = await formatWithPrettier({
+    filePath: changelogPath,
+    text: `${releaseNotes}
 
 ${previousChangelog}`,
-  );
+  });
+
+  await fsPromises.writeFile(changelogPath, output);
 }
 
 function commitChanges({ message }) {
