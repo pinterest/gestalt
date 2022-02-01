@@ -19,6 +19,7 @@ export type DocGen = {|
       description: string,
       flowType: {|
         raw?: string,
+        nullable?: boolean,
         name: string,
       |},
     |},
