@@ -89,7 +89,7 @@ type Props = {|
    */
   anchor?: ?HTMLElement,
   /**
-   * Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](https://gestalt.netlify.app/dropdown#Types-of-items) variant to learn more.
+   * Must be instances of [Dropdown.Item](https://gestalt.netlify.app/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.netlify.app/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.netlify.app/dropdown#Sections) components. See the [Types of items](https://gestalt.netlify.app/dropdown#Types-of-items) variant to learn more.
    */
   children: Node,
   /**
@@ -113,7 +113,7 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.netlify.app/zindex_classes)'
+   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.netlify.app/zindex_classes)
    */
   zIndex?: Indexable,
 |};

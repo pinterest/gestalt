@@ -2,7 +2,6 @@
 import { type Node } from 'react';
 import OptionItem from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type OptionItemType = {|
   label: string,
@@ -34,10 +33,10 @@ type Props = {|
   /**
    * Callback fired when clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) to learn more about link navigation.
    */
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   /**
    * Object detailing the label, value, and optional subtext for this item.
    */
@@ -48,7 +47,8 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Dropdown](https://gestalt.pinterest.systems/dropdown)
+ * Subcomponent of [Dropdown](https://gestalt.pinterest.systems/dropdown).
+   Use [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Types-of-items) for navigation, when the Dropdown item navigates to a new page.
  */
 export default function DropdownLink({
   badgeText,

@@ -26,18 +26,13 @@ export type DocGen = {|
   |},
 |};
 
-export default async function docgen({
-  componentName,
-  alternativeSubdirectory = '',
-}: {|
-  componentName: string,
-  alternativeSubdirectory?: string,
-|}): Promise<DocGen> {
-  const filePath = path.join(
+const getFilePath = (componentName: string, alternativeSubdirectory?: string): string =>
+  path.join(
     nextConfig().serverRuntimeConfig.GESTALT_ROOT,
     alternativeSubdirectory || `/packages/gestalt/src/${componentName}.js`,
   );
-  const contents = await fs.promises.readFile(filePath, 'utf-8');
+
+const getParsedContent = (contents): DocGen => {
   const parsed = parse(contents);
 
   if (parsed.description) {
@@ -47,8 +42,19 @@ export default async function docgen({
       // Remove images from the description
       .replace(/!\[(.*?)\][[(].*?[\])]/g, '');
   }
-
   return parsed;
+};
+
+export default async function docgen({
+  componentName,
+  alternativeSubdirectory = '',
+}: {|
+  componentName: string,
+  alternativeSubdirectory?: string,
+|}): Promise<DocGen> {
+  const filePath = getFilePath(componentName, alternativeSubdirectory);
+  const contents = await fs.promises.readFile(filePath, 'utf-8');
+  return getParsedContent(contents);
 }
 
 export async function multipledocgen({
@@ -60,22 +66,9 @@ export async function multipledocgen({
 |}): Promise<Array<DocGen>> {
   const parsedPropTables = await Promise.all(
     (Array.isArray(componentName) ? componentName : [componentName]).map(async (cmp) => {
-      const filePath = path.join(
-        nextConfig().serverRuntimeConfig.GESTALT_ROOT,
-        alternativeSubdirectory || `/packages/gestalt/src/${cmp}.js`,
-      );
+      const filePath = getFilePath(cmp, alternativeSubdirectory);
       const contents = await fs.promises.readFile(filePath, 'utf-8');
-      const parsed = parse(contents);
-
-      if (parsed.description) {
-        parsed.description = parsed.description
-          // Remove the first markdown link from the description so we don't link to the page itself
-          .replace(/\[(.*?)\][[(].*?[\])]/, '$1')
-          // Remove images from the description
-          .replace(/!\[(.*?)\][[(].*?[\])]/g, '');
-      }
-
-      return parsed;
+      return getParsedContent(contents);
     }),
   );
 

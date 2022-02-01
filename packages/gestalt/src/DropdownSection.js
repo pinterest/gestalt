@@ -16,7 +16,8 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Dropdown](https://gestalt.pinterest.systems/dropdown)
+ * Subcomponent of [Dropdown](https://gestalt.pinterest.systems/dropdown).
+  Use [Dropdown.Section](https://gestalt.pinterest.systems/dropdown#Sections) to create hierarchy within a single Dropdown.
  */
 export default function DropdownSection({ label, children }: Props): Node {
   return (
