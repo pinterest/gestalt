@@ -63,16 +63,18 @@ export async function multipledocgen({
 }: {|
   componentName: Array<string> | string,
   alternativeSubdirectory?: string,
-|}): Promise<Array<DocGen>> {
-  const parsedPropTables = await Promise.all(
+|}): Promise<{| [string]: DocGen |}> {
+  const docGenMap = {};
+  await Promise.all(
     (Array.isArray(componentName) ? componentName : [componentName]).map(async (cmp) => {
       const filePath = getFilePath(cmp, alternativeSubdirectory);
       const contents = await fs.promises.readFile(filePath, 'utf-8');
-      return getParsedContent(contents);
+      docGenMap[cmp] = getParsedContent(contents);
+      return cmp;
     }),
   );
 
-  return parsedPropTables;
+  return docGenMap;
 }
 
 export function overrideTypes(docGen: DocGen, typeOverrides: {| [string]: string |}): DocGen {

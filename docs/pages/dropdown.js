@@ -10,13 +10,13 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 export default function DropdownPage({
   generatedDocGen,
 }: {|
-  generatedDocGen: Array<DocGen>,
+  generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
     <Page title="Dropdown">
       <PageHeader
         name="Dropdown"
-        description={generatedDocGen[0]?.description}
+        description={generatedDocGen.Dropdown?.description}
         badge="pilot"
         defaultCode={`
       function IntroMenuButtonDropdownExample() {
@@ -77,7 +77,7 @@ export default function DropdownPage({
         );
       }`}
       />
-      <GeneratedPropTable generatedDocGen={generatedDocGen[0]} excludeProps={['index']} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} excludeProps={['index']} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -550,19 +550,21 @@ function TruncationDropdownExample() {
         Component={Dropdown?.Item}
         name="Dropdown.Item"
         id="Dropdown.Item"
-        generatedDocGen={generatedDocGen[1]}
+        generatedDocGen={generatedDocGen.DropdownItem}
+        excludeProps={['index']}
       />
       <GeneratedPropTable
         Component={Dropdown?.Link}
         name="Dropdown.Link"
         id="Dropdown.Link"
-        generatedDocGen={generatedDocGen[2]}
+        generatedDocGen={generatedDocGen.DropdownLink}
+        excludeProps={['index']}
       />
       <GeneratedPropTable
         Component={Dropdown?.Section}
         name="Dropdown.Section"
         id="Dropdown.Section"
-        generatedDocGen={generatedDocGen[3]}
+        generatedDocGen={generatedDocGen.DropdownSection}
       />
       <MainSection name="Variants">
         <MainSection.Subsection title="Types of items" columns={2}>
@@ -1053,15 +1055,15 @@ OnLinkNavigationProvider allows external link navigation control across all chil
 }
 
 export async function getStaticProps(): Promise<{|
-  props: {| generatedDocGen: Array<DocGen> | DocGen |},
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
   const docGen = await multipledocgen({
     componentName: ['Dropdown', 'DropdownItem', 'DropdownLink', 'DropdownSection'],
   });
 
-  docGen[0].props.children.flowType.raw =
+  docGen.Dropdown.props.children.flowType.raw =
     'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>';
-  docGen[3].props.children.flowType.raw =
+  docGen.DropdownSection.props.children.flowType.raw =
     'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>';
 
   return {
