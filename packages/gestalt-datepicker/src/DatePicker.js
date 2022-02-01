@@ -1,36 +1,61 @@
 // @flow strict-local
-import {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-  useRef,
-  type Ref,
-  type Element,
-} from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useState, useRef, type Element } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
 import DatePickerTextField from './DatePickerTextField.js';
 import styles from './DatePicker.css';
 import dateFormat from './dateFormat.js';
-import { type LocaleData } from './LocaleDataTypes.js';
+
+// LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
+// flowlint unclear-type:off
+type LocaleData = {|
+  code?: string,
+  formatDistance?: (...args: $ReadOnlyArray<any>) => any,
+  formatRelative?: (...args: $ReadOnlyArray<any>) => any,
+  localize?: {|
+    ordinalNumber: (...args: $ReadOnlyArray<any>) => any,
+    era: (...args: $ReadOnlyArray<any>) => any,
+    quarter: (...args: $ReadOnlyArray<any>) => any,
+    month: (...args: $ReadOnlyArray<any>) => any,
+    day: (...args: $ReadOnlyArray<any>) => any,
+    dayPeriod: (...args: $ReadOnlyArray<any>) => any,
+  |},
+  formatLong?: {|
+    date: (...args: $ReadOnlyArray<any>) => any,
+    time: (...args: $ReadOnlyArray<any>) => any,
+    dateTime: (...args: $ReadOnlyArray<any>) => any,
+  |},
+  match?: {|
+    ordinalNumber: (...args: $ReadOnlyArray<string>) => any,
+    era: (...args: $ReadOnlyArray<any>) => any,
+    quarter: (...args: $ReadOnlyArray<any>) => any,
+    month: (...args: $ReadOnlyArray<any>) => any,
+    day: (...args: $ReadOnlyArray<any>) => any,
+    dayPeriod: (...args: $ReadOnlyArray<any>) => any,
+  |},
+  options?: {|
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
+  |},
+|};
+// flowlint unclear-type:error
 
 type Props = {|
   /**
-   *
+   *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/datepicker#disabled) to learn more.
    */
   disabled?: boolean,
   /**
-   * See the [error message example](https://gestalt.pinterest.systems/datepicker#errorMessage) to learn more.
+   * Provide feedback when an error on selection occurs. See the [error message example](https://gestalt.pinterest.systems/datepicker#errorMessage) to learn more.
    */
   errorMessage?: string,
   /**
-   * Array of disabled dates. See the [disabled dates example](https://gestalt.pinterest.systems/datepicker#exclude) to learn more.
+   * Array of disabled dates. Datepicker can be interacted with except for the dates passed which look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/datepicker#exclude) to learn more.
    */
   excludeDates?: $ReadOnlyArray<Date>,
   /**
-   * More information about how to complete the date picker field. See the [helper text example](https://gestalt.pinterest.systems/datepicker#helperText) to learn more.
+   * More information about how to complete the DatePicker field. See the [helper text example](https://gestalt.pinterest.systems/datepicker#helperText) to learn more.
    */
   helperText?: string,
   /**
@@ -41,12 +66,13 @@ type Props = {|
    * Preferred direction for the calendar popover to open. See the [ideal direction example](https://gestalt.pinterest.systems/datepicker#idealDirection) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
+
   /**
-   * Array of enabled dates. See the [enabled dates example](https://gestalt.pinterest.systems/datepicker#include) to learn more.
+   * Array of enabled dates. Datepicker can be interacted with only on the dates passed, all other dates look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/datepicker#include) to learn more.
    */
   includeDates?: $ReadOnlyArray<Date>,
   /**
-   *
+   * Provide a label to identify the DatePicker field.
    */
   label?: string,
   /**
@@ -64,16 +90,16 @@ type Props = {|
   /**
    * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
    */
-  nextRef?: Ref<'input'>,
+  nextRef?: {| current: ?HTMLInputElement |},
   /**
-   *
+   * Callback triggered when the user selects a date.
    */
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: Date,
   |}) => void,
   /**
-   * Date format for locale.
+   * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
    */
   placeholder?: string,
   /**
@@ -91,7 +117,7 @@ type Props = {|
   /**
    * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
    */
-  ref?: Ref<'input'>, // eslint-disable-line react/no-unused-prop-types
+  ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
    * Pre-selected date value. See the [preselected date example](https://gestalt.pinterest.systems/datepicker#preselectedValue) to learn more.
    */
@@ -173,9 +199,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       (rangeSelector === 'end' && !rangeStartDate)
     ) {
       if (nextRef && submitted) {
-        // $FlowFixMe[prop-missing]
-        // $FlowFixMe[cannot-read]
-        nextRef.current.focus();
+        nextRef.current?.focus();
       }
     }
   };
