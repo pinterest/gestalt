@@ -163,6 +163,22 @@ const color: Functor<Color> = mapping({
   lightWash: colors.lightWashBg,
   darkWash: colors.darkWashBg,
   transparentDarkGray: colors.transparentDarkGrayBg,
+  infoBase: colors.infoBase,
+  infoWeak: colors.infoWeak,
+  errorBase: colors.errorBase,
+  errorWeak: colors.errorWeak,
+  warningBase: colors.warningBase,
+  warningWeak: colors.warningWeak,
+  successBase: colors.successBase,
+  successWeak: colors.successWeak,
+  shopping: colors.shopping,
+  primary: colors.primary,
+  secondary: colors.secondary,
+  tertiary: colors.tertiary,
+  selected: colors.selected,
+  inverse: colors.inverse,
+  brand: colors.brand,
+  education: colors.education,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);

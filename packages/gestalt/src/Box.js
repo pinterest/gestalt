@@ -132,7 +132,7 @@ type Props = {
    */
   bottom?: boolean,
   /**
-   * See the [color](https://gestalt.pinterest.systems/box#Color) variant for more info.
+   * See the [color](https://gestalt.pinterest.systems/box#Colors) variant for more info.
    * Default: 'transparent'
    */
   color?:
@@ -156,7 +156,23 @@ type Props = {
     | 'transparent'
     | 'transparentDarkGray'
     | 'watermelon'
-    | 'white',
+    | 'white'
+    | 'infoBase'
+    | 'infoWeak'
+    | 'errorBase'
+    | 'errorWeak'
+    | 'warningBase'
+    | 'warningWeak'
+    | 'successBase'
+    | 'successWeak'
+    | 'shopping'
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'selected'
+    | 'inverse'
+    | 'brand'
+    | 'education',
   /**
    * See the [column layout](https://gestalt.pinterest.systems/box#Column-layout) variant for more info.
    *

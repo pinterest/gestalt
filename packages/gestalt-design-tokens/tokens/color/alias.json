@@ -183,7 +183,6 @@
       },
       "brand": {
         "value": "{color.red.pushpin.450.value}",
-        "darkValue": "{color.red.pushpin.400.value}",
         "comment": "Background color to signify the Pinterest brand"
       },
       "education": {

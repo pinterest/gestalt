@@ -419,26 +419,32 @@ function Example() {
             )}
           </CombinationNew>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Colors">
+        <MainSection.Subsection
+          title="Colors"
+          description={`
+          The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case.
+
+          ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
+        `}
+        >
           <CombinationNew
             color={[
-              'red',
-              'white',
-              'lightGray',
-              'gray',
-              'darkGray',
-              'green',
-              'pine',
-              'olive',
-              'blue',
-              'navy',
-              'midnight',
-              'purple',
-              'orchid',
-              'eggplant',
-              'maroon',
-              'watermelon',
-              'orange',
+              'infoBase',
+              'infoWeak',
+              'errorBase',
+              'errorWeak',
+              'warningBase',
+              'warningWeak',
+              'successBase',
+              'successWeak',
+              'shopping',
+              'primary',
+              'secondary',
+              'tertiary',
+              'selected',
+              'inverse',
+              'brand',
+              'education',
               'transparent',
               'transparentDarkGray',
               'lightWash',

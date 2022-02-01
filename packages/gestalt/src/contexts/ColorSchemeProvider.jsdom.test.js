@@ -130,7 +130,6 @@ describe('ColorSchemeProvider', () => {
         --color-background-tertiary-base: #767676;
         --color-background-selected-base: #e9e9e9;
         --color-background-inverse-base: #111111;
-        --color-background-brand: #eb4242;
         --color-background-education: #45a3fe;
        }
       </style>
@@ -185,7 +184,6 @@ describe('ColorSchemeProvider', () => {
         --color-background-tertiary-base: #767676;
         --color-background-selected-base: #e9e9e9;
         --color-background-inverse-base: #111111;
-        --color-background-brand: #eb4242;
         --color-background-education: #45a3fe;
        }
       }
