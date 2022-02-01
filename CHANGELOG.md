@@ -1,3 +1,9 @@
+## 43.0.1 (Feb 1, 2022)
+
+### Patch
+
+- Internal: Fix broken master due to prettier error on CHANGELOG.md (#1896)
+
 ## 43.0.0 (Jan 31, 2022)
 
 ### Major
