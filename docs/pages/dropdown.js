@@ -1,44 +1,22 @@
 // @flow strict
 import { type Node } from 'react';
 import { Dropdown } from 'gestalt';
-import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
+import { multipledocgen, type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
-const commonDropdownItemProps = [
-  {
-    name: 'badgeText',
-    type: 'string',
-    description:
-      "When supplied, will display a [Badge](/badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
-  },
-  {
-    name: 'dataTestId',
-    type: 'string',
-    description: 'When supplied, will add a data-test-id prop to the dom element.',
-  },
-  {
-    name: 'children',
-    type: 'React.Node',
-    description:
-      'If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](#Custom-item-content) variant to learn more.',
-  },
-  {
-    name: 'option',
-    type: '{| label: string, value: string, subtext?: string |}',
-    required: true,
-    description: 'Object detailing the label, value, and optional subtext for this item.',
-  },
-];
-
-export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DropdownPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   return (
     <Page title="Dropdown">
       <PageHeader
         name="Dropdown"
-        description={generatedDocGen?.description}
+        description={generatedDocGen.Dropdown?.description}
         badge="pilot"
         defaultCode={`
       function IntroMenuButtonDropdownExample() {
@@ -99,64 +77,7 @@ export default function DropdownPage({ generatedDocGen }: {| generatedDocGen: Do
         );
       }`}
       />
-      <PropTable
-        Component={Dropdown}
-        id="Dropdown"
-        props={[
-          {
-            name: 'anchor',
-            type: '?HTMLElement',
-            description:
-              'Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](#Accessibility) guidelines to learn more.',
-          },
-          {
-            name: 'children',
-            required: true,
-            type:
-              'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
-            description:
-              'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
-          },
-          {
-            name: 'headerContent',
-            type: 'React.Node',
-            description:
-              'Content to display at the top of the Dropdown before any items or sections. See the [Custom header](#Custom-header) variant to learn more.',
-          },
-          {
-            name: 'id',
-            type: 'string',
-            required: true,
-            description:
-              'Unique id to identify each Dropdown. Used for [Accessibility](#Accessibility) purposes.',
-          },
-          {
-            name: 'idealDirection',
-            type: `'up' | 'right' | 'down' | 'left'`,
-            description: 'Preferred direction for the Dropdown to open.',
-            defaultValue: 'down',
-          },
-          {
-            name: 'isWithinFixedContainer',
-            type: 'boolean',
-            defaultValue: false,
-            description:
-              'Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.',
-          },
-          {
-            name: 'onDismiss',
-            type: '() => void',
-            required: true,
-            description: 'Callback fired when the menu is closed.',
-          },
-          {
-            name: 'zIndex',
-            type: 'interface Indexable { index(): number; }',
-            description:
-              'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/zindex_classes)',
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} excludeProps={['index']} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -625,77 +546,25 @@ function TruncationDropdownExample() {
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Subcomponents" />
-      <PropTable
+      <GeneratedPropTable
         Component={Dropdown?.Item}
         name="Dropdown.Item"
         id="Dropdown.Item"
-        props={[
-          ...commonDropdownItemProps,
-          {
-            name: 'onSelect',
-            type:
-              '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
-            required: true,
-            description: 'Callback when the user selects an item using the mouse or keyboard.',
-          },
-          {
-            name: 'selected',
-            type:
-              '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
-            description:
-              'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.',
-          },
-        ]}
+        generatedDocGen={generatedDocGen.DropdownItem}
+        excludeProps={['index']}
       />
-      <PropTable
+      <GeneratedPropTable
         Component={Dropdown?.Link}
         name="Dropdown.Link"
         id="Dropdown.Link"
-        props={[
-          ...commonDropdownItemProps,
-          {
-            name: 'href',
-            type: 'string',
-            required: true,
-            description:
-              'Directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
-          },
-          {
-            name: 'isExternal',
-            type: 'boolean',
-            description:
-              'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
-          },
-          {
-            name: 'onClick',
-            type:
-              'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| dangerouslyDisableOnNavigation: () => void |}',
-            description: [
-              'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
-              'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-            ],
-          },
-        ]}
+        generatedDocGen={generatedDocGen.DropdownLink}
+        excludeProps={['index']}
       />
-      <PropTable
+      <GeneratedPropTable
         Component={Dropdown?.Section}
         name="Dropdown.Section"
         id="Dropdown.Section"
-        props={[
-          {
-            name: 'children',
-            type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
-            required: true,
-            description: 'Any Dropdown.Items and/or Dropdown.Links to be rendered',
-          },
-          {
-            name: 'label',
-            type: 'string',
-            required: true,
-            description:
-              'Label for the section. See the [Sections](#Sections) variant for more info.',
-          },
-        ]}
+        generatedDocGen={generatedDocGen.DropdownSection}
       />
       <MainSection name="Variants">
         <MainSection.Subsection title="Types of items" columns={2}>
@@ -1185,8 +1054,21 @@ OnLinkNavigationProvider allows external link navigation control across all chil
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getStaticProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const docGen = await multipledocgen({
+    componentName: ['Dropdown', 'DropdownItem', 'DropdownLink', 'DropdownSection'],
+  });
+
+  docGen.Dropdown.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>';
+  docGen.DropdownSection.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>';
+
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Dropdown' }) },
+    props: {
+      generatedDocGen: docGen,
+    },
   };
 }
