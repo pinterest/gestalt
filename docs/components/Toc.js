@@ -1,8 +1,9 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
+
+const HEADER_HEIGHT_PX = 60;
+const FOOTER_HEIGHT_PX = 112;
 
 function throttle(func, wait) {
   let context;
@@ -148,12 +149,12 @@ export default function Toc({ cards }: Props): Node {
     <Box
       aria-label="component page"
       // Accounting for the footer height as set in App.js
-      dangerouslySetInlineStyle={{ __style: { marginBottom: '90px' } }}
+      dangerouslySetInlineStyle={{ __style: { marginBottom: FOOTER_HEIGHT_PX } }}
       // These margins counter the padding set on the <Box role="main"> in App.js
       marginTop={-4}
       mdMarginTop={-6}
       lgMarginTop={-8}
-      maxHeight="calc(100% - 60px - 90px)"
+      maxHeight={`calc(100% - ${HEADER_HEIGHT_PX}px - ${FOOTER_HEIGHT_PX}px)`}
       minWidth={240}
       overflow="auto"
       paddingY={8} // re-apply just the padding we need
