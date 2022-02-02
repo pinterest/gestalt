@@ -1,3 +1,9 @@
+## 44.0.0 (Feb 2, 2022)
+
+### Major
+
+- SegmentedControl: remove size prop (#1894)
+
 ## 43.1.3 (Feb 2, 2022)
 
 ### Patch
