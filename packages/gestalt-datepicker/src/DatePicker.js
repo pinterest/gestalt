@@ -59,7 +59,7 @@ type Props = {|
    */
   helperText?: string,
   /**
-   *
+   * A unique identifier for the input.
    */
   id: string,
   /**
