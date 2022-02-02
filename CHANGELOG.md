@@ -1,3 +1,9 @@
+## 43.1.3 (Feb 2, 2022)
+
+### Patch
+
+- DatePicker: add description for id prop (#1897)
+
 ## 43.1.2 (Feb 2, 2022)
 
 ### Patch
