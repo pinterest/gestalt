@@ -1,3 +1,9 @@
+## 44.0.3 (Feb 3, 2022)
+
+### Patch
+
+- Internal: upgrade flow-bin to 0.171.0 (#1901)
+
 ## 44.0.2 (Feb 3, 2022)
 
 ### Patch
