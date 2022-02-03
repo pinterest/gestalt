@@ -1,8 +1,8 @@
 // @flow strict
 import type { Node } from 'react';
-import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
+import MainSection from '../components/MainSection.js';
 
 export default function DocsPage(): Node {
   return (
@@ -12,10 +12,14 @@ export default function DocsPage(): Node {
         description="A list of easy-to-copy layouts which have been battle tested."
         showSourceLink={false}
       />
-      <Example
-        description="Responsive &amp; RTL-friendly form layout."
-        name="Form Layout"
-        defaultCode={`
+      <MainSection name="Examples">
+        <MainSection.Subsection
+          title="Form Layout"
+          description={'Responsive &amp; RTL-friendly form layout.'}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Flex
   direction="column"
   gap={6}
@@ -88,7 +92,9 @@ export default function DocsPage(): Node {
   </Flex>
 </Flex>
 `}
-      />
+          />
+        </MainSection.Subsection>
+      </MainSection>
     </Page>
   );
 }
