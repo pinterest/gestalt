@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const chalk = require('chalk');
 
 const reactDocs = require('react-docgen');
 const fs = require('fs');
@@ -6,6 +7,16 @@ const path = require('path');
 
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');
+
+function logError(message) {
+  // eslint-disable-next-line no-console
+  console.log(chalk.red(`❌  Error: ${message}`));
+}
+
+function logSuccess(message) {
+  // eslint-disable-next-line no-console
+  console.log(chalk.green(`✅ ${message}`));
+}
 
 async function docgen(filePath) {
   const contents = await fs.promises.readFile(filePath, 'utf-8');
@@ -34,7 +45,7 @@ async function getFilesFromFolder(folder) {
 
   const supportedFiles = [];
 
-  for (let i = 0; i < folderFiles.length; i++) {
+  for (let i = 0; i < folderFiles.length; i += 1) {
     // Filter no js files and test files
     const fileName = folderFiles[i];
     if (fileName.match(/\.(js)$/i) && !fileName.match(/\.(test\.js)$/i)) {
@@ -53,31 +64,29 @@ async function getFilesFromFolder(folder) {
     '/packages/gestalt/src/contexts/OnLinkNavigationProvider.js',
   ];
 
-  let data = {};
+  const data = {};
 
   // Add files inside folders and filter unsoported files
-  for (let i = 0; i < folders.length; i++) {
+  for (let i = 0; i < folders.length; i += 1) {
     const filesFromFolder = await getFilesFromFolder(folders[i]);
     files.push(...filesFromFolder);
   }
 
   // Generate docs for every file
-  for (let i = 0; i < files.length; i++) {
+  for (let i = 0; i < files.length; i += 1) {
     const doc = await docgen(path.join(root, files[i]));
 
     if (doc) {
-      const componentName = files[i].replace(/^.*[\\\/]/, '').replace(/\.js/, '');
+      const componentName = files[i].replace(/^.*[\\/]/, '').replace(/\.js/, '');
       data[componentName] = doc;
     }
   }
 
-  fs.writeFile(
-    path.join(docsPath, `components/metadata.json`),
-    JSON.stringify(data),
-    function (err) {
-      if (err) {
-        console.log(err);
-      }
-    },
-  );
+  fs.writeFile(path.join(docsPath, `components/metadata.json`), JSON.stringify(data), (err) => {
+    if (err) {
+      logError(err);
+    } else {
+      logSuccess('Docs metadata file created successfully');
+    }
+  });
 })();
