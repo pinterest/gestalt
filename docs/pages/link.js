@@ -159,7 +159,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Accessible Content"
         defaultCode={`
 <Box>
-  <Heading>Bad ❌</Heading>
+  <Text size="500">Bad ❌</Text>
   <Text>
     For more information,{' '}
     <Text inline weight="bold">
@@ -170,7 +170,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     .
   </Text>
   <Box paddingY={4}>
-    <Heading>Good ✅</Heading>
+    <Text size="500">Good ✅</Text>
     <Text>
       Visit{' '}
       <Text inline weight="bold">

@@ -26,6 +26,7 @@ export default function DocsPage(): Node {
       <Example
         id="basicExample"
         name="Example"
+        headingSize="md"
         defaultCode={`
 function Example() {
   const shouldReduceMotion = useReducedMotion();
