@@ -73,7 +73,7 @@ function ModuleExample() {
         id="ModuleExample - badge"
         title="Title"
         >
-        <Text size="md">This is example content.</Text>
+        <Text size="200">This is example content.</Text>
       </Module>
     </Box>
   );

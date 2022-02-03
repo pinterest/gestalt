@@ -116,11 +116,11 @@ function ModuleExample() {
   return (
     <Flex direction="column" gap={2} maxWidth={800}>
       <Module id="ModuleExample - default - 1">
-        <Text size="md">This is example content.</Text>
+        <Text size="200">This is example content.</Text>
       </Module>
 
       <Module id="ModuleExample - default - 2" title="Title">
-        <Text size="md">This is example content.</Text>
+        <Text size="200">This is example content.</Text>
       </Module>
     </Flex>
   );
@@ -148,7 +148,7 @@ function ModuleExample() {
         id="ModuleExample - icon"
         title="Title"
         >
-        <Text size="md">This is example content.</Text>
+        <Text size="200">This is example content.</Text>
       </Module>
     </Box>
   );
@@ -188,7 +188,7 @@ function ModuleExample() {
         id="ModuleExample - iconButton"
         title="Title"
         >
-        <Text size="md">This is example content.</Text>
+        <Text size="200">This is example content.</Text>
       </Module>
 
       {showPopover && (
@@ -224,7 +224,7 @@ function ModuleExample() {
         id="ModuleExample - badge"
         title="Title"
         >
-        <Text size="md">This is example content.</Text>
+        <Text size="200">This is example content.</Text>
       </Module>
     </Box>
   );
@@ -251,7 +251,7 @@ function ModuleExample() {
         type={!value ? "error" : "info"}
       >
         <Flex direction="column" gap={4}>
-          <Text size="md">This is example content.</Text>
+          <Text size="200">This is example content.</Text>
 
           <TextField
             errorMessage={!value ? "This field can't be blank!" : null}
@@ -284,7 +284,7 @@ function ModuleExample1() {
         id="ModuleExample - default"
         items={[
           {
-            children: <Text size="md">Children1</Text>,
+            children: <Text size="200">Children1</Text>,
             summary: ['summary1', 'summary2', 'summary3'],
             title: 'Title',
           }]}>
@@ -311,17 +311,17 @@ function ModuleExample2() {
         accessibilityCollapseLabel="Collapse the module"
         items={[
           {
-            children: <Text size="md">Children1</Text>,
+            children: <Text size="200">Children1</Text>,
             summary: ['summary1'],
             title: 'Title1',
           },
           {
-            children: <Text size="md">Children2</Text>,
+            children: <Text size="200">Children2</Text>,
             summary: ['summary2'],
             title: 'Title2',
           },
           {
-            children: <Text size="md">Children3</Text>,
+            children: <Text size="200">Children3</Text>,
             summary: ['summary3'],
             title: 'Title3',
           }]}>
@@ -357,18 +357,18 @@ function ModuleExample3() {
         id="ModuleExample3"
         items={[
           {
-            children: <Text size="md">Children1</Text>,
+            children: <Text size="200">Children1</Text>,
             icon: 'lock',
             iconAccessibilityLabel: "title icon",
             title: 'Example with icon',
           },
           {
             badgeText: 'Try it out!',
-            children: <Text size="md">Children2</Text>,
+            children: <Text size="200">Children2</Text>,
             title: 'Example with badge',
           },
           {
-            children: <Text size="md">Children3</Text>,
+            children: <Text size="200">Children3</Text>,
             iconButton: <IconButton
               bgColor="lightGray"
               icon="question-mark"
@@ -422,7 +422,7 @@ function ModuleExample4() {
         id="ModuleExample4"
         items={[
           {
-            children: <Text size="md">
+            children: <Text size="200">
               <TextField
                 errorMessage={!value ? "This field can't be blank!" : null}
                 id="aboutme"
@@ -472,12 +472,12 @@ function ModuleExample5() {
               {
                 title: 'Title1',
                 summary: ['summary1'],
-                children: <Text size="md">Children1</Text>,
+                children: <Text size="200">Children1</Text>,
               },
               {
                 title: 'Title2',
                 summary: ['summary2'],
-                children: <Text size="md">Children2</Text>,
+                children: <Text size="200">Children2</Text>,
               },
             ]}
             onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`first-$\{index}\`: index)}
@@ -499,12 +499,12 @@ function ModuleExample5() {
               {
                 title: 'Title1',
                 summary: ['summary1'],
-                children: <Text size="md">Children1</Text>,
+                children: <Text size="200">Children1</Text>,
               },
               {
                 title: 'Title2',
                 summary: ['summary2'],
-                children: <Text size="md">Children2</Text>,
+                children: <Text size="200">Children2</Text>,
               },
             ]}
           />

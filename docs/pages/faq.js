@@ -12,7 +12,7 @@ export default function ContainerPage(): Node {
       <PageHeader name="Frequently Asked Questions" showSourceLink={false} />
       <Card name="Gestalt Usage">
         <Flex alignItems="start" direction="column" gap={4}>
-          <Heading size="sm">What are the benefits of using the Gestalt library?</Heading>
+          <Heading size="400">What are the benefits of using the Gestalt library?</Heading>
           <Text>
             Using Gestalt guarantees adherence and compliance to Pinterest design standards and best
             practices which results in UI and UX consistency across surfaces.
@@ -34,7 +34,7 @@ export default function ContainerPage(): Node {
       </Card>
       <Card name="Component Usage">
         <Flex alignItems="start" direction="column" gap={4}>
-          <Heading size="sm">How can I visualize which components use Gestalt?</Heading>
+          <Heading size="400">How can I visualize which components use Gestalt?</Heading>
 
           <Text>
             Use{' '}
@@ -71,7 +71,7 @@ export default function ContainerPage(): Node {
             </ul>
           </Text>
 
-          <Heading size="sm">What is a boint?</Heading>
+          <Heading size="400">What is a boint?</Heading>
           <Text>
             A boint is a Pinterest specific unit of spacing that is equivalent to 4px. 1 boint =
             4px, 2 boints = 8px, etc.
@@ -86,7 +86,7 @@ padding 0 .. 12
             />
           </Box>
 
-          <Heading size="sm">How can add a new Icon?</Heading>
+          <Heading size="400">How can add a new Icon?</Heading>
           <Text>
             If you need an Icon that is not listed on our{' '}
             <Link inline href="/Icon">
@@ -100,7 +100,7 @@ padding 0 .. 12
             strokes / transforms / ...
           </Text>
 
-          <Heading size="sm">How do I add Gestalt as a dependency?</Heading>
+          <Heading size="400">How do I add Gestalt as a dependency?</Heading>
           <Text>
             Import exact versions. ^1.37.0 is imprecise and could import v1.38.0 which could affect
             snapshots from version to version. Check{' '}
@@ -110,7 +110,7 @@ padding 0 .. 12
             for hints on the differences.
           </Text>
 
-          <Heading size="sm">How do I import components from Gestalt?</Heading>
+          <Heading size="400">How do I import components from Gestalt?</Heading>
           <Text>
             Add the following to your import declarations:
             <Markdown
@@ -121,7 +121,7 @@ import { Button, Text } from 'gestalt';
             />
           </Text>
 
-          <Heading size="sm">What&apos;s required to support IE11?</Heading>
+          <Heading size="400">What&apos;s required to support IE11?</Heading>
           <Text>
             Gestalt supports IE11 currently, but you will need to use a polyfill because the css
             file uses css variables. Below is an example of how we set the polyfill up in the docs
@@ -144,7 +144,7 @@ if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
       </Card>
       <Card name="Component Development">
         <Flex alignItems="start" direction="column" gap={4}>
-          <Heading size="sm">How do I get access to the Gestalt repo?</Heading>
+          <Heading size="400">How do I get access to the Gestalt repo?</Heading>
           <Text>
             The{' '}
             <Link href="https://github.com/pinterest/gestalt" inline>
@@ -153,7 +153,7 @@ if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
             is public and you do not need special permissions to make pull requests.
           </Text>
 
-          <Heading size="sm">How do I easily generate files for a component?</Heading>
+          <Heading size="400">How do I easily generate files for a component?</Heading>
           <Text>
             Run the following and replace &quot;ComponentName&quot; with the name of your component.
             <Markdown
@@ -164,7 +164,7 @@ yarn generate ComponentName
             />
           </Text>
 
-          <Heading size="sm">
+          <Heading size="400">
             What do we use for integration tests and how do we run the tests locally?{' '}
           </Heading>
           <Text>
@@ -183,7 +183,7 @@ yarn cypress run
             />
           </Text>
 
-          <Heading size="sm">What is Gestalt Teachings and how do I add a video?</Heading>
+          <Heading size="400">What is Gestalt Teachings and how do I add a video?</Heading>
           <Text>
             <Link
               inline
@@ -204,7 +204,7 @@ yarn cypress run
       </Card>
       <Card name="Automated Releases">
         <Flex alignItems="start" direction="column" gap={4}>
-          <Heading size="sm">How does versioning work in Gestalt?</Heading>
+          <Heading size="400">How does versioning work in Gestalt?</Heading>
           <Text>
             The Gestalt library development approach is continuous releasing. Each major, minor, and
             patch change is merged to master and released as the latest supported Gestalt version.{' '}
@@ -219,7 +219,7 @@ yarn cypress run
               <Text weight="bold">Read more about Codemods.</Text>
             </Link>
           </Text>
-          <Heading size="sm">
+          <Heading size="400">
             My Pull Request fails on &quot;Semver / Require Label (pull_request)&quot;, how do I fix
             it?
           </Heading>
@@ -229,7 +229,7 @@ yarn cypress run
             release) when reviewing a PR..
           </Text>
 
-          <Heading size="sm">How do these automated releases work under the hood?</Heading>
+          <Heading size="400">How do these automated releases work under the hood?</Heading>
           <Text>
             Automated releases use{' '}
             <Link href="https://github.com/features/actions" inline>

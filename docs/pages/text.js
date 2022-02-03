@@ -99,27 +99,54 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         defaultCode={`
 <Flex alignItems="start" direction="column" gap={2}>
   <Flex alignItems="center" gap={2}>
-    <Text inline size="sm">Small</Text>
+    <Text inline size="100">Size 100</Text>
     <span lang="ja">
-      <Text inline size="sm">
+      <Text inline size="100">
         こんにちは
       </Text>
     </span>
   </Flex>
 
   <Flex alignItems="center" gap={2}>
-    <Text inline size="md">Medium</Text>
+    <Text inline size="200">Size 200</Text>
     <span lang="ja">
-      <Text inline size="md">
+      <Text inline size="200">
         こんにちは
       </Text>
     </span>
   </Flex>
 
   <Flex alignItems="center" gap={2}>
-    <Text inline size="lg">Large (default size)</Text>
+    <Text inline size="300">Size 300 (default size)</Text>
     <span lang="ja">
-      <Text inline size="lg">
+      <Text inline size="300">
+        こんにちは
+      </Text>
+    </span>
+  </Flex>
+
+  <Flex alignItems="center" gap={2}>
+    <Text inline size="400">Size 400</Text>
+    <span lang="ja">
+      <Text inline size="400">
+        こんにちは
+      </Text>
+    </span>
+  </Flex>
+
+  <Flex alignItems="center" gap={2}>
+    <Text inline size="500">Size 500</Text>
+    <span lang="ja">
+      <Text inline size="500">
+        こんにちは
+      </Text>
+    </span>
+  </Flex>
+
+  <Flex alignItems="center" gap={2}>
+    <Text inline size="600">Size 600</Text>
+    <span lang="ja">
+      <Text inline size="600">
         こんにちは
       </Text>
     </span>

@@ -9,7 +9,7 @@ export default function SidebarSection({ section }: {| section: sidebarIndexType
     <Box role="list">
       <Box role="listitem" padding={2} marginTop={4}>
         <Flex justifyContent="between">
-          <Text size="sm">{section.sectionName}</Text>
+          <Text size="100">{section.sectionName}</Text>
         </Flex>
       </Box>
 

@@ -4,19 +4,7 @@
   margin-top: 0;
 }
 
-.fontSize400 {
-  font-size: var(--font-size-400);
-}
-
-.fontSize500 {
-  font-size: var(--font-size-500);
-}
-
-.fontSize600 {
-  font-size: var(--font-size-600);
-}
-
 .TextLikeHeadingSm {
-  composes: fontSize400 Heading;
+  composes:  Heading;
   composes: breakWord fontWeightBold from "./Typography.css"
 }

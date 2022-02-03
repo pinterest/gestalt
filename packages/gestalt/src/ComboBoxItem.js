@@ -78,7 +78,7 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
             {label}
           </Text>
           {subtext && (
-            <Text size="md" inline color="gray" lineClamp={2}>
+            <Text size="200" inline color="gray" lineClamp={2}>
               {subtext}
             </Text>
           )}

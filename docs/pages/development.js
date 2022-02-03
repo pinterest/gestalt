@@ -312,14 +312,14 @@ git push -f origin HEAD
       </Card>
       <Card name="Guidelines">
         <Flex alignItems="start" direction="column" gap={4}>
-          <Heading size="sm">Scope of work</Heading>
+          <Heading size="400">Scope of work</Heading>
 
           <Text>
             When pushing new changes to GitHub, your PR title should be aligned with the scope of
             your work. If your goal was to change the default color of a component, keep the scope
             of changes to that specific task and word the title to exactly reflect those changes.
           </Text>
-          <Heading id="versioning" size="sm">
+          <Heading id="versioning" size="400">
             Versioning
           </Heading>
           <Text>
@@ -348,7 +348,7 @@ git push -f origin HEAD
             </ul>
           </Text>
 
-          <Heading id="codemods" size="sm">
+          <Heading id="codemods" size="400">
             Codemods
           </Heading>
           <Text>
@@ -393,7 +393,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
             </Text>{' '}
             (print output) flags (pipe stdout to a file for easier inspection if you like).
           </Text>
-          <Heading size="sm">Changes not allowed</Heading>
+          <Heading size="400">Changes not allowed</Heading>
           <Text>Do not use the following CSS style properties:</Text>
 
           <ul>

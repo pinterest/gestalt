@@ -10,14 +10,8 @@ function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
 }
 
-const SIZE_SCALE = {
-  sm: 100,
-  md: 200,
-  lg: 300,
-};
-
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
-type Size = 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
   /**
@@ -67,7 +61,7 @@ type Props = {|
    */
   overflow?: Overflow,
   /**
-   * sm: `12px`, md: `14px`, lg: `16px`
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).
    *
    * Link: https://gestalt.pinterest.systems/text#size
    */
@@ -96,15 +90,13 @@ export default function Text({
   italic = false,
   lineClamp,
   overflow = 'breakWord',
-  size = 'lg',
+  size = '300',
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  const scale = SIZE_SCALE[size];
-
   const cs = cx(
     styles.Text,
-    styles[`fontSize${scale}`],
+    typography[`fontSize${size}`],
     color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,

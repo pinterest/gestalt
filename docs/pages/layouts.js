@@ -23,7 +23,7 @@ export default function DocsPage(): Node {
   width="100%"
   wrap
 >
-  <Heading size="sm" accessibilityLevel={2}>
+  <Heading size="400" accessibilityLevel={2}>
     Form Title
   </Heading>
 

@@ -55,7 +55,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
   <Flex gap={1}>
     <Icon icon="eye" accessibilityLabel="Number of views" color="darkGray" />
-    <Text weight="bold" size="lg">4</Text>
+    <Text weight="bold" size="300">4</Text>
   </Flex>`}
           />
           <MainSection.Card
@@ -65,7 +65,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
   <Flex gap={2}>
     <Icon icon="sound" accessibilityLabel="" color="darkGray" />
-    <Text size="lg" weight="bold">24 monthly views</Text>
+    <Text size="300" weight="bold">24 monthly views</Text>
   </Flex>`}
           />
         </MainSection.Subsection>
@@ -77,7 +77,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Flex gap={1}>
   <Icon icon="tag" accessibilityLabel="" color="darkGray" />
-  <Text size="lg" weight="bold">
+  <Text size="300" weight="bold">
     Shopping spotlight
   </Text>
 </Flex>`}
@@ -115,7 +115,7 @@ If an icon has a visible label that describes what the icon represents, \`access
             defaultCode={`
 <Flex gap={1}>
   <Icon icon="eye" accessibilityLabel="Number of views" color="darkGray" />
-  <Text weight="bold" size="lg">4</Text>
+  <Text weight="bold" size="300">4</Text>
 </Flex>`}
           />
           <MainSection.Card

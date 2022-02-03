@@ -13,7 +13,7 @@ test('Text orange adds the orange color class', () => {
 });
 
 test('Text size sm adds the small size class', () => {
-  const tree = create(<Text size="sm" />).toJSON();
+  const tree = create(<Text size="100" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

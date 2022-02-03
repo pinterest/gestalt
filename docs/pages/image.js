@@ -237,7 +237,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       src="https://i.ibb.co/FY2MKr5/stock6.jpg"
     />
   </Box>
-  <Heading align="center" size="lg">Article Title</Heading>
+  <Heading align="center" size="600">Article Title</Heading>
 </Box>
 `}
       />

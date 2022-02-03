@@ -805,7 +805,7 @@ function Example() {
       <Table.Row>
         <Table.Cell>
           <Text color="darkGray">{name}</Text>
-          <Text color="gray" size="sm" lineClamp={lineClamp}>{subtext}</Text>
+          <Text color="gray" size="100" lineClamp={lineClamp}>{subtext}</Text>
         </Table.Cell>
         <Table.Cell>
           <Text align="end" lineClamp={lineClamp}>{total}</Text>
@@ -1005,7 +1005,7 @@ function MainExample() {
         />
         {tabItem === 'campaign' ? (
           <Flex direction="column" gap={6} width="100%">
-            <Heading size="sm" accessibilityLevel={2}>
+            <Heading size="400" accessibilityLevel={2}>
               Latest boards
             </Heading>
             <Flex gap={6} width="100%">
@@ -1072,12 +1072,12 @@ function MainExample() {
                     />
                   </Mask>
                   <Flex direction="column" gap={2}>
-                    <Heading size="sm" accessibilityLevel={0}>
+                    <Heading size="400" accessibilityLevel={0}>
                       Uniform
                     </Heading>
                     <Flex gap={5}>
-                      <Text size="md">123 Pins</Text>
-                      <Text size="md">4 sections</Text>
+                      <Text size="200">123 Pins</Text>
+                      <Text size="200">4 sections</Text>
                     </Flex>
                   </Flex>
                 </TapArea>
@@ -1173,12 +1173,12 @@ function MainExample() {
                 }
               >
                 <Box width={300}>
-                  <Text size="md">Content</Text>
+                  <Text size="200">Content</Text>
                 </Box>
               </Module>
               <Module id="Top Pins" title="Top Pins">
                 <Box width={300}>
-                  <Text size="md">Content</Text>
+                  <Text size="200">Content</Text>
                 </Box>
               </Module>
             </Flex>
@@ -1524,7 +1524,7 @@ function Example() {
         </Table.Body>
       </Table>
       <Box aria-hidden>
-        <Text align="center" size="sm">Your campaigns summary</Text>
+        <Text align="center" size="100">Your campaigns summary</Text>
       </Box>
     </Flex>
   );

@@ -42,7 +42,7 @@ const MainSectionSubsection = ({
             data-anchor
           >
             <Flex alignItems="center" gap={2}>
-              <Heading size="sm">{title}</Heading>
+              <Heading size="400">{title}</Heading>
               {badge ? (
                 <Tooltip
                   inline

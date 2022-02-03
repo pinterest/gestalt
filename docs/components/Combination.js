@@ -106,7 +106,7 @@ export default function Combination({
       <Box display="flex" wrap>
         {combinations(props).map((combination, i) => {
           const combinationTitles = Object.keys(combination).map((key) => (
-            <Text align="center" size="md" key={`${i}-${key}`}>
+            <Text align="center" size="200" key={`${i}-${key}`}>
               {toReactAttribute(key, combination[key])}
             </Text>
           ));

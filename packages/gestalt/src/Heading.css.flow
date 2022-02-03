@@ -3,7 +3,4 @@
 declare module.exports: {|
   +'Heading': string,
   +'TextLikeHeadingSm': string,
-  +'fontSize400': string,
-  +'fontSize500': string,
-  +'fontSize600': string,
 |};

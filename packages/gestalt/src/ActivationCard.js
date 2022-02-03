@@ -120,11 +120,11 @@ const CompletedCard = ({ dismissButton, message, status, statusMessage, title }:
         )}
         <Box>
           <Box>
-            <Heading size="sm">{title}</Heading>
+            <Heading size="400">{title}</Heading>
           </Box>
           {message && (
             <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-              <Text color="gray" size="md">
+              <Text color="gray" size="200">
                 {message}
               </Text>
             </Box>
@@ -172,17 +172,17 @@ const UncompletedCard = ({
           </Box>
         )}
         <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
-          <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="md">
+          <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="200">
             {statusMessage}
           </Text>
         </Box>
       </Box>
       <Box marginTop={6}>
-        <Heading size="sm">{title}</Heading>
+        <Heading size="400">{title}</Heading>
       </Box>
       {message && (
         <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-          <Text color="gray" size="md">
+          <Text color="gray" size="200">
             {message}
           </Text>
         </Box>
