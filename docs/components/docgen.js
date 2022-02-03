@@ -26,18 +26,13 @@ export type DocGen = {|
   |},
 |};
 
-export default async function docgen({
-  componentName,
-  alternativeSubdirectory = '',
-}: {|
-  componentName: string,
-  alternativeSubdirectory?: string,
-|}): Promise<DocGen> {
-  const filePath = path.join(
+const getFilePath = (componentName: string, alternativeSubdirectory?: string): string =>
+  path.join(
     nextConfig().serverRuntimeConfig.GESTALT_ROOT,
     alternativeSubdirectory || `/packages/gestalt/src/${componentName}.js`,
   );
-  const contents = await fs.promises.readFile(filePath, 'utf-8');
+
+const getParsedContent = (contents): DocGen => {
   const parsed = parse(contents);
 
   if (parsed.description) {
@@ -47,8 +42,39 @@ export default async function docgen({
       // Remove images from the description
       .replace(/!\[(.*?)\][[(].*?[\])]/g, '');
   }
-
   return parsed;
+};
+
+export default async function docgen({
+  componentName,
+  alternativeSubdirectory = '',
+}: {|
+  componentName: string,
+  alternativeSubdirectory?: string,
+|}): Promise<DocGen> {
+  const filePath = getFilePath(componentName, alternativeSubdirectory);
+  const contents = await fs.promises.readFile(filePath, 'utf-8');
+  return getParsedContent(contents);
+}
+
+export async function multipledocgen({
+  componentName,
+  alternativeSubdirectory = '',
+}: {|
+  componentName: Array<string> | string,
+  alternativeSubdirectory?: string,
+|}): Promise<{| [string]: DocGen |}> {
+  const docGenMap = {};
+  await Promise.all(
+    (Array.isArray(componentName) ? componentName : [componentName]).map(async (cmp) => {
+      const filePath = getFilePath(cmp, alternativeSubdirectory);
+      const contents = await fs.promises.readFile(filePath, 'utf-8');
+      docGenMap[cmp] = getParsedContent(contents);
+      return cmp;
+    }),
+  );
+
+  return docGenMap;
 }
 
 export function overrideTypes(docGen: DocGen, typeOverrides: {| [string]: string |}): DocGen {
