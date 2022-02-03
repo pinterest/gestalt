@@ -1,3 +1,9 @@
+## 44.0.5 (Feb 3, 2022)
+
+### Patch
+
+- Internal: upgrade eslint react plugins (#1902)
+
 ## 44.0.4 (Feb 3, 2022)
 
 ### Patch
