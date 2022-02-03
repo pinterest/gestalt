@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
+const prettier = require('prettier');
 
 const reactDocs = require('react-docgen');
 const fs = require('fs');
@@ -82,7 +83,9 @@ async function getFilesFromFolder(folder) {
     }
   }
 
-  fs.writeFile(path.join(docsPath, `components/metadata.json`), JSON.stringify(data), (err) => {
+  const formatedData = prettier.format(JSON.stringify(data), { parser: 'json' });
+
+  fs.writeFile(path.join(docsPath, `components/metadata.json`), formatedData, (err) => {
     if (err) {
       logError(err);
     } else {
