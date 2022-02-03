@@ -27,6 +27,8 @@ export default function transformer(file, api) {
     'md': '500',
     'lg': '600',
   };
+  const CURRENT_SIZE_VALUES = ['sm', 'md', 'lg'];
+
   let localIdentifierNames;
 
   src.find(j.ImportDeclaration).forEach((path) => {
@@ -63,17 +65,43 @@ export default function transformer(file, api) {
         );
       }
 
+      const isHeadingComponent = node.openingElement.name.name.includes('Heading');
+
       node.openingElement.attributes = attrs
         .map((attr) => {
           if (attr?.name?.name === 'size' && attr.value.type === 'JSXExpressionContainer') {
+            if (
+              attr.value.expression.type === 'ConditionalExpression' &&
+              (CURRENT_SIZE_VALUES.includes(attr.value.expression.consequent?.value) ||
+                CURRENT_SIZE_VALUES.includes(attr.value.expression.alternate?.value))
+            ) {
+              const newAttr = attr;
+              const consequentValue = attr.value.expression.consequent.value;
+              const alternateValue = attr.value.expression.alternate.value;
+
+              if (CURRENT_SIZE_VALUES.includes(consequentValue)) {
+                newAttr.value.expression.consequent.value = isHeadingComponent
+                  ? HEADING_MAPPING[consequentValue]
+                  : TEXT_MAPPING[consequentValue];
+              }
+
+              if (CURRENT_SIZE_VALUES.includes(alternateValue)) {
+                newAttr.value.expression.alternate.value = isHeadingComponent
+                  ? HEADING_MAPPING[alternateValue]
+                  : TEXT_MAPPING[alternateValue];
+              }
+
+              return newAttr;
+            }
+
             throw new Error(
               `Manually check any Heading and Text non-literal properties for size and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
             );
           }
 
-          if (attr?.name?.name === 'size' && ['sm', 'md', 'lg'].includes(attr?.value?.value)) {
+          if (attr?.name?.name === 'size' && CURRENT_SIZE_VALUES.includes(attr?.value?.value)) {
             const newAttr = attr;
-            newAttr.value.value = node.openingElement.name.name.includes('Heading')
+            newAttr.value.value = isHeadingComponent
               ? HEADING_MAPPING[attr?.value?.value]
               : TEXT_MAPPING[attr?.value?.value];
             return newAttr;
