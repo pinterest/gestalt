@@ -50,7 +50,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'onSubmit',
-            type: '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
+            type:
+              '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
             required: true,
             description: `Actions to perform when the form has been submitted.`,
           },

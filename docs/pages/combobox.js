@@ -123,7 +123,8 @@ function ComboBoxExample(props) {
           },
           {
             name: 'onBlur',
-            type: '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
+            type:
+              '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
             description: 'Callback when you focus outside the component ',
           },
           {
