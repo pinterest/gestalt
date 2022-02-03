@@ -35,7 +35,7 @@
     "axe-core": "^4.1.1",
     "babel-jest": "^27.4.6",
     "blueimp-md5": "^2.18.0",
-    "caniuse-lite": "^1.0.30001146",
+    "caniuse-lite": "^1.0.30001305",
     "chalk": "^4.1.0",
     "codecov": "^3.8.0",
     "critters": "^0.0.10",
