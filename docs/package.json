@@ -6,7 +6,8 @@
   "homepage": "https://gestalt.pinterest.systems/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn build-metadata && next build",
+    "build-metadata": "../scripts/generateMetadata.js",
     "start": "next start"
   },
   "dependencies": {

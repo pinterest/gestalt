@@ -521,7 +521,7 @@ function ModuleExample5() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Module' });
 
   generatedDocGen.props.icon = {

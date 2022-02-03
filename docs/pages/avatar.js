@@ -332,7 +332,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Avatar' }) },
   };

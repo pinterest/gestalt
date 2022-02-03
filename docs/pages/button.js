@@ -92,8 +92,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           },
           {
             name: 'onClick',
-            type:
-              '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
+            type: '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
             required: false,
             defaultValue: null,
             description: [
@@ -761,7 +760,7 @@ See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about li
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Button' }) },
   };

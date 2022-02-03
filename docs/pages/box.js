@@ -806,7 +806,7 @@ function Example() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Box' });
 
   return {

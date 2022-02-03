@@ -595,7 +595,7 @@ Toast provides temporary feedback on an interaction. Toasts appear at the bottom
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Modal' }) },
   };

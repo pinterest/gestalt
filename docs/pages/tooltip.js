@@ -820,7 +820,7 @@ Toast provides feedback on an interaction. One example of Toast is the confirmat
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Tooltip' }) },
   };

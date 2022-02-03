@@ -230,7 +230,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Masonry' });
 
   generatedDocGen.props.layout = {
@@ -258,7 +258,7 @@ export async function getStaticProps(): Promise<{| props: {| generatedDocGen: Do
     },
   };
 
-  // getStaticProps serializes to JSON, so any 'undefined' values must be replaced with 'null' to avoid invalid JSON
+  // getServerSideProps serializes to JSON, so any 'undefined' values must be replaced with 'null' to avoid invalid JSON
   // $FlowFixMe[unclear-type]
   function deepCloneReplacingUndefined(origObj: Object): Object {
     const isPlainObject = (value) => value?.constructor === Object;

@@ -63,8 +63,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'onClick',
-            type:
-              'AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}>',
+            type: 'AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}>',
             description:
               'Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
             href: 'Custom-navigation',
@@ -269,7 +268,7 @@ OnLinkNavigationProvider allows external link navigation control across all chil
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Link' }) },
   };
