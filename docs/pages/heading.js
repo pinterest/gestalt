@@ -16,7 +16,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <Example
         id="sizes"
         name="Example: Sizes"
-        description="These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size)."
+        description="These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/text) instead."
         defaultCode={`
 <Flex gap={4} direction="column">
   <Heading size="100">Heading size 100</Heading>
