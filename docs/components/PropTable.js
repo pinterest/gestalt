@@ -121,7 +121,7 @@ export default function PropTable({
   return (
     <Card
       id={propsId}
-      headingSize={proptableName ? 'sm' : 'md'}
+      headingSize={proptableName ? '400' : '500'}
       name={proptableName ? `${proptableName} Props` : 'Props'}
       toggle={
         <Tooltip inline text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} props`}>

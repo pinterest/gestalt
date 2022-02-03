@@ -92,7 +92,8 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
       />
       <Example
         description={`
-    You can apply \`size\` options to define the size of the text.
+    You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size).
+
   `}
         id="size"
         name="Sizes"

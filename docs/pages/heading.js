@@ -16,6 +16,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <Example
         id="sizes"
         name="Example: Sizes"
+        description="These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size)."
         defaultCode={`
 <Flex gap={4} direction="column">
   <Heading size="100">Heading size 100</Heading>
