@@ -551,14 +551,12 @@ function TruncationDropdownExample() {
         name="Dropdown.Item"
         id="Dropdown.Item"
         generatedDocGen={generatedDocGen.DropdownItem}
-        excludeProps={['_index']}
       />
       <GeneratedPropTable
         Component={Dropdown?.Link}
         name="Dropdown.Link"
         id="Dropdown.Link"
         generatedDocGen={generatedDocGen.DropdownLink}
-        excludeProps={['_index']}
       />
       <GeneratedPropTable
         Component={Dropdown?.Section}
