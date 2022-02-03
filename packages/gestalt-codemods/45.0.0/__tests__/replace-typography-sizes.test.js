@@ -7,7 +7,7 @@ jest.mock('../replace-typography-sizes', () =>
 );
 
 describe('replace-typography-sizes', () => {
-  ['text', 'heading'].forEach((test) => {
+  ['text', 'heading', 'text-renamed', 'heading-renamed'].forEach((test) => {
     defineTest(__dirname, 'replace-typography-sizes', { quote: 'single' }, test);
   });
 });

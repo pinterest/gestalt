@@ -65,12 +65,17 @@ export default function transformer(file, api) {
 
       node.openingElement.attributes = attrs
         .map((attr) => {
+          if (attr?.name?.name === 'size' && attr.value.type === 'JSXExpressionContainer') {
+            throw new Error(
+              `Manually check any Heading and Text non-literal properties for size and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
+            );
+          }
+
           if (attr?.name?.name === 'size' && ['sm', 'md', 'lg'].includes(attr?.value?.value)) {
             const newAttr = attr;
-            newAttr.value.value =
-              node.openingElement.name.name === 'Heading'
-                ? HEADING_MAPPING[attr?.value?.value]
-                : TEXT_MAPPING[attr?.value?.value];
+            newAttr.value.value = node.openingElement.name.name.includes('Heading')
+              ? HEADING_MAPPING[attr?.value?.value]
+              : TEXT_MAPPING[attr?.value?.value];
             return newAttr;
           }
           return attr;
