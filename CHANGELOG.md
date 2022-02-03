@@ -1,3 +1,9 @@
+## 44.0.4 (Feb 3, 2022)
+
+### Patch
+
+- Internal: upgrade eslint to 8.8.0 (#1905)
+
 ## 44.0.3 (Feb 3, 2022)
 
 ### Patch
