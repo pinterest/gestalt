@@ -1,3 +1,9 @@
+## 44.0.2 (Feb 3, 2022)
+
+### Patch
+
+- Docs: fix right sidenav overlap bug (#1898)
+
 ## 44.0.1 (Feb 2, 2022)
 
 ### Patch
