@@ -178,7 +178,7 @@ export default function Dropdown({
     }
   };
 
-  const handleKeyDown = (event) => {
+  const onKeyDown = ({ event }) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
@@ -201,7 +201,7 @@ export default function Dropdown({
     <Popover
       anchor={anchor}
       color="white"
-      handleKeyDown={handleKeyDown}
+      onKeyDown={onKeyDown}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
