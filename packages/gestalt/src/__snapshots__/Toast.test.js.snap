@@ -102,7 +102,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="FlexItem flexNone"
       >
         <button
-          className="button hideOutline tapTransition lg gray enabled inline accessibilityOutline"
+          className="button hideOutline inline accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -116,9 +116,13 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
-            Undo
+            <div
+              className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            >
+              Undo
+            </div>
           </div>
         </button>
       </div>

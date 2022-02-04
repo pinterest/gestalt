@@ -163,7 +163,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
               >
                 <button
                   aria-label="Submit button"
-                  className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+                  className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
                   disabled={false}
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -769,7 +769,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
       >
         <button
           aria-label=""
-          className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+          className="button hideOutline block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -783,9 +783,13 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize300 white alignCenter fontWeightBold"
+            className="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
           >
-            Visit Pinterest
+            <div
+              className="Text fontSize300 white alignCenter fontWeightBold"
+            >
+              Visit Pinterest
+            </div>
           </div>
         </button>
       </div>
