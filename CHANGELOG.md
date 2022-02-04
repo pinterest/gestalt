@@ -1,3 +1,15 @@
+## 45.0.1 (Feb 3, 2022)
+
+### Patch
+
+- Dropdown: prefixed private props (index) with underscore (#1900)
+
+## 45.0.0 (Feb 3, 2022)
+
+### Major
+
+- Popover: rename handleOnKeyDown to onKeyDown and standardize event type (#1909)
+
 ## 44.0.5 (Feb 3, 2022)
 
 ### Patch

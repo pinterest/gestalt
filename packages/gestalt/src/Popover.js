@@ -21,9 +21,9 @@ type Props = {|
    */
   color?: Color,
   /**
-   *
+   * Callback for key stroke events allowing keyboard navigation in Popover's children.
    */
-  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
   /**
    * Unique id to identify each Popover. Used for [accessibility](https://gestalt.pinterest.systems/popover#ARIA-attributes) purposes.
    */
@@ -66,7 +66,7 @@ type Props = {|
 export default function Popover({
   anchor,
   children,
-  handleKeyDown,
+  onKeyDown,
   id,
   idealDirection,
   onDismiss,
@@ -87,7 +87,7 @@ export default function Popover({
       bgColor={color}
       border
       caret={showCaret}
-      handleKeyDown={handleKeyDown}
+      onKeyDown={onKeyDown}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
