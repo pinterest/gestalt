@@ -86,11 +86,11 @@ type Props<T> = {|
   /**
    * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
    */
-   virtualBoundsBottom?: number,
-   /**
-    * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.
-    */
-   virtualBoundsTop?: number,
+  virtualBoundsBottom?: number,
+  /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.
+   */
+  virtualBoundsTop?: number,
   /**
    * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
    */
