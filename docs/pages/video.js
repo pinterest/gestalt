@@ -1,282 +1,19 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
-import PageHeader from '../components/PageHeader.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import deepCloneReplacingUndefined from '../utils/deepCloneReplacingUndefined.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Video">
-      <PageHeader
-        name="Video"
-        description="Like an Image, [Video](https://gestalt.pinterest.systems/video) is used for media layout. This component is supercharged with lots of goodies to turn a regular video in a full blown viewing experience."
-      />
-      <PropTable
-        props={[
-          {
-            name: 'accessibilityMaximizeLabel',
-            type: 'string',
-            description:
-              'Accessibility label for the fullscreen maximize button if controls are shown',
-            required: true,
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'accessibilityMinimizeLabel',
-            type: 'string',
-            description:
-              'Accessibility label for the fullscreen minimize button if controls are shown',
-            required: true,
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'accessibilityMuteLabel',
-            type: 'string',
-            description: 'Accessibility label for the mute button if controls are shown',
-            required: true,
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'backgroundColor',
-            type: "'black' | 'transparent'",
-            description: "Background color used to fill the video's placeholder",
-            defaultValue: 'black',
-          },
-          {
-            name: 'accessibilityPauseLabel',
-            type: 'string',
-            description: 'Accessibility label for the pause button if controls are shown',
-            required: true,
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'accessibilityPlayLabel',
-            type: 'string',
-            description: 'Accessibility label for the play button if controls are shown',
-            required: true,
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'accessibilityProgressBarLabel',
-            type: 'string',
-            description: 'Accessibility label for progress bar',
-            required: true,
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'accessibilityUnmuteLabel',
-            type: 'string',
-            description: 'Accessibility label for the unmute button if controls are shown',
-            required: true,
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'aspectRatio',
-            type: 'number',
-            description: `Proportional relationship between width and height of the video, calculated as width / height.`,
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'captions',
-            type: 'string',
-            description: 'The URL of the captions track for the video (.vtt file)',
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'children',
-            type: 'React.Node',
-            description: `This \`children\` prop is not same as children inside the native html \`video\` element.
-          Instead it serves to add overlays on top of the html video element, while still being under the video controls.`,
-          },
-          {
-            name: 'crossOrigin',
-            type: "'use-credentials' | 'anonymous'",
-            description:
-              'Designate CORS behavior for the video element. When not passed in, CORS checks are disabled.',
-          },
-          {
-            name: 'controls',
-            type: 'boolean',
-            description: 'Show the video player controls',
-            href: 'videoControlsExample',
-          },
-          {
-            name: 'disableRemotePlayback',
-            type: 'boolean',
-            description:
-              'Disable remote playback. See [MDN Web Docs: disableRemotePlayback](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback) for more info.',
-            defaultValue: false,
-          },
-          {
-            name: 'loop',
-            type: 'boolean',
-            description: 'The video will start playing over again when finished',
-            href: 'nativeVideoAttributesExample',
-          },
-          {
-            name: 'objectFit',
-            type: "'fill' | 'contain' | 'cover' | 'none' | 'scale-down'",
-            description:
-              'Sets how the content of the replaced `<video>` element should be resized to fit its container',
-          },
-          {
-            name: 'onDurationChange',
-            type: '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
-            description:
-              'Sent when the metadata has loaded or changed, indicating a change in duration',
-          },
-          {
-            name: 'onEnded',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description: 'Sent when playback of the video completes',
-          },
-          {
-            name: 'onError',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description: 'Sent when an error occurs',
-          },
-          {
-            name: 'onFullscreenChange',
-            type: '({ event: Event, fullscreen: boolean }) => void',
-            description: 'Sent when the video full screen status changes',
-          },
-          {
-            name: 'onLoadedChange',
-            type: '({ event: SyntheticEvent<HTMLVideoElement>, loaded: number }) => void',
-            description: 'Sent when progress happens on downloading the media',
-          },
-          {
-            name: 'onLoadStart',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description: 'Sent when the media has started to load',
-          },
-          {
-            name: 'onPlay',
-            type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
-            description: 'Sent when playback of the media starts after having been paused',
-            href: 'videoUpdatesExample',
-          },
-          {
-            name: 'onPlaying',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description:
-              'Sent when playback of the media is ready to start after having been paused',
-            href: 'videoUpdatesExample',
-          },
-          {
-            name: 'onPlayheadDown',
-            type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
-            description: 'Sent when mouse down event occurs on playhead',
-          },
-          {
-            name: 'onPlayheadUp',
-            type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
-            description: 'Sent when mouse up event occurs on playhead',
-          },
-          {
-            name: 'onPause',
-            type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
-            description: 'Sent when playback is paused',
-            href: 'videoUpdatesExample',
-          },
-          {
-            name: 'onReady',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description: 'Sent when video is loaded and ready to play.',
-          },
-          {
-            name: 'onSeek',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description: 'Sent when a seek operation completes from the playhead',
-          },
-          {
-            name: 'onSeeking',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description: 'Sent when a seek operation begins',
-          },
-          {
-            name: 'onStalled',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description:
-              'Sent when trying to fetch data but the data is unexpectedly not forthcoming',
-          },
-          {
-            name: 'onTimeChange',
-            type: '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
-            description:
-              "Sent when the time indicated by the element's currentTime attribute has changed",
-          },
-          {
-            name: 'onVolumeChange',
-            type: '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
-            description: 'Sent when the audio volume changes',
-            href: 'videoUpdatesExample',
-          },
-          {
-            name: 'onWaiting',
-            type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
-            description: 'Sent when playback has stopped because of a temporary lack of data',
-            href: 'videoUpdatesExample',
-          },
-          {
-            name: 'playbackRate',
-            type: 'number',
-            description: 'Specifies the speed at which the video plays: 1 for normal',
-            required: true,
-            defaultValue: 1,
-            href: 'videoUpdatesExample',
-          },
-          {
-            name: 'playing',
-            type: 'boolean',
-            description: 'Specifies whether the video should play or not',
-            required: true,
-            defaultValue: false,
-            href: 'nativeVideoAttributesExample',
-          },
-          {
-            name: 'playsInline',
-            type: 'boolean',
-            description: `Serves as a hint to the user agent that the video should to be displayed "inline" in
-          the document by default, constrained to the element's playback area, instead of being displayed
-          fullscreen or in an independent resizable window. This attribute is mainly relevant to
-          iOS Safari browsers`,
-          },
-          {
-            name: 'poster',
-            type: 'string',
-            description: 'The image to show while the video is downloading',
-            href: 'basicExample',
-          },
-          {
-            name: 'preload',
-            type: `"auto" | "metadata" | "none"`,
-            description: 'Specifies how, if any, the video should be loaded when the page loads',
-            required: true,
-            defaultValue: 'auto',
-          },
-          {
-            name: 'src',
-            type:
-              'string | Array<{| type: "video/m3u8" | "video/mp4" | "video/ogg, src: string |}>',
-            description: `The URL of the video file to play. This can also be supplied as a list of video types to respective
-          video source urls in fallback order for support on various browsers.`,
-            required: true,
-            href: 'basicExample',
-          },
-          {
-            name: 'volume',
-            type: 'number',
-            description: 'Specifies the volume of the video audio: 0 for muted, 1 for max',
-            required: true,
-            defaultValue: 0,
-            href: 'nativeVideoAttributesExample',
-          },
-        ]}
-      />
+      <PageHeader name="Video" description={generatedDocGen?.description} />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <Example
         id="basicExample"
         name="Video media basics"
@@ -476,4 +213,12 @@ function Example() {
       />
     </Page>
   );
+}
+
+export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const generatedDocGen = await docgen({ componentName: 'Video' });
+
+  return {
+    props: { generatedDocGen: deepCloneReplacingUndefined(generatedDocGen) },
+  };
 }
