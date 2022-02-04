@@ -5,7 +5,7 @@
   composes: fontWeightBold from './Typography.css';
   composes: white from './Colors.css';
   font-size: 10px;
-  height: fit-content;
+  height: min-content;
   margin-top: -4px;
   padding: 2px;
   white-space: nowrap;
