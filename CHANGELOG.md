@@ -1,3 +1,9 @@
+## 45.0.3 (Feb 4, 2022)
+
+### Patch
+
+- Video: use autogen props table (#1912)
+
 ## 45.0.2 (Feb 4, 2022)
 
 ### Patch
