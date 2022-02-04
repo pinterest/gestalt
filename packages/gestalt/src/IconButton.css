@@ -9,6 +9,14 @@
   outline: 0;
 }
 
+.parentButton {
+  composes: noBorder from "./Borders.css";
+  composes: p0 from "./Whitespace.css";
+  composes: paddingX0 from "./boxWhitespace.css";
+  composes: paddingY0 from "./boxWhitespace.css";
+  composes: transparentBg from "./Colors.css";
+}
+
 .enabled {
   composes: pointer from "./Cursor.css";
 }

@@ -230,7 +230,7 @@ exports[`Module renders an icon button correctly 1`] = `
         >
           <button
             aria-label="Get help"
-            className="button tapTransition enabled"
+            className="parentButton"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -246,27 +246,31 @@ exports[`Module renders an icon button correctly 1`] = `
             type="button"
           >
             <div
-              className="pog lightGray"
-              style={
-                Object {
-                  "height": 24,
-                  "width": 24,
-                }
-              }
+              className="button tapTransition enabled"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="icon darkGray iconBlock"
-                height={12}
-                role="img"
-                viewBox="0 0 24 24"
-                width={12}
+              <div
+                className="pog lightGray"
+                style={
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  }
+                }
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="icon darkGray iconBlock"
+                  height={12}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={12}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
           </button>
         </div>

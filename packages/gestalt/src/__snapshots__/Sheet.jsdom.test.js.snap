@@ -44,27 +44,31 @@ exports[`Sheet should render all props with nodes 1`] = `
               >
                 <button
                   aria-label="Dismiss"
-                  class="button tapTransition enabled"
+                  class="parentButton"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="pog white"
-                    style="height: 40px; width: 40px;"
+                    class="button tapTransition enabled"
                   >
-                    <svg
-                      aria-hidden="true"
-                      aria-label=""
-                      class="icon darkGray iconBlock"
-                      height="18"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="18"
+                    <div
+                      class="pog white"
+                      style="height: 40px; width: 40px;"
                     >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="icon darkGray iconBlock"
+                        height="18"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="18"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </button>
               </div>
@@ -137,27 +141,31 @@ exports[`Sheet should render all props with render props 1`] = `
               >
                 <button
                   aria-label="Dismiss"
-                  class="button tapTransition enabled"
+                  class="parentButton"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="pog white"
-                    style="height: 40px; width: 40px;"
+                    class="button tapTransition enabled"
                   >
-                    <svg
-                      aria-hidden="true"
-                      aria-label=""
-                      class="icon darkGray iconBlock"
-                      height="18"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="18"
+                    <div
+                      class="pog white"
+                      style="height: 40px; width: 40px;"
                     >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="icon darkGray iconBlock"
+                        height="18"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="18"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </button>
               </div>
@@ -221,27 +229,31 @@ exports[`Sheet should render animation in 1`] = `
             >
               <button
                 aria-label="Dismiss"
-                class="button tapTransition enabled"
+                class="parentButton"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="pog white"
-                  style="height: 40px; width: 40px;"
+                  class="button tapTransition enabled"
                 >
-                  <svg
-                    aria-hidden="true"
-                    aria-label=""
-                    class="icon darkGray iconBlock"
-                    height="18"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="18"
+                  <div
+                    class="pog white"
+                    style="height: 40px; width: 40px;"
                   >
-                    <path
-                      d="test-file-stub"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      aria-label=""
+                      class="icon darkGray iconBlock"
+                      height="18"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="18"
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </button>
             </div>
@@ -288,27 +300,31 @@ exports[`Sheet should render animation out 1`] = `
             >
               <button
                 aria-label="Dismiss"
-                class="button tapTransition enabled"
+                class="parentButton"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="pog white"
-                  style="height: 40px; width: 40px;"
+                  class="button tapTransition enabled"
                 >
-                  <svg
-                    aria-hidden="true"
-                    aria-label=""
-                    class="icon darkGray iconBlock"
-                    height="18"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="18"
+                  <div
+                    class="pog white"
+                    style="height: 40px; width: 40px;"
                   >
-                    <path
-                      d="test-file-stub"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      aria-label=""
+                      class="icon darkGray iconBlock"
+                      height="18"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="18"
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </button>
             </div>
