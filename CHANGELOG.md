@@ -1,3 +1,9 @@
+## 45.0.2 (Feb 4, 2022)
+
+### Patch
+
+- Dropdown: replace old URL in docs (#1918)
+
 ## 45.0.1 (Feb 3, 2022)
 
 ### Patch
