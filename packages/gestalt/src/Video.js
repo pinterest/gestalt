@@ -1,13 +1,11 @@
 // @flow strict
-import type { Node } from 'react';
+import { PureComponent, type Node } from 'react';
 import classnames from 'classnames';
-import { PureComponent } from 'react';
 import VideoControls from './VideoControls.js';
 import ColorSchemeProvider from './contexts/ColorSchemeProvider.js';
 import styles from './Video.css';
 import colors from './Colors.css';
 import Box from './Box.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Source =
   | string
@@ -21,56 +19,188 @@ type CrossOrigin = 'anonymous' | 'use-credentials';
 type BackgroundColor = 'black' | 'transparent';
 
 type Props = {|
+  /**
+   * Accessibility label for the button to hide captions if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityHideCaptionsLabel?: string,
+  /**
+   * Accessibility label for the button to show captions if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityShowCaptionsLabel?: string,
+  /**
+   * Accessibility label for the fullscreen maximize button if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityMaximizeLabel: string,
+  /**
+   * Accessibility label for the fullscreen minimize button if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityMinimizeLabel: string,
+  /**
+   * Accessibility label for the mute button if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityMuteLabel: string,
+  /**
+   * Accessibility label for the pause button if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityPauseLabel: string,
+  /**
+   * Accessibility label for the play button if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityPlayLabel: string,
+  /**
+   * Accessibility label for progress bar. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityProgressBarLabel: string,
+  /**
+   * Accessibility label for the unmute button if controls are shown. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   accessibilityUnmuteLabel: string,
+  /**
+   * Proportional relationship between width and height of the video, calculated as width / height.
+   */
   aspectRatio: number,
+  /**
+   * Background color used to fill the video's placeholder.
+   */
   backgroundColor: BackgroundColor,
+  /**
+   * The URL of the captions track for the video (.vtt file).
+   */
   captions: string,
-  crossOrigin?: CrossOrigin,
+  /**
+   * This \`children\` prop is not same as children inside the native html \`video\` element.
+   * Instead it serves to add overlays on top of the html video element, while still being under the video controls. See [children example](https://gestalt.pinterest.systems/video#video-with-children) for more details.
+   */
   children?: Node,
+  /**
+   * Designate CORS behavior for the video element. When not passed in, CORS checks are disabled.
+   */
+  crossOrigin?: CrossOrigin,
+  /**
+   * Show the video player controls. See [controls example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
   controls?: boolean,
+  /**
+   * Disable remote playback. See [MDN Web Docs: disableRemotePlayback](https://gestalt.pinterest.systems/videohttps://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback) for more info.
+   */
   disableRemotePlayback?: boolean,
+  /**
+   * Indicates if the video will start playing over again when finished.
+   */
   loop?: boolean,
+  /**
+   * Sets how the content of the replaced `<video>` element should be resized to fit its container.
+   */
   objectFit?: ObjectFit,
+  /**
+   * Callback triggered when the metadata has loaded or changed, indicating a change in duration. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
   onDurationChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
   |}) => void,
-  onEnded?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onError?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onFullscreenChange?: AbstractEventHandler<Event, {| fullscreen: boolean |}>,
-  onLoadedChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| loaded: number |}>,
-  onLoadStart?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
-  onPlaying?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onPause?: AbstractEventHandler<
-    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  >,
-  onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onSeeking?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onStalled?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onTimeChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| time: number |}>,
-  onVolumeChange?: AbstractEventHandler<
-    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-    {| volume: number |},
-  >,
-  onWaiting?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  /**
+   * Callback triggered when playback of the video completes. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onEnded?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when an error occurs. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onError?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when the video full screen status changes. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
+  /**
+   * Callback triggered when progress happens on downloading the media. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onLoadedChange?: ({| event: SyntheticEvent<HTMLVideoElement>, loaded: number |}) => void,
+  /**
+   * Callback triggered when the media has started to load. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onLoadStart?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when playback of the media starts after having been paused. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onPlay?: ({|
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+  |}) => void,
+  /**
+   * Callback triggered when playback of the media is ready to start after having been paused. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onPlaying?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when mouse down event occurs on playhead. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onPlayheadDown?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  /**
+   * Callback triggered when mouse up event occurs on playhead. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onPlayheadUp?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  /**
+   * Callback triggered when playback is paused. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onPause?: ({|
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+  |}) => void,
+  /**
+   * Callback triggered when video is loaded and ready to play. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onReady?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when a seek operation completes from the playhead. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onSeek?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when a seek operation begins. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onSeeking?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when trying to fetch data but the data is unexpectedly not forthcoming. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onStalled?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when the time indicated by the element's currentTime attribute has changed. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onTimeChange?: ({| event: SyntheticEvent<HTMLVideoElement>, time: number |}) => void,
+  /**
+   * Callback triggered when the audio volume changes. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onVolumeChange?: ({|
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+    volume: number,
+  |}) => void,
+  /**
+   * Callback triggered when playback has stopped because of a temporary lack of data. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
+  onWaiting?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Specifies the speed at which the video plays: 1 for normal.  See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
+   */
   playbackRate: number,
+  /**
+   * Specifies whether the video should play or not.
+   */
   playing: boolean,
+  /**
+   * Serves as a hint to the user agent that the video should to be displayed "inline" in the document by default, constrained to the element's playback area, instead of being displayed fullscreen or in an independent resizable window. This attribute is mainly relevant to iOS Safari browsers.
+   */
   playsInline?: boolean,
+  /**
+   * The image to show while the video is loading.
+   */
   poster?: string,
+  /**
+   * Specifies how, if at all, the video should be pre-loaded when the page loads.
+   */
   preload: 'auto' | 'metadata' | 'none',
+  /**
+   * The URL of the video file to play. This can also be supplied as a list of video types to respective video source urls in fallback order for support on various browsers. See [multiple sources example](https://gestalt.pinterest.systems/video#Video-multiple-sources) for more details.
+   */
   src: Source,
+  /**
+   * Specifies the volume of the video audio: 0 for muted, 1 for max. See [example](https://gestalt.pinterest.systems/video#nativeVideoAttributesExample) for more details.
+   */
   volume: number,
 |};
 
@@ -174,7 +304,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 };
 
 /**
- * Like an Image, [Video](https://gestalt.pinterest.systems/video) is used for media layout. This component is supercharged with lots of goodies to turn a regular video in a full blown viewing experience.
+ * Like Image, [Video](https://gestalt.pinterest.systems/video) is used for media layout. This component is supercharged with lots of goodies to turn a regular video in a full blown viewing experience.
  */
 export default class Video extends PureComponent<Props, State> {
   video: ?HTMLVideoElement;
@@ -190,15 +320,15 @@ export default class Video extends PureComponent<Props, State> {
     volume: number,
   |} = {
     disableRemotePlayback: false,
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     backgroundColor: 'black',
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     playbackRate: 1,
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     playing: false,
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     preload: 'auto',
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     volume: 0,
   };
 

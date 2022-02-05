@@ -1,3 +1,45 @@
+## 45.0.3 (Feb 4, 2022)
+
+### Patch
+
+- Video: use autogen props table (#1912)
+
+## 45.0.2 (Feb 4, 2022)
+
+### Patch
+
+- Dropdown: replace old URL in docs (#1918)
+
+## 45.0.1 (Feb 3, 2022)
+
+### Patch
+
+- Dropdown: prefixed private props (index) with underscore (#1900)
+
+## 45.0.0 (Feb 3, 2022)
+
+### Major
+
+- Popover: rename handleOnKeyDown to onKeyDown and standardize event type (#1909)
+
+## 44.0.5 (Feb 3, 2022)
+
+### Patch
+
+- Internal: upgrade eslint react plugins (#1902)
+
+## 44.0.4 (Feb 3, 2022)
+
+### Patch
+
+- Internal: upgrade eslint to 8.8.0 (#1905)
+
+## 44.0.3 (Feb 3, 2022)
+
+### Patch
+
+- Internal: upgrade flow-bin to 0.171.0 (#1901)
+
 ## 44.0.2 (Feb 3, 2022)
 
 ### Patch

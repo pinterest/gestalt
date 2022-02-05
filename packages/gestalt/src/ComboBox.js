@@ -300,7 +300,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   // ==== EVENT HANDLING: Popover ====
 
   const handleKeyDown = useCallback(
-    (event) => {
+    ({ event }) => {
       const { keyCode } = event;
 
       if (keyCode === UP_ARROW) {
@@ -445,7 +445,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         <Layer>
           <Popover
             anchor={innerRef.current}
-            handleKeyDown={handleKeyDown}
+            onKeyDown={handleKeyDown}
             idealDirection="down"
             onDismiss={handleOnDismiss}
             positionRelativeToAnchor={false}
