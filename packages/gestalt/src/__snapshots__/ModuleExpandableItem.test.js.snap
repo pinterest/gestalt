@@ -154,11 +154,11 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
                       }
                     }
                   >
-                    <span
+                    <div
                       className="Badge middle blueBg"
                     >
                       Try it out!
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
