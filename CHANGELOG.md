@@ -1,3 +1,9 @@
+## 45.1.1 (Feb 7, 2022)
+
+### Patch
+
+- Docs: Remove disabled accessibility tests (#1920)
+
 ## 45.1.0 (Feb 7, 2022)
 
 ### Minor
