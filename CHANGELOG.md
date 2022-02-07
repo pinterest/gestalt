@@ -1,3 +1,9 @@
+## 45.1.0 (Feb 7, 2022)
+
+### Minor
+
+- Badge: fix layout issues (#1899)
+
 ## 45.0.5 (Feb 7, 2022)
 
 ### Patch
