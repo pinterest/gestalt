@@ -10,21 +10,27 @@ function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
 }
 
-/**
- * https://gestalt.pinterest.systems/module
- */
-export default function ModuleExpandable({
-  accessibilityExpandLabel,
-  accessibilityCollapseLabel,
-  expandedIndex,
-  id,
-  items,
-  onExpandedChange,
-}: {|
+type Props = {|
+  /**
+   * Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   *
+   */
   accessibilityCollapseLabel: string,
+  /**
+   * Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   */
   accessibilityExpandLabel: string,
+  /**
+   * The 0-based index indicating the item that should currently be expanded. This must be updated via `onExpandedChange` to ensure the correct item is expanded. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   */
   expandedIndex?: ?number,
+  /**
+   * Unique id to identify this Module. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   */
   id: string,
+  /**
+   * Array of modules displayed in a stack. Only one item can be expanded at a time. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   */
   items: $ReadOnlyArray<{|
     badgeText?: string,
     children?: Node,
@@ -35,8 +41,24 @@ export default function ModuleExpandable({
     title: string,
     type?: 'error' | 'info',
   |}>,
+  /**
+   * Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   */
   onExpandedChange?: (?number) => void,
-|}): Node {
+|};
+
+/**
+ * Standalone subcomponent of [Module](https://gestalt.pinterest.systems/module).
+ * Use [Module.Expandable](https://gestalt.pinterest.systems/module) if your module requires expanding and collapsing content.
+ */
+export default function ModuleExpandable({
+  accessibilityExpandLabel,
+  accessibilityCollapseLabel,
+  expandedIndex,
+  id,
+  items,
+  onExpandedChange,
+}: Props): Node {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
 
   useEffect(() => {
