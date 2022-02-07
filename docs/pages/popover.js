@@ -352,7 +352,7 @@ function PopoverExample() {
   }, []);
 
   return (
-    <React.Fragment>
+    <div>
       <IconButton
         accessibilityLabel="Default IconButton"
         iconColor="darkGray"
@@ -379,7 +379,7 @@ function PopoverExample() {
             </Box>
           </Popover>
         </Layer>}
-    </React.Fragment>
+    </div>
   );
 }`}
           />
