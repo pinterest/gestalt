@@ -54,7 +54,7 @@ const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
   dropdownChildren.map((child, idx) => {
     if (dropdownItemDisplayNames.includes(child.type.displayName)) {
       const index = idx + idxBase;
-      return cloneElement(child, { index });
+      return cloneElement(child, { _index: index });
     }
     return child;
   });
