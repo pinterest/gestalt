@@ -108,7 +108,7 @@ export default function GeneratedPropTable({
         .replace(/ComponentType/g, 'React.ComponentType')
         // Replace "Element" with "React.Element" to match docs convention
         // Includes `<` to avoid picking up `HTMLDivElement` and similar
-        .replace(/Element</g, 'React.Element<')
+        .replace(/^Element</g, 'React.Element<')
         // Replace "Ref" with "React.Ref" to match docs convention
         // Includes `<` to avoid picking up `HTMLDivElement` and similar
         .replace(/Ref</g, 'React.Ref<');

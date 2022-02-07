@@ -4,26 +4,43 @@ import cx from 'classnames';
 import styles from './Table.css';
 
 type Props = {|
+  /**
+   * The content of the table cell.
+   */
   children: Node,
+  /**
+   * `colSpan` defines the number of columns a cell should span.
+   */
   colSpan?: number,
+  /**
+   * `rowSpan` defines the number of rows a cell should span.
+   */
   rowSpan?: number,
+  /**
+   * Private prop required for sticky columns
+   */
   shouldBeSticky?: boolean,
+  /**
+   * Private prop required for sticky columns
+   */
   shouldHaveShadow?: boolean,
+  /**
+   * Private prop required for sticky columns
+   */
   previousTotalWidth?: number,
 |};
 
 /**
- * https://gestalt.pinterest.systems/table
+ * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
  */
-export default function TableCell(props: Props): Node {
-  const {
-    children,
-    colSpan,
-    rowSpan,
-    shouldBeSticky,
-    previousTotalWidth,
-    shouldHaveShadow,
-  } = props;
+export default function TableCell({
+  children,
+  colSpan,
+  rowSpan,
+  shouldBeSticky,
+  previousTotalWidth,
+  shouldHaveShadow,
+}: Props): Node {
   const cs = cx(
     styles.td,
     shouldBeSticky && styles.columnSticky,
