@@ -8,10 +8,6 @@ describe('Upsell Accessibility check', () => {
     cy.configureAxe({
       rules: [
         {
-          id: 'scrollable-region-focusable',
-          enabled: false,
-        },
-        {
           id: 'color-contrast',
           enabled: false,
         },
