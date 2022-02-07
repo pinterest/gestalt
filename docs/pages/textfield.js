@@ -140,16 +140,18 @@ function Example(props) {
   const [value, setValue] = React.useState('');
 
   return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="username"
-        id="best-practices-dont-label"
-        label=""
-        onChange={({ value }) => setValue(value)}
-        type="username"
-        value={value}
-      />
-    </Box>
+    <div className="cypress-skip-a11y">
+      <Box padding={2} color="white">
+        <TextField
+          autoComplete="username"
+          id="best-practices-dont-label"
+          label=""
+          onChange={({ value }) => setValue(value)}
+          type="username"
+          value={value}
+        />
+      </Box>
+    </div>
   );
 }
             `}

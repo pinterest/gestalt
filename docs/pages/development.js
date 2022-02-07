@@ -227,6 +227,19 @@ yarn jest -u
                   />
                 </li>
                 <li>
+                  <Text>
+                    Run Cypress accessibility integration tests. If any documentation examples are
+                    expected to fail accessibility testing, wrap the example in a container with{' '}
+                    <code>className=&quot;cypress-a11y-skip&quot;</code>.
+                  </Text>
+                  <Markdown
+                    text="
+~~~bash
+yarn cypress open
+~~~"
+                  />
+                </li>
+                <li>
                   <Text>Update CSS flow types.</Text>
                   <Markdown
                     text="

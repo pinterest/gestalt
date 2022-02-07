@@ -39,7 +39,7 @@ export default function IconPage(): Node {
   };
 
   const ClickableIcon = ({ iconName }: {| iconName: string |}) => (
-    <Tooltip text={iconName}>
+    <Tooltip text={iconName} accessibilityLabel="">
       <TapArea
         rounding="circle"
         tapStyle="compress"
@@ -56,7 +56,7 @@ export default function IconPage(): Node {
       >
         <Box padding={2}>
           {/* $FlowFixMe[prop-missing] */}
-          <Icon color="darkGray" accessibilityLabel="" icon={iconName} />
+          <Icon color="darkGray" accessibilityLabel={iconName} icon={iconName} />
         </Box>
       </TapArea>
     </Tooltip>
