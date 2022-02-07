@@ -1,3 +1,9 @@
+## 45.0.5 (Feb 7, 2022)
+
+### Patch
+
+- IconButton: refactor to fix Dropdown positioning shift on rerender #1914
+
 ## 45.0.4 (Feb 7, 2022)
 
 ### Patch
