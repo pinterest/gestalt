@@ -91,10 +91,6 @@ type Props = {|
 - 'self' opens an anchor in the same frame.
    */
   target?: null | 'self' | 'blank',
-  /**
-   * Private prop. When `disabled` is supplied, the href prop in the anchor tag is set to undefined. To be deprecated.
-   */
-  disabled?: boolean,
 |};
 
 /**
@@ -120,7 +116,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     hoverStyle = 'underline',
     tapStyle = 'none',
     target = null,
-    disabled,
   }: Props,
   ref,
 ): Element<'a'> {
@@ -177,7 +172,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       aria-label={accessibilityLabel}
       aria-selected={accessibilitySelected}
       className={className}
-      href={disabled ? undefined : href}
+      href={href}
       id={id}
       onBlur={(event) => {
         handleBlur();
