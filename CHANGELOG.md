@@ -1,3 +1,9 @@
+## 45.2.2 (Feb 8, 2022)
+
+### Patch
+
+- ComboBox: add reference to Typeahead (#1929)
+
 ## 45.2.1 (Feb 8, 2022)
 
 ### Patch
