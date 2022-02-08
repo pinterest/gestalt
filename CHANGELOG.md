@@ -1,3 +1,9 @@
+## 45.1.2 (Feb 8, 2022)
+
+### Patch
+
+- Revert "Dropdown: prefixed private props (index) with underscore (#1900)" (#1923)
+
 ## 45.1.1 (Feb 7, 2022)
 
 ### Patch
