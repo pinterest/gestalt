@@ -209,11 +209,11 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             >
                               , 
                             </div>
-                            <span
+                            <div
                               class="Badge middle blueBg"
                             >
                               New
-                            </span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -271,11 +271,11 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               >
                                 , 
                               </div>
-                              <span
+                              <div
                                 class="Badge middle blueBg"
                               >
                                 New
-                              </span>
+                              </div>
                             </div>
                           </div>
                         </div>

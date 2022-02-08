@@ -101,7 +101,12 @@ export default function GeneratedPropTable({
       );
 
       // Trim leading `|`
-      const transformedType = (flowType.raw?.replace(/^\|/, '').trim() ?? flowType.name ?? '')
+      const transformedType = (
+        flowType.raw?.replace(/^\|/, '').trim() ??
+        flowType?.value ??
+        flowType.name ??
+        ''
+      )
         // Replace "Node" with "React.Node" to match docs convention
         .replace(/Node/g, 'React.Node')
         // Replace "ComponentType" with "React.ComponentType" to match docs convention

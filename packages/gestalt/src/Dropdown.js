@@ -75,7 +75,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       return [...acc, childWithIndex];
     }
     if (dropdownItemDisplayNames.includes(childDisplayName)) {
-      const childWithIndex = cloneElement(child, { _index: numItemsRendered });
+      const childWithIndex = cloneElement(child, { index: numItemsRendered });
       numItemsRendered += 1;
       return [...acc, childWithIndex];
     }
@@ -85,11 +85,11 @@ const renderChildrenWithIndex = (childrenArray) => {
 
 type Props = {|
   /**
-   * Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](https://gestalt.netlify.app/dropdown#Accessibility) guidelines to learn more.
+   * Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](https://gestalt.pinterest.systems/dropdown#Accessibility) guidelines to learn more.
    */
   anchor?: ?HTMLElement,
   /**
-   * Must be instances of [Dropdown.Item](https://gestalt.netlify.app/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.netlify.app/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.netlify.app/dropdown#Sections) components. See the [Types of items](https://gestalt.netlify.app/dropdown#Types-of-items) variant to learn more.
+   * Must be instances of [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.pinterest.systems/dropdown#Sections) components. See the [Types of items](https://gestalt.pinterest.systems/dropdown#Types-of-items) variant to learn more.
    */
   children: Node,
   /**
@@ -97,11 +97,11 @@ type Props = {|
    */
   isWithinFixedContainer?: boolean,
   /**
-   * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.netlify.app/dropdown#Custom-header) variant to learn more.
+   * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.pinterest.systems/dropdown#Custom-header) variant to learn more.
    */
   headerContent?: Node,
   /**
-   * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.netlify.app/dropdown#Accessibility) purposes.
+   * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.pinterest.systems/dropdown#Accessibility) purposes.
    */
   id: string,
   /**
@@ -113,7 +113,7 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.netlify.app/zindex_classes)
+   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/zindex_classes)
    */
   zIndex?: Indexable,
 |};

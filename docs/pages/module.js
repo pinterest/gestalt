@@ -1,19 +1,22 @@
 // @flow strict
 import type { Node } from 'react';
 import { Module } from 'gestalt';
-import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
-import docgen from '../components/docgen.js';
+import { multipledocgen } from '../components/docgen.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import type { DocGen } from '../components/docgen.js';
 
-export default function ModulePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ModulePage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   return (
     <Page title="Module">
-      <PageHeader name="Module" description={generatedDocGen?.description} />
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <PageHeader name="Module" description={generatedDocGen.Module?.description} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.Module} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -40,70 +43,13 @@ export default function ModulePage({ generatedDocGen }: {| generatedDocGen: DocG
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Subcomponents" />
-      <PropTable
-        Component={Module?.Expandable}
+      <GeneratedPropTable
+        Component={Module.Expandable}
         name="Module.Expandable"
-        id="expandable-module"
-        props={[
-          {
-            name: 'accessibilityExpandLabel',
-            href: 'expandable-default',
-            type: 'string',
-            required: true,
-            description:
-              'Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module". Be sure to localize the label.',
-          },
-          {
-            name: 'accessibilityCollapseLabel',
-            href: 'expandable-default',
-            type: 'string',
-            required: true,
-            description:
-              'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label.',
-          },
-          {
-            name: 'expandedIndex',
-            type: '?number',
-            required: false,
-            description: [
-              'The 0-based index indicating the item that should currently be expanded. This must be updated via onExpandedChange to ensure the correct item is expanded.',
-            ],
-          },
-          {
-            name: 'id',
-            href: 'expandable-default',
-            type: 'string',
-            required: true,
-            description: 'Unique id to identify this Module',
-          },
-          {
-            name: 'items',
-            href: 'expandable-items',
-            type: `
-        Array<{|
-          badgeText?: string,
-          children: ?React.Node,
-          icon?: $Keys<typeof icons>,
-          iconAccessibilityLabel?: string,
-          iconButton?: Element<typeof IconButton>,
-          summary?: Array<string>,
-          title: string,
-          type?: "info" | "error" |}>
-        `,
-            required: true,
-            description:
-              'Array of modules displayed in a stack. Only one item can be expanded at a time.',
-          },
-          {
-            name: 'onExpandedChange',
-            type: '(?number) => void',
-            required: false,
-            description: [
-              'Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded.',
-            ],
-          },
-        ]}
+        id="Module.Expandable"
+        generatedDocGen={generatedDocGen.ModuleExpandable}
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Static"
@@ -521,11 +467,13 @@ function ModuleExample5() {
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const generatedDocGen = await docgen({ componentName: 'Module' });
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const docgen = await multipledocgen({ componentName: ['Module', 'ModuleExpandable'] });
 
-  generatedDocGen.props.icon = {
-    ...generatedDocGen.props.icon,
+  docgen.Module.props.icon = {
+    ...docgen.Module.props.icon,
     flowType: {
       name: 'string',
       raw: 'Icon[icon]',
@@ -533,6 +481,6 @@ export async function getServerSideProps(): Promise<{| props: {| generatedDocGen
   };
 
   return {
-    props: { generatedDocGen },
+    props: { generatedDocGen: docgen },
   };
 }

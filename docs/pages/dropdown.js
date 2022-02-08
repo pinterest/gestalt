@@ -77,7 +77,7 @@ export default function DropdownPage({
         );
       }`}
       />
-      <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} excludeProps={['index']} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -551,12 +551,14 @@ function TruncationDropdownExample() {
         name="Dropdown.Item"
         id="Dropdown.Item"
         generatedDocGen={generatedDocGen.DropdownItem}
+        excludeProps={['index']}
       />
       <GeneratedPropTable
         Component={Dropdown?.Link}
         name="Dropdown.Link"
         id="Dropdown.Link"
         generatedDocGen={generatedDocGen.DropdownLink}
+        excludeProps={['index']}
       />
       <GeneratedPropTable
         Component={Dropdown?.Section}
