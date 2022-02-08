@@ -54,7 +54,7 @@ const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
   dropdownChildren.map((child, idx) => {
     if (dropdownItemDisplayNames.includes(child.type.displayName)) {
       const index = idx + idxBase;
-      return cloneElement(child, { index });
+      return cloneElement(child, { _index: index });
     }
     return child;
   });
@@ -75,7 +75,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       return [...acc, childWithIndex];
     }
     if (dropdownItemDisplayNames.includes(childDisplayName)) {
-      const childWithIndex = cloneElement(child, { index: numItemsRendered });
+      const childWithIndex = cloneElement(child, { _index: numItemsRendered });
       numItemsRendered += 1;
       return [...acc, childWithIndex];
     }
