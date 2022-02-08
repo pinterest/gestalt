@@ -17,7 +17,7 @@ exports[`renders correctly 1`] = `
       aria-controls="expandableRow"
       aria-expanded={false}
       aria-label="Expand"
-      className="parentButton"
+      className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -33,31 +33,27 @@ exports[`renders correctly 1`] = `
       type="button"
     >
       <div
-        className="button tapTransition enabled"
-      >
-        <div
-          className="pog transparent"
-          style={
-            Object {
-              "height": 24,
-              "width": 24,
-            }
+        className="pog transparent"
+        style={
+          Object {
+            "height": 24,
+            "width": 24,
           }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={12}
+          role="img"
+          viewBox="0 0 24 24"
+          width={12}
         >
-          <svg
-            aria-hidden={true}
-            aria-label=""
-            className="icon darkGray iconBlock"
-            height={12}
-            role="img"
-            viewBox="0 0 24 24"
-            width={12}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
     </button>
   </td>
@@ -84,7 +80,7 @@ exports[`renders correctly with explicit hover 1`] = `
       aria-controls="expandableRow"
       aria-expanded={false}
       aria-label="Expand"
-      className="parentButton"
+      className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -100,31 +96,27 @@ exports[`renders correctly with explicit hover 1`] = `
       type="button"
     >
       <div
-        className="button tapTransition enabled"
-      >
-        <div
-          className="pog transparent"
-          style={
-            Object {
-              "height": 24,
-              "width": 24,
-            }
+        className="pog transparent"
+        style={
+          Object {
+            "height": 24,
+            "width": 24,
           }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={12}
+          role="img"
+          viewBox="0 0 24 24"
+          width={12}
         >
-          <svg
-            aria-hidden={true}
-            aria-label=""
-            className="icon darkGray iconBlock"
-            height={12}
-            role="img"
-            viewBox="0 0 24 24"
-            width={12}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
     </button>
   </td>
@@ -151,7 +143,7 @@ exports[`renders correctly without hover 1`] = `
       aria-controls="expandableRow"
       aria-expanded={false}
       aria-label="Expand"
-      className="parentButton"
+      className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -167,31 +159,27 @@ exports[`renders correctly without hover 1`] = `
       type="button"
     >
       <div
-        className="button tapTransition enabled"
-      >
-        <div
-          className="pog transparent"
-          style={
-            Object {
-              "height": 24,
-              "width": 24,
-            }
+        className="pog transparent"
+        style={
+          Object {
+            "height": 24,
+            "width": 24,
           }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={12}
+          role="img"
+          viewBox="0 0 24 24"
+          width={12}
         >
-          <svg
-            aria-hidden={true}
-            aria-label=""
-            className="icon darkGray iconBlock"
-            height={12}
-            role="img"
-            viewBox="0 0 24 24"
-            width={12}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
     </button>
   </td>

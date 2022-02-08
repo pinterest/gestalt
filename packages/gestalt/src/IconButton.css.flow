@@ -4,5 +4,4 @@ declare module.exports: {|
   +'button': string,
   +'disabled': string,
   +'enabled': string,
-  +'parentButton': string,
 |};
