@@ -329,7 +329,6 @@ export async function getServerSideProps(): Promise<{| props: {| generatedDocGen
     props: {
       generatedDocGen: await docgen({
         componentName: 'OnLinkNavigationProvider',
-        alternativeSubdirectory: '/packages/gestalt/src/contexts/OnLinkNavigationProvider.js',
       }),
     },
   };

@@ -20,6 +20,11 @@ function logSuccess(message) {
 }
 
 async function docgen(filePath) {
+  // Return if file is not supported (no js files and test files)
+  if (!filePath.match(/\.(js)$/i) || filePath.match(/\.(test\.js)$/i)) {
+    return;
+  }
+
   const contents = await fs.promises.readFile(filePath, 'utf-8');
 
   // Not all files have data to parse
@@ -36,25 +41,8 @@ async function docgen(filePath) {
 
     return parsed;
   } catch {
-    return null;
+    return;
   }
-}
-
-async function getFilesFromFolder(folder) {
-  const folderPath = path.join(root, folder);
-  const folderFiles = await fs.promises.readdir(folderPath);
-
-  const supportedFiles = [];
-
-  for (let i = 0; i < folderFiles.length; i += 1) {
-    // Filter no js files and test files
-    const fileName = folderFiles[i];
-    if (fileName.match(/\.(js)$/i) && !fileName.match(/\.(test\.js)$/i)) {
-      supportedFiles.push(path.join(folder, fileName));
-    }
-  }
-
-  return supportedFiles;
 }
 
 (async function generateComponentsMetadata() {
@@ -67,25 +55,31 @@ async function getFilesFromFolder(folder) {
 
   const data = {};
 
-  // Add files inside folders and filter unsoported files
-  for (let i = 0; i < folders.length; i += 1) {
-    const filesFromFolder = await getFilesFromFolder(folders[i]);
-    files.push(...filesFromFolder);
-  }
+  // Add files inside folders
+  await Promise.all(
+    folders.map(async (folder) => {
+      const folderFiles = await fs.promises.readdir(path.join(root, folder));
+      files.push(...folderFiles.map((fileName) => path.join(folder, fileName)));
+    }),
+  );
 
   // Generate docs for every file
-  for (let i = 0; i < files.length; i += 1) {
-    const doc = await docgen(path.join(root, files[i]));
+  await Promise.all(
+    files.map(async (file) => {
+      const doc = await docgen(path.join(root, file));
 
-    if (doc) {
-      const componentName = files[i].replace(/^.*[\\/]/, '').replace(/\.js/, '');
-      data[componentName] = doc;
-    }
-  }
+      if (doc) {
+        const componentName = file.replace(/^.*[\\/]/, '').replace(/\.js/, '');
+        data[componentName] = doc;
+      }
+    }),
+  );
 
-  const formatedData = prettier.format(JSON.stringify(data), { parser: 'json' });
+  const formatedData = prettier.format(`export default ${JSON.stringify(data)};`, {
+    parser: 'babel',
+  });
 
-  fs.writeFile(path.join(docsPath, `components/metadata.json`), formatedData, (err) => {
+  fs.writeFile(path.join(docsPath, `components/metadata.js`), formatedData, (err) => {
     if (err) {
       logError(err);
     } else {

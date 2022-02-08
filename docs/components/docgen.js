@@ -1,5 +1,5 @@
 // @flow strict
-import metadata from './metadata.json';
+import metadata from './metadata';
 
 export type DocGen = {|
   description: string,
@@ -22,22 +22,19 @@ export type DocGen = {|
   |},
 |};
 
-export default async function docgen({
-  componentName,
-}: {|
-  componentName: string,
-|}): Promise<DocGen> {
+export default function docgen({ componentName }: {| componentName: string |}): DocGen {
   return metadata[componentName];
 }
 
-export async function multipledocgen({
-  componentName,
-}: {|
-  componentName: Array<string> | string,
-|}): Promise<{| [string]: DocGen |}> {
+export function multipledocgen({ componentName }: {| componentName: Array<string> | string |}): {|
+  [string]: DocGen,
+|} {
   return Array.isArray(componentName)
     ? componentName.reduce(
-        (prevValue, currentValue) => ({ ...prevValue, [currentValue]: metadata[currentValue] }),
+        (prevValue: { [string]: DocGen }, currentComponentName: string) => ({
+          ...prevValue,
+          [currentComponentName]: docgen({ componentName: currentComponentName }),
+        }),
         {},
       )
     : metadata[componentName];
