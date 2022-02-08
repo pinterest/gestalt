@@ -53,8 +53,7 @@ type Props = {|
     | null,
   /**
    * Private prop used for accessibility purposes
-   */
-  _index?: number,
+   */ index?: number,
 |};
 
 /**
@@ -65,7 +64,7 @@ export default function DropdownItem({
   badgeText,
   children,
   dataTestId,
-  _index = 0,
+  index = 0,
   onSelect,
   option,
   selected,
@@ -78,8 +77,8 @@ export default function DropdownItem({
           dataTestId={dataTestId}
           hoveredItemIndex={hoveredItem}
           id={id}
-          index={_index}
-          key={`${option.value + _index}`}
+          index={index}
+          key={`${option.value + index}`}
           onSelect={onSelect}
           option={option}
           ref={setOptionRef}
