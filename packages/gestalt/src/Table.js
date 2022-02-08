@@ -33,7 +33,7 @@ type Props = {|
    */
   maxHeight?: number | string,
   /**
-   * Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](https://gestalt.pinterest.systems/table#Sticky-Column) variant for details.
+   * Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](https://gestalt.pinterest.systems/table#Sticky-Column), the [multiple sticky columns](https://gestalt.pinterest.systems/table#Multiple-sticky-columns), the [sticky header and columns](https://gestalt.pinterest.systems/table#Sticky-header-and-sticky-columns), the [expandable row with sticky columns](https://gestalt.pinterest.systems/table#Table-Row-Expandable-with-Sticky-Columns), and the [sortable header cells with sticky columns](https://gestalt.pinterest.systems/table#Sortable-header-cells-with-sticky-columns) variants for details.
    */
   stickyColumns?: ?number,
 |};

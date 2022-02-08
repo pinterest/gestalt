@@ -10,11 +10,11 @@ import { useTableContext } from './contexts/TableContext.js';
 
 type Props = {|
   /**
-   * Supply a short, descriptive label for screen-readers as a text alternative to the Expand button. Accessibility: It populates aria-label on the `<button>` element for the Expand button.
+   * Supply a short, descriptive label for screen-readers as a text alternative to the Expand button. Accessibility: It populates `aria-label` on the `<button>` element for the Expand button.
    */
   accessibilityExpandLabel: string,
   /**
-   * Supply a short, descriptive label for screen-readers as a text alternative to the Collapse button. Accessibility: It populates aria-label on the `<button> element` for the Collapse button.
+   * Supply a short, descriptive label for screen-readers as a text alternative to the Collapse button. Accessibility: It populates  `aria-label` on the `<button>` element for the Collapse button.
    */
   accessibilityCollapseLabel: string,
   /**
@@ -22,7 +22,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * The contents to show and/or hide
+   * The contents to show and/or hide on an expandable row.
    */
   expandedContents: Node,
   /**

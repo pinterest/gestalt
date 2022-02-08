@@ -9,7 +9,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * If true, the table header will be sticky and the table body will be scrollable.
+   * If true, the table header will be sticky and the table body will be scrollable. See the [sticky Header](https://gestalt.pinterest.systems/table#Sticky-header) and the [sticky header and columns](https://gestalt.pinterest.systems/table#v) variants for details.
    */
   sticky?: boolean,
 |};
