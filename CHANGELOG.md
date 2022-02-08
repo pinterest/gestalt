@@ -1,3 +1,9 @@
+## 45.2.0 (Feb 8, 2022)
+
+### Minor
+
+- Masonry: revert scroll state optimization (#1774) (#1917)
+
 ## 45.1.4 (Feb 8, 2022)
 
 ### Patch
