@@ -43,8 +43,7 @@ type Props = {|
   option: OptionItemType,
   /**
    * Private prop used for accessibility purposes
-   */
-  _index?: number,
+   */ index?: number,
 |};
 
 /**
@@ -56,7 +55,7 @@ export default function DropdownLink({
   children,
   dataTestId,
   href,
-  _index = 0,
+  index = 0,
   isExternal,
   onClick,
   option,
@@ -70,9 +69,9 @@ export default function DropdownLink({
           hoveredItemIndex={hoveredItem}
           href={href}
           id={id}
-          index={_index}
+          index={index}
           isExternal={isExternal}
-          key={`${option.value + _index}`}
+          key={`${option.value + index}`}
           onClick={onClick}
           option={option}
           role="menuitem"

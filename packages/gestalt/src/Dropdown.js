@@ -75,7 +75,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       return [...acc, childWithIndex];
     }
     if (dropdownItemDisplayNames.includes(childDisplayName)) {
-      const childWithIndex = cloneElement(child, { _index: numItemsRendered });
+      const childWithIndex = cloneElement(child, { index: numItemsRendered });
       numItemsRendered += 1;
       return [...acc, childWithIndex];
     }
