@@ -70,7 +70,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Accessible Tab Link"
-          description="Use `accessibilitySelected` and `role='Tab'` when using Link as a tab."
+          description={`Use \`accessibilitySelected\` and \`role="Tab"\` when using Link as a tab.`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -112,7 +112,7 @@ function TabExample() {
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Link and Text"
-          description="Use Link within [text](https://gestalt.pinterest.systems/text) to get the correct font and underline color."
+          description="Use Link within [Text](https://gestalt.pinterest.systems/text) to get the correct font and underline color."
         >
           <MainSection.Card
             cardSize="lg"
@@ -135,7 +135,7 @@ function TabExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="tapStyle and hoverStyle"
-          description="Use `accessibilitySelected` and `role='Tab'` when using Link as a tab."
+          description={`Use \`accessibilitySelected\` and \`role="Tab"\` when using Link as a tab.`}
         >
           <MainSection.Card
             cardSize="lg"

@@ -117,6 +117,7 @@ export default function GeneratedPropTable({
         // Replace "Ref" with "React.Ref" to match docs convention
         // Includes `<` to avoid picking up `HTMLDivElement` and similar
         .replace(/Ref</g, 'React.Ref<');
+
       return {
         name: key,
         type: typeOverride ?? transformedType,
