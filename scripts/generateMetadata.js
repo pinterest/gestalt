@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
-const prettier = require('prettier');
 
 const reactDocs = require('react-docgen');
 const fs = require('fs');
@@ -22,7 +21,7 @@ function logSuccess(message) {
 async function docgen(filePath) {
   // Return if file is not supported (no js files and test files)
   if (!filePath.match(/\.(js)$/i) || filePath.match(/\.(test\.js)$/i)) {
-    return;
+    return null;
   }
 
   const contents = await fs.promises.readFile(filePath, 'utf-8');
@@ -41,7 +40,7 @@ async function docgen(filePath) {
 
     return parsed;
   } catch {
-    return;
+    return null;
   }
 }
 
@@ -75,11 +74,9 @@ async function docgen(filePath) {
     }),
   );
 
-  const formatedData = prettier.format(`export default ${JSON.stringify(data)};`, {
-    parser: 'babel',
-  });
+  const fileContent = `const metadata = ${JSON.stringify(data)}; export default metadata;`;
 
-  fs.writeFile(path.join(docsPath, `components/metadata.js`), formatedData, (err) => {
+  fs.writeFile(path.join(docsPath, `components/metadata.js`), fileContent, (err) => {
     if (err) {
       logError(err);
     } else {

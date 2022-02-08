@@ -1,5 +1,5 @@
 // @flow strict
-import metadata from './metadata';
+import metadata from './metadata.js';
 
 export type DocGen = {|
   description: string,
@@ -26,7 +26,11 @@ export default function docgen({ componentName }: {| componentName: string |}): 
   return metadata[componentName];
 }
 
-export function multipledocgen({ componentName }: {| componentName: Array<string> | string |}): {|
+export function multipledocgen({
+  componentName,
+}: {|
+  componentName: Array<string> | string,
+|}): {|
   [string]: DocGen,
 |} {
   return Array.isArray(componentName)
