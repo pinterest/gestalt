@@ -286,7 +286,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="parentButton"
+      className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -302,31 +302,27 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
       type="button"
     >
       <div
-        className="button tapTransition enabled"
-      >
-        <div
-          className="pog transparent"
-          style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+        className="pog transparent"
+        style={
+          Object {
+            "height": 48,
+            "width": 48,
           }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
         >
-          <svg
-            aria-hidden={true}
-            aria-label=""
-            className="icon darkGray iconBlock"
-            height={16}
-            role="img"
-            viewBox="0 0 24 24"
-            width={16}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
     </button>
   </div>
