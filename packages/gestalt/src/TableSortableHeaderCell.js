@@ -64,14 +64,14 @@ type Props = {|
 export default function TableSortableHeaderCell({
   children,
   colSpan,
-  scope,
+  onSortChange,
+  previousTotalWidth,
   rowSpan,
+  scope,
+  shouldBeSticky,
+  shouldHaveShadow,
   status,
   sortOrder,
-  onSortChange,
-  shouldBeSticky,
-  previousTotalWidth,
-  shouldHaveShadow,
 }: Props): Node {
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);

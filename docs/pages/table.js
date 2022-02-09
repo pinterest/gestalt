@@ -2571,16 +2571,16 @@ export async function getStaticProps(): Promise<{|
   });
 
   docGen.Table.props.children.flowType.raw =
-    'React.ChildrenArray<React.Element< typeof Table.Body | typeof Table.Footer | typeof Table.Header >>';
-  docGen.TableHeader.props.children.flowType.raw = 'React.Element< typeof Table.Row >';
+    'React.ChildrenArray<React.Element<typeof Table.Body | typeof Table.Footer | typeof Table.Header>>';
+  docGen.TableHeader.props.children.flowType.raw = 'React.Element<typeof Table.Row>';
   docGen.TableBody.props.children.flowType.raw =
-    'React.ChildrenArray<React.Element< typeof Table.Row | typeof Table.RowExpandable >>';
+    'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
   docGen.TableFooter.props.children.flowType.raw =
-    'React.ChildrenArray<React.Element< typeof Table.Row | typeof Table.RowExpandable >>';
+    'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
   docGen.TableRow.props.children.flowType.raw =
-    'React.ChildrenArray<React.Element< typeof Table.Cell | typeof Table.HeaderCell | typeof Table.SortableHeaderCell >>';
+    'React.ChildrenArray<React.Element<typeof Table.Cell | typeof Table.HeaderCell | typeof Table.SortableHeaderCell>>';
   docGen.TableRowExpandable.props.children.flowType.raw =
-    'React.ChildrenArray<React.Element< typeof Table.Cell >>';
+    'React.ChildrenArray<React.Element<typeof Table.Cell>>';
 
   return {
     props: {

@@ -9,6 +9,22 @@ type Props = {|
    */
   children: Node,
   /**
+   * `colSpan` defines the number of columns a cell should span.
+   */
+  colSpan?: number,
+  /**
+   * Private prop required for sticky columns
+   */
+  previousTotalWidth?: number,
+  /**
+   * `rowSpan` defines the number of rows a cell should span.
+   */
+  rowSpan?: number,
+  /**
+   * The scope attribute specifies whether a header cell is a header for a column, row, or group of columns or rows. The scope attribute has no visual effect, but is used by screen readers and other assistive technologies.
+   */
+  scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
+  /**
    * Private prop required for sticky columns
    */
   shouldBeSticky?: boolean,
@@ -16,22 +32,6 @@ type Props = {|
    * Private prop required for sticky columns
    */
   shouldHaveShadow?: boolean,
-  /**
-   * `colSpan` defines the number of columns a cell should span.
-   */
-  colSpan?: number,
-  /**
-   * `rowSpan` defines the number of rows a cell should span.
-   */
-  rowSpan?: number,
-  /**
-   * The scope attribute specifies whether a header cell is a header for a column, row, or group of columns or rows. The scope attribute has no visual effect in ordinary web browsers, but can be used by screen readers.
-   */
-  scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
-  /**
-   * Private prop required for sticky columns
-   */
-  previousTotalWidth?: number,
 |};
 
 /**
@@ -41,10 +41,10 @@ type Props = {|
 export default function TableHeaderCell({
   children,
   colSpan,
-  scope,
-  rowSpan,
-  shouldBeSticky,
   previousTotalWidth,
+  rowSpan,
+  scope,
+  shouldBeSticky,
   shouldHaveShadow,
 }: Props): Node {
   const cs = cx(
