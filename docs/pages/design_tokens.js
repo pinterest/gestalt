@@ -23,6 +23,7 @@ const tokenCategories = [
   { name: 'Font size', category: 'font-size', id: 'font-size' },
   { name: 'Font weight', category: 'font-weight', id: 'font-weight' },
   { name: 'Font family', category: 'font-family', id: 'font-family' },
+  { name: 'Elevation', category: 'elevation', id: 'elevation' },
 ];
 
 const headers = ['CSS Token Name', 'Value', 'Dark Mode Value', 'Example'];

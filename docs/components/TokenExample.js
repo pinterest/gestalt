@@ -53,6 +53,20 @@ export const TextColorBox = ({ token }: BaseProps): Node => (
   </Box>
 );
 
+export const ElevationBox = ({ token }: BaseProps): Node => (
+  <Box
+    dangerouslySetInlineStyle={{
+      __style: { boxShadow: `var(--${token.name})` },
+    }}
+    height={50}
+    width={150}
+    display="flex"
+    alignItems="center"
+    justifyContent="between"
+    paddingX={2}
+  />
+);
+
 export const FontBox = ({ token, type }: FontBoxProps): Node => {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
@@ -94,6 +108,8 @@ export const TokenExample = ({ token, category }: ExampleProps): Node => {
       return <FontBox token={token} type="weight" />;
     case 'font-family':
       return <FontBox token={token} type="family" />;
+    case 'elevation':
+      return <ElevationBox token={token} />;
     default:
       return <Box>{token.value}</Box>;
   }

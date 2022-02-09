@@ -1,0 +1,19 @@
+{
+  "elevation": {
+    "floating": {
+      "value": "0 0 8px rgba(0, 0, 0, 0.10)",
+      "darkValue": "inherit",
+      "comment": "Used to highlight an item that floats above other content, like a Modal"
+    },
+    "raised": {
+      "top": {
+        "value": "0 2px 8px rgba(0, 0, 0, 0.12)",
+        "comment": "Used to indicate a sticky UI element where content can scroll underneath, like a header"
+      },
+      "bottom": {
+        "value": "0 -2px 8px rgba(0, 0, 0, 0.12)",
+        "comment": "Used to indicate a sticky UI element that sits on top of content, like a footer or navigation bar"
+      }
+    }
+  }
+}
