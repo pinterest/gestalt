@@ -46,7 +46,7 @@ export default function DatapointTrend({
         />
       )}
 
-      <Text size="200" color={color} weight="bold">
+      <Text size="md" color={color} weight="bold">
         {`${Math.abs(value)}%`}
       </Text>
     </Flex>

@@ -97,7 +97,7 @@ export default function Tag(props: Props): Node {
           )}
         </Box>
         <div className={typographyStyles.truncate} title={text}>
-          <Text color={fgColor} inline size="200">
+          <Text color={fgColor} inline size="md">
             {text}
           </Text>
         </div>

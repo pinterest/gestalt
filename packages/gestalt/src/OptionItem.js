@@ -109,7 +109,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
           )}
         </Flex>
         {option.subtext && (
-          <Text size="200" color="gray">
+          <Text size="md" color="gray">
             {option.subtext}
           </Text>
         )}

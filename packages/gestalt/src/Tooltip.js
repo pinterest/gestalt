@@ -145,7 +145,7 @@ export default function Tooltip({
               role="tooltip"
               tabIndex={0}
             >
-              <Text color="white" size="100">
+              <Text color="white" size="sm">
                 {text}
               </Text>
               {Boolean(link) && <Box marginTop={1}>{link}</Box>}

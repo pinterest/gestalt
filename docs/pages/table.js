@@ -1380,12 +1380,12 @@ function Example() {
   return (
     <Flex gap={2} direction="column">
       <Box aria-hidden>
-        <Heading
-          size="sm"
-          accessibilityLevel="none"
+        <Text
+          size="400"
+          weight="bold"
         >
           Your Campaigns Summary
-        </Heading>
+        </Text>
       </Box>
       <Table accessibilityLabel="Your campaigns summary">
         <HeaderRow id={tableID}/>

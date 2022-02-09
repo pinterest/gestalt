@@ -86,7 +86,7 @@ Internal components <Header> and <DismissButton>
 */
 const Header = ({ heading }: {| heading: string |}) => (
   <Box display="flex" justifyContent="start" padding={8}>
-    <Heading size="500" accessibilityLevel={1}>
+    <Heading size="md" accessibilityLevel={1}>
       {heading}
     </Heading>
   </Box>

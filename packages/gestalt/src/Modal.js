@@ -84,7 +84,7 @@ function Header({
 |}) {
   return (
     <Box justifyContent={align} padding={8}>
-      <Heading size="500" accessibilityLevel={1} align={align}>
+      <Heading size="md" accessibilityLevel={1} align={align}>
         {heading}
       </Heading>
       {subHeading && (

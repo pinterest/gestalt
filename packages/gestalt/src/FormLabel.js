@@ -14,7 +14,7 @@ export default function FormLabel({ id, label, labelDisplay }: Props): Node {
   return (
     <InternalLabel _labelDisplay={labelDisplay} htmlFor={id}>
       <div className={styles.formLabel}>
-        <Text size="100">{label}</Text>
+        <Text size="sm">{label}</Text>
       </div>
     </InternalLabel>
   );
