@@ -193,8 +193,20 @@
       "elevation": {
         "accent": {
           "value": "{color.gray.roboflow.100.value}",
-          "comment": "Background color used to accent containers when shadows are now an option "
+          "comment": "Background color used to accent containers when shadows are not an option "
         }
+      }
+    },
+    "border": {
+      "container": {
+        "value": "{color.gray.roboflow.300.value}",
+        "darkValue": "{color.gray.roboflow.600.value}",
+        "comment": "Used to delineate a larger container, like a card"
+      },
+      "default": {
+        "value": "{color.gray.roboflow.500.value}",
+        "darkValue": "{color.gray.roboflow.300.value}",
+        "comment": "Used to indicate specific UI element boundaries, like a TextField or SelectList"
       }
     }
   }

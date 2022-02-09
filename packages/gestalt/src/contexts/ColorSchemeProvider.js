@@ -111,9 +111,7 @@ const themeToStyles = (theme) => {
   });
   if (theme.name === 'darkMode') {
     Object.keys(darkColorDesignTokens).forEach((key) => {
-      if (key.startsWith('color')) {
-        styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
-      }
+      styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
     });
   }
 
