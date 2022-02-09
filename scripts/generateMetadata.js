@@ -64,7 +64,8 @@ const getFilesFromDirectory = (directoryPath) => {
 };
 
 (async function generateComponentsMetadata() {
-  // Specific files that need to be added outside gestalt/src folder
+  // Specific files that need to be added outside gestalt/src folder.
+  // When adding a new folder/file also add to dev-metadata command in package.json
   const extraFiles = ['/packages/gestalt-datepicker/src/DatePicker.js'];
 
   const files = [...getFilesFromDirectory('/packages/gestalt/src/'), ...extraFiles];
