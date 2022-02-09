@@ -1,3 +1,9 @@
+## 45.2.4 (Feb 9, 2022)
+
+### Patch
+
+- Link: deprecate private "disabled" prop + codemod (#1928)
+
 ## 45.2.3 (Feb 9, 2022)
 
 ### Patch
