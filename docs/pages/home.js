@@ -26,7 +26,7 @@ export default function HomePage(): Node {
             <Flex gap={8} alignItems="center">
               <Flex gap={6} direction="column">
                 <Heading>Gestalt is Pinterest&apos;s Design System.</Heading>
-                <Text>
+                <Text size="lg">
                   We’re here to help you build experiences that inspire people to create the life
                   they love.
                 </Text>
@@ -40,10 +40,7 @@ export default function HomePage(): Node {
             </Flex>
           </HomePageSection>
           {/* Getting Started */}
-          <HomePageSection
-            color={colorScheme === 'dark' ? 'blue-skycicle-900' : 'blue-skycicle-50'}
-            title="Getting started"
-          >
+          <HomePageSection title="Getting started">
             <HomePageCard
               href="/how_to_work_with_us"
               title="How to Work with Us"
@@ -69,10 +66,7 @@ export default function HomePage(): Node {
             />
           </HomePageSection>
           {/* Guidelines */}
-          <HomePageSection
-            color={colorScheme === 'dark' ? 'teal-spabattical-900' : 'teal-spabattical-50'}
-            title="Guidelines"
-          >
+          <HomePageSection title="Guidelines">
             <HomePageCard
               href="/accessibility"
               title="Accessibility"

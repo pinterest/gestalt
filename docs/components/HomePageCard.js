@@ -14,7 +14,7 @@ const HomePageCard = ({ image, description, title, color, href }: Props): Node =
   <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
     <Box minWidth={280}>
       <Card>
-        <Flex direction="column" height={360}>
+        <Flex direction="column" height={320}>
           <Box
             display="flex"
             alignItems="center"
@@ -24,7 +24,6 @@ const HomePageCard = ({ image, description, title, color, href }: Props): Node =
             dangerouslySetInlineStyle={{
               __style: {
                 backgroundColor: `var(--color-${color}-450)`,
-                borderRadius: '16px 16px 0 0',
               },
             }}
           >
@@ -33,15 +32,10 @@ const HomePageCard = ({ image, description, title, color, href }: Props): Node =
           <Box
             color="white"
             height="50%"
-            padding={6}
+            paddingY={6}
             display="flex"
             direction="column"
             justifyContent="start"
-            dangerouslySetInlineStyle={{
-              __style: {
-                borderRadius: ' 0 0 16px 16px',
-              },
-            }}
           >
             <Heading accessibilityLevel={3} size="sm">
               {title}

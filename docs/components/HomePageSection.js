@@ -3,12 +3,11 @@ import { Box, Flex, Heading } from 'gestalt';
 import type { Node } from 'react';
 
 type Props = {|
-  color: string,
   title?: string,
   children?: Node,
 |};
 
-const HomePageSection = ({ children, color, title }: Props): Node => (
+const HomePageSection = ({ children, title }: Props): Node => (
   <Box
     marginStart={-8}
     marginEnd={-8}
@@ -17,16 +16,11 @@ const HomePageSection = ({ children, color, title }: Props): Node => (
     paddingX={12}
     smPaddingX={2}
     mdPaddingX={8}
-    dangerouslySetInlineStyle={{
-      __style: {
-        backgroundColor: `var(--color-${color})`,
-      },
-    }}
-    paddingY={10}
+    marginBottom={10}
     justifyContent="center"
     display="flex"
   >
-    <Flex direction="column" gap={4} maxWidth={1200} width="100%">
+    <Flex direction="column" gap={6} maxWidth={1200} width="100%">
       {title && (
         <Heading accessibilityLevel={2} size="md">
           {title}
