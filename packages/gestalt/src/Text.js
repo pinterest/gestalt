@@ -73,7 +73,7 @@ type Props = {|
    */
   overflow?: Overflow,
   /**
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size). The "sm", "md", and "lg" values will soon be deprecated.
    *
    * Link: https://gestalt.pinterest.systems/text#size
    */
