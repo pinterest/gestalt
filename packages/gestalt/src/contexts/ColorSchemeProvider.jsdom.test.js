@@ -131,6 +131,11 @@ describe('ColorSchemeProvider', () => {
         --color-background-selected-base: #e9e9e9;
         --color-background-inverse-base: #111111;
         --color-background-education: #45a3fe;
+        --color-border-container: #4a4a4a;
+        --color-border-default: #cdcdcd;
+        --elevation-floating: none;
+        --elevation-raised-top: none;
+        --elevation-raised-bottom: none;
        }
       </style>
     `);
@@ -185,6 +190,11 @@ describe('ColorSchemeProvider', () => {
         --color-background-selected-base: #e9e9e9;
         --color-background-inverse-base: #111111;
         --color-background-education: #45a3fe;
+        --color-border-container: #4a4a4a;
+        --color-border-default: #cdcdcd;
+        --elevation-floating: none;
+        --elevation-raised-top: none;
+        --elevation-raised-bottom: none;
        }
       }
       </style>
