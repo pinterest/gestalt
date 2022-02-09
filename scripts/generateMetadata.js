@@ -44,37 +44,44 @@ async function docgen(filePath) {
   }
 }
 
+const getComponentNameFromFile = (file) => file.replace(/^.*[\\/]/, '').replace(/\.js/, '');
+
+// Get files recursively as an array
+const getFilesFromDirectory = (directoryPath) => {
+  const filesInDirectory = fs.readdirSync(path.join(root, directoryPath));
+  const files = filesInDirectory.map((file) => {
+    const filePath = path.join(directoryPath, file);
+    const stats = fs.statSync(path.join(root, filePath));
+
+    if (stats.isDirectory()) {
+      return getFilesFromDirectory(filePath);
+    }
+
+    return filePath;
+  });
+
+  return files.filter((file) => file.length).flat();
+};
+
 (async function generateComponentsMetadata() {
-  const folders = ['/packages/gestalt/src/'];
-  const files = [
-    '/packages/gestalt/src/contexts/ColorSchemeProvider.js',
-    '/packages/gestalt-datepicker/src/DatePicker.js',
-    '/packages/gestalt/src/contexts/OnLinkNavigationProvider.js',
-  ];
+  // Specific files that need to be added outside gestalt/src folder
+  const extraFiles = ['/packages/gestalt-datepicker/src/DatePicker.js'];
 
-  const data = {};
+  const files = [...getFilesFromDirectory('/packages/gestalt/src/'), ...extraFiles];
 
-  // Add files inside folders
-  await Promise.all(
-    folders.map(async (folder) => {
-      const folderFiles = await fs.promises.readdir(path.join(root, folder));
-      files.push(...folderFiles.map((fileName) => path.join(folder, fileName)));
-    }),
-  );
-
-  // Generate docs for every file
-  await Promise.all(
+  const parsedDataArray = await Promise.all(
     files.map(async (file) => {
-      const doc = await docgen(path.join(root, file));
-
-      if (doc) {
-        const componentName = file.replace(/^.*[\\/]/, '').replace(/\.js/, '');
-        data[componentName] = doc;
-      }
+      const parsedFile = await docgen(path.join(root, file));
+      return parsedFile ? { [getComponentNameFromFile(file)]: parsedFile } : null;
     }),
   );
 
-  const fileContent = `const metadata = ${JSON.stringify(data)}; export default metadata;`;
+  // Filter null and convert to object
+  const formattedData = parsedDataArray
+    .filter((data) => data)
+    .reduce((previousValue, currentValue) => ({ ...previousValue, ...currentValue }), {});
+
+  const fileContent = `const metadata = ${JSON.stringify(formattedData)}; export default metadata;`;
 
   fs.writeFile(path.join(docsPath, `components/metadata.js`), fileContent, (err) => {
     if (err) {

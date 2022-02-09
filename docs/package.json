@@ -5,7 +5,8 @@
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "scripts": {
-    "dev": "next dev",
+    "dev": "(next dev) & (yarn dev-metadata)",
+    "dev-metadata": "yarn watch 'yarn build-metadata' ../packages/gestalt/src",
     "build": "yarn build-metadata && next build",
     "build-metadata": "../scripts/generateMetadata.js",
     "start": "next start"
@@ -25,9 +26,8 @@
     "react-dom": "^17.0.1",
     "react-live": "^2.3.0"
   },
-  "browserslist": [
-    "last 2 versions",
-    "not IE < 11",
-    "not <1%"
-  ]
+  "browserslist": ["last 2 versions", "not IE < 11", "not <1%"],
+  "devDependencies": {
+    "watch": "^1.0.2"
+  }
 }
