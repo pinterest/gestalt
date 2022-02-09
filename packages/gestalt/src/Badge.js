@@ -28,5 +28,5 @@ export default function Badge({ position = 'middle', text }: Props): Node {
     [colors.darkGray]: colorSchemeName === 'darkMode',
   });
 
-  return <span className={cs}>{text}</span>;
+  return <div className={cs}>{text}</div>;
 }

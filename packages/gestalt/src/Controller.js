@@ -22,7 +22,7 @@ type OwnProps = {|
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
-  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
   id?: ?string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -81,11 +81,11 @@ class Controller extends Component<Props, State> {
   }
 
   handleKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void = (event) => {
-    const { handleKeyDown, onDismiss } = this.props;
+    const { onKeyDown, onDismiss } = this.props;
     if (event.keyCode === ESCAPE) {
       onDismiss();
     }
-    if (handleKeyDown) handleKeyDown(event);
+    if (onKeyDown) onKeyDown?.({ event });
   };
 
   handlePageClick: (event: Event) => void = (event) => {

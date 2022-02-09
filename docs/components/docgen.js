@@ -21,6 +21,7 @@ export type DocGen = {|
         raw?: string,
         nullable?: boolean,
         name: string,
+        value?: string,
       |},
     |},
   |},

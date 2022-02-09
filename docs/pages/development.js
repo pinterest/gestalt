@@ -227,6 +227,23 @@ yarn jest -u
                   />
                 </li>
                 <li>
+                  <Text>
+                    Run{' '}
+                    <Link href="https://github.com/component-driven/cypress-axe" inline>
+                      <Text weight="bold">Cypress accessibility integration tests</Text>
+                    </Link>
+                    . If any documentation examples are expected to fail accessibility testing, wrap
+                    the example in a container with{' '}
+                    <code>className=&quot;cypress-a11y-skip&quot;</code>.
+                  </Text>
+                  <Markdown
+                    text="
+~~~bash
+yarn cypress open
+~~~"
+                  />
+                </li>
+                <li>
                   <Text>Update CSS flow types.</Text>
                   <Markdown
                     text="
