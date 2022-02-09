@@ -23,6 +23,7 @@ const tokenCategories = [
   { name: 'Font size', category: 'font-size', id: 'font-size' },
   { name: 'Font weight', category: 'font-weight', id: 'font-weight' },
   { name: 'Font family', category: 'font-family', id: 'font-family' },
+  { name: 'Border', category: 'border', id: 'border' },
   { name: 'Elevation', category: 'elevation', id: 'elevation' },
 ];
 

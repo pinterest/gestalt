@@ -53,6 +53,20 @@ export const TextColorBox = ({ token }: BaseProps): Node => (
   </Box>
 );
 
+export const BorderBox = ({ token }: BaseProps): Node => (
+  <Box
+    dangerouslySetInlineStyle={{
+      __style: { borderStyle: `var(--${token.name})` },
+    }}
+    height={50}
+    width={150}
+    display="flex"
+    alignItems="center"
+    justifyContent="between"
+    paddingX={2}
+  />
+);
+
 export const ElevationBox = ({ token }: BaseProps): Node => (
   <Box
     dangerouslySetInlineStyle={{
@@ -108,6 +122,8 @@ export const TokenExample = ({ token, category }: ExampleProps): Node => {
       return <FontBox token={token} type="weight" />;
     case 'font-family':
       return <FontBox token={token} type="family" />;
+    case 'border':
+      return <BorderBox token={token} />;
     case 'elevation':
       return <ElevationBox token={token} />;
     default:
