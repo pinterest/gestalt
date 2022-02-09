@@ -14,6 +14,12 @@ const SIZE_SCALE = {
   sm: 100,
   md: 200,
   lg: 300,
+  '100': 100,
+  '200': 200,
+  '300': 300,
+  '400': 400,
+  '500': 500,
+  '600': 600,
 };
 
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
@@ -100,12 +106,9 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  const fontSizeKey = ['sm', 'md', 'lg'].includes(size)
-    ? `fontSize${SIZE_SCALE[size]}`
-    : `fontSize${size}`;
   const cs = cx(
     styles.Text,
-    typography[fontSizeKey],
+    typography[`fontSize${SIZE_SCALE[size]}`],
     color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,

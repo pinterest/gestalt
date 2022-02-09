@@ -83,15 +83,19 @@ export default function transformer(file, api) {
                 newAttr.value.expression.consequent.value = isHeadingComponent
                   ? HEADING_MAPPING[consequentValue]
                   : TEXT_MAPPING[consequentValue];
+
+                if (CURRENT_SIZE_VALUES.includes(alternateValue)) {
+                  newAttr.value.expression.alternate.value = isHeadingComponent
+                    ? HEADING_MAPPING[alternateValue]
+                    : TEXT_MAPPING[alternateValue];
+
+                  return newAttr;
+                }
               }
 
-              if (CURRENT_SIZE_VALUES.includes(alternateValue)) {
-                newAttr.value.expression.alternate.value = isHeadingComponent
-                  ? HEADING_MAPPING[alternateValue]
-                  : TEXT_MAPPING[alternateValue];
-              }
-
-              return newAttr;
+              throw new Error(
+                `Manually check any Heading and Text non-literal properties for size and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
+              );
             }
 
             throw new Error(

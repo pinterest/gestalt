@@ -27,6 +27,12 @@ const SIZE_SCALE = {
   sm: 400,
   md: 500,
   lg: 600,
+  '100': 100,
+  '200': 200,
+  '300': 300,
+  '400': 400,
+  '500': 500,
+  '600': 600,
 };
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
@@ -99,12 +105,9 @@ export default function Heading({
   overflow = 'breakWord',
   size = '600',
 }: Props): Node {
-  const fontSizeKey = ['sm', 'md', 'lg'].includes(size)
-    ? `fontSize${SIZE_SCALE[size]}`
-    : `fontSize${size}`;
   const cs = cx(
     styles.Heading,
-    typography[fontSizeKey],
+    typography[`fontSize${SIZE_SCALE[size]}`],
     color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
