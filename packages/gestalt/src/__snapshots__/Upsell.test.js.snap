@@ -194,7 +194,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -210,27 +210,31 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -353,7 +357,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -369,27 +373,31 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -480,7 +488,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -496,27 +504,31 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
