@@ -53,9 +53,3 @@ exports[`Text size 100 adds the smallest size class 1`] = `
   className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
 />
 `;
-
-exports[`Text size sm adds the small size class 1`] = `
-<div
-  className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
-/>
-`;
