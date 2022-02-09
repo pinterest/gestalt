@@ -18,13 +18,7 @@ type Props = {|
   title?: string,
 |};
 
-function MainSectionSubsection({
-  badge,
-  children,
-  columns = 1,
-  description,
-  title,
-}: Props): Node {
+function MainSectionSubsection({ badge, children, columns = 1, description, title }: Props): Node {
   const slugifiedId = slugify(title || '');
   const arrayChildren = Children.toArray(children);
 

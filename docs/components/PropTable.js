@@ -25,21 +25,25 @@ type Props = {|
 const unifyQuotes = (input) => input?.replace(/'/g, '"');
 
 function Description(lines: Array<string>): Node {
-  return <Flex alignItems="start" direction="column" gap={2}>
-    {lines.map((line, idx) => (
-      <Markdown key={idx} text={line} textColor="gray" />
-    ))}
-  </Flex>
+  return (
+    <Flex alignItems="start" direction="column" gap={2}>
+      {lines.map((line, idx) => (
+        <Markdown key={idx} text={line} textColor="gray" />
+      ))}
+    </Flex>
+  );
 }
 
 function Th({ children }: {| children?: Node |}) {
-  return <th style={{ borderBottom: '2px solid #ddd' }}>
-    <Box padding={2}>
-      <Text size="md" overflow="normal" weight="bold">
-        {children}
-      </Text>
-    </Box>
-  </th>
+  return (
+    <th style={{ borderBottom: '2px solid #ddd' }}>
+      <Box padding={2}>
+        <Text size="md" overflow="normal" weight="bold">
+          {children}
+        </Text>
+      </Box>
+    </th>
+  );
 }
 
 function Td({
@@ -55,21 +59,23 @@ function Td({
   shrink?: boolean,
   color?: 'darkGray' | 'gray',
 |}) {
-  return <td
-    style={{
-      verticalAlign: 'top',
-      borderBottom: border && '1px solid #ddd',
-      padding: 0,
-      width: shrink ? '1px' : '',
-    }}
-    colSpan={colspan}
-  >
-    <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
-      <Text overflow="normal" color={color}>
-        {children}
-      </Text>
-    </Box>
-  </td>
+  return (
+    <td
+      style={{
+        verticalAlign: 'top',
+        borderBottom: border && '1px solid #ddd',
+        padding: 0,
+        width: shrink ? '1px' : '',
+      }}
+      colSpan={colspan}
+    >
+      <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
+        <Text overflow="normal" color={color}>
+          {children}
+        </Text>
+      </Box>
+    </td>
+  );
 }
 
 function isNumeric(value) {

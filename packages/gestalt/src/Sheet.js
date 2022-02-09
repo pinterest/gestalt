@@ -85,11 +85,13 @@ Internal components <Header> and <DismissButton>
 
 */
 function Header({ heading }: {| heading: string |}) {
-  return <Box display="flex" justifyContent="start" padding={8}>
-    <Heading size="md" accessibilityLevel={1}>
-      {heading}
-    </Heading>
-  </Box>
+  return (
+    <Box display="flex" justifyContent="start" padding={8}>
+      <Heading size="md" accessibilityLevel={1}>
+        {heading}
+      </Heading>
+    </Box>
+  );
 }
 
 function DismissButton({
@@ -99,13 +101,15 @@ function DismissButton({
   accessibilityDismissButtonLabel: string,
   onClick: () => void,
 |}) {
-  return <IconButton
-    accessibilityLabel={accessibilityDismissButtonLabel}
-    bgColor="white"
-    icon="cancel"
-    iconColor="darkGray"
-    onClick={onClick}
-  />
+  return (
+    <IconButton
+      accessibilityLabel={accessibilityDismissButtonLabel}
+      bgColor="white"
+      icon="cancel"
+      iconColor="darkGray"
+      onClick={onClick}
+    />
+  );
 }
 
 /*

@@ -6,7 +6,7 @@ type Props = {|
 |};
 
 function SearchContent({ children }: Props): Node {
-  return <div className="docSearch-content">{children}</div>
+  return <div className="docSearch-content">{children}</div>;
 }
 
 export default SearchContent;

@@ -8,37 +8,41 @@ import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
 function LockIcon({ size }: {| size: 12 | 14 |}) {
-  return <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
-    <TapArea rounding="circle">
-      <Icon
-        accessibilityLabel="Access is restricted to Pinterest employees"
-        icon="lock"
-        size={size}
-      />{' '}
-    </TapArea>
-  </Tooltip>
+  return (
+    <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
+      <TapArea rounding="circle">
+        <Icon
+          accessibilityLabel="Access is restricted to Pinterest employees"
+          icon="lock"
+          size={size}
+        />{' '}
+      </TapArea>
+    </Tooltip>
+  );
 }
 
 function ListElement({ text, href }: {| text: string, href: string |}) {
-  return <li>
-    <Flex alignItems="center" gap={1}>
-      <Link
-        accessibilityLabel={`${text}, opens new window`}
-        target="blank"
-        inline
-        href={href}
-        onClick={() => trackButtonClick(text)}
-      >
-        <Text underline inline>
-          {text}
-        </Text>
-      </Link>
-      <Box aria-hidden>
-        <Icon accessibilityLabel="" icon="visit" size={14} />
-      </Box>
-      {href.startsWith('http://go') ? <LockIcon size={14} /> : null}
-    </Flex>
-  </li>
+  return (
+    <li>
+      <Flex alignItems="center" gap={1}>
+        <Link
+          accessibilityLabel={`${text}, opens new window`}
+          target="blank"
+          inline
+          href={href}
+          onClick={() => trackButtonClick(text)}
+        >
+          <Text underline inline>
+            {text}
+          </Text>
+        </Link>
+        <Box aria-hidden>
+          <Icon accessibilityLabel="" icon="visit" size={14} />
+        </Box>
+        {href.startsWith('http://go') ? <LockIcon size={14} /> : null}
+      </Flex>
+    </li>
+  );
 }
 
 function TableEntry({
@@ -50,24 +54,26 @@ function TableEntry({
   description: string,
   href: string,
 |}) {
-  return <Table.Row>
-    <Table.Cell>
-      <Flex alignItems="center" gap={1}>
-        <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
-          <Text size="sm" underline overflow="noWrap">
-            {metric}
-          </Text>
-        </Link>
-        <Box aria-hidden>
-          <Icon accessibilityLabel="" icon="visit" size={12} />
-        </Box>
-        <LockIcon size={12} />
-      </Flex>
-    </Table.Cell>
-    <Table.Cell>
-      <Text size="sm">{description}</Text>
-    </Table.Cell>
-  </Table.Row>
+  return (
+    <Table.Row>
+      <Table.Cell>
+        <Flex alignItems="center" gap={1}>
+          <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
+            <Text size="sm" underline overflow="noWrap">
+              {metric}
+            </Text>
+          </Link>
+          <Box aria-hidden>
+            <Icon accessibilityLabel="" icon="visit" size={12} />
+          </Box>
+          <LockIcon size={12} />
+        </Flex>
+      </Table.Cell>
+      <Table.Cell>
+        <Text size="sm">{description}</Text>
+      </Table.Cell>
+    </Table.Row>
+  );
 }
 
 export default function ToolingPage(): Node {

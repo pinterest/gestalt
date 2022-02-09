@@ -18,39 +18,43 @@ type ExampleProps = {|
 |};
 
 export function ColorBox({ token }: BaseProps): Node {
-  return <Box
-    dangerouslySetInlineStyle={{
-      __style: { backgroundColor: `var(--${token.name})` },
-    }}
-    height={50}
-    width={250}
-    display="flex"
-    alignItems="center"
-    justifyContent="between"
-    paddingX={2}
-    borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
-  />
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { backgroundColor: `var(--${token.name})` },
+      }}
+      height={50}
+      width={250}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+      borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
+    />
+  );
 }
 
 export function SpacingBox({ token }: BaseProps): Node {
-  return <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />
+  return <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />;
 }
 
 export function TextColorBox({ token }: BaseProps): Node {
-  return <Box
-    dangerouslySetInlineStyle={{
-      __style: { color: `var(--${token.name})`, fontSize: '32px' },
-    }}
-    height={50}
-    width={150}
-    display="flex"
-    alignItems="center"
-    justifyContent="between"
-    paddingX={2}
-    color={token.name.includes('inverse') ? 'darkGray' : undefined}
-  >
-    Gestalt
-  </Box>
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { color: `var(--${token.name})`, fontSize: '32px' },
+      }}
+      height={50}
+      width={150}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+      color={token.name.includes('inverse') ? 'darkGray' : undefined}
+    >
+      Gestalt
+    </Box>
+  );
 }
 
 export function FontBox({ token, type }: FontBoxProps): Node {

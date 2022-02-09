@@ -12,9 +12,11 @@ type Props = {|
 |};
 
 function MainSection({ children, description, name, showHeading = true }: Props): Node {
-  return <Card name={name} showHeading={showHeading} description={description}>
-    {children}
-  </Card>
+  return (
+    <Card name={name} showHeading={showHeading} description={description}>
+      {children}
+    </Card>
+  );
 }
 
 MainSection.Card = MainSectionCard;

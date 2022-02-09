@@ -39,11 +39,13 @@ function ScrollBoundaryContainerWithProvider({
   height = '100%',
   overflow = 'auto',
 }: Props): Node {
-  return <ScrollBoundaryContainerProvider>
-    <ScrollBoundaryContainerWithForwardRef height={height} overflow={overflow}>
-      {children}
-    </ScrollBoundaryContainerWithForwardRef>
-  </ScrollBoundaryContainerProvider>
+  return (
+    <ScrollBoundaryContainerProvider>
+      <ScrollBoundaryContainerWithForwardRef height={height} overflow={overflow}>
+        {children}
+      </ScrollBoundaryContainerWithForwardRef>
+    </ScrollBoundaryContainerProvider>
+  );
 }
 
 ScrollBoundaryContainerWithProvider.displayName = 'ScrollBoundaryContainer';

@@ -29,7 +29,7 @@ function TooltipComponent({
   children: Node,
   tooltipProps: TooltipType,
 |}): Node {
-  return tooltipProps.text ? <Tooltip {...tooltipProps}>{children}</Tooltip> : children
+  return tooltipProps.text ? <Tooltip {...tooltipProps}>{children}</Tooltip> : children;
 }
 
 type BaseIconButton = {|

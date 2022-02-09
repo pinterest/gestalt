@@ -2,7 +2,7 @@
 import Masonry from './Masonry.js';
 
 function Item() {
-  return <div />
+  return <div />;
 }
 const Valid = <Masonry items={[]} comp={Item} />;
 

@@ -95,10 +95,12 @@ function IconEnd({
   icon: $Keys<typeof icons>,
   size: string,
 |}): Node {
-  return <Flex alignItems="center" gap={2} justifyContent="center">
-    {text}
-    <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
-  </Flex>
+  return (
+    <Flex alignItems="center" gap={2} justifyContent="center">
+      {text}
+      <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
+    </Flex>
+  );
 }
 
 /**
