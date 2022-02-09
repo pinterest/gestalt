@@ -44,7 +44,7 @@ gtag('config', 'UA-12967896-44');
 `,
             }}
           />
-          <link rel="shortcut icon" href="/pinterest_favicon.png" />
+          <link rel="icon" href="/pinterest_favicon.png" />
         </Head>
         <body>
           <Main />

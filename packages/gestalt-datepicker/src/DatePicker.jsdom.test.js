@@ -48,11 +48,11 @@ describe('DatePicker', () => {
   });
 
   test('opens and closes DatePicker popover correctly', () => {
-    const DatePickerWrap = () => {
+    function DatePickerWrap() {
       const [date, setDate] = useState(initialDate);
 
       return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
-    };
+    }
 
     render(<DatePickerWrap />);
 
@@ -79,11 +79,11 @@ describe('DatePicker', () => {
   });
 
   test('accepts entering manual dates', () => {
-    const DatePickerWrap = () => {
+    function DatePickerWrap() {
       const [date, setDate] = useState(initialDate);
 
       return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
-    };
+    }
 
     render(<DatePickerWrap />);
 

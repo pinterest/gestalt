@@ -72,7 +72,7 @@ type Props = {|
   title: string,
 |};
 
-const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
+function ActivationCardLink({ data }: {| data: LinkData |}): Node {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
@@ -98,9 +98,9 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
       />
     </Box>
   );
-};
+}
 
-const CompletedCard = ({ dismissButton, message, status, statusMessage, title }: Props): Node => {
+function CompletedCard({ dismissButton, message, status, statusMessage, title }: Props): Node {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -145,16 +145,16 @@ const CompletedCard = ({ dismissButton, message, status, statusMessage, title }:
       )}
     </Fragment>
   );
-};
+}
 
-const UncompletedCard = ({
+function UncompletedCard({
   dismissButton,
   message,
   link,
   status,
   statusMessage,
   title,
-}: Props): Node => {
+}: Props): Node {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
@@ -206,7 +206,7 @@ const UncompletedCard = ({
       )}
     </Fragment>
   );
-};
+}
 
 /**
  * [ActivationCards](https://gestalt.pinterest.systems/activationcard) are used in groups to communicate a user’s stage in a series of steps toward an overall action.

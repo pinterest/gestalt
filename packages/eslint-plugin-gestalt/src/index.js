@@ -1,4 +1,5 @@
 // @flow strict
+/* eslint-disable import/no-import-module-exports */
 import buttonIconRestrictions from './button-icon-restrictions.js';
 import noBoxDangerousStyleDuplicates from './no-box-dangerous-style-duplicates.js';
 import noBoxDisallowedProps from './no-box-disallowed-props.js';
@@ -32,3 +33,4 @@ module.exports = {
     'prefer-link': preferLink,
   },
 };
+/* eslint-enable import/no-import-module-exports */

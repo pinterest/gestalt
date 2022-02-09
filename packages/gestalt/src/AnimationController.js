@@ -89,9 +89,17 @@ function AnimationExample() {
 }`}
 
 */
-import type { Context, Element, Node } from 'react';
-
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  type Context,
+  type Element,
+  type Node,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import useReducedMotion from './useReducedMotion.js';
 
 export type AnimationStateType = 'in' | 'postIn' | 'out' | 'postOut' | null;
@@ -150,12 +158,14 @@ function AnimationController({
     }
   }, [animationState, onDismissEnd]);
 
+  const contextValue = useMemo(() => ({ animationState, setAnimationState }), [animationState]);
+
   if (animationState === 'postOut') {
     return null;
   }
 
   return (
-    <AnimationContext.Provider value={{ animationState, setAnimationState }}>
+    <AnimationContext.Provider value={contextValue}>
       {children({ onDismissStart })}
     </AnimationContext.Provider>
   );

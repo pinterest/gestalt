@@ -24,25 +24,25 @@ type Props = {|
 
 const unifyQuotes = (input) => input?.replace(/'/g, '"');
 
-const Description = (lines: Array<string>): Node => (
-  <Flex alignItems="start" direction="column" gap={2}>
+function Description(lines: Array<string>): Node {
+  return <Flex alignItems="start" direction="column" gap={2}>
     {lines.map((line, idx) => (
       <Markdown key={idx} text={line} textColor="gray" />
     ))}
   </Flex>
-);
+}
 
-const Th = ({ children }: {| children?: Node |}) => (
-  <th style={{ borderBottom: '2px solid #ddd' }}>
+function Th({ children }: {| children?: Node |}) {
+  return <th style={{ borderBottom: '2px solid #ddd' }}>
     <Box padding={2}>
       <Text size="md" overflow="normal" weight="bold">
         {children}
       </Text>
     </Box>
   </th>
-);
+}
 
-const Td = ({
+function Td({
   border = true,
   children,
   colspan = 1,
@@ -54,8 +54,8 @@ const Td = ({
   colspan?: number,
   shrink?: boolean,
   color?: 'darkGray' | 'gray',
-|}) => (
-  <td
+|}) {
+  return <td
     style={{
       verticalAlign: 'top',
       borderBottom: border && '1px solid #ddd',
@@ -70,7 +70,7 @@ const Td = ({
       </Text>
     </Box>
   </td>
-);
+}
 
 function isNumeric(value) {
   return /^-?\d+$/.test(value);

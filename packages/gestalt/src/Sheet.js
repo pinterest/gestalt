@@ -84,29 +84,29 @@ const SIZE_WIDTH_MAP = {
 Internal components <Header> and <DismissButton>
 
 */
-const Header = ({ heading }: {| heading: string |}) => (
-  <Box display="flex" justifyContent="start" padding={8}>
+function Header({ heading }: {| heading: string |}) {
+  return <Box display="flex" justifyContent="start" padding={8}>
     <Heading size="md" accessibilityLevel={1}>
       {heading}
     </Heading>
   </Box>
-);
+}
 
-const DismissButton = ({
+function DismissButton({
   accessibilityDismissButtonLabel,
   onClick,
 }: {|
   accessibilityDismissButtonLabel: string,
   onClick: () => void,
-|}) => (
-  <IconButton
+|}) {
+  return <IconButton
     accessibilityLabel={accessibilityDismissButtonLabel}
     bgColor="white"
     icon="cancel"
     iconColor="darkGray"
     onClick={onClick}
   />
-);
+}
 
 /*
 

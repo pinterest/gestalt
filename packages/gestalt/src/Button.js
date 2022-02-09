@@ -84,7 +84,7 @@ type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
-const IconEnd = ({
+function IconEnd({
   text,
   textColor,
   icon,
@@ -94,12 +94,12 @@ const IconEnd = ({
   textColor: IconColor,
   icon: $Keys<typeof icons>,
   size: string,
-|}): Node => (
-  <Flex alignItems="center" gap={2} justifyContent="center">
+|}): Node {
+  return <Flex alignItems="center" gap={2} justifyContent="center">
     {text}
     <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
   </Flex>
-);
+}
 
 /**
  * [Buttons](https://gestalt.pinterest.systems/button) allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like [Dropdown](https://gestalt.pinterest.systems/dropdown) or [Popover](https://gestalt.pinterest.systems/popover).

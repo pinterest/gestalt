@@ -7,8 +7,8 @@ import trackButtonClick from '../components/buttons/trackButtonClick.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
-const LockIcon = ({ size }: {| size: 12 | 14 |}) => (
-  <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
+function LockIcon({ size }: {| size: 12 | 14 |}) {
+  return <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
     <TapArea rounding="circle">
       <Icon
         accessibilityLabel="Access is restricted to Pinterest employees"
@@ -17,10 +17,10 @@ const LockIcon = ({ size }: {| size: 12 | 14 |}) => (
       />{' '}
     </TapArea>
   </Tooltip>
-);
+}
 
-const ListElement = ({ text, href }: {| text: string, href: string |}) => (
-  <li>
+function ListElement({ text, href }: {| text: string, href: string |}) {
+  return <li>
     <Flex alignItems="center" gap={1}>
       <Link
         accessibilityLabel={`${text}, opens new window`}
@@ -39,9 +39,9 @@ const ListElement = ({ text, href }: {| text: string, href: string |}) => (
       {href.startsWith('http://go') ? <LockIcon size={14} /> : null}
     </Flex>
   </li>
-);
+}
 
-const TableEntry = ({
+function TableEntry({
   metric,
   description,
   href,
@@ -49,8 +49,8 @@ const TableEntry = ({
   metric: string,
   description: string,
   href: string,
-|}) => (
-  <Table.Row>
+|}) {
+  return <Table.Row>
     <Table.Cell>
       <Flex alignItems="center" gap={1}>
         <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
@@ -68,7 +68,7 @@ const TableEntry = ({
       <Text size="sm">{description}</Text>
     </Table.Cell>
   </Table.Row>
-);
+}
 
 export default function ToolingPage(): Node {
   return (

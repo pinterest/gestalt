@@ -5,6 +5,19 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
+function ClickableIcon({ iconName, onTap }: {| iconName: string, onTap: () => void |}) {
+  return (
+    <Tooltip text={iconName} accessibilityLabel="">
+      <TapArea rounding="circle" tapStyle="compress" onTap={onTap}>
+        <Box padding={2}>
+          {/* $FlowFixMe[prop-missing] */}
+          <Icon color="darkGray" accessibilityLabel={iconName} icon={iconName} />
+        </Box>
+      </TapArea>
+    </Tooltip>
+  );
+}
+
 export default function IconPage(): Node {
   const { icons } = Icon;
   const [showToastText, setShowToastText] = useState(false);
@@ -38,29 +51,16 @@ export default function IconPage(): Node {
     setSelected(item);
   };
 
-  const ClickableIcon = ({ iconName }: {| iconName: string |}) => (
-    <Tooltip text={iconName} accessibilityLabel="">
-      <TapArea
-        rounding="circle"
-        tapStyle="compress"
-        onTap={() => {
-          try {
-            navigator.clipboard.writeText(iconName);
-            setShowToastText(`Icon name ("${iconName}") successfully copied!`);
-            setTimeout(() => setShowToastText(), 3000);
-          } catch (err) {
-            return undefined;
-          }
-          return undefined;
-        }}
-      >
-        <Box padding={2}>
-          {/* $FlowFixMe[prop-missing] */}
-          <Icon color="darkGray" accessibilityLabel={iconName} icon={iconName} />
-        </Box>
-      </TapArea>
-    </Tooltip>
-  );
+  const buildHandleIconClick = (iconName: string) => () => {
+    try {
+      navigator.clipboard.writeText(iconName);
+      setShowToastText(`Icon name ("${iconName}") successfully copied!`);
+      setTimeout(() => setShowToastText(), 3000);
+    } catch (err) {
+      return undefined;
+    }
+    return undefined;
+  };
 
   return (
     <Page title="Iconography and SVGs">
@@ -103,10 +103,17 @@ export default function IconPage(): Node {
           >
             <Flex gap={1} wrap>
               {selected?.label ? (
-                <ClickableIcon iconName={selected.label} />
+                <ClickableIcon
+                  iconName={selected.label}
+                  onTap={buildHandleIconClick(selected.label)}
+                />
               ) : (
                 (suggestedOptions || iconOptions).map(({ label: iconName }, index) => (
-                  <ClickableIcon key={index} iconName={iconName} />
+                  <ClickableIcon
+                    key={index}
+                    iconName={iconName}
+                    onTap={buildHandleIconClick(iconName)}
+                  />
                 ))
               )}
             </Flex>

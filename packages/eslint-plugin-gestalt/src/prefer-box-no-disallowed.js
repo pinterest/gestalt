@@ -151,6 +151,7 @@ const rule: ESLintRule = {
       const styleNode = getNodeFromPropName({ elementNode: node, propName: 'style' });
       const propsToAdd = styleNode
         ? getTextNodeFromSourceCode({ context, elementNode: styleNode }).replace(
+            // eslint-disable-next-line prefer-regex-literals
             new RegExp(/style={([\w \W \d \s]+)}/, 'i'), // regex expression to match style={{ [key]: values }}
             (match, p1) => `dangerouslySetInlineStyle={{ __style: ${p1} }}`, // replacer function p1 returns the match between '()' in the RegExp
           )

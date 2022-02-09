@@ -98,7 +98,7 @@ const CALLOUT_TYPE_ATTRIBUTES = {
   },
 };
 
-const CalloutAction = ({
+function CalloutAction({
   data,
   stacked,
   type,
@@ -106,7 +106,7 @@ const CalloutAction = ({
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|}): Node => {
+|}): Node {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
   let color = type === 'primary' ? 'white' : 'transparent';
@@ -154,7 +154,7 @@ const CalloutAction = ({
       )}
     </Box>
   );
-};
+}
 
 /**
  * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.

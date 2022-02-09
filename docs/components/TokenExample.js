@@ -17,8 +17,8 @@ type ExampleProps = {|
   category: string,
 |};
 
-export const ColorBox = ({ token }: BaseProps): Node => (
-  <Box
+export function ColorBox({ token }: BaseProps): Node {
+  return <Box
     dangerouslySetInlineStyle={{
       __style: { backgroundColor: `var(--${token.name})` },
     }}
@@ -30,14 +30,14 @@ export const ColorBox = ({ token }: BaseProps): Node => (
     paddingX={2}
     borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
   />
-);
+}
 
-export const SpacingBox = ({ token }: BaseProps): Node => (
-  <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />
-);
+export function SpacingBox({ token }: BaseProps): Node {
+  return <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />
+}
 
-export const TextColorBox = ({ token }: BaseProps): Node => (
-  <Box
+export function TextColorBox({ token }: BaseProps): Node {
+  return <Box
     dangerouslySetInlineStyle={{
       __style: { color: `var(--${token.name})`, fontSize: '32px' },
     }}
@@ -51,9 +51,9 @@ export const TextColorBox = ({ token }: BaseProps): Node => (
   >
     Gestalt
   </Box>
-);
+}
 
-export const FontBox = ({ token, type }: FontBoxProps): Node => {
+export function FontBox({ token, type }: FontBoxProps): Node {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
   const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
@@ -78,9 +78,9 @@ export const FontBox = ({ token, type }: FontBoxProps): Node => {
       {token.name.includes('japanese') ? 'ゲシュタルト' : 'Gestalt'}
     </Box>
   );
-};
+}
 
-export const TokenExample = ({ token, category }: ExampleProps): Node => {
+export function TokenExample({ token, category }: ExampleProps): Node {
   switch (category) {
     case 'background-color':
       return <ColorBox token={token} />;
@@ -97,4 +97,4 @@ export const TokenExample = ({ token, category }: ExampleProps): Node => {
     default:
       return <Box>{token.value}</Box>;
   }
-};
+}
