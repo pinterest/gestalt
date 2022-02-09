@@ -10,8 +10,14 @@ function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
 }
 
+const SIZE_SCALE = {
+  sm: 100,
+  md: 200,
+  lg: 300,
+};
+
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
-type Size = '100' | '200' | '300' | '400' | '500' | '600';
+type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
 
 type Props = {|
   /**
@@ -94,9 +100,12 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
+  const fontSizeKey = ['sm', 'md', 'lg'].includes(size)
+    ? `fontSize${SIZE_SCALE[size]}`
+    : `fontSize${size}`;
   const cs = cx(
     styles.Text,
-    typography[`fontSize${size}`],
+    typography[fontSizeKey],
     color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,

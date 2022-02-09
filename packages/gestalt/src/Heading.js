@@ -17,11 +17,21 @@ const defaultHeadingLevels = {
   '400': 3,
   '500': 2,
   '600': 1,
+  'sm': 3,
+  'md': 2,
+  'lg': 1,
+};
+
+// Corresponds to the font-size design tokens
+const SIZE_SCALE = {
+  sm: 400,
+  md: 500,
+  lg: 600,
 };
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
 type Overflow = 'normal' | 'breakWord';
-type Size = '100' | '200' | '300' | '400' | '500' | '600';
+type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
 
 type Props = {|
   /**
@@ -89,9 +99,12 @@ export default function Heading({
   overflow = 'breakWord',
   size = '600',
 }: Props): Node {
+  const fontSizeKey = ['sm', 'md', 'lg'].includes(size)
+    ? `fontSize${SIZE_SCALE[size]}`
+    : `fontSize${size}`;
   const cs = cx(
     styles.Heading,
-    typography[`fontSize${size}`],
+    typography[fontSizeKey],
     color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
