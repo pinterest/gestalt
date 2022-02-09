@@ -133,14 +133,16 @@ function Example(props) {
   const [value, setValue] = React.useState();
 
   return (
-    <Box padding={2} color="white">
-      <NumberField
-        id="best-practices-dont-label"
-        label=""
-        onChange={({ value }) => setValue(value)}
-        value={value}
-      />
-    </Box>
+    <div className="cypress-skip-a11y">
+      <Box padding={2} color="white">
+        <NumberField
+          id="best-practice-dont-label"
+          label=""
+          onChange={({ value }) => setValue(value)}
+          value={value}
+        />
+      </Box>
+    </div>
   );
 }
             `}

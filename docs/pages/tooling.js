@@ -8,9 +8,13 @@ import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
 const LockIcon = ({ size }: {| size: 12 | 14 |}) => (
-  <Tooltip text="Access is restricted to Pinterest employees">
+  <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
     <TapArea rounding="circle">
-      <Icon accessibilityLabel="" icon="lock" size={size} />{' '}
+      <Icon
+        accessibilityLabel="Access is restricted to Pinterest employees"
+        icon="lock"
+        size={size}
+      />{' '}
     </TapArea>
   </Tooltip>
 );

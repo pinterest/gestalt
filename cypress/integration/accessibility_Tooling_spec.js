@@ -5,14 +5,6 @@ describe('Iconography and SVGs Accessibility check', () => {
   });
 
   it('Tests accessibility on the Tooling page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'aria-command-name', // caused by: Tooltip wrapping TapArea on Icon with a11yLabel empty for redundancy with tooltip
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });
