@@ -12,6 +12,8 @@ export default function TestBox({
       <Heading size="md">Test</Heading>
       <Heading size="lg">Test</Heading>
       <Heading size={isCurrentPage ? "sm" : "md"}>Test</Heading>
+      <Heading size={isCurrentPage ? "sm" : 20}>Test</Heading>
+      <Heading size={isCurrentPage ? 50 : "lg"}>Test</Heading>
     </Box>
   );
 }

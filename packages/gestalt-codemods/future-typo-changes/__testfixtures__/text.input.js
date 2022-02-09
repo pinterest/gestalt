@@ -12,6 +12,8 @@ export default function TestBox({
       <Text size="md">Test</Text>
       <Text size="lg">Test</Text>
       <Text size={isCurrentPage ? "sm" : "md" }>Test</Text>
+      <Text size={isCurrentPage ? "sm" : 10 }>Test</Text>
+      <Text size={isCurrentPage ? 10 : "md" }>Test</Text>
     </Box>
   );
 }

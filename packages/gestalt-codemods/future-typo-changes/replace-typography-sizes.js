@@ -89,13 +89,28 @@ export default function transformer(file, api) {
                     ? HEADING_MAPPING[alternateValue]
                     : TEXT_MAPPING[alternateValue];
 
+                  // prop={condition ? "sm" : "md"}
                   return newAttr;
                 }
+                // prop={condition ? "sm" : B}
+                // eslint-disable-next-line no-console
+                console.log(
+                  `Manually check any Heading and Text non-literal properties for size and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
+                );
+                return newAttr;
               }
 
-              throw new Error(
-                `Manually check any Heading and Text non-literal properties for size and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
-              );
+              if (CURRENT_SIZE_VALUES.includes(alternateValue)) {
+                newAttr.value.expression.alternate.value = isHeadingComponent
+                  ? HEADING_MAPPING[alternateValue]
+                  : TEXT_MAPPING[alternateValue];
+                // prop={condition ? A : "md"}
+                // eslint-disable-next-line no-console
+                console.log(
+                  `Manually check any Heading and Text non-literal properties for size and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
+                );
+                return newAttr;
+              }
             }
 
             throw new Error(
