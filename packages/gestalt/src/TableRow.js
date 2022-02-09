@@ -5,13 +5,17 @@ import { Children, cloneElement, useEffect, useRef, useState } from 'react';
 import { useTableContext } from './contexts/TableContext.js';
 
 type Props = {|
+  /**
+   * Must be instances of Table.Cell, Table.HeaderCell, or Table.SortableHeaderCell components. See the [Subcomponent section](https://gestalt.pinterest.systems/table#Subcomponents) to learn more.
+   */
   children: Node,
 |};
 
 /**
- * https://gestalt.pinterest.systems/table
+ * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
+ * Use [Table.Row](https://gestalt.pinterest.systems/table#Table.RowProps) to define a row in Table.
  */
-export default function TableRow(props: Props): Node {
+export default function TableRow({ children }: Props): Node {
   const { stickyColumns } = useTableContext();
   const rowRef = useRef();
   const [columnWidths, setColumnWidths] = useState([]);
@@ -34,9 +38,7 @@ export default function TableRow(props: Props): Node {
 
   return (
     <tr ref={rowRef}>
-      {Number(stickyColumns) > 0
-        ? Children.map(props.children, renderCellWithIndex)
-        : props.children}
+      {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithIndex) : children}
     </tr>
   );
 }
