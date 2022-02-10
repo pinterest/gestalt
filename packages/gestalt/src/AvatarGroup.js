@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, useState, type Node } from 'react';
+import { forwardRef, type Node, useCallback, useState } from 'react';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
 import AddCollaboratorsButton from './AvatarGroupAddCollaboratorsButton.js';
@@ -152,14 +152,17 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
     );
   }
 
-  const AvatarGroupStack = () => (
-    <Box
-      aria-label={isDisplayOnly ? accessibilityLabel : undefined}
-      dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
-      position={isFitSize ? 'relative' : 'static'}
-    >
-      {isFitSize ? collaboratorStack : <Flex>{collaboratorStack}</Flex>}
-    </Box>
+  const AvatarGroupStack = useCallback(
+    () => (
+      <Box
+        aria-label={isDisplayOnly ? accessibilityLabel : undefined}
+        dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
+        position={isFitSize ? 'relative' : 'static'}
+      >
+        {isFitSize ? collaboratorStack : <Flex>{collaboratorStack}</Flex>}
+      </Box>
+    ),
+    [accessibilityLabel, collaboratorStack, isDisplayOnly, isFitSize],
   );
 
   if (role === 'link' && href) {

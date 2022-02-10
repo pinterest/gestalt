@@ -10,7 +10,7 @@ type Props = {|
   tokenId: string,
 |};
 
-const ColorPalette = ({ name, tokenId }: Props): Node => {
+function ColorPalette({ name, tokenId }: Props): Node {
   const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
   const colorId = `${tokenId}-${name.toLowerCase()}`;
   return (
@@ -27,5 +27,5 @@ const ColorPalette = ({ name, tokenId }: Props): Node => {
       </Box>
     </Box>
   );
-};
+}
 export default ColorPalette;

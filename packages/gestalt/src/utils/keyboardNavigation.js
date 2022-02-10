@@ -36,7 +36,9 @@ const handleContainerScrolling = ({
 
   const containerHeight = container.getClientRects()[0].height;
   const overScroll =
-    nextSelectedOption instanceof HTMLElement && nextSelectedOption?.offsetHeight / 3;
+    nextSelectedOption instanceof HTMLElement && nextSelectedOption?.offsetHeight
+      ? nextSelectedOption.offsetHeight / 3
+      : 0;
 
   const scrollPos =
     nextSelectedOption instanceof HTMLElement

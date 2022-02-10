@@ -22,13 +22,15 @@ type TooltipType = {|
   zIndex?: Indexable,
 |};
 
-const TooltipComponent = ({
+function TooltipComponent({
   children,
   tooltipProps,
 }: {|
   children: Node,
   tooltipProps: TooltipType,
-|}): Node => (tooltipProps.text ? <Tooltip {...tooltipProps}>{children}</Tooltip> : children);
+|}): Node {
+  return tooltipProps.text ? <Tooltip {...tooltipProps}>{children}</Tooltip> : children;
+}
 
 type BaseIconButton = {|
   accessibilityLabel: string,

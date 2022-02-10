@@ -12,7 +12,7 @@ type Props = {|
   showName?: boolean,
 |};
 
-const ColorTile = ({ name, number, textColor, tokenId, showName = false }: Props): Node => {
+function ColorTile({ name, number, textColor, tokenId, showName = false }: Props): Node {
   const colorId = `${tokenId}-${name.toLowerCase()}`;
   const colorVariableName = `color-${colorId}-${number}`;
 
@@ -35,5 +35,5 @@ const ColorTile = ({ name, number, textColor, tokenId, showName = false }: Props
       <Text color={textColor}>{tokens[colorVariableName]?.toUpperCase()}</Text>
     </Box>
   );
-};
+}
 export default ColorTile;

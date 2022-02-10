@@ -1,8 +1,8 @@
 // @flow strict
+import { type Node, useCallback } from 'react';
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
-import type { Node } from 'react';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
@@ -43,7 +43,7 @@ const COLOR_TO_HEX = {
   red: '#e60023',
 };
 
-const MainSectionCard = ({
+function MainSectionCard({
   cardSize = 'md',
   children,
   defaultCode,
@@ -53,7 +53,7 @@ const MainSectionCard = ({
   showCode = true,
   title,
   type = 'info',
-}: Props): Node => {
+}: Props): Node {
   const code = defaultCode?.trim();
   const scope = { ...gestalt, DatePicker };
   const borderStyle =
@@ -63,20 +63,23 @@ const MainSectionCard = ({
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
   const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
 
-  const PreviewCard = ({ children: cardChildren }: PreviewCardProps): Node => (
-    <Box
-      alignItems="center"
-      borderStyle="sm"
-      color={shaded ? 'lightGray' : 'white'}
-      display="flex"
-      height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-      justifyContent="center"
-      padding={8}
-      position="relative"
-      rounding={2}
-    >
-      {cardChildren}
-    </Box>
+  const PreviewCard = useCallback(
+    ({ children: cardChildren }: PreviewCardProps) => (
+      <Box
+        alignItems="center"
+        borderStyle="sm"
+        color={shaded ? 'lightGray' : 'white'}
+        display="flex"
+        height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+        justifyContent="center"
+        padding={8}
+        position="relative"
+        rounding={2}
+      >
+        {cardChildren}
+      </Box>
+    ),
+    [cardSize, shaded],
   );
 
   const TitleAndDescription = (
@@ -131,6 +134,6 @@ const MainSectionCard = ({
       {!showTitleAndDescriptionAboveExample && TitleAndDescription}
     </Box>
   );
-};
+}
 
 export default MainSectionCard;

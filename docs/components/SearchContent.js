@@ -5,8 +5,8 @@ type Props = {|
   children?: Node,
 |};
 
-const SearchContent = ({ children }: Props): Node => (
-  <div className="docSearch-content">{children}</div>
-);
+function SearchContent({ children }: Props): Node {
+  return <div className="docSearch-content">{children}</div>;
+}
 
 export default SearchContent;

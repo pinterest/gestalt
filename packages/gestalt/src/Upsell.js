@@ -20,7 +20,7 @@ type UpsellActionProps = {|
   type: string,
 |};
 
-const UpsellAction = ({ data, stacked, type }: UpsellActionProps): Node => {
+function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, href, label, onClick, rel, target } = data;
 
@@ -52,7 +52,7 @@ const UpsellAction = ({ data, stacked, type }: UpsellActionProps): Node => {
       )}
     </Box>
   );
-};
+}
 
 type Props = {|
   /**

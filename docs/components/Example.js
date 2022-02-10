@@ -22,7 +22,7 @@ type Props = {|
 
 const { Box, Text } = gestalt;
 
-const Example = ({
+function Example({
   defaultCode,
   description,
   id,
@@ -31,7 +31,7 @@ const Example = ({
   showHeading,
   showCode = true,
   skipContrastCheck = false,
-}: Props): Node => {
+}: Props): Node {
   const code = defaultCode.trim();
   const scope = { ...gestalt, DatePicker };
 
@@ -67,6 +67,6 @@ const Example = ({
       </LiveProvider>
     </Card>
   );
-};
+}
 
 export default Example;

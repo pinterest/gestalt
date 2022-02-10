@@ -126,6 +126,7 @@ export const validateBoxShadow = (value: string): ?string => {
   // 1) strip out the rgba portion
   // 2) convert the pixel portion to only numbers
   // 3) If both pieces match, recommend borderStyle="shadow"
+  // eslint-disable-next-line prefer-regex-literals
   const rgbaRegex = new RegExp(
     /rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)/,
     'g',

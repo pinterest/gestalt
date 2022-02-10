@@ -11,11 +11,13 @@ type Props = {|
   showHeading?: boolean,
 |};
 
-const MainSection = ({ children, description, name, showHeading = true }: Props): Node => (
-  <Card name={name} showHeading={showHeading} description={description}>
-    {children}
-  </Card>
-);
+function MainSection({ children, description, name, showHeading = true }: Props): Node {
+  return (
+    <Card name={name} showHeading={showHeading} description={description}>
+      {children}
+    </Card>
+  );
+}
 
 MainSection.Card = MainSectionCard;
 
