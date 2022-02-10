@@ -65,7 +65,7 @@ export default function ExampleCode({ code, readOnly, name }: Props): Node {
           </Flex>
           {readOnly && (
             <Box>
-              <Text size="sm" italic>
+              <Text size="100" italic>
                 Edits made below will not be reflected in the example above, open the sandbox
                 instead.
               </Text>

@@ -16,25 +16,41 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <Example
         id="sizes"
         name="Example: Sizes"
+        description="These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/text) instead."
         defaultCode={`
-<Box>
-  <Heading size="sm">Heading small</Heading>
+<Flex gap={4} direction="column">
+  <Heading size="lg">Heading size 100</Heading>
   <span lang="ja">
-    <Heading size="sm">こんにちは</Heading>
+    <Heading size="100">こんにちは</Heading>
   </span>
 
   <span>
-    <Heading size="md">Heading medium</Heading>
-  </span>{' '}
+    <Heading size="200">Heading size 200</Heading>
+  </span>
   <span lang="ja">
-    <Heading size="md">こんにちは</Heading>
+    <Heading size="200">こんにちは</Heading>
   </span>
 
-  <Heading size="lg">Heading large</Heading>
+  <Heading size="300">Heading size 300</Heading>
   <span lang="ja">
-    <Heading size="lg">こんにちは</Heading>
+    <Heading size="300">こんにちは</Heading>
   </span>
-</Box>
+
+  <Heading size="400">Heading size 400</Heading>
+  <span lang="ja">
+    <Heading size="400">こんにちは</Heading>
+  </span>
+
+  <Heading size="500">Heading size 500</Heading>
+  <span lang="ja">
+    <Heading size="500">こんにちは</Heading>
+  </span>
+
+  <Heading size="600">Heading size 600</Heading>
+  <span lang="ja">
+    <Heading size="600">こんにちは</Heading>
+  </span>
+</Flex>
 `}
       />
       <Example
@@ -44,25 +60,25 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 <Box>
   <Box margin={-1}>
     <Box color="gray" padding={1}>
-      <Heading color="white" size="md">
+      <Heading color="white" size="500">
         White
       </Heading>
     </Box>
   </Box>
 
-  <Heading size="md">
+  <Heading size="500">
     Dark gray (default)
   </Heading>
 
-  <Heading color="gray" size="md">
+  <Heading color="gray" size="500">
     Gray
   </Heading>
 
-  <Heading color="blue" size="md">
+  <Heading color="blue" size="500">
     Blue
   </Heading>
 
-  <Heading color="red" size="md">
+  <Heading color="red" size="500">
     Red
   </Heading>
 </Box>
@@ -75,7 +91,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 <Box maxWidth={240} marginTop={-2} marginBottom={-2}>
   <Box paddingY={2}>
     <Text>breakWord (default):</Text>
-    <Heading size="sm" overflow="breakWord" >
+    <Heading size="400" overflow="breakWord" >
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
@@ -83,7 +99,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
   <Box paddingY={2}>
     <Text>normal:</Text>
-    <Heading size="sm" overflow="normal">
+    <Heading size="400" overflow="normal">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
@@ -91,7 +107,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
   <Box paddingY={2}>
     <Text>lineClamp:</Text>
-    <Heading size="sm" lineClamp={2}>
+    <Heading size="400" lineClamp={2}>
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
@@ -104,12 +120,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Example: Alignment"
         defaultCode={`
 <Box>
-  <Heading align="start" size="sm">Start-aligned heading (default)</Heading>
-  <Heading align="end" size="sm">End-aligned heading</Heading>
-  <Heading align="center" size="sm">Center-aligned heading</Heading>
-  <Heading align="justify" size="sm">Justify-aligned heading</Heading>
-  <Heading align="forceLeft" size="sm">Forced-left-aligned heading</Heading>
-  <Heading align="forceRight" size="sm">Forced-right-aligned heading</Heading>
+  <Heading align="start" size="400">Start-aligned heading (default)</Heading>
+  <Heading align="end" size="400">End-aligned heading</Heading>
+  <Heading align="center" size="400">Center-aligned heading</Heading>
+  <Heading align="justify" size="400">Justify-aligned heading</Heading>
+  <Heading align="forceLeft" size="400">Forced-left-aligned heading</Heading>
+  <Heading align="forceRight" size="400">Forced-right-aligned heading</Heading>
 </Box>
 `}
       />
@@ -123,13 +139,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Example: Levels"
         defaultCode={`
 <Box>
-  <Heading size="md" accessibilityLevel={2}>
+  <Heading size="500" accessibilityLevel={2}>
     Medium heading level 2
   </Heading>
-  <Heading size="sm" accessibilityLevel={3}>
+  <Heading size="400" accessibilityLevel={3}>
     Small heading level 3
   </Heading>
-  <Heading size="sm" accessibilityLevel="none">
+  <Heading size="400" accessibilityLevel="none">
     Small heading without a level
   </Heading>
 </Box>

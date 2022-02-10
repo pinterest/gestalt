@@ -1,3 +1,15 @@
+## 45.3.0 (Feb 10, 2022)
+
+### Minor
+
+- Heading, Text: Make all 6 font sizes available + codemod (#1908)
+
+## 45.2.5 (Feb 10, 2022)
+
+### Patch
+
+- IconButton: refactor to fix Dropdown positioning shift on rerender + small fix (#1930)
+
 ## 45.2.4 (Feb 9, 2022)
 
 ### Patch

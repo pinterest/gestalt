@@ -92,34 +92,62 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
       />
       <Example
         description={`
-    You can apply \`size\` options to define the size of the text.
+    You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text needs to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/heading) instead.
+
   `}
         id="size"
         name="Sizes"
         defaultCode={`
 <Flex alignItems="start" direction="column" gap={2}>
   <Flex alignItems="center" gap={2}>
-    <Text inline size="sm">Small</Text>
+    <Text inline size="100">Size 100</Text>
     <span lang="ja">
-      <Text inline size="sm">
+      <Text inline size="100">
         こんにちは
       </Text>
     </span>
   </Flex>
 
   <Flex alignItems="center" gap={2}>
-    <Text inline size="md">Medium</Text>
+    <Text inline size="200">Size 200</Text>
     <span lang="ja">
-      <Text inline size="md">
+      <Text inline size="200">
         こんにちは
       </Text>
     </span>
   </Flex>
 
   <Flex alignItems="center" gap={2}>
-    <Text inline size="lg">Large (default size)</Text>
+    <Text inline size="300">Size 300 (default size)</Text>
     <span lang="ja">
-      <Text inline size="lg">
+      <Text inline size="300">
+        こんにちは
+      </Text>
+    </span>
+  </Flex>
+
+  <Flex alignItems="center" gap={2}>
+    <Text inline size="400">Size 400</Text>
+    <span lang="ja">
+      <Text inline size="400">
+        こんにちは
+      </Text>
+    </span>
+  </Flex>
+
+  <Flex alignItems="center" gap={2}>
+    <Text inline size="500">Size 500</Text>
+    <span lang="ja">
+      <Text inline size="500">
+        こんにちは
+      </Text>
+    </span>
+  </Flex>
+
+  <Flex alignItems="center" gap={2}>
+    <Text inline size="600">Size 600</Text>
+    <span lang="ja">
+      <Text inline size="600">
         こんにちは
       </Text>
     </span>
