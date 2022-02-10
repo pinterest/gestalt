@@ -1,3 +1,9 @@
+## 45.3.0 (Feb 10, 2022)
+
+### Minor
+
+- Heading, Text: Make all 6 font sizes available + codemod (#1908)
+
 ## 45.2.5 (Feb 10, 2022)
 
 ### Patch
