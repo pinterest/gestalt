@@ -12,11 +12,8 @@ import {
   Color,
   DesignTokens,
 } from '../graphics/HomePageIcons.js';
-import { useAppContext } from '../components/appContext.js';
 
 export default function HomePage(): Node {
-  const { colorScheme } = useAppContext();
-
   return (
     <Page title="Welcome to Gestalt" isFullWidth>
       <Box width="100%">
@@ -42,13 +39,13 @@ export default function HomePage(): Node {
           {/* Getting Started */}
           <HomePageSection title="Getting started">
             <HomePageCard
-              href="/how_to_work_with_us"
-              title="How to Work with Us"
-              description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute."
+              title="Design"
+              href="/faq"
+              isNew
+              description="Our brand new guide for designers to get started using Gestalt"
               color="blue-skycicle"
-              image={<HowToWork />}
+              image={<FAQ />}
             />
-
             <HomePageCard
               href="/development"
               title="Development"
@@ -56,13 +53,12 @@ export default function HomePage(): Node {
               color="blue-skycicle"
               image={<Development />}
             />
-
             <HomePageCard
-              title="FAQ"
-              href="/faq"
-              description="A quick guide to the most common questions designers and engineers have."
+              href="/how_to_work_with_us"
+              title="How to Work with Us"
+              description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute."
               color="blue-skycicle"
-              image={<FAQ />}
+              image={<HowToWork />}
             />
           </HomePageSection>
           {/* Guidelines */}

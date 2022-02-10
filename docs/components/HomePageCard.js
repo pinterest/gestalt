@@ -1,5 +1,5 @@
 // @flow strict
-import { Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
+import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import type { Node } from 'react';
 
 type Props = {|
@@ -8,9 +8,10 @@ type Props = {|
   title: string,
   color: string,
   href: string,
+  isNew?: boolean,
 |};
 
-const HomePageCard = ({ image, description, title, color, href }: Props): Node => (
+const HomePageCard = ({ image, description, isNew, title, color, href }: Props): Node => (
   <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
     <Box minWidth={280}>
       <Card>
@@ -37,9 +38,12 @@ const HomePageCard = ({ image, description, title, color, href }: Props): Node =
             direction="column"
             justifyContent="start"
           >
-            <Heading accessibilityLevel={3} size="sm">
-              {title}
-            </Heading>
+            <Flex direction="row" alignItems="baseline" gap={2}>
+              <Heading accessibilityLevel={3} size="sm">
+                {title}
+              </Heading>
+              {isNew && <Badge text="New" />}
+            </Flex>
             <Box paddingY={2}>
               <Text>{description}</Text>
             </Box>
