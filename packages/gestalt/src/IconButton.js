@@ -81,7 +81,6 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 /**
  * [IconButton](https://gestalt.pinterest.systems/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
  Some buttons are specialized for particular tasks, such as navigation or presenting menus.
-
  */
 const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
@@ -126,12 +125,6 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   const [isHovered, setHovered] = useState(false);
 
   const { isFocusVisible } = useFocusVisible();
-
-  const buttonRoleClasses = classnames(styles.button, touchableStyles.tapTransition, {
-    [styles.disabled]: disabled,
-    [styles.enabled]: !disabled,
-    [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
-  });
 
   const renderPogComponent = (selected?: boolean): Node => (
     <Pog
@@ -217,7 +210,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={buttonRoleClasses}
+      className={classnames(styles.parentButton)}
       disabled={disabled}
       onBlur={() => {
         handleBlur();
@@ -240,11 +233,19 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       ref={innerRef}
-      style={compressStyle || undefined}
       tabIndex={disabled ? null : tabIndex}
       type="button"
     >
-      {renderPogComponent(selected)}
+      <div
+        className={classnames(styles.button, touchableStyles.tapTransition, {
+          [styles.disabled]: disabled,
+          [styles.enabled]: !disabled,
+          [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
+        })}
+        style={compressStyle || undefined}
+      >
+        {renderPogComponent(selected)}
+      </div>
     </button>
   );
 
