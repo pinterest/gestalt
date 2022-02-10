@@ -75,7 +75,7 @@ const getPins = () => {
   return Promise.resolve(pinList);
 };
 
-function gridComponent({ data }: { data: Pin, ... }) {
+function GridComponent({ data }: { data: Pin, ... }) {
   return (
     <Box>
       <Image
@@ -155,7 +155,7 @@ class ExampleMasonry extends Component<Props, State> {
           {scrollContainer && (
             <Masonry
               columnWidth={170}
-              comp={gridComponent}
+              comp={GridComponent}
               flexible={this.props.flexible}
               gutterWidth={5}
               items={this.state.pins}
