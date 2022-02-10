@@ -41,6 +41,8 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
         <MainSection.Subsection
           title="Private Figma plugins"
           description={`
+**Please note: The following plugins are only available for Pinterest employees.**
+
 [**Gestalt docs for Figma**](https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta))
 View the Gestalt documentation without leaving Figma!
 
