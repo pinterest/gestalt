@@ -1,3 +1,9 @@
+## 45.3.1 (Feb 10, 2022)
+
+### Patch
+
+- Internal: update eslint-config-airbnb to 19.0.4, fix/suppress new errors (#1931)
+
 ## 45.3.0 (Feb 10, 2022)
 
 ### Minor
