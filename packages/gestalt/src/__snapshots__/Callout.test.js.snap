@@ -231,11 +231,11 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
             className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
@@ -384,11 +384,11 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
             className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
@@ -519,11 +519,11 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
             className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
@@ -623,11 +623,11 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
             className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
@@ -721,11 +721,11 @@ exports[`<Callout /> message + title 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
             className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"

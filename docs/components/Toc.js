@@ -180,7 +180,7 @@ export default function Toc({ cards }: Props): Node {
                   </Text>
                 ) : (
                   <Box paddingX={3}>
-                    <Text size="md" color={isActive ? 'pine' : 'darkGray'} weight="bold">
+                    <Text size="200" color={isActive ? 'pine' : 'darkGray'} weight="bold">
                       {anchor.innerText}
                     </Text>
                   </Box>

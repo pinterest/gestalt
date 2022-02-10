@@ -155,7 +155,7 @@ function AccessibilityExample(props) {
         size="sm"
       >
         <Box padding={8}>
-          <Text align="center" size="lg">Once you delete a board and all its Pins, you can't undo it!</Text>
+          <Text align="center" size="300">Once you delete a board and all its Pins, you can't undo it!</Text>
         </Box>
       </Modal>
     </Layer>
@@ -203,7 +203,7 @@ function AlertDialogAccessibilityExample(props) {
       size="sm"
     >
       <Box padding={8}>
-        <Text align="center" size="lg">Once you delete a board and all its Pins, you can't undo it!</Text>
+        <Text align="center" size="300">Once you delete a board and all its Pins, you can't undo it!</Text>
       </Box>
     </Modal>
   </Layer>
@@ -483,11 +483,11 @@ function SizesExample(props) {
               accessibilityModalLabel="View default padding and styling"
               heading="Small modal"
               onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="md">Footer</Heading>}
+              footer={<Heading size="500">Footer</Heading>}
               size="sm"
             >
               <Box padding={8}>
-                <Heading size="md">Children</Heading>
+                <Heading size="500">Children</Heading>
               </Box>
             </Modal>
           </Layer>
@@ -504,11 +504,11 @@ function SizesExample(props) {
               accessibilityModalLabel="View default padding and styling"
               heading="Medium modal"
               onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="md">Footer</Heading>}
+              footer={<Heading size="500">Footer</Heading>}
               size="md"
             >
               <Box padding={8}>
-                <Heading size="md">Children</Heading>
+                <Heading size="500">Children</Heading>
               </Box>
             </Modal>
           </Layer>
@@ -525,11 +525,11 @@ function SizesExample(props) {
               accessibilityModalLabel="View default padding and styling"
               heading="Large modal"
               onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="md">Footer</Heading>}
+              footer={<Heading size="500">Footer</Heading>}
               size="lg"
             >
               <Box padding={8}>
-                <Heading size="md">Children</Heading>
+                <Heading size="500">Children</Heading>
               </Box>
             </Modal>
           </Layer>

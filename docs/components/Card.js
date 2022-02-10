@@ -8,7 +8,7 @@ import CopyLinkButton from './buttons/CopyLinkButton.js';
 type Props = {|
   children?: Node,
   description?: string,
-  headingSize?: 'sm' | 'md',
+  headingSize?: '400' | '500',
   id?: string,
   name: string,
   toggle?: Node,
@@ -35,7 +35,7 @@ export const copyToClipboard = (hash: string): boolean => {
 export default function Card({
   children,
   description,
-  headingSize = 'md',
+  headingSize = '500',
   id,
   name,
   toggle,

@@ -14,10 +14,16 @@ const SIZE_SCALE = {
   sm: 100,
   md: 200,
   lg: 300,
+  '100': 100,
+  '200': 200,
+  '300': 300,
+  '400': 400,
+  '500': 500,
+  '600': 600,
 };
 
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
-type Size = 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
 
 type Props = {|
   /**
@@ -67,7 +73,7 @@ type Props = {|
    */
   overflow?: Overflow,
   /**
-   * sm: `12px`, md: `14px`, lg: `16px`
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size). The "sm", "md", and "lg" values will soon be deprecated.
    *
    * Link: https://gestalt.pinterest.systems/text#size
    */
@@ -96,15 +102,13 @@ export default function Text({
   italic = false,
   lineClamp,
   overflow = 'breakWord',
-  size = 'lg',
+  size = '300',
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  const scale = SIZE_SCALE[size];
-
   const cs = cx(
     styles.Text,
-    styles[`fontSize${scale}`],
+    typography[`fontSize${SIZE_SCALE[size]}`],
     color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,

@@ -11,9 +11,15 @@ function isNotNullish(val): boolean {
 }
 
 const defaultHeadingLevels = {
-  sm: 3,
-  md: 2,
-  lg: 1,
+  '100': 6,
+  '200': 5,
+  '300': 4,
+  '400': 3,
+  '500': 2,
+  '600': 1,
+  'sm': 3,
+  'md': 2,
+  'lg': 1,
 };
 
 // Corresponds to the font-size design tokens
@@ -21,11 +27,17 @@ const SIZE_SCALE = {
   sm: 400,
   md: 500,
   lg: 600,
+  '100': 100,
+  '200': 200,
+  '300': 300,
+  '400': 400,
+  '500': 500,
+  '600': 600,
 };
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
 type Overflow = 'normal' | 'breakWord';
-type Size = 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
 
 type Props = {|
   /**
@@ -75,7 +87,7 @@ type Props = {|
   overflow?: Overflow,
   /**
    * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems#sizes) for more details.
-   * sm: 20px, md: 28px, lg: 36px
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).  The "sm", "md", and "lg" values will soon be deprecated.
    */
   size?: Size,
 |};
@@ -91,11 +103,11 @@ export default function Heading({
   lineClamp,
   id,
   overflow = 'breakWord',
-  size = 'lg',
+  size = '600',
 }: Props): Node {
   const cs = cx(
     styles.Heading,
-    styles[`fontSize${SIZE_SCALE[size]}`],
+    typography[`fontSize${SIZE_SCALE[size]}`],
     color && allowedColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
@@ -108,7 +120,6 @@ export default function Heading({
   );
 
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
-
   let newProps = { className: cs };
   if (id) {
     newProps = { ...newProps, id };

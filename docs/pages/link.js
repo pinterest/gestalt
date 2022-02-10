@@ -42,7 +42,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="lg"
             defaultCode={`
 <Box>
-  <Heading accessibilityLevel="none">Bad ❌</Heading>
+  <Text size="500">Bad ❌</Text>
   <Text>
     For more information,{' '}
     <Text inline weight="bold">
@@ -53,7 +53,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     .
   </Text>
   <Box paddingY={4}>
-    <Heading accessibilityLevel="none">Good ✅</Heading>
+    <Text size="500">Good ✅</Text>
     <Text>
       Visit{' '}
       <Text inline weight="bold">
