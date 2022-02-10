@@ -36,7 +36,7 @@ function MainSectionSubsection({ badge, children, columns = 1, description, titl
             data-anchor
           >
             <Flex alignItems="center" gap={2}>
-              <Heading size="sm">{title}</Heading>
+              <Heading size="400">{title}</Heading>
               {badge ? (
                 <Tooltip
                   inline

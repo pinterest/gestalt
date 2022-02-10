@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Deprecated Heading large 1`] = `
+<h1
+  className="Heading fontSize600 darkGray alignStart breakWord"
+/>
+`;
+
 exports[`Heading default overflow 1`] = `
 <h3
   className="Heading fontSize400 darkGray alignStart breakWord"

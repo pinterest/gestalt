@@ -5,6 +5,32 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* font size */
+
+.fontSize100 {
+  font-size: var(--font-size-100);
+}
+
+.fontSize200 {
+  font-size: var(--font-size-200);
+}
+
+.fontSize300 {
+  font-size: var(--font-size-300);
+}
+
+.fontSize400 {
+  font-size: var(--font-size-400);
+}
+
+.fontSize500 {
+  font-size: var(--font-size-500);
+}
+
+.fontSize600 {
+  font-size: var(--font-size-600);
+}
+
 /* fonts */
 
 .sansSerif {

@@ -38,7 +38,7 @@ function Th({ children }: {| children?: Node |}) {
   return (
     <th style={{ borderBottom: '2px solid #ddd' }}>
       <Box padding={2}>
-        <Text size="md" overflow="normal" weight="bold">
+        <Text size="200" overflow="normal" weight="bold">
           {children}
         </Text>
       </Box>
@@ -127,7 +127,7 @@ export default function PropTable({
   return (
     <Card
       id={propsId}
-      headingSize={proptableName ? 'sm' : 'md'}
+      headingSize={proptableName ? '400' : '500'}
       name={proptableName ? `${proptableName} Props` : 'Props'}
       toggle={
         <Tooltip inline text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} props`}>

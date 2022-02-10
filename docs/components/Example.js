@@ -42,7 +42,7 @@ function Example({
       id={id}
       stacked
       showHeading={showHeading}
-      headingSize={headingSize}
+      headingSize={headingSize === 'md' ? '500' : '400'}
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box display="flex" direction="column" marginStart={-2} marginEnd={-2} marginBottom={6}>

@@ -59,7 +59,7 @@ function TableEntry({
       <Table.Cell>
         <Flex alignItems="center" gap={1}>
           <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
-            <Text size="sm" underline overflow="noWrap">
+            <Text size="100" underline overflow="noWrap">
               {metric}
             </Text>
           </Link>
@@ -70,7 +70,7 @@ function TableEntry({
         </Flex>
       </Table.Cell>
       <Table.Cell>
-        <Text size="sm">{description}</Text>
+        <Text size="100">{description}</Text>
       </Table.Cell>
     </Table.Row>
   );
@@ -160,7 +160,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                   naturalWidth={1034}
                   src="https://i.ibb.co/hCfRSFb/gestalt-vscode-docs.gif"
                 />
-                <Text size="sm" align="center">
+                <Text size="100" align="center">
                   <Box as="figcaption" marginTop={3}>
                     Props documentation on hover in Visual Studio Code animated demo: hover on each
                     component or prop name to display the associated documentation right on your
@@ -187,7 +187,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                     naturalWidth={1228}
                     src="https://i.ibb.co/G2PMw6f/Screen-Shot-2022-01-27-at-4-24-36-PM.png"
                   />
-                  <Text size="sm" align="center">
+                  <Text size="100" align="center">
                     <Box as="figcaption" marginTop={3}>
                       Quick access to Gestalt components and documentation on the VSCode sidebar.
                       Check for the Gestalt logo on the sidebar.
@@ -202,7 +202,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                     naturalWidth={1398}
                     src="https://i.ibb.co/9Vjhyrm/Screen-Shot-2022-01-27-at-4-45-42-PM.png"
                   />
-                  <Text size="sm" align="center">
+                  <Text size="100" align="center">
                     <Box as="figcaption" marginTop={3}>
                       {`List Gestalt components by typing "<"`}
                     </Box>
@@ -216,7 +216,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                     naturalWidth={1218}
                     src="https://i.ibb.co/BTCtDQk/Screen-Shot-2022-01-27-at-4-42-36-PM.png"
                   />
-                  <Text size="sm" align="center">
+                  <Text size="100" align="center">
                     <Box as="figcaption" marginTop={3}>
                       List Gestalt components by pressing Alt+G/Option+G
                     </Box>
@@ -238,7 +238,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                   naturalWidth={400}
                   src="https://github.com/pinterest/vscode-gestalt/raw/main/images/vscode-gestalt-snippets-optimized.gif"
                 />
-                <Text size="sm" align="center">
+                <Text size="100" align="center">
                   <Box as="figcaption" marginTop={3}>
                     Visual Studio Code extension for Gestalt animated demo: how to add Gestalt
                     component snippets to your code
@@ -301,7 +301,7 @@ Visit the [release log](/whats_new) or check the [codemod directory](https://git
                       naturalWidth={600}
                       src="https://s14.postimg.cc/3ue4bpbtd/Screen_Shot_2018-05-07_at_11.17.01_AM.png"
                     />
-                    <Text size="sm" align="center">
+                    <Text size="100" align="center">
                       <Box as="figcaption" marginTop={3}>
                         Gestalt extension demo: the areas highlighted in red are not using Gestalt
                         components
