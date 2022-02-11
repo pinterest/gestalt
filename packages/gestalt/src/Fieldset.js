@@ -60,7 +60,7 @@ export default function Fieldset({
           },
         )}
       >
-        <Text size="sm">{legend}</Text>
+        <Text size="100">{legend}</Text>
       </legend>
       {children}
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}

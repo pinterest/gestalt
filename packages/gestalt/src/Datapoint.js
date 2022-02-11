@@ -56,7 +56,7 @@ export default function Datapoint({
   return (
     <Flex gap={1} direction="column">
       <Flex gap={1} alignItems="center" minHeight={24}>
-        <Text size="md">{title}</Text>
+        <Text size="200">{title}</Text>
         {tooltipText && (
           <Tooltip accessibilityLabel="" text={tooltipText} idealDirection="up">
             {/* Interactive elements require an a11yLabel on them or their children.

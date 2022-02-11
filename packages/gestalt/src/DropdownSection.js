@@ -23,7 +23,7 @@ export default function DropdownSection({ label, children }: Props): Node {
   return (
     <div className={styles.DropdownSection} aria-label={label}>
       <Box padding={2} display="flex" role="presentation">
-        <Text size="sm">{label}</Text>
+        <Text size="100">{label}</Text>
       </Box>
       {children}
     </div>

@@ -72,7 +72,7 @@ export default function ModuleExpandableItem({
                 <Box column={6} marginStart={6}>
                   <Flex direction="column" gap={2}>
                     {summary.map((item, i) => (
-                      <Text key={i} size="md" lineClamp={1}>
+                      <Text key={i} size="200" lineClamp={1}>
                         {item}
                       </Text>
                     ))}

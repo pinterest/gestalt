@@ -67,12 +67,12 @@ export default function Status({ accessibilityLabel, subtext, title, type }: Pro
     <Flex direction="column">
       <Flex alignItems="center" gap={2}>
         <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
-        {title && <Text size="md">{title}</Text>}
+        {title && <Text size="200">{title}</Text>}
       </Flex>
 
       {subtext && title && (
         <Box marginStart={6}>
-          <Text color="gray" size="md">
+          <Text color="gray" size="200">
             {subtext}
           </Text>
         </Box>

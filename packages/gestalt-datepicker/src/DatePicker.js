@@ -209,7 +209,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       {label && (
         <Label htmlFor={id}>
           <Box marginBottom={2}>
-            <Text size="sm">{label}</Text>
+            <Text size="100">{label}</Text>
           </Box>
         </Label>
       )}
@@ -264,7 +264,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       />
       {(!!errorMessage || !!helperText) && (
         <Box marginTop={2}>
-          <Text color={errorMessage ? 'red' : 'gray'} size="sm">
+          <Text color={errorMessage ? 'red' : 'gray'} size="100">
             {errorMessage || helperText}
           </Text>
         </Box>
