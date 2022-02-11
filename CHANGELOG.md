@@ -1,3 +1,9 @@
+## 45.4.0 (Feb 11, 2022)
+
+### Minor
+
+- Docs: Change components pages to use ssr (#1910)
+
 ## 45.3.2 (Feb 11, 2022)
 
 ### Patch
