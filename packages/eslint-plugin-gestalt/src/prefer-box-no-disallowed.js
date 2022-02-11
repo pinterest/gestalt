@@ -86,7 +86,6 @@ const rule: ESLintRule = {
       const ignoreAttributes = [
         ...boxDisallowedAttributes,
         ...ignoreEslintPluginJsxA11yConflictingAttributes,
-        ...[],
       ];
 
       const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
@@ -111,11 +110,12 @@ const rule: ESLintRule = {
           tagName: 'div',
           attributes: ignoreAttributes,
         }) ||
-        // hasUnsupportedAttributes({
-        //   elementNode: node.openingElement,
-        //   tagName: 'div',
-        //   supportedAttributes: allowedBaseProps,
-        // }) ||
+        hasUnsupportedAttributes({
+          elementNode: node.openingElement,
+          tagName: 'div',
+          // "style" is included as supportedAttributes because it'll be replaced with dangerouslySetInlineStyle
+          supportedAttributes: [...allowedBaseProps, 'style'],
+        }) ||
         hasAriaAttributes({
           elementNode: node.openingElement,
           tagName: 'div',
