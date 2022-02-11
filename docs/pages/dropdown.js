@@ -1052,7 +1052,7 @@ OnLinkNavigationProvider allows external link navigation control across all chil
   );
 }
 
-export async function getStaticProps(): Promise<{|
+export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
   const docGen = await multipledocgen({

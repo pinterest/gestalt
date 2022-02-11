@@ -467,7 +467,7 @@ function ModuleExample5() {
   );
 }
 
-export async function getStaticProps(): Promise<{|
+export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
   const docgen = await multipledocgen({ componentName: ['Module', 'ModuleExpandable'] });

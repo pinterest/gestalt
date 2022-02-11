@@ -382,12 +382,11 @@ import { it } from 'date-fns/locale';
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: {
       generatedDocGen: await docgen({
         componentName: 'DatePicker',
-        alternativeSubdirectory: `/packages/gestalt-datepicker/src/DatePicker.js`,
       }),
     },
   };

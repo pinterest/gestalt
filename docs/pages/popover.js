@@ -1358,7 +1358,7 @@ ScrollBoundaryContainer is needed for proper positioning when Popover is anchore
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Popover' }) },
   };

@@ -5,6 +5,7 @@ build
 coverage
 dist
 docs/.next/
+docs/components/metadata.js
 flow-typed
 node_modules
 package.json
