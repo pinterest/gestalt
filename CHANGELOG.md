@@ -1,3 +1,9 @@
+## 45.3.2 (Feb 11, 2022)
+
+### Patch
+
+- Docs: Added Getting Started for Design page (#1933)
+
 ## 45.3.1 (Feb 10, 2022)
 
 ### Patch
