@@ -5,7 +5,7 @@ import * as useReducedMotionHook from './useReducedMotion.js'; // eslint-disable
 
 jest.mock('./useReducedMotion.js');
 
-const AnimatedComponent = ({ onDismissStart }: {| onDismissStart: () => void |}) => {
+function AnimatedComponent({ onDismissStart }: {| onDismissStart: () => void |}) {
   const { animationState, onAnimationEnd } = useAnimation();
 
   return (
@@ -18,7 +18,7 @@ const AnimatedComponent = ({ onDismissStart }: {| onDismissStart: () => void |})
       {animationState}
     </button>
   );
-};
+}
 
 describe('AnimationController', () => {
   const useReducedMotionMock = jest.spyOn(useReducedMotionHook, 'default');

@@ -268,7 +268,7 @@ function MenuButtonExample() {
   </Flex>
   <Flex alignItems="top">
     <Box as="article" column={6} color="pine" width="100%" padding={2} borderStyle="sm">
-      <Heading color="white" size="md">
+      <Heading color="white" size="500">
         Article 1
       </Heading>
       <Text color="white" weight="bold">
@@ -806,7 +806,7 @@ function Example() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Box' });
 
   return {

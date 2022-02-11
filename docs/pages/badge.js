@@ -56,7 +56,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
     Larger text example rendered with a top positioned `Badge`."
         name="Example: positioning"
         defaultCode={`
-  <Heading>Heading <Badge text="Beta" position="top"/></Heading>
+  <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
 `}
       />
 
@@ -73,7 +73,7 @@ function ModuleExample() {
         id="ModuleExample - badge"
         title="Title"
         >
-        <Text size="md">This is example content.</Text>
+        <Text size="200">This is example content.</Text>
       </Module>
     </Box>
   );
@@ -84,7 +84,7 @@ function ModuleExample() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Badge' }) },
   };

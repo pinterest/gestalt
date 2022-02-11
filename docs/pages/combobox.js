@@ -150,7 +150,7 @@ function ComboBoxExample(props) {
       direction="column"
       gap={2}
     >
-      <Heading size="md">Discover this week's top searched trends across all categories</Heading>
+      <Heading size="500">Discover this week's top searched trends across all categories</Heading>
       <Text inline> Wanna learn how trends work? Read
         <Text weight="bold" inline>
           <Link accessibilityLabel="Learn how trends on Pinterest work" target="blank" inline href="https://business.pinterest.com/content/pinterest-predicts/">
@@ -750,7 +750,7 @@ Use Fieldset to group related form items.
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'ComboBox' }) },
   };

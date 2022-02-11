@@ -1,8 +1,8 @@
 // @flow strict
 import type { Node } from 'react';
-import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
+import MainSection from '../components/MainSection.js';
 
 export default function DocsPage(): Node {
   return (
@@ -19,9 +19,11 @@ export default function DocsPage(): Node {
     </ul>
     `}
       />
-      <Example
-        name="Example"
-        defaultCode={`
+      <MainSection name="Examples">
+        <MainSection.Subsection title="Buttons">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const { isFocusVisible } = useFocusVisible();
   const [ focusedButton1, setFocusedButton1 ] = React.useState(false);
@@ -58,7 +60,9 @@ function Example() {
     </Flex>
   );
 }`}
-      />
+          />
+        </MainSection.Subsection>
+      </MainSection>
     </Page>
   );
 }

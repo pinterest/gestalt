@@ -15,8 +15,8 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
 function Example() {
   const Block = ({ title, text }) => (
     <Flex direction="column" gap={2}>
-      <Heading accessibilityLevel="none" size="sm">{title}</Heading>
-      <Text size="md">{text}</Text>
+      <Heading accessibilityLevel="none" size="400">{title}</Heading>
+      <Text size="200">{text}</Text>
     </Flex>
   );
 
@@ -56,8 +56,8 @@ function Example() {
 function Example() {
   const Block = ({ title, text }) => (
     <Flex direction="column" gap={2}>
-      <Heading accessibilityLevel="none" size="sm">{title}</Heading>
-      <Text size="md">{text}</Text>
+      <Heading accessibilityLevel="none" size="400">{title}</Heading>
+      <Text size="200">{text}</Text>
     </Flex>
   );
 
@@ -78,8 +78,8 @@ function Example() {
 function Example() {
   const Block = ({ title, text }) => (
     <Flex direction="column" gap={2}>
-      <Heading accessibilityLevel="none" size="sm">{title}</Heading>
-      <Text size="md">{text}</Text>
+      <Heading accessibilityLevel="none" size="400">{title}</Heading>
+      <Text size="200">{text}</Text>
     </Flex>
   );
 
@@ -105,9 +105,9 @@ function Example() {
 function Example() {
   const Block = ({ title, text }) => (
     <Flex direction="column" gap={2}>
-      <Heading accessibilityLevel="none" size="sm">{title}</Heading>
+      <Heading accessibilityLevel="none" size="400">{title}</Heading>
       {
-        text.map((item, idx) => <Text key={idx} size="md" underline><Link href="#" target="blank">{item}</Link></Text> )
+        text.map((item, idx) => <Text key={idx} size="200" underline><Link href="#" target="blank">{item}</Link></Text> )
       }
     </Flex>
   );
@@ -130,9 +130,9 @@ function Example() {
 function Example() {
   const Block = ({ title, text }) => (
     <Flex direction="column" gap={2}>
-      <Heading accessibilityLevel="none" size="sm">{title}</Heading>
+      <Heading accessibilityLevel="none" size="400">{title}</Heading>
       {
-        text.map((item, idx) => <Text key={idx} size="md" underline><Link href="#" target="blank">{item}</Link></Text> )
+        text.map((item, idx) => <Text key={idx} size="200" underline><Link href="#" target="blank">{item}</Link></Text> )
       }
     </Flex>
   );
@@ -163,7 +163,7 @@ function Example() {
         </Mask>
       </Box>
       <Flex.Item flex="grow">
-        <Text weight="bold" size="md">
+        <Text weight="bold" size="200">
           {title}
         </Text>
       </Flex.Item>
@@ -216,7 +216,7 @@ function Example() {
         </Mask>
       </Box>
       <Flex.Item flex="grow">
-        <Text weight="bold" size="md">
+        <Text weight="bold" size="200">
           {title}
         </Text>
       </Flex.Item>
@@ -308,11 +308,11 @@ function Example() {
   return (
     <Flex width="80%">
       <Box paddingX={4}>
-        <Heading accessibilityLevel="none" size="sm">Our mission</Heading>
+        <Heading accessibilityLevel="none" size="400">Our mission</Heading>
       </Box>
       <Divider />
       <Box paddingX={4}>
-        <Text size="md">Pinterest's mission is to bring everyone the inspiration to create a life they love.</Text>
+        <Text size="200">Pinterest's mission is to bring everyone the inspiration to create a life they love.</Text>
       </Box>
     </Flex>
   );
@@ -340,8 +340,8 @@ function Example() {
 function Example() {
   const Block = ({ title, text }) => (
     <Flex direction="column" gap={2}>
-      <Heading accessibilityLevel="none" size="sm">{title}</Heading>
-      <Text size="md">{text}</Text>
+      <Heading accessibilityLevel="none" size="400">{title}</Heading>
+      <Text size="200">{text}</Text>
     </Flex>
   );
 
@@ -362,8 +362,8 @@ function Example() {
 function Example() {
   const Block = ({ title, text }) => (
     <Flex direction="column" gap={2}>
-      <Heading accessibilityLevel="none" size="sm">{title}</Heading>
-      <Text size="md">{text}</Text>
+      <Heading accessibilityLevel="none" size="400">{title}</Heading>
+      <Text size="200">{text}</Text>
     </Flex>
   );
 
@@ -387,7 +387,7 @@ function Example() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Divider' }) },
   };

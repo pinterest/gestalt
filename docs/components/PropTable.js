@@ -24,25 +24,29 @@ type Props = {|
 
 const unifyQuotes = (input) => input?.replace(/'/g, '"');
 
-const Description = (lines: Array<string>): Node => (
-  <Flex alignItems="start" direction="column" gap={2}>
-    {lines.map((line, idx) => (
-      <Markdown key={idx} text={line} textColor="gray" />
-    ))}
-  </Flex>
-);
+function Description(lines: Array<string>): Node {
+  return (
+    <Flex alignItems="start" direction="column" gap={2}>
+      {lines.map((line, idx) => (
+        <Markdown key={idx} text={line} textColor="gray" />
+      ))}
+    </Flex>
+  );
+}
 
-const Th = ({ children }: {| children?: Node |}) => (
-  <th style={{ borderBottom: '2px solid #ddd' }}>
-    <Box padding={2}>
-      <Text size="md" overflow="normal" weight="bold">
-        {children}
-      </Text>
-    </Box>
-  </th>
-);
+function Th({ children }: {| children?: Node |}) {
+  return (
+    <th style={{ borderBottom: '2px solid #ddd' }}>
+      <Box padding={2}>
+        <Text size="200" overflow="normal" weight="bold">
+          {children}
+        </Text>
+      </Box>
+    </th>
+  );
+}
 
-const Td = ({
+function Td({
   border = true,
   children,
   colspan = 1,
@@ -54,23 +58,25 @@ const Td = ({
   colspan?: number,
   shrink?: boolean,
   color?: 'darkGray' | 'gray',
-|}) => (
-  <td
-    style={{
-      verticalAlign: 'top',
-      borderBottom: border && '1px solid #ddd',
-      padding: 0,
-      width: shrink ? '1px' : '',
-    }}
-    colSpan={colspan}
-  >
-    <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
-      <Text overflow="normal" color={color}>
-        {children}
-      </Text>
-    </Box>
-  </td>
-);
+|}) {
+  return (
+    <td
+      style={{
+        verticalAlign: 'top',
+        borderBottom: border && '1px solid #ddd',
+        padding: 0,
+        width: shrink ? '1px' : '',
+      }}
+      colSpan={colspan}
+    >
+      <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
+        <Text overflow="normal" color={color}>
+          {children}
+        </Text>
+      </Box>
+    </td>
+  );
+}
 
 function isNumeric(value) {
   return /^-?\d+$/.test(value);
@@ -121,7 +127,7 @@ export default function PropTable({
   return (
     <Card
       id={propsId}
-      headingSize={proptableName ? 'sm' : 'md'}
+      headingSize={proptableName ? '400' : '500'}
       name={proptableName ? `${proptableName} Props` : 'Props'}
       toggle={
         <Tooltip inline text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} props`}>

@@ -759,9 +759,9 @@ function CustomHeaderExample() {
         <Dropdown
           anchor={anchorRef.current}
           headerContent={
-            <Text align="start" size="sm">
+            <Text align="start" size="100">
               This Pin was inspired by your{' '}
-              <Text weight="bold" size="sm">
+              <Text weight="bold" size="100">
                 <Link href="https://pinterest.com">recent activity</Link>
               </Text>
             </Text>
@@ -1052,7 +1052,7 @@ OnLinkNavigationProvider allows external link navigation control across all chil
   );
 }
 
-export async function getStaticProps(): Promise<{|
+export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
   const docGen = await multipledocgen({

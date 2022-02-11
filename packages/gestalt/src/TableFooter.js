@@ -2,12 +2,16 @@
 import type { Node } from 'react';
 
 type Props = {|
+  /**
+   * Must be instances of Table.Row and/or Table.RowExpandable components. See the [Subcomponent section](https://gestalt.pinterest.systems/table#Subcomponents) to learn more.
+   */
   children: Node,
 |};
 
 /**
- * https://gestalt.pinterest.systems/table
+ * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
+ * Use [Table.Footer](https://gestalt.pinterest.systems/table#Table.FooterProps) to group the footer content in Table.
  */
-export default function TableFooter(props: Props): Node {
-  return <tfoot>{props.children}</tfoot>;
+export default function TableFooter({ children }: Props): Node {
+  return <tfoot>{children}</tfoot>;
 }

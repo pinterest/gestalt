@@ -2,16 +2,21 @@
 import type { Node } from 'react';
 import { Table } from 'gestalt';
 import PageHeader from '../components/PageHeader.js';
-import PropTable from '../components/PropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import { multipledocgen, type DocGen } from '../components/docgen.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
-export default function TablePage(): Node {
+export default function TablePage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   return (
     <Page title="Table">
       <PageHeader
         name="Table"
-        description="​​A table is a set of structured data that is easy for a user to scan, examine, and compare. Table data is displayed in a grid format and can be used to structure both interactive and static data."
+        description={generatedDocGen.Table?.description}
         defaultCode={`
 <Table accessibilityLabel="Basic Table">
   <Table.Header>
@@ -76,37 +81,7 @@ export default function TablePage(): Node {
 </Table>
 `}
       />
-      <PropTable
-        Component={Table}
-        props={[
-          {
-            name: 'accessibilityLabel',
-            type: 'string',
-            description: 'Label for screen readers to announce Table.',
-            required: true,
-          },
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'borderStyle',
-            type: `"sm" | "none"`,
-            description: 'Specify a border width for table: "sm" is 1px',
-            defaultValue: 'none',
-          },
-          {
-            name: 'maxHeight',
-            type: `number | string`,
-            description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
-          },
-          {
-            name: 'stickyColumns',
-            type: `number`,
-            description: `Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](#Sticky-Column) example for details.`,
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.Table} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -805,7 +780,7 @@ function Example() {
       <Table.Row>
         <Table.Cell>
           <Text color="darkGray">{name}</Text>
-          <Text color="gray" size="sm" lineClamp={lineClamp}>{subtext}</Text>
+          <Text color="gray" size="100" lineClamp={lineClamp}>{subtext}</Text>
         </Table.Cell>
         <Table.Cell>
           <Text align="end" lineClamp={lineClamp}>{total}</Text>
@@ -1005,7 +980,7 @@ function MainExample() {
         />
         {tabItem === 'campaign' ? (
           <Flex direction="column" gap={6} width="100%">
-            <Heading size="sm" accessibilityLevel={2}>
+            <Heading size="400" accessibilityLevel={2}>
               Latest boards
             </Heading>
             <Flex gap={6} width="100%">
@@ -1072,12 +1047,12 @@ function MainExample() {
                     />
                   </Mask>
                   <Flex direction="column" gap={2}>
-                    <Heading size="sm" accessibilityLevel={0}>
+                    <Heading size="400" accessibilityLevel={0}>
                       Uniform
                     </Heading>
                     <Flex gap={5}>
-                      <Text size="md">123 Pins</Text>
-                      <Text size="md">4 sections</Text>
+                      <Text size="200">123 Pins</Text>
+                      <Text size="200">4 sections</Text>
                     </Flex>
                   </Flex>
                 </TapArea>
@@ -1173,12 +1148,12 @@ function MainExample() {
                 }
               >
                 <Box width={300}>
-                  <Text size="md">Content</Text>
+                  <Text size="200">Content</Text>
                 </Box>
               </Module>
               <Module id="Top Pins" title="Top Pins">
                 <Box width={300}>
-                  <Text size="md">Content</Text>
+                  <Text size="200">Content</Text>
                 </Box>
               </Module>
             </Flex>
@@ -1380,12 +1355,12 @@ function Example() {
   return (
     <Flex gap={2} direction="column">
       <Box aria-hidden>
-        <Heading
-          size="sm"
-          accessibilityLevel="none"
+        <Text
+          size="400"
+          weight="bold"
         >
           Your Campaigns Summary
-        </Heading>
+        </Text>
       </Box>
       <Table accessibilityLabel="Your campaigns summary">
         <HeaderRow id={tableID}/>
@@ -1524,7 +1499,7 @@ function Example() {
         </Table.Body>
       </Table>
       <Box aria-hidden>
-        <Text align="center" size="sm">Your campaigns summary</Text>
+        <Text align="center" size="100">Your campaigns summary</Text>
       </Box>
     </Flex>
   );
@@ -1534,198 +1509,57 @@ function Example() {
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Subcomponents">
-        <PropTable
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableHeader}
+          Component={Table?.Header}
+          name="Table.Header"
+          id="Table.Header"
+        />
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableBody}
           Component={Table?.Body}
           name="Table.Body"
           id="Table.Body"
-          props={[
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-          ]}
         />
-        <PropTable
-          name="Table.Cell"
-          id="Table.Cell"
-          Component={Table?.Cell}
-          props={[
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-            {
-              name: 'colSpan',
-              type: 'number',
-              defaultValue: 1,
-            },
-            {
-              name: 'rowSpan',
-              type: 'number',
-              defaultValue: 1,
-            },
-          ]}
-        />
-        <PropTable
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableFooter}
+          Component={Table?.Footer}
           name="Table.Footer"
           id="Table.Footer"
-          Component={Table?.Footer}
-          props={[
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-          ]}
         />
-        <PropTable
-          name="Table.Header"
-          id="Table.Header"
-          Component={Table?.Header}
-          props={[
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-            {
-              name: 'sticky',
-              type: 'boolean',
-              defaultValue: false,
-              href: 'stickyHeader',
-              description:
-                'If true, the table header will be sticky and the table body will be scrollable',
-            },
-          ]}
+
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableCell}
+          Component={Table?.Cell}
+          name="Table.Cell"
+          id="Table.Cell"
+          excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
         />
-        <PropTable
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableHeaderCell}
+          Component={Table?.HeaderCell}
           name="Table.HeaderCell"
           id="Table.HeaderCell"
-          Component={Table?.HeaderCell}
-          props={[
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-            {
-              name: 'scope',
-              defaultValue: 'col',
-              type: '"col" | "row" | "colgroup" | "rowgroup"',
-            },
-            {
-              name: 'colSpan',
-              type: 'number',
-              defaultValue: 1,
-            },
-            {
-              name: 'rowSpan',
-              type: 'number',
-              defaultValue: 1,
-            },
-          ]}
+          excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
         />
-        <PropTable
-          name="Table.Row"
-          id="Table.Row"
-          Component={Table?.Row}
-          props={[
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-          ]}
-        />
-        <PropTable
-          name="Table.RowExpandable"
-          id="Table.RowExpandable"
-          Component={Table?.Row}
-          props={[
-            {
-              name: 'accessibilityCollapseLabel',
-              type: 'string',
-              required: true,
-              defaultValue: null,
-              description: [
-                'Supply a short, descriptive label for screen-readers as a text alternative to the Collapse button.',
-                'Accessibility: It populates aria-label on the `<button>` element for the Collapse button.',
-              ],
-            },
-            {
-              name: 'accessibilityExpandLabel',
-              type: 'string',
-              required: true,
-              defaultValue: null,
-              description: [
-                'Supply a short, descriptive label for screen-readers as a text alternative to the Expand button.',
-                'Accessibility: It populates aria-label on the `<button>` element for the Expand button.',
-              ],
-            },
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-            {
-              name: 'expandedContents',
-              type: 'React.Node',
-              required: true,
-            },
-            {
-              name: 'hoverStyle',
-              type: '"none" | "gray"',
-              defaultValue: 'gray',
-            },
-            {
-              name: 'id',
-              type: 'string',
-              required: true,
-            },
-            {
-              name: 'onExpand',
-              type: `({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement>
-          | SyntheticKeyboardEvent<HTMLAnchorElement> expanded: boolean }) => void`,
-              description: ['Callback fired when the expand button component is clicked'],
-            },
-          ]}
-        />
-        <PropTable
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableSortableHeaderCell}
+          Component={Table?.SortableHeaderCell}
           name="Table.SortableHeaderCell"
           id="Table.SortableHeaderCell"
-          Component={Table?.SortableHeaderCell}
-          props={[
-            {
-              name: 'children',
-              type: 'React.Node',
-            },
-            {
-              name: 'scope',
-              defaultValue: 'col',
-              type: '"col" | "row" | "colgroup" | "rowgroup"',
-            },
-            {
-              name: 'colSpan',
-              type: 'number',
-              defaultValue: 1,
-            },
-            {
-              name: 'rowSpan',
-              type: 'number',
-              defaultValue: 1,
-            },
-            {
-              name: 'onSortChange',
-              required: true,
-              type:
-                '({ event: SyntheticMouseEvent<HTMLTableCellElement> | SyntheticKeyboardEvent<HTMLTableCellElement> }) => void',
-            },
-            {
-              name: 'sortOrder',
-              required: true,
-              type: '"asc" | "desc"',
-            },
-            {
-              name: 'status',
-              required: true,
-              type: '"active" | "inactive"',
-            },
-          ]}
+          excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
+        />
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableRow}
+          Component={Table?.Row}
+          name="Table.Row"
+          id="Table.Row"
+        />
+        <GeneratedPropTable
+          generatedDocGen={generatedDocGen.TableRowExpandable}
+          Component={Table?.RowExpandable}
+          name="Table.RowExpandable"
+          id="Table.RowExpandable"
         />
       </MainSection>
       <MainSection name="Variants">
@@ -2717,4 +2551,40 @@ Checkboxes are often used in tables to allow for selecting and editing of multip
       </MainSection>
     </Page>
   );
+}
+
+export async function getStaticProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const docGen = await multipledocgen({
+    componentName: [
+      'Table',
+      'TableHeader',
+      'TableBody',
+      'TableFooter',
+      'TableCell',
+      'TableHeaderCell',
+      'TableSortableHeaderCell',
+      'TableRow',
+      'TableRowExpandable',
+    ],
+  });
+
+  docGen.Table.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof Table.Body | typeof Table.Footer | typeof Table.Header>>';
+  docGen.TableHeader.props.children.flowType.raw = 'React.Element<typeof Table.Row>';
+  docGen.TableBody.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
+  docGen.TableFooter.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
+  docGen.TableRow.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof Table.Cell | typeof Table.HeaderCell | typeof Table.SortableHeaderCell>>';
+  docGen.TableRowExpandable.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof Table.Cell>>';
+
+  return {
+    props: {
+      generatedDocGen: docGen,
+    },
+  };
 }

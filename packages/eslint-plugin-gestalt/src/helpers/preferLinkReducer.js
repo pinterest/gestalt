@@ -17,7 +17,7 @@ const buildPreferLinkReducer: BuildReducerType = ({ context }) => {
       }
     };
 
-    const regex = new RegExp('nofollow', 'g');
+    const regex = /nofollow/g;
     const nodeText = getTextNodeFromSourceCode({ context, elementNode: node });
     switch (name) {
       case 'aria-label':
@@ -63,6 +63,7 @@ const buildPreferLinkReducer: BuildReducerType = ({ context }) => {
         } else {
           handleAlternative({
             alternative: nodeText.replace(
+              // eslint-disable-next-line prefer-regex-literals
               new RegExp(/={(.+)}/, 'i'), // regex expression to match "={console.log}"
               (match, p1) => `={({ event }) => ${p1}(event)}`, // replacer returns "={({event}) => console.log(event)}"
             ),

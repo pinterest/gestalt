@@ -89,7 +89,7 @@ yarn start
               /packages/gestalt-codemods
             </Text>
           </Text>
-          <Heading size="sm">Usage</Heading>
+          <Heading size="400">Usage</Heading>
           <Text>
             Clone the Gestalt repo locally if you haven’t already. Run the relevant codemod(s) in
             the relevant directory of your repo (not the Gestalt repo): anywhere the component to be
@@ -163,7 +163,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
             </Link>{' '}
             definitions.
           </Text>
-          <Heading size="sm">Usage</Heading>
+          <Heading size="400">Usage</Heading>
           <Markdown
             text="
 ~~~jsx

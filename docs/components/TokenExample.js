@@ -17,74 +17,82 @@ type ExampleProps = {|
   category: string,
 |};
 
-export const ColorBox = ({ token }: BaseProps): Node => (
-  <Box
-    dangerouslySetInlineStyle={{
-      __style: { backgroundColor: `var(--${token.name})` },
-    }}
-    height={50}
-    width={250}
-    display="flex"
-    alignItems="center"
-    justifyContent="between"
-    paddingX={2}
-    borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
-  />
-);
+export function ColorBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { backgroundColor: `var(--${token.name})` },
+      }}
+      height={50}
+      width={250}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+      borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
+    />
+  );
+}
 
-export const SpacingBox = ({ token }: BaseProps): Node => (
-  <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />
-);
+export function SpacingBox({ token }: BaseProps): Node {
+  return <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />;
+}
 
-export const TextColorBox = ({ token }: BaseProps): Node => (
-  <Box
-    dangerouslySetInlineStyle={{
-      __style: { color: `var(--${token.name})`, fontSize: '32px' },
-    }}
-    height={50}
-    width={150}
-    display="flex"
-    alignItems="center"
-    justifyContent="between"
-    paddingX={2}
-    color={token.name.includes('inverse') ? 'darkGray' : undefined}
-  >
-    Gestalt
-  </Box>
-);
+export function TextColorBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { color: `var(--${token.name})`, fontSize: '32px' },
+      }}
+      height={50}
+      width={150}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+      color={token.name.includes('inverse') ? 'darkGray' : undefined}
+    >
+      Gestalt
+    </Box>
+  );
+}
 
-export const BorderBox = ({ token }: BaseProps): Node => (
-  <Box
-    dangerouslySetInlineStyle={{
-      __style: { border: `2px solid var(--${token.name})` },
-    }}
-    height={50}
-    width={150}
-    display="flex"
-    alignItems="center"
-    justifyContent="between"
-    paddingX={2}
-  />
-);
+export function BorderBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { border: `2px solid var(--${token.name})` },
+      }}
+      height={50}
+      width={150}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+    />
+  );
+}
 
-export const ElevationBox = ({ token }: BaseProps): Node => (
-  <Box
-    dangerouslySetInlineStyle={{
-      __style: {
-        boxShadow: `var(--${token.name})`,
-        backgroundColor: token.name.includes('color') ? `var(--${token.name})` : 'transparent',
-      },
-    }}
-    height={50}
-    width={150}
-    display="flex"
-    alignItems="center"
-    justifyContent="between"
-    paddingX={2}
-  />
-);
+export function ElevationBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: {
+          boxShadow: `var(--${token.name})`,
+          backgroundColor: token.name.includes('color') ? `var(--${token.name})` : 'transparent',
+        },
+      }}
+      height={50}
+      width={150}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+    />
+  );
+ }
 
-export const FontBox = ({ token, type }: FontBoxProps): Node => {
+export function FontBox({ token, type }: FontBoxProps): Node {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
   const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
@@ -109,9 +117,9 @@ export const FontBox = ({ token, type }: FontBoxProps): Node => {
       {token.name.includes('japanese') ? 'ゲシュタルト' : 'Gestalt'}
     </Box>
   );
-};
+}
 
-export const TokenExample = ({ token, category }: ExampleProps): Node => {
+export function TokenExample({ token, category }: ExampleProps): Node {
   switch (category) {
     case 'background-color':
       return <ColorBox token={token} />;
@@ -132,4 +140,4 @@ export const TokenExample = ({ token, category }: ExampleProps): Node => {
     default:
       return <Box>{token.value}</Box>;
   }
-};
+}

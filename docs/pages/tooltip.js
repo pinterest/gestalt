@@ -153,7 +153,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <Flex direction="column" gap={1}>
           <Flex alignItems="center" gap={1}>
             <Label htmlFor="business-url-field">
-              <Text size="sm">Business URL</Text>
+              <Text size="100">Business URL</Text>
             </Label>
             <Tooltip text="This is the site users will be redirected to when interacting with your ad">
               <IconButton
@@ -180,7 +180,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Tooltip
   link={
-    <Text color="white" size="sm" weight="bold">
+    <Text color="white" size="100" weight="bold">
       <Link
         href="https://help.pinterest.com/en/business/article/get-a-business-account"
         target="blank"
@@ -386,7 +386,7 @@ function SectionsIconButtonDropdownExample() {
     <Tooltip
       text="Use your Pin to expand your targeting."
       link={
-        <Text color="white" size="sm" weight="bold">
+        <Text color="white" size="100" weight="bold">
           <Link
             href="https://help.pinterest.com/en/business/article/expanded-targeting"
             target="blank"
@@ -501,7 +501,7 @@ function ScrollBoundaryContainerExample() {
                       <Heading
                         align={alignText}
                         color="white"
-                        size="lg"
+                        size="600"
                       >
                         Tropic greens: The taste of Petrol and Porcelain
                       </Heading>
@@ -509,9 +509,9 @@ function ScrollBoundaryContainerExample() {
                   </Image>
                 </Box>
                 <Flex direction="column" gap={4}>
-                  <Heading size="sm" weight="bold">Text Overlay</Heading>
-                  <Text size="lg">Add text directly onto your Pin</Text>
-                  <Text size="lg" weight="bold">Alignment</Text>
+                  <Heading size="400" weight="bold">Text Overlay</Heading>
+                  <Text size="300">Add text directly onto your Pin</Text>
+                  <Text size="300" weight="bold">Alignment</Text>
                   <Flex>
                     <Tooltip text="Align left">
                       <IconButton
@@ -820,7 +820,7 @@ Toast provides feedback on an interaction. One example of Toast is the confirmat
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Tooltip' }) },
   };

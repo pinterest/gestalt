@@ -148,7 +148,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
     marginStart={5}
   >
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="sm" accessibilityLevel={2}>Edit profile</Heading>
+      <Heading size="400" accessibilityLevel={2}>Edit profile</Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
@@ -263,7 +263,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
     marginStart={5}
   >
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="sm" accessibilityLevel={2}>Edit profile</Heading>
+      <Heading size="400" accessibilityLevel={2}>Edit profile</Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
@@ -350,7 +350,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
     marginStart={5}
   >
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="sm" accessibilityLevel={2}>Edit profile</Heading>
+      <Heading size="400" accessibilityLevel={2}>Edit profile</Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
@@ -635,7 +635,7 @@ function SecondaryActionExample() {
   </Box>
   <Flex direction="column" alignItems="center" justifyContent="center" gap={1}>
     <Avatar size="lg" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />
-    <Heading size="md">Keerthi M.</Heading>
+    <Heading size="500">Keerthi M.</Heading>
     <Text>@kreethiM</Text>
     <Text weight="bold">4 followers · 0 following </Text>
   </Flex>
@@ -657,7 +657,7 @@ function SecondaryActionExample() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'PageHeader' }) },
   };

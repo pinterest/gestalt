@@ -5,8 +5,10 @@
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "(next dev) & (yarn dev-metadata)",
+    "dev-metadata": "nodemon -w ../packages/gestalt/src -w ../packages/gestalt-datepicker/src --exec 'yarn build-metadata'",
+    "build": "yarn build-metadata && next build",
+    "build-metadata": "../scripts/generateMetadata.js",
     "start": "next start"
   },
   "dependencies": {
@@ -24,9 +26,8 @@
     "react-dom": "^17.0.1",
     "react-live": "^2.3.0"
   },
-  "browserslist": [
-    "last 2 versions",
-    "not IE < 11",
-    "not <1%"
-  ]
+  "browserslist": ["last 2 versions", "not IE < 11", "not <1%"],
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }

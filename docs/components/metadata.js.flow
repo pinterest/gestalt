@@ -1,0 +1,59 @@
+// @flow strict
+declare module 'metadata' {
+  declare type Signature = {|
+    properties?: $ReadOnlyArray<{|
+      key: string | {| name: string |},
+      value: {|
+        name: string,
+        required: boolean,
+        raw?: string,
+        signature?: Signature,
+        type?: string,
+        nullable?: boolean,
+        elements?: $ReadOnlyArray<{
+          name: string,
+          value?: string,
+          ...
+        }>,
+      |},
+    |}>,
+    arguments?: $ReadOnlyArray<{ name: string, ... }>,
+    return?: { name: string, ... },
+  |};
+
+  declare type Elements = {|
+    name: string,
+    value?: string,
+    raw?: string,
+    type?: string,
+    signature?: Signature,
+    nullable?: boolean,
+    elements?: $ReadOnlyArray<Elements>,
+  |};
+
+  declare module.exports: {|
+    description: string,
+    displayName: string,
+    methods: $ReadOnlyArray<?{ name?: string, description?: string, ... }>,
+    props?: {|
+      [key: string]: {|
+        defaultValue?: ?{|
+          value: string,
+          computed: boolean,
+        |},
+        required: boolean,
+        description: string,
+        flowType: {|
+          raw?: string,
+          nullable?: boolean,
+          name: string,
+          elements?: $ReadOnlyArray<Elements>,
+          signature?: Signature,
+          type?: string,
+          value?: string,
+        |},
+      |},
+    |},
+    composes?: $ReadOnlyArray<?string>,
+  |};
+}

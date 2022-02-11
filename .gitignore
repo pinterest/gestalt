@@ -3,6 +3,7 @@ coverage/
 docs/.next/
 docs/build/
 docs/out/
+docs/components/metadata.js
 *.log
 stats.html
 screenshots

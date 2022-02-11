@@ -18,13 +18,7 @@ type Props = {|
   title?: string,
 |};
 
-const MainSectionSubsection = ({
-  badge,
-  children,
-  columns = 1,
-  description,
-  title,
-}: Props): Node => {
+function MainSectionSubsection({ badge, children, columns = 1, description, title }: Props): Node {
   const slugifiedId = slugify(title || '');
   const arrayChildren = Children.toArray(children);
 
@@ -42,7 +36,7 @@ const MainSectionSubsection = ({
             data-anchor
           >
             <Flex alignItems="center" gap={2}>
-              <Heading size="sm">{title}</Heading>
+              <Heading size="400">{title}</Heading>
               {badge ? (
                 <Tooltip
                   inline
@@ -96,6 +90,6 @@ const MainSectionSubsection = ({
         ))}
     </Box>
   );
-};
+}
 
 export default MainSectionSubsection;

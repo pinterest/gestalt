@@ -94,7 +94,7 @@ function SegmentedControlExample() {
   return (
     <Flex direction="column" gap={6}>
       <Flex direction="column" gap={2}>
-        <Heading size="sm">Equal widths</Heading>
+        <Heading size="400">Equal widths</Heading>
         <SegmentedControl
         items={items}
         onChange={({ activeIndex }) => { setItem1Index(activeIndex); }}
@@ -103,7 +103,7 @@ function SegmentedControlExample() {
       </Flex>
 
       <Flex direction="column" gap={2}>
-        <Heading size="sm">Responsive widths</Heading>
+        <Heading size="400">Responsive widths</Heading>
         <SegmentedControl
         items={items}
         onChange={({ activeIndex }) => { setItem2Index(activeIndex); }}
@@ -120,7 +120,7 @@ function SegmentedControlExample() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'SegmentedControl' }) },
   };

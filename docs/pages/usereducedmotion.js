@@ -1,8 +1,8 @@
 // @flow strict
 import type { Node } from 'react';
-import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
+import MainSection from '../components/MainSection.js';
 
 export default function DocsPage(): Node {
   return (
@@ -23,10 +23,15 @@ export default function DocsPage(): Node {
     </ul>
     `}
       />
-      <Example
-        id="basicExample"
-        name="Example"
-        defaultCode={`
+      <MainSection name="Examples">
+        <MainSection.Subsection
+          description={
+            'To test the example below, change your Accessibility -> Display device settings to "Reduce motion" and notice the animation stops.'
+          }
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -62,7 +67,9 @@ function Example() {
     </React.Fragment>
   );
 }`}
-      />
+          />
+        </MainSection.Subsection>
+      </MainSection>
     </Page>
   );
 }

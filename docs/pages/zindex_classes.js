@@ -321,7 +321,7 @@ function ScrollBoundaryContainerExample() {
 
     const List = ({ title }) => (
       <Flex direction="column" gap={4}>
-        <Text color="darkGray" size="sm">
+        <Text color="darkGray" size="100">
           { title }
         </Text>
         <Flex direction="column" gap={4}>
@@ -363,7 +363,7 @@ function ScrollBoundaryContainerExample() {
     return (
       <React.Fragment>
           <Flex direction="column" gap={2}>
-            <Text size="sm">Board</Text>
+            <Text size="100">Board</Text>
             <Button
               iconEnd="arrow-down"
               label="Select Board"
@@ -595,9 +595,9 @@ function ScrollBoundaryContainerExample() {
                   </Image>
                 </Box>
                 <Flex direction="column" gap={4}>
-                  <Heading size="sm" weight="bold">Text Overlay</Heading>
-                  <Text size="lg">Add text directly onto your Pin</Text>
-                  <Text size="lg" weight="bold">Alignment</Text>
+                  <Heading size="400" weight="bold">Text Overlay</Heading>
+                  <Text size="300">Add text directly onto your Pin</Text>
+                  <Text size="300" weight="bold">Alignment</Text>
                   <Flex>
                     <Tooltip text="Align left">
                       <IconButton

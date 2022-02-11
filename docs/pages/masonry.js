@@ -1,6 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-import { Component } from 'react';
+import { Component, type Node } from 'react';
 import { Box, Masonry, Image, Label, Text } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import PageHeader from '../components/PageHeader.js';
@@ -15,14 +14,16 @@ type Props = {|
   layout?: 'uniformRow',
 |};
 
+type Pin = {|
+  color: string,
+  height: number,
+  name: string,
+  src: string,
+  width: number,
+|};
+
 type State = {|
-  pins: Array<{|
-    color: string,
-    height: number,
-    name: string,
-    src: string,
-    width: number,
-  |}>,
+  pins: Array<Pin>,
   width: number,
 |};
 
@@ -73,6 +74,21 @@ const getPins = () => {
   }
   return Promise.resolve(pinList);
 };
+
+function GridComponent({ data }: { data: Pin, ... }) {
+  return (
+    <Box>
+      <Image
+        alt="Test"
+        color={data.color}
+        naturalHeight={data.height}
+        naturalWidth={data.width}
+        src={data.src}
+      />
+      <Text>{data.name}</Text>
+    </Box>
+  );
+}
 
 class ExampleMasonry extends Component<Props, State> {
   // ref on a component gets the mounted instance of the component
@@ -139,18 +155,7 @@ class ExampleMasonry extends Component<Props, State> {
           {scrollContainer && (
             <Masonry
               columnWidth={170}
-              comp={({ data }) => (
-                <Box>
-                  <Image
-                    alt="Test"
-                    color={data.color}
-                    naturalHeight={data.height}
-                    naturalWidth={data.width}
-                    src={data.src}
-                  />
-                  <Text>{data.name}</Text>
-                </Box>
-              )}
+              comp={GridComponent}
               flexible={this.props.flexible}
               gutterWidth={5}
               items={this.state.pins}
@@ -231,7 +236,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Masonry' });
 
   generatedDocGen.props.layout = {

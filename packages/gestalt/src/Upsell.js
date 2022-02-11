@@ -10,8 +10,6 @@ import Mask from './Mask.js';
 import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
-import headingStyles from './Heading.css';
-import typography from './Typography.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { type ActionDataType } from './commonTypes.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -22,7 +20,7 @@ type UpsellActionProps = {|
   type: string,
 |};
 
-const UpsellAction = ({ data, stacked, type }: UpsellActionProps): Node => {
+function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, href, label, onClick, rel, target } = data;
 
@@ -54,7 +52,7 @@ const UpsellAction = ({ data, stacked, type }: UpsellActionProps): Node => {
       )}
     </Box>
   );
-};
+}
 
 type Props = {|
   /**
@@ -145,10 +143,6 @@ export default function Upsell({
 }: Props): Node {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
-  const titleClasses = classnames(
-    headingStyles.TextLikeHeadingSm,
-    responsiveMinWidth === 'xs' && typography.alignCenter,
-  );
   const hasActions = Boolean(primaryAction || secondaryAction);
 
   return (
@@ -204,7 +198,13 @@ export default function Upsell({
             <Box maxWidth={648}>
               {title && (
                 <Box marginBottom={2}>
-                  <p className={titleClasses}>{title}</p>
+                  <Text
+                    size="400"
+                    weight="bold"
+                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
+                  >
+                    {title}
+                  </Text>
                 </Box>
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>

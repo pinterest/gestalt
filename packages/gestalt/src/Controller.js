@@ -157,9 +157,9 @@ class Controller extends Component<Props, State> {
   }
 }
 
-const WrappedController = (props: OwnProps): ReactNode => {
+function WrappedController(props: OwnProps): ReactNode {
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
   return <Controller {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
-};
+}
 
 export default WrappedController;

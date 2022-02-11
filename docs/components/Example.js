@@ -22,7 +22,7 @@ type Props = {|
 
 const { Box, Text } = gestalt;
 
-const Example = ({
+function Example({
   defaultCode,
   description,
   id,
@@ -31,7 +31,7 @@ const Example = ({
   showHeading,
   showCode = true,
   skipContrastCheck = false,
-}: Props): Node => {
+}: Props): Node {
   const code = defaultCode.trim();
   const scope = { ...gestalt, DatePicker };
 
@@ -42,7 +42,7 @@ const Example = ({
       id={id}
       stacked
       showHeading={showHeading}
-      headingSize={headingSize}
+      headingSize={headingSize === 'md' ? '500' : '400'}
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box display="flex" direction="column" marginStart={-2} marginEnd={-2} marginBottom={6}>
@@ -67,6 +67,6 @@ const Example = ({
       </LiveProvider>
     </Card>
   );
-};
+}
 
 export default Example;

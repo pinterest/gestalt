@@ -175,10 +175,10 @@ function CheckboxExample() {
   return (
     <Flex direction="column" gap={4}>
       <Flex direction="column" gap={2}>
-        <Heading size="sm">Company Account Goals</Heading>
-        <Text size="md">
+        <Heading size="400">Company Account Goals</Heading>
+        <Text size="200">
           Choose up to 3.
-          <Text inline size="md" weight="bold">
+          <Text inline size="200" weight="bold">
             <Link inline target="blank" href="https://www.pinterest.com/">
               Additional information
             </Link>
@@ -302,7 +302,7 @@ function CheckboxExample() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Fieldset' }) },
   };

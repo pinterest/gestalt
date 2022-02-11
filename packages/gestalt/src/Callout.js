@@ -6,8 +6,6 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import headingStyles from './Heading.css';
-import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
@@ -98,7 +96,7 @@ const CALLOUT_TYPE_ATTRIBUTES = {
   },
 };
 
-const CalloutAction = ({
+function CalloutAction({
   data,
   stacked,
   type,
@@ -106,7 +104,7 @@ const CalloutAction = ({
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|}): Node => {
+|}): Node {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
   let color = type === 'primary' ? 'white' : 'transparent';
@@ -154,7 +152,7 @@ const CalloutAction = ({
       )}
     </Box>
   );
-};
+}
 
 /**
  * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
@@ -175,10 +173,6 @@ export default function Callout({
   const { name } = useColorScheme();
   const isDarkMode = name === 'darkMode';
   const responsiveMinWidth = useResponsiveMinWidth();
-  const titleClasses = classnames(
-    headingStyles.TextLikeHeadingSm,
-    responsiveMinWidth === 'xs' && typography.alignCenter,
-  );
 
   return (
     <Box
@@ -225,7 +219,13 @@ export default function Callout({
             >
               {title && (
                 <Box marginBottom={2}>
-                  <p className={titleClasses}>{title}</p>
+                  <Text
+                    size="400"
+                    weight="bold"
+                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
+                  >
+                    {title}
+                  </Text>
                 </Box>
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>

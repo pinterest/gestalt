@@ -64,7 +64,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
             defaultCode={`
 <Flex gap={1}>
   <Status accessibilityLabel="This item has a problem" type="problem" />
-  <Text weight="bold" size="lg">Dynamic retargeting</Text>
+  <Text weight="bold" size="300">Dynamic re-targeting</Text>
 </Flex>`}
           />
           <MainSection.Card
@@ -73,7 +73,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
 <Flex alignItems="end" direction="column" gap={1}>
   <Status title="This item has a problem" type="problem" />
   <Text align="center" weight="bold">
-    Dynamic retargeting
+    Dynamic re-targeting
   </Text>
 </Flex>`}
           />
@@ -115,7 +115,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'Status' }) },
   };
