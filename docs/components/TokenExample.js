@@ -90,7 +90,7 @@ export function ElevationBox({ token }: BaseProps): Node {
       paddingX={2}
     />
   );
- }
+}
 
 export function FontBox({ token, type }: FontBoxProps): Node {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
