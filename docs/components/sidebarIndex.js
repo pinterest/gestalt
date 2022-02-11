@@ -20,6 +20,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       "What's New",
       'How to Work with Us',
       'Installation',
+      'Design',
       'Development',
       'Eslint Plugin',
       'How to Hack Around Gestalt',
