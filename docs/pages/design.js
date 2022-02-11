@@ -63,7 +63,7 @@ Export your self-created icons in all the sizes/formats for each platform
 Able makes accessibility easy while looking and feeling like Figma!
 
 [**Spellchecker**](https://www.figma.com/community/plugin/738839069237725273/Spellchecker)
-Spellchecker uses the Yandex API.Speller helps to find and correct spelling errors.
+Spellchecker uses the Yandex API. Spellchecker helps to find and correct spelling errors.
 
 [**Translator**](https://www.figma.com/community/plugin/743218037112142643/Translator)
 Translator instantly translates the text in your Figma designs into other languages.
