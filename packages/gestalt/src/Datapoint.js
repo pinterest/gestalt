@@ -68,9 +68,9 @@ export default function Datapoint({
         )}
       </Flex>
       <Flex gap={size === 'lg' ? 4 : 2} alignItems="center">
-        <Heading accessibilityLevel="none" size={size === 'lg' ? 'md' : 'sm'}>
+        <Text size={size === 'lg' ? '500' : '400'} weight="bold">
           {value}
-        </Heading>
+        </Text>
         {trend && (
           <DatapointTrend
             sentiment={trendSentiment}

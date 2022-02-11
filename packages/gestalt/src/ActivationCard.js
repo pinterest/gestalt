@@ -120,7 +120,7 @@ function CompletedCard({ dismissButton, message, status, statusMessage, title }:
         )}
         <Box>
           <Box>
-            <Heading size="sm">{title}</Heading>
+            <Heading size="400">{title}</Heading>
           </Box>
           {message && (
             <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
@@ -178,7 +178,7 @@ function UncompletedCard({
         </Box>
       </Box>
       <Box marginTop={6}>
-        <Heading size="sm">{title}</Heading>
+        <Heading size="400">{title}</Heading>
       </Box>
       {message && (
         <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
