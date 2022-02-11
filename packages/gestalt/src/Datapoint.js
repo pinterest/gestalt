@@ -2,7 +2,6 @@
 import { type Node } from 'react';
 import DatapointTrend from './DatapointTrend.js';
 import Flex from './Flex.js';
-import Heading from './Heading.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
