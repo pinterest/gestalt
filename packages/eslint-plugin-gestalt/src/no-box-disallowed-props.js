@@ -5,7 +5,7 @@
 // @flow strict
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
-const allowedBaseProps = [
+export const allowedBaseProps = [
   // React / DOM
   'id',
   'key',

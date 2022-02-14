@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick
+ * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick, or disallowed props on `Box` (no-box-disallowed-props Eslint rule)
  */
 
 // @flow strict
@@ -12,6 +12,7 @@ import {
   hasImport,
   hasLonelyAttribute,
   hasSpreadAttributes,
+  hasUnsupportedAttributes,
   isTag,
 } from './helpers/eslintASTHelpers.js';
 import {
@@ -20,6 +21,7 @@ import {
   updateGestaltImportFixer,
 } from './helpers/eslintASTFixers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+import { allowedBaseProps } from './no-box-disallowed-props.js';
 
 const rule: ESLintRule = {
   meta: {
@@ -107,6 +109,12 @@ const rule: ESLintRule = {
           elementNode: node.openingElement,
           tagName: 'div',
           attributes: ignoreAttributes,
+        }) ||
+        hasUnsupportedAttributes({
+          elementNode: node.openingElement,
+          tagName: 'div',
+          // "style" is included as supportedAttributes because it'll be replaced with dangerouslySetInlineStyle
+          supportedAttributes: [...allowedBaseProps, 'style'],
         }) ||
         hasAriaAttributes({
           elementNode: node.openingElement,
