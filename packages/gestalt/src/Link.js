@@ -9,6 +9,7 @@ import {
   type Ref,
 } from 'react';
 import classnames from 'classnames';
+import { useOnInteraction } from './contexts/OnInteractionProvider.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
@@ -29,6 +30,11 @@ type Props = {|
    * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
    */
   accessibilitySelected?: boolean,
+  /**
+   * Auxiliary data passed to custom logic from Gestalt providers. See [OnInteractionProvider](https://gestalt.pinterest.systems/oninteractionprovider) to learn more.
+   */
+  // $FlowFixMe[unclear-type]
+  aux?: {| onInteractionData?: { [string]: any } |},
   /**
    * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Link and Text](https://gestalt.pinterest.systems/link#Link-and-Text) variant for more information.
    */
@@ -103,6 +109,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   {
     accessibilityLabel,
     accessibilitySelected,
+    aux,
     children,
     href,
     id,
@@ -157,6 +164,12 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   // useOnNavigation is only accessible with Gestalt OnLinkNavigationProvider
   // and when onNavigation prop is passed to it
   const defaultOnNavigation = useOnLinkNavigation({ href, target });
+  // useOnInteraction is only accessible with Gestalt OnInteractionProvider
+  // and when onNavigation prop is passed to it
+  const defaultOnInteraction = useOnInteraction({
+    componentName: 'Link',
+    onInteractionData: aux?.onInteractionData,
+  });
 
   const handleKeyPress = (event) => {
     // Check to see if space or enter were pressed
@@ -186,14 +199,15 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
           defaultOnNavigationIsEnabled = false;
         };
 
-        if (onClick) {
-          onClick({
-            event,
-            dangerouslyDisableOnNavigation,
-          });
-        }
-        if (defaultOnNavigation && defaultOnNavigationIsEnabled) {
-          defaultOnNavigation({ event });
+        defaultOnInteraction?.({ event });
+
+        onClick?.({
+          event,
+          dangerouslyDisableOnNavigation,
+        });
+
+        if (defaultOnNavigationIsEnabled) {
+          defaultOnNavigation?.({ event });
         }
       }}
       onFocus={(event) => {

@@ -45,7 +45,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Configuration',
-    pages: ['ColorSchemeProvider', 'OnLinkNavigationProvider'],
+    pages: ['ColorSchemeProvider', 'OnInteractionProvider', 'OnLinkNavigationProvider'],
   },
   {
     sectionName: 'Custom Hooks',

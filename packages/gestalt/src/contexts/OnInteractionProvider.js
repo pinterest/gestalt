@@ -1,14 +1,14 @@
 // @flow strict
 import { createContext, type Context, type Element, type Node, useContext } from 'react';
 
+// flowlint unclear-type:off
 export type OnInteractionType = ({|
   componentName: string,
-  // $FlowFixMe[unclear-type]
-  onInteractionDataObject?: {| [string]: any |},
-
+  onInteractionData?: {| [string]: any |},
 |}) => ?({|
   +event: SyntheticEvent<>,
 |}) => void;
+// flowlint unclear-type:error
 
 type OnInteractionContextType = {| onInteraction: OnInteractionType |};
 
@@ -18,7 +18,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation context](https://gestalt.pinterest.systems/onlinknavigationprovider#Custom-link-navigation-context) variant for examples.
+   * If passed, interactive components will execute the function on the onClick or onChange event.
    */
   onInteraction?: OnInteractionType,
 |};
@@ -28,29 +28,31 @@ const OnInteractionContext: Context<OnInteractionContextType | void> = createCon
 const { Provider } = OnInteractionContext;
 
 /**
- * [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) is a [React context provider](https://reactjs.org/docs/context.html#contextprovider) to externally control the link behavior of components further down the tree.
+ * ALPHA - DO NOT USE YET - MAY HAVE BREAKING CHANGES / BE DEPRECATED IN THE NEAR FUTURE*
+ * [OnInteractionProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) is a [React context provider](https://reactjs.org/docs/context.html#contextprovider) that provides external logic to interactive components executed on the onClick and onChange events.
  */
-export default function OnLinkNavigationProvider({
-  children,
-  onInteraction,
-}: Props): Element<typeof Provider> {
+function OnInteractionProvider({ children, onInteraction }: Props): Element<typeof Provider> {
   return <Provider value={onInteraction ? { onInteraction } : undefined}>{children}</Provider>;
 }
 
-export function useOnLinkNavigation({
+export function useOnInteraction({
   componentName,
-  onInteractionDataObject,
+  onInteractionData,
 }: {|
   componentName: string,
   // $FlowFixMe[unclear-type]
-  onInteractionDataObject?: {| [string]: any |},
+  onInteractionData?: {| [string]: any |},
 |}): ?({|
   +event: SyntheticEvent<>,
 |}) => void {
   const onInteractionContext = useContext(OnInteractionContext);
   const onInteractionHandler = onInteractionContext?.onInteraction({
     componentName,
-    onInteractionDataObject,
+    onInteractionData,
   });
   return onInteractionHandler;
 }
+
+OnInteractionProvider.displayName = 'ExperimentalOnInteractionProvider';
+
+export default OnInteractionProvider;

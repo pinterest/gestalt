@@ -1,5 +1,5 @@
 // @flow strict
-import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
+import OnLinkNavigationProvider from './OnLinkNavigationProvider.js';
 
 const Valid = <OnLinkNavigationProvider onNavigation={() => {}}>Test</OnLinkNavigationProvider>;
 

@@ -6,7 +6,7 @@ import MainSection from './MainSection.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
 type Props = {|
-  badge?: 'pilot' | 'deprecated',
+  badge?: 'pilot' | 'deprecated' | 'alpha',
   defaultCode?: string,
   description?: string,
   fileName?: string, // only use if name !== file name

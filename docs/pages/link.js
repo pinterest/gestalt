@@ -10,7 +10,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   return (
     <Page title="Link">
       <PageHeader name="Link" description={generatedDocGen?.description} />
-      <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={['disabled']} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={['disabled', 'aux']} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

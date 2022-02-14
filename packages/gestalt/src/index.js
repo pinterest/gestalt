@@ -1,5 +1,3 @@
-
-
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
@@ -22,7 +20,7 @@ import Container from './Container.js';
 import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
-import ExperimentalOnInteractionProvider from './ExperimentalOnInteractionProvider.js';
+import ExperimentalOnInteractionProvider from './contexts/OnInteractionProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
