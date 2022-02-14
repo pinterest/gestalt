@@ -1,3 +1,9 @@
+## 45.4.3 (Feb 14, 2022)
+
+### Patch
+
+- Eslint_Plugin: eslint fix to prevent autoconverting divs that contain attributes not allowed in Box into Box. (#1934)
+
 ## 45.4.2 (Feb 14, 2022)
 
 ### Patch
