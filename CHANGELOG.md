@@ -1,3 +1,9 @@
+## 45.4.2 (Feb 14, 2022)
+
+### Patch
+
+- Bump follow-redirects from 1.14.7 to 1.14.8 (#1937)
+
 ## 45.4.1 (Feb 11, 2022)
 
 ### Patch
