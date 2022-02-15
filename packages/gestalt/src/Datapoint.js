@@ -2,7 +2,6 @@
 import { type Node } from 'react';
 import DatapointTrend from './DatapointTrend.js';
 import Flex from './Flex.js';
-import Heading from './Heading.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
@@ -56,7 +55,7 @@ export default function Datapoint({
   return (
     <Flex gap={1} direction="column">
       <Flex gap={1} alignItems="center" minHeight={24}>
-        <Text size="md">{title}</Text>
+        <Text size="200">{title}</Text>
         {tooltipText && (
           <Tooltip accessibilityLabel="" text={tooltipText} idealDirection="up">
             {/* Interactive elements require an a11yLabel on them or their children.
@@ -68,9 +67,9 @@ export default function Datapoint({
         )}
       </Flex>
       <Flex gap={size === 'lg' ? 4 : 2} alignItems="center">
-        <Heading accessibilityLevel="none" size={size === 'lg' ? 'md' : 'sm'}>
+        <Text size={size === 'lg' ? '500' : '400'} weight="bold">
           {value}
-        </Heading>
+        </Text>
         {trend && (
           <DatapointTrend
             sentiment={trendSentiment}
