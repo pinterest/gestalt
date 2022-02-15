@@ -64,7 +64,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Place Status close to the status subject in question to provide context and reference. It can be placed as an inline element or paired side by side as needed.  "
+            description="Place Status close to its subject to provide context and reference. It can be placed as an inline element or paired side by side as needed."
             defaultCode={`
 <Flex gap={1} alignItems="center">
   <Status accessibilityLabel="This item is complete" type="ok" />
