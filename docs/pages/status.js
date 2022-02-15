@@ -50,7 +50,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="do"
             description="Use Status to communicate a step in a workflow or the state of an item."
             defaultCode={`
-<Status type="ok" />
+<Status type="ok" accessibilityLabel="This item is ok" />
 `}
           />
           <MainSection.Card
@@ -58,7 +58,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             description="Use SVGs or images that resemble the Status’ symbols to denote status."
             defaultCode={`
-<Icon icon="workflow-status-problem" size="24" />
+<Icon icon="workflow-status-problem" size="24" accessibilityLabel="This item has an error" />
 `}
           />
           <MainSection.Card
