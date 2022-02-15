@@ -29,7 +29,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Color',
-    pages: ['Color Usage', 'Color Palette'],
+    pages: ['Color Palette', 'Color Usage'],
   },
   {
     sectionName: 'Guidelines',
