@@ -1,3 +1,9 @@
+## 45.4.4 (Feb 15, 2022)
+
+### Patch
+
+- Heading, Text: Update internal usages to use new size values (#1936)
+
 ## 45.4.3 (Feb 14, 2022)
 
 ### Patch
