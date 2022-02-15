@@ -1,3 +1,9 @@
+## 45.4.5 (Feb 15, 2022)
+
+### Patch
+
+- Button: refactor to fix Dropdown positioning shift on rerender #1911
+
 ## 45.4.4 (Feb 15, 2022)
 
 ### Patch
