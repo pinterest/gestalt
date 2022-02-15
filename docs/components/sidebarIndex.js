@@ -18,6 +18,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
     sectionName: 'Getting Started',
     pages: [
       "What's new",
+      'Roadmap',
       'About us',
       'How to work with us',
       'Installation',
