@@ -157,24 +157,26 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
 
   const { isFocusVisible } = useFocusVisible();
 
-  const buttonRoleClasses = classnames(
-    styles.button,
-    focusStyles.hideOutline,
-    touchableStyles.tapTransition,
-    {
-      [styles.sm]: size === 'sm',
-      [styles.md]: size === 'md',
-      [styles.lg]: size === 'lg',
-      [styles[colorClass]]: !disabled && !selected,
-      [styles.selected]: !disabled && selected,
-      [styles.disabled]: disabled,
-      [styles.enabled]: !disabled,
-      [styles.inline]: props.role !== 'link' && !fullWidth,
-      [styles.block]: props.role !== 'link' && fullWidth,
-      [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-    },
-  );
+  const sharedTypeClasses = classnames(styles.button, focusStyles.hideOutline, {
+    [styles.inline]: props.role !== 'link' && !fullWidth,
+    [styles.block]: props.role !== 'link' && fullWidth,
+    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+  });
+
+  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
+    [styles.sm]: size === 'sm',
+    [styles.md]: size === 'md',
+    [styles.lg]: size === 'lg',
+    [styles[colorClass]]: !disabled && !selected,
+    [styles.selected]: !disabled && selected,
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
+  });
+
+  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton);
+
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
 
   const textColor =
     (disabled && 'gray') ||
@@ -233,7 +235,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     return (
       <button
         aria-label={accessibilityLabel}
-        className={buttonRoleClasses}
+        className={baseTypeClasses}
         disabled={disabled}
         name={name}
         onBlur={handleBlur}
@@ -266,7 +268,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={buttonRoleClasses}
+      className={parentButtonClasses}
       disabled={disabled}
       name={name}
       onBlur={handleBlur}
@@ -278,15 +280,16 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       ref={innerRef}
-      style={compressStyle || undefined}
       tabIndex={disabled ? null : tabIndex}
       type="button"
     >
-      {iconEnd ? (
-        <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
-      ) : (
-        buttonText
-      )}
+      <div className={childrenDivClasses} style={compressStyle || undefined}>
+        {iconEnd ? (
+          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+        ) : (
+          buttonText
+        )}
+      </div>
     </button>
   );
 });

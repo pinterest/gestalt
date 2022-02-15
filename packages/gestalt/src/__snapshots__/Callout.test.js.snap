@@ -645,7 +645,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
       >
         <button
           aria-label=""
-          className="button hideOutline tapTransition lg white enabled block accessibilityOutline"
+          className="button hideOutline block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -659,9 +659,13 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            className="button hideOutline block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
-            Visit Pinterest
+            <div
+              className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            >
+              Visit Pinterest
+            </div>
           </div>
         </button>
       </div>

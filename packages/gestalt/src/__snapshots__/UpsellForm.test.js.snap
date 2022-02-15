@@ -45,7 +45,7 @@ exports[`UpsellForm renders 1`] = `
     >
       <button
         aria-label="Submit button"
-        className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+        className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}

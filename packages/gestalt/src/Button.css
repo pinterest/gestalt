@@ -4,6 +4,19 @@
   border-radius: 24px;
 }
 
+.parentButton {
+  composes: paddingX0 from "./boxWhitespace.css";
+  composes: paddingY0 from "./boxWhitespace.css";
+  composes: transparentBg from "./Colors.css";
+}
+
+.childrenDiv {
+  composes: flex from "./Layout.css";
+  composes: itemsCenter from "./Layout.css";
+  composes: justifyCenter from "./Layout.css";
+  composes: fullWidth from "./Touchable.css";
+}
+
 .sm {
   composes: small from "./Layout.css";
   composes: paddingX3 from "./boxWhitespace.css";
