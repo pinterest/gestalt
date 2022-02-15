@@ -8,9 +8,10 @@ import ColorTile from './ColorTile.js';
 type Props = {|
   name: string,
   tokenId: string,
+  showName?: boolean,
 |};
 
-function ColorPalette({ name, tokenId }: Props): Node {
+function ColorPalette({ name, tokenId, showName }: Props): Node {
   const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
   const colorId = `${tokenId}-${name.toLowerCase()}`;
   return (
@@ -21,7 +22,13 @@ function ColorPalette({ name, tokenId }: Props): Node {
           const textColor = number > 400 ? 'white' : 'darkGray';
           const colorVariableName = `color-${colorId}-${number}`;
           return tokens[colorVariableName] ? (
-            <ColorTile name={name} number={number} textColor={textColor} tokenId={tokenId} />
+            <ColorTile
+              name={name}
+              number={number}
+              textColor={textColor}
+              tokenId={tokenId}
+              showName={showName}
+            />
           ) : null;
         })}
       </Box>

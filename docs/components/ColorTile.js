@@ -5,17 +5,29 @@ import { Box, Text } from 'gestalt';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 
 type Props = {|
-  name: string,
-  tokenId: string,
-  number: number,
-  textColor: 'darkGray' | 'white',
+  name?: string,
+  tokenId?: string,
+  number?: number,
+  textColor?: 'darkGray' | 'white',
   showName?: boolean,
+  description?: string,
+  fullVariableName?: string,
 |};
 
-function ColorTile({ name, number, textColor, tokenId, showName = false }: Props): Node {
-  const colorId = `${tokenId}-${name.toLowerCase()}`;
-  const colorVariableName = `color-${colorId}-${number}`;
-
+function ColorTile({
+  description,
+  fullVariableName,
+  name,
+  number,
+  showName = true,
+  textColor,
+  tokenId,
+}: Props): Node {
+  const colorVariableName = fullVariableName || `color-${tokenId}-${name.toLowerCase()}-${number}`;
+  const newTextColor = textColor || (number > 400 ? 'white' : 'darkGray');
+  const tokenDescription = description || (showName ? `${name} ${number}` : number);
+  const borderNeeded =
+    tokenId?.toLowerCase().includes('white') || fullVariableName?.includes('inverse');
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -27,12 +39,12 @@ function ColorTile({ name, number, textColor, tokenId, showName = false }: Props
       alignItems="center"
       justifyContent="between"
       paddingX={2}
-      borderStyle={tokenId.toLowerCase().includes('white') ? 'sm' : 'none'}
+      borderStyle={borderNeeded ? 'sm' : 'none'}
     >
-      <Text weight="bold" color={textColor}>
-        {showName && name} {number}
+      <Text weight="bold" color={newTextColor}>
+        {tokenDescription}
       </Text>
-      <Text color={textColor}>{tokens[colorVariableName]?.toUpperCase()}</Text>
+      <Text color={newTextColor}>{tokens[colorVariableName]?.toUpperCase()}</Text>
     </Box>
   );
 }

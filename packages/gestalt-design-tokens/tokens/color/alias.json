@@ -127,12 +127,12 @@
       },
       "secondary": {
         "base": {
-          "value": "{color.gray.roboflow.500.value}",
-          "darkValue": "{color.gray.roboflow.400.value}",
+          "value": "{color.gray.roboflow.200.value}",
+          "darkValue": "{color.gray.roboflow.500.value}",
           "comment": "Secondary background color"
         },
         "strong": {
-          "value": "{color.gray.roboflow.700.value}",
+          "value": "{color.gray.roboflow.400.value}",
           "comment": "Strong version of secondary background color, used for hover"
         },
         "weak": {
@@ -142,12 +142,12 @@
       },
       "tertiary": {
         "base": {
-          "value": "{color.gray.roboflow.200.value}",
-          "darkValue": "{color.gray.roboflow.500.value}",
+          "value": "{color.gray.roboflow.500.value}",
+          "darkValue": "{color.gray.roboflow.400.value}",
           "comment": "Tertiary background color"
         },
         "strong": {
-          "value": "{color.gray.roboflow.400.value}",
+          "value": "{color.gray.roboflow.700.value}",
           "comment": "Strong version of tertiary background color, used for hover"
         },
         "weak": {
@@ -172,8 +172,8 @@
       },
       "inverse": {
         "base": {
-          "value": "{color.white.mochimalist.0.value}",
-          "darkValue": "{color.black.cosmicore.900.value}",
+          "value": "{color.black.cosmicore.900.value}",
+          "darkValue": "{color.white.mochimalist.0.value}",
           "comment": "Background color for use on inverted backgrounds"
         },
         "strong": {
