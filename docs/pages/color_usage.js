@@ -44,7 +44,7 @@ export default function ColorUsagePage(): Node {
         <ColorTile
           description="Primary base"
           textColor="white"
-          fullVariableName="color-background-primary-base"
+          fullTokenName="color-background-primary-base"
         />
       </MainSection>
       <MainSection
@@ -54,10 +54,7 @@ export default function ColorUsagePage(): Node {
         **$color-background-secondary-base** - Use this token for secondary, medium to low-emphasis actions.
         `}
       >
-        <ColorTile
-          description="Secondary base"
-          fullVariableName="color-background-secondary-base"
-        />
+        <ColorTile description="Secondary base" fullTokenName="color-background-secondary-base" />
       </MainSection>
       <MainSection
         name="Accent gray color"
@@ -69,7 +66,7 @@ export default function ColorUsagePage(): Node {
         <ColorTile
           description="Tertiary base"
           textColor="white"
-          fullVariableName="color-background-tertiary-base"
+          fullTokenName="color-background-tertiary-base"
         />
       </MainSection>
       <MainSection
@@ -79,7 +76,12 @@ export default function ColorUsagePage(): Node {
         **$color-background-shopping** - Use this token name when conveying a primary action on shopping experiences.
         `}
       >
-        <ColorTile description="Shopping" name="Skycicle" number={500} tokenId="blue" />
+        <ColorTile
+          description="Shopping"
+          fullTokenName="color-background-shopping"
+          name="Skycicle"
+          number={500}
+        />
       </MainSection>
       <MainSection
         name="Background color"
@@ -100,24 +102,24 @@ export default function ColorUsagePage(): Node {
               <ColorTile
                 description="Info base"
                 textColor="white"
-                fullVariableName="color-background-info-base"
+                fullTokenName="color-background-info-base"
               />
               <ColorTile
                 description="Success base"
                 textColor="white"
-                fullVariableName="color-background-success-base"
+                fullTokenName="color-background-success-base"
               />
             </Flex>
             <Flex gap={4} wrap>
               <ColorTile
                 description="Warning base"
                 textColor="white"
-                fullVariableName="color-background-warning-base"
+                fullTokenName="color-background-warning-base"
               />
               <ColorTile
                 description="Error base"
                 textColor="white"
-                fullVariableName="color-background-error-base"
+                fullTokenName="color-background-error-base"
               />
             </Flex>
           </Flex>
@@ -134,18 +136,12 @@ export default function ColorUsagePage(): Node {
         >
           <Flex gap={4} direction="column">
             <Flex gap={4} wrap>
-              <ColorTile description="Info weak" fullVariableName="color-background-info-weak" />
-              <ColorTile
-                description="Success weak"
-                fullVariableName="color-background-success-weak"
-              />
+              <ColorTile description="Info weak" fullTokenName="color-background-info-weak" />
+              <ColorTile description="Success weak" fullTokenName="color-background-success-weak" />
             </Flex>
             <Flex gap={4} wrap>
-              <ColorTile
-                description="Warning weak"
-                fullVariableName="color-background-warning-weak"
-              />
-              <ColorTile description="Error weak" fullVariableName="color-background-error-weak" />
+              <ColorTile description="Warning weak" fullTokenName="color-background-warning-weak" />
+              <ColorTile description="Error weak" fullTokenName="color-background-error-weak" />
             </Flex>
           </Flex>
         </MainSection.Subsection>
@@ -159,7 +155,7 @@ export default function ColorUsagePage(): Node {
           <ColorTile
             description="Inverse base"
             textColor="white"
-            fullVariableName="color-background-inverse-base"
+            fullTokenName="color-background-inverse-base"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -174,16 +170,8 @@ export default function ColorUsagePage(): Node {
           `}
         >
           <Flex gap={4} wrap>
-            <ColorTile
-              description="Default"
-              textColor="white"
-              fullVariableName="color-text-default"
-            />
-            <ColorTile
-              description="Subtle"
-              textColor="white"
-              fullVariableName="color-text-subtle"
-            />
+            <ColorTile description="Default" textColor="white" fullTokenName="color-text-default" />
+            <ColorTile description="Subtle" textColor="white" fullTokenName="color-text-subtle" />
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -196,17 +184,9 @@ export default function ColorUsagePage(): Node {
           `}
         >
           <Flex gap={4} wrap>
-            <ColorTile
-              description="Success"
-              textColor="white"
-              fullVariableName="color-text-success"
-            />
-            <ColorTile
-              description="Warning"
-              textColor="white"
-              fullVariableName="color-text-warning"
-            />
-            <ColorTile description="Error" textColor="white" fullVariableName="color-text-error" />
+            <ColorTile description="Success" textColor="white" fullTokenName="color-text-success" />
+            <ColorTile description="Warning" textColor="white" fullTokenName="color-text-warning" />
+            <ColorTile description="Error" textColor="white" fullTokenName="color-text-error" />
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -216,7 +196,7 @@ export default function ColorUsagePage(): Node {
           **$color-text-inverse** - Use this token for text layered on top of inverted backgrounds.
           `}
         >
-          <ColorTile description="Inverse" fullVariableName="color-text-inverse" />
+          <ColorTile description="Inverse" fullTokenName="color-text-inverse" />
         </MainSection.Subsection>
       </MainSection>
       <MainSection
@@ -237,33 +217,33 @@ export default function ColorUsagePage(): Node {
             <ColorTile
               description="Default"
               textColor="white"
-              fullVariableName="color-text-icon-default"
+              fullTokenName="color-text-icon-default"
             />
             <ColorTile
               description="Subtle"
               textColor="white"
-              fullVariableName="color-text-icon-subtle"
+              fullTokenName="color-text-icon-subtle"
             />
           </Flex>
           <Flex gap={4} wrap>
             <ColorTile
               description="Success"
               textColor="white"
-              fullVariableName="color-text-icon-success"
+              fullTokenName="color-text-icon-success"
             />
             <ColorTile
               description="Warning"
               textColor="white"
-              fullVariableName="color-text-icon-warning"
+              fullTokenName="color-text-icon-warning"
             />
           </Flex>
           <Flex gap={4} wrap>
             <ColorTile
               description="Error"
               textColor="white"
-              fullVariableName="color-text-icon-error"
+              fullTokenName="color-text-icon-error"
             />
-            <ColorTile description="Inverse" fullVariableName="color-text-icon-inverse" />
+            <ColorTile description="Inverse" fullTokenName="color-text-icon-inverse" />
           </Flex>
         </Flex>
       </MainSection>

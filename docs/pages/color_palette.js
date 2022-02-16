@@ -44,12 +44,12 @@ export default function ColorPage(): Node {
         `}
       >
         <Flex direction="column">
-          <ColorTile name="Pushpin" number={450} tokenId="red" />
-          <ColorTile name="Cosmicore" number={900} tokenId="black" />
-          <ColorTile name="Skycicle" number={500} tokenId="blue" />
-          <ColorTile name="Roboflow" number={500} tokenId="gray" />
-          <ColorTile name="Roboflow" number={200} tokenId="gray" />
-          <ColorTile name="Mochimalist" number={0} tokenId="white" />
+          <ColorTile fullTokenName="color-red-pushpin-450" name="Pushpin" number={450} />
+          <ColorTile fullTokenName="color-black-cosmicore-900" name="Cosmicore" number={900} />
+          <ColorTile fullTokenName="color-blue-skycicle-500" name="Skycicle" number={500} />
+          <ColorTile fullTokenName="color-gray-roboflow-500" name="Roboflow" number={500} />
+          <ColorTile fullTokenName="color-gray-roboflow-200" name="Roboflow" number={200} />
+          <ColorTile fullTokenName="color-white-mochimalist-0" name="Mochimalist" number={0} />
         </Flex>
       </MainSection>
       <MainSection
@@ -82,7 +82,13 @@ export default function ColorPage(): Node {
         >
           <Flex direction="column">
             {colors.map(({ id, name, textColor }) => (
-              <ColorTile key={name} name={name} number={450} tokenId={id} textColor={textColor} />
+              <ColorTile
+                key={name}
+                fullTokenName={`color-${id}-${name.toLowerCase()}-450`}
+                name={name}
+                number={450}
+                textColor={textColor}
+              />
             ))}
           </Flex>
         </MainSection.Subsection>

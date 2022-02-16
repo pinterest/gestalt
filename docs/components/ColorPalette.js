@@ -23,10 +23,10 @@ function ColorPalette({ name, tokenId, showName }: Props): Node {
           const colorVariableName = `color-${colorId}-${number}`;
           return tokens[colorVariableName] ? (
             <ColorTile
+              fullTokenName={colorVariableName}
               name={name}
               number={number}
               textColor={textColor}
-              tokenId={tokenId}
               showName={showName}
             />
           ) : null;
