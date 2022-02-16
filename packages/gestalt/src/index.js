@@ -18,6 +18,7 @@ import Column from './Column.js';
 import ComboBox from './ComboBox.js';
 import Container from './Container.js';
 import Datapoint from './Datapoint.js';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
 import Fieldset from './Fieldset.js';
@@ -88,6 +89,7 @@ export {
   CompositeZIndex,
   Container,
   Datapoint,
+  DeviceTypeProvider,
   Divider,
   Dropdown,
   Fieldset,
