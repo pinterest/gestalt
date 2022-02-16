@@ -115,6 +115,168 @@ const theme1 = [
   },
 ];
 
+const theme2 = [
+  {
+    'task': 'Gestalt docs IA update',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Visual search',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Public roadmap',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Component scorecard',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Elevation visual guidelines',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Product color visual guidelines',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Typographic visual guidelines',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Messaging pattern guidelines',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Dark Mode visual guidelines',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Help/guidance pattern guidelines',
+    'deadline': 'Q4',
+  },
+  {
+    'task': 'Iconography pattern guidelines',
+    'deadline': 'Q4',
+  },
+  {
+    'task': 'Extended color visual guidelines',
+    'deadline': 'Q4',
+  },
+  {
+    'task': 'Generated Docs for every component',
+    'deadline': '',
+  },
+  {
+    'task': 'Status docs unification',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Datapoint docs unification',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Tag docs unification',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Badge docs unification',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Masonry docs unification',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Link docs unification',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Heading unification',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Text docs unification',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Checkbox docs unification',
+    'deadline': 'Q3',
+  },
+  {
+    'task': 'Toast unification',
+    'deadline': 'Q3',
+  },
+  {
+    'task': 'RadioGroup docs unification',
+    'deadline': 'Q3',
+  },
+  {
+    'task': 'Switch docs unification',
+    'deadline': 'Q3',
+  },
+  {
+    'task': 'TextArea docs unification',
+    'deadline': 'Q4',
+  },
+  {
+    'task': 'ButtonGroup docs unification',
+    'deadline': 'Q4',
+  },
+];
+
+const theme3 = [
+  {
+    'task': 'Tooling: Testing support',
+    'deadline': '',
+  },
+  {
+    'task': 'Mobile component guidelines',
+    'deadline': '',
+  },
+  {
+    'task': 'Button mobile component guidelines',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'IconButton mobile component guidelines',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Modal/Sheet mobile guidelines',
+    'deadline': 'Q1',
+  },
+  {
+    'task': 'Tabs mobile guidelines',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Popover mobile guidelines',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Avatar mobile guidelines',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Toast mobile guidelines',
+    'deadline': 'Q3',
+  },
+  {
+    'task': 'Icon mobile guidelines',
+    'deadline': 'Q3',
+  },
+  {
+    'task': 'Gestalt Illustration Library',
+    'deadline': 'Q2',
+  },
+  {
+    'task': 'Gestalt Animation Support',
+    'deadline': 'Q3',
+  },
+];
+
 function LockIcon({ size }: {| size: 12 | 14 |}) {
   return (
     <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
@@ -168,6 +330,14 @@ export default function RoadmapPage(): Node {
     <ListElement key={obj.task} text={obj.task} quarter={obj.deadline} />
   ));
 
+  const theme2Items = theme2.map((obj) => (
+    <ListElement key={obj.task} text={obj.task} quarter={obj.deadline} />
+  ));
+
+  const theme3Items = theme3.map((obj) => (
+    <ListElement key={obj.task} text={obj.task} quarter={obj.deadline} />
+  ));
+
   return (
     <Page title="Upcoming work in 2022">
       <PageHeader name="Upcoming work in 2022" showSourceLink={false} />
@@ -185,8 +355,14 @@ export default function RoadmapPage(): Node {
       </Flex>
 
       <Heading size="500">Documentation and stuff</Heading>
+      <Flex direction="row" wrap>
+        {theme2Items}
+      </Flex>
 
       <Heading size="500">Stuff and stuff</Heading>
+      <Flex direction="row" wrap>
+        {theme3Items}
+      </Flex>
     </Page>
   );
 }
