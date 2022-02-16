@@ -87,7 +87,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use a title when the status it represents is unique, specific and critical for the user to know."
+            description="Use `title` when the status it represents is unique, specific and critical for the user to know."
             defaultCode={`
 <Status type="inProgress" title="Pending review" />
 `}
@@ -95,7 +95,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use Status' sub text to display extraneous messaging."
+            description="Use Status' `subText` to display extraneous messaging."
             defaultCode={`
 <Status type="problem" title="Error" subtext="Please try again" />
 `}
