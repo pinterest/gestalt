@@ -6,23 +6,13 @@ import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 
 type Props = {|
   fullTokenName: string,
-  name?: string,
+  description: string,
   number?: number,
   textColor?: 'darkGray' | 'white',
-  showName?: boolean,
-  description?: string,
 |};
 
-function ColorTile({
-  description,
-  fullTokenName,
-  name,
-  number = 500,
-  showName = true,
-  textColor,
-}: Props): Node {
+function ColorTile({ description, fullTokenName, number = 400, textColor }: Props): Node {
   const newTextColor = textColor || (number > 400 ? 'white' : 'darkGray');
-  const tokenDescription = description || (showName && name ? `${name} ${number}` : number);
   const borderNeeded = fullTokenName?.includes('white') || fullTokenName?.includes('inverse');
   return (
     <Box
@@ -38,7 +28,7 @@ function ColorTile({
       borderStyle={borderNeeded ? 'sm' : 'none'}
     >
       <Text weight="bold" color={newTextColor}>
-        {tokenDescription}
+        {description}
       </Text>
       <Text color={newTextColor}>{tokens[fullTokenName]?.toUpperCase()}</Text>
     </Box>

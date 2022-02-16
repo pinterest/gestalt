@@ -40,16 +40,36 @@ export default function ColorPage(): Node {
         name="Baseline colors"
         description={`
         Our baseline palette helps to create consistency across products.
-        The baseline palette is comprised of our hero and neutrals colors, allowing the Pinterest content to shine, while ensuring enough color contrast. In addition, these colors should be purpose-driven to provide a better user experience. Check out [Color Usage](/color_usage) for guidance.
+        The baseline palette is comprised of our hero and neutrals colors, allowing the Pinterest content to shine, while ensuring enough color contrast. In addition, the colors used serve specific purposes in order to provide a better user experience. Check out [Color Usage](/color_usage) for more details about their intended usage.
         `}
       >
         <Flex direction="column">
-          <ColorTile fullTokenName="color-red-pushpin-450" name="Pushpin" number={450} />
-          <ColorTile fullTokenName="color-black-cosmicore-900" name="Cosmicore" number={900} />
-          <ColorTile fullTokenName="color-blue-skycicle-500" name="Skycicle" number={500} />
-          <ColorTile fullTokenName="color-gray-roboflow-500" name="Roboflow" number={500} />
-          <ColorTile fullTokenName="color-gray-roboflow-200" name="Roboflow" number={200} />
-          <ColorTile fullTokenName="color-white-mochimalist-0" name="Mochimalist" number={0} />
+          <ColorTile fullTokenName="color-red-pushpin-450" description="Pushpin 450" number={450} />
+          <ColorTile
+            fullTokenName="color-black-cosmicore-900"
+            description="Cosmicore 900"
+            number={900}
+          />
+          <ColorTile
+            fullTokenName="color-blue-skycicle-500"
+            description="Skycicle 500"
+            number={500}
+          />
+          <ColorTile
+            fullTokenName="color-gray-roboflow-500"
+            description="Roboflow 500"
+            number={500}
+          />
+          <ColorTile
+            fullTokenName="color-gray-roboflow-200"
+            description="Roboflow 200"
+            number={200}
+          />
+          <ColorTile
+            fullTokenName="color-white-mochimalist-0"
+            description="Mochimalist 0"
+            number={0}
+          />
         </Flex>
       </MainSection>
       <MainSection
@@ -63,7 +83,7 @@ export default function ColorPage(): Node {
         <MainSection.Subsection title="Colors">
           <Flex gap={12} wrap>
             {colors.map(({ id, name }) => (
-              <ColorPalette showName={false} key={name} name={name} tokenId={id} />
+              <ColorPalette key={name} name={name} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
@@ -71,7 +91,7 @@ export default function ColorPage(): Node {
         <MainSection.Subsection title="Neutrals">
           <Flex direction="column">
             {neutrals.map(({ id, name }) => (
-              <ColorPalette showName={false} key={name} name={name} tokenId={id} />
+              <ColorPalette key={name} name={name} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
@@ -85,8 +105,7 @@ export default function ColorPage(): Node {
               <ColorTile
                 key={name}
                 fullTokenName={`color-${id}-${name.toLowerCase()}-450`}
-                name={name}
-                number={450}
+                description={`${name} 450`}
                 textColor={textColor}
               />
             ))}

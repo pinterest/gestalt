@@ -54,7 +54,11 @@ export default function ColorUsagePage(): Node {
         **$color-background-secondary-base** - Use this token for secondary, medium to low-emphasis actions.
         `}
       >
-        <ColorTile description="Secondary base" fullTokenName="color-background-secondary-base" />
+        <ColorTile
+          description="Secondary base"
+          fullTokenName="color-background-secondary-base"
+          textColor="darkGray"
+        />
       </MainSection>
       <MainSection
         name="Accent gray color"
@@ -76,25 +80,20 @@ export default function ColorUsagePage(): Node {
         **$color-background-shopping** - Use this token name when conveying a primary action on shopping experiences.
         `}
       >
-        <ColorTile
-          description="Shopping"
-          fullTokenName="color-background-shopping"
-          name="Skycicle"
-          number={500}
-        />
+        <ColorTile description="Shopping" fullTokenName="color-background-shopping" number={500} />
       </MainSection>
       <MainSection
         name="Background color"
-        description="Background colors are used behind text or applied to other elements to deliver specific messages or meanings, such as information, success, warning, and error. They are divided into two categories, base colors and weak colors. "
+        description="Background colors are used behind text or applied to other elements to deliver specific messages or meanings, such as information, success, warning, and error. They are divided into two categories: base colors and weak colors. "
       >
         <MainSection.Subsection
           title="Base background colors"
           description={`
           Use on UI elements to convey a specific status or message. Usually, they aren't used behind default text.
-          **$color-background-info-base** - Use this token as a background color to indicate neutral information.
-          **$color-background-success-base** - Use this token as a background color to indicate success.
-          **$color-background-warning-base** - Use this token as a background color to indicate warning alerts.
-          **$color-background-error-base** -  Use this tokens as a background color to indicate errors.
+          **$color-background-info-base** - Use as a background color to indicate neutral information.
+          **$color-background-success-base** - Use as a background color to indicate success.
+          **$color-background-warning-base** - Use as a background color to indicate warning alerts.
+          **$color-background-error-base** -  Use as a background color to indicate errors.
         `}
         >
           <Flex gap={4} direction="column">
@@ -136,12 +135,28 @@ export default function ColorUsagePage(): Node {
         >
           <Flex gap={4} direction="column">
             <Flex gap={4} wrap>
-              <ColorTile description="Info weak" fullTokenName="color-background-info-weak" />
-              <ColorTile description="Success weak" fullTokenName="color-background-success-weak" />
+              <ColorTile
+                description="Info weak"
+                fullTokenName="color-background-info-weak"
+                textColor="darkGray"
+              />
+              <ColorTile
+                description="Success weak"
+                fullTokenName="color-background-success-weak"
+                textColor="darkGray"
+              />
             </Flex>
             <Flex gap={4} wrap>
-              <ColorTile description="Warning weak" fullTokenName="color-background-warning-weak" />
-              <ColorTile description="Error weak" fullTokenName="color-background-error-weak" />
+              <ColorTile
+                description="Warning weak"
+                fullTokenName="color-background-warning-weak"
+                textColor="darkGray"
+              />
+              <ColorTile
+                description="Error weak"
+                fullTokenName="color-background-error-weak"
+                textColor="darkGray"
+              />
             </Flex>
           </Flex>
         </MainSection.Subsection>
@@ -196,7 +211,11 @@ export default function ColorUsagePage(): Node {
           **$color-text-inverse** - Use this token for text layered on top of inverted backgrounds.
           `}
         >
-          <ColorTile description="Inverse" fullTokenName="color-text-inverse" />
+          <ColorTile
+            description="Inverse"
+            fullTokenName="color-text-inverse"
+            textColor="darkGray"
+          />
         </MainSection.Subsection>
       </MainSection>
       <MainSection
@@ -243,14 +262,18 @@ export default function ColorUsagePage(): Node {
               textColor="white"
               fullTokenName="color-text-icon-error"
             />
-            <ColorTile description="Inverse" fullTokenName="color-text-icon-inverse" />
+            <ColorTile
+              description="Inverse"
+              fullTokenName="color-text-icon-inverse"
+              textColor="darkGray"
+            />
           </Flex>
         </Flex>
       </MainSection>
       <MainSection
         name="Color and accessibility"
         description={`
-      Please consider accessibility when using colors. When it comes to accessibility, it is our responsibility to deliver an inclusive product that inspires everyone.
+      Please consider accessibility when using colors, as it is our responsibility to deliver an inclusive product that inspires everyone.
 
       [Section 508](https://webaim.org/standards/508/checklist), which aligns with [WCAG 2.0 Level AA](https://www.w3.org/TR/WCAG21/), establishes a legal standard for the contrast level essential between text and its background. The baseline AA contrast standard is 4.5:1 for most text and 3:1 for large text. We also recommend avoiding pure black text on white helps dyslexia, Irlen Syndrome, light sensitivity, and autism.
 
