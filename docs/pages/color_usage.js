@@ -81,50 +81,6 @@ export default function ColorUsagePage(): Node {
       >
         <ColorTile description="Shopping" name="Skycicle" number={500} tokenId="blue" />
       </MainSection>
-      {/*
-     <MainSection
-        name="Behavior color"
-        description="Color can also provide information about the state of a component. There are color tokens for selected and hover state"
-      >
-        <MainSection.Subsection
-          title="Hover"
-          description={`
-          **$color-background-primary-strong** - This token is the strong version of the primary background color, use for primary  hover purposes.
-          **$color-background-secondary-strong** - This token is the strong version of the secondary background color, use for secondary hover purposes.
-          **$color-background-tertiary-strong** - This token is the strong version of the tertiary background color, use for tertiary hover purposes.
-        `}
-        >
-          <Flex gap={4} wrap>
-            <ColorTile
-              description="Primary strong"
-              textColor="white"
-              fullVariableName="color-background-primary-strong"
-            />
-            <ColorTile description="Secondary strong" name="Roboflow" number={700} tokenId="gray" />
-            <ColorTile description="Tertiary strong" name="Roboflow" number={400} tokenId="gray" />
-          </Flex>
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Selected"
-          description={`
-          **$color-background-selected-base** - Use this token to convey a selected state, such as a selected iconButton.
-          **$color-background-selected-weak** - Use this token as the weak version of the selected background color.
-          **$color-background-selected-strong** - Use this token as the strong version of the selected background color.
-        `}
-        >
-          <Flex gap={4} wrap>
-            <ColorTile
-              description="Selected base"
-              textColor="white"
-              fullVariableName="color-background-selected-base"
-            />
-            <ColorTile description="Secondary strong" name="Roboflow" number={700} tokenId="gray" />
-            <ColorTile description="Tertiary strong" name="Roboflow" number={400} tokenId="gray" />
-          </Flex>
-        </MainSection.Subsection>
-      </MainSection>
-     */}
-
       <MainSection
         name="Background color"
         description="Background colors are used behind text or applied to other elements to deliver specific messages or meanings, such as information, success, warning, and error. They are divided into two categories, base colors and weak colors. "
