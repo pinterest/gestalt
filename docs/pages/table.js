@@ -1643,7 +1643,7 @@ function Example() {
         <MainSection.Card
           cardSize="lg"
           defaultCode={`
-<Box width="50%" overflow="auto">
+<Box width="50%">
   <Table accessibilityLabel="Sticky Column" maxHeight={200} stickyColumns={1}>
 
     <Table.Header>
@@ -1746,7 +1746,7 @@ function Example() {
         <MainSection.Card
           cardSize="lg"
           defaultCode={`
-<Box width="60%" overflow="auto">
+<Box width="60%">
   <Table accessibilityLabel="Multiple sticky columns" maxHeight={200} stickyColumns={3} borderStyle="none">
 
     <Table.Header>
@@ -1881,7 +1881,7 @@ function Example() {
         <MainSection.Card
           cardSize="lg"
           defaultCode={`
-<Box width="60%" overflow="auto">
+<Box width="60%">
   <Table accessibilityLabel="Sticky header and sticky columns" maxHeight={200} stickyColumns={3} borderStyle="none">
 
     <Table.Header sticky>
@@ -2236,7 +2236,7 @@ function Example() {
       };
 
       return(
-      <Box width="60%" overflow="auto">
+      <Box width="60%">
         <Table accessibilityLabel="Table Row Expandable with Sticky Columns" stickyColumns={3}>
 
           <Table.Header>
@@ -2503,7 +2503,7 @@ function Example() {
       }
 
       return (
-        <Box width="70%" overflow="auto">
+        <Box width="70%">
           <Table accessibilityLabel="Sortable header cells with sticky columns" stickyColumns={2}>
             <Table.Header>
               <Table.Row>
