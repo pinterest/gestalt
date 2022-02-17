@@ -1,3 +1,9 @@
+## 45.4.6 (Feb 17, 2022)
+
+### Patch
+
+- Docs: Updated Status docs to include design guidelines (#1940)
+
 ## 45.4.5 (Feb 15, 2022)
 
 ### Patch
