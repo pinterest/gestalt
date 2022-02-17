@@ -1,3 +1,9 @@
+## 45.5.1 (Feb 17, 2022)
+
+### Patch
+
+- Color: Add guidelines for color usage (#1941)
+
 ## 45.5.0 (Feb 17, 2022)
 
 ### Minor
