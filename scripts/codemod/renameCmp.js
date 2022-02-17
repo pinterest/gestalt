@@ -1,61 +1,73 @@
-import { isNotGestaltImport, matchSpecifierImportedName } from './helpers/codemodHelpers.js';
+import {
+  getImports,
+  getJSX,
+  initialize,
+  isNotGestaltImport,
+  isNotComponentName,
+  renameJSXElement,
+  matchImportedName,
+  replaceImportedNamed,
+  replaceModifiedJSXNode,
+  saveSource,
+  sortImportedNames,
+  sortJSXElementAttributes,
+  sourceHasChanges,
+  replaceImportNodePath,
+} from './helpers/codemodHelpers.js';
 
 export default function transformer(file, api, options) {
   const { previousCmpName, nextCmpName } = options;
 
-  const j = api.jscodeshift;
-  const src = j(file.source);
+  const [j, src] = initialize({ api, file });
 
-  let hasModifications;
-  let targetLocalIdentifierName;
+  let targetLocalImportedName;
 
-  src.find(j.ImportDeclaration).forEach((path) => {
-    const decl = path.node;
+  getImports({ src, j }).forEach((nodePath) => {
+    const { node: importDeclaration } = nodePath;
 
-    if (isNotGestaltImport({ decl })) return;
+    if (isNotGestaltImport({ importDeclaration })) return;
 
-    const matchedSpecifier = matchSpecifierImportedName({ decl, importedName: previousCmpName });
+    const matchedImportedName = matchImportedName({
+      importDeclaration,
+      importedName: previousCmpName,
+    });
 
-    if (!matchedSpecifier) return;
+    if (!matchedImportedName) return;
 
-    targetLocalIdentifierName = matchedSpecifier && matchedSpecifier.local.name;
+    targetLocalImportedName = matchedImportedName && matchedImportedName.local.name;
 
-    const newSpecifiers = [
-      ...decl.specifiers.map((node) =>
-        node.imported.name === previousCmpName
-          ? j.importSpecifier(j.identifier(nextCmpName))
-          : node,
-      ),
-    ];
-    // Sort all the imports alphabetically
-    newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
+    const newImportSpecifiers = replaceImportedNamed({
+      j,
+      importDeclaration,
+      previousCmpName,
+      nextCmpName,
+    });
 
-    j(path).replaceWith(j.importDeclaration(newSpecifiers, j.literal('gestalt')));
+    const newSortedImportSpecifiers = sortImportedNames({ importSpecifiers: newImportSpecifiers });
+
+    replaceImportNodePath({
+      j,
+      nodePath,
+      importSpecifiers: newSortedImportSpecifiers,
+      importPath: 'gestalt',
+    });
   });
 
-  if (!targetLocalIdentifierName) {
-    // not imported
-    return null;
-  }
+  getJSX({ src, j }).forEach((nodePath) => {
+    const { node: JSXNode } = nodePath;
 
-  src.find(j.JSXElement).forEach((path) => {
-    const { node } = path;
+    if (isNotComponentName({ JSXNode, componentName: targetLocalImportedName })) return;
 
-    if (node.openingElement.name.name !== targetLocalIdentifierName) {
-      return;
-    }
+    sortJSXElementAttributes({ JSXNode });
 
-    // Sort attributes alphabetically
-    node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
-    node.openingElement.name = nextCmpName;
-    node.closingElement.name = nextCmpName;
+    renameJSXElement({ JSXNode, nextCmpName });
 
-    j(path).replaceWith(node);
+    replaceModifiedJSXNode({ j, nodePath, JSXNode });
 
-    hasModifications = true;
+    sourceHasChanges({ src });
   });
 
-  return hasModifications ? src.toSource({ quote: 'single' }) : null;
+  return saveSource({ src });
 }
 
 // yarn run:codemod renameCmp  ~/code/pinboard/webapp/app/partner/quickPromote/QuickPromoteFormComponents/QuickPromoteTextField.js --previousCmpName=Box --nextCmpName=Boxy
