@@ -1,5 +1,5 @@
 // @flow strict
-import type { Cache } from './Cache.js';
+import { type Cache } from './Cache.js';
 
 export type Position = {|
   top: number,

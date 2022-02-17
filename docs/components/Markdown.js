@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Text } from 'gestalt';
 import { marked, Renderer } from 'marked';
 import highlightjs from 'highlight.js';

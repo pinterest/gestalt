@@ -1,15 +1,15 @@
 // @flow strict
-import type {
-  CaretDir,
-  CaretOffset,
-  ClientRect,
-  Coordinates,
-  Dimensions,
-  EdgeShift,
-  PopoverDir,
-  MainDirections,
-  Window,
-  Offset,
+import {
+  type CaretDir,
+  type CaretOffset,
+  type ClientRect,
+  type Coordinates,
+  type Dimensions,
+  type EdgeShift,
+  type PopoverDir,
+  type MainDirections,
+  type Window,
+  type Offset,
 } from './positioningTypes.js';
 
 // CONSTANTS

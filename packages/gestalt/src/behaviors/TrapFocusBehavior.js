@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node as ReactNode } from 'react';
-
-import { Component } from 'react';
+import { type Node as ReactNode, Component } from 'react';
 
 type Props = {|
   children?: ReactNode,

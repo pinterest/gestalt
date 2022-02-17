@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Badge, Box, Flex, Heading, Text, Tooltip } from 'gestalt';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';

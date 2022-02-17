@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box, Flex, Icon, ColorSchemeProvider } from 'gestalt';
 
 export default function IconSpec(): Node {

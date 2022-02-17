@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import Collection from './Collection.js';
 
 type Column = 2 | 3 | 4;

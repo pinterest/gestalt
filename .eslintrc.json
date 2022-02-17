@@ -41,6 +41,7 @@
         "strict": true
       }
     ],
+    "flowtype/type-import-style": "error",
     "import/extensions": ["error", "always", { "ignorePackages": true }],
     "import/no-anonymous-default-export": "error",
     "import/no-extraneous-dependencies": "off",

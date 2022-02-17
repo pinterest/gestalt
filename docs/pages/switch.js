@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box, Label, Switch, Text } from 'gestalt';
 import Combination from '../components/Combination.js';
 import Example from '../components/Example.js';

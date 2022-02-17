@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box, Text } from 'gestalt';
 // $FlowExpectedError[untyped-import]
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';

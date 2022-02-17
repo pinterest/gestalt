@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { PureComponent } from 'react';
+import { type Node, PureComponent } from 'react';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './ScrollContainer.js';
 import { getElementHeight, getScrollHeight, getScrollPos } from './scrollUtils.js';

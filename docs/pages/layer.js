@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import Card from '../components/Card.js';
 import Example from '../components/Example.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';

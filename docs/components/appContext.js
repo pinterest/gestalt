@@ -1,6 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-import { useEffect } from 'react';
+import { type Node, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import createHydra, { type Hydra } from './createHydra.js';
 

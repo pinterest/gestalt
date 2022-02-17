@@ -1,12 +1,10 @@
 // @flow strict
-import type { Node as ReactNode } from 'react';
-
-import { Component } from 'react';
+import { type Node as ReactNode, Component } from 'react';
 import { ESCAPE } from './keyCodes.js';
 import Contents, { type Role } from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
-import type { ClientRect, Coordinates } from './utils/positioningTypes.js';
+import { type ClientRect, type Coordinates } from './utils/positioningTypes.js';
 import { getTriggerRect } from './utils/positioningUtils.js';
 
 const SIZE_WIDTH_MAP = {

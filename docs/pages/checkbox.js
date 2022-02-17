@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Checkbox } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Example from '../components/Example.js';

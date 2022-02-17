@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Icon } from 'gestalt';
 import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';

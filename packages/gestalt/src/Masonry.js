@@ -1,12 +1,11 @@
 // @flow strict
-import type { ComponentType, Node } from 'react';
-import { Component as ReactComponent } from 'react';
+import { type ComponentType, type Node, Component as ReactComponent } from 'react';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
 import throttle from './throttle.js';
-import type { Cache } from './Cache.js';
+import { type Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
 import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';

@@ -1,6 +1,5 @@
 // @flow strict-local
-import type { Node } from 'react';
-import { useState } from 'react';
+import { type Node, useState } from 'react';
 import DatePicker from 'gestalt-datepicker';
 import {
   arSA,

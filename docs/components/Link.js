@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Link as GestaltLink } from 'gestalt';
 import { useRouter } from 'next/router';
 

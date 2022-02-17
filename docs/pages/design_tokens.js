@@ -1,6 +1,6 @@
 // @flow strict
 
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Flex, Table, Text } from 'gestalt';
 import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
 import MainSection from '../components/MainSection.js';

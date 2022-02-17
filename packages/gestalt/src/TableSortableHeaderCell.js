@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useState } from 'react';
+import { type Node, useState } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import TableHeaderCell from './TableHeaderCell.js';

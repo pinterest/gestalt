@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box, Button, ColorSchemeProvider } from 'gestalt';
 
 export default function ButtonDarkSpec(): Node {

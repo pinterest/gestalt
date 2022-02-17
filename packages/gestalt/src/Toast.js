@@ -1,5 +1,5 @@
 // @flow strict
-import type { Element, Node } from 'react';
+import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';

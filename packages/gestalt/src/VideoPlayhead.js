@@ -1,7 +1,6 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node, PureComponent } from 'react';
 
-import { PureComponent } from 'react';
 import Box from './Box.js';
 import styles from './Video.css';
 

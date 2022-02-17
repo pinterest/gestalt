@@ -1,11 +1,10 @@
 // @flow strict
-import type { Node } from 'react';
-import docgen from '../components/docgen.js';
+import { type Node } from 'react';
+import docgen, { type DocGen } from '../components/docgen.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import type { DocGen } from '../components/docgen.js';
 
 export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

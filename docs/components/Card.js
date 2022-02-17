@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';

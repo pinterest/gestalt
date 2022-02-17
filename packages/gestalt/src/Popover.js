@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import Controller from './Controller.js';
 
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
