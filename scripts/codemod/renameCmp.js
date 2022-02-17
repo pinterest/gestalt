@@ -1,21 +1,46 @@
+// @flow strict
+
+/**
+ * CODEMOD to RENAME GESTALT COMPONENTS
+ * Ex. <Flyout /> to <Popover />
+ *
+ * TO RUN THIS CODEMOD
+ * yarn run:codemod renameCmp  <folder/file path> --previousCmpName=<value> --nextCmpName=<value>
+ * E.g. yarn run:codemod renameCmp  ~/code/pinboard/webapp --previousCmpName=Box --nextCmpName=RenamedBox
+ *
+ * OPTIONS:
+ * --previousCmpName: current component name to be replaced
+ * --nextCmpName: new component name to replace with
+ */
+
 import {
   getImports,
   getJSX,
   initialize,
   isNotGestaltImport,
-  isNotComponentName,
-  renameJSXElement,
   matchImportedName,
-  replaceImportedNamed,
+  matchesComponentName,
+  replaceImportedName,
   replaceModifiedJSXNode,
+  replaceImportNodePath,
+  renameJSXElement,
   saveSource,
   sortImportedNames,
-  sortJSXElementAttributes,
   sourceHasChanges,
-  replaceImportNodePath,
 } from './helpers/codemodHelpers.js';
 
-export default function transformer(file, api, options) {
+// $FlowFixMe[unclear-type]
+type GenericType = any;
+
+type FileType = { source: GenericType };
+type ApiType = { jscodeshift: GenericType };
+type OptionsType = { previousCmpName: string, nextCmpName: string };
+
+export default function transformer(
+  file: FileType,
+  api: ApiType,
+  options: OptionsType,
+): GenericType {
   const { previousCmpName, nextCmpName } = options;
 
   const [j, src] = initialize({ api, file });
@@ -36,7 +61,7 @@ export default function transformer(file, api, options) {
 
     targetLocalImportedName = matchedImportedName && matchedImportedName.local.name;
 
-    const newImportSpecifiers = replaceImportedNamed({
+    const newImportSpecifiers = replaceImportedName({
       j,
       importDeclaration,
       previousCmpName,
@@ -56,9 +81,7 @@ export default function transformer(file, api, options) {
   getJSX({ src, j }).forEach((nodePath) => {
     const { node: JSXNode } = nodePath;
 
-    if (isNotComponentName({ JSXNode, componentName: targetLocalImportedName })) return;
-
-    sortJSXElementAttributes({ JSXNode });
+    if (!matchesComponentName({ JSXNode, componentName: targetLocalImportedName })) return;
 
     renameJSXElement({ JSXNode, nextCmpName });
 
@@ -69,5 +92,3 @@ export default function transformer(file, api, options) {
 
   return saveSource({ src });
 }
-
-// yarn run:codemod renameCmp  ~/code/pinboard/webapp/app/partner/quickPromote/QuickPromoteFormComponents/QuickPromoteTextField.js --previousCmpName=Box --nextCmpName=Boxy
