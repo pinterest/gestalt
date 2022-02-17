@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Mask.css';
 import getRoundingClassName from './getRoundingClassName.js';

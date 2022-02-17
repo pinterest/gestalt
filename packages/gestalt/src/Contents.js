@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Component } from 'react';
+import { Component, type Node } from 'react';
 import classnames from 'classnames';
 import Caret from './Caret.js';
 import styles from './Contents.css';
@@ -9,13 +7,13 @@ import borders from './Borders.css';
 import colors from './Colors.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
-import type {
-  CaretOffset,
-  ClientRect,
-  DerivedState,
-  PopoverDir,
-  MainDirections,
-  Coordinates,
+import {
+  type CaretOffset,
+  type ClientRect,
+  type DerivedState,
+  type PopoverDir,
+  type MainDirections,
+  type Coordinates,
 } from './utils/positioningTypes.js';
 import {
   adjustOffsets,

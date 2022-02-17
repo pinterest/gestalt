@@ -1,12 +1,11 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Module } from 'gestalt';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
-import { multipledocgen } from '../components/docgen.js';
+import { multipledocgen, type DocGen } from '../components/docgen.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import type { DocGen } from '../components/docgen.js';
 
 export default function ModulePage({
   generatedDocGen,

@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Table } from 'gestalt';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';

@@ -1,5 +1,5 @@
 // @flow strict
-import type { Element, Node } from 'react';
+import { type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';

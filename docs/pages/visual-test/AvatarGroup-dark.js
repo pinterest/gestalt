@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { AvatarGroup, Box, ColorSchemeProvider } from 'gestalt';
 
 export default function AvatarGroupSpec(): Node {

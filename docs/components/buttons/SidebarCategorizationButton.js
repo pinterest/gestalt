@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Flex, IconButton, Tooltip } from 'gestalt';
 import { type SidebarOrganisedBy } from '../navigationContext.js';
 import trackButtonClick from './trackButtonClick.js';

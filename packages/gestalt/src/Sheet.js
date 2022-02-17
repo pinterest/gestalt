@@ -18,8 +18,7 @@ c. Sheet is the actual component logic which includes the internal components <H
 
 */
 
-import type { Node } from 'react';
-import { useCallback, useState, useEffect, useRef } from 'react';
+import { type Node, useCallback, useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
 import AnimationController, { useAnimation } from './AnimationController.js';

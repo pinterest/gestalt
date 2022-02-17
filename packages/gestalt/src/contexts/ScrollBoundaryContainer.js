@@ -1,7 +1,13 @@
 // @flow strict
-import type { Context, Element, Node } from 'react';
-
-import { useContext, useState, useCallback, createContext } from 'react';
+import {
+  type Context,
+  type Element,
+  type Node,
+  useContext,
+  useState,
+  useCallback,
+  createContext,
+} from 'react';
 
 type ScrollBoundaryContainerContextType = {|
   scrollBoundaryContainerRef: ?HTMLElement,

@@ -1,7 +1,12 @@
 // @flow strict
-import type { Node, AbstractComponent } from 'react';
-
-import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
+import {
+  type Node,
+  type AbstractComponent,
+  forwardRef,
+  useEffect,
+  useRef,
+  useImperativeHandle,
+} from 'react';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import Box from './Box.js';
 import { type Dimension, type Padding } from './boxTypes.js';

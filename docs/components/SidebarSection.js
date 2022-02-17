@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 import { type sidebarIndexType } from './sidebarIndex.js';
 import SidebarSectionLink from './SidebarSectionLink.js';

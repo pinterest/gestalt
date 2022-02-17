@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import layout from './Layout.css';
 import { FixedZIndex, type Indexable } from './zIndex.js';
 

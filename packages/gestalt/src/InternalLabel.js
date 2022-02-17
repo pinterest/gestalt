@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import classnames from 'classnames';
 import styles from './InternalLabel.css';
 import boxStyles from './Box.css';

@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box } from 'gestalt';
 import { type Token } from '../pages/design_tokens.js';
 

@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { Box } from 'gestalt';
 import NavLink from './NavLink.js';
 

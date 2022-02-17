@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Fragment } from 'react';
+import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './Backdrop.css';
 import { type AnimationStateType } from './AnimationController.js';
