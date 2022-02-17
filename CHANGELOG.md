@@ -1,3 +1,9 @@
+## 45.5.0 (Feb 17, 2022)
+
+### Minor
+
+- Tokens: Add elevation tokens (#1932)
+
 ## 45.4.8 (Feb 17, 2022)
 
 ### Patch
