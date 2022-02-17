@@ -126,10 +126,10 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-inverse: #111111;
         --color-background-shopping: #45a3fe;
         --color-background-primary-base: #eb4242;
-        --color-background-secondary-base: #a5a5a5;
-        --color-background-tertiary-base: #767676;
+        --color-background-secondary-base: #767676;
+        --color-background-tertiary-base: #a5a5a5;
         --color-background-selected-base: #e9e9e9;
-        --color-background-inverse-base: #111111;
+        --color-background-inverse-base: #ffffff;
         --color-background-education: #45a3fe;
         --color-border-container: #4a4a4a;
         --color-border-default: #cdcdcd;
@@ -185,10 +185,10 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-inverse: #111111;
         --color-background-shopping: #45a3fe;
         --color-background-primary-base: #eb4242;
-        --color-background-secondary-base: #a5a5a5;
-        --color-background-tertiary-base: #767676;
+        --color-background-secondary-base: #767676;
+        --color-background-tertiary-base: #a5a5a5;
         --color-background-selected-base: #e9e9e9;
-        --color-background-inverse-base: #111111;
+        --color-background-inverse-base: #ffffff;
         --color-background-education: #45a3fe;
         --color-border-container: #4a4a4a;
         --color-border-default: #cdcdcd;

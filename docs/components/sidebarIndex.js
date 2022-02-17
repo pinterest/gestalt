@@ -28,11 +28,14 @@ const sidebarIndex: Array<sidebarIndexType> = [
     ],
   },
   {
+    sectionName: 'Color',
+    pages: ['Color Palette', 'Color Usage'],
+  },
+  {
     sectionName: 'Guidelines',
     pages: [
       'Accessibility',
       'Design Tokens',
-      'Color',
       'Iconography and SVGs',
       'Layouts',
       'Screen Sizes',
