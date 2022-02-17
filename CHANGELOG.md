@@ -1,3 +1,9 @@
+## 45.4.7 (Feb 17, 2022)
+
+### Patch
+
+- Internal: add note about Jira on bug template (#1944)
+
 ## 45.4.6 (Feb 17, 2022)
 
 ### Patch
