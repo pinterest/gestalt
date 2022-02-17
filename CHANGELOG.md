@@ -1,3 +1,9 @@
+## 45.4.8 (Feb 17, 2022)
+
+### Patch
+
+- Internal: enable flowtype/type-import-style (#1945)
+
 ## 45.4.7 (Feb 17, 2022)
 
 ### Patch
