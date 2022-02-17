@@ -1,18 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import {
-  Box,
-  Flex,
-  Icon,
-  Text,
-  TapArea,
-  Tooltip,
-  Link,
-  Heading,
-  Badge,
-  Status,
-  Table,
-} from 'gestalt';
+import { Flex, Icon, Text, TapArea, Tooltip, Link, Heading, Badge, Status, Table } from 'gestalt';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
@@ -45,6 +33,16 @@ const theme1 = [
   {
     'task': 'InfoButton integration in input components',
     'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Gestalt Illustration Library',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Gestalt Animation Support',
+    'deadline': 'Q3',
     'status': 'unstarted',
   },
   {
@@ -171,53 +169,8 @@ const theme2 = [
     'status': 'unstarted',
   },
   {
-    'task': 'Component scorecard',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
     'task': 'Elevation visual guidelines',
     'deadline': 'Q1',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Product color visual guidelines',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Typographic visual guidelines',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Messaging pattern guidelines',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Dark Mode visual guidelines',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Help/guidance pattern guidelines',
-    'deadline': 'Q4',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Iconography pattern guidelines',
-    'deadline': 'Q4',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Extended color visual guidelines',
-    'deadline': 'Q4',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Generated Docs for every component',
-    'deadline': '',
     'status': 'unstarted',
   },
   {
@@ -241,6 +194,21 @@ const theme2 = [
     'status': 'unstarted',
   },
   {
+    'task': 'Button mobile component guidelines',
+    'deadline': 'Q1',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'IconButton mobile component guidelines',
+    'deadline': 'Q1',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Modal/Sheet mobile guidelines',
+    'deadline': 'Q1',
+    'status': 'unstarted',
+  },
+  {
     'task': 'Masonry docs unification',
     'deadline': 'Q2',
     'status': 'unstarted',
@@ -258,6 +226,56 @@ const theme2 = [
   {
     'task': 'Text docs unification',
     'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Tabs mobile guidelines',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Popover mobile guidelines',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Avatar mobile guidelines',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Product color visual guidelines',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Typographic visual guidelines',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Component scorecard',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Messaging pattern guidelines',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Dark Mode visual guidelines',
+    'deadline': 'Q2',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Toast mobile guidelines',
+    'deadline': 'Q3',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Icon mobile guidelines',
+    'deadline': 'Q3',
     'status': 'unstarted',
   },
   {
@@ -290,62 +308,47 @@ const theme2 = [
     'deadline': 'Q4',
     'status': 'unstarted',
   },
+  {
+    'task': 'Help/guidance pattern guidelines',
+    'deadline': 'Q4',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Iconography pattern guidelines',
+    'deadline': 'Q4',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Extended color visual guidelines',
+    'deadline': 'Q4',
+    'status': 'unstarted',
+  },
 ];
 
 const theme3 = [
   {
-    'task': 'Tooling: Testing support',
+    'task': 'Form autofix',
+    'deadline': 'Q1',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Box duplicate props autofix',
+    'deadline': 'Q1',
+    'status': 'unstarted',
+  },
+  {
+    'task': 'Generalized prop naming autofix',
     'deadline': '',
     'status': 'unstarted',
   },
   {
-    'task': 'Button mobile component guidelines',
-    'deadline': 'Q1',
+    'task': 'Generalized prop value change autofix',
+    'deadline': '',
     'status': 'unstarted',
   },
   {
-    'task': 'IconButton mobile component guidelines',
-    'deadline': 'Q1',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Modal/Sheet mobile guidelines',
-    'deadline': 'Q1',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Tabs mobile guidelines',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Popover mobile guidelines',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Avatar mobile guidelines',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Toast mobile guidelines',
-    'deadline': 'Q3',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Icon mobile guidelines',
-    'deadline': 'Q3',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Gestalt Illustration Library',
-    'deadline': 'Q2',
-    'status': 'unstarted',
-  },
-  {
-    'task': 'Gestalt Animation Support',
-    'deadline': 'Q3',
+    'task': 'Build testing helpers library',
+    'deadline': '',
     'status': 'unstarted',
   },
 ];
@@ -364,49 +367,56 @@ function LockIcon({ size }: {| size: 12 | 14 |}) {
   );
 }
 
-function ListElement({
+type StatusType = 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
+
+function TaskStatus({ status }: {| status: StatusType |}) {
+  let statusTitle = '';
+
+  switch (status) {
+    case 'unstarted':
+      statusTitle = 'Not started';
+      break;
+    case 'inProgress':
+      statusTitle = 'In progress';
+      break;
+    case 'ok':
+      statusTitle = 'Complete';
+      break;
+    default:
+      statusTitle = '';
+  }
+
+  return <Status type={status} title={statusTitle} />;
+}
+
+function TableRow({
   text,
   quarter,
-  complete,
+  status,
 }: {|
   text: string,
   quarter: string,
-  complete: boolean,
+  status: StatusType,
 |}) {
-  return (
-    <Box
-      color={complete ? 'successWeak' : 'tertiary'}
-      paddingX={4}
-      flex="grow"
-      marginBottom={2}
-      marginEnd={2}
-      height={64}
-      rounding={2}
-      overflow="hidden"
-    >
-      <Flex alignItems="center" height="100%">
-        <Box flex="grow" marginEnd={4} overflow="hidden">
-          <Heading size="100" lineClamp={1}>
-            {text}
-          </Heading>
-        </Box>
-        {quarter ? <Badge text={quarter} /> : null}
-        {complete ? <Status type="ok" /> : null}
-      </Flex>
-    </Box>
-  );
-}
-
-function TableRow({ text, quarter, status }: {| text: string, quarter: string, status: string |}) {
   return (
     <Table.Row>
       <Table.Cell>
         <Flex gap={2} alignItems="center">
-          <Status type={status} />
           <Text>{text}</Text>
         </Flex>
       </Table.Cell>
-      <Table.Cell>{quarter ? <Badge text={quarter} /> : <Text>TBD</Text>}</Table.Cell>
+      <Table.Cell>
+        {quarter ? (
+          <Badge text={quarter} />
+        ) : (
+          <Text size="100" weight="bold">
+            TBD
+          </Text>
+        )}
+      </Table.Cell>
+      <Table.Cell>
+        <TaskStatus status={status} />
+      </Table.Cell>
     </Table.Row>
   );
 }
@@ -440,9 +450,9 @@ export default function RoadmapPage(): Node {
             View full roadmap
           </Link>
         </Text>
-        <LockIcon />
+        <LockIcon size="14" />
       </Flex>
-      <Heading size="500">Components and design tokens</Heading>
+      <Heading size="500">Components & design tokens</Heading>
       <Table accessibilityLabel="Components and design tokens" stickyColumns={1}>
         <Table.Header>
           <Table.Row>
@@ -451,6 +461,9 @@ export default function RoadmapPage(): Node {
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Text weight="bold">Delivery</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Status</Text>
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -467,13 +480,16 @@ export default function RoadmapPage(): Node {
             <Table.HeaderCell>
               <Text weight="bold">Delivery</Text>
             </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Status</Text>
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>{theme2Items}</Table.Body>
       </Table>
 
-      <Heading size="500">System documentation</Heading>
-      <Table accessibilityLabel="System documentation" stickyColumns={1}>
+      <Heading size="500">Tooling & infrastructure</Heading>
+      <Table accessibilityLabel="Tooling & infrastructure" stickyColumns={1}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>
@@ -481,6 +497,9 @@ export default function RoadmapPage(): Node {
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Text weight="bold">Delivery</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Status</Text>
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
