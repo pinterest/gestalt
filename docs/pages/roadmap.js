@@ -450,7 +450,7 @@ export default function RoadmapPage(): Node {
             View full roadmap
           </Link>
         </Text>
-        <LockIcon size="14" />
+        <LockIcon size={14} />
       </Flex>
       <Heading size="500">Components & design tokens</Heading>
       <Table accessibilityLabel="Components and design tokens" stickyColumns={1}>
