@@ -72,7 +72,10 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFilter({
   name: 'customDarkColorFilter',
   matcher(token) {
-    return token.darkValue && token.attributes.category === `color`;
+    return (
+      token.darkValue &&
+      (token.attributes.category === `color` || token.attributes.category === `elevation`)
+    );
   },
 });
 

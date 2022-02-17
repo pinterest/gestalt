@@ -57,6 +57,41 @@ export function TextColorBox({ token }: BaseProps): Node {
   );
 }
 
+export function BorderBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { border: `2px solid var(--${token.name})` },
+      }}
+      height={50}
+      width={150}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+    />
+  );
+}
+
+export function ElevationBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: {
+          boxShadow: `var(--${token.name})`,
+          backgroundColor: token.name.includes('color') ? `var(--${token.name})` : 'transparent',
+        },
+      }}
+      height={50}
+      width={150}
+      display="flex"
+      alignItems="center"
+      justifyContent="between"
+      paddingX={2}
+    />
+  );
+}
+
 export function FontBox({ token, type }: FontBoxProps): Node {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
@@ -98,6 +133,10 @@ export function TokenExample({ token, category }: ExampleProps): Node {
       return <FontBox token={token} type="weight" />;
     case 'font-family':
       return <FontBox token={token} type="family" />;
+    case 'color-border':
+      return <BorderBox token={token} />;
+    case 'elevation':
+      return <ElevationBox token={token} />;
     default:
       return <Box>{token.value}</Box>;
   }
