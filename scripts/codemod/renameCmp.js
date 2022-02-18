@@ -16,12 +16,11 @@
 import {
   getImports,
   getJSX,
+  getLocalImportedName,
   initialize,
   isNotGestaltImport,
-  matchImportedName,
   matchesComponentName,
   replaceImportedName,
-  replaceModifiedJSXNode,
   replaceImportNodePath,
   renameJSXElement,
   saveSource,
@@ -52,14 +51,12 @@ export default function transformer(
 
     if (isNotGestaltImport({ importDeclaration })) return;
 
-    const matchedImportedName = matchImportedName({
+    targetLocalImportedName = getLocalImportedName({
       importDeclaration,
       importedName: previousCmpName,
     });
 
-    if (!matchedImportedName) return;
-
-    targetLocalImportedName = matchedImportedName && matchedImportedName.local.name;
+    if (!targetLocalImportedName) return;
 
     const newImportSpecifiers = replaceImportedName({
       j,
@@ -84,8 +81,6 @@ export default function transformer(
     if (!matchesComponentName({ JSXNode, componentName: targetLocalImportedName })) return;
 
     renameJSXElement({ JSXNode, nextCmpName });
-
-    replaceModifiedJSXNode({ j, nodePath, JSXNode });
 
     sourceHasChanges({ src });
   });

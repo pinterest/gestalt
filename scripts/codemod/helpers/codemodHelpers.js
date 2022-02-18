@@ -37,15 +37,30 @@ const isNotGestaltImport = ({ importDeclaration }: IsNotGestaltImportType): bool
 type MatchesComponentNameType = {
   JSXNode: GenericType,
   componentName: string,
+  subcomponentName?: string,
 };
 
 /**
  * matchesComponentName: Validates an element name against a name value returning true if they match
  * E.g. Box & componentName  = Box // true
  * E.g. Box & componentName = Button // false
+ * E.g. Dropdown.Item & componentName  = Dropdown, subcomponentName = Item // true
+ * E.g. Dropdown.Link & componentName  = Dropdown, subcomponentName = Item // false
  */
-const matchesComponentName = ({ JSXNode, componentName }: MatchesComponentNameType): boolean =>
-  JSXNode.openingElement.name.name === componentName;
+const matchesComponentName = ({
+  JSXNode,
+  componentName,
+  subcomponentName,
+}: MatchesComponentNameType): boolean => {
+  if (subcomponentName && !JSXNode.openingElement.name.name) {
+    return (
+      JSXNode.openingElement.name.object.name === componentName &&
+      JSXNode.openingElement.name.property.name === subcomponentName
+    );
+  }
+
+  return JSXNode.openingElement.name.name === componentName;
+};
 
 type IsSelfClosingType = {
   JSXNode: GenericType,
@@ -79,21 +94,23 @@ type GetJSXType = {
  */
 const getJSX = ({ src, j }: GetJSXType): GenericType => src.find(j.JSXElement);
 
-type MatchImportedNameType = {
+type GetLocalImportedNameType = {
   importDeclaration: GenericType,
   importedName: string,
 };
 
 /**
- * matchImportedName: Returns the named import node if it matches a name value
- * E.g. import { Box } from 'gestalt & (importedName = Box) // true
- * E.g. import { Box } from 'gestalt & (importedName = Button) // false
+ * getLocalImportedName: Returns the local named import node if it matches a name value
+ * E.g. import { Box } from 'gestalt & (importedName = Box) // Box
+ * E.g. import { Box as RenamedBox } from 'gestalt & (importedName = Box) // RenamedBox
  */
-const matchImportedName = ({
+const getLocalImportedName = ({
   importDeclaration,
   importedName,
-}: MatchImportedNameType): GenericType =>
-  importDeclaration.specifiers.find((node) => node.imported.name === importedName);
+}: GetLocalImportedNameType): GenericType =>
+  importDeclaration.specifiers
+    .filter((node) => node.imported.name === importedName)
+    .map((node) => node.local.name)[0];
 
 type ReplaceImportedNamedType = {
   j: GenericType,
@@ -136,17 +153,6 @@ const sourceHasChanges = ({ src }: SourceHasChangesType): void => {
   src.modified = true;
 };
 
-type ReplaceModifiedJSXNodeType = { j: GenericType, nodePath: GenericType, JSXNode: GenericType };
-
-/**
- * replaceModifiedJSXNode:
- */
-const replaceModifiedJSXNode = ({
-  j,
-  nodePath,
-  JSXNode,
-}: ReplaceModifiedJSXNodeType): GenericType => j(nodePath).replaceWith(JSXNode);
-
 type ReplaceImportNodePathType = {
   j: GenericType,
   nodePath: GenericType,
@@ -155,18 +161,15 @@ type ReplaceImportNodePathType = {
 };
 
 /**
- * replaceModifiedJSXNode: Replaces an import declaration node with an updated one
+ * replaceImportNodePath: Replaces an import declaration node with an updated one
  * E.g. previousCmpName = Box & nextCmpName =  RenamedBox
  * imput: <Box /> >> output: <RenamedBox />
  */
 
-const replaceImportNodePath = ({
-  j,
-  nodePath,
-  importSpecifiers,
-  importPath,
-}: ReplaceImportNodePathType): GenericType =>
-  j(nodePath).replaceWith(j.importDeclaration(importSpecifiers, j.literal(importPath)));
+const replaceImportNodePath = ({ nodePath, importSpecifiers }: ReplaceImportNodePathType): void => {
+  // eslint-disable-next-line no-param-reassign
+  nodePath.node.specifiers = importSpecifiers;
+};
 
 type RenameJSXElementType = { JSXNode: GenericType, nextCmpName: string };
 
@@ -176,13 +179,55 @@ type RenameJSXElementType = { JSXNode: GenericType, nextCmpName: string };
  * imput: <Box /> >> output: <RenamedBox />
  */
 const renameJSXElement = ({ JSXNode, nextCmpName }: RenameJSXElementType): void => {
-  // eslint-disable-next-line no-param-reassign
-  JSXNode.openingElement.name = nextCmpName;
+  const newJSXNode = { ...JSXNode };
+  newJSXNode.openingElement.name = nextCmpName;
 
   if (!isSelfClosing({ JSXNode })) {
-    // eslint-disable-next-line no-param-reassign
-    JSXNode.closingElement.name = nextCmpName;
+    newJSXNode.closingElement.name = nextCmpName;
   }
+};
+
+type GetNewAttributesType = {
+  JSXNode: GenericType,
+  action: string,
+  previousPropName: string,
+  nextPropName?: string,
+};
+
+/**
+ * getNewAttributes: Renames the JSX element with the name value provided
+ * E.g. previousCmpName = Box & nextCmpName =  RenamedBox
+ * imput: <Box /> >> output: <RenamedBox />
+ */
+const getNewAttributes = ({
+  JSXNode,
+  action,
+  previousPropName,
+  nextPropName,
+}: GetNewAttributesType): GenericType =>
+  JSXNode.openingElement.attributes
+    .map((attr) => {
+      const propName = attr?.name?.name;
+
+      if (propName !== previousPropName) return attr;
+
+      const renamedAttr = { ...attr };
+
+      renamedAttr.name.name = nextPropName;
+
+      return action === 'rename' ? renamedAttr : false;
+    })
+    .filter(Boolean);
+
+type ReplaceJSXAttributesType = { JSXNode: GenericType, newAttributes: GenericType };
+
+/**
+ * replaceJSXAttributes: Saves the changes in the file  if the src object contains the 'modified: true' key-value
+ */
+const replaceJSXAttributes = ({ JSXNode, newAttributes }: ReplaceJSXAttributesType): void => {
+  const newJSXNode = { ...JSXNode };
+
+  newJSXNode.openingElement.attributes = newAttributes;
 };
 
 type SaveSourceType = { src: GenericType };
@@ -202,20 +247,38 @@ type SortJSXElementAttributesType = { JSXNode: GenericType };
 const sortJSXElementAttributes = ({ JSXNode }: SortJSXElementAttributesType): GenericType =>
   JSXNode.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
+type ThrowErrorIfSpreadType = { file: GenericType, JSXNode: GenericType };
+
+/**
+ * throwErrorIfSpreadProps: Throws an error message if component contains spread props which are opaque to  codemods
+ * E.g. <Box {...props} /> // error!
+ */
+const throwErrorIfSpreadProps = ({ file, JSXNode }: ThrowErrorIfSpreadType): void => {
+  if (
+    JSXNode.openingElement.attributes.some((attribute) => attribute.type === 'JSXSpreadAttribute')
+  ) {
+    throw new Error(
+      `Remove dynamic properties and rerun codemod. Location: ${file.path} @line: ${JSXNode.loc.start.line}`,
+    );
+  }
+};
+
 export {
   getImports,
   getJSX,
+  getLocalImportedName,
+  getNewAttributes,
   initialize,
   isNotGestaltImport,
   isSelfClosing,
-  matchImportedName,
   matchesComponentName,
   replaceImportedName,
   replaceImportNodePath,
-  replaceModifiedJSXNode,
   renameJSXElement,
+  replaceJSXAttributes,
   saveSource,
   sortImportedNames,
   sortJSXElementAttributes,
   sourceHasChanges,
+  throwErrorIfSpreadProps,
 };
