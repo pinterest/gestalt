@@ -1,3 +1,9 @@
+## 45.5.5 (Feb 18, 2022)
+
+### Patch
+
+- Color Palette: Update terminology (#1949)
+
 ## 45.5.4 (Feb 18, 2022)
 
 ### Patch
