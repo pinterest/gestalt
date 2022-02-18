@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
 import { Module } from 'gestalt';
-import PageHeader from '../components/PageHeader.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
-import GeneratedPropTable from '../components/GeneratedPropTable.js';
 
-export default function ModulePage({
+export default function DocsPage({
   generatedDocGen,
 }: {|
   generatedDocGen: {| [string]: DocGen |},
@@ -15,7 +15,9 @@ export default function ModulePage({
   return (
     <Page title="Module">
       <PageHeader name="Module" description={generatedDocGen.Module?.description} />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen.Module} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -41,13 +43,15 @@ export default function ModulePage({
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Subcomponents" />
-      <GeneratedPropTable
-        Component={Module.Expandable}
-        name="Module.Expandable"
-        id="Module.Expandable"
-        generatedDocGen={generatedDocGen.ModuleExpandable}
-      />
+
+      <MainSection name="Subcomponents">
+        <GeneratedPropTable
+          Component={Module.Expandable}
+          name="Module.Expandable"
+          id="Module.Expandable"
+          generatedDocGen={generatedDocGen.ModuleExpandable}
+        />
+      </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -73,6 +77,7 @@ function ModuleExample() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Static - Icon"
           description={`
@@ -101,6 +106,7 @@ function ModuleExample() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Static - IconButton"
           description={`
@@ -154,6 +160,7 @@ function ModuleExample() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Static - Badge"
           description={`Badge text can be provided, which will be displayed after the \`title\`. Note that if no title text is provided, the badge will not be displayed.`}
@@ -177,6 +184,7 @@ function ModuleExample() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Static - Error"
           description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
@@ -213,6 +221,7 @@ function ModuleExample() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Expandable"
           description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present. The collapsed state shows optional \`summary\` content, while the expanded state shows any content desired.`}
@@ -240,6 +249,7 @@ function ModuleExample1() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Expandable - Group"
           description="Multiple expandable items can be stacked together into a Module group. However, only one Module will be expanded at any time."
@@ -277,6 +287,7 @@ function ModuleExample2() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="ExpExpandable - Icon, Badge and IconButton"
           description={`
@@ -346,6 +357,7 @@ function ModuleExample3() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Expandable - Error"
           description={`When using \`type\` as \`"error"\`, be sure to provide an \`iconAccessibilityLabel\`.`}
@@ -388,6 +400,7 @@ function ModuleExample4() {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection title="Example with external control">
           <MainSection.Card
             cardSize="lg"

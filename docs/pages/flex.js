@@ -1,151 +1,37 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex } from 'gestalt';
-import PropTable from '../components/PropTable.js';
-import PageHeader from '../components/PageHeader.js';
-import MainSection from '../components/MainSection.js';
+import { Box } from 'gestalt';
 import CombinationNew from '../components/CombinationNew.js';
+import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import { multipledocgen, type DocGen } from '../components/docgen.js';
 
-export default function ModulePage(): Node {
+export default function DocsPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   return (
     <Page title="Flex">
-      <PageHeader
-        name="Flex"
-        description={`
-      Flex is a layout component with a very limited subset of the props available to [Box](/box) and a few special props of its own.
+      <PageHeader name="Flex" description={generatedDocGen?.Flex?.description} />
 
-      Use this component for flex layouts, especially when even spacing between elements is desired (see the 'gap' property!).
-    `}
-      />
-      <PropTable
-        Component={Flex}
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'alignContent',
-            type: `"start" | "end" | "center" | "between" | "around" | "evenly" | "stretch"`,
-            defaultValue: 'stretch',
-            description:
-              "Aligns the flex container's lines within when there is extra space in the cross axis, similar to how justify-content aligns individual items within the main axis.",
-          },
-          {
-            name: 'alignItems',
-            type: `"start" | "end" | "center" | "baseline" | "stretch"`,
-            defaultValue: 'start',
-            description:
-              'Defines the default behaviour for how flex items are laid out along the cross axis on the current line. Think of it as the justify-content version for the cross axis (perpendicular to the main axis).',
-            href: 'layout',
-          },
-          {
-            name: 'alignSelf',
-            type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
-            defaultValue: 'stretch',
-            description:
-              'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
-          },
-          {
-            name: 'direction',
-            type: `"row" | "column"`,
-            defaultValue: 'row',
-            description:
-              'Establishes the main axis, thus defining the direction flex items are placed in the flex container.',
-          },
-          {
-            name: 'flex',
-            type: '"grow" | "shrink" | "none"',
-            defaultValue: 'shrink',
-            description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Flex relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Flex to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Flex's size based on child content regardless of its container's size.`,
-          },
-          {
-            name: 'gap',
-            type: '0 .. 12',
-            defaultValue: 0,
-            description: 'Defines spacing between each child along the main axis.',
-          },
-          {
-            name: 'height',
-            type: `number | string`,
-            description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
-          },
-          {
-            name: 'justifyContent',
-            type: `"start" | "end" | "center" | "between" | "around" | "evenly"`,
-            defaultValue: 'center',
-            description:
-              'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
-            href: 'layout',
-          },
-          {
-            name: 'maxHeight',
-            type: `number | string`,
-          },
-          {
-            name: 'maxWidth',
-            type: `number | string`,
-            description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%"`,
-          },
-          {
-            name: 'minHeight',
-            type: `number | string`,
-            description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%"`,
-          },
-          {
-            name: 'minWidth',
-            type: `number | string`,
-            description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%"`,
-          },
-          {
-            name: 'width',
-            type: `number | string`,
-            description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
-          },
-          {
-            name: 'wrap',
-            type: 'boolean',
-            defaultValue: false,
-            description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
-          },
-        ]}
-      />
-      <MainSection name="Subcomponents" />
-      <PropTable
-        name="Flex.Item"
-        id="Flex.Item"
-        Component={Flex?.Item}
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-          },
-          {
-            name: 'alignSelf',
-            type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
-            defaultValue: 'stretch',
-            description:
-              'Allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.',
-          },
-          {
-            name: 'flex',
-            type: '"grow" | "shrink" | "none"',
-            defaultValue: 'shrink',
-            description: `Defines how a flex item will be sized. \`"grow"\`, equivalent to \`"flex: 1 1 auto"\`, will size the Flex.Item relative to its parent, growing and shrinking based on available space. \`"shrink"\`, equivalent to \`"flex: 0 1 auto"\` (the browser default), allows the Flex.Item to shrink if compressed but not grow if given extra space. Finally, \`"none"\`, equivalent to \`"flex: 0 0 auto"\`, preserves the Flex.Item's size based on child content regardless of its container's size.`,
-          },
-          {
-            name: 'flexBasis',
-            type: `number | string`,
-            description: `Defines the initial main size of the flex item. Use numbers for pixels: \`flexBasis={100}\` and strings for other units: \`flexBasis="100vh"\`.`,
-          },
-          {
-            name: 'minWidth',
-            type: `number | string`,
-            description: `Use numbers for pixels: \`minWidth={100}\` and strings for percentages: \`minWidth="100%"\`. Can be used to fix overflowing children; see [the example](#FlexItem-minWidth) to learn more.`,
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.Flex} />
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.FlexItem?.displayName}
+          description={generatedDocGen?.FlexItem?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.FlexItem}
+            id="Flex.Item"
+            name="Flex.Item"
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Flex Layout"
@@ -173,6 +59,7 @@ export default function ModulePage(): Node {
             )}
           </CombinationNew>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Menu"
           description={`
@@ -192,6 +79,7 @@ export default function ModulePage(): Node {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Applying flex properties to children"
           description={`
@@ -213,6 +101,7 @@ export default function ModulePage(): Node {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Initial item width using flexBasis"
           description={`
@@ -238,6 +127,7 @@ export default function ModulePage(): Node {
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Overflowing children and minWidth"
           description={`
@@ -267,4 +157,14 @@ export default function ModulePage(): Node {
       </MainSection>
     </Page>
   );
+}
+
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const docgen = await multipledocgen({ componentName: ['Flex', 'FlexItem'] });
+
+  return {
+    props: { generatedDocGen: docgen },
+  };
 }
