@@ -17,7 +17,7 @@ const KEYS = {
   ENTER: 0,
 };
 
-const dropdownItemDisplayNames = ['DropdownItem', 'DropdownLink'];
+const dropdownItemDisplayNames = ['Dropdown.Item', 'Dropdown.Link'];
 
 function getChildrenOptions(childrenArray) {
   return childrenArray.reduce((accumulatedChildren, currentChild) => {
@@ -26,7 +26,7 @@ function getChildrenOptions(childrenArray) {
       type: { displayName },
     } = currentChild;
 
-    if (currentItemChildren && displayName === 'DropdownSection') {
+    if (currentItemChildren && displayName === 'Dropdown.Section') {
       return [
         ...accumulatedChildren,
         ...(Array.isArray(currentItemChildren) ? currentItemChildren : [currentItemChildren]),
@@ -39,7 +39,7 @@ function getChildrenOptions(childrenArray) {
 
     // eslint-disable-next-line no-console
     console.error(
-      'Only children of type DropdownItem, DropdownLink, or DropdownSection are allowed.',
+      'Only children of type Dropdown.Item, Dropdown.Link, or Dropdown.Section are allowed.',
     );
 
     return [...accumulatedChildren];
@@ -66,7 +66,7 @@ const renderChildrenWithIndex = (childrenArray) => {
     const subSectionChildren = child.props.children;
     const childDisplayName = child.type.displayName;
 
-    if (subSectionChildren && childDisplayName === 'DropdownSection') {
+    if (subSectionChildren && childDisplayName === 'Dropdown.Section') {
       const sectionChildrenArray = Children.toArray(subSectionChildren);
       const childWithIndex = cloneElement(child, {
         children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),

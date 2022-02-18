@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { Module } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
@@ -45,12 +44,16 @@ export default function DocsPage({
       </MainSection>
 
       <MainSection name="Subcomponents">
-        <GeneratedPropTable
-          Component={Module.Expandable}
-          name="Module.Expandable"
-          id="Module.Expandable"
-          generatedDocGen={generatedDocGen.ModuleExpandable}
-        />
+        <MainSection.Subsection
+          title={generatedDocGen?.ModuleExpandable?.displayName}
+          description={generatedDocGen?.ModuleExpandable?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.ModuleExpandable}
+            id="Module.Expandable"
+            name="Module.Expandable"
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">

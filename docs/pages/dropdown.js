@@ -77,7 +77,9 @@ export default function DropdownPage({
         );
       }`}
       />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -102,6 +104,7 @@ export default function DropdownPage({
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -545,25 +548,43 @@ function TruncationDropdownExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Subcomponents" />
-      <GeneratedPropTable
-        Component={Dropdown?.Item}
-        name="Dropdown.Item"
-        id="Dropdown.Item"
-        generatedDocGen={generatedDocGen.DropdownItem}
-      />
-      <GeneratedPropTable
-        Component={Dropdown?.Link}
-        name="Dropdown.Link"
-        id="Dropdown.Link"
-        generatedDocGen={generatedDocGen.DropdownLink}
-      />
-      <GeneratedPropTable
-        Component={Dropdown?.Section}
-        name="Dropdown.Section"
-        id="Dropdown.Section"
-        generatedDocGen={generatedDocGen.DropdownSection}
-      />
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.DropdownItem?.displayName}
+          description={generatedDocGen?.DropdownItem?.description}
+        >
+          <GeneratedPropTable
+            Component={Dropdown?.Item}
+            name="Dropdown.Item"
+            id="Dropdown.Item"
+            generatedDocGen={generatedDocGen.DropdownItem}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.DropdownLink?.displayName}
+          description={generatedDocGen?.DropdownLink?.description}
+        >
+          <GeneratedPropTable
+            Component={Dropdown?.Link}
+            name="Dropdown.Link"
+            id="Dropdown.Link"
+            generatedDocGen={generatedDocGen.DropdownLink}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.DropdownSection?.displayName}
+          description={generatedDocGen?.DropdownSection?.description}
+        >
+          <GeneratedPropTable
+            Component={Dropdown?.Section}
+            name="Dropdown.Section"
+            id="Dropdown.Section"
+            generatedDocGen={generatedDocGen.DropdownSection}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection title="Types of items" columns={2}>
           <MainSection.Card

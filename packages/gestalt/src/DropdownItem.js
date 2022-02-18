@@ -58,8 +58,7 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Dropdown](https://gestalt.pinterest.systems/dropdown).
-  Use [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Types-of-items) for action & selection, when the Dropdown item triggers an action or makes a selection.
+ * Use [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item) for action & selection, when the Dropdown item triggers an action or selects an option.
  */
 export default function DropdownItem({
   badgeText,
@@ -96,4 +95,4 @@ export default function DropdownItem({
 }
 
 // displayName is necessary for children identification in Dropdown
-DropdownItem.displayName = 'DropdownItem';
+DropdownItem.displayName = 'Dropdown.Item';

@@ -46,8 +46,7 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
- * Use [Table.RowExpandable](https://gestalt.pinterest.systems/table#Table.RowExpandableProps) to define a row that expands and collapses additional content.
+ * Use [Table.RowExpandable](https://gestalt.pinterest.systems/table#Table.RowExpandable) to define a row that expands and collapses additional content.
  */
 export default function TableRowExpandable({
   accessibilityCollapseLabel,
@@ -120,3 +119,5 @@ export default function TableRowExpandable({
     </Fragment>
   );
 }
+
+TableRowExpandable.displayName = 'Table.RowExpandable';

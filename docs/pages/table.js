@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { Table } from 'gestalt';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
@@ -81,7 +80,9 @@ export default function TablePage({
 </Table>
 `}
       />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen.Table} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -105,6 +106,7 @@ export default function TablePage({
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection title="Style" columns={2}>
           <MainSection.Card
@@ -1508,60 +1510,94 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Subcomponents">
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableHeader}
-          Component={Table?.Header}
-          name="Table.Header"
-          id="Table.Header"
-        />
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableBody}
-          Component={Table?.Body}
-          name="Table.Body"
-          id="Table.Body"
-        />
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableFooter}
-          Component={Table?.Footer}
-          name="Table.Footer"
-          id="Table.Footer"
-        />
 
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableCell}
-          Component={Table?.Cell}
-          name="Table.Cell"
-          id="Table.Cell"
-          excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
-        />
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableHeaderCell}
-          Component={Table?.HeaderCell}
-          name="Table.HeaderCell"
-          id="Table.HeaderCell"
-          excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
-        />
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableSortableHeaderCell}
-          Component={Table?.SortableHeaderCell}
-          name="Table.SortableHeaderCell"
-          id="Table.SortableHeaderCell"
-          excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
-        />
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableRow}
-          Component={Table?.Row}
-          name="Table.Row"
-          id="Table.Row"
-        />
-        <GeneratedPropTable
-          generatedDocGen={generatedDocGen.TableRowExpandable}
-          Component={Table?.RowExpandable}
-          name="Table.RowExpandable"
-          id="Table.RowExpandable"
-        />
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.TableHeader?.displayName}
+          description={generatedDocGen?.TableHeader?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableHeader}
+            name="Table.Header"
+            id="Table.Header"
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.TableBody?.displayName}
+          description={generatedDocGen?.TableBody?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableBody}
+            name="Table.Body"
+            id="Table.Body"
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.TableFooter?.displayName}
+          description={generatedDocGen?.TableFooter?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableFooter}
+            name="Table.Footer"
+            id="Table.Footer"
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.TableCell?.displayName}
+          description={generatedDocGen?.TableCell?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableCell}
+            name="Table.Cell"
+            id="Table.Cell"
+            excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.TableHeaderCell?.displayName}
+          description={generatedDocGen?.TableHeaderCell?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableHeaderCell}
+            name="Table.HeaderCell"
+            id="Table.HeaderCell"
+            excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.TableSortableHeaderCell?.displayName}
+          description={generatedDocGen?.TableSortableHeaderCell?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableSortableHeaderCell}
+            name="Table.SortableHeaderCell"
+            id="Table.SortableHeaderCell"
+            excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.TableRow?.displayName}
+          description={generatedDocGen?.TableRow?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableRow}
+            name="Table.Row"
+            id="Table.Row"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title={generatedDocGen?.TableRowExpandable?.displayName}
+          description={generatedDocGen?.TableRowExpandable?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableRowExpandable}
+            name="Table.RowExpandable"
+            id="Table.RowExpandable"
+          />
+        </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection title="Sticky header">
           <MainSection.Card
