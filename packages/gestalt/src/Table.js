@@ -83,6 +83,7 @@ export default function Table({
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
       maxHeight={maxHeight}
       ref={tableRef}
+      tabIndex="0"
     >
       <table className={classNames}>
         <Box

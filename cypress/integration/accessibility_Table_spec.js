@@ -12,11 +12,6 @@ describe('Table Accessibility check', () => {
           id: 'color-contrast',
           enabled: false,
         },
-        {
-          // Disabled to avoid confusion for sticky header and column examples
-          id: 'scrollable-region-focusable',
-          enabled: false,
-        },
       ],
     });
     cy.checkA11y();
