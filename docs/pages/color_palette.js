@@ -73,7 +73,7 @@ export default function ColorPage(): Node {
         </Flex>
       </MainSection>
       <MainSection
-        name="Extended colors"
+        name="Extended palette"
         description={`
         The extended color palette displays all the available shades and tints of each color in the palette. The colors are named and numbered for easy reference. The usage of these colors varies depending on the product needs, but they come in handy for illustrations, communicating status, and brand moments.
 
@@ -97,7 +97,7 @@ export default function ColorPage(): Node {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Brand"
+          title="Reserved"
           description="These 450 colors are reserved for Brand usage. They are among the least accessible colors, so are reserved for larger brand moments, and not commonly used for functional color pairing. They should not be used within the product, except Pushpin 450, which is our hero primary color and part of our Baseline color palette."
         >
           <Flex direction="column">
