@@ -1,3 +1,9 @@
+## 45.5.4 (Feb 18, 2022)
+
+### Patch
+
+- Table: Ensure tables are keyboard accessible (#1942)
+
 ## 45.5.3 (Feb 18, 2022)
 
 ### Patch
