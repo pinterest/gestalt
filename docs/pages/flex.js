@@ -24,7 +24,11 @@ export default function DocsPage({
           title={generatedDocGen?.FlexItem?.displayName}
           description={generatedDocGen?.FlexItem?.description}
         >
-          <GeneratedPropTable generatedDocGen={generatedDocGen.FlexItem} />
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.FlexItem}
+            id="Flex.Item"
+            name="Flex.Item"
+          />
         </MainSection.Subsection>
       </MainSection>
 
