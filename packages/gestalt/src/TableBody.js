@@ -10,9 +10,10 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
- * Use [Table.Body](https://gestalt.pinterest.systems/table#Table.BodyProps) to group the body content in Table.
+ * Use [Table.Body](https://gestalt.pinterest.systems/table#Table.Body) to group the body content in Table.
  */
 export default function TableBody({ children }: Props): Node {
   return <tbody className={styles.tbody}>{children}</tbody>;
 }
+
+TableBody.displayName = 'Table.Body';

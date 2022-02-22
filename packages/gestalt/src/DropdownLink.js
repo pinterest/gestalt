@@ -48,8 +48,7 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Dropdown](https://gestalt.pinterest.systems/dropdown).
-   Use [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Types-of-items) for navigation, when the Dropdown item navigates to a new page.
+ * Use [Dropdown.Link](https://gestalt.pinterest.systems/dropdownDropdown.Link) for navigation, when the Dropdown item navigates to a new page.
  */
 export default function DropdownLink({
   badgeText,
@@ -88,4 +87,4 @@ export default function DropdownLink({
 }
 
 // displayName is necessary for children identification in Dropdown
-DropdownLink.displayName = 'DropdownLink';
+DropdownLink.displayName = 'Dropdown.Link';

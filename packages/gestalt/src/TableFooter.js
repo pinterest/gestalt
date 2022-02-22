@@ -9,9 +9,10 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
- * Use [Table.Footer](https://gestalt.pinterest.systems/table#Table.FooterProps) to group the footer content in Table.
+ * Use [Table.Footer](https://gestalt.pinterest.systems/table#Table.Footer) to group the footer content in Table.
  */
 export default function TableFooter({ children }: Props): Node {
   return <tfoot>{children}</tfoot>;
 }
+
+TableFooter.displayName = 'Table.Footer';

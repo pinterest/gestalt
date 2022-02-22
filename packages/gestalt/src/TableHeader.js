@@ -15,10 +15,11 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
- * Use [Table.Header](https://gestalt.pinterest.systems/table#Table.HeaderProps) to group the header content in Table.
+ * Use [Table.Header](https://gestalt.pinterest.systems/table#Table.Header) to group the header content in Table.
  */
 export default function TableHeader({ sticky = false, children }: Props): Node {
   const cs = cx(styles.thead, sticky && styles.sticky);
   return <thead className={cs}>{children}</thead>;
 }
+
+TableHeader.displayName = 'Table.Header';

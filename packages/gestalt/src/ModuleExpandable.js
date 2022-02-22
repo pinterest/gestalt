@@ -48,7 +48,6 @@ type Props = {|
 |};
 
 /**
- * Standalone subcomponent of [Module](https://gestalt.pinterest.systems/module).
  * Use [Module.Expandable](https://gestalt.pinterest.systems/module) if your module requires expanding and collapsing content.
  */
 export default function ModuleExpandable({
@@ -106,3 +105,5 @@ export default function ModuleExpandable({
     </Box>
   );
 }
+
+ModuleExpandable.displayName = 'Module.Expandable';

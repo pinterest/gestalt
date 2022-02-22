@@ -10,8 +10,7 @@ type Props = {|
 |};
 
 /**
- * Subcomponent of [Table](https://gestalt.pinterest.systems/table).
- * Use [Table.Row](https://gestalt.pinterest.systems/table#Table.RowProps) to define a row in Table.
+ * Use [Table.Row](https://gestalt.pinterest.systems/table#Table.Row) to define a row in Table.
  */
 export default function TableRow({ children }: Props): Node {
   const { stickyColumns } = useTableContext();
@@ -40,3 +39,5 @@ export default function TableRow({ children }: Props): Node {
     </tr>
   );
 }
+
+TableRow.displayName = 'Table.Row';
