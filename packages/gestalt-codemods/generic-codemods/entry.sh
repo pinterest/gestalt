@@ -14,4 +14,3 @@ modified_files=$(git diff --relative --name-only  -- '**/*.js' | xargs)
 if [ -n "${modified_files}" ]; then
   yarn prettier --write $(git diff --relative --name-only  -- '**/*.js' | xargs)
 fi
-

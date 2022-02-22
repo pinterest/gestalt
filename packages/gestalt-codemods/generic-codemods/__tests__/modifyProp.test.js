@@ -6,7 +6,7 @@ jest.mock('../modifyProp', () =>
   }),
 );
 
-describe('modifyCmp: deprecate', () => {
+describe('modifyProp: deprecate', () => {
   ['modifyProp/deprecateProp'].forEach((test) => {
     defineTest(
       __dirname,
@@ -23,7 +23,7 @@ describe('modifyCmp: deprecate', () => {
   });
 });
 
-describe('modifyCmp: rename', () => {
+describe('modifyProp: rename', () => {
   ['modifyProp/renameProp', 'modifyProp/renamePropAlias'].forEach((test) => {
     defineTest(
       __dirname,
@@ -41,7 +41,7 @@ describe('modifyCmp: rename', () => {
   });
 });
 
-describe('modifyCmp: rename with subcomponent', () => {
+describe('modifyProp: rename with subcomponent', () => {
   ['modifyProp/subcomponentProp'].forEach((test) => {
     defineTest(
       __dirname,

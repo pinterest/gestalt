@@ -27,33 +27,27 @@ import {
   getJSX,
   getLocalImportedName,
   initialize,
-  isNotGestaltImport,
+  isGestaltImport,
   matchesComponentName,
   getNewAttributes,
   replaceJSXAttributes,
   saveSource,
-  sourceHasChanges,
   throwErrorIfSpreadProps,
 } from './helpers/codemodHelpers.js';
+import { type Transform } from './helpers/codemodFlowtypes.js';
 
 // $FlowFixMe[unclear-type]
-type GenericType = any;
+type AnyType = any;
 
-type FileType = { source: GenericType };
-type ApiType = { jscodeshift: GenericType };
-type OptionsType = {
+type OptionsType = {|
   action: 'deprecate' | 'rename',
   componentName: string,
   subcomponentName: string,
   previousPropName: string,
   nextPropName?: string,
-};
+|};
 
-export default function transformer(
-  file: FileType,
-  api: ApiType,
-  options: OptionsType,
-): GenericType {
+const transform: Transform<OptionsType> = function transformer(file, api, options): AnyType {
   const { action, componentName, subcomponentName, previousPropName, nextPropName } = options;
 
   const [j, src] = initialize({ api, file });
@@ -63,7 +57,7 @@ export default function transformer(
   getImports({ src, j }).forEach((nodePath) => {
     const { node: importDeclaration } = nodePath;
 
-    if (isNotGestaltImport({ importDeclaration })) return;
+    if (!isGestaltImport({ importDeclaration })) return;
 
     targetLocalImportedName = getLocalImportedName({
       importDeclaration,
@@ -78,7 +72,6 @@ export default function transformer(
       !matchesComponentName({ JSXNode, componentName: targetLocalImportedName, subcomponentName })
     )
       return;
-
     throwErrorIfSpreadProps({ file, JSXNode });
     const newAttributes = getNewAttributes({
       JSXNode,
@@ -89,8 +82,11 @@ export default function transformer(
 
     replaceJSXAttributes({ JSXNode, newAttributes });
 
-    sourceHasChanges({ src });
+    // $FlowFixMe[incompatible-use]
+    src.modified = true;
   });
 
   return saveSource({ src });
-}
+};
+
+export default transform;

@@ -124,7 +124,7 @@ Most rules come with out-of-the-box autofixes, automating the adoption of Gestal
         />
         <MainSection.Subsection
           title="Release codemods"
-          description={`Every major breaking change on our library comes with a codemod to facilitate the upgrade of the Gestalt dependency. Some codemods are custom build for each upgrade while some upgrades take advantage of generic codemods that only require running a codemod command with options.
+          description={`Every major breaking change on our library comes with a codemod to facilitate the upgrade of the Gestalt dependency. Some codemods are custom built for each upgrade while some upgrades take advantage of generic codemods that only require running a codemod command with options.
 
 Custom codemods can be found on this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) under the correspondant upgrade version. Generic codemods can be found on this other [directory](https://github.com/pinterest/gestalt/tree/master/scripts/codemod) and the command is included in each pull request description that requires it.`}
         />

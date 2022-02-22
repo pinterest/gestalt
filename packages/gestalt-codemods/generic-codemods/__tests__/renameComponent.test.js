@@ -1,16 +1,16 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../renameCmp', () =>
-  Object.assign(jest.requireActual('../renameCmp'), {
+jest.mock('../renameComponent', () =>
+  Object.assign(jest.requireActual('../renameComponent'), {
     parser: 'flow',
   }),
 );
 
-describe('renameCmp', () => {
-  ['renameCmp/renameCmp', 'renameCmp/renameCmpAlias'].forEach((test) => {
+describe('renameComponent', () => {
+  ['renameComponent/renameComponent', 'renameComponent/renameComponentAlias'].forEach((test) => {
     defineTest(
       __dirname,
-      'renameCmp',
+      'renameComponent',
       {
         quote: 'single',
         previousCmpName: 'ScrollableContainer',

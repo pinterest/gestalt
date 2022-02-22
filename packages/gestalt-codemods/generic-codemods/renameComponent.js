@@ -5,8 +5,8 @@
  * Ex. <Flyout /> to <Popover />
  *
  * TO RUN THIS CODEMOD
- * yarn run:codemod renameCmp  <folder/file path> --previousCmpName=<value> --nextCmpName=<value>
- * E.g. yarn run:codemod renameCmp  ~/code/pinboard/webapp --previousCmpName=Box --nextCmpName=RenamedBox
+ * yarn run:codemod renameComponent  <folder/file path> --previousCmpName=<value> --nextCmpName=<value>
+ * E.g. yarn run:codemod renameComponent  ~/code/pinboard/webapp --previousCmpName=Box --nextCmpName=RenamedBox
  *
  * OPTIONS:
  * --previousCmpName: current component name to be replaced
@@ -18,28 +18,22 @@ import {
   getJSX,
   getLocalImportedName,
   initialize,
-  isNotGestaltImport,
+  isGestaltImport,
   matchesComponentName,
   replaceImportedName,
   replaceImportNodePath,
   renameJSXElement,
   saveSource,
   sortImportedNames,
-  sourceHasChanges,
 } from './helpers/codemodHelpers.js';
+import { type Transform } from './helpers/codemodFlowtypes.js';
 
 // $FlowFixMe[unclear-type]
-type GenericType = any;
+type AnyType = any;
 
-type FileType = { source: GenericType };
-type ApiType = { jscodeshift: GenericType };
-type OptionsType = { previousCmpName: string, nextCmpName: string };
+type OptionsType = {| previousCmpName: string, nextCmpName: string |};
 
-export default function transformer(
-  file: FileType,
-  api: ApiType,
-  options: OptionsType,
-): GenericType {
+const transform: Transform<OptionsType> = function transformer(file, api, options): AnyType {
   const { previousCmpName, nextCmpName } = options;
 
   const [j, src] = initialize({ api, file });
@@ -49,7 +43,7 @@ export default function transformer(
   getImports({ src, j }).forEach((nodePath) => {
     const { node: importDeclaration } = nodePath;
 
-    if (isNotGestaltImport({ importDeclaration })) return;
+    if (!isGestaltImport({ importDeclaration })) return;
 
     targetLocalImportedName = getLocalImportedName({
       importDeclaration,
@@ -82,8 +76,11 @@ export default function transformer(
 
     renameJSXElement({ JSXNode, nextCmpName });
 
-    sourceHasChanges({ src });
+    // $FlowFixMe[incompatible-use]
+    src.modified = true;
   });
 
   return saveSource({ src });
-}
+};
+
+export default transform;

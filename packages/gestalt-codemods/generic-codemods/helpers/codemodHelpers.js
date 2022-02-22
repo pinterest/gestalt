@@ -1,17 +1,18 @@
 // @flow strict
+import { type FileType, type ApiType } from './codemodFlowtypes.js';
 
 /**
  * IMPORTANT NOTE
- * Flow is used in these codemods with the only intention of providing better documentation on hover for each helper function while developing codemods and to increase code readability. Due to the complexity of Flow typing, we use generic types to prevent Flow form complaining. Simple props such as strings or booleans are typed to facilitate the usage of each helper function.
+ * Flow is used in these codemods with the only intention of providing better documentation on hover for each helper function while developing codemods and to increase code readability. Due to the complexity of Flow typing, we use generic types to prevent Flow from complaining. Simple props such as strings or booleans are typed to facilitate the usage of each helper function.
  */
 
 // $FlowFixMe[unclear-type]
-type GenericType = any;
+type AnyType = any;
 
-type InitializeType = {
-  api: { jscodeshift: GenericType },
-  file: { source: GenericType },
-};
+type InitializeType = {|
+  api: ApiType,
+  file: FileType,
+|};
 
 /**
  * initialize: Sets the boilerplate required to work with jscodeshift
@@ -22,23 +23,21 @@ const initialize = ({ api, file }: InitializeType): $ReadOnlyArray<mixed> => {
   return [j, src];
 };
 
-type IsNotGestaltImportType = {
-  importDeclaration: GenericType,
-};
+type IsGestaltImportType = {| importDeclaration: AnyType |};
 
 /**
- * isNotGestaltImport: Validates a Gestalt import path returning true if it matches 'gestalt'.
+ * isGestaltImport: Validates a Gestalt import path returning true if it matches 'gestalt'.
  * E.g. import { Box } from 'gestalt' // true
  * E.g. import { Box } from 'gestaltExtensions/box' // false
  */
-const isNotGestaltImport = ({ importDeclaration }: IsNotGestaltImportType): boolean =>
-  importDeclaration.source.value !== 'gestalt';
+const isGestaltImport = ({ importDeclaration }: IsGestaltImportType): boolean =>
+  importDeclaration.source.value === 'gestalt';
 
-type MatchesComponentNameType = {
-  JSXNode: GenericType,
+type MatchesComponentNameType = {|
+  JSXNode: AnyType,
   componentName: string,
   subcomponentName?: string,
-};
+|};
 
 /**
  * matchesComponentName: Validates an element name against a name value returning true if they match
@@ -62,9 +61,7 @@ const matchesComponentName = ({
   return JSXNode.openingElement.name.name === componentName;
 };
 
-type IsSelfClosingType = {
-  JSXNode: GenericType,
-};
+type IsSelfClosingType = {| JSXNode: AnyType |};
 
 /**
  * isSelfClosing: Validates that a JSX element is selfclosing
@@ -74,30 +71,24 @@ type IsSelfClosingType = {
 const isSelfClosing = ({ JSXNode }: IsSelfClosingType): boolean =>
   !!JSXNode.openingElement.selfClosing;
 
-type GetImportsType = {
-  src: GenericType,
-  j: GenericType,
-};
+type GetImportsType = {| src: AnyType, j: AnyType |};
 
 /**
  * getImports: Returns an array of the import declaration in a file
  */
-const getImports = ({ src, j }: GetImportsType): GenericType => src.find(j.ImportDeclaration);
+const getImports = ({ src, j }: GetImportsType): AnyType => src.find(j.ImportDeclaration);
 
-type GetJSXType = {
-  src: GenericType,
-  j: GenericType,
-};
+type GetJSXType = {| src: AnyType, j: AnyType |};
 
 /**
  * getJSX: Returns an array of the JSX elements in a file
  */
-const getJSX = ({ src, j }: GetJSXType): GenericType => src.find(j.JSXElement);
+const getJSX = ({ src, j }: GetJSXType): AnyType => src.find(j.JSXElement);
 
-type GetLocalImportedNameType = {
-  importDeclaration: GenericType,
+type GetLocalImportedNameType = {|
+  importDeclaration: AnyType,
   importedName: string,
-};
+|};
 
 /**
  * getLocalImportedName: Returns the local named import node if it matches a name value
@@ -107,17 +98,17 @@ type GetLocalImportedNameType = {
 const getLocalImportedName = ({
   importDeclaration,
   importedName,
-}: GetLocalImportedNameType): GenericType =>
+}: GetLocalImportedNameType): AnyType =>
   importDeclaration.specifiers
     .filter((node) => node.imported.name === importedName)
     .map((node) => node.local.name)[0];
 
-type ReplaceImportedNamedType = {
-  j: GenericType,
-  importDeclaration: GenericType,
+type ReplaceImportedNamedType = {|
+  j: AnyType,
+  importDeclaration: AnyType,
   previousCmpName: string,
   nextCmpName: string,
-};
+|};
 
 /**
  * replaceImportedNamed: Replaces the name of a named import
@@ -129,36 +120,26 @@ const replaceImportedName = ({
   importDeclaration,
   previousCmpName,
   nextCmpName,
-}: ReplaceImportedNamedType): GenericType =>
+}: ReplaceImportedNamedType): AnyType =>
   importDeclaration.specifiers.map((node) =>
     node.imported.name === previousCmpName ? j.importSpecifier(j.identifier(nextCmpName)) : node,
   );
 
-type SortImportedNamesType = { importSpecifiers: GenericType };
+type SortImportedNamesType = {| importSpecifiers: AnyType |};
 
 /**
  * sortImportedNames: Returns a sorted list of named imports
  * E.g. imput: import { Pog, Box } from 'gestalt' >> output: import { Box, Pog } from 'gestalt'
  */
-const sortImportedNames = ({ importSpecifiers }: SortImportedNamesType): GenericType =>
+const sortImportedNames = ({ importSpecifiers }: SortImportedNamesType): AnyType =>
   importSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
 
-type SourceHasChangesType = { src: GenericType };
-
-/**
- * sourceHasChanges: Adds a 'modified: true' key-value to the src object that indicates the file contains changes that  must be saved
- */
-const sourceHasChanges = ({ src }: SourceHasChangesType): void => {
-  // eslint-disable-next-line no-param-reassign
-  src.modified = true;
-};
-
-type ReplaceImportNodePathType = {
-  j: GenericType,
-  nodePath: GenericType,
-  importSpecifiers: GenericType,
+type ReplaceImportNodePathType = {|
+  j: AnyType,
+  nodePath: AnyType,
+  importSpecifiers: AnyType,
   importPath: string,
-};
+|};
 
 /**
  * replaceImportNodePath: Replaces an import declaration node with an updated one
@@ -171,7 +152,7 @@ const replaceImportNodePath = ({ nodePath, importSpecifiers }: ReplaceImportNode
   nodePath.node.specifiers = importSpecifiers;
 };
 
-type RenameJSXElementType = { JSXNode: GenericType, nextCmpName: string };
+type RenameJSXElementType = {| JSXNode: AnyType, nextCmpName: string |};
 
 /**
  * renameJSXElement: Renames the JSX element with the name value provided
@@ -187,12 +168,12 @@ const renameJSXElement = ({ JSXNode, nextCmpName }: RenameJSXElementType): void 
   }
 };
 
-type GetNewAttributesType = {
-  JSXNode: GenericType,
+type GetNewAttributesType = {|
+  JSXNode: AnyType,
   action: string,
   previousPropName: string,
   nextPropName?: string,
-};
+|};
 
 /**
  * getNewAttributes: Renames the JSX element with the name value provided
@@ -204,7 +185,7 @@ const getNewAttributes = ({
   action,
   previousPropName,
   nextPropName,
-}: GetNewAttributesType): GenericType =>
+}: GetNewAttributesType): AnyType =>
   JSXNode.openingElement.attributes
     .map((attr) => {
       const propName = attr?.name?.name;
@@ -219,7 +200,7 @@ const getNewAttributes = ({
     })
     .filter(Boolean);
 
-type ReplaceJSXAttributesType = { JSXNode: GenericType, newAttributes: GenericType };
+type ReplaceJSXAttributesType = {| JSXNode: AnyType, newAttributes: AnyType |};
 
 /**
  * replaceJSXAttributes: Saves the changes in the file  if the src object contains the 'modified: true' key-value
@@ -230,24 +211,24 @@ const replaceJSXAttributes = ({ JSXNode, newAttributes }: ReplaceJSXAttributesTy
   newJSXNode.openingElement.attributes = newAttributes;
 };
 
-type SaveSourceType = { src: GenericType };
+type SaveSourceType = {| src: AnyType |};
 
 /**
  * saveSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
  */
-const saveSource = ({ src }: SaveSourceType): GenericType =>
+const saveSource = ({ src }: SaveSourceType): AnyType =>
   src.modified ? src.toSource({ quote: 'single' }) : null;
 
-type SortJSXElementAttributesType = { JSXNode: GenericType };
+type SortJSXElementAttributesType = {| JSXNode: AnyType |};
 
 /**
  * sortJSXElementAttributes: Returns a sorted list of JSX element attributes
  * E.g. imput: <Box size="" color=""/> >> output: <Box color="" size="" />
  */
-const sortJSXElementAttributes = ({ JSXNode }: SortJSXElementAttributesType): GenericType =>
+const sortJSXElementAttributes = ({ JSXNode }: SortJSXElementAttributesType): AnyType =>
   JSXNode.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
-type ThrowErrorIfSpreadType = { file: GenericType, JSXNode: GenericType };
+type ThrowErrorIfSpreadType = {| file: FileType, JSXNode: AnyType |};
 
 /**
  * throwErrorIfSpreadProps: Throws an error message if component contains spread props which are opaque to  codemods
@@ -269,7 +250,7 @@ export {
   getLocalImportedName,
   getNewAttributes,
   initialize,
-  isNotGestaltImport,
+  isGestaltImport,
   isSelfClosing,
   matchesComponentName,
   replaceImportedName,
@@ -279,6 +260,5 @@ export {
   saveSource,
   sortImportedNames,
   sortJSXElementAttributes,
-  sourceHasChanges,
   throwErrorIfSpreadProps,
 };
