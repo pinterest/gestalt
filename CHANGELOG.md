@@ -1,3 +1,9 @@
+## 45.5.8 (Feb 22, 2022)
+
+### Patch
+
+- Dropdown, Module, Table: use autogen descriptions for subcomponents (#1950)
+
 ## 45.5.7 (Feb 22, 2022)
 
 ### Patch
