@@ -1,3 +1,9 @@
+## 45.5.6 (Feb 22, 2022)
+
+### Patch
+
+- Docs: Fix page jumping bug (#1952)
+
 ## 45.5.5 (Feb 18, 2022)
 
 ### Patch
