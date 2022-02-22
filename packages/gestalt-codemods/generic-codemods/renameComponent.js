@@ -28,15 +28,12 @@ import {
 } from './helpers/codemodHelpers.js';
 import { type Transform } from './helpers/codemodFlowtypes.js';
 
-// $FlowFixMe[unclear-type]
-type AnyType = any;
-
 type OptionsType = {| previousCmpName: string, nextCmpName: string |};
 
-const transform: Transform<OptionsType> = function transformer(file, api, options): AnyType {
+const transform: Transform<OptionsType> = function transformer(file, api, options) {
   const { previousCmpName, nextCmpName } = options;
 
-  const [j, src] = initialize({ api, file });
+  const { j, src } = initialize({ api, file });
 
   let targetLocalImportedName;
 
@@ -76,7 +73,6 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
 
     renameJSXElement({ JSXNode, nextCmpName });
 
-    // $FlowFixMe[incompatible-use]
     src.modified = true;
   });
 

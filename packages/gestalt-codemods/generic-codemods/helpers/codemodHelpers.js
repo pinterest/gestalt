@@ -1,13 +1,15 @@
 // @flow strict
-import { type FileType, type ApiType } from './codemodFlowtypes.js';
-
-/**
- * IMPORTANT NOTE
- * Flow is used in these codemods with the only intention of providing better documentation on hover for each helper function while developing codemods and to increase code readability. Due to the complexity of Flow typing, we use generic types to prevent Flow from complaining. Simple props such as strings or booleans are typed to facilitate the usage of each helper function.
- */
-
-// $FlowFixMe[unclear-type]
-type AnyType = any;
+import {
+  type ApiType,
+  type Collection,
+  type FileType,
+  type JSCodeShift,
+  type JSXNodeType,
+  type ImportDeclarationType,
+  type NodePathType,
+  type ImportSpecifierType,
+  type JSXAttributeType,
+} from './codemodFlowtypes.js';
 
 type InitializeType = {|
   api: ApiType,
@@ -17,13 +19,13 @@ type InitializeType = {|
 /**
  * initialize: Sets the boilerplate required to work with jscodeshift
  */
-const initialize = ({ api, file }: InitializeType): $ReadOnlyArray<mixed> => {
+const initialize = ({ api, file }: InitializeType): { j: JSCodeShift, src: Collection } => {
   const j = api.jscodeshift;
   const src = j(file.source);
-  return [j, src];
+  return { j, src };
 };
 
-type IsGestaltImportType = {| importDeclaration: AnyType |};
+type IsGestaltImportType = {| importDeclaration: ImportDeclarationType |};
 
 /**
  * isGestaltImport: Validates a Gestalt import path returning true if it matches 'gestalt'.
@@ -34,7 +36,7 @@ const isGestaltImport = ({ importDeclaration }: IsGestaltImportType): boolean =>
   importDeclaration.source.value === 'gestalt';
 
 type MatchesComponentNameType = {|
-  JSXNode: AnyType,
+  JSXNode: JSXNodeType,
   componentName: string,
   subcomponentName?: string,
 |};
@@ -61,7 +63,7 @@ const matchesComponentName = ({
   return JSXNode.openingElement.name.name === componentName;
 };
 
-type IsSelfClosingType = {| JSXNode: AnyType |};
+type IsSelfClosingType = {| JSXNode: JSXNodeType |};
 
 /**
  * isSelfClosing: Validates that a JSX element is selfclosing
@@ -71,22 +73,22 @@ type IsSelfClosingType = {| JSXNode: AnyType |};
 const isSelfClosing = ({ JSXNode }: IsSelfClosingType): boolean =>
   !!JSXNode.openingElement.selfClosing;
 
-type GetImportsType = {| src: AnyType, j: AnyType |};
+type GetImportsType = {| src: Collection, j: JSCodeShift |};
 
 /**
  * getImports: Returns an array of the import declaration in a file
  */
-const getImports = ({ src, j }: GetImportsType): AnyType => src.find(j.ImportDeclaration);
+const getImports = ({ src, j }: GetImportsType): Collection => src.find(j.ImportDeclaration);
 
-type GetJSXType = {| src: AnyType, j: AnyType |};
+type GetJSXType = {| src: Collection, j: JSCodeShift |};
 
 /**
  * getJSX: Returns an array of the JSX elements in a file
  */
-const getJSX = ({ src, j }: GetJSXType): AnyType => src.find(j.JSXElement);
+const getJSX = ({ src, j }: GetJSXType): Collection => src.find(j.JSXElement);
 
 type GetLocalImportedNameType = {|
-  importDeclaration: AnyType,
+  importDeclaration: ImportDeclarationType,
   importedName: string,
 |};
 
@@ -98,14 +100,14 @@ type GetLocalImportedNameType = {|
 const getLocalImportedName = ({
   importDeclaration,
   importedName,
-}: GetLocalImportedNameType): AnyType =>
+}: GetLocalImportedNameType): string =>
   importDeclaration.specifiers
     .filter((node) => node.imported.name === importedName)
     .map((node) => node.local.name)[0];
 
 type ReplaceImportedNamedType = {|
-  j: AnyType,
-  importDeclaration: AnyType,
+  j: JSCodeShift,
+  importDeclaration: ImportDeclarationType,
   previousCmpName: string,
   nextCmpName: string,
 |};
@@ -120,24 +122,26 @@ const replaceImportedName = ({
   importDeclaration,
   previousCmpName,
   nextCmpName,
-}: ReplaceImportedNamedType): AnyType =>
+}: ReplaceImportedNamedType): Array<ImportSpecifierType> =>
   importDeclaration.specifiers.map((node) =>
     node.imported.name === previousCmpName ? j.importSpecifier(j.identifier(nextCmpName)) : node,
   );
 
-type SortImportedNamesType = {| importSpecifiers: AnyType |};
+type SortImportedNamesType = {| importSpecifiers: Array<ImportSpecifierType> |};
 
 /**
  * sortImportedNames: Returns a sorted list of named imports
  * E.g. imput: import { Pog, Box } from 'gestalt' >> output: import { Box, Pog } from 'gestalt'
  */
-const sortImportedNames = ({ importSpecifiers }: SortImportedNamesType): AnyType =>
+const sortImportedNames = ({
+  importSpecifiers,
+}: SortImportedNamesType): Array<ImportSpecifierType> =>
   importSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
 
 type ReplaceImportNodePathType = {|
-  j: AnyType,
-  nodePath: AnyType,
-  importSpecifiers: AnyType,
+  j: JSCodeShift,
+  nodePath: NodePathType,
+  importSpecifiers: Array<ImportSpecifierType>,
   importPath: string,
 |};
 
@@ -152,7 +156,7 @@ const replaceImportNodePath = ({ nodePath, importSpecifiers }: ReplaceImportNode
   nodePath.node.specifiers = importSpecifiers;
 };
 
-type RenameJSXElementType = {| JSXNode: AnyType, nextCmpName: string |};
+type RenameJSXElementType = {| JSXNode: JSXNodeType, nextCmpName: string |};
 
 /**
  * renameJSXElement: Renames the JSX element with the name value provided
@@ -161,15 +165,17 @@ type RenameJSXElementType = {| JSXNode: AnyType, nextCmpName: string |};
  */
 const renameJSXElement = ({ JSXNode, nextCmpName }: RenameJSXElementType): void => {
   const newJSXNode = { ...JSXNode };
-  newJSXNode.openingElement.name = nextCmpName;
+  newJSXNode.openingElement.name.name = nextCmpName;
 
   if (!isSelfClosing({ JSXNode })) {
-    newJSXNode.closingElement.name = nextCmpName;
+    if (newJSXNode.closingElement) {
+      newJSXNode.closingElement.name.name = nextCmpName;
+    }
   }
 };
 
 type GetNewAttributesType = {|
-  JSXNode: AnyType,
+  JSXNode: JSXNodeType,
   action: string,
   previousPropName: string,
   nextPropName?: string,
@@ -185,7 +191,7 @@ const getNewAttributes = ({
   action,
   previousPropName,
   nextPropName,
-}: GetNewAttributesType): AnyType =>
+}: GetNewAttributesType): Array<JSXAttributeType> =>
   JSXNode.openingElement.attributes
     .map((attr) => {
       const propName = attr?.name?.name;
@@ -194,13 +200,16 @@ const getNewAttributes = ({
 
       const renamedAttr = { ...attr };
 
-      renamedAttr.name.name = nextPropName;
+      if (nextPropName) renamedAttr.name.name = nextPropName;
 
-      return action === 'rename' ? renamedAttr : false;
+      return action === 'rename' && nextPropName ? renamedAttr : undefined;
     })
     .filter(Boolean);
 
-type ReplaceJSXAttributesType = {| JSXNode: AnyType, newAttributes: AnyType |};
+type ReplaceJSXAttributesType = {|
+  JSXNode: JSXNodeType,
+  newAttributes: Array<JSXAttributeType>,
+|};
 
 /**
  * replaceJSXAttributes: Saves the changes in the file  if the src object contains the 'modified: true' key-value
@@ -211,24 +220,25 @@ const replaceJSXAttributes = ({ JSXNode, newAttributes }: ReplaceJSXAttributesTy
   newJSXNode.openingElement.attributes = newAttributes;
 };
 
-type SaveSourceType = {| src: AnyType |};
+type SaveSourceType = {| src: Collection |};
 
 /**
  * saveSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
- */
-const saveSource = ({ src }: SaveSourceType): AnyType =>
+ */ const saveSource = ({ src }: SaveSourceType): string | null =>
   src.modified ? src.toSource({ quote: 'single' }) : null;
 
-type SortJSXElementAttributesType = {| JSXNode: AnyType |};
+type SortJSXElementAttributesType = {| JSXNode: JSXNodeType |};
 
 /**
  * sortJSXElementAttributes: Returns a sorted list of JSX element attributes
  * E.g. imput: <Box size="" color=""/> >> output: <Box color="" size="" />
  */
-const sortJSXElementAttributes = ({ JSXNode }: SortJSXElementAttributesType): AnyType =>
+const sortJSXElementAttributes = ({
+  JSXNode,
+}: SortJSXElementAttributesType): Array<JSXAttributeType> =>
   JSXNode.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
-type ThrowErrorIfSpreadType = {| file: FileType, JSXNode: AnyType |};
+type ThrowErrorIfSpreadType = {| file: FileType, JSXNode: JSXNodeType |};
 
 /**
  * throwErrorIfSpreadProps: Throws an error message if component contains spread props which are opaque to  codemods

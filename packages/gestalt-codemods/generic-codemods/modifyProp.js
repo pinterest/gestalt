@@ -36,9 +36,6 @@ import {
 } from './helpers/codemodHelpers.js';
 import { type Transform } from './helpers/codemodFlowtypes.js';
 
-// $FlowFixMe[unclear-type]
-type AnyType = any;
-
 type OptionsType = {|
   action: 'deprecate' | 'rename',
   componentName: string,
@@ -47,10 +44,10 @@ type OptionsType = {|
   nextPropName?: string,
 |};
 
-const transform: Transform<OptionsType> = function transformer(file, api, options): AnyType {
+const transform: Transform<OptionsType> = function transformer(file, api, options) {
   const { action, componentName, subcomponentName, previousPropName, nextPropName } = options;
 
-  const [j, src] = initialize({ api, file });
+  const { j, src } = initialize({ api, file });
 
   let targetLocalImportedName;
 
@@ -67,7 +64,6 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
 
   getJSX({ src, j }).forEach((nodePath) => {
     const { node: JSXNode } = nodePath;
-
     if (
       !matchesComponentName({ JSXNode, componentName: targetLocalImportedName, subcomponentName })
     )
@@ -82,7 +78,6 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
 
     replaceJSXAttributes({ JSXNode, newAttributes });
 
-    // $FlowFixMe[incompatible-use]
     src.modified = true;
   });
 
