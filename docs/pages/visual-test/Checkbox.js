@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Flex, Checkbox, Box } from 'gestalt';
 
-export default function AvatarGroupSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <Box color="white" display="inlineBlock" padding={1}>
       <Flex direction="column" gap={2}>

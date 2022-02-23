@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Box, ColorSchemeProvider } from 'gestalt';
 import GestaltDatePicker from 'gestalt-datepicker';
 
-export default function DatePickerSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="light">
       <Box color="white" padding={1} width={400}>

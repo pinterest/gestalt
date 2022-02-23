@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Badge, Box } from 'gestalt';
 
-export default function AvatarGroupSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <Box color="white" display="inlineBlock" padding={1}>
       <Badge text="Try it out!" />

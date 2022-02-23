@@ -2,7 +2,7 @@
 import { type Node, Fragment } from 'react';
 import { Box, Heading } from 'gestalt';
 
-export default function HeadingSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <Fragment>
       <Box padding={1}>

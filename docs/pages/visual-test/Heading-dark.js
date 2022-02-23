@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, ColorSchemeProvider, Heading } from 'gestalt';
 
-export default function HeadingSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="white" display="inlineBlock">

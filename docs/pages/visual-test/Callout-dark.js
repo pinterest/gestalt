@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Flex, Callout, Box, ColorSchemeProvider } from 'gestalt';
 
-export default function AvatarGroupSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="white" display="inlineBlock" padding={1}>

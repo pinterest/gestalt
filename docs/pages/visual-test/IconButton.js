@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, IconButton } from 'gestalt';
 
-export default function ButtonSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <Box padding={1}>
       <IconButton
