@@ -1,19 +1,21 @@
 // @flow strict
 import { type Node } from 'react';
-import { Upsell } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import PropTable from '../components/PropTable.js';
-import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
-import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
+import { multipledocgen, type DocGen } from '../components/docgen.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   return (
     <Page title="Upsell">
       <PageHeader
-        name="Upsell"
-        description={generatedDocGen?.description}
+        name={generatedDocGen?.Upsell?.displayName}
+        description={generatedDocGen?.Upsell?.description}
         defaultCode={`
       <Upsell
         dismissButton={{
@@ -35,45 +37,20 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     `}
       />
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen?.Upsell} />
 
-      <PropTable
-        name="Upsell.Form"
-        id="Upsell.Form"
-        Component={Upsell?.Form}
-        props={[
-          {
-            name: 'children',
-            type: 'React.Node',
-            required: true,
-            description: `Contents of the form, typically inputs like [TextField(s)](/textfield).`,
-          },
-          {
-            name: 'onSubmit',
-            type:
-              '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
-            required: true,
-            description: `Actions to perform when the form has been submitted.`,
-          },
-          {
-            name: 'submitButtonText',
-            type: 'string',
-            required: true,
-            description: `Content of the submit button.`,
-          },
-          {
-            name: 'submitButtonAccessibilityLabel',
-            type: 'string',
-            required: true,
-            description: `Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](#Accessibility).`,
-          },
-          {
-            name: 'submitButtonDisabled',
-            type: 'boolean',
-            description: `Disables the submit button when \`true\`.`,
-          },
-        ]}
-      />
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.UpsellForm?.displayName}
+          description={generatedDocGen?.UpsellForm?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen?.UpsellForm}
+            id={generatedDocGen?.UpsellForm?.displayName}
+            name={generatedDocGen?.UpsellForm?.displayName}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -725,8 +702,12 @@ function Example(props) {
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const generatedDocGen = await multipledocgen({ componentName: ['Upsell', 'UpsellForm'] });
+
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Upsell' }) },
+    props: { generatedDocGen },
   };
 }

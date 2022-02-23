@@ -12,7 +12,6 @@ import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { type ActionDataType } from './commonTypes.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type UpsellActionProps = {|
   data: ActionDataType,
@@ -91,13 +90,14 @@ type Props = {|
     disabled?: boolean,
     href?: string,
     label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| dangerouslyDisableOnNavigation: () => void |},
-    >,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',
   |},
@@ -111,13 +111,14 @@ type Props = {|
     disabled?: boolean,
     href?: string,
     label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| dangerouslyDisableOnNavigation: () => void |},
-    >,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',
   |},
@@ -147,6 +148,7 @@ export default function Upsell({
 
   return (
     <Box
+      borderStyle="shadow"
       display="flex"
       direction="column"
       smDirection="row"
@@ -155,27 +157,26 @@ export default function Upsell({
       smPadding={8}
       position="relative"
       rounding={4}
-      borderStyle="shadow"
     >
-      <Box smDisplay="flex" wrap width="100%" smMarginTop={-3} smMarginBottom={-3}>
+      <Box smDisplay="flex" smMarginTop={-3} smMarginBottom={-3} width="100%" wrap>
         <Box
-          display="flex"
-          flex={children ? 'grow' : 'shrink'}
+          alignItems="center"
           direction="column"
           smDirection="row"
+          display="flex"
+          flex={children ? 'grow' : 'shrink'}
           justifyContent="center"
-          alignItems="center"
           marginBottom={primaryAction || secondaryAction ? 4 : undefined}
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
           {imageData && (
             <Box
+              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
+              flex="none"
               marginBottom={4}
               smMarginBottom={0}
               width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
-              flex="none"
-              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
             >
               <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
                 {imageData.component}
@@ -183,11 +184,11 @@ export default function Upsell({
             </Box>
           )}
           <Box
-            display="flex"
-            flex={children ? 'grow' : 'shrink'}
-            smDisplay="block"
-            direction="column"
             alignItems="center"
+            direction="column"
+            display="flex"
+            smDisplay="block"
+            flex={children ? 'grow' : 'shrink'}
             marginBottom="auto"
             marginTop="auto"
             marginEnd={0}
@@ -213,11 +214,11 @@ export default function Upsell({
               <Box
                 smDisplay="flex"
                 flex="grow"
-                width="100%"
                 justifyContent="end"
+                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
                 smMarginEnd={4}
                 smPaddingY={3}
-                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                width="100%"
               >
                 {children}
               </Box>
