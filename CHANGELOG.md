@@ -1,3 +1,9 @@
+## 45.5.9 (Feb 23, 2022)
+
+### Patch
+
+- Upsell: use autogen props for subcomponent (#1953)
+
 ## 45.5.8 (Feb 22, 2022)
 
 ### Patch
