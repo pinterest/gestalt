@@ -160,7 +160,6 @@ function CalloutAction({
  * ⚠️ Please note: Callout is not currently supported in dark mode.
  *
  * ![Callout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Callout%20%230.png)
- * ![Callout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Callout-dark%20%230.png)
  *
  */
 export default function Callout({
