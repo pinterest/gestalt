@@ -693,7 +693,7 @@ IconButtons that act as links can be paired with OnLinkNavigationProvider. See [
 
 Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
         >
-          <CombinationNew size={['xs', 'sm', 'md', 'lg', 'xl']}>
+          <CombinationNew size={['xl', 'lg', 'md', 'sm', 'xs']}>
             {({ size }) => (
               <IconButton
                 accessibilityLabel={`Example size ${size}`}
@@ -713,11 +713,11 @@ Follow these guidelines for \`iconColor\`
 
 1. Red ("red"). High emphasis, used for primary actions.
 2. Dark Gray ("darkGray"). Medium emphasis, used for secondary actions.
-3. Light Gray ("lightGray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
+3. Gray ("gray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 4. White ("white"). Used in a dark mode scheme or over a dark-colored background creating better visibility.
 `}
         >
-          <CombinationNew iconColor={['darkGray', 'gray', 'red', 'white']}>
+          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white']}>
             {({ iconColor }) => (
               <IconButton
                 accessibilityLabel={`Example icon color ${iconColor}`}
@@ -734,22 +734,24 @@ Follow these guidelines for \`iconColor\`
 Follow these guidelines for \`bgColor\`
 
 1. Red ("red"). High emphasis, used for primary actions.
-2. Dark Gray ("darkGray"). Medium emphasis, used for secondary actions.
+2. Light Gray ("lightGray"). Medium emphasis, used for secondary actions.
 3. Transparent Dark Gray ("transparentDarkGray"). Medium emphasis, used for secondary actions, usually above a colored background.
-4. Light Gray ("lightGray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
+4. Gray ("gray"). Used for tertiary actions or in cases where the primary "red" is not an option. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 5. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
 6. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
+7. Dark Gray ("darkGray"). Used as the [selected state](#Selected-state) for IconButton.
+
 `}
         >
           <CombinationNew
             bgColor={[
-              'transparent',
-              'transparentDarkGray',
-              'darkGray',
-              'gray',
-              'lightGray',
-              'white',
               'red',
+              'lightGray',
+              'transparentDarkGray',
+              'gray',
+              'white',
+              'transparent',
+              'darkGray',
             ]}
           >
             {({ bgColor }) => (
