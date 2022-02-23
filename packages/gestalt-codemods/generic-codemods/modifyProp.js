@@ -1,7 +1,7 @@
 // @flow strict
 
 /**
- * CODEMOD to MODIFY (DEPRECATE or  RENAME) GESTALT COMPONENT PROPS
+ * CODEMOD to MODIFY (DEPRECATE or RENAME) GESTALT COMPONENT PROPS
  * Ex. <Box size="" /> to <Box />
  * Ex. <Box size="" /> to <Box renamedSize="" />
  * Ex. <Dropdown.Item size="" /> to <Dropdown.Item renamedSize="" />
@@ -12,14 +12,14 @@
  * --componentName: component to which modify props
  * --subcomponentName: component's subcomponent to which modify props
  * --previousPropName: current prop name to be replaced
- * --nextPropName: (only required with rename action) new prop name to replace with
+ * --nextPropName: new prop name to replace with, null if we want to remove prop
  *
  *
  * TO RUN THIS CODEMOD
- * yarn run:codemod modifyProp  <folder/file path> --action=<value> --previousPropName=<value> --nextPropName=<value>
- * E.g. yarn run:codemod modifyProp  ~/code/pinboard/webapp --action=rename --componentName=Box --previousPropName=size --nextCmpName=renamedSize
- * E.g. yarn run:codemod modifyProp  ~/code/pinboard/webapp --action=rename --componentName=Dropdown --subcomponentName=Item --previousPropName=size --nextCmpName=renamedSize
- * E.g. yarn run:codemod modifyProp  ~/code/pinboard/webapp --action=deprecate   --componentName=Box --previousCmpName=size
+ * yarn codemod modifyProp ~/path/to/your/code --previousPropName=<value> --nextPropName=<value>
+ * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Box --previousPropName=size --nextPropName=renamedSize
+ * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Dropdown --subcomponentName=Item --previousPropName=size --nextPropName=renamedSize
+ * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Box --previousPropName=size --nextPropName=null
  */
 
 import {
@@ -33,19 +33,18 @@ import {
   replaceJSXAttributes,
   saveSource,
   throwErrorIfSpreadProps,
-} from './helpers/codemodHelpers.js';
-import { type Transform } from './helpers/codemodFlowtypes.js';
+} from './utils.js';
+import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {|
-  action: 'deprecate' | 'rename',
   componentName: string,
   subcomponentName: string,
   previousPropName: string,
-  nextPropName?: string,
+  nextPropName: string | null,
 |};
 
-const transform: Transform<OptionsType> = function transformer(file, api, options) {
-  const { action, componentName, subcomponentName, previousPropName, nextPropName } = options;
+function transform(file: FileType, api: ApiType, options: OptionsType): ?string {
+  const { componentName, subcomponentName, previousPropName, nextPropName } = options;
 
   const { j, src } = initialize({ api, file });
 
@@ -71,7 +70,6 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
     throwErrorIfSpreadProps({ file, JSXNode });
     const newAttributes = getNewAttributes({
       JSXNode,
-      action,
       previousPropName,
       nextPropName,
     });
@@ -82,6 +80,6 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
   });
 
   return saveSource({ src });
-};
+}
 
 export default transform;

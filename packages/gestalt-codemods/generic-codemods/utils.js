@@ -9,7 +9,7 @@ import {
   type NodePathType,
   type ImportSpecifierType,
   type JSXAttributeType,
-} from './codemodFlowtypes.js';
+} from './flowtypes.js';
 
 type InitializeType = {|
   api: ApiType,
@@ -108,30 +108,32 @@ const getLocalImportedName = ({
 type ReplaceImportedNamedType = {|
   j: JSCodeShift,
   importDeclaration: ImportDeclarationType,
-  previousCmpName: string,
-  nextCmpName: string,
+  previousComponentName: string,
+  nextComponentName: string,
 |};
 
 /**
  * replaceImportedNamed: Replaces the name of a named import
- * E.g. previousCmpName = Box & nextCmpName =  RenamedBox
- * imput: import { Box } from 'gestalt' >> output: import { RenamedBox } from 'gestalt'
+ * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
+ * input: import { Box } from 'gestalt' >> output: import { RenamedBox } from 'gestalt'
  */
 const replaceImportedName = ({
   j,
   importDeclaration,
-  previousCmpName,
-  nextCmpName,
+  previousComponentName,
+  nextComponentName,
 }: ReplaceImportedNamedType): Array<ImportSpecifierType> =>
   importDeclaration.specifiers.map((node) =>
-    node.imported.name === previousCmpName ? j.importSpecifier(j.identifier(nextCmpName)) : node,
+    node.imported.name === previousComponentName
+      ? j.importSpecifier(j.identifier(nextComponentName))
+      : node,
   );
 
 type SortImportedNamesType = {| importSpecifiers: Array<ImportSpecifierType> |};
 
 /**
  * sortImportedNames: Returns a sorted list of named imports
- * E.g. imput: import { Pog, Box } from 'gestalt' >> output: import { Box, Pog } from 'gestalt'
+ * E.g. input: import { Pog, Box } from 'gestalt' >> output: import { Box, Pog } from 'gestalt'
  */
 const sortImportedNames = ({
   importSpecifiers,
@@ -147,48 +149,48 @@ type ReplaceImportNodePathType = {|
 
 /**
  * replaceImportNodePath: Replaces an import declaration node with an updated one
- * E.g. previousCmpName = Box & nextCmpName =  RenamedBox
- * imput: <Box /> >> output: <RenamedBox />
+ * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
+ * input: <Box /> >> output: <RenamedBox />
  */
 
 const replaceImportNodePath = ({ nodePath, importSpecifiers }: ReplaceImportNodePathType): void => {
+  // TODO: find alternative to prevent reassignment
   // eslint-disable-next-line no-param-reassign
   nodePath.node.specifiers = importSpecifiers;
 };
 
-type RenameJSXElementType = {| JSXNode: JSXNodeType, nextCmpName: string |};
+type RenameJSXElementType = {| JSXNode: JSXNodeType, nextComponentName: string |};
 
 /**
  * renameJSXElement: Renames the JSX element with the name value provided
- * E.g. previousCmpName = Box & nextCmpName =  RenamedBox
- * imput: <Box /> >> output: <RenamedBox />
+ * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
+ * input: <Box /> >> output: <RenamedBox />
  */
-const renameJSXElement = ({ JSXNode, nextCmpName }: RenameJSXElementType): void => {
+const renameJSXElement = ({ JSXNode, nextComponentName }: RenameJSXElementType): void => {
+  // TODO: implement deep cloning or prevent reassignment
   const newJSXNode = { ...JSXNode };
-  newJSXNode.openingElement.name.name = nextCmpName;
+  newJSXNode.openingElement.name.name = nextComponentName;
 
   if (!isSelfClosing({ JSXNode })) {
     if (newJSXNode.closingElement) {
-      newJSXNode.closingElement.name.name = nextCmpName;
+      newJSXNode.closingElement.name.name = nextComponentName;
     }
   }
 };
 
 type GetNewAttributesType = {|
   JSXNode: JSXNodeType,
-  action: string,
   previousPropName: string,
-  nextPropName?: string,
+  nextPropName: string | null,
 |};
 
 /**
  * getNewAttributes: Renames the JSX element with the name value provided
- * E.g. previousCmpName = Box & nextCmpName =  RenamedBox
- * imput: <Box /> >> output: <RenamedBox />
+ * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
+ * input: <Box /> >> output: <RenamedBox />
  */
 const getNewAttributes = ({
   JSXNode,
-  action,
   previousPropName,
   nextPropName,
 }: GetNewAttributesType): Array<JSXAttributeType> =>
@@ -202,7 +204,7 @@ const getNewAttributes = ({
 
       if (nextPropName) renamedAttr.name.name = nextPropName;
 
-      return action === 'rename' && nextPropName ? renamedAttr : undefined;
+      return nextPropName !== null && nextPropName ? renamedAttr : undefined;
     })
     .filter(Boolean);
 
@@ -215,6 +217,7 @@ type ReplaceJSXAttributesType = {|
  * replaceJSXAttributes: Saves the changes in the file  if the src object contains the 'modified: true' key-value
  */
 const replaceJSXAttributes = ({ JSXNode, newAttributes }: ReplaceJSXAttributesType): void => {
+  // TODO: implement deep cloning or prevent reassignment
   const newJSXNode = { ...JSXNode };
 
   newJSXNode.openingElement.attributes = newAttributes;
@@ -226,17 +229,6 @@ type SaveSourceType = {| src: Collection |};
  * saveSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
  */ const saveSource = ({ src }: SaveSourceType): string | null =>
   src.modified ? src.toSource({ quote: 'single' }) : null;
-
-type SortJSXElementAttributesType = {| JSXNode: JSXNodeType |};
-
-/**
- * sortJSXElementAttributes: Returns a sorted list of JSX element attributes
- * E.g. imput: <Box size="" color=""/> >> output: <Box color="" size="" />
- */
-const sortJSXElementAttributes = ({
-  JSXNode,
-}: SortJSXElementAttributesType): Array<JSXAttributeType> =>
-  JSXNode.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
 type ThrowErrorIfSpreadType = {| file: FileType, JSXNode: JSXNodeType |};
 
@@ -269,6 +261,5 @@ export {
   replaceJSXAttributes,
   saveSource,
   sortImportedNames,
-  sortJSXElementAttributes,
   throwErrorIfSpreadProps,
 };

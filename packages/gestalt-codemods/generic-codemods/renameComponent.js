@@ -5,12 +5,12 @@
  * Ex. <Flyout /> to <Popover />
  *
  * TO RUN THIS CODEMOD
- * yarn run:codemod renameComponent  <folder/file path> --previousCmpName=<value> --nextCmpName=<value>
- * E.g. yarn run:codemod renameComponent  ~/code/pinboard/webapp --previousCmpName=Box --nextCmpName=RenamedBox
+ * yarn codemod renameComponent ~/path/to/your/code --previousName=<value> --nextName=<value>
+ * E.g. yarn codemod renameComponent ~/code/pinboard/webapp --previousName=Box --nextName=RenamedBox
  *
  * OPTIONS:
- * --previousCmpName: current component name to be replaced
- * --nextCmpName: new component name to replace with
+ * --previousName: current component name to be replaced
+ * --nextName: new component name to replace with
  */
 
 import {
@@ -25,13 +25,13 @@ import {
   renameJSXElement,
   saveSource,
   sortImportedNames,
-} from './helpers/codemodHelpers.js';
-import { type Transform } from './helpers/codemodFlowtypes.js';
+} from './utils.js';
+import { type FileType, type ApiType } from './flowtypes.js';
 
-type OptionsType = {| previousCmpName: string, nextCmpName: string |};
+type OptionsType = {| previousName: string, nextName: string |};
 
-const transform: Transform<OptionsType> = function transformer(file, api, options) {
-  const { previousCmpName, nextCmpName } = options;
+function transform(file: FileType, api: ApiType, options: OptionsType): ?string {
+  const { previousName, nextName } = options;
 
   const { j, src } = initialize({ api, file });
 
@@ -44,7 +44,7 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
 
     targetLocalImportedName = getLocalImportedName({
       importDeclaration,
-      importedName: previousCmpName,
+      importedName: previousName,
     });
 
     if (!targetLocalImportedName) return;
@@ -52,8 +52,8 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
     const newImportSpecifiers = replaceImportedName({
       j,
       importDeclaration,
-      previousCmpName,
-      nextCmpName,
+      previousComponentName: previousName,
+      nextComponentName: nextName,
     });
 
     const newSortedImportSpecifiers = sortImportedNames({ importSpecifiers: newImportSpecifiers });
@@ -71,12 +71,12 @@ const transform: Transform<OptionsType> = function transformer(file, api, option
 
     if (!matchesComponentName({ JSXNode, componentName: targetLocalImportedName })) return;
 
-    renameJSXElement({ JSXNode, nextCmpName });
+    renameJSXElement({ JSXNode, nextComponentName: nextName });
 
     src.modified = true;
   });
 
   return saveSource({ src });
-};
+}
 
 export default transform;

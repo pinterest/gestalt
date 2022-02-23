@@ -3,18 +3,18 @@
 // $FlowExpectedError[unclear-type]
 export type ObjectType = Object;
 
-export type ImportSpecifierType = {
+export type ImportSpecifierType = {|
   type: string,
-  imported: {
+  imported: {|
     type: string,
     name: string,
-  },
-  local: {
+  |},
+  local: {|
     type: string,
     name: string,
-  },
+  |},
   name: string,
-};
+|};
 
 export type ImportDeclarationType = {|
   type: string,
@@ -96,5 +96,3 @@ export type JSCodeShift = {
 export type FileType = {| path: string, source: string |};
 
 export type ApiType = {| jscodeshift: JSCodeShift |};
-
-export type Transform<Options> = (fileInfo: FileType, api: ApiType, options: Options) => ?string;

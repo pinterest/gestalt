@@ -13,8 +13,8 @@ describe('renameComponent', () => {
       'renameComponent',
       {
         quote: 'single',
-        previousCmpName: 'ScrollableContainer',
-        nextCmpName: 'ScrollBoundaryContainer',
+        previousName: 'ScrollableContainer',
+        nextName: 'ScrollBoundaryContainer',
       },
       test,
       {},
