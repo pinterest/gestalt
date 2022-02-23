@@ -1,3 +1,9 @@
+## 45.5.10 (Feb 23, 2022)
+
+### Patch
+
+- IconButton: Clarify color documentation (#1955)
+
 ## 45.5.9 (Feb 23, 2022)
 
 ### Patch
