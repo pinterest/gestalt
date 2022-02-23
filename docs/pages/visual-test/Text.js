@@ -6,13 +6,22 @@ export default function TextSpec(): Node {
   return (
     <Fragment>
       <Box padding={1}>
-        <Text size="100">Text size small</Text>
+        <Text size="100">Text size 100</Text>
       </Box>
       <Box padding={1}>
-        <Text size="200">Text size medium</Text>
+        <Text size="200">Text size 200</Text>
       </Box>
       <Box padding={1}>
-        <Text size="300">Text size large</Text>
+        <Text size="300">Text size 300</Text>
+      </Box>
+      <Box padding={1}>
+        <Text size="400">Text size 400</Text>
+      </Box>
+      <Box padding={1}>
+        <Text size="500">Text size 500</Text>
+      </Box>
+      <Box padding={1}>
+        <Text size="600">Text size 600</Text>
       </Box>
     </Fragment>
   );
