@@ -10,14 +10,14 @@ export default function Screenshot(): Node {
           checked
           id="english-info"
           label="English"
-          subtext="USA, India, and Pakistan have the top number of English speakers "
+          subtext="USA and India have the top number of English speakers"
           onChange={() => {}}
         />
         <Checkbox
           checked={false}
           id="spanish-info"
           label="Spanish"
-          subtext="Mexico, Colombia, and Spain are the top three Spanish-speaking countries"
+          subtext="Mexico and Colombia have the top number of Spanish speakers"
           onChange={() => {}}
         />
       </Flex>
