@@ -20,6 +20,10 @@ type Props = {|
 
 /**
  * [Badge](https://gestalt.pinterest.systems/badge) is used to label text.
+ *
+ * ![Badge light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Badge%20%230.png)
+ * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Badge-dark%20%230.png)
+ *
  */
 export default function Badge({ position = 'middle', text }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();

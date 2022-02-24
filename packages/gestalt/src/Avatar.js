@@ -44,6 +44,10 @@ type Props = {|
 
 /**
  * [Avatar](https://gestalt.pinterest.systems/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
+ *
+ * ![Avatar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Avatar%20%230.png)
+ * ![Avatar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Avatar-dark%20%230.png)
+ *
  */
 export default function Avatar(props: Props): Node {
   const [isImageLoaded, setIsImageLoaded] = useState(true);

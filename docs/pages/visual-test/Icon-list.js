@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, Flex, Icon, ColorSchemeProvider } from 'gestalt';
 
-export default function IconSpec(): Node {
+export default function Screenshot(): Node {
   const { icons } = Icon;
 
   return (

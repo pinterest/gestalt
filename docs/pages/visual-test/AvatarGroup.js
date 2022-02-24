@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { AvatarGroup, Box } from 'gestalt';
 
-export default function AvatarGroupSpec(): Node {
+export default function Screenshot(): Node {
   return (
     <Box padding={1}>
       <AvatarGroup

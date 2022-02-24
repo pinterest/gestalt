@@ -92,6 +92,10 @@ const flipOnRtlIconNames = [
  * [Icons](https://gestalt.pinterest.systems/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
  *
  * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/iconography_and_svgs) to explore the full icon library.
+ *
+ * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon%20%230.png)
+ * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon-dark%20%230.png)
+ *
  */
 export default function Icon({
   accessibilityLabel,

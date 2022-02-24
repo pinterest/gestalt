@@ -120,6 +120,10 @@ type Props = {|
 
 /**
  * [Dropdown](https://gestalt.pinterest.systems/dropdown) displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
+ *
+ * ![Dropdown open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Dropdown-open%20%230.png)
+ * ![Dropdown open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Dropdown-open-dark%20%230.png)
+ *
  */
 export default function Dropdown({
   anchor,
