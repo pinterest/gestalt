@@ -1,3 +1,9 @@
+## 45.6.1 (Feb 24, 2022)
+
+### Patch
+
+- Internal: fix import style to unblock master (#1957)
+
 ## 45.6.0 (Feb 24, 2022)
 
 ### Minor
