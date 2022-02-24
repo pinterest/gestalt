@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 // To be used when this page is made live
 // import MainSection from '../components/MainSection.js';
