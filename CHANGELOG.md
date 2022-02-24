@@ -1,3 +1,9 @@
+## 45.7.0 (Feb 24, 2022)
+
+### Minor
+
+- Tooling: generic codemods to rename components & modify props (#1943)
+
 ## 45.6.2 (Feb 24, 2022)
 
 ### Patch
