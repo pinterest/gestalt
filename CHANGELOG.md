@@ -1,3 +1,9 @@
+## 45.6.2 (Feb 24, 2022)
+
+### Patch
+
+- ActivationCard, Avatar, Badge, Callout, Checkbox, ComboBox, Datapoint, Dropdown, Heading, IconButton: add visual diff testing and screenshot to description in VSCode (Flow extension) (#1954)
+
 ## 45.6.1 (Feb 24, 2022)
 
 ### Patch
