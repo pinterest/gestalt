@@ -1,3 +1,9 @@
+## 45.6.0 (Feb 24, 2022)
+
+### Minor
+
+- DeviceTypeProvider: add new component (#1939)
+
 ## 45.5.10 (Feb 23, 2022)
 
 ### Patch
