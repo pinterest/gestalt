@@ -28,11 +28,14 @@ export default function HomePage(): Node {
                   We’re here to help you build experiences that inspire people to create the life
                   they love
                 </Text>
+
                 <Button text={"What's new"} role="link" rel="nofollow" href="/whats_new" />
               </Flex>
               <Flex.Item minWidth="60%">
                 <Flex alignItems="center" justifyContent="end">
-                  <Hero />
+                  <div aria-hidden>
+                    <Hero />
+                  </div>
                 </Flex>
               </Flex.Item>
             </Flex>

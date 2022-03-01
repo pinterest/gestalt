@@ -1,6 +1,8 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useState } from 'react';
 import { Box, Flex, FixedZIndex, Text, IconButton, Sticky } from 'gestalt';
+// $FlowExpectedError[untyped-import]
+import GestaltPackageJson from 'gestalt/package.json';
 import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import HeaderMenu from './HeaderMenu.js';
@@ -42,7 +44,7 @@ function Header() {
           </Link>
         </Text>
         <Text size="sm" weight="bold">
-          vFIX ME
+          v{GestaltPackageJson.version}
         </Text>
       </Box>
 

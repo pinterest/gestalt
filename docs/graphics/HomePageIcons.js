@@ -384,28 +384,28 @@ export function Hero(): Node {
           width="4096"
           height="2733"
           xlinkHref="https://i.ibb.co/9h2TGqd/img-popcycle.jpg"
-          alt="test"
+          alt="Popsicle"
         />
         <image
           id="image1_263_5069"
           width="2730"
           height="4096"
           xlinkHref="https://i.ibb.co/cbjgZft/img-door.jpg"
-          alt="test"
+          alt="Door"
         />
         <image
           id="image2_263_5069"
           width="2730"
           height="4096"
           xlinkHref="https://i.ibb.co/SsnchKx/img-dude.jpg"
-          alt="test"
+          alt="Person"
         />
         <image
           id="image3_263_5069"
           width="2730"
           height="4096"
           xlinkHref="https://i.ibb.co/qn2Z0yN/img-glasses.jpg"
-          alt="test"
+          alt="Glasses"
         />
       </defs>
     </svg>
