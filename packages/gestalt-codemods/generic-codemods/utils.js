@@ -85,6 +85,16 @@ type GetImportsType = {| src: Collection, j: JSCodeShift |};
  */
 const getImports = ({ src, j }: GetImportsType): Collection => src.find(j.ImportDeclaration);
 
+type GetGestaltImportType = {| src: Collection, j: JSCodeShift |};
+
+/**
+ * getGestaltImport: Returns the Gestalt import declaration node
+ */
+const getGestaltImport = ({ src, j }: GetGestaltImportType): Collection => getImports({ src, j }).filter((nodePath) => {
+  const { node: importDeclaration } = nodePath;
+  return isGestaltImport({ importDeclaration })
+});
+
 type GetJSXType = {| src: Collection, j: JSCodeShift |};
 
 /**
@@ -105,10 +115,23 @@ type GetLocalImportedNameType = {|
 const getLocalImportedName = ({
   importDeclaration,
   importedName,
-}: GetLocalImportedNameType): string =>
-  importDeclaration.specifiers
-    .filter((node) => node.imported.name === importedName)
+}: GetLocalImportedNameType): string => {
+   if (importDeclaration?.specifiers) {
+    return importDeclaration.specifiers.filter((node) => node.imported.name === importedName)
     .map((node) => node.local.name)[0];
+   }
+
+   let specifiers;
+   importDeclaration.forEach((node) => {
+      if(node.value.specifiers) {
+        specifiers = node.value.specifiers
+      }
+     }
+   )
+
+  return specifiers.filter((node) => node.imported.name === importedName).map((node) => node.local.name)[0];
+}
+  
 
 type ReplaceImportedNamedType = {|
   j: JSCodeShift,
@@ -252,7 +275,7 @@ const throwErrorIfSpreadProps = ({ file, JSXNode }: ThrowErrorIfSpreadType): voi
 };
 
 export {
-  getImports,
+  getImports, getGestaltImport,
   getJSX,
   getLocalImportedName,
   getNewAttributes,

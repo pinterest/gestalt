@@ -22,7 +22,7 @@
  */
 
 import {
-  getImports,
+  getGestaltImport,
   getJSX,
   getLocalImportedName,
   initialize,
@@ -47,17 +47,13 @@ function transform(file: FileType, api: ApiType, options: OptionsType): ?string 
 
   const { j, src } = initialize({ api, file });
 
-  let targetLocalImportedName;
+  const gestaltImport = getGestaltImport({ src, j })
 
-  getImports({ src, j }).forEach((nodePath) => {
-    const { node: importDeclaration } = nodePath;
+  if (!gestaltImport) return;
 
-    if (!isGestaltImport({ importDeclaration })) return;
-
-    targetLocalImportedName = getLocalImportedName({
-      importDeclaration,
-      importedName: componentName,
-    });
+  const  targetLocalImportedName = getLocalImportedName({
+    importDeclaration: gestaltImport,
+    importedName: componentName,
   });
 
   getJSX({ src, j }).forEach((nodePath) => {
@@ -66,6 +62,7 @@ function transform(file: FileType, api: ApiType, options: OptionsType): ?string 
       !matchesComponentName({ JSXNode, componentName: targetLocalImportedName, subcomponentName })
     )
       return;
+
     throwErrorIfSpreadProps({ file, JSXNode });
     const newAttributes = getNewAttributes({
       JSXNode,
