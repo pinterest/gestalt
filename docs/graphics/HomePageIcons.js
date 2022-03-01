@@ -234,7 +234,7 @@ export function Hero(): Node {
       <path
         className="animation-draw"
         d="M75 269L75 391L184 391L184 365.5"
-        stroke="#004BA9"
+        stroke="var(--color-background-education)"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -242,7 +242,7 @@ export function Hero(): Node {
       />
       <path
         d="M75 269L75 391L184 391L184 365.5"
-        stroke="white"
+        stroke="var(--color-text-inverse)"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
