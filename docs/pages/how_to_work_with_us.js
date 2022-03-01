@@ -19,8 +19,8 @@ export default function DocsPage(): Node {
 
       <MainSection name="What goes into Gestalt?">
         <MainSection.Subsection
-          description={`
-    The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
+          description={
+    `The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
     `}
         />
       </MainSection>
@@ -137,7 +137,7 @@ Our meetings, events, and timelines can be found on the [Gestalt Event Calendar]
     - _Purpose_
       For product designers seeking feedback on their usage of design systems and visual language. This is also a great time to propose new components or component changes.
     - _Audience_
-      Primarily Pinner and M10n designers, though engineers are welcome if there are technical concerns as well.
+      Primarily designers, though engineers are welcome if there are technical concerns as well.
     - _Cadence_
       Twice a week on Tuesdays and Thursdays. Please [sign up](https://pinch.pinadmin.com/gestaltSignUp) for a half-hour slot with your discussion topic.
 2.  **Component Crit**
