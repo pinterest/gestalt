@@ -1,18 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import {
-  Box,
-  Flex,
-  Icon,
-  Text,
-  TapArea,
-  Tooltip,
-  Link,
-  Heading,
-  Badge,
-  Status,
-  Table,
-} from 'gestalt';
+import { Icon, Text, TapArea, Tooltip, Link, Badge, Status, Table } from 'gestalt';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
