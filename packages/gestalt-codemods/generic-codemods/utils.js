@@ -11,6 +11,11 @@ import {
   type JSXAttributeType,
 } from './flowtypes.js';
 
+/**
+WHEN DEVELOPING CODEMODS CONSIDER THE FOLLOWING DOCUMENTATION
+https://htmlpreview.github.io/?https://raw.githubusercontent.com/facebook/jscodeshift/aea20523d9d616e7debc7bc00b66835284278555/docs/index.html
+ */
+
 type InitializeType = {|
   api: ApiType,
   file: FileType,
