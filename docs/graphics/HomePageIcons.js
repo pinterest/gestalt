@@ -227,6 +227,7 @@ export function Hero(): Node {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
+      aria-hidden
     >
       <rect y="97" width="125" height="138" rx="18.9762" fill="url(#pattern0)" />
 

@@ -23,19 +23,17 @@ export default function HomePage(): Node {
           <HomePageSection>
             <Flex gap={8} alignItems="center">
               <Flex gap={6} direction="column">
-                <Heading>Gestalt is Pinterest&apos;s design system</Heading>
+                <Heading>Gestalt is Pinterest&rsquo;s design system</Heading>
                 <Text size="lg">
                   We’re here to help you build experiences that inspire people to create the life
                   they love
                 </Text>
 
-                <Button text={"What's new"} role="link" rel="nofollow" href="/whats_new" />
+                <Button text="See what’s new" role="link" rel="nofollow" href="/whats_new" />
               </Flex>
               <Flex.Item minWidth="60%">
                 <Flex alignItems="center" justifyContent="end">
-                  <div aria-hidden>
-                    <Hero />
-                  </div>
+                  <Hero />
                 </Flex>
               </Flex.Item>
             </Flex>
