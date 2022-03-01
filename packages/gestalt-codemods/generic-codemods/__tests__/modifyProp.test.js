@@ -13,7 +13,6 @@ describe('modifyProp: deprecate', () => {
       'modifyProp',
       {
         quote: 'single',
-        action: 'deprecate',
         componentName: 'Box',
         previousPropName: 'height',
       },
@@ -30,7 +29,6 @@ describe('modifyProp: rename', () => {
       'modifyProp',
       {
         quote: 'single',
-        action: 'rename',
         componentName: 'Box',
         previousPropName: 'height',
         nextPropName: 'renameHeight',
@@ -48,7 +46,6 @@ describe('modifyProp: rename with subcomponent', () => {
       'modifyProp',
       {
         quote: 'single',
-        action: 'rename',
         componentName: 'Dropdown',
         subcomponentName: 'Item',
         previousPropName: 'height',

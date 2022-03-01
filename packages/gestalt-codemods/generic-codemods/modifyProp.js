@@ -8,7 +8,6 @@
  *
  *
  * OPTIONS:
- * --action: 'deprecate' removes prop matching previousPropName, 'rename' replaces prop name matching previousPropName with nextPropName
  * --componentName: component to which modify props
  * --subcomponentName: component's subcomponent to which modify props
  * --previousPropName: current prop name to be replaced
@@ -16,7 +15,7 @@
  *
  *
  * TO RUN THIS CODEMOD
- * yarn codemod modifyProp ~/path/to/your/code --previousPropName=<value> --nextPropName=<value>
+ * yarn codemod modifyProp ~/path/to/your/code --componentName=<value> --previousPropName=<value> --nextPropName=<value>
  * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Box --previousPropName=size --nextPropName=renamedSize
  * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Dropdown --subcomponentName=Item --previousPropName=size --nextPropName=renamedSize
  * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Box --previousPropName=size --nextPropName=null
