@@ -15,6 +15,8 @@ import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
 import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
 
+type Position = {| top: number, left: number, width: number, height: number |};
+
 type Layout =
   | typeof DefaultLayoutSymbol
   | typeof UniformRowLayoutSymbol
@@ -382,8 +384,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  // $FlowFixMe[unclear-type]
-  renderMasonryComponent: (itemData: T, idx: number, position: *) => Node = (
+  renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
     itemData,
     idx,
     position,
@@ -416,9 +417,10 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     const itemComponent = (
       <div
-        key={`item-${idx}`}
         className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
         data-grid-item
+        key={`item-${idx}`}
+        role="listitem"
         style={{
           top: 0,
           left: 0,
@@ -489,8 +491,9 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div
           className={styles.Masonry}
-          style={{ height: 0, width: '100%' }}
           ref={this.setGridWrapperRef}
+          role="list"
+          style={{ height: 0, width: '100%' }}
         >
           {items
             .filter((item) => item)
@@ -499,6 +502,13 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 className="static"
                 data-grid-item
                 key={i}
+                ref={(el) => {
+                  if (el && !(flexible || layout === 'flexible')) {
+                    // only measure flexible items on client
+                    measurementStore.set(item, el.clientHeight);
+                  }
+                }}
+                role="listitem"
                 style={{
                   top: 0,
                   left: 0,
@@ -508,12 +518,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     flexible || layout === 'flexible'
                       ? undefined
                       : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
-                }}
-                ref={(el) => {
-                  if (el && !(flexible || layout === 'flexible')) {
-                    // only measure flexible items on client
-                    measurementStore.set(item, el.clientHeight);
-                  }
                 }}
               >
                 <Component data={item} itemIdx={i} isMeasuring={false} />
@@ -541,7 +545,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
       gridBody = (
-        <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
+        <div style={{ width: '100%' }} ref={this.setGridWrapperRef} role="list">
           <div className={styles.Masonry} style={{ height, width }}>
             {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
           </div>
