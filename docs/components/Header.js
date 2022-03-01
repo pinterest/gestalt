@@ -24,7 +24,7 @@ function Header() {
       alignItems="center"
       role="banner"
     >
-      <Box marginStart={-2} marginEnd={-2} display="flex" alignItems="center">
+      <Box marginStart={-2} marginEnd={2} display="flex" alignItems="center">
         {/* <Text> is out here to get proper underline styles on link */}
         <Text color="darkGray" weight="bold">
           <Link

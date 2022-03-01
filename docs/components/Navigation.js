@@ -47,7 +47,16 @@ export default function Navigation(): Node {
       {isSidebarOpen && (
         <Fragment>
           <HeaderMenu />
+
           <Box height={350} overflow="scroll" display="block" mdDisplay="none" padding={4}>
+            <SidebarCategorizationButton
+              onClick={() =>
+                setSidebarOrganizedBy(
+                  sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
+                )
+              }
+              sidebarOrganisedBy={sidebarOrganisedBy}
+            />
             <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
           </Box>
         </Fragment>
