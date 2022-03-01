@@ -1,6 +1,18 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Icon, Text, TapArea, Tooltip, Link, Heading, Badge, Status, Table } from 'gestalt';
+import {
+  Box,
+  Flex,
+  Icon,
+  Text,
+  TapArea,
+  Tooltip,
+  Link,
+  Heading,
+  Badge,
+  Status,
+  Table,
+} from 'gestalt';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
@@ -9,146 +21,181 @@ const theme1 = [
     'task': 'InfoButton component',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Form component',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Web',
+  },
+  {
+    'task': 'Badge component improvements',
+    'deadline': 'Quarter 1',
+    'status': 'inProgress',
+    'platform': 'Web',
   },
   {
     'task': 'PageHeader component',
     'deadline': 'Quarter 2',
     'status': 'inProgress',
+    'platform': 'Web',
   },
   {
     'task': 'Side nav menu component',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Link component',
+    'task': 'Link component improvements',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'InfoButton integration in input components',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Gestalt Illustration Library',
     'deadline': 'Quarter 2',
     'status': 'inProgress',
+    'platform': 'All',
   },
   {
-    'task': 'Gestalt Animation Support',
+    'task': 'Gestalt animation support',
     'deadline': 'Quarter 3',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Messaging components',
     'deadline': 'Quarter 3',
     'status': 'inProgress',
+    'platform': 'Web',
   },
   {
     'task': 'Table component',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Multi-select component',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Pagination component',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Modal/Sheet mweb component',
+    'task': 'Modal/Sheet component',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Mobile web',
   },
   {
-    'task': 'Popover mweb component',
+    'task': 'Popover component',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Mobile web',
   },
   {
-    'task': 'Dropdown mweb component',
+    'task': 'Dropdown component',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Mobile web',
   },
   {
-    'task': 'Web Button component',
+    'task': 'Button component enhancements',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Android Button component',
+    'task': 'Button component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Android',
   },
   {
-    'task': 'iOS Button component',
+    'task': 'Button component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'iOS',
   },
   {
-    'task': 'iOS IconButton component',
+    'task': 'IconButton component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Android',
   },
   {
-    'task': 'Android IconButton component',
+    'task': 'IconButton component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'iOS',
   },
   {
-    'task': 'Android Icon component',
+    'task': 'Icon component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Android',
   },
   {
-    'task': 'Android Avatar component',
+    'task': 'Avatar component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Android',
   },
   {
-    'task': 'iOS ButtonGroup component',
+    'task': 'ButtonGroup component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'iOS',
   },
   {
     'task': 'Filters component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'RadioGroup component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Dataviz component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Masonry component',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'App-level hooks w/in Gestalt',
     'deadline': '',
     'status': 'inProgress',
+    'platform': 'Web',
   },
   {
     'task': 'Design tokenization',
     'deadline': '',
     'status': 'inProgress',
+    'platform': '',
   },
 ];
 
@@ -157,171 +204,205 @@ const theme2 = [
     'task': 'Gestalt docs IA update',
     'deadline': 'Quarter 1',
     'status': 'inProgress',
+    'platform': '',
   },
   {
     'task': 'Visual search',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': '',
   },
   {
-    'task': 'Public roadmap',
+    'task': 'Public roadmap in Gestalt site',
     'deadline': 'Quarter 1',
     'status': 'ok',
+    'platform': '',
   },
   {
     'task': 'Elevation visual guidelines',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': '',
   },
   {
-    'task': 'Status docs unification',
+    'task': 'Status component design guidelines',
     'deadline': 'Quarter 1',
     'status': 'ok',
+    'platform': 'Web',
   },
   {
-    'task': 'Datapoint docs unification',
+    'task': 'Datapoint component design guidelines',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Tag docs unification',
+    'task': 'Tag component design guidelines',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Badge docs unification',
+    'task': 'Badge component design guidelines',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Button mobile component guidelines',
+    'task': 'Button component design guidelines',
     'deadline': 'Quarter 1',
     'status': 'inProgress',
+    'platform': 'Android/iOS',
   },
   {
-    'task': 'IconButton mobile component guidelines',
+    'task': 'IconButton component design guidelines',
     'deadline': 'Quarter 1',
     'status': 'inProgress',
+    'platform': 'Android/iOS',
   },
   {
-    'task': 'Modal/Sheet mobile guidelines',
+    'task': 'Modal/Sheet component design guidelines',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Android/iOS',
   },
   {
-    'task': 'Masonry docs unification',
+    'task': 'Masonry component design guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Link docs unification',
+    'task': 'Link component design guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Heading unification',
+    'task': 'Heading component design guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Text docs unification',
+    'task': 'Text component design guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Tabs mobile guidelines',
+    'task': 'Tabs component design guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Android/iOS',
   },
   {
-    'task': 'Popover mobile guidelines',
+    'task': 'Popover component design guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Android/iOS',
   },
   {
-    'task': 'Avatar mobile guidelines',
+    'task': 'Avatar component design guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': 'Android/iOS',
   },
   {
     'task': 'Product color visual guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': '',
   },
   {
     'task': 'Typographic visual guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': '',
   },
   {
     'task': 'Component scorecard',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': '',
   },
   {
     'task': 'Messaging pattern guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': '',
   },
   {
-    'task': 'Dark Mode visual guidelines',
+    'task': 'Dark mode visual guidelines',
     'deadline': 'Quarter 2',
     'status': 'unstarted',
+    'platform': '',
   },
   {
-    'task': 'Toast mobile guidelines',
+    'task': 'Toast component design guidelines',
     'deadline': 'Quarter 3',
     'status': 'unstarted',
+    'platform': 'Android/iOS',
   },
   {
-    'task': 'Icon mobile guidelines',
+    'task': 'Icon component design guidelines',
     'deadline': 'Quarter 3',
     'status': 'unstarted',
+    'platform': 'Android/iOS',
   },
   {
-    'task': 'Checkbox docs unification',
+    'task': 'Checkbox component design guidelines',
     'deadline': 'Quarter 3',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Toast unification',
+    'task': 'Toast component design guidelines',
     'deadline': 'Quarter 3',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'RadioGroup docs unification',
+    'task': 'RadioGroup  component design guidelines',
     'deadline': 'Quarter 3',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'Switch docs unification',
+    'task': 'Switch  component design guidelines',
     'deadline': 'Quarter 3',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'TextArea docs unification',
+    'task': 'TextArea  component design guidelines',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
-    'task': 'ButtonGroup docs unification',
+    'task': 'ButtonGroup  component design guidelines',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Help/guidance pattern guidelines',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': '',
   },
   {
     'task': 'Iconography pattern guidelines',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': '',
   },
   {
     'task': 'Extended color visual guidelines',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
+    'platform': '',
   },
 ];
 
@@ -330,33 +411,38 @@ const theme3 = [
     'task': 'Form autofix',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Box duplicate props autofix',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Generalized prop naming autofix',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Generalized prop value change autofix',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
   {
     'task': 'Build testing helpers library',
     'deadline': '',
     'status': 'unstarted',
+    'platform': 'Web',
   },
 ];
 
 function LockIcon({ size }: {| size: 12 | 14 |}) {
   return (
-    <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
-      <TapArea rounding="circle">
+    <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="" inline>
+      <TapArea rounding="circle" fullWidth={false}>
         <Icon
           accessibilityLabel="Access is restricted to Pinterest employees"
           icon="lock"
@@ -391,25 +477,34 @@ function TaskStatus({ status }: {| status: StatusType |}) {
 
 function TableRow({
   text,
+  platform,
   quarter,
   status,
 }: {|
   text: string,
+  platform: string,
   quarter: string,
   status: StatusType,
 |}) {
   return (
     <Table.Row>
       <Table.Cell>
-        <Flex gap={2} alignItems="center">
-          <Text>{text}</Text>
-        </Flex>
+        <Text>{text}</Text>
+      </Table.Cell>
+      <Table.Cell>
+        {platform ? (
+          <Text>{platform}</Text>
+        ) : (
+          <Text size="100" weight="bold" color="gray">
+            &mdash;
+          </Text>
+        )}
       </Table.Cell>
       <Table.Cell>
         {quarter ? (
           <Badge text={quarter} />
         ) : (
-          <Text size="100" weight="bold">
+          <Text size="100" weight="bold" color="gray">
             TBD
           </Text>
         )}
@@ -423,41 +518,55 @@ function TableRow({
 
 export default function RoadmapPage(): Node {
   const theme1Items = theme1.map((obj) => (
-    <TableRow key={obj.task} text={obj.task} quarter={obj.deadline} status={obj.status} />
+    <TableRow
+      key={obj.task}
+      text={obj.task}
+      platform={obj.platform}
+      quarter={obj.deadline}
+      status={obj.status}
+    />
   ));
 
   const theme2Items = theme2.map((obj) => (
-    <TableRow key={obj.task} text={obj.task} quarter={obj.deadline} status={obj.status} />
+    <TableRow
+      key={obj.task}
+      text={obj.task}
+      platform={obj.platform}
+      quarter={obj.deadline}
+      status={obj.status}
+    />
   ));
 
   const theme3Items = theme3.map((obj) => (
-    <TableRow key={obj.task} text={obj.task} quarter={obj.deadline} status={obj.status} />
+    <TableRow
+      key={obj.task}
+      text={obj.task}
+      platform={obj.platform}
+      quarter={obj.deadline}
+      status={obj.status}
+    />
   ));
-  /*
-  const theme3Items = theme3.map((obj) => (
-    <Flex.Item key={obj.task} flexBasis={0} minWidth={300} flex="grow">
-      <ListElement key={obj.task} text={obj.task} quarter={obj.deadline} status={obj.status} />
-    </Flex.Item>
-  ));
-  */
 
   return (
     <Page title="Upcoming work in 2022">
       <PageHeader name="Upcoming work in 2022" showSourceLink={false} />
-      <Flex>
-        <Text>
-          <Link href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog">
-            View full roadmap
-          </Link>
-        </Text>
-        <LockIcon size={14} />
-      </Flex>
-      <Heading size="500">Components & design tokens</Heading>
-      <Table accessibilityLabel="Components and design tokens" stickyColumns={1}>
-        <Table.Header>
+
+      <Text>
+        The following reflects all public-facing work the Gestalt team plans to ship in 2022. To see
+        the full list of work our team plans to take on, please visit our
+        <Link href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog">
+          internal roadmap <LockIcon size={14} />
+        </Link>
+      </Text>
+
+      <Table accessibilityLabel="Components and design tokens">
+        <Table.Header sticky>
           <Table.Row>
             <Table.HeaderCell>
-              <Text weight="bold">Task</Text>
+              <Text weight="bold">Components and design tokens</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Platform</Text>
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Text weight="bold">Delivery</Text>
@@ -469,13 +578,54 @@ export default function RoadmapPage(): Node {
         </Table.Header>
         <Table.Body>{theme1Items}</Table.Body>
       </Table>
-
+      <Table accessibilityLabel="System documentation">
+        <Table.Header sticky>
+          <Table.Row>
+            <Table.HeaderCell>
+              <Text weight="bold">System documentation</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Platform</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Delivery</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Status</Text>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>{theme2Items}</Table.Body>
+      </Table>
+      <Table accessibilityLabel="Tooling and infrastructure">
+        <Table.Header sticky>
+          <Table.Row>
+            <Table.HeaderCell>
+              <Text weight="bold">Tooling and infrastructure</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Platform</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Delivery</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Status</Text>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>{theme3Items}</Table.Body>
+      </Table>
+      {/*
       <Heading size="500">System documentation</Heading>
       <Table accessibilityLabel="System documentation" stickyColumns={1}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>
               <Text weight="bold">Task</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Platform</Text>
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Text weight="bold">Delivery</Text>
@@ -488,12 +638,15 @@ export default function RoadmapPage(): Node {
         <Table.Body>{theme2Items}</Table.Body>
       </Table>
 
-      <Heading size="500">Tooling & infrastructure</Heading>
-      <Table accessibilityLabel="Tooling & infrastructure" stickyColumns={1}>
+      <Heading size="500">Tooling &amp; infrastructure</Heading>
+      <Table accessibilityLabel="Tooling &amp; infrastructure" stickyColumns={1}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>
               <Text weight="bold">Task</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Platform</Text>
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Text weight="bold">Delivery</Text>
@@ -505,21 +658,6 @@ export default function RoadmapPage(): Node {
         </Table.Header>
         <Table.Body>{theme3Items}</Table.Body>
       </Table>
-
-      {/*
-      <Flex direction="row" wrap>
-        {theme1Items}
-      </Flex>
-
-      <Heading size="500">Documentation and stuff</Heading>
-      <Flex direction="row" wrap>
-        {theme2Items}
-      </Flex>
-
-      <Heading size="500">Stuff and stuff</Heading>
-      <Flex direction="row" wrap>
-        {theme3Items}
-      </Flex>
       */}
     </Page>
   );
