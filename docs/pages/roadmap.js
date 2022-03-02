@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Icon, Text, TapArea, Tooltip, Link } from 'gestalt';
+import { Box, Flex, Icon, Text, TapArea, Tooltip, Link } from 'gestalt';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
@@ -508,14 +508,6 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'Extended color visual guidelines',
-    'deadline': 'Quarter 4',
-    'status': 'unstarted',
-    'platform': '',
-    'description': 'TBD',
-    'link': '',
-  },
-  {
     'task': 'Form autofix',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
@@ -591,10 +583,12 @@ function Task({
   const title = platform ? `${text} (${platform})` : text;
 
   const desc = (
-    <Flex direction="column" gap={2}>
-      <Text>{description}</Text>
-      {delivery ? <Text size="100">Scheduled for {delivery}, 2022</Text> : null}
-    </Flex>
+    <Box marginTop={-6}>
+      <Flex direction="column" gap={2}>
+        <Text>{description}</Text>
+        {delivery ? <Text size="100">Scheduled for {delivery}, 2022</Text> : null}
+      </Flex>
+    </Box>
   );
 
   return <MainSection.Subsection title={title}>{desc}</MainSection.Subsection>;
@@ -645,21 +639,23 @@ export default function RoadmapPage(): Node {
           internal roadmap <LockIcon size={14} />
         </Link>
       </Text>
-      <MainSection name="In progress">
-        <Flex direction="column" gap={8}>
-          {theme1Items}
-        </Flex>
-      </MainSection>
-      <MainSection name="Upcoming">
-        <Flex direction="column" gap={8}>
-          {theme2Items}
-        </Flex>
-      </MainSection>
-      <MainSection name="Complete">
-        <Flex direction="column" gap={8}>
-          {theme3Items}
-        </Flex>
-      </MainSection>
+      <Flex direction="column" gap={12}>
+        <MainSection name="In progress">
+          <Flex direction="column" gap={8}>
+            {theme1Items}
+          </Flex>
+        </MainSection>
+        <MainSection name="Upcoming">
+          <Flex direction="column" gap={8}>
+            {theme2Items}
+          </Flex>
+        </MainSection>
+        <MainSection name="Complete">
+          <Flex direction="column" gap={8}>
+            {theme3Items}
+          </Flex>
+        </MainSection>
+      </Flex>
     </Page>
   );
 }
