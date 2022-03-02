@@ -1,11 +1,12 @@
 .table {
   border-collapse: separate;
   border-spacing: 0;
+  isolation: isolate;
   width: 100%;
 }
 
 .th {
-  composes: alignLeft from "./Typography.css";
+  composes: alignStart from "./Typography.css";
   composes: paddingY3 from "./boxWhitespace.css";
   composes: paddingX3 from "./boxWhitespace.css";
 }
@@ -19,7 +20,26 @@
   background-color: var(--g-colorGray0);
   position: sticky;
   top: 0;
+  z-index: 2;
+}
+
+.columnSticky {
+  background-color: var(--g-colorGray0);
+  left: 0;
+  position: sticky;
   z-index: 1;
+}
+
+.sticky .columnSticky {
+  z-index: 3;
+}
+
+.horizontalScrollRight .columnStickyShadow {
+  box-shadow: 8px 0 8px -8px var(--g-colorGray150);
+}
+
+.horizontalScrollLeft .columnStickyShadow {
+  box-shadow: -8px 0 8px -8px var(--g-colorGray150);
 }
 
 .thead tr:last-child th {
@@ -31,5 +51,9 @@
 }
 
 .hoverShadeGray:hover {
+  background-color: var(--g-colorGray100);
+}
+
+.hoverShadeGray:hover .columnSticky {
   background-color: var(--g-colorGray100);
 }

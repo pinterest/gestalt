@@ -1,3 +1,5 @@
+const { initPlugin } = require('cypress-plugin-snapshots/plugin');
+
 /// <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -15,7 +17,7 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = (on) => {
+module.exports = (on, config) => {
   on('task', {
     logToTerminal(message) {
       // eslint-disable-next-line no-console
@@ -28,4 +30,7 @@ module.exports = (on) => {
       return null;
     },
   });
+
+  initPlugin(on, config);
+  return config;
 };

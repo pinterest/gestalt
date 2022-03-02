@@ -1,102 +1,98 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
-import MenuOption, { type OptionObject } from './MenuOption.js';
-import DropdownContext from './DropdownContextProvider.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { type Node } from 'react';
+import OptionItem from './OptionItem.js';
+import { DropdownContextConsumer } from './DropdownContext.js';
 
-type PublicProps = {|
-  badgeText?: string,
-  children?: Node,
-  handleSelect?: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    item: OptionObject,
-  |}) => void,
-  isExternal?: boolean,
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
-  >,
-  option: OptionObject,
-  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
-  href?: string,
-|};
-
-type PrivateProps = {|
-  index?: number,
+type OptionItemType = {|
+  label: string,
+  subtext?: string,
+  value: string,
 |};
 
 type Props = {|
-  ...PublicProps,
-  ...PrivateProps,
+  /**
+   * When supplied, will display a [Badge](https://gestalt.pinterest.systems/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/dropdown#Badges) variant to learn more.
+   */
+  badgeText?: string,
+  /**
+   * If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](https://gestalt.pinterest.systems/dropdown#Custom-item-content) variant to learn more.
+   */
+  children?: Node,
+  /**
+   * When supplied, will add a data-test-id prop to the dom element.
+   */
+  dataTestId?: string,
+  /**
+   * Callback when the user selects an item using the mouse or keyboard.
+   */ onSelect: ({|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    item: {|
+      label: string,
+      subtext?: string,
+      value: string,
+    |},
+  |}) => void,
+  /**
+   * Object detailing the label, value, and optional subtext for this item.
+   */
+  option: OptionItemType,
+  /**
+   * Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item.
+   */
+  selected?:
+    | {|
+        label: string,
+        subtext?: string,
+        value: string,
+      |}
+    | $ReadOnlyArray<{|
+        label: string,
+        subtext?: string,
+        value: string,
+      |}>
+    | null,
+  /**
+   * Private prop used for accessibility purposes
+   */
+  _index?: number,
 |};
 
+/**
+ * Use [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item) for action & selection, when the Dropdown item triggers an action or selects an option.
+ */
 export default function DropdownItem({
   badgeText,
   children,
-  handleSelect,
-  index = 0,
-  isExternal,
-  onClick,
+  dataTestId,
+  _index = 0,
+  onSelect,
   option,
   selected,
-  href,
 }: Props): Node {
   return (
-    <DropdownContext.Consumer>
+    <DropdownContextConsumer>
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
-        <MenuOption
-          key={`${option.value + index}`}
+        <OptionItem
           badgeText={badgeText}
-          handleSelect={handleSelect}
-          hoveredItem={hoveredItem}
+          dataTestId={dataTestId}
+          hoveredItemIndex={hoveredItem}
           id={id}
-          index={index}
-          isExternal={isExternal}
-          onClick={onClick}
+          index={_index}
+          key={`${option.value + _index}`}
+          onSelect={onSelect}
           option={option}
+          ref={setOptionRef}
           role="menuitem"
           selected={selected}
-          setHoveredItem={setHoveredItem}
-          setOptionRef={setOptionRef}
-          shouldTruncate
+          setHoveredItemIndex={setHoveredItem}
           textWeight="bold"
-          href={href}
         >
           {children}
-        </MenuOption>
+        </OptionItem>
       )}
-    </DropdownContext.Consumer>
+    </DropdownContextConsumer>
   );
 }
 
-DropdownItem.displayName = 'DropdownItem';
-
-DropdownItem.propTypes = {
-  badgeText: PropTypes.string,
-  isExternal: PropTypes.bool,
-  onClick: PropTypes.func,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  option: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    subtext: PropTypes.string,
-  }).isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  selected: PropTypes.oneOfType([
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      subtext: PropTypes.string,
-    }),
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        subtext: PropTypes.string,
-      }),
-    ),
-  ]),
-  handleSelect: PropTypes.func,
-  href: PropTypes.string,
-};
+// displayName is necessary for children identification in Dropdown
+DropdownItem.displayName = 'Dropdown.Item';

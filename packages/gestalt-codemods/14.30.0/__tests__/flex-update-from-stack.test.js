@@ -1,10 +1,10 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
-jest.mock('../flex-update-from-stack', () => {
-  return Object.assign(jest.requireActual('../flex-update-from-stack'), {
+jest.mock('../flex-update-from-stack', () =>
+  Object.assign(jest.requireActual('../flex-update-from-stack'), {
     parser: 'flow',
-  });
-});
+  }),
+);
 
 describe('flex-update-from-stack', () => {
   ['flex-update-from-stack'].forEach((test) => {

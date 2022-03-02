@@ -2,7 +2,7 @@
 
 exports[`Video with callbacks 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -47,13 +47,20 @@ exports[`Video with callbacks 1`] = `
     <video
       autoPlay={false}
       className="video"
+      disableRemotePlayback={false}
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
       onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
       onTimeUpdate={[Function]}
+      onWaiting={[Function]}
       preload="auto"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     >
@@ -68,7 +75,7 @@ exports[`Video with callbacks 1`] = `
 
 exports[`Video with children 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -113,13 +120,20 @@ exports[`Video with children 1`] = `
     <video
       autoPlay={false}
       className="video"
+      disableRemotePlayback={false}
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
       onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
       onTimeUpdate={[Function]}
+      onWaiting={[Function]}
       preload="auto"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     >
@@ -146,8 +160,8 @@ exports[`Video with children 1`] = `
           className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -183,8 +197,8 @@ exports[`Video with children 1`] = `
           className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -221,7 +235,7 @@ exports[`Video with children 1`] = `
         }
       >
         <div
-          className="Text fontSize1 white alignRight fontWeightNormal"
+          className="Text fontSize100 white alignEnd fontWeightNormal"
         >
           00:00
         </div>
@@ -238,6 +252,7 @@ exports[`Video with children 1`] = `
           }
         >
           <div
+            aria-label="Progress bar"
             aria-valuemax={0}
             aria-valuemin="0"
             aria-valuenow={0}
@@ -301,7 +316,7 @@ exports[`Video with children 1`] = `
         }
       >
         <div
-          className="Text fontSize1 white alignRight fontWeightNormal"
+          className="Text fontSize100 white alignEnd fontWeightNormal"
         >
           00:00
         </div>
@@ -314,8 +329,8 @@ exports[`Video with children 1`] = `
           className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={[Function]}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -350,7 +365,7 @@ exports[`Video with children 1`] = `
 
 exports[`Video with crossOrigin 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -396,13 +411,20 @@ exports[`Video with crossOrigin 1`] = `
       autoPlay={false}
       className="video"
       crossOrigin="anonymous"
+      disableRemotePlayback={false}
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
       onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
       onTimeUpdate={[Function]}
+      onWaiting={[Function]}
       preload="auto"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     >
@@ -417,7 +439,7 @@ exports[`Video with crossOrigin 1`] = `
 
 exports[`Video with media attributes 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -462,14 +484,21 @@ exports[`Video with media attributes 1`] = `
     <video
       autoPlay={false}
       className="video"
+      disableRemotePlayback={false}
       loop={true}
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
       onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
       onTimeUpdate={[Function]}
+      onWaiting={[Function]}
       preload="metadata"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     >
@@ -484,7 +513,7 @@ exports[`Video with media attributes 1`] = `
 
 exports[`Video with multiple sources 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -529,13 +558,20 @@ exports[`Video with multiple sources 1`] = `
     <video
       autoPlay={false}
       className="video"
+      disableRemotePlayback={false}
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
       onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
       onTimeUpdate={[Function]}
+      onWaiting={[Function]}
       preload="auto"
     >
       <source
@@ -557,7 +593,7 @@ exports[`Video with multiple sources 1`] = `
 
 exports[`Video with objectFit 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -602,18 +638,25 @@ exports[`Video with objectFit 1`] = `
     <video
       autoPlay={false}
       className="video"
+      disableRemotePlayback={false}
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
       onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
       onTimeUpdate={[Function]}
+      onWaiting={[Function]}
       preload="auto"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
       style={
         Object {
-          "object-fit": "contain",
+          "objectFit": "contain",
         }
       }
     >
@@ -628,7 +671,7 @@ exports[`Video with objectFit 1`] = `
 
 exports[`Video with source 1`] = `
 <div
-  className="player"
+  className="player blackBg"
   style={
     Object {
       "height": 0,
@@ -673,13 +716,20 @@ exports[`Video with source 1`] = `
     <video
       autoPlay={false}
       className="video"
+      disableRemotePlayback={false}
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
       onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
       onTimeUpdate={[Function]}
+      onWaiting={[Function]}
       preload="auto"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     >

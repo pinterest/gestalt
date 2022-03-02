@@ -86,6 +86,7 @@ import heart from './heart.svg';
 import heartOutline from './heart-outline.svg';
 import heartBroken from './heart-broken.svg';
 import history from './history.svg';
+import ideaPin from './idea-pin.svg';
 import impressum from './impressum.svg';
 import infoCircle from './info-circle.svg';
 import key from './key.svg';
@@ -142,7 +143,6 @@ import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
-import storyPin from './story-pin.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
 import terms from './terms.svg';
@@ -263,6 +263,7 @@ const icons = {
   'heart-outline': heartOutline,
   'heart-broken': heartBroken,
   history,
+  'idea-pin': ideaPin,
   impressum,
   'info-circle': infoCircle,
   key,
@@ -318,7 +319,6 @@ const icons = {
   'speech-ellipsis': speechEllipsis,
   star,
   'star-half': starHalf,
-  'story-pin': storyPin,
   'switch-account': switchAccount,
   tag,
   terms,

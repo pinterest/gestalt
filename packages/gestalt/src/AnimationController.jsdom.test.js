@@ -1,12 +1,11 @@
 // @flow strict
-import React from 'react';
 import { fireEvent, getNodeText, render } from '@testing-library/react';
 import AnimationController, { useAnimation } from './AnimationController.js';
 import * as useReducedMotionHook from './useReducedMotion.js'; // eslint-disable-line import/no-namespace
 
 jest.mock('./useReducedMotion.js');
 
-const AnimatedComponent = ({ onDismissStart }: {| onDismissStart: () => void |}) => {
+function AnimatedComponent({ onDismissStart }: {| onDismissStart: () => void |}) {
   const { animationState, onAnimationEnd } = useAnimation();
 
   return (
@@ -19,7 +18,7 @@ const AnimatedComponent = ({ onDismissStart }: {| onDismissStart: () => void |})
       {animationState}
     </button>
   );
-};
+}
 
 describe('AnimationController', () => {
   const useReducedMotionMock = jest.spyOn(useReducedMotionHook, 'default');

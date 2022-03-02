@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import { fireEvent, render } from '@testing-library/react';
 import Tooltip from './Tooltip.js';
@@ -22,7 +21,7 @@ test('Tooltip renders the link when hovered', () => {
     <Tooltip
       link={
         <Link href="https://pinterest.com" target="blank">
-          <Text color="white" size="sm" weight="bold">
+          <Text color="white" size="100" weight="bold">
             Learn more
           </Text>
         </Link>

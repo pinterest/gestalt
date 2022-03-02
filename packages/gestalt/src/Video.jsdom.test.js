@@ -1,6 +1,5 @@
 // @flow strict
-import React from 'react';
-import { render } from '@testing-library/react';
+import { getByLabelText, render } from '@testing-library/react';
 import Video from './Video.js';
 
 const A11Y_LABELS = Object.freeze({
@@ -9,6 +8,7 @@ const A11Y_LABELS = Object.freeze({
   accessibilityMuteLabel: 'Mute',
   accessibilityPauseLabel: 'Pause',
   accessibilityPlayLabel: 'Play',
+  accessibilityProgressBarLabel: 'Progress bar',
   accessibilityUnmuteLabel: 'Unmute',
 });
 
@@ -40,7 +40,7 @@ describe('Video loading', () => {
       src: [
         {
           type: 'video/mp4',
-          src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+          src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
         },
       ],
     };
@@ -63,7 +63,7 @@ describe('Video loading', () => {
     const { container, rerender } = render(<Video {...props} />);
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
-    rerender(<Video {...props} src="http://media.w3.org/2010/05/bunny/movie.mp4" />);
+    rerender(<Video {...props} src="https://media.w3.org/2010/05/bunny/movie.mp4" />);
     expect(spy).toHaveBeenCalled();
   });
 
@@ -84,7 +84,7 @@ describe('Video loading', () => {
         src={[
           {
             type: 'video/mp4',
-            src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+            src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
           },
         ]}
       />,
@@ -100,7 +100,7 @@ describe('Video loading', () => {
       src: [
         {
           type: 'video/mp4',
-          src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+          src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
         },
       ],
     };
@@ -134,7 +134,7 @@ describe('Video loading', () => {
         src={[
           {
             type: 'video/mp4',
-            src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+            src: 'https://media.w3.org/2010/05/bunny/movie.mp4',
           },
         ]}
       />,
@@ -174,5 +174,59 @@ describe('Video loading', () => {
       />,
     );
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('DisableRemotePlayback is set on <video />', () => {
+    const props = {
+      ...A11Y_LABELS,
+      aspectRatio: 1,
+      captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+        },
+      ],
+      disableRemotePlayback: true,
+    };
+
+    const { container } = render(<Video {...props} />);
+    expect(container.querySelector('video').attributes.disableremoteplayback).toBeDefined();
+  });
+
+  it('DisableRemotePlayback is not set on <video />', () => {
+    const props = {
+      ...A11Y_LABELS,
+      aspectRatio: 1,
+      captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+        },
+      ],
+      disableRemotePlayback: false,
+    };
+
+    const { container } = render(<Video {...props} />);
+    expect(container.querySelector('video').attributes.disableremoteplayback).toBeUndefined();
+  });
+
+  it('Progress bar label is set', () => {
+    const props = {
+      ...A11Y_LABELS,
+      aspectRatio: 1,
+      captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
+      controls: true,
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+        },
+      ],
+    };
+
+    const { container } = render(<Video {...props} />);
+    expect(getByLabelText(container, 'Progress bar')).toBeDefined();
   });
 });

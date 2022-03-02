@@ -1,9 +1,10 @@
 .textArea {
   composes: borderBox from "./Layout.css";
-  composes: Text fontSize3 from "./Text.css";
+  composes: Text from "./Text.css";
+  composes: fontSize300 from "./Typography.css";
   composes: xsCol12 from "./Column.css";
   line-height: 1.5;
-  padding: calc(var(--g-boint) * 2) calc(var(--g-boint) * 4);
+  padding: var(--space-200) var(--space-300);
   resize: none;
 }
 
@@ -13,7 +14,8 @@
 
 .unstyledTextArea, .textAreaSpacer {
   composes: unstyled from "./FormElement.css";
-  composes: Text fontSize3 from "./Text.css";
+  composes: Text from "./Text.css";
+  composes: fontSize300 from "./Typography.css";
   line-height: 1.5;
   resize: none;
 }
@@ -21,7 +23,7 @@
 .unstyledTextArea {
   composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
   height: 100%;
-  padding: var(--g-boint) calc(var(--g-boint) * 2);
+  padding: var(--space-100) var(--space-200);
   width: 100%;
 }
 
@@ -30,16 +32,16 @@
 }
 
 .textAreaSpacer {
-  padding: var(--g-boint) 0;
+  padding: var(--space-100) var(--space-0);
   visibility: hidden;
   word-break: break-word;
 }
 
 .textAreaWrapper {
   align-content: flex-start;
-  border-radius: calc(var(--g-boint) * 2);
+  border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
-  padding-bottom: var(--g-boint);
+  padding-bottom: var(--space-100);
 }

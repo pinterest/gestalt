@@ -5,33 +5,51 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* font size */
+
+.fontSize100 {
+  font-size: var(--font-size-100);
+}
+
+.fontSize200 {
+  font-size: var(--font-size-200);
+}
+
+.fontSize300 {
+  font-size: var(--font-size-300);
+}
+
+.fontSize400 {
+  font-size: var(--font-size-400);
+}
+
+.fontSize500 {
+  font-size: var(--font-size-500);
+}
+
+.fontSize600 {
+  font-size: var(--font-size-600);
+}
+
 /* fonts */
 
 .sansSerif {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-default-latin);
 }
 
 :lang(ja) .sansSerif {
-  font-family: "SF Pro JP", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
-    "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3",
-    "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-default-japanese);
   quotes: "「" "」";
 }
 
 /* font weight */
 
 .fontWeightNormal {
-  font-weight: normal;
+  font-weight: var(--font-weight-normal);
 }
 
 .fontWeightBold {
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 /* emphasis */
@@ -73,20 +91,16 @@
 
 /* alignment */
 
-html:not([dir="rtl"]) .alignLeft {
+html:not([dir="rtl"]) .alignStart,
+html[dir="rtl"] .alignEnd,
+.alignForceLeft {
   text-align: left;
 }
 
-html[dir="rtl"] .alignLeft {
+html:not([dir="rtl"]) .alignEnd,
+html[dir="rtl"] .alignStart,
+.alignForceRight {
   text-align: right;
-}
-
-html:not([dir="rtl"]) .alignRight {
-  text-align: right;
-}
-
-html[dir="rtl"] .alignRight {
-  text-align: left;
 }
 
 .alignCenter {
@@ -95,4 +109,12 @@ html[dir="rtl"] .alignRight {
 
 .alignJustify {
   text-align: justify;
+}
+
+.lineClamp {
+  -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
+  display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-word;
 }

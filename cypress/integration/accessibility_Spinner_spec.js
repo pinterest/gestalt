@@ -1,6 +1,6 @@
 describe('Spinner Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Spinner');
+    cy.visit('/spinner');
     cy.injectAxe();
   });
 

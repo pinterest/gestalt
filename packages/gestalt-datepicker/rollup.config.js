@@ -1,5 +1,5 @@
-// eslint-disable-next-line flowtype/require-valid-file-annotation
-import plugins from '../gestalt-core/build.js'; // eslint-disable-line import/no-relative-parent-imports
+// eslint-disable-next-line flowtype/require-valid-file-annotation, import/no-relative-parent-imports, import/no-relative-packages
+import plugins from '../gestalt-core/build.js';
 
 const rollupConfig = {
   input: 'src/index.js',
@@ -11,7 +11,6 @@ const rollupConfig = {
       exports: 'named',
       globals: {
         react: 'React',
-        'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
@@ -26,7 +25,6 @@ const rollupConfig = {
       exports: 'named',
       globals: {
         react: 'React',
-        'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
@@ -35,14 +33,7 @@ const rollupConfig = {
       sourcemap: 'inline',
     },
   ],
-  external: [
-    'react',
-    'prop-types',
-    'classnames/bind',
-    'classnames',
-    'react-dom',
-    'react-datepicker',
-  ],
+  external: ['react', 'classnames/bind', 'classnames', 'react-dom', 'react-datepicker'],
   plugins: plugins('gestalt-datepicker'),
 };
 

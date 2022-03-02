@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import VideoControls from './VideoControls.js';
 
@@ -13,6 +12,7 @@ test('VideoControls for single digit seconds', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={5}
@@ -43,6 +43,7 @@ test('VideoControls for double digit seconds', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={15}
@@ -73,6 +74,7 @@ test('VideoControls for single digit minutes', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={65}
@@ -103,6 +105,7 @@ test('VideoControls for double digit minutes', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={905}
@@ -133,6 +136,7 @@ test('VideoControls rounds for partial seconds', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}

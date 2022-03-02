@@ -1,6 +1,5 @@
 /**
  * @fileoverview Require specific props when using an icon with Button
- * @author Ryan James <rjames@pinterest.com>
  *
  * Gestalt is more permissive than PDS recommends in adding icons to Buttons.
  * Buttons using iconEnd must use:
@@ -10,11 +9,16 @@
  */
 
 // @flow strict
-const rule = {
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+
+const rule: ESLintRule = {
   meta: {
+    type: 'suggestion',
     docs: {
       description: 'Button icon restrictions',
+      category: 'Gestalt restrictions',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltbutton-icon-restrictions',
     },
     schema: [
       {
@@ -24,8 +28,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
     let localIdentifierName;
     const componentName = 'Button';

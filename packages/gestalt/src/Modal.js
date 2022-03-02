@@ -1,6 +1,5 @@
 // @flow strict
-import React, { useCallback, forwardRef, useState, useEffect, useRef, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node, useCallback, useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
 import Box from './Box.js';
@@ -10,21 +9,60 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContainer } from './ScrollBoundaryContainer.js';
+import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
 import modalStyles from './Modal.css';
 
 type Props = {|
-  _dangerousScrollableExperimentEnabled?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
+  /**
+   * Temporary undocumented prop to disable ScrollBoundaryContainer.
+   */
+  _dangerouslyDisableScrollBoundaryContainer?: boolean,
+  /**
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/modal#Accessibility) for more info.
+   */
   accessibilityModalLabel: string,
-  align?: 'left' | 'center',
+  /**
+   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
+   */
+  align?: 'start' | 'center',
+  /**
+   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
+   */
   children?: Node,
+  /**
+   * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/modal#Preventing-close-on-outside-click) for more info.
+   */
   closeOnOutsideClick?: boolean,
+  /**
+   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
+   */
   footer?: Node,
+  /**
+   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
+   */
   heading?: Node,
+  /**
+   * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
+   */
   onDismiss: () => void,
+  /**
+   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/modal#Role) for more info.
+   *
+   * Default: 'dialog'
+   */
   role?: 'alertdialog' | 'dialog',
+  /**
+   * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/modal#Sizes) for more info.
+   *
+   * sm: `540px` | md: `720px` | lg: `900px` | number
+   *
+   * Default: 'sm'
+   */
   size?: 'sm' | 'md' | 'lg' | number,
+  /**
+   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/modal#Sub-heading) for more info.
+   */
   subHeading?: string,
 |};
 
@@ -39,13 +77,13 @@ function Header({
   heading,
   subHeading,
 }: {|
-  align: 'left' | 'center',
+  align: 'start' | 'center',
   heading: string,
   subHeading?: string,
 |}) {
   return (
-    <Box justifyContent={align === 'left' ? 'start' : 'center'} padding={8}>
-      <Heading size="md" accessibilityLevel={1} align={align}>
+    <Box justifyContent={align} padding={8}>
+      <Heading size="500" accessibilityLevel={1} align={align}>
         {heading}
       </Heading>
       {subHeading && (
@@ -57,27 +95,25 @@ function Header({
   );
 }
 
-const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
-  Props,
-  HTMLDivElement,
->(function Modal(props, ref): Node {
-  const {
-    _dangerousScrollableExperimentEnabled = false,
-    accessibilityModalLabel,
-    align = 'center',
-    children,
-    closeOnOutsideClick = true,
-    onDismiss,
-    footer,
-    heading,
-    role = 'dialog',
-    size = 'sm',
-    subHeading = undefined,
-  } = props;
-
+/**
+ * A [Modal](https://gestalt.pinterest.systems/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. The most common example of Modal is confirming an action the user has taken.
+ */
+export default function Modal({
+  _dangerouslyDisableScrollBoundaryContainer = false,
+  accessibilityModalLabel,
+  align = 'center',
+  children,
+  closeOnOutsideClick = true,
+  onDismiss,
+  footer,
+  heading,
+  role = 'dialog',
+  size = 'sm',
+  subHeading,
+}: Props): Node {
   const [showTopShadow, setShowTopShadow] = useState(false);
   const [showBottomShadow, setShowBottomShadow] = useState(false);
-  const contentRef = useRef<?HTMLDivElement>(null);
+  const contentRef = useRef<?HTMLElement>(null);
 
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
@@ -132,10 +168,9 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
               className={classnames(modalStyles.wrapper, focusStyles.hideOutline)}
               tabIndex={-1}
               style={{ width }}
-              ref={ref}
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
-                {heading && (
+                {Boolean(heading) && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
                       [modalStyles.shadow]: showTopShadow,
@@ -148,18 +183,19 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     )}
                   </div>
                 )}
-                {_dangerousScrollableExperimentEnabled ? (
+                {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to Sheet */}
+                {_dangerouslyDisableScrollBoundaryContainer ? (
+                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
+                    {children}
+                  </Box>
+                ) : (
                   <ScrollBoundaryContainerProvider>
                     <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
                       {children}
                     </InternalScrollBoundaryContainer>
                   </ScrollBoundaryContainerProvider>
-                ) : (
-                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
-                    {children}
-                  </Box>
                 )}
-                {footer && (
+                {Boolean(footer) && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
                       [modalStyles.shadow]: showBottomShadow,
@@ -175,23 +211,4 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
       </TrapFocusBehavior>
     </StopScrollBehavior>
   );
-});
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-ModalWithForwardRef.propTypes = {
-  _dangerousScrollableExperimentEnabled: PropTypes.bool,
-  accessibilityModalLabel: PropTypes.string.isRequired,
-  align: PropTypes.oneOf(['left', 'center']),
-  children: PropTypes.node,
-  closeOnOutsideClick: PropTypes.bool,
-  footer: PropTypes.node,
-  heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onDismiss: PropTypes.func,
-  role: PropTypes.oneOf(['alertdialog', 'dialog']),
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['sm', 'md', 'lg'])]),
-  subHeading: PropTypes.string,
-};
-
-ModalWithForwardRef.displayName = 'Modal';
-
-export default ModalWithForwardRef;
+}

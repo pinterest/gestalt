@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Video from './Video.js';
 
@@ -9,6 +8,7 @@ const A11Y_LABELS = Object.freeze({
   accessibilityMuteLabel: 'Mute',
   accessibilityPauseLabel: 'Pause',
   accessibilityPlayLabel: 'Play',
+  accessibilityProgressBarLabel: 'Progress bar',
   accessibilityUnmuteLabel: 'Unmute',
 });
 

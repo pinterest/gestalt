@@ -1,12 +1,13 @@
 /**
  * @fileoverview Disallow marginLeft/marginRight on Box
- * @author Vincent Tian <vincent@pinterest.com>
  *
  * In order to have consistent usage of marginLeft/marginRight on Box in pinboard,
  * we update all of them to marginStart/marginEnd
  */
 
 // @flow strict
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+
 const disallowedProps = [
   'marginLeft',
   'smMarginLeft',
@@ -19,14 +20,17 @@ const disallowedProps = [
 ];
 
 export const errorMessage =
-  'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';
+  'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.pinterest.systems/Box';
 
-const rule = {
+const rule: ESLintRule = {
   meta: {
+    type: 'suggestion',
     docs: {
       description:
         'Enforce usage of Right-to-Left (RTL)-compliant marginStart/marginEnd over marginLeft/marginRight',
+      category: 'Deprecated ESlint rules',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-marginleft-marginright',
     },
     schema: [
       {
@@ -36,8 +40,7 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
 
     return {
@@ -45,9 +48,7 @@ const rule = {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        importedComponent = decl.specifiers.some((node) => {
-          return node.imported.name === 'Box';
-        });
+        importedComponent = decl.specifiers.some((node) => node.imported.name === 'Box');
       },
       JSXOpeningElement(node) {
         if (!importedComponent) {

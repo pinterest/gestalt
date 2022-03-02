@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Button from './Button.js';
 import Icon from './Icon.js';
@@ -7,29 +6,31 @@ import Icon from './Icon.js';
 describe('<Button />', () => {
   test('Custom color', () => {
     const instance = create(<Button color="transparent" text="Hello World" />).root;
-    expect(instance.find((element) => element.type === 'button').props.className).toContain(
+    expect(instance.find((element) => element.type === 'div').props.className).toContain(
       'transparent',
     );
   });
   test('Disabled state', () => {
     const instance = create(<Button color="red" disabled text="Hello World" />).root;
-    const { className } = instance.find((element) => element.type === 'button').props;
+    const { className } = instance.find((element) => element.type === 'div').props;
     expect(className).toContain('disabled');
     expect(className).not.toContain('red');
   });
 
   test('iconEnd', () => {
-    const instance = create(<Button color="white" iconEnd="arrow-down" inline text="Menu" />).root;
+    const instance = create(<Button color="white" iconEnd="arrow-down" text="Menu" />).root;
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
   test('Custom white text color on transparent background', () => {
     const instance = create(<Button color="transparentWhiteText" text="Hello World" />).root;
-    expect(instance.find((element) => element.type === 'div').props.className).toContain('white');
+    expect(instance.findAll((element) => element.type === 'div')[1].props.className).toContain(
+      'white',
+    );
   });
 
   test('Default darkGray text color on transparent background', () => {
     const instance = create(<Button color="transparent" text="Hello World" />).root;
-    expect(instance.find((element) => element.type === 'div').props.className).toContain(
+    expect(instance.findAll((element) => element.type === 'div')[1].props.className).toContain(
       'darkGray',
     );
   });

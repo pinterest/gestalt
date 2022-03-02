@@ -17,16 +17,15 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
         >
           <div
             class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+            id="ex-1"
+            role="menu"
             style="max-width: 360px;"
           >
             <div
               class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
-              id="ex-1"
-              role="menu"
             >
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
+                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-0"
                 role="menuitem"
                 rounding="2"
@@ -39,21 +38,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap0 flexGrow xsDirectionColumn"
+                      class="Flex columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="FlexItem"
                       >
-                        <span
-                          class="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-                          title="Item 1"
+                        <div
+                          class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
-                          Item 1
-                        </span>
+                          <span
+                            class="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                            title="Item 1"
+                          >
+                            Item 1
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
+                      class="box itemsCenter justifyCenter xsDisplayFlex"
                     >
                       <div
                         class="box"
@@ -64,8 +67,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
+                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-1"
                 role="menuitem"
                 rounding="2"
@@ -78,21 +80,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap0 flexGrow xsDirectionColumn"
+                      class="Flex columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="FlexItem"
                       >
-                        <span
-                          class="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-                          title="Item 2 with a really long, detailed, complex name"
+                        <div
+                          class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
-                          Item 2 with a really long, detailed, complex name
-                        </span>
+                          <span
+                            class="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                            title="Item 2 with a really long, detailed, complex name"
+                          >
+                            Item 2 with a really long, detailed, complex name
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
+                      class="box itemsCenter justifyCenter xsDisplayFlex"
                     >
                       <div
                         class="box"
@@ -103,8 +109,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
+                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-2"
                 role="menuitem"
                 rounding="2"
@@ -114,7 +119,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
                 >
                   <a
-                    class="link hideOutline tapTransition block rounding0 accessibilityOutline"
+                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
                     href="https://pinterest.com"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -123,21 +128,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       class="Flex rowGap0 xsDirectionRow"
                     >
                       <div
-                        class="Flex columnGap0 flexGrow xsDirectionColumn"
+                        class="Flex columnGap1 flexGrow xsDirectionColumn"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="FlexItem"
                         >
-                          <span
-                            class="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-                            title="External Item 3 with a really long, detailed, complex name"
+                          <div
+                            class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
-                            External Item 3 with a really long, detailed, complex name
-                          </span>
+                            <span
+                              class="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                              title="External Item 3 with a really long, detailed, complex name"
+                            >
+                              External Item 3 with a really long, detailed, complex name
+                            </span>
+                          </div>
                         </div>
                       </div>
                       <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayNone"
+                        class="box itemsCenter justifyCenter xsDisplayNone"
                       >
                         <div
                           class="box"
@@ -165,8 +174,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
+                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-3"
                 role="menuitem"
                 rounding="2"
@@ -179,35 +187,39 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap0 flexGrow xsDirectionColumn"
+                      class="Flex columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="FlexItem"
                       >
-                        <span
-                          class="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-                          title="Item 4"
-                        >
-                          Item 4
-                        </span>
                         <div
-                          class="box marginStart2 marginTop1"
+                          class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
-                          <div
-                            class="box xsDisplayVisuallyHidden"
-                          >
-                            , 
-                          </div>
                           <span
-                            class="Badge middle blueBg"
+                            class="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                            title="Item 4"
                           >
-                            New
+                            Item 4
                           </span>
+                          <div
+                            class="box marginStart2 marginTop1"
+                          >
+                            <div
+                              class="box xsDisplayVisuallyHidden"
+                            >
+                              , 
+                            </div>
+                            <div
+                              class="Badge middle blueBg"
+                            >
+                              New
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
+                      class="box itemsCenter justifyCenter xsDisplayFlex"
                     >
                       <div
                         class="box"
@@ -218,8 +230,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
+                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-4"
                 role="menuitem"
                 rounding="2"
@@ -229,7 +240,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
                 >
                   <a
-                    class="link hideOutline tapTransition block rounding0 accessibilityOutline"
+                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
                     href="https://pinterest.com"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -238,35 +249,39 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       class="Flex rowGap0 xsDirectionRow"
                     >
                       <div
-                        class="Flex columnGap0 flexGrow xsDirectionColumn"
+                        class="Flex columnGap1 flexGrow xsDirectionColumn"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="FlexItem"
                         >
-                          <span
-                            class="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-                            title="Item 5 with a really long, detailed name"
-                          >
-                            Item 5 with a really long, detailed name
-                          </span>
                           <div
-                            class="box marginStart2 marginTop1"
+                            class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
-                            <div
-                              class="box xsDisplayVisuallyHidden"
-                            >
-                              , 
-                            </div>
                             <span
-                              class="Badge middle blueBg"
+                              class="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                              title="Item 5 with a really long, detailed name"
                             >
-                              New
+                              Item 5 with a really long, detailed name
                             </span>
+                            <div
+                              class="box marginStart2 marginTop1"
+                            >
+                              <div
+                                class="box xsDisplayVisuallyHidden"
+                              >
+                                , 
+                              </div>
+                              <div
+                                class="Badge middle blueBg"
+                              >
+                                New
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayNone"
+                        class="box itemsCenter justifyCenter xsDisplayNone"
                       >
                         <div
                           class="box"
@@ -294,8 +309,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 </div>
               </div>
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
+                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
                 id="ex-1-item-5"
                 role="menuitem"
                 rounding="2"
@@ -305,7 +319,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
                 >
                   <a
-                    class="link hideOutline tapTransition block rounding0 accessibilityOutline"
+                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
                     href="https://pinterest.com"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -314,21 +328,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       class="Flex rowGap0 xsDirectionRow"
                     >
                       <div
-                        class="Flex columnGap0 flexGrow xsDirectionColumn"
+                        class="Flex columnGap1 flexGrow xsDirectionColumn"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="FlexItem"
                         >
-                          <span
-                            class="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-                            title="Item 6"
+                          <div
+                            class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
-                            Item 6
-                          </span>
+                            <span
+                              class="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                              title="Item 6"
+                            >
+                              Item 6
+                            </span>
+                          </div>
                         </div>
                       </div>
                       <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayNone"
+                        class="box itemsCenter justifyCenter xsDisplayNone"
                       >
                         <div
                           class="box"

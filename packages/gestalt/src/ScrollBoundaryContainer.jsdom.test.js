@@ -1,5 +1,5 @@
 // @flow strict
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 import { render } from '@testing-library/react';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
@@ -11,7 +11,7 @@ describe('ScrollBoundaryContainer', () => {
 
     const { getByTestId } = render(
       <ScrollBoundaryContainer overflow="scroll">
-        <Box data-testid="childrenId" ref={ref} />
+        <Box data-test-id="childrenId" ref={ref} />
       </ScrollBoundaryContainer>,
     );
 
@@ -21,13 +21,13 @@ describe('ScrollBoundaryContainer', () => {
   it('passes default ScrollBoundaryContainer props through context correctly', () => {
     const scrollBoundaryContainer = createRef();
 
-    const TestBox = () => {
+    function TestBox() {
       const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
 
       scrollBoundaryContainer.current = scrollBoundaryContainerRef;
 
       return <Box />;
-    };
+    }
 
     render(
       <ScrollBoundaryContainer>
@@ -47,13 +47,13 @@ describe('ScrollBoundaryContainer', () => {
   it('passes custom ScrollBoundaryContainer props through context correctly', () => {
     const scrollBoundaryContainer = createRef();
 
-    const TestBox = () => {
+    function TestBox() {
       const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
 
       scrollBoundaryContainer.current = scrollBoundaryContainerRef;
 
       return <Box />;
-    };
+    }
 
     render(
       <ScrollBoundaryContainer height={100} overflow="scroll">

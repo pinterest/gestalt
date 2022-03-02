@@ -1,6 +1,6 @@
 describe('Container Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Container');
+    cy.visit('/container');
     cy.injectAxe();
   });
 

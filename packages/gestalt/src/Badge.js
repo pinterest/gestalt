@@ -1,29 +1,36 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+
+type Position = 'middle' | 'top';
 
 type Props = {|
-  position?: 'middle' | 'top',
+  /**
+   * Badge position relative to its parent element.
+   */
+  position?: Position,
+  /**
+   * Text displayed inside of the Badge. Sentence case is preferred.
+   */
   text: string,
 |};
 
-export default function Badge(props: Props): Node {
-  const { position = 'middle', text } = props;
+/**
+ * [Badge](https://gestalt.pinterest.systems/badge) is used to label text.
+ *
+ * ![Badge light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Badge%20%230.png)
+ * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Badge-dark%20%230.png)
+ *
+ */
+export default function Badge({ position = 'middle', text }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
 
   const cs = cx(styles.Badge, styles[position], colors.blueBg, {
     [colors.darkGray]: colorSchemeName === 'darkMode',
   });
 
-  return <span className={cs}>{text}</span>;
+  return <div className={cs}>{text}</div>;
 }
-
-Badge.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  position: PropTypes.oneOf(['middle', 'top']),
-  text: PropTypes.string.isRequired,
-};

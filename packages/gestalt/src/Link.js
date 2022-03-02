@@ -1,51 +1,106 @@
 // @flow strict
-import React, {
+import {
   forwardRef,
   useImperativeHandle,
   useRef,
   type AbstractComponent,
   type Node,
   type Element,
+  type Ref,
 } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { useOnNavigation } from './contexts/OnNavigation.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import getRoundingClassName from './getRoundingClassName.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
+import layoutStyles from './Layout.css';
+
+type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
 type Props = {|
+  /**
+   * Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessibility) for more information.
+   */
   accessibilityLabel?: string,
+  /**
+   * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
+   */
   accessibilitySelected?: boolean,
+  /**
+   * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Link and Text](https://gestalt.pinterest.systems/link#Link-and-Text) variant for more information.
+   */
   children?: Node,
+  /**
+   * When `underline` is supplied, Link's text is underlined on hover. See the [tapStyle and hoverStyle](https://gestalt.pinterest.systems/link#tapStyle-and-hoverStyle) variant for more information.
+   */
   hoverStyle?: 'none' | 'underline',
+  /**
+   * The URL that the hyperlink points to.
+   */
   href: string,
+  /**
+   * Unique id attribute of the anchor tag.
+   */
   id?: string,
+  /**
+   * Properly positions Link relative to an inline element, such as [Text](https://gestalt.pinterest.systems/text), using the inline property.
+   */
   inline?: boolean,
-  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
-  >,
-  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
+  /**
+   * Callback triggered when when the element loses focus.
+   */
+  onBlur?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
+  /**
+   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) to learn more about link navigation.
+   */
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  /**
+   * Callback triggered when the element gains focus.
+   */
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
+  /**
+   * Ref that is forwarded to the underlying anchor element.
+   */
+  ref?: Ref<'a'>,
+  /**
+   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them.
+   */
   rel?: 'none' | 'nofollow',
+  /**
+   * When supplied, Link acts a tab. See the [Accessible Tab Link](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
+   */
   role?: 'tab',
+  /**
+   * Sets a border radius for Link. Select a rounding option that aligns with its children.
+   */
   rounding?: Rounding,
+  /**
+   * When `compress` is supplied, Link is visually compressed on click. See the [tapStyle and hoverStyle](https://gestalt.pinterest.systems/link#tapStyle-and-hoverStyle) variant for more information.
+   */
   tapStyle?: 'none' | 'compress',
+  /**
+   * Define the frame or window to open the anchor defined on href:
+- 'null' opens the anchor in the same window.
+- 'blank' opens the anchor in a new window.
+- 'self' opens an anchor in the same frame.
+   */
   target?: null | 'self' | 'blank',
-  // private props to be internally used, therefore, not documented
-  disabled?: boolean,
 |};
 
+/**
+ * The [Link](https://gestalt.pinterest.systems/link) component allows you to show links on the page and open them in a new window.
+ */
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
   HTMLAnchorElement,
->(function Link(props, ref): Element<'a'> {
-  const {
+>(function Link(
+  {
     accessibilityLabel,
     accessibilitySelected,
     children,
@@ -61,9 +116,9 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     hoverStyle = 'underline',
     tapStyle = 'none',
     target = null,
-    disabled,
-  } = props;
-
+  }: Props,
+  ref,
+): Element<'a'> {
   const innerRef = useRef(null);
 
   useImperativeHandle(ref, () => innerRef.current);
@@ -89,21 +144,27 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     styles.link,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
-    inline ? styles.inlineBlock : styles.block,
     getRoundingClassName(rounding),
     {
+      [layoutStyles.inlineBlock]: inline,
+      [layoutStyles.block]: !inline,
       [styles.hoverUnderline]: hoverStyle === 'underline',
       [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
   );
 
-  // useOnNavigation is only accessible with Gestalt Provider
+  // useOnNavigation is only accessible with Gestalt OnLinkNavigationProvider
   // and when onNavigation prop is passed to it
-  let defaultOnNavigation = useOnNavigation({ href, target });
+  const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
-  const disableOnNavigation = () => {
-    defaultOnNavigation = undefined;
+  const handleKeyPress = (event) => {
+    // Check to see if space or enter were pressed
+    if (onClick && keyPressShouldTriggerTap(event)) {
+      // Prevent the default action to stop scrolling when space is pressed
+      event.preventDefault();
+      onClick({ event, dangerouslyDisableOnNavigation: () => {} });
+    }
   };
 
   return (
@@ -111,7 +172,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       aria-label={accessibilityLabel}
       aria-selected={accessibilitySelected}
       className={className}
-      href={disabled ? undefined : href}
+      href={href}
       id={id}
       onBlur={(event) => {
         handleBlur();
@@ -120,13 +181,18 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         }
       }}
       onClick={(event) => {
+        let defaultOnNavigationIsEnabled = true;
+        const dangerouslyDisableOnNavigation = () => {
+          defaultOnNavigationIsEnabled = false;
+        };
+
         if (onClick) {
           onClick({
             event,
-            disableOnNavigation,
+            dangerouslyDisableOnNavigation,
           });
         }
-        if (defaultOnNavigation) {
+        if (defaultOnNavigation && defaultOnNavigationIsEnabled) {
           defaultOnNavigation({ event });
         }
       }}
@@ -137,14 +203,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onKeyPress={(event) => {
-        // Check to see if space or enter were pressed
-        if (onClick && keyPressShouldTriggerTap(event)) {
-          // Prevent the default action to stop scrolling when space is pressed
-          event.preventDefault();
-          onClick({ event });
-        }
-      }}
+      onKeyPress={handleKeyPress}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
@@ -162,30 +221,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     </a>
   );
 });
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-LinkWithForwardRef.propTypes = {
-  accessibilityLabel: PropTypes.string,
-  accessibilitySelected: PropTypes.bool,
-  children: PropTypes.node,
-  hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
-    'none' | 'underline',
-  >),
-  href: PropTypes.string.isRequired,
-  id: PropTypes.string,
-  inline: PropTypes.bool,
-  onBlur: PropTypes.func,
-  onClick: PropTypes.func,
-  onFocus: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
-  rounding: RoundingPropType,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-  disabled: PropTypes.bool,
-};
 
 LinkWithForwardRef.displayName = 'Link';
 

@@ -1,10 +1,11 @@
 // @flow strict
-import React, { PureComponent, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node, PureComponent } from 'react';
+
 import Box from './Box.js';
 import styles from './Video.css';
 
 type Props = {|
+  accessibilityProgressBarLabel: string,
   currentTime: number,
   duration: number,
   onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
@@ -18,14 +19,6 @@ type State = {|
 
 export default class VideoPlayhead extends PureComponent<Props, State> {
   playhead: ?HTMLDivElement;
-
-  static propTypes = {
-    currentTime: PropTypes.number.isRequired,
-    duration: PropTypes.number.isRequired,
-    onPlayheadDown: PropTypes.func.isRequired,
-    onPlayheadUp: PropTypes.func.isRequired,
-    seek: PropTypes.func.isRequired,
-  };
 
   state: State = {
     seeking: false,
@@ -45,6 +38,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
+  // eslint-disable-next-line class-methods-use-this
   stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => event.stopPropagation();
 
   handleMouseDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
@@ -80,11 +74,12 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   };
 
   render(): Node {
-    const { currentTime, duration } = this.props;
+    const { accessibilityProgressBarLabel, currentTime, duration } = this.props;
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
     return (
       <Box position="relative" display="flex" flex="grow" alignItems="center" height={16}>
         <div
+          aria-label={accessibilityProgressBarLabel}
           aria-valuemax={duration}
           aria-valuemin="0"
           aria-valuenow={currentTime}

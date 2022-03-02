@@ -59,9 +59,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 16
       - name: Setup npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -83,9 +83,22 @@ jobs:
           LABELS: ${{ steps.extract_labels.outputs.labels }}
       - name: Publish to npm
         run: |
-          cd packages/gestalt
+          cd packages/gestalt-design-tokens
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
+          cd ../gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
           cd ../gestalt-datepicker
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
           cd ../eslint-plugin-gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
+      - name: Trigger VSCode Gestalt release
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'pinterest',
+              repo: 'vscode-gestalt',
+              workflow_id: 'publish.yml',
+              ref: 'main'
+            });

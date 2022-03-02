@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import RadioButton from './RadioButton.js';
 import Box from './Box.js';

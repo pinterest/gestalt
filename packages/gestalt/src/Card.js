@@ -1,56 +1,58 @@
 // @flow strict
-import React, { useState, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Card.css';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
+  /**
+   * Used to force the "active" hover state visually.
+   */
   active?: ?boolean,
+  /**
+   *
+   */
   children?: Node,
+  /**
+   * An optional [Image](https://gestalt.pinterest.systems/image) to be displayed at the top of the layout.
+   */
   image?: Node,
-  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  /**
+   * Optional callback fired when the user mouses over Card.
+   */
+  onMouseEnter?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  /**
+   * Optional callback fired when the user away from Card.
+   */
+  onMouseLeave?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
 |};
 
-export default function Card(props: Props): Node {
+/**
+ * [Card](https://gestalt.pinterest.systems/card) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
+ */
+export default function Card({ active, children, image, onMouseEnter, onMouseLeave }: Props): Node {
   const [hovered, setHovered] = useState(false);
-  const { active, children, image, onMouseEnter, onMouseLeave } = props;
 
   const handleMouseEnter = (event) => {
     setHovered(true);
-    if (onMouseEnter) {
-      onMouseEnter({ event });
-    }
+    onMouseEnter?.({ event });
   };
 
   const handleMouseLeave = (event) => {
     setHovered(false);
-    if (onMouseLeave) {
-      onMouseLeave({ event });
-    }
+    onMouseLeave?.({ event });
   };
 
   const classes = classnames(styles.card, {
-    // If, like @chrislloyd, you can't remember Javascript equality rules,
-    // == null checks for `null` or `undefined` and leaves out `false`.
+    // JS equality rules == null checks for `null` or `undefined` and leaves out `false`.
     [styles.hover]: active || (active == null && hovered),
   });
 
   return (
     <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} position="relative">
-      {image && <Box marginBottom={1}>{image}</Box>}
+      {Boolean(image) && <Box marginBottom={1}>{image}</Box>}
       <Box>{children}</Box>
       <div className={classes} />
     </Box>
   );
 }
-
-Card.propTypes = {
-  active: PropTypes.bool,
-  children: PropTypes.node,
-  image: PropTypes.node,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-};

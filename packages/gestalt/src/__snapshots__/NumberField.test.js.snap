@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberField NumberField normal 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      pattern="\\\\d*"
+      type="number"
+    />
+  </div>
+</span>
+`;
+
+exports[`NumberField NumberField with autocomplete 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      autoComplete="on"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      pattern="\\\\d*"
+      type="number"
+    />
+  </div>
+</span>
+`;
+
+exports[`NumberField NumberField with error 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="true"
+      className="textField base enabled errored medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      pattern="\\\\d*"
+      type="number"
+    />
+  </div>
+  <div
+    className="box marginTop2"
+  >
+    <div
+      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
+    >
+      <span
+        className="formErrorMessage"
+        id="test-error"
+      >
+        error message
+      </span>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`NumberField NumberField with name 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      pattern="\\\\d*"
+      type="number"
+    />
+  </div>
+</span>
+`;

@@ -1,13 +1,12 @@
 // @flow strict
 // eslint-disable-next-line max-classes-per-file
-import PropTypes from 'prop-types';
-
-export const UnsafeIndexablePropType = PropTypes.any;
-
 export interface Indexable {
   index(): number;
 }
 
+/**
+ * https://gestalt.pinterest.systems/zindex_classes#FixedZIndex
+ */
 export class FixedZIndex implements Indexable {
   +z: number;
 
@@ -20,7 +19,11 @@ export class FixedZIndex implements Indexable {
   }
 }
 
+/**
+ * https://gestalt.pinterest.systems/zindex_classes#CompositeZIndex
+ */
 export class CompositeZIndex implements Indexable {
+  // eslint-disable-next-line no-use-before-define
   +deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>;
 
   constructor(deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>) {

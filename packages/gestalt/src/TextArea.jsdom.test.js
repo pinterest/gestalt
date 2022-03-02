@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TextArea from './TextArea.js';
 
@@ -79,7 +79,7 @@ describe('TextArea', () => {
   });
 
   it('forwards a ref to <input />', () => {
-    const ref = React.createRef();
+    const ref = createRef();
     render(
       <TextArea
         id="test"

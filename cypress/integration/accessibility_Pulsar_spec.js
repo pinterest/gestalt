@@ -1,6 +1,6 @@
 describe('Pulsar Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Pulsar');
+    cy.visit('/pulsar');
     cy.injectAxe();
   });
 

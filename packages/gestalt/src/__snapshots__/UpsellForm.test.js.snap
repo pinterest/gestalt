@@ -19,19 +19,24 @@ exports[`UpsellForm renders 1`] = `
         className="box marginBottom0 smMarginBottom2"
       >
         <span>
-          <input
-            aria-describedby={null}
-            aria-invalid="false"
-            className="textField base enabled normal medium"
-            disabled={false}
-            id="name"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            placeholder="Name"
-            type="text"
-          />
+          <div
+            className="box relative"
+          >
+            <input
+              aria-describedby={null}
+              aria-invalid="false"
+              className="textField base enabled normal medium truncate"
+              disabled={false}
+              id="name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Name"
+              type="text"
+            />
+          </div>
         </span>
       </div>
     </div>
@@ -40,7 +45,7 @@ exports[`UpsellForm renders 1`] = `
     >
       <button
         aria-label="Submit button"
-        className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+        className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -54,7 +59,7 @@ exports[`UpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Text fontSize3 white alignCenter fontWeightBold"
+          className="Text fontSize300 white alignCenter fontWeightBold"
         >
           Submit
         </div>

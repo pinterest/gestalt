@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import InternalLink from './InternalLink.js';
 
 const Valid = (

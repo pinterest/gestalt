@@ -1,14 +1,19 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node } from 'react';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
 
 type Props = {|
+  /**
+   * The users to be displayed.
+   */
   collaborators: $ReadOnlyArray<{|
     name: string,
     src?: string,
   |}>,
+  /**
+   * md: 48px, lg: 64px. If size is `fit`, AvatarPair will fill 100% of the parent container width.
+   */
   size?: 'md' | 'lg' | 'fit',
 |};
 
@@ -17,6 +22,9 @@ const sizes = {
   lg: 64,
 };
 
+/**
+ * [AvatarPair](https://gestalt.pinterest.systems/avatarpair) is used to display two avatars in an overlapping grouping.
+ */
 export default function AvatarPair({ collaborators, size = 'fit' }: Props): Node {
   const width = size === 'fit' ? '100%' : sizes[size];
   return (
@@ -41,15 +49,3 @@ export default function AvatarPair({ collaborators, size = 'fit' }: Props): Node
     </Box>
   );
 }
-
-AvatarPair.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  collaborators: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      src: PropTypes.string,
-    }),
-  ).isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg', 'fit']),
-};

@@ -1,6 +1,6 @@
 describe('Mask Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Mask');
+    cy.visit('/mask');
     cy.injectAxe();
   });
 

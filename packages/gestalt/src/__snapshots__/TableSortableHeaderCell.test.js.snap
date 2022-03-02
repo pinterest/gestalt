@@ -4,6 +4,12 @@ exports[`renders correctly when active 1`] = `
 <th
   className="th"
   scope="col"
+  style={
+    Object {
+      "left": undefined,
+      "right": undefined,
+    }
+  }
 >
   <div
     className="box xsDisplayInlineBlock"
@@ -13,8 +19,8 @@ exports[`renders correctly when active 1`] = `
       className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
-      onContextMenu={[Function]}
       onFocus={[Function]}
+      onKeyDown={[Function]}
       onKeyPress={[Function]}
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
@@ -63,6 +69,12 @@ exports[`renders correctly when inactive 1`] = `
 <th
   className="th"
   scope="col"
+  style={
+    Object {
+      "left": undefined,
+      "right": undefined,
+    }
+  }
 >
   <div
     className="box xsDisplayInlineBlock"
@@ -72,8 +84,8 @@ exports[`renders correctly when inactive 1`] = `
       className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
-      onContextMenu={[Function]}
       onFocus={[Function]}
+      onKeyDown={[Function]}
       onKeyPress={[Function]}
       onMouseDown={[Function]}
       onMouseEnter={[Function]}

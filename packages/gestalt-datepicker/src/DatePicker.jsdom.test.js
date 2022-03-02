@@ -1,5 +1,5 @@
 // @flow strict-local
-import React from 'react';
+import { useState } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import DatePicker from './DatePicker.js';
 
@@ -48,11 +48,11 @@ describe('DatePicker', () => {
   });
 
   test('opens and closes DatePicker popover correctly', () => {
-    const DatePickerWrap = () => {
-      const [date, setDate] = React.useState(initialDate);
+    function DatePickerWrap() {
+      const [date, setDate] = useState(initialDate);
 
       return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
-    };
+    }
 
     render(<DatePickerWrap />);
 
@@ -79,11 +79,11 @@ describe('DatePicker', () => {
   });
 
   test('accepts entering manual dates', () => {
-    const DatePickerWrap = () => {
-      const [date, setDate] = React.useState(initialDate);
+    function DatePickerWrap() {
+      const [date, setDate] = useState(initialDate);
 
       return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
-    };
+    }
 
     render(<DatePickerWrap />);
 

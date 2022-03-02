@@ -1,6 +1,6 @@
 describe('ComponentName Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ComponentName');
+    cy.visit('/componentname');
     cy.injectAxe();
   });
 

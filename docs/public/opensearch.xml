@@ -2,8 +2,8 @@
   xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Gestalt</ShortName>
   <Description>Gestalt Search</Description>
-  <Url type="text/html" method="get" template="https://gestalt.netlify.app/{searchTerms}"/>
-  <Image width="32" height="32">https://gestalt.netlify.app/pinterest_favicon.png</Image>
+  <Url type="text/html" method="get" template="https://gestalt.pinterest.systems//{searchTerms}"/>
+  <Image width="32" height="32">https://gestalt.pinterest.systems//pinterest_favicon.png</Image>
   <InputEncoding>UTF-8</InputEncoding>
-  <moz:SearchForm>https://gestalt.netlify.app</moz:SearchForm>
+  <moz:SearchForm>https://gestalt.pinterest.systems/</moz:SearchForm>
 </OpenSearchDescription>

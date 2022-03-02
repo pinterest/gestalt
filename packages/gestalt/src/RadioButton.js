@@ -1,6 +1,5 @@
 // @flow strict
-import React, { forwardRef, useState, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { forwardRef, type Node, useState } from 'react';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
@@ -12,23 +11,60 @@ import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 
 type Props = {|
+  /**
+   * Indicates if the input is checked. See the [combinations example](https://gestalt.pinterest.systems/radiobutton#radio-state-combos) for more details.
+   */
   checked?: boolean,
+  /**
+   * Indicates if the input is disabled. See the [combinations example](https://gestalt.pinterest.systems/radiobutton#radio-state-combos) for more details.
+   */
   disabled?: boolean,
+  /**
+   * A unique identifier for the input.
+   */
   id: string,
+  /**
+   * An optional [Image](https://gestalt.pinterest.systems/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/radiobutton#images) for more details.
+   */
   image?: Node,
+  /**
+   * The displayed label for the input.
+   */
   label?: string,
+  /**
+   * The name given for all radio buttons in a single group.
+   */
   name?: string,
+  /**
+   * Callback triggered when the user interacts with the input.
+   */
   onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
-  subtext?: string,
-  value: string,
+  /**
+   * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/radiobutton#ref) for more details.
+   */
+  ref?: HTMLInputElement, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * sm: 16px, md: 24px
+   */
   size?: 'sm' | 'md',
+  /**
+   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/radiobutton#subtext) for more details.
+   */
+  subtext?: string,
+  /**
+   * The value of the input.
+   */
+  value: string,
 |};
 
+/**
+ *  Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list.
+ */
 const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function RadioButton(props, ref): Node {
-  const {
+>(function RadioButton(
+  {
     checked = false,
     disabled = false,
     id,
@@ -39,8 +75,9 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     subtext,
     value,
     size = 'md',
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 
@@ -119,16 +156,16 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           </div>
         </Box>
       </Label>
-      {image && <Box paddingX={1}>{image}</Box>}
+      {Boolean(image) && <Box paddingX={1}>{image}</Box>}
       {label && (
         <Label htmlFor={id}>
           <Box paddingX={1}>
-            <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? 'md' : 'lg'}>
+            <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? '200' : '300'}>
               {label}
             </Text>
             {subtext && (
               <Box paddingY={1}>
-                <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
+                <Text color="gray" size={size === 'sm' ? '200' : '300'}>
                   <Box display="visuallyHidden">:</Box> {subtext}
                 </Text>
               </Box>
@@ -139,20 +176,6 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     </Box>
   );
 });
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-RadioButtonWithForwardRef.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  image: PropTypes.node,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['sm', 'md']),
-  subtext: PropTypes.string,
-};
 
 RadioButtonWithForwardRef.displayName = 'RadioButton';
 

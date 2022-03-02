@@ -1,0 +1,16 @@
+// @flow strict
+import { type Node } from 'react';
+import { Box, IconButton } from 'gestalt';
+
+export default function Screenshot(): Node {
+  return (
+    <Box padding={1}>
+      <IconButton
+        accessibilityLabel="IconButton"
+        icon="visit"
+        bgColor="lightGray"
+        iconColor="darkGray"
+      />
+    </Box>
+  );
+}

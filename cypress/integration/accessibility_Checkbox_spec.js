@@ -1,6 +1,6 @@
 describe('Checkbox Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Checkbox');
+    cy.visit('/checkbox');
     cy.injectAxe();
   });
 

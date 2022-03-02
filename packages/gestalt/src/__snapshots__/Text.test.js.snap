@@ -1,39 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text orange adds the orange color class 1`] = `
+exports[`Deprecated Text size sm adds the small size class 1`] = `
 <div
-  className="Text fontSize3 orange alignLeft breakWord fontWeightNormal"
+  className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
 />
 `;
 
-exports[`Text renders 1`] = `
+exports[`Text lineClamp should add a title when the children are text only 1`] = `
 <div
-  className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-/>
-`;
-
-exports[`Text size sm adds the small size class 1`] = `
-<div
-  className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
-/>
-`;
-
-exports[`Text truncate should add a title when the children are text only 1`] = `
-<div
-  className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal truncate"
+  className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
   title="Shall I compare thee to a summer's day - William Shakespeare"
 >
   Shall I compare thee to a summer's day - William Shakespeare
 </div>
 `;
 
-exports[`Text truncate should not add a title when the children are objects 1`] = `
+exports[`Text lineClamp should not add a title when the children are objects 1`] = `
 <div
-  className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal truncate"
+  className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
 >
   <div>
     Summer reading:
   </div>
   Shall I compare thee to a summer's day - William Shakespeare
 </div>
+`;
+
+exports[`Text orange adds the orange color class 1`] = `
+<div
+  className="Text fontSize300 orange alignStart breakWord fontWeightNormal"
+/>
+`;
+
+exports[`Text renders 1`] = `
+<div
+  className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+/>
+`;
+
+exports[`Text size 100 adds the smallest size class 1`] = `
+<div
+  className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+/>
 `;

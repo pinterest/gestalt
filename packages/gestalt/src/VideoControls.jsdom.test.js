@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import VideoControls from './VideoControls.js';
 
@@ -14,6 +13,7 @@ test('VideoControls handles play events', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
@@ -46,6 +46,7 @@ test('VideoControls handles pause events', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
@@ -78,6 +79,7 @@ test('VideoControls handles volume events', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}

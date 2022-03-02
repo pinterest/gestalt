@@ -1,13 +1,5 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useEffect,
-  useRef,
-  useState,
-  type Node,
-} from 'react';
-import PropTypes from 'prop-types';
+import { forwardRef, type Node, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
@@ -17,31 +9,77 @@ import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 
 type Props = {|
+  /**
+   * Is the element currently checked?
+   */
   checked?: boolean,
+  /**
+   * Is the element currently disabled? Disabled Checkboxes do not respond to mouse events and cannot be reached by the keyboard.
+   */
   disabled?: boolean,
+  /**
+   * Displays an error message and error state. Be sure the error message helps the user resolve the problem.
+   */
   errorMessage?: string,
+  /**
+   * This field is deprecated and will be removed soon. Please do not use.
+   */
   hasError?: boolean,
+  /**
+   * A unique identifier for the input.
+   */
   id: string,
+  /**
+   * An optional Image component can be supplied to add an image to each checkbox. Spacing is already accounted for; simply specify the width and height.
+   */
   image?: Node,
+  /**
+   * Used to indicate a state that is neither checked nor unchecked — e.g. a "Select all" checkbox when not all items are selected or unselected.
+   * Indeterminism is purely presentational - the value of a checkbox and its indeterminism are independent.
+   */
   indeterminate?: boolean,
+  /**
+   * The label for the input. Be sure to localize the text.
+   */
   label?: string,
+  /**
+   * A unique name for the input.
+   */
   name?: string,
-  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
-  onClick?: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
+  /**
+   * Callback triggered when the state of the input changes.
+   */
+  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  /**
+   * Callback triggered when the user clicks on the input.
+   */
+  onClick?: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  /**
+   * Ref that is forwarded to the underlying input element.
+   */
+  ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * sm: 16px, md: 24px
+   */
   size?: 'sm' | 'md',
+  /**
+   * Optional description for the checkbox, used to provide more detail about an option.
+   */
   subtext?: string,
 |};
 
+/**
+ * Use [Checkbox](https://gestalt.pinterest.systems/checkbox) instead of [Switch](https://gestalt.pinterest.systems/switch) when displaying 3 or more toggle inputs.
+ */
 const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function Checkbox(props, ref): Node {
-  const {
+>(function Checkbox(
+  {
     checked = false,
     disabled = false,
     errorMessage,
@@ -55,8 +93,9 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     onClick,
     size = 'md',
     subtext,
-  } = props;
-
+  }: Props,
+  ref,
+): Node {
   const innerRef = useRef(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()
@@ -162,16 +201,16 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
             </div>
           </Box>
         </Label>
-        {image && <Box paddingX={1}>{image}</Box>}
+        {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
-              <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? 'md' : 'lg'}>
+              <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? '200' : '300'}>
                 {label}
               </Text>
               {subtext && (
                 <Box paddingY={1}>
-                  <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
+                  <Text color="gray" size={size === 'sm' ? '200' : '300'}>
                     <Box display="visuallyHidden">:</Box> {subtext}
                   </Text>
                 </Box>
@@ -182,7 +221,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
       </Box>
       {errorMessage && (
         <Box marginTop={2}>
-          <Text color="red" size="sm">
+          <Text color="red" size="100">
             <FormErrorMessage id={id} text={errorMessage} />
           </Text>
         </Box>
@@ -190,23 +229,6 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     </Box>
   );
 });
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-CheckboxWithForwardRef.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  hasError: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  image: PropTypes.node,
-  indeterminate: PropTypes.bool,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['sm', 'md']),
-  subtext: PropTypes.string,
-};
 
 CheckboxWithForwardRef.displayName = 'Checkbox';
 

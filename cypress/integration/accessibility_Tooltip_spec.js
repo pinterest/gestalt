@@ -1,6 +1,6 @@
 describe('Tooltip Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Tooltip');
+    cy.visit('/tooltip');
     cy.injectAxe();
   });
 
@@ -9,10 +9,6 @@ describe('Tooltip Accessibility check', () => {
       rules: [
         {
           id: 'color-contrast',
-          enabled: false,
-        },
-        {
-          id: 'button-name',
           enabled: false,
         },
       ],

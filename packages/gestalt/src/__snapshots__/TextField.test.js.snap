@@ -2,60 +2,77 @@
 
 exports[`TextField TextField normal 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="false"
-    className="textField base enabled normal medium"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
 
 exports[`TextField TextField with autocomplete 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="false"
-    className="textField base enabled normal medium"
-    disabled={false}
-    id="test"
-    name="email"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      autoComplete="email"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
 
 exports[`TextField TextField with error 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="true"
-    className="textField base enabled errored medium"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="true"
+      className="textField base enabled errored medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
   <div
     className="box marginTop2"
   >
     <div
-      className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
+      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
     >
       <span
+        className="formErrorMessage"
         id="test-error"
       >
         error message
@@ -67,249 +84,264 @@ exports[`TextField TextField with error 1`] = `
 
 exports[`TextField TextField with hasError 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="true"
-    className="textField base enabled errored medium"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="true"
+      className="textField base enabled errored medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
 
 exports[`TextField TextField with name 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="false"
-    className="textField base enabled normal medium"
-    disabled={false}
-    id="test"
-    name="email"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
 
 exports[`TextField TextField with tags 1`] = `
 <span>
   <div
-    className="textField base enabled normal medium textFieldWrapper"
+    className="box relative"
   >
     <div
-      className="box marginBottom1 marginEnd1"
+      className="textField base enabled normal large textFieldWrapper"
     >
       <div
-        aria-disabled={false}
-        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
-        style={
-          Object {
-            "height": 32,
-            "maxWidth": 300,
-          }
-        }
+        className="box marginBottom1 marginEnd1"
       >
         <div
-          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          aria-disabled={false}
+          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
           style={
             Object {
-              "height": "100%",
+              "height": 32,
+              "maxWidth": 300,
             }
           }
         >
           <div
-            className="box marginEnd2 marginStart0"
-          />
-          <div
-            className="truncate"
-            title="a@pinterest.com"
+            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
           >
-            <span
-              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            <div
+              className="box marginEnd2 marginStart0"
+            />
+            <div
+              className="truncate"
+              title="a@pinterest.com"
             >
-              a@pinterest.com
-            </span>
-          </div>
-          <div
-            className="box marginStart1"
-          >
-            <button
-              className="button lightGray hideOutline tapTransition accessibilityOutline"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden={null}
-                aria-label="Remove email tag"
-                className="icon darkGray iconBlock"
-                height={8}
-                role="img"
-                viewBox="0 0 24 24"
-                width={8}
+              <span
+                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
-            </button>
+                a@pinterest.com
+              </span>
+            </div>
+            <div
+              className="box marginStart1"
+            >
+              <button
+                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  aria-hidden={null}
+                  aria-label="Remove email tag"
+                  className="icon darkGray iconBlock"
+                  height={8}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={8}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="box marginBottom1 marginEnd1"
-    >
       <div
-        aria-disabled={false}
-        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
-        style={
-          Object {
-            "height": 32,
-            "maxWidth": 300,
-          }
-        }
+        className="box marginBottom1 marginEnd1"
       >
         <div
-          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          aria-disabled={false}
+          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
           style={
             Object {
-              "height": "100%",
+              "height": 32,
+              "maxWidth": 300,
             }
           }
         >
           <div
-            className="box marginEnd2 marginStart0"
-          />
-          <div
-            className="truncate"
-            title="b@pinterest.com"
+            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
           >
-            <span
-              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            <div
+              className="box marginEnd2 marginStart0"
+            />
+            <div
+              className="truncate"
+              title="b@pinterest.com"
             >
-              b@pinterest.com
-            </span>
-          </div>
-          <div
-            className="box marginStart1"
-          >
-            <button
-              className="button lightGray hideOutline tapTransition accessibilityOutline"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden={null}
-                aria-label="Remove email tag"
-                className="icon darkGray iconBlock"
-                height={8}
-                role="img"
-                viewBox="0 0 24 24"
-                width={8}
+              <span
+                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
-            </button>
+                b@pinterest.com
+              </span>
+            </div>
+            <div
+              className="box marginStart1"
+            >
+              <button
+                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  aria-hidden={null}
+                  aria-label="Remove email tag"
+                  className="icon darkGray iconBlock"
+                  height={8}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={8}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="box marginBottom1 marginEnd1"
-    >
       <div
-        aria-disabled={false}
-        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
-        style={
-          Object {
-            "height": 32,
-            "maxWidth": 300,
-          }
-        }
+        className="box marginBottom1 marginEnd1"
       >
         <div
-          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          aria-disabled={false}
+          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
           style={
             Object {
-              "height": "100%",
+              "height": 32,
+              "maxWidth": 300,
             }
           }
         >
           <div
-            className="box marginEnd2 marginStart0"
-          />
-          <div
-            className="truncate"
-            title="c@pinterest.com"
+            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
           >
-            <span
-              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            <div
+              className="box marginEnd2 marginStart0"
+            />
+            <div
+              className="truncate"
+              title="c@pinterest.com"
             >
-              c@pinterest.com
-            </span>
-          </div>
-          <div
-            className="box marginStart1"
-          >
-            <button
-              className="button lightGray hideOutline tapTransition accessibilityOutline"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden={null}
-                aria-label="Remove email tag"
-                className="icon darkGray iconBlock"
-                height={8}
-                role="img"
-                viewBox="0 0 24 24"
-                width={8}
+              <span
+                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
-            </button>
+                c@pinterest.com
+              </span>
+            </div>
+            <div
+              className="box marginStart1"
+            >
+              <button
+                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  aria-hidden={null}
+                  aria-label="Remove email tag"
+                  className="icon darkGray iconBlock"
+                  height={8}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={8}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="box flexGrow marginEnd2 relative"
-      style={
-        Object {
-          "maxWidth": "100%",
-        }
-      }
-    >
       <div
-        aria-hidden={true}
-        className="textFieldSpacer"
-      />
-      <input
-        aria-describedby={null}
-        aria-invalid="false"
-        className="unstyledTextField"
-        disabled={false}
-        id="test"
-        name="email"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        type="text"
-      />
+        className="box flexGrow marginEnd2 relative"
+        style={
+          Object {
+            "maxWidth": "100%",
+          }
+        }
+      >
+        <div
+          aria-hidden={true}
+          className="textFieldSpacer"
+        />
+        <input
+          aria-describedby={null}
+          aria-invalid="false"
+          className="unstyledTextField"
+          disabled={false}
+          id="test"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          type="text"
+        />
+      </div>
     </div>
   </div>
 </span>

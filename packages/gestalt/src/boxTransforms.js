@@ -163,6 +163,22 @@ const color: Functor<Color> = mapping({
   lightWash: colors.lightWashBg,
   darkWash: colors.darkWashBg,
   transparentDarkGray: colors.transparentDarkGrayBg,
+  infoBase: colors.infoBase,
+  infoWeak: colors.infoWeak,
+  errorBase: colors.errorBase,
+  errorWeak: colors.errorWeak,
+  warningBase: colors.warningBase,
+  warningWeak: colors.warningWeak,
+  successBase: colors.successBase,
+  successWeak: colors.successWeak,
+  shopping: colors.shopping,
+  primary: colors.primary,
+  secondary: colors.secondary,
+  tertiary: colors.tertiary,
+  selected: colors.selected,
+  inverse: colors.inverse,
+  brand: colors.brand,
+  education: colors.education,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);
@@ -171,6 +187,7 @@ const flex: Functor<Flex> = mapping({
   none: layout.flexNone,
   // default: shrink
 });
+const flexBasis: Functor<number | string> = (v) => fromInlineStyle({ flexBasis: v });
 const height: Functor<Dimension> = (h) => fromInlineStyle({ height: h });
 const justifyContent: Functor<JustifyContent> = mapping({
   end: layout.justifyEnd,
@@ -281,10 +298,9 @@ const userSelect: Functor<UserSelect> = mapping({
 });
 const width: Functor<Dimension> = (w) => fromInlineStyle({ width: w });
 const wrap: Functor<boolean> = toggle(layout.flexWrap);
-const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = (value) => {
+const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = (value) =>
   // eslint-disable-next-line no-underscore-dangle
-  return value && value.__style ? fromInlineStyle(value.__style) : identity();
-};
+  value && value.__style ? fromInlineStyle(value.__style) : identity();
 const zIndex: Functor<?Indexable> = (value) => {
   if (!value) {
     return identity();
@@ -324,6 +340,7 @@ export const propToFn = {
   color,
   fit,
   flex,
+  flexBasis,
   height,
   justifyContent,
   left,
@@ -435,6 +452,7 @@ export function buildStyles<T: Object>({
   // eslint-disable-next-line no-restricted-syntax
   for (const prop in props) {
     if (
+      // $FlowFixMe[method-unbinding]
       Object.prototype.hasOwnProperty.call(propToFn, prop) &&
       !omitProps.includes(prop) &&
       (!allowlistProps || allowlistProps.includes(prop))

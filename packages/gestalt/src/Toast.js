@@ -1,66 +1,99 @@
 // @flow strict
-import React, { type Element, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Element, type Node } from 'react';
 import Box from './Box.js';
+import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
+import styles from './Toast.css';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 type Props = {|
+  /**
+   * Add an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
+   */
   button?: Node,
-  color?: 'white' | 'red',
+  /**
+   * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
+   */
+  // $FlowFixMe[unclear-type]
   text: string | Element<*>,
+  /**
+   * An optional thumbnail image to displayed next to the text.
+   */
   thumbnail?: Node,
+  /**
+   * The masked shape of the thumbnail.
+   */
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
+  /**
+   * Use the `'error'` variant to indicate an error message. Generally not recommended given the ephemeral nature of Toasts.
+   */
+  variant?: 'default' | 'error',
 |};
 
+/**
+ * [Toasts](https://gestalt.pinterest.systems/toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
+ *
+ * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
+ */
 export default function Toast({
   button,
-  color = 'white',
   text,
   thumbnail,
   thumbnailShape = 'square',
+  variant = 'default',
 }: Props): Node {
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+  const isErrorVariant = variant === 'error';
+
+  let containerColor = isDarkMode ? 'white' : 'darkGray';
+  let textColor = isDarkMode ? 'darkGray' : 'white';
+  let textElement = text;
+
+  // If `text` is a Node, we need to override any text colors within to ensure they all match
+  if (typeof text !== 'string') {
+    let textColorOverrideStyles = isDarkMode
+      ? styles.textColorOverrideDarkGray
+      : styles.textColorOverrideWhite;
+    if (isErrorVariant) {
+      textColorOverrideStyles = styles.textColorOverrideWhite;
+    }
+
+    textElement = <span className={textColorOverrideStyles}>{text}</span>;
+  }
+
+  // Error variant does not currently support dark mode
+  if (isErrorVariant) {
+    containerColor = 'red';
+    textColor = 'white';
+  }
+
   return (
-    <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
-      <Box color={color} fit padding={6} rounding="pill" borderStyle="shadow">
-        <Box display="flex" marginStart={-2} marginEnd={-2} alignItems="center">
+    <Box marginBottom={3} maxWidth={360} paddingX={4} role="status" width="100vw">
+      <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
+        <Flex alignItems="center" gap={4}>
           {thumbnail ? (
-            <Box display="flex" flex="none" justifyContent="center" paddingX={2}>
+            <Flex.Item flex="none">
               <Mask
-                rounding={thumbnailShape === 'circle' ? 'circle' : 2}
                 height={thumbnailShape === 'rectangle' ? 64 : 48}
+                rounding={thumbnailShape === 'circle' ? 'circle' : 2}
                 width={48}
               >
                 {thumbnail}
               </Mask>
-            </Box>
+            </Flex.Item>
           ) : null}
-          <Box display="flex" direction="column" flex="grow" justifyContent="center" paddingX={2}>
-            <Text
-              color={color === 'red' ? 'white' : undefined}
-              align={!thumbnail && !button ? 'center' : 'left'}
-            >
-              {text}
+
+          <Flex.Item flex="grow">
+            <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
+              {textElement}
             </Text>
-          </Box>
-          {button ? (
-            <Box flex="none" paddingX={2}>
-              {button}
-            </Box>
-          ) : null}
-        </Box>
+          </Flex.Item>
+
+          {button ? <Flex.Item flex="none">{button}</Flex.Item> : null}
+        </Flex>
       </Box>
     </Box>
   );
 }
-
-Toast.propTypes = {
-  button: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf(['white', 'red']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-  thumbnail: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  thumbnailShape: PropTypes.oneOf(['circle', 'rectangle', 'square']),
-};

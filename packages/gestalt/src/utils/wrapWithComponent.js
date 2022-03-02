@@ -1,5 +1,5 @@
 // @flow strict
-import React, { isValidElement, type ChildrenArray, type ComponentType, type Node } from 'react';
+import { type ChildrenArray, type ComponentType, type Node, isValidElement } from 'react';
 
 // $FlowIgnore[unclear-type]
 type UnknownComponent = ComponentType<any>;

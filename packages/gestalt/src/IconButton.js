@@ -1,15 +1,34 @@
 // @flow strict
-import React, { forwardRef, useImperativeHandle, useState, useRef, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node, forwardRef, useImperativeHandle, useState, useRef } from 'react';
 import classnames from 'classnames';
 import icons from './icons/index.js';
 import InternalLink from './InternalLink.js';
 import Pog from './Pog.js';
+import Tooltip from './Tooltip.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
+import { type Indexable } from './zIndex.js';
+
+type TooltipType = {|
+  text: string,
+  accessibilityLabel?: string,
+  inline?: boolean,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  zIndex?: Indexable,
+|};
+
+function TooltipComponent({
+  children,
+  tooltipProps,
+}: {|
+  children: Node,
+  tooltipProps: TooltipType,
+|}): Node {
+  return tooltipProps.text ? <Tooltip {...tooltipProps}>{children}</Tooltip> : children;
+}
 
 type BaseIconButton = {|
   accessibilityLabel: string,
@@ -29,11 +48,12 @@ type BaseIconButton = {|
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
+    {| dangerouslyDisableOnNavigation: () => void |},
   >,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
   tabIndex?: -1 | 0,
+  tooltip?: TooltipType,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
@@ -58,10 +78,18 @@ type unionProps = IconButtonType | LinkIconButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
+/**
+ * [IconButton](https://gestalt.pinterest.systems/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
+ Some buttons are specialized for particular tasks, such as navigation or presenting menus.
+ *
+ * ![IconButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/IconButton%20%230.png)
+ * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/IconButton-dark%20%230.png)
+ *
+ */
 const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
->(function IconButton(props, ref): Node {
+>(function IconButton(props: unionProps, ref): Node {
   const {
     accessibilityLabel,
     bgColor,
@@ -72,6 +100,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     onClick,
     padding,
     tabIndex = 0,
+    tooltip,
     size,
   } = props;
 
@@ -101,34 +130,31 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
 
   const { isFocusVisible } = useFocusVisible();
 
-  const buttonRoleClasses = classnames(styles.button, touchableStyles.tapTransition, {
-    [styles.disabled]: disabled,
-    [styles.enabled]: !disabled,
-    [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
-  });
+  const renderPogComponent = (selected?: boolean): Node => (
+    <Pog
+      active={!disabled && isActive}
+      bgColor={bgColor}
+      dangerouslySetSvgPath={dangerouslySetSvgPath}
+      focused={!disabled && isFocusVisible && isFocused}
+      hovered={!disabled && isHovered}
+      icon={icon}
+      iconColor={iconColor}
+      padding={padding}
+      selected={selected}
+      size={size}
+    />
+  );
 
-  const renderPogComponent = (selected?: boolean): Node => {
-    return (
-      <Pog
-        active={!disabled && isActive}
-        bgColor={bgColor}
-        dangerouslySetSvgPath={dangerouslySetSvgPath}
-        focused={!disabled && isFocusVisible && isFocused}
-        hovered={!disabled && isHovered}
-        icon={icon}
-        iconColor={iconColor}
-        padding={padding}
-        selected={selected}
-        size={size}
-      />
-    );
-  };
+  const handleClick = (event, dangerouslyDisableOnNavigation) =>
+    onClick
+      ? onClick({
+          event,
+          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
+        })
+      : undefined;
 
-  const handleClick = (event, disableOnNavigation) =>
-    onClick ? onClick(disableOnNavigation ? { event, disableOnNavigation } : { event }) : undefined;
-
-  const handleLinkClick = ({ event, disableOnNavigation }) =>
-    handleClick(event, disableOnNavigation);
+  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
+    handleClick(event, dangerouslyDisableOnNavigation);
 
   const handleOnBlur = () => {
     setFocused(false);
@@ -155,41 +181,40 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     setHovered(false);
   };
 
-  if (props.role === 'link') {
-    const { href, rel, target } = props;
+  const createLinkIconButton = (href, rel, target) => (
+    <InternalLink
+      accessibilityLabel={accessibilityLabel}
+      disabled={disabled}
+      href={href}
+      onClick={handleLinkClick}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
+      onMouseDown={handleOnMouseDown}
+      onMouseUp={handleOnMouseUp}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      ref={innerRef}
+      rel={rel}
+      tabIndex={tabIndex}
+      target={target}
+      wrappedComponent="iconButton"
+    >
+      {renderPogComponent()}
+    </InternalLink>
+  );
 
-    return (
-      <InternalLink
-        accessibilityLabel={accessibilityLabel}
-        disabled={disabled}
-        href={href}
-        onClick={handleLinkClick}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-        onMouseDown={handleOnMouseDown}
-        onMouseUp={handleOnMouseUp}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        ref={innerRef}
-        rel={rel}
-        tabIndex={tabIndex}
-        target={target}
-        wrappedComponent="iconButton"
-      >
-        {renderPogComponent()}
-      </InternalLink>
-    );
-  }
-
-  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
-
-  return (
+  const createIconButton = (
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    selected,
+  ) => (
     <button
       aria-controls={accessibilityControls}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={buttonRoleClasses}
+      className={classnames(styles.parentButton)}
       disabled={disabled}
       onBlur={() => {
         handleBlur();
@@ -212,48 +237,42 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       ref={innerRef}
-      style={compressStyle || undefined}
       tabIndex={disabled ? null : tabIndex}
       type="button"
     >
-      {renderPogComponent(selected)}
+      <div
+        className={classnames(styles.button, touchableStyles.tapTransition, {
+          [styles.disabled]: disabled,
+          [styles.enabled]: !disabled,
+          [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
+        })}
+        style={compressStyle || undefined}
+      >
+        {renderPogComponent(selected)}
+      </div>
     </button>
   );
-});
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-IconButtonWithForwardRef.propTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string.isRequired,
-  bgColor: PropTypes.oneOf([
-    'transparent',
-    'darkGray',
-    'transparentDarkGray',
-    'gray',
-    'lightGray',
-    'white',
-    'red',
-  ]),
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  icon: PropTypes.oneOf(Object.keys(icons)),
-  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
-  onClick: PropTypes.func,
-  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  tabIndex: PropTypes.oneOf([-1, 0]),
-  role: PropTypes.oneOf(['button', 'link']),
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-};
+  let buttonComponentToRender = null;
+
+  if (props.role === 'link') {
+    const { href, rel, target } = props;
+    buttonComponentToRender = createLinkIconButton(href, rel, target);
+  } else {
+    const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
+    buttonComponentToRender = createIconButton(
+      accessibilityControls,
+      accessibilityExpanded,
+      accessibilityHaspopup,
+      selected,
+    );
+  }
+  return tooltip ? (
+    <TooltipComponent tooltipProps={tooltip}>{buttonComponentToRender}</TooltipComponent>
+  ) : (
+    buttonComponentToRender
+  );
+});
 
 IconButtonWithForwardRef.displayName = 'IconButton';
 

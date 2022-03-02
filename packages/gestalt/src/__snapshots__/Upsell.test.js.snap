@@ -2,7 +2,7 @@
 
 exports[`<Upsell /> Basic Upsell 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -27,23 +27,20 @@ exports[`<Upsell /> Basic Upsell 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;
 
 exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -102,14 +99,14 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -140,19 +137,24 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                   className="box marginBottom0 smMarginBottom2"
                 >
                   <span>
-                    <input
-                      aria-describedby={null}
-                      aria-invalid="false"
-                      className="textField base enabled normal medium"
-                      disabled={false}
-                      id="name"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      placeholder="Name"
-                      type="text"
-                    />
+                    <div
+                      className="box relative"
+                    >
+                      <input
+                        aria-describedby={null}
+                        aria-invalid="false"
+                        className="textField base enabled normal medium truncate"
+                        disabled={false}
+                        id="name"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        placeholder="Name"
+                        type="text"
+                      />
+                    </div>
                   </span>
                 </div>
               </div>
@@ -161,7 +163,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
               >
                 <button
                   aria-label="Submit button"
-                  className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+                  className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
                   disabled={false}
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -175,7 +177,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                   type="submit"
                 >
                   <div
-                    className="Text fontSize3 white alignCenter fontWeightBold"
+                    className="Text fontSize300 white alignCenter fontWeightBold"
                   >
                     Submit
                   </div>
@@ -192,7 +194,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -208,27 +210,31 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -237,7 +243,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -296,14 +302,14 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -317,12 +323,13 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          aria-label=""
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -337,7 +344,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Text fontSize300 white alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -350,7 +357,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -366,27 +373,31 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -395,7 +406,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -422,14 +433,14 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -443,12 +454,13 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          aria-label=""
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -463,7 +475,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Text fontSize300 white alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -476,7 +488,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -492,27 +504,31 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -521,7 +537,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -548,14 +564,14 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -569,12 +585,13 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+          aria-label="Learn more: upsell messages"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -589,7 +606,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Learn more
           </div>
@@ -599,12 +616,13 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          aria-label=""
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -619,7 +637,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Text fontSize300 white alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -632,7 +650,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -659,14 +677,14 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -680,12 +698,13 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          aria-label=""
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -700,7 +719,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Text fontSize300 white alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -713,7 +732,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -740,14 +759,14 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -761,7 +780,8 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <button
-          className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+          aria-label=""
+          className="button hideOutline block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -775,9 +795,13 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
           >
-            Visit Pinterest
+            <div
+              className="Text fontSize300 white alignCenter fontWeightBold"
+            >
+              Visit Pinterest
+            </div>
           </div>
         </button>
       </div>
@@ -788,7 +812,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 
 exports[`<Upsell /> message + title 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -815,23 +839,20 @@ exports[`<Upsell /> message + title 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;

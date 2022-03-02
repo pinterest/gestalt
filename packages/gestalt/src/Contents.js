@@ -1,20 +1,19 @@
 // @flow strict
-import React, { Component, type Node } from 'react';
+import { Component, type Node } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import Caret from './Caret.js';
 import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
-import type {
-  CaretOffset,
-  ClientRect,
-  DerivedState,
-  PopoverDir,
-  MainDirections,
-  Coordinates,
+import {
+  type CaretOffset,
+  type ClientRect,
+  type DerivedState,
+  type PopoverDir,
+  type MainDirections,
+  type Coordinates,
 } from './utils/positioningTypes.js';
 import {
   adjustOffsets,
@@ -27,17 +26,21 @@ import {
   getPopoverDir,
 } from './utils/positioningUtils.js';
 
+export type Role = 'dialog' | 'listbox' | 'menu';
+
 type OwnProps = {|
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: Node,
+  id: ?string,
   idealDirection?: MainDirections,
-  onKeyDown: (event: {| keyCode: number |}) => void,
+  onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
   onResize: () => void,
   positionRelativeToAnchor?: boolean,
   relativeOffset: Coordinates,
+  role: ?Role,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   triggerRect: ClientRect,
@@ -45,7 +48,7 @@ type OwnProps = {|
 |};
 
 type HookProps = {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
 |};
 type ColorSchemeProps = {|
   colorGray100: string,
@@ -64,35 +67,7 @@ type State = {|
   popoverRef: ?HTMLElement,
 |};
 
-const ContentProptypes = {
-  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-  border: PropTypes.bool,
-  caret: PropTypes.bool,
-  children: PropTypes.node,
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  onKeyDown: PropTypes.func.isRequired,
-  onResize: PropTypes.func.isRequired,
-  relativeOffset: PropTypes.shape({
-    x: PropTypes.number,
-    y: PropTypes.number,
-  }),
-  positionRelativeToAnchor: PropTypes.bool,
-  rounding: PropTypes.oneOf([2, 4]),
-  shouldFocus: PropTypes.bool,
-  triggerBoundingClientRect: PropTypes.shape({
-    bottom: PropTypes.number,
-    height: PropTypes.number,
-    left: PropTypes.number,
-    right: PropTypes.number,
-    top: PropTypes.number,
-    width: PropTypes.number,
-  }),
-  width: PropTypes.number,
-};
-
 class Contents extends Component<Props, State> {
-  static propTypes = ContentProptypes;
-
   static defaultProps: {| border: boolean, caret: boolean |} = {
     border: true,
     caret: true,
@@ -114,15 +89,17 @@ class Contents extends Component<Props, State> {
   };
 
   componentDidMount() {
-    const { onResize, onKeyDown } = this.props;
+    const { onResize, onKeyDown, shouldFocus } = this.props;
     const { popoverRef } = this.state;
 
-    setTimeout(() => {
-      if (this.props.shouldFocus && popoverRef) {
+    function focusPopoverRef() {
+      if (shouldFocus && popoverRef) {
         popoverRef.focus();
       }
-    });
+      requestAnimationFrame(focusPopoverRef);
+    }
 
+    focusPopoverRef();
     window.addEventListener('resize', onResize);
     window.addEventListener('keydown', onKeyDown);
   }
@@ -236,7 +213,9 @@ class Contents extends Component<Props, State> {
       caret,
       children,
       colorGray100,
+      id,
       isDarkMode,
+      role,
       rounding,
       width,
     } = this.props;
@@ -280,6 +259,8 @@ class Contents extends Component<Props, State> {
             </div>
           )}
           <div
+            id={id}
+            role={role}
             className={classnames(
               border && styles.border,
               colors[background],

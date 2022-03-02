@@ -1,12 +1,11 @@
 // @flow strict
-import React, { Component as ReactComponent, type ComponentType, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type ComponentType, type Node, Component as ReactComponent } from 'react';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
 import throttle from './throttle.js';
-import type { Cache } from './Cache.js';
+import { type Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
 import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
@@ -15,6 +14,8 @@ import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
 import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
+
+type Position = {| top: number, left: number, width: number, height: number |};
 
 type Layout =
   | typeof DefaultLayoutSymbol
@@ -27,20 +28,41 @@ type Layout =
   | 'uniformRow';
 
 type Props<T> = {|
+  /**
+   * The preferred/target item width. If 'flexible' is set, the item width will
+   * grow to fill column space, and shrink to fit if below min columns.
+   */
   columnWidth?: number,
+  /**
+   * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   */
   comp: ComponentType<{|
     data: T,
     itemIdx: number,
     isMeasuring: boolean,
   |}>,
+  /**
+   * Item width will grow to fill column space and shrink to fit if below min columns.
+   */
   flexible?: boolean,
+  /**
+   * The amount of vertical and horizontal space between each item, specified in pixels.
+   */
   gutterWidth?: number,
+  /**
+   * An array of items to display that contains the information that `comp` needs to render.
+   */
   items: $ReadOnlyArray<T>,
-  measurementStore?: Cache<T, *>,
-  minCols: number,
+  /**
+   * MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.
+   */
   layout?: Layout,
-  // Support legacy loadItems usage.
-  // TODO: Simplify non falsey flowtype.
+  /**
+   * A callback which the grid calls when we need to load more items as the user scrolls.
+   * The callback should update the state of the items, and pass those in as props
+   * to this component.
+   * Note that `scrollContainer` must be specified.
+   */
   loadItems?:
     | false
     | ((
@@ -48,17 +70,40 @@ type Props<T> = {|
           from: number,
         |},
       ) => void | boolean | { ... }),
+  /**
+   * Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
+   */
+  // $FlowFixMe[unclear-type]
+  measurementStore?: Cache<T, *>,
+  /**
+   * Minimum number of columns to display.
+   */
+  minCols: number,
+  /**
+   * A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
+   * This is required if the grid is expected to be scrollable.
+   */
   scrollContainer?: () => HTMLElement,
-  virtualBoundsTop?: number,
+  /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
+   */
   virtualBoundsBottom?: number,
+  /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.
+   */
+  virtualBoundsTop?: number,
+  /**
+   * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
+   */
   virtualize?: boolean,
 |};
 
 type State<T> = {|
-  measurementStore: Cache<T, *>,
   hasPendingMeasurements: boolean,
   isFetching: boolean,
   items: $ReadOnlyArray<T>,
+  // $FlowFixMe[unclear-type]
+  measurementStore: Cache<T, *>,
   scrollTop: number,
   width: ?number,
 |};
@@ -70,6 +115,9 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
+/**
+ * [Masonry](https://gestalt.pinterest.systems/masonry) creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
+ */
 export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
@@ -120,73 +168,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   scrollContainer: ?ScrollContainer;
 
-  static propTypes = {
-    /**
-     * The preferred/target item width. If `flexible` is set, the item width will
-     * grow to fill column space, and shrink to fit if below min columns.
-     */
-    columnWidth: PropTypes.number,
-
-    /**
-     * The component to render.
-     */
-    comp: PropTypes.func.isRequired,
-
-    /**
-     * The preferred/target item width. Item width will grow to fill
-     * column space, and shrink to fit if below min columns.
-     */
-    flexible: PropTypes.bool,
-
-    /**
-     * The amount of space between each item.
-     */
-    gutterWidth: PropTypes.number,
-
-    /**
-     * An array of all objects to display in the grid.
-     */
-    items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-
-    /**
-     * Measurement Store
-     */
-    measurementStore: PropTypes.instanceOf(MeasurementStore),
-
-    /**
-     * Layout system to use for items
-     */
-    layout: PropTypes.oneOfType([
-      PropTypes.instanceOf(LegacyMasonryLayout),
-      PropTypes.instanceOf(LegacyUniformRowLayout),
-      PropTypes.symbol,
-      PropTypes.string,
-    ]),
-
-    /**
-     * A callback which the grid calls when we need to load more items as the user scrolls.
-     * The callback should update the state of the items, and pass those in as props
-     * to this component.
-     */
-    loadItems: PropTypes.func,
-
-    /**
-     * Minimum number of columns to display.
-     */
-    minCols: PropTypes.number,
-
-    /**
-     * Function that the grid calls to get the scroll container.
-     * This is required if the grid is expected to be scrollable.
-     */
-    scrollContainer: PropTypes.func,
-
-    /**
-     * Whether or not to use actual virtualization
-     */
-    virtualize: PropTypes.bool,
-  };
-
   static defaultProps: {|
     columnWidth?: number,
     layout?: Layout,
@@ -213,6 +194,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.containerHeight = 0;
     this.containerOffset = 0;
 
+    // $FlowFixMe[unclear-type]
     const measurementStore: Cache<T, *> =
       props.measurementStore || Masonry.createMeasurementStore();
 
@@ -402,8 +384,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  // $FlowFixMe[signature-verification-failure]
-  renderMasonryComponent = (itemData: T, idx: number, position: *) => {
+  renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
+    itemData,
+    idx,
+    position,
+  ) => {
     const {
       comp: Component,
       scrollContainer,
@@ -432,9 +417,10 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     const itemComponent = (
       <div
-        key={`item-${idx}`}
         className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
         data-grid-item
+        key={`item-${idx}`}
+        role="listitem"
         style={{
           top: 0,
           left: 0,
@@ -505,8 +491,9 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div
           className={styles.Masonry}
-          style={{ height: 0, width: '100%' }}
           ref={this.setGridWrapperRef}
+          role="list"
+          style={{ height: 0, width: '100%' }}
         >
           {items
             .filter((item) => item)
@@ -515,6 +502,13 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 className="static"
                 data-grid-item
                 key={i}
+                ref={(el) => {
+                  if (el && !(flexible || layout === 'flexible')) {
+                    // only measure flexible items on client
+                    measurementStore.set(item, el.clientHeight);
+                  }
+                }}
+                role="listitem"
                 style={{
                   top: 0,
                   left: 0,
@@ -524,12 +518,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     flexible || layout === 'flexible'
                       ? undefined
                       : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
-                }}
-                ref={(el) => {
-                  if (el && !(flexible || layout === 'flexible')) {
-                    // only measure flexible items on client
-                    measurementStore.set(item, el.clientHeight);
-                  }
                 }}
               >
                 <Component data={item} itemIdx={i} isMeasuring={false} />
@@ -558,11 +546,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         : 0;
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
-          <div className={styles.Masonry} style={{ height, width }}>
-            {itemsToRender.map((item, i) =>
-              // $FlowFixMe[incompatible-call]
-              this.renderMasonryComponent(item, i, positions[i]),
-            )}
+          <div className={styles.Masonry} role="list" style={{ height, width }}>
+            {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
           </div>
           <div className={styles.Masonry} style={{ width }}>
             {itemsToMeasure.map((data, i) => {

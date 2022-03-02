@@ -1,19 +1,30 @@
 // @flow strict
-import React from 'react';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
+import IconButton from './IconButton.js';
 
 const Valid = (
   <ModuleExpandableItem
-    id="uniqueTestID"
-    accessibilityExpandLabel="click to expand"
     accessibilityCollapseLabel="click to collapse"
-    title="test title"
+    accessibilityExpandLabel="click to expand"
+    badgeText="badge-text"
+    id="uniqueTestID"
     icon="lock"
     iconAccessibilityLabel="test label"
-    summary={['summary1', 'summary2', 'summary3']}
+    iconButton={
+      <IconButton
+        bgColor="lightGray"
+        icon="question-mark"
+        iconColor="darkGray"
+        accessibilityLabel="Get help"
+        size="xs"
+        onClick={() => {}}
+      />
+    }
     isCollapsed={false}
-    type="info"
     onModuleClicked={() => {}}
+    summary={['summary1', 'summary2', 'summary3']}
+    title="test title"
+    type="info"
   >
     <div>test children</div>
   </ModuleExpandableItem>

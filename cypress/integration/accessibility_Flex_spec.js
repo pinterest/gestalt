@@ -1,6 +1,6 @@
 describe('Flex Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Flex');
+    cy.visit('/flex');
     cy.injectAxe();
   });
 

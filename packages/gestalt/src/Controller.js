@@ -1,11 +1,10 @@
 // @flow strict
-import React, { Component, type Node as ReactNode } from 'react';
-import PropTypes from 'prop-types';
+import { type Node as ReactNode, Component } from 'react';
 import { ESCAPE } from './keyCodes.js';
-import Contents from './Contents.js';
+import Contents, { type Role } from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
-import type { ClientRect, Coordinates } from './utils/positioningTypes.js';
+import { type ClientRect, type Coordinates } from './utils/positioningTypes.js';
 import { getTriggerRect } from './utils/positioningUtils.js';
 
 const SIZE_WIDTH_MAP = {
@@ -21,17 +20,19 @@ type OwnProps = {|
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
-  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |}) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
+  id?: ?string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
+  role?: ?Role,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
 |};
 
 type HookProps = {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
 |};
 
 type Props = {| ...OwnProps, ...HookProps |};
@@ -41,30 +42,7 @@ type State = {|
   triggerBoundingRect: ClientRect,
 |};
 
-const ControllerProptypes = {
-  anchor: PropTypes.shape({
-    contains: PropTypes.func,
-    getBoundingClientRect: PropTypes.func,
-  }),
-  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-  border: PropTypes.bool,
-  caret: PropTypes.bool,
-  children: PropTypes.node,
-  handleKeyDown: PropTypes.func,
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  onDismiss: PropTypes.func.isRequired,
-  positionRelativeToAnchor: PropTypes.bool,
-  rounding: PropTypes.oneOf([2, 4]),
-  shouldFocus: PropTypes.bool,
-  size: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
-  ]),
-};
-
 class Controller extends Component<Props, State> {
-  static propTypes = ControllerProptypes;
-
   static defaultProps: {|
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
   |} = {
@@ -100,12 +78,12 @@ class Controller extends Component<Props, State> {
     this.updateTriggerRect(this.props);
   }
 
-  handleKeyDown: (event: {| keyCode: number |}) => void = (event) => {
-    const { handleKeyDown, onDismiss } = this.props;
+  handleKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void = (event) => {
+    const { onKeyDown, onDismiss } = this.props;
     if (event.keyCode === ESCAPE) {
       onDismiss();
     }
-    if (handleKeyDown) handleKeyDown(event);
+    if (onKeyDown) onKeyDown?.({ event });
   };
 
   handlePageClick: (event: Event) => void = (event) => {
@@ -139,8 +117,10 @@ class Controller extends Component<Props, State> {
       border,
       caret,
       children,
+      id,
       idealDirection,
       positionRelativeToAnchor,
+      role,
       rounding,
       shouldFocus,
       size,
@@ -156,11 +136,13 @@ class Controller extends Component<Props, State> {
           bgColor={bgColor}
           border={border}
           caret={caret}
+          id={id}
           idealDirection={idealDirection}
           onKeyDown={this.handleKeyDown}
           onResize={this.handleResize}
           positionRelativeToAnchor={positionRelativeToAnchor}
           relativeOffset={relativeOffset}
+          role={role}
           rounding={rounding}
           shouldFocus={shouldFocus}
           triggerRect={triggerBoundingRect}
@@ -173,9 +155,9 @@ class Controller extends Component<Props, State> {
   }
 }
 
-const WrappedController = (props: OwnProps): ReactNode => {
+function WrappedController(props: OwnProps): ReactNode {
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
   return <Controller {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
-};
+}
 
 export default WrappedController;

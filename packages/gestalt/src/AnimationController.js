@@ -74,7 +74,6 @@ function AnimationExample() {
   return (
     <React.Fragment>
       <Button
-        inline
         text="Show animation"
         onClick={() => setShouldShow(true)}
       />
@@ -90,17 +89,17 @@ function AnimationExample() {
 }`}
 
 */
-import React, {
+import {
   createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
   type Context,
   type Element,
   type Node,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
 } from 'react';
-import PropTypes from 'prop-types';
 import useReducedMotion from './useReducedMotion.js';
 
 export type AnimationStateType = 'in' | 'postIn' | 'out' | 'postOut' | null;
@@ -159,20 +158,17 @@ function AnimationController({
     }
   }, [animationState, onDismissEnd]);
 
+  const contextValue = useMemo(() => ({ animationState, setAnimationState }), [animationState]);
+
   if (animationState === 'postOut') {
     return null;
   }
 
   return (
-    <AnimationContext.Provider value={{ animationState, setAnimationState }}>
+    <AnimationContext.Provider value={contextValue}>
       {children({ onDismissStart })}
     </AnimationContext.Provider>
   );
 }
-
-AnimationController.propTypes = {
-  children: PropTypes.func.isRequired,
-  onDismissEnd: PropTypes.func.isRequired,
-};
 
 export default AnimationController;

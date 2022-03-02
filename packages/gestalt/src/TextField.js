@@ -1,54 +1,103 @@
 // @flow strict
-import React, { forwardRef, useState, type Element, type Node } from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import Box from './Box.js';
-import focusStyles from './Focus.css';
-import formElement from './FormElement.css';
-import FormErrorMessage from './FormErrorMessage.js';
-import FormHelperText from './FormHelperText.js';
-import FormLabel from './FormLabel.js';
+import { forwardRef, type Element, type Node } from 'react';
 import Tag from './Tag.js';
-import layout from './Layout.css';
-import styles from './TextField.css';
+import InternalTextField from './InternalTextField.js';
 
 type Props = {|
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username',
+  /**
+   * Indicate if autocomplete should be available on the input, and the type of autocomplete.
+   */
+  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
+  /**
+   * Indicate if the input is disabled.
+   */
   disabled?: boolean,
-  errorMessage?: string,
+  /**
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/link) or [TapArea](https://gestalt.pinterest.systems/taparea).
+   */
+  errorMessage?: Node,
+  /**
+   * This field is deprecated and will be removed soon. Please do not use.
+   */
   hasError?: boolean,
+  /**
+   * More information about how to complete the form field.
+   */
   helperText?: string,
+  /**
+   * A unique identifier for the input.
+   */
   id: string,
+  /**
+   * The label for the input. Be sure to localize the text.
+   */
   label?: string,
+  /**
+   * A unique name for the input.
+   */
   name?: string,
+  /**
+   * Callback triggered when the user blurs the input.
+   */
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback triggered when the value of the input changes.
+   */
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback triggered when the user focuses the input.
+   */
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback triggered when the user presses any key while the input is focused.
+   */
   onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Placeholder text shown the the user has not yet input a value.
+   */
   placeholder?: string,
+  /**
+   * Ref that is forwarded to the underlying input element.
+   */
+  ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * List of tags to display in the component.
+   */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
-  type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
+  /**
+   * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
+   */
+  type?: 'date' | 'email' | 'password' | 'tel' | 'text' | 'url',
+  /**
+   * md: 40px, lg: 48px
+   */
   size?: 'md' | 'lg',
+  /**
+   * The current value of the input.
+   */
   value?: string,
 |};
 
+/**
+ * [TextField](https://gestalt.pinterest.systems/textfield) allows for multiple types of text input.
+ */
 const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function TextField(props, ref): Node {
-  const {
+>(function TextField(
+  {
     autoComplete,
     disabled = false,
     errorMessage,
@@ -66,122 +115,32 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     tags,
     type = 'text',
     value,
-  } = props;
-  const [focused, setFocused] = useState(false);
-
-  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    onChange({ event, value: event.currentTarget.value });
-  };
-
-  const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    setFocused(false);
-    if (onBlur) {
-      onBlur({ event, value: event.currentTarget.value });
-    }
-  };
-
-  const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    setFocused(true);
-    if (onFocus) {
-      onFocus({ event, value: event.currentTarget.value });
-    }
-  };
-
-  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (onKeyDown) {
-      onKeyDown({ event, value: event.currentTarget.value });
-    }
-  };
-
-  const classes = classnames(
-    styles.textField,
-    formElement.base,
-    disabled ? formElement.disabled : formElement.enabled,
-    (hasError || errorMessage) && !focused ? formElement.errored : formElement.normal,
-    size === 'md' ? layout.medium : layout.large,
-    tags
-      ? {
-          [focusStyles.accessibilityOutlineFocus]: focused,
-          [styles.textFieldWrapper]: true,
-        }
-      : {},
-  );
-
-  // type='number' doesn't work on ios safari without a pattern
-  // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
-  const pattern = type === 'number' ? '\\d*' : undefined;
-
-  const inputElement = (
-    <input
-      aria-describedby={errorMessage && focused ? `${id}-error` : null}
-      aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+  }: Props,
+  ref,
+): Node {
+  return (
+    <InternalTextField
       autoComplete={autoComplete}
-      className={tags ? styles.unstyledTextField : classes}
       disabled={disabled}
+      errorMessage={errorMessage}
+      hasError={hasError}
+      helperText={helperText}
       id={id}
+      label={label}
       name={name}
-      onBlur={handleBlur}
-      onChange={handleChange}
-      onFocus={handleFocus}
-      onKeyDown={handleKeyDown}
-      pattern={pattern}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
       placeholder={placeholder}
+      size={size}
       ref={ref}
+      tags={tags}
       type={type}
       value={value}
     />
   );
-
-  return (
-    <span>
-      {label && <FormLabel id={id} label={label} />}
-      {tags ? (
-        <div className={classes}>
-          {tags.map((tag, tagIndex) => (
-            <Box key={tagIndex} marginEnd={1} marginBottom={1}>
-              {tag}
-            </Box>
-          ))}
-          <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
-            {/* This is an invisible spacer div which mirrors the input's
-             * content. We use it to implement the flex wrapping behavior
-             * which is not supported by inputs, by having the actual input
-             * track it with absolute positioning. */}
-            <div aria-hidden className={styles.textFieldSpacer}>
-              {value}
-            </div>
-            {inputElement}
-          </Box>
-        </div>
-      ) : (
-        inputElement
-      )}
-      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-    </span>
-  );
 });
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-TextFieldWithForwardRef.propTypes = {
-  autoComplete: PropTypes.oneOf(['current-password', 'new-password', 'on', 'off', 'username']),
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  hasError: PropTypes.bool,
-  helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  tags: PropTypes.arrayOf(PropTypes.node),
-  type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
-  value: PropTypes.string,
-};
 
 TextFieldWithForwardRef.displayName = 'TextField';
 

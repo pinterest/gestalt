@@ -1,16 +1,20 @@
 /**
  * @fileoverview Disallow medium form fields
- * @author Christian Vuerings <cvuerings@pinterest.com>
  *
  * In order to have consistent form fields in pinboard, we update all of their sizes to large and disallow medium
  */
 
 // @flow strict
-const rule = {
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+
+const rule: ESLintRule = {
   meta: {
+    type: 'suggestion',
     docs: {
       description: 'Disallow medium form fields',
+      category: 'Gestalt restrictions',
       recommended: false,
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-medium-formfields',
     },
     schema: [
       {
@@ -20,11 +24,10 @@ const rule = {
     ],
   },
 
-  // $FlowFixMe[unclear-type]
-  create(context: Object): Object {
+  create(context) {
     let importedComponent = false;
     let localIdentifierName;
-    const componentNames = ['SearchField', 'SelectList', 'Tabs', 'TextField'];
+    const componentNames = ['SearchField', 'SelectList', 'TextField', 'ComboBox'];
 
     return {
       ImportDeclaration(decl) {

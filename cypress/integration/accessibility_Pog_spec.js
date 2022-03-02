@@ -1,6 +1,6 @@
 describe('Pog Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Pog');
+    cy.visit('/pog');
     cy.injectAxe();
   });
 

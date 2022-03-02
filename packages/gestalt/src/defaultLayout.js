@@ -1,5 +1,5 @@
 // @flow strict
-import type { Cache } from './Cache.js';
+import { type Cache } from './Cache.js';
 
 export type Position = {|
   top: number,
@@ -41,6 +41,7 @@ const defaultLayout = <T>({
   minCols?: number,
   rawItemCount: number,
   width?: ?number,
+  // $FlowFixMe[unclear-type]
 |}): ((items: $ReadOnlyArray<*>) => $ReadOnlyArray<Position>) => (
   items,
 ): $ReadOnlyArray<Position> => {

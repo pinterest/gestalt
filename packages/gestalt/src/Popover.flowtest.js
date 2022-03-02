@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Popover from './Popover.js';
 
 const Valid = <Popover anchor={document.createElement('div')} onDismiss={() => {}} />;

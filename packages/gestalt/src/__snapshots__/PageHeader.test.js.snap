@@ -34,7 +34,12 @@ exports[`PageHeader renders 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -79,7 +84,12 @@ exports[`PageHeader renders primary action 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -100,7 +110,7 @@ exports[`PageHeader renders primary action 1`] = `
             }
           >
             <button
-              className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+              className="button hideOutline inline accessibilityOutline parentButton"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -114,9 +124,13 @@ exports[`PageHeader renders primary action 1`] = `
               type="button"
             >
               <div
-                className="Text fontSize3 white alignCenter fontWeightBold"
+                className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
               >
-                Create
+                <div
+                  className="Text fontSize300 white alignCenter fontWeightBold"
+                >
+                  Create
+                </div>
               </div>
             </button>
           </div>
@@ -161,7 +175,12 @@ exports[`PageHeader renders secondary action 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -174,7 +193,7 @@ exports[`PageHeader renders secondary action 1`] = `
           className="FlexItem"
         >
           <a
-            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+            className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
             href="www.pinterest.com"
             onBlur={[Function]}
             onClick={[Function]}
@@ -204,7 +223,7 @@ exports[`PageHeader renders secondary action 1`] = `
             }
           >
             <button
-              className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+              className="button hideOutline inline accessibilityOutline parentButton"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -218,9 +237,13 @@ exports[`PageHeader renders secondary action 1`] = `
               type="button"
             >
               <div
-                className="Text fontSize3 white alignCenter fontWeightBold"
+                className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
               >
-                Create
+                <div
+                  className="Text fontSize300 white alignCenter fontWeightBold"
+                >
+                  Create
+                </div>
               </div>
             </button>
           </div>
@@ -265,7 +288,12 @@ exports[`PageHeader renders subtext 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -274,7 +302,12 @@ exports[`PageHeader renders subtext 1`] = `
           className="box marginTop2"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal truncate"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="5 followers"
           >
             5 followers
@@ -320,7 +353,12 @@ exports[`PageHeader renders within a max width 1`] = `
         }
       >
         <h1
-          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
           title="Settings"
         >
           Settings
@@ -329,7 +367,12 @@ exports[`PageHeader renders within a max width 1`] = `
           className="box marginTop2"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal truncate"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="5 followers"
           >
             5 followers

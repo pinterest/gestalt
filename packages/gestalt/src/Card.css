@@ -2,7 +2,7 @@
   composes: absolute from "./Layout.css";
   composes: rounding2 from "./Borders.css";
   composes: top0 right0 bottom0 left0 contentBox from "./Layout.css";
-  background: rgba(0, 0, 0, 0.064);
+  background: rgb(0 0 0 / 0.064);
   height: 100%;
   opacity: 0;
   pointer-events: none;
@@ -10,13 +10,25 @@
 }
 
 .hover {
-  animation: animateIn 0.2s cubic-bezier(0.31, 1, 0.34, 1) forwards;
+  animation: animate-in 0.2s cubic-bezier(0.31, 1, 0.34, 1) forwards;
 }
 
-@keyframes animateIn {
+html[dir="rtl"] .hover {
+  animation: animate-in-rtl 0.2s cubic-bezier(0.31, 1, 0.34, 1) forwards;
+}
+
+@keyframes animate-in {
   to {
     opacity: 1;
     padding: 8px;
     transform: translateY(-8px) translateX(-8px);
+  }
+}
+
+@keyframes animate-in-rtl {
+  to {
+    opacity: 1;
+    padding: 8px;
+    transform: translateY(-8px) translateX(8px);
   }
 }

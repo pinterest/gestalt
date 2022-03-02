@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Tag from './Tag.js';
 import TextField from './TextField.js';
@@ -60,6 +59,7 @@ describe('TextField', () => {
   it('TextField with autocomplete', () => {
     const tree = create(
       <TextField
+        autoComplete="email"
         name="email"
         id="test"
         onChange={jest.fn()}

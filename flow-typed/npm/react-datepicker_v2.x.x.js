@@ -1,8 +1,25 @@
 // react-datepicker flow-typed version based on https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
-import React from 'react';
 
 declare module 'react-datepicker' {
+  import type { Node as ReactNode, ElementRef } from 'react';
+
+  declare type PopperPlacementPositions =
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
 
   declare type LocaleData = {
     code?: string,
@@ -100,7 +117,7 @@ declare module 'react-datepicker' {
     popperContainer?: any,
     popperClassName?: string, // <PopperComponent/> props
     popperModifiers?: any, // <PopperComponent/> props
-    popperPlacement?: popperPlacementPositions, // <PopperComponent/> props
+    popperPlacement?: PopperPlacementPositions, // <PopperComponent/> props
     popperProps?: any,
     preventOpenOnFocus?: boolean,
     readOnly?: boolean,
@@ -147,8 +164,8 @@ declare module 'react-datepicker' {
     excludeTimes?: Array<Date>,
     useShortMonthInDropdown?: boolean,
     clearButtonTitle?: string,
-    previousMonthButtonLabel?: React.Node,
-    nextMonthButtonLabel?: React.Node,
+    previousMonthButtonLabel?: ReactNode,
+    nextMonthButtonLabel?: ReactNode,
     previousYearButtonLabel?: string,
     nextYearButtonLabel?: string,
     timeInputLabel?: string,
@@ -165,7 +182,6 @@ declare module 'react-datepicker' {
     weekAriaLabelPrefix?: string
   |};
 
-  // $FlowIssue[value-as-type]
-  declare class Datepicker extends React$Component<Props> { input: React.ElementRef<*> }
+  declare class Datepicker extends React$Component<Props> { input: ElementRef<*> }
   declare export default typeof Datepicker;
 }

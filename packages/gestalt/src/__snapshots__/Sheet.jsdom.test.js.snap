@@ -35,7 +35,7 @@ exports[`Sheet should render all props with nodes 1`] = `
                   class="box paddingX8 paddingY8 xsDisplayFlex"
                 >
                   <h1
-                    class="Heading fontSize2 darkGray alignLeft breakWord"
+                    class="Heading fontSize500 darkGray alignStart breakWord"
                   >
                     Sheet title
                   </h1>
@@ -46,27 +46,31 @@ exports[`Sheet should render all props with nodes 1`] = `
               >
                 <button
                   aria-label="Dismiss"
-                  class="button tapTransition enabled"
+                  class="parentButton"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="pog white"
-                    style="height: 40px; width: 40px;"
+                    class="button tapTransition enabled"
                   >
-                    <svg
-                      aria-hidden="true"
-                      aria-label=""
-                      class="icon darkGray iconBlock"
-                      height="18"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="18"
+                    <div
+                      class="pog white"
+                      style="height: 40px; width: 40px;"
                     >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="icon darkGray iconBlock"
+                        height="18"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="18"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </button>
               </div>
@@ -74,7 +78,8 @@ exports[`Sheet should render all props with nodes 1`] = `
             <nav />
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8"
+            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            style="height: 100%;"
           >
             <section />
           </div>
@@ -129,7 +134,7 @@ exports[`Sheet should render all props with render props 1`] = `
                   class="box paddingX8 paddingY8 xsDisplayFlex"
                 >
                   <h1
-                    class="Heading fontSize2 darkGray alignLeft breakWord"
+                    class="Heading fontSize500 darkGray alignStart breakWord"
                   >
                     Sheet title
                   </h1>
@@ -140,27 +145,31 @@ exports[`Sheet should render all props with render props 1`] = `
               >
                 <button
                   aria-label="Dismiss"
-                  class="button tapTransition enabled"
+                  class="parentButton"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="pog white"
-                    style="height: 40px; width: 40px;"
+                    class="button tapTransition enabled"
                   >
-                    <svg
-                      aria-hidden="true"
-                      aria-label=""
-                      class="icon darkGray iconBlock"
-                      height="18"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="18"
+                    <div
+                      class="pog white"
+                      style="height: 40px; width: 40px;"
                     >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="icon darkGray iconBlock"
+                        height="18"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="18"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </button>
               </div>
@@ -170,7 +179,8 @@ exports[`Sheet should render all props with render props 1`] = `
             />
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8"
+            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            style="height: 100%;"
           >
             <button
               type="submit"
@@ -221,36 +231,42 @@ exports[`Sheet should render animation in 1`] = `
           >
             <div
               class="absolute box flexNone paddingX6 paddingY7"
+              style="z-index: 1;"
             >
               <button
                 aria-label="Dismiss"
-                class="button tapTransition enabled"
+                class="parentButton"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="pog white"
-                  style="height: 40px; width: 40px;"
+                  class="button tapTransition enabled"
                 >
-                  <svg
-                    aria-hidden="true"
-                    aria-label=""
-                    class="icon darkGray iconBlock"
-                    height="18"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="18"
+                  <div
+                    class="pog white"
+                    style="height: 40px; width: 40px;"
                   >
-                    <path
-                      d="test-file-stub"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      aria-label=""
+                      class="icon darkGray iconBlock"
+                      height="18"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="18"
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </button>
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8"
+            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            style="height: 100%;"
           >
             <section />
           </div>
@@ -288,36 +304,42 @@ exports[`Sheet should render animation out 1`] = `
           >
             <div
               class="absolute box flexNone paddingX6 paddingY7"
+              style="z-index: 1;"
             >
               <button
                 aria-label="Dismiss"
-                class="button tapTransition enabled"
+                class="parentButton"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="pog white"
-                  style="height: 40px; width: 40px;"
+                  class="button tapTransition enabled"
                 >
-                  <svg
-                    aria-hidden="true"
-                    aria-label=""
-                    class="icon darkGray iconBlock"
-                    height="18"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="18"
+                  <div
+                    class="pog white"
+                    style="height: 40px; width: 40px;"
                   >
-                    <path
-                      d="test-file-stub"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      aria-label=""
+                      class="icon darkGray iconBlock"
+                      height="18"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="18"
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </button>
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8"
+            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            style="height: 100%;"
           >
             <section />
           </div>

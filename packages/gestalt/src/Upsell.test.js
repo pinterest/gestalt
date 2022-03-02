@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Icon from './Icon.js';
 import TextField from './TextField.js';
@@ -22,7 +21,7 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
         title="A Title"
       />,
     ).toJSON();
@@ -33,7 +32,7 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ label: 'Visit Pinterest' }}
+        primaryAction={{ label: 'Visit Pinterest', accessibilityLabel: '' }}
         title="A Title"
       />,
     ).toJSON();
@@ -44,8 +43,12 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
-        secondaryAction={{ href: 'pinterest.com/help', label: 'Learn more' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        secondaryAction={{
+          href: 'pinterest.com/help',
+          label: 'Learn more',
+          accessibilityLabel: 'Learn more: upsell messages',
+        }}
         title="A Title"
       />,
     ).toJSON();
@@ -56,7 +59,7 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -71,7 +74,7 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},

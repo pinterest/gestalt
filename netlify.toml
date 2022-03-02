@@ -1,5 +1,5 @@
 [build]
-  publish = "docs/build"
+  publish = "docs/.next"
   command = "./scripts/netlify.sh"
 
 [dev]
@@ -8,12 +8,10 @@
   framework = "#custom"
   autoLaunch = true
 
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
-
 [[headers]]
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

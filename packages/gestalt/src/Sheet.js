@@ -8,22 +8,17 @@ This guide will help you navigate and understand its design. This file is roughl
 
   1. Internal components <Header> and <DismissButton>
   2. Sheet function: the one with the actual component logic
-  3. <SheetWithForwardRef> component: wrapper for forwarding ref to <Sheet>
-  4. AnimatedSheet function: adds animation capabilities
-  5. <AnimatedSheetWithForwardRef> component: wrapper for forwarding ref to <AnimatedSheet>, the one which gets exported
+  3. AnimatedSheet function: adds animation capabilities
 
 This is how all these components are used:
 
-a. The default export is <AnimatedSheetWithForwardRef>
-b. <AnimatedSheetWithForwardRef> wraps AnimatedSheet
-c. AnimatedSheet includes <SheetWithForwardRef>
-d. <SheetWithForwardRef> wraps Sheet
-e. Sheet is the actual component logic which includes the internal components <Header> and <DismissButton>.
+a. The default export is <AnimatedSheet>
+b. AnimatedSheet includes <Sheet>
+c. Sheet is the actual component logic which includes the internal components <Header> and <DismissButton>.
 
 */
 
-import React, { forwardRef, useCallback, useState, useEffect, useRef, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node, useCallback, useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
 import AnimationController, { useAnimation } from './AnimationController.js';
@@ -36,18 +31,23 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContainer } from './ScrollBoundaryContainer.js';
+import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
+import { FixedZIndex } from './zIndex.js';
+
+type Size = 'sm' | 'md' | 'lg';
+
+type OnAnimationEndStateType = 'in' | 'out';
 
 type SheetMainProps = {|
-  _dangerousScrollableExperimentEnabled?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
   accessibilityDismissButtonLabel: string,
   accessibilitySheetLabel: string,
   children: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
+  onAnimationEnd?: ({| animationState: OnAnimationEndStateType |}) => void,
   onDismiss: () => void,
-  size?: 'sm' | 'md' | 'lg',
+  size?: Size,
 |};
 
 type SheetProps = {|
@@ -83,48 +83,48 @@ const SIZE_WIDTH_MAP = {
 Internal components <Header> and <DismissButton>
 
 */
-const Header = ({ heading }: {| heading: string |}) => (
-  <Box display="flex" justifyContent="start" padding={8}>
-    <Heading size="md" accessibilityLevel={1}>
-      {heading}
-    </Heading>
-  </Box>
-);
+function Header({ heading }: {| heading: string |}) {
+  return (
+    <Box display="flex" justifyContent="start" padding={8}>
+      <Heading size="500" accessibilityLevel={1}>
+        {heading}
+      </Heading>
+    </Box>
+  );
+}
 
-const DismissButton = ({
+function DismissButton({
   accessibilityDismissButtonLabel,
   onClick,
 }: {|
   accessibilityDismissButtonLabel: string,
   onClick: () => void,
-|}) => (
-  <IconButton
-    accessibilityLabel={accessibilityDismissButtonLabel}
-    bgColor="white"
-    icon="cancel"
-    iconColor="darkGray"
-    onClick={onClick}
-  />
-);
+|}) {
+  return (
+    <IconButton
+      accessibilityLabel={accessibilityDismissButtonLabel}
+      bgColor="white"
+      icon="cancel"
+      iconColor="darkGray"
+      onClick={onClick}
+    />
+  );
+}
 
 /*
 
 <Sheet> component: the one with the actual component logic
-<SheetWithForwardRef> component: wrapper for forwarding ref to <Sheet>
 
  */
-const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> = forwardRef<
-  SheetProps,
-  HTMLDivElement,
->(function Sheet(props, sheetRef): Node {
+function Sheet(props: SheetProps): Node {
   const {
-    _dangerousScrollableExperimentEnabled,
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
     children,
     closeOnOutsideClick = true,
     footer,
     heading,
+    onAnimationEnd,
     onDismiss,
     size = 'sm',
     subHeading,
@@ -132,9 +132,12 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
 
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-  const { animationState, onAnimationEnd } = useAnimation();
+  const {
+    animationState: animationStateFromHook,
+    onAnimationEnd: onAnimationEndFromHook,
+  } = useAnimation();
   const containerRef = useRef<?HTMLDivElement>(null);
-  const contentRef = useRef<?HTMLDivElement>(null);
+  const contentRef = useRef<?HTMLElement>(null);
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
@@ -149,6 +152,11 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
       window.removeEventListener('keyup', handleKeyUp);
     };
   }, [onDismiss]);
+
+  const handleOnAnimationEnd = useCallback(() => {
+    onAnimationEndFromHook?.();
+    onAnimationEnd?.({ animationState: animationStateFromHook === 'in' ? 'in' : 'out' });
+  }, [animationStateFromHook, onAnimationEnd, onAnimationEndFromHook]);
 
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
@@ -183,18 +191,17 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
       <TrapFocusBehavior>
         <div className={sheetStyles.container} ref={containerRef}>
           <Backdrop
-            animationState={animationState}
+            animationState={animationStateFromHook}
             closeOnOutsideClick={closeOnOutsideClick}
             onClick={handleOutsideClick}
           >
             <div
               aria-label={accessibilitySheetLabel}
               className={classnames(sheetStyles.wrapper, focusStyles.hideOutline, {
-                [sheetStyles.wrapperAnimationIn]: animationState === 'in',
-                [sheetStyles.wrapperAnimationOut]: animationState === 'out',
+                [sheetStyles.wrapperAnimationIn]: animationStateFromHook === 'in',
+                [sheetStyles.wrapperAnimationOut]: animationStateFromHook === 'out',
               })}
-              onAnimationEnd={onAnimationEnd}
-              ref={sheetRef}
+              onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
               style={{ width: SIZE_WIDTH_MAP[size] }}
               tabIndex={-1}
@@ -222,7 +229,13 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
                 )}
                 {!heading && (
                   <Box display="flex" flex="grow" justifyContent="end" marginBottom={8}>
-                    <Box flex="none" paddingX={6} paddingY={7} position="absolute">
+                    <Box
+                      flex="none"
+                      paddingX={6}
+                      paddingY={7}
+                      position="absolute"
+                      zIndex={new FixedZIndex(1)}
+                    >
                       <DismissButton
                         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
                         onClick={onDismiss}
@@ -230,28 +243,16 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
                     </Box>
                   </Box>
                 )}
-                {_dangerousScrollableExperimentEnabled ? (
-                  <ScrollBoundaryContainerProvider>
-                    <InternalScrollBoundaryContainer
-                      onScroll={updateShadows}
-                      padding={8}
-                      ref={contentRef}
-                    >
-                      {children}
-                    </InternalScrollBoundaryContainer>
-                  </ScrollBoundaryContainerProvider>
-                ) : (
-                  <Box
-                    flex="grow"
-                    overflow="auto"
+                <ScrollBoundaryContainerProvider>
+                  <InternalScrollBoundaryContainer
                     onScroll={updateShadows}
                     padding={8}
                     ref={contentRef}
                   >
                     {children}
-                  </Box>
-                )}
-                {footer && (
+                  </InternalScrollBoundaryContainer>
+                </ScrollBoundaryContainerProvider>
+                {Boolean(footer) && (
                   <div
                     className={classnames(sheetStyles.shadowContainer, {
                       [sheetStyles.shadow]: showBottomShadow,
@@ -267,42 +268,22 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
       </TrapFocusBehavior>
     </StopScrollBehavior>
   );
-});
+}
 
-SheetWithForwardRef.displayName = 'Sheet';
-
-// TODO: remove $FlowFixMe once this PR is released: https://github.com/facebook/flow/pull/8476
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-SheetWithForwardRef.propTypes = {
-  _dangerousScrollableExperimentEnabled: PropTypes.bool,
-  accessibilityDismissButtonLabel: PropTypes.string.isRequired,
-  accessibilitySheetLabel: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  closeOnOutsideClick: PropTypes.bool,
-  footer: PropTypes.node,
-  heading: PropTypes.string,
-  onDismiss: PropTypes.func.isRequired,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  subHeading: PropTypes.node,
-};
-
-/*
-
-<AnimatedSheet> component: adds animation capabilities
-<AnimatedSheetWithForwardRef> component: wrapper for forwarding ref to <AnimatedSheet>, the one which gets exported
-
+/**
+ * <AnimatedSheet> component: adds animation capabilities
  */
-const AnimatedSheetWithForwardRef: React$AbstractComponent<
-  AnimatedSheetProps,
-  HTMLDivElement,
-> = forwardRef<AnimatedSheetProps, HTMLDivElement>(function AnimatedSheet(props, sheetRef): Node {
+
+/**
+ * [Sheets](https://gestalt.pinterest.systems/sheet ) are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of Sheet displays content in a panel that opens from the side of the screen for the user to read or input information. Sheets have default, internal padding for content.
+ */
+export default function AnimatedSheet(props: AnimatedSheetProps): Node {
   const {
-    _dangerousScrollableExperimentEnabled = false,
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
     children,
     closeOnOutsideClick,
+    onAnimationEnd,
     onDismiss,
     footer,
     heading = undefined,
@@ -313,38 +294,22 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
   return (
     <AnimationController onDismissEnd={onDismiss}>
       {({ onDismissStart }) => (
-        <SheetWithForwardRef
-          _dangerousScrollableExperimentEnabled={_dangerousScrollableExperimentEnabled}
+        <Sheet
           accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
           accessibilitySheetLabel={accessibilitySheetLabel}
           closeOnOutsideClick={closeOnOutsideClick}
           footer={typeof footer === 'function' ? footer({ onDismissStart }) : footer}
           heading={heading}
+          onAnimationEnd={onAnimationEnd}
           onDismiss={onDismissStart}
-          ref={sheetRef}
           size={size}
           subHeading={
             typeof subHeading === 'function' ? subHeading({ onDismissStart }) : subHeading
           }
         >
           {typeof children === 'function' ? children({ onDismissStart }) : children}
-        </SheetWithForwardRef>
+        </Sheet>
       )}
     </AnimationController>
   );
-});
-
-AnimatedSheetWithForwardRef.displayName = 'AnimatedSheet';
-
-// TODO: remove $FlowFixMe once this PR is released: https://github.com/facebook/flow/pull/8476
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-AnimatedSheetWithForwardRef.propTypes = {
-  // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-  ...SheetWithForwardRef.propTypes,
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  footer: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  subHeading: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-};
-
-export default AnimatedSheetWithForwardRef;
+}

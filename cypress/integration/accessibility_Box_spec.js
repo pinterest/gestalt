@@ -1,6 +1,6 @@
 describe('Box Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Box');
+    cy.visit('/box');
     cy.injectAxe();
   });
 

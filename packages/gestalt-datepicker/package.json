@@ -1,8 +1,8 @@
 {
   "name": "gestalt-datepicker",
-  "version": "21.1.0",
+  "version": "45.7.2",
   "license": "Apache-2.0",
-  "homepage": "https://gestalt.netlify.app",
+  "homepage": "https://gestalt.pinterest.systems/",
   "description": "A React UI datepicker component which enforces Pinterest’s design language",
   "main": "dist/gestalt-datepicker.js",
   "jsnext:main": "dist/gestalt-datepicker.es.js",
@@ -14,8 +14,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
-    "prop-types": "^15.7.2",
-    "react-datepicker": "2.15.0"
+    "react-datepicker": "2.16.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0",
@@ -24,7 +23,7 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "prepublish": "rollup -c rollup.config.js",
+    "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch"
   },
   "browserslist": [

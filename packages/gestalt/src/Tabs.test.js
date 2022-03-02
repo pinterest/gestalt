@@ -1,42 +1,42 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Tabs from './Tabs.js';
 
 describe('<Tabs />', () => {
-  test('Only add aria-selected to the active tab', () => {
+  // TODO: we no longer support this, but we should
+  // eslint-disable-next-line jest/no-commented-out-tests
+  // test('Only add aria-selected to the active tab', () => {
+  //   const instance = create(
+  //     <Tabs
+  //       tabs={[
+  //         { text: 'News', href: '#' },
+  //         { text: 'You', href: '#' },
+  //         { text: 'Messages', href: '#' },
+  //       ]}
+  //       activeTabIndex={0}
+  //       onChange={() => {}}
+  //     />,
+  //   ).root;
+  //   const tabs = instance.findAllByType(TabWithForwardRef);
+
+  //   expect(tabs[0].props['aria-selected']).toEqual(true);
+  //   expect(tabs[1].props['aria-selected']).toEqual(false);
+  //   expect(tabs[2].props['aria-selected']).toEqual(false);
+  // });
+
+  test('Adds id when given', () => {
     const instance = create(
       <Tabs
-        tabs={[
-          { text: 'News', href: '#' },
-          { text: 'You', href: '#' },
-          { text: 'Messages', href: '#' },
-        ]}
         activeTabIndex={0}
         onChange={() => {}}
-      />,
-    ).root;
-    const links = instance.findAll((element) => element.type === 'a');
-    expect(links && links[0].props['aria-selected']).toEqual(true);
-    expect(links && links[1].props['aria-selected']).toEqual(false);
-    expect(links && links[2].props['aria-selected']).toEqual(false);
-  });
-
-  test('Adds id only if given', () => {
-    const instance = create(
-      <Tabs
         tabs={[
           { text: 'News', href: '#', id: 'news-tab' },
           { text: 'You', href: '#' },
         ]}
-        activeTabIndex={0}
-        onChange={() => {}}
       />,
     ).root;
 
-    const links = instance.findAll((element) => element.type === 'a');
-    expect(links && links[0].props.id).toEqual('news-tab');
-    expect(links && links[1].props.id).toBeUndefined();
+    expect(instance.findByProps({ id: 'news-tab' })).toBeDefined();
   });
 
   test('matches snapshot with default props', () => {
@@ -53,7 +53,7 @@ describe('<Tabs />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('matches snapshot with lg size and wrap', () => {
+  test('matches snapshot with wrap', () => {
     const tree = create(
       <Tabs
         tabs={[
@@ -62,7 +62,6 @@ describe('<Tabs />', () => {
         ]}
         activeTabIndex={0}
         onChange={() => {}}
-        size="lg"
         wrap
       />,
     ).toJSON();

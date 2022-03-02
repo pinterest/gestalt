@@ -40,7 +40,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize200 darkGray alignStart breakWord fontWeightBold"
       >
         Needs attention
       </div>
@@ -50,7 +50,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
     className="box marginTop6"
   >
     <h3
-      className="Heading fontSize1 darkGray alignLeft breakWord"
+      className="Heading fontSize400 darkGray alignStart breakWord"
     >
       Tag is unhealthy
     </h3>
@@ -59,7 +59,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag has errors that need to be fixed
     </div>
@@ -90,7 +90,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
       className="box marginTop1 selfCenter"
     >
       <div
-        className="Text fontSize2 gray alignLeft breakWord fontWeightBold"
+        className="Text fontSize200 gray alignStart breakWord fontWeightBold"
       >
         Not started
       </div>
@@ -100,7 +100,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     className="box marginTop6"
   >
     <h3
-      className="Heading fontSize1 darkGray alignLeft breakWord"
+      className="Heading fontSize400 darkGray alignStart breakWord"
     >
       Claim your website
     </h3>
@@ -109,7 +109,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
     >
       Claim your website to unlock new features
     </div>
@@ -157,7 +157,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize200 darkGray alignStart breakWord fontWeightBold"
       >
         Pending
       </div>
@@ -167,7 +167,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
     className="box marginTop6"
   >
     <h3
-      className="Heading fontSize1 darkGray alignLeft breakWord"
+      className="Heading fontSize400 darkGray alignStart breakWord"
     >
       Claiming your website
     </h3>
@@ -176,7 +176,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
     >
       We will notify you via email as soon as your site has been successfully claimed
     </div>
@@ -226,7 +226,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
         className="box"
       >
         <h3
-          className="Heading fontSize1 darkGray alignLeft breakWord"
+          className="Heading fontSize400 darkGray alignStart breakWord"
         >
           Nice work
         </h3>
@@ -235,7 +235,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
         className="box contentStart flexGrow marginTop2 xsDirectionColumn"
       >
         <div
-          className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+          className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
         >
           You are all done here
         </div>
@@ -285,7 +285,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize200 darkGray alignStart breakWord fontWeightBold"
       >
         Needs attention
       </div>
@@ -295,7 +295,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     className="box marginTop6"
   >
     <h3
-      className="Heading fontSize1 darkGray alignLeft breakWord"
+      className="Heading fontSize400 darkGray alignStart breakWord"
     >
       Tag is unhealthy
     </h3>
@@ -304,7 +304,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag must be healthy to continue.
     </div>
@@ -316,12 +316,13 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
     >
       <a
-        className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+        aria-label="Learn more about tags"
+        className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}
-        onContextMenu={null}
         onFocus={[Function]}
+        onKeyDown={[Function]}
         onKeyPress={[Function]}
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -336,7 +337,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         target={null}
       >
         <div
-          className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          className="Text fontSize300 darkGray alignCenter fontWeightBold"
         >
           Learn more
         </div>
@@ -348,7 +349,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
   >
     <button
       aria-label="Dismiss card"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -364,27 +365,31 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon gray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon gray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -431,7 +436,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize200 darkGray alignStart breakWord fontWeightBold"
       >
         Needs attention
       </div>
@@ -441,7 +446,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     className="box marginTop6"
   >
     <h3
-      className="Heading fontSize1 darkGray alignLeft breakWord"
+      className="Heading fontSize400 darkGray alignStart breakWord"
     >
       Tag is unhealthy
     </h3>
@@ -450,7 +455,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag must be healthy to continue.
     </div>
@@ -462,12 +467,13 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
     >
       <a
-        className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+        aria-label="Learn more about tags"
+        className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}
-        onContextMenu={null}
         onFocus={[Function]}
+        onKeyDown={[Function]}
         onKeyPress={[Function]}
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -482,7 +488,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
         target={null}
       >
         <div
-          className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          className="Text fontSize300 darkGray alignCenter fontWeightBold"
         >
           Learn more
         </div>
@@ -532,7 +538,7 @@ exports[`<ActivationCard /> message + title 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize200 darkGray alignStart breakWord fontWeightBold"
       >
         Needs attention
       </div>
@@ -542,7 +548,7 @@ exports[`<ActivationCard /> message + title 1`] = `
     className="box marginTop6"
   >
     <h3
-      className="Heading fontSize1 darkGray alignLeft breakWord"
+      className="Heading fontSize400 darkGray alignStart breakWord"
     >
       Tag is unhealthy
     </h3>
@@ -551,7 +557,7 @@ exports[`<ActivationCard /> message + title 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag must be healthy to continue.
     </div>

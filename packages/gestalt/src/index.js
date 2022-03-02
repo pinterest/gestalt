@@ -1,6 +1,8 @@
 // @flow strict
+import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
+import AvatarGroup from './AvatarGroup.js';
 import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
@@ -11,12 +13,16 @@ import Card from './Card.js';
 import Checkbox from './Checkbox.js';
 import Collage from './Collage.js';
 import Collection from './Collection.js';
+import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Column from './Column.js';
+import ComboBox from './ComboBox.js';
 import Container from './Container.js';
+import Datapoint from './Datapoint.js';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
+import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
-import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -31,10 +37,11 @@ import MasonryDefaultLayout from './layouts/MasonryLayout.js';
 import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
 import Modal from './Modal.js';
 import Module from './Module.js';
+import NumberField from './NumberField.js';
+import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
 import PageHeader from './PageHeader.js';
 import Pog from './Pog.js';
 import Popover from './Popover.js';
-import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
@@ -44,6 +51,7 @@ import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
 import Sheet from './Sheet.js';
 import Spinner from './Spinner.js';
+import Status from './Status.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
@@ -55,17 +63,16 @@ import TextArea from './TextArea.js';
 import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
-import Typeahead from './Typeahead.js';
 import Upsell from './Upsell.js';
 import Video from './Video.js';
 import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
 
 export {
   ActivationCard,
   Avatar,
+  AvatarGroup,
   AvatarPair,
   Badge,
   Box,
@@ -76,14 +83,18 @@ export {
   Checkbox,
   Collage,
   Collection,
+  ColorSchemeProvider,
   Column,
+  ComboBox,
   CompositeZIndex,
   Container,
+  Datapoint,
+  DeviceTypeProvider,
   Divider,
   Dropdown,
+  Fieldset,
   FixedZIndex,
   Flex,
-  GroupAvatar,
   Heading,
   Icon,
   IconButton,
@@ -98,10 +109,11 @@ export {
   MasonryUniformRowLayout,
   Modal,
   Module,
+  NumberField,
+  OnLinkNavigationProvider,
   PageHeader,
   Pog,
   Popover,
-  Provider,
   Pulsar,
   RadioButton,
   ScrollBoundaryContainer,
@@ -111,6 +123,7 @@ export {
   SelectList,
   Sheet,
   Spinner,
+  Status,
   Sticky,
   Switch,
   Table,
@@ -122,7 +135,6 @@ export {
   TextField,
   Toast,
   Tooltip,
-  Typeahead,
   Upsell,
   Video,
   useColorScheme,

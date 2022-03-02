@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Toast /> Red Toast 1`] = `
+exports[`<Toast /> Error Toast 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
@@ -14,13 +15,13 @@ exports[`<Toast /> Red Toast 1`] = `
     className="box fit paddingX6 paddingY6 pill redBg shadow"
   >
     <div
-      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
+      className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>
@@ -33,6 +34,7 @@ exports[`<Toast /> Red Toast 1`] = `
 exports[`<Toast /> Text + Image + Button 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
@@ -41,13 +43,13 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
+    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
   >
     <div
-      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
+      className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="box flexNone justifyCenter paddingX2 xsDisplayFlex"
+        className="FlexItem flexNone"
       >
         <div
           className="Mask rounding2 willChangeTransform"
@@ -65,38 +67,42 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         </div>
       </div>
       <div
-        className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
         >
-          Saved to
-           
-          <a
-            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
-            href="https://www.pinterest.com/search/pins/?q=home%20decor"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            target={null}
+          <span
+            className="textColorOverrideWhite"
           >
-            Home decor
-          </a>
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Home decor
+            </a>
+          </span>
         </div>
       </div>
       <div
-        className="box flexNone paddingX2"
+        className="FlexItem flexNone"
       >
         <button
-          className="button hideOutline tapTransition lg gray enabled block accessibilityOutline"
+          className="button hideOutline inline accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -110,9 +116,13 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
-            Undo
+            <div
+              className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            >
+              Undo
+            </div>
           </div>
         </button>
       </div>
@@ -124,6 +134,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
 exports[`<Toast /> Text + Image 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
@@ -132,13 +143,13 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
+    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
   >
     <div
-      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
+      className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="box flexNone justifyCenter paddingX2 xsDisplayFlex"
+        className="FlexItem flexNone"
       >
         <div
           className="Mask rounding2 willChangeTransform"
@@ -156,31 +167,35 @@ exports[`<Toast /> Text + Image 1`] = `
         </div>
       </div>
       <div
-        className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
         >
-          Saved to
-           
-          <a
-            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
-            href="https://www.pinterest.com/search/pins/?q=home%20decor"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            target={null}
+          <span
+            className="textColorOverrideWhite"
           >
-            Home decor
-          </a>
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Home decor
+            </a>
+          </span>
         </div>
       </div>
     </div>
@@ -191,6 +206,7 @@ exports[`<Toast /> Text + Image 1`] = `
 exports[`<Toast /> Text Only 1`] = `
 <div
   className="box marginBottom3 paddingX4"
+  role="status"
   style={
     Object {
       "maxWidth": 360,
@@ -199,16 +215,16 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
+    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
   >
     <div
-      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
+      className="Flex rowGap4 itemsCenter xsDirectionRow"
     >
       <div
-        className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
+        className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>

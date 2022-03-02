@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal Modal renders with ref 1`] = `
+exports[`Modal Modal renders 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body
@@ -28,7 +28,8 @@ Object {
               style="width: 100%;"
             >
               <div
-                class="box flexGrow overflowAuto"
+                class="box flexGrow overflowAuto paddingX0 paddingY0 relative"
+                style="height: 100%;"
               >
                 Modal content
               </div>
@@ -60,7 +61,8 @@ Object {
             style="width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto"
+              class="box flexGrow overflowAuto paddingX0 paddingY0 relative"
+              style="height: 100%;"
             >
               Modal content
             </div>

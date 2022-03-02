@@ -1,8 +1,8 @@
 {
   "name": "eslint-plugin-gestalt",
-  "version": "21.1.0",
+  "version": "45.7.2",
   "license": "Apache-2.0",
-  "homepage": "https://gestalt.netlify.app",
+  "homepage": "https://gestalt.pinterest.systems/",
   "description": "Eslint rules for Pinterest’s design language Gestalt",
   "main": "dist/eslint-plugin-gestalt.js",
   "jsnext:main": "dist/eslint-plugin-gestalt.es.js",
@@ -17,7 +17,7 @@
   "dependencies": {},
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "prepublish": "rollup -c rollup.config.js",
+    "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch"
   }
 }

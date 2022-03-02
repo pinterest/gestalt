@@ -3,32 +3,31 @@
   "version": "0.0.0",
   "private": true,
   "license": "Apache-2.0",
-  "homepage": "https://gestalt.netlify.app",
+  "homepage": "https://gestalt.pinterest.systems/",
   "scripts": {
-    "start": "BROWSER=none react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "(next dev) & (yarn dev-metadata)",
+    "dev-metadata": "nodemon -w ../packages/gestalt/src -w ../packages/gestalt-datepicker/src --exec 'yarn build-metadata'",
+    "build": "yarn build-metadata && next build",
+    "build-metadata": "../scripts/generateMetadata.js",
+    "start": "next start"
   },
   "dependencies": {
     "date-fns": "^2.16.1",
     "gestalt": ">0.0.0",
     "gestalt-datepicker": ">0.0.0",
+    "gestalt-design-tokens": ">0.0.0",
     "highlight.js": "^10.4.1",
     "history": "^5.0.0",
     "lz-string": "^1.4.4",
-    "marked": "^2.0.0",
+    "marked": "^4.0.10",
+    "next": "^12.1.0",
     "react": "^17.0.1",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.1",
-    "react-live": "^2.2.2",
-    "react-router-dom": "^5.2.0"
+    "react-live": "^2.3.0"
   },
+  "browserslist": ["last 2 versions", "not IE < 11", "not <1%"],
   "devDependencies": {
-    "react-scripts": "4.0.0"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "not IE < 11",
-    "not <1%"
-  ]
+    "nodemon": "^2.0.15"
+  }
 }

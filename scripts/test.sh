@@ -8,6 +8,9 @@ echo "build"
 echo "eslint"
 yarn eslint .
 
+echo "prettier"
+yarn prettier --check .
+
 echo "stylelint"
 yarn stylelint "**/*.css"
 

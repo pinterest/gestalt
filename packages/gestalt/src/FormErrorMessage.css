@@ -1,0 +1,5 @@
+.formErrorMessage * {
+  /* Ensure that error message will always be correct size regardless of what's passed in */
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-100) !important;
+}

@@ -1,15 +1,15 @@
 describe('Table Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Table');
+    cy.visit('/table');
     cy.injectAxe();
   });
 
   it('Tests accessibility on the Table page', () => {
     cy.configureAxe({
       rules: [
+        // Disabled until converted to new docs
         {
-          // Disabled to avoid confusion for sticky header example
-          id: 'scrollable-region-focusable',
+          id: 'color-contrast',
           enabled: false,
         },
       ],

@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status renders with accessibilityLabel 1`] = `
+<div
+  className="Flex columnGap0 xsDirectionColumn"
+>
+  <div
+    className="Flex rowGap2 itemsCenter xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="some accessibilityLabel"
+        className="icon darkGray iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Status renders with title 1`] = `
+<div
+  className="Flex columnGap0 xsDirectionColumn"
+>
+  <div
+    className="Flex rowGap2 itemsCenter xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon darkGray iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+      >
+        Unstarted
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Status renders with title and subtext 1`] = `
+<div
+  className="Flex columnGap0 xsDirectionColumn"
+>
+  <div
+    className="Flex rowGap2 itemsCenter xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon darkGray iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+      >
+        Unstarted
+      </div>
+    </div>
+  </div>
+  <div
+    className="box marginStart6"
+  >
+    <div
+      className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
+    >
+      some subtext
+    </div>
+  </div>
+</div>
+`;

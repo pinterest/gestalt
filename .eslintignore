@@ -1,5 +1,7 @@
 coverage
 docs/build
+docs/.next
+docs/components/metadata.js
 flow-typed
 node_modules
 packages/gestalt/dist

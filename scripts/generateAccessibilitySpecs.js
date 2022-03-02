@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('@babel/register');
 const fs = require('fs');
-const sidebarIndex = require('../docs/src/components/sidebarIndex.js');
+const sidebarIndex = require('../docs/components/sidebarIndex.js');
 
 async function generate() {
   const pages = sidebarIndex.default.reduce(
@@ -10,12 +10,13 @@ async function generate() {
   );
 
   await Promise.all(
-    pages.map(async (page) => {
-      return await fs.promises.writeFile(
-        `./cypress/integration/accessibility_${page}_spec.js`,
-        `describe('${page} Accessibility check', () => {
+    pages.map(
+      async (page) =>
+        await fs.promises.writeFile(
+          `./cypress/integration/accessibility_${page}_spec.js`,
+          `describe('${page} Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/${page}');
+    cy.visit('/${page.toLowerCase()}');
     cy.injectAxe();
   });
 
@@ -24,8 +25,8 @@ async function generate() {
   });
 });
 `,
-      );
-    }),
+        ),
+    ),
   );
 }
 

@@ -1,6 +1,6 @@
 describe('Column Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Column');
+    cy.visit('/column');
     cy.injectAxe();
   });
 

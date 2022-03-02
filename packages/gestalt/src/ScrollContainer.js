@@ -14,7 +14,6 @@
 
 // @flow strict
 import { Children, Component, type Node } from 'react';
-import PropTypes from 'prop-types';
 
 type Props = {|
   children?: Node,
@@ -28,12 +27,6 @@ function getScrollContainer(scrollContainer) {
 
 export default class ScrollContainer extends Component<Props> {
   scrollContainer: ?HTMLElement;
-
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    onScroll: PropTypes.func.isRequired,
-    scrollContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
-  };
 
   componentDidMount() {
     const scrollContainer = getScrollContainer(this.props.scrollContainer);
@@ -55,6 +48,8 @@ export default class ScrollContainer extends Component<Props> {
     }
   }
 
+  // This is used in Masonry
+  // eslint-disable-next-line react/no-unused-class-component-methods
   getScrollContainerRef: () => ?HTMLElement = () => this.scrollContainer;
 
   handleScroll: (event: Event) => void = (event: Event) => {

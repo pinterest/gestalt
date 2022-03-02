@@ -1,12 +1,11 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
 import Icon from './Icon.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import touchableStyles from './Touchable.css';
@@ -25,7 +24,7 @@ type Props = {|
         removeIconAccessibilityLabel?: string,
       |}
     | {|
-        disabled?: false,
+        disabled?: boolean,
         onRemove: ({|
           event: SyntheticMouseEvent<HTMLButtonElement>,
         |}) => void,
@@ -33,6 +32,12 @@ type Props = {|
       |},
 |};
 
+/**
+ * [Tags](https://gestalt.pinterest.systems/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/combobox#Tags) or as standalone components.
+ *
+ * ![Tag light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tag%20%230.png)
+ * ![Tag dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tag-dark%20%230.png)
+ */
 export default function Tag(props: Props): Node {
   const {
     disabled = false,
@@ -92,7 +97,7 @@ export default function Tag(props: Props): Node {
           )}
         </Box>
         <div className={typographyStyles.truncate} title={text}>
-          <Text color={fgColor} inline size="md">
+          <Text color={fgColor} inline size="200">
             {text}
           </Text>
         </div>
@@ -112,11 +117,3 @@ export default function Tag(props: Props): Node {
     </Box>
   );
 }
-
-Tag.propTypes = {
-  text: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  onRemove: PropTypes.func,
-  removeIconAccessibilityLabel: PropTypes.string,
-};

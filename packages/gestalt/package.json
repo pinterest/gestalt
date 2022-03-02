@@ -1,8 +1,8 @@
 {
   "name": "gestalt",
-  "version": "21.1.0",
+  "version": "45.7.2",
   "license": "Apache-2.0",
-  "homepage": "https://gestalt.netlify.app",
+  "homepage": "https://gestalt.pinterest.systems/",
   "description": "A set of React UI components which enforce Pinterest’s design language",
   "main": "dist/gestalt.js",
   "jsnext:main": "dist/gestalt.es.js",
@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
-    "prop-types": "^15.7.2"
+    "gestalt-design-tokens": ">0.0.0"
   },
   "peerDependencies": {
     "react": "^16.13.1 || 17.x",
@@ -22,9 +22,9 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
     "postpack": "rm README.md",
     "prepack": "cp ../../README.md .",
-    "prepublish": "rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch"
   },
   "browserslist": [

@@ -1,6 +1,6 @@
 describe('Badge Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Badge');
+    cy.visit('/badge');
     cy.injectAxe();
   });
 

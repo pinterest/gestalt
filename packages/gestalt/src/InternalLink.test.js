@@ -1,9 +1,32 @@
 // @flow strict
-import React from 'react';
 import renderer from 'react-test-renderer';
 import InternalLink from './InternalLink.js';
+import Text from './Text.js';
+import Pog from './Pog.js';
 
-it('default', () =>
+it('renders IconButton', () =>
+  expect(
+    renderer
+      .create(
+        <InternalLink wrappedComponent="iconButton" href="https://example.com" tabIndex={0}>
+          <Pog icon="heart" iconColor="red" />
+        </InternalLink>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
+it('renders TapArea', () =>
+  expect(
+    renderer
+      .create(
+        <InternalLink wrappedComponent="tapArea" href="https://example.com" tabIndex={0}>
+          <Text>InternalLink</Text>
+        </InternalLink>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
+it('renders inline Button', () =>
   expect(
     renderer
       .create(
@@ -14,18 +37,18 @@ it('default', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('inline', () =>
+it('renders full-width Button', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="button" href="https://example.com" inline tabIndex={0}>
+        <InternalLink fullWidth wrappedComponent="button" href="https://example.com" tabIndex={0}>
           InternalLink
         </InternalLink>,
       )
       .toJSON(),
   ).toMatchSnapshot());
 
-it('target null', () =>
+it('renders Button & target null', () =>
   expect(
     renderer
       .create(
@@ -41,7 +64,7 @@ it('target null', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('target self', () =>
+it('renders Button & target self', () =>
   expect(
     renderer
       .create(
@@ -57,7 +80,7 @@ it('target self', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('target blank', () =>
+it('renders Button & target blank', () =>
   expect(
     renderer
       .create(
@@ -73,7 +96,7 @@ it('target blank', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('with nofollow', () =>
+it('renders Button with nofollow', () =>
   expect(
     renderer
       .create(
@@ -89,7 +112,7 @@ it('with nofollow', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('with onTap', () =>
+it('renders Button with onClick', () =>
   expect(
     renderer
       .create(

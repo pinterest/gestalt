@@ -6,26 +6,29 @@
     "plugin:flowtype/recommended",
     "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@next/next/recommended",
     "plugin:react/recommended",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
+    "prettier"
   ],
   "env": {
     "browser": true,
     "es6": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": [
     "eslint-comments",
     "flowtype",
     "jest",
     "jsx-a11y",
-    "prettier",
     "react",
     "react-hooks",
     "import"
   ],
+  "settings": {
+    "next": {
+      "rootDir": "docs/"
+    }
+  },
   "rules": {
     "eslint-comments/no-unused-disable": "error",
     "flowtype/no-mutable-array": "error",
@@ -38,6 +41,7 @@
         "strict": true
       }
     ],
+    "flowtype/type-import-style": "error",
     "import/extensions": ["error", "always", { "ignorePackages": true }],
     "import/no-anonymous-default-export": "error",
     "import/no-extraneous-dependencies": "off",
@@ -58,11 +62,9 @@
       { "components": ["label"], "allowChildren": true }
     ],
     "no-await-in-loop": "off",
+    "no-constant-condition": "error",
     "no-return-await": "off",
-    "prettier/prettier": [
-      "error",
-      { "singleQuote": true }
-    ],
+    "prefer-arrow-callback": "off",
     "react-hooks/exhaustive-deps": "error",
     "react-hooks/rules-of-hooks": "error",
     "react/destructuring-assignment": "off",
@@ -70,9 +72,11 @@
     "react/jsx-fragments": ["error", "element"],
     "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
     "react/jsx-props-no-spreading": "off",
+    "react/no-access-state-in-setstate": "error",
     "react/no-array-index-key": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
+    "react/sort-comp": "off",
     "react/state-in-constructor": ["error", "never"],
     "react/static-property-placement": ["error", "static public field"]
   },
@@ -86,8 +90,15 @@
       }
     },
     {
-      "files": [ "docs/**/*.js"],
+      "files": ["packages/**/*.js"],
       "rules": {
+        "@next/next/no-img-element": "off"
+      }
+    },
+    {
+      "files": ["docs/**/*.js"],
+      "rules": {
+        "import/no-relative-parent-imports": "off",
         "flowtype/no-mutable-array": "off"
       }
     },
@@ -115,14 +126,6 @@
       "rules": {
         "jest/expect-expect": "off",
         "flowtype/require-valid-file-annotation": "off"
-      }
-    },
-    {
-      "files": ["scripts/danger/*.js"],
-      "globals": {
-        "danger": true,
-        "markdown": true,
-        "warn": true
       }
     }
   ]

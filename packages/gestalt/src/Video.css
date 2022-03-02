@@ -8,7 +8,6 @@
 .player {
   composes: relative from "./Layout.css";
   composes: xsCol12 from "./Column.css";
-  composes: blackBg from "./Colors.css";
 }
 
 .playhead {
@@ -30,9 +29,9 @@
   composes: paddingY2 from "./boxWhitespace.css";
   background-image: linear-gradient(
     to bottom,
-    rgba(181, 181, 181, 0),
-    rgba(0, 0, 0, 0.2) 33%,
-    rgba(0, 0, 0, 0.5) 66%,
-    rgba(0, 0, 0, 0.7)
+    rgb(181 181 181 / 0),
+    rgb(0 0 0 / 0.2) 33%,
+    rgb(0 0 0 / 0.5) 66%,
+    rgb(0 0 0 / 0.7)
   );
 }

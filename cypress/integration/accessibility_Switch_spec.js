@@ -1,6 +1,6 @@
 describe('Switch Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Switch');
+    cy.visit('/switch');
     cy.injectAxe();
   });
 

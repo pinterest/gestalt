@@ -1,6 +1,6 @@
 describe('Letterbox Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Letterbox');
+    cy.visit('/letterbox');
     cy.injectAxe();
   });
 

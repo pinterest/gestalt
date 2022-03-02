@@ -40,12 +40,78 @@
   --g-blueActive: #4a85c9;
 
   /* transparent colors */
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray800: rgba(0, 0, 0, 0.8);
+  --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
+  --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
+  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
+  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
+  --g-colorTransparentGray500: rgb(0 0 0 / 0.1);
+  --g-colorTransparentGray800: rgb(0 0 0 / 0.8);
+}
+
+/** Design Token Colors **/
+
+.infoBase {
+  background-color: var(--color-background-info-base);
+}
+
+.infoWeak {
+  background-color: var(--color-background-info-weak);
+}
+
+.errorBase {
+  background-color: var(--color-background-error-base);
+}
+
+.errorWeak {
+  background-color: var(--color-background-error-weak);
+}
+
+.warningBase {
+  background-color: var(--color-background-warning-base);
+}
+
+.warningWeak {
+  background-color: var(--color-background-warning-weak);
+}
+
+.successBase {
+  background-color: var(--color-background-success-base);
+}
+
+.successWeak {
+  background-color: var(--color-background-success-weak);
+}
+
+.shopping {
+  background-color: var(--color-background-shopping);
+}
+
+.primary {
+  background-color: var(--color-background-primary-base);
+}
+
+.secondary {
+  background-color: var(--color-background-secondary-base);
+}
+
+.tertiary {
+  background-color: var(--color-background-tertiary-base);
+}
+
+.selected {
+  background-color: var(--color-background-selected-base);
+}
+
+.inverse {
+  background-color: var(--color-background-inverse-base);
+}
+
+.brand {
+  background-color: var(--color-background-brand);
+}
+
+.education {
+  background-color: var(--color-background-education);
 }
 
 /** PRIMARY COLORS **/

@@ -1,6 +1,5 @@
 // @flow strict
-import React, { Fragment, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './Backdrop.css';
 import { type AnimationStateType } from './AnimationController.js';
@@ -39,12 +38,5 @@ function Backdrop({ animationState, children, closeOnOutsideClick, onClick }: Pr
     </Fragment>
   );
 }
-
-Backdrop.propTypes = {
-  animationState: PropTypes.string,
-  children: PropTypes.node,
-  closeOnOutsideClick: PropTypes.bool,
-  onClick: PropTypes.func,
-};
 
 export default Backdrop;

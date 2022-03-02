@@ -1,6 +1,6 @@
 describe('TapArea Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/TapArea');
+    cy.visit('/taparea');
     cy.injectAxe();
   });
 

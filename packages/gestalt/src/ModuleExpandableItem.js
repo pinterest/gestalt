@@ -1,35 +1,46 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Element as ReactElement, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
+import IconButton from './IconButton.js';
+import icons from './icons/index.js';
 import ModuleTitle from './ModuleTitle.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type ModuleExpandableItemBaseProps } from './moduleTypes.js';
 
-type Props = {|
-  ...ModuleExpandableItemBaseProps,
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  id: string,
-  isCollapsed: boolean,
-  onModuleClicked: (boolean) => void,
-|};
-
+/**
+ * https://gestalt.pinterest.systems/module
+ */
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
+  badgeText,
   children,
   icon,
   iconAccessibilityLabel,
+  iconButton,
   id,
   isCollapsed,
   onModuleClicked,
   summary,
   title,
   type = 'info',
-}: Props): Node {
+}: {|
+  accessibilityCollapseLabel: string,
+  accessibilityExpandLabel: string,
+  badgeText?: string,
+  children?: Node,
+  icon?: $Keys<typeof icons>,
+  iconAccessibilityLabel?: string,
+  iconButton?: ReactElement<typeof IconButton>,
+  id: string,
+  isCollapsed: boolean,
+  onModuleClicked: (boolean) => void,
+  summary?: $ReadOnlyArray<string>,
+  title: string,
+  type?: 'error' | 'info',
+|}): Node {
   return (
     <Box padding={6}>
       <Flex direction="column" gap={6}>
@@ -37,7 +48,10 @@ export default function ModuleExpandableItem({
           accessibilityControls={id}
           accessibilityExpanded={!isCollapsed}
           accessibilityLabel={isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel}
-          onTap={() => {
+          onTap={({ event }) => {
+            if (event?.target instanceof Element && event.target.closest('button') !== null) {
+              return;
+            }
             onModuleClicked(!isCollapsed);
           }}
         >
@@ -45,8 +59,10 @@ export default function ModuleExpandableItem({
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
               <Box column={isCollapsed && summary ? 6 : 12}>
                 <ModuleTitle
+                  badgeText={badgeText}
                   icon={icon}
                   iconAccessibilityLabel={iconAccessibilityLabel}
+                  iconButton={iconButton}
                   title={title}
                   type={type}
                 />
@@ -56,7 +72,7 @@ export default function ModuleExpandableItem({
                 <Box column={6} marginStart={6}>
                   <Flex direction="column" gap={2}>
                     {summary.map((item, i) => (
-                      <Text key={i} size="md" truncate>
+                      <Text key={i} size="200" lineClamp={1}>
                         {item}
                       </Text>
                     ))}
@@ -65,7 +81,7 @@ export default function ModuleExpandableItem({
               )}
             </Box>
 
-            {children && (
+            {Boolean(children) && (
               <Box id={id} padding={1}>
                 <Icon
                   accessibilityLabel={

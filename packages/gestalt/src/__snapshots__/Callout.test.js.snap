@@ -49,7 +49,7 @@ exports[`<Callout /> Error Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever error callout message here
           </div>
@@ -109,7 +109,7 @@ exports[`<Callout /> Info Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -169,7 +169,7 @@ exports[`<Callout /> Warning Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever warning callout message here
           </div>
@@ -231,14 +231,14 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -252,12 +252,13 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          aria-label=""
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -272,7 +273,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -285,7 +286,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -301,27 +302,31 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -379,14 +384,14 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -400,12 +405,13 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
+          aria-label="Learn more: callout messages"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg transparent"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -420,7 +426,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Learn more
           </div>
@@ -430,12 +436,13 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          aria-label=""
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -450,7 +457,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -512,14 +519,14 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -533,12 +540,13 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          aria-label=""
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
-          onContextMenu={null}
           onFocus={[Function]}
+          onKeyDown={[Function]}
           onKeyPress={[Function]}
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
@@ -553,7 +561,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 darkGray alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -615,14 +623,14 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -636,7 +644,8 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <button
-          className="button hideOutline tapTransition lg white enabled block accessibilityOutline"
+          aria-label=""
+          className="button hideOutline block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -650,9 +659,13 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="button hideOutline block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
-            Visit Pinterest
+            <div
+              className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            >
+              Visit Pinterest
+            </div>
           </div>
         </button>
       </div>
@@ -712,14 +725,14 @@ exports[`<Callout /> message + title 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <div
+              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>

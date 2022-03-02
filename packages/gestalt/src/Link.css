@@ -8,17 +8,3 @@
 .hoverUnderline:focus {
   text-decoration: underline;
 }
-
-.inlineBlock {
-  composes: inlineBlock from "./Layout.css";
-}
-
-.block {
-  composes: block from "./Layout.css";
-}
-
-.buttonLink {
-  composes: flex from "./Layout.css";
-  composes: itemsCenter from "./Layout.css";
-  composes: justifyCenter from "./Layout.css";
-}

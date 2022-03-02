@@ -1,6 +1,6 @@
 describe('Dropdown Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Dropdown');
+    cy.visit('/dropdown');
     cy.injectAxe();
   });
 

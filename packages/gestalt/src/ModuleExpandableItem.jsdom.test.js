@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
 
@@ -29,6 +28,31 @@ describe('ModuleExpandableItem', () => {
   });
 
   it('should render icon correctly', () => {
+    const props = {
+      ...baseProps,
+      icon: 'lock',
+      iconAccessibilityLabel: 'test label',
+    };
+    render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
+    expect(screen.getByText(/test title/i)).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /test label/i })).toBeInTheDocument();
+    expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Children/i)).toBeNull();
+  });
+
+  it('should render badge correctly', () => {
+    const props = {
+      ...baseProps,
+      badgeText: 'badge text',
+    };
+    render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
+    expect(screen.getByText(/test title/i)).toBeInTheDocument();
+    expect(screen.queryByText(/badge text/i)).toBeInTheDocument();
+    expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Children/i)).toBeNull();
+  });
+
+  it('should render icon button correctly', () => {
     const props = {
       ...baseProps,
       icon: 'lock',

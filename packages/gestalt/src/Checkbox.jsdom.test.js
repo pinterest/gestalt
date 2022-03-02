@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import { createRef } from 'react';
 import { render } from '@testing-library/react';
 import Checkbox from './Checkbox.js';
 
@@ -20,14 +20,14 @@ describe('Checkbox', () => {
   });
 
   it('forwards a ref to the innermost input element', () => {
-    const ref = React.createRef();
+    const ref = createRef();
     render(<Checkbox checked id="testcheckbox" onChange={mockOnChange} ref={ref} />);
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.checked).toEqual(true);
   });
 
   it('sets the innermost input to indeterminate with ref', () => {
-    const ref = React.createRef();
+    const ref = createRef();
     render(<Checkbox indeterminate id="testcheckbox" onChange={mockOnChange} ref={ref} />);
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.indeterminate).toEqual(true);

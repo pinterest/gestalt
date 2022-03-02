@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useEffect, useRef, type Node as ReactNode } from 'react';
+import { useEffect, useRef, type Node as ReactNode } from 'react';
 
 type Props = {|
   children?: ReactNode,
@@ -27,6 +27,7 @@ function queryFocusableAll(el: HTMLDivElement) {
 }
 
 const focusElement = (el: HTMLElement) => {
+  // $FlowFixMe[method-unbinding]
   if (typeof el.focus === 'function') {
     el.focus();
   }

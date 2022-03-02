@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`] = `
+<body>
+  <div>
+    <div
+      class="box"
+      style="isolation: isolate;"
+    >
+      <div
+        class="Flex rowGap0 xsDirectionRow"
+      >
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: 0px;"
+        >
+          <div
+            class="box relative"
+            style="height: 48px; width: 48px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle relative"
+                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+              >
+                <div
+                  class="Mask circle willChangeTransform"
+                >
+                  <div
+                    class="box relative"
+                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                  >
+                    <img
+                      alt="Keerthi"
+                      class="img"
+                      importance="auto"
+                      loading="auto"
+                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    />
+                  </div>
+                  <div
+                    class="wash"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: -16px;"
+        >
+          <div
+            class="box relative"
+            style="height: 48px; width: 48px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle lightGrayBg relative"
+                style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
+              >
+                <div
+                  class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                >
+                  <svg
+                    class="icon darkGray"
+                    preserveAspectRatio="xMidYMid meet"
+                    role="img"
+                    version="1.1"
+                    viewBox="0 0 24 24"
+                    width="41.66666666666667%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>
+                      Icon
+                    </title>
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] = `
+<body>
+  <div>
+    <a
+      aria-label="test"
+      class="link hideOutline tapTransition pill accessibilityOutline block pointer"
+      href="www.pinterest.com"
+      rel=""
+      tabindex="0"
+    >
+      <div
+        class="box"
+        style="isolation: isolate;"
+      >
+        <div
+          class="Flex rowGap0 xsDirectionRow"
+        >
+          <div
+            aria-hidden="true"
+            class="box"
+            style="margin-inline-start: 0px;"
+          >
+            <div
+              class="box relative"
+              style="height: 48px; width: 48px; z-index: 1;"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box circle relative"
+                  style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+                >
+                  <div
+                    class="Mask circle willChangeTransform"
+                  >
+                    <div
+                      class="box relative"
+                      style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    >
+                      <img
+                        alt="Keerthi"
+                        class="img"
+                        importance="auto"
+                        loading="auto"
+                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                      />
+                    </div>
+                    <div
+                      class="wash"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="box"
+            style="margin-inline-start: -16px;"
+          >
+            <div
+              class="box relative"
+              style="height: 48px; width: 48px; z-index: 1;"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box circle lightGrayBg relative"
+                  style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
+                >
+                  <div
+                    class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                  >
+                    <svg
+                      class="icon darkGray"
+                      preserveAspectRatio="xMidYMid meet"
+                      role="img"
+                      version="1.1"
+                      viewBox="0 0 24 24"
+                      width="41.66666666666667%"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>
+                        Icon
+                      </title>
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
+<body>
+  <div>
+    <div
+      aria-label="test"
+      class="box"
+      style="isolation: isolate;"
+    >
+      <div
+        class="Flex rowGap0 xsDirectionRow"
+      >
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: 0px;"
+        >
+          <div
+            class="box relative"
+            style="height: 48px; width: 48px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle relative"
+                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+              >
+                <div
+                  class="Mask circle willChangeTransform"
+                >
+                  <div
+                    class="box relative"
+                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                  >
+                    <img
+                      alt="Keerthi"
+                      class="img"
+                      importance="auto"
+                      loading="auto"
+                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    />
+                  </div>
+                  <div
+                    class="wash"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: -16px;"
+        >
+          <div
+            class="box relative"
+            style="height: 48px; width: 48px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle relative"
+                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+              >
+                <div
+                  class="Mask circle willChangeTransform"
+                >
+                  <div
+                    class="box relative"
+                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                  >
+                    <img
+                      alt="Keerthi"
+                      class="img"
+                      importance="auto"
+                      loading="auto"
+                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    />
+                  </div>
+                  <div
+                    class="wash"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: -16px;"
+        >
+          <div
+            class="box relative"
+            style="height: 48px; width: 48px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle lightGrayBg relative"
+                style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
+              >
+                <div
+                  class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                >
+                  <svg
+                    preserveAspectRatio="xMidYMid meet"
+                    version="1.1"
+                    viewBox="-50 -50 100 100"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <text
+                      class="antialiased sansSerif fontWeightBold "
+                      dy="0.35em"
+                      fill="#111"
+                      font-size="40px"
+                      text-anchor="middle"
+                    >
+                      3
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
+<body>
+  <div>
+    <div
+      aria-label="test"
+      class="box"
+      style="isolation: isolate;"
+    >
+      <div
+        class="Flex rowGap0 xsDirectionRow"
+      >
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: 0px;"
+        >
+          <div
+            class="box relative"
+            style="height: 48px; width: 48px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle relative"
+                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+              >
+                <div
+                  class="box circle lightGrayBg relative"
+                  style="padding-bottom: 100%;"
+                >
+                  <div
+                    class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                  >
+                    <svg
+                      preserveAspectRatio="xMidYMid meet"
+                      version="1.1"
+                      viewBox="-50 -50 100 100"
+                      width="100%"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>
+                        Keerthi
+                      </title>
+                      <text
+                        class="antialiased sansSerif fontWeightBold "
+                        dy="0.35em"
+                        fill="#111"
+                        font-size="40px"
+                        text-anchor="middle"
+                      >
+                        K
+                      </text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
+<body>
+  <div>
+    <div
+      class="box"
+      style="width: 200px;"
+    >
+      <div
+        aria-disabled="false"
+        aria-label="test"
+        class="hideOutline tapTransition pill accessibilityOutline pointer"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="box relative"
+          style="isolation: isolate;"
+        >
+          <div
+            aria-hidden="true"
+            class="absolute box"
+            style="margin-inline-start: 0%; top: 0px; width: 100%;"
+          >
+            <div
+              class="box relative"
+              style="height: 100%; width: 100%; z-index: 1;"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box circle relative"
+                  style="box-shadow: 0 0 0 1px #fff; width: 100%;"
+                >
+                  <div
+                    class="Mask circle willChangeTransform"
+                  >
+                    <div
+                      class="box relative"
+                      style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    >
+                      <img
+                        alt="Keerthi"
+                        class="img"
+                        importance="auto"
+                        loading="auto"
+                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                      />
+                    </div>
+                    <div
+                      class="wash"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
+<body>
+  <div>
+    <div
+      aria-label="test"
+      class="box"
+      style="isolation: isolate;"
+    >
+      <div
+        class="Flex rowGap0 xsDirectionRow"
+      >
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: 0px;"
+        >
+          <div
+            class="box relative"
+            style="height: 48px; width: 48px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle relative"
+                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+              >
+                <div
+                  class="Mask circle willChangeTransform"
+                >
+                  <div
+                    class="box relative"
+                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                  >
+                    <img
+                      alt="Keerthi"
+                      class="img"
+                      importance="auto"
+                      loading="auto"
+                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    />
+                  </div>
+                  <div
+                    class="wash"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
+<body>
+  <div>
+    <div
+      aria-label="test"
+      class="box"
+      style="isolation: isolate;"
+    >
+      <div
+        class="Flex rowGap0 xsDirectionRow"
+      >
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: 0px;"
+        >
+          <div
+            class="box relative"
+            style="height: 32px; width: 32px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle relative"
+                style="box-shadow: 0 0 0 1px #fff; width: 32px; height: 32px;"
+              >
+                <div
+                  class="Mask circle willChangeTransform"
+                >
+                  <div
+                    class="box relative"
+                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                  >
+                    <img
+                      alt="Keerthi"
+                      class="img"
+                      importance="auto"
+                      loading="auto"
+                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    />
+                  </div>
+                  <div
+                    class="wash"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
+<body>
+  <div>
+    <div
+      aria-label="test"
+      class="box"
+      style="isolation: isolate;"
+    >
+      <div
+        class="Flex rowGap0 xsDirectionRow"
+      >
+        <div
+          aria-hidden="true"
+          class="box"
+          style="margin-inline-start: 0px;"
+        >
+          <div
+            class="box relative"
+            style="height: 24px; width: 24px; z-index: 1;"
+          >
+            <div
+              class=""
+            >
+              <div
+                class="box circle relative"
+                style="box-shadow: 0 0 0 1px #fff; width: 24px; height: 24px;"
+              >
+                <div
+                  class="Mask circle willChangeTransform"
+                >
+                  <div
+                    class="box relative"
+                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                  >
+                    <img
+                      alt="Keerthi"
+                      class="img"
+                      importance="auto"
+                      loading="auto"
+                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    />
+                  </div>
+                  <div
+                    class="wash"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

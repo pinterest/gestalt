@@ -1,18 +1,17 @@
 // @flow strict
-import React, {
+import {
+  type Context,
+  type Element,
+  type Node,
   useContext,
   useState,
   useCallback,
   createContext,
-  type Context,
-  type Element,
-  type Node,
 } from 'react';
-import PropTypes from 'prop-types';
 
 type ScrollBoundaryContainerContextType = {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
-  addRef: (ref: HTMLDivElement) => void,
+  scrollBoundaryContainerRef: ?HTMLElement,
+  addRef: (ref: HTMLElement) => void,
 |};
 
 type Props = {|
@@ -47,7 +46,3 @@ function useScrollBoundaryContainer(): ScrollBoundaryContainerContextType {
 }
 
 export { ScrollBoundaryContainerProvider, useScrollBoundaryContainer };
-
-ScrollBoundaryContainerProvider.propTypes = {
-  children: PropTypes.node,
-};

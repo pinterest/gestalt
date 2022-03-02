@@ -1,10 +1,11 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
 import babel from '@rollup/plugin-babel';
 import cssnano from 'cssnano';
+import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'postcss';
-import postcssCssnext from 'postcss-cssnext';
+import postcssPresetEnv from 'postcss-preset-env';
 import postcssModules from 'postcss-modules';
 import replace from '@rollup/plugin-replace';
 import { parseString } from 'xml2js';
@@ -21,17 +22,17 @@ const svgPath = () => ({
 
     const data = readFileSync(id, 'utf-8');
 
-    return new Promise((resolve, reject) =>
+    return new Promise((resolve, reject) => {
       parseString(data, (err, result) => {
         if (err) {
-          return reject(err);
+          reject(err);
+        } else {
+          const path = result.svg.path[0].$.d;
+          const code = `export default '${path}';`;
+          resolve({ code });
         }
-
-        const path = result.svg.path[0].$.d;
-        const code = `export default '${path}';`;
-        return resolve({ code });
-      }),
-    );
+      });
+    });
   },
 });
 
@@ -41,9 +42,9 @@ const cssModules = (options = {}) => {
   const cssCache = {};
 
   const breakpoints = {
-    'g-sm': '(min-width: 576px)',
-    'g-md': '(min-width: 768px)',
-    'g-lg': '(min-width: 1312px)',
+    '--g-sm': '(min-width: 576px)',
+    '--g-md': '(min-width: 768px)',
+    '--g-lg': '(min-width: 1312px)',
   };
 
   const modulesPlugin = postcssModules({
@@ -69,11 +70,11 @@ const cssModules = (options = {}) => {
   });
 
   const plugins = [
-    postcssCssnext({
+    postcssPresetEnv({
       features: {
-        customProperties: false,
-        customMedia: {
-          extensions: breakpoints,
+        'custom-properties': false,
+        'custom-media-queries': {
+          importFrom: [{ customMedia: breakpoints }],
         },
       },
     }),
@@ -131,19 +132,23 @@ const plugins = (name) => [
   }),
   nodeResolve(),
   replace({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    preventAssignment: true,
+    values: {
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    },
   }),
   svgPath(),
   json({
     preferConst: true,
   }),
   babel({
-    babelrc: false,
     babelHelpers: 'bundled',
-    presets: [['@babel/preset-env', { modules: false }], '@babel/react', '@babel/flow'],
-    plugins: ['@babel/proposal-class-properties'],
+    babelrc: false,
     exclude: 'node_modules/**',
+    rootMode: 'upward',
+    shouldPrintComment: (comment) => /[#@]__PURE__/.exec(comment),
   }),
+  commonjs(),
 ];
 
 export default plugins;

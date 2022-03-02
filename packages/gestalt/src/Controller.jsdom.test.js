@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Controller from './Controller.js';
 
@@ -7,6 +6,8 @@ test('Controller renders', () => {
   const element = document.createElement('div');
   const component = create(
     <Controller
+      id=""
+      role={undefined}
       anchor={element}
       positionRelativeToAnchor
       bgColor="darkGray"

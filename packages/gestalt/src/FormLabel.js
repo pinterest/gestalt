@@ -1,22 +1,21 @@
 // @flow strict
-
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node } from 'react';
 import styles from './FormLabel.css';
 import Text from './Text.js';
-import Label from './Label.js';
+import InternalLabel from './InternalLabel.js';
 
-export default function FormLabel({ id, label }: {| id: string, label: string |}): Node {
+type Props = {|
+  id: string,
+  label: string,
+  labelDisplay?: 'visible' | 'hidden',
+|};
+
+export default function FormLabel({ id, label, labelDisplay }: Props): Node {
   return (
-    <Label htmlFor={id}>
+    <InternalLabel _labelDisplay={labelDisplay} htmlFor={id}>
       <div className={styles.formLabel}>
-        <Text size="sm">{label}</Text>
+        <Text size="100">{label}</Text>
       </div>
-    </Label>
+    </InternalLabel>
   );
 }
-
-FormLabel.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-};

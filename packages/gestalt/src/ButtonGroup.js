@@ -1,33 +1,29 @@
 // @flow strict
-import React, { Children, Fragment, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { Children, type Node } from 'react';
 import Box from './Box.js';
 
-function ButtonGroup({ children }: {| children?: Node |}): Node {
-  const count = Children.count(children);
+type Props = {|
+  /**
+   * One or more Buttons and/or IconButtons.
+   */
+  children?: Node,
+|};
 
-  if (count === 0) {
+/**
+ * [ButtonGroup](https://gestalt.pinterest.systems/buttongroup) is used to display a series of buttons.
+ */
+function ButtonGroup({ children }: Props): Node {
+  if (Children.count(children) === 0) {
     return null;
-  }
-  if (count === 1) {
-    return <Fragment>{children}</Fragment>;
   }
 
   return (
-    <Box marginStart={-1} marginEnd={-1} marginTop={-1} marginBottom={-1} display="flex" wrap>
+    <Box margin={-1} display="flex" wrap>
       {Children.map(children, (child) =>
-        child !== null && child !== undefined ? (
-          <Box paddingX={1} paddingY={1}>
-            {child}
-          </Box>
-        ) : null,
+        child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,
       )}
     </Box>
   );
 }
-
-ButtonGroup.propTypes = {
-  children: PropTypes.node,
-};
 
 export default ButtonGroup;

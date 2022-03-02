@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import TextField from './TextField.js';
 import UpsellForm from './UpsellForm.js';
 

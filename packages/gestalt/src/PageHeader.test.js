@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import PageHeader from './PageHeader.js';
 import Button from './Button.js';

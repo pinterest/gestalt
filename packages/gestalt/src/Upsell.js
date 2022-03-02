@@ -1,10 +1,8 @@
 // @flow strict
-import React, { type Element, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
-import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
@@ -13,41 +11,27 @@ import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import {
-  ActionDataPropType,
-  DismissButtonPropType,
-  type ActionDataType,
-  type DismissButtonType,
-} from './commonTypes.js';
+import { type ActionDataType } from './commonTypes.js';
 
-type Props = {|
-  children?: Element<typeof UpsellForm>,
-  dismissButton?: DismissButtonType,
-  imageData?: {|
-    component: Element<typeof Image | typeof Icon>,
-    mask?: {|
-      rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
-      wash?: boolean,
-    |},
-    width?: number,
-  |},
-  message: string,
-  primaryAction?: ActionDataType,
-  secondaryAction?: ActionDataType,
-  title?: string,
-|};
-
-const UpsellAction = ({
-  data,
-  stacked,
-  type,
-}: {|
+type UpsellActionProps = {|
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|}): Node => {
+|};
+
+function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   const color = type === 'primary' ? 'red' : 'gray';
-  const { accessibilityLabel, href, label, onClick, rel, target } = data;
+  const { accessibilityLabel, disabled, href, label, onClick, rel, target } = data;
+
+  const commonProps = {
+    accessibilityLabel,
+    color,
+    disabled,
+    fullWidth: true,
+    onClick,
+    size: 'lg',
+    text: label,
+  };
 
   return (
     <Box
@@ -61,31 +45,94 @@ const UpsellAction = ({
       smMarginBottom="auto"
     >
       {href ? (
-        <Button
-          accessibilityLabel={accessibilityLabel}
-          color={color}
-          href={href}
-          onClick={onClick}
-          rel={rel}
-          role="link"
-          size="lg"
-          target={target}
-          text={label}
-        />
+        <Button {...commonProps} href={href} rel={rel} role="link" target={target} />
       ) : (
-        <Button
-          accessibilityLabel={accessibilityLabel}
-          color={color}
-          onClick={onClick}
-          role="button"
-          size="lg"
-          text={label}
-        />
+        <Button {...commonProps} role="button" />
       )}
     </Box>
   );
-};
+}
 
+type Props = {|
+  /**
+   * To create forms within Upsell, pass Upsell.Form as children.
+   */
+  children?: Element<typeof UpsellForm>,
+  /**
+   * Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   */
+  dismissButton?: {|
+    accessibilityLabel: string,
+    onDismiss: () => void,
+  |},
+  /**
+   * Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.
+   */
+  imageData?: {|
+    component: Element<typeof Image | typeof Icon>,
+    mask?: {|
+      rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
+      wash?: boolean,
+    |},
+    width?: number,
+  |},
+  /**
+   * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.
+   */
+  message: string,
+  /**
+   * Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
+   * If no \`href\` is supplied, the action will be a button.
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   */
+  primaryAction?: {|
+    accessibilityLabel: string,
+    disabled?: boolean,
+    href?: string,
+    label: string,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
+    rel?: 'none' | 'nofollow',
+    target?: null | 'self' | 'blank',
+  |},
+  /**
+   * Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
+   * If no \`href\` is supplied, the action will be a button.
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   */
+  secondaryAction?: {|
+    accessibilityLabel: string,
+    disabled?: boolean,
+    href?: string,
+    label: string,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
+    rel?: 'none' | 'nofollow',
+    target?: null | 'self' | 'blank',
+  |},
+  /**
+   * Brief title summarizing the Upsell. Content should be [localized](#Localization).
+   */
+  title?: string,
+|};
+
+/**
+ * [Upsells](https://gestalt.pinterest.systems/upsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.
+ *
+ * ⚠️ Please note: Upsell is not currently supported in dark mode.
+ */
 export default function Upsell({
   children,
   dismissButton,
@@ -97,37 +144,39 @@ export default function Upsell({
 }: Props): Node {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
+  const hasActions = Boolean(primaryAction || secondaryAction);
 
   return (
     <Box
+      borderStyle="shadow"
       display="flex"
       direction="column"
       smDirection="row"
-      padding={6}
+      paddingY={6}
+      paddingX={12}
       smPadding={8}
       position="relative"
       rounding={4}
-      borderStyle="shadow"
     >
-      <Box smDisplay="flex" wrap width="100%" smMarginTop={-3} smMarginBottom={-3}>
+      <Box smDisplay="flex" smMarginTop={-3} smMarginBottom={-3} width="100%" wrap>
         <Box
-          display="flex"
-          flex={children ? 'grow' : 'shrink'}
+          alignItems="center"
           direction="column"
           smDirection="row"
+          display="flex"
+          flex={children ? 'grow' : 'shrink'}
           justifyContent="center"
-          alignItems="center"
           marginBottom={primaryAction || secondaryAction ? 4 : undefined}
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
           {imageData && (
             <Box
+              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
+              flex="none"
               marginBottom={4}
               smMarginBottom={0}
               width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
-              flex="none"
-              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
             >
               <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
                 {imageData.component}
@@ -135,11 +184,11 @@ export default function Upsell({
             </Box>
           )}
           <Box
-            display="flex"
-            flex={children ? 'grow' : 'shrink'}
-            smDisplay="block"
-            direction="column"
             alignItems="center"
+            direction="column"
+            display="flex"
+            smDisplay="block"
+            flex={children ? 'grow' : 'shrink'}
             marginBottom="auto"
             marginTop="auto"
             marginEnd={0}
@@ -150,9 +199,13 @@ export default function Upsell({
             <Box maxWidth={648}>
               {title && (
                 <Box marginBottom={2}>
-                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="sm">
+                  <Text
+                    size="400"
+                    weight="bold"
+                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
+                  >
                     {title}
-                  </Heading>
+                  </Text>
                 </Box>
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
@@ -161,18 +214,18 @@ export default function Upsell({
               <Box
                 smDisplay="flex"
                 flex="grow"
-                width="100%"
                 justifyContent="end"
+                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
                 smMarginEnd={4}
                 smPaddingY={3}
-                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                width="100%"
               >
                 {children}
               </Box>
             )}
           </Box>
         </Box>
-        {!children && (
+        {!children && hasActions && (
           <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
               <UpsellAction type="secondary" data={secondaryAction} />
@@ -199,23 +252,5 @@ export default function Upsell({
     </Box>
   );
 }
-
-Upsell.propTypes = {
-  children: PropTypes.node,
-  dismissButton: DismissButtonPropType,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  imageData: PropTypes.exact({
-    component: PropTypes.node.isRequired,
-    mask: PropTypes.shape({
-      rounding: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle']),
-      wash: PropTypes.bool,
-    }),
-    width: PropTypes.number,
-  }),
-  message: PropTypes.string.isRequired,
-  primaryAction: ActionDataPropType,
-  secondaryAction: ActionDataPropType,
-  title: PropTypes.string,
-};
 
 Upsell.Form = UpsellForm;

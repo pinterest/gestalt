@@ -1,8 +1,9 @@
 // @flow strict
-import React from 'react';
 import Masonry from './Masonry.js';
 
-const Item = () => <div />;
+function Item() {
+  return <div />;
+}
 const Valid = <Masonry items={[]} comp={Item} />;
 
 // $FlowExpectedError[prop-missing]

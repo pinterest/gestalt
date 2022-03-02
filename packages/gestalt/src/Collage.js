@@ -1,6 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node } from 'react';
 import Collection from './Collection.js';
 
 type Column = 2 | 3 | 4;
@@ -140,19 +139,43 @@ function getCollageLayout({
 }
 
 type Props = {|
+  /**
+   * Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors. See [Columns example](https://gestalt.pinterest.systems#columns) for more details.
+   */
   columns: Column,
+  /**
+   * Whether or not the first image is a cover image. See [Cover Image example](https://gestalt.pinterest.systems#coverImage) for more details.
+   */
   cover?: boolean,
+  /**
+   * The amount of vertical and horizontal space between images. See [Gutter example](https://gestalt.pinterest.systems#gutter) for more details.
+   */
   gutter?: number,
+  /**
+   * Height of the collage.
+   */
   height: number,
+  /**
+   * Depending on the number of columns of the collage, there may be multiple layouts available. If there are N layouts available, (layoutKey % N) will determine which layout is used. See [Layout Key example](https://gestalt.pinterest.systems#layoutKey) for more details.
+   */
   layoutKey?: number,
+  /**
+   * Callback to render the collage images.
+   */
   renderImage: ({|
     width: number,
     height: number,
     index: number,
   |}) => Node,
+  /**
+   * Width of the collage.
+   */
   width: number,
 |};
 
+/**
+ *  [Collage](https://gestalt.pinterest.systems/collage), similarly to [Masonry](https://gestalt.pinterest.systems/masonry), creates a deterministic grid layout that can absolutely position and virtualize images.
+ */
 export default function Collage(props: Props): Node {
   const { columns, cover, gutter, height, layoutKey, renderImage, width } = props;
   const positions = getCollageLayout({
@@ -176,14 +199,3 @@ export default function Collage(props: Props): Node {
     />
   );
 }
-
-Collage.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  columns: PropTypes.oneOf([2, 3, 4]).isRequired,
-  cover: PropTypes.bool,
-  gutter: PropTypes.number,
-  height: PropTypes.number.isRequired,
-  layoutKey: PropTypes.number,
-  renderImage: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired,
-};

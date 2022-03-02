@@ -1,67 +1,11 @@
 // @flow strict
-import React, { useState, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { useState, type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
-import typography from './Typography.css';
-import { useColorScheme } from './contexts/ColorScheme.js';
-
-const Square = (props: *) => (
-  <Box {...props} position="relative">
-    <Box dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }} position="relative" />
-    <Box position="absolute" top left bottom right>
-      {props.children}
-    </Box>
-  </Box>
-);
-
-const DefaultAvatar = ({
-  accessibilityLabel,
-  name,
-}: {|
-  accessibilityLabel?: string,
-  name: string,
-|}) => {
-  const { colorGray300 } = useColorScheme();
-  const firstInitial = name ? [...name][0].toUpperCase() : '';
-  const title = accessibilityLabel ?? name;
-
-  return (
-    <Square color="lightGray" rounding="circle" overflow="hidden">
-      <svg
-        width="100%"
-        viewBox="-50 -50 100 100"
-        version="1.1"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>{title}</title>
-        <text
-          fontSize="40px"
-          fill={colorGray300}
-          dy="0.35em"
-          textAnchor="middle"
-          className={[typography.antialiased, typography.sansSerif, typography.fontWeightBold].join(
-            ' ',
-          )}
-        >
-          {firstInitial}
-        </text>
-      </svg>
-    </Square>
-  );
-};
-
-type Props = {|
-  accessibilityLabel?: string,
-  name: string,
-  outline?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
-  src?: string,
-  verified?: boolean,
-|};
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import DefaultAvatar from './DefaultAvatar.js';
 
 const sizes = {
   xs: 24,
@@ -71,6 +15,40 @@ const sizes = {
   xl: 120,
 };
 
+type Props = {|
+  /**
+   * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
+   */
+  accessibilityLabel?: string,
+  /**
+   * The name of the user. This is used for the placeholder treatment if an image is not available.
+   */
+  name: string,
+  /**
+   * Adds a white border around Avatar so it's visible when displayed on other images.
+   */
+  outline?: boolean,
+  /**
+   * xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, Avatar will fill 100% of the parent container width.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
+  /**
+   * The URL of the user's image.
+   */
+  src?: string,
+  /**
+   * Used to indicate if the user is verified.
+   */
+  verified?: boolean,
+|};
+
+/**
+ * [Avatar](https://gestalt.pinterest.systems/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
+ *
+ * ![Avatar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Avatar%20%230.png)
+ * ![Avatar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Avatar-dark%20%230.png)
+ *
+ */
 export default function Avatar(props: Props): Node {
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const { colorGray0, colorGray100 } = useColorScheme();
@@ -82,7 +60,6 @@ export default function Avatar(props: Props): Node {
 
   return (
     <Box
-      color="white"
       {...(outline
         ? {
             dangerouslySetInlineStyle: {
@@ -134,13 +111,3 @@ export default function Avatar(props: Props): Node {
     </Box>
   );
 }
-
-Avatar.propTypes = {
-  accessibilityLabel: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  outline: PropTypes.bool,
-  src: PropTypes.string,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
-  verified: PropTypes.bool,
-};

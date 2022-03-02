@@ -1,6 +1,6 @@
 describe('ZIndex Classes Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ZIndex Classes');
+    cy.visit('/zindex_classes');
     cy.injectAxe();
   });
 

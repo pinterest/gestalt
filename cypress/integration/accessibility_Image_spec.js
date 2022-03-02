@@ -1,6 +1,6 @@
 describe('Image Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Image');
+    cy.visit('/image');
     cy.injectAxe();
   });
 

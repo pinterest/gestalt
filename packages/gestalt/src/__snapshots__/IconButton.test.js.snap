@@ -3,7 +3,7 @@
 exports[`IconButton renders with disabled state 1`] = `
 <button
   aria-label="Pinterest"
-  className="button tapTransition disabled"
+  className="parentButton"
   disabled={true}
   onBlur={[Function]}
   onClick={[Function]}
@@ -20,27 +20,31 @@ exports[`IconButton renders with disabled state 1`] = `
   type="button"
 >
   <div
-    className="pog transparent"
-    style={
-      Object {
-        "height": 40,
-        "width": 40,
-      }
-    }
+    className="button tapTransition disabled"
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
+    <div
+      className="pog transparent"
+      style={
+        Object {
+          "height": 40,
+          "width": 40,
+        }
+      }
     >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon gray iconBlock"
+        height={18}
+        role="img"
+        viewBox="0 0 24 24"
+        width={18}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
   </div>
 </button>
 `;
@@ -48,7 +52,7 @@ exports[`IconButton renders with disabled state 1`] = `
 exports[`IconButton renders with icon 1`] = `
 <button
   aria-label="Pinterest"
-  className="button tapTransition enabled"
+  className="parentButton"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -64,27 +68,31 @@ exports[`IconButton renders with icon 1`] = `
   type="button"
 >
   <div
-    className="pog transparent"
-    style={
-      Object {
-        "height": 40,
-        "width": 40,
-      }
-    }
+    className="button tapTransition enabled"
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
+    <div
+      className="pog transparent"
+      style={
+        Object {
+          "height": 40,
+          "width": 40,
+        }
+      }
     >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon gray iconBlock"
+        height={18}
+        role="img"
+        viewBox="0 0 24 24"
+        width={18}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
   </div>
 </button>
 `;
@@ -92,7 +100,7 @@ exports[`IconButton renders with icon 1`] = `
 exports[`IconButton renders with svg 1`] = `
 <button
   aria-label="Pinterest"
-  className="button tapTransition enabled"
+  className="parentButton"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -108,27 +116,153 @@ exports[`IconButton renders with svg 1`] = `
   type="button"
 >
   <div
-    className="pog transparent"
-    style={
-      Object {
-        "height": 40,
-        "width": 40,
-      }
-    }
+    className="button tapTransition enabled"
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
+    <div
+      className="pog transparent"
+      style={
+        Object {
+          "height": 40,
+          "width": 40,
+        }
+      }
     >
-      <path
-        d="M13.00,20.00"
-      />
-    </svg>
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon gray iconBlock"
+        height={18}
+        role="img"
+        viewBox="0 0 24 24"
+        width={18}
+      >
+        <path
+          d="M13.00,20.00"
+        />
+      </svg>
+    </div>
   </div>
 </button>
+`;
+
+exports[`IconButton renders with tooltip 1`] = `
+<div
+  className="box xsDisplayBlock"
+>
+  <div
+    aria-label="This Pin is private unless you share it with others."
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <button
+      aria-label="Share"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="button tapTransition enabled"
+      >
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 40,
+              "width": 40,
+            }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon gray iconBlock"
+            height={18}
+            role="img"
+            viewBox="0 0 24 24"
+            width={18}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
+<div
+  className="box xsDisplayBlock"
+>
+  <div
+    aria-label=""
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <button
+      aria-label="Share"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="button tapTransition enabled"
+      >
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 40,
+              "width": 40,
+            }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon gray iconBlock"
+            height={18}
+            role="img"
+            viewBox="0 0 24 24"
+            width={18}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
 `;

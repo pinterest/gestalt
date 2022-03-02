@@ -1,3 +1,5 @@
+import 'cypress-plugin-snapshots/commands';
+
 function logA11yViolations(violations) {
   cy.task(
     'logToTerminal',

@@ -1,8 +1,6 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
 import layout from './Layout.css';
@@ -10,16 +8,25 @@ import styles from './SegmentedControl.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type OnChange = AbstractEventHandler<
-  SyntheticMouseEvent<HTMLButtonElement>,
-  {| activeIndex: number |},
->;
+type OnChange = ({| event: SyntheticMouseEvent<HTMLButtonElement>, activeIndex: number |}) => void;
+
 type Props = {|
+  /**
+   * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
+   */
   items: $ReadOnlyArray<Node>,
+  /**
+   * Callback triggered when the user selects an item.
+   */
   onChange: OnChange,
+  /**
+   * By default, items have equal widths. If this prop is true, the width of an item is based on its content. See the [responsive example](https://gestalt.pinterest.systems/segmentedcontrol#Example:-Responsive) for more details.
+   */
   responsive?: boolean,
+  /**
+   * Index of element in `items` that is currently selected.
+   */
   selectedItemIndex: number,
-  size?: 'md' | 'lg',
 |};
 
 function SegmentedControlItem({
@@ -27,14 +34,12 @@ function SegmentedControlItem({
   item,
   isSelected,
   onChange,
-  size,
   width,
 }: {|
   index: number,
   item: Node,
   isSelected: boolean,
   onChange: OnChange,
-  size?: 'md' | 'lg',
   width: ?string,
 |}) {
   const { isFocusVisible } = useFocusVisible();
@@ -54,7 +59,7 @@ function SegmentedControlItem({
       style={{ width }}
     >
       {typeof item === 'string' ? (
-        <Text color={isSelected ? 'darkGray' : 'gray'} align="center" size={size} weight="bold">
+        <Text color="darkGray" align="center" size="200" weight="bold">
           {item}
         </Text>
       ) : (
@@ -66,19 +71,20 @@ function SegmentedControlItem({
   );
 }
 
+/**
+ * [SegmentedControl](https://gestalt.pinterest.systems/segmentedcontrol)  may be used to group multiple selections. The controls display the current state and related state.
+ *
+ * Create layout to convey clear sense of information hierarchy. When a control is engaged, information below the control should also be updated.
+ */
 export default function SegmentedControl({
   items,
   onChange,
   responsive,
   selectedItemIndex,
-  size = 'md',
 }: Props): Node {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
-    <div
-      className={classnames(styles.SegmentedControl, size === 'md' ? layout.medium : layout.large)}
-      role="tablist"
-    >
+    <div className={classnames(styles.SegmentedControl, layout.medium)} role="tablist">
       {items.map((item, i) => (
         <SegmentedControlItem
           key={i}
@@ -86,20 +92,9 @@ export default function SegmentedControl({
           item={item}
           isSelected={i === selectedItemIndex}
           onChange={onChange}
-          size={size}
           width={buttonWidth}
         />
       ))}
     </div>
   );
 }
-
-SegmentedControl.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  items: PropTypes.arrayOf(PropTypes.node).isRequired,
-  onChange: PropTypes.func.isRequired,
-  responsive: PropTypes.bool,
-  selectedItemIndex: PropTypes.number.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg']),
-};

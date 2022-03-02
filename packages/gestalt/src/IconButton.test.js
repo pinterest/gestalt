@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import IconButton from './IconButton.js';
 
@@ -20,6 +19,37 @@ test('IconButton renders with svg', () => {
     <IconButton
       accessibilityLabel="Pinterest"
       dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }}
+    />,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('IconButton renders with tooltip', () => {
+  const component = create(
+    <IconButton
+      accessibilityLabel="Share"
+      icon="share"
+      tooltip={{
+        text: 'This Pin is private unless you share it with others.',
+        idealDirection: 'up',
+      }}
+    />,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('IconButton renders with tooltip and no accessibilityLabel', () => {
+  const component = create(
+    <IconButton
+      accessibilityLabel="Share"
+      icon="share"
+      tooltip={{
+        text: 'Share',
+        idealDirection: 'up',
+        accessibilityLabel: '',
+      }}
     />,
   );
   const tree = component.toJSON();

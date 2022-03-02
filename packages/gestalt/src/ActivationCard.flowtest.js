@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import ActivationCard from './ActivationCard.js';
 
 const Valid = (

@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Callout from './Callout.js';
 
@@ -54,7 +53,7 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
         type="info"
         title="A Title"
       />,
@@ -67,7 +66,7 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ label: 'Visit Pinterest' }}
+        primaryAction={{ label: 'Visit Pinterest', accessibilityLabel: '' }}
         type="info"
         title="A Title"
       />,
@@ -80,8 +79,12 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
-        secondaryAction={{ href: 'pinterest.com/help', label: 'Learn more' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        secondaryAction={{
+          href: 'pinterest.com/help',
+          label: 'Learn more',
+          accessibilityLabel: 'Learn more: callout messages',
+        }}
         type="info"
         title="A Title"
       />,
@@ -94,7 +97,7 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},

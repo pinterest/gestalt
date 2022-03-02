@@ -1,6 +1,6 @@
 describe('useReducedMotion Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/useReducedMotion');
+    cy.visit('/usereducedmotion');
     cy.injectAxe();
   });
 

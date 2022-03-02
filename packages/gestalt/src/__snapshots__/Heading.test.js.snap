@@ -1,52 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Deprecated Heading large 1`] = `
+<h1
+  className="Heading fontSize600 darkGray alignStart breakWord"
+/>
+`;
+
 exports[`Heading default overflow 1`] = `
 <h3
-  className="Heading fontSize1 darkGray alignLeft breakWord"
+  className="Heading fontSize400 darkGray alignStart breakWord"
 />
 `;
 
 exports[`Heading large 1`] = `
 <h1
-  className="Heading fontSize3 darkGray alignLeft breakWord"
+  className="Heading fontSize600 darkGray alignStart breakWord"
 />
 `;
 
-exports[`Heading overflow normal 1`] = `
-<h3
-  className="Heading fontSize1 darkGray alignLeft"
-/>
-`;
-
-exports[`Heading small with id 1`] = `
-<h3
-  className="Heading fontSize1 darkGray alignLeft breakWord"
-  id="account-basics"
-/>
-`;
-
-exports[`Heading small with level 3 1`] = `
-<h3
-  className="Heading fontSize1 darkGray alignLeft breakWord"
-/>
-`;
-
-exports[`Heading truncate adds a title when the children are text only 1`] = `
+exports[`Heading lineClamp adds a title when the children are text only 1`] = `
 <h1
-  className="Heading fontSize3 darkGray alignLeft breakWord truncate"
+  className="Heading fontSize600 darkGray alignStart breakWord lineClamp"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
   title="When we two parted - Lord Byron"
 >
   When we two parted - Lord Byron
 </h1>
 `;
 
-exports[`Heading truncate does not add a title when the children are objects 1`] = `
+exports[`Heading lineClamp does not add a title when the children are objects 1`] = `
 <h1
-  className="Heading fontSize3 darkGray alignLeft breakWord truncate"
+  className="Heading fontSize600 darkGray alignStart breakWord lineClamp"
 >
   <div>
     Breakup reading:
   </div>
   When we two parted - Lord Byron
 </h1>
+`;
+
+exports[`Heading overflow normal 1`] = `
+<h3
+  className="Heading fontSize400 darkGray alignStart"
+/>
+`;
+
+exports[`Heading small with id 1`] = `
+<h3
+  className="Heading fontSize400 darkGray alignStart breakWord"
+  id="account-basics"
+/>
+`;
+
+exports[`Heading small with level 3 1`] = `
+<h3
+  className="Heading fontSize400 darkGray alignStart breakWord"
+/>
+`;
+
+exports[`Heading small with level none 1`] = `
+<div
+  className="Heading fontSize400 darkGray alignStart breakWord"
+/>
 `;

@@ -1,24 +1,21 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
-import styles from './Label.css';
+import { type Node } from 'react';
+import InternalLabel from './InternalLabel.js';
 
 type Props = {|
+  /**
+   * The content of the label, typically [Text](https://gestalt.pinterest.systems/text) or similar.
+   */
   children?: Node,
+  /**
+   * Unique id of the element this label is describing.
+   */
   htmlFor: string,
 |};
 
-export default function Label(props: Props): Node {
-  const { children, htmlFor } = props;
-
-  return (
-    <label className={styles.label} htmlFor={htmlFor}>
-      {children}
-    </label>
-  );
+/**
+ * Use the [Label](https://gestalt.pinterest.systems/labels) component to connect a label with a form component in an accessible way.
+ */
+export default function Label({ children, htmlFor }: Props): Node {
+  return <InternalLabel htmlFor={htmlFor}>{children}</InternalLabel>;
 }
-
-Label.propTypes = {
-  children: PropTypes.node,
-  htmlFor: PropTypes.string.isRequired,
-};

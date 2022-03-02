@@ -1,6 +1,6 @@
 describe('ScrollBoundaryContainer Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ScrollBoundaryContainer');
+    cy.visit('/scrollboundarycontainer');
     cy.injectAxe();
   });
 

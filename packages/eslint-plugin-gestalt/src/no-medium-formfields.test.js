@@ -3,19 +3,30 @@ import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
 import rule from './no-medium-formfields.js';
+import { parserOptions } from './helpers/testHelpers.js';
 
-const ruleTester = new RuleTester();
-
-const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
+const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-medium-formfields/valid.js'),
+  'utf-8',
+);
+const invalidComboBoxDefault = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-default.js',
+  ),
+  'utf-8',
+);
+const invalidComboBoxMedium = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-medium-formfields/invalid/invalid-combobox-medium.js'),
+  'utf-8',
+);
+const invalidComboBoxRenamed = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-renamed.js',
+  ),
   'utf-8',
 );
 const invalidTextfieldDefault = readFileSync(
@@ -46,10 +57,6 @@ const invalidSearchFieldDefault = readFileSync(
   ),
   'utf-8',
 );
-const invalidTabsDefault = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-medium-formfields/invalid/invalid-tabs-default.js'),
-  'utf-8',
-);
 const invalidSelectListDefault = readFileSync(
   path.resolve(
     __dirname,
@@ -58,27 +65,18 @@ const invalidSelectListDefault = readFileSync(
   'utf-8',
 );
 
+const errorMessage = 'Gestalt form fields should always have size="lg" set on them';
+
 ruleTester.run('no-medium-formfields', rule, {
-  valid: [
-    {
-      code: validCode,
-      parserOptions,
-    },
-  ],
+  valid: [{ code: validCode }],
   invalid: [
     invalidTextfieldDefault,
     invalidTextfieldMedium,
     invalidTextfieldRenamed,
+    invalidComboBoxDefault,
+    invalidComboBoxMedium,
+    invalidComboBoxRenamed,
     invalidSearchFieldDefault,
-    invalidTabsDefault,
     invalidSelectListDefault,
-  ].map((code) => ({
-    code,
-    parserOptions,
-    errors: [
-      {
-        message: 'Gestalt form fields should always have size="lg" set on them',
-      },
-    ],
-  })),
+  ].map((code) => ({ code, errors: [{ message: errorMessage }] })),
 });

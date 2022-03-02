@@ -1,6 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node } from 'react';
 import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index.js';
@@ -26,11 +25,39 @@ export type IconColor =
   | 'white';
 
 type Props = {|
+  /**
+   * Label for screen readers to announce Icon.
+   *
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/icon#Accessibility) for details on proper usage.
+   */
   accessibilityLabel: string,
+  /**
+   * These are all the colors available to apply to the Icon; however, we advise only using primary colors within the product to ensure consistency and accessible color contrast.
+   *
+   * See the [primary-color combinations](https://gestalt.pinterest.systems/icon#Primary-color-combinations) variant to learn more.
+   */
   color?: IconColor,
+  /**
+   * SVG icon from the Gestalt icon library to use within Icon..
+   *
+   * See the [iconography and SVG](https://gestalt.pinterest.systems/iconography_and_svgs) guidelines to explore the Gestalt icon library.
+   */
   icon?: $Keys<typeof icons>,
+  /**
+   * Defines a new icon different from the built-in Gestalt icons.
+   *
+   * See the [custom icon](https://gestalt.pinterest.systems/icon#Custom-icon) variant to learn more.
+   */
   dangerouslySetSvgPath?: {| __path: string |},
+  /**
+   * Properly positions Icon relative to an inline element, such as Text using the inline property.
+   */
   inline?: boolean,
+  /**
+   * Use a number for pixel sizes or a string for percentage based sizes.
+   *
+   * See the [size](https://gestalt.pinterest.systems/icon#Size) variant to learn more.
+   */
   size?: number | string,
 |};
 
@@ -61,16 +88,23 @@ const flipOnRtlIconNames = [
   'text-size',
 ];
 
-export default function Icon(props: Props): Node {
-  const {
-    accessibilityLabel,
-    color = 'gray',
-    dangerouslySetSvgPath,
-    icon,
-    inline,
-    size = 16,
-  } = props;
-
+/**
+ * [Icons](https://gestalt.pinterest.systems/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
+ *
+ * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/iconography_and_svgs) to explore the full icon library.
+ *
+ * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon%20%230.png)
+ * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon-dark%20%230.png)
+ *
+ */
+export default function Icon({
+  accessibilityLabel,
+  color = 'gray',
+  dangerouslySetSvgPath,
+  icon,
+  inline = false,
+  size = 16,
+}: Props): Node {
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles.icon,
@@ -102,36 +136,3 @@ export default function Icon(props: Props): Node {
 }
 
 Icon.icons = IconNames;
-
-Icon.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf([
-    'blue',
-    'darkGray',
-    'eggplant',
-    'gray',
-    'green',
-    'lightGray',
-    'maroon',
-    'midnight',
-    'navy',
-    'olive',
-    'orange',
-    'orchid',
-    'pine',
-    'purple',
-    'red',
-    'watermelon',
-    'white',
-  ]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  icon: PropTypes.oneOf(IconNames),
-  inline: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-};

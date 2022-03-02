@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import renderer from 'react-test-renderer';
 import Image from './Image.js';
 
@@ -36,6 +35,31 @@ test('Image with fit: contain matches snapshot', () => {
     <Image alt="foo" fit="contain" naturalHeight={50} naturalWidth={50} src="foo.png">
       Foo.png
     </Image>,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Image with fit: contain and role matches snapshot', () => {
+  const component = renderer.create(
+    <Image
+      alt="foo"
+      fit="contain"
+      role="presentation"
+      naturalHeight={50}
+      naturalWidth={50}
+      src="foo.png"
+    >
+      Foo.png
+    </Image>,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Image with crossorigin specified matches snapshot', () => {
+  const component = renderer.create(
+    <Image alt="foo" crossOrigin="anonymous" naturalHeight={50} naturalWidth={50} src="foo.png" />,
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

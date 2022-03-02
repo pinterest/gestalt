@@ -1,12 +1,14 @@
 // @flow strict
-import React, { PureComponent, type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node, PureComponent } from 'react';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './ScrollContainer.js';
 import { getElementHeight, getScrollHeight, getScrollPos } from './scrollUtils.js';
 import throttle from './throttle.js';
 
 type Props = {|
+  /**
+   * The scroll container to use. Defaults to window.
+   */
   container?: HTMLElement,
   isAtEnd?: boolean,
   isFetching: boolean,
@@ -28,20 +30,6 @@ export default class ScrollFetch extends PureComponent<Props, State> {
   updatePosition = throttle(() => {
     this.setState(this.getScrollState());
   });
-
-  static propTypes = {
-    /**
-     * The scroll container to use. Defaults to window.
-     */
-    container: PropTypes.shape({
-      addEventListener: PropTypes.func,
-      removeEventListener: PropTypes.func,
-    }),
-    renderHeight: PropTypes.func,
-    isAtEnd: PropTypes.bool,
-    isFetching: PropTypes.bool,
-    fetchMore: PropTypes.func,
-  };
 
   static defaultProps: {| container?: HTMLElement |} = {
     container: typeof window !== 'undefined' ? window : undefined,

@@ -1,7 +1,6 @@
 // @flow strict
-import React, { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
+import { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import icons from './icons/index.js';
@@ -12,7 +11,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import InternalLink from './InternalLink.js';
 import Icon, { type IconColor } from './Icon.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 const DEFAULT_TEXT_COLORS = {
@@ -20,6 +19,7 @@ const DEFAULT_TEXT_COLORS = {
   gray: 'darkGray',
   red: 'white',
   transparent: 'darkGray',
+  semiTransparentWhite: 'darkGray',
   transparentWhiteText: 'white',
   white: 'darkGray',
 };
@@ -32,17 +32,24 @@ const SIZE_NAME_TO_PIXEL = {
 
 type BaseButton = {|
   accessibilityLabel?: string,
-  color?: 'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white',
+  color?:
+    | 'gray'
+    | 'red'
+    | 'blue'
+    | 'transparent'
+    | 'semiTransparentWhite'
+    | 'transparentWhiteText'
+    | 'white',
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
-  inline?: boolean,
+  fullWidth?: boolean,
   name?: string,
   onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| disableOnNavigation?: () => void |},
+    {| dangerouslyDisableOnNavigation: () => void |},
   >,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
@@ -77,7 +84,7 @@ type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
-const IconEnd = ({
+function IconEnd({
   text,
   textColor,
   icon,
@@ -87,22 +94,32 @@ const IconEnd = ({
   textColor: IconColor,
   icon: $Keys<typeof icons>,
   size: string,
-|}): Node => (
-  <Flex alignItems="center" gap={2} justifyContent="center">
-    {text}
-    <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
-  </Flex>
-);
+|}): Node {
+  return (
+    <Flex alignItems="center" gap={2} justifyContent="center">
+      {text}
+      <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
+    </Flex>
+  );
+}
 
+/**
+ * [Buttons](https://gestalt.pinterest.systems/button) allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like [Dropdown](https://gestalt.pinterest.systems/dropdown) or [Popover](https://gestalt.pinterest.systems/popover).
+ *
+ * ![Button light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Button%20%230.png)
+ * ![Button dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Button-dark%20%230.png)
+ *
+
+ */
 const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
->(function Button(props, ref): Node {
+>(function Button(props: unionProps, ref): Node {
   const {
     accessibilityLabel,
     color = 'gray',
     disabled = false,
-    inline = false,
+    fullWidth = false,
     iconEnd,
     onClick,
     tabIndex = 0,
@@ -145,24 +162,26 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
 
   const { isFocusVisible } = useFocusVisible();
 
-  const buttonRoleClasses = classnames(
-    styles.button,
-    focusStyles.hideOutline,
-    touchableStyles.tapTransition,
-    {
-      [styles.sm]: size === 'sm',
-      [styles.md]: size === 'md',
-      [styles.lg]: size === 'lg',
-      [styles[colorClass]]: !disabled && !selected,
-      [styles.selected]: !disabled && selected,
-      [styles.disabled]: disabled,
-      [styles.enabled]: !disabled,
-      [styles.inline]: props.role !== 'link' && inline,
-      [styles.block]: props.role !== 'link' && !inline,
-      [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-    },
-  );
+  const sharedTypeClasses = classnames(styles.button, focusStyles.hideOutline, {
+    [styles.inline]: props.role !== 'link' && !fullWidth,
+    [styles.block]: props.role !== 'link' && fullWidth,
+    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+  });
+
+  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
+    [styles.sm]: size === 'sm',
+    [styles.md]: size === 'md',
+    [styles.lg]: size === 'lg',
+    [styles[colorClass]]: !disabled && !selected,
+    [styles.selected]: !disabled && selected,
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
+  });
+
+  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton);
+
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
 
   const textColor =
     (disabled && 'gray') ||
@@ -176,11 +195,16 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     </Text>
   );
 
-  const handleClick = (event, disableOnNavigation) =>
-    onClick ? onClick(disableOnNavigation ? { event, disableOnNavigation } : { event }) : undefined;
+  const handleClick = (event, dangerouslyDisableOnNavigation) =>
+    onClick
+      ? onClick({
+          event,
+          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
+        })
+      : undefined;
 
-  const handleLinkClick = ({ event, disableOnNavigation }) =>
-    handleClick(event, disableOnNavigation);
+  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
+    handleClick(event, dangerouslyDisableOnNavigation);
 
   if (props.role === 'link') {
     const { href, rel = 'none', target = null } = props;
@@ -190,12 +214,13 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         accessibilityLabel={accessibilityLabel}
         colorClass={colorClass}
         disabled={disabled}
-        inline={inline}
+        fullWidth={fullWidth}
         href={href}
         onClick={handleLinkClick}
         ref={innerRef}
         rel={rel}
         tabIndex={tabIndex}
+        selected={selected}
         size={size}
         target={target}
         wrappedComponent="button"
@@ -215,7 +240,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     return (
       <button
         aria-label={accessibilityLabel}
-        className={buttonRoleClasses}
+        className={baseTypeClasses}
         disabled={disabled}
         name={name}
         onBlur={handleBlur}
@@ -248,7 +273,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={buttonRoleClasses}
+      className={parentButtonClasses}
       disabled={disabled}
       name={name}
       onBlur={handleBlur}
@@ -260,43 +285,19 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       ref={innerRef}
-      style={compressStyle || undefined}
       tabIndex={disabled ? null : tabIndex}
       type="button"
     >
-      {iconEnd ? (
-        <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
-      ) : (
-        buttonText
-      )}
+      <div className={childrenDivClasses} style={compressStyle || undefined}>
+        {iconEnd ? (
+          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+        ) : (
+          buttonText
+        )}
+      </div>
     </button>
   );
 });
-
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-ButtonWithForwardRef.propTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'transparentWhiteText', 'white']),
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  iconEnd: PropTypes.oneOf(Object.keys(icons)),
-  inline: PropTypes.bool,
-  name: PropTypes.string,
-  onClick: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
-  tabIndex: PropTypes.oneOf([-1, 0]),
-  role: PropTypes.oneOf(['button', 'link']),
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank',
-  >),
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['button', 'submit']),
-};
 
 ButtonWithForwardRef.displayName = 'Button';
 

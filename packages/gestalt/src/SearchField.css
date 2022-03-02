@@ -4,11 +4,12 @@
   composes: borderBox from "./Layout.css";
   composes: darkGray from "./Colors.css";
   composes: whiteBg from "./Colors.css";
-  composes: Text fontSize3 from "./Text.css";
+  composes: Text from "./Text.css";
+  composes: fontSize300 from "./Typography.css";
   composes: xsCol12 from "./Column.css";
   appearance: none;
   min-width: 180px;
-  padding: calc(2 * var(--g-boint)) calc(10 * var(--g-boint)) calc(2 * var(--g-boint)) calc(8px + calc(8 * var(--g-boint)));
+  padding: var(--space-200) calc(var(--space-500) + var(--space-200));
 }
 
 .input::-webkit-search-decoration,
@@ -32,11 +33,11 @@
 }
 
 html:not([dir="rtl"]) .inputActive {
-  padding: 8px 32px 8px 16px;
+  padding: var(--space-200) var(--space-500) var(--space-200) var(--space-300);
 }
 
 html[dir="rtl"] .inputActive {
-  padding: 8px 16px 8px 32px;
+  padding: var(--space-200) var(--space-300) var(--space-200) var(--space-500);
 }
 
 .inputHovered {
@@ -46,12 +47,12 @@ html[dir="rtl"] .inputActive {
 
 .clear {
   composes: marginEnd2 from "./boxWhitespace.css";
-  composes: noBorder from "./Borders.css";
+  composes: noBorder pill from "./Borders.css";
   composes: paddingX1 from "./boxWhitespace.css";
   composes: paddingY1 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
   composes: transparentBg from "./Colors.css";
-  outline: none;
+  composes: accessibilityOutline from "./Focus.css";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -63,10 +64,10 @@ html[dir="rtl"] .inputActive {
 }
 
 html:not([dir="rtl"]) .clear {
-  right: 0;
+  right: var(--space-0);
 }
 
 html[dir="rtl"] .clear {
-  left: 0;
+  left: var(--space-0);
 }
 

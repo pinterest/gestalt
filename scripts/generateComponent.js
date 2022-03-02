@@ -7,7 +7,10 @@ const path = require('path');
 const currentDirectory = __dirname;
 const root = path.join(__dirname, '../');
 const accessibilityIntegrationTests = path.join(root, 'cypress/integration');
-const docs = path.join(root, 'docs/src');
+const accessibilityVisualIntegrationTests = path.join(root, 'cypress/integration/visual-test');
+const docs = path.join(root, 'docs/pages');
+const visualtestingPages = path.join(root, 'docs/pages/visual-test');
+
 const gestaltPackages = path.join(root, 'packages/gestalt/src');
 const indexFile = path.join(gestaltPackages, 'index.js');
 
@@ -24,10 +27,10 @@ function logSuccess(message) {
 async function generateFile({ componentName, outputPath, template, log }) {
   await fs.promises.writeFile(
     outputPath,
-    (await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8')).replace(
-      /ComponentName/g,
-      componentName,
-    ),
+    (await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8'))
+      .replace(/ComponentName/g, componentName)
+      .replace(/componentname/g, componentName.toLowerCase())
+      .replace(/componentName/g, componentName.toLowerCase()),
   );
 
   logSuccess(log);
@@ -104,10 +107,35 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(docs, `${componentName}.doc.js`),
-      template: 'templates/ComponentName.doc.js',
+      outputPath: path.join(docs, `${componentName.toLowerCase()}.js`),
+      template: 'templates/lowercasecomponentname.js',
       log: 'Generated component documentation',
     }),
+    generateFile({
+      componentName,
+      outputPath: path.join(accessibilityVisualIntegrationTests, `${componentName}-light_spec.js`),
+      template: 'templates/ComponentName-light_spec.js',
+      log: 'Generated light mode visual testing integration test',
+    }),
+    generateFile({
+      componentName,
+      outputPath: path.join(accessibilityVisualIntegrationTests, `${componentName}-dark_spec.js`),
+      template: 'templates/ComponentName-dark_spec.js',
+      log: 'Generated dark mode visual testing integration test',
+    }),
+    generateFile({
+      componentName,
+      outputPath: path.join(visualtestingPages, `${componentName}-light.js`),
+      template: 'templates/ComponentName-light.js',
+      log: 'Generated light mode visual testing page',
+    }),
+    generateFile({
+      componentName,
+      outputPath: path.join(visualtestingPages, `${componentName}-dark.js`),
+      template: 'templates/ComponentName-dark.js',
+      log: 'Generated dark mode visual testing page',
+    }),
+
     appendToExportIndex({ componentName, log: 'Appended to exports' }),
   ]);
 }

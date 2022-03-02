@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Box from './Box.js';
 import Table from './Table.js';
@@ -12,7 +11,7 @@ const mockOnExpand = jest.fn();
 
 test('TableRowExpandable handles expand contents call', () => {
   const { getByText } = render(
-    <Table>
+    <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
           accessibilityExpandLabel="Expand"
@@ -38,7 +37,7 @@ test('TableRowExpandable handles expand contents call', () => {
 
 test('TableRowExpandable handles onExpand callback', () => {
   const { getByText } = render(
-    <Table>
+    <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
           accessibilityExpandLabel="Expand"

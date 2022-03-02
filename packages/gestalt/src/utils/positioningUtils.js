@@ -1,15 +1,15 @@
 // @flow strict
-import type {
-  CaretDir,
-  CaretOffset,
-  ClientRect,
-  Coordinates,
-  Dimensions,
-  EdgeShift,
-  PopoverDir,
-  MainDirections,
-  Window,
-  Offset,
+import {
+  type CaretDir,
+  type CaretOffset,
+  type ClientRect,
+  type Coordinates,
+  type Dimensions,
+  type EdgeShift,
+  type PopoverDir,
+  type MainDirections,
+  type Window,
+  type Offset,
 } from './positioningTypes.js';
 
 // CONSTANTS
@@ -37,9 +37,9 @@ export const getContainerNode = ({
   scrollBoundaryContainerRef,
   initialPositionRef,
 }: {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
   initialPositionRef: ?HTMLElement,
-|}): ?HTMLDivElement => {
+|}): ?HTMLElement => {
   // containerNode references the ScrollBoundaryContainer node to which
   // append the portal
   let containerNode = null;
@@ -75,7 +75,8 @@ export const getTriggerRect = ({
 }: {|
   anchor: HTMLElement,
   positionRelativeToAnchor: boolean,
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
+  // $FlowFixMe[unclear-type]
 |}): * => {
   let triggerBoundingRect;
   let relativeOffset;

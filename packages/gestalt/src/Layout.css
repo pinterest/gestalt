@@ -12,6 +12,10 @@
   display: inline-block;
 }
 
+.inlineFlex {
+  display: inline-flex;
+}
+
 .table {
   display: table;
 }
@@ -68,19 +72,19 @@
 }
 
 .top0 {
-  top: 0;
+  top: var(--space-0);
 }
 
 .right0 {
-  right: 0;
+  right: var(--space-0);
 }
 
 .bottom0 {
-  bottom: 0;
+  bottom: var(--space-0);
 }
 
 .left0 {
-  left: 0;
+  left: var(--space-0);
 }
 
 /* size */

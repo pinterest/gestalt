@@ -1,23 +1,5 @@
-:root {
-  --g-heading-font-size-1: 20px;
-  --g-heading-font-size-2: 28px;
-  --g-heading-font-size-3: 36px;
-}
-
 .Heading {
-  composes: antialiased sansSerif from "./Typography.css";
+  composes: antialiased sansSerif fontWeightBold from "./Typography.css";
   margin-bottom: 0;
   margin-top: 0;
-}
-
-.fontSize1 {
-  font-size: var(--g-heading-font-size-1);
-}
-
-.fontSize2 {
-  font-size: var(--g-heading-font-size-2);
-}
-
-.fontSize3 {
-  font-size: var(--g-heading-font-size-3);
 }

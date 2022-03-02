@@ -1,14 +1,22 @@
 // @flow strict
-import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
+import { type Node } from 'react';
 import Box from './Box.js';
 import styles from './Pulsar.css';
 
 type Props = {|
+  /**
+   * Used to hide the element.
+   */
   paused?: boolean,
+  /**
+   * The size of the element in pixels.
+   */
   size?: number,
 |};
 
+/**
+ * [Pulsars](https://gestalt.pinterest.systems/pulsar ) bring focus to a specific element on the screen and act like training wheels to guide people towards the normal way to perform that action. They are used in isolation or combination with other education components for more instructions.
+ */
 export default function Pulsar({ paused, size = 136 }: Props): Node {
   return (
     <Box
@@ -30,8 +38,3 @@ export default function Pulsar({ paused, size = 136 }: Props): Node {
     </Box>
   );
 }
-
-Pulsar.propTypes = {
-  paused: PropTypes.bool,
-  size: PropTypes.number,
-};
