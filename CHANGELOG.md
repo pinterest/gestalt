@@ -1,3 +1,9 @@
+## 45.7.1 (Mar 2, 2022)
+
+### Patch
+
+- Masonry: add a11y roles (#1958)
+
 ## 45.7.0 (Feb 24, 2022)
 
 ### Minor
