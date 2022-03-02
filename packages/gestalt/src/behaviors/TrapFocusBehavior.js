@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node as ReactNode, Component } from 'react';
+import { useEffect, useRef, type Node as ReactNode } from 'react';
 
 type Props = {|
   children?: ReactNode,
@@ -33,48 +33,53 @@ const focusElement = (el: HTMLElement) => {
   }
 };
 
-export default class TrapFocusBehavior extends Component<Props> {
-  el: ?HTMLDivElement;
+export default function TrapFocusBehavior({ children }: Props): ReactNode {
+  const elRef = useRef<?HTMLDivElement>(null);
+  const previouslyFocusedElRef = useRef<?HTMLElement>(null);
 
-  previouslyFocusedEl: ?HTMLElement;
-
-  componentDidMount() {
-    this.previouslyFocusedEl = document.activeElement;
-    this.focusFirstChild();
-    document.addEventListener('focus', this.handleFocus, true);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('focus', this.handleFocus, true);
-    if (this.previouslyFocusedEl) {
-      focusElement(this.previouslyFocusedEl);
-    }
-  }
-
-  setElRef: (el: ?HTMLDivElement) => void = (el: ?HTMLDivElement) => {
+  const setElRef: (el: ?HTMLDivElement) => void = (el: ?HTMLDivElement) => {
     if (el) {
-      this.el = el;
+      elRef.current = el;
     }
   };
 
-  handleFocus: (event: FocusEvent) => void = (event: FocusEvent) => {
-    if (!this.el || (event.target instanceof Node && this.el.contains(event.target))) {
-      return;
-    }
+  useEffect(() => {
+    const { current: element } = elRef;
+    const focusFirstChild = () => {
+      if (element) {
+        focusElement(queryFocusableAll(element)[0]);
+      }
+    };
 
-    event.stopPropagation();
-    event.preventDefault();
-    this.focusFirstChild();
-  };
+    const handleFocus: (event: FocusEvent) => void = (event: FocusEvent) => {
+      if (!element || (event.target instanceof Node && element.contains(event.target))) {
+        return;
+      }
 
-  focusFirstChild() {
-    const { el } = this;
-    if (el) {
-      focusElement(queryFocusableAll(el)[0]);
-    }
-  }
+      if (event.target instanceof Element && event.target.closest('[name="trap-focus"]') !== null) {
+        return;
+      }
 
-  render(): ReactNode {
-    return <div ref={this.setElRef}>{this.props.children}</div>;
-  }
+      event.stopPropagation();
+      event.preventDefault();
+      focusFirstChild();
+    };
+
+    previouslyFocusedElRef.current = document.activeElement;
+    focusFirstChild();
+    document.addEventListener('focus', handleFocus, true);
+    return function cleanup() {
+      const { current: previouslyFocusedEl } = previouslyFocusedElRef;
+      document.removeEventListener('focus', handleFocus, true);
+      if (previouslyFocusedEl) {
+        focusElement(previouslyFocusedEl);
+      }
+    };
+  }, [elRef, previouslyFocusedElRef]);
+
+  return (
+    <div name="trap-focus" ref={setElRef}>
+      {children}
+    </div>
+  );
 }
