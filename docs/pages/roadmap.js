@@ -1,15 +1,18 @@
 // @flow strict
 import { type Node } from 'react';
-import { Icon, Text, TapArea, Tooltip, Link, Badge, Status, Table } from 'gestalt';
+import { Icon, Text, TapArea, Tooltip, Link, Status } from 'gestalt';
 import Page from '../components/Page.js';
+import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 
-const theme1 = [
+const tasks = [
   {
     'task': 'InfoButton component',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Creation of a component to provide contextual information for elements within a layout.',
     'link': '',
   },
   {
@@ -17,6 +20,8 @@ const theme1 = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of a component to encapuslate and structure form elements in a layout.',
     'link': '',
   },
   {
@@ -24,6 +29,7 @@ const theme1 = [
     'deadline': 'Quarter 1',
     'status': 'inProgress',
     'platform': 'Web',
+    'description': 'Expanding on Badge to include additional colors and states.',
     'link': '',
   },
   {
@@ -31,6 +37,8 @@ const theme1 = [
     'deadline': 'Quarter 2',
     'status': 'inProgress',
     'platform': 'Web',
+    'description':
+      'Adjustments to the existing PageHeader component to be more compatible with product needs.',
     'link': '',
   },
   {
@@ -38,6 +46,7 @@ const theme1 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'Creation of a baseline component to support side navigation layout patterns',
     'link': '',
   },
   {
@@ -45,6 +54,7 @@ const theme1 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -52,13 +62,17 @@ const theme1 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Providing the ability in form components to add an InfoButton to provide contextual help.',
     'link': '',
   },
   {
-    'task': 'Gestalt Illustration Library',
+    'task': 'Gestalt illustration library',
     'deadline': 'Quarter 2',
     'status': 'inProgress',
     'platform': 'All',
+    'description':
+      'Creation of a baseline set of illustrations that cover high-frequency product states (e.g., Error, Success, Empty).',
     'link': '',
   },
   {
@@ -66,6 +80,8 @@ const theme1 = [
     'deadline': 'Quarter 3',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Built-in animation capabilities within Gestalt to support high-frequency UI transitions within the product.',
     'link': '',
   },
   {
@@ -73,13 +89,15 @@ const theme1 = [
     'deadline': 'Quarter 3',
     'status': 'inProgress',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
-    'task': 'Table component',
+    'task': 'Table component enhancements',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -87,6 +105,7 @@ const theme1 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -94,6 +113,7 @@ const theme1 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -101,6 +121,7 @@ const theme1 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Mobile web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -108,6 +129,7 @@ const theme1 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Mobile web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -115,41 +137,31 @@ const theme1 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Mobile web',
+    'description': 'TBD',
     'link': '',
   },
   {
-    'task': 'Button component enhancements',
+    'task': 'Button component update',
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'Visual updates to the Button component on the Web platform',
     'link': '',
   },
   {
     'task': 'Button component',
     'deadline': '',
     'status': 'unstarted',
-    'platform': 'Android',
-    'link': '',
-  },
-  {
-    'task': 'Button component',
-    'deadline': '',
-    'status': 'unstarted',
-    'platform': 'iOS',
+    'platform': 'Android/iOS',
+    'description': 'TBD',
     'link': '',
   },
   {
     'task': 'IconButton component',
     'deadline': '',
     'status': 'unstarted',
-    'platform': 'Android',
-    'link': '',
-  },
-  {
-    'task': 'IconButton component',
-    'deadline': '',
-    'status': 'unstarted',
-    'platform': 'iOS',
+    'platform': 'Android/iOS',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -157,6 +169,7 @@ const theme1 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Android',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -164,6 +177,7 @@ const theme1 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Android',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -171,6 +185,7 @@ const theme1 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'iOS',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -178,6 +193,7 @@ const theme1 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -185,6 +201,7 @@ const theme1 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -192,6 +209,7 @@ const theme1 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -199,6 +217,7 @@ const theme1 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -206,6 +225,7 @@ const theme1 = [
     'deadline': '',
     'status': 'inProgress',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -213,16 +233,16 @@ const theme1 = [
     'deadline': '',
     'status': 'inProgress',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
-];
-
-const theme2 = [
   {
     'task': 'Gestalt docs IA update',
     'deadline': 'Quarter 1',
     'status': 'inProgress',
     'platform': '',
+    'description':
+      'Update of the Gestalt docs site&rsquo;s information architecture to support pattern guidelines and mobile component documentation.',
     'link': '',
   },
   {
@@ -230,6 +250,7 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -237,6 +258,7 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'ok',
     'platform': '',
+    'description': 'Publish and maintain a public roadmap for Gestalt development.',
     'link': '/roadmap',
   },
   {
@@ -244,6 +266,8 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': '',
+    'description':
+      'Development of usage guidelines and best practices for usage of elevation within Gestalt.',
     'link': '',
   },
   {
@@ -251,13 +275,17 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'ok',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Status web documentation.',
     'link': '/status',
   },
   {
     'task': 'Datapoint component design guidelines',
     'deadline': 'Quarter 1',
-    'status': 'unstarted',
+    'status': 'inProgress',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Datapoint web documentation.',
     'link': '',
   },
   {
@@ -265,6 +293,8 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Tag web documentation.',
     'link': '',
   },
   {
@@ -272,6 +302,8 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Badge web documentation.',
     'link': '',
   },
   {
@@ -279,6 +311,8 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'inProgress',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Button mobile documentation.',
     'link': '',
   },
   {
@@ -286,6 +320,8 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'inProgress',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to IconButton mobile documentation.',
     'link': '',
   },
   {
@@ -293,6 +329,8 @@ const theme2 = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Modal/Sheet mobile documentation.',
     'link': '',
   },
   {
@@ -300,6 +338,8 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Masonry web documentation.',
     'link': '',
   },
   {
@@ -307,6 +347,8 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Link web documentation.',
     'link': '',
   },
   {
@@ -314,6 +356,8 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Heading web documentation.',
     'link': '',
   },
   {
@@ -321,6 +365,8 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Text web documentation.',
     'link': '',
   },
   {
@@ -328,6 +374,8 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Tabs mobile documentation.',
     'link': '',
   },
   {
@@ -335,6 +383,8 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Popover mobile documentation.',
     'link': '',
   },
   {
@@ -342,6 +392,8 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Avatar mobile documentation.',
     'link': '',
   },
   {
@@ -349,6 +401,7 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -356,6 +409,7 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -363,6 +417,7 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -370,6 +425,7 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -377,6 +433,7 @@ const theme2 = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -384,6 +441,8 @@ const theme2 = [
     'deadline': 'Quarter 3',
     'status': 'unstarted',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Toast mobile documentation.',
     'link': '',
   },
   {
@@ -391,6 +450,8 @@ const theme2 = [
     'deadline': 'Quarter 3',
     'status': 'unstarted',
     'platform': 'Android/iOS',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Icon mobile documentation.',
     'link': '',
   },
   {
@@ -398,6 +459,8 @@ const theme2 = [
     'deadline': 'Quarter 3',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Checkbox web documentation.',
     'link': '',
   },
   {
@@ -405,6 +468,8 @@ const theme2 = [
     'deadline': 'Quarter 3',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Toast web documentation.',
     'link': '',
   },
   {
@@ -412,6 +477,8 @@ const theme2 = [
     'deadline': 'Quarter 3',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to RadioGroup web documentation.',
     'link': '',
   },
   {
@@ -419,6 +486,8 @@ const theme2 = [
     'deadline': 'Quarter 3',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to Switch web documentation.',
     'link': '',
   },
   {
@@ -426,6 +495,8 @@ const theme2 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to TextArea web documentation.',
     'link': '',
   },
   {
@@ -433,6 +504,8 @@ const theme2 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Web',
+    'description':
+      'Addition of best practices, accessibility, localization and related components to ButtonGroup web documentation.',
     'link': '',
   },
   {
@@ -440,6 +513,7 @@ const theme2 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -447,6 +521,7 @@ const theme2 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -454,16 +529,15 @@ const theme2 = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': '',
+    'description': 'TBD',
     'link': '',
   },
-];
-
-const theme3 = [
   {
     'task': 'Form autofix',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -471,6 +545,7 @@ const theme3 = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -478,6 +553,7 @@ const theme3 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -485,6 +561,7 @@ const theme3 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
   {
@@ -492,11 +569,18 @@ const theme3 = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
+    'description': 'TBD',
     'link': '',
   },
 ];
 
-function LockIcon({ size }: {| size: 12 | 14 |}) {
+const inProgress = tasks.filter((x) => x.status === 'inProgress');
+
+const future = tasks.filter((x) => x.status === 'unstarted');
+
+const complete = tasks.filter((x) => x.status === 'ok');
+
+const LockIcon = function LockIcon({ size }: {| size: 12 | 14 |}) {
   return (
     <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="" inline>
       <TapArea rounding="circle" fullWidth={false}>
@@ -508,7 +592,7 @@ function LockIcon({ size }: {| size: 12 | 14 |}) {
       </TapArea>
     </Tooltip>
   );
-}
+};
 
 type StatusType = 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
 
@@ -532,87 +616,21 @@ function TaskStatus({ status }: {| status: StatusType |}) {
   return <Status type={status} title={statusTitle} />;
 }
 
-function TableRow({
-  text,
-  platform,
-  quarter,
-  status,
-  link,
-}: {|
-  text: string,
-  platform: string,
-  quarter: string,
-  status: StatusType,
-  link: string,
-|}) {
-  return (
-    <Table.Row>
-      <Table.Cell>
-        {link ? (
-          <Text underline>
-            <Link href={link}>{text}</Link>
-          </Text>
-        ) : (
-          <Text>{text}</Text>
-        )}
-      </Table.Cell>
-      <Table.Cell>
-        {platform ? (
-          <Text>{platform}</Text>
-        ) : (
-          <Text size="100" weight="bold" color="gray">
-            &mdash;
-          </Text>
-        )}
-      </Table.Cell>
-      <Table.Cell>
-        {quarter ? (
-          <Badge text={quarter} />
-        ) : (
-          <Text size="100" weight="bold" color="gray">
-            TBD
-          </Text>
-        )}
-      </Table.Cell>
-      <Table.Cell>
-        <TaskStatus status={status} />
-      </Table.Cell>
-    </Table.Row>
-  );
+function Task({ text, description }: {| text: string, description: string |}) {
+  return <MainSection.Subsection title={text} description={description} />;
 }
 
 export default function RoadmapPage(): Node {
-  const theme1Items = theme1.map((obj) => (
-    <TableRow
-      key={obj.task}
-      text={obj.task}
-      platform={obj.platform}
-      quarter={obj.deadline}
-      status={obj.status}
-      link={obj.link}
-    />
+  const theme1Items = inProgress.map((obj) => (
+    <Task key={obj.task} text={obj.task} description={obj.description} />
   ));
 
-  const theme2Items = theme2.map((obj) => (
-    <TableRow
-      key={obj.task}
-      text={obj.task}
-      platform={obj.platform}
-      quarter={obj.deadline}
-      status={obj.status}
-      link={obj.link}
-    />
+  const theme2Items = future.map((obj) => (
+    <Task key={obj.task} text={obj.task} description={obj.description} />
   ));
 
-  const theme3Items = theme3.map((obj) => (
-    <TableRow
-      key={obj.task}
-      text={obj.task}
-      platform={obj.platform}
-      quarter={obj.deadline}
-      status={obj.status}
-      link={obj.link}
-    />
+  const theme3Items = complete.map((obj) => (
+    <Task key={obj.task} text={obj.task} description={obj.description} />
   ));
 
   return (
@@ -626,107 +644,9 @@ export default function RoadmapPage(): Node {
           internal roadmap <LockIcon size={14} />
         </Link>
       </Text>
-
-      <Table accessibilityLabel="Components and design tokens">
-        <Table.Header sticky>
-          <Table.Row>
-            <Table.HeaderCell>
-              <Text weight="bold">Components and design tokens</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Platform</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Delivery</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Status</Text>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>{theme1Items}</Table.Body>
-      </Table>
-      <Table accessibilityLabel="System documentation">
-        <Table.Header sticky>
-          <Table.Row>
-            <Table.HeaderCell>
-              <Text weight="bold">System documentation</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Platform</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Delivery</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Status</Text>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>{theme2Items}</Table.Body>
-      </Table>
-      <Table accessibilityLabel="Tooling and infrastructure">
-        <Table.Header sticky>
-          <Table.Row>
-            <Table.HeaderCell>
-              <Text weight="bold">Tooling and infrastructure</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Platform</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Delivery</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Status</Text>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>{theme3Items}</Table.Body>
-      </Table>
-      {/*
-      <Heading size="500">System documentation</Heading>
-      <Table accessibilityLabel="System documentation" stickyColumns={1}>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>
-              <Text weight="bold">Task</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Platform</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Delivery</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Status</Text>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>{theme2Items}</Table.Body>
-      </Table>
-
-      <Heading size="500">Tooling &amp; infrastructure</Heading>
-      <Table accessibilityLabel="Tooling &amp; infrastructure" stickyColumns={1}>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>
-              <Text weight="bold">Task</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Platform</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Delivery</Text>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Text weight="bold">Status</Text>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>{theme3Items}</Table.Body>
-      </Table>
-      */}
+      <MainSection name="In progress">{theme1Items}</MainSection>
+      <MainSection name="Upcoming">{theme2Items}</MainSection>
+      <MainSection name="Complete">{theme3Items}</MainSection>
     </Page>
   );
 }
