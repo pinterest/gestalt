@@ -1,3 +1,9 @@
+## 45.8.1 (Mar 2, 2022)
+
+### Patch
+
+- TrapFocusBehavior: add notes as comments (#1962)
+
 ## 45.8.0 (Mar 2, 2022)
 
 ### Minor
