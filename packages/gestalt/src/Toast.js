@@ -9,7 +9,7 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 const TOAST_MAX_WIDTH_PX = 500;
 const TOAST_WIDTH_PX = 330;
-const TEXT_MAX_WIDTH_PX = 160;
+const TEXT_MAX_WIDTH_PX = 127;
 
 type Props = {|
   /**
