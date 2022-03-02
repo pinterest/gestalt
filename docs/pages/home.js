@@ -21,7 +21,7 @@ export default function HomePage(): Node {
         <Flex direction="column">
           {/* Hero */}
           <HomePageSection>
-            <Flex gap={8} alignItems="center">
+            <Box display="flex" alignItems="center" justifyContent="between">
               <Flex gap={6} direction="column">
                 <Heading>Gestalt is Pinterest&rsquo;s design system</Heading>
                 <Text size="lg">
@@ -31,12 +31,17 @@ export default function HomePage(): Node {
 
                 <Button text="See what’s new" role="link" rel="nofollow" href="/whats_new" />
               </Flex>
-              <Flex.Item minWidth="60%">
-                <Flex alignItems="center" justifyContent="end">
-                  <Hero />
-                </Flex>
-              </Flex.Item>
-            </Flex>
+              <Box
+                minWidth="60%"
+                display="none"
+                mdDisplay="flex"
+                alignItems="center"
+                justifyContent="end"
+                marginStart={8}
+              >
+                <Hero />
+              </Box>
+            </Box>
           </HomePageSection>
           {/* Getting Started */}
           <HomePageSection title="Getting started">
@@ -44,7 +49,7 @@ export default function HomePage(): Node {
               title="Design"
               href="/design"
               isNew
-              description="Our brand new guide for designers to get started using Gestalt"
+              description="Our brand-new guide for designers to get started using Gestalt"
               color="blue-skycicle"
               image={<Design />}
             />
