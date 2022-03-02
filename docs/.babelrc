@@ -1,8 +1,10 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["@babel/transform-flow-strip-types",
+  "plugins": [
+    "@babel/transform-flow-strip-types",
     [
-      "inline-react-svg", {
+      "inline-react-svg",
+      {
         "svgo": {
           "plugins": [
             {
