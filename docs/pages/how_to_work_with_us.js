@@ -15,8 +15,7 @@ export default function DocsPage(): Node {
 
       <MainSection name="What goes into Gestalt?">
         <MainSection.Subsection
-          description={
-    `The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
+          description={`The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
     `}
         />
       </MainSection>
