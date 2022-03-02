@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Icon, Text, TapArea, Tooltip, Link, Status } from 'gestalt';
+import { Flex, Icon, Text, TapArea, Tooltip, Link } from 'gestalt';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
@@ -70,7 +70,7 @@ const tasks = [
     'task': 'Gestalt illustration library',
     'deadline': 'Quarter 2',
     'status': 'inProgress',
-    'platform': 'All',
+    'platform': 'Android/iOS/Web',
     'description':
       'Creation of a baseline set of illustrations that cover high-frequency product states (e.g., Error, Success, Empty).',
     'link': '',
@@ -85,27 +85,12 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'Messaging components',
-    'deadline': 'Quarter 3',
-    'status': 'inProgress',
-    'platform': 'Web',
-    'description': 'TBD',
-    'link': '',
-  },
-  {
-    'task': 'Table component enhancements',
-    'deadline': 'Quarter 4',
-    'status': 'unstarted',
-    'platform': 'Web',
-    'description': 'TBD',
-    'link': '',
-  },
-  {
     'task': 'Multi-select component',
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description':
+      'Pilot component for supporting selection of multiple items in a dropdown context.',
     'link': '',
   },
   {
@@ -113,7 +98,7 @@ const tasks = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description': 'Pilot component for paginating through content.',
     'link': '',
   },
   {
@@ -121,7 +106,7 @@ const tasks = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Mobile web',
-    'description': 'TBD',
+    'description': 'Development of a mobile-specific treatment of the Modal component.',
     'link': '',
   },
   {
@@ -129,7 +114,7 @@ const tasks = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Mobile web',
-    'description': 'TBD',
+    'description': 'Development of a mobile-specific treatment of the Popover component.',
     'link': '',
   },
   {
@@ -137,7 +122,7 @@ const tasks = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': 'Mobile web',
-    'description': 'TBD',
+    'description': 'Development of a mobile-specific treatment of the Dropdown component.',
     'link': '',
   },
   {
@@ -161,7 +146,7 @@ const tasks = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Android/iOS',
-    'description': 'TBD',
+    'description': 'Development of the IconButton component for Android and iOS',
     'link': '',
   },
   {
@@ -169,7 +154,7 @@ const tasks = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Android',
-    'description': 'TBD',
+    'description': 'Development of the Icon component for Android.',
     'link': '',
   },
   {
@@ -177,23 +162,7 @@ const tasks = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Android',
-    'description': 'TBD',
-    'link': '',
-  },
-  {
-    'task': 'ButtonGroup component',
-    'deadline': '',
-    'status': 'unstarted',
-    'platform': 'iOS',
-    'description': 'TBD',
-    'link': '',
-  },
-  {
-    'task': 'Filters component',
-    'deadline': '',
-    'status': 'unstarted',
-    'platform': 'Web',
-    'description': 'TBD',
+    'description': 'Development of the Avatar component for Android.',
     'link': '',
   },
   {
@@ -201,7 +170,8 @@ const tasks = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description':
+      'Create new component to create accessible Radio button groups in forms, deprecate singular RadioButton.',
     'link': '',
   },
   {
@@ -213,7 +183,7 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'Masonry component',
+    'task': 'Masonry component enhancements',
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
@@ -221,7 +191,7 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'App-level hooks w/in Gestalt',
+    'task': 'App-level hooks within Gestalt',
     'deadline': '',
     'status': 'inProgress',
     'platform': 'Web',
@@ -229,11 +199,28 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'Design tokenization',
+    'task': 'Border color and radius design tokens',
     'deadline': '',
-    'status': 'inProgress',
-    'platform': '',
-    'description': 'TBD',
+    'status': 'unstarted',
+    'platform': 'Web',
+    'description': 'Addition of tokens to support border radius and border color styling.',
+    'link': '',
+  },
+  {
+    'task': 'Color opacity design tokens',
+    'deadline': '',
+    'status': 'unstarted',
+    'platform': 'Web',
+    'description': 'Addition of tokens to support opacity styling.',
+    'link': '',
+  },
+  {
+    'task': 'Elevation design tokens',
+    'deadline': '',
+    'status': 'unstarted',
+    'platform': 'Web',
+    'description':
+      'Addition of tokens to support the styling of elevated elements within a layout.',
     'link': '',
   },
   {
@@ -246,11 +233,12 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'Visual search',
+    'task': 'Component visual search',
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': '',
-    'description': 'TBD',
+    'description':
+      'Provide a visual component overview within the Gestalt docs to make finding components faster/easier.',
     'link': '',
   },
   {
@@ -401,7 +389,7 @@ const tasks = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
-    'description': 'TBD',
+    'description': 'Publish guidelines and best practices for utilizing color within Gestalt.',
     'link': '',
   },
   {
@@ -409,7 +397,8 @@ const tasks = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
-    'description': 'TBD',
+    'description':
+      'Publish guidelines and best practices for typographic treatment within Gestalt.',
     'link': '',
   },
   {
@@ -417,15 +406,8 @@ const tasks = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
-    'description': 'TBD',
-    'link': '',
-  },
-  {
-    'task': 'Messaging pattern guidelines',
-    'deadline': 'Quarter 2',
-    'status': 'unstarted',
-    'platform': '',
-    'description': 'TBD',
+    'description':
+      'Provide detailed info on the status and health of each component in the Gestalt docs.',
     'link': '',
   },
   {
@@ -433,7 +415,7 @@ const tasks = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': '',
-    'description': 'TBD',
+    'description': 'Publish guidelines for designing for dark mode using Gestalt.',
     'link': '',
   },
   {
@@ -513,7 +495,8 @@ const tasks = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': '',
-    'description': 'TBD',
+    'description':
+      'Publish best practices for providing in-product contextual help and guidance using Gestalt.',
     'link': '',
   },
   {
@@ -521,7 +504,7 @@ const tasks = [
     'deadline': 'Quarter 4',
     'status': 'unstarted',
     'platform': '',
-    'description': 'TBD',
+    'description': 'Publish guidelines on appropriate usage of iconography with Gestalt.',
     'link': '',
   },
   {
@@ -594,43 +577,58 @@ const LockIcon = function LockIcon({ size }: {| size: 12 | 14 |}) {
   );
 };
 
-type StatusType = 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
+function Task({
+  text,
+  description,
+  delivery,
+  platform,
+}: {|
+  text: string,
+  description: string,
+  delivery: string,
+  platform: string,
+|}) {
+  const title = platform ? `${text} (${platform})` : text;
 
-function TaskStatus({ status }: {| status: StatusType |}) {
-  let statusTitle = '';
+  const desc = (
+    <Flex direction="column" gap={2}>
+      <Text>{description}</Text>
+      {delivery ? <Text size="100">Scheduled for {delivery}, 2022</Text> : null}
+    </Flex>
+  );
 
-  switch (status) {
-    case 'unstarted':
-      statusTitle = 'Not started';
-      break;
-    case 'inProgress':
-      statusTitle = 'In progress';
-      break;
-    case 'ok':
-      statusTitle = 'Complete';
-      break;
-    default:
-      statusTitle = '';
-  }
-
-  return <Status type={status} title={statusTitle} />;
-}
-
-function Task({ text, description }: {| text: string, description: string |}) {
-  return <MainSection.Subsection title={text} description={description} />;
+  return <MainSection.Subsection title={title}>{desc}</MainSection.Subsection>;
 }
 
 export default function RoadmapPage(): Node {
   const theme1Items = inProgress.map((obj) => (
-    <Task key={obj.task} text={obj.task} description={obj.description} />
+    <Task
+      key={obj.task}
+      text={obj.task}
+      description={obj.description}
+      delivery={obj.deadline}
+      platform={obj.platform}
+    />
   ));
 
   const theme2Items = future.map((obj) => (
-    <Task key={obj.task} text={obj.task} description={obj.description} />
+    <Task
+      key={obj.task}
+      text={obj.task}
+      description={obj.description}
+      delivery={obj.deadline}
+      platform={obj.platform}
+    />
   ));
 
   const theme3Items = complete.map((obj) => (
-    <Task key={obj.task} text={obj.task} description={obj.description} />
+    <Task
+      key={obj.task}
+      text={obj.task}
+      description={obj.description}
+      delivery={obj.deadline}
+      platform={obj.platform}
+    />
   ));
 
   return (
@@ -639,14 +637,29 @@ export default function RoadmapPage(): Node {
 
       <Text>
         The following reflects all public-facing work the Gestalt team plans to ship in 2022. To see
-        the full list of work our team plans to take on, please visit our
-        <Link href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog">
+        the full list of work our team plans to take on, please visit our&nbsp;
+        <Link
+          href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog"
+          inline
+        >
           internal roadmap <LockIcon size={14} />
         </Link>
       </Text>
-      <MainSection name="In progress">{theme1Items}</MainSection>
-      <MainSection name="Upcoming">{theme2Items}</MainSection>
-      <MainSection name="Complete">{theme3Items}</MainSection>
+      <MainSection name="In progress">
+        <Flex direction="column" gap={8}>
+          {theme1Items}
+        </Flex>
+      </MainSection>
+      <MainSection name="Upcoming">
+        <Flex direction="column" gap={8}>
+          {theme2Items}
+        </Flex>
+      </MainSection>
+      <MainSection name="Complete">
+        <Flex direction="column" gap={8}>
+          {theme3Items}
+        </Flex>
+      </MainSection>
     </Page>
   );
 }
