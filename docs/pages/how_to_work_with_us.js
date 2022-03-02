@@ -25,11 +25,7 @@ export default function DocsPage(): Node {
         />
       </MainSection>
 
-<<<<<<< HEAD
-      <MainSection name="What is the process to request new additions or changes?">
-=======
       <MainSection name="How to request a new component or changes?">
->>>>>>> 0fc07137 (Content update - Process and Design contribuition)
         <MainSection.Subsection
           description={`
 **Please note:** The process below applies to Pinterest employees.
@@ -60,21 +56,13 @@ We love to see more iteration from the product designer asking for the component
           description={`
 We love the help and contributions of other designers across Pinterest, and we ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
 1. **Present your idea or suggestion during our Office Hour meetings**
-<<<<<<< HEAD
-    [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the request and why it is needed.
-=======
     [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components. It does not need to be a polished presentation but should have enough detail to help us understand the request and why it is needed.
->>>>>>> 0fc07137 (Content update - Process and Design contribuition)
 2. **Create a Branch in our design library**
     Create a Branch file in our main library adding your design updates and component addition. Don't worry, our design team will support you with that. See [Branching in Figma](https://www.figma.com/best-practices/branching-in-figma/) for more details and self-education.
 3. **Present your work in a Design System Crit**
 Our design team will schedule a meeting to present your work to other designers and engineers and collect feedback.
 4. **Send your Branch to review**
-<<<<<<< HEAD
-    Update your Branch based on the feedback you received, and add a Gestalt reviewer (designer) to your Branch. Our design team will approve and merge the Branch when it is ready to implement in our web docs. We will follow up with you!
-=======
 After your Branch is ready, add a Gestalt reviewer (designer) to your Branch. Our design team will approve and merge your updates when prepared to implement them in our web docs. We will follow up with you!
->>>>>>> 0fc07137 (Content update - Process and Design contribuition)
 `}
         />
         <MainSection.Subsection
