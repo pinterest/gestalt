@@ -19,6 +19,7 @@ export default function HomePage(): Node {
         <Flex direction="column">
           {/* Hero */}
           <HomePageSection>
+            {/* Cannot be Flex due to display none and minWidth needed on child */}
             <Box display="flex" alignItems="center" justifyContent="between">
               <Flex gap={6} direction="column">
                 <Heading>Gestalt is Pinterest&rsquo;s design system</Heading>
