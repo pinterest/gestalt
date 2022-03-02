@@ -48,15 +48,26 @@ export default function Navigation(): Node {
         <Fragment>
           <HeaderMenu />
 
-          <Box height={350} overflow="scroll" display="block" mdDisplay="none" padding={4}>
-            <SidebarCategorizationButton
-              onClick={() =>
-                setSidebarOrganizedBy(
-                  sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
-                )
-              }
-              sidebarOrganisedBy={sidebarOrganisedBy}
-            />
+          <Box
+            height={350}
+            overflow="scroll"
+            display="block"
+            mdDisplay="none"
+            paddingY={2}
+            paddingX={4}
+          >
+            <Divider />
+            <Box paddingX={2} paddingY={3}>
+              <SidebarCategorizationButton
+                onClick={() =>
+                  setSidebarOrganizedBy(
+                    sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
+                  )
+                }
+                sidebarOrganisedBy={sidebarOrganisedBy}
+              />
+            </Box>
+            <Divider />
             <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
           </Box>
         </Fragment>
@@ -70,17 +81,17 @@ export default function Navigation(): Node {
           maxHeight="calc(100% - 60px)"
           minWidth={MIN_NAV_WIDTH_PX}
         >
-          <SidebarCategorizationButton
-            onClick={() =>
-              setSidebarOrganizedBy(
-                sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
-              )
-            }
-            sidebarOrganisedBy={sidebarOrganisedBy}
-          />
-          <Box marginTop={4}>
-            <Divider />
+          <Box marginBottom={4} paddingX={2}>
+            <SidebarCategorizationButton
+              onClick={() =>
+                setSidebarOrganizedBy(
+                  sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
+                )
+              }
+              sidebarOrganisedBy={sidebarOrganisedBy}
+            />
           </Box>
+          <Divider />
           <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
         </Box>
       </Box>

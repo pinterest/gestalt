@@ -16,7 +16,7 @@ import {
 
 export default function HomePage(): Node {
   return (
-    <Page title="Welcome to Gestalt" isFullWidth>
+    <Page title="Welcome to Gestalt" showSideNav={false} showEditLink={false}>
       <Box width="100%">
         <Flex direction="column">
           {/* Hero */}

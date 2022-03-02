@@ -4,16 +4,22 @@ import { Box, Flex, Link, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
+const DETAIL_PAGE_MAX_WIDTH = 1312;
+
 type Props = {|
   children: Node,
   title: string,
-  isFullWidth?: boolean,
+  showSideNav?: boolean,
+  showEditLink?: boolean,
 |};
 
-export default function Page({ title: page, children, isFullWidth = false }: Props): Node {
+export default function Page({
+  title: page,
+  children,
+  showSideNav = true,
+  showEditLink = true,
+}: Props): Node {
   const sections = Children.toArray(children);
-
-  const DETAIL_PAGE_MAX_WIDTH = 1312;
 
   const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
 
@@ -25,7 +31,7 @@ export default function Page({ title: page, children, isFullWidth = false }: Pro
 
   return (
     <Flex>
-      <Box flex="grow" maxWidth={isFullWidth ? '100%' : DETAIL_PAGE_MAX_WIDTH}>
+      <Box flex="grow" maxWidth={showSideNav ? DETAIL_PAGE_MAX_WIDTH : '100%'}>
         <SearchContent>
           <Flex gap={8} direction="column">
             {sections.map((card, i) => (
@@ -44,16 +50,16 @@ export default function Page({ title: page, children, isFullWidth = false }: Pro
           </Flex>
         </SearchContent>
 
-        <Box marginTop={12} display="flex">
-          <Link href={editPageUrl} target="blank" inline>
-            <Flex gap={2}>
+        {showEditLink && (
+          <Box marginTop={12}>
+            <Link href={editPageUrl} target="blank" inline>
               <Text underline>Edit page on GitHub</Text>
-            </Flex>
-          </Link>
-        </Box>
+            </Link>
+          </Box>
+        )}
       </Box>
 
-      {!isFullWidth && (
+      {showSideNav && (
         <Box
           minWidth={200}
           maxWidth={240}

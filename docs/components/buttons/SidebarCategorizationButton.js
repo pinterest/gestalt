@@ -10,9 +10,7 @@ type Props = {|
 |};
 
 export default function SidebarCategorizationButton({ onClick, sidebarOrganisedBy }: Props): Node {
-  const [selected, setSelected] = React.useState(sidebarOrganisedBy);
   const onSelect = ({ event }) => {
-    setSelected(event.target.value);
     trackButtonClick('Sidebar Categorization', event.target.value);
     onClick();
   };
@@ -21,7 +19,7 @@ export default function SidebarCategorizationButton({ onClick, sidebarOrganisedB
     <Fieldset legend="Sort by">
       <Flex gap={2}>
         <RadioButton
-          checked={selected === 'categorized'}
+          checked={sidebarOrganisedBy === 'categorized'}
           id="sortCategory"
           label="Category"
           name="sidebarSort"
@@ -30,7 +28,7 @@ export default function SidebarCategorizationButton({ onClick, sidebarOrganisedB
           size="sm"
         />
         <RadioButton
-          checked={selected === 'alphabetical'}
+          checked={sidebarOrganisedBy === 'alphabetical'}
           id="sortAlphabetical"
           label="Alphabetical"
           name="sidebarSort"
