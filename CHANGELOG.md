@@ -1,3 +1,9 @@
+## 45.8.0 (Mar 2, 2022)
+
+### Minor
+
+- Modal: Fix infinite focus loop (#649) (#1442)
+
 ## 45.7.2 (Mar 2, 2022)
 
 ### Patch
