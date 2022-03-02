@@ -545,8 +545,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
       gridBody = (
-        <div style={{ width: '100%' }} ref={this.setGridWrapperRef} role="list">
-          <div className={styles.Masonry} style={{ height, width }}>
+        <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
+          <div className={styles.Masonry} role="list" style={{ height, width }}>
             {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
           </div>
           <div className={styles.Masonry} style={{ width }}>
