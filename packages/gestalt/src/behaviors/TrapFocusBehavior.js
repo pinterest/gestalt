@@ -6,6 +6,7 @@ type Props = {|
 |};
 
 function queryFocusableAll(el: HTMLDivElement) {
+  // Focusable, interactive elements that could possibly be in children
   const selector = [
     'a[href]',
     'area[href]',
@@ -27,12 +28,16 @@ function queryFocusableAll(el: HTMLDivElement) {
 }
 
 const focusElement = (el: HTMLElement) => {
+  // https://github.com/facebook/flow/issues/8705
   // $FlowFixMe[method-unbinding]
   if (typeof el.focus === 'function') {
     el.focus();
   }
 };
 
+/**
+ * TrapFocusBehavior is used by components like Modal and Sheet to ensure that only elements within children components can be focused.
+ */
 export default function TrapFocusBehavior({ children }: Props): ReactNode {
   const elRef = useRef<?HTMLDivElement>(null);
   const previouslyFocusedElRef = useRef<?HTMLElement>(null);
@@ -45,6 +50,8 @@ export default function TrapFocusBehavior({ children }: Props): ReactNode {
 
   useEffect(() => {
     const { current: element } = elRef;
+
+    // Focus the first child element among all the focusable, interactive elements within `children`
     const focusFirstChild = () => {
       if (element) {
         focusElement(queryFocusableAll(element)[0]);
@@ -56,6 +63,7 @@ export default function TrapFocusBehavior({ children }: Props): ReactNode {
         return;
       }
 
+      // This prevents stack overflow when multiple TrapFocusBehaviors are rendered
       if (event.target instanceof Element && event.target.closest('[name="trap-focus"]') !== null) {
         return;
       }
@@ -65,12 +73,15 @@ export default function TrapFocusBehavior({ children }: Props): ReactNode {
       focusFirstChild();
     };
 
+    // If an element has focus currently, keep a reference to that element
     previouslyFocusedElRef.current = document.activeElement;
     focusFirstChild();
     document.addEventListener('focus', handleFocus, true);
+
     return function cleanup() {
       const { current: previouslyFocusedEl } = previouslyFocusedElRef;
       document.removeEventListener('focus', handleFocus, true);
+      // If we previously stored a reference to a focused element, return focus to that element
       if (previouslyFocusedEl) {
         focusElement(previouslyFocusedEl);
       }
