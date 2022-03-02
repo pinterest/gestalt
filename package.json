@@ -34,6 +34,7 @@
     "@testing-library/user-event": "^13.1.9",
     "axe-core": "^4.1.1",
     "babel-jest": "^27.4.6",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "blueimp-md5": "^2.18.0",
     "caniuse-lite": "^1.0.30001305",
     "chalk": "^4.1.0",

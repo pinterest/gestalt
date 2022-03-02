@@ -4,15 +4,13 @@ import { type Node } from 'react';
 import HomePageCard from '../components/HomePageCard.js';
 import HomePageSection from '../components/HomePageSection.js';
 import Page from '../components/Page.js';
-import {
-  HowToWork,
-  Development,
-  Design,
-  A11Y,
-  Color,
-  DesignTokens,
-  Hero,
-} from '../graphics/HomePageIcons.js';
+import Hero from '../graphics/HeroGraphic.js';
+import Design from '../graphics/design.svg';
+import Development from '../graphics/development.svg';
+import HowToWork from '../graphics/how-to-work-with-us.svg';
+import A11Y from '../graphics/accessibility.svg';
+import Color from '../graphics/color.svg';
+import DesignTokens from '../graphics/design-tokens.svg';
 
 export default function HomePage(): Node {
   return (
