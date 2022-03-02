@@ -9,11 +9,7 @@ export default function DocsPage(): Node {
     <Page title="How to Work with Us">
       <PageHeader
         name="How to Work with Us"
-<<<<<<< HEAD
-        description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute."
-=======
         description="Guidelines on how to engage with the Gestalt team, when to work with us, and how to contribute."
->>>>>>> 0fc07137 (Content update - Process and Design contribuition)
         showSourceLink={false}
       />
 
