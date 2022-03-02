@@ -1,3 +1,9 @@
+## 45.7.2 (Mar 2, 2022)
+
+### Patch
+
+- Docs: add npm badges for design token and eslint plugin packages (#1960)
+
 ## 45.7.1 (Mar 2, 2022)
 
 ### Patch
