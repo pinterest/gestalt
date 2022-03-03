@@ -5,6 +5,13 @@ import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 
+const npmPackages = [
+  'gestalt',
+  'gestalt-datepicker',
+  'gestalt-design-tokens',
+  'eslint-plugin-gestalt',
+];
+
 export default function Changelog({ changelog }: {| changelog: string |}): Node {
   return (
     <Page title="Changelog">
@@ -12,21 +19,20 @@ export default function Changelog({ changelog }: {| changelog: string |}): Node 
         <PageHeader name="What's New 🎉" showSourceLink={false} />
         <Flex alignItems="start" direction="column" gap={4}>
           <Flex gap={4}>
-            <Link inline target="blank" href="https://npmjs.org/package/gestalt">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://img.shields.io/npm/v/gestalt.svg?label=gestalt"
-                alt="Gestalt NPM package version badge"
-              />
-            </Link>
-
-            <Link inline target="blank" href="https://npmjs.org/package/gestalt-datepicker">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://img.shields.io/npm/v/gestalt-datepicker.svg?label=gestalt-datepicker"
-                alt="Gestalt DatePicker NPM package version badge"
-              />
-            </Link>
+            {npmPackages.map((packageName) => (
+              <Link
+                key={packageName}
+                inline
+                target="blank"
+                href={`https://npmjs.org/package/${packageName}`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://img.shields.io/npm/v/${packageName}.svg?label=${packageName}`}
+                  alt={`${packageName} NPM package version badge`}
+                />
+              </Link>
+            ))}
           </Flex>
           <Text>
             Gestalt is a set of React UI components that enforces Pinterest’s design language. We

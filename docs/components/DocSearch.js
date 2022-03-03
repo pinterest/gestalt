@@ -68,7 +68,7 @@ export default function DocSearch(): Node {
             id="algolia-doc-search"
             className="searchbox__input"
             type="search"
-            placeholder="Search"
+            placeholder="Search the docs"
             aria-label="Search docs"
           />
         </div>

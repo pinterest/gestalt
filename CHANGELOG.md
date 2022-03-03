@@ -1,3 +1,33 @@
+## 45.8.2 (Mar 3, 2022)
+
+### Patch
+
+- Docs: Add new Home page! (#1859)
+
+## 45.8.1 (Mar 2, 2022)
+
+### Patch
+
+- TrapFocusBehavior: add notes as comments (#1962)
+
+## 45.8.0 (Mar 2, 2022)
+
+### Minor
+
+- Modal: Fix infinite focus loop (#649) (#1442)
+
+## 45.7.2 (Mar 2, 2022)
+
+### Patch
+
+- Docs: add npm badges for design token and eslint plugin packages (#1960)
+
+## 45.7.1 (Mar 2, 2022)
+
+### Patch
+
+- Masonry: add a11y roles (#1958)
+
 ## 45.7.0 (Feb 24, 2022)
 
 ### Minor

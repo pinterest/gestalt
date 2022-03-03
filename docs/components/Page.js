@@ -4,12 +4,21 @@ import { Box, Flex, Link, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
+const DETAIL_PAGE_MAX_WIDTH = 1312;
+
 type Props = {|
   children: Node,
   title: string,
+  hideSideNav?: boolean,
+  hideEditLink?: boolean,
 |};
 
-export default function Page({ title: page, children }: Props): Node {
+export default function Page({
+  title: page,
+  children,
+  hideSideNav = false,
+  hideEditLink = false,
+}: Props): Node {
   const sections = Children.toArray(children);
 
   const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
@@ -22,7 +31,7 @@ export default function Page({ title: page, children }: Props): Node {
 
   return (
     <Flex>
-      <Box flex="grow" maxWidth={1312}>
+      <Box flex="grow" maxWidth={hideSideNav ? '100%' : DETAIL_PAGE_MAX_WIDTH}>
         <SearchContent>
           <Flex gap={8} direction="column">
             {sections.map((card, i) => (
@@ -41,27 +50,29 @@ export default function Page({ title: page, children }: Props): Node {
           </Flex>
         </SearchContent>
 
-        <Box marginTop={12} display="flex">
-          <Link href={editPageUrl} target="blank" inline>
-            <Flex gap={2}>
+        {!hideEditLink && (
+          <Box marginTop={12}>
+            <Link href={editPageUrl} target="blank" inline>
               <Text underline>Edit page on GitHub</Text>
-            </Flex>
-          </Link>
-        </Box>
+            </Link>
+          </Box>
+        )}
       </Box>
 
-      <Box
-        minWidth={200}
-        maxWidth={240}
-        marginStart={4}
-        mdMarginStart={6}
-        lgMarginStart={8}
-        display="none"
-        lgDisplay="block"
-        flex="none"
-      >
-        <Toc cards={sections} />
-      </Box>
+      {!hideSideNav && (
+        <Box
+          minWidth={200}
+          maxWidth={240}
+          marginStart={4}
+          mdMarginStart={6}
+          lgMarginStart={8}
+          display="none"
+          lgDisplay="block"
+          flex="none"
+        >
+          <Toc cards={sections} />
+        </Box>
+      )}
     </Flex>
   );
 }
