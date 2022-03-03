@@ -39,6 +39,66 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Status to communicate a step in a workflow or the state of an item."
+            defaultCode={`
+<Status type="ok" accessibilityLabel="This item is ok" />
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use SVGs or images that resemble the Status’ symbols to denote status."
+            defaultCode={`
+<Icon icon="workflow-status-problem" size="24" accessibilityLabel="This item has an error" />
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Place Status close to its subject to provide context and reference. It can be placed as an inline element or paired side by side as needed."
+            defaultCode={`
+<Flex gap={1} alignItems="center">
+<Status accessibilityLabel="This item is complete" type="ok" />
+<Text weight="bold" size="300">Campaign complete</Text>
+</Flex>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Place Status far away from its subject. "
+            defaultCode={`
+<Flex gap={12} direction="column" alignItems="center">
+<Status accessibilityLabel="This item is paused" type="halted" />
+<Text weight="bold" size="300">Campaign paused</Text>
+</Flex>
+
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use `title` when the status it represents is unique, specific and critical for the user to know."
+            defaultCode={`
+<Status type="inProgress" title="Pending review" />
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Status' `subText` to display extraneous messaging."
+            defaultCode={`
+<Status type="problem" title="Error" subtext="Please try again" />
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility" description="" />
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`title\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
