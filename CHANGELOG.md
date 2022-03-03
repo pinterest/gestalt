@@ -1,3 +1,9 @@
+## 45.8.3 (Mar 3, 2022)
+
+### Patch
+
+- Docs: fix npm badges wrapping (#1963)
+
 ## 45.8.2 (Mar 3, 2022)
 
 ### Patch
