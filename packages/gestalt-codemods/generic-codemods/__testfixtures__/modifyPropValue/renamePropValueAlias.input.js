@@ -2,8 +2,8 @@ import { Box as RenamedBox } from 'gestalt';
 
 export default function TestComp() {
   return (
-    <RenamedBox renameHeight={200}>
-      <RenamedBox/>
+    <RenamedBox width={400} color="red">
+      <RenamedBox color="red"/>
     </RenamedBox>
   );
 }

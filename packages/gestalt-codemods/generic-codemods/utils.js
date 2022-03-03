@@ -18,15 +18,17 @@ https://htmlpreview.github.io/?https://raw.githubusercontent.com/facebook/jscode
 
 type InitializeType = {|
   api: ApiType,
-  file: FileType,
+  fileInfo: FileType,
 |};
 
 /**
- * initialize: Sets the boilerplate required to work with jscodeshift
+ * initialize: Sets the boilerplate required to work with jscodeshift. Returns:
+ j: the jscodeshift library API access
+ src: a collection of one node-path, which wraps the root AST node
  */
-const initialize = ({ api, file }: InitializeType): { j: JSCodeShift, src: Collection } => {
+const initialize = ({ api, fileInfo }: InitializeType): { j: JSCodeShift, src: Collection } => {
   const j = api.jscodeshift;
-  const src = j(file.source);
+  const src = j(fileInfo.source);
   return { j, src };
 };
 
@@ -88,12 +90,15 @@ const getImports = ({ src, j }: GetImportsType): Collection => src.find(j.Import
 type GetGestaltImportType = {| src: Collection, j: JSCodeShift |};
 
 /**
- * getGestaltImport: Returns the Gestalt import declaration node
+ * getGestaltImport: Returns a collection containing the Gestalt import declaration node-path
  */
-const getGestaltImport = ({ src, j }: GetGestaltImportType): Collection => getImports({ src, j }).filter((nodePath) => {
-  const { node: importDeclaration } = nodePath;
-  return isGestaltImport({ importDeclaration })
-});
+const getGestaltImport = ({ src, j }: GetGestaltImportType): Collection =>
+  src.find(j.ImportDeclaration, {
+    source: {
+      type: 'Literal',
+      value: 'gestalt',
+    },
+  });
 
 type GetJSXType = {| src: Collection, j: JSCodeShift |};
 
@@ -116,22 +121,23 @@ const getLocalImportedName = ({
   importDeclaration,
   importedName,
 }: GetLocalImportedNameType): string => {
-   if (importDeclaration?.specifiers) {
-    return importDeclaration.specifiers.filter((node) => node.imported.name === importedName)
+  if (importDeclaration?.specifiers) {
+    return importDeclaration.specifiers
+      .filter((node) => node.imported.name === importedName)
+      .map((node) => node.local.name)[0];
+  }
+
+  let specifiers;
+  importDeclaration.forEach((node) => {
+    if (node.value.specifiers) {
+      specifiers = node.value.specifiers;
+    }
+  });
+
+  return specifiers
+    .filter((node) => node.imported.name === importedName)
     .map((node) => node.local.name)[0];
-   }
-
-   let specifiers;
-   importDeclaration.forEach((node) => {
-      if(node.value.specifiers) {
-        specifiers = node.value.specifiers
-      }
-     }
-   )
-
-  return specifiers.filter((node) => node.imported.name === importedName).map((node) => node.local.name)[0];
-}
-  
+};
 
 type ReplaceImportedNamedType = {|
   j: JSCodeShift,
@@ -251,31 +257,32 @@ const replaceJSXAttributes = ({ JSXNode, newAttributes }: ReplaceJSXAttributesTy
   newJSXNode.openingElement.attributes = newAttributes;
 };
 
-type SaveSourceType = {| src: Collection |};
+type SaveToSourceType = {| src: Collection |};
 
 /**
- * saveSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
- */ const saveSource = ({ src }: SaveSourceType): string | null =>
+ * saveToSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
+ */ const saveToSource = ({ src }: SaveToSourceType): string | null =>
   src.modified ? src.toSource({ quote: 'single' }) : null;
 
-type ThrowErrorIfSpreadType = {| file: FileType, JSXNode: JSXNodeType |};
+type ThrowErrorIfSpreadType = {| fileInfo: FileType, JSXNode: JSXNodeType |};
 
 /**
  * throwErrorIfSpreadProps: Throws an error message if component contains spread props which are opaque to  codemods
  * E.g. <Box {...props} /> // error!
  */
-const throwErrorIfSpreadProps = ({ file, JSXNode }: ThrowErrorIfSpreadType): void => {
+const throwErrorIfSpreadProps = ({ fileInfo, JSXNode }: ThrowErrorIfSpreadType): void => {
   if (
     JSXNode.openingElement.attributes.some((attribute) => attribute.type === 'JSXSpreadAttribute')
   ) {
     throw new Error(
-      `Remove dynamic properties and rerun codemod. Location: ${file.path} @line: ${JSXNode.loc.start.line}`,
+      `Remove dynamic properties and rerun codemod. Location: ${fileInfo.path} @line: ${JSXNode.loc.start.line}`,
     );
   }
 };
 
 export {
-  getImports, getGestaltImport,
+  getImports,
+  getGestaltImport,
   getJSX,
   getLocalImportedName,
   getNewAttributes,
@@ -287,7 +294,7 @@ export {
   replaceImportNodePath,
   renameJSXElement,
   replaceJSXAttributes,
-  saveSource,
+  saveToSource,
   sortImportedNames,
   throwErrorIfSpreadProps,
 };

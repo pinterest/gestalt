@@ -26,15 +26,6 @@ export type ImportDeclarationType = {|
   },
 |};
 
-export type NodePathType = {|
-  value: {|
-    type: string,
-    specifiers: Array<ImportSpecifierType>,
-  |},
-  name: string,
-  node: {| specifiers: Array<ImportSpecifierType> |},
-|};
-
 export type JSXAttributeType = {|
   type: string,
   name: {|
@@ -43,11 +34,13 @@ export type JSXAttributeType = {|
   |},
   value: {|
     type: string,
-    expression: {|
+    expression?: {|
       type: string,
       value: number | string,
       raw: string,
     |},
+    value?: string,
+    raw?: string,
   |},
 |};
 
@@ -76,11 +69,30 @@ export type JSXNodeType = {|
   |},
 |};
 
+export type ASTNodeType = {|
+  type: string,
+  name: ?string,
+  specifiers?: Array<ImportSpecifierType>,
+  local?: {| name: string |},
+|};
+
+export type NodePathType = {|
+  value: {|
+    type: string,
+    specifiers: Array<ImportSpecifierType>,
+  |},
+  name: string,
+  node: ASTNodeType | JSXNodeType,
+|};
 export interface Collection {
-  find(type: ObjectType): Collection;
+  at: (number) => Collection;
+  get: (?number) => NodePathType;
+  find(type: ObjectType, options: { [string]: ObjectType }): Collection;
   filter(callback: (node: ObjectType) => boolean): Collection;
   forEach(callback: (node: ObjectType) => void): Collection;
   replaceWith: (node: ObjectType) => Collection;
+  remove: () => void;
+  size: () => number;
   toSource(options?: ObjectType): string;
   modified: boolean;
 }
@@ -88,9 +100,13 @@ export interface Collection {
 export type JSCodeShift = {
   (source: string): Collection,
   ImportDeclaration: ImportDeclarationType,
-  importSpecifier: (ObjectType) => ImportSpecifierType,
+  ImportSpecifier: (ObjectType) => ImportSpecifierType,
   JSXElement: (ObjectType) => JSXNodeType,
-  identifier: (ObjectType) => { name: string, type: string },
+  JSXAttribute: (ObjectType) => JSXAttributeType,
+  Identifier: (ObjectType) => { name: string, type: string },
+  jsxAttribute: (ObjectType, ObjectType) => ObjectType,
+  jsxIdentifier: (ObjectType) => ObjectType,
+  stringLiteral: (?string) => ObjectType,
 };
 
 export type FileType = {| path: string, source: string |};

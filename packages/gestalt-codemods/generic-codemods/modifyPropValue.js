@@ -4,7 +4,7 @@
  * CODEMOD to MODIFY (RENAME, ADD, OR REMOVE) PROP-VALUE COMBINATIONS in GESTALT COMPONENT
  * Ex. <Box color="red" /> to <Box variant="error" />
  * Ex. <Box /> to <Box variant="error" />
- * Ex. <Box color="red" /> to <Box /> 
+ * Ex. <Box color="red" /> to <Box />
  *
  * OPTIONS:
  * --component: component to which modify props
@@ -15,64 +15,107 @@
  * --nextValue: new prop name to replace with, null if we want to remove prop
  *
  * TO RUN THIS CODEMOD
- * yarn codemod modifyPropValues ~/path/to/your/code 
+ * yarn codemod modifyPropValues ~/path/to/your/code
  * --component=<value>
  * --previousProp=<value>
  * --nextProp=<value>
  * --previousValue=<value>
  * --nextValue=<value>
- *  
+ *
  * If all options passed, prop+value combination are replaced with new prop+value combination
  * In the absence of nextProp, the codemod replaces the value
+ * In the absence of nextValue, the codemod replaces the prop
  * In the absence of nextProp+nextValue, the codemod removes the prop with that particular value
  * In the absence of previousProp+previousValue, the codemod adds a new prop with value
- * 
+ *
  * RENAME E.g. yarn codemod modifyPropValues ~/code/pinboard/webapp --component=Box --previousProp=color --nextProp=variant --previousValue=red --nextValue=error
  * ADD    E.g. yarn codemod modifyPropValues ~/code/pinboard/webapp --component=Box --nextProp=variant --nextValue=error
  * REMOVE E.g. yarn codemod modifyPropValues ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
  */
 
+// $FlowExpectedError[untyped-import]
+import { describe } from 'jscodeshift-helper';
 import {
-  getImports,
+  buildReplaceWithModifiedAttributes,
   getGestaltImport,
-  getJSX,
+  getComponentIdentifierByName,
   getLocalImportedName,
+  filterJSXByTargetLocalName,
+  filterJSXByAttribute,
   initialize,
-  isGestaltImport,
-  matchesComponentName,
-  getNewAttributes,
-  replaceJSXAttributes,
-  saveSource,
-  throwErrorIfSpreadProps,
-} from './utils.js';
+  saveToSource,
+  deepCloneNode,
+} from './clean_utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {|
-  componentName: string,
-  subcomponentName: string,
-  previousPropName: string,
-  nextPropName: string | null,
+  component: string,
+  subcomponent?: string,
+  previousProp?: string,
+  nextProp?: string,
+  previousValue?: string,
+  nextValue?: string,
 |};
 
-function transform(file: FileType, api: ApiType, options: OptionsType): ?string {
+function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
   const { component, subcomponent, previousProp, nextProp, previousValue, nextValue } = options;
 
-  const { j, src } = initialize({ api, file });
+  const { j, src } = initialize({ api, fileInfo });
 
-  const gestaltImport = getGestaltImport({ src, j })
+  const gestaltImportCollection = getGestaltImport({ src, j });
 
-  if (!gestaltImport) return;
+  if (gestaltImportCollection.size() === 0) return null;
 
-  const  targetLocalImportedName = getLocalImportedName({
-    importDeclaration: gestaltImport,
-    importedName: component,
+  const componentIdentifierCollection = getComponentIdentifierByName({
+    j,
+    gestaltImportCollection,
+    componentName: component,
   });
 
-  console.log(targetLocalImportedName)
-  
+  if (componentIdentifierCollection.size() === 0) return null;
+
+  const targetLocalName = getLocalImportedName({ importSpecifierCollection: componentIdentifierCollection });
+
+  const matchedJSXCollection = filterJSXByTargetLocalName({ src, j, targetLocalName, subcomponent });
+
+  if (previousProp && previousValue) {
+    const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
+      j,
+      jSXCollection: matchedJSXCollection,
+      prop: previousProp,
+      value: previousValue,
+    });
+
+    if (jSXWithMatchingAttributesCollection.size() === 0) return null;
+
+    if (!nextProp && !nextValue) {
+      for (let idx = 0; idx < jSXWithMatchingAttributesCollection.size() - 1; idx += 1) {
+        jSXWithMatchingAttributesCollection.at(idx).remove();
+      }
+    } else {
+      const replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
+        nextProp,
+        nextValue,
+      });
+
+      jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
+    }
+  }
+
+  if (!previousProp && !previousValue) {
+    for (let idx = matchedJSXCollection.size() - 1; idx >= 0; idx -= 1) {
+      matchedJSXCollection.at(idx).replaceWith((node) => {
+        const newAttribute = j.jsxAttribute(j.jsxIdentifier(nextProp), j.stringLiteral(nextValue));
+        const newNode = deepCloneNode({ node: node.get().node });
+        newNode.openingElement.attributes.push(newAttribute);
+        return newNode;
+      });
+    }
+  }
+
   src.modified = true;
 
-  return saveSource({ src });
+  return saveToSource({ src });
 }
 
 export default transform;

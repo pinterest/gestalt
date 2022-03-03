@@ -30,7 +30,7 @@ import {
   matchesComponentName,
   getNewAttributes,
   replaceJSXAttributes,
-  saveSource,
+  saveToSource,
   throwErrorIfSpreadProps,
 } from './utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
@@ -42,10 +42,10 @@ type OptionsType = {|
   nextPropName: string | null,
 |};
 
-function transform(file: FileType, api: ApiType, options: OptionsType): ?string {
+function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string {
   const { componentName, subcomponentName, previousPropName, nextPropName } = options;
 
-  const { j, src } = initialize({ api, file });
+  const { j, src } = initialize({ api, fileInfo });
 
   const gestaltImport = getGestaltImport({ src, j })
 
@@ -63,7 +63,7 @@ function transform(file: FileType, api: ApiType, options: OptionsType): ?string 
     )
       return;
 
-    throwErrorIfSpreadProps({ file, JSXNode });
+    throwErrorIfSpreadProps({ fileInfo, JSXNode });
     const newAttributes = getNewAttributes({
       JSXNode,
       previousPropName,
@@ -75,7 +75,7 @@ function transform(file: FileType, api: ApiType, options: OptionsType): ?string 
     src.modified = true;
   });
 
-  return saveSource({ src });
+  return saveToSource({ src });
 }
 
 export default transform;
