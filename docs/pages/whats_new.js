@@ -18,7 +18,7 @@ export default function Changelog({ changelog }: {| changelog: string |}): Node 
       <Box>
         <PageHeader name="What's New 🎉" showSourceLink={false} />
         <Flex alignItems="start" direction="column" gap={4}>
-          <Flex gap={4}>
+          <Flex gap={4} wrap>
             {npmPackages.map((packageName) => (
               <Link
                 key={packageName}
