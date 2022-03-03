@@ -5,6 +5,7 @@ import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
 import styles from './Toast.css';
+import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 const TOAST_MAX_WIDTH_PX = 500;
@@ -50,6 +51,9 @@ export default function Toast({
   const isDarkMode = colorSchemeName === 'darkMode';
   const isErrorVariant = variant === 'error';
 
+  const responsiveMinWidth = useResponsiveMinWidth();
+  const isMobileWidth = responsiveMinWidth === 'xs';
+
   let containerColor = isDarkMode ? 'white' : 'darkGray';
   let textColor = isDarkMode ? 'darkGray' : 'white';
   let textElement = text;
@@ -78,7 +82,8 @@ export default function Toast({
   return (
     <Box
       marginBottom={3}
-      maxWidth={TOAST_MAX_WIDTH_PX}
+      // Ensure that maxWidth isn't greater than viewport width (for small screens)
+      maxWidth={`min(${TOAST_MAX_WIDTH_PX}px, 100vw)`}
       minWidth={TOAST_WIDTH_PX}
       paddingX={4}
       role="status"
@@ -106,7 +111,10 @@ export default function Toast({
             </Text>
           </Flex.Item>
 
-          {button ? <Flex.Item flex="none">{button}</Flex.Item> : null}
+          {button ? (
+            // Allow button text to wrap on mobile
+            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>{button}</Flex.Item>
+          ) : null}
         </Flex>
       </Box>
     </Box>
