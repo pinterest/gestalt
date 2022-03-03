@@ -13,14 +13,14 @@ export default function DocsPage(): Node {
         showSourceLink={false}
       />
 
-      <MainSection name="What goes into Gestalt?">
+      <MainSection name="What goes into Gestalt">
         <MainSection.Subsection
           description={`The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
     `}
         />
       </MainSection>
 
-      <MainSection name="How to request a new component or changes?">
+      <MainSection name="Requesting a new component or changes">
         <MainSection.Subsection
           description={`
 **Please note:** The process below applies to Pinterest employees.
@@ -45,7 +45,7 @@ We love to see more iteration from the product designer asking for the component
         />
       </MainSection>
 
-      <MainSection name="How can you contribute to Gestalt?">
+      <MainSection name="Contribuiting to Gestalt">
         <MainSection.Subsection
           title="Making a design contribution"
           description={`
@@ -87,7 +87,7 @@ The Gestalt team sends out twice-yearly surveys to the design and engineering or
         />
       </MainSection>
 
-      <MainSection name="What kind of support can you expect from the team?">
+      <MainSection name="Support you can you expect from the team">
         <MainSection.Subsection
           description={`
 We are always happy to help answer questions regarding Gestalt component design and usage, design system best practices, accessibility, icons and colors. If it’s part of Gestalt, we’re here to help! If it’s outside of the realm of our design system, we’ll try our best to answer and/or point you to the person who can. Feel free to reach out to us on [Slack](http://gestalt.pinterest.systems/how_to_work_with_us#Slack-channels) anytime.
