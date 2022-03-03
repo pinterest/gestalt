@@ -1,6 +1,6 @@
 // @flow strict
-import { type Node } from 'react';
-import { Flex, IconButton, Tooltip } from 'gestalt';
+import React, { type Node } from 'react';
+import { Flex, Fieldset, RadioButton } from 'gestalt';
 import { type SidebarOrganisedBy } from '../navigationContext.js';
 import trackButtonClick from './trackButtonClick.js';
 
@@ -10,23 +10,33 @@ type Props = {|
 |};
 
 export default function SidebarCategorizationButton({ onClick, sidebarOrganisedBy }: Props): Node {
-  const sidebarOrganisedByCopy =
-    sidebarOrganisedBy === 'categorized' ? 'Alphabetical' : 'Categorize';
+  const onSelect = ({ event }) => {
+    trackButtonClick('Sidebar Categorization', event.target.value);
+    onClick();
+  };
 
   return (
-    <Tooltip inline text={`Sidebar: ${sidebarOrganisedByCopy}`}>
-      <Flex alignItems="center">
-        <IconButton
-          accessibilityLabel="Toggle sidebar categorization"
-          icon={sidebarOrganisedBy === 'categorized' ? 'arrow-circle-down' : 'folder'}
-          iconColor="darkGray"
-          onClick={() => {
-            trackButtonClick('Sidebar Categorization', sidebarOrganisedByCopy);
-            onClick();
-          }}
-          size="md"
+    <Fieldset legend="Sort by">
+      <Flex gap={2}>
+        <RadioButton
+          checked={sidebarOrganisedBy === 'categorized'}
+          id="sortCategory"
+          label="Category"
+          name="sidebarSort"
+          onChange={onSelect}
+          value="categorized"
+          size="sm"
+        />
+        <RadioButton
+          checked={sidebarOrganisedBy === 'alphabetical'}
+          id="sortAlphabetical"
+          label="Alphabetical"
+          name="sidebarSort"
+          onChange={onSelect}
+          value="alphabetical"
+          size="sm"
         />
       </Flex>
-    </Tooltip>
+    </Fieldset>
   );
 }

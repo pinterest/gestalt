@@ -604,3 +604,65 @@ html[dir="rtl"] .Markdown ul + pre {
   text-indent: -9000px;
   width: 100%;
 }
+
+/* Animation for home page */
+
+.animation-1 {
+  animation: appear 0.5s ease-out 0.25s forwards;
+  opacity: 0;
+}
+
+.animation-2 {
+  animation: appear 0.5s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.animation-3 {
+  animation: appear 0.5s ease-out 0.75s forwards;
+  opacity: 0;
+}
+
+.animation-4 {
+  animation: appear 0.5s ease-out 1s forwards;
+  opacity: 0;
+}
+
+.animation-5 {
+  animation: appear 0.5s ease-out 1.25s forwards;
+  opacity: 0;
+}
+
+.animation-draw {
+  animation: draw 3s linear 1.5s alternate forwards;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.animation-6 {
+  animation: appear 0.5s ease-out 2.25s forwards;
+  opacity: 0;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .animation-1, .animation-2, .animation-3, .animation-4, .animation-5, .animation-6, .animation-draw {
+    animation: none;
+    opacity: 1;
+    stroke-dasharray: 8,8;
+  }
+}

@@ -1,4 +1,19 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["@babel/transform-flow-strip-types"]
+  "plugins": [
+    "@babel/transform-flow-strip-types",
+    [
+      "inline-react-svg",
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "name": "cleanupIDs",
+              "active": false
+            }
+          ]
+        }
+      }
+    ]
+  ]
 }

@@ -1,0 +1,34 @@
+<svg
+  width="182"
+  height="84"
+  viewBox="0 0 182 84"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M40 5H18.5V33.5L5 40.5L18.5 49.5V79H40"
+    stroke="#CCF6EE"
+    strokeWidth="10"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    d="M142 79L163.5 79L163.5 50.5L177 43.5L163.5 34.5L163.5 5L142 5"
+    stroke="#CCF6EE"
+    strokeWidth="10"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path
+    fillRule="evenodd"
+    clipRule="evenodd"
+    d="M58 13C54.134 13 51 16.134 51 20C51 23.866 54.134 27 58 27H72V60C72 63.866 75.134 67 79 67C82.866 67 86 63.866 86 60V27H100C103.866 27 107 23.866 107 20C107 16.134 103.866 13 100 13H86H72H58Z"
+    fill="#CCF6EE"
+  />
+  <path
+    fillRule="evenodd"
+    clipRule="evenodd"
+    d="M100.5 36C98.0147 36 96 38.0147 96 40.5C96 42.9853 98.0147 45 100.5 45H108V61.5C108 64.5376 110.462 67 113.5 67C116.538 67 119 64.5376 119 61.5V45H125.5C127.985 45 130 42.9853 130 40.5C130 38.0147 127.985 36 125.5 36H119H108H100.5Z"
+    fill="#CCF6EE"
+  />
+</svg>

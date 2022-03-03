@@ -1,11 +1,12 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
-import { Box } from 'gestalt';
+import { Box, Divider } from 'gestalt';
 import HeaderMenu from './HeaderMenu.js';
 import SidebarSection from './SidebarSection.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 import sidebarIndex from './sidebarIndex.js';
 import { useNavigationContext } from './navigationContext.js';
+import SidebarCategorizationButton from './buttons/SidebarCategorizationButton.js';
 
 export const MIN_NAV_WIDTH_PX = 255;
 
@@ -39,14 +40,34 @@ function NavList({ sidebarOrganisedBy }: {| sidebarOrganisedBy: string |}) {
 }
 
 export default function Navigation(): Node {
-  const { sidebarOrganisedBy, isSidebarOpen } = useNavigationContext();
+  const { sidebarOrganisedBy, isSidebarOpen, setSidebarOrganizedBy } = useNavigationContext();
 
   return (
     <Box aria-label="main" role="navigation">
       {isSidebarOpen && (
         <Fragment>
           <HeaderMenu />
-          <Box height={350} overflow="scroll" display="block" mdDisplay="none" padding={4}>
+
+          <Box
+            height={350}
+            overflow="scroll"
+            display="block"
+            mdDisplay="none"
+            paddingY={2}
+            paddingX={4}
+          >
+            <Divider />
+            <Box paddingX={2} paddingY={3}>
+              <SidebarCategorizationButton
+                onClick={() =>
+                  setSidebarOrganizedBy(
+                    sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
+                  )
+                }
+                sidebarOrganisedBy={sidebarOrganisedBy}
+              />
+            </Box>
+            <Divider />
             <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
           </Box>
         </Fragment>
@@ -60,6 +81,17 @@ export default function Navigation(): Node {
           maxHeight="calc(100% - 60px)"
           minWidth={MIN_NAV_WIDTH_PX}
         >
+          <Box marginBottom={4} paddingX={2}>
+            <SidebarCategorizationButton
+              onClick={() =>
+                setSidebarOrganizedBy(
+                  sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
+                )
+              }
+              sidebarOrganisedBy={sidebarOrganisedBy}
+            />
+          </Box>
+          <Divider />
           <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
         </Box>
       </Box>
