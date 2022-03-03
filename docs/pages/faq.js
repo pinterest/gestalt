@@ -8,9 +8,9 @@ import Page from '../components/Page.js';
 
 export default function ContainerPage(): Node {
   return (
-    <Page title="Frequently Asked Questions">
-      <PageHeader name="Frequently Asked Questions" showSourceLink={false} />
-      <Card name="Gestalt Usage">
+    <Page title="Frequently asked questions">
+      <PageHeader name="Frequently asked questions" showSourceLink={false} />
+      <Card name="Gestalt usage">
         <Flex alignItems="start" direction="column" gap={4}>
           <Heading size="400">What are the benefits of using the Gestalt library?</Heading>
           <Text>
@@ -32,7 +32,7 @@ export default function ContainerPage(): Node {
           </Text>
         </Flex>
       </Card>
-      <Card name="Component Usage">
+      <Card name="Component usage">
         <Flex alignItems="start" direction="column" gap={4}>
           <Heading size="400">How can I visualize which components use Gestalt?</Heading>
 
@@ -52,7 +52,7 @@ export default function ContainerPage(): Node {
               // eslint-disable-next-line no-script-url, no-template-curly-in-string
               href="javascript:(function(){[...document.querySelectorAll('[style]'),...document.querySelectorAll('[class]')].filter(el=>[...el.classList].some(classname=>classname.length>3)||el.classList=='').forEach(el=>{el.setAttribute('style',`${el.getAttribute('style')||''};border:solid 1px#ff0000;`)})})();"
             >
-              <Text weight="bold">Gestalt Usage Visualiser</Text>
+              <Text weight="bold">Gestalt usage visualiser</Text>
             </Link>{' '}
             into your bookmarks toolbar. If you do not see the bookmarks toolbar, go to View and
             select &apos;Show Bookmarks Bar&apos;.
@@ -86,7 +86,7 @@ padding 0 .. 12
             />
           </Box>
 
-          <Heading size="400">How can add a new Icon?</Heading>
+          <Heading size="400">How can add a new icon?</Heading>
           <Text>
             If you need an Icon that is not listed on our{' '}
             <Link inline href="/Icon">
@@ -142,7 +142,7 @@ if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
           </Text>
         </Flex>
       </Card>
-      <Card name="Component Development">
+      <Card name="Component development">
         <Flex alignItems="start" direction="column" gap={4}>
           <Heading size="400">How do I get access to the Gestalt repo?</Heading>
           <Text>
@@ -183,13 +183,13 @@ yarn cypress run
             />
           </Text>
 
-          <Heading size="400">What is Gestalt Teachings and how do I add a video?</Heading>
+          <Heading size="400">What is gestalt teachings and how do I add a video?</Heading>
           <Text>
             <Link
               inline
               href="https://www.youtube.com/playlist?list=PLbmG-F9A233J1ID2Nl-zwfYNnhazHLZzV"
             >
-              <Text weight="bold">Gestalt Teachings</Text>
+              <Text weight="bold">Gestalt teachings</Text>
             </Link>{' '}
             is a youtube video playlist containing tips and tricks on how to use Gestalt. Use{' '}
             <Link
@@ -202,7 +202,7 @@ yarn cypress run
           </Text>
         </Flex>
       </Card>
-      <Card name="Automated Releases">
+      <Card name="Automated releases">
         <Flex alignItems="start" direction="column" gap={4}>
           <Heading size="400">How does versioning work in Gestalt?</Heading>
           <Text>
@@ -220,7 +220,7 @@ yarn cypress run
             </Link>
           </Text>
           <Heading size="400">
-            My Pull Request fails on &quot;Semver / Require Label (pull_request)&quot;, how do I fix
+            My pull request fails on &quot;Semver / Require Label (pull_request)&quot;, how do I fix
             it?
           </Heading>
           <Text>Nothing you can do to fix it.</Text>
@@ -254,7 +254,7 @@ yarn cypress run
               <li>
                 Update{' '}
                 <Link href="https://pinterest.github.io/gestalt/" inline>
-                  <Text weight="bold">Gestalt Documentation</Text>
+                  <Text weight="bold">Gestalt documentation</Text>
                 </Link>
               </li>
             </ul>

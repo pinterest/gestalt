@@ -6,9 +6,9 @@ import PageHeader from '../components/PageHeader.js';
 
 export default function DocsPage(): Node {
   return (
-    <Page title="How to Work with Us">
+    <Page title="How to work with us">
       <PageHeader
-        name="How to Work with Us"
+        name="How to work with us"
         description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute."
         showSourceLink={false}
       />

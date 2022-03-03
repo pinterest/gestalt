@@ -14,7 +14,7 @@ export default function DocsPage(): Node {
       />
       <MainSection name="Examples">
         <MainSection.Subsection
-          title="Form Layout"
+          title="Form layout"
           description={'Responsive &amp; RTL-friendly form layout.'}
         >
           <MainSection.Card
