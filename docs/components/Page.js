@@ -9,15 +9,15 @@ const DETAIL_PAGE_MAX_WIDTH = 1312;
 type Props = {|
   children: Node,
   title: string,
-  showSideNav?: boolean,
-  showEditLink?: boolean,
+  hideSideNav?: boolean,
+  hideEditLink?: boolean,
 |};
 
 export default function Page({
   title: page,
   children,
-  showSideNav = true,
-  showEditLink = true,
+  hideSideNav = false,
+  hideEditLink = false,
 }: Props): Node {
   const sections = Children.toArray(children);
 
@@ -31,7 +31,7 @@ export default function Page({
 
   return (
     <Flex>
-      <Box flex="grow" maxWidth={showSideNav ? DETAIL_PAGE_MAX_WIDTH : '100%'}>
+      <Box flex="grow" maxWidth={hideSideNav ? '100%' : DETAIL_PAGE_MAX_WIDTH}>
         <SearchContent>
           <Flex gap={8} direction="column">
             {sections.map((card, i) => (
@@ -50,7 +50,7 @@ export default function Page({
           </Flex>
         </SearchContent>
 
-        {showEditLink && (
+        {!hideEditLink && (
           <Box marginTop={12}>
             <Link href={editPageUrl} target="blank" inline>
               <Text underline>Edit page on GitHub</Text>
@@ -59,7 +59,7 @@ export default function Page({
         )}
       </Box>
 
-      {showSideNav && (
+      {!hideSideNav && (
         <Box
           minWidth={200}
           maxWidth={240}

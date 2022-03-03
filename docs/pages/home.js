@@ -14,7 +14,7 @@ import DesignTokens from '../graphics/design-tokens.svg';
 
 export default function HomePage(): Node {
   return (
-    <Page title="Welcome to Gestalt" showSideNav={false} showEditLink={false}>
+    <Page title="Welcome to Gestalt" hideSideNav hideEditLink>
       <Box width="100%">
         <Flex direction="column">
           {/* Hero */}
