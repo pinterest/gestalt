@@ -6,7 +6,7 @@ exports[`<Toast /> Error Toast 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 500,
+      "maxWidth": "min(500px, 100vw)",
       "minWidth": 330,
       "width": 330,
     }
@@ -43,7 +43,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 500,
+      "maxWidth": "min(500px, 100vw)",
       "minWidth": 330,
       "width": undefined,
     }
@@ -149,7 +149,7 @@ exports[`<Toast /> Text + Image 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 500,
+      "maxWidth": "min(500px, 100vw)",
       "minWidth": 330,
       "width": 330,
     }
@@ -227,7 +227,7 @@ exports[`<Toast /> Text Only 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 500,
+      "maxWidth": "min(500px, 100vw)",
       "minWidth": 330,
       "width": 330,
     }
