@@ -1,3 +1,9 @@
+## 45.8.2 (Mar 3, 2022)
+
+### Patch
+
+- Docs: Add new Home page! (#1859)
+
 ## 45.8.1 (Mar 2, 2022)
 
 ### Patch
