@@ -1,3 +1,9 @@
+## 45.8.6 (Mar 4, 2022)
+
+### Patch
+
+- Toast: revert `text` type change (#1966)
+
 ## 45.8.5 (Mar 4, 2022)
 
 ### Patch
