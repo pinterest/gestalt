@@ -1,6 +1,6 @@
 // @flow strict
 // $FlowExpectedError[untyped-import]
-// import { describe } from 'jscodeshift-helper';
+import { describe } from 'jscodeshift-helper';
 import {
   type ApiType,
   type Collection,
@@ -71,8 +71,11 @@ const getGestaltImport = ({ src, j }: {| src: Collection, j: JSCodeShift |}): Co
  * E.g. import { Box } from 'gestalt // Box
  * E.g. import { Box as RenamedBox } from 'gestalt // RenamedBox
  */
-const getLocalImportedName = ({ importSpecifierCollection }: { importSpecifierCollection: Collection }): ?string =>
-  importSpecifierCollection.get(0).node.local?.name;
+const getLocalImportedName = ({
+  importSpecifierCollection,
+}: {
+  importSpecifierCollection: Collection,
+}): ?string => importSpecifierCollection.get(0).node.local?.name;
 
 /**
  * filterJSXByTargetLocalName: Returns a collection containing the Gestalt JSX component matching the targetLocalName value
@@ -107,8 +110,44 @@ const filterJSXByAttribute = ({
   j: JSCodeShift,
   jSXCollection: Collection,
   prop: string,
-  value: string,
-}): Collection => jSXCollection.find(j.JSXAttribute, { name: { name: prop }, value: { value } });
+  value?: string,
+}): Collection => {
+  if (typeof value === 'string') {
+    return jSXCollection.find(j.JSXAttribute, { name: { name: prop }, value: { value } });
+  }
+
+  if (typeof value === 'number') {
+    return jSXCollection.find(j.JSXAttribute, {
+      value: {
+        type: 'JSXExpressionContainer',
+        expression: {
+          type: 'Literal',
+          value,
+        },
+      },
+    });
+  }
+
+  if (typeof value === 'boolean') {
+    return value
+      ? jSXCollection.find(j.JSXAttribute, {
+          value: null,
+        })
+      : jSXCollection.find(j.JSXAttribute, {
+          value: {
+            type: 'JSXExpressionContainer',
+            expression: {
+              type: 'Literal',
+              value,
+            },
+          },
+        });
+  }
+
+  if (!value) return jSXCollection.find(j.JSXAttribute, { name: { name: prop } });
+
+  return jSXCollection;
+};
 
 /**
  * deepCloneNode: Returns a collection containing the Gestalt import declaration node-path
@@ -117,23 +156,58 @@ const deepCloneNode = ({ node }: { node: JSXNodeType }): JSXNodeType =>
   JSON.parse(JSON.stringify(node));
 
 /**
+ * buildAttributeFromValue: Returns a collection containing the Gestalt import declaration node-path
+ */
+const buildAttributeFromValue = ({
+  j,
+  prop,
+  value,
+}: {
+  j: JSCodeShift,
+  prop: string,
+  value: string | boolean | number,
+}): ?JSXNodeType => {
+  switch (typeof value) {
+    case 'string':
+      return j.jsxAttribute(j.jsxIdentifier(prop), j.stringLiteral(value));
+    case 'number':
+      return j.jsxAttribute(
+        j.jsxIdentifier(prop),
+        j.jsxExpressionContainer(j.numericLiteral(value)),
+      );
+    case 'boolean':
+      return value
+        ? j.jsxAttribute(j.jsxIdentifier(prop))
+        : j.jsxAttribute(j.jsxIdentifier(prop), j.jsxExpressionContainer(j.booleanLiteral(value)));
+    default:
+      break;
+  }
+};
+/**
  * buildReplaceWithModifiedAttributes: Returns a collection containing the Gestalt import declaration node-path
  */
 const buildReplaceWithModifiedAttributes = ({
+  j,
   nextProp,
   nextValue,
 }: {
-  nextProp: string,
-  nextValue: string,
+  j: JSCodeShift,
+  nextProp: string | null,
+  nextValue?: string,
 }): ((nodepath: Collection) => JSXNodeType) => {
   const replaceWithModifiedAttributes = (nodepath: Collection) => {
-    const newNode = deepCloneNode({ node: nodepath.get().node });
+    if (!nextProp) return null;
 
-    if (nextProp) newNode.name.name = nextProp;
-    if (nextValue) newNode.value.value = nextValue;
+    let newNode = deepCloneNode({ node: nodepath.get().node });
+
+    if (nextProp && !nextValue) newNode.name.name = nextProp;
+
+    if (nextProp && nextValue)
+      newNode = buildAttributeFromValue({ j, prop: nextProp, value: nextValue });
 
     return newNode;
   };
+
   return replaceWithModifiedAttributes;
 };
 

@@ -6,6 +6,7 @@
  * Ex. <Box /> to <Box variant="error" />
  * Ex. <Box color="red" /> to <Box />
  *
+ *
  * OPTIONS:
  * --component: component to which modify props
  * --subcomponent: component's subcomponent to which modify props
@@ -14,13 +15,15 @@
  * --previousValue: current prop name to be replaced
  * --nextValue: new prop name to replace with, null if we want to remove prop
  *
+ *
  * TO RUN THIS CODEMOD
- * yarn codemod modifyPropValues ~/path/to/your/code
+ * yarn codemod modifyPropValue ~/path/to/your/code
  * --component=<value>
  * --previousProp=<value>
  * --nextProp=<value>
  * --previousValue=<value>
  * --nextValue=<value>
+ *
  *
  * If all options passed, prop+value combination are replaced with new prop+value combination
  * In the absence of nextProp, the codemod replaces the value
@@ -28,9 +31,10 @@
  * In the absence of nextProp+nextValue, the codemod removes the prop with that particular value
  * In the absence of previousProp+previousValue, the codemod adds a new prop with value
  *
- * RENAME E.g. yarn codemod modifyPropValues ~/code/pinboard/webapp --component=Box --previousProp=color --nextProp=variant --previousValue=red --nextValue=error
- * ADD    E.g. yarn codemod modifyPropValues ~/code/pinboard/webapp --component=Box --nextProp=variant --nextValue=error
- * REMOVE E.g. yarn codemod modifyPropValues ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
+ *
+ * RENAME E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --nextProp=variant --previousValue=400 --nextValue=error
+ * ADD    E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --nextProp=variant --nextValue=error
+ * REMOVE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
  */
 
 // $FlowExpectedError[untyped-import]
@@ -74,11 +78,18 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
   if (componentIdentifierCollection.size() === 0) return null;
 
-  const targetLocalName = getLocalImportedName({ importSpecifierCollection: componentIdentifierCollection });
+  const targetLocalName = getLocalImportedName({
+    importSpecifierCollection: componentIdentifierCollection,
+  });
 
-  const matchedJSXCollection = filterJSXByTargetLocalName({ src, j, targetLocalName, subcomponent });
+  const matchedJSXCollection = filterJSXByTargetLocalName({
+    src,
+    j,
+    targetLocalName,
+    subcomponent,
+  });
 
-  if (previousProp && previousValue) {
+  if (previousProp && (previousValue !== undefined || previousValue !== null)) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
       j,
       jSXCollection: matchedJSXCollection,
@@ -88,18 +99,18 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
     if (jSXWithMatchingAttributesCollection.size() === 0) return null;
 
+    let replaceWithModifiedCloneCallback;
+
     if (!nextProp && !nextValue) {
-      for (let idx = 0; idx < jSXWithMatchingAttributesCollection.size() - 1; idx += 1) {
-        jSXWithMatchingAttributesCollection.at(idx).remove();
-      }
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, nextProp: null });
     } else {
-      const replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
+        j,
         nextProp,
         nextValue,
       });
-
-      jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
     }
+    jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
   }
 
   if (!previousProp && !previousValue) {

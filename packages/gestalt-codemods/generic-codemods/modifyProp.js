@@ -8,72 +8,95 @@
  *
  *
  * OPTIONS:
- * --componentName: component to which modify props
- * --subcomponentName: component's subcomponent to which modify props
- * --previousPropName: current prop name to be replaced
- * --nextPropName: new prop name to replace with, null if we want to remove prop
+ * --component: component to which modify props
+ * --subcomponent: component's subcomponent to which modify props
+ * --previousProp: current prop name to be replaced
+ * --nextProp: new prop name to replace with
  *
  *
  * TO RUN THIS CODEMOD
- * yarn codemod modifyProp ~/path/to/your/code --componentName=<value> --previousPropName=<value> --nextPropName=<value>
- * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Box --previousPropName=size --nextPropName=renamedSize
- * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Dropdown --subcomponentName=Item --previousPropName=size --nextPropName=renamedSize
- * E.g. yarn codemod modifyProp ~/code/pinboard/webapp --componentName=Box --previousPropName=size --nextPropName=null
+ * yarn codemod modifyProp ~/path/to/your/code --component=<value> --previousProp=<value> --nextProp=<value>
+ *
+ *
+ * If all options passed, previous prop is replaced with next prop value
+ * In the absence of nextProp, the codemod removes the prop
+ *
+ *
+ * RENAME E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size --nextProp=renamedSize
+ * RENAME E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Dropdown --subcomponent=Item --previousProp=size --nextProp=renamedSize
+ * REMOVE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size
  */
 
+// $FlowExpectedError[untyped-import]
+import { describe } from 'jscodeshift-helper';
 import {
+  buildReplaceWithModifiedAttributes,
   getGestaltImport,
-  getJSX,
+  getComponentIdentifierByName,
   getLocalImportedName,
+  filterJSXByTargetLocalName,
+  filterJSXByAttribute,
   initialize,
-  isGestaltImport,
-  matchesComponentName,
-  getNewAttributes,
-  replaceJSXAttributes,
   saveToSource,
-  throwErrorIfSpreadProps,
-} from './utils.js';
+} from './clean_utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {|
-  componentName: string,
-  subcomponentName: string,
-  previousPropName: string,
-  nextPropName: string | null,
+  component: string,
+  subcomponent?: string,
+  previousProp?: string,
+  nextProp?: string,
+  previousValue?: string,
+  nextValue?: string,
 |};
 
-function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string {
-  const { componentName, subcomponentName, previousPropName, nextPropName } = options;
+function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
+  const { component, subcomponent, previousProp, nextProp } = options;
 
   const { j, src } = initialize({ api, fileInfo });
 
-  const gestaltImport = getGestaltImport({ src, j })
+  const gestaltImportCollection = getGestaltImport({ src, j });
 
-  if (!gestaltImport) return;
+  if (gestaltImportCollection.size() === 0) return null;
 
-  const  targetLocalImportedName = getLocalImportedName({
-    importDeclaration: gestaltImport,
-    importedName: componentName,
+  const componentIdentifierCollection = getComponentIdentifierByName({
+    j,
+    gestaltImportCollection,
+    componentName: component,
   });
 
-  getJSX({ src, j }).forEach((nodePath) => {
-    const { node: JSXNode } = nodePath;
-    if (
-      !matchesComponentName({ JSXNode, componentName: targetLocalImportedName, subcomponentName })
-    )
-      return;
+  if (componentIdentifierCollection.size() === 0) return null;
 
-    throwErrorIfSpreadProps({ fileInfo, JSXNode });
-    const newAttributes = getNewAttributes({
-      JSXNode,
-      previousPropName,
-      nextPropName,
+  const targetLocalName = getLocalImportedName({
+    importSpecifierCollection: componentIdentifierCollection,
+  });
+
+  const matchedJSXCollection = filterJSXByTargetLocalName({
+    src,
+    j,
+    targetLocalName,
+    subcomponent,
+  });
+
+  if (previousProp) {
+    const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
+      j,
+      jSXCollection: matchedJSXCollection,
+      prop: previousProp,
     });
 
-    replaceJSXAttributes({ JSXNode, newAttributes });
+    if (jSXWithMatchingAttributesCollection.size() === 0) return null;
 
-    src.modified = true;
-  });
+    let replaceWithModifiedCloneCallback;
+    if (!nextProp) {
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, nextProp: null });
+    } else {
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, nextProp });
+    }
+    jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
+  }
+
+  src.modified = true;
 
   return saveToSource({ src });
 }

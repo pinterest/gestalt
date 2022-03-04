@@ -107,6 +107,9 @@ export type JSCodeShift = {
   jsxAttribute: (ObjectType, ObjectType) => ObjectType,
   jsxIdentifier: (ObjectType) => ObjectType,
   stringLiteral: (?string) => ObjectType,
+  jsxExpressionContainer: (ObjectType) => ObjectType,
+  numericLiteral: (number) => ObjectType,
+  booleanLiteral: (boolean) => ObjectType,
 };
 
 export type FileType = {| path: string, source: string |};
