@@ -39,7 +39,7 @@ export default function ContainerPage(): Node {
           <Text>
             Use{' '}
             <Link href="https://codepen.io/christianv/pen/BxmOBe" inline>
-              <Text weight="bold">Gestalt Usage Visualizer</Text>
+              <Text weight="bold">Gestalt usage visualizer</Text>
             </Link>
           </Text>
 
@@ -88,12 +88,12 @@ padding 0 .. 12
 
           <Heading size="400">How can add a new icon?</Heading>
           <Text>
-            If you need an Icon that is not listed on our{' '}
+            If you need an icon that is not listed on our{' '}
             <Link inline href="/Icon">
               <Text weight="bold">docs</Text>{' '}
             </Link>{' '}
             for an experiment, use the <code>dangerouslySetSvgPath</code> prop on Icon. If the asset
-            is ready, we will happily add the Icon to Gestalt!
+            is ready, we will happily add the icon to Gestalt!
           </Text>
           <Text>
             To add it to Gestalt, get a streamlined &amp; optimized version of the SVG not contain
@@ -183,7 +183,7 @@ yarn cypress run
             />
           </Text>
 
-          <Heading size="400">What is gestalt teachings and how do I add a video?</Heading>
+          <Heading size="400">What is Gestalt teachings and how do I add a video?</Heading>
           <Text>
             <Link
               inline
