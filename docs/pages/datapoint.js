@@ -44,48 +44,42 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use Status to communicate a step in a workflow or the state of an item."
+            description="Whenever possible, use the full number with separators to ensure clarity across all languages."
             defaultCode={`
-<Status type="ok" accessibilityLabel="This item is ok" />
+<Datapoint size="lg" title="Total impressions" value="1,451" trend={{value: 10.1, accessibilityLabel: "Trending up"}}  />
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use SVGs or images that resemble the Status’ symbols to denote status."
+            description="Use long decimal values for trend. Limit the trend to one decimal point."
             defaultCode={`
-<Icon icon="workflow-status-problem" size="24" accessibilityLabel="This item has an error" />
+<Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Place Status close to its subject to provide context and reference. It can be placed as an inline element or paired side by side as needed."
+            description="Make sure to localize numeric values."
             defaultCode={`
-<Flex gap={1} alignItems="center">
-<Status accessibilityLabel="This item is complete" type="ok" />
-<Text weight="bold" size="300">Campaign complete</Text>
-</Flex>
+<Datapoint size="lg" title="Leistung" value="3.000,25" trend={{value: 7,5, accessibilityLabel: "Trending up"}}  />
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Place Status far away from its subject. "
+            description="Use subjective values for Datapoint’s value."
             defaultCode={`
-<Flex gap={12} direction="column" alignItems="center">
-<Status accessibilityLabel="This item is paused" type="halted" />
-<Text weight="bold" size="300">Campaign paused</Text>
-</Flex>
+<Datapoint size="lg" title="Performance" value="Bad" />
 
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use `title` when the status it represents is unique, specific and critical for the user to know."
+            description="Be certain to use a positive `trendSentiment` only when the trend is overtly positive for the end user. Use a neutral `trendSentiment` in cases of ambiguity."
             defaultCode={`
-<Status type="inProgress" title="Pending review" />
+<Datapoint size="lg" title="Total spend" value="$14,325" trend={{value: 5.6, accessibilityLabel: "Trending up"}} trendSentiment="neutral"  />
 `}
           />
           <MainSection.Card
@@ -98,7 +92,10 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility" description="" />
+      <MainSection
+        name="Accessibility"
+        description={`Datapoint’s trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up). `}
+      />
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`title\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
