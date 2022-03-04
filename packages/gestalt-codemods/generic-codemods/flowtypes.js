@@ -87,11 +87,12 @@ export type NodePathType = {|
 export interface Collection {
   at: (number) => Collection;
   get: (?number) => NodePathType;
-  find(type: ObjectType, options: { [string]: ObjectType }): Collection;
+  find(type: ObjectType, options?: { [string]: ObjectType }): Collection;
   filter(callback: (node: ObjectType) => boolean): Collection;
   forEach(callback: (node: ObjectType) => void): Collection;
   replaceWith: (node: ObjectType) => Collection;
   remove: () => void;
+  nodes: () => ObjectType;
   size: () => number;
   toSource(options?: ObjectType): string;
   modified: boolean;
@@ -110,6 +111,7 @@ export type JSCodeShift = {
   jsxExpressionContainer: (ObjectType) => ObjectType,
   numericLiteral: (number) => ObjectType,
   booleanLiteral: (boolean) => ObjectType,
+  JSXSpreadAttribute: ObjectType,
 };
 
 export type FileType = {| path: string, source: string |};

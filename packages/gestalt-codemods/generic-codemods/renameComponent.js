@@ -25,7 +25,7 @@ import {
   renameJSXElement,
   saveToSource,
   sortImportedNames,
-} from './utils.js';
+} from './deprecatedUtils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {| previousName: string, nextName: string |};

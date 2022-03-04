@@ -2,6 +2,7 @@
 
 /**
  * CODEMOD to MODIFY (RENAME, ADD, OR REMOVE) PROP-VALUE COMBINATIONS in GESTALT COMPONENT
+ * Supports string, number, and boolean values
  * Ex. <Box color="red" /> to <Box variant="error" />
  * Ex. <Box /> to <Box variant="error" />
  * Ex. <Box color="red" /> to <Box />
@@ -26,14 +27,16 @@
  *
  *
  * If all options passed, prop+value combination are replaced with new prop+value combination
- * In the absence of nextProp, the codemod replaces the value
- * In the absence of nextValue, the codemod replaces the prop
+ * In the absence of nextProp, the codemod only replaces the prop value
+ * In the absence of nextValue, the codemod only replaces the prop name for that prop+value combination
  * In the absence of nextProp+nextValue, the codemod removes the prop with that particular value
  * In the absence of previousProp+previousValue, the codemod adds a new prop with value
  *
  *
  * RENAME E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --nextProp=variant --previousValue=400 --nextValue=error
- * ADD    E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --nextProp=variant --nextValue=error
+ *
+ * ADD E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --nextProp=variant --nextValue=error
+ *
  * REMOVE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
  */
 
@@ -47,9 +50,11 @@ import {
   filterJSXByTargetLocalName,
   filterJSXByAttribute,
   initialize,
+  isNullOrUndefined,
   saveToSource,
   deepCloneNode,
-} from './clean_utils.js';
+  throwErrorIfSpreadProps,
+} from './utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {|
@@ -89,7 +94,9 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     subcomponent,
   });
 
-  if (previousProp && (previousValue !== undefined || previousValue !== null)) {
+  throwErrorIfSpreadProps({ fileInfo, j, jSXCollection: matchedJSXCollection });
+
+  if (previousProp && !isNullOrUndefined(previousValue)) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
       j,
       jSXCollection: matchedJSXCollection,
@@ -101,7 +108,7 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
     let replaceWithModifiedCloneCallback;
 
-    if (!nextProp && !nextValue) {
+    if (!nextProp && isNullOrUndefined(nextValue)) {
       replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, nextProp: null });
     } else {
       replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
@@ -113,7 +120,7 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
   }
 
-  if (!previousProp && !previousValue) {
+  if (isNullOrUndefined(previousProp) && isNullOrUndefined(previousValue)) {
     for (let idx = matchedJSXCollection.size() - 1; idx >= 0; idx -= 1) {
       matchedJSXCollection.at(idx).replaceWith((node) => {
         const newAttribute = j.jsxAttribute(j.jsxIdentifier(nextProp), j.stringLiteral(nextValue));

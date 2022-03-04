@@ -38,7 +38,8 @@ import {
   filterJSXByAttribute,
   initialize,
   saveToSource,
-} from './clean_utils.js';
+  throwErrorIfSpreadProps,
+} from './utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {|
@@ -77,6 +78,8 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     targetLocalName,
     subcomponent,
   });
+
+  throwErrorIfSpreadProps({ fileInfo, j, jSXCollection: matchedJSXCollection });
 
   if (previousProp) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({

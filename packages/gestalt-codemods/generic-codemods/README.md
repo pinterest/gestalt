@@ -10,9 +10,16 @@ Codemods are scripts used to programatically rewrite code across our codebase. T
 
 jscodeshift is a toolkit for running codemods over multiple JavaScript files.
 
-See jscodeshift documentation: https://github.com/facebook/jscodeshift
+See jscodeshift documentation:
+- https://github.com/facebook/jscodeshift
+- https://htmlpreview.github.io/?https://raw.githubusercontent.com/facebook/jscodeshift/aea20523d9d616e7debc7bc00b66835284278555/docs/index.html
 
-Learn more about working with jscodeshift codemods: Write Code to Rewrite Your Code: jscodeshift https://www.toptal.com/javascript/write-code-to-rewrite-your-code
+Learn more about working with jscodeshift codemods: Write Code to Rewrite Your Code: jscodeshift 
+- https://www.toptal.com/javascript/write-code-to-rewrite-your-code
+
+Finally, it can come handy the jscodeshift API
+- https://npmdoc.github.io/node-npmdoc-jscodeshift/build/apidoc.html#apidoc.element.jscodeshift.jscodeshift
+
 
 
 ### Summary of concepts
@@ -37,18 +44,14 @@ Learn more about working with jscodeshift codemods: Write Code to Rewrite Your C
 
 Run a codemod with `yarn codemod`:
 
-```
-yarn codemod name --option1=value1
-```
+See each individual codemod for more information on how to run each particular one.
 
 ## Existing codemods
-
-- `replaceImportType`: Replace the name of an imported type.
+- `renameComponent`: Rename Gestalt components.
+- `modifyProp`: Modify (rename or remove) Gestalt component props.
+- `modifyPropValue`: Modify (rename, add, or remove) prop-value combinations in Gestalt component.
 
 ## Add a codemod
-
-Check out the docs in [jscodeshift](https://github.com/facebook/jscodeshift) from facebook and follow these steps:
-
-1. Add a top level JavaScript file in the `scripts/codemods/` directory which exports a `transformer` function.
+1. Add a top level JavaScript file in the `packages/gestalt-codemods/generic-codemods/` directory which exports a `transform` function.
 2. Add a test in `__tests__/`
 3. Add test fixtures to `__testfixtures__/`

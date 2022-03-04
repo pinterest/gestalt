@@ -65,6 +65,25 @@ describe('modifyPropValue: rename boolean', () => {
   });
 });
 
+describe('modifyPropValue: rename omitted boolean', () => {
+  ['modifyPropValue/renamePropValueTrueBoolean'].forEach((test) => {
+    defineTest(
+      __dirname,
+      'modifyPropValue',
+      {
+        quote: 'single',
+        component: 'Box',
+        previousProp: 'fit',
+        nextProp: 'left',
+        previousValue: true,
+        nextValue: false,
+      },
+      test,
+      {},
+    );
+  });
+});
+
 describe('modifyPropValue: remove string', () => {
   ['modifyPropValue/deprecatePropValueString'].forEach((test) => {
     defineTest(
@@ -116,7 +135,7 @@ describe('modifyPropValue: remove boolean', () => {
   });
 });
 
-describe.only('modifyPropValue: remove omitted boolean', () => {
+describe('modifyPropValue: remove omitted boolean', () => {
   ['modifyPropValue/deprecatePropValueTrueBoolean'].forEach((test) => {
     defineTest(
       __dirname,
@@ -132,7 +151,6 @@ describe.only('modifyPropValue: remove omitted boolean', () => {
     );
   });
 });
-
 
 describe('modifyPropValue: subcomponent rename', () => {
   ['modifyPropValue/subcomponentPropValue'].forEach((test) => {
@@ -156,6 +174,29 @@ describe('modifyPropValue: subcomponent rename', () => {
 
 describe('modifyPropValue: add prop values (string)', () => {
   ['modifyPropValue/addPropValueString'].forEach((test) => {
+    defineTest(
+      __dirname,
+      'modifyPropValue',
+      {
+        quote: 'single',
+        component: 'Box',
+        nextProp: 'variant',
+        nextValue: 'error',
+      },
+      test,
+      {},
+    );
+  });
+});
+
+/**  We skip this test as it's only purpose is to throw an error on spread props. Errors cannot be tested with current jscodeshift testing API. Unskip to see the following error message:
+
+  Remove dynamic properties and rerun codemod.
+  Location: /Users/acarreras/code/gestalt/packages/gestalt-codemods/generic-codemods/__testfixtures__/modifyPropValue/errorSpreadProp.input.js @line: 6
+  Location: /Users/acarreras/code/gestalt/packages/gestalt-codemods/generic-codemods/__testfixtures__/modifyPropValue/errorSpreadProp.input.js @line: 7
+  */
+describe.skip('modifyPropValue: throws error on spread props', () => {
+  ['modifyPropValue/errorSpreadProp'].forEach((test) => {
     defineTest(
       __dirname,
       'modifyPropValue',
