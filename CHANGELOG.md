@@ -1,3 +1,9 @@
+## 45.8.5 (Mar 4, 2022)
+
+### Patch
+
+- Toast: fix layout bug with long text + button text (#1961)
+
 ## 45.8.4 (Mar 4, 2022)
 
 ### Patch
