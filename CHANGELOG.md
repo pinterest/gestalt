@@ -1,3 +1,9 @@
+## 45.8.4 (Mar 4, 2022)
+
+### Patch
+
+- Docs: How to work with us design content update (#1959)
+
 ## 45.8.3 (Mar 3, 2022)
 
 ### Patch
