@@ -30,6 +30,7 @@ type Props = {|
   direction?: 'row' | 'column',
   /**
    * Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size Flex relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows Flex to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves Flex's size based on child content regardless of its container's size.
+   * Default: 'shrink'
    */
   flex?: 'grow' | 'shrink' | 'none',
   /**

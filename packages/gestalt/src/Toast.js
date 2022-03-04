@@ -1,11 +1,16 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
 import styles from './Toast.css';
+import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+
+const TOAST_MAX_WIDTH_PX = 500;
+const TOAST_WIDTH_PX = 330;
+const TEXT_MAX_WIDTH_PX = 127;
 
 type Props = {|
   /**
@@ -15,8 +20,7 @@ type Props = {|
   /**
    * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
    */
-  // $FlowFixMe[unclear-type]
-  text: string | Element<*>,
+  text: string | Node,
   /**
    * An optional thumbnail image to displayed next to the text.
    */
@@ -47,6 +51,9 @@ export default function Toast({
   const isDarkMode = colorSchemeName === 'darkMode';
   const isErrorVariant = variant === 'error';
 
+  const responsiveMinWidth = useResponsiveMinWidth();
+  const isMobileWidth = responsiveMinWidth === 'xs';
+
   let containerColor = isDarkMode ? 'white' : 'darkGray';
   let textColor = isDarkMode ? 'darkGray' : 'white';
   let textElement = text;
@@ -69,8 +76,21 @@ export default function Toast({
     textColor = 'white';
   }
 
+  const hasImage = thumbnail != null;
+  const hasButton = button != null;
+
   return (
-    <Box marginBottom={3} maxWidth={360} paddingX={4} role="status" width="100vw">
+    <Box
+      marginBottom={3}
+      // Ensure that maxWidth isn't greater than viewport width (for small screens)
+      maxWidth={`min(${TOAST_MAX_WIDTH_PX}px, 100vw)`}
+      minWidth={TOAST_WIDTH_PX}
+      paddingX={4}
+      role="status"
+      // Button text and text can be long, so allow toast to expand
+      // to max width if button is present
+      width={hasButton ? undefined : TOAST_WIDTH_PX}
+    >
       <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
         <Flex alignItems="center" gap={4}>
           {thumbnail ? (
@@ -85,13 +105,16 @@ export default function Toast({
             </Flex.Item>
           ) : null}
 
-          <Flex.Item flex="grow">
+          <Flex.Item flex="grow" maxWidth={hasImage && hasButton ? TEXT_MAX_WIDTH_PX : undefined}>
             <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
               {textElement}
             </Text>
           </Flex.Item>
 
-          {button ? <Flex.Item flex="none">{button}</Flex.Item> : null}
+          {button ? (
+            // Allow button text to wrap on mobile
+            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>{button}</Flex.Item>
+          ) : null}
         </Flex>
       </Box>
     </Box>
