@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';
@@ -20,7 +20,8 @@ type Props = {|
   /**
    * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
    */
-  text: string | Node,
+  // $FlowFixMe[unclear-type]
+  text: string | Element<*>,
   /**
    * An optional thumbnail image to displayed next to the text.
    */
