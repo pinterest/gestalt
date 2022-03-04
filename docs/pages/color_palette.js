@@ -26,7 +26,7 @@ const neutrals = [
 
 export default function ColorPage(): Node {
   return (
-    <Page title="Color Palette">
+    <Page title="Color palette">
       <PageHeader
         name="Color palette"
         description={`

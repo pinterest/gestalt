@@ -4,7 +4,7 @@ describe('Page Headers', () => {
   });
 
   it("Loads the What's New page", () => {
-    cy.get('.docSearch-content h1').invoke('text').invoke('trim').should('include', "What's New");
+    cy.get('.docSearch-content h1').invoke('text').invoke('trim').should('include', "What's new");
   });
 
   it('navigates to the development page', () => {
