@@ -6,8 +6,9 @@ exports[`<Toast /> Error Toast 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 360,
-      "width": "100vw",
+      "maxWidth": "min(500px, 100vw)",
+      "minWidth": 330,
+      "width": 330,
     }
   }
 >
@@ -19,6 +20,11 @@ exports[`<Toast /> Error Toast 1`] = `
     >
       <div
         className="FlexItem flexGrow"
+        style={
+          Object {
+            "maxWidth": undefined,
+          }
+        }
       >
         <div
           className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
@@ -37,8 +43,9 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 360,
-      "width": "100vw",
+      "maxWidth": "min(500px, 100vw)",
+      "minWidth": 330,
+      "width": undefined,
     }
   }
 >
@@ -68,6 +75,11 @@ exports[`<Toast /> Text + Image + Button 1`] = `
       </div>
       <div
         className="FlexItem flexGrow"
+        style={
+          Object {
+            "maxWidth": 127,
+          }
+        }
       >
         <div
           className="Text fontSize300 white alignStart breakWord fontWeightNormal"
@@ -137,8 +149,9 @@ exports[`<Toast /> Text + Image 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 360,
-      "width": "100vw",
+      "maxWidth": "min(500px, 100vw)",
+      "minWidth": 330,
+      "width": 330,
     }
   }
 >
@@ -168,6 +181,11 @@ exports[`<Toast /> Text + Image 1`] = `
       </div>
       <div
         className="FlexItem flexGrow"
+        style={
+          Object {
+            "maxWidth": undefined,
+          }
+        }
       >
         <div
           className="Text fontSize300 white alignStart breakWord fontWeightNormal"
@@ -209,8 +227,9 @@ exports[`<Toast /> Text Only 1`] = `
   role="status"
   style={
     Object {
-      "maxWidth": 360,
-      "width": "100vw",
+      "maxWidth": "min(500px, 100vw)",
+      "minWidth": 330,
+      "width": 330,
     }
   }
 >
@@ -222,6 +241,11 @@ exports[`<Toast /> Text Only 1`] = `
     >
       <div
         className="FlexItem flexGrow"
+        style={
+          Object {
+            "maxWidth": undefined,
+          }
+        }
       >
         <div
           className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
