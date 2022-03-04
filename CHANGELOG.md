@@ -1,3 +1,9 @@
+## 45.8.7 (Mar 4, 2022)
+
+### Patch
+
+- Docs: Sentence case titles/navigation (#1965)
+
 ## 45.8.6 (Mar 4, 2022)
 
 ### Patch
