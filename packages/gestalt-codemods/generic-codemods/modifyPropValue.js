@@ -19,11 +19,12 @@
  *
  * TO RUN THIS CODEMOD
  * yarn codemod modifyPropValue ~/path/to/your/code
- * --component=<value>
- * --previousProp=<value>
- * --nextProp=<value>
- * --previousValue=<value>
- * --nextValue=<value>
+ * --component=string
+ * --subcomponent=string
+ * --previousProp=string
+ * --nextProp=string
+ * --previousValue=string|number|boolean
+ * --nextValue=string|number|boolean
  *
  *
  * If all options passed, prop+value combination are replaced with new prop+value combination
@@ -109,7 +110,7 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     let replaceWithModifiedCloneCallback;
 
     if (!nextProp && isNullOrUndefined(nextValue)) {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, nextProp: null });
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j });
     } else {
       replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
         j,

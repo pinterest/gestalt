@@ -11,6 +11,11 @@ import {
 } from './flowtypes.js';
 
 /**
+ * DO NOT USE THESE UTILS.
+ * FILE TO BE DEPRECATED WHEN packages/gestalt-codemods/generic-codemods/renameComponent.js gets refactored to use packages/gestalt-codemods/generic-codemods/utils.js instead.
+ */
+
+/**
  * initialize: Sets the boilerplate required to work with jscodeshift. Returns:
  j: the jscodeshift library API access
  src: a collection of one node-path, which wraps the root AST node
@@ -110,8 +115,10 @@ const getLocalImportedName = ({
   });
 
   return specifiers
-    .filter((node) => node.imported.name === importedName)
-    .map((node) => node.local.name)[0];
+    ? specifiers
+        .filter((node) => node.imported.name === importedName)
+        .map((node) => node.local.name)[0]
+    : '';
 };
 
 /**

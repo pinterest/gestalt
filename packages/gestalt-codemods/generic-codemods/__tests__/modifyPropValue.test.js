@@ -1,4 +1,5 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import buildCustomApplyTransform from './utils.js';
 
 jest.mock('../modifyPropValue', () =>
   Object.assign(jest.requireActual('../modifyPropValue'), {
@@ -189,25 +190,26 @@ describe('modifyPropValue: add prop values (string)', () => {
   });
 });
 
-/**  We skip this test as it's only purpose is to throw an error on spread props. Errors cannot be tested with current jscodeshift testing API. Unskip to see the following error message:
-
-  Remove dynamic properties and rerun codemod.
-  Location: /Users/acarreras/code/gestalt/packages/gestalt-codemods/generic-codemods/__testfixtures__/modifyPropValue/errorSpreadProp.input.js @line: 6
-  Location: /Users/acarreras/code/gestalt/packages/gestalt-codemods/generic-codemods/__testfixtures__/modifyPropValue/errorSpreadProp.input.js @line: 7
-  */
-describe.skip('modifyPropValue: throws error on spread props', () => {
+describe('modifyPropValue: throws error on spread props', () => {
   ['modifyPropValue/errorSpreadProp'].forEach((test) => {
-    defineTest(
-      __dirname,
-      'modifyPropValue',
-      {
-        quote: 'single',
-        component: 'Box',
-        nextProp: 'variant',
-        nextValue: 'error',
-      },
-      test,
-      {},
-    );
+    it(`throws error message correctly using "${test}" data`, () => {
+      expect(
+        buildCustomApplyTransform({
+          transformName: 'modifyPropValue',
+          moduleOptions: {
+            quote: 'single',
+            component: 'Box',
+            nextProp: 'variant',
+            nextValue: 'error',
+          },
+          test,
+        }),
+      ).toThrow(
+        new Error(`Remove dynamic properties and rerun codemod.
+Location: /Users/acarreras/code/gestalt/packages/gestalt-codemods/generic-codemods/__testfixtures__/${test}.input.js @line: 6
+Location: /Users/acarreras/code/gestalt/packages/gestalt-codemods/generic-codemods/__testfixtures__/${test}.input.js @line: 7
+Location: /Users/acarreras/code/gestalt/packages/gestalt-codemods/generic-codemods/__testfixtures__/${test}.input.js @line: 7`),
+      );
+    });
   });
 });

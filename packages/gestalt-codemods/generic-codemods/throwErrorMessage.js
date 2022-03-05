@@ -1,43 +1,47 @@
 // @flow strict
 
 /**
- * CODEMOD to MODIFY (DEPRECATE or RENAME) GESTALT COMPONENT PROPS
- * Ex. <Box size="" /> to <Box />
- * Ex. <Box size="" /> to <Box renamedSize="" />
- * Ex. <Dropdown.Item size="" /> to <Dropdown.Item renamedSize="" />
- *
+ * CODEMOD to THROW AN ERROR MESSAGE for COMPONENTS, PROPS, and PROP-VALUE COMBINATIONS in GESTALT COMPONENTS
+ * Supports string, number, and boolean values
  *
  * OPTIONS:
  * --component: component to which modify props
  * --subcomponent: component's subcomponent to which modify props
- * --previousProp: current prop name to be replaced
- * --nextProp: new prop name to replace with
+ * --prop: current prop name to be replaced
+ * --value: new prop name to replace with, null if we want to remove prop
  *
  *
  * TO RUN THIS CODEMOD
- * yarn codemod modifyProp ~/path/to/your/code --component=<value> --previousProp=<value> --nextProp=<value>
+ * yarn codemod throwErrorMessage ~/path/to/your/code
+ * --component=string
+ * --subcomponent=string
+ * --prop=string
+ * --value=string|number|boolean
  *
  *
- * If all options passed, previous prop is replaced with next prop value
- * In the absence of nextProp, the codemod removes the prop
+ * If all options passed, prop+value combination are replaced with new prop+value combination
+ * In the absence of nextProp, the codemod only replaces the prop value
+ * In the absence of nextValue, the codemod only replaces the prop name for that prop+value combination
+ * In the absence of nextProp+nextValue, the codemod removes the prop with that particular value
+ * In the absence of previousProp+previousValue, the codemod adds a new prop with value
  *
  *
- * RENAME E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size --nextProp=renamedSize
- * RENAME E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Dropdown --subcomponent=Item --previousProp=size --nextProp=renamedSize
- * REMOVE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size
+ * E.g. yarn codemod throwErrorMessage ~/code/pinboard/webapp --component=Box --prop=color value=error
+ *
  */
 
 // $FlowExpectedError[untyped-import]
 import { describe } from 'jscodeshift-helper';
 import {
-  buildReplaceWithModifiedAttributes,
   getGestaltImport,
   getComponentIdentifierByName,
   getLocalImportedName,
   filterJSXByTargetLocalName,
   filterJSXByAttribute,
   initialize,
+  isNullOrUndefined,
   saveToSource,
+  throwErrorMessage,
   throwErrorIfSpreadProps,
 } from './utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
@@ -45,14 +49,12 @@ import { type FileType, type ApiType } from './flowtypes.js';
 type OptionsType = {|
   component: string,
   subcomponent?: string,
-  previousProp?: string,
-  nextProp?: string,
-  previousValue?: string,
-  nextValue?: string,
+  prop?: string,
+  value?: string,
 |};
 
 function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
-  const { component, subcomponent, previousProp, nextProp } = options;
+  const { component, subcomponent, prop, value } = options;
 
   const { j, src } = initialize({ api, fileInfo });
 
@@ -79,27 +81,22 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     subcomponent,
   });
 
+  if (isNullOrUndefined(prop) && isNullOrUndefined(value)) {
+    throwErrorMessage({ fileInfo, jSXCollection: matchedJSXCollection });
+  }
+
   throwErrorIfSpreadProps({ fileInfo, j, jSXCollection: matchedJSXCollection });
 
-  if (previousProp) {
+  if (prop) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
       j,
       jSXCollection: matchedJSXCollection,
-      prop: previousProp,
+      prop,
+      value,
     });
 
-    if (jSXWithMatchingAttributesCollection.size() === 0) return null;
-
-    let replaceWithModifiedCloneCallback;
-    if (!nextProp) {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j });
-    } else {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, nextProp });
-    }
-    jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
+    throwErrorMessage({ fileInfo, jSXCollection: jSXWithMatchingAttributesCollection });
   }
-
-  src.modified = true;
 
   return saveToSource({ src });
 }

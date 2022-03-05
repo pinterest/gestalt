@@ -39,7 +39,7 @@ const initialize = ({
 /**
  * isNullOrUndefined: Checks for values that are undefined or null
  */
-const isNullOrUndefined = (value: string | boolean | number | undefined | null): boolean =>
+const isNullOrUndefined = (value?: string | boolean | number): boolean =>
   value === undefined || value === null;
 
 /**
@@ -104,6 +104,7 @@ const filterJSXByTargetLocalName = ({
         },
       })
     : src.find(j.JSXElement, { openingElement: { name: { name: targetLocalName } } });
+
 /**
  * filterJSXByAttribute: Returns a collection containing the Gestalt JSX components with matching prop/value attributes
  */
@@ -158,8 +159,7 @@ const filterJSXByAttribute = ({
 /**
  * deepCloneNode: Returns a collection containing the Gestalt import declaration node-path
  */
-const deepCloneNode = ({ node }: { node: JSXNodeType }): JSXNodeType =>
-  JSON.parse(JSON.stringify(node));
+const deepCloneNode = <T>({ node }: { node: T }): T => JSON.parse(JSON.stringify(node));
 
 /**
  * buildAttributeFromValue: Returns a collection containing the Gestalt import declaration node-path
@@ -171,7 +171,7 @@ const buildAttributeFromValue = ({
 }: {
   j: JSCodeShift,
   prop: string,
-  value: string | boolean | number,
+  value?: string | boolean | number,
 }): ?JSXNodeType => {
   switch (typeof value) {
     case 'string':
@@ -186,7 +186,7 @@ const buildAttributeFromValue = ({
         ? j.jsxAttribute(j.jsxIdentifier(prop))
         : j.jsxAttribute(j.jsxIdentifier(prop), j.jsxExpressionContainer(j.booleanLiteral(value)));
     default:
-      break;
+      return null;
   }
 };
 /**
@@ -198,9 +198,9 @@ const buildReplaceWithModifiedAttributes = ({
   nextValue,
 }: {
   j: JSCodeShift,
-  nextProp: string | null,
+  nextProp?: string,
   nextValue?: string,
-}): ((nodepath: Collection) => JSXNodeType) => {
+}): ((nodepath: Collection) => ?JSXNodeType) => {
   const replaceWithModifiedAttributes = (nodepath: Collection) => {
     if (!nextProp) return null;
 
@@ -234,7 +234,27 @@ const throwErrorIfSpreadProps = ({
 
   if (spreadPropsCollection.size() > 0) {
     throw new Error(
-      `Remove dynamic properties and rerun codemod. \n${spreadPropsCollection
+      `Remove dynamic properties and rerun codemod.\n${spreadPropsCollection
+        .nodes()
+        .map((node) => `Location: ${fileInfo.path} @line: ${node.loc.start.line}`)
+        .join('\n')}`,
+    );
+  }
+};
+
+/**
+ * throwErrorMessage: Throws an error message
+ */
+const throwErrorMessage = ({
+  fileInfo,
+  jSXCollection,
+}: {
+  fileInfo: FileType,
+  jSXCollection: Collection,
+}): void => {
+  if (jSXCollection.size() > 0) {
+    throw new Error(
+      `This file requires manual attention. Follow the PR's instructions in the following code locations\n${jSXCollection
         .nodes()
         .map((node) => `Location: ${fileInfo.path} @line: ${node.loc.start.line}`)
         .join('\n')}`,
@@ -260,4 +280,5 @@ export {
   isNullOrUndefined,
   saveToSource,
   throwErrorIfSpreadProps,
+  throwErrorMessage,
 };
