@@ -172,7 +172,7 @@ type Props = {
     | 'selected'
     | 'inverse'
     | 'brand'
-    | 'education',
+    | 'education'
     | 'elevationAccent',
   /**
    * See the [column layout](https://gestalt.pinterest.systems/box#Column-layout) variant for more info.
