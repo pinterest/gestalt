@@ -54,9 +54,9 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
       />
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Color"
+          title="Type"
           description={`
-          Badge is available in five colors. Each color represents a messaging sentiment.
+          Badge is available in five styles. Each \`type\` represents a messaging sentiment.
 
           1. **Info (default)**
           Communicates helpful information or an important attribute. For example, new, help.
@@ -71,16 +71,17 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           Informs the user of problems or errors that require potential action to correct. For example, deleted, cancelled.
 
           5. **Neutral**
+          Indicates a general, non-critical status update. For example, unavailable or not started.
  `}
         >
           <MainSection.Card
             defaultCode={`
 <Flex gap={4} direction="column">
-  <Text size="300">Ads & Campaigns <Badge text="New" color="info"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Complete" color="success"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Needs attention" color="warning"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Failed" color="error"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Beta" color="neutral"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="New" type="info"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Complete" type="success"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Needs attention" type="warning"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Failed" type="error"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Not started" type="neutral"/></Text>
 </Flex>
 `}
           />
@@ -99,24 +100,24 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         >
           <MainSection.Card
             defaultCode={`
-          <Flex gap={4}>
-          <Mask height={150} width={280} rounding={2}>
-            <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}/>
-            <Box position="absolute" top>
-              <Box padding={4}>
-                <Badge text="Dark wash" color="lightWash"/>
-              </Box>
-            </Box>
-          </Mask>
-          <Mask height={150} width={280} rounding={2}>
-            <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/7bQQYkX/stock2.jpg" naturalWidth={1} naturalHeight={1}/>
-            <Box position="absolute" top>
-              <Box padding={4}>
-                <Badge text="Dark wash" color="darkWash"/>
-              </Box>
-            </Box>
-          </Mask>
-          </Flex>
+<Flex gap={4}>
+  <Mask height={150} width={280} rounding={2}>
+    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}/>
+    <Box position="absolute" top>
+      <Box padding={4}>
+        <Badge text="Light wash" type="lightWash"/>
+      </Box>
+    </Box>
+  </Mask>
+  <Mask height={150} width={280} rounding={2}>
+    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/7bQQYkX/stock2.jpg" naturalWidth={1} naturalHeight={1}/>
+    <Box position="absolute" top>
+      <Box padding={4}>
+        <Badge text="Dark wash" type="darkWash"/>
+      </Box>
+    </Box>
+  </Mask>
+</Flex>
           `}
           />
         </MainSection.Subsection>
@@ -153,6 +154,25 @@ function ModuleExample() {
   );
 }
           `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Writing">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`
+- Use a single word to describe the status of an element. For example, “new” not “new post.”
+- Where applicable, describe the status in past tense. For example, “archived” not “archive.”
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`
+- Use conflicting language with defined type sentiments. For example, the error badge should not say “complete.”
+`}
           />
         </MainSection.Subsection>
       </MainSection>

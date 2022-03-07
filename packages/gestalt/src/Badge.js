@@ -18,7 +18,7 @@ type Props = {|
   /**
    * Text displayed inside of the Badge. Sentence case is preferred.
    */
-  color?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
 |};
 
 /**
@@ -28,8 +28,8 @@ type Props = {|
  * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Badge-dark%20%230.png)
  *
  */
-export default function Badge({ position = 'middle', text, color = 'info' }: Props): Node {
-  const COLOR_MAP = {
+export default function Badge({ position = 'middle', text, type = 'info' }: Props): Node {
+  const TYPE_COLOR_MAP = {
     'info': 'infoBase',
     'error': 'errorBase',
     'warning': 'warningBase',
@@ -39,7 +39,10 @@ export default function Badge({ position = 'middle', text, color = 'info' }: Pro
     'lightWash': 'washLight',
   };
 
-  const cs = cx(styles.Badge, styles[position], colors[COLOR_MAP[color]]);
+  const cs = cx(styles.Badge, styles[position], colors[TYPE_COLOR_MAP[type]], {
+    [styles.darkWash]: type === 'darkWash',
+    [styles.lightWash]: type === 'lightWash',
+  });
 
   return <div className={cs}>{text}</div>;
 }

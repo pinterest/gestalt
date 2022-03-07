@@ -19,6 +19,10 @@
   vertical-align: super;
 }
 
+.darkWash {
+  color: var(--color-gray-roboflow-50);
+}
+
 .lightWash {
-  color: var(--color-text-default);
+  color: var(--color-black-cosmicore-900);
 }
