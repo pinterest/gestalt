@@ -3,7 +3,6 @@ import { type Node } from 'react';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
-import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 
@@ -41,30 +40,105 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
-
-      <Example
-        description="
-    The `Badge` component is rendered inline within parent element."
-        name="Example"
-        defaultCode={`
-<Text>Some text that uses Badge component as its child <Badge text="New" /></Text>
-`}
-      />
-
-      <Example
-        description="
-    Larger text example rendered with a top positioned `Badge`."
-        name="Example: positioning"
-        defaultCode={`
-  <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
-`}
-      />
-
-      <Example
+      <MainSection
+        name="Accessibility"
         description={`
-    Components like [Module](/module) and [Dropdown](/dropdown) support Badges within the component.`}
-        name="Example: within other components"
-        defaultCode={`
+        The badge text is read out by assistive technologies like screen readers so all users can access the meaning of the badge in context. Text should be clear enough to be understood immediately without relying on color alone.
+
+        If context is not obvious from the text alone, provide additional visually hidden text using \`accessibilityLabel\` for context.
+        `}
+      />
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize the \`text\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent. `}
+      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Color"
+          description={`
+          Badge is available in five colors. Each color represents a messaging sentiment.
+
+          1. **Info (default)**
+          Communicates helpful information or an important attribute. For example, new, help.
+
+          2. **Success**
+          Indicates a constructive or successful state. For example, available, completed, approved, added.
+
+          3. **Warning**
+          Communicates cautionary or time-sensitive information to the user. For example, busy, missing, warning.
+
+          4. **Error**
+          Informs the user of problems or errors that require potential action to correct. For example, deleted, cancelled.
+
+          5. **Neutral**
+ `}
+        >
+          <MainSection.Card
+            defaultCode={`
+<Flex gap={4} direction="column">
+  <Text size="300">Ads & Campaigns <Badge text="New" color="info"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Complete" color="success"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Needs attention" color="warning"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Failed" color="error"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="Beta" color="neutral"/></Text>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Over media"
+          description={`
+          Badge may be used over media using two wash styles.
+
+          1. **Over media - Light wash**
+          The light wash badge should be used over media that is dark or utilizes a dark gradient overlay.
+
+          2. **Over media - Dark wash**
+          The dark wash badge should be used over media that is light or utilizes a light gradient overlay.
+`}
+        >
+          <MainSection.Card
+            defaultCode={`
+          <Flex gap={4}>
+          <Mask height={150} width={280} rounding={2}>
+            <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}/>
+            <Box position="absolute" top>
+              <Box padding={4}>
+                <Badge text="Dark wash" color="lightWash"/>
+              </Box>
+            </Box>
+          </Mask>
+          <Mask height={150} width={280} rounding={2}>
+            <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/7bQQYkX/stock2.jpg" naturalWidth={1} naturalHeight={1}/>
+            <Box position="absolute" top>
+              <Box padding={4}>
+                <Badge text="Dark wash" color="darkWash"/>
+              </Box>
+            </Box>
+          </Mask>
+          </Flex>
+          `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Positioning"
+          description="By default, Badge is rendered inline within the parent element. However, the `position` prop can be used to adjust the alignment."
+        >
+          <MainSection.Card
+            defaultCode={`
+<Flex gap={4} direction="column">
+  <Text size="600">Ads & Campaigns <Badge text="New" /></Text>
+  <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Within other components"
+          description="Components like [Module](/module) and [Dropdown](/dropdown) support Badges within the component."
+        >
+          <MainSection.Card
+            defaultCode={`
 function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
@@ -78,8 +152,20 @@ function ModuleExample() {
     </Box>
   );
 }
-`}
-      />
+          `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+        **[Status](/status)**
+        Status is a graphic indicator of an element’s state.
+
+        **[Tooltip](/tooltip)**
+        Tooltip is a floating text label that succinctly describes the function of an interactive element.       `}
+        />
+      </MainSection>
     </Page>
   );
 }

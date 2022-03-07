@@ -27,7 +27,7 @@
         "comment": "Text color to indicate a warning or caution"
       },
       "inverse": {
-        "value": "{color.white.mochimalist.0.value}",
+        "value": "{color.gray.roboflow.50.value}",
         "darkValue": "{color.black.cosmicore.900.value}",
         "comment": "Text color to use on inverted backgrounds"
       },
@@ -58,7 +58,7 @@
           "comment": "Icon color to indicate a warning or caution"
         },
         "inverse": {
-          "value": "{color.white.mochimalist.0.value}",
+          "value": "{color.gray.roboflow.50.value}",
           "darkValue": "{color.black.cosmicore.900.value}",
           "comment": "Icon color to use on inverted backgrounds"
         }
@@ -68,6 +68,7 @@
       "info": {
         "base": {
           "value": "{color.blue.skycicle.500.value}",
+          "darkValue": "{color.blue.skycicle.300.value}",
           "comment": "Background color to indicate neutral information"
         },
         "weak": {
@@ -78,6 +79,7 @@
       "error": {
         "base": {
           "value": "{color.red.pushpin.500.value}",
+          "darkValue": "{color.red.pushpin.300.value}",
           "comment": "Background color to indicate errors"
         },
         "weak": {
@@ -88,6 +90,7 @@
       "warning": {
         "base": {
           "value": "{color.yellow.caramellow.500.value}",
+          "darkValue": "{color.yellow.caramellow.300.value}",
           "comment": "Background color to indicate warnings"
         },
         "weak": {
@@ -98,6 +101,7 @@
       "success": {
         "base": {
           "value": "{color.green.matchacado.500.value}",
+          "darkValue": "{color.green.matchacado.300.value}",
           "comment": "Background color to indicate success"
         },
         "weak": {
@@ -107,13 +111,12 @@
       },
       "shopping": {
         "value": "{color.blue.skycicle.500.value}",
-        "darkValue": "{color.blue.skycicle.400.value}",
+        "darkValue": "{color.blue.skycicle.300.value}",
         "comment": "Background color to indicate shopping-related features"
       },
       "primary": {
         "base": {
           "value": "{color.red.pushpin.450.value}",
-          "darkValue": "{color.red.pushpin.400.value}",
           "comment": "Primary background color"
         },
         "strong": {
@@ -143,7 +146,7 @@
       "tertiary": {
         "base": {
           "value": "{color.gray.roboflow.500.value}",
-          "darkValue": "{color.gray.roboflow.400.value}",
+          "darkValue": "{color.gray.roboflow.300.value}",
           "comment": "Tertiary background color"
         },
         "strong": {
@@ -187,8 +190,18 @@
       },
       "education": {
         "value": "{color.blue.skycicle.500.value}",
-        "darkValue": "{color.blue.skycicle.400.value}",
+        "darkValue": "{color.blue.skycicle.300.value}",
         "comment": "Background color to indicate educational moments or messages"
+      },
+      "wash": {
+        "dark": {
+          "value": "rgba(0, 0, 0, 0.8)",
+          "comment": "Background color to indicate educational moments or messages"
+        },
+        "light": {
+          "value": "rgba(255, 255, 255, 0.9)",
+          "comment": "Background color to indicate educational moments or messages"
+        }
       },
       "elevation": {
         "accent": {
