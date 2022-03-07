@@ -126,8 +126,15 @@ Most rules come with out-of-the-box autofixes, automating the adoption of Gestal
           title="Release codemods"
           description={`Every major breaking change on our library comes with a codemod to facilitate the upgrade of the Gestalt dependency. Some codemods are custom built for each upgrade while some upgrades take advantage of generic codemods that only require running a codemod command with options.
 
-Custom codemods can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) under the corresponding upgrade version. Generic codemods (for common tasks like renaming components or props) can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods/generic-codemods). When generic codemods are use for an upgrade, the specific command is included in the pull request with the major version change.`}
-        />
+Custom codemods can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) under the corresponding upgrade version. Generic codemods (for common tasks like renaming components or props) can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods/generic-codemods). When generic codemods are use for an upgrade, the specific command is included in the pull request with the major version change.
+
+The generic codemods available are:
+- [renameComponent](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/renameComponent.js) to rename Gestalt components.
+- [modifyProp](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/modifyProp.js) to modify (rename or remove) Gestalt component props.
+- [modifyPropValue](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/modifyPropValue.js) to modify (rename, add, or remove) prop-value combinations in Gestalt component.
+- [throwErrorMessage](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/throwErrorMessage.js) to throw error messages upon detection of components, props, and prop-value combinations in Gestalt components.
+To learn more about developing generic codemods, read this [page](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods/generic-codemods#readme).
+`}        />
         <MainSection.Subsection
           title="Playground sandbox"
           description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/k5plvp9v8v) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
