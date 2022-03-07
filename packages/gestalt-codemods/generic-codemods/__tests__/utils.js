@@ -6,8 +6,6 @@ import { applyTransform } from 'jscodeshift/dist/testUtils.js';
 import fs from 'fs';
 import path from 'path';
 
-test.skip('Workaround to: Your test suite must contain at least one test.', () => {});
-
 export function buildInputPath({ test }: { test: string }): string {
   const dirName = __dirname;
   const fixtureDir = path.join(dirName, '..', `__testfixtures__`);
