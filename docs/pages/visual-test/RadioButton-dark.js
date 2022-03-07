@@ -24,7 +24,7 @@ export default function Screenshot(): Node {
             onChange={() => {}}
             value="tuesday"
           />
-        </Flex>{' '}
+        </Flex>
       </Box>
     </ColorSchemeProvider>
   );
