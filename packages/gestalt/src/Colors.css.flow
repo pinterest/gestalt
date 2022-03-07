@@ -11,6 +11,7 @@ declare module.exports: {|
   +'education': string,
   +'eggplant': string,
   +'eggplantBg': string,
+  +'elevationAccent': string,
   +'errorBase': string,
   +'errorWeak': string,
   +'gray': string,

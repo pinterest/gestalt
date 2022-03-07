@@ -114,6 +114,10 @@
   background-color: var(--color-background-education);
 }
 
+.elevationAccent {
+  background-color: var(--color-background-elevation-accent);
+}
+
 /** PRIMARY COLORS **/
 
 /* red */

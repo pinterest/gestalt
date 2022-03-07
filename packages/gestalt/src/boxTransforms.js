@@ -179,6 +179,7 @@ const color: Functor<Color> = mapping({
   inverse: colors.inverse,
   brand: colors.brand,
   education: colors.education,
+  elevationAccent: colors.elevationAccent,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);
