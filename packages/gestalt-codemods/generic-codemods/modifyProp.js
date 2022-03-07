@@ -27,8 +27,6 @@
  * REMOVE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size
  */
 
-// $FlowExpectedError[untyped-import]
-import { describe } from 'jscodeshift-helper';
 import {
   buildReplaceWithModifiedAttributes,
   getGestaltImport,

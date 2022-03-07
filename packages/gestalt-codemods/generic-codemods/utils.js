@@ -1,6 +1,4 @@
 // @flow strict
-// $FlowExpectedError[untyped-import]
-import { describe } from 'jscodeshift-helper';
 import {
   type ApiType,
   type Collection,

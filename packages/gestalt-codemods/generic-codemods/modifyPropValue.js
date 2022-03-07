@@ -41,8 +41,6 @@
  * REMOVE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
  */
 
-// $FlowExpectedError[untyped-import]
-import { describe } from 'jscodeshift-helper';
 import {
   buildReplaceWithModifiedAttributes,
   getGestaltImport,

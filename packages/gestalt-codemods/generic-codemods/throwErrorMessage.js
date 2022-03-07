@@ -30,8 +30,6 @@
  *
  */
 
-// $FlowExpectedError[untyped-import]
-import { describe } from 'jscodeshift-helper';
 import {
   getGestaltImport,
   getComponentIdentifierByName,
