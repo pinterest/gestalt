@@ -46,7 +46,7 @@ const tasks = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'Creation of a baseline component to support side navigation layout patterns',
+    'description': 'Creation of a baseline component to support side navigation layout patterns.',
     'link': '',
   },
   {
@@ -54,7 +54,8 @@ const tasks = [
     'deadline': 'Quarter 2',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description':
+      'Update Link component to support external indicator and more accessible styling.',
     'link': '',
   },
   {
@@ -130,7 +131,7 @@ const tasks = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'Visual updates to the Button component on the Web platform',
+    'description': 'Visual updates to the Button component on the Web platform.',
     'link': '',
   },
   {
@@ -138,7 +139,7 @@ const tasks = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Android/iOS',
-    'description': 'TBD',
+    'description': 'Development of the Button component for Android and iOS.',
     'link': '',
   },
   {
@@ -146,7 +147,7 @@ const tasks = [
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Android/iOS',
-    'description': 'Development of the IconButton component for Android and iOS',
+    'description': 'Development of the IconButton component for Android and iOS.',
     'link': '',
   },
   {
@@ -175,27 +176,28 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'Dataviz component',
-    'deadline': '',
-    'status': 'unstarted',
-    'platform': 'Web',
-    'description': 'TBD',
-    'link': '',
-  },
-  {
     'task': 'Masonry component enhancements',
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description': 'Develop general technical improvements to Masonry.',
     'link': '',
   },
   {
-    'task': 'App-level hooks within Gestalt',
+    'task': 'Device type hooks',
     'deadline': '',
     'status': 'inProgress',
     'platform': 'Web',
-    'description': 'TBD',
+    'description': 'Develop functionality to unlock device-specific UI in Gestalt.',
+    'link': '',
+  },
+  {
+    'task': 'Context logging hooks',
+    'deadline': '',
+    'status': 'inProgress',
+    'platform': 'Web',
+    'description':
+      'Develop functionality to allow for generic logic to be added on component interaction.',
     'link': '',
   },
   {
@@ -512,7 +514,8 @@ const tasks = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description':
+      'Develop a lint rule to automatically convert <form>​ instances to our upcoming <Form>​ component',
     'link': '',
   },
   {
@@ -520,7 +523,7 @@ const tasks = [
     'deadline': 'Quarter 1',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description': 'Develop a lint rule to automatically combine props on Box where possible.',
     'link': '',
   },
   {
