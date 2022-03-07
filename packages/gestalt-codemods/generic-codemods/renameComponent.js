@@ -23,17 +23,17 @@ import {
   replaceImportedName,
   replaceImportNodePath,
   renameJSXElement,
-  saveSource,
+  saveToSource,
   sortImportedNames,
-} from './utils.js';
+} from './deprecatedUtils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {| previousName: string, nextName: string |};
 
-function transform(file: FileType, api: ApiType, options: OptionsType): ?string {
+function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string {
   const { previousName, nextName } = options;
 
-  const { j, src } = initialize({ api, file });
+  const { j, src } = initialize({ api, fileInfo });
 
   let targetLocalImportedName;
 
@@ -76,7 +76,7 @@ function transform(file: FileType, api: ApiType, options: OptionsType): ?string 
     src.modified = true;
   });
 
-  return saveSource({ src });
+  return saveToSource({ src });
 }
 
 export default transform;

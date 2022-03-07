@@ -5,261 +5,278 @@ import {
   type FileType,
   type JSCodeShift,
   type JSXNodeType,
-  type ImportDeclarationType,
-  type NodePathType,
-  type ImportSpecifierType,
-  type JSXAttributeType,
 } from './flowtypes.js';
 
-type InitializeType = {|
-  api: ApiType,
-  file: FileType,
-|};
+/**
+ *
+ * IMPORTANT
+ *
+ * BEFORE YOU START DEVELOPING CODEMODS READ THE FOLLOWING DOCUMENTATION
+ *
+ * packages/gestalt-codemods/generic-codemods/README.md
+ *
+ */
 
 /**
- * initialize: Sets the boilerplate required to work with jscodeshift
+ * initialize: Sets the boilerplate required to work with jscodeshift.
+ j: the jscodeshift library API access
+ src: a collection of one node-path, which wraps the root AST node
  */
-const initialize = ({ api, file }: InitializeType): { j: JSCodeShift, src: Collection } => {
+const initialize = ({
+  api,
+  fileInfo,
+}: {|
+  api: ApiType,
+  fileInfo: FileType,
+|}): { j: JSCodeShift, src: Collection } => {
   const j = api.jscodeshift;
-  const src = j(file.source);
+  const src = j(fileInfo.source);
   return { j, src };
 };
 
-type IsGestaltImportType = {| importDeclaration: ImportDeclarationType |};
+/**
+ * isNullOrUndefined: Checks for values that are undefined or null
+ */
+const isNullOrUndefined = (value?: string | boolean | number): boolean =>
+  value === undefined || value === null;
 
 /**
- * isGestaltImport: Validates a Gestalt import path returning true if it matches 'gestalt'.
- * E.g. import { Box } from 'gestalt' // true
- * E.g. import { Box } from 'gestaltExtensions/box' // false
+ * getComponentIdentifierByName: Returns a collection containing the component specifier from the Gestalt import declaration collection that matches the componentName value
  */
-const isGestaltImport = ({ importDeclaration }: IsGestaltImportType): boolean =>
-  importDeclaration.source.value === 'gestalt';
-
-type MatchesComponentNameType = {|
-  JSXNode: JSXNodeType,
-  componentName: string,
-  subcomponentName?: string,
-|};
-
-/**
- * matchesComponentName: Validates an element name against a name value returning true if they match
- * E.g. Box & componentName  = Box // true
- * E.g. Box & componentName = Button // false
- * E.g. Dropdown.Item & componentName  = Dropdown, subcomponentName = Item // true
- * E.g. Dropdown.Link & componentName  = Dropdown, subcomponentName = Item // false
- */
-const matchesComponentName = ({
-  JSXNode,
+const getComponentIdentifierByName = ({
+  j,
+  gestaltImportCollection,
   componentName,
-  subcomponentName,
-}: MatchesComponentNameType): boolean => {
-  if (subcomponentName && !JSXNode.openingElement.name.name) {
-    return (
-      JSXNode.openingElement.name.object.name === componentName &&
-      JSXNode.openingElement.name.property.name === subcomponentName
-    );
-  }
-
-  return JSXNode.openingElement.name.name === componentName;
-};
-
-type IsSelfClosingType = {| JSXNode: JSXNodeType |};
+}: {|
+  j: JSCodeShift,
+  gestaltImportCollection: Collection,
+  componentName: string,
+|}): Collection =>
+  gestaltImportCollection.find(j.ImportSpecifier, {
+    imported: {
+      type: 'Identifier',
+      name: componentName,
+    },
+  });
 
 /**
- * isSelfClosing: Validates that a JSX element is selfclosing
- * E.g. <Box /> // true
- * E.g. <Box></Box> // false
+ * getGestaltImport: Returns a collection containing the Gestalt import declaration node-path
  */
-const isSelfClosing = ({ JSXNode }: IsSelfClosingType): boolean =>
-  !!JSXNode.openingElement.selfClosing;
-
-type GetImportsType = {| src: Collection, j: JSCodeShift |};
-
-/**
- * getImports: Returns an array of the import declaration in a file
- */
-const getImports = ({ src, j }: GetImportsType): Collection => src.find(j.ImportDeclaration);
-
-type GetJSXType = {| src: Collection, j: JSCodeShift |};
+const getGestaltImport = ({ src, j }: {| src: Collection, j: JSCodeShift |}): Collection =>
+  src.find(j.ImportDeclaration, {
+    source: {
+      type: 'Literal',
+      value: 'gestalt',
+    },
+  });
 
 /**
- * getJSX: Returns an array of the JSX elements in a file
- */
-const getJSX = ({ src, j }: GetJSXType): Collection => src.find(j.JSXElement);
-
-type GetLocalImportedNameType = {|
-  importDeclaration: ImportDeclarationType,
-  importedName: string,
-|};
-
-/**
- * getLocalImportedName: Returns the local named import node if it matches a name value
- * E.g. import { Box } from 'gestalt & (importedName = Box) // Box
- * E.g. import { Box as RenamedBox } from 'gestalt & (importedName = Box) // RenamedBox
+ * getLocalImportedName: Returns the local named import for a Gestalt component
+ * E.g. import { Box } from 'gestalt // Box
+ * E.g. import { Box as RenamedBox } from 'gestalt // RenamedBox
  */
 const getLocalImportedName = ({
-  importDeclaration,
-  importedName,
-}: GetLocalImportedNameType): string =>
-  importDeclaration.specifiers
-    .filter((node) => node.imported.name === importedName)
-    .map((node) => node.local.name)[0];
-
-type ReplaceImportedNamedType = {|
-  j: JSCodeShift,
-  importDeclaration: ImportDeclarationType,
-  previousComponentName: string,
-  nextComponentName: string,
-|};
+  importSpecifierCollection,
+}: {
+  importSpecifierCollection: Collection,
+}): ?string => importSpecifierCollection.get(0).node.local?.name;
 
 /**
- * replaceImportedNamed: Replaces the name of a named import
- * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
- * input: import { Box } from 'gestalt' >> output: import { RenamedBox } from 'gestalt'
+ * filterJSXByTargetLocalName: Returns a collection containing the Gestalt JSX component matching the targetLocalName value
  */
-const replaceImportedName = ({
+const filterJSXByTargetLocalName = ({
+  src,
   j,
-  importDeclaration,
-  previousComponentName,
-  nextComponentName,
-}: ReplaceImportedNamedType): Array<ImportSpecifierType> =>
-  importDeclaration.specifiers.map((node) =>
-    node.imported.name === previousComponentName
-      ? j.importSpecifier(j.identifier(nextComponentName))
-      : node,
-  );
-
-type SortImportedNamesType = {| importSpecifiers: Array<ImportSpecifierType> |};
-
-/**
- * sortImportedNames: Returns a sorted list of named imports
- * E.g. input: import { Pog, Box } from 'gestalt' >> output: import { Box, Pog } from 'gestalt'
- */
-const sortImportedNames = ({
-  importSpecifiers,
-}: SortImportedNamesType): Array<ImportSpecifierType> =>
-  importSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
-
-type ReplaceImportNodePathType = {|
+  targetLocalName,
+  subcomponent,
+}: {|
+  src: Collection,
   j: JSCodeShift,
-  nodePath: NodePathType,
-  importSpecifiers: Array<ImportSpecifierType>,
-  importPath: string,
-|};
+  targetLocalName: ?string,
+  subcomponent: ?string,
+|}): Collection =>
+  subcomponent
+    ? src.find(j.JSXElement, {
+        openingElement: {
+          name: { object: { name: targetLocalName }, property: { name: subcomponent } },
+        },
+      })
+    : src.find(j.JSXElement, { openingElement: { name: { name: targetLocalName } } });
 
 /**
- * replaceImportNodePath: Replaces an import declaration node with an updated one
- * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
- * input: <Box /> >> output: <RenamedBox />
+ * filterJSXByAttribute: Returns a collection containing the Gestalt JSX components with matching prop/value attributes
  */
+const filterJSXByAttribute = ({
+  j,
+  jSXCollection,
+  prop,
+  value,
+}: {
+  j: JSCodeShift,
+  jSXCollection: Collection,
+  prop: string,
+  value?: string,
+}): Collection => {
+  if (typeof value === 'string') {
+    return jSXCollection.find(j.JSXAttribute, { name: { name: prop }, value: { value } });
+  }
 
-const replaceImportNodePath = ({ nodePath, importSpecifiers }: ReplaceImportNodePathType): void => {
-  // TODO: find alternative to prevent reassignment
-  // eslint-disable-next-line no-param-reassign
-  nodePath.node.specifiers = importSpecifiers;
+  if (typeof value === 'number') {
+    return jSXCollection.find(j.JSXAttribute, {
+      value: {
+        type: 'JSXExpressionContainer',
+        expression: {
+          type: 'Literal',
+          value,
+        },
+      },
+    });
+  }
+
+  if (typeof value === 'boolean') {
+    return value
+      ? jSXCollection.find(j.JSXAttribute, {
+          value: null,
+        })
+      : jSXCollection.find(j.JSXAttribute, {
+          value: {
+            type: 'JSXExpressionContainer',
+            expression: {
+              type: 'Literal',
+              value,
+            },
+          },
+        });
+  }
+
+  if (!value) return jSXCollection.find(j.JSXAttribute, { name: { name: prop } });
+
+  return jSXCollection;
 };
 
-type RenameJSXElementType = {| JSXNode: JSXNodeType, nextComponentName: string |};
+/**
+ * deepCloneNode: Returns a collection containing the Gestalt import declaration node-path
+ */
+const deepCloneNode = <T>({ node }: { node: T }): T => JSON.parse(JSON.stringify(node));
 
 /**
- * renameJSXElement: Renames the JSX element with the name value provided
- * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
- * input: <Box /> >> output: <RenamedBox />
+ * buildAttributeFromValue: Returns a collection containing the Gestalt import declaration node-path
  */
-const renameJSXElement = ({ JSXNode, nextComponentName }: RenameJSXElementType): void => {
-  // TODO: implement deep cloning or prevent reassignment
-  const newJSXNode = { ...JSXNode };
-  newJSXNode.openingElement.name.name = nextComponentName;
-
-  if (!isSelfClosing({ JSXNode })) {
-    if (newJSXNode.closingElement) {
-      newJSXNode.closingElement.name.name = nextComponentName;
-    }
+const buildAttributeFromValue = ({
+  j,
+  prop,
+  value,
+}: {
+  j: JSCodeShift,
+  prop: string,
+  value?: string | boolean | number,
+}): ?JSXNodeType => {
+  switch (typeof value) {
+    case 'string':
+      return j.jsxAttribute(j.jsxIdentifier(prop), j.stringLiteral(value));
+    case 'number':
+      return j.jsxAttribute(
+        j.jsxIdentifier(prop),
+        j.jsxExpressionContainer(j.numericLiteral(value)),
+      );
+    case 'boolean':
+      return value
+        ? j.jsxAttribute(j.jsxIdentifier(prop))
+        : j.jsxAttribute(j.jsxIdentifier(prop), j.jsxExpressionContainer(j.booleanLiteral(value)));
+    default:
+      return null;
   }
 };
-
-type GetNewAttributesType = {|
-  JSXNode: JSXNodeType,
-  previousPropName: string,
-  nextPropName: string | null,
-|};
-
 /**
- * getNewAttributes: Renames the JSX element with the name value provided
- * E.g. previousComponentName = Box & nextComponentName =  RenamedBox
- * input: <Box /> >> output: <RenamedBox />
+ * buildReplaceWithModifiedAttributes: Returns a collection containing the Gestalt import declaration node-path
  */
-const getNewAttributes = ({
-  JSXNode,
-  previousPropName,
-  nextPropName,
-}: GetNewAttributesType): Array<JSXAttributeType> =>
-  JSXNode.openingElement.attributes
-    .map((attr) => {
-      const propName = attr?.name?.name;
+const buildReplaceWithModifiedAttributes = ({
+  j,
+  nextProp,
+  nextValue,
+}: {
+  j: JSCodeShift,
+  nextProp?: string,
+  nextValue?: string,
+}): ((nodepath: Collection) => ?JSXNodeType) => {
+  const replaceWithModifiedAttributes = (nodepath: Collection) => {
+    if (!nextProp) return null;
 
-      if (propName !== previousPropName) return attr;
+    let newNode = deepCloneNode({ node: nodepath.get().node });
 
-      const renamedAttr = { ...attr };
+    if (nextProp && isNullOrUndefined(nextValue)) newNode.name.name = nextProp;
 
-      if (nextPropName) renamedAttr.name.name = nextPropName;
+    if (nextProp && !isNullOrUndefined(nextValue))
+      newNode = buildAttributeFromValue({ j, prop: nextProp, value: nextValue });
 
-      return nextPropName !== null && nextPropName ? renamedAttr : undefined;
-    })
-    .filter(Boolean);
+    return newNode;
+  };
 
-type ReplaceJSXAttributesType = {|
-  JSXNode: JSXNodeType,
-  newAttributes: Array<JSXAttributeType>,
-|};
-
-/**
- * replaceJSXAttributes: Saves the changes in the file  if the src object contains the 'modified: true' key-value
- */
-const replaceJSXAttributes = ({ JSXNode, newAttributes }: ReplaceJSXAttributesType): void => {
-  // TODO: implement deep cloning or prevent reassignment
-  const newJSXNode = { ...JSXNode };
-
-  newJSXNode.openingElement.attributes = newAttributes;
+  return replaceWithModifiedAttributes;
 };
 
-type SaveSourceType = {| src: Collection |};
-
 /**
- * saveSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
- */ const saveSource = ({ src }: SaveSourceType): string | null =>
-  src.modified ? src.toSource({ quote: 'single' }) : null;
-
-type ThrowErrorIfSpreadType = {| file: FileType, JSXNode: JSXNodeType |};
-
-/**
- * throwErrorIfSpreadProps: Throws an error message if component contains spread props which are opaque to  codemods
+ * throwErrorIfSpreadProps: Throws an error message if component contains spread props which are opaque to codemods
  * E.g. <Box {...props} /> // error!
  */
-const throwErrorIfSpreadProps = ({ file, JSXNode }: ThrowErrorIfSpreadType): void => {
-  if (
-    JSXNode.openingElement.attributes.some((attribute) => attribute.type === 'JSXSpreadAttribute')
-  ) {
+const throwErrorIfSpreadProps = ({
+  fileInfo,
+  j,
+  jSXCollection,
+}: {
+  fileInfo: FileType,
+  j: JSCodeShift,
+  jSXCollection: Collection,
+}): void => {
+  const spreadPropsCollection = jSXCollection.find(j.JSXSpreadAttribute);
+
+  if (spreadPropsCollection.size() > 0) {
     throw new Error(
-      `Remove dynamic properties and rerun codemod. Location: ${file.path} @line: ${JSXNode.loc.start.line}`,
+      `Remove dynamic properties and rerun codemod.\n${spreadPropsCollection
+        .nodes()
+        .map((node) => `Location: ${fileInfo.path} @line: ${node.loc.start.line}`)
+        .join('\n')}`,
     );
   }
 };
 
+/**
+ * throwErrorMessage: Throws an error message
+ */
+const throwErrorMessage = ({
+  fileInfo,
+  jSXCollection,
+}: {
+  fileInfo: FileType,
+  jSXCollection: Collection,
+}): void => {
+  if (jSXCollection.size() > 0) {
+    throw new Error(
+      `This file requires manual attention. Follow the PR's instructions in the following code locations\n${jSXCollection
+        .nodes()
+        .map((node) => `Location: ${fileInfo.path} @line: ${node.loc.start.line}`)
+        .join('\n')}`,
+    );
+  }
+};
+
+/**
+ * saveToSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
+ */
+const saveToSource = ({ src }: {| src: Collection |}): string | null =>
+  src.modified ? src.toSource({ quote: 'double' }) : null;
+
 export {
-  getImports,
-  getJSX,
+  buildReplaceWithModifiedAttributes,
+  deepCloneNode,
+  filterJSXByAttribute,
+  filterJSXByTargetLocalName,
+  getGestaltImport,
+  getComponentIdentifierByName,
   getLocalImportedName,
-  getNewAttributes,
   initialize,
-  isGestaltImport,
-  isSelfClosing,
-  matchesComponentName,
-  replaceImportedName,
-  replaceImportNodePath,
-  renameJSXElement,
-  replaceJSXAttributes,
-  saveSource,
-  sortImportedNames,
+  isNullOrUndefined,
+  saveToSource,
   throwErrorIfSpreadProps,
+  throwErrorMessage,
 };

@@ -1,7 +1,7 @@
 // @flow strict
 
 // $FlowExpectedError[unclear-type]
-export type ObjectType = Object;
+export type GenericObjectType = Object;
 
 export type ImportSpecifierType = {|
   type: string,
@@ -16,6 +16,16 @@ export type ImportSpecifierType = {|
   name: string,
 |};
 
+// TODO: Delete after removing deprecatedUtils.js
+export type NodePathType = {|
+  value: {|
+    type: string,
+    specifiers: Array<ImportSpecifierType>,
+  |},
+  name: string,
+  node: {| specifiers: Array<ImportSpecifierType> |},
+|};
+
 export type ImportDeclarationType = {|
   type: string,
   specifiers: Array<ImportSpecifierType>,
@@ -26,15 +36,6 @@ export type ImportDeclarationType = {|
   },
 |};
 
-export type NodePathType = {|
-  value: {|
-    type: string,
-    specifiers: Array<ImportSpecifierType>,
-  |},
-  name: string,
-  node: {| specifiers: Array<ImportSpecifierType> |},
-|};
-
 export type JSXAttributeType = {|
   type: string,
   name: {|
@@ -43,11 +44,13 @@ export type JSXAttributeType = {|
   |},
   value: {|
     type: string,
-    expression: {|
+    expression?: {|
       type: string,
       value: number | string,
       raw: string,
     |},
+    value?: string,
+    raw?: string,
   |},
 |};
 
@@ -62,35 +65,50 @@ export type JSXNodeType = {|
     type: string,
     name: {|
       type: string,
-      name: ObjectType,
+      name: GenericObjectType,
       optional: boolean,
-      object: ObjectType,
-      property: ObjectType,
+      object: GenericObjectType,
+      property: GenericObjectType,
     |},
     attributes: Array<JSXAttributeType>,
     selfClosing: true,
   |},
   closingElement: ?{|
     type: string,
-    name: ObjectType,
+    name: GenericObjectType,
   |},
+  local?: {| name: string |},
 |};
 
 export interface Collection {
-  find(type: ObjectType): Collection;
-  filter(callback: (node: ObjectType) => boolean): Collection;
-  forEach(callback: (node: ObjectType) => void): Collection;
-  replaceWith: (node: ObjectType) => Collection;
-  toSource(options?: ObjectType): string;
+  at: (number) => Collection;
+  get: <T>(?number) => T;
+  find(type: GenericObjectType, options?: { [string]: GenericObjectType }): Collection;
+  filter(callback: (node: GenericObjectType) => boolean): Collection;
+  forEach(callback: (node: GenericObjectType) => void): Collection;
+  replaceWith: (node: GenericObjectType) => Collection;
+  remove: () => void;
+  nodes: () => GenericObjectType;
+  size: () => number;
+  toSource(options?: GenericObjectType): string;
   modified: boolean;
 }
 
 export type JSCodeShift = {
   (source: string): Collection,
   ImportDeclaration: ImportDeclarationType,
-  importSpecifier: (ObjectType) => ImportSpecifierType,
-  JSXElement: (ObjectType) => JSXNodeType,
-  identifier: (ObjectType) => { name: string, type: string },
+  ImportSpecifier: (GenericObjectType) => ImportSpecifierType,
+  JSXElement: (GenericObjectType) => JSXNodeType,
+  JSXAttribute: (GenericObjectType) => JSXAttributeType,
+  importSpecifier: (GenericObjectType) => GenericObjectType,
+  identifier: (GenericObjectType) => { name: string, type: string },
+  jsxAttribute: (GenericObjectType, GenericObjectType) => GenericObjectType,
+  jsxIdentifier: (GenericObjectType) => GenericObjectType,
+  stringLiteral: (?string) => GenericObjectType,
+  jsxExpressionContainer: (GenericObjectType) => GenericObjectType,
+  numericLiteral: (number) => GenericObjectType,
+  booleanLiteral: (boolean) => GenericObjectType,
+  JSXSpreadAttribute: GenericObjectType,
 };
 
 export type FileType = {| path: string, source: string |};
