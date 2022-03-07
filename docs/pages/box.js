@@ -445,6 +445,7 @@ function Example() {
               'inverse',
               'brand',
               'education',
+              'elevationAccent',
               'transparent',
               'transparentDarkGray',
               'lightWash',

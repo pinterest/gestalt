@@ -1,3 +1,39 @@
+## 45.9.0 (Mar 7, 2022)
+
+### Minor
+
+- Box: add elevation accent color option (#1970)
+
+## 45.8.7 (Mar 4, 2022)
+
+### Patch
+
+- Docs: Sentence case titles/navigation (#1965)
+
+## 45.8.6 (Mar 4, 2022)
+
+### Patch
+
+- Toast: revert `text` type change (#1966)
+
+## 45.8.5 (Mar 4, 2022)
+
+### Patch
+
+- Toast: fix layout bug with long text + button text (#1961)
+
+## 45.8.4 (Mar 4, 2022)
+
+### Patch
+
+- Docs: How to work with us design content update (#1959)
+
+## 45.8.3 (Mar 3, 2022)
+
+### Patch
+
+- Docs: fix npm badges wrapping (#1963)
+
 ## 45.8.2 (Mar 3, 2022)
 
 ### Patch
