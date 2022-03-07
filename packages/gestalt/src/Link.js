@@ -95,6 +95,10 @@ type Props = {|
 
 /**
  * The [Link](https://gestalt.pinterest.systems/link) component allows you to show links on the page and open them in a new window.
+ *
+ * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Link%20%230.png)
+ * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Link-dark%20%230.png)
+ *
  */
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
