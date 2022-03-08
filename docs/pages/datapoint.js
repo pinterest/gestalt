@@ -57,12 +57,16 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 <Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
 `}
           />
+          {/*
+            The example below should also display a localized trend value, but given trend accepts only a number,
+            the value cannot be localized. Once the API is changed, we should add a localized trend to this example.
+            */}
           <MainSection.Card
             cardSize="md"
             type="do"
             description="Make sure to localize numeric values."
             defaultCode={`
-<Datapoint size="lg" title="Leistung" value="3.000,25" trend={{value: 7,5, accessibilityLabel: "Trending up"}}  />
+<Datapoint size="lg" title="Leistung" value="3.000,25" />
 `}
           />
           <MainSection.Card
@@ -98,7 +102,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
       />
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`title\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+        description={`Be sure to localize the \`title\`, \`value\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
       />
       <MainSection name="Variants">
         <MainSection.Subsection columns={2} title="Size">
@@ -162,6 +166,17 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           />
         </MainSection.Subsection>
       </MainSection>{' '}
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+**[Table](/table)**
+When displaying a large volume of data values and trends (for instance, 10 or more), it’s recommended to display those values in tabular format.
+
+**[Status](/status)**
+Status is recommended in instances where information is more categorical or qualitative (such as health or phase).
+      `}
+        />
+      </MainSection>
     </Page>
   );
 }
