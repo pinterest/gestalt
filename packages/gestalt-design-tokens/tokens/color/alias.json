@@ -3,7 +3,7 @@
     "text": {
       "default": {
         "value": "{color.black.cosmicore.900.value}",
-        "darkValue": "{color.gray.roboflow.50.value}",
+        "darkValue": "{color.white.mochimalist.0.value}",
         "comment": "Default text color"
       },
       "subtle": {
@@ -27,7 +27,7 @@
         "comment": "Text color to indicate a warning or caution"
       },
       "inverse": {
-        "value": "{color.gray.roboflow.50.value}",
+        "value": "{color.white.mochimalist.0.value}",
         "darkValue": "{color.black.cosmicore.900.value}",
         "comment": "Text color to use on inverted backgrounds"
       },
@@ -42,7 +42,7 @@
       "icon": {
         "default": {
           "value": "{color.black.cosmicore.900.value}",
-          "darkValue": "{color.gray.roboflow.50.value}",
+          "darkValue": "{color.white.mochimalist.0.value}",
           "comment": "Default color for icons"
         },
         "subtle": {
@@ -66,7 +66,7 @@
           "comment": "Icon color to indicate a warning or caution"
         },
         "inverse": {
-          "value": "{color.gray.roboflow.50.value}",
+          "value": "{color.white.mochimalist.0.value}",
           "darkValue": "{color.black.cosmicore.900.value}",
           "comment": "Icon color to use on inverted backgrounds"
         }

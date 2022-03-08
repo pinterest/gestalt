@@ -70,46 +70,46 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use established color patterns so users can quickly scan an identify sentiment. "
+            description="Use established color patterns so users can quickly scan an identify sentiment. However, the badge text should always clearly indicate the sentiment, so color is not the sole indicator of information."
             defaultCode={`
-            <Table accessibilityLabel="Basic Table">
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>
-                  <Text weight="bold">Post title</Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text weight="bold">Status</Text>
-                </Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell>
-                  <Text>Handmade ceramics</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Badge text="Posted" type="success"/>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text>Lunch ideas</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Badge text="Cancelled" type="error"/>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text>Tattoo inspo</Text>
-                </Table.Cell>
-                <Table.Cell>
-                <Badge text="Archived" type="neutral"/>
-                </Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table>
+            <Table accessibilityLabel="Badge color patterns">
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>
+                    <Text weight="bold">Post title</Text>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <Text weight="bold">Status</Text>
+                  </Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>
+                    <Text>Handmade ceramics</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Badge text="Posted" type="success"/>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
+                    <Text>Lunch ideas</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Badge text="Cancelled" type="error"/>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
+                    <Text>Tattoo inspo</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Badge text="Archived" type="neutral"/>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
             `}
           />
           <MainSection.Card
@@ -157,13 +157,60 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={4} direction="column">
-  <Text size="300">Ads & Campaigns <Badge text="New" type="info"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Complete" type="success"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Needs attention" type="warning"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Failed" type="error"/></Text>
-  <Text size="300">Ads & Campaigns <Badge text="Not started" type="neutral"/></Text>
-</Flex>
+  <Table accessibilityLabel="Type examples">
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>
+          <Text weight="bold">Type</Text>
+        </Table.HeaderCell>
+        <Table.HeaderCell>
+          <Text weight="bold">Example</Text>
+        </Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>
+          <Text>Info</Text>
+        </Table.Cell>
+        <Table.Cell>
+          <Text size="300">Ads & Campaigns <Badge text="New" type="info"/></Text>
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>
+          <Text>Success</Text>
+        </Table.Cell>
+        <Table.Cell>
+          <Text size="300">Ads & Campaigns <Badge text="Complete" type="success"/></Text>
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>
+          <Text>Warning</Text>
+        </Table.Cell>
+        <Table.Cell>
+          <Text size="300">Ads & Campaigns <Badge text="Needs attention" type="warning"/></Text>
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>
+          <Text>Error</Text>
+        </Table.Cell>
+        <Table.Cell>
+          <Text size="300">Ads & Campaigns <Badge text="Failed" type="error"/></Text>
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>
+          <Text>Neutral</Text>
+        </Table.Cell>
+        <Table.Cell>
+          <Text size="300">Ads & Campaigns <Badge text="Not started" type="neutral"/></Text>
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
 `}
           />
         </MainSection.Subsection>
