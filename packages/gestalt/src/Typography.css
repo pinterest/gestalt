@@ -31,6 +31,32 @@
   font-size: var(--font-size-600);
 }
 
+/* colors */
+
+.inverseText {
+  color: var(--color-text-inverse);
+}
+
+.errorText {
+  color: var(--color-text-error);
+}
+
+.defaultText {
+  color: var(--color-text-default);
+}
+
+.subtleText {
+  color: var(--color-text-subtle);
+}
+
+.warningText {
+  color: var(--color-text-warning);
+}
+
+.successText {
+  color: var(--color-text-success);
+}
+
 /* fonts */
 
 .sansSerif {

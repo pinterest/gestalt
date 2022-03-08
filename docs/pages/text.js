@@ -50,12 +50,13 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         defaultCode={`
 <Flex alignItems="start" direction="column" gap={4}>
   <Box color="darkGray" padding={1}>
-    <Text color="white">White</Text>
+    <Text color="inverse">Inverse</Text>
   </Box>
-  <Text color="gray">Gray</Text>
-  <Text color="darkGray">Dark Gray (default)</Text>
-  <Text color="blue">Blue</Text>
-  <Text color="red">Red</Text>
+  <Text color="subtle">Subtle</Text>
+  <Text color="default">Default</Text>
+  <Text color="success">Success</Text>
+  <Text color="warning">Warning</Text>
+  <Text color="error">Error</Text>
 </Flex>
 `}
       />

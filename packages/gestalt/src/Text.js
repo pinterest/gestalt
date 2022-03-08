@@ -53,7 +53,13 @@ type Props = {|
     | 'purple'
     | 'red'
     | 'watermelon'
-    | 'white',
+    | 'white'
+    | 'default'
+    | 'subtle'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'inverse',
   /**
    * Link: https://gestalt.pinterest.systems/text#inline
    */
@@ -106,10 +112,12 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
+  const semanticColors = ['default', 'subtle', 'success', 'error', 'warning', 'inverse'];
+  const colorClass = semanticColors.includes(color) ? typography[`${color}Text`] : colors[color];
   const cs = cx(
     styles.Text,
     typography[`fontSize${SIZE_SCALE[size]}`],
-    color && allowedColors.includes(color) && colors[color],
+    color && allowedColors.includes(color) && colorClass,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,

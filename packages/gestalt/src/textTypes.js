@@ -23,6 +23,12 @@ export const allowedColors = [
   'red',
   'watermelon',
   'white',
+  'default',
+  'subtle',
+  'success',
+  'error',
+  'warning',
+  'inverse',
 ];
 
 export type Color =
