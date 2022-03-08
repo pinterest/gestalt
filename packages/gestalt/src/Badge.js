@@ -16,9 +16,9 @@ type Props = {|
    */
   text: string,
   /**
-   * Text displayed inside of the Badge. Sentence case is preferred.
+   * Determines the style of the badge.
    */
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
 |};
 
 /**

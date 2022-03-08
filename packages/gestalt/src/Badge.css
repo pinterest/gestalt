@@ -20,9 +20,9 @@
 }
 
 .darkWash {
-  color: var(--color-gray-roboflow-50);
+  color: var(--color-text-light);
 }
 
 .lightWash {
-  color: var(--color-black-cosmicore-900);
+  color: var(--color-text-dark);
 }

@@ -40,6 +40,89 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Align the badge to the top of large accompanying text. Center align for standard size text."
+            defaultCode={`
+              <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
+            `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use colored badges over media. Instead use the dark or light wash."
+            defaultCode={`
+            <Mask height={150} width={280} rounding={2}>
+              <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}/>
+              <Box position="absolute" top>
+                <Box padding={4}>
+                  <Badge text="Light wash" type="info"/>
+                </Box>
+              </Box>
+            </Mask>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use established color patterns so users can quickly scan an identify sentiment. "
+            defaultCode={`
+            <Table accessibilityLabel="Basic Table">
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>
+                  <Text weight="bold">Post title</Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text weight="bold">Status</Text>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>
+                  <Text>Handmade ceramics</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Badge text="Posted" type="success"/>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text>Lunch ideas</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Badge text="Cancelled" type="error"/>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text>Tattoo inspo</Text>
+                </Table.Cell>
+                <Table.Cell>
+                <Badge text="Archived" type="neutral"/>
+                </Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
+            `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use complex or verbose language. Instead use a single, scannable word. For example, New."
+            defaultCode={`
+            <Text size="300">7 wardrobe trends <Badge text="Fresh off the press"/></Text>
+
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
       <MainSection
         name="Accessibility"
         description={`
@@ -123,12 +206,12 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Positioning"
-          description="By default, Badge is rendered inline within the parent element. However, the `position` prop can be used to adjust the alignment."
+          description="By default, Badge is rendered inline within the parent element. However, the `position` prop can be used to adjust the alignment. Badges should align to the top of large accompanying text."
         >
           <MainSection.Card
             defaultCode={`
 <Flex gap={4} direction="column">
-  <Text size="600">Ads & Campaigns <Badge text="New" /></Text>
+  <Text size="300">Ads & Campaigns <Badge text="New" /></Text>
   <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
 </Flex>
 `}
@@ -144,7 +227,7 @@ function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
       <Module
-        badgeText="Try it out!"
+        badgeText="Beta"
         id="ModuleExample - badge"
         title="Title"
         >

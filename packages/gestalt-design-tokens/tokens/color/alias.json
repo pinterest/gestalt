@@ -31,6 +31,14 @@
         "darkValue": "{color.black.cosmicore.900.value}",
         "comment": "Text color to use on inverted backgrounds"
       },
+      "dark": {
+        "value": "{color.text.default.value}",
+        "comment": "Dark text color that won't change in dark mode"
+      },
+      "light": {
+        "value": "{color.text.inverse.value}",
+        "comment": "Light text color that won't change in dark mode"
+      },
       "icon": {
         "default": {
           "value": "{color.black.cosmicore.900.value}",
@@ -176,7 +184,7 @@
       "inverse": {
         "base": {
           "value": "{color.black.cosmicore.900.value}",
-          "darkValue": "{color.white.mochimalist.0.value}",
+          "darkValue": "{color.gray.roboflow.50.value}",
           "comment": "Background color for use on inverted backgrounds"
         },
         "strong": {
