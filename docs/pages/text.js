@@ -44,7 +44,11 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
       />
       <Example
-        description="You can specify which color you want for your text."
+        description={`
+        You can specify which color you want for your text.
+        
+        ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
+        `}
         id="color"
         name="Colors"
         defaultCode={`
