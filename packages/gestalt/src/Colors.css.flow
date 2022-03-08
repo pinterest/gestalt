@@ -58,6 +58,8 @@ declare module.exports: {|
   +'transparentWhiteBg': string,
   +'warningBase': string,
   +'warningWeak': string,
+  +'washDark': string,
+  +'washLight': string,
   +'watermelon': string,
   +'watermelonBg': string,
   +'white': string,
