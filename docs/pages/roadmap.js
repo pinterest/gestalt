@@ -290,7 +290,7 @@ const tasks = [
   {
     'task': 'Badge component design guidelines',
     'deadline': 'Quarter 1',
-    'status': 'unstarted',
+    'status': 'inProgress',
     'platform': 'Web',
     'description':
       'Addition of best practices, accessibility, localization and related components to Badge web documentation.',
@@ -317,7 +317,7 @@ const tasks = [
   {
     'task': 'Modal/Sheet component design guidelines',
     'deadline': 'Quarter 1',
-    'status': 'unstarted',
+    'status': 'inProgress',
     'platform': 'Android/iOS',
     'description':
       'Addition of best practices, accessibility, localization and related components to Modal/Sheet mobile documentation.',
@@ -389,7 +389,7 @@ const tasks = [
   {
     'task': 'Product color visual guidelines',
     'deadline': 'Quarter 2',
-    'status': 'unstarted',
+    'status': 'inProgress',
     'platform': '',
     'description': 'Publish guidelines and best practices for utilizing color within Gestalt.',
     'link': '',
@@ -415,7 +415,7 @@ const tasks = [
   {
     'task': 'Dark mode visual guidelines',
     'deadline': 'Quarter 2',
-    'status': 'unstarted',
+    'status': 'inProgress',
     'platform': '',
     'description': 'Publish guidelines for designing for dark mode using Gestalt.',
     'link': '',
@@ -529,25 +529,37 @@ const tasks = [
   {
     'task': 'Generalized prop naming autofix',
     'deadline': '',
-    'status': 'unstarted',
+    'status': 'ok',
     'platform': 'Web',
-    'description': 'TBD',
+    'description':
+      'Develop a lint rule to automatically rename props of Gestalt component instances.',
     'link': '',
   },
   {
     'task': 'Generalized prop value change autofix',
     'deadline': '',
-    'status': 'unstarted',
+    'status': 'ok',
     'platform': 'Web',
-    'description': 'TBD',
+    'description':
+      'Develop a lint rule to automatically change prop values of Gestalt component instances.',
     'link': '',
   },
   {
-    'task': 'Build testing helpers library',
+    'task': 'Testing helpers library',
     'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
-    'description': 'TBD',
+    'description':
+      'Develop infrastructure to support Gestalt component integration testing in Cypress.',
+    'link': '',
+  },
+  {
+    'task': 'Visual diff testing',
+    'deadline': '',
+    'status': 'inProgress',
+    'platform': 'Web',
+    'description':
+      'Ship visual diff tests for all Gestalt components to guard against UI regressions.',
     'link': '',
   },
 ];
