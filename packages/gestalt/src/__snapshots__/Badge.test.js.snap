@@ -2,7 +2,15 @@
 
 exports[`Badge renders 1`] = `
 <div
-  className="Badge middle blueBg"
+  className="Badge middle infoBase"
+>
+  Badge
+</div>
+`;
+
+exports[`should render with a wash 1`] = `
+<div
+  className="Badge middle washLight lightWash"
 >
   Badge
 </div>

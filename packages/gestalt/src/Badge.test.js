@@ -8,9 +8,15 @@ it('Badge renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('should render with white text and blue background', () => {
-  const instance = create(<Badge text="Badge" />).root;
+it('should render with proper styling', () => {
+  const instance = create(<Badge text="Badge" type="success" />).root;
   const { className } = instance.find((element) => element.type === 'div').props;
 
-  expect(className).toContain('blueBg');
+  expect(className).toContain('successBase');
+});
+
+it('should render with a wash', () => {
+  const component = create(<Badge text="Badge" type="lightWash" />);
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });

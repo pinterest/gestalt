@@ -120,6 +120,7 @@
 
 .washLight {
   background-color: var(--color-background-wash-light);
+}
 
 .elevationAccent {
   background-color: var(--color-background-elevation-accent);
