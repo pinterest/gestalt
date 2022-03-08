@@ -89,7 +89,9 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Be cautious of using `Datapoint` for large volumes of data. In cases where the content is tabular, use `Table`."
+            description={`
+Be cautious of using Datapoint for large volumes of data. In cases where the content is tabular, use [Table](/table).
+`}
             defaultCode={`
 <Flex direction="column" gap={4}>
 <Datapoint size="md" title="January spend" value="$14,325"  />
