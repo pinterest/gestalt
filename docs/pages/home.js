@@ -61,7 +61,7 @@ export default function HomePage(): Node {
             />
             <HomePageCard
               href="/how_to_work_with_us"
-              title="How to Work with Us"
+              title="How to work with us"
               description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
               color="blue-skycicle"
               image={<HowToWork />}
@@ -86,7 +86,7 @@ export default function HomePage(): Node {
             />
 
             <HomePageCard
-              title="Design Tokens"
+              title="Design tokens"
               href="/design_tokens"
               description="Values used to construct layouts and components, such as spacing and color"
               color="teal-spabattical"

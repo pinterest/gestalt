@@ -8,7 +8,7 @@ import Page from '../components/Page.js';
 
 export default function ColorUsagePage(): Node {
   return (
-    <Page title="Color Usage">
+    <Page title="Color usage">
       <PageHeader
         name="Color usage"
         description={`

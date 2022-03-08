@@ -6,9 +6,9 @@ import Page from '../components/Page.js';
 
 export default function EslintPluginPage(): Node {
   return (
-    <Page title="Eslint Plugin">
+    <Page title="Eslint plugin">
       <PageHeader
-        name="Eslint Plugin"
+        name="Eslint plugin"
         showSourceLink={false}
         description="Install the package eslint-plugin-gestalt to get lint rules encouraging the correct usage of Gestalt components"
       />

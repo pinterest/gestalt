@@ -26,7 +26,7 @@ import { type As } from './boxTypes.js';
 # PropTypes
 
 Box's type definition is exhaustive. With the exception of `dangerouslySetInlineStyle`, values
-shouldn't be ambigious. That means that we have to type out things like boints, but that's also
+shouldn't be ambiguous. That means that we have to type out things like boints, but that's also
 where Box's magic lies. Also, by putting in extra effort around type definitions here, we can skip
 extra runtime typechecks in the transformers for performance.
 
@@ -172,7 +172,8 @@ type Props = {
     | 'selected'
     | 'inverse'
     | 'brand'
-    | 'education',
+    | 'education'
+    | 'elevationAccent',
   /**
    * See the [column layout](https://gestalt.pinterest.systems/box#Column-layout) variant for more info.
    *

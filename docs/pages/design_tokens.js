@@ -27,13 +27,13 @@ const tokenCategories = [
   { name: 'Elevation', category: 'elevation', id: 'elevation' },
 ];
 
-const headers = ['CSS Token Name', 'Value', 'Dark Mode Value', 'Example'];
+const headers = ['CSS token name', 'Value', 'Dark mode value', 'Example'];
 
 const tableHeaders = (category: string): Node => (
   <Table.Header>
     <Table.Row>
       {headers.map((header) => {
-        if (header === 'Dark Mode Value' && !category.includes('color')) {
+        if (header === 'Dark mode value' && !category.includes('color')) {
           return null;
         }
         return (
@@ -48,14 +48,14 @@ const tableHeaders = (category: string): Node => (
 
 export default function DesignTokensPage(): Node {
   return (
-    <Page title="Design Tokens Guidelines">
+    <Page title="Design tokens guidelines">
       <PageHeader
         badge="pilot"
-        name="Design Tokens"
+        name="Design tokens"
         description="Design tokens represent the values used within a design system to construct layouts and components, such as spacing and color. Because the tokens are an abstraction, the underlying value can change in different scenarios without affecting the designer or developer experience. [Learn more about Design Tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099)."
         showSourceLink={false}
       />
-      <MainSection name="Token Values">
+      <MainSection name="Token values">
         {tokenCategories.map((category) => (
           <MainSection.Subsection key={`table${category.name}`} title={category.name}>
             <Table accessibilityLabel={`${category.name} Values`}>

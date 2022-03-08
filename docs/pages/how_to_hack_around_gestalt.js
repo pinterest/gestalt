@@ -6,9 +6,9 @@ import PageHeader from '../components/PageHeader.js';
 
 export default function DocsPage(): Node {
   return (
-    <Page title="How to Hack Around Gestalt">
+    <Page title="How to hack around Gestalt">
       <PageHeader
-        name="How to Hack Around Gestalt"
+        name="How to hack around Gestalt"
         description="Guidelines for customizing Gestalt components."
         showSourceLink={false}
       />
