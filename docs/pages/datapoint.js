@@ -39,9 +39,78 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Whenever possible, use the full number with separators for groups of thousands to ensure clarity across all languages."
+            defaultCode={`
+<Datapoint size="lg" title="Total impressions" value="1,451" trend={{value: 10.1, accessibilityLabel: "Trending up"}}  />
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use long decimal values for `trend`. Limit the trend to one decimal point."
+            defaultCode={`
+<Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
+`}
+          />
+          {/*
+            The example below should also display a localized trend value, but given trend accepts only a number,
+            the value cannot be localized. Once the API is changed, we should add a localized trend to this example.
+            */}
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Make sure to localize numeric values."
+            defaultCode={`
+<Datapoint size="lg" title="Leistung" value="3.000,25" />
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use subjective values for Datapoint’s value."
+            defaultCode={`
+<Datapoint size="lg" title="Performance" value="Bad" />
+
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Be certain to use a positive `trendSentiment` only when the trend is overtly positive for the end user. Use a neutral `trendSentiment` in cases of ambiguity."
+            defaultCode={`
+<Datapoint size="lg" title="Total spend" value="$14,325" trend={{value: 5.6, accessibilityLabel: "Trending up"}} trendSentiment="neutral"  />
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`
+Be cautious of using Datapoint for large volumes of data. In cases where the content is tabular, use [Table](/table).
+`}
+            defaultCode={`
+<Flex direction="column" gap={4}>
+<Datapoint size="md" title="January spend" value="$14,325"  />
+<Datapoint size="md" title="February spend" value="$12,150"  />
+<Datapoint size="md" title="March spend" value="$23,700"  />
+<Datapoint size="md" title="April spend" value="$9,525"  />
+<Datapoint size="md" title="May spend" value="$10,750"  />
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection
+        name="Accessibility"
+        description={`Datapoint’s trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up). `}
+      />
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`title\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+        description={`Be sure to localize the \`title\`, \`value\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
       />
       <MainSection name="Variants">
         <MainSection.Subsection columns={2} title="Size">
@@ -105,6 +174,17 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           />
         </MainSection.Subsection>
       </MainSection>{' '}
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+**[Table](/table)**
+When displaying a large volume of data values and trends (for instance, 10 or more), it’s recommended to display those values in tabular format.
+
+**[Status](/status)**
+Status is recommended in instances where information is more categorical or qualitative (such as health or phase).
+      `}
+        />
+      </MainSection>
     </Page>
   );
 }
