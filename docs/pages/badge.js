@@ -127,13 +127,11 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         name="Accessibility"
         description={`
         The badge text is read out by assistive technologies like screen readers so all users can access the meaning of the badge in context. Text should be clear enough to be understood immediately without relying on color alone.
-
-        If context is not obvious from the text alone, provide additional visually hidden text using \`accessibilityLabel\` for context.
         `}
       />
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`text\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent. `}
+        description={`Be sure to localize the \`text\` prop. Note that localization can lengthen text by 20 to 30 percent. `}
       />
       <MainSection name="Variants">
         <MainSection.Subsection
