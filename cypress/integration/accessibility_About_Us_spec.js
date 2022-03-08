@@ -1,20 +1,10 @@
-describe('About us check', () => {
+describe('About us Accessibility check', () => {
   beforeEach(() => {
     cy.visit('/about_us');
     cy.injectAxe();
   });
 
-  // Disable the test for now since it's timing out on GitHub CI
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the About us page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'link-name',
-          enabled: false,
-        },
-      ],
-    });
+  it('Tests accessibility on the About us page', () => {
     cy.checkA11y();
   });
 });
