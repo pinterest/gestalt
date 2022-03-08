@@ -1,3 +1,9 @@
+## 45.9.1 (Mar 8, 2022)
+
+### Patch
+
+- Docs: Add About us page (#1975)
+
 ## 45.9.0 (Mar 7, 2022)
 
 ### Minor
