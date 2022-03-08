@@ -143,19 +143,19 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           Badge is available in five styles. Each \`type\` represents a messaging sentiment.
 
           1. **Info (default)**
-          Communicates helpful information or an important attribute. For example, New or Help.
+          Communicates helpful information or an important attribute. For example, 'New' or 'Help'.
 
           2. **Success**
-          Indicates a constructive or successful state. For example, Available, Completed, Approved or Added.
+          Indicates a constructive or successful state. For example, 'Available', 'Completed', 'Approved' or 'Added'.
 
           3. **Warning**
-          Communicates cautionary or time-sensitive information to the user. For example, Busy, Missing or Warning.
+          Communicates cautionary or time-sensitive information to the user. For example, 'Busy', 'Missing' or 'Warning'.
 
           4. **Error**
-          Informs the user of problems or errors that require potential action to correct. For example, Deleted or Cancelled.
+          Informs the user of problems or errors that require potential action to correct. For example, 'Deleted' or 'Cancelled'.
 
           5. **Neutral**
-          Indicates a general, non-critical status update. For example, Unavailable or Not started.
+          Indicates a general, non-critical status update. For example, 'Unavailable' or 'Not started'.
  `}
         >
           <MainSection.Card
@@ -266,7 +266,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Within other components"
-          description="Components like [Module](/module) and [Dropdown](/dropdown) support Badges within the component."
+          description="Components like [Module](/module) and [Dropdown](/dropdown) have Badges built into the component through props, so it will not be necessary to add the component yourself."
         >
           <MainSection.Card
             defaultCode={`
@@ -293,15 +293,15 @@ function ModuleExample() {
             cardSize="md"
             type="do"
             description={`
-- Use a single word to describe the status of an element. For example, “New” not “Nw post.”
-- Where applicable, describe the status in past tense. For example, “archived” not “archive.”
+- Use a single word to describe the status of an element. For example, “New” not “New post.”
+- Where applicable, describe the status in past tense. For example, “Archived” not “Archive.”
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description={`
-- Use conflicting language with defined type sentiments. For example, the error badge should not say “complete.”
+- Use conflicting language with defined type sentiments. For example, the error badge should not say “Complete.”
 `}
           />
         </MainSection.Subsection>
