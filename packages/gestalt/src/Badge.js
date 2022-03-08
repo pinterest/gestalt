@@ -8,7 +8,7 @@ type Position = 'middle' | 'top';
 
 type Props = {|
   /**
-   * Badge position relative to its parent element.
+   * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/badge#Positioning) variant to learn more.
    */
   position?: Position,
   /**
@@ -16,7 +16,7 @@ type Props = {|
    */
   text: string,
   /**
-   * Determines the style of the badge.
+   * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/badge#Type) variant to learn more.
    */
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
 |};

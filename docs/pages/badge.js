@@ -45,10 +45,13 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Align the badge to the top of large accompanying text. Center align for standard size text."
+            description="Align the badge to the top of large accompanying text (anything larger than 16px). Center align for standard size text."
             defaultCode={`
-              <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
-            `}
+              <Flex direction="column" gap={4}>
+                <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
+                <Text size="300">Ads & Campaigns <Badge text="Beta"/></Text>
+              </Flex>
+              `}
           />
           <MainSection.Card
             cardSize="md"
@@ -126,7 +129,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
       <MainSection
         name="Accessibility"
         description={`
-        The badge text is read out by assistive technologies like screen readers so all users can access the meaning of the badge in context. Text should be clear enough to be understood immediately without relying on color alone.
+        The badge text is read out by assistive technologies like screen readers so all users can access the meaning of the badge in context. Text should demonstrate the sentiment clearly enough to be understood immediately without relying on color alone.
         `}
       />
       <MainSection
@@ -140,16 +143,16 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           Badge is available in five styles. Each \`type\` represents a messaging sentiment.
 
           1. **Info (default)**
-          Communicates helpful information or an important attribute. For example, new, help.
+          Communicates helpful information or an important attribute. For example, new or help.
 
           2. **Success**
-          Indicates a constructive or successful state. For example, available, completed, approved, added.
+          Indicates a constructive or successful state. For example, available, completed, approved or added.
 
           3. **Warning**
-          Communicates cautionary or time-sensitive information to the user. For example, busy, missing, warning.
+          Communicates cautionary or time-sensitive information to the user. For example, busy, missing or warning.
 
           4. **Error**
-          Informs the user of problems or errors that require potential action to correct. For example, deleted, cancelled.
+          Informs the user of problems or errors that require potential action to correct. For example, deleted or cancelled.
 
           5. **Neutral**
           Indicates a general, non-critical status update. For example, unavailable or not started.
@@ -182,7 +185,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <Text>Success</Text>
         </Table.Cell>
         <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Complete" type="success"/></Text>
+          <Text size="300">Ads & Campaigns <Badge text="Completed" type="success"/></Text>
         </Table.Cell>
       </Table.Row>
       <Table.Row>
