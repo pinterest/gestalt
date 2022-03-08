@@ -7,11 +7,3 @@ exports[`Badge renders 1`] = `
   Badge
 </div>
 `;
-
-exports[`should render with a wash 1`] = `
-<div
-  className="Badge middle washLight lightWash"
->
-  Badge
-</div>
-`;

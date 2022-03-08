@@ -16,7 +16,8 @@ it('should render with proper styling', () => {
 });
 
 it('should render with a wash', () => {
-  const component = create(<Badge text="Badge" type="lightWash" />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  const instance = create(<Badge text="Badge" type="lightWash" />).root;
+  const { className } = instance.find((element) => element.type === 'div').props;
+
+  expect(className).toContain('lightWash');
 });

@@ -73,7 +73,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use established color patterns so users can quickly scan an identify sentiment. However, the badge text should always clearly indicate the sentiment, so color is not the sole indicator of information."
+            description="Use established color patterns so users can quickly scan and identify sentiment. However, the badge text should always clearly indicate the sentiment, so color is not the sole indicator of information."
             defaultCode={`
             <Table accessibilityLabel="Badge color patterns">
               <Table.Header>
@@ -118,7 +118,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use complex or verbose language. Instead use a single, scannable word. For example, New."
+            description="Use complex or verbose language. Instead use a single, scannable word. For example: 'New'."
             defaultCode={`
             <Text size="300">7 wardrobe trends <Badge text="Fresh off the press"/></Text>
 
@@ -143,19 +143,19 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           Badge is available in five styles. Each \`type\` represents a messaging sentiment.
 
           1. **Info (default)**
-          Communicates helpful information or an important attribute. For example, new or help.
+          Communicates helpful information or an important attribute. For example, New or Help.
 
           2. **Success**
-          Indicates a constructive or successful state. For example, available, completed, approved or added.
+          Indicates a constructive or successful state. For example, Available, Completed, Approved or Added.
 
           3. **Warning**
-          Communicates cautionary or time-sensitive information to the user. For example, busy, missing or warning.
+          Communicates cautionary or time-sensitive information to the user. For example, Busy, Missing or Warning.
 
           4. **Error**
-          Informs the user of problems or errors that require potential action to correct. For example, deleted or cancelled.
+          Informs the user of problems or errors that require potential action to correct. For example, Deleted or Cancelled.
 
           5. **Neutral**
-          Indicates a general, non-critical status update. For example, unavailable or not started.
+          Indicates a general, non-critical status update. For example, Unavailable or Not started.
  `}
         >
           <MainSection.Card
@@ -233,20 +233,19 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
             defaultCode={`
 <Flex gap={4}>
   <Mask height={150} width={280} rounding={2}>
-    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}/>
-    <Box position="absolute" top>
+    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}>
       <Box padding={4}>
         <Badge text="Light wash" type="lightWash"/>
       </Box>
-    </Box>
+    </Image>
+
   </Mask>
   <Mask height={150} width={280} rounding={2}>
-    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/7bQQYkX/stock2.jpg" naturalWidth={1} naturalHeight={1}/>
-    <Box position="absolute" top>
+    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/7bQQYkX/stock2.jpg" naturalWidth={1} naturalHeight={1}>
       <Box padding={4}>
         <Badge text="Dark wash" type="darkWash"/>
       </Box>
-    </Box>
+    </Image>
   </Mask>
 </Flex>
           `}
@@ -294,7 +293,7 @@ function ModuleExample() {
             cardSize="md"
             type="do"
             description={`
-- Use a single word to describe the status of an element. For example, “new” not “new post.”
+- Use a single word to describe the status of an element. For example, “New” not “Nw post.”
 - Where applicable, describe the status in past tense. For example, “archived” not “archive.”
 `}
           />
