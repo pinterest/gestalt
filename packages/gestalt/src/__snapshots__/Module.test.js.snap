@@ -51,7 +51,7 @@ exports[`Module renders a badge correctly 1`] = `
             }
           >
             <div
-              className="Badge middle blueBg"
+              className="Badge middle infoBase"
             >
               Try it out!
             </div>
