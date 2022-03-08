@@ -44,7 +44,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Whenever possible, use the full number with separators to ensure clarity across all languages."
+            description="Whenever possible, use the full number with separators for groups of thousands to ensure clarity across all languages."
             defaultCode={`
 <Datapoint size="lg" title="Total impressions" value="1,451" trend={{value: 10.1, accessibilityLabel: "Trending up"}}  />
 `}
@@ -52,7 +52,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use long decimal values for trend. Limit the trend to one decimal point."
+            description="Use long decimal values for `trend`. Limit the trend to one decimal point."
             defaultCode={`
 <Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
 `}
@@ -89,9 +89,15 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use Status' `subText` to display extraneous messaging."
+            description="Be cautious of using `Datapoint` for large volumes of data. In cases where the content is tabular, use `Table`."
             defaultCode={`
-<Status type="problem" title="Error" subtext="Please try again" />
+<Flex direction="column" gap={4}>
+<Datapoint size="md" title="January spend" value="$14,325"  />
+<Datapoint size="md" title="February spend" value="$12,150"  />
+<Datapoint size="md" title="March spend" value="$23,700"  />
+<Datapoint size="md" title="April spend" value="$9,525"  />
+<Datapoint size="md" title="May spend" value="$10,750"  />
+</Flex>
 `}
           />
         </MainSection.Subsection>
