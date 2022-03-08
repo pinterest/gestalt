@@ -47,7 +47,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Displaying non-critical feedback on the result of an action.
           - Reinforcing success at the surface level.
@@ -56,7 +56,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Providing an update related to anything other than confirmation of a successful action. Consider a [Callout](/callout) instead.
           - Presenting mandatory and/or critical actions to a user.

@@ -21,7 +21,7 @@ export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Presenting users with a list of multiple, related options where users can select all, some, or none of the options. With Checkboxes, users can select more than one option.
           - Presenting users with a single option that can be selected or not.
@@ -30,7 +30,7 @@ export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Situations where users can only choose one out of multiple, related options. Use [RadioButtons](/radiobutton) instead.
           - When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.

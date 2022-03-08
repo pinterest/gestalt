@@ -22,7 +22,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Grouping and organizing content to keep the page clean and digestible.
           - Displaying additional related content about a particular subject.
@@ -32,7 +32,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - In a layout that conveys a clear sense of information hierarchy. Use [SegmentedControl](/segmentedcontrol) instead.
           - When long content can’t be displayed all at once, and scrolling is necessary.

@@ -67,7 +67,7 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - When inputs within a broader form are closely related and would benefit from a shared legend, such as TextFields for a billing address or a group of Checkboxes.
         `}
@@ -75,7 +75,7 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When the fields are unrelated. Use [TextFields](/textfield) and other input components within a \`<form/>\`.
         `}

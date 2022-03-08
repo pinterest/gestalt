@@ -29,7 +29,7 @@ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-ori
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Interrupting users to get confirmation on a user-triggered action.
           - Requesting minimal amounts of information from a user (1-2 fields only).
@@ -39,7 +39,7 @@ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-ori
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Any time a separate, designated URL is desired.
           - Requesting large forms of information. Consider a [Sheet](/sheet) or new page instead.

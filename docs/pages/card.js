@@ -19,7 +19,7 @@ export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Highlighting content in a grid format.
           - Displaying related content in a way that is easy to scan, read, and act upon.
@@ -28,7 +28,7 @@ export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Displaying an unrelated group of information.
         `}

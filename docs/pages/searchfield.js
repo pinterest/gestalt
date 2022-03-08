@@ -56,7 +56,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - To search or filter content within a surface.
         `}
@@ -64,7 +64,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - As a means of inputting content to a form. Use [TextField](/textfield) instead.
           - To act as an auto-complete input. Use [ComboBox](/combobox) instead.

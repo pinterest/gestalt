@@ -57,7 +57,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Displaying promotional information to a user that is not tied to a task or state on the surface.
           - Sharing updates or changes to the features and offerings of the product.
@@ -66,7 +66,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Anything related to state or status within the surface. Consider a [Callout](/callout) instead.
           - Promoting or highlighting specific elements / areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.

@@ -23,7 +23,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - To display a single numerical metric.
         `}
@@ -31,7 +31,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When the information to convey is qualitative (e.g., “In Progress” or “Healthy”). Use [Status](/status) instead.
           - When the Datapoint’s metric/value is not clear or understandable in isolation.

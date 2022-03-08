@@ -85,7 +85,7 @@ export default function DropdownPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Displaying a list of actions, options, or links. Usually displays 3 or more options.
           - Allowing complex functionality that a [SelectList](/selectlist) can't accomplish.
@@ -95,7 +95,7 @@ export default function DropdownPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/radiobutton) or [Checkboxes](/checkbox) instead.
           - When it is desirable to filter a long list of options. Use [ComboBox](/combobox) instead.

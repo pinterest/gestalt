@@ -241,7 +241,7 @@ function SectionsIconButtonDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
 - Interface space is limited. Prioritize using a [Button](/button) if space is available.
 - Triggering a [Modal](/modal) to complete a related task.
@@ -252,7 +252,7 @@ function SectionsIconButtonDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
 - Displaying icons that don't have actions associated with them. Use an [Icon](/icon) instead.
 - Displaying multiple IconButtons on a surface that uses the same icon for different actions.

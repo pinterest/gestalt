@@ -40,7 +40,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - To break up a large collection of content into logical, digestible views.
           - To switch between different, yet related views, such as Updates and Messages.
@@ -49,7 +49,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When any UI or content above the Tabs is altered upon selection. Use [Link](/link) instead.
           - To break up content that is not related to each other or is not on the same hierarchical level.

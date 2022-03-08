@@ -24,7 +24,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Labeling and bringing awareness to a specific element or feature (e.g., something is new or required).
         `}
@@ -32,7 +32,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Providing feedback at the element level (e.g., displaying error messages). Use inline text instead.
           - Requiring interaction from users since Badges are always static and non-interactive.

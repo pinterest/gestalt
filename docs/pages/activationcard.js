@@ -23,7 +23,7 @@ export default function ActivationCardPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Use in groups to describe the user's stage in a sequential path toward an overall action.
         `}
@@ -31,7 +31,7 @@ export default function ActivationCardPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - As a single element communicating updates to the state or status of the surface. Use [Callout](/callout) instead.
         `}

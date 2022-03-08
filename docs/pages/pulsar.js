@@ -42,7 +42,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Calling attention to a specific element within a surface. Note: a Pulsar should be used in conjunction with a [Popover](/popover).
         `}
@@ -50,7 +50,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - In the case of a user error or warning that needs attention. Use [Callout](/callout) or form errors states instead.
           - When the focus of the attention is at the surface level. Use [Callout](/callout) instead.

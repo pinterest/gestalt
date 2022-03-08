@@ -63,7 +63,7 @@ function ComboBoxExample(props) {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Presenting users with a long list of options (typically 10 or more) that can be filtered by typing in the text field.
         `}
@@ -71,7 +71,7 @@ function ComboBoxExample(props) {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - For shorter lists of items where filtering is not needed, typically under 10 items.
         `}
