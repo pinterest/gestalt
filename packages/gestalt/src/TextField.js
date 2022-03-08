@@ -92,6 +92,10 @@ type Props = {|
 
 /**
  * [TextField](https://gestalt.pinterest.systems/textfield) allows for multiple types of text input.
+ *
+ * ![TextField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/TextField%20%230.png)
+ * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/TextField-dark%20%230.png)
+ *
  */
 const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
