@@ -1,3 +1,9 @@
+## 45.9.2 (Mar 8, 2022)
+
+### Patch
+
+- Docs: Added design guidelines to Datapoint docs (#1974)
+
 ## 45.9.1 (Mar 8, 2022)
 
 ### Patch
