@@ -37,6 +37,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
     pages: [
       'Accessibility',
       'Design tokens',
+      'Elevation',
       'Iconography and SVGs',
       'Layouts',
       'Screen sizes',
