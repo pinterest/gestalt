@@ -1,3 +1,9 @@
+## 45.10.5 (Mar 9, 2022)
+
+### Patch
+
+- Development: updated info re updating Cypress visual diff snapshots tests (#1978)
+
 ## 45.10.4 (Mar 9, 2022)
 
 ### Patch
