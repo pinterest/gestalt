@@ -27,7 +27,7 @@ const tasks = [
   {
     'task': 'Badge component improvements',
     'deadline': 'Quarter 1',
-    'status': 'inProgress',
+    'status': 'ok',
     'platform': 'Web',
     'description': 'Expanding on Badge to include additional colors and states.',
     'link': '',
@@ -272,7 +272,7 @@ const tasks = [
   {
     'task': 'Datapoint component design guidelines',
     'deadline': 'Quarter 1',
-    'status': 'inProgress',
+    'status': 'ok',
     'platform': 'Web',
     'description':
       'Addition of best practices, accessibility, localization and related components to Datapoint web documentation.',
@@ -290,7 +290,7 @@ const tasks = [
   {
     'task': 'Badge component design guidelines',
     'deadline': 'Quarter 1',
-    'status': 'inProgress',
+    'status': 'ok',
     'platform': 'Web',
     'description':
       'Addition of best practices, accessibility, localization and related components to Badge web documentation.',
