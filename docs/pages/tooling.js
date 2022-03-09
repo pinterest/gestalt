@@ -155,7 +155,6 @@ To learn more about developing generic codemods, read this [page](https://github
       </MainSection>
       <MainSection name="Visual Studio Code tooling">
         <MainSection.Subsection
-          badge="alpha"
           title="Props documentation on hover in Visual Studio Code"
           description="You can now see component and props documentation on hover in VSCode for certain Gestalt components. Quickly see what a component looks like, its sizes and other props documentation."
         >
@@ -181,6 +180,7 @@ To learn more about developing generic codemods, read this [page](https://github
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
+          badge="alpha"
           title="Visual Studio Code extension for Gestalt"
           description="Access Gestalt component snippets and documentation right on your VSCode editor. Right at your fingertips!"
         >

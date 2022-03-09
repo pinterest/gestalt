@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { ColorSchemeProvider, Flex, Tag } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="light">
       <Flex direction="column" gap={2}>

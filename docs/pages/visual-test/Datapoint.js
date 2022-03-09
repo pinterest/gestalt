@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Datapoint, Box } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Snapshot(): Node {
   return (
     <Box color="white" display="inlineBlock" padding={1}>
       <Datapoint

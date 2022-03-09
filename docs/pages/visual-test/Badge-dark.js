@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Badge, Box, ColorSchemeProvider } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box display="inlineBlock" padding={1}>

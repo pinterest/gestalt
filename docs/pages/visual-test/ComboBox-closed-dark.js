@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { ComboBox, Box, ColorSchemeProvider } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="white" padding={1} width={400}>

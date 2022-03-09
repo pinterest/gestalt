@@ -2,7 +2,7 @@
 import { useState, useRef, type Node } from 'react';
 import { IconButton, Dropdown, Box, ColorSchemeProvider, Flex } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Snapshot(): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
   return (
