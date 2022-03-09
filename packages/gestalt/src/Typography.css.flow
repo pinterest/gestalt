@@ -26,6 +26,7 @@ declare module.exports: {|
   +'noUnderline': string,
   +'noWrap': string,
   +'sansSerif': string,
+  +'shoppingText': string,
   +'subtleText': string,
   +'successText': string,
   +'truncate': string,

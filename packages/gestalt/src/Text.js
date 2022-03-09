@@ -59,6 +59,7 @@ type Props = {|
     | 'success'
     | 'error'
     | 'warning'
+    | 'shopping'
     | 'inverse',
   /**
    * Link: https://gestalt.pinterest.systems/text#inline
@@ -112,7 +113,15 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  const semanticColors = ['default', 'subtle', 'success', 'error', 'warning', 'inverse'];
+  const semanticColors = [
+    'default',
+    'subtle',
+    'success',
+    'error',
+    'warning',
+    'inverse',
+    'shopping',
+  ];
   const colorClass = semanticColors.includes(color) ? typography[`${color}Text`] : colors[color];
   const cs = cx(
     styles.Text,
