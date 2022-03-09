@@ -96,7 +96,7 @@ We also offer documentation on this site ([go/GestaltWeb](https://gestalt.pinter
         />
       </MainSection>
 
-      <MainSection name="Resources, Slack, and Meetings — oh my!">
+      <MainSection name="Resources, Slack, and meetings — oh my!">
         <MainSection.Subsection
           title="Dashboards, Jira, and OKRs"
           description={`

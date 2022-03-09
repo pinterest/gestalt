@@ -45,7 +45,7 @@ export default function ContainerPage(): Node {
           </ul>
         </Flex>
       </Card>
-      <Card name="Set up your Gestalt Repository">
+      <Card name="Set up your Gestalt repository">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>
             <li>
@@ -124,7 +124,7 @@ git remote -v
           </ul>
         </Flex>
       </Card>
-      <Card name="Set up VS Code">
+      <Card name="Set up Visual Studio Code">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>
             <li>
@@ -160,7 +160,7 @@ git remote -v
           </ul>
         </Flex>
       </Card>
-      <Card name="Run the Gestalt Documentation Server">
+      <Card name="Run the Gestalt documentation server">
         <Flex alignItems="start" direction="column" gap={4}>
           <Text>
             Whenever you make changes to Gestalt, please test them out locally before making a PR.
@@ -176,7 +176,7 @@ git remote -v
           </Text>
         </Flex>
       </Card>
-      <Card name="Create a Pull Request">
+      <Card name="Create a pull request">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>
             <li>

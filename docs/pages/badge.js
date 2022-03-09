@@ -62,7 +62,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
               <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}/>
               <Box position="absolute" top>
                 <Box padding={4}>
-                  <Badge text="Light wash" type="info"/>
+                  <Badge text="Active" type="success"/>
                 </Box>
               </Box>
             </Mask>
