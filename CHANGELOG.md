@@ -1,3 +1,9 @@
+## 45.10.0 (Mar 9, 2022)
+
+### Minor
+
+- Badge: Add new 'type' variations and Best practices, A11Y, Related documentation (#1971)
+
 ## 45.9.2 (Mar 8, 2022)
 
 ### Patch
