@@ -21,7 +21,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Situations where users can only choose one out of multiple, related options.
         `}
@@ -29,7 +29,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Any time users can choose more than one option. Use [Checkboxes](/checkbox) instead.
           - As a solitary option. RadioButtons should always appear in groups of 2 or more. Consider a [Checkbox](/checkbox) or [Switch](/switch) instead.

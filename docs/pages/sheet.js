@@ -107,7 +107,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Performing an optional sub-task within a larger task.
           - Quick bulk edits on info from a Table.
@@ -117,7 +117,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Getting user confirmation on an action. Use a [Modal](/modal) instead.
           - Displaying system errors or notices. Consider a [Callout](/callout) instead.

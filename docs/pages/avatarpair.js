@@ -35,7 +35,7 @@ export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - To represent a group of people, companies and/or brands in a square format.
           - In cases where the space to represent user(s) can either be a single person/company or a group of people/companies.
@@ -44,7 +44,7 @@ export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - In cases where a square format is not required. Use [AvatarGroup](/avatargroup) instead.
         `}

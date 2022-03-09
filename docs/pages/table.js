@@ -88,7 +88,7 @@ export default function TablePage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Displaying a set of structured data in a scannable way, that populates 2 or more rows.
           - Allowing users to compare information in rows and columns.
@@ -97,7 +97,7 @@ export default function TablePage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - There will never be enough data to populate at least 2 rows.
           - Displaying content that doesn’t follow a consistent pattern and can't be broken down into columns.

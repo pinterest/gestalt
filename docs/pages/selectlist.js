@@ -37,7 +37,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - When presenting users with a list of options that utilizes the native select functionality of the browser or device.
           - When presenting users with a list of options to choose from, like display settings.
@@ -46,7 +46,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When more than 10 options are presented and the ability to filter the list would be beneficial. Use [ComboBox](/comboBox) instead.
           - When extra functionality, like groups, subtext or badges, is needed. Use [Dropdown](/dropdown) instead.

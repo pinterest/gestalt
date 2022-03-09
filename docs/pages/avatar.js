@@ -49,7 +49,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - To reflect a person, company or brand within the product.
         `}
@@ -57,7 +57,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - To represent a group of people, companies and/or brands. Use [AvatarGroup](/avatargroup) instead.
         `}

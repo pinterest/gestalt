@@ -114,6 +114,14 @@
   background-color: var(--color-background-education);
 }
 
+.washDark {
+  background-color: var(--color-background-wash-dark);
+}
+
+.washLight {
+  background-color: var(--color-background-wash-light);
+}
+
 .elevationAccent {
   background-color: var(--color-background-elevation-accent);
 }

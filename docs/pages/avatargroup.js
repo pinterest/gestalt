@@ -41,7 +41,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
             - For the general display of groups of people, companies and/or brands.
             - In cases where an affordance for adding collaborators is needed.
@@ -50,7 +50,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
             - Displaying a group of people, companies and/or brands in a square format. Use [AvatarPair](/avatarpair) instead.
           `}

@@ -40,7 +40,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Any time succinct data needs to be entered by a user, like a date, email address, name, or Pin title.
         `}
@@ -48,7 +48,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](/textarea) instead.`}
           />

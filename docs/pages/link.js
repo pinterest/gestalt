@@ -16,7 +16,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - For navigation within or directly accompanying a sentence.
           - Directing users to another page or a different portion of the same page.
@@ -25,7 +25,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Performing actions, such as "Save", "Cancel" or "Delete". Use [Button](/button) instead.
           - Submitting a form or opening a modal. Use Button instead.

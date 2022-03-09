@@ -40,7 +40,7 @@ function SpinnerExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - When loading or updating content on a surface.
         `}
@@ -48,7 +48,7 @@ function SpinnerExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - To communicate that a UI element, such as a button, is performing an action that takes a perceptible amount of time. Contact us if this is needed.
         `}

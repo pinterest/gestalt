@@ -38,7 +38,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Any time succinct numerical data needs to be entered by a user.
         `}
@@ -46,7 +46,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When accepting telephone numbers. Use [TextField](/textfield) with \`type="tel"\` instead.
           - Situations where text needs to be entered. Use [TextField](/textfield) or [TextArea](/textarea) instead.`}

@@ -155,7 +155,7 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
                     }
                   >
                     <div
-                      className="Badge middle blueBg"
+                      className="Badge middle infoBase"
                     >
                       Try it out!
                     </div>
