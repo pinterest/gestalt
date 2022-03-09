@@ -241,9 +241,9 @@ const throwErrorIfSpreadProps = ({
 };
 
 /**
- * throwErrorMessage: Throws an error message
+ * throwErrorMessageWithNodesData: Throws an error message if collection isn't empty
  */
-const throwErrorMessage = ({
+const throwErrorMessageWithNodesData = ({
   fileInfo,
   jSXCollection,
 }: {
@@ -278,5 +278,5 @@ export {
   isNullOrUndefined,
   saveToSource,
   throwErrorIfSpreadProps,
-  throwErrorMessage,
+  throwErrorMessageWithNodesData,
 };

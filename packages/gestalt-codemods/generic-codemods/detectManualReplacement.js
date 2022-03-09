@@ -12,7 +12,7 @@
  *
  *
  * TO RUN THIS CODEMOD
- * yarn codemod throwErrorMessage ~/path/to/your/code
+ * yarn codemod detectManualReplacement ~/path/to/your/code
  * --component=string
  * --subcomponent=string
  * --prop=string
@@ -26,7 +26,7 @@
  * In the absence of previousProp+previousValue, the codemod adds a new prop with value
  *
  *
- * E.g. yarn codemod throwErrorMessage ~/code/pinboard/webapp --component=Box --prop=color value=error
+ * E.g. yarn codemod detectManualReplacement ~/code/pinboard/webapp --component=Box --prop=color value=error
  *
  */
 
@@ -39,7 +39,7 @@ import {
   initialize,
   isNullOrUndefined,
   saveToSource,
-  throwErrorMessage,
+  throwErrorMessageWithNodesData,
   throwErrorIfSpreadProps,
 } from './utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
@@ -80,7 +80,7 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
   });
 
   if (isNullOrUndefined(prop) && isNullOrUndefined(value)) {
-    throwErrorMessage({ fileInfo, jSXCollection: matchedJSXCollection });
+    throwErrorMessageWithNodesData({ fileInfo, jSXCollection: matchedJSXCollection });
   }
 
   throwErrorIfSpreadProps({ fileInfo, j, jSXCollection: matchedJSXCollection });
@@ -93,7 +93,10 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
       value,
     });
 
-    throwErrorMessage({ fileInfo, jSXCollection: jSXWithMatchingAttributesCollection });
+    throwErrorMessageWithNodesData({
+      fileInfo,
+      jSXCollection: jSXWithMatchingAttributesCollection,
+    });
   }
 
   return saveToSource({ src });
