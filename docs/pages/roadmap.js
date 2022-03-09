@@ -34,7 +34,7 @@ const tasks = [
   },
   {
     'task': 'PageHeader component',
-    'deadline': 'Quarter 2',
+    'deadline': 'Quarter 1',
     'status': 'inProgress',
     'platform': 'Web',
     'description':
@@ -227,7 +227,7 @@ const tasks = [
   },
   {
     'task': 'Gestalt docs IA update',
-    'deadline': 'Quarter 1',
+    'deadline': '',
     'status': 'inProgress',
     'platform': '',
     'description':
