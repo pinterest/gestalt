@@ -135,7 +135,8 @@
         "testPathIgnorePatterns": [
           "/node_modules/",
           "<rootDir>/scripts/templates/",
-          "jsdom.test.js"
+          "jsdom.test.js",
+          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.js"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"
