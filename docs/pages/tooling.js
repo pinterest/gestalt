@@ -146,7 +146,6 @@ Custom codemods can be found in this [directory](https://github.com/pinterest/ge
       </MainSection>
       <MainSection name="Visual Studio Code tooling">
         <MainSection.Subsection
-          badge="alpha"
           title="Props documentation on hover in Visual Studio Code"
           description="You can now see component and props documentation on hover in VSCode for certain Gestalt components. Quickly see what a component looks like, its sizes and other props documentation."
         >

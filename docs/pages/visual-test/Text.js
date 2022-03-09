@@ -2,7 +2,7 @@
 import { type Node, Fragment } from 'react';
 import { Box, Text } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Snapshot(): Node {
   return (
     <Fragment>
       <Box padding={1}>
