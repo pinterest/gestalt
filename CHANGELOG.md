@@ -1,3 +1,9 @@
+## 45.10.1 (Mar 9, 2022)
+
+### Patch
+
+- Datapoint: docs nits (#1976)
+
 ## 45.10.0 (Mar 9, 2022)
 
 ### Minor
