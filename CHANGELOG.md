@@ -1,3 +1,9 @@
+## 45.10.4 (Mar 9, 2022)
+
+### Patch
+
+- Tooling: new `modifyPropValue` & `detectManualReplacement` codemods (#1969)
+
 ## 45.10.3 (Mar 9, 2022)
 
 ### Patch
