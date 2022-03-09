@@ -1,3 +1,9 @@
+## 45.10.2 (Mar 9, 2022)
+
+### Patch
+
+- Link, Module, NumberField, RadioButton, SearchField, SelectList, Status, Switch , TextArea, TextField: add visual diff testing and screenshot to description in VSCode (Flow extension) (#1972)
+
 ## 45.10.1 (Mar 9, 2022)
 
 ### Patch
