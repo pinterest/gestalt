@@ -8,7 +8,7 @@ import PageHeader from '../components/PageHeader.js';
 const tasks = [
   {
     'task': 'InfoButton component',
-    'deadline': 'Quarter 1',
+    'deadline': '',
     'status': 'unstarted',
     'platform': 'Web',
     'description':
