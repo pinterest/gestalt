@@ -10,12 +10,12 @@ export default function ColorUsagePage(): Node {
     <Page title="Elevation">
       <PageHeader
         name="Elevation"
-        description="The elevation allows elements to be lifted from the background and can be defined by applying drop shadows, or other visual cues, such as color, and borders."
+        description="The elevation allows elements to be lifted from the background and can be defined by applying drop shadows or other visual cues, such as color and borders."
         showSourceLink={false}
       />
       <MainSection
         name="Elevation using shadows"
-        description="Reflects a spatial relationship, indicating separation from the background, or allowing content to be scrolled under a bar. The elevation using shadows includes two levels: Floating and Raised."
+        description="SHadows reflect a spatial relationship by indicating separation from the background or allowing content to be scrolled under another element. Elevation using shadows includes two levels: floating and raised."
       >
         <MainSection.Subsection
           title="Floating"
@@ -49,7 +49,7 @@ export default function ColorUsagePage(): Node {
               type="don't"
               title="When not to use"
               description={`
-              - Content that doesn't need elevation or have its own setup(e.g. Pins, boards)
+              - Content that doesn't need elevation or have its own setup (e.g. Pins, boards)
               `}
             />
           </MainSection.Subsection>
