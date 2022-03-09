@@ -15,7 +15,7 @@ export default function ColorUsagePage(): Node {
       />
       <MainSection
         name="Elevation using shadows"
-        description="SHadows reflect a spatial relationship by indicating separation from the background or allowing content to be scrolled under another element. Elevation using shadows includes two levels: floating and raised."
+        description="Shadows reflect a spatial relationship by indicating separation from the background or allowing content to be scrolled under another element. Elevation using shadows includes two levels: floating and raised."
       >
         <MainSection.Subsection
           title="Floating"
@@ -58,7 +58,7 @@ export default function ColorUsagePage(): Node {
           title="Raised"
           description="Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. "
         >
-          <MainSection.Subsection columns={2}>
+          <Flex gap={4} wrap>
             <Flex gap={4} direction="column">
               <Text weight="bold">Raised-top</Text>
               <Box
@@ -85,7 +85,7 @@ export default function ColorUsagePage(): Node {
               <Text>$elevation-raised-bottom</Text>
               <Text> 12% (#000000) opacity / Y: 2 / Blur: 8</Text>
             </Flex>
-          </MainSection.Subsection>
+          </Flex>
           <MainSection.Subsection columns={2}>
             <MainSection.Card
               cardSize="md"
