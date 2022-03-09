@@ -247,7 +247,7 @@ yarn cypress open
                   <Text>
                     Run{' '}
                     <Link href="https://github.com/meinaart/cypress-plugin-snapshots" inline>
-                      <Text weight="bold">Cypress snapshot tests</Text>
+                      <Text weight="bold">Cypress visual diff snapshot tests</Text>
                     </Link>
                     . If any component changes are expected to visually modify your component, you
                     must update the snapshot tests. In order to run the tests, you must start the
@@ -257,16 +257,18 @@ yarn cypress open
                   <Markdown
                     text="
 ~~~bash
+// Terminal tab #1
 yarn start
 ~~~"
                   />
                   <Markdown
                     text="
 ~~~bash
+// Terminal tab #2
 yarn cypress open
 ~~~"
                   />
-                  <Flex direction="column">
+                  <Flex wrap justifyContent="center">
                     <Box as="figure" width={400}>
                       <Image
                         alt=""
@@ -277,9 +279,9 @@ yarn cypress open
                       />
                       <Text size="100" align="center">
                         <Box as="figcaption" marginTop={3}>
-                          {`Each failing snapshot test with display an error message. Click on
-                          "Compare Snapshot". It will open a separate interface displaying the
-                          expected and the received snapshots side by side for your comparison.`}
+                          Each failing snapshot test will display an error message. Click on
+                          &quot;Compare Snapshot&quot;. It will open a separate interface displaying
+                          the expected and the received snapshots side by side for your comparison.
                         </Box>
                       </Text>
                     </Box>
@@ -293,8 +295,9 @@ yarn cypress open
                       />
                       <Text size="100" align="center">
                         <Box as="figcaption" marginTop={3}>
-                          {`On this new interface displaying the expected and the received snapshots,
-                          click on the "Update snapshot" button to reconcile the changes.`}
+                          On this new interface displaying the expected and the received snapshots,
+                          click on the &quot;Update snapshot&quot; button to reconcile the changes.
+                          Only update if the changes are expected, otherwise revisit the code.
                         </Box>
                       </Text>
                     </Box>

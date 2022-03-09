@@ -171,6 +171,7 @@ Custom codemods can be found in this [directory](https://github.com/pinterest/ge
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
+          badge="alpha"
           title="Visual Studio Code extension for Gestalt"
           description="Access Gestalt component snippets and documentation right on your VSCode editor. Right at your fingertips!"
         >
