@@ -1,3 +1,9 @@
+## 45.10.3 (Mar 9, 2022)
+
+### Patch
+
+- Docs: Sentence casing updates (#1977)
+
 ## 45.10.2 (Mar 9, 2022)
 
 ### Patch
