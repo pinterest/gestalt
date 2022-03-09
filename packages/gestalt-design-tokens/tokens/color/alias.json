@@ -32,11 +32,11 @@
         "comment": "Text color to use on inverted backgrounds"
       },
       "dark": {
-        "value": "{color.text.default.value}",
+        "value": "{color.black.cosmicore.900.value}",
         "comment": "Dark text color that won't change in dark mode"
       },
       "light": {
-        "value": "{color.text.inverse.value}",
+        "value": "{color.white.mochimalist.0.value}",
         "comment": "Light text color that won't change in dark mode"
       },
       "icon": {
