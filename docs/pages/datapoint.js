@@ -8,16 +8,24 @@ import Page from '../components/Page.js';
 
 export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Datapoint">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Datapoint"
+        name={generatedDocGen?.displayName}
+        badge="pilot"
         description={generatedDocGen?.description}
         defaultCode={`
-<Datapoint size="lg" tooltipText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="2.34M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
+<Datapoint
+  size="lg"
+  title="Total impressions"
+  tooltipText="The number of times your ads were seen, including earned impressions"
+  trend={{value: 30, accessibilityLabel: "Trending up"}}
+  value="2.34M"
+/>
 `}
-        badge="pilot"
       />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -39,12 +47,13 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Whenever possible, use the full number with separators for groups of thousands to ensure clarity across all languages."
+            description="Whenever possible, use the full number with locale-specific separators to ensure clarity across all languages."
             defaultCode={`
 <Datapoint size="lg" title="Total impressions" value="1,451" trend={{value: 10.1, accessibilityLabel: "Trending up"}}  />
 `}
@@ -57,11 +66,9 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 <Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
 `}
           />
-          {/*
-            The example below should also display a localized trend value, but given trend accepts only a number,
-            the value cannot be localized. Once the API is changed, we should add a localized trend to this example.
-            */}
           <MainSection.Card
+            // This example should also display a localized trend value, but given trend accepts only a number,
+            // the value cannot be localized. Once the API is changed, we should add a localized trend to this example.
             cardSize="md"
             type="do"
             description="Make sure to localize numeric values."
@@ -72,7 +79,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use subjective values for Datapoint’s value."
+            description="Use subjective values for Datapoint's value."
             defaultCode={`
 <Datapoint size="lg" title="Performance" value="Bad" />
 
@@ -104,26 +111,33 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection
         name="Accessibility"
-        description={`Datapoint’s trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up). `}
+        description={`Datapoint's trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up). `}
       />
+
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`title\`, \`value\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+        description={`
+        Be sure to localize the \`title\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.
+
+        Of particular importance is the need to localize the \`value\` prop. Similar to text, numerical data needs to be localized with regard to characters displayed, separators used, currency, percentages, and other considerations.
+        `}
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection columns={2} title="Size">
           <MainSection.Card
             cardSize="md"
-            title="size=md"
+            title="Medium"
             defaultCode={`
         <Datapoint size="md" title="Spend" value="$1.23M" />
 `}
           />
           <MainSection.Card
             cardSize="md"
-            title="size=lg"
+            title="Large"
             defaultCode={`
         <Datapoint size="lg" title="Spend" value="$1.23M" />
 `}
@@ -173,15 +187,16 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
     `}
           />
         </MainSection.Subsection>
-      </MainSection>{' '}
+      </MainSection>
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
 **[Table](/table)**
-When displaying a large volume of data values and trends (for instance, 10 or more), it’s recommended to display those values in tabular format.
+Use Table when displaying a large volume of data values and trends (for instance, 10 or more).
 
 **[Status](/status)**
-Status is recommended in instances where information is more categorical or qualitative (such as health or phase).
+Use Status in instances where information is more categorical or qualitative (such as health or phase).
       `}
         />
       </MainSection>
