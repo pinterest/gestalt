@@ -527,21 +527,39 @@ const tasks = [
     'link': '',
   },
   {
-    'task': 'Generalized prop naming autofix',
+    'task': 'Generalized component name codemod',
     'deadline': '',
     'status': 'ok',
     'platform': 'Web',
     'description':
-      'Develop a lint rule to automatically rename props of Gestalt component instances.',
+      'Develop a generic codemod to automatically rename components of Gestalt component instances.',
     'link': '',
   },
   {
-    'task': 'Generalized prop value change autofix',
+    'task': 'Generalized prop naming codemod',
     'deadline': '',
     'status': 'ok',
     'platform': 'Web',
     'description':
-      'Develop a lint rule to automatically change prop values of Gestalt component instances.',
+      'Develop a generic codemod to automatically change prop names of Gestalt component instances.',
+    'link': '',
+  },
+  {
+    'task': 'Generalized prop value change codemod',
+    'deadline': '',
+    'status': 'ok',
+    'platform': 'Web',
+    'description':
+      'Develop a generic codemod to automatically change prop values of Gestalt component instances.',
+    'link': '',
+  },
+  {
+    'task': 'Generalized prop value detection codemod',
+    'deadline': '',
+    'status': 'ok',
+    'platform': 'Web',
+    'description':
+      'Develop a generic codemod to automatically detect specific Gestalt component instances for manual modification.',
     'link': '',
   },
   {
