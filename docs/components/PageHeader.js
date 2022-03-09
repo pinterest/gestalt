@@ -12,6 +12,7 @@ type Props = {|
   fileName?: string, // only use if name !== file name
   folderName?: string, // only use if name !== file name and the link should point to a directory
   name: string,
+  noMargin?: boolean, // overrides spacing
   shadedCodeExample?: boolean,
   showSourceLink?: boolean,
 |};
@@ -29,6 +30,7 @@ const buildSourceLinkUrl = (componentName) =>
 export default function PageHeader({
   badge,
   defaultCode,
+  noMargin,
   description = '',
   fileName,
   folderName,
@@ -45,7 +47,7 @@ export default function PageHeader({
 
   return (
     <Box
-      marginBottom={defaultCode ? 0 : 12}
+      marginBottom={defaultCode || noMargin ? 0 : 12}
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',

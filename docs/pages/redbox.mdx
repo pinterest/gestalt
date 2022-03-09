@@ -1,0 +1,35 @@
+import MarkdownPage from '../components/MarkdownPage';
+import GeneratedPropTable from '../components/GeneratedPropTable'
+import metadata from '../components/metadata'
+import {Box, Text} from 'gestalt';
+import MainSection from '../components/MainSection.js';
+
+export const meta = {
+  title: 'Redbox',
+  description: 'You can use a redbox when you need a beautiful redbox. Draws attention from users and used by the Avengers in Infinity war',
+  badge:'pilot'
+
+};
+
+export default ({ children, generatedDocGen }) => (
+  <MarkdownPage meta={meta}>{children}</MarkdownPage>
+);
+
+<MainSection.Card cardSize="lg" showCode={false}>
+  <Box
+    column={6}
+    height={30}
+    width={30}
+    color="red"
+    display="inlineBlock"
+    borderStyle="sm"
+  ></Box>
+</MainSection.Card>
+
+## Props
+
+<GeneratedPropTable generatedDocGen={metadata['Avatar']} />
+
+## When to Use?
+
+Rating is a number picker that makes for selecting a number in a given range. You can use in banners, popups and emails.

@@ -12,6 +12,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.0.0",
+    "@next/mdx": "^12.1.0",
     "date-fns": "^2.16.1",
     "gestalt": ">0.0.0",
     "gestalt-datepicker": ">0.0.0",
@@ -26,7 +28,11 @@
     "react-dom": "^17.0.1",
     "react-live": "^2.3.0"
   },
-  "browserslist": ["last 2 versions", "not IE < 11", "not <1%"],
+  "browserslist": [
+    "last 2 versions",
+    "not IE < 11",
+    "not <1%"
+  ],
   "devDependencies": {
     "nodemon": "^2.0.15"
   }

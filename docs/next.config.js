@@ -8,8 +8,13 @@ const path = require('path');
 
 const root /*: string */ = path.join(__dirname, '../');
 
-module.exports = {
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
+
+module.exports = withMDX({
   reactStrictMode: true,
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   serverRuntimeConfig: {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
@@ -24,4 +29,4 @@ module.exports = {
       poll: dev ? 500 : false,
     },
   }),
-};
+});
