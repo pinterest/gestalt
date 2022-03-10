@@ -120,7 +120,9 @@ function CompletedCard({ dismissButton, message, status, statusMessage, title }:
         )}
         <Box>
           <Box>
-            <Heading size="400">{title}</Heading>
+            <Text size="400" weight="bold">
+              {title}
+            </Text>
           </Box>
           {message && (
             <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
