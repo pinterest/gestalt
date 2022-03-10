@@ -1,21 +1,48 @@
 import MarkdownPage from '../components/MarkdownPage';
-import GeneratedPropTable from '../components/GeneratedPropTable'
-import metadata from '../components/metadata'
-import {Box, Text} from 'gestalt';
+import GeneratedPropTable from '../components/GeneratedPropTable';
+import metadata from '../components/metadata';
+import { Box, Text } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 
 export const meta = {
   title: 'Redbox',
-  description: 'You can use a redbox when you need a beautiful redbox. Draws attention from users and used by the Avengers in Infinity war',
-  badge:'pilot'
-
+  description:
+    "You can use a redbox when you need a beautiful box that's red. Draws attention from users, and bulls. Look closer and you might find a DVD.",
+  badge: 'pilot',
 };
 
 export default ({ children, generatedDocGen }) => (
   <MarkdownPage meta={meta}>{children}</MarkdownPage>
 );
 
-<MainSection.Card cardSize="lg" showCode={false}>
+<Code cardSize="lg" showCode={false}>
+  {`<Box
+    column={6}
+    height={30}
+    width={30}
+    color="red"
+    display="inlineBlock"
+    borderStyle="sm"
+  ></Box>`}
+</Code>
+
+## Props
+
+<GeneratedPropTable generatedDocGen={metadata['Avatar']} />
+
+## Usage Guidelines
+
+<Do type="When to Use" />
+- DO 
+- Don't 
+- Dont
+
+<Dont type="When not to Use" />
+- DO 
+- Don't 
+- Dont
+
+<Card cardSize="md" showCode={false} type="do">
   <Box
     column={6}
     height={30}
@@ -24,12 +51,19 @@ export default ({ children, generatedDocGen }) => (
     display="inlineBlock"
     borderStyle="sm"
   ></Box>
-</MainSection.Card>
+</Card>
 
-## Props
+## Accessibility
 
-<GeneratedPropTable generatedDocGen={metadata['Avatar']} />
+### ARIA attributes
 
-## When to Use?
+When Button text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using `accessibilityLabel`.
+Texts like “Click here“, “Follow“, or “Shop“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the Button text, like “Follow Ryan” or “Shop Wedding Invitations”.
 
-Rating is a number picker that makes for selecting a number in a given range. You can use in banners, popups and emails.
+If Button is used as a control Button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+
+- `accessibilityLabel`: if present, read by screen readers read instead of the `text` prop.
+- `accessibilityControls`: informs the screen reader that Button controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- `accessibilityHaspopup`: informs the screen reader that there’s a Popover-based component attached to Button. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- `accessibilityExpanded`: informs the screen reader whether the button-anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+  `

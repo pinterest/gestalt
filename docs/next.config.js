@@ -10,11 +10,18 @@ const root /*: string */ = path.join(__dirname, '../');
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    providerImportSource: '@mdx-js/react',
+  },
 });
 
 module.exports = withMDX({
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+
   serverRuntimeConfig: {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
