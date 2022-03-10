@@ -1,0 +1,51 @@
+import MarkdownPage from '../components/MarkdownPage';
+import GeneratedPropTable from '../components/GeneratedPropTable';
+import metadata from '../components/metadata';
+import { Box, Text } from 'gestalt';
+import MainSection from '../components/MainSection.js';
+
+export const meta = {
+  title: 'Markdown Demo',
+  description:
+    'This is a page that uses markdown. You can make it do more by just adding some code',
+  badge: 'pilot',
+};
+
+export default ({ children, generatedDocGen }) => (
+  <MarkdownPage meta={meta}>{children}</MarkdownPage>
+);
+
+**Advertisement :)**
+
+- **[pica](https://nodeca.github.io/pica/demo/)** - high quality and fast image
+  resize in browser.
+- **[babelfish](https://github.com/nodeca/babelfish/)** - developer friendly
+  i18n with plurals support and easy syntax.
+
+You will like those projects!
+
+## What goes into gestalt?
+
+The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
+
+### Requesting a new component or changes
+
+**Please note:** The process below applies to Pinterest employees.
+We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
+1. **Present work early in our [partnership meetings](#Meetings-and-events)**
+    What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! Seeing early mocks, wireframes, or even product roadmaps and learning where your project may be going helps inform our team OKRs. The earlier we see the work, the better we're able to plan and the higher the likelihood we'll be able to help. Please [sign up](https://pinch.pinadmin.com/gestaltSignUp) for an Office Hours slot with your discussion topic.
+2. **Iterate on solutions**
+We love to see more iteration from the product designer asking for the component if they have the time, ensuring all edge cases have been considered. If not, the component will follow our prioritization process.
+3. **Prioritization by the Gestalt team**
+  If our team takes on the work, we will add it to our [backlog](https://pinch.pinadmin.com/gestaltBacklog) and prioritize it appropriately. Typically the determining factor for taking on work is capacity: if your designers or engineers have the capacity, we’d love for them to [contribute to Gestalt](#How-can-you-contribute-to-gestalt-as-an-engineer) with our support. Otherwise, the Gestalt designers and engineers will prioritize the work against our current workload based on the following criteria.
+  Some questions we ask ourselves when prioritizing:
+    1. How many products/surfaces will benefit?
+        - Ideally, we build things into Gestalt that 2 or more teams need, more teams meaning higher priority.
+    2. How easy or difficult is it to build?
+        - How many engineering hours will it take to build?
+        - Are there accessibility concerns that Gestalt should ideally handle?
+    3. Is it a dependency to other future work we need to do within Gestalt?
+        - Will this unlock additional functionality that other teams need?
+        We prioritize work following the same cycles as product teams within Pinterest. Knowing other teams' needs before prioritization starts will help inform our roadmap. If we do not have the capacity for the work but believe we should add it to Gestalt, we may ask if a product team can continue the work. Otherwise, it will go into our [backlog](https://pinch.pinadmin.com/gestaltBacklog).
+4. **Build or follow along**
+    Our team will pair directly with your engineer and designer if they are the ones who will be taking on the work and help them follow the process below. If the Gestalt team is building the component, we will take on the work and follow the same process. As we develop the documentation, Figma files, and code for the updated or new component, we'd love for you to help review and be part of a final check.
