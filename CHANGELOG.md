@@ -1,3 +1,9 @@
+## 45.10.7 (Mar 10, 2022)
+
+### Patch
+
+- ActivationCard: Use Text instead of Heading (#1980)
+
 ## 45.10.6 (Mar 10, 2022)
 
 ### Patch
