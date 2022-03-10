@@ -225,11 +225,11 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
       <div
         className="box"
       >
-        <h3
-          className="Heading fontSize400 darkGray alignStart breakWord"
+        <div
+          className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
         >
           Nice work
-        </h3>
+        </div>
       </div>
       <div
         className="box contentStart flexGrow marginTop2 xsDirectionColumn"
