@@ -7,7 +7,7 @@
 /* Border lines */
 
 .border {
-  border: var(--g-border-width) solid var(--g-colorGray150);
+  border: var(--g-border-width) solid var(--color-border-container);
 }
 
 .borderColorGray {
@@ -19,7 +19,7 @@
 }
 
 .borderColorLightGray {
-  border-color: var(--g-colorGray150);
+  border-color: var(--color-border-container);
 }
 
 .borderColorRed {
@@ -121,5 +121,5 @@ html[dir="rtl"] .borderLeft {
 }
 
 .shadow {
-  box-shadow: 0 0 8px var(--g-colorTransparentGray500);
+  box-shadow: var(--elevation-floating);
 }

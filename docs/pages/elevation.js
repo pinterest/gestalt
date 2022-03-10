@@ -23,14 +23,7 @@ export default function ColorUsagePage(): Node {
         Elevates messages temporarily appearing in front of other surfaces, such as modals and banners. "
         >
           <Flex gap={4} direction="column">
-            <Box
-              width={300}
-              height={300}
-              rounding={3}
-              dangerouslySetInlineStyle={{
-                __style: { boxShadow: 'var(--elevation-floating' },
-              }}
-            />
+            <Box width={300} height={300} rounding={3} borderStyle="shadow" />
             <Text>$elevation-floating</Text>
             <Text>10% (#000000) opacity / Blur: 8</Text>
           </Flex>
@@ -56,7 +49,11 @@ export default function ColorUsagePage(): Node {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Raised"
-          description="Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. "
+          description={`
+          Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled.
+
+          ⚠️ Note: Raised shadow options will be available automatically in Box soon.
+          `}
         >
           <Flex gap={4} wrap>
             <Flex gap={4} direction="column">
@@ -111,14 +108,7 @@ export default function ColorUsagePage(): Node {
         description="Use as needed to accent containers when shadows are not an option."
       >
         <Flex gap={4} direction="column">
-          <Box
-            width={300}
-            height={300}
-            rounding={3}
-            dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-background-elevation-accent' },
-            }}
-          />
+          <Box width={300} height={300} rounding={3} color="elevationAccent" />
           <Text>$color-background-elevation-accent</Text>
           <Text>Roboflow 100 / Shadows: none</Text>
         </Flex>
@@ -147,14 +137,7 @@ export default function ColorUsagePage(): Node {
         description="Technically, borders are not considered elevation; however, they can be used as an alternative to display a single contained group when shadows or color don't work. The border treatment helps to determine visible boundaries."
       >
         <Flex gap={4} direction="column">
-          <Box
-            width={300}
-            height={300}
-            rounding={3}
-            dangerouslySetInlineStyle={{
-              __style: { border: '1px solid var(--color-border-container' },
-            }}
-          />
+          <Box width={300} height={300} rounding={3} borderStyle="sm" />
           <Text>$color-border-container</Text>
           <Text>Border-color: Roboflow 300 / 1px (inside) / Shadows: none</Text>
         </Flex>
