@@ -61,6 +61,13 @@
   color: var(--color-text-shopping);
 }
 
+.lightText {
+  color: var(--color-text-light);
+}
+
+.darkText {
+  color: var(--color-text-dark);
+}
 /* fonts */
 
 .sansSerif {

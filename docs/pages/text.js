@@ -52,15 +52,15 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Colors"
           description={`
-        You can specify which color you want for your text.
+        You can specify which color you want for your text. Most colors change in dark mode, but \`light\` and \`dark\` are available when no switch is desired.
 
         ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
         `}
         >
           <MainSection.Card
             defaultCode={`
-  <Flex alignItems="start" direction="column" gap={4}>
-    <Box color="darkGray" padding={1}>
+  <Flex alignItems="start" direction="column" gap={3}>
+    <Box color="inverse" padding={1}>
       <Text color="inverse" size="400">Inverse</Text>
     </Box>
     <Text color="subtle" size="400">Subtle</Text>
@@ -69,6 +69,12 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <Text color="warning" size="400">Warning</Text>
     <Text color="error" size="400">Error</Text>
     <Text color="shopping" size="400">Shopping</Text>
+    <Box color="primary" padding={1}>
+      <Text color="light" size="400">Light</Text>
+    </Box>
+    <Box color="infoWeak" padding={1}>
+      <Text color="dark" size="400">Dark</Text>
+    </Box>
   </Flex>
           `}
           />

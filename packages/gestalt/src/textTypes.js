@@ -30,6 +30,8 @@ export const allowedColors = [
   'warning',
   'inverse',
   'shopping',
+  'light',
+  'dark',
 ];
 
 export type Color =

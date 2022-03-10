@@ -60,7 +60,9 @@ type Props = {|
     | 'error'
     | 'warning'
     | 'shopping'
-    | 'inverse',
+    | 'inverse'
+    | 'light'
+    | 'dark',
   /**
    * Link: https://gestalt.pinterest.systems/text#inline
    */
@@ -121,6 +123,8 @@ export default function Text({
     'warning',
     'inverse',
     'shopping',
+    'light',
+    'dark',
   ];
   const colorClass = semanticColors.includes(color) ? typography[`${color}Text`] : colors[color];
   const cs = cx(
