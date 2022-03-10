@@ -10,17 +10,16 @@ export default function ColorUsagePage(): Node {
     <Page title="Elevation">
       <PageHeader
         name="Elevation"
-        description="The elevation allows elements to be lifted from the background and can be defined by applying drop shadows or other visual cues, such as color and borders."
+        description="Elevation allows elements to be lifted from the background. It can be defined by applying drop shadows or other visual cues, such as color and borders."
         showSourceLink={false}
       />
       <MainSection
         name="Elevation using shadows"
-        description="Shadows reflect a spatial relationship by indicating separation from the background or allowing content to be scrolled under another element. Elevation using shadows includes two levels: floating and raised."
+        description="Reflects a spatial relationship by indicating separation from the background or allowing content to be scrolled under another element. Elevation using shadows includes two levels: floating and raised."
       >
         <MainSection.Subsection
           title="Floating"
-          description="The default elevation level.
-        Elevates messages temporarily appearing in front of other surfaces, such as modals and banners. "
+          description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/box#Borders).`}
         >
           <Flex gap={4} direction="column">
             <Box width={300} height={300} rounding={3} borderStyle="shadow" />
@@ -34,7 +33,7 @@ export default function ColorUsagePage(): Node {
               title="When to use"
               description={`
               - Highlighting an item that floats above other content, such as temporary messages or cards
-              - IconButton and other elements, serving as an affordance for scrolling behaviors
+              - With IconButton and other elements, serving as an affordance for floating actions
               `}
             />
             <MainSection.Card
@@ -42,7 +41,7 @@ export default function ColorUsagePage(): Node {
               type="don't"
               title="When not to use"
               description={`
-              - Content that doesn't need elevation or have its own setup (e.g. Pins, boards)
+              - Elevating content that doesn't need elevation or content that has its own setup already (e.g. Pins, boards)
               `}
             />
           </MainSection.Subsection>
@@ -105,7 +104,7 @@ export default function ColorUsagePage(): Node {
       </MainSection>
       <MainSection
         name="Elevation using color"
-        description="Use as needed to accent containers when shadows are not an option."
+        description={`Use as needed to accent containers when shadows are not an option. Available with \`color="elevationAccent"\` in [Box](/box#Colors).`}
       >
         <Flex gap={4} direction="column">
           <Box width={300} height={300} rounding={3} color="elevationAccent" />
@@ -118,7 +117,7 @@ export default function ColorUsagePage(): Node {
             type="do"
             title="When to use"
             description={`
-              - As an accent color to highlight containers when shadows don't work (e.g. cards)
+              - As needed to highlight containers when shadows don't work (e.g. cards)
             `}
           />
           <MainSection.Card
@@ -127,14 +126,14 @@ export default function ColorUsagePage(): Node {
             title="When not to use"
             description={`
               - Elevating temporary messages (e.g. modals, banners)
-              - Raising elements fixed on the top or bottom of the screen. Use "Raised" elevation instead.
+              - Raising elements fixed on the top or bottom of the screen. Use "Raised" elevation instead
             `}
           />
         </MainSection.Subsection>
       </MainSection>
       <MainSection
         name="Elevation using borders"
-        description="Technically, borders are not considered elevation; however, they can be used as an alternative to display a single contained group when shadows or color don't work. The border treatment helps to determine visible boundaries."
+        description={`Technically, borders are not considered elevation; however, they can be used as an alternative to display a single contained group when shadows or color don't work. The border treatment helps to determine visible boundaries. Available through the \`borderStyle\` prop in [Box](/box#Borders).`}
       >
         <Flex gap={4} direction="column">
           <Box width={300} height={300} rounding={3} borderStyle="sm" />
@@ -147,7 +146,7 @@ export default function ColorUsagePage(): Node {
             type="do"
             title="When to use"
             description={`
-              - Displaying a single contained group when shadows or color don't work, setting visible boundaries.
+              - Delineating a larger container to set visible boundaries when shadows or color don't work. (e.g. card)
             `}
           />
           <MainSection.Card
@@ -156,7 +155,7 @@ export default function ColorUsagePage(): Node {
             title="When not to use"
             description={`
               - Elevating temporary messages (e.g. modals, banners)
-              - Raising elements fixed on the top or bottom of the screen. Use "Raised" elevation instead.
+              - Raising elements fixed on the top or bottom of the screen. Use "Raised" elevation instead
             `}
           />
         </MainSection.Subsection>
