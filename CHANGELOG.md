@@ -1,3 +1,9 @@
+## 45.10.6 (Mar 10, 2022)
+
+### Patch
+
+- Docs: Add Elevation guidelines page (#1979)
+
 ## 45.10.5 (Mar 9, 2022)
 
 ### Patch
