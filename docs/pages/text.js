@@ -5,34 +5,39 @@ import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import MainSection from '../components/MainSection.js';
 
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Text">
       <PageHeader name="Text" description={generatedDocGen?.description} />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-      <Example
-        description="Use this to adjust the positioning of text within wrapper elements."
-        id="align"
-        name="Alignment"
-        defaultCode={`
-<Box maxWidth="16em">
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Alignment"
+          description="Use this to adjust the positioning of text within wrapper elements."
+        >
+          <MainSection.Card
+            defaultCode={`
+<Flex direction="column" gap={2} width="100%">
   <Text align="start">Start (default)</Text>
   <Text align="end">End</Text>
   <Text align="center">Center</Text>
   <Text align="justify">Justify</Text>
   <Text align="forceLeft">Force left</Text>
   <Text align="forceRight">Force right</Text>
-</Box>
+</Flex>
 `}
-      />
-      <Example
-        description={`
-    The Text component allows you to specify whether you want \`block\` or \`inline\` text.
-  `}
-        id="inline"
-        name="Block vs inline"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Block vs. inline"
+          description={`
+          The Text component allows you to specify whether you want \`block\` or \`inline\` text.
+        `}
+        >
+          <MainSection.Card
+            defaultCode={`
 <Flex alignItems="start" direction="column" gap={4}>
   <Text>Some content in a default block element. (default)</Text>
   <Box>
@@ -41,63 +46,85 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <Text inline>More inline text.</Text>
   </Box>
 </Flex>
-`}
-      />
-      <Example
-        description="You can specify which color you want for your text."
-        id="color"
-        name="Colors"
-        defaultCode={`
-<Flex alignItems="start" direction="column" gap={4}>
-  <Box color="darkGray" padding={1}>
-    <Text color="white">White</Text>
-  </Box>
-  <Text color="gray">Gray</Text>
-  <Text color="darkGray">Dark Gray (default)</Text>
-  <Text color="blue">Blue</Text>
-  <Text color="red">Red</Text>
-</Flex>
-`}
-      />
-      <Example
-        description="Gestalt provides utility options to deal with text overflow."
-        id="overflow"
-        name="Overflow"
-        defaultCode={`
-<Flex direction="column" gap={2} maxWidth={180}>
-  <Text weight="bold">breakWord (default):</Text>
-  <Text>
-    This is a long and Supercalifragilisticexpialidocious sentence.
-    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
-  </Text>
+          `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Colors"
+          description={`
+        You can specify which color you want for your text. Most colors change in dark mode, but \`light\` and \`dark\` are available when no switch is desired.
 
-  <Text weight="bold">normal:</Text>
-  <Text overflow="normal">
-    This is a long and Supercalifragilisticexpialidocious sentence.
-    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
-  </Text>
+        ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
+        `}
+        >
+          <MainSection.Card
+            defaultCode={`
+  <Flex alignItems="start" direction="column" gap={3}>
+    <Box color="inverse" padding={1}>
+      <Text color="inverse" size="400">Inverse</Text>
+    </Box>
+    <Text color="subtle" size="400">Subtle</Text>
+    <Text color="default" size="400">Default</Text>
+    <Text color="success" size="400">Success</Text>
+    <Text color="warning" size="400">Warning</Text>
+    <Text color="error" size="400">Error</Text>
+    <Text color="shopping" size="400">Shopping</Text>
+    <Box color="primary" padding={1}>
+      <Text color="light" size="400">Light</Text>
+    </Box>
+    <Box color="infoWeak" padding={1}>
+      <Text color="dark" size="400">Dark</Text>
+    </Box>
+  </Flex>
+          `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Overflow"
+          description="Gestalt provides utility options to deal with text overflow."
+        >
+          <Example
+            name="overflow"
+            showHeading={false}
+            defaultCode={`
+<Box borderStyle="sm" maxWidth={200} padding={1}>
+  <Flex gap={2} direction="column">
 
-  <Text weight="bold">noWrap:</Text>
-  <Text overflow="noWrap">
-    This is a long and Supercalifragilisticexpialidocious sentence.
-  </Text>
+    <Text weight="bold">breakWord (default):</Text>
+    <Text>
+      This is a long and Supercalifragilisticexpialidocious sentence.
+      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+    </Text>
 
-  <Text weight="bold">lineClamp:</Text>
-  <Text lineClamp={2}>
-    This is a long and Supercalifragilisticexpialidocious sentence.
-  </Text>
-</Flex>
-`}
-      />
-      <Example
-        description={`
-    You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text needs to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/heading) instead.
+    <Text weight="bold">normal:</Text>
+    <Text overflow="normal">
+      This is a long and Supercalifragilisticexpialidocious sentence.
+      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
+    </Text>
 
-  `}
-        id="size"
-        name="Sizes"
-        defaultCode={`
+    <Text weight="bold">noWrap:</Text>
+    <Text overflow="noWrap">
+      This is a long and Supercalifragilisticexpialidocious sentence.
+    </Text>
+
+    <Text weight="bold">lineClamp:</Text>
+    <Text lineClamp={2}>
+      This is a long and Supercalifragilisticexpialidocious sentence.
+    </Text>
+  </Flex>
+</Box>
+        `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Sizes"
+          description={`
+          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/heading) instead.
+
+        `}
+        >
+          <MainSection.Card
+            defaultCode={`
 <Flex alignItems="start" direction="column" gap={2}>
   <Flex alignItems="center" gap={2}>
     <Text inline size="100">Size 100</Text>
@@ -153,23 +180,24 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </span>
   </Flex>
 </Flex>
-`}
-      />
-      <Example
-        description="
-    There are multiple styles, such as bold and italic, that we can
-    attach to the Text component.
-  "
-        id="styles"
-        name="Styles"
-        defaultCode={`
+          `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Styles"
+          description="There are multiple styles, such as bold and italic, that we can attach to the Text component."
+        >
+          <MainSection.Card
+            defaultCode={`
 <Flex direction="column" gap={2}>
   <Text weight="bold">Bold</Text>
   <Text italic>Italic</Text>
   <Text underline>Underline</Text>
 </Flex>
-`}
-      />
+          `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
     </Page>
   );
 }

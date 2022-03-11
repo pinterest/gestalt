@@ -8,20 +8,20 @@ import ColorTile from '../components/ColorTile.js';
 import Page from '../components/Page.js';
 
 const colors = [
-  { name: 'Pushpin', id: 'red', textColor: 'white' },
-  { name: 'Flaminglow', id: 'pink', textColor: 'darkGray' },
-  { name: 'Skycicle', id: 'blue', textColor: 'darkGray' },
-  { name: 'Spabattical', id: 'teal', textColor: 'darkGray' },
-  { name: 'Matchacado', id: 'green', textColor: 'darkGray' },
-  { name: 'Mysticool', id: 'purple', textColor: 'white' },
-  { name: 'Firetini', id: 'orange', textColor: 'darkGray' },
-  { name: 'Caramellow', id: 'yellow', textColor: 'darkGray' },
+  { name: 'Pushpin', id: 'red', textColor: 'light' },
+  { name: 'Flaminglow', id: 'pink', textColor: 'dark' },
+  { name: 'Skycicle', id: 'blue', textColor: 'dark' },
+  { name: 'Spabattical', id: 'teal', textColor: 'dark' },
+  { name: 'Matchacado', id: 'green', textColor: 'dark' },
+  { name: 'Mysticool', id: 'purple', textColor: 'light' },
+  { name: 'Firetini', id: 'orange', textColor: 'dark' },
+  { name: 'Caramellow', id: 'yellow', textColor: 'dark' },
 ];
 
 const neutrals = [
-  { name: 'Mochimalist', id: 'white', textColor: 'darkGray' },
-  { name: 'Roboflow', id: 'gray', textColor: 'darkGray' },
-  { name: 'Cosmicore', id: 'black', textColor: 'white' },
+  { name: 'Mochimalist', id: 'white', textColor: 'dark' },
+  { name: 'Roboflow', id: 'gray', textColor: 'dark' },
+  { name: 'Cosmicore', id: 'black', textColor: 'light' },
 ];
 
 export default function ColorPage(): Node {

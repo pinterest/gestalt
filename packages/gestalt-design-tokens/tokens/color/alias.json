@@ -39,6 +39,11 @@
         "value": "{color.white.mochimalist.0.value}",
         "comment": "Light text color that won't change in dark mode"
       },
+      "shopping": {
+        "value": "{color.blue.skycicle.500.value}",
+        "darkValue": "{color.blue.skycicle.300.value}",
+        "comment": "Text color to use for shopping surfaces"
+      },
       "icon": {
         "default": {
           "value": "{color.black.cosmicore.900.value}",

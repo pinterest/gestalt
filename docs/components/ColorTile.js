@@ -8,11 +8,11 @@ type Props = {|
   fullTokenName: string,
   description: string,
   number?: number,
-  textColor?: 'darkGray' | 'white',
+  textColor?: 'dark' | 'light',
 |};
 
 function ColorTile({ description, fullTokenName, number = 400, textColor }: Props): Node {
-  const newTextColor = textColor || (number > 400 ? 'white' : 'darkGray');
+  const newTextColor = textColor || (number > 400 ? 'light' : 'dark');
   const borderNeeded = fullTokenName?.includes('white') || fullTokenName?.includes('inverse');
   return (
     <Box

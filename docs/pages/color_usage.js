@@ -43,7 +43,7 @@ export default function ColorUsagePage(): Node {
       >
         <ColorTile
           description="Primary base"
-          textColor="white"
+          textColor="light"
           fullTokenName="color-background-primary-base"
         />
       </MainSection>
@@ -57,7 +57,7 @@ export default function ColorUsagePage(): Node {
         <ColorTile
           description="Secondary base"
           fullTokenName="color-background-secondary-base"
-          textColor="darkGray"
+          textColor="dark"
         />
       </MainSection>
       <MainSection
@@ -69,7 +69,7 @@ export default function ColorUsagePage(): Node {
       >
         <ColorTile
           description="Tertiary base"
-          textColor="white"
+          textColor="light"
           fullTokenName="color-background-tertiary-base"
         />
       </MainSection>
@@ -100,24 +100,24 @@ export default function ColorUsagePage(): Node {
             <Flex gap={4} wrap>
               <ColorTile
                 description="Info base"
-                textColor="white"
+                textColor="light"
                 fullTokenName="color-background-info-base"
               />
               <ColorTile
                 description="Success base"
-                textColor="white"
+                textColor="light"
                 fullTokenName="color-background-success-base"
               />
             </Flex>
             <Flex gap={4} wrap>
               <ColorTile
                 description="Warning base"
-                textColor="white"
+                textColor="light"
                 fullTokenName="color-background-warning-base"
               />
               <ColorTile
                 description="Error base"
-                textColor="white"
+                textColor="light"
                 fullTokenName="color-background-error-base"
               />
             </Flex>
@@ -138,24 +138,24 @@ export default function ColorUsagePage(): Node {
               <ColorTile
                 description="Info weak"
                 fullTokenName="color-background-info-weak"
-                textColor="darkGray"
+                textColor="dark"
               />
               <ColorTile
                 description="Success weak"
                 fullTokenName="color-background-success-weak"
-                textColor="darkGray"
+                textColor="dark"
               />
             </Flex>
             <Flex gap={4} wrap>
               <ColorTile
                 description="Warning weak"
                 fullTokenName="color-background-warning-weak"
-                textColor="darkGray"
+                textColor="dark"
               />
               <ColorTile
                 description="Error weak"
                 fullTokenName="color-background-error-weak"
-                textColor="darkGray"
+                textColor="dark"
               />
             </Flex>
           </Flex>
@@ -169,7 +169,7 @@ export default function ColorUsagePage(): Node {
         >
           <ColorTile
             description="Inverse base"
-            textColor="white"
+            textColor="light"
             fullTokenName="color-background-inverse-base"
           />
         </MainSection.Subsection>
@@ -185,8 +185,8 @@ export default function ColorUsagePage(): Node {
           `}
         >
           <Flex gap={4} wrap>
-            <ColorTile description="Default" textColor="white" fullTokenName="color-text-default" />
-            <ColorTile description="Subtle" textColor="white" fullTokenName="color-text-subtle" />
+            <ColorTile description="Default" textColor="light" fullTokenName="color-text-default" />
+            <ColorTile description="Subtle" textColor="light" fullTokenName="color-text-subtle" />
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -199,9 +199,9 @@ export default function ColorUsagePage(): Node {
           `}
         >
           <Flex gap={4} wrap>
-            <ColorTile description="Success" textColor="white" fullTokenName="color-text-success" />
-            <ColorTile description="Warning" textColor="white" fullTokenName="color-text-warning" />
-            <ColorTile description="Error" textColor="white" fullTokenName="color-text-error" />
+            <ColorTile description="Success" textColor="light" fullTokenName="color-text-success" />
+            <ColorTile description="Warning" textColor="light" fullTokenName="color-text-warning" />
+            <ColorTile description="Error" textColor="light" fullTokenName="color-text-error" />
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -211,11 +211,7 @@ export default function ColorUsagePage(): Node {
           **$color-text-inverse** - Use this token for text layered on top of inverted backgrounds.
           `}
         >
-          <ColorTile
-            description="Inverse"
-            fullTokenName="color-text-inverse"
-            textColor="darkGray"
-          />
+          <ColorTile description="Inverse" fullTokenName="color-text-inverse" textColor="dark" />
         </MainSection.Subsection>
       </MainSection>
       <MainSection
@@ -235,37 +231,37 @@ export default function ColorUsagePage(): Node {
           <Flex gap={4} wrap>
             <ColorTile
               description="Default"
-              textColor="white"
+              textColor="light"
               fullTokenName="color-text-icon-default"
             />
             <ColorTile
               description="Subtle"
-              textColor="white"
+              textColor="light"
               fullTokenName="color-text-icon-subtle"
             />
           </Flex>
           <Flex gap={4} wrap>
             <ColorTile
               description="Success"
-              textColor="white"
+              textColor="light"
               fullTokenName="color-text-icon-success"
             />
             <ColorTile
               description="Warning"
-              textColor="white"
+              textColor="light"
               fullTokenName="color-text-icon-warning"
             />
           </Flex>
           <Flex gap={4} wrap>
             <ColorTile
               description="Error"
-              textColor="white"
+              textColor="light"
               fullTokenName="color-text-icon-error"
             />
             <ColorTile
               description="Inverse"
               fullTokenName="color-text-icon-inverse"
-              textColor="darkGray"
+              textColor="dark"
             />
           </Flex>
         </Flex>
