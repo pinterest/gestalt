@@ -93,7 +93,12 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     subcomponent,
   });
 
-  throwErrorIfSpreadProps({ fileInfo, j, jSXCollection: matchedJSXCollection });
+  throwErrorIfSpreadProps({
+    fileInfo,
+    j,
+    jSXCollection: matchedJSXCollection,
+    componentName: targetLocalName,
+  });
 
   if (previousProp && !isNullOrUndefined(previousValue)) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({

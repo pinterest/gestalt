@@ -79,7 +79,7 @@ const getLocalImportedName = ({
   importSpecifierCollection,
 }: {
   importSpecifierCollection: Collection,
-}): ?string => importSpecifierCollection.get(0).node.local?.name;
+}): string => importSpecifierCollection.get(0).node.local?.name;
 
 /**
  * filterJSXByTargetLocalName: Returns a collection containing the Gestalt JSX component matching the targetLocalName value
@@ -223,13 +223,16 @@ const throwErrorIfSpreadProps = ({
   fileInfo,
   j,
   jSXCollection,
+  componentName,
 }: {
   fileInfo: FileType,
   j: JSCodeShift,
   jSXCollection: Collection,
+  componentName: string,
 }): void => {
-  const spreadPropsCollection = jSXCollection.find(j.JSXSpreadAttribute);
-
+  const spreadPropsCollection = jSXCollection
+    .find(j.JSXSpreadAttribute)
+    .filter((nodepath) => nodepath.parentPath.parentPath.value.name.name === componentName);
   if (spreadPropsCollection.size() > 0) {
     throw new Error(
       `Remove dynamic properties and rerun codemod.\n${spreadPropsCollection
