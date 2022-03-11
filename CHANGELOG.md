@@ -1,3 +1,9 @@
+## 45.11.0 (Mar 11, 2022)
+
+### Minor
+
+- Text: Add new semantic colors (#1973)
+
 ## 45.10.7 (Mar 10, 2022)
 
 ### Patch
