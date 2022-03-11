@@ -31,7 +31,7 @@
   font-size: var(--font-size-600);
 }
 
-/* colors */
+/* semantic colors */
 
 .inverseText {
   color: var(--color-text-inverse);

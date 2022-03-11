@@ -4,7 +4,7 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
 import typography from './Typography.css';
-import { allowedColors } from './textTypes.js';
+import { literalColors } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -112,7 +112,7 @@ export default function Heading({
   const cs = cx(
     styles.Heading,
     typography[`fontSize${SIZE_SCALE[size]}`],
-    color && allowedColors.includes(color) && colors[color],
+    color && literalColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,

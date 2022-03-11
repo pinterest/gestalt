@@ -4,7 +4,7 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
-import { allowedColors } from './textTypes.js';
+import { allowedColors, semanticColors } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -115,22 +115,13 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  const semanticColors = [
-    'default',
-    'subtle',
-    'success',
-    'error',
-    'warning',
-    'inverse',
-    'shopping',
-    'light',
-    'dark',
-  ];
-  const colorClass = semanticColors.includes(color) ? typography[`${color}Text`] : colors[color];
+  const colorClass =
+    allowedColors.includes(color) &&
+    (semanticColors.includes(color) ? typography[`${color}Text`] : colors[color]);
   const cs = cx(
     styles.Text,
     typography[`fontSize${SIZE_SCALE[size]}`],
-    color && allowedColors.includes(color) && colorClass,
+    color && colorClass,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
