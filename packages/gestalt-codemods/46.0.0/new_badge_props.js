@@ -9,7 +9,7 @@
 export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
-  let localIdentifierName;
+  let localIdentifierNames;
   let fileHasModifications = false;
 
   src.find(j.ImportDeclaration).forEach((path) => {
@@ -19,15 +19,15 @@ export default function transformer(file, api) {
       return null;
     }
 
-    // Find the local names of Heading imports
-    localIdentifierName = decl.specifiers
-      .filter((node) => ['Module', 'Dropdown'].includes(node.imported.name))
+    // Find the local names of Dropdown and Module imports
+    localIdentifierNames = decl.specifiers
+      .filter((node) => ['Dropdown', 'Module'].includes(node.imported.name))
       .map((node) => node.local.name);
     return null;
   });
 
-  // No Heading imports, bail
-  if (!localIdentifierName) {
+  // No Module or Dropdown imports, bail
+  if (!localIdentifierNames) {
     return null;
   }
 
@@ -35,16 +35,22 @@ export default function transformer(file, api) {
     .find(j.JSXElement)
     .forEach((jsxElement) => {
       const { node } = jsxElement;
+      const nodeName = node.openingElement.name.name;
+      const nodeObjectName = node.openingElement.name.object?.name;
 
-      if (!localIdentifierName.includes(node.openingElement.name.name)) {
-        return null;
+      // If it's not Module or Dropdown.___
+      if (
+        !localIdentifierNames.includes(nodeName) &&
+        !localIdentifierNames.includes(nodeObjectName)
+      ) {
+        return;
       }
 
       const attrs = node.openingElement.attributes;
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove dynamic Heading properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
+          `Remove dynamic badgeText properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
@@ -52,7 +58,7 @@ export default function transformer(file, api) {
         .map((attr) => {
           const propName = attr?.name?.name;
 
-          // Not truncate, bail
+          // Not badgeText, bail
           if (propName !== 'badgeText') {
             return attr;
           }
@@ -74,15 +80,13 @@ export default function transformer(file, api) {
           }
           const renamedAttr = { ...attr };
           renamedAttr.name.name = 'badge';
-          renamedAttr.value = `{{text="${propValue}"}}`;
+          renamedAttr.value = `{{text: "${attr?.value?.value}"}}`;
           return renamedAttr;
         })
         .filter(Boolean);
 
       fileHasModifications = true;
       node.openingElement.attributes = newAttrs;
-
-      return null;
     })
     .toSource();
 
