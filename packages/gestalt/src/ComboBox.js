@@ -415,7 +415,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           accessibilityClearButtonLabel={accessibilityClearButtonLabel}
           // add accessibilityControls once the option list element exists
           accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
-          // add accessibilityActivedescendant once the option list element exists
+          // add accessibilityActiveDescendant once the option list element exists
           accessibilityActiveDescendant={
             showOptionsList && innerRef.current && hoveredItemIndex !== null
               ? `${id}-item-${hoveredItemIndex}`

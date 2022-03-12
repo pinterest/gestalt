@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, Fragment, type Node } from 'react';
 import classnames from 'classnames';
-import Badge from './Badge.js';
+import Badge, { type BadgeType } from './Badge.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
@@ -21,7 +21,7 @@ export type OptionItemType = {|
 |};
 
 type Props = {|
-  badgeText?: string,
+  badge?: BadgeType,
   children?: Node,
   dataTestId?: string,
   hoveredItemIndex: ?number,
@@ -49,7 +49,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
   ?HTMLElement,
 >(function OptionItem(
   {
-    badgeText,
+    badge,
     children,
     dataTestId,
     onSelect,
@@ -98,11 +98,11 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
               <Text color="darkGray" inline lineClamp={1} weight={textWeight}>
                 {option?.label}
               </Text>
-              {badgeText && (
+              {badge && (
                 <Box marginStart={2} marginTop={1}>
                   {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
-                  <Badge text={badgeText} />
+                  <Badge text={badge.text} type={badge.type || 'info'} />
                 </Box>
               )}
             </Fragment>
