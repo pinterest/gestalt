@@ -218,7 +218,7 @@ export default function PropTable({
                                   <code>{name}</code>
                                 )}
                               </Text>
-                              {required && <Badge text="Required" />}
+                              {required && <Badge text="Required" type="warning" />}
                             </Flex>
                           </Box>
                         </Td>

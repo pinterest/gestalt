@@ -166,7 +166,7 @@ export default function Toc({ cards }: Props): Node {
         return (
           <Flex key={anchor.id}>
             {/* INDICATOR */}
-            <Box color={isActive ? 'pine' : 'lightGray'} width={1} flex="none" />
+            <Box color={isActive ? 'successBase' : 'secondary'} width={1} flex="none" />
 
             <Link
               hoverStyle={isActive ? 'none' : 'underline'}
@@ -175,12 +175,12 @@ export default function Toc({ cards }: Props): Node {
             >
               <Box padding={2}>
                 {anchor.getElementsByTagName('h2').length > 0 ? (
-                  <Text color={isActive ? 'pine' : 'darkGray'} weight="bold">
+                  <Text color={isActive ? 'success' : 'default'} weight="bold">
                     {anchor.innerText}
                   </Text>
                 ) : (
                   <Box paddingX={3}>
-                    <Text size="200" color={isActive ? 'pine' : 'darkGray'} weight="bold">
+                    <Text size="200" color={isActive ? 'success' : 'default'} weight="bold">
                       {anchor.innerText}
                     </Text>
                   </Box>
