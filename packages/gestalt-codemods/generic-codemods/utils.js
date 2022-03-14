@@ -5,6 +5,7 @@ import {
   type FileType,
   type JSCodeShift,
   type JSXNodeType,
+  type NodePathType,
 } from './flowtypes.js';
 
 /**
@@ -104,52 +105,84 @@ const filterJSXByTargetLocalName = ({
     : src.find(j.JSXElement, { openingElement: { name: { name: targetLocalName } } });
 
 /**
+ * checkComponentName: Checks if the name of the opening element of the parent node of the attribute node, which is the JSX element itself matches the componenent and subcomponent names.
+ */
+const checkComponentName = ({
+  nodepath,
+  componentName,
+  subcomponentName,
+}: {
+  nodepath: NodePathType,
+  componentName: string,
+  subcomponentName: ?string,
+}) =>
+  subcomponentName
+    ? nodepath.parentPath.parentPath.value.name?.object?.name === componentName &&
+      nodepath.parentPath.parentPath.value.name?.property?.name === subcomponentName
+    : nodepath.parentPath.parentPath.value.name?.name === componentName;
+
+/**
  * filterJSXByAttribute: Returns a collection containing the Gestalt JSX components with matching prop/value attributes
  */
 const filterJSXByAttribute = ({
   j,
   jSXCollection,
+  componentName,
+  subcomponentName,
   prop,
   value,
 }: {
   j: JSCodeShift,
   jSXCollection: Collection,
+  componentName: string,
+  subcomponentName: ?string,
   prop: string,
   value?: string,
 }): Collection => {
   if (typeof value === 'string') {
-    return jSXCollection.find(j.JSXAttribute, { name: { name: prop }, value: { value } });
+    return jSXCollection
+      .find(j.JSXAttribute, { name: { name: prop }, value: { value } })
+      .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }));
   }
 
   if (typeof value === 'number') {
-    return jSXCollection.find(j.JSXAttribute, {
-      value: {
-        type: 'JSXExpressionContainer',
-        expression: {
-          type: 'Literal',
-          value,
+    return jSXCollection
+      .find(j.JSXAttribute, {
+        value: {
+          type: 'JSXExpressionContainer',
+          expression: {
+            type: 'Literal',
+            value,
+          },
         },
-      },
-    });
+      })
+      .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }));
   }
 
   if (typeof value === 'boolean') {
     return value
-      ? jSXCollection.find(j.JSXAttribute, {
-          value: null,
-        })
-      : jSXCollection.find(j.JSXAttribute, {
-          value: {
-            type: 'JSXExpressionContainer',
-            expression: {
-              type: 'Literal',
-              value,
+      ? jSXCollection
+          .find(j.JSXAttribute, {
+            value: null,
+          })
+          .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }))
+      : jSXCollection
+          .find(j.JSXAttribute, {
+            value: {
+              type: 'JSXExpressionContainer',
+              expression: {
+                type: 'Literal',
+                value,
+              },
             },
-          },
-        });
+          })
+          .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }));
   }
 
-  if (!value) return jSXCollection.find(j.JSXAttribute, { name: { name: prop } });
+  if (!value)
+    return jSXCollection
+      .find(j.JSXAttribute, { name: { name: prop } })
+      .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }));
 
   return jSXCollection;
 };
@@ -192,20 +225,29 @@ const buildAttributeFromValue = ({
  */
 const buildReplaceWithModifiedAttributes = ({
   j,
+  previousProp,
   nextProp,
   nextValue,
 }: {
   j: JSCodeShift,
+  previousProp: string,
   nextProp?: string,
   nextValue?: string,
 }): ((nodepath: Collection) => ?JSXNodeType) => {
   const replaceWithModifiedAttributes = (nodepath: Collection) => {
-    if (!nextProp) return null;
+    // In the absence of nextProp & nextValue, we REMOVE prop and values
+    if (!nextProp && isNullOrUndefined(nextValue)) return null;
 
     let newNode = deepCloneNode({ node: nodepath.get().node });
 
+    // In the absence of just nextValue, we rename the prop if both prop and value match.
     if (nextProp && isNullOrUndefined(nextValue)) newNode.name.name = nextProp;
 
+    // In the presence of just nextProp, we change the value if there's a match.
+    if (!nextProp && !isNullOrUndefined(nextValue))
+      newNode = buildAttributeFromValue({ j, prop: previousProp, value: nextValue });
+
+    // In the presence of both nextProp and nextValue, we change both nextProp and nextValue if there's a match.
     if (nextProp && !isNullOrUndefined(nextValue))
       newNode = buildAttributeFromValue({ j, prop: nextProp, value: nextValue });
 
@@ -224,15 +266,17 @@ const throwErrorIfSpreadProps = ({
   j,
   jSXCollection,
   componentName,
+  subcomponentName,
 }: {
   fileInfo: FileType,
   j: JSCodeShift,
   jSXCollection: Collection,
   componentName: string,
+  subcomponentName: ?string,
 }): void => {
   const spreadPropsCollection = jSXCollection
     .find(j.JSXSpreadAttribute)
-    .filter((nodepath) => nodepath.parentPath.parentPath.value.name.name === componentName);
+    .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }));
   if (spreadPropsCollection.size() > 0) {
     throw new Error(
       `Remove dynamic properties and rerun codemod.\n${spreadPropsCollection

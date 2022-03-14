@@ -88,12 +88,15 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     j,
     jSXCollection: matchedJSXCollection,
     componentName: targetLocalName,
+    subcomponentName: subcomponent,
   });
 
   if (prop) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
       j,
       jSXCollection: matchedJSXCollection,
+      componentName: targetLocalName,
+      subcomponentName: subcomponent,
       prop,
       value,
     });

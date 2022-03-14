@@ -55,7 +55,12 @@ Finally, it can come handy the jscodeshift API
 
 ## jscodeshift Limitations
 
-When using the find() method in the Collection object, the resulting Collection doesn't return unique nodepaths when matching complex objects that are nested within each other. Therefore, in a <Box color='red'> containing <Box color='red'>, the matching results won't be a Collection of 2 nodepaths but a Collection of 3. If the child Box, also contains another <Box color='red'>, the Collection won't be 3 nodepaths but 6 nodepaths. Related to this issue, the remove() method in nested-result Collections throws errors while replaceWith() can be used instead.
+When using the find() method in the Collection object, the method traverses each node and its children recursively. This affects the resulting Collections. If we chain two find methods, the second find method will traverse all nodePaths returned in the first method including their children.
+At a practical level, this affects in different ways. In a <Box color='red'> nesting another <Box color='red'>, the matching results won't be a Collection of 2 nodePaths but a Collection of 3 (parent, child 1, and repeated child 1). If the child Box, also contains another <Box color='red'>, the Collection won't be 3 nodePaths but 6 nodePaths (parent, child 1, child 2, repeated child 1, repeated child 2, and repeated child 2). Also, considering the case <Box color='red'> nesting <Flex color='red'>, if we first look for Box components and we chain the resulting collection with a find method to look for attributes color='red', the final Collection will include both Box and its nested Flex as when looking into Box for color='red', it also traverses its children, finding and returning the Flex component.
+
+To prevent this, most finds are complemented with a filter that matches the JSX element name to the component and subcomponent name, to exclude those children.
+
+Related to this issue, the remove() method in nested-result Collections throws errors while replaceWith() can be used instead.
 
 ## Run a codemod
 
