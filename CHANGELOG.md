@@ -1,3 +1,9 @@
+## 45.11.1 (Mar 15, 2022)
+
+### Patch
+
+- Docs: Update navigation and badge colors (#1984)
+
 ## 45.11.0 (Mar 11, 2022)
 
 ### Minor
