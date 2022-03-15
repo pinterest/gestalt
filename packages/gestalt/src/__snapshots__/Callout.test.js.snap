@@ -49,7 +49,7 @@ exports[`<Callout /> Error Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever error callout message here
           </div>
@@ -109,7 +109,7 @@ exports[`<Callout /> Info Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -169,7 +169,7 @@ exports[`<Callout /> Warning Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever warning callout message here
           </div>
@@ -232,13 +232,13 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -385,13 +385,13 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -520,13 +520,13 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -624,13 +624,13 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -726,13 +726,13 @@ exports[`<Callout /> message + title 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
