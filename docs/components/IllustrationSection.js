@@ -1,26 +1,16 @@
 // @flow strict
 import { Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
+import IllustrationContainer from './IllustrationContainer.js';
 
 type Props = {|
   title?: string,
   children?: Node,
 |};
 
-function HomePageSection({ children, title }: Props): Node {
+function IllustrationSection({ children, title }: Props): Node {
   return (
-    <Box
-      marginStart={-8}
-      marginEnd={-8}
-      smMarginEnd={0}
-      smMarginStart={0}
-      paddingX={12}
-      smPaddingX={2}
-      mdPaddingX={8}
-      marginBottom={10}
-      justifyContent="center"
-      display="flex"
-    >
+    <IllustrationContainer>
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">
         {title && (
           <Heading accessibilityLevel={2} size="md">
@@ -41,8 +31,8 @@ function HomePageSection({ children, title }: Props): Node {
           {children}
         </Box>
       </Flex>
-    </Box>
+    </IllustrationContainer>
   );
 }
 
-export default HomePageSection;
+export default IllustrationSection;

@@ -1,0 +1,10 @@
+<svg width="325" height="180" viewBox="0 0 325 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="325" height="180" fill="#F6FDF5"/>
+<circle cx="108" cy="70" r="12" fill="#005C62"/>
+<rect x="104" y="66" width="8" height="8" rx="4" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M96 110C96 103.373 101.373 98 108 98C114.627 98 120 103.373 120 110C120 116.627 114.627 122 108 122C101.373 122 96 116.627 96 110Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M98 110C98 115.523 102.477 120 108 120C113.523 120 118 115.523 118 110C118 104.477 113.523 100 108 100C102.477 100 98 104.477 98 110ZM108 98C101.373 98 96 103.373 96 110C96 116.627 101.373 122 108 122C114.627 122 120 116.627 120 110C120 103.373 114.627 98 108 98Z" fill="#009990"/>
+<rect x="128" y="106" width="100" height="8" rx="4" fill="#009990" fill-opacity="0.5"/>
+<rect x="128" y="66" width="100" height="8" rx="4" fill="#009990" fill-opacity="0.5"/>
+<path d="M0 0V-2H-2V0H0ZM325 0H327V-2H325V0ZM325 180V182H327V180H325ZM0 180H-2V182H0V180ZM0 2H325V-2H0V2ZM323 0V180H327V0H323ZM325 178H0V182H325V178ZM2 180V0H-2V180H2Z" fill="#767676"/>
+</svg>
