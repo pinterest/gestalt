@@ -175,14 +175,14 @@ function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
       <Module
-        badge={{"text": "Beta"}}
+        badge={{ text: 'Beta' }}
         id="ModuleExample - badge"
         title="Title"
         >
         <Text size="200">This is example content.</Text>
       </Module>
       <Module
-        badge={{"text": "Not started", "type": "neutral"}}
+        badge={{text: 'Not started', type: 'neutral' }}
         id="ModuleExample - badge neutral"
         title="Title"
         >
@@ -329,7 +329,7 @@ function ModuleExample3() {
             title: 'Example with icon',
           },
           {
-            badge: {text: 'New'},
+            badge: { text: 'New' },
             children: <Text size="200">Children2</Text>,
             title: 'Example with badge',
           },
