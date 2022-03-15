@@ -1,7 +1,7 @@
 /*
  * Converts
  *  <Module badgeText="new" /> to <Module badge={{text: "New"}} />
- *  <Heading truncate={truncate} /> to console.log for manual change />
+ *  <Dropdown.Item || .Link badgeText="new" {...} /> to <Dropdown.Item || .Link badge={{text: "New"}} {...} />
  */
 
 // yarn codemod --parser=flow -t=packages/gestalt-codemods/46.0.0/new_badge_props.js relative/path/to/your/code
@@ -57,17 +57,33 @@ export default function transformer(file, api) {
       const newAttrs = attrs
         .map((attr) => {
           const propName = attr?.name?.name;
-
-          // Not badgeText, bail
-          if (propName !== 'badgeText') {
+          // Not badgeText or items, bail
+          if (propName !== 'badgeText' && propName !== 'items') {
             return attr;
           }
 
           const propValue = attr?.value?.expression?.value;
           const propValueVariableName = attr?.value?.expression?.name;
+          const propValueVariableType = attr?.value?.expression?.type;
 
-          // If explicitly set to false or undefined the prop isn't actually doing anything and can be removed
+          if (propValueVariableType === 'ArrayExpression') {
+            attr?.value?.expression?.elements.map((element) =>
+              element.properties?.map((property) => {
+                if (property.key.name === 'badgeText') {
+                  // eslint-disable-next-line no-console
+                  console.log(
+                    `${node.openingElement.name.object?.name} components with ${attr?.name?.name} prop that contains badgeText must be converted to a "badge" object manually (string -> object with text and optionally type). Location: ${file.path} @line: ${node.loc.start.line}`,
+                  );
+                  return null;
+                }
+                return null;
+              }),
+            );
+            return attr;
+          }
+
           if (propValue === false || propValue === null || propValueVariableName === 'undefined') {
+            // If explicitly set to false or undefined the prop isn't actually doing anything and can be removed
             return null;
           }
 

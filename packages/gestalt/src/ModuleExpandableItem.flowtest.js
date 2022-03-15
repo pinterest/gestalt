@@ -6,7 +6,7 @@ const Valid = (
   <ModuleExpandableItem
     accessibilityCollapseLabel="click to collapse"
     accessibilityExpandLabel="click to expand"
-    badgeText="badge-text"
+    badge={{ text: 'badge-text' }}
     id="uniqueTestID"
     icon="lock"
     iconAccessibilityLabel="test label"

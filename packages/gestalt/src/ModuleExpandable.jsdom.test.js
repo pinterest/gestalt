@@ -32,7 +32,7 @@ describe('ModuleExpandable', () => {
         title: 'Title4',
         summary: ['summary4'],
         children: 'Children4',
-        badgeText: 'badge text',
+        badge: { text: 'badge text' },
       },
       {
         title: 'Title5',

@@ -17,7 +17,7 @@ const ValidWithBaseProps = (
 
 const ValidWithBadgeTextProps = (
   <Module
-    badgeText="badge-text"
+    badge={{ text: 'badge-text' }}
     iconAccessibilityLabel="There is an error"
     id="module-id"
     title="Module Title"
