@@ -9,13 +9,18 @@ import ModuleTitle from './ModuleTitle.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
 /**
  * https://gestalt.pinterest.systems/module
  */
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
-  badgeText,
+  badge,
   children,
   icon,
   iconAccessibilityLabel,
@@ -29,7 +34,7 @@ export default function ModuleExpandableItem({
 }: {|
   accessibilityCollapseLabel: string,
   accessibilityExpandLabel: string,
-  badgeText?: string,
+  badge?: BadgeType,
   children?: Node,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
@@ -59,7 +64,7 @@ export default function ModuleExpandableItem({
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
               <Box column={isCollapsed && summary ? 6 : 12}>
                 <ModuleTitle
-                  badgeText={badgeText}
+                  badge={badge}
                   icon={icon}
                   iconAccessibilityLabel={iconAccessibilityLabel}
                   iconButton={iconButton}

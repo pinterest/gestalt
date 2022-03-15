@@ -38,7 +38,7 @@ const ValidWithBadgeTextProps = (
     onExpandedChange={() => {}}
     items={[
       {
-        badgeText: 'badge-text',
+        badge: { text: 'badge-text' },
         children: 'test children',
         summary: ['summary1', 'summary2', 'summary3'],
         title: 'Title',

@@ -46,7 +46,7 @@ describe('ModuleExpandableItem', () => {
         <ModuleExpandableItem
           accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          badgeText="Try it out!"
+          badge={{ text: 'Try it out!' }}
           id="uniqueTestID"
           isCollapsed
           onModuleClicked={() => {}}

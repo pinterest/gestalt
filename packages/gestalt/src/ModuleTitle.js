@@ -8,11 +8,16 @@ import IconButton from './IconButton.js';
 import icons from './icons/index.js';
 import Text from './Text.js';
 
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
 /**
  * https://gestalt.pinterest.systems/module
  */
 export default function ModuleTitle(props: {|
-  badgeText?: string,
+  badge?: BadgeType,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
   iconButton?: Element<typeof IconButton>,
@@ -21,7 +26,7 @@ export default function ModuleTitle(props: {|
 |}): Node {
   const { iconAccessibilityLabel = '', title, type = 'info' } = props;
 
-  const decoration = ['icon', 'badgeText', 'iconButton'].find((prop) => !!props[prop]);
+  const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);
   const hasError = type === 'error';
   const hasIcon = hasError || decoration === 'icon';
   const color = hasError ? 'red' : 'darkGray';
@@ -46,14 +51,14 @@ export default function ModuleTitle(props: {|
         </Flex.Item>
       )}
 
-      {decoration === 'badgeText' && props.badgeText && (
+      {decoration === 'badge' && props.badge && (
         <Flex.Item minWidth={0}>
           <Box
             dangerouslySetInlineStyle={{ __style: { top: '1px' } }}
             marginStart={2}
             position="relative"
           >
-            <Badge text={props.badgeText} />
+            <Badge text={props.badge.text} type={props.badge.type || 'info'} />
           </Box>
         </Flex.Item>
       )}

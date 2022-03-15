@@ -3,6 +3,11 @@ import { type Node } from 'react';
 import OptionItem from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
 
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
 type OptionItemType = {|
   label: string,
   subtext?: string,
@@ -13,7 +18,7 @@ type Props = {|
   /**
    * When supplied, will display a [Badge](https://gestalt.pinterest.systems/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/dropdown#Badges) variant to learn more.
    */
-  badgeText?: string,
+  badge?: BadgeType,
   /**
    * If needed, users can supply custom content to each Dropdown Link. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](https://gestalt.pinterest.systems/dropdown#Custom-item-content) variant to learn more.
    */
@@ -51,7 +56,7 @@ type Props = {|
  * Use [Dropdown.Link](https://gestalt.pinterest.systems/dropdownDropdown.Link) for navigation, when the Dropdown item navigates to a new page.
  */
 export default function DropdownLink({
-  badgeText,
+  badge,
   children,
   dataTestId,
   href,
@@ -64,7 +69,7 @@ export default function DropdownLink({
     <DropdownContextConsumer>
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <OptionItem
-          badgeText={badgeText}
+          badge={badge}
           dataTestId={dataTestId}
           hoveredItemIndex={hoveredItem}
           href={href}

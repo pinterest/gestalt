@@ -59,7 +59,7 @@ function SectionsIconButtonDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badgeText="New"
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}
@@ -409,7 +409,7 @@ function OrderDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Hide Pin", label: "Hide Pin" }}
             selected={selected}
@@ -871,7 +871,7 @@ function SectionsIconButtonDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badgeText="New"
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}

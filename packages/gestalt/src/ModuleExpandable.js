@@ -10,6 +10,11 @@ function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
 }
 
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
 type Props = {|
   /**
    * Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
@@ -32,7 +37,7 @@ type Props = {|
    * Array of modules displayed in a stack. Only one item can be expanded at a time. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
    */
   items: $ReadOnlyArray<{|
-    badgeText?: string,
+    badge?: BadgeType,
     children?: Node,
     icon?: $Keys<typeof icons>,
     iconAccessibilityLabel?: string,
@@ -78,7 +83,7 @@ export default function ModuleExpandable({
     <Box borderStyle="shadow" rounding={4}>
       {items.map(
         (
-          { badgeText, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },
+          { badge, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },
           index,
         ) => (
           <Fragment key={index}>
@@ -86,7 +91,7 @@ export default function ModuleExpandable({
             <ModuleExpandableItem
               accessibilityCollapseLabel={accessibilityCollapseLabel}
               accessibilityExpandLabel={accessibilityExpandLabel}
-              badgeText={badgeText}
+              badge={badge}
               icon={icon}
               iconAccessibilityLabel={iconAccessibilityLabel}
               iconButton={iconButton}

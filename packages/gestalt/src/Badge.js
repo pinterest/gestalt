@@ -6,6 +6,15 @@ import colors from './Colors.css';
 
 type Position = 'middle' | 'top';
 
+export type TypeOptions =
+  | 'info'
+  | 'error'
+  | 'warning'
+  | 'success'
+  | 'neutral'
+  | 'darkWash'
+  | 'lightWash';
+
 type Props = {|
   /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/badge#Positioning) variant to learn more.
@@ -18,7 +27,7 @@ type Props = {|
   /**
    * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/badge#Type) variant to learn more.
    */
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+  type?: TypeOptions,
 |};
 
 /**
