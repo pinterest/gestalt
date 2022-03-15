@@ -26,6 +26,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Eslint plugin',
       'How to hack around Gestalt',
       'FAQ',
+      'Component overview'
     ],
   },
   {
