@@ -183,7 +183,7 @@ function ModuleExample() {
       </Module>
       <Module
         badge={{"text": "Not started", "type": "neutral"}}
-        id="ModuleExample - badge"
+        id="ModuleExample - badge neutral"
         title="Title"
         >
         <Text size="200">This is example content.</Text>

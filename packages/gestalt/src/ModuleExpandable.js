@@ -5,7 +5,7 @@ import Divider from './Divider.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
 import icons from './icons/index.js';
 import IconButton from './IconButton.js';
-import { type BadgeType } from './Badge';
+import { type BadgeType } from './Badge.js';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
