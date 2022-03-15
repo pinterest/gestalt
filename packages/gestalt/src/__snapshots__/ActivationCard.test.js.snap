@@ -49,11 +49,11 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
   <div
     className="box marginTop6"
   >
-    <h3
-      className="Heading fontSize400 darkGray alignStart breakWord"
+    <div
+      className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
     >
       Tag is unhealthy
-    </h3>
+    </div>
   </div>
   <div
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
@@ -99,11 +99,11 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
   <div
     className="box marginTop6"
   >
-    <h3
-      className="Heading fontSize400 darkGray alignStart breakWord"
+    <div
+      className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
     >
       Claim your website
-    </h3>
+    </div>
   </div>
   <div
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
@@ -166,11 +166,11 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
   <div
     className="box marginTop6"
   >
-    <h3
-      className="Heading fontSize400 darkGray alignStart breakWord"
+    <div
+      className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
     >
       Claiming your website
-    </h3>
+    </div>
   </div>
   <div
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
@@ -294,11 +294,11 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
   <div
     className="box marginTop6"
   >
-    <h3
-      className="Heading fontSize400 darkGray alignStart breakWord"
+    <div
+      className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
     >
       Tag is unhealthy
-    </h3>
+    </div>
   </div>
   <div
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
@@ -445,11 +445,11 @@ exports[`<ActivationCard /> message + title + link 1`] = `
   <div
     className="box marginTop6"
   >
-    <h3
-      className="Heading fontSize400 darkGray alignStart breakWord"
+    <div
+      className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
     >
       Tag is unhealthy
-    </h3>
+    </div>
   </div>
   <div
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
@@ -547,11 +547,11 @@ exports[`<ActivationCard /> message + title 1`] = `
   <div
     className="box marginTop6"
   >
-    <h3
-      className="Heading fontSize400 darkGray alignStart breakWord"
+    <div
+      className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
     >
       Tag is unhealthy
-    </h3>
+    </div>
   </div>
   <div
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
