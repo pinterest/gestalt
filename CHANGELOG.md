@@ -1,3 +1,9 @@
+## 45.11.2 (Mar 15, 2022)
+
+### Patch
+
+- ActivationCard: Use Text instead of Heading for UncompletedCard (#1986)
+
 ## 45.11.1 (Mar 15, 2022)
 
 ### Patch
