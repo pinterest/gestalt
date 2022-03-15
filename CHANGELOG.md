@@ -1,3 +1,9 @@
+## 45.11.3 (Mar 15, 2022)
+
+### Patch
+
+- Tooling: fix in generic codemods to handle nested children components (#1983)
+
 ## 45.11.2 (Mar 15, 2022)
 
 ### Patch
