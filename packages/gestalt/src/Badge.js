@@ -15,11 +15,6 @@ export type TypeOptions =
   | 'darkWash'
   | 'lightWash';
 
-export type BadgeType = {|
-  text: string,
-  type?: TypeOptions,
-|};
-
 type Props = {|
   /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/badge#Positioning) variant to learn more.

@@ -5,11 +5,15 @@ import Divider from './Divider.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
 import icons from './icons/index.js';
 import IconButton from './IconButton.js';
-import { type BadgeType } from './Badge.js';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
 }
+
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
 
 type Props = {|
   /**

@@ -2,7 +2,11 @@
 import { type Node } from 'react';
 import OptionItem from './OptionItem.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
-import { type BadgeType } from './Badge.js';
+
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
 
 type OptionItemType = {|
   label: string,

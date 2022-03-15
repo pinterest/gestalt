@@ -8,7 +8,11 @@ import icons from './icons/index.js';
 import ModuleTitle from './ModuleTitle.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type BadgeType } from './Badge.js';
+
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
 
 /**
  * https://gestalt.pinterest.systems/module

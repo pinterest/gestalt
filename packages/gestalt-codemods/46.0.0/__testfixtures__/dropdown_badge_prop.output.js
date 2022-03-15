@@ -43,13 +43,13 @@ export default function IntroMenuButtonDropdownExample() {
             isExternal
             option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }} />
           <Dropdown.Item
-            badge={{text: "New"}}
+            badge={{ text: 'New' }}
             onSelect={handleSelect}
             option={{ value: "item 4", label: "Item 4" }}
             selected={selected}
           />
           <Dropdown.Link
-            badge={{text: "New"}}
+            badge={{ text: 'New' }}
             href="https://pinterest.com"
             isExternal
             option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}

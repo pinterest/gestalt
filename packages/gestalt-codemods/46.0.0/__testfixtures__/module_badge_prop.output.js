@@ -4,7 +4,7 @@ import {  Module, Text} from 'gestalt';
 export default function Test() {
   return (
     <Module
-      badge={{text: "Try it out!"}}
+      badge={{ text: 'Try it out!' }}
       id="ModuleExample - badge"
       title="Title"
     >

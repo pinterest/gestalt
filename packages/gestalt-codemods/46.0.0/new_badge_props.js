@@ -1,7 +1,7 @@
 /*
  * Converts
- *  <Module badgeText="new" /> to <Module badge={{text: "New"}} />
- *  <Dropdown.Item || .Link badgeText="new" {...} /> to <Dropdown.Item || .Link badge={{text: "New"}} {...} />
+ *  <Module badgeText="new" /> to <Module badge={{ text: 'New"}} />
+ *  <Dropdown.Item || .Link badgeText="new" {...} /> to <Dropdown.Item || .Link badge={{ text: 'New"}} {...} />
  */
 
 // yarn codemod --parser=flow -t=packages/gestalt-codemods/46.0.0/new_badge_props.js relative/path/to/your/code
@@ -29,7 +29,7 @@ export default function transformer(file, api) {
   });
 
   // No Module or Dropdown imports, bail
-  if (!localIdentifierNames) {
+  if (localIdentifierNames.length === 0) {
     return null;
   }
 
@@ -81,7 +81,7 @@ export default function transformer(file, api) {
           }
           const renamedAttr = { ...attr };
           renamedAttr.name.name = 'badge';
-          renamedAttr.value = `{{text: "${attr?.value?.value}"}}`;
+          renamedAttr.value = `{{ text: '${attr?.value?.value}' }}`;
           return renamedAttr;
         })
         .filter(Boolean);

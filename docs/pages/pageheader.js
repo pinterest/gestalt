@@ -72,7 +72,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
                     <Dropdown.Item
                       handleSelect={handleSelect}
                       selected={selected}
-                      badge={{text: "New"}}
+                      badge={{ text: 'New' }}
                       option={{
                         value: 'Edit groups',
                         label: 'Edit groups',
@@ -478,7 +478,7 @@ function PrimaryActionExample() {
                 <Dropdown.Item
                   handleSelect={handleSelect}
                   selected={selected}
-                  badge={{text: "New"}}
+                  badge={{ text: 'New' }}
                   option={{
                     value: 'Merge',
                     label: 'Merge',
@@ -578,7 +578,7 @@ function SecondaryActionExample() {
                 <Dropdown.Item
                   handleSelect={handleSelect}
                   selected={selected}
-                  badge={{text: "New"}}
+                  badge={{ text: 'New' }}
                   option={{
                     value: 'Delete',
                     label: 'Delete',

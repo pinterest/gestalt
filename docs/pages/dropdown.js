@@ -56,13 +56,13 @@ export default function DropdownPage({
                   option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
                 />
                 <Dropdown.Item
-                  badge={{text: "New"}}
+                  badge={{ text: 'New' }}
                   onSelect={onSelect}
                   option={{ value: "item 4", label: "Item 4" }}
                   selected={selected}
                 />
                 <Dropdown.Link
-                  badge={{text: "New"}}
+                  badge={{ text: 'New' }}
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
@@ -149,13 +149,13 @@ export default function DropdownPage({
                   option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
                 />
                 <Dropdown.Item
-                  badge={{text: "New"}}
+                  badge={{ text: 'New' }}
                   onSelect={onSelect}
                   option={{ value: "item 4", label: "Item 4" }}
                   selected={selected}
                 />
                 <Dropdown.Link
-                  badge={{text: "New"}}
+                  badge={{ text: 'New' }}
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
@@ -270,7 +270,7 @@ function OrderDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badge={{text: "New"}}
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Hide Pin", label: "Hide Pin" }}
             selected={selected}
@@ -323,7 +323,7 @@ function NoTooltipsDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badge={{text: "New"}}
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Hide Pin", label: "Hide Pin" }}
             selected={selected}
@@ -384,7 +384,7 @@ function ExternalLinksDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badge={{text: "New"}}
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Report a bug", label: "Report a bug" }}
             selected={selected}
@@ -437,7 +437,7 @@ function CustomContentDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badge={{text: "New"}}
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Report a bug", label: "Report a bug" }}
             selected={selected}
@@ -517,7 +517,7 @@ function TruncationDropdownExample() {
       {open && (
         <Dropdown anchor={anchorRef.current} id="truncation-dropdown-example" onDismiss={() => setOpen(false)}>
           <Dropdown.Item
-            badge={{text: "New"}}
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{
               value: 'Homefeed anpassen',
@@ -730,7 +730,7 @@ function SectionsIconButtonDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badge={{text: "New"}}
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}
@@ -813,7 +813,7 @@ function CustomHeaderExample() {
               selected={selected}
             />
             <Dropdown.Item
-              badge={{text: "New"}}
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'item 4', label: 'Compact' }}
               selected={selected}
@@ -964,7 +964,7 @@ function BadgesDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badge={{text: "New"}}
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}

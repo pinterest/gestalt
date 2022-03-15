@@ -6,7 +6,11 @@ import IconButton from './IconButton.js';
 import icons from './icons/index.js';
 import ModuleExpandable from './ModuleExpandable.js';
 import ModuleTitle from './ModuleTitle.js';
-import { type BadgeType } from './Badge.js';
+
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
 
 /**
  * [Module](https://gestalt.pinterest.systems/module) is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.

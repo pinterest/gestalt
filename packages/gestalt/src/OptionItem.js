@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, Fragment, type Node } from 'react';
 import classnames from 'classnames';
-import Badge, { type BadgeType } from './Badge.js';
+import Badge from './Badge.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
@@ -18,6 +18,11 @@ export type OptionItemType = {|
   label: string,
   subtext?: string,
   value: string,
+|};
+
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
 |};
 
 type Props = {|

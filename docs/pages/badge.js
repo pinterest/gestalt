@@ -274,7 +274,7 @@ function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
       <Module
-        badge={{text: "Beta"}}
+        badge={{ text: 'Beta' }}
         id="ModuleExample - badge"
         title="Title"
         >
