@@ -32,12 +32,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -83,12 +83,12 @@ describe('Dropdown', () => {
             }}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelectMock}
             option={{ value: 'item 4', label: 'Item 4' }}
           />
           <Dropdown.Link
-            badgeText="New"
+            badge={{ text: 'New' }}
             href="https://pinterest.com"
             isExternal
             option={{
@@ -141,12 +141,12 @@ describe('Dropdown', () => {
             }}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelectMock}
             option={{ value: 'item 4', label: 'Item 4' }}
           />
           <Dropdown.Link
-            badgeText="New"
+            badge={{ text: 'New' }}
             href="https://pinterest.com"
             isExternal
             option={{
@@ -190,12 +190,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -241,12 +241,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -292,12 +292,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -355,12 +355,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -415,12 +415,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{

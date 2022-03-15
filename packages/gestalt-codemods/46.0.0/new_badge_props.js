@@ -6,6 +6,8 @@
 
 // yarn codemod --parser=flow -t=packages/gestalt-codemods/46.0.0/new_badge_props.js relative/path/to/your/code
 
+// Run "yarn codemod detectManualReplacement ~/path/to/your/code --component=Module --subcomponent=Expandable --prop=badgeText" to find locations of badgeText inside Module.Expandable
+
 export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
@@ -57,30 +59,13 @@ export default function transformer(file, api) {
       const newAttrs = attrs
         .map((attr) => {
           const propName = attr?.name?.name;
-          // Not badgeText or items, bail
-          if (propName !== 'badgeText' && propName !== 'items') {
+          // Not badgeText, bail
+          if (propName !== 'badgeText') {
             return attr;
           }
 
           const propValue = attr?.value?.expression?.value;
           const propValueVariableName = attr?.value?.expression?.name;
-          const propValueVariableType = attr?.value?.expression?.type;
-
-          if (propValueVariableType === 'ArrayExpression') {
-            attr?.value?.expression?.elements.map((element) =>
-              element.properties?.map((property) => {
-                if (property.key.name === 'badgeText') {
-                  // eslint-disable-next-line no-console
-                  console.log(
-                    `${node.openingElement.name.object?.name} components with ${attr?.name?.name} prop that contains badgeText must be converted to a "badge" object manually (string -> object with text and optionally type). Location: ${file.path} @line: ${node.loc.start.line}`,
-                  );
-                  return null;
-                }
-                return null;
-              }),
-            );
-            return attr;
-          }
 
           if (propValue === false || propValue === null || propValueVariableName === 'undefined') {
             // If explicitly set to false or undefined the prop isn't actually doing anything and can be removed
