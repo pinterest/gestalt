@@ -1,3 +1,9 @@
+## 46.0.0 (Mar 15, 2022)
+
+### Major
+
+- Dropdown, Module: Change badge prop to allow type (#1982)
+
 ## 45.11.3 (Mar 15, 2022)
 
 ### Patch
