@@ -93,7 +93,8 @@ describe('detectManualReplacement: component + prop + value', () => {
           transformName: 'detectManualReplacement',
           moduleOptions: {
             quote: 'single',
-            component: 'Box',
+            component: 'Dropdown',
+            subcomponent: 'Item',
             prop: 'color',
             value: 'red',
           },
@@ -103,7 +104,7 @@ describe('detectManualReplacement: component + prop + value', () => {
         new Error(
           buildManualAttentionErrorMessage({
             test,
-            lines: [5, 6, 7, 6, 7, 7],
+            lines: [5, 7, 7, 7],
           }),
         ),
       );

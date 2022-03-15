@@ -85,6 +85,24 @@ describe('modifyPropValue: rename omitted boolean', () => {
   });
 });
 
+describe('modifyPropValue: rename value string', () => {
+  ['modifyPropValue/renamePropValueStringValue'].forEach((test) => {
+    defineTest(
+      __dirname,
+      'modifyPropValue',
+      {
+        quote: 'single',
+        component: 'Box',
+        previousProp: 'height',
+        previousValue: '100%',
+        nextValue: '200%',
+      },
+      test,
+      {},
+    );
+  });
+});
+
 describe('modifyPropValue: remove string', () => {
   ['modifyPropValue/deprecatePropValueString'].forEach((test) => {
     defineTest(

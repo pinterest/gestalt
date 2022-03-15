@@ -1,4 +1,4 @@
-import { Box } from 'gestalt';
+import { Box, Flex } from 'gestalt';
 
 export default function TestComp() {
   return (
@@ -6,6 +6,7 @@ export default function TestComp() {
       <Box  />
       <Box width={400} >
         <Box  />
+        <Flex width={400} fit />
       </Box>
     </Box>
   );

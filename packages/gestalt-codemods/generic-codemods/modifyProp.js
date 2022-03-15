@@ -18,12 +18,13 @@
  * yarn codemod modifyProp ~/path/to/your/code --component=<value> --previousProp=<value> --nextProp=<value>
  *
  *
- * If all options passed, previous prop is replaced with next prop value
- * In the absence of nextProp, the codemod removes the prop
+ * If all options passed, previous prop is replaced with next prop value (REPLACE)
+ * In the absence of nextProp, the codemod removes the prop (REMOVE)
  *
  *
- * RENAME E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size --nextProp=renamedSize
- * RENAME E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Dropdown --subcomponent=Item --previousProp=size --nextProp=renamedSize
+ * REPLACE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size --nextProp=renamedSize
+ * REPLACE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Dropdown --subcomponent=Item --previousProp=size --nextProp=renamedSize
+ *
  * REMOVE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size
  */
 
@@ -77,22 +78,35 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     subcomponent,
   });
 
-  throwErrorIfSpreadProps({ fileInfo, j, jSXCollection: matchedJSXCollection });
+  throwErrorIfSpreadProps({
+    fileInfo,
+    j,
+    jSXCollection: matchedJSXCollection,
+    componentName: targetLocalName,
+    subcomponentName: subcomponent,
+  });
 
   if (previousProp) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
       j,
       jSXCollection: matchedJSXCollection,
+      componentName: targetLocalName,
+      subcomponentName: subcomponent,
       prop: previousProp,
     });
 
     if (jSXWithMatchingAttributesCollection.size() === 0) return null;
 
     let replaceWithModifiedCloneCallback;
+
     if (!nextProp) {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j });
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, previousProp });
     } else {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, nextProp });
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
+        j,
+        previousProp,
+        nextProp,
+      });
     }
     jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
   }

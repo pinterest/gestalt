@@ -27,14 +27,16 @@
  * --nextValue=string|number|boolean
  *
  *
- * If all options passed, prop+value combination are replaced with new prop+value combination
- * In the absence of nextProp, the codemod only replaces the prop value
- * In the absence of nextValue, the codemod only replaces the prop name for that prop+value combination
- * In the absence of nextProp+nextValue, the codemod removes the prop with that particular value
- * In the absence of previousProp+previousValue, the codemod adds a new prop with value
+ * If all options passed, prop+value combination are replaced with new prop+value combination (REPLACE)
+ * In the absence of nextProp, the codemod only replaces the prop value (REPLACE)
+ * In the absence of nextValue, the codemod only replaces the prop name for that prop+value combination (REPLACE)
+ * In the absence of previousProp+previousValue, the codemod adds a new prop with value (ADD)
+ * In the absence of nextProp+nextValue, the codemod removes the prop with that particular value (REMOVE)
  *
  *
- * RENAME E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --nextProp=variant --previousValue=400 --nextValue=error
+ * REPLACE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --nextProp=variant --previousValue=400 --nextValue=error
+ * REPLACE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=400 --nextValue=error
+ * REPLACE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --nextProp=variant --previousValue=400
  *
  * ADD E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --nextProp=variant --nextValue=error
  *
@@ -93,12 +95,21 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     subcomponent,
   });
 
-  throwErrorIfSpreadProps({ fileInfo, j, jSXCollection: matchedJSXCollection });
+  throwErrorIfSpreadProps({
+    fileInfo,
+    j,
+    jSXCollection: matchedJSXCollection,
+    componentName: targetLocalName,
+    subcomponentName: subcomponent,
+  });
 
+  // We need to identify previousProp & previousValue in order to RENAME or DEPRECATE
   if (previousProp && !isNullOrUndefined(previousValue)) {
     const jSXWithMatchingAttributesCollection = filterJSXByAttribute({
       j,
       jSXCollection: matchedJSXCollection,
+      componentName: targetLocalName,
+      subcomponentName: subcomponent,
       prop: previousProp,
       value: previousValue,
     });
@@ -107,11 +118,15 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
     let replaceWithModifiedCloneCallback;
 
+    // In the absence of nextProp & nextValue, we REMOVE prop and values
     if (!nextProp && isNullOrUndefined(nextValue)) {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j });
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, previousProp });
     } else {
+      // In the absence of just nextProp, we change the value.
+      // In the absence of just nextValue, we rename the prop if both prop and value match.
       replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
         j,
+        previousProp,
         nextProp,
         nextValue,
       });
@@ -119,6 +134,7 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     jSXWithMatchingAttributesCollection.replaceWith(replaceWithModifiedCloneCallback);
   }
 
+  // In the absence of previousProp & previousValue, we ADD prop and values
   if (isNullOrUndefined(previousProp) && isNullOrUndefined(previousValue)) {
     for (let idx = matchedJSXCollection.size() - 1; idx >= 0; idx -= 1) {
       matchedJSXCollection.at(idx).replaceWith((node) => {

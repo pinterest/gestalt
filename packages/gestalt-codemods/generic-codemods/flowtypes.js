@@ -18,6 +18,7 @@ export type ImportSpecifierType = {|
 
 // TODO: Delete after removing deprecatedUtils.js
 export type NodePathType = {|
+  parentPath: { parentPath: GenericObjectType },
   value: {|
     type: string,
     specifiers: Array<ImportSpecifierType>,

@@ -1,11 +1,11 @@
-import { Box, Button } from 'gestalt';
+import { Box, Flex } from 'gestalt';
 
 export default function TestComp() {
   return (
     <Box width={400} fit>
       <Box fit/>
       <Box fit/>
-      <Button/>
+      <Flex width={400} fit/>
     </Box>
   );
 }

@@ -1,11 +1,12 @@
-import { Box } from 'gestalt';
+import { Dropdown, Flex } from 'gestalt';
 
 export default function TestComp() {
   return (
-    <Box color="red">
-      <Box color="red">
-        <Box color="red"/>
-      </Box>
-    </Box>
+    <Dropdown.Item color="red">
+      <Dropdown.Item color="blue">
+        <Dropdown.Item color="red"/>
+        <Flex color="red"/>
+      </Dropdown.Item>
+    </Dropdown.Item>
   );
 }
