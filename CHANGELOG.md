@@ -1,3 +1,9 @@
+## 46.1.1 (Mar 16, 2022)
+
+### Patch
+
+- Text: rework color class logic to appease Flow (#1992)
+
 ## 46.1.0 (Mar 16, 2022)
 
 ### Minor
