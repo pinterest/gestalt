@@ -1,3 +1,9 @@
+## 46.0.1 (Mar 16, 2022)
+
+### Patch
+
+- Prevent errors (#1988)
+
 ## 46.0.0 (Mar 15, 2022)
 
 ### Major
