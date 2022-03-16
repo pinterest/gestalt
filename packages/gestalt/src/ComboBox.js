@@ -427,7 +427,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           iconButton={
             controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
               <InternalTextFieldIconButton
-                accessibilityClearButtonLabel={accessibilityClearButtonLabel}
+                accessibilityLabel={accessibilityClearButtonLabel}
                 hoverStyle="default"
                 icon="cancel"
                 onClick={handleOnClickIconButtonClear}

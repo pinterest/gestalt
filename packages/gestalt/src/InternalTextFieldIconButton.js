@@ -8,22 +8,22 @@ import styles from './InternalTextField.css';
 import { TAB, SPACE, ENTER } from './keyCodes.js';
 
 type Props = {|
-  accessibilityClearButtonLabel?: string,
+  accessibilityLabel?: string,
   accessibilityHidden?: boolean,
-  hoverStyle: 'default' | 'none',
+  hoverStyle?: 'default' | 'none',
   icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide',
   onClick: () => void,
-  pogPadding: 1 | 2,
-  tapStyle: $ElementType<React$ElementConfig<typeof TapArea>, 'tapStyle'>,
+  pogPadding?: 1 | 2,
+  tapStyle?: $ElementType<React$ElementConfig<typeof TapArea>, 'tapStyle'>,
 |};
 
 export default function InternalTextFieldIconButton({
-  accessibilityClearButtonLabel,
+  accessibilityLabel,
   accessibilityHidden,
-  hoverStyle,
+  hoverStyle = 'default',
   icon,
   onClick,
-  pogPadding,
+  pogPadding = 1,
   tapStyle,
 }: Props): Node {
   const [focused, setFocused] = useState(false);
@@ -40,7 +40,7 @@ export default function InternalTextFieldIconButton({
         rounding="circle"
       >
         <TapArea
-          accessibilityLabel={accessibilityClearButtonLabel}
+          accessibilityLabel={accessibilityLabel}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
           onKeyDown={({ event }) => {

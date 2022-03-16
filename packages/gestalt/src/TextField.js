@@ -1,9 +1,20 @@
 // @flow strict
-import { forwardRef, type Element, type Node } from 'react';
-import Tag from './Tag.js';
+import { forwardRef, type Element, type Node, useState } from 'react';
 import InternalTextField from './InternalTextField.js';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
+import Tag from './Tag.js';
+
+type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 type Props = {|
+  /**
+   * Label for the "Hide password" button. Required when `type="password"`. Be sure to localize the label.
+   */
+  accessibilityHidePasswordLabel?: string,
+  /**
+   * Label for the "Show password" button. Required when `type="password"`. Be sure to localize the label.
+   */
+  accessibilityShowPasswordLabel?: string,
   /**
    * Indicate if autocomplete should be available on the input, and the type of autocomplete.
    */
@@ -79,7 +90,7 @@ type Props = {|
   /**
    * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
    */
-  type?: 'date' | 'email' | 'password' | 'tel' | 'text' | 'url',
+  type?: Type,
   /**
    * md: 40px, lg: 48px
    */
@@ -102,6 +113,8 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   HTMLInputElement,
 >(function TextField(
   {
+    accessibilityHidePasswordLabel,
+    accessibilityShowPasswordLabel,
     autoComplete,
     disabled = false,
     errorMessage,
@@ -117,11 +130,31 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     placeholder,
     size = 'md',
     tags,
-    type = 'text',
+    type: typeProp = 'text',
     value,
   }: Props,
   ref,
 ): Node {
+  const [type, setType] = useState<Type>(typeProp);
+
+  const isPasswordField = typeProp === 'password';
+  const isCurrentlyPasswordType = type === 'password';
+
+  // TODO:
+  // - Wrap this in experiment
+  // - Tooltip?
+  const iconButton = isPasswordField ? (
+    <InternalTextFieldIconButton
+      accessibilityLabel={
+        isCurrentlyPasswordType ? accessibilityShowPasswordLabel : accessibilityHidePasswordLabel
+      }
+      icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
+      onClick={() => {
+        setType(isCurrentlyPasswordType ? 'text' : 'password');
+      }}
+    />
+  ) : undefined;
+
   return (
     <InternalTextField
       autoComplete={autoComplete}
@@ -129,6 +162,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       errorMessage={errorMessage}
       hasError={hasError}
       helperText={helperText}
+      iconButton={iconButton}
       id={id}
       label={label}
       name={name}
