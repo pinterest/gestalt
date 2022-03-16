@@ -30,8 +30,7 @@
       "deadline": "Quarter 1",
       "status": "inProgress",
       "platform": "Web",
-      "description":
-        "Adjustments to the existing PageHeader component to be more compatible with product needs.",
+      "description": "Adjustments to the existing PageHeader component to be more compatible with product needs.",
       "link": ""
     },
     {
@@ -79,7 +78,7 @@
       "deadline": "Quarter 4",
       "status": "unstarted",
       "platform": "Web",
-      "description":  "Pilot component for supporting selection of multiple items in a dropdown context.",
+      "description": "Pilot component for supporting selection of multiple items in a dropdown context.",
       "link": ""
     },
     {
