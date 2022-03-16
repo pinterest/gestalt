@@ -122,6 +122,7 @@ export default function Text({
 }: Props): Node {
   let colorClass = null;
   if (allowedColors.includes(color)) {
+    // $FlowExpectedError[prop-missing]
     colorClass = semanticColors.includes(color) ? typography[`${color}Text`] : colors[color];
   }
 
