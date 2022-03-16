@@ -6,8 +6,7 @@
       "deadline": "",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Creation of a component to provide contextual information for elements within a layout.",
+      "description": "Creation of a component to provide contextual information for elements within a layout.",
       "link": ""
     },
     {
@@ -15,8 +14,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of a component to encapuslate and structure form elements in a layout.",
+      "description": "Addition of a component to encapuslate and structure form elements in a layout.",
       "link": ""
     },
     {
@@ -49,8 +47,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Update Link component to support external indicator and more accessible styling.",
+      "description": "Update Link component to support external indicator and more accessible styling.",
       "link": ""
     },
     {
@@ -58,8 +55,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Providing the ability in form components to add an InfoButton to provide contextual help.",
+      "description": "Providing the ability in form components to add an InfoButton to provide contextual help.",
       "link": ""
     },
     {
@@ -67,8 +63,7 @@
       "deadline": "Quarter 2",
       "status": "inProgress",
       "platform": "Android/iOS/Web",
-      "description":
-        "Creation of a baseline set of illustrations that cover high-frequency product states (e.g., Error, Success, Empty).",
+      "description": "Creation of a baseline set of illustrations that cover high-frequency product states (e.g., Error, Success, Empty).",
       "link": ""
     },
     {
@@ -76,8 +71,7 @@
       "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Built-in animation capabilities within Gestalt to support high-frequency UI transitions within the product.",
+      "description": "Built-in animation capabilities within Gestalt to support high-frequency UI transitions within the product.",
       "link": ""
     },
     {
@@ -85,8 +79,7 @@
       "deadline": "Quarter 4",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Pilot component for supporting selection of multiple items in a dropdown context.",
+      "description":  "Pilot component for supporting selection of multiple items in a dropdown context.",
       "link": ""
     },
     {
@@ -166,8 +159,7 @@
       "deadline": "",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Create new component to create accessible Radio button groups in forms, deprecate singular RadioButton.",
+      "description": "Create new component to create accessible Radio button groups in forms, deprecate singular RadioButton.",
       "link": ""
     },
     {
@@ -191,8 +183,7 @@
       "deadline": "",
       "status": "inProgress",
       "platform": "Web",
-      "description":
-        "Develop functionality to allow for generic logic to be added on component interaction.",
+      "description": "Develop functionality to allow for generic logic to be added on component interaction.",
       "link": ""
     },
     {
@@ -216,8 +207,7 @@
       "deadline": "",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of tokens to support the styling of elevated elements within a layout.",
+      "description": "Addition of tokens to support the styling of elevated elements within a layout.",
       "link": ""
     },
     {
@@ -225,8 +215,7 @@
       "deadline": "",
       "status": "inProgress",
       "platform": "",
-      "description":
-        "Update of the Gestalt docs site’s information architecture to support pattern guidelines and mobile component documentation.",
+      "description": "Update of the Gestalt docs site’s information architecture to support pattern guidelines and mobile component documentation.",
       "link": ""
     },
     {
@@ -234,8 +223,7 @@
       "deadline": "Quarter 1",
       "status": "unstarted",
       "platform": "",
-      "description":
-        "Provide a visual component overview within the Gestalt docs to make finding components faster/easier.",
+      "description": "Provide a visual component overview within the Gestalt docs to make finding components faster/easier.",
       "link": ""
     },
     {
@@ -251,8 +239,7 @@
       "deadline": "Quarter 1",
       "status": "unstarted",
       "platform": "",
-      "description":
-        "Development of usage guidelines and best practices for usage of elevation within Gestalt.",
+      "description": "Development of usage guidelines and best practices for usage of elevation within Gestalt.",
       "link": ""
     },
     {
@@ -260,8 +247,7 @@
       "deadline": "Quarter 1",
       "status": "ok",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Status web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Status web documentation.",
       "link": "/status"
     },
     {
@@ -269,8 +255,7 @@
       "deadline": "Quarter 1",
       "status": "ok",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Datapoint web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Datapoint web documentation.",
       "link": ""
     },
     {
@@ -278,8 +263,7 @@
       "deadline": "Quarter 1",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Tag web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Tag web documentation.",
       "link": ""
     },
     {
@@ -287,8 +271,7 @@
       "deadline": "Quarter 1",
       "status": "ok",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Badge web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Badge web documentation.",
       "link": ""
     },
     {
@@ -296,8 +279,7 @@
       "deadline": "Quarter 1",
       "status": "inProgress",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Button mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Button mobile documentation.",
       "link": ""
     },
     {
@@ -305,8 +287,7 @@
       "deadline": "Quarter 1",
       "status": "inProgress",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to IconButton mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to IconButton mobile documentation.",
       "link": ""
     },
     {
@@ -314,8 +295,7 @@
       "deadline": "Quarter 1",
       "status": "inProgress",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Modal/Sheet mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Modal/Sheet mobile documentation.",
       "link": ""
     },
     {
@@ -323,8 +303,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Masonry web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Masonry web documentation.",
       "link": ""
     },
     {
@@ -332,8 +311,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Link web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Link web documentation.",
       "link": ""
     },
     {
@@ -341,8 +319,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Heading web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Heading web documentation.",
       "link": ""
     },
     {
@@ -350,8 +327,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Text web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Text web documentation.",
       "link": ""
     },
     {
@@ -359,8 +335,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Tabs mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Tabs mobile documentation.",
       "link": ""
     },
     {
@@ -368,8 +343,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Popover mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Popover mobile documentation.",
       "link": ""
     },
     {
@@ -377,8 +351,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Avatar mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Avatar mobile documentation.",
       "link": ""
     },
     {
@@ -394,8 +367,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "",
-      "description":
-        "Publish guidelines and best practices for typographic treatment within Gestalt.",
+      "description": "Publish guidelines and best practices for typographic treatment within Gestalt.",
       "link": ""
     },
     {
@@ -403,8 +375,7 @@
       "deadline": "Quarter 2",
       "status": "unstarted",
       "platform": "",
-      "description":
-        "Provide detailed info on the status and health of each component in the Gestalt docs.",
+      "description": "Provide detailed info on the status and health of each component in the Gestalt docs.",
       "link": ""
     },
     {
@@ -420,8 +391,7 @@
       "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Toast mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Toast mobile documentation.",
       "link": ""
     },
     {
@@ -429,8 +399,7 @@
       "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Android/iOS",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Icon mobile documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Icon mobile documentation.",
       "link": ""
     },
     {
@@ -438,8 +407,7 @@
       "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Checkbox web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Checkbox web documentation.",
       "link": ""
     },
     {
@@ -447,8 +415,7 @@
       "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Toast web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Toast web documentation.",
       "link": ""
     },
     {
@@ -456,8 +423,7 @@
       "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to RadioGroup web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to RadioGroup web documentation.",
       "link": ""
     },
     {
@@ -465,8 +431,7 @@
       "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to Switch web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to Switch web documentation.",
       "link": ""
     },
     {
@@ -474,8 +439,7 @@
       "deadline": "Quarter 4",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to TextArea web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to TextArea web documentation.",
       "link": ""
     },
     {
@@ -483,8 +447,7 @@
       "deadline": "Quarter 4",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Addition of best practices, accessibility, localization and related components to ButtonGroup web documentation.",
+      "description": "Addition of best practices, accessibility, localization and related components to ButtonGroup web documentation.",
       "link": ""
     },
     {
@@ -492,8 +455,7 @@
       "deadline": "Quarter 4",
       "status": "unstarted",
       "platform": "",
-      "description":
-        "Publish best practices for providing in-product contextual help and guidance using Gestalt.",
+      "description": "Publish best practices for providing in-product contextual help and guidance using Gestalt.",
       "link": ""
     },
     {
@@ -509,8 +471,7 @@
       "deadline": "Quarter 1",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Develop a lint rule to automatically convert <form>​ instances to our upcoming <Form>​ component",
+      "description": "Develop a lint rule to automatically convert <form>​ instances to our upcoming <Form>​ component",
       "link": ""
     },
     {
@@ -526,8 +487,7 @@
       "deadline": "",
       "status": "ok",
       "platform": "Web",
-      "description":
-        "Develop a generic codemod to automatically rename components of Gestalt component instances.",
+      "description": "Develop a generic codemod to automatically rename components of Gestalt component instances.",
       "link": ""
     },
     {
@@ -535,8 +495,7 @@
       "deadline": "",
       "status": "ok",
       "platform": "Web",
-      "description":
-        "Develop a generic codemod to automatically change prop names of Gestalt component instances.",
+      "description": "Develop a generic codemod to automatically change prop names of Gestalt component instances.",
       "link": ""
     },
     {
@@ -544,8 +503,7 @@
       "deadline": "",
       "status": "ok",
       "platform": "Web",
-      "description":
-        "Develop a generic codemod to automatically change prop values of Gestalt component instances.",
+      "description": "Develop a generic codemod to automatically change prop values of Gestalt component instances.",
       "link": ""
     },
     {
@@ -553,8 +511,7 @@
       "deadline": "",
       "status": "ok",
       "platform": "Web",
-      "description":
-        "Develop a generic codemod to automatically detect specific Gestalt component instances for manual modification.",
+      "description": "Develop a generic codemod to automatically detect specific Gestalt component instances for manual modification.",
       "link": ""
     },
     {
@@ -562,8 +519,7 @@
       "deadline": "",
       "status": "unstarted",
       "platform": "Web",
-      "description":
-        "Develop infrastructure to support Gestalt component integration testing in Cypress.",
+      "description": "Develop infrastructure to support Gestalt component integration testing in Cypress.",
       "link": ""
     },
     {
@@ -571,8 +527,7 @@
       "deadline": "",
       "status": "inProgress",
       "platform": "Web",
-      "description":
-        "Ship visual diff tests for all Gestalt components to guard against UI regressions.",
+      "description": "Ship visual diff tests for all Gestalt components to guard against UI regressions.",
       "link": ""
     }
   ]
