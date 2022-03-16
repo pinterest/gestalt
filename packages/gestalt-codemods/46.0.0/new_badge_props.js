@@ -18,18 +18,17 @@ export default function transformer(file, api) {
     const decl = path.node;
     // Not Gestalt, bail
     if (decl.source.value !== 'gestalt') {
-      return null;
+      return;
     }
 
     // Find the local names of Dropdown and Module imports
     localIdentifierNames = decl.specifiers
       .filter((node) => ['Dropdown', 'Module'].includes(node.imported.name))
       .map((node) => node.local.name);
-    return null;
   });
 
   // No Module or Dropdown imports, bail
-  if (localIdentifierNames.length === 0) {
+  if (!localIdentifierNames || localIdentifierNames.length === 0) {
     return null;
   }
 
@@ -78,6 +77,14 @@ export default function transformer(file, api) {
               `${node.openingElement.name.name} components with ${attr?.name?.name} prop must be converted to a "badge" object manually (string -> object with text and optionally type). Location: ${file.path} @line: ${node.loc.start.line}`,
             );
             return null;
+          }
+
+          if (attr.value.type === 'JSXExpressionContainer') {
+            // eslint-disable-next-line no-console
+            console.log(
+              `${nodeObjectName} components with expressions for the ${attr?.name?.name} prop must be converted to a "badge" object manually (string -> object with text and optionally type). Location: ${file.path} @line: ${node.loc.start.line}`,
+            );
+            return attr;
           }
           const renamedAttr = { ...attr };
           renamedAttr.name.name = 'badge';
