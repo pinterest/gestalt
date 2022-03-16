@@ -214,51 +214,53 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-<Box borderStyle="sm" maxWidth={400} padding={1}>
+<Flex alignItems="center" direction="column" gap={2}>
+  <Text size="200" weight="bold">
+  Hover over the examples below for a few seconds to see the title text:
+  </Text>
+
+  <Box borderStyle="sm" maxWidth={400} padding={1}>
   <Flex direction="column" gap={3}>
-      <Heading size="200">
-        Hover over the examples below for a few seconds to see the title text:
-      </Heading>
-
-      <Flex direction="column" gap={1}>
-        <Text italic size="100">
-          This title attribute is automatically added because lineClamp is used and children is a string.
-        </Text>
-        <Text lineClamp={1}>
-          This is a long and Supercalifragilisticexpialidocious sentence.
-          次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-        </Text>
-      </Flex>
-
-      <Flex direction="column" gap={1}>
-        <Text italic size="100">
-          This example uses lineClamp but has no title attribute, because children is a React.Node.
-        </Text>
-        <Text lineClamp={1}>
-          <Link href="#">
-            This is a long and Supercalifragilisticexpialidocious sentence.
-            次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </Link>
-        </Text>
-      </Flex>
-
-      <Flex direction="column" gap={1}>
-        <Text italic size="100">
-          This example uses lineClamp and children is a React.Node, but uses the title prop.
-        </Text>
-        <Text
-          lineClamp={1}
-          title="This is a long and Supercalifragilisticexpialidocious sentence. 次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉"
-        >
-          <Link href="#">
-            This is a long and Supercalifragilisticexpialidocious sentence.
-            次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </Link>
-        </Text>
-      </Flex>
+  <Flex direction="column" gap={1}>
+  <Text italic size="100">
+  This title attribute is automatically added because lineClamp is used and children is a string.
+  </Text>
+  <Text lineClamp={1}>
+  This is a long and Supercalifragilisticexpialidocious sentence.
+  次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+  </Text>
   </Flex>
-</Box>
-        `}
+
+  <Flex direction="column" gap={1}>
+  <Text italic size="100">
+  This example uses lineClamp but has no title attribute, because children is a React.Node.
+  </Text>
+  <Text lineClamp={1}>
+  <Link href="#">
+  This is a long and Supercalifragilisticexpialidocious sentence.
+  次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+  </Link>
+  </Text>
+  </Flex>
+
+  <Flex direction="column" gap={1}>
+  <Text italic size="100">
+  This example uses lineClamp and children is a React.Node, but uses the title prop.
+  </Text>
+  <Text
+  lineClamp={1}
+  title="This is a long and Supercalifragilisticexpialidocious sentence. 次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉"
+  >
+  <Link href="#">
+  This is a long and Supercalifragilisticexpialidocious sentence.
+  次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+  </Link>
+  </Text>
+  </Flex>
+  </Flex>
+  </Box>
+</Flex>
+`}
           />
         </MainSection.Subsection>
       </MainSection>
