@@ -88,6 +88,10 @@ type Props = {|
    */
   size?: Size,
   /**
+   * This populates the `title` attribute of the element, which is visible on hover in most browsers. This is useful when truncating the text with `lineClamp` when `children` is a `React.Node`. See the [Title variant](https://gestalt.pinterest.systems/text#Title) for more details.
+   */
+  title?: string,
+  /**
    * Link: https://gestalt.pinterest.systems/text#styles
    */
   underline?: boolean,
@@ -112,6 +116,7 @@ export default function Text({
   lineClamp,
   overflow = 'breakWord',
   size = '300',
+  title,
   underline = false,
   weight = 'normal',
 }: Props): Node {
@@ -142,7 +147,9 @@ export default function Text({
   return (
     <Tag
       className={cs}
-      title={isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined}
+      title={
+        title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
+      }
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
     >
       {children}

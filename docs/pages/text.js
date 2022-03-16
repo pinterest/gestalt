@@ -9,9 +9,11 @@ import MainSection from '../components/MainSection.js';
 
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Text">
-      <PageHeader name="Text" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Alignment"
@@ -30,6 +32,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Block vs. inline"
           description={`
@@ -49,6 +52,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Colors"
           description={`
@@ -79,6 +83,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Overflow"
           description="Gestalt provides utility options to deal with text overflow."
@@ -99,23 +104,26 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <Text weight="bold">normal:</Text>
     <Text overflow="normal">
       This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
+      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Text>
 
     <Text weight="bold">noWrap:</Text>
     <Text overflow="noWrap">
       This is a long and Supercalifragilisticexpialidocious sentence.
+      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Text>
 
     <Text weight="bold">lineClamp:</Text>
     <Text lineClamp={2}>
       This is a long and Supercalifragilisticexpialidocious sentence.
+      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Text>
   </Flex>
 </Box>
         `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Sizes"
           description={`
@@ -183,6 +191,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Styles"
           description="There are multiple styles, such as bold and italic, that we can attach to the Text component."
@@ -195,6 +204,61 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
   <Text underline>Underline</Text>
 </Flex>
           `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Title"
+          description={`The \`title\` attribute on a \`<div>\` can be used to show the full text of a truncated string on hover. That attribute is populated automatically when the text is truncated using \`lineClamp\`, as long as \`children\` is a string.
+           If \`children\` is a \`React.Node\` (e.g. [when using Link](/link#Link-and-Text)), use the \`title\` prop to manually set the \`title\` attribute.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+<Box borderStyle="sm" maxWidth={400} padding={1}>
+  <Flex direction="column" gap={3}>
+      <Heading size="200">
+        Hover over the examples below for a few seconds to see the title text:
+      </Heading>
+
+      <Flex direction="column" gap={1}>
+        <Text italic size="100">
+          This title attribute is automatically added because lineClamp is used and children is a string.
+        </Text>
+        <Text lineClamp={1}>
+          This is a long and Supercalifragilisticexpialidocious sentence.
+          次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+        </Text>
+      </Flex>
+
+      <Flex direction="column" gap={1}>
+        <Text italic size="100">
+          This example uses lineClamp but has no title attribute, because children is a React.Node.
+        </Text>
+        <Text lineClamp={1}>
+          <Link href="#">
+            This is a long and Supercalifragilisticexpialidocious sentence.
+            次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+          </Link>
+        </Text>
+      </Flex>
+
+      <Flex direction="column" gap={1}>
+        <Text italic size="100">
+          This example uses lineClamp and children is a React.Node, but uses the title prop.
+        </Text>
+        <Text
+          lineClamp={1}
+          title="This is a long and Supercalifragilisticexpialidocious sentence. 次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉"
+        >
+          <Link href="#">
+            This is a long and Supercalifragilisticexpialidocious sentence.
+            次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+          </Link>
+        </Text>
+      </Flex>
+  </Flex>
+</Box>
+        `}
           />
         </MainSection.Subsection>
       </MainSection>
