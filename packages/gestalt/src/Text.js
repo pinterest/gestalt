@@ -120,9 +120,12 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  const colorClass =
-    allowedColors.includes(color) &&
-    (semanticColors.includes(color) ? typography[`${color}Text`] : colors[color]);
+  let colorClass = null;
+
+  if (allowedColors.includes(color)) {
+    colorClass = semanticColors.includes(color) ? typography[`${color}Text`] : colors[color];
+  }
+
   const cs = cx(
     styles.Text,
     typography[`fontSize${SIZE_SCALE[size]}`],
