@@ -1,3 +1,9 @@
+## 46.1.0 (Mar 16, 2022)
+
+### Minor
+
+- Text: Add title prop (#1989)
+
 ## 46.0.1 (Mar 16, 2022)
 
 ### Patch
