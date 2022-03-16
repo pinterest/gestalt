@@ -157,7 +157,7 @@ function CalloutAction({
 /**
  * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
  *
- * ⚠️ Please note: Callout is not currently supported in dark mode.
+ * ⚠️ Please note: Callout is not currently optimized for dark mode.
  *
  * ![Callout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Callout%20%230.png)
  *
@@ -226,12 +226,15 @@ export default function Callout({
                     size="400"
                     weight="bold"
                     align={responsiveMinWidth === 'xs' ? 'center' : undefined}
+                    color="dark"
                   >
                     {title}
                   </Text>
                 </Box>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
+              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined} color="dark">
+                {message}
+              </Text>
             </Box>
           </Box>
         </Box>
