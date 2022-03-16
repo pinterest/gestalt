@@ -6,11 +6,69 @@ import IconButton from './IconButton.js';
 import Link from './Link.js';
 import Tooltip from './Tooltip.js';
 import Flex from './Flex.js';
-import Heading from './Heading.js';
-import Text from './Text.js';
+import Image from './Image.js';
 import { type Dimension } from './boxTypes.js';
+import {
+  PageHeaderTitle,
+  PageHeaderBadge,
+  PageHeaderHelperIconButton,
+  PageHeaderSubtext,
+  PageHeaderThubnail,
+  PageHeaderActionBlock,
+  PageHeaderItemsBlock,
+} from './PageHeaderSubcomponents.js';
+import styles from './PageHeader.css';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 type Props = {|
+  /**
+   * Add a badge displayed after the title. Be sure to localize the text.
+   */
+  badge?: {| text: string, tooltipText?: string |},
+  /**
+   * Specify a bottom border style for PageHeader: "sm" is 1px.
+   */
+  borderStyle?: 'sm' | 'none',
+  /**
+   * Primary and secondary actions are replaced with a [Dropdown](https://gestalt.netlify.app/dropdown) under the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)).
+   */
+  dropdownItems?: $ReadOnlyArray<Node>,
+  /**
+   * Label used for screen readers to provide information about the IconButton replacing actions the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)).
+   */
+  dropdownAccessibilityLabel?: string,
+  /**
+   * Helper IconButton to be placed after the title for a supplemental Call To Action (CTA).
+   */
+  helperIconButton?: {|
+    accessibilityLabel: string,
+    accessibilityControls: string,
+    accessibilityExpanded: boolean,
+    onClick: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
+  |},
+  /**
+   * Helper Link to be placed after the subtext.
+   */
+  helperLink?: {|
+    text: string,
+    accessibilityLabel: string,
+    href: string,
+    onClick: ({|
+      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
+  |},
+  /**
+   * Optional row of components.
+   */
+  items?: $ReadOnlyArray<Node>,
   /**
    * Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`. See the [max width](https://gestalt.pinterest.systems/pageheader#Max-width) variant for more info.
    */
@@ -31,6 +89,10 @@ type Props = {|
    * Page title. Will always be a level 1 heading. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization).
    */
   title: string,
+  /**
+   * An optional thumbnail image to be displayed next to the title.
+   */
+  thumbnail?: Element<typeof Image>,
 |};
 
 /**
@@ -41,38 +103,72 @@ type Props = {|
  *
  */
 export default function PageHeader({
+  badge,
+  dropdownItems,
+  dropdownAccessibilityLabel,
+  helperIconButton,
+  helperLink,
+  items,
   maxWidth = '100%',
   primaryAction,
   secondaryAction,
   subtext,
   title,
+  thumbnail,
+  borderStyle = 'none',
 }: Props): Node {
-  return (
-    <Box color="white" paddingX={8} width="100%">
-      <Flex flex="grow" justifyContent="center" maxWidth="100%">
-        <Flex alignItems="center" flex="grow" justifyContent="between" maxWidth={maxWidth}>
-          <Box marginEnd={4} minWidth={0} marginTop={2} marginBottom={2}>
-            <Heading size="500" lineClamp={1} accessibilityLevel={1}>
-              {title}
-            </Heading>
-            {subtext && (
-              <Box marginTop={2}>
-                <Text lineClamp={1}>{subtext}</Text>
-              </Box>
-            )}
-          </Box>
+  const { text: badgeText, tooltipText: badgeTooltipText } = badge || {};
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+  const pageHeaderBordertyle = isDarkMode ? styles.darkModePageHeader : styles.pageHeader;
 
-          {primaryAction && (
-            <Flex alignItems="center" gap={2} flex="none">
-              {secondaryAction}
-              {/* 48px height needed to maintain proper sizing when action is a Link */}
-              <Box alignItems="center" display="flex" marginTop={4} marginBottom={4} height="48px">
-                {primaryAction}
+  return (
+    <div className={borderStyle === 'sm' ? pageHeaderBordertyle : null}>
+      <Box color="white" paddingX={8} paddingY={4} width="100%">
+        <Flex flex="grow" justifyContent="center" maxWidth="100%">
+          <Flex flex="grow" maxWidth={maxWidth}>
+            <Flex.Item minWidth={0} flex="grow" alignSelf="center">
+              <Box marginEnd={6}>
+                <Flex gap={2}>
+                  {thumbnail ? <PageHeaderThubnail thumbnail={thumbnail} /> : null}
+                  <Flex direction="column" gap={1}>
+                    <Flex alignItems="center">
+                      <PageHeaderTitle title={title} />
+                      <Box display="none" smDisplay="block" marginStart={1}>
+                        <Flex gap={3}>
+                          {badge ? (
+                            <PageHeaderBadge
+                              badgeText={badgeText}
+                              badgeTooltipText={badgeTooltipText}
+                            />
+                          ) : null}
+                          {helperIconButton ? (
+                            <PageHeaderHelperIconButton helperIconButton={helperIconButton} />
+                          ) : null}
+                        </Flex>
+                      </Box>
+                    </Flex>
+                    {subtext ? (
+                      <PageHeaderSubtext subtext={subtext} helperLink={helperLink} />
+                    ) : null}
+                  </Flex>
+                </Flex>
               </Box>
-            </Flex>
-          )}
+            </Flex.Item>
+            <Flex.Item minWidth={0} flex="none">
+              <Flex gap={4} alignItems={subtext ? undefined : 'center'} height="100%">
+                <PageHeaderItemsBlock items={items} />
+                <PageHeaderActionBlock
+                  primaryAction={primaryAction}
+                  secondaryAction={secondaryAction}
+                  dropdownItems={dropdownItems}
+                  dropdownAccessibilityLabel={dropdownAccessibilityLabel}
+                />
+              </Flex>
+            </Flex.Item>
+          </Flex>
         </Flex>
-      </Flex>
-    </Box>
+      </Box>
+    </div>
   );
 }
