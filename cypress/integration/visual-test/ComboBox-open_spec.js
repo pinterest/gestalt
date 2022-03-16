@@ -7,6 +7,10 @@ describe('ComboBox visual regression check', () => {
     cy.get('[data-test-id="visual-test"]').find('label').first().click();
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'ComboBox-open',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });

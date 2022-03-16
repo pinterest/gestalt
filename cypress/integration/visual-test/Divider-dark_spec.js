@@ -6,6 +6,10 @@ describe('Divider dark mode visual regression check', () => {
   it('Compares snapshots', () => {
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'Divider-dark',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });

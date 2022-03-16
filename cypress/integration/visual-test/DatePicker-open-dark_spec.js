@@ -7,6 +7,10 @@ describe('DatePicker visual regression check', () => {
     cy.get('[data-test-id="visual-test"]').find('label').first().click();
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'DatePicker-open-dark',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });
