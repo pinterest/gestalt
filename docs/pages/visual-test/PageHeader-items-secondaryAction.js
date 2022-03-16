@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { PageHeader, Button, Box, Dropdown } from 'gestalt';
+import { PageHeader, Button, Box, Datapoint, Dropdown } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
@@ -8,6 +8,22 @@ export default function Snapshot(): Node {
       <PageHeader
         title="Product groups"
         subtext="S. E. All products USD"
+        items={[
+          <Datapoint
+            key="Spend"
+            size="md"
+            title="Spend"
+            value="$1.23M"
+            trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+          />,
+          <Datapoint
+            key="Spend2"
+            size="md"
+            title="Spend"
+            value="$1.23M"
+            trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+          />,
+        ]}
         primaryAction={{
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
