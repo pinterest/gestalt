@@ -28,61 +28,76 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
           }
         };
 
+const [windowSize, setWindowSize] = React.useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  React.useEffect(() => {
+    // only execute all the code below in client side
+    if (typeof window !== 'undefined') {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []); // Empty array ensures that effect is only run on mount
+
         return (
           <PageHeader
             title="Product groups"
-            subtext="S. E. All products USD"
-            secondaryAction={
-              <React.Fragment>
-                <Tooltip idealDirection="up" text="More options">
-                  <IconButton
-                    accessibilityControls="intro-ph-dropdown-example"
-                    accessibilityHaspopup
-                    accessibilityExpanded={open}
-                    accessibilityLabel="More options"
-                    icon="ellipsis"
-                    iconColor="darkGray"
-                    selected={open}
-                    onClick={() => setOpen((prevVal) => !prevVal)}
-                    ref={anchorRef}
-                    size="lg"
-                  />
-                </Tooltip>
-                {open && (
-                  <Dropdown
-                    id="intro-ph-dropdown-example"
-                    anchor={anchorRef.current}
-                    onDismiss={() => {
-                      setOpen(false);
-                    }}
-                  >
-                    <Dropdown.Item
-                      handleSelect={handleSelect}
-                      selected={selected}
-                      option={{
-                        value: 'Share Group',
-                        label: 'Share Group',
-                      }}
-                    />
-                    <Dropdown.Item
-                      handleSelect={handleSelect}
-                      selected={selected}
-                      option={{ value: 'Help center', label: 'Help center' }}
-                    />
-                    <Dropdown.Item
-                      handleSelect={handleSelect}
-                      selected={selected}
-                      badge={{ text: 'New' }}
-                      option={{
-                        value: 'Edit groups',
-                        label: 'Edit groups',
-                      }}
-                    />
-                  </Dropdown>
-                )}
-              </React.Fragment>
+            subtext="S. E. All products USD."
+            helperIconButton={{
+              accessibilityLabel: 'test',
+              accessibilityControls: 'test',
+              accessibilityExpanded: false,
+              onClick: () => {},
+            }}
+             helperLink={{
+              text: "Learn more",
+              accessibilityLabel: "Learn more",
+              href: "#",
+              onClick: () => {},
+            }}
+            items={[
+              <Datapoint size="md" title="Spend" value="$1.23M" trend={{value: 29, accessibilityLabel: "Trending up"}} />,
+            ]}
+            secondaryAction={<Button size="lg" text="View analytics" />}
+            primaryAction={<Button color="red" size="lg" text="Promote" />}
+            thumbnail={
+              <Image
+                alt="square"
+                color="#000"
+                fit="cover"
+                naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/d0pQsJz/stock3.jpg"
+              />
             }
-            primaryAction={<Button color="red" size="lg" text="Create product group" />}
+            dropdownItems={[
+              <Dropdown.Item
+                option={{ value: 'Promote', label: 'Promote' }}
+                onSelect={() => {}}
+              />,
+              <Dropdown.Link
+                option={{ value: 'View analytics', label: 'View analytics' }}
+                href="https://pinterest.com"
+              />
+            ]}
+            dropdownAccessibilityLabel="More options"
           />
         );
       }
@@ -658,7 +673,10 @@ function SecondaryActionExample() {
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const docGen = await docgen({ componentName: 'PageHeader' });
+  docGen.props.dropdownItems.flowType.raw =
+    '$ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>>';
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'PageHeader' }) },
+    props: { generatedDocGen: docGen },
   };
 }

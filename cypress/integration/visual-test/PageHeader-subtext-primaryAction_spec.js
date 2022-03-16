@@ -1,15 +1,15 @@
 describe('PageHeader visual regression check', () => {
   beforeEach(() => {
-    cy.visit('/visual-test/PageHeader-basic');
+    cy.visit('/visual-test/PageHeader-subtext-primaryAction');
   });
 
-  const BREAKPOINTS = { sm: 576, md: 768, lg: 1312 };
+  const BREAKPOINTS = { xs: 360, sm: 576, md: 768, lg: 1312 };
 
   Object.keys(BREAKPOINTS).forEach((size) => {
-    it(`Compares snapshots on ${size} breakpoint`, () => {
+    it(`Compares snapshots on ${size}:${BREAKPOINTS[size]}px breakpoint`, () => {
       cy.viewport(BREAKPOINTS[size], 1080);
       cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
-        name: `PageHeader-basic-${size}`,
+        name: `PageHeader-subtext-primaryAction-${size}`,
         imageConfig: {
           threshold: 0.001,
           thresholdType: 'percent',

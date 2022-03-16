@@ -7,7 +7,7 @@ export default function Snapshot(): Node {
     <Box width="100vw">
       <PageHeader
         title="Product groups"
-        subtext="S. E. All products USD"
+        subtext="This is a substantially long subtext meant to wrap"
         primaryAction={<Button color="red" size="lg" text="Create group" />}
       />
     </Box>

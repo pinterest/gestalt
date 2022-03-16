@@ -5,11 +5,11 @@ import { ColorSchemeProvider, PageHeader, Button, Box } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box width="100vw">
+      <Box color="white" width="100vw" height={100}>
         <PageHeader
           title="Product groups"
-          subtext="S. E. All products USD"
           primaryAction={<Button color="red" size="lg" text="Create group" />}
+          borderStyle="sm"
         />
       </Box>
     </ColorSchemeProvider>
