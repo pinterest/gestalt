@@ -10,9 +10,9 @@ import Page from '../components/Page.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="IconButton">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="IconButton"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 function SectionsIconButtonDropdownExample() {
@@ -141,13 +141,6 @@ function SectionsIconButtonDropdownExample() {
               'Forward the ref to the underlying button or anchor element. See the [ref](#Ref) variant to learn more.',
           },
           {
-            name: 'tabIndex',
-            type: `-1 | 0`,
-            defaultValue: 0,
-            description:
-              'Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.',
-          },
-          {
             name: 'role',
             type: `'button' | 'link'`,
             defaultValue: 'button',
@@ -162,6 +155,13 @@ function SectionsIconButtonDropdownExample() {
               'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
           },
           {
+            name: 'tabIndex',
+            type: `-1 | 0`,
+            defaultValue: 0,
+            description:
+              'Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.',
+          },
+          {
             name: 'tooltip',
             type: `{| text: string, accessibilityLabel?: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
             description: `Adds a [Tooltip](/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
@@ -170,15 +170,9 @@ function SectionsIconButtonDropdownExample() {
       />
       <PropTable
         Component={IconButton}
-        name="Additional role = button"
+        name='Additional role="button"'
         id="role_button"
         props={[
-          {
-            name: 'role',
-            type: 'button',
-            description:
-              'Sets button interaction in the component. See the [role](#Role) variant to learn more.',
-          },
           {
             name: 'accessibilityControls',
             type: 'string',
@@ -198,25 +192,31 @@ function SectionsIconButtonDropdownExample() {
               'Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
           },
           {
+            name: 'role',
+            type: 'button',
+            description:
+              'Sets button interaction in the component. See the [role](#Role) variant to learn more.',
+          },
+          {
             name: 'selected',
             type: 'boolean',
             description:
               'Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more.',
           },
+          {
+            name: 'type',
+            type: `'submit' | 'button'`,
+            required: false,
+            defaultValue: 'button',
+            description: 'Use "submit" if IconButton is used within or associated with a form.',
+          },
         ]}
       />
       <PropTable
         Component={IconButton}
-        name="Additional role = link"
+        name='Additional role="link"'
         id="role_link"
         props={[
-          {
-            name: 'role',
-            type: 'link',
-            required: true,
-            description:
-              'Sets link interaction in the component. See the [role](#Role) variant and [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-          },
           {
             name: 'href',
             type: 'string',
@@ -228,6 +228,13 @@ function SectionsIconButtonDropdownExample() {
             type: `'none' | 'nofollow'`,
             description:
               'Specifies the relationship between the current document and the linked document. See the [role](#Role) variant to learn more.',
+          },
+          {
+            name: 'role',
+            type: 'link',
+            required: true,
+            description:
+              'Sets link interaction in the component. See the [role](#Role) variant and [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
           },
           {
             name: 'target',
