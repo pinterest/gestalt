@@ -46,7 +46,7 @@ export default function ColorUsagePage(): Node {
           description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/box#Borders). For dark mode, we use the 'elevationFloating' background of Box instead of a shadow.`}
         >
           <Flex gap={4} direction="column">
-            <Text>$elevation-floating</Text>
+            <Text italic>$elevation-floating</Text>
             <Flex gap={4} wrap>
               <ColorCard
                 colorScheme="light"
@@ -184,9 +184,7 @@ export default function ColorUsagePage(): Node {
       >
         <Flex gap={4} direction="column">
           <Text weight="bold">
-            <Text italic inline>
-              $color-background-elevation-accent
-            </Text>
+            <Text italic>$color-background-elevation-accent</Text>
           </Text>
           <Flex gap={4} wrap>
             <ColorCard
@@ -233,9 +231,7 @@ export default function ColorUsagePage(): Node {
       >
         <Flex gap={4} direction="column">
           <Text weight="bold">
-            <Text italic inline>
-              $color-border-container
-            </Text>
+            <Text italic>$color-border-container</Text>
           </Text>
           <Flex gap={4} wrap>
             <ColorCard
