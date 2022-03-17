@@ -57,6 +57,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #cc0000;
         --color-text-icon-warning: #bd5b00;
         --color-text-icon-inverse: #ffffff;
+        --color-background-default: #ffffff;
         --color-background-info-base: #0074e8;
         --color-background-error-base: #cc0000;
         --color-background-warning-base: #bd5b00;
@@ -66,7 +67,6 @@ describe('ColorSchemeProvider', () => {
         --color-background-tertiary-base: #767676;
         --color-background-selected-base: #111111;
         --color-background-inverse-base: #111111;
-        --color-background-default: #ffffff;
         --color-background-education: #0074e8;
         --color-background-elevation-accent: #f1f1f1;
         --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -123,6 +123,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #cc0000;
         --color-text-icon-warning: #bd5b00;
         --color-text-icon-inverse: #ffffff;
+        --color-background-default: #ffffff;
         --color-background-info-base: #0074e8;
         --color-background-error-base: #cc0000;
         --color-background-warning-base: #bd5b00;
@@ -132,7 +133,6 @@ describe('ColorSchemeProvider', () => {
         --color-background-tertiary-base: #767676;
         --color-background-selected-base: #111111;
         --color-background-inverse-base: #111111;
-        --color-background-default: #ffffff;
         --color-background-education: #0074e8;
         --color-background-elevation-accent: #f1f1f1;
         --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -189,6 +189,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #eb4242;
         --color-text-icon-warning: #e18d00;
         --color-text-icon-inverse: #111111;
+        --color-background-default: #111111;
         --color-background-info-base: #75bfff;
         --color-background-error-base: #f47171;
         --color-background-warning-base: #fdc900;
@@ -198,7 +199,6 @@ describe('ColorSchemeProvider', () => {
         --color-background-tertiary-base: #cdcdcd;
         --color-background-selected-base: #e9e9e9;
         --color-background-inverse-base: #f9f9f9;
-        --color-background-default: #111111;
         --color-background-education: #75bfff;
         --color-background-elevation-accent: #191919;
         --color-background-elevation-floating: #2b2b2b;
@@ -256,6 +256,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #eb4242;
         --color-text-icon-warning: #e18d00;
         --color-text-icon-inverse: #111111;
+        --color-background-default: #111111;
         --color-background-info-base: #75bfff;
         --color-background-error-base: #f47171;
         --color-background-warning-base: #fdc900;
@@ -265,7 +266,6 @@ describe('ColorSchemeProvider', () => {
         --color-background-tertiary-base: #cdcdcd;
         --color-background-selected-base: #e9e9e9;
         --color-background-inverse-base: #f9f9f9;
-        --color-background-default: #111111;
         --color-background-education: #75bfff;
         --color-background-elevation-accent: #191919;
         --color-background-elevation-floating: #2b2b2b;
@@ -322,6 +322,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #cc0000;
         --color-text-icon-warning: #bd5b00;
         --color-text-icon-inverse: #ffffff;
+        --color-background-default: #ffffff;
         --color-background-info-base: #0074e8;
         --color-background-error-base: #cc0000;
         --color-background-warning-base: #bd5b00;
@@ -331,7 +332,6 @@ describe('ColorSchemeProvider', () => {
         --color-background-tertiary-base: #767676;
         --color-background-selected-base: #111111;
         --color-background-inverse-base: #111111;
-        --color-background-default: #ffffff;
         --color-background-education: #0074e8;
         --color-background-elevation-accent: #f1f1f1;
         --color-background-elevation-floating: rgba(0, 0, 0, 0);

@@ -50,6 +50,7 @@ exports[`Video with callbacks 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
   --color-background-warning-base: #bd5b00;
@@ -59,7 +60,6 @@ exports[`Video with callbacks 1`] = `
   --color-background-tertiary-base: #767676;
   --color-background-selected-base: #111111;
   --color-background-inverse-base: #111111;
-  --color-background-default: #ffffff;
   --color-background-education: #0074e8;
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -155,6 +155,7 @@ exports[`Video with children 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
   --color-background-warning-base: #bd5b00;
@@ -164,7 +165,6 @@ exports[`Video with children 1`] = `
   --color-background-tertiary-base: #767676;
   --color-background-selected-base: #111111;
   --color-background-inverse-base: #111111;
-  --color-background-default: #ffffff;
   --color-background-education: #0074e8;
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -477,6 +477,7 @@ exports[`Video with crossOrigin 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
   --color-background-warning-base: #bd5b00;
@@ -486,7 +487,6 @@ exports[`Video with crossOrigin 1`] = `
   --color-background-tertiary-base: #767676;
   --color-background-selected-base: #111111;
   --color-background-inverse-base: #111111;
-  --color-background-default: #ffffff;
   --color-background-education: #0074e8;
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -583,6 +583,7 @@ exports[`Video with media attributes 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
   --color-background-warning-base: #bd5b00;
@@ -592,7 +593,6 @@ exports[`Video with media attributes 1`] = `
   --color-background-tertiary-base: #767676;
   --color-background-selected-base: #111111;
   --color-background-inverse-base: #111111;
-  --color-background-default: #ffffff;
   --color-background-education: #0074e8;
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -689,6 +689,7 @@ exports[`Video with multiple sources 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
   --color-background-warning-base: #bd5b00;
@@ -698,7 +699,6 @@ exports[`Video with multiple sources 1`] = `
   --color-background-tertiary-base: #767676;
   --color-background-selected-base: #111111;
   --color-background-inverse-base: #111111;
-  --color-background-default: #ffffff;
   --color-background-education: #0074e8;
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -801,6 +801,7 @@ exports[`Video with objectFit 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
   --color-background-warning-base: #bd5b00;
@@ -810,7 +811,6 @@ exports[`Video with objectFit 1`] = `
   --color-background-tertiary-base: #767676;
   --color-background-selected-base: #111111;
   --color-background-inverse-base: #111111;
-  --color-background-default: #ffffff;
   --color-background-education: #0074e8;
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
@@ -911,6 +911,7 @@ exports[`Video with source 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
   --color-background-warning-base: #bd5b00;
@@ -920,7 +921,6 @@ exports[`Video with source 1`] = `
   --color-background-tertiary-base: #767676;
   --color-background-selected-base: #111111;
   --color-background-inverse-base: #111111;
-  --color-background-default: #ffffff;
   --color-background-education: #0074e8;
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);

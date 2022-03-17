@@ -78,6 +78,11 @@
       }
     },
     "background": {
+      "default": {
+        "value": "{color.white.mochimalist.0.value}",
+        "darkValue": "{color.black.cosmicore.900.value}",
+        "comment": "Background color that will match the current color scheme"
+      },
       "info": {
         "base": {
           "value": "{color.blue.skycicle.500.value}",
@@ -199,11 +204,6 @@
       },
       "brand": {
         "value": "{color.red.pushpin.450.value}",
-        "comment": "Background color to signify the Pinterest brand"
-      },
-      "default": {
-        "value": "{color.white.mochimalist.0.value}",
-        "darkValue": "{color.black.cosmicore.900.value}",
         "comment": "Background color to signify the Pinterest brand"
       },
       "education": {
