@@ -1,3 +1,9 @@
+## 46.1.4 (Mar 17, 2022)
+
+### Patch
+
+- InternalTextFieldIconButton: create component from InternalTextField (#1993)
+
 ## 46.1.3 (Mar 17, 2022)
 
 ### Patch
