@@ -1,3 +1,9 @@
+## 46.1.2 (Mar 17, 2022)
+
+### Patch
+
+- Internal: modified Cypress visual diff testing threshold to catch dark mode changes (#1990)
+
 ## 46.1.1 (Mar 16, 2022)
 
 ### Patch
