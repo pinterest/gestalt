@@ -7,6 +7,10 @@ describe('NumberField visual regression check', () => {
     cy.get('[data-test-id="visual-test"]').find('input').focus();
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'NumberField',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });

@@ -6,6 +6,10 @@ describe('ComboBox visual regression check', () => {
   it('Compares snapshots', () => {
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'ComboBox-closed',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });
