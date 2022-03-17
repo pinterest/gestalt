@@ -1,3 +1,9 @@
+## 46.2.0 (Mar 17, 2022)
+
+### Minor
+
+- IconButton: add type prop (#1998)
+
 ## 46.1.4 (Mar 17, 2022)
 
 ### Patch
