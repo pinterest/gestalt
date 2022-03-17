@@ -211,7 +211,7 @@ export default function ColorUsagePage(): Node {
             type="do"
             title="When to use"
             description={`
-              - As needed to highlight containers when shadows don't work (e.g. cards)
+              - As needed to highlight larger containers when shadows don't work (e.g. cards)
             `}
           />
           <MainSection.Card
