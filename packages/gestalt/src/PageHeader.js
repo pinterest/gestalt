@@ -35,6 +35,10 @@ type Props = {|
 
 /**
  * [PageHeader](https://gestalt.pinterest.systems/pageheader) is used to indicate the title of the current page, as well as optional actions.
+ *
+ * ![PageHeader light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-basic-sm%20%230.png)
+ * ![PageHeader dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-basic-dark-sm%20%230.png)
+ *
  */
 export default function PageHeader({
   maxWidth = '100%',
