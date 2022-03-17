@@ -157,6 +157,7 @@ type Props = {
     | 'transparentDarkGray'
     | 'watermelon'
     | 'white'
+    | 'default'
     | 'infoBase'
     | 'infoWeak'
     | 'errorBase'
@@ -173,7 +174,9 @@ type Props = {
     | 'inverse'
     | 'brand'
     | 'education'
-    | 'elevationAccent',
+    | 'elevationAccent'
+    | 'elevationFloating'
+    | 'elevationRaised',
   /**
    * See the [column layout](https://gestalt.pinterest.systems/box#Column-layout) variant for more info.
    *

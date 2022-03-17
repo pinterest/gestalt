@@ -10,6 +10,8 @@ import {
 } from 'react';
 // $FlowExpectedError[untyped-import]
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
+// $FlowExpectedError[untyped-import]
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -112,6 +114,11 @@ const themeToStyles = (theme) => {
   if (theme.name === 'darkMode') {
     Object.keys(darkColorDesignTokens).forEach((key) => {
       styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
+    });
+  }
+  if (theme.name === 'lightMode') {
+    Object.keys(lightColorDesignTokens).forEach((key) => {
+      styles += `  --${key}: ${lightColorDesignTokens[key]};\n`;
     });
   }
 

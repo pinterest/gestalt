@@ -429,6 +429,7 @@ function Example() {
         >
           <CombinationNew
             color={[
+              'default',
               'infoBase',
               'infoWeak',
               'errorBase',
@@ -446,6 +447,8 @@ function Example() {
               'brand',
               'education',
               'elevationAccent',
+              'elevationFloating',
+              'elevationRaised',
               'transparent',
               'transparentDarkGray',
               'lightWash',
