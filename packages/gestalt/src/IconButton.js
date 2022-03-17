@@ -6,29 +6,19 @@ import InternalLink from './InternalLink.js';
 import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { type Indexable } from './zIndex.js';
 import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
-import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
-import { type Indexable } from './zIndex.js';
+import useTapFeedback from './useTapFeedback.js';
 
-type TooltipType = {|
-  text: string,
+type TooltipProps = {|
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
+  text: string,
   zIndex?: Indexable,
 |};
-
-function TooltipComponent({
-  children,
-  tooltipProps,
-}: {|
-  children: Node,
-  tooltipProps: TooltipType,
-|}): Node {
-  return tooltipProps.text ? <Tooltip {...tooltipProps}>{children}</Tooltip> : children;
-}
 
 type BaseIconButton = {|
   accessibilityLabel: string,
@@ -53,7 +43,7 @@ type BaseIconButton = {|
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
   tabIndex?: -1 | 0,
-  tooltip?: TooltipType,
+  tooltip?: TooltipProps,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
@@ -64,6 +54,7 @@ type IconButtonType = {|
   accessibilityHaspopup?: boolean,
   role?: 'button',
   selected?: boolean,
+  type?: 'submit' | 'button',
 |};
 
 type LinkIconButtonType = {|
@@ -181,96 +172,97 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     setHovered(false);
   };
 
-  const createLinkIconButton = (href, rel, target) => (
-    <InternalLink
-      accessibilityLabel={accessibilityLabel}
-      disabled={disabled}
-      href={href}
-      onClick={handleLinkClick}
-      onBlur={handleOnBlur}
-      onFocus={handleOnFocus}
-      onMouseDown={handleOnMouseDown}
-      onMouseUp={handleOnMouseUp}
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-      ref={innerRef}
-      rel={rel}
-      tabIndex={tabIndex}
-      target={target}
-      wrappedComponent="iconButton"
-    >
-      {renderPogComponent()}
-    </InternalLink>
-  );
-
-  const createIconButton = (
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
-    selected,
-  ) => (
-    <button
-      aria-controls={accessibilityControls}
-      aria-expanded={accessibilityExpanded}
-      aria-haspopup={accessibilityHaspopup}
-      aria-label={accessibilityLabel}
-      className={classnames(styles.parentButton)}
-      disabled={disabled}
-      onBlur={() => {
-        handleBlur();
-        handleOnBlur();
-      }}
-      onClick={handleClick}
-      onFocus={handleOnFocus}
-      onMouseDown={() => {
-        handleMouseDown();
-        handleOnMouseDown();
-      }}
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-      onMouseUp={() => {
-        handleMouseUp();
-        handleOnMouseUp();
-      }}
-      onTouchCancel={handleTouchCancel}
-      onTouchEnd={handleTouchEnd}
-      onTouchMove={handleTouchMove}
-      onTouchStart={handleTouchStart}
-      ref={innerRef}
-      tabIndex={disabled ? null : tabIndex}
-      type="button"
-    >
-      <div
-        className={classnames(styles.button, touchableStyles.tapTransition, {
-          [styles.disabled]: disabled,
-          [styles.enabled]: !disabled,
-          [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
-        })}
-        style={compressStyle || undefined}
-      >
-        {renderPogComponent(selected)}
-      </div>
-    </button>
-  );
-
-  let buttonComponentToRender = null;
+  let buttonComponent = null;
 
   if (props.role === 'link') {
     const { href, rel, target } = props;
-    buttonComponentToRender = createLinkIconButton(href, rel, target);
+    buttonComponent = (
+      <InternalLink
+        accessibilityLabel={accessibilityLabel}
+        disabled={disabled}
+        href={href}
+        onClick={handleLinkClick}
+        onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
+        onMouseDown={handleOnMouseDown}
+        onMouseUp={handleOnMouseUp}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        ref={innerRef}
+        rel={rel}
+        tabIndex={tabIndex}
+        target={target}
+        wrappedComponent="iconButton"
+      >
+        {renderPogComponent()}
+      </InternalLink>
+    );
   } else {
-    const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
-    buttonComponentToRender = createIconButton(
+    const {
       accessibilityControls,
       accessibilityExpanded,
       accessibilityHaspopup,
       selected,
+      type,
+    } = props;
+    buttonComponent = (
+      <button
+        aria-controls={accessibilityControls}
+        aria-expanded={accessibilityExpanded}
+        aria-haspopup={accessibilityHaspopup}
+        aria-label={accessibilityLabel}
+        className={classnames(styles.parentButton)}
+        disabled={disabled}
+        onBlur={() => {
+          handleBlur();
+          handleOnBlur();
+        }}
+        onClick={handleClick}
+        onFocus={handleOnFocus}
+        onMouseDown={() => {
+          handleMouseDown();
+          handleOnMouseDown();
+        }}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onMouseUp={() => {
+          handleMouseUp();
+          handleOnMouseUp();
+        }}
+        onTouchCancel={handleTouchCancel}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
+        onTouchStart={handleTouchStart}
+        ref={innerRef}
+        tabIndex={disabled ? null : tabIndex}
+        // react/button-has-type is very particular about this verbose syntax
+        type={type === 'submit' ? 'submit' : 'button'}
+      >
+        <div
+          className={classnames(styles.button, touchableStyles.tapTransition, {
+            [styles.disabled]: disabled,
+            [styles.enabled]: !disabled,
+            [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
+          })}
+          style={compressStyle || undefined}
+        >
+          {renderPogComponent(selected)}
+        </div>
+      </button>
     );
   }
-  return tooltip ? (
-    <TooltipComponent tooltipProps={tooltip}>{buttonComponentToRender}</TooltipComponent>
+  return tooltip?.text ? (
+    <Tooltip
+      accessibilityLabel={tooltip.accessibilityLabel}
+      inline={tooltip.inline}
+      idealDirection={tooltip.idealDirection}
+      text={tooltip.text}
+      zIndex={tooltip.zIndex}
+    >
+      {buttonComponent}
+    </Tooltip>
   ) : (
-    buttonComponentToRender
+    buttonComponent
   );
 });
 
