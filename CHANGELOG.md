@@ -1,3 +1,9 @@
+## 46.1.3 (Mar 17, 2022)
+
+### Patch
+
+- PageHeader: add visual diff testing and screenshot to description in VSCode (Flow extension) (#1994)
+
 ## 46.1.2 (Mar 17, 2022)
 
 ### Patch
