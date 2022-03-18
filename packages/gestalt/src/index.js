@@ -21,6 +21,7 @@ import Datapoint from './Datapoint.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
+import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
@@ -92,6 +93,7 @@ export {
   DeviceTypeProvider,
   Divider,
   Dropdown,
+  ExperimentProvider,
   Fieldset,
   FixedZIndex,
   Flex,
