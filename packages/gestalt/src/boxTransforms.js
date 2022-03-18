@@ -163,6 +163,7 @@ const color: Functor<Color> = mapping({
   lightWash: colors.lightWashBg,
   darkWash: colors.darkWashBg,
   transparentDarkGray: colors.transparentDarkGrayBg,
+  default: colors.default,
   infoBase: colors.infoBase,
   infoWeak: colors.infoWeak,
   errorBase: colors.errorBase,
@@ -180,6 +181,8 @@ const color: Functor<Color> = mapping({
   brand: colors.brand,
   education: colors.education,
   elevationAccent: colors.elevationAccent,
+  elevationFloating: colors.elevationFloating,
+  elevationRaised: colors.elevationRaised,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);

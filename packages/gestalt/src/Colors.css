@@ -50,6 +50,10 @@
 
 /** Design Token Colors **/
 
+.default {
+  background-color: var(--color-background-default);
+}
+
 .infoBase {
   background-color: var(--color-background-info-base);
 }
@@ -124,6 +128,14 @@
 
 .elevationAccent {
   background-color: var(--color-background-elevation-accent);
+}
+
+.elevationFloating {
+  background-color: var(--color-background-elevation-floating);
+}
+
+.elevationRaised {
+  background-color: var(--color-background-elevation-raised);
 }
 
 /** PRIMARY COLORS **/

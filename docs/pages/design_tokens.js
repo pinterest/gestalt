@@ -27,13 +27,15 @@ const tokenCategories = [
   { name: 'Elevation', category: 'elevation', id: 'elevation' },
 ];
 
+const darkValueCategories = ['Background color', 'Elevation', 'Border color', 'Text color'];
+
 const headers = ['CSS token name', 'Value', 'Dark mode value', 'Example'];
 
 const tableHeaders = (category: string): Node => (
   <Table.Header>
     <Table.Row>
       {headers.map((header) => {
-        if (header === 'Dark mode value' && !category.includes('color')) {
+        if (header === 'Dark mode value' && !darkValueCategories.includes(category)) {
           return null;
         }
         return (
@@ -74,7 +76,7 @@ export default function DesignTokensPage(): Node {
                       <Table.Cell>
                         <Text>{token.value}</Text>
                       </Table.Cell>
-                      {category.name.includes('color') && (
+                      {darkValueCategories.includes(category.name) && (
                         <Table.Cell>
                           <Text>{token.darkValue || '--'}</Text>
                         </Table.Cell>
