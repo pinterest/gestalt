@@ -123,11 +123,7 @@ export default function Text({
   let colorClass = null;
   const colorName = semanticColors.includes(color) ? `${color}Text` : color;
   if (allowedColors.includes(color)) {
-    if (semanticColors.includes(color)) {
-      colorClass = colors[colorName];
-    } else {
-      colorClass = colors[colorName];
-    }
+    colorClass = colors[colorName];
   }
 
   const cs = cx(
