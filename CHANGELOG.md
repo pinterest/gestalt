@@ -1,3 +1,9 @@
+## 46.4.0 (Mar 18, 2022)
+
+### Minor
+
+- ExperimentProvider: create new Context (#2000)
+
 ## 46.3.0 (Mar 18, 2022)
 
 ### Minor
