@@ -3,6 +3,7 @@ import { forwardRef, type Element, type Node, useState } from 'react';
 import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
+import { useExperimentContext } from './contexts/ExperimentProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
@@ -140,20 +141,23 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const isPasswordField = typeProp === 'password';
   const isCurrentlyPasswordType = type === 'password';
 
+  const inShowPasswordExp = useExperimentContext('my_exp_name');
+
   // TODO:
-  // - Wrap this in experiment
   // - Tooltip?
-  const iconButton = isPasswordField ? (
-    <InternalTextFieldIconButton
-      accessibilityLabel={
-        isCurrentlyPasswordType ? accessibilityShowPasswordLabel : accessibilityHidePasswordLabel
-      }
-      icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
-      onClick={() => {
-        setType(isCurrentlyPasswordType ? 'text' : 'password');
-      }}
-    />
-  ) : undefined;
+  // - I18nContext?
+  const iconButton =
+    inShowPasswordExp && isPasswordField ? (
+      <InternalTextFieldIconButton
+        accessibilityLabel={
+          isCurrentlyPasswordType ? accessibilityShowPasswordLabel : accessibilityHidePasswordLabel
+        }
+        icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
+        onClick={() => {
+          setType(isCurrentlyPasswordType ? 'text' : 'password');
+        }}
+      />
+    ) : undefined;
 
   return (
     <InternalTextField
