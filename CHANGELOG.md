@@ -1,3 +1,9 @@
+## 46.3.0 (Mar 18, 2022)
+
+### Minor
+
+- Datapoint: Add option for Badge (#1999)
+
 ## 46.2.1 (Mar 18, 2022)
 
 ### Patch
