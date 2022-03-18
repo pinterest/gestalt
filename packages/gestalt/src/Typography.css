@@ -31,44 +31,6 @@
   font-size: var(--font-size-600);
 }
 
-/* semantic colors */
-
-.inverseText {
-  color: var(--color-text-inverse);
-}
-
-.errorText {
-  color: var(--color-text-error);
-}
-
-.defaultText {
-  color: var(--color-text-default);
-}
-
-.subtleText {
-  color: var(--color-text-subtle);
-}
-
-.warningText {
-  color: var(--color-text-warning);
-}
-
-.successText {
-  color: var(--color-text-success);
-}
-
-.shoppingText {
-  color: var(--color-text-shopping);
-}
-
-.lightText {
-  color: var(--color-text-light);
-}
-
-.darkText {
-  color: var(--color-text-dark);
-}
-
 /* fonts */
 
 .sansSerif {

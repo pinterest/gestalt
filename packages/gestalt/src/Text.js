@@ -123,8 +123,8 @@ export default function Text({
   let colorClass = null;
   if (allowedColors.includes(color)) {
     if (semanticColors.includes(color)) {
-      colorClass = typography[`${color}Text`];
-    } else if (colors[color] !== undefined) {
+      colorClass = colors[`${color}Text`];
+    } else {
       colorClass = colors[color];
     }
   }
