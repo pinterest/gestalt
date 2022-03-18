@@ -70,12 +70,13 @@ export default function ModuleExpandable({
   }, [expandedIndex, setExpandedId]);
 
   const buildOnModuleClickHandler = useCallback(
-    (index: number) => (isExpanded: boolean): void => {
-      if (onExpandedChange) {
-        onExpandedChange(isExpanded ? null : index);
-      }
-      setExpandedId(isExpanded ? null : index);
-    },
+    (index: number) =>
+      (isExpanded: boolean): void => {
+        if (onExpandedChange) {
+          onExpandedChange(isExpanded ? null : index);
+        }
+        setExpandedId(isExpanded ? null : index);
+      },
     [onExpandedChange],
   );
 

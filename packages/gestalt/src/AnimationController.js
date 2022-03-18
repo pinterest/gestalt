@@ -147,10 +147,10 @@ function AnimationController({
   const [animationState, setAnimationState] = useState<AnimationStateType>(
     shouldAnimate ? 'in' : null,
   );
-  const onDismissStart = useCallback(() => setAnimationState(shouldAnimate ? 'out' : 'postOut'), [
-    setAnimationState,
-    shouldAnimate,
-  ]);
+  const onDismissStart = useCallback(
+    () => setAnimationState(shouldAnimate ? 'out' : 'postOut'),
+    [setAnimationState, shouldAnimate],
+  );
 
   useEffect(() => {
     if (animationState === 'postOut') {

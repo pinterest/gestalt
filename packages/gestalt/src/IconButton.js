@@ -198,13 +198,8 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
       </InternalLink>
     );
   } else {
-    const {
-      accessibilityControls,
-      accessibilityExpanded,
-      accessibilityHaspopup,
-      selected,
-      type,
-    } = props;
+    const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected, type } =
+      props;
     buttonComponent = (
       <button
         aria-controls={accessibilityControls}
