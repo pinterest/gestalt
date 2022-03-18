@@ -5,8 +5,24 @@ import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 
-// eslint-disable-next-line react/prop-types
-function ColorCard({ description, colorScheme, id, boxProps }) {
+type ColorCardProps = {|
+  description: string,
+  colorScheme: 'light' | 'dark',
+  id: string,
+  borderStyle?: 'sm' | 'lg' | 'shadow',
+  color?: 'default' | 'elevationAccent' | 'elevationFloating' | 'elevationRaised',
+  dangerouslySetInlineStyle?: {|
+    __style: { [key: string]: string | number | void },
+  |},
+|};
+function ColorCard({
+  description,
+  colorScheme,
+  id,
+  borderStyle,
+  color,
+  dangerouslySetInlineStyle,
+}: ColorCardProps) {
   return (
     <Flex gap={4} direction="column">
       <ColorSchemeProvider colorScheme={colorScheme} id={id}>
@@ -18,7 +34,9 @@ function ColorCard({ description, colorScheme, id, boxProps }) {
             width={300}
             height={300}
             rounding={3}
-            {...boxProps}
+            color={color}
+            borderStyle={borderStyle}
+            dangerouslySetInlineStyle={dangerouslySetInlineStyle}
           >
             <Text>{colorScheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
           </Box>
@@ -43,7 +61,7 @@ export default function ColorUsagePage(): Node {
       >
         <MainSection.Subsection
           title="Floating"
-          description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/box#Borders). For dark mode, we use the 'elevationFloating' background of Box instead of a shadow.`}
+          description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/box#Borders). For dark mode, we use the \`elevationFloating\` background of Box instead of a shadow.`}
         >
           <Flex gap={4} direction="column">
             <Text italic>$elevation-floating</Text>
@@ -52,15 +70,14 @@ export default function ColorUsagePage(): Node {
                 colorScheme="light"
                 id="elevation-floating-light"
                 description="10% (#000000) opacity / Blur: 8"
-                boxProps={{ borderStyle: 'shadow', color: 'default' }}
+                borderStyle="shadow"
+                color="default"
               />
               <ColorCard
                 colorScheme="dark"
                 id="elevation-floating-dark"
                 description="Roboflow 700 / Shadows: none"
-                boxProps={{
-                  color: 'elevationFloating',
-                }}
+                color="elevationFloating"
               />
             </Flex>
           </Flex>
@@ -87,7 +104,7 @@ export default function ColorUsagePage(): Node {
         <MainSection.Subsection
           title="Raised"
           description={`
-          Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. In dark mode, the raised border should be paired with the 'elevationRaised' background color.
+          Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. In dark mode, the raised border should be paired with the \`elevationRaised\` background color.
 
           ⚠️ Note: Raised shadow options will be available automatically in Box soon.
           `}
@@ -103,10 +120,8 @@ export default function ColorUsagePage(): Node {
               <ColorCard
                 colorScheme="light"
                 id="elevation-raised-top-light"
-                boxProps={{
-                  dangerouslySetInlineStyle: {
-                    __style: { boxShadow: 'var(--elevation-raised-top)' },
-                  },
+                dangerouslySetInlineStyle={{
+                  __style: { boxShadow: 'var(--elevation-raised-top)' },
                 }}
                 description="12% (#000000) opacity / Y: -2 / Blur: 8"
               />
@@ -114,12 +129,10 @@ export default function ColorUsagePage(): Node {
               <ColorCard
                 colorScheme="dark"
                 id="elevation-raised-top-dark"
-                boxProps={{
-                  color: 'elevationRaised',
-                  dangerouslySetInlineStyle: {
-                    __style: {
-                      boxShadow: 'var(--elevation-raised-top)',
-                    },
+                color="elevationRaised"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    boxShadow: 'var(--elevation-raised-top)',
                   },
                 }}
                 description="Top: Roboflow 600 / Y: 0.5 / Blur: 0"
@@ -135,22 +148,18 @@ export default function ColorUsagePage(): Node {
               <ColorCard
                 colorScheme="light"
                 id="elevation-raised-bottom-light"
-                boxProps={{
-                  dangerouslySetInlineStyle: {
-                    __style: { boxShadow: 'var(--elevation-raised-bottom)' },
-                  },
+                dangerouslySetInlineStyle={{
+                  __style: { boxShadow: 'var(--elevation-raised-bottom)' },
                 }}
                 description="12% (#000000) opacity / Y: -2 / Blur: 8"
               />
               <ColorCard
                 colorScheme="dark"
                 id="elevation-raised-bottom-dark"
-                boxProps={{
-                  color: 'elevationRaised',
-                  dangerouslySetInlineStyle: {
-                    __style: {
-                      boxShadow: 'var(--elevation-raised-bottom)',
-                    },
+                color="elevationRaised"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    boxShadow: 'var(--elevation-raised-bottom)',
                   },
                 }}
                 description="Top: Roboflow 600 / Y: -0.5 / Blur: 0"
@@ -190,17 +199,13 @@ export default function ColorUsagePage(): Node {
             <ColorCard
               colorScheme="light"
               id="elevation-color-light"
-              boxProps={{
-                color: 'elevationAccent',
-              }}
+              color="elevationAccent"
               description="Roboflow 100 / Shadows: none"
             />
             <ColorCard
               colorScheme="dark"
               id="elevation-color-dark"
-              boxProps={{
-                color: 'elevationAccent',
-              }}
+              color="elevationAccent"
               description="Roboflow 800 / Shadows: none"
             />
           </Flex>
@@ -237,17 +242,13 @@ export default function ColorUsagePage(): Node {
             <ColorCard
               colorScheme="light"
               id="elevation-border-light"
-              boxProps={{
-                borderStyle: 'lg',
-              }}
+              borderStyle="lg"
               description="Border-color: Roboflow 300"
             />
             <ColorCard
               colorScheme="dark"
               id="elevation-border-dark"
-              boxProps={{
-                borderStyle: 'lg',
-              }}
+              borderStyle="lg"
               description="Border-color: Roboflow 600"
             />
           </Flex>
