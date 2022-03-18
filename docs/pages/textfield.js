@@ -6,7 +6,7 @@ import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 
-export default function TextFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -485,6 +485,8 @@ function Example(props) {
   return (
     <Box padding={2} color="white">
       <TextField
+        accessibilityHidePasswordLabel="Hide password"
+        accessibilityShowPasswordLabel="Show password"
         autoComplete="new-password"
         helperText="Password should be at least 20 characters long"
         id="variants-helper-text"

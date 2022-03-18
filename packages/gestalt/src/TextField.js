@@ -144,7 +144,6 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const inShowPasswordExp = useExperimentContext('my_exp_name');
 
   // TODO:
-  // - Tooltip?
   // - I18nContext?
   const iconButton =
     inShowPasswordExp && isPasswordField ? (
@@ -152,10 +151,14 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
         accessibilityLabel={
           isCurrentlyPasswordType ? accessibilityShowPasswordLabel : accessibilityHidePasswordLabel
         }
+        accessibilityPressed={!isCurrentlyPasswordType}
         icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
         onClick={() => {
           setType(isCurrentlyPasswordType ? 'text' : 'password');
         }}
+        tooltipText={
+          isCurrentlyPasswordType ? accessibilityShowPasswordLabel : accessibilityHidePasswordLabel
+        }
       />
     ) : undefined;
 

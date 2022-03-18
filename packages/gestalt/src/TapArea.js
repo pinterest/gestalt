@@ -45,16 +45,19 @@ type BaseTapArea = {|
   onMouseEnter?: MouseEventHandler,
   onMouseLeave?: MouseEventHandler,
   onTap?: OnTapType,
-  tabIndex?: -1 | 0,
+  role?: 'button' | 'link' | 'switch',
   rounding?: Rounding,
+  tabIndex?: -1 | 0,
   tapStyle?: 'none' | 'compress',
 |};
+
 type TapAreaType = {|
   ...BaseTapArea,
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
-  role?: 'button',
+  accessibilityPressed?: boolean,
+  role?: 'button' | 'switch',
 |};
 
 type LinkTapAreaType = {|
@@ -225,13 +228,20 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     );
   }
 
-  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup } = props;
+  const {
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    accessibilityPressed,
+    role,
+  } = props;
   return (
     <div
       aria-controls={accessibilityControls}
       aria-disabled={disabled}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
+      aria-pressed={accessibilityPressed}
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
       onClick={handleClick}
@@ -257,7 +267,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
       ref={innerRef}
-      role="button"
+      role={role ?? 'button'}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       tabIndex={disabled ? null : tabIndex}
     >
