@@ -1,3 +1,9 @@
+## 46.2.1 (Mar 18, 2022)
+
+### Patch
+
+- Docs: Add Elevation dark mode examples to guidelines (#1997)
+
 ## 46.2.0 (Mar 17, 2022)
 
 ### Minor
