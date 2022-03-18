@@ -187,6 +187,19 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
     `}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`The \`badge\` prop is available to add a [Badge](/badge) to the title. This feature is in beta, so please use cautiously.`}
+          title="With a badge"
+          badge="beta"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Datapoint title="Spend" value="$5.7k" tooltipText="Total ad spend in the selected time period" badge={{text: "Early access"}}/>
+    `}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Related">

@@ -121,12 +121,9 @@ export default function Text({
   weight = 'normal',
 }: Props): Node {
   let colorClass = null;
+  const colorName = semanticColors.includes(color) ? `${color}Text` : color;
   if (allowedColors.includes(color)) {
-    if (semanticColors.includes(color)) {
-      colorClass = typography[`${color}Text`];
-    } else if (colors[color] !== undefined) {
-      colorClass = colors[color];
-    }
+    colorClass = colors[colorName];
   }
 
   const cs = cx(
