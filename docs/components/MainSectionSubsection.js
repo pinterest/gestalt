@@ -44,7 +44,7 @@ function MainSectionSubsection({ badge, children, columns = 1, description, titl
                       : 'This tool is under development. More components will be supported in the future! The team is currently working on it.'
                   }
                 >
-                  <Badge text={badge === 'beta' ? 'Beta' : 'Alpha'} position="top" />
+                  <Badge text={badge === 'beta' ? 'Beta' : 'Alpha'} position="middle" />
                 </Tooltip>
               ) : null}
               <CopyLinkButton
