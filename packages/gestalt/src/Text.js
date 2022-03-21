@@ -123,6 +123,7 @@ export default function Text({
   let colorClass = null;
   const colorName = semanticColors.includes(color) ? `${color}Text` : color;
   if (allowedColors.includes(color)) {
+    // $FlowFixMe[prop-missing]
     colorClass = colors[colorName];
   }
 
