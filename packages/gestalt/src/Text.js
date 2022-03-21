@@ -122,7 +122,15 @@ export default function Text({
 }: Props): Node {
   let colorClass = null;
   const colorName = semanticColors.includes(color) ? `${color}Text` : color;
-  if (allowedColors.includes(color)) {
+  if (
+    allowedColors.includes(color) &&
+    colorName !== 'dark' &&
+    colorName !== 'error' &&
+    colorName !== 'light' &&
+    colorName !== 'subtle' &&
+    colorName !== 'success' &&
+    colorName !== 'warning'
+  ) {
     colorClass = colors[colorName];
   }
 
