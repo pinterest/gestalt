@@ -45,6 +45,29 @@ exports[`Image with crossorigin specified matches snapshot 1`] = `
 </div>
 `;
 
+exports[`Image with decoding specified matches snapshot 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingBottom": "100%",
+    }
+  }
+>
+  <img
+    alt="foo"
+    className="img"
+    decoding="sync"
+    importance="auto"
+    loading="auto"
+    onError={[Function]}
+    onLoad={[Function]}
+    src="foo.png"
+  />
+</div>
+`;
+
 exports[`Image with fit: contain and role matches snapshot 1`] = `
 <div
   className="box relative"
