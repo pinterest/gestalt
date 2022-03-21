@@ -275,7 +275,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
             defaultCode={`
 <Flex gap={6}>
   <SelectList
-    id="selectlistexampleHiddenLabel"
+    id="selectlistexampleA11yVisible"
     onChange={() => {}}
     options={[
       {label: 'Last 5 days', value: '5'},
@@ -290,7 +290,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
   <Flex gap={2} direction="column">
     <Text weight="bold" size="300">Date range</Text>
     <SelectList
-      id="selectlistexampleHiddenLabel"
+      id="selectlistexampleA11yHiddenLabel"
       onChange={() => {}}
       options={[
         {label: 'Last 5 days', value: '5'},
