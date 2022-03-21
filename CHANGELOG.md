@@ -1,3 +1,9 @@
+## 46.4.1 (Mar 21, 2022)
+
+### Patch
+
+- Internal: Fix flaky flow issue on Text (#2007)
+
 ## 46.4.0 (Mar 18, 2022)
 
 ### Minor
