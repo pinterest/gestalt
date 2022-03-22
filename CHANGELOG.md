@@ -1,3 +1,9 @@
+## 46.6.0 (Mar 22, 2022)
+
+### Minor
+
+- I18nProvider: create new Context (#2001)
+
 ## 46.5.1 (Mar 22, 2022)
 
 ### Patch
