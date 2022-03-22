@@ -1,3 +1,9 @@
+## 46.5.0 (Mar 22, 2022)
+
+### Minor
+
+- SelectList: Add option for hidden label (#2004)
+
 ## 46.4.3 (Mar 22, 2022)
 
 ### Patch
