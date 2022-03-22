@@ -132,7 +132,40 @@ exports[`PageHeader renders 1`] = `
             </div>
             <div
               className="FlexItem"
-            />
+            >
+              <div
+                className="box mdDisplayBlock xsDisplayNone"
+              >
+                <div
+                  className="Flex rowGap2 xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -275,19 +308,77 @@ exports[`PageHeader renders primary action 1`] = `
               className="FlexItem"
             >
               <div
-                className="box"
-                style={
-                  Object {
-                    "height": 48,
-                  }
-                }
+                className="box mdDisplayBlock xsDisplayNone"
+              >
+                <div
+                  className="Flex rowGap2 xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    >
+                      <button
+                        className="button hideOutline inline accessibilityOutline parentButton"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <div
+                          className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                        >
+                          <div
+                            className="Text fontSize300 white alignCenter fontWeightBold"
+                          >
+                            Create
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="box mdDisplayNone xsDisplayBlock"
               >
                 <button
-                  className="button hideOutline inline accessibilityOutline parentButton"
-                  disabled={false}
+                  aria-controls="pageheader-dropdown"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label=""
+                  className="parentButton"
                   onBlur={[Function]}
                   onClick={[Function]}
+                  onFocus={[Function]}
                   onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                   onMouseUp={[Function]}
                   onTouchCancel={[Function]}
                   onTouchEnd={[Function]}
@@ -297,12 +388,30 @@ exports[`PageHeader renders primary action 1`] = `
                   type="button"
                 >
                   <div
-                    className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                    className="button tapTransition enabled"
                   >
                     <div
-                      className="Text fontSize300 white alignCenter fontWeightBold"
+                      className="pog transparent"
+                      style={
+                        Object {
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
                     >
-                      Create
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="icon darkGray iconBlock"
+                        height={20}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={20}
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </button>
@@ -459,7 +568,7 @@ exports[`PageHeader renders secondary action 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="box"
+                      className="box itemsCenter xsDisplayFlex"
                       style={
                         Object {
                           "height": 48,
@@ -490,7 +599,7 @@ exports[`PageHeader renders secondary action 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="box"
+                      className="box itemsCenter xsDisplayFlex"
                       style={
                         Object {
                           "height": 48,
@@ -732,7 +841,40 @@ exports[`PageHeader renders subtext 1`] = `
             </div>
             <div
               className="FlexItem"
-            />
+            >
+              <div
+                className="box mdDisplayBlock xsDisplayNone"
+              >
+                <div
+                  className="Flex rowGap2 xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -887,7 +1029,40 @@ exports[`PageHeader renders within a max width 1`] = `
             </div>
             <div
               className="FlexItem"
-            />
+            >
+              <div
+                className="box mdDisplayBlock xsDisplayNone"
+              >
+                <div
+                  className="Flex rowGap2 xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

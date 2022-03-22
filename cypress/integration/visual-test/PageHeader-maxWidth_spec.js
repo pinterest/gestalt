@@ -3,7 +3,7 @@ describe('PageHeader visual regression check', () => {
     cy.visit('/visual-test/PageHeader-maxWidth');
   });
 
-  const BREAKPOINTS = { xs: 360, sm: 576, md: 768, lg: 1312 };
+  const BREAKPOINTS = { lg: 1312 };
 
   Object.keys(BREAKPOINTS).forEach((size) => {
     it(`Compares snapshots on ${size}:${BREAKPOINTS[size]}px breakpoint`, () => {

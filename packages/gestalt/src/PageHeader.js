@@ -4,6 +4,7 @@ import Box from './Box.js';
 import Button from './Button.js';
 import IconButton from './IconButton.js';
 import Link from './Link.js';
+import Text from './Text.js';
 import Tooltip from './Tooltip.js';
 import Flex from './Flex.js';
 import Image from './Image.js';
@@ -19,6 +20,10 @@ import {
 } from './PageHeaderSubcomponents.js';
 import styles from './PageHeader.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+
+export type ActionType = Element<
+  typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip,
+>;
 
 type Props = {|
   /**
@@ -76,11 +81,11 @@ type Props = {|
   /**
    * The primary action of the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
    */
-  primaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
+  primaryAction?: ActionType,
   /**
    * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
    */
-  secondaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
+  secondaryAction?: ActionType,
   /**
    * Used for metadata related to the current page, not designed to describe the title or the current surface. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization).
    */
@@ -98,8 +103,10 @@ type Props = {|
 /**
  * [PageHeader](https://gestalt.pinterest.systems/pageheader) is used to indicate the title of the current page, as well as optional actions.
  *
- * ![PageHeader light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-basic-sm%20%230.png)
- * ![PageHeader dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-basic-dark-sm%20%230.png)
+ * ![PageHeader light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-items-secondaryAction-md%20%230.png)
+ * ![PageHeader dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-items-secondaryAction-dark-md%20%230.png)
+ * ![PageHeader light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-thumbnail-badge-iconButton-sm%20%230.png)
+ * ![PageHeader dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-thumbnail-badge-iconButton-dark-sm%20%230.png)
  *
  */
 export default function PageHeader({
