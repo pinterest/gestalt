@@ -7,9 +7,8 @@ import I18nProvider, { useI18nContext } from './I18nProvider.js';
 describe('useI18nContext', () => {
   it('returns provided string values for a supported component', () => {
     function TestComponent() {
-      const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
-        'Text',
-      );
+      const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
+        useI18nContext('Text');
 
       return <div>{[accessibilityHidePasswordLabel, accessibilityShowPasswordLabel]}</div>;
     }
@@ -47,9 +46,8 @@ describe('useI18nContext', () => {
 
   it('throws on missing translations for supported component', () => {
     function TestComponent() {
-      const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
-        'Text',
-      );
+      const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
+        useI18nContext('Text');
 
       return <div>{[accessibilityHidePasswordLabel, accessibilityShowPasswordLabel]}</div>;
     }
@@ -61,9 +59,8 @@ describe('useI18nContext', () => {
 
   it('throws on partial missing translations for supported component', () => {
     function TestComponent() {
-      const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
-        'Text',
-      );
+      const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
+        useI18nContext('Text');
 
       return <div>{[accessibilityHidePasswordLabel, accessibilityShowPasswordLabel]}</div>;
     }
