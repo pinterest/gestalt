@@ -32,10 +32,10 @@ type Props = {|
    */
   fit?: 'contain' | 'cover' | 'none',
   /**
-   * Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.
+   * Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded. \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.
    * Note that this feature is currently experimental; please see the [attribute spec](https://wicg.github.io/priority-hints/) for more details.
    */
-  importance?: 'high' | 'low' | 'auto',
+  fetchpriority?: 'high' | 'low' | 'auto',
   /**
    * Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource. See the [Lazy example](https://gestalt.pinterest.systems/image#Lazy) for more details.
    */
@@ -81,14 +81,10 @@ export default class Image extends PureComponent<Props> {
   static defaultProps: {|
     color: string,
     fit?: 'contain' | 'cover' | 'none',
-    importance?: 'high' | 'low' | 'auto',
-    loading?: 'eager' | 'lazy' | 'auto',
   |} = {
     // eslint-disable-next-line react/default-props-match-prop-types
     color: 'transparent',
     fit: 'none',
-    importance: 'auto',
-    loading: 'auto',
   };
 
   componentDidMount() {
@@ -133,7 +129,7 @@ export default class Image extends PureComponent<Props> {
       crossOrigin,
       elementTiming,
       fit,
-      importance,
+      fetchpriority,
       loading,
       naturalHeight,
       naturalWidth,
@@ -178,7 +174,7 @@ export default class Image extends PureComponent<Props> {
           className={styles.img}
           crossOrigin={crossOrigin}
           elementtiming={elementTiming}
-          importance={importance}
+          fetchpriority={fetchpriority}
           loading={loading}
           onError={this.handleError}
           onLoad={this.handleLoad}

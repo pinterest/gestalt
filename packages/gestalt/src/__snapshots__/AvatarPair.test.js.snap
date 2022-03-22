@@ -59,8 +59,6 @@ exports[`AvatarPair Renders only the first 2 collobarators when multiple are pas
           <img
             alt="Keerthi"
             className="img"
-            importance="auto"
-            loading="auto"
             onError={[Function]}
             onLoad={[Function]}
             src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
@@ -114,8 +112,6 @@ exports[`AvatarPair Renders only the first 2 collobarators when multiple are pas
           <img
             alt="Shanice"
             className="img"
-            importance="auto"
-            loading="auto"
             onError={[Function]}
             onLoad={[Function]}
             src="https://i.ibb.co/7tGKGvb/shanice.jpg"
@@ -189,8 +185,6 @@ exports[`AvatarPair Renders renders 2 collaborators 1`] = `
           <img
             alt="Keerthi"
             className="img"
-            importance="auto"
-            loading="auto"
             onError={[Function]}
             onLoad={[Function]}
             src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
@@ -244,8 +238,6 @@ exports[`AvatarPair Renders renders 2 collaborators 1`] = `
           <img
             alt="Shanice"
             className="img"
-            importance="auto"
-            loading="auto"
             onError={[Function]}
             onLoad={[Function]}
             src="https://i.ibb.co/7tGKGvb/shanice.jpg"
@@ -319,8 +311,6 @@ exports[`AvatarPair Renders renders the avatar with text when no image is provid
           <img
             alt="Keerthi"
             className="img"
-            importance="auto"
-            loading="auto"
             onError={[Function]}
             onLoad={[Function]}
             src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"

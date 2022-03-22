@@ -392,8 +392,6 @@ exports[`Checkbox with an image 1`] = `
           <img
             alt=""
             className="img"
-            importance="auto"
-            loading="auto"
             onError={[Function]}
             onLoad={[Function]}
             src="https://i.ibb.co/FY2MKr5/stock6.jpg"

@@ -126,8 +126,6 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
-        loading="auto"
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
@@ -208,8 +206,6 @@ exports[`Avatar renders the correct size - lg 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
-        loading="auto"
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
@@ -253,8 +249,6 @@ exports[`Avatar renders the correct size - md 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
-        loading="auto"
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
@@ -298,8 +292,6 @@ exports[`Avatar renders the correct size - sm 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
-        loading="auto"
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
@@ -343,8 +335,6 @@ exports[`Avatar renders the correct size - xl 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
-        loading="auto"
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
@@ -388,8 +378,6 @@ exports[`Avatar renders the correct size - xs 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
-        loading="auto"
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
@@ -433,8 +421,6 @@ exports[`Avatar renders the correct src 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
-        loading="auto"
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"

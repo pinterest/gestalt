@@ -13,8 +13,6 @@ exports[`Image matches snapshot 1`] = `
   <img
     alt="foo"
     className="img"
-    importance="auto"
-    loading="auto"
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
@@ -36,8 +34,27 @@ exports[`Image with crossorigin specified matches snapshot 1`] = `
     alt="foo"
     className="img"
     crossOrigin="anonymous"
-    importance="auto"
-    loading="auto"
+    onError={[Function]}
+    onLoad={[Function]}
+    src="foo.png"
+  />
+</div>
+`;
+
+exports[`Image with fetchpriority specified matches snapshot 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingBottom": "NaN%",
+    }
+  }
+>
+  <img
+    alt="foo"
+    className="img"
+    fetchpriority="high"
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
@@ -141,8 +158,6 @@ exports[`Image with overlay matches snapshot 1`] = `
   <img
     alt="foo"
     className="img"
-    importance="auto"
-    loading="auto"
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
