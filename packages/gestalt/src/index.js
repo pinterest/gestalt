@@ -25,6 +25,7 @@ import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
+import I18nProvider from './contexts/I18nProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
@@ -98,6 +99,7 @@ export {
   FixedZIndex,
   Flex,
   Heading,
+  I18nProvider,
   Icon,
   IconButton,
   Image,
