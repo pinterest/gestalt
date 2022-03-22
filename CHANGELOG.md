@@ -1,3 +1,9 @@
+## 46.7.1 (Mar 22, 2022)
+
+### Patch
+
+- Bump node-forge from 1.2.1 to 1.3.0 (#2013)
+
 ## 46.7.0 (Mar 22, 2022)
 
 ### Minor
