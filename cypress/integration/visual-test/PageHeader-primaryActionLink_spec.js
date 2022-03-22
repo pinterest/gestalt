@@ -1,6 +1,6 @@
-describe('PageHeader visual dark mode regression check', () => {
+describe('PageHeader visual regression check', () => {
   beforeEach(() => {
-    cy.visit('/visual-test/PageHeader-subtext-primaryAction-dark');
+    cy.visit('/visual-test/PageHeader-primaryActionLink');
   });
 
   const BREAKPOINTS = { xs: 360, sm: 576, md: 768, lg: 1312 };
@@ -10,11 +10,11 @@ describe('PageHeader visual dark mode regression check', () => {
       cy.viewport(BREAKPOINTS[size], 1080);
 
       if (['xs', 'sm'].includes(size)) {
-        cy.get('[data-test-id="visual-test"]').find('button').eq(1).click();
+        cy.get('[data-test-id="visual-test"]').find('button').click();
       }
 
       cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
-        name: `PageHeader-subtext-primaryAction-dark-${size}`,
+        name: `PageHeader-primaryActionLink-${size}`,
         imageConfig: {
           threshold: 0.001,
           thresholdType: 'percent',

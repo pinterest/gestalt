@@ -9,9 +9,9 @@ import Text from './Text.js';
 import Link from './Link.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';
-import Button from './Button.js';
 import Image from './Image.js';
 import Dropdown from './Dropdown.js';
+import { type ActionType } from './PageHeader.js';
 
 export function PageHeaderTitle({ title }: {| title: string |}): Node {
   return (
@@ -138,28 +138,28 @@ export function PageHeaderActionBlock({
   dropdownItems,
   dropdownAccessibilityLabel = '',
 }: {|
-  primaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
-  secondaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
+  primaryAction?: ActionType,
+  secondaryAction?: ActionType,
   dropdownItems?: $ReadOnlyArray<Node>,
   dropdownAccessibilityLabel?: string,
 |}): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
 
-  if (primaryAction && !secondaryAction) {
-    // 48px height needed to maintain proper sizing when action is a Link
-    return <Box height={48}>{primaryAction}</Box>;
-  }
-  if (primaryAction && secondaryAction) {
-    return (
-      <Fragment>
-        <Box display="none" mdDisplay="block">
-          <Flex gap={2}>
-            {/* 48px height needed to maintain proper sizing when action is a Link */}
-            <Box height={48}>{secondaryAction}</Box>
-            <Box height={48}>{primaryAction}</Box>
-          </Flex>
-        </Box>
+  return (
+    <Fragment>
+      <Box display="none" mdDisplay="block">
+        <Flex gap={2}>
+          {/* 48px height needed to maintain proper sizing when action is a Link */}
+          <Box height={48} display="flex" alignItems="center">
+            {secondaryAction}
+          </Box>
+          <Box height={48} display="flex" alignItems="center">
+            {primaryAction}
+          </Box>
+        </Flex>
+      </Box>
+      {primaryAction ? (
         <Box display="block" mdDisplay="none">
           <IconButton
             accessibilityControls="pageheader-dropdown"
@@ -183,10 +183,9 @@ export function PageHeaderActionBlock({
             </Dropdown>
           )}
         </Box>
-      </Fragment>
-    );
-  }
-  return null;
+      ) : null}
+    </Fragment>
+  );
 }
 
 export function PageHeaderItemsBlock({ items }: {| items?: $ReadOnlyArray<Node> |}): Node {
