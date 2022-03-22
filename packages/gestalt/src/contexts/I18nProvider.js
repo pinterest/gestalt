@@ -17,7 +17,7 @@ type I18nContextType = {|
   Text: TextTranslations,
 |};
 
-const initialContext = {
+export const initialContext = {
   Text: {
     accessibilityHidePasswordLabel: null,
     accessibilityShowPasswordLabel: null,
