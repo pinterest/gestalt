@@ -1,3 +1,9 @@
+## 46.4.3 (Mar 22, 2022)
+
+### Patch
+
+- Internal: upgrade prettier to 2.6.0 (#2002)
+
 ## 46.4.2 (Mar 22, 2022)
 
 ### Patch
