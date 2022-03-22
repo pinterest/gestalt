@@ -1,3 +1,9 @@
+## 46.7.0 (Mar 22, 2022)
+
+### Minor
+
+- Image: add decoding prop (#2005)
+
 ## 46.6.0 (Mar 22, 2022)
 
 ### Minor
