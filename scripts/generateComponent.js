@@ -27,7 +27,9 @@ function logSuccess(message) {
 async function generateFile({ componentName, outputPath, template, log }) {
   await fs.promises.writeFile(
     outputPath,
-    (await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8'))
+    (
+      await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8')
+    )
       .replace(/ComponentName/g, componentName)
       .replace(/componentname/g, componentName.toLowerCase())
       .replace(/componentName/g, componentName.toLowerCase()),

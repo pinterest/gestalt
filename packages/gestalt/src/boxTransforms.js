@@ -207,17 +207,19 @@ const left: Functor<boolean> = toggle(layout.left0);
 
 type MarginFunctorType = Functor<Margin>;
 
-const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (m) => {
-  if (typeof m === 'number') {
-    return bind(rangeWithZero(selector), whitespace)(m);
-  }
+const transformNumberOrPassthrough =
+  (selector: string): MarginFunctorType =>
+  (m) => {
+    if (typeof m === 'number') {
+      return bind(rangeWithZero(selector), whitespace)(m);
+    }
 
-  if (m === 'auto') {
-    return fromClassName(whitespace[`${selector}Auto`]);
-  }
+    if (m === 'auto') {
+      return fromClassName(whitespace[`${selector}Auto`]);
+    }
 
-  return identity();
-};
+    return identity();
+  };
 
 const marginStart: MarginFunctorType = transformNumberOrPassthrough('marginStart');
 const marginEnd: MarginFunctorType = transformNumberOrPassthrough('marginEnd');

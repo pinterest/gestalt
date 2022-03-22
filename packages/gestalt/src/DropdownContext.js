@@ -15,9 +15,8 @@ const initialContextState = {
   setOptionRef: () => {},
 };
 
-const context: Context<DropdownContextType> = createContext<DropdownContextType>(
-  initialContextState,
-);
+const context: Context<DropdownContextType> =
+  createContext<DropdownContextType>(initialContextState);
 
 const DropdownContextProvider = context.Provider;
 const DropdownContextConsumer = context.Consumer;

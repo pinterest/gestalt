@@ -5,7 +5,8 @@ const fs = require('fs');
 
 const iconSvgValidation = async () => {
   const files = await globby(['packages/gestalt/src/icons/*.svg']);
-  const templateRegexp = /<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="24" height="24"><path d="([a-z]|[A-Z]|[0-9.\-,\s])*"\/><\/svg>/g;
+  const templateRegexp =
+    /<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="24" height="24"><path d="([a-z]|[A-Z]|[0-9.\-,\s])*"\/><\/svg>/g;
 
   const nonConformatFilesArr = await Promise.all(
     files.map(async (file) => {

@@ -52,13 +52,12 @@ export const concat = (styles: $ReadOnlyArray<Style>): Style =>
     identity(),
   );
 
-export const mapClassName = (fn: (x: string) => string): ((Style) => Style) => ({
-  className,
-  inlineStyle,
-}: Style): Style => ({
-  className: new Set(Array.from(className).map(fn)),
-  inlineStyle,
-});
+export const mapClassName =
+  (fn: (x: string) => string): ((Style) => Style) =>
+  ({ className, inlineStyle }: Style): Style => ({
+    className: new Set(Array.from(className).map(fn)),
+    inlineStyle,
+  });
 
 export type ToPropsOutput = {| className: string, style: InlineStyle |};
 
