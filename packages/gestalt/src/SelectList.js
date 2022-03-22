@@ -33,6 +33,10 @@ type Props = {|
    */
   label?: string,
   /**
+   * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
+   */
+  labelDisplay?: 'visible' | 'hidden',
+  /**
    * Used to specify the name of the control.
    */
   name?: string,
@@ -71,6 +75,7 @@ export default function SelectList({
   helperText,
   id,
   label,
+  labelDisplay = 'visible',
   name,
   onChange,
   options,
@@ -107,7 +112,7 @@ export default function SelectList({
 
   return (
     <Box>
-      {label && <FormLabel id={id} label={label} />}
+      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       <Box
         color={disabled ? 'lightGray' : 'white'}
         display="flex"

@@ -51,4 +51,17 @@ describe('SelectList', () => {
     const tree = create(<SelectList id="test" onChange={jest.fn()} options={options} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('SelectList with a hidden label', () => {
+    const tree = create(
+      <SelectList
+        label="testing"
+        labelDisplay="hidden"
+        id="test"
+        onChange={jest.fn()}
+        options={options}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
