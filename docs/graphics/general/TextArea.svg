@@ -1,9 +1,1 @@
-<svg width="325" height="180" viewBox="0 0 325 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="325" height="180" fill="#F6FDF5"/>
-<path d="M52 72C52 67.5817 55.5817 64 60 64H264C268.418 64 272 67.5817 272 72V125C272 129.418 268.418 133 264 133H60C55.5817 133 52 129.418 52 125V72Z" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M264 66H60C56.6863 66 54 68.6863 54 72V125C54 128.314 56.6863 131 60 131H264C267.314 131 270 128.314 270 125V72C270 68.6863 267.314 66 264 66ZM60 64C55.5817 64 52 67.5817 52 72V125C52 129.418 55.5817 133 60 133H264C268.418 133 272 129.418 272 125V72C272 67.5817 268.418 64 264 64H60Z" fill="#005C62"/>
-<rect x="62" y="76" width="152" height="8" rx="4" fill="#009990" fill-opacity="0.5"/>
-<rect x="62" y="92" width="200" height="8" rx="4" fill="#009990" fill-opacity="0.5"/>
-<rect x="52" y="48" width="100" height="8" rx="4" fill="#009990" fill-opacity="0.5"/>
-<path d="M0 0V-2H-2V0H0ZM325 0H327V-2H325V0ZM325 180V182H327V180H325ZM0 180H-2V182H0V180ZM0 2H325V-2H0V2ZM323 0V180H327V0H323ZM325 178H0V182H325V178ZM2 180V0H-2V180H2Z" fill="#767676"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="312" height="180" fill="none"><path fill="#fff" d="M46 72a8 8 0 0 1 8-8h204a8 8 0 0 1 8 8v53a8 8 0 0 1-8 8H54a8 8 0 0 1-8-8V72Z"/><path fill="#005C62" fill-rule="evenodd" d="M258 66H54a6 6 0 0 0-6 6v53a6 6 0 0 0 6 6h204a6 6 0 0 0 6-6V72a6 6 0 0 0-6-6ZM54 64a8 8 0 0 0-8 8v53a8 8 0 0 0 8 8h204a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8H54Z" clip-rule="evenodd"/><rect width="152" height="8" x="56" y="76" fill="#009990" fill-opacity=".5" rx="4"/><rect width="200" height="8" x="56" y="92" fill="#009990" fill-opacity=".5" rx="4"/><rect width="100" height="8" x="46" y="48" fill="#009990" fill-opacity=".5" rx="4"/></svg>

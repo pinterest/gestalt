@@ -1,8 +1,1 @@
-<svg width="325" height="180" viewBox="0 0 325 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="325" height="180" fill="#F6FDF5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M162 55C161.171 55 160.5 54.329 160.5 53.5C160.5 52.671 161.171 52 162 52C162.829 52 163.5 52.671 163.5 53.5C163.5 54.329 162.829 55 162 55ZM163.5 62.5C163.5 63.329 162.829 64 162 64C161.171 64 160.5 63.329 160.5 62.5V57.5C160.5 56.671 161.171 56 162 56C162.829 56 163.5 56.671 163.5 57.5V62.5ZM162 46C155.373 46 150 51.373 150 58C150 64.627 155.373 70 162 70C168.627 70 174 64.627 174 58C174 51.373 168.627 46 162 46Z" fill="#005C62"/>
-<rect x="82" y="78" width="160" height="56" rx="8" fill="#005C62"/>
-<rect x="98" y="94" width="128" height="8" rx="4" fill="#CCF6EE" fill-opacity="0.5"/>
-<rect x="98" y="110" width="128" height="8" rx="4" fill="#CCF6EE" fill-opacity="0.5"/>
-<path d="M0 0V-2H-2V0H0ZM325 0H327V-2H325V0ZM325 180V182H327V180H325ZM0 180H-2V182H0V180ZM0 2H325V-2H0V2ZM323 0V180H327V0H323ZM325 178H0V182H325V178ZM2 180V0H-2V180H2Z" fill="#767676"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="312" height="180" fill="none"><path fill="#005C62" fill-rule="evenodd" d="M156 55a1.5 1.5 0 1 1-.001-2.999A1.5 1.5 0 0 1 156 55Zm1.5 7.5a1.5 1.5 0 1 1-3 0v-5a1.5 1.5 0 1 1 3 0v5ZM156 46c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12Z" clip-rule="evenodd"/><rect width="160" height="56" x="76" y="78" fill="#005C62" rx="8"/><rect width="128" height="8" x="92" y="94" fill="#CCF6EE" fill-opacity=".5" rx="4"/><rect width="128" height="8" x="92" y="110" fill="#CCF6EE" fill-opacity=".5" rx="4"/></svg>

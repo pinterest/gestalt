@@ -6,11 +6,13 @@ import IllustrationContainer from './IllustrationContainer.js';
 type Props = {|
   title?: string,
   children?: Node,
+  grid?: 'auto-fill' | 'auto-fit',
+  min?: number,
 |};
 
-function IllustrationSection({ children, title }: Props): Node {
+function IllustrationSection({ children, title, grid = 'auto-fit', min = 285 }: Props): Node {
   return (
-    <IllustrationContainer>
+    <IllustrationContainer justifyContent="start">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">
         {title && (
           <Heading accessibilityLevel={2} size="md">
@@ -22,7 +24,7 @@ function IllustrationSection({ children, title }: Props): Node {
           dangerouslySetInlineStyle={{
             __style: {
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: `repeat(${grid}, minmax(${min}px, 1fr))`,
               columnGap: '24px',
               rowGap: '24px',
             },
