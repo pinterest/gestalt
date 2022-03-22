@@ -1,3 +1,9 @@
+## 46.5.1 (Mar 22, 2022)
+
+### Patch
+
+- Internal: add resolution for `minimist` to address vulnerability (#2010)
+
 ## 46.5.0 (Mar 22, 2022)
 
 ### Minor
