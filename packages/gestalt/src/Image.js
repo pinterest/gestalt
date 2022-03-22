@@ -23,6 +23,10 @@ type Props = {|
    */
   crossOrigin?: 'anonymous' | 'use-credentials',
   /**
+   * Sends a hint to the browser specifying whether or not it is allowed to try to parallelize loading your image. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding) for more details.
+   */
+  decoding?: 'sync' | 'async' | 'auto',
+  /**
    * HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.
    */
   elementTiming?: string,
@@ -131,6 +135,7 @@ export default class Image extends PureComponent<Props> {
       color,
       children,
       crossOrigin,
+      decoding,
       elementTiming,
       fit,
       importance,
@@ -177,6 +182,7 @@ export default class Image extends PureComponent<Props> {
           alt={alt}
           className={styles.img}
           crossOrigin={crossOrigin}
+          decoding={decoding}
           elementtiming={elementTiming}
           importance={importance}
           loading={loading}
