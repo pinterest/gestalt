@@ -15,7 +15,7 @@ export default function ComponentNamePage({
 |}): Node {
   return (
     <Page title="ComponentName">
-      <PageHeader name="ComponentName" description={generatedDocGen?.description} />
+      <PageHeader name="ComponentName" description={generatedDocGen?.description} showSourceLink />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>

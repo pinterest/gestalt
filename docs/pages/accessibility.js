@@ -10,7 +10,6 @@ export default function AccessibilityGuidelinesPage(): Node {
       <PageHeader
         name="Accessibility (A11Y)"
         description="At Pinterest we strive to create an inclusive product that brings inspiration to everyone. A large part of that requires creating accessible designs and components that contribute to an accessible product."
-        showSourceLink={false}
       />
       <MainSection
         name="Our approach"

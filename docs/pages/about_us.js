@@ -7,7 +7,7 @@ import PageHeader from '../components/PageHeader.js';
 export default function DocsPage(): Node {
   return (
     <Page title="About us">
-      <PageHeader name="About us" showSourceLink={false} />
+      <PageHeader name="About us" />
 
       <MainSection
         name="We make Gestalt, Pinterest’s design system"

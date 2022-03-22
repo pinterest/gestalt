@@ -10,7 +10,7 @@ import MainSection from '../components/MainSection.js';
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="ButtonGroup">
-      <PageHeader name="ButtonGroup" description={generatedDocGen.description} />
+      <PageHeader name="ButtonGroup" description={generatedDocGen.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

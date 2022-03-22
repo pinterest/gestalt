@@ -33,6 +33,7 @@ function Example() {
   );
 }
 `}
+        showSourceLink
       />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>

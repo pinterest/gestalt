@@ -9,7 +9,7 @@ import Page from '../components/Page.js';
 export default function ContainerPage(): Node {
   return (
     <Page title="Development Guidelines">
-      <PageHeader name="Development" showSourceLink={false} />
+      <PageHeader name="Development" />
       <Card name="Set up your laptop">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>

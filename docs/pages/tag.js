@@ -12,6 +12,7 @@ export default function DocsPage(): Node {
       <PageHeader
         name="Tag"
         description="[Tags](https://gestalt.pinterest.systems/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/combobox#Tags) or as standalone components."
+        showSourceLink
       />
       <PropTable
         props={[

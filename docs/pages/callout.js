@@ -36,6 +36,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       type="info"
     />
     `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

@@ -11,7 +11,7 @@ import docgen, { type DocGen } from '../components/docgen.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Pog">
-      <PageHeader name="Pog" description={generatedDocGen?.description} />
+      <PageHeader name="Pog" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

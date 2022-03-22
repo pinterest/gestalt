@@ -9,7 +9,7 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Link">
-      <PageHeader name="Link" description={generatedDocGen?.description} />
+      <PageHeader name="Link" description={generatedDocGen?.description} showSourceLink />
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={['disabled']} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>

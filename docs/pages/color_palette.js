@@ -34,7 +34,6 @@ export default function ColorPage(): Node {
 
         For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).
         `}
-        showSourceLink={false}
       />
       <MainSection
         name="Baseline colors"

@@ -13,7 +13,11 @@ export default function ScrollBoundaryContainerPage({
 |}): Node {
   return (
     <Page title="ScrollBoundaryContainer">
-      <PageHeader name="ScrollBoundaryContainer" description={generatedDocGen?.description} />
+      <PageHeader
+        name="ScrollBoundaryContainer"
+        description={generatedDocGen?.description}
+        showSourceLink
+      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Variants">
         <MainSection.Subsection

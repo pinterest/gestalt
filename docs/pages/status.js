@@ -18,6 +18,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
 </Flex>
 `}
         badge="pilot"
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

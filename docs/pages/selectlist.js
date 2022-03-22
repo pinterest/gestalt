@@ -28,6 +28,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         label='Country'
       />
     `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

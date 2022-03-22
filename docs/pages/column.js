@@ -12,7 +12,7 @@ const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
 export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Column">
-      <PageHeader name="Column" description={generatedDocGen?.description} />
+      <PageHeader name="Column" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 

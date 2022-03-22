@@ -58,6 +58,7 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
         );
       }
 `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

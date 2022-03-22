@@ -34,7 +34,7 @@ export default function PageHeader({
   folderName,
   name,
   shadedCodeExample,
-  showSourceLink = true,
+  showSourceLink,
 }: Props): Node {
   const sourcePathName = folderName ?? fileName ?? name;
   let sourceLink = buildSourceLinkUrl(sourcePathName);

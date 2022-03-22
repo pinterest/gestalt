@@ -12,7 +12,7 @@ import Page from '../components/Page.js';
 export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Checkbox">
-      <PageHeader name="Checkbox" description={generatedDocGen?.description} />
+      <PageHeader name="Checkbox" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

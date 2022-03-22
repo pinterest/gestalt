@@ -34,6 +34,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
     />
   </Box>
   `}
+        showSourceLink
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">

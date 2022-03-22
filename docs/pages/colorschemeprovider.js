@@ -9,7 +9,11 @@ import docgen, { type DocGen } from '../components/docgen.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="ColorSchemeProvider">
-      <PageHeader name="ColorSchemeProvider" description={generatedDocGen?.description} />
+      <PageHeader
+        name="ColorSchemeProvider"
+        description={generatedDocGen?.description}
+        showSourceLink
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

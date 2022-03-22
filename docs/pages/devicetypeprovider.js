@@ -14,7 +14,11 @@ import docgen, { type DocGen } from '../components/docgen.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="DeviceTypeProvider">
-      <PageHeader name="DeviceTypeProvider" description={generatedDocGen?.description} />
+      <PageHeader
+        name="DeviceTypeProvider"
+        description={generatedDocGen?.description}
+        showSourceLink
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
     </Page>

@@ -89,7 +89,7 @@ export default function RoadmapPage(): Node {
 
   return (
     <Page title={`Gestalt ${roadmapData.year} roadmap`}>
-      <PageHeader name={`Gestalt ${roadmapData.year} roadmap`} showSourceLink={false} />
+      <PageHeader name={`Gestalt ${roadmapData.year} roadmap`} />
 
       <Flex direction="column" gap={4}>
         <Text>

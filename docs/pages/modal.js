@@ -19,6 +19,7 @@ title="Modal Main Example"
 sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
     `}
+        showSourceLink
       />
       <GeneratedPropTable
         generatedDocGen={generatedDocGen}

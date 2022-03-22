@@ -22,6 +22,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
   value="2.34M"
 />
 `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

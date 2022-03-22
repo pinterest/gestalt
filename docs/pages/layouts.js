@@ -10,7 +10,6 @@ export default function DocsPage(): Node {
       <PageHeader
         name="Layouts"
         description="A list of easy-to-copy layouts which have been battle tested."
-        showSourceLink={false}
       />
       <MainSection name="Examples">
         <MainSection.Subsection

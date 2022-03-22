@@ -176,7 +176,7 @@ class ExampleMasonry extends Component<Props, State> {
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Masonry">
-      <PageHeader name="Masonry" description={generatedDocGen?.description} />
+      <PageHeader name="Masonry" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

@@ -53,7 +53,6 @@ export default function ColorUsagePage(): Node {
       <PageHeader
         name="Elevation"
         description="Elevation allows elements to be lifted from the background. It can be defined by applying drop shadows or other visual cues, such as color and borders."
-        showSourceLink={false}
       />
       <MainSection
         name="Elevation using shadows"

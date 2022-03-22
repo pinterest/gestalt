@@ -35,6 +35,7 @@ export default function DocsPage({
         title="Give $30, get $60 in ads credit"
       />;
     `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen?.Upsell} />

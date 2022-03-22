@@ -31,6 +31,7 @@ function SpinnerExample() {
   );
 }
 `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

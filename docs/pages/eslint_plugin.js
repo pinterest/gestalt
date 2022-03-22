@@ -9,7 +9,6 @@ export default function EslintPluginPage(): Node {
     <Page title="Eslint plugin">
       <PageHeader
         name="Eslint plugin"
-        showSourceLink={false}
         description="Install the package eslint-plugin-gestalt to get lint rules encouraging the correct usage of Gestalt components"
       />
       <MainSection

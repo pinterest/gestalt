@@ -15,7 +15,7 @@ export default function DocsPage({
 |}): Node {
   return (
     <Page title="Flex">
-      <PageHeader name="Flex" description={generatedDocGen?.Flex?.description} />
+      <PageHeader name="Flex" description={generatedDocGen?.Flex?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Flex} />
 

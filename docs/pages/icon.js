@@ -21,6 +21,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
               Pinterest
             </Text>
           </Flex>`}
+        showSourceLink
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">

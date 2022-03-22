@@ -47,6 +47,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
     );
   }
 `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

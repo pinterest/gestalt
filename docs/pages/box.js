@@ -47,7 +47,7 @@ const ignoredProps = [
 export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Box">
-      <PageHeader name="Box" description={generatedDocGen?.description} />
+      <PageHeader name="Box" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 

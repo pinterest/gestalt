@@ -76,6 +76,7 @@ function SectionsIconButtonDropdownExample() {
   );
 }
       `}
+        showSourceLink
       />
       <PropTable
         Component={IconButton}
@@ -90,7 +91,8 @@ function SectionsIconButtonDropdownExample() {
           },
           {
             name: 'bgColor',
-            type: '"transparent" | "darkGray" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "red"',
+            type:
+              '"transparent" | "darkGray" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "red"',
             defaultValue: 'transparent',
             description:
               'Primary colors to apply to the IconButton background. See [background color](#Background-color) variant to learn more.',
@@ -122,7 +124,8 @@ function SectionsIconButtonDropdownExample() {
 
           {
             name: 'onClick',
-            type: '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
+            type:
+              '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
             description:
               'Callback fired when the component is clicked, pressed or tapped. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
           },

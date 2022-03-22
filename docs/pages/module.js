@@ -13,7 +13,7 @@ export default function DocsPage({
 |}): Node {
   return (
     <Page title="Module">
-      <PageHeader name="Module" description={generatedDocGen.Module?.description} />
+      <PageHeader name="Module" description={generatedDocGen.Module?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Module} />
 

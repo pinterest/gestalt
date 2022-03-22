@@ -79,6 +79,7 @@ export default function TablePage({
   </Table.Body>
 </Table>
 `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Table} />

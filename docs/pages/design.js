@@ -7,7 +7,7 @@ import PageHeader from '../components/PageHeader.js';
 export default function DocsPage(): Node {
   return (
     <Page title="Getting started as a designer">
-      <PageHeader name="Getting started as a designer" description="" showSourceLink={false} />
+      <PageHeader name="Getting started as a designer" description="" />
 
       <MainSection name="Getting set up">
         <MainSection.Subsection

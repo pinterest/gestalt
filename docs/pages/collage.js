@@ -9,7 +9,7 @@ import Page from '../components/Page.js';
 export default function CollagePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Collage">
-      <PageHeader name="Collage" description={generatedDocGen?.description} />
+      <PageHeader name="Collage" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

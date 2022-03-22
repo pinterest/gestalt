@@ -76,6 +76,7 @@ export default function DropdownPage({
           </Flex>
         );
       }`}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} />

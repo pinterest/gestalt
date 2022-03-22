@@ -126,6 +126,7 @@ function PopoverExample() {
   );
 }
   `}
+        showSourceLink
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">

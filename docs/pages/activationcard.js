@@ -14,7 +14,7 @@ export default function ActivationCardPage({
 |}): Node {
   return (
     <Page title="ActivationCard">
-      <PageHeader name="ActivationCard" description={generatedDocGen?.description} />
+      <PageHeader name="ActivationCard" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

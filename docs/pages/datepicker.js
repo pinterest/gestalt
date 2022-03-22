@@ -97,6 +97,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         )
       }
     `}
+        showSourceLink
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">

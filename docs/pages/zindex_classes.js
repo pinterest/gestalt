@@ -10,6 +10,7 @@ export default function DocsPage(): Node {
       <PageHeader
         name="Z-Index Classes"
         description="FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components."
+        showSourceLink
       />
       <MainSection name="FixedZIndex">
         <MainSection.Subsection>

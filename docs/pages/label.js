@@ -9,7 +9,7 @@ import docgen, { type DocGen } from '../components/docgen.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Label">
-      <PageHeader name="Label" description={generatedDocGen?.description} />
+      <PageHeader name="Label" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

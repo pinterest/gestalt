@@ -31,6 +31,7 @@ function Example(props) {
   );
 }
 `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

@@ -26,6 +26,7 @@ export default function AvatarPairPage({ generatedDocGen }: {| generatedDocGen: 
             ]}
           />
         `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

@@ -10,7 +10,7 @@ import Page from '../components/Page.js';
 export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Card">
-      <PageHeader name="Card" description={generatedDocGen?.description} />
+      <PageHeader name="Card" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

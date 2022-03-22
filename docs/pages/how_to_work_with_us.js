@@ -10,7 +10,6 @@ export default function DocsPage(): Node {
       <PageHeader
         name="How to work with us"
         description="Guidelines on how to engage with the Gestalt team, when to work with us, and how to contribute."
-        showSourceLink={false}
       />
 
       <MainSection name="What goes into Gestalt">

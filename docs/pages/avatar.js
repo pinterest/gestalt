@@ -40,6 +40,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         />
       </Flex>
       `}
+        showSourceLink
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

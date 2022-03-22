@@ -10,7 +10,7 @@ import deepCloneReplacingUndefined from '../utils/deepCloneReplacingUndefined.js
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Video">
-      <PageHeader name="Video" description={generatedDocGen?.description} />
+      <PageHeader name="Video" description={generatedDocGen?.description} showSourceLink />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

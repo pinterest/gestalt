@@ -10,7 +10,11 @@ import MainSection from '../components/MainSection.js';
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        showSourceLink
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

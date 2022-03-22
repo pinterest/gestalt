@@ -64,7 +64,7 @@ export default function IconPage(): Node {
 
   return (
     <Page title="Iconography and SVGs">
-      <PageHeader name="Iconography and SVGs" folderName="icons" />
+      <PageHeader name="Iconography and SVGs" folderName="icons" showSourceLink />
       <MainSection
         name="Search icon library"
         description="The combobox on the left allows to search icons by name. On the right, the icon list renders the filtered results. Furthermore, the icon list can be used to visually search for icons. On hover, each tooltip displays their name. On click, the icon name will be copied."

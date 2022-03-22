@@ -16,7 +16,7 @@ export default function Changelog({ changelog }: {| changelog: string |}): Node 
   return (
     <Page title="Changelog">
       <Box>
-        <PageHeader name="What's new 🎉" showSourceLink={false} />
+        <PageHeader name="What's new 🎉" />
         <Flex alignItems="start" direction="column" gap={4}>
           <Flex gap={4} wrap>
             {npmPackages.map((packageName) => (
