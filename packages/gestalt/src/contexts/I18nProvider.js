@@ -47,12 +47,18 @@ export function useI18nContext<C: ValidComponent>(
     );
   }
 
-  // Missing translation for a given string
   const translationPropNames = Object.keys(componentTranslations);
-  const missingTranslations = translationPropNames.filter(
+  // Translations that are still nullish (less likely)
+  const nullTranslations = translationPropNames.filter(
     (propName) => typeof componentTranslations[propName] !== 'string',
   );
-  if (missingTranslations.length > 0) {
+  const expectedTranslations = Object.keys(initialContext[componentName]);
+  // Translations that weren't provided in the Provider (more likely)
+  const missingTranslations = expectedTranslations.filter(
+    (item) => !translationPropNames.includes(item),
+  );
+  const missingAndNullTranslations = [...nullTranslations, ...missingTranslations];
+  if (missingAndNullTranslations.length > 0) {
     const multipleMissing = missingTranslations.length > 1;
     throw new Error(
       `${componentName} prop${multipleMissing ? 's' : ''} ${missingTranslations.join(', ')} ${
