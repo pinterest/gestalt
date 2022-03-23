@@ -1,3 +1,9 @@
+## 46.7.4 (Mar 23, 2022)
+
+### Patch
+
+- Switch: Clean up docs (#2016)
+
 ## 46.7.3 (Mar 23, 2022)
 
 ### Patch
