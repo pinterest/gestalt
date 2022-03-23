@@ -8,17 +8,15 @@ import { type Context, createContext, useContext } from 'react';
  * - Add component translation object to initialContext using `null` for all values
  */
 
-type TextTranslations = {|
-  accessibilityHidePasswordLabel: ?string,
-  accessibilityShowPasswordLabel: ?string,
-|};
-
 type I18nContextType = {|
-  Text: TextTranslations,
+  TextField: {|
+    accessibilityHidePasswordLabel: ?string,
+    accessibilityShowPasswordLabel: ?string,
+  |},
 |};
 
 export const initialContext = {
-  Text: {
+  TextField: {
     accessibilityHidePasswordLabel: null,
     accessibilityShowPasswordLabel: null,
   },
