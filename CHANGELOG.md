@@ -1,3 +1,9 @@
+## 46.7.2 (Mar 23, 2022)
+
+### Patch
+
+- I18nProvider: s/Text/TextField/ (#2014)
+
 ## 46.7.1 (Mar 22, 2022)
 
 ### Patch
