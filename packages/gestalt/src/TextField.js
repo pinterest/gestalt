@@ -4,18 +4,11 @@ import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import { useExperimentContext } from './contexts/ExperimentProvider.js';
+import { useI18nContext } from './contexts/I18nProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 type Props = {|
-  /**
-   * Label for the "Hide password" button. Required when `type="password"`. Be sure to localize the label.
-   */
-  accessibilityHidePasswordLabel?: string,
-  /**
-   * Label for the "Show password" button. Required when `type="password"`. Be sure to localize the label.
-   */
-  accessibilityShowPasswordLabel?: string,
   /**
    * Indicate if autocomplete should be available on the input, and the type of autocomplete.
    */
@@ -114,8 +107,6 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   HTMLInputElement,
 >(function TextField(
   {
-    accessibilityHidePasswordLabel,
-    accessibilityShowPasswordLabel,
     autoComplete,
     disabled = false,
     errorMessage,
@@ -142,14 +133,17 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const isCurrentlyPasswordType = type === 'password';
 
   const inShowPasswordExp = useExperimentContext('my_exp_name');
+  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
+    'TextField',
+  );
 
-  // TODO:
-  // - I18nContext?
   const iconButton =
     inShowPasswordExp && isPasswordField ? (
       <InternalTextFieldIconButton
         accessibilityLabel={
-          isCurrentlyPasswordType ? accessibilityShowPasswordLabel : accessibilityHidePasswordLabel
+          isCurrentlyPasswordType
+            ? accessibilityShowPasswordLabel ?? ''
+            : accessibilityHidePasswordLabel ?? ''
         }
         accessibilityPressed={!isCurrentlyPasswordType}
         icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
@@ -157,7 +151,9 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
           setType(isCurrentlyPasswordType ? 'text' : 'password');
         }}
         tooltipText={
-          isCurrentlyPasswordType ? accessibilityShowPasswordLabel : accessibilityHidePasswordLabel
+          isCurrentlyPasswordType
+            ? accessibilityShowPasswordLabel ?? ''
+            : accessibilityHidePasswordLabel ?? ''
         }
       />
     ) : undefined;
