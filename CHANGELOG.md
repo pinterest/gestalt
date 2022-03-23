@@ -1,3 +1,9 @@
+## 46.7.3 (Mar 23, 2022)
+
+### Patch
+
+- Docs: implemented OnLinkNavigationProvider in Docs to extend next/router to all Gestalt components used in Docs (#2011)
+
 ## 46.7.2 (Mar 23, 2022)
 
 ### Patch
