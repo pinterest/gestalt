@@ -7,7 +7,7 @@ import styles from './Switch.css';
 
 type Props = {|
   /**
-   * Indicates if the input is currently disabled. See [Switch combinations](https://gestalt.pinterest.systems/switch#switchCombinations) for more details.
+   * Indicates if the input is currently disabled. See [Switch combinations](https://gestalt.pinterest.systems/switch#Disabled-and-switched-combinations) for more details.
    */
   disabled?: boolean,
   /**
@@ -23,7 +23,7 @@ type Props = {|
    */
   onChange: ({| event: SyntheticInputEvent<>, value: boolean |}) => void,
   /**
-   * Indicates the current value of the input. See [Switch combinations](https://gestalt.pinterest.systems/switch#switchCombinations) for more details.
+   * Indicates the current value of the input. See [Switch combinations](https://gestalt.pinterest.systems/switch#Disabled-and-switched-combinations) for more details.
    */
   switched?: boolean,
 |};

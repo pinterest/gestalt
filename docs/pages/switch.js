@@ -1,8 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Label, Switch, Text } from 'gestalt';
-import Combination from '../components/Combination.js';
-import Example from '../components/Example.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
@@ -12,7 +9,30 @@ import docgen, { type DocGen } from '../components/docgen.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Switch">
-      <PageHeader name="Switch" description={generatedDocGen?.description} />
+      <PageHeader
+        name="Switch"
+        description={generatedDocGen?.description}
+        defaultCode={`
+      function SwitchExample() {
+        const [switched, setSwitched] = React.useState(false);
+
+        return (
+          <Box display="flex" alignItems="center">
+            <Box paddingX={2}>
+              <Label htmlFor="introExample">
+                <Text>Airplane mode</Text>
+              </Label>
+            </Box>
+            <Switch
+              onChange={() => setSwitched(!switched)}
+              id="introExample"
+              switched={switched}
+            />
+          </Box>
+        );
+      }
+      `}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -37,49 +57,90 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        id="basicExample"
-        description={`
-    Whenever you are using a \`Switch\` component, you should use a [Label](/label) with it to make your component accessible.
-  `}
-        name="Example: Using a label"
-        defaultCode={`
-function SwitchExample() {
-  const [switched, setSwitched] = React.useState(false);
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="With a label"
+          description={`
+        Whenever using Switch, always use a [Label](/label) with it to make your component accessible.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+        function SwitchExample() {
+          const [switched, setSwitched] = React.useState(false);
 
+          return (
+            <Box display="flex" alignItems="center">
+              <Box paddingX={2}>
+                <Label htmlFor="emailNotifications">
+                  <Text>Airplane mode</Text>
+                </Label>
+              </Box>
+              <Switch
+                onChange={() => setSwitched(!switched)}
+                id="emailNotifications"
+                switched={switched}
+              />
+            </Box>
+          );
+        }
+        `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Disabled and switched combinations">
+          <MainSection.Card
+            defaultCode={`
+function SwitchExample() {
   return (
-    <Box display="flex" alignItems="center">
-      <Box paddingX={2}>
-        <Label htmlFor="emailNotifications">
-          <Text>Airplane mode</Text>
+    <Flex alignItems="center" gap={8}>
+      <Flex direction="column" gap={2}>
+        <Label htmlFor="base">
+          <Text>Base state</Text>
         </Label>
-      </Box>
+        <Switch
+          onChange={() => {}}
+          id="base"
+          switched={false}
+        />
+      </Flex>
+      <Flex direction="column" gap={2}>
+      <Label htmlFor="switched">
+        <Text>Switched</Text>
+      </Label>
       <Switch
-        onChange={() => setSwitched(!switched)}
-        id="emailNotifications"
-        switched={switched}
+        onChange={() => {}}
+        id="switched"
+        switched={true}
       />
-    </Box>
+    </Flex>
+    <Flex direction="column" gap={2}>
+        <Label htmlFor="disabled">
+          <Text>Disabled, not switched</Text>
+        </Label>
+        <Switch
+          onChange={() => {}}
+          id="disabled"
+          switched={false}
+          disabled={true}
+        />
+      </Flex>
+      <Flex direction="column" gap={2}>
+        <Label htmlFor="disabledAndSwitched">
+          <Text>Disabled and switched</Text>
+        </Label>
+        <Switch
+          onChange={() => {}}
+          id="disabledAndSwitched"
+          switched={true}
+          disabled={true}
+        />
+      </Flex>
+    </Flex>
   );
 }
-`}
-      />
-      <Combination
-        id="switchCombinations"
-        disabled={[false, true]}
-        switched={[false, true]}
-        hasCheckerboard={false}
-        layout="4column"
-      >
-        {(props, i) => (
-          <Box borderStyle="lg" padding={2}>
-            <Label htmlFor={`example-${i}`}>
-              <Text>{`Switch ${i + 1}`}</Text>
-            </Label>
-            <Switch id={`example-${i}`} onChange={() => {}} {...props} />
-          </Box>
-        )}
-      </Combination>
+    `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
     </Page>
   );
 }

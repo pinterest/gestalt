@@ -123,7 +123,7 @@ export default function ColorUsagePage(): Node {
                 dangerouslySetInlineStyle={{
                   __style: { boxShadow: 'var(--elevation-raised-top)' },
                 }}
-                description="12% (#000000) opacity / Y: -2 / Blur: 8"
+                description="12% (#000000) opacity / Y: 2 / Blur: 8"
               />
 
               <ColorCard
