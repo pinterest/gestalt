@@ -38,7 +38,7 @@ export default function transformer({ source }, { jscodeshift }) {
       const { node } = jsxElement;
 
       // No elements to refact, bail
-      const name = node.openingElement.name.name;
+      const { name } = node.openingElement.name;
       if (!researchReference.includes(name)) {
         return null;
       }
@@ -63,7 +63,7 @@ export default function transformer({ source }, { jscodeshift }) {
           } else {
             propValue = attr?.value?.value;
           }
-          
+
           const propValueVariableName = attr?.value?.expression?.name;
 
           // If explicitly set to false or undefined the prop isn't actually doing anything and can be removed
@@ -78,18 +78,17 @@ export default function transformer({ source }, { jscodeshift }) {
           }
 
           if (propValue === 'sm') {
-            reValued.value = jscodeshift.stringLiteral("100");
+            reValued.value = jscodeshift.stringLiteral('100');
           }
 
           if (propValue === 'md') {
-            reValued.value = jscodeshift.stringLiteral("200");
+            reValued.value = jscodeshift.stringLiteral('200');
           }
 
           if (propValue === 'lg') {
-            reValued.value = jscodeshift.stringLiteral("300");
+            reValued.value = jscodeshift.stringLiteral('300');
           }
 
-          // reValued.value.expression.value = propValue?.toString();
           return reValued;
         })
         .filter(Boolean);
