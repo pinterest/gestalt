@@ -133,9 +133,8 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const isCurrentlyPasswordType = type === 'password';
 
   const inShowPasswordExp = useExperimentContext('my_exp_name');
-  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
-    'TextField',
-  );
+  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
+    useI18nContext('TextField');
 
   const iconButton =
     inShowPasswordExp && isPasswordField ? (
