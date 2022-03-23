@@ -7,7 +7,9 @@ const Valid = <I18nProvider value={initialContext}>Test</I18nProvider>;
 const NonExistingProp = <I18nProvider nonexisting={33} />;
 
 function TestComponent() {
-  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext('Text');
+  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
+    'TextField',
+  );
 
   return null;
 }
