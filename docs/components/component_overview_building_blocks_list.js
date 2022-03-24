@@ -45,7 +45,7 @@ const BUILDING_BLOCKS: ListItemType = [
     name: 'Layer',
     description: 'Layers allow you to render children outside the DOM hierarchy of the parent.',
     category: 'Building Blocks',
-    isDark: true,
+    hasDarkBackground: true,
   },
   {
     svg: <Letterbox />,

@@ -4,7 +4,7 @@ import { Box, Fieldset, RadioButton, Flex, Text } from 'gestalt';
 import FOUNDATION_LIST from '../components/component_overview_foundations_list.js';
 import UTILITIES_LIST from '../components/component_overview_utilities_list.js';
 import BUILDING_BLOCKS_LIST from '../components/component_overview_building_blocks_list.js';
-import GENERAL_LIST from '../components/component_overview_general_list.js';
+import GENERAL_COMPONENT_LIST from '../components/component_overview_general_components_list.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import IllustrationCard from '../components/IllustrationCard.js';
@@ -39,16 +39,23 @@ const getIllustrationCardColor = (category: string, isDark?: boolean) => {
   }
 };
 
-const GENERAL_CATEGORY_MAP = GENERAL_LIST.reduce((previousValue, currentValue) => {
-  const newPrevious = { ...previousValue };
+// GENERAL_COMPONENT_LIST is an array with component data. Each array item contains the SVG data and other metadata such as the component category. The following reduce method processes the GENERAL_COMPONENT_LIST array into an object grouping and mapping components per category so that we can map per category and pass each category value to <List />.
+const GENERAL_COMPONENT_CATEGORY_MAP = GENERAL_COMPONENT_LIST.reduce(
+  (accumulatedMap, currentItem) => {
+    const copyAccumulatedMap = { ...accumulatedMap }; // This copy prevents Eslint from complaining about reassigning
 
-  if (newPrevious[currentValue.category]) {
-    newPrevious[currentValue.category] = [...previousValue[currentValue.category], currentValue];
-  } else {
-    newPrevious[currentValue.category] = [currentValue];
-  }
-  return newPrevious;
-}, {});
+    if (copyAccumulatedMap[currentItem.category]) {
+      copyAccumulatedMap[currentItem.category] = [
+        ...accumulatedMap[currentItem.category],
+        currentItem,
+      ];
+    } else {
+      copyAccumulatedMap[currentItem.category] = [currentItem];
+    }
+    return copyAccumulatedMap;
+  },
+  {},
+);
 
 export type ListItemType = Array<{|
   svg: Element<typeof Accessibility>,
@@ -56,7 +63,7 @@ export type ListItemType = Array<{|
   description: string,
   category: string,
   path?: string,
-  isDark?: boolean,
+  hasDarkBackground?: boolean,
 |}>;
 
 function List({ array, title = '' }: {| array: ListItemType, title?: string |}): Node {
@@ -78,7 +85,7 @@ function List({ array, title = '' }: {| array: ListItemType, title?: string |}):
             href={element?.path ?? `/${element.name.replace(/\s/g, '_').toLowerCase()}`}
             title={element.name}
             description={element.description}
-            color={getIllustrationCardColor(element.category, element?.isDark)}
+            color={getIllustrationCardColor(element.category, element?.hasDarkBackground)}
             image={element.svg}
           />
         ))}
@@ -135,16 +142,16 @@ export default function ComponentOverview(): Node {
               ...FOUNDATION_LIST,
               ...UTILITIES_LIST,
               ...BUILDING_BLOCKS_LIST,
-              ...GENERAL_LIST,
+              ...GENERAL_COMPONENT_LIST,
             ]}
           />
         ) : (
           <Fragment>
             <List array={FOUNDATION_LIST} title="Foundations" />
-            {Object.keys(GENERAL_CATEGORY_MAP)
+            {Object.keys(GENERAL_COMPONENT_CATEGORY_MAP)
               .sort()
               .map((category, idx) => (
-                <List key={idx} array={GENERAL_CATEGORY_MAP[category]} title={category} />
+                <List key={idx} array={GENERAL_COMPONENT_CATEGORY_MAP[category]} title={category} />
               ))}
             <List array={BUILDING_BLOCKS_LIST} title="Building blocks" />
             <List array={UTILITIES_LIST} title="Utilities" />

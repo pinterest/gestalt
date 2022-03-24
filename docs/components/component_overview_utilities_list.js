@@ -25,7 +25,7 @@ const UTILITIES: ListItemType = [
     name: 'ColorSchemeProvider',
     description: 'ColorSchemeProvider is an optional React context provider to enable dark mode.',
     category: 'Utilities',
-    isDark: true,
+    hasDarkBackground: true,
   },
   {
     svg: <ProviderOnLinkNavigation />,
