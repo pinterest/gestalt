@@ -117,7 +117,7 @@ const GENERAL: ListItemType = [
     name: 'Collage',
     description:
       'Collage, similarly to Masonry, creates a deterministic grid layout that can absolutely position and virtualize images.',
-    category: 'Pins & Imaginery',
+    category: 'Pins & Imagery',
   },
   {
     svg: <ComboBox />,
@@ -176,7 +176,7 @@ const GENERAL: ListItemType = [
     svg: <Image />,
     name: 'Image',
     description: 'Image is used to represent images.',
-    category: 'Pins & Imaginery',
+    category: 'Pins & Imagery',
   },
   {
     svg: <GestaltLabel />,
@@ -195,7 +195,7 @@ const GENERAL: ListItemType = [
     name: 'Masonry',
     description:
       'Masonry creates a deterministic grid layout, positioning items based on available vertical space.',
-    category: 'Pins & Imaginery',
+    category: 'Pins & Imagery',
   },
   {
     svg: <Modal />,
@@ -349,7 +349,7 @@ const GENERAL: ListItemType = [
     svg: <Video />,
     name: 'Video',
     description: 'Video is used for media layout.',
-    category: 'Pins & Imaginery',
+    category: 'Pins & Imagery',
   },
 ];
 export default GENERAL;

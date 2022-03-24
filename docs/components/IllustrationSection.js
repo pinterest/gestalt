@@ -3,6 +3,8 @@ import { Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
 import IllustrationContainer from './IllustrationContainer.js';
 
+const MIN_SVG_ILLUSTRATION_WIDTH = 285;
+
 type Props = {|
   title?: string,
   children?: Node,
@@ -10,7 +12,12 @@ type Props = {|
   min?: number,
 |};
 
-function IllustrationSection({ children, title, grid = 'auto-fit', min = 285 }: Props): Node {
+function IllustrationSection({
+  children,
+  title,
+  grid = 'auto-fit',
+  min = MIN_SVG_ILLUSTRATION_WIDTH,
+}: Props): Node {
   return (
     <IllustrationContainer justifyContent="start">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">

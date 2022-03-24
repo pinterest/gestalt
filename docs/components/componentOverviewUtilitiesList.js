@@ -1,8 +1,8 @@
 // @flow strict
-import HookFocusVisible from '../graphics/utilities/hook_focus_visible.svg';
-import HookReducedMotion from '../graphics/utilities/hook_reduced_motion.svg';
-import ProviderColorScheme from '../graphics/utilities/provider_color_scheme.svg';
-import ProviderOnLinkNavigation from '../graphics/utilities/provider_on_link_navigation.svg';
+import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
+import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
+import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
+import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 import { type ListItemType } from '../pages/component_overview.js';
 
 const UTILITIES: ListItemType = [

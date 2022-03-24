@@ -1,10 +1,10 @@
 // @flow strict
 import { Fragment, useState, type Element, type Node } from 'react';
 import { Box, Fieldset, RadioButton, Flex, Text } from 'gestalt';
-import FOUNDATION_LIST from '../components/component_overview_foundations_list.js';
-import UTILITIES_LIST from '../components/component_overview_utilities_list.js';
-import BUILDING_BLOCKS_LIST from '../components/component_overview_building_blocks_list.js';
-import GENERAL_COMPONENT_LIST from '../components/component_overview_general_components_list.js';
+import FOUNDATION_LIST from '../components/componentOverviewFoundationsList.js';
+import UTILITIES_LIST from '../components/componentOverviewUtilitiesList.js';
+import BUILDING_BLOCKS_LIST from '../components/componentOverviewBuildingBlocksList.js';
+import GENERAL_COMPONENT_LIST from '../components/componentOverviewGeneralComponentsList.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import IllustrationCard from '../components/IllustrationCard.js';
@@ -12,48 +12,49 @@ import IllustrationSection from '../components/IllustrationSection.js';
 import IllustrationContainer from '../components/IllustrationContainer.js';
 import Accessibility from '../graphics/foundations/accessibility.svg';
 
-const getIllustrationCardColor = (category: string, isDark?: boolean) => {
-  if (isDark) return 'gray-roboflow-600';
+const getIllustrationCardColor = (category: string, hasDarkBackground?: boolean) => {
+  const tealBackgrounds = ['Foundations'];
+  const grayBackgrounds = ['Utilities', 'Building Blocks'];
+  const greenBackgrounds = [
+    'building-blocks',
+    'Actions',
+    'Avatars',
+    'Controls',
+    'Data',
+    'Fields & Forms',
+    'Loading',
+    'Messaging',
+    'Navigation',
+    'Pins & Imagery',
+    'Structure',
+    'Text',
+  ];
 
-  switch (category) {
-    case 'Foundations':
-      return 'teal-spabattical-700';
-    case 'Utilities':
-    case 'Building Blocks':
-      return 'gray-roboflow-100';
-    case 'building-blocks':
-    case 'Actions':
-    case 'Avatars':
-    case 'Controls':
-    case 'Data':
-    case 'Fields & Forms':
-    case 'Loading':
-    case 'Messaging':
-    case 'Navigation':
-    case 'Pins & Imaginery':
-    case 'Structure':
-    case 'Text':
-      return 'green-matchacado-0';
-    default:
-      return 'green-matchacado-0';
+  if (hasDarkBackground) {
+    return 'gray-roboflow-600';
   }
+
+  if (tealBackgrounds.includes(category)) {
+    return 'teal-spabattical-700';
+  }
+
+  if (grayBackgrounds.includes(category)) {
+    return 'gray-roboflow-100';
+  }
+
+  if (greenBackgrounds.includes(category)) {
+    return 'green-matchacado-0';
+  }
+
+  return 'green-matchacado-0';
 };
 
 // GENERAL_COMPONENT_LIST is an array with component data. Each array item contains the SVG data and other metadata such as the component category. The following reduce method processes the GENERAL_COMPONENT_LIST array into an object grouping and mapping components per category so that we can map per category and pass each category value to <List />.
 const GENERAL_COMPONENT_CATEGORY_MAP = GENERAL_COMPONENT_LIST.reduce(
-  (accumulatedMap, currentItem) => {
-    const copyAccumulatedMap = { ...accumulatedMap }; // This copy prevents Eslint from complaining about reassigning
-
-    if (copyAccumulatedMap[currentItem.category]) {
-      copyAccumulatedMap[currentItem.category] = [
-        ...accumulatedMap[currentItem.category],
-        currentItem,
-      ];
-    } else {
-      copyAccumulatedMap[currentItem.category] = [currentItem];
-    }
-    return copyAccumulatedMap;
-  },
+  (acc, cur) => ({
+    ...acc,
+    [cur.category]: (acc[cur.category] ?? []).concat(cur),
+  }),
   {},
 );
 
@@ -107,7 +108,7 @@ export default function ComponentOverview(): Node {
           />
         </IllustrationContainer>
         <IllustrationContainer justifyContent="start">
-          <Flex gap={2}>
+          <Flex gap={2} alignItems="center">
             <Box aria-hidden>
               <Text>Sort by</Text>
             </Box>
