@@ -35,6 +35,10 @@ type Props = {|
 
 /**
  * [Fieldset](https://gestalt.pinterest.systems/fieldset) creates a fieldset and legend for a group of related form items, like [RadioButtons](https://gestalt.pinterest.systems/radiobutton) or [CheckBoxes](https://gestalt.pinterest.systems/checkbox), in order to clearly indicate related form items."
+ *
+ * ![Fielset light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Fielset%20%230.png)
+ * ![Fielset dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Fielset-dark%20%230.png)
+ *
  */
 export default function Fieldset({
   id = '',
