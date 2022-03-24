@@ -1,3 +1,9 @@
+## 46.7.5 (Mar 24, 2022)
+
+### Patch
+
+- ButtonGroup, Label, Fieldset, Image, Collage: add visual diff testing and screenshot to description in VSCode (Flow extension) (#2017)
+
 ## 46.7.4 (Mar 23, 2022)
 
 ### Patch
