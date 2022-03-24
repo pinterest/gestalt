@@ -5,6 +5,7 @@ import Card from '../components/Card.js';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
+import MainSection from '../components/MainSection.js';
 
 export default function ContainerPage(): Node {
   return (
@@ -508,6 +509,9 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
           </ul>
         </Flex>
       </Card>
+      <MainSection name="RFCs">
+        <MainSection.Subsection description="Find the RFCs (request for comments) process and repository [here](https://github.com/pinterest/gestalt/tree/master/rfcs)." />
+      </MainSection>
     </Page>
   );
 }
