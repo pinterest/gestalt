@@ -1,10 +1,32 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex } from 'gestalt';
+import { Box, Flex, Text, ColorSchemeProvider } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import ColorTile from '../components/ColorTile.js';
 import Page from '../components/Page.js';
+
+type ColorCardProps = {|
+  children: Node,
+|};
+function ColorSchemeLayout({ children }: ColorCardProps) {
+  return (
+    <Flex gap={4}>
+      {['light', 'dark'].map((scheme) => (
+        <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
+          <Box padding={4} color="default">
+            <Flex gap={4} direction="column">
+              <Text weight="bold" size="400" color="default">
+                {scheme === 'light' ? 'Light mode' : 'Dark mode'}
+              </Text>
+              {children}
+            </Flex>
+          </Box>
+        </ColorSchemeProvider>
+      ))}
+    </Flex>
+  );
+}
 
 export default function ColorUsagePage(): Node {
   return (
@@ -38,49 +60,69 @@ export default function ColorUsagePage(): Node {
         name="Primary color"
         description={`
         A primary color is the color displayed most frequently across screens and components, used to convey high-emphasis actions. Our primary color related tokens are:
-        **$color-background-primary-base** - Use this token when conveying a primary action.
-        **$color-background-brand** - Use this token when a background color is needed to signify the Pinterest brand.        `}
+        **$color-background-primary-base** - Use when conveying a primary action.
+        **$color-background-brand** - Use when a background color is needed to signify the Pinterest brand.        `}
       >
-        <ColorTile
-          description="Primary base"
-          textColor="light"
-          fullTokenName="color-background-primary-base"
-        />
+        <Flex gap={2}>
+          <ColorSchemeLayout>
+            <ColorTile
+              description="Primary base"
+              textColor="light"
+              fullTokenName="color-background-primary-base"
+            />
+            <ColorTile
+              description="Brand"
+              textColor="light"
+              fullTokenName="color-background-brand"
+            />
+          </ColorSchemeLayout>
+        </Flex>
       </MainSection>
       <MainSection
         name="Secondary color"
         description={`
         A secondary color highlights medium to low-emphasis actions, creating a balance with the primary color. Our secondary color related token is:
-        **$color-background-secondary-base** - Use this token for secondary, medium to low-emphasis actions.
+        **$color-background-secondary-base** - Use for secondary, medium to low-emphasis actions.
         `}
       >
-        <ColorTile
-          description="Secondary base"
-          fullTokenName="color-background-secondary-base"
-          textColor="dark"
-        />
+        <ColorSchemeLayout>
+          <ColorTile
+            description="Secondary base"
+            fullTokenName="color-background-secondary-base"
+            textColor="default"
+          />
+        </ColorSchemeLayout>
       </MainSection>
       <MainSection
         name="Accent gray color"
         description={`
         Our tertiary color offers ways to accent the UI when the primary color doesn't work well on the proposed layout. Our accent gray related token is:
-        **$color-background-tertiary-base** - Use this token on medium to low-emphasis actions.
+        **$color-background-tertiary-base** - Use on medium to low-emphasis actions.
         `}
       >
-        <ColorTile
-          description="Tertiary base"
-          textColor="light"
-          fullTokenName="color-background-tertiary-base"
-        />
+        <ColorSchemeLayout>
+          <ColorTile
+            description="Tertiary base"
+            textColor="inverse"
+            fullTokenName="color-background-tertiary-base"
+          />
+        </ColorSchemeLayout>
       </MainSection>
       <MainSection
         name="Shopping color"
         description={`
         Instead of the Pushpin 450, the Skycicle 500 (blue) is the primary color to indicate shopping-related features. The related token is:
-        **$color-background-shopping** - Use this token name when conveying a primary action on shopping experiences.
+        **$color-background-shopping** - Use when conveying a primary action on shopping experiences.
         `}
       >
-        <ColorTile description="Shopping" fullTokenName="color-background-shopping" number={500} />
+        <ColorSchemeLayout>
+          <ColorTile
+            description="Shopping"
+            fullTokenName="color-background-shopping"
+            textColor="inverse"
+            number={500}
+          />
+        </ColorSchemeLayout>
       </MainSection>
       <MainSection
         name="Background color"
@@ -90,88 +132,87 @@ export default function ColorUsagePage(): Node {
           title="Base background colors"
           description={`
           Use on UI elements to convey a specific status or message. Usually, they aren't used behind default text.
-          **$color-background-info-base** - Use as a background color to indicate neutral information.
-          **$color-background-success-base** - Use as a background color to indicate success.
-          **$color-background-warning-base** - Use as a background color to indicate warning alerts.
-          **$color-background-error-base** -  Use as a background color to indicate errors.
+          **$color-background-info-base** - Use to indicate neutral information.
+          **$color-background-success-base** - Use to indicate success.
+          **$color-background-warning-base** - Use to indicate warning alerts.
+          **$color-background-error-base** -  Use to indicate errors.
         `}
         >
-          <Flex gap={4} direction="column">
-            <Flex gap={4} wrap>
-              <ColorTile
-                description="Info base"
-                textColor="light"
-                fullTokenName="color-background-info-base"
-              />
-              <ColorTile
-                description="Success base"
-                textColor="light"
-                fullTokenName="color-background-success-base"
-              />
-            </Flex>
-            <Flex gap={4} wrap>
-              <ColorTile
-                description="Warning base"
-                textColor="light"
-                fullTokenName="color-background-warning-base"
-              />
-              <ColorTile
-                description="Error base"
-                textColor="light"
-                fullTokenName="color-background-error-base"
-              />
-            </Flex>
-          </Flex>
+          <ColorSchemeLayout>
+            <ColorTile
+              description="Info base"
+              textColor="inverse"
+              fullTokenName="color-background-info-base"
+            />
+            <ColorTile
+              description="Success base"
+              textColor="inverse"
+              fullTokenName="color-background-success-base"
+            />
+            <ColorTile
+              description="Warning base"
+              textColor="inverse"
+              fullTokenName="color-background-warning-base"
+            />
+            <ColorTile
+              description="Error base"
+              textColor="inverse"
+              fullTokenName="color-background-error-base"
+            />
+            <ColorTile
+              description="Neutral (tertiary base)"
+              textColor="inverse"
+              fullTokenName="color-background-tertiary-base"
+            />
+          </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Weak background colors"
           description={`
           Since they have a light tint, these colors can be used behind text.
-          **$color-background-info-weak** - Use this token as a background color to indicate neutral information.
-          **$color-background-success-weak** - Use this token as a background color to indicate success.
-          **$color-background-warning-weak** - Use this token as a background color to indicate warning alerts.
-          **$color-background-error-weak** -  Use this tokens as a background color to indicate errors.
+          **$color-background-info-weak** - Use as a background for neutral information.
+          **$color-background-success-weak** - Use as a background for success information.
+          **$color-background-warning-weak** - Use as a background for warning alerts.
+          **$color-background-error-weak** -  Uses as a background for errors.
         `}
         >
-          <Flex gap={4} direction="column">
-            <Flex gap={4} wrap>
-              <ColorTile
-                description="Info weak"
-                fullTokenName="color-background-info-weak"
-                textColor="dark"
-              />
-              <ColorTile
-                description="Success weak"
-                fullTokenName="color-background-success-weak"
-                textColor="dark"
-              />
-            </Flex>
-            <Flex gap={4} wrap>
-              <ColorTile
-                description="Warning weak"
-                fullTokenName="color-background-warning-weak"
-                textColor="dark"
-              />
-              <ColorTile
-                description="Error weak"
-                fullTokenName="color-background-error-weak"
-                textColor="dark"
-              />
-            </Flex>
-          </Flex>
+          <ColorSchemeLayout>
+            <ColorTile
+              description="Info weak"
+              fullTokenName="color-background-info-weak"
+              textColor="dark"
+            />
+            <ColorTile
+              description="Success weak"
+              fullTokenName="color-background-success-weak"
+              textColor="dark"
+            />
+            <ColorTile
+              description="Warning weak"
+              fullTokenName="color-background-warning-weak"
+              textColor="dark"
+            />
+            <ColorTile
+              description="Error weak"
+              fullTokenName="color-background-error-weak"
+              textColor="dark"
+            />
+          </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Inverse background color"
           description={`
-          Color used to indicate an inverted background. Use the token:
-          **$color-background-inverse-base** - Use this token as a background color on inverted backgrounds.
+          Color used to indicate an inverted background.
+          **$color-background-inverse-base** - Use to create an inverted background.
           `}
         >
-          <ColorTile
-            description="Inverse base"
-            textColor="light"
-            fullTokenName="color-background-inverse-base"
-          />
+          <ColorSchemeLayout>
+            <ColorTile
+              description="Inverse base"
+              textColor="inverse"
+              fullTokenName="color-background-inverse-base"
+            />
+          </ColorSchemeLayout>
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Typography color">
@@ -184,34 +225,52 @@ export default function ColorUsagePage(): Node {
           **$color-text-subtle** - For secondary, subtle text-color, such as additional info or sub-header.
           `}
         >
-          <Flex gap={4} wrap>
-            <ColorTile description="Default" textColor="light" fullTokenName="color-text-default" />
-            <ColorTile description="Subtle" textColor="light" fullTokenName="color-text-subtle" />
-          </Flex>
+          <ColorSchemeLayout>
+            <ColorTile
+              description="Default"
+              textColor="inverse"
+              fullTokenName="color-text-default"
+            />
+            <ColorTile description="Subtle" textColor="inverse" fullTokenName="color-text-subtle" />
+          </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Status text colors"
           description={`
           Text colors used to indicate status. Each color has a purposeful meaning. Use the tokens:
-          **$color-text-success** - Use this token as text color to indicate success.
-          **$color-text-warning** - Use this token as text color to indicate a warning or caution.
-          **$color-text-error** - Use this token as text color to indicate an error.
+          **$color-text-success** - Use as text color to indicate success.
+          **$color-text-warning** - Use as text color to indicate a warning or caution.
+          **$color-text-error** - Use as text color to indicate an error.
           `}
         >
-          <Flex gap={4} wrap>
-            <ColorTile description="Success" textColor="light" fullTokenName="color-text-success" />
-            <ColorTile description="Warning" textColor="light" fullTokenName="color-text-warning" />
-            <ColorTile description="Error" textColor="light" fullTokenName="color-text-error" />
-          </Flex>
+          <ColorSchemeLayout>
+            <ColorTile
+              description="Success"
+              textColor="inverse"
+              fullTokenName="color-text-success"
+            />
+            <ColorTile
+              description="Warning"
+              textColor="inverse"
+              fullTokenName="color-text-warning"
+            />
+            <ColorTile description="Error" textColor="inverse" fullTokenName="color-text-error" />
+          </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Inverse text color"
           description={`
-          Colors used on top of inverted backgrounds. Use the tokens:
+          Color used on top of inverted backgrounds.
           **$color-text-inverse** - Use this token for text layered on top of inverted backgrounds.
           `}
         >
-          <ColorTile description="Inverse" fullTokenName="color-text-inverse" textColor="dark" />
+          <ColorSchemeLayout>
+            <ColorTile
+              description="Inverse"
+              fullTokenName="color-text-inverse"
+              textColor="default"
+            />
+          </ColorSchemeLayout>
         </MainSection.Subsection>
       </MainSection>
       <MainSection
@@ -219,52 +278,46 @@ export default function ColorUsagePage(): Node {
         description={`
       The icon colors available indicate status and match the messaging text colors for consistency. For icon colors purposes, use the tokens:
 
-      **$color-text-icon-default** - Use this token as the default color for icons.
-      **$color-text-icon-subtle** - Use this token as the secondary color for icons.
-      **$color-text-icon-success** - Use this token for success icons.
-      **$color-text-icon-warning** - Use this token for warning icons.
-      **$color-text-icon-error** - Use this token for error icons.
-      **$color-text-icon-inverse** - Use this token for icons paired with inverted backgrounds.
+      **$color-text-icon-default** - Use as the default color for icons.
+      **$color-text-icon-subtle** - Use as the secondary color for icons.
+      **$color-text-icon-success** - Use for success icons.
+      **$color-text-icon-warning** - Use for warning icons.
+      **$color-text-icon-error** - Use for error icons.
+      **$color-text-icon-inverse** - Use for icons paired with inverted backgrounds.
       `}
       >
-        <Flex gap={4} direction="column">
-          <Flex gap={4} wrap>
-            <ColorTile
-              description="Default"
-              textColor="light"
-              fullTokenName="color-text-icon-default"
-            />
-            <ColorTile
-              description="Subtle"
-              textColor="light"
-              fullTokenName="color-text-icon-subtle"
-            />
-          </Flex>
-          <Flex gap={4} wrap>
-            <ColorTile
-              description="Success"
-              textColor="light"
-              fullTokenName="color-text-icon-success"
-            />
-            <ColorTile
-              description="Warning"
-              textColor="light"
-              fullTokenName="color-text-icon-warning"
-            />
-          </Flex>
-          <Flex gap={4} wrap>
-            <ColorTile
-              description="Error"
-              textColor="light"
-              fullTokenName="color-text-icon-error"
-            />
-            <ColorTile
-              description="Inverse"
-              fullTokenName="color-text-icon-inverse"
-              textColor="dark"
-            />
-          </Flex>
-        </Flex>
+        <ColorSchemeLayout>
+          <ColorTile
+            description="Default"
+            textColor="inverse"
+            fullTokenName="color-text-icon-default"
+          />
+          <ColorTile
+            description="Subtle"
+            textColor="inverse"
+            fullTokenName="color-text-icon-subtle"
+          />
+          <ColorTile
+            description="Success"
+            textColor="inverse"
+            fullTokenName="color-text-icon-success"
+          />
+          <ColorTile
+            description="Warning"
+            textColor="inverse"
+            fullTokenName="color-text-icon-warning"
+          />
+          <ColorTile
+            description="Error"
+            textColor="inverse"
+            fullTokenName="color-text-icon-error"
+          />
+          <ColorTile
+            description="Inverse"
+            fullTokenName="color-text-icon-inverse"
+            textColor="default"
+          />
+        </ColorSchemeLayout>
       </MainSection>
       <MainSection
         name="Color and accessibility"
