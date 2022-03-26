@@ -1,3 +1,9 @@
+## 46.7.6 (Mar 26, 2022)
+
+### Patch
+
+- Docs: add legal disclaimer re: brand icons (#2020)
+
 ## 46.7.5 (Mar 24, 2022)
 
 ### Patch
