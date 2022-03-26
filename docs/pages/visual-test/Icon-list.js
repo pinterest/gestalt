@@ -11,6 +11,7 @@ export default function Snapshot(): Node {
         <Flex gap={1} wrap>
           {icons.map((name, index) => (
             <Box key={index} padding={2}>
+              {/* $FlowFixMe[prop-missing] */}
               <Icon color="darkGray" accessibilityLabel="" icon={name} />
             </Box>
           ))}

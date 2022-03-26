@@ -61,8 +61,7 @@ type Props = {|
   size?: number | string,
 |};
 
-// $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-const IconNames = Object.keys(icons);
+const IconNames: $ReadOnlyArray<string> = Object.keys(icons);
 
 const flipOnRtlIconNames = [
   'ads-stats',
