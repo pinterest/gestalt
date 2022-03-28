@@ -1,26 +1,25 @@
 // @flow strict
 import { Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
+import IllustrationContainer from './IllustrationContainer.js';
+
+const MIN_SVG_ILLUSTRATION_WIDTH = 285;
 
 type Props = {|
   title?: string,
   children?: Node,
+  grid?: 'auto-fill' | 'auto-fit',
+  min?: number,
 |};
 
-function HomePageSection({ children, title }: Props): Node {
+function IllustrationSection({
+  children,
+  title,
+  grid = 'auto-fit',
+  min = MIN_SVG_ILLUSTRATION_WIDTH,
+}: Props): Node {
   return (
-    <Box
-      marginStart={-8}
-      marginEnd={-8}
-      smMarginEnd={0}
-      smMarginStart={0}
-      paddingX={12}
-      smPaddingX={2}
-      mdPaddingX={8}
-      marginBottom={10}
-      justifyContent="center"
-      display="flex"
-    >
+    <IllustrationContainer justifyContent="start">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">
         {title && (
           <Heading accessibilityLevel={2} size="md">
@@ -32,7 +31,7 @@ function HomePageSection({ children, title }: Props): Node {
           dangerouslySetInlineStyle={{
             __style: {
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: `repeat(${grid}, minmax(${min}px, 1fr))`,
               columnGap: '24px',
               rowGap: '24px',
             },
@@ -41,8 +40,8 @@ function HomePageSection({ children, title }: Props): Node {
           {children}
         </Box>
       </Flex>
-    </Box>
+    </IllustrationContainer>
   );
 }
 
-export default HomePageSection;
+export default IllustrationSection;

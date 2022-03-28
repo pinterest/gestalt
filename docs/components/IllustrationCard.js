@@ -11,7 +11,7 @@ type Props = {|
   isNew?: boolean,
 |};
 
-function HomePageCard({ image, description, isNew, title, color, href }: Props): Node {
+function IllustrationCard({ image, description, isNew, title, color, href }: Props): Node {
   return (
     <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
       <Box minWidth={280}>
@@ -25,7 +25,7 @@ function HomePageCard({ image, description, isNew, title, color, href }: Props):
               width="100%"
               dangerouslySetInlineStyle={{
                 __style: {
-                  backgroundColor: `var(--color-${color}-450)`,
+                  backgroundColor: `var(--color-${color})`,
                 },
               }}
             >
@@ -56,4 +56,4 @@ function HomePageCard({ image, description, isNew, title, color, href }: Props):
   );
 }
 
-export default HomePageCard;
+export default IllustrationCard;
