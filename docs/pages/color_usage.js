@@ -9,7 +9,7 @@ import Page from '../components/Page.js';
 type ColorCardProps = {|
   children: Node,
 |};
-function ColorSchemeLayout({ children }: ColorCardProps) {
+function ColorSchemeLayout({ children }: ColorCardProps): Node {
   return (
     <Flex gap={4}>
       {['light', 'dark'].map((scheme) => (
