@@ -156,7 +156,7 @@ const GENERAL: ListItemType = [
     name: 'Fieldset',
     description:
       'Fieldset creates a fieldset and legend for a group of related form items in order to clearly indicate related form items.',
-    category: 'Controls',
+    category: 'Fields & Forms',
   },
   {
     svg: <Heading />,

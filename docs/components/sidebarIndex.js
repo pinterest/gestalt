@@ -72,7 +72,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Controls',
-    pages: ['Checkbox', 'Fieldset', 'RadioButton', 'Switch'],
+    pages: ['Checkbox', 'RadioButton', 'Switch'],
   },
   {
     sectionName: 'Data',
@@ -84,6 +84,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'ComboBox',
       'DatePicker',
       'Dropdown',
+      'Fieldset',
       'Label',
       'NumberField',
       'SearchField',
