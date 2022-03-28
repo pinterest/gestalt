@@ -1,3 +1,9 @@
+## 46.7.10 (Mar 28, 2022)
+
+### Patch
+
+- Color usage: Add dark mode examples (#2019)
+
 ## 46.7.9 (Mar 28, 2022)
 
 ### Patch
