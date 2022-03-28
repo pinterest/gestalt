@@ -1,3 +1,9 @@
+## 46.7.7 (Mar 28, 2022)
+
+### Patch
+
+- Component Overview: new page for visual component browsing (#2008)
+
 ## 46.7.6 (Mar 26, 2022)
 
 ### Patch
