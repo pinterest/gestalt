@@ -8,9 +8,9 @@ import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function NumberFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="NumberField">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="NumberField"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 function Example(props) {
@@ -20,9 +20,11 @@ function Example(props) {
     <Box width={500}>
       <NumberField
         id="header-example"
-        label="ZIP Code"
-        onChange={({ value }) => setValue(value)}
-        placeholder="Please enter your ZIP Code"
+        label="Number of widgets"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        placeholder="Please enter the number of widgets"
         value={value}
       />
     </Box>
@@ -48,7 +50,7 @@ function Example(props) {
             type="don't"
             title="When not to use"
             description={`
-          - When accepting telephone numbers. Use [TextField](/textfield) with \`type="tel"\` instead.
+          - When accepting telephone numbers, or numerical data that could contain leading 0's (e.g. ZIP codes). Use [TextField](/textfield) with \`type="tel"\` instead.
           - Situations where text needs to be entered. Use [TextField](/textfield) or [TextArea](/textarea) instead.`}
           />
         </MainSection.Subsection>
@@ -70,7 +72,9 @@ function Example(props) {
         helperText="Code was texted to you"
         id="best-practices-do-helper-text"
         label="Confirmation code"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         value={value}
       />
     </Box>
@@ -91,7 +95,9 @@ function Example(props) {
       <NumberField
         id="best-practices-dont-placeholder"
         label=""
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         placeholder="Code was texted to you"
         value={value}
       />
@@ -116,7 +122,9 @@ function Example(props) {
       <NumberField
         id="best-practices-do-label"
         label="Your age"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         value={value}
       />
     </Box>
@@ -138,7 +146,9 @@ function Example(props) {
         <NumberField
           id="best-practice-dont-label"
           label=""
-          onChange={({ value }) => setValue(value)}
+          onChange={({ value }) => {
+            setValue(value);
+          }}
           value={value}
         />
       </Box>
@@ -164,13 +174,17 @@ function Example(props) {
       <NumberField
         id="best-practices-do-related-first"
         label="First value"
-        onChange={({ value }) => setFirstValue(value)}
+        onChange={({ value }) => {
+          setFirstValue(value);
+        }}
         value={firstValue}
       />
       <NumberField
         id="best-practices-do-related-second"
         label="Second value"
-        onChange={({ value }) => setSecondValue(value)}
+        onChange={({ value }) => {
+          setSecondValue(value);
+        }}
         value={secondValue}
       />
     </Flex>
@@ -185,21 +199,25 @@ function Example(props) {
             defaultCode={`
 function Example(props) {
   const [ageValue, setAgeValue] = React.useState();
-  const [zipCodeValue, setZipCodeValue] = React.useState();
+  const [petsValue, setPetsValue] = React.useState();
 
   return (
     <Flex gap={4}>
       <NumberField
         id="best-practices-dont-related-age"
         label="Age"
-        onChange={({ value }) => setAgeValue(value)}
+        onChange={({ value }) => {
+          setAgeValue(value);
+        }}
         value={ageValue}
       />
       <NumberField
-        id="best-practices-dont-related-zip-code"
-        label="ZIP Code"
-        onChange={({ value }) => setZipCodeValue(value)}
-        value={zipCodeValue}
+        id="best-practices-dont-related-pets"
+        label="Number of pets"
+        onChange={({ value }) => {
+          setPetsValue(value);
+        }}
+        value={petsValue}
       />
     </Flex>
   );
@@ -224,7 +242,9 @@ function Example(props) {
         helperText="Minimum is $5"
         id="best-practices-do-error-message"
         label="Monthly ad spend"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         value={value}
       />
     </Box>
@@ -247,7 +267,9 @@ function Example(props) {
         helperText="Minimum is $5"
         id="best-practices-dont-error-message"
         label="Monthy ad spend"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         value={value}
       />
     </Box>
@@ -264,7 +286,7 @@ function Example(props) {
             description="Consider all text fields as required, unless explicitly noted as optional."
             defaultCode={`
 function Example(props) {
-  const [name, setName] = React.useState({
+  const [values, setValues] = React.useState({
     first: undefined,
     second: undefined,
     third: undefined,
@@ -275,20 +297,26 @@ function Example(props) {
       <NumberField
         id="best-practices-do-required-first"
         label="First number"
-        onChange={({ value }) => setName((name) => ({ ...name, first: value }))}
-        value={name.first}
+        onChange={({ value }) => {
+          setValues((prevValues) => ({ ...prevValues, first: value }));
+        }}
+        value={values.first}
       />
       <NumberField
         id="best-practices-do-required-second"
         label="Second number"
-        onChange={({ value }) => setName((name) => ({ ...name, second: value }))}
-        value={name.second}
+        onChange={({ value }) => {
+          setValues((prevValues) => ({ ...prevValues, second: value }));
+        }}
+        value={values.second}
       />
       <NumberField
         id="best-practices-do-required-third"
         label="Third number (optional)"
-        onChange={({ value }) => setName((name) => ({ ...name, third: value }))}
-        value={name.third}
+        onChange={({ value }) => {
+          setValues((prevValues) => ({ ...prevValues, third: value }));
+        }}
+        value={values.third}
       />
     </Flex>
   );
@@ -301,7 +329,7 @@ function Example(props) {
             description="Mark fields as required."
             defaultCode={`
 function Example(props) {
-  const [name, setName] = React.useState({
+  const [values, setValues] = React.useState({
     first: undefined,
     second: undefined,
     third: undefined,
@@ -313,21 +341,27 @@ function Example(props) {
         helperText="* This field is required."
         id="best-practices-dont-required-first"
         label="First number"
-        onChange={({ value }) => setName((name) => ({ ...name, first: value }))}
-        value={name.first}
+        onChange={({ value }) => {
+          setValues((prevValues) => ({ ...prevValues, first: value }));
+        }}
+        value={values.first}
       />
       <NumberField
         helperText="* This field is required."
         id="best-practices-dont-required-second"
         label="Second number"
-        onChange={({ value }) => setName((name) => ({ ...name, second: value }))}
-        value={name.second}
+        onChange={({ value }) => {
+          setValues((prevValues) => ({ ...prevValues, second: value }));
+        }}
+        value={values.second}
       />
       <NumberField
         id="best-practices-dont-required-third"
         label="Third number"
-        onChange={({ value }) => setName((name) => ({ ...name, third: value }))}
-        value={name.third}
+        onChange={({ value }) => {
+          setValues((prevValues) => ({ ...prevValues, third: value }));
+        }}
+        value={values.third}
       />
     </Flex>
   );
@@ -405,7 +439,9 @@ function Example(props) {
       disabled
       id="variant-disabled"
       label="Disabled"
-      onChange={({ value }) => setValue(value)}
+      onChange={({ value }) => {
+        setValue(value);
+      }}
       placeholder="This input is disabled"
       value={value}
     />
@@ -430,7 +466,9 @@ function Example(props) {
         id="variant-helperText"
         helperText="Round up to the nearest whole number"
         label="Average value"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         value={value}
       />
     </Box>
@@ -455,7 +493,9 @@ function Example(props) {
     <NumberField
       id="variant-errorMessage"
       errorMessage={value === null || value === undefined ? "You must enter a number" : null}
-      onChange={({ value }) => setValue(value)}
+      onChange={({ value }) => {
+        setValue(value);
+      }}
       label="With an error message"
       value={value}
     />
@@ -563,7 +603,7 @@ function Example(props) {
         <MainSection.Subsection
           description={`
       **[TextField](/textfield)**
-      For text input, use TextField. (For telephone numbers, use \`<TextField type="tel" />\`.)
+      For text input, telephone numbers, or numerical input with possible leading 0's (e.g. ZIP codes), use TextField. (For telephone numbers, use \`<TextField type="tel" />\`.)
     `}
         />
       </MainSection>
