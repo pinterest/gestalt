@@ -1,3 +1,9 @@
+## 46.7.8 (Mar 28, 2022)
+
+### Patch
+
+- Component overview: reclass Fieldset cmp (#2021)
+
 ## 46.7.7 (Mar 28, 2022)
 
 ### Patch
