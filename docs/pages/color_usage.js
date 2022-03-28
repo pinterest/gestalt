@@ -221,8 +221,10 @@ export default function ColorUsagePage(): Node {
           description={`
           Typography colors are used on text elements such as headings and body.
           Use the tokens:
-          **$color-text-default** - For default text-color, such as headings and body text.
-          **$color-text-subtle** - For secondary, subtle text-color, such as additional info or sub-header.
+          **$color-text-default** - The default text color, such as headings and body text.
+          **$color-text-subtle** - For secondary, subtle text color, such as additional info or sub-header.
+          **$color-text-shopping** - For text related to shopping products or surfaces.
+
           `}
         >
           <ColorSchemeLayout>
@@ -232,6 +234,11 @@ export default function ColorUsagePage(): Node {
               fullTokenName="color-text-default"
             />
             <ColorTile description="Subtle" textColor="inverse" fullTokenName="color-text-subtle" />
+            <ColorTile
+              description="Shopping"
+              textColor="inverse"
+              fullTokenName="color-text-shopping"
+            />
           </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
