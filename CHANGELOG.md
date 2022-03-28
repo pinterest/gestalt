@@ -1,3 +1,9 @@
+## 46.7.9 (Mar 28, 2022)
+
+### Patch
+
+- NumberField, TextField: update docs on usage (#2022)
+
 ## 46.7.8 (Mar 28, 2022)
 
 ### Patch
