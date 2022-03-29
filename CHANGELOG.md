@@ -1,3 +1,9 @@
+## 46.7.12 (Mar 29, 2022)
+
+### Patch
+
+- Internal: update RFC template (#2024)
+
 ## 46.7.11 (Mar 29, 2022)
 
 ### Patch
