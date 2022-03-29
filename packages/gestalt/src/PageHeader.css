@@ -1,9 +1,4 @@
 .pageHeader {
-  border-bottom: 1px solid var(--color-gray-roboflow-300);
-  width: 100%;
-}
-
-.darkModePageHeader {
-  border-bottom: 1px solid var(--color-white-mochimalist-0);
+  border-bottom: 1px solid var(--color-border-container);
   width: 100%;
 }

@@ -138,7 +138,6 @@ export default function Dropdown({
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
   const dropdownChildrenArray = Children.toArray(children);
-
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;

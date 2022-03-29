@@ -3,6 +3,7 @@ import { create } from 'react-test-renderer';
 import PageHeader from './PageHeader.js';
 import Button from './Button.js';
 import Link from './Link.js';
+import Dropdown from './Dropdown.js';
 
 describe('PageHeader', () => {
   it('renders', () => {
@@ -27,6 +28,14 @@ describe('PageHeader', () => {
       <PageHeader
         title="Settings"
         primaryAction={<Button size="lg" color="red" text="Create" />}
+        dropdownItems={[
+          <Dropdown.Item
+            key="Create"
+            option={{ value: 'Create', label: 'Create' }}
+            onSelect={() => {}}
+          />,
+        ]}
+        dropdownAccessibilityLabel="test"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -38,6 +47,20 @@ describe('PageHeader', () => {
         title="Settings"
         primaryAction={<Button size="lg" color="red" text="Create" />}
         secondaryAction={<Link href="www.pinterest.com">Help center</Link>}
+        dropdownItems={[
+          <Dropdown.Item
+            key="Create"
+            option={{ value: 'Create', label: 'Create' }}
+            onSelect={() => {}}
+          />,
+          <Dropdown.Link
+            key="Analytics"
+            isExternal
+            option={{ value: 'Help center', label: 'Help center' }}
+            href="https://pinterest.com"
+          />,
+        ]}
+        dropdownAccessibilityLabel="test"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

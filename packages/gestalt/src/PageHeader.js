@@ -17,9 +17,8 @@ import {
   PageHeaderThubnail,
   PageHeaderActionBlock,
   PageHeaderItemsBlock,
-} from './PageHeaderSubcomponents.js';
+} from './PageHeaderComponents.js';
 import styles from './PageHeader.css';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 export type ActionType = Element<
   typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip,
@@ -125,12 +124,9 @@ export default function PageHeader({
   borderStyle = 'none',
 }: Props): Node {
   const { text: badgeText, tooltipText: badgeTooltipText } = badge || {};
-  const { name: colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-  const pageHeaderBordertyle = isDarkMode ? styles.darkModePageHeader : styles.pageHeader;
 
   return (
-    <div className={borderStyle === 'sm' ? pageHeaderBordertyle : null}>
+    <div className={borderStyle === 'sm' ? styles.pageHeader : null}>
       <Box color="white" paddingX={8} paddingY={4} width="100%">
         <Flex flex="grow" justifyContent="center" maxWidth="100%">
           <Flex flex="grow" maxWidth={maxWidth}>
@@ -141,7 +137,7 @@ export default function PageHeader({
                   <Flex direction="column" gap={1}>
                     <Flex alignItems="center">
                       <PageHeaderTitle title={title} />
-                      <Box display="none" smDisplay="block" marginStart={1}>
+                      <Box display="none" smDisplay="block" marginStart={badge ? 1 : 3}>
                         <Flex gap={3}>
                           {badge ? (
                             <PageHeaderBadge
@@ -164,13 +160,15 @@ export default function PageHeader({
             </Flex.Item>
             <Flex.Item minWidth={0} flex="none">
               <Flex gap={4} alignItems={subtext ? undefined : 'center'} height="100%">
-                <PageHeaderItemsBlock items={items} />
-                <PageHeaderActionBlock
-                  primaryAction={primaryAction}
-                  secondaryAction={secondaryAction}
-                  dropdownItems={dropdownItems}
-                  dropdownAccessibilityLabel={dropdownAccessibilityLabel}
-                />
+                {items && items.length !== 0 ? <PageHeaderItemsBlock items={items} /> : null}
+                {primaryAction ? (
+                  <PageHeaderActionBlock
+                    primaryAction={primaryAction}
+                    secondaryAction={secondaryAction}
+                    dropdownItems={dropdownItems}
+                    dropdownAccessibilityLabel={dropdownAccessibilityLabel}
+                  />
+                ) : null}
               </Flex>
             </Flex.Item>
           </Flex>

@@ -16,48 +16,51 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
         defaultCode={`
       function IntroPageHeaderExample() {
         return (
-          <PageHeader
-            title="Product groups"
-            subtext="S. E. All products USD."
-            helperIconButton={{
-              accessibilityLabel: 'test',
-              accessibilityControls: 'test',
-              accessibilityExpanded: false,
-              onClick: () => {},
-            }}
-             helperLink={{
-              text: "Learn more",
-              accessibilityLabel: "Learn more",
-              href: "#",
-              onClick: () => {},
-            }}
-            items={[
-              <Datapoint size="md" title="Spend" value="$1.23M" trend={{value: 29, accessibilityLabel: "Trending up"}} />,
-            ]}
-            secondaryAction={<Button size="lg" text="View analytics" />}
-            primaryAction={<Button color="red" size="lg" text="Promote" />}
-            thumbnail={
-              <Image
-                alt="square"
-                color="#000"
-                fit="cover"
-                naturalHeight={1}
-                naturalWidth={1}
-                src="https://i.ibb.co/d0pQsJz/stock3.jpg"
-              />
-            }
-            dropdownItems={[
-              <Dropdown.Item
-                option={{ value: 'Promote', label: 'Promote' }}
-                onSelect={() => {}}
-              />,
-              <Dropdown.Link
-                option={{ value: 'View analytics', label: 'View analytics' }}
-                href="https://pinterest.com"
-              />
-            ]}
-            dropdownAccessibilityLabel="More options"
-          />
+          <Box width="100%">
+            <PageHeader
+              title="Product groups"
+              subtext="S. E. All products USD."
+              badge={{ text: 'Beta', tooltipText: 'This feature is on beta phase' }}
+              helperIconButton={{
+                accessibilityLabel: 'test',
+                accessibilityControls: 'test',
+                accessibilityExpanded: false,
+                onClick: () => {},
+              }}
+              helperLink={{
+                text: "Learn more",
+                accessibilityLabel: "Learn more",
+                href: "#",
+                onClick: () => {},
+              }}
+              items={[
+                <Datapoint size="md" title="Spend" value="$1.23M" trend={{value: 29, accessibilityLabel: "Trending up"}} />,
+              ]}
+              secondaryAction={<Button size="lg" text="View analytics" />}
+              primaryAction={<Button color="red" size="lg" text="Promote" />}
+              thumbnail={
+                <Image
+                  alt="square"
+                  color="#000"
+                  fit="cover"
+                  naturalHeight={1}
+                  naturalWidth={1}
+                  src="https://i.ibb.co/d0pQsJz/stock3.jpg"
+                />
+              }
+              dropdownItems={[
+                <Dropdown.Item
+                  option={{ value: 'Promote', label: 'Promote' }}
+                  onSelect={() => {}}
+                />,
+                <Dropdown.Link
+                  option={{ value: 'View analytics', label: 'View analytics' }}
+                  href="https://pinterest.com"
+                />
+              ]}
+              dropdownAccessibilityLabel="More options"
+            />
+          </Box>
         );
       }
     `}
@@ -72,12 +75,20 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
             type="do"
             description="Use only one primary style action in PageHeader ."
             defaultCode={`
-<PageHeader
-  title="Product groups"
-  subtext="S. E. All products USD"
-  primaryAction={<Button color="red" size="lg" text="Create group" />}
-/>;
-        `}
+<Box width="100%">
+  <PageHeader
+    title="Product groups"
+    subtext="S. E. All products USD"
+    primaryAction={<Button color="red" size="lg" text="Create group" />}
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Create group', label: 'Create group' }}
+        onSelect={() => {}}
+      />
+    ]}
+    dropdownAccessibilityLabel="More options"
+  />
+</Box>`}
             shaded
           />
           <MainSection.Card
@@ -87,15 +98,28 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
         Ensure the title of PageHeader matches the title of the item that navigated the user to this page. For instance, if the user selects "Settings" from an overflow menu, the title of PageHeader should also say "Settings".
         `}
             defaultCode={`
-<PageHeader
-  title="Settings"
-  primaryAction={
-    <Tooltip text="Additional options">
-      <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options" />
-    </Tooltip>
-  }
-/>;
-        `}
+<Box width="100%">
+  <PageHeader
+    title="Settings"
+    primaryAction={
+      <Tooltip text="Additional options">
+        <IconButton
+          icon="ellipsis"
+          iconColor="darkGray"
+          size="lg"
+          accessibilityLabel="Additional options"
+        />
+      </Tooltip>
+    }
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Item', label: 'Item' }}
+        onSelect={() => {}}
+      />,
+    ]}
+    dropdownAccessibilityLabel="Additional options"
+  />
+</Box>`}
             shaded
           />
           <MainSection.Card
@@ -113,6 +137,13 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
         <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
       </Tooltip>
     }
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Item', label: 'Item' }}
+        onSelect={() => {}}
+      />,
+    ]}
+    dropdownAccessibilityLabel="Additional options"
   />
   <Box
     display="flex"
@@ -187,13 +218,25 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
             type="don't"
             description="Supply more than one primary style action."
             defaultCode={`
-<PageHeader
-  title="Product groups"
-  subtext="S. E. All products USD"
-  primaryAction={<Button color="red" size="lg" text="Create product group" />}
-  secondaryAction={<Button color="red" size="lg" text="Promote" />}
-/>;
-        `}
+<Box width="100%">
+  <PageHeader
+    title="Product groups"
+    subtext="S. E. All products USD"
+    primaryAction={<Button color="red" size="lg" text="Create product group" />}
+    secondaryAction={<Button color="red" size="lg" text="Promote" />}
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Create product group', label: 'Create product group' }}
+        onSelect={() => {}}
+      />,
+      <Dropdown.Item
+        option={{ value: 'Promote', label: 'Promote' }}
+        onSelect={() => {}}
+      />,
+    ]}
+    dropdownAccessibilityLabel="Additional options"
+  />
+</Box>`}
             shaded
           />
           <MainSection.Card
@@ -203,13 +246,25 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
         Use subtext to add a description about the page. It should only be used for metadata.
         `}
             defaultCode={`
-<PageHeader
-  title="Product groups"
-  subtext="Product groups are created in order to relate certain products together for tracking purposes"
-  primaryAction={<Button color="red" size="lg" text="Create product group" />}
-  secondaryAction={<Button text="Promote" size="lg" />}
-/>;
-        `}
+<Box width="100%">
+  <PageHeader
+    title="Product groups"
+    subtext="Product groups are created in order to relate certain products together for tracking purposes"
+    primaryAction={<Button color="red" size="lg" text="Create product group" />}
+    secondaryAction={<Button text="Promote" size="lg" />}
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Create product group', label: 'Create product group' }}
+        onSelect={() => {}}
+      />,
+      <Dropdown.Item
+        option={{ value: 'Promote', label: 'Promote' }}
+        onSelect={() => {}}
+      />,
+    ]}
+    dropdownAccessibilityLabel="Additional options"
+  />
+</Box>`}
             shaded
           />
           <MainSection.Card
@@ -228,6 +283,13 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
         <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
       </Tooltip>
     }
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Item', label: 'Item' }}
+        onSelect={() => {}}
+      />,
+    ]}
+    dropdownAccessibilityLabel="Additional options"
   />
   <Box
     display="flex"
@@ -315,6 +377,13 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
         <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
       </Tooltip>
     }
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Item', label: 'Item' }}
+        onSelect={() => {}}
+      />
+    ]}
+    dropdownAccessibilityLabel="Additional options"
   />
   <Box
     display="flex"
@@ -371,11 +440,19 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
           shaded
           cardSize="lg"
           defaultCode={`
-<PageHeader
-  title="Langer Seitentitel, der in einigen Sprachen möglicherweise abgeschnitten wird"
-  subtext="2.131 Produkte"
-  primaryAction={<Button color="red" size="lg" text="Schnell erstellen" />}
-/>;
+<Box width="100%">
+  <PageHeader
+    title="Langer Seitentitel, der in einigen Sprachen möglicherweise abgeschnitten wird"
+    subtext="2.131 Produkte"
+    primaryAction={<Button color="red" size="lg" text="Schnell erstellen" />}
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: '', label: 'Schnell erstellenSchnell erstellen' }}
+        onSelect={() => {}}
+      />    ]}
+    dropdownAccessibilityLabel="Zusatzoptionen"
+  />
+</Box>
   `}
         />
       </MainSection>
@@ -408,6 +485,13 @@ function PrimaryActionExample() {
         title="Product groups"
         subtext="S. E. All products USD"
         primaryAction={<Button color="red" size="lg" text="Create group" />}
+        dropdownItems={[
+          <Dropdown.Item
+            option={{ value: 'Create group', label: 'Create group' }}
+            onSelect={() => {}}
+          />
+        ]}
+        dropdownAccessibilityLabel="Additional options"
       />
       <Divider />
       <PageHeader
@@ -462,6 +546,22 @@ function PrimaryActionExample() {
             )}
           </React.Fragment>
         }
+        dropdownItems={[
+          <Dropdown.Item
+            option={{ value: 'Edit board', label: 'Edit board' }}
+            onSelect={() => {}}
+          />,
+          <Dropdown.Item
+            option={{ value: 'Share board', label: 'Share board' }}
+            onSelect={() => {}}
+          />,
+          <Dropdown.Item
+            option={{ value: 'Merge board', label: 'Merge board' }}
+            onSelect={() => {}}
+          />
+        ]}
+        dropdownAccessibilityLabel="Additional options"
+
       />
       <Divider />
       <PageHeader
@@ -478,12 +578,12 @@ function PrimaryActionExample() {
             option={{ value: 'Switch to quick ad creation', label: 'Switch to quick ad creation' }}
           />,
         ]}
+        dropdownAccessibilityLabel="Additional options"
       />
-
     </Flex>
   );
 }
-        `}
+      `}
             shaded
           />
         </MainSection.Subsection>
@@ -515,10 +615,42 @@ function SecondaryActionExample() {
         subtext="S. E. All products USD"
         primaryAction={<Button color="red" size="lg" text="Create product group" />}
         secondaryAction={<Button text="Promote" size="lg"/>}
+        dropdownItems={[
+          <Dropdown.Item
+            option={{ value: 'Create product group', label: 'Create product group' }}
+            onSelect={() => {}}
+          />,
+          <Dropdown.Item
+            option={{ value: 'Promote', label: 'Promote' }}
+            onSelect={() => {}}
+          />
+        ]}
+        dropdownAccessibilityLabel="Additional options"
       />
       <Divider />
       <PageHeader
         title="Custom reports"
+        dropdownItems={[
+          <Dropdown.Item
+            option={{ value: 'Create new report', label: 'Create new report' }}
+            onSelect={() => {}}
+          />,
+          <Dropdown.Item
+            option={{ value: 'Share report', label: 'Share report' }}
+            onSelect={() => {}}
+          />,
+          <Dropdown.Link
+            option={{ value: 'Visit help center', label: 'Visit help center' }}
+            isExternal
+            onSelect={() => {}}
+          />
+          ,
+          <Dropdown.Item
+            option={{ value: 'Delete report', label: 'Delete report' }}
+            onSelect={() => {}}
+          />,
+        ]}
+        dropdownAccessibilityLabel="Additional options"
         primaryAction={<Button color="red" size="lg" text="Create new report" />}
         secondaryAction={
           <React.Fragment>
@@ -587,11 +719,20 @@ function SecondaryActionExample() {
             shaded
             cardSize="lg"
             defaultCode={`
-<PageHeader
-  title="Create product group"
-  subtext="2,131 products"
-  primaryAction={<Button color="red" size="lg" text="Quick create" />}
-/>;
+<Box width="100%">
+  <PageHeader
+    title="Create product group"
+    subtext="2,131 products"
+    primaryAction={<Button color="red" size="lg" text="Quick create" />}
+    dropdownItems={[
+      <Dropdown.Item
+        option={{ value: 'Quick create', label: 'Quick create' }}
+        onSelect={() => {}}
+      />
+    ]}
+    dropdownAccessibilityLabel="Additional options"
+  />
+</Box>
         `}
           />
         </MainSection.Subsection>
@@ -613,6 +754,13 @@ function SecondaryActionExample() {
           <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
         </Tooltip>
       }
+      dropdownItems={[
+        <Dropdown.Item
+          option={{ value: 'Item', label: 'Item' }}
+          onSelect={() => {}}
+        />
+      ]}
+      dropdownAccessibilityLabel="Additional options"
     />
   </Box>
   <Flex direction="column" alignItems="center" justifyContent="center" gap={1}>
@@ -642,7 +790,7 @@ function SecondaryActionExample() {
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const docGen = await docgen({ componentName: 'PageHeader' });
   docGen.props.dropdownItems.flowType.raw =
-    '$ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>>';
+    '$ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>';
   return {
     props: { generatedDocGen: docGen },
   };

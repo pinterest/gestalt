@@ -29,8 +29,7 @@ type Props = {|
   dataTestId?: string,
   /**
    * Callback when the user selects an item using the mouse or keyboard.
-   */
-  onSelect: ({|
+   */ onSelect: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     item: {|
       label: string,

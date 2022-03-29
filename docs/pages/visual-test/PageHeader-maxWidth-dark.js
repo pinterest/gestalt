@@ -17,6 +17,7 @@ export default function Snapshot(): Node {
               onSelect={() => {}}
             />,
           ]}
+          dropdownAccessibilityLabel="test"
           maxWidth={600}
         />
       </Box>
