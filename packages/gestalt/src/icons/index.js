@@ -174,7 +174,7 @@ import workflowStatusProblem from './workflow-status-problem.svg';
 import workflowStatusUnstarted from './workflow-status-unstarted.svg';
 import workflowStatusWarning from './workflow-status-warning.svg';
 
-const icons = {
+const icons = Object.freeze({
   ad,
   'ad-group': adGroup,
   add,
@@ -349,6 +349,6 @@ const icons = {
   'workflow-status-problem': workflowStatusProblem,
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
-};
+});
 
 export default icons;

@@ -61,7 +61,7 @@ type Props = {|
   size?: number | string,
 |};
 
-const IconNames: $ReadOnlyArray<string> = Object.keys(icons);
+const IconNames: $ReadOnlyArray<$Keys<typeof icons>> = Object.keys(icons);
 
 const flipOnRtlIconNames = [
   'ads-stats',
