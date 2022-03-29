@@ -36,7 +36,7 @@ export function PageHeaderTitle({ title }: {| title: string |}): Node {
 
 export function PageHeaderThubnail({ thumbnail }: {| thumbnail?: Element<typeof Image> |}): Node {
   return (
-    <Box display="none" smDisplay="block">
+    <Box display="none" smDisplay="block" aria-hidden>
       <Mask height={48} rounding={2} width={48}>
         {thumbnail}
       </Mask>
@@ -68,7 +68,7 @@ export function PageHeaderBadge({
 export function PageHeaderHelperIconButton({
   helperIconButton,
 }: {|
-  helperIconButton?: {|
+  helperIconButton: {|
     accessibilityLabel: string,
     accessibilityControls: string,
     accessibilityExpanded: boolean,
@@ -82,19 +82,21 @@ export function PageHeaderHelperIconButton({
     |}) => void,
   |},
 |}): Node {
-  return helperIconButton ? (
-    <IconButton
-      accessibilityControls={helperIconButton.accessibilityControls}
-      accessibilityExpanded={helperIconButton.accessibilityExpanded}
-      accessibilityHaspopup
-      accessibilityLabel={helperIconButton.accessibilityLabel}
-      bgColor="lightGray"
-      icon="question-mark"
-      iconColor="darkGray"
-      onClick={helperIconButton.onClick}
-      size="xs"
-    />
-  ) : null;
+  return (
+    <Box dangerouslySetInlineStyle={{ __style: { marginTop: '-1px' } }} rounding="circle">
+      <IconButton
+        accessibilityControls={helperIconButton.accessibilityControls}
+        accessibilityExpanded={helperIconButton.accessibilityExpanded}
+        accessibilityHaspopup
+        accessibilityLabel={helperIconButton.accessibilityLabel}
+        bgColor="lightGray"
+        icon="question-mark"
+        iconColor="darkGray"
+        onClick={helperIconButton.onClick}
+        size="xs"
+      />
+    </Box>
+  );
 }
 
 export function PageHeaderSubtext({
@@ -113,19 +115,21 @@ export function PageHeaderSubtext({
   |},
 |}): Node {
   return (
-    <Box wrap display="none" smDisplay="block">
+    <Box display="none" smDisplay="block">
       <Text inline>
         {subtext}{' '}
         {helperLink ? (
-          <Link
-            inline
-            accessibilityLabel={helperLink.accessibilityLabel}
-            href={helperLink.href}
-            onClick={helperLink.onClick}
-            target="blank"
-          >
-            <span style={{ textDecoration: 'underline' }}>{helperLink.text}</span>
-          </Link>
+          <Text inline underline>
+            <Link
+              accessibilityLabel={helperLink.accessibilityLabel}
+              href={helperLink.href}
+              onClick={helperLink.onClick}
+              target="blank"
+              inline
+            >
+              <span style={{ textDecoration: 'underline' }}>{helperLink.text}</span>
+            </Link>
+          </Text>
         ) : null}
       </Text>
     </Box>
@@ -138,7 +142,7 @@ export function PageHeaderActionBlock({
   dropdownItems,
   dropdownAccessibilityLabel = '',
 }: {|
-  primaryAction?: ActionType,
+  primaryAction: ActionType,
   secondaryAction?: ActionType,
   dropdownItems?: $ReadOnlyArray<Node>,
   dropdownAccessibilityLabel?: string,
@@ -146,49 +150,55 @@ export function PageHeaderActionBlock({
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
 
+  if (!dropdownItems || !dropdownAccessibilityLabel) {
+    throw new Error(
+      'ERROR in PageHeader: dropdownItems and dropdownAccessibilityLabel props are missing. These props are required if PageHeader contains an action.',
+    );
+  }
+
   return (
     <Fragment>
       <Box display="none" mdDisplay="block">
         <Flex gap={2}>
           {/* 48px height needed to maintain proper sizing when action is a Link */}
-          <Box height={48} display="flex" alignItems="center">
-            {secondaryAction}
-          </Box>
+          {secondaryAction ? (
+            <Box height={48} display="flex" alignItems="center">
+              {secondaryAction}
+            </Box>
+          ) : null}
           <Box height={48} display="flex" alignItems="center">
             {primaryAction}
           </Box>
         </Flex>
       </Box>
-      {primaryAction ? (
-        <Box display="block" mdDisplay="none">
-          <IconButton
-            accessibilityControls="pageheader-dropdown"
-            accessibilityExpanded={open}
-            accessibilityHaspopup
-            accessibilityLabel={dropdownAccessibilityLabel}
-            icon="ellipsis"
-            iconColor="darkGray"
-            onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
-            selected={open}
-            size="lg"
-          />
-          {open && dropdownItems && (
-            <Dropdown
-              anchor={anchorRef.current}
-              id="pageheader-dropdown"
-              onDismiss={() => setOpen(false)}
-            >
-              {dropdownItems}
-            </Dropdown>
-          )}
-        </Box>
-      ) : null}
+      <Box display="block" mdDisplay="none">
+        <IconButton
+          accessibilityControls="pageheader-dropdown"
+          accessibilityExpanded={open}
+          accessibilityHaspopup
+          accessibilityLabel={dropdownAccessibilityLabel}
+          icon="ellipsis"
+          iconColor="darkGray"
+          onClick={() => setOpen((prevVal) => !prevVal)}
+          ref={anchorRef}
+          selected={open}
+          size="lg"
+        />
+        {open && (
+          <Dropdown
+            anchor={anchorRef.current}
+            id="pageheader-dropdown"
+            onDismiss={() => setOpen(false)}
+          >
+            {dropdownItems}
+          </Dropdown>
+        )}
+      </Box>
     </Fragment>
   );
 }
 
-export function PageHeaderItemsBlock({ items }: {| items?: $ReadOnlyArray<Node> |}): Node {
+export function PageHeaderItemsBlock({ items }: {| items: $ReadOnlyArray<Node> |}): Node {
   return (
     <Box display="none" lgDisplay="block" overflow="hidden">
       <Flex gap={2}>

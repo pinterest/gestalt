@@ -23,6 +23,7 @@ export default function Snapshot(): Node {
             href="https://pinterest.com"
           />,
         ]}
+        dropdownAccessibilityLabel="test"
       />
     </Box>
   );

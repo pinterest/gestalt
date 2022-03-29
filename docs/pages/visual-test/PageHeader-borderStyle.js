@@ -15,6 +15,7 @@ export default function Snapshot(): Node {
             onSelect={() => {}}
           />,
         ]}
+        dropdownAccessibilityLabel="test"
         borderStyle="sm"
       />
     </Box>

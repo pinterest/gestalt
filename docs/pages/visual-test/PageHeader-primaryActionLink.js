@@ -19,6 +19,7 @@ export default function Snapshot(): Node {
             option={{ value: 'Switch to quick ad creation', label: 'Switch to quick ad creation' }}
           />,
         ]}
+        dropdownAccessibilityLabel="test"
       />
     </Box>
   );
