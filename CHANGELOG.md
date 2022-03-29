@@ -1,3 +1,9 @@
+## 46.7.11 (Mar 29, 2022)
+
+### Patch
+
+- Development: Added RFCs (request for comments) section and /RFCS folder with process (#2018)
+
 ## 46.7.10 (Mar 28, 2022)
 
 ### Patch
