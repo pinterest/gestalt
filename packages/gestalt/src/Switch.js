@@ -71,7 +71,7 @@ export default function Switch({
   const sliderStyles = classnames(
     styles.slider,
     switched ? styles.sliderRight : styles.sliderLeft,
-    switched && !disabled ? styles.sliderDark : styles.sliderLight,
+    !disabled ? styles.sliderDark : styles.sliderLight,
   );
 
   const inputStyles = classnames(styles.checkbox, {
