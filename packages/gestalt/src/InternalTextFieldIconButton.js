@@ -16,6 +16,7 @@ type Props = {|
   icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide',
   onClick: () => void,
   pogPadding?: 1 | 2,
+  role?: 'switch',
   tapStyle?: $ElementType<React$ElementConfig<typeof TapArea>, 'tapStyle'>,
   tooltipText?: string,
 |};
@@ -28,6 +29,7 @@ export default function InternalTextFieldIconButton({
   icon,
   onClick,
   pogPadding = 1,
+  role,
   tapStyle,
   tooltipText,
 }: Props): Node {
@@ -56,7 +58,7 @@ export default function InternalTextFieldIconButton({
           onMouseEnter={() => setFocused(true)}
           onMouseLeave={() => setFocused(false)}
           onTap={onClick}
-          role="switch"
+          role={role}
           rounding="circle"
           tabIndex={accessibilityHidden ? -1 : 0}
           tapStyle={tapStyle}

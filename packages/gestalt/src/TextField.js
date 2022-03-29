@@ -156,6 +156,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
         onClick={() => {
           setType(isCurrentlyPasswordType ? 'text' : 'password');
         }}
+        role="switch"
         tooltipText={
           isCurrentlyPasswordType
             ? accessibilityShowPasswordLabel ?? ''
