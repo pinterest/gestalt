@@ -8,6 +8,7 @@ declare module.exports: {|
   +'borderColorLightGrayDisabled': string,
   +'borderColorLightGrayHovered': string,
   +'borderColorRed': string,
+  +'borderColorSelected': string,
   +'borderLeft': string,
   +'borderRight': string,
   +'borderTop': string,

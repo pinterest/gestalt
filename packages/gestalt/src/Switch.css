@@ -24,12 +24,12 @@ html[dir="rtl"] .switch {
 
 .switchDarkGray {
   composes: darkGrayBg from "./Colors.css";
-  composes: borderColorDarkGray from "./Borders.css";
+  composes: borderColorSelected from "./Borders.css";
 }
 
 .switchGray {
   composes: grayBg from "./Colors.css";
-  composes: borderColorLightGray from "./Borders.css";
+  composes: borderColorDarkGray from "./Borders.css";
 }
 
 .switchLightGray {
@@ -50,7 +50,7 @@ html[dir="rtl"] .switch {
   border-width: 1px;
   height: var(--g-switch-height);
   margin: -1px;
-  transition: left 0.2s sease;
+  transition: left 0.2s ease;
   width: var(--g-switch-height);
 }
 

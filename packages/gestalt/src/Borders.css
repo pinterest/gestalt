@@ -10,6 +10,10 @@
   border: var(--g-border-width) solid var(--color-border-container);
 }
 
+.borderColorSelected {
+  border-color: var(--color-background-selected-base);
+}
+
 .borderColorDarkGray {
   border-color: var(--color-border-default);
 }
