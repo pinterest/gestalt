@@ -36,12 +36,12 @@ through the RFC process, it will be archived.
 
 ## How to submit an RFC
 
-1. Create a directory inside this `rfcs` directory. The directory name should begin with the year and month and include a meaningful description, such as `rfcs/2022-03-onInteraction-new-feature`.
-2. Copy the [template.md](https://github.com/pinterest/gestalt/tree/master/rfcs/template.md) file from this rfcs directory into your newly created subdirectory (such as `rfcs/2022-03-onInteraction-new-feature/README.md`). Be sure to name your file README.md so it is easily viewable in the GitHub interface.
-3. If you want to include images in your RFC, place them in the same directory as the README.md.
+1. Create a directory inside the `rfcs` directory. The directory name should begin with the year and month and include a meaningful description, such as `rfcs/2022-03-onInteraction-new-feature`.
+2. Copy the [template.md](https://github.com/pinterest/gestalt/tree/master/rfcs/template.md) file from this rfcs directory into your newly created subdirectory (such as `rfcs/2022-03-onInteraction-new-feature/README.md`). Be sure to name your file `README.md` so it is easily viewable in the GitHub interface.
+3. If you want to include images in your RFC, place them in the same directory as the `README.md`.
 4. Fill in the RFC. Please fill in every section in the template with as much detail as possible.
 5. Submit a pull request to this repo with all of your files.
-6. RFCs are meant to be a discussion, not a statement. You will receive feedback both from the Gestalt team. You should be prepared to update your RFC based on this feedback. The goal is to build consensus on the best way to implement the suggested change.
+6. RFCs are meant to be a discussion, not a statement. You will receive feedback from the Gestalt team. You should be prepared to update your RFC based on this feedback. The goal is to build consensus on the best way to implement the suggested change.
 7. When all feedback has been incorporated, the Gestalt team will determine whether or not to accept the RFC. RFCs that are accepted will be merged directly into this repo; RFCs that are not accepted will have their pull requests closed without merging.
 
 ## The RFC life-cycle
@@ -58,4 +58,4 @@ Finally, When a pull request has implemented an RFC, the RFC should be updated w
 
 It's often helpful to get feedback on your concept before diving into the level of API design detail required for an RFC. You may open an issue on this repo to start a high-level discussion, with the goal of eventually formulating an RFC pull request with the specific implementation design.
 
-**Thanks to the [Ember RFC process](https://github.com/emberjs/rfcs), [ESLint RFC Process](https://github.com/eslint/rfcs/), and [Spectrum RFC Process](https://github.com/adobe/react-spectrum/tree/main/rfcs) and the for the inspiration for Gestalt's RFC process.**
+**Thanks to the [Ember RFC process](https://github.com/emberjs/rfcs), [ESLint RFC Process](https://github.com/eslint/rfcs/) and [Spectrum RFC Process](https://github.com/adobe/react-spectrum/tree/main/rfcs) for the inspiration for Gestalt's RFC process.**
