@@ -413,7 +413,6 @@ function Example(props) {
           description={`
     TextField has conventional keyboard support.
     - Users relying on the keyboard expect to move focus to each TextField by using the tab key or shift+tab when moving backwards
-    - If \`type\` is set to \`"number"\` (or if using [NumberField](/numberfield)), users can press the up and down arrow keys to adjust the field value
     - Setting \`disabled\` will prevent TextField from receiving keyboard focus or input
     `}
         />
