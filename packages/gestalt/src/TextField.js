@@ -145,12 +145,12 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const iconButton =
     inShowPasswordExp && isPasswordField ? (
       <InternalTextFieldIconButton
+        accessibilityChecked={!isCurrentlyPasswordType}
         accessibilityLabel={
           isCurrentlyPasswordType
             ? accessibilityShowPasswordLabel ?? ''
             : accessibilityHidePasswordLabel ?? ''
         }
-        accessibilityPressed={!isCurrentlyPasswordType}
         icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
         onClick={() => {
           setType(isCurrentlyPasswordType ? 'text' : 'password');

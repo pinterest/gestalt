@@ -53,10 +53,10 @@ type BaseTapArea = {|
 
 type TapAreaType = {|
   ...BaseTapArea,
+  accessibilityChecked?: boolean,
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
-  accessibilityPressed?: boolean,
   role?: 'button' | 'switch',
 |};
 
@@ -232,17 +232,16 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
-    accessibilityPressed,
+    accessibilityChecked,
     role,
   } = props;
   return (
     <div
-      aria-checked={role === 'switch' ? accessibilityPressed : undefined}
+      aria-checked={role === 'switch' ? accessibilityChecked : undefined}
       aria-controls={accessibilityControls}
       aria-disabled={disabled}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
-      aria-pressed={accessibilityPressed}
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
       onClick={handleClick}

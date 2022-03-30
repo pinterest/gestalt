@@ -9,9 +9,9 @@ import styles from './InternalTextField.css';
 import { TAB, SPACE, ENTER } from './keyCodes.js';
 
 type Props = {|
+  accessibilityChecked?: boolean,
   accessibilityHidden?: boolean,
   accessibilityLabel?: string,
-  accessibilityPressed?: boolean,
   hoverStyle?: 'default' | 'none',
   icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide',
   onClick: () => void,
@@ -22,9 +22,9 @@ type Props = {|
 |};
 
 export default function InternalTextFieldIconButton({
+  accessibilityChecked,
   accessibilityHidden,
   accessibilityLabel,
-  accessibilityPressed,
   hoverStyle = 'default',
   icon,
   onClick,
@@ -47,8 +47,8 @@ export default function InternalTextFieldIconButton({
         rounding="circle"
       >
         <TapArea
+          accessibilityChecked={accessibilityChecked}
           accessibilityLabel={accessibilityLabel}
-          accessibilityPressed={accessibilityPressed}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
           onKeyDown={({ event }) => {
