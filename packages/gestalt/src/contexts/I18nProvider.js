@@ -6,9 +6,10 @@ import { type Context, createContext, useContext } from 'react';
  * - Create a type for the component's translations (these types need to be flat, *not* nested)
  * - Add component translation type to I18nContextType keyed by component name
  * - Add component translation object to initialContext using `null` for all values
+ * - Add default translations to the mock file (./__mocks__/I18nProvider.js) and docs/components/contexts/DocsExperimentProvider.js
  */
 
-type I18nContextType = {|
+export type I18nContextType = {|
   TextField: {|
     accessibilityHidePasswordLabel: ?string,
     accessibilityShowPasswordLabel: ?string,

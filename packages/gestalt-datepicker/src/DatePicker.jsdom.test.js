@@ -1,7 +1,19 @@
 // @flow strict-local
 import { useState } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { I18nProvider } from 'gestalt';
 import DatePicker from './DatePicker.js';
+
+const translations = {
+  TextField: {
+    accessibilityHidePasswordLabel: 'Hide password',
+    accessibilityShowPasswordLabel: 'Show password',
+  },
+};
+
+function renderComp(comp) {
+  return render(<I18nProvider value={translations}>{comp}</I18nProvider>);
+}
 
 describe('DatePicker', () => {
   const mockOnChange = jest.fn();
@@ -17,7 +29,7 @@ describe('DatePicker', () => {
   });
 
   it('displays TextField with given initial date', () => {
-    render(<DatePicker id="fake_id" onChange={() => {}} value={initialDate} />);
+    renderComp(<DatePicker id="fake_id" onChange={() => {}} value={initialDate} />);
     // We only check for selected value upon rendering,
     // because onChange logic is outside DatePicker
     // So initial date value does not change upon firing click event
@@ -27,7 +39,7 @@ describe('DatePicker', () => {
   it('passes clicked date to onChange prop', () => {
     const newDate = new Date(2018, 11, 13);
 
-    render(
+    renderComp(
       <DatePicker
         id="fake_id"
         onChange={mockOnChange}
@@ -54,7 +66,7 @@ describe('DatePicker', () => {
       return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
     }
 
-    render(<DatePickerWrap />);
+    renderComp(<DatePickerWrap />);
 
     fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
 
@@ -85,7 +97,7 @@ describe('DatePicker', () => {
       return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
     }
 
-    render(<DatePickerWrap />);
+    renderComp(<DatePickerWrap />);
 
     fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
 
