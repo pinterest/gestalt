@@ -209,7 +209,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
-              <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? '200' : '300'}>
+              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                 {label}
               </Text>
               {subtext && (

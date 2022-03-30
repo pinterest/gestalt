@@ -29,7 +29,7 @@ export default function ModuleTitle(props: {|
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);
   const hasError = type === 'error';
   const hasIcon = hasError || decoration === 'icon';
-  const color = hasError ? 'red' : 'darkGray';
+  const color = hasError ? 'error' : 'default';
 
   return (
     <Flex alignItems="center" gap={2}>

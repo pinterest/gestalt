@@ -1,7 +1,7 @@
-.textColorOverrideWhite * {
-  color: var(--g-colorGray0) !important; /* stylelint-disable-line declaration-no-important */
+.textColorOverrideLight * {
+  color: var(--color-text-light) !important; /* stylelint-disable-line declaration-no-important */
 }
 
-.textColorOverrideDarkGray * {
-  color: var(--g-colorGray300) !important; /* stylelint-disable-line declaration-no-important */
+.textColorOverrideDark * {
+  color: var(--color-text-dark) !important; /* stylelint-disable-line declaration-no-important */
 }

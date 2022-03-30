@@ -24,6 +24,12 @@ const DEFAULT_TEXT_COLORS = {
   white: 'default',
 };
 
+const NEW_TO_OLD_COLOR_MAPPING = {
+  inverse: 'white',
+  default: 'darkGray',
+  subtle: 'gray',
+};
+
 const SIZE_NAME_TO_PIXEL = {
   sm: 10,
   md: 12,
@@ -225,7 +231,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         wrappedComponent="button"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd
+            text={buttonText}
+            textColor={NEW_TO_OLD_COLOR_MAPPING[textColor]}
+            icon={iconEnd}
+            size={size}
+          />
         ) : (
           buttonText
         )}
@@ -256,7 +267,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         type="submit"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd
+            text={buttonText}
+            textColor={NEW_TO_OLD_COLOR_MAPPING[textColor]}
+            icon={iconEnd}
+            size={size}
+          />
         ) : (
           buttonText
         )}
@@ -289,7 +305,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd
+            text={buttonText}
+            textColor={NEW_TO_OLD_COLOR_MAPPING[textColor]}
+            icon={iconEnd}
+            size={size}
+          />
         ) : (
           buttonText
         )}

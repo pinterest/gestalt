@@ -490,7 +490,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                 comboBoxItemList
               ) : (
                 <Box width="100%" paddingX={2} paddingY={4}>
-                  <Text lineClamp={1} color="gray">
+                  <Text lineClamp={1} color="subtle">
                     {noResultText}
                   </Text>
                 </Box>

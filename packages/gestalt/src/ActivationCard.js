@@ -173,7 +173,7 @@ function UncompletedCard({
           </Box>
         )}
         <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
-          <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="200">
+          <Text color={isStarted ? 'default' : 'subtle'} weight="bold" size="200">
             {statusMessage}
           </Text>
         </Box>

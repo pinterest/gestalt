@@ -12,6 +12,12 @@ import touchableStyles from './Touchable.css';
 import typographyStyles from './Typography.css';
 import styles from './Tag.css';
 
+const NEW_TO_OLD_COLOR_MAPPING = {
+  inverse: 'white',
+  default: 'darkGray',
+  subtle: 'gray',
+};
+
 type Props = {|
   text: string,
   errorMessage?: string,
@@ -90,7 +96,7 @@ export default function Tag(props: Props): Node {
           {errorMessage && (
             <Icon
               accessibilityLabel={errorMessage}
-              color={fgColor}
+              color={NEW_TO_OLD_COLOR_MAPPING[fgColor]}
               icon="workflow-status-problem"
               size={12}
             />
@@ -106,7 +112,7 @@ export default function Tag(props: Props): Node {
             <button className={removeIconClasses} onClick={onRemove} type="button">
               <Icon
                 accessibilityLabel={removeIconAccessibilityLabel}
-                color={fgColor}
+                color={NEW_TO_OLD_COLOR_MAPPING[fgColor]}
                 icon="cancel"
                 size={8}
               />

@@ -5,9 +5,15 @@ import Flex from './Flex.js';
 import Icon from './Icon.js';
 
 const TREND_COLOR_MAP = {
-  good: 'pine',
-  bad: 'red',
-  neutral: 'darkGray',
+  good: 'success',
+  bad: 'error',
+  neutral: 'default',
+};
+
+const NEW_TO_OLD_COLOR_MAPPING = {
+  success: 'pine',
+  error: 'red',
+  default: 'darkGray',
 };
 
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
@@ -15,9 +21,9 @@ type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 function getValueColor({ sentiment, value }) {
   if (sentiment === 'auto') {
     if (value === 0) {
-      return 'darkGray';
+      return 'default';
     }
-    return value > 0 ? 'pine' : 'red';
+    return value > 0 ? 'success' : 'error';
   }
   return TREND_COLOR_MAP[sentiment];
 }
@@ -40,7 +46,7 @@ export default function DatapointTrend({
       {value !== 0 && (
         <Icon
           accessibilityLabel={iconAccessibilityLabel}
-          color={color}
+          color={NEW_TO_OLD_COLOR_MAPPING[color]}
           icon={value > 0 ? 'sort-ascending' : 'sort-descending'}
           size={16}
         />
