@@ -1,3 +1,9 @@
+## 46.7.14 (Mar 30, 2022)
+
+### Patch
+
+- TapArea: add inline example (#2027)
+
 ## 46.7.13 (Mar 30, 2022)
 
 ### Patch
