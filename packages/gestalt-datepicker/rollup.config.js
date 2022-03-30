@@ -33,7 +33,7 @@ const rollupConfig = {
       sourcemap: 'inline',
     },
   ],
-  external: ['react', 'classnames/bind', 'classnames', 'react-dom', 'react-datepicker'],
+  external: ['react', 'classnames/bind', 'classnames', 'react-dom', 'react-datepicker', 'gestalt'],
   plugins: plugins('gestalt-datepicker'),
 };
 
