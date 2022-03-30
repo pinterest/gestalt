@@ -1,3 +1,9 @@
+## 46.7.15 (Mar 30, 2022)
+
+### Patch
+
+- Internal: fix flow issue in Iconography and SVGs docs (#2025)
+
 ## 46.7.14 (Mar 30, 2022)
 
 ### Patch
