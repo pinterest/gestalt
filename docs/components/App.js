@@ -2,11 +2,9 @@
 import { useEffect, type Node } from 'react';
 import { ColorSchemeProvider, OnLinkNavigationProvider } from 'gestalt';
 import { useRouter } from 'next/router';
-import DocsExperimentProvider from './contexts/DocsExperimentProvider.js';
 import { AppContextProvider, AppContextConsumer } from './appContext.js';
 import { NavigationContextProvider } from './navigationContext.js';
 import AppLayout from './AppLayout.js';
-import DocsI18nProvider from './contexts/DocsI18nProvider.js';
 
 type Props = {|
   children?: Node,
@@ -50,6 +48,7 @@ export default function App({ children }: Props): Node {
     };
   }, [router.events]);
 
+  // NOTE: there are other Providers added in pages/_app.js
   return (
     <AppContextProvider>
       <AppContextConsumer>
@@ -57,11 +56,7 @@ export default function App({ children }: Props): Node {
           <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
             <OnLinkNavigationProvider onNavigation={useOnNavigation}>
               <NavigationContextProvider>
-                <DocsExperimentProvider>
-                  <DocsI18nProvider>
-                    <AppLayout>{children}</AppLayout>
-                  </DocsI18nProvider>
-                </DocsExperimentProvider>
+                <AppLayout>{children}</AppLayout>
               </NavigationContextProvider>
             </OnLinkNavigationProvider>
           </ColorSchemeProvider>
