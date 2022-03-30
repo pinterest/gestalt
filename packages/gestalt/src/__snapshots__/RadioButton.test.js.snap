@@ -38,7 +38,7 @@ exports[`RadioButton 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
       >
         Name
       </div>
@@ -118,7 +118,7 @@ exports[`RadioButton disabled 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize300 gray alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 alignStart breakWord fontWeightNormal"
       >
         Name
       </div>
@@ -165,7 +165,7 @@ exports[`RadioButton disabled small 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 alignStart breakWord fontWeightNormal"
       >
         Name
       </div>
@@ -212,7 +212,7 @@ exports[`RadioButton small 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
       >
         Name
       </div>
@@ -286,7 +286,7 @@ exports[`RadioButton with image 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
       >
         Name
       </div>
@@ -333,7 +333,7 @@ exports[`RadioButton with subtext 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
       >
         Name
       </div>
@@ -341,7 +341,7 @@ exports[`RadioButton with subtext 1`] = `
         className="box paddingY1"
       >
         <div
-          className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
         >
           <div
             className="box xsDisplayVisuallyHidden"
