@@ -49,11 +49,11 @@ export default function Tag(props: Props): Node {
   const { colorGray200 } = useColorScheme();
 
   const bgColor = errorMessage ? 'red' : 'lightGray';
-  let fgColor = 'darkGray';
+  let fgColor = 'default';
   if (errorMessage) {
-    fgColor = 'white';
+    fgColor = 'inverse';
   } else if (disabled) {
-    fgColor = 'gray';
+    fgColor = 'subtle';
   }
 
   const { isFocusVisible } = useFocusVisible();

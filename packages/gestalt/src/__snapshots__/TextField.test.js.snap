@@ -95,7 +95,7 @@ exports[`TextField TextField with error 1`] = `
     className="box marginTop2"
   >
     <div
-      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -215,7 +215,7 @@ exports[`TextField TextField with tags 1`] = `
               title="a@pinterest.com"
             >
               <span
-                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
               >
                 a@pinterest.com
               </span>
@@ -231,7 +231,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon default iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -275,7 +275,7 @@ exports[`TextField TextField with tags 1`] = `
               title="b@pinterest.com"
             >
               <span
-                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
               >
                 b@pinterest.com
               </span>
@@ -291,7 +291,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon default iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -335,7 +335,7 @@ exports[`TextField TextField with tags 1`] = `
               title="c@pinterest.com"
             >
               <span
-                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
               >
                 c@pinterest.com
               </span>
@@ -351,7 +351,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon default iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"

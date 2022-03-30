@@ -15,13 +15,13 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 const DEFAULT_TEXT_COLORS = {
-  blue: 'white',
-  gray: 'darkGray',
-  red: 'white',
-  transparent: 'darkGray',
-  semiTransparentWhite: 'darkGray',
-  transparentWhiteText: 'white',
-  white: 'darkGray',
+  blue: 'inverse',
+  gray: 'default',
+  red: 'inverse',
+  transparent: 'default',
+  semiTransparentWhite: 'default',
+  transparentWhiteText: 'inverse',
+  white: 'default',
 };
 
 const SIZE_NAME_TO_PIXEL = {
@@ -183,9 +183,9 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
   const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
 
   const textColor =
-    (disabled && 'gray') ||
-    (selected && 'white') ||
-    ((isDarkModeRed || isDarkModeBlue) && 'darkGray') ||
+    (disabled && 'subtle') ||
+    (selected && 'inverse') ||
+    ((isDarkModeRed || isDarkModeBlue) && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
