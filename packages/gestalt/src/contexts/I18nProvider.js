@@ -58,9 +58,11 @@ export function useI18nContext<C: ValidComponent>(
   );
   const missingAndNullTranslations = [...nullTranslations, ...missingTranslations];
   if (missingAndNullTranslations.length > 0) {
-    const multipleMissing = missingTranslations.length > 1;
+    const multipleMissing = missingAndNullTranslations.length > 1;
     throw new Error(
-      `${componentName} prop${multipleMissing ? 's' : ''} ${missingTranslations.join(', ')} ${
+      `${componentName} prop${multipleMissing ? 's' : ''} ${missingAndNullTranslations.join(
+        ', ',
+      )} ${
         multipleMissing ? 'are' : 'is'
       } missing translations — please add translations to I18nProvider`,
     );
