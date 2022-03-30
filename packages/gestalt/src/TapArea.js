@@ -237,6 +237,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   } = props;
   return (
     <div
+      aria-checked={role === 'switch' ? accessibilityPressed : undefined}
       aria-controls={accessibilityControls}
       aria-disabled={disabled}
       aria-expanded={accessibilityExpanded}
