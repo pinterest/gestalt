@@ -1,17 +1,18 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { useState, type Node, type ElementProps } from 'react';
 import { Box, ComboBox, Flex, Icon, TapArea, Layer, Toast, Tooltip } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
-function ClickableIcon({ iconName, onTap }: {| iconName: string, onTap: () => void |}) {
+type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
+
+function ClickableIcon({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
   return (
-    <Tooltip text={iconName} accessibilityLabel="">
+    <Tooltip text={String(iconName)} accessibilityLabel="">
       <TapArea rounding="circle" tapStyle="compress" onTap={onTap}>
         <Box padding={2}>
-          {/* $FlowFixMe[prop-missing] */}
-          <Icon color="darkGray" accessibilityLabel={iconName} icon={iconName} />
+          <Icon color="darkGray" accessibilityLabel={String(iconName)} icon={iconName} />
         </Box>
       </TapArea>
     </Tooltip>
@@ -22,7 +23,10 @@ export default function IconPage(): Node {
   const { icons } = Icon;
   const [showToastText, setShowToastText] = useState(false);
 
-  const iconOptions = icons.map((name, index) => ({
+  const iconOptions: Array<{|
+    label: IconName,
+    value: string,
+  |}> = icons.map((name, index) => ({
     label: name,
     value: `value${index}`,
   }));
@@ -36,7 +40,9 @@ export default function IconPage(): Node {
     setInputValue(value);
     setSuggestedOptions(
       value
-        ? iconOptions.filter(({ label }) => label.toLowerCase().includes(value.toLowerCase()))
+        ? iconOptions.filter(({ label }) =>
+            String(label).toLowerCase().includes(value.toLowerCase()),
+          )
         : iconOptions,
     );
   };
@@ -57,6 +63,8 @@ export default function IconPage(): Node {
     }
   };
 
+  const selectedIcon: ?IconName = icons.find((name) => name === selected?.label);
+
   return (
     <Page title="Iconography and SVGs">
       <PageHeader name="Iconography and SVGs" folderName="icons" />
@@ -73,7 +81,7 @@ export default function IconPage(): Node {
               id="controlled"
               inputValue={inputValue}
               noResultText="No results for your selection"
-              options={suggestedOptions}
+              options={suggestedOptions.map(({ value, label }) => ({ value, label }))}
               onBlur={() => {
                 if (!selected) setInputValue('');
                 setSuggestedOptions(iconOptions);
@@ -98,11 +106,8 @@ export default function IconPage(): Node {
             width="50%"
           >
             <Flex gap={1} wrap>
-              {selected?.label ? (
-                <ClickableIcon
-                  iconName={selected.label}
-                  onTap={buildHandleIconClick(selected.label)}
-                />
+              {selectedIcon ? (
+                <ClickableIcon iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
               ) : (
                 (suggestedOptions || iconOptions).map(({ label: iconName }, index) => (
                   <ClickableIcon
