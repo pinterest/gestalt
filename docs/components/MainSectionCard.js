@@ -114,7 +114,7 @@ function MainSectionCard({
           {shouldShowCode && !iframeContent && <ExampleCode code={code} name={cardTitle || ''} />}
 
           <Box paddingX={2}>
-            <Text color="watermelon">
+            <Text color="error">
               <LiveError />
             </Text>
           </Box>

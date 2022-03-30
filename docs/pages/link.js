@@ -120,12 +120,12 @@ function TabExample() {
 <Box>
   <Link href="https://pinterest.com">
     <Box padding={2}>
-      <Text color="red" weight="bold">
+      <Text color="error" weight="bold">
         Incorrect underline color: Pinterest.com
       </Text>
     </Box>
   </Link>
-  <Text color="red" weight="bold">
+  <Text color="error" weight="bold">
     <Link href="https://pinterest.com">
       <Box padding={2}>Correct underline color: Pinterest.com</Box>
     </Link>

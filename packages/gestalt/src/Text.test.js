@@ -7,8 +7,8 @@ test('Text renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Text orange adds the orange color class', () => {
-  const tree = create(<Text color="orange" />).toJSON();
+test('Text warning adds the warning color class', () => {
+  const tree = create(<Text color="warning" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

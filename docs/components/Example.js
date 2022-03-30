@@ -60,7 +60,7 @@ function Example({
         </Box>
 
         <Box paddingX={2}>
-          <Text color="watermelon">
+          <Text color="error">
             <LiveError />
           </Text>
         </Box>

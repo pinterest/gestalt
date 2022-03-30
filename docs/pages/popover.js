@@ -39,7 +39,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -186,7 +186,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -326,7 +326,7 @@ function PopoverExample() {
             size="xs"
           >
             <Box padding={3}>
-              <Text color="white" align="center">
+              <Text color="inverse" align="center">
                 You already have a board with that name
               </Text>
             </Box>
@@ -373,7 +373,7 @@ function PopoverExample() {
             size="xs"
           >
             <Box padding={3}>
-              <Text color="white" align="center">
+              <Text color="inverse" align="center">
                 Filter your board to see your favorite Pins, and more
               </Text>
             </Box>
@@ -414,7 +414,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -559,7 +559,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -710,7 +710,7 @@ function PopoverExample() {
               size="xs"
             >
               <Box padding={3}>
-                <Text color="white" align="center">
+                <Text color="inverse" align="center">
                   Filter your board to see your favorite Pins, and more
                 </Text>
               </Box>
@@ -750,7 +750,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -899,7 +899,7 @@ function PopoverExample() {
           >
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={4}>
-                <Text color="white" align="center">
+                <Text color="inverse" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Button
@@ -961,7 +961,7 @@ function ScrollBoundaryContainerExample() {
 
     const List = ({ title }) => (
       <Flex direction="column" gap={4}>
-        <Text color="darkGray" size="100">
+        <Text color="default" size="100">
           { title }
         </Text>
         <Flex direction="column" gap={4}>
@@ -1214,7 +1214,7 @@ function Example() {
               alignItems="center"
               direction="column"
             >
-              <Text color="white" align="center">
+              <Text color="inverse" align="center">
                 Need help with something? Check out our Help Center.
               </Text>
             </Box>
@@ -1296,7 +1296,7 @@ function Example() {
                   alignItems="center"
                   direction="column"
                 >
-                  <Text color="white" align="center">
+                  <Text color="inverse" align="center">
                     Need help with something? Check out our Help Center.
                   </Text>
                 </Box>

@@ -65,7 +65,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   >
     <Box height="100%" padding={3}>
       <Flex direction="column" height="100%" justifyContent="between">
-        <Text color="white" weight="bold">
+        <Text color="inverse" weight="bold">
           Tropic greens: The taste of Petrol and Porcelain
         </Text>
 

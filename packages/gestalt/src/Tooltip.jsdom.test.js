@@ -21,7 +21,7 @@ test('Tooltip renders the link when hovered', () => {
     <Tooltip
       link={
         <Link href="https://pinterest.com" target="blank">
-          <Text color="white" size="100" weight="bold">
+          <Text color="inverse" size="100" weight="bold">
             Learn more
           </Text>
         </Link>

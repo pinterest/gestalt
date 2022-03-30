@@ -160,7 +160,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
             userSelect="none"
           >
             <Flex alignItems="center" gap={2} justifyContent="center">
-              <Text color="darkGray" overflow="noWrap" weight="bold">
+              <Text color="default" overflow="noWrap" weight="bold">
                 {text}
               </Text>
 

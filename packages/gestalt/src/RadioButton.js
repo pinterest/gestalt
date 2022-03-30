@@ -169,7 +169,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
             </Text>
             {subtext && (
               <Box paddingY={1}>
-                <Text color="gray" size={size === 'sm' ? '200' : '300'}>
+                <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
                   <Box display="visuallyHidden">:</Box> {subtext}
                 </Text>
               </Box>

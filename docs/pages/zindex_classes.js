@@ -321,7 +321,7 @@ function ScrollBoundaryContainerExample() {
 
     const List = ({ title }) => (
       <Flex direction="column" gap={4}>
-        <Text color="darkGray" size="100">
+        <Text color="default" size="100">
           { title }
         </Text>
         <Flex direction="column" gap={4}>

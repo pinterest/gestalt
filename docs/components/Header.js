@@ -26,7 +26,7 @@ function Header() {
     >
       <Box marginStart={-2} marginEnd={2} display="flex" alignItems="center">
         {/* <Text> is out here to get proper underline styles on link */}
-        <Text color="darkGray" weight="bold">
+        <Text color="default" weight="bold">
           <Link
             accessibilityLabel="Gestalt home"
             href="/"
