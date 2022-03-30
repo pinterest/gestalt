@@ -1,3 +1,9 @@
+## 46.7.13 (Mar 30, 2022)
+
+### Patch
+
+- TextField: remove stray reference to type="number" (#2026)
+
 ## 46.7.12 (Mar 29, 2022)
 
 ### Patch
