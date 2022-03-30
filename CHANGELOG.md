@@ -1,3 +1,9 @@
+## 47.0.0 (Mar 30, 2022)
+
+### Major
+
+- Internal: add "gestalt" as external dependency for "gestalt-datepicker" (#2030)
+
 ## 46.7.15 (Mar 30, 2022)
 
 ### Patch
