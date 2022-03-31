@@ -1,3 +1,9 @@
+## 47.1.2 (Mar 31, 2022)
+
+### Patch
+
+- Internal: remove deprecated Prettier option (#2032)
+
 ## 47.1.1 (Mar 31, 2022)
 
 ### Patch
