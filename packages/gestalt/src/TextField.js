@@ -14,7 +14,7 @@ type Props = {|
    */
   autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
   /**
-   * Indicate if the input is disabled.
+   * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/textfield#Disabled) for more details.
    */
   disabled?: boolean,
   /**
@@ -74,6 +74,10 @@ type Props = {|
    */
   placeholder?: string,
   /**
+   * Indicate if the input is readonly. See the [disabled example](https://gestalt.pinterest.systems/textfield#Readonly) for more details.
+   */
+  readonly?: boolean,
+  /**
    * Ref that is forwarded to the underlying input element.
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
@@ -120,6 +124,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     onFocus,
     onKeyDown,
     placeholder,
+    readonly = false,
     size = 'md',
     tags,
     type: typeProp = 'text',
@@ -142,8 +147,9 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     'mweb_unauth_show_password_button',
   );
   const inShowPasswordExp = inWebShowPasswordExp || inMwebShowPasswordExp;
-  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
-    useI18nContext('TextField');
+  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
+    'TextField',
+  );
 
   const iconButton =
     inShowPasswordExp && isPasswordField ? (
@@ -184,6 +190,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       onKeyDown={onKeyDown}
       placeholder={placeholder}
       size={size}
+      readonly={readonly}
       ref={ref}
       tags={tags}
       type={type}

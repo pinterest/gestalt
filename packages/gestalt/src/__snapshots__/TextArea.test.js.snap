@@ -12,6 +12,7 @@ exports[`TextArea TextArea normal 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
+    readOnly={false}
     rows={3}
   />
 </span>
@@ -29,6 +30,7 @@ exports[`TextArea TextArea with error 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
+    readOnly={false}
     rows={3}
   />
   <div
@@ -60,6 +62,7 @@ exports[`TextArea TextArea with hasError 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
+    readOnly={false}
     rows={3}
   />
 </span>
@@ -77,6 +80,7 @@ exports[`TextArea TextArea with rows 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
+    readOnly={false}
     rows={5}
   />
 </span>
@@ -296,6 +300,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        readOnly={false}
       />
     </div>
   </div>

@@ -16,6 +16,7 @@ exports[`TextField TextField normal 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -40,6 +41,7 @@ exports[`TextField TextField with autocomplete 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -62,6 +64,7 @@ exports[`TextField TextField with error 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -98,6 +101,7 @@ exports[`TextField TextField with hasError 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -121,6 +125,7 @@ exports[`TextField TextField with name 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -339,6 +344,7 @@ exports[`TextField TextField with tags 1`] = `
           onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
+          readOnly={false}
           type="text"
         />
       </div>
