@@ -9,11 +9,13 @@ const path = require('path');
 const root /*: string */ = path.join(__dirname, '../');
 
 const requireGFM = require('remark-gfm');
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter-nextjs';
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [requireGFM],
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, requireGFM],
     rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
     providerImportSource: '@mdx-js/react',

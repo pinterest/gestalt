@@ -6,7 +6,7 @@ import MainSection from './MainSection';
 import { MDXProvider } from '@mdx-js/react';
 import ReactDOMServer from 'react-dom/server';
 
-export default function MarkdownPage({ children, meta }) {
+export default function MarkdownPage({ children, meta, pageProps }) {
   const components = {
     pre: (props, meta) => {
       return <MainSection.Card defaultCode={props.children.props.children} />;
