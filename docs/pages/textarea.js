@@ -105,7 +105,7 @@ function Example(props) {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Readonly"
+          title="Read-only"
           description={`
       \`TextArea\` can be in read-only mode in order to present information to the user without allowing them to edit the content. Typically this variation is used to show content or information that the user does not have permission or access to edit.
     `}

@@ -75,7 +75,7 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textarea#Readonly) for more details.
+   * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textarea#Read-only) for more details.
    */
   readOnly?: boolean,
   /**
