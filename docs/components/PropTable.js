@@ -28,7 +28,7 @@ function Description(lines: Array<string>): Node {
   return (
     <Flex alignItems="start" direction="column" gap={2}>
       {lines.map((line, idx) => (
-        <Markdown key={idx} text={line} textColor="gray" />
+        <Markdown key={idx} text={line} textColor="subtle" />
       ))}
     </Flex>
   );
@@ -259,7 +259,7 @@ export default function PropTable({
                                 {Array.isArray(description) ? (
                                   Description(description)
                                 ) : (
-                                  <Markdown text={description} textColor="darkGray" />
+                                  <Markdown text={description} textColor="default" />
                                 )}
                               </Box>
                             )}

@@ -8,23 +8,16 @@ import sidebarIndex from './sidebarIndex.js';
 
 type Props = {|
   textColor?:
-    | 'green'
-    | 'pine'
-    | 'olive'
-    | 'blue'
-    | 'navy'
-    | 'midnight'
-    | 'purple'
-    | 'orchid'
-    | 'eggplant'
-    | 'maroon'
-    | 'watermelon'
-    | 'orange'
-    | 'darkGray'
-    | 'gray'
-    | 'lightGray'
-    | 'red'
-    | 'white',
+    | 'white'
+    | 'default'
+    | 'subtle'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'shopping'
+    | 'inverse'
+    | 'light'
+    | 'dark',
   text: string,
   type?: string,
 |};
