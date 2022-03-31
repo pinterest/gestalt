@@ -43,6 +43,20 @@ describe('TextArea', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('TextArea with readonly', () => {
+    const tree = create(
+      <TextArea readonly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('TextArea with disabled', () => {
+    const tree = create(
+      <TextArea disabled id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('TextArea with rows', () => {
     const tree = create(<TextArea id="test" onChange={jest.fn()} rows={5} />).toJSON();
     expect(tree).toMatchSnapshot();
