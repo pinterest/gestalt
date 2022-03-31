@@ -142,9 +142,8 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     'mweb_unauth_show_password_button',
   );
   const inShowPasswordExp = inWebShowPasswordExp || inMwebShowPasswordExp;
-  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
-    'TextField',
-  );
+  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
+    useI18nContext('TextField');
 
   const iconButton =
     inShowPasswordExp && isPasswordField ? (
