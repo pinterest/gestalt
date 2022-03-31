@@ -59,158 +59,156 @@ type Props = {|
   value?: string,
 |};
 
-const InternalTextFieldWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLInputElement,
-> = forwardRef<Props, HTMLInputElement>(function TextField(
-  {
-    accessibilityControls,
-    accessibilityActiveDescendant,
-    autoComplete,
-    disabled = false,
-    errorMessage,
-    hasError = false,
-    helperText,
-    id,
-    iconButton,
-    label,
-    labelDisplay,
-    max,
-    min,
-    name,
-    onBlur,
-    onChange,
-    onClick,
-    onFocus,
-    onKeyDown,
-    placeholder,
-    readonly,
-    size = 'md',
-    step,
-    tags,
-    type = 'text',
-    value,
-  }: Props,
-  ref,
-): Node {
-  // ==== REFS ====
-  const innerRef = useRef(null);
-  // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
-  // $FlowFixMe[incompatible-call]
-  useImperativeHandle(ref, () => innerRef.current);
-
-  // ==== STATE ====
-  const [focused, setFocused] = useState(false);
-
-  // ==== HANDLERS ====
-  const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    setFocused(false);
-    onBlur?.({ event, value: event.currentTarget.value });
-  };
-
-  const handleClick = (event: SyntheticInputEvent<HTMLInputElement>) =>
-    onClick?.({ event, value: event.currentTarget.value });
-
-  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) =>
-    onChange({ event, value: event.currentTarget.value });
-
-  const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    setFocused(true);
-    onFocus?.({ event, value: event.currentTarget.value });
-  };
-
-  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) =>
-    onKeyDown?.({ event, value: event.currentTarget.value });
-
-  // ==== STYLING ====
-  const hasErrorMessage = Boolean(errorMessage);
-
-  const styledClasses = classnames(
-    styles.textField,
-    formElement.base,
-    disabled ? formElement.disabled : formElement.enabled,
-    (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
+const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
+  forwardRef<Props, HTMLInputElement>(function TextField(
     {
-      [layout.medium]: !tags && size === 'md',
-      [layout.large]: tags || size === 'lg',
-      [styles.actionButton]: iconButton,
-    },
-    tags
-      ? {
-          [focusStyles.accessibilityOutlineFocus]: focused,
-          [styles.textFieldWrapper]: true,
-        }
-      : { [typography.truncate]: true },
-  );
+      accessibilityControls,
+      accessibilityActiveDescendant,
+      autoComplete,
+      disabled = false,
+      errorMessage,
+      hasError = false,
+      helperText,
+      id,
+      iconButton,
+      label,
+      labelDisplay,
+      max,
+      min,
+      name,
+      onBlur,
+      onChange,
+      onClick,
+      onFocus,
+      onKeyDown,
+      placeholder,
+      readonly,
+      size = 'md',
+      step,
+      tags,
+      type = 'text',
+      value,
+    }: Props,
+    ref,
+  ): Node {
+    // ==== REFS ====
+    const innerRef = useRef(null);
+    // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
+    // $FlowFixMe[incompatible-call]
+    useImperativeHandle(ref, () => innerRef.current);
 
-  const unstyledClasses = classnames(styles.unstyledTextField);
+    // ==== STATE ====
+    const [focused, setFocused] = useState(false);
 
-  const inputElement = (
-    <input
-      aria-activedescendant={accessibilityActiveDescendant}
-      aria-controls={accessibilityControls}
-      aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
-      aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
-      autoComplete={autoComplete}
-      className={tags ? unstyledClasses : styledClasses}
-      disabled={disabled}
-      id={id}
-      max={type === 'number' ? max : undefined}
-      min={type === 'number' ? min : undefined}
-      name={name}
-      onBlur={handleBlur}
-      onChange={handleChange}
-      onClick={handleClick}
-      onFocus={handleFocus}
-      onKeyDown={handleKeyDown}
-      // type='number' doesn't work on ios safari without a pattern
-      // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
-      pattern={type === 'number' ? '\\d*' : undefined}
-      placeholder={placeholder}
-      readOnly={readonly}
-      step={type === 'number' ? step : undefined}
-      {...(tags ? {} : { ref: innerRef })}
-      type={type}
-      value={value}
-    />
-  );
+    // ==== HANDLERS ====
+    const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+      setFocused(false);
+      onBlur?.({ event, value: event.currentTarget.value });
+    };
 
-  return (
-    <span>
-      {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} /> : null}
+    const handleClick = (event: SyntheticInputEvent<HTMLInputElement>) =>
+      onClick?.({ event, value: event.currentTarget.value });
 
-      <Box position="relative">
-        {tags ? (
-          <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
-            {tags.map((tag, tagIndex) => (
-              <Box key={tagIndex} marginEnd={1} marginBottom={1}>
-                {tag}
+    const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) =>
+      onChange({ event, value: event.currentTarget.value });
+
+    const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+      setFocused(true);
+      onFocus?.({ event, value: event.currentTarget.value });
+    };
+
+    const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) =>
+      onKeyDown?.({ event, value: event.currentTarget.value });
+
+    // ==== STYLING ====
+    const hasErrorMessage = Boolean(errorMessage);
+
+    const styledClasses = classnames(
+      styles.textField,
+      formElement.base,
+      disabled ? formElement.disabled : formElement.enabled,
+      (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
+      {
+        [layout.medium]: !tags && size === 'md',
+        [layout.large]: tags || size === 'lg',
+        [styles.actionButton]: iconButton,
+      },
+      tags
+        ? {
+            [focusStyles.accessibilityOutlineFocus]: focused,
+            [styles.textFieldWrapper]: true,
+          }
+        : { [typography.truncate]: true },
+    );
+
+    const unstyledClasses = classnames(styles.unstyledTextField);
+
+    const inputElement = (
+      <input
+        aria-activedescendant={accessibilityActiveDescendant}
+        aria-controls={accessibilityControls}
+        aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
+        aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
+        autoComplete={autoComplete}
+        className={tags ? unstyledClasses : styledClasses}
+        disabled={disabled}
+        id={id}
+        max={type === 'number' ? max : undefined}
+        min={type === 'number' ? min : undefined}
+        name={name}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        onClick={handleClick}
+        onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
+        // type='number' doesn't work on ios safari without a pattern
+        // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
+        pattern={type === 'number' ? '\\d*' : undefined}
+        placeholder={placeholder}
+        readOnly={readonly}
+        step={type === 'number' ? step : undefined}
+        {...(tags ? {} : { ref: innerRef })}
+        type={type}
+        value={value}
+      />
+    );
+
+    return (
+      <span>
+        {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} /> : null}
+
+        <Box position="relative">
+          {tags ? (
+            <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
+              {tags.map((tag, tagIndex) => (
+                <Box key={tagIndex} marginEnd={1} marginBottom={1}>
+                  {tag}
+                </Box>
+              ))}
+              <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
+                {/* This is an invisible spacer div which mirrors the input's
+                 * content. We use it to implement the flex wrapping behavior
+                 * which is not supported by inputs, by having the actual input
+                 * track it with absolute positioning. */}
+                <div aria-hidden className={styles.textFieldSpacer}>
+                  {value}
+                </div>
+                {inputElement}
               </Box>
-            ))}
-            <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
-              {/* This is an invisible spacer div which mirrors the input's
-               * content. We use it to implement the flex wrapping behavior
-               * which is not supported by inputs, by having the actual input
-               * track it with absolute positioning. */}
-              <div aria-hidden className={styles.textFieldSpacer}>
-                {value}
-              </div>
-              {inputElement}
-            </Box>
-          </div>
-        ) : (
-          inputElement
-        )}
+            </div>
+          ) : (
+            inputElement
+          )}
 
-        {!disabled && iconButton}
-      </Box>
+          {!disabled && iconButton}
+        </Box>
 
-      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
+        {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
 
-      {hasErrorMessage ? <FormErrorMessage id={id} text={errorMessage} /> : null}
-    </span>
-  );
-});
+        {hasErrorMessage ? <FormErrorMessage id={id} text={errorMessage} /> : null}
+      </span>
+    );
+  });
 
 InternalTextFieldWithForwardRef.displayName = 'InternalTextField';
 
