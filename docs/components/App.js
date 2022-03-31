@@ -48,6 +48,7 @@ export default function App({ children }: Props): Node {
     };
   }, [router.events]);
 
+  // NOTE: there are other Providers added in pages/_app.js
   return (
     <AppContextProvider>
       <AppContextConsumer>

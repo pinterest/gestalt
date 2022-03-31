@@ -45,16 +45,19 @@ type BaseTapArea = {|
   onMouseEnter?: MouseEventHandler,
   onMouseLeave?: MouseEventHandler,
   onTap?: OnTapType,
-  tabIndex?: -1 | 0,
+  role?: 'button' | 'link' | 'switch',
   rounding?: Rounding,
+  tabIndex?: -1 | 0,
   tapStyle?: 'none' | 'compress',
 |};
+
 type TapAreaType = {|
   ...BaseTapArea,
+  accessibilityChecked?: boolean,
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
-  role?: 'button',
+  role?: 'button' | 'switch',
 |};
 
 type LinkTapAreaType = {|
@@ -225,9 +228,16 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     );
   }
 
-  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup } = props;
+  const {
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    accessibilityChecked,
+    role,
+  } = props;
   return (
     <div
+      aria-checked={role === 'switch' ? accessibilityChecked : undefined}
       aria-controls={accessibilityControls}
       aria-disabled={disabled}
       aria-expanded={accessibilityExpanded}
@@ -257,7 +267,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
       ref={innerRef}
-      role="button"
+      role={role ?? 'button'}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       tabIndex={disabled ? null : tabIndex}
     >

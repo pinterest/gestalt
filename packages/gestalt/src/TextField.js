@@ -1,7 +1,12 @@
 // @flow strict
-import { forwardRef, type Element, type Node } from 'react';
-import Tag from './Tag.js';
+import { forwardRef, type Element, type Node, useState } from 'react';
 import InternalTextField from './InternalTextField.js';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
+import Tag from './Tag.js';
+import { useExperimentContext } from './contexts/ExperimentProvider.js';
+import { useI18nContext } from './contexts/I18nProvider.js';
+
+type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 type Props = {|
   /**
@@ -79,7 +84,7 @@ type Props = {|
   /**
    * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
    */
-  type?: 'date' | 'email' | 'password' | 'tel' | 'text' | 'url',
+  type?: Type,
   /**
    * md: 40px, lg: 48px
    */
@@ -117,11 +122,51 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     placeholder,
     size = 'md',
     tags,
-    type = 'text',
+    type: typeProp = 'text',
     value,
   }: Props,
   ref,
 ): Node {
+  /**
+   * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
+   */
+  const [type, setType] = useState<Type>(typeProp);
+
+  const isPasswordField = typeProp === 'password';
+  const isCurrentlyPasswordType = type === 'password';
+
+  const { anyEnabled: inWebShowPasswordExp } = useExperimentContext(
+    'web_unauth_show_password_button',
+  );
+  const { anyEnabled: inMwebShowPasswordExp } = useExperimentContext(
+    'mweb_unauth_show_password_button',
+  );
+  const inShowPasswordExp = inWebShowPasswordExp || inMwebShowPasswordExp;
+  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
+    useI18nContext('TextField');
+
+  const iconButton =
+    inShowPasswordExp && isPasswordField ? (
+      <InternalTextFieldIconButton
+        accessibilityChecked={!isCurrentlyPasswordType}
+        accessibilityLabel={
+          isCurrentlyPasswordType
+            ? accessibilityShowPasswordLabel ?? ''
+            : accessibilityHidePasswordLabel ?? ''
+        }
+        icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
+        onClick={() => {
+          setType(isCurrentlyPasswordType ? 'text' : 'password');
+        }}
+        role="switch"
+        tooltipText={
+          isCurrentlyPasswordType
+            ? accessibilityShowPasswordLabel ?? ''
+            : accessibilityHidePasswordLabel ?? ''
+        }
+      />
+    ) : undefined;
+
   return (
     <InternalTextField
       autoComplete={autoComplete}
@@ -129,6 +174,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       errorMessage={errorMessage}
       hasError={hasError}
       helperText={helperText}
+      iconButton={iconButton}
       id={id}
       label={label}
       name={name}

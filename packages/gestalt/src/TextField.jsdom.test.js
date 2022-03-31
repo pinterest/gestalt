@@ -3,6 +3,8 @@ import { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TextField from './TextField.js';
 
+jest.mock('./contexts/I18nProvider.js');
+
 describe('TextField', () => {
   it('renders error message on errorMessage prop change', () => {
     const { getByText, rerender } = render(

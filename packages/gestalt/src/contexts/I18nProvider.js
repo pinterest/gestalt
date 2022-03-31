@@ -6,9 +6,10 @@ import { type Context, createContext, useContext } from 'react';
  * - Create a type for the component's translations (these types need to be flat, *not* nested)
  * - Add component translation type to I18nContextType keyed by component name
  * - Add component translation object to initialContext using `null` for all values
+ * - Add default translations to the mock file (./__mocks__/I18nProvider.js) and docs/components/contexts/DocsExperimentProvider.js
  */
 
-type I18nContextType = {|
+export type I18nContextType = {|
   TextField: {|
     accessibilityHidePasswordLabel: ?string,
     accessibilityShowPasswordLabel: ?string,
@@ -57,9 +58,11 @@ export function useI18nContext<C: ValidComponent>(
   );
   const missingAndNullTranslations = [...nullTranslations, ...missingTranslations];
   if (missingAndNullTranslations.length > 0) {
-    const multipleMissing = missingTranslations.length > 1;
+    const multipleMissing = missingAndNullTranslations.length > 1;
     throw new Error(
-      `${componentName} prop${multipleMissing ? 's' : ''} ${missingTranslations.join(', ')} ${
+      `${componentName} prop${multipleMissing ? 's' : ''} ${missingAndNullTranslations.join(
+        ', ',
+      )} ${
         multipleMissing ? 'are' : 'is'
       } missing translations — please add translations to I18nProvider`,
     );
