@@ -74,7 +74,7 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Indicate if the input is readonly. See the [disabled example](https://gestalt.pinterest.systems/textfield#Readonly) for more details.
+   * Indicate if the input is readonly. See the [readonly example](https://gestalt.pinterest.systems/textfield#Readonly) for more details.
    */
   readonly?: boolean,
   /**

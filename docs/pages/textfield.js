@@ -478,7 +478,7 @@ function Example(props) {
 
         <MainSection.Subsection
           title="Readonly"
-          description="`readonly` TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit."
+          description="Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit."
         >
           <MainSection.Card
             defaultCode={`

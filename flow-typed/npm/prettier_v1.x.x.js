@@ -59,7 +59,7 @@ declare module "prettier" {
     singleQuote?: boolean,
     trailingComma?: "none" | "es5" | "all",
     bracketSpacing?: boolean,
-    jsxBracketSameLine?: boolean,
+    bracketSameLine?: boolean,
     arrowParens?: "avoid" | "always",
     rangeStart?: number,
     rangeEnd?: number,
@@ -129,7 +129,7 @@ declare module "prettier" {
     singleQuote?: $PropertyType<Options, "singleQuote">,
     trailingComma?: $PropertyType<Options, "trailingComma">,
     bracketSpacing?: $PropertyType<Options, "bracketSpacing">,
-    jsxBracketSameLine?: $PropertyType<Options, "jsxBracketSameLine">,
+    bracketSameLine?: $PropertyType<Options, "bracketSameLine">,
     arrowParens?: $PropertyType<Options, "arrowParens">,
     parser?: $PropertyType<Options, "parser">,
     filepath?: $PropertyType<Options, "filepath">,
@@ -204,11 +204,11 @@ declare module "prettier" {
     languages: Array<SupportLanguage>,
     options: Array<SupportOption>
   |};
-                                                             
+
   declare export type FileInfo = {|
     ignored: boolean,
     inferredParser: PrettierParserName | null,
-  |};                                                          
+  |};
 
   declare export type Prettier = {|
     format: (source: string, options?: Options) => string,

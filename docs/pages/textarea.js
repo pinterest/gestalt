@@ -107,7 +107,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Readonly"
           description={`
-      A \`TextArea\` can be in \`readonly\` mode in order to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
+      A \`TextArea\` can be in read-only mode in order to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
     `}
         >
           <MainSection.Card
