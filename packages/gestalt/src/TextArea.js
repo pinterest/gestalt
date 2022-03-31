@@ -75,9 +75,9 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Indicate if the input is currently readonly. See the [readonly example](https://gestalt.pinterest.systems/textarea#Readonly) for more details.
+   * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textarea#Readonly) for more details.
    */
-  readonly?: boolean,
+  readOnly?: boolean,
   /**
    * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/textarea#With-a-ref) for more details.
    */
@@ -120,7 +120,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
     onFocus,
     onKeyDown,
     placeholder,
-    readonly = false,
+    readOnly = false,
     rows = 3,
     tags,
     value,
@@ -181,7 +181,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}
       placeholder={placeholder}
-      readOnly={readonly}
+      readOnly={readOnly}
       ref={ref}
       rows={tags ? undefined : rows}
       value={value}

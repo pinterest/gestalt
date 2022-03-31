@@ -155,7 +155,7 @@ exports[`TextField TextField with name 1`] = `
 </span>
 `;
 
-exports[`TextField TextField with readonly 1`] = `
+exports[`TextField TextField with readOnly 1`] = `
 <span>
   <div
     className="box relative"

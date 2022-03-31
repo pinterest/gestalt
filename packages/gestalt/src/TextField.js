@@ -74,9 +74,9 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Indicate if the input is readonly. See the [readonly example](https://gestalt.pinterest.systems/textfield#Readonly) for more details.
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textfield#Readonly) for more details.
    */
-  readonly?: boolean,
+  readOnly?: boolean,
   /**
    * Ref that is forwarded to the underlying input element.
    */
@@ -124,7 +124,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     onFocus,
     onKeyDown,
     placeholder,
-    readonly = false,
+    readOnly = false,
     size = 'md',
     tags,
     type: typeProp = 'text',
@@ -147,8 +147,9 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     'mweb_unauth_show_password_button',
   );
   const inShowPasswordExp = inWebShowPasswordExp || inMwebShowPasswordExp;
-  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
-    useI18nContext('TextField');
+  const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } = useI18nContext(
+    'TextField',
+  );
 
   const iconButton =
     inShowPasswordExp && isPasswordField ? (
@@ -189,7 +190,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       onKeyDown={onKeyDown}
       placeholder={placeholder}
       size={size}
-      readonly={readonly}
+      readOnly={readOnly}
       ref={ref}
       tags={tags}
       type={type}

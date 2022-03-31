@@ -477,7 +477,7 @@ function Example(props) {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Readonly"
+          title="Read-only"
           description="Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit."
         >
           <MainSection.Card
@@ -494,7 +494,7 @@ function Example(props) {
       }}
       placeholder="Name"
       value={value}
-      readonly
+      readOnly
     />
   );
 }
@@ -504,7 +504,7 @@ function Example(props) {
 
         <MainSection.Subsection
           title="Disabled"
-          description="`disabled` TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use `readonly` instead)."
+          description="`disabled` TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use `readOnly` instead)."
         >
           <MainSection.Card
             defaultCode={`

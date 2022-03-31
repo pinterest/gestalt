@@ -52,9 +52,9 @@ describe('TextField', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('TextField with readonly', () => {
+  it('TextField with readOnly', () => {
     const tree = create(
-      <TextField readonly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextField readOnly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

@@ -43,9 +43,9 @@ describe('TextArea', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('TextArea with readonly', () => {
+  it('TextArea with readOnly', () => {
     const tree = create(
-      <TextArea readonly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextArea readOnly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

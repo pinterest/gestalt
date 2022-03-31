@@ -86,7 +86,7 @@ exports[`TextArea TextArea with hasError 1`] = `
 </span>
 `;
 
-exports[`TextArea TextArea with readonly 1`] = `
+exports[`TextArea TextArea with readOnly 1`] = `
 <span>
   <textarea
     aria-describedby={null}
