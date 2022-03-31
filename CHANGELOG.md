@@ -1,3 +1,9 @@
+## 47.1.0 (Mar 31, 2022)
+
+### Minor
+
+- TextField: Add experimental show/hide password button (#1995)
+
 ## 47.0.0 (Mar 30, 2022)
 
 ### Major
