@@ -215,12 +215,12 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
     </Column>
     <Column span={6}>
       <Box paddingX={2}>
-        <Box color="white">Column A</Box>
+        <Box color="white"><Text color="dark">Column A</Text></Box>
       </Box>
     </Column>
     <Column span={6}>
       <Box paddingX={2}>
-        <Box color="white">Column B</Box>
+        <Box color="white"><Text color="dark">Column B</Text></Box>
       </Box>
     </Column>
   </Box>

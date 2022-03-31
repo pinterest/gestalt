@@ -134,7 +134,7 @@ function VideoControls({
         </Box>
       )}
       <Box width={50} padding={2}>
-        <Text align="end" color="white" overflow="normal" size="100">
+        <Text align="end" color="light" overflow="normal" size="100">
           {timeToString(currentTime)}
         </Text>
       </Box>
@@ -149,7 +149,7 @@ function VideoControls({
         />
       </Box>
       <Box width={50} padding={2}>
-        <Text align="end" color="white" overflow="normal" size="100">
+        <Text align="end" color="light" overflow="normal" size="100">
           {timeToString(duration)}
         </Text>
       </Box>

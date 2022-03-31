@@ -64,7 +64,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -104,7 +104,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -211,7 +211,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -251,7 +251,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -439,7 +439,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -480,7 +480,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -584,7 +584,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -624,7 +624,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -775,7 +775,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -815,7 +815,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -990,7 +990,7 @@ function ScrollBoundaryContainerExample() {
                       />
                     </Mask>
                   </Box>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     {data[1]}
                   </Text>
                 </Flex>
@@ -1028,7 +1028,7 @@ function ScrollBoundaryContainerExample() {
               <Box width={360}>
                 <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                   <Flex direction="column" gap={6}>
-                    <Text align="center" color="darkGray" weight="bold">
+                    <Text align="center" color="default" weight="bold">
                       Save to board
                     </Text>
                     <SearchBoardField/>

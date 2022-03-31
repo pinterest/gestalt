@@ -66,7 +66,7 @@ function Count({ count }: {| count: number |}) {
           __style: { padding: '0 0 1px 1px' },
         }}
       >
-        <Text align="center" color="white" size="100" weight="bold">
+        <Text align="center" color="light" size="100" weight="bold">
           {displayCount}
         </Text>
       </Box>

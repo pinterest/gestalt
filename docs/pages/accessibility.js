@@ -127,7 +127,7 @@ function Example() {
             boxShadow: isFocusVisible && focusedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
-          <Text>Button 1</Text>
+          <Text color="dark">Button 1</Text>
         </button>
       </Flex>
       <Flex alignItems="center" direction="column" gap={4}>
@@ -140,7 +140,7 @@ function Example() {
             boxShadow: focusedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
-          <Text>Button 2</Text>
+          <Text color="dark">Button 2</Text>
         </button>
       </Flex>
     </Flex>

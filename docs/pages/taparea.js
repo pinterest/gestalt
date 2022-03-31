@@ -321,7 +321,7 @@ function TapAreaExample() {
               rounding="pill"
               target="blank"
             >
-              <Text align="center" color="white">Find More on Pinterest</Text>
+              <Text align="center" color="inverse">Find More on Pinterest</Text>
             </Link>
           </Box>
         </Box>
