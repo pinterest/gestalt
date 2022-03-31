@@ -68,7 +68,7 @@
     "postcss": "^8.4.5",
     "postcss-modules": "^4.3.0",
     "postcss-preset-env": "^7.2.0",
-    "prettier": "2.6.0",
+    "prettier": "2.6.1",
     "prop-types": "^15.7.2",
     "react-docgen": "^5.4.0",
     "react-test-renderer": "^17.0.1",
