@@ -98,7 +98,7 @@ function TabExample() {
             role="tab"
           >
             <Box padding={3} rounding="pill">
-              <Text color={index === activeIndex ? 'white' : 'darkGray'}>{text}</Text>
+              <Text color={index === activeIndex ? 'inverse' : 'default'}>{text}</Text>
             </Box>
           </Link>
         </Box>
