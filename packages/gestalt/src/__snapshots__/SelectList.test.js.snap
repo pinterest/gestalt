@@ -77,7 +77,7 @@ exports[`SelectList SelectList with a hidden label 1`] = `
       className="formLabel"
     >
       <div
-        className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
       >
         testing
       </div>

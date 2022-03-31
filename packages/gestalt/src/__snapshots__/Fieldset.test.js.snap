@@ -8,7 +8,7 @@ exports[`Fieldset renders 1`] = `
     className="label formLabel paddingX0"
   >
     <div
-      className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -52,7 +52,7 @@ exports[`Fieldset renders 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Schnauzer
           </div>
@@ -99,7 +99,7 @@ exports[`Fieldset renders 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Aussie
           </div>
@@ -118,7 +118,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -162,7 +162,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Schnauzer
           </div>
@@ -209,7 +209,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Aussie
           </div>
@@ -228,7 +228,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -272,7 +272,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Schnauzer
           </div>
@@ -319,7 +319,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Aussie
           </div>
@@ -331,7 +331,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="box marginTop2"
   >
     <div
-      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
     >
       <span
         className="formErrorMessage"

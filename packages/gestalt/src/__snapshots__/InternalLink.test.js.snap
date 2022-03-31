@@ -194,7 +194,7 @@ exports[`renders TapArea 1`] = `
   target={null}
 >
   <div
-    className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
   >
     InternalLink
   </div>

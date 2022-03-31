@@ -301,7 +301,7 @@ exports[`Video with children 1`] = `
         }
       >
         <div
-          className="Text fontSize100 white alignEnd fontWeightNormal"
+          className="Text fontSize100 lightText alignEnd fontWeightNormal"
         >
           00:00
         </div>
@@ -382,7 +382,7 @@ exports[`Video with children 1`] = `
         }
       >
         <div
-          className="Text fontSize100 white alignEnd fontWeightNormal"
+          className="Text fontSize100 lightText alignEnd fontWeightNormal"
         >
           00:00
         </div>

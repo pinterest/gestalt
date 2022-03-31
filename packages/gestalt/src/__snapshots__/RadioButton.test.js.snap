@@ -118,7 +118,7 @@ exports[`RadioButton disabled 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize300 alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 subtleText alignStart breakWord fontWeightNormal"
       >
         Name
       </div>
@@ -165,7 +165,7 @@ exports[`RadioButton disabled small 1`] = `
       className="box paddingX1"
     >
       <div
-        className="Text fontSize200 alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
       >
         Name
       </div>

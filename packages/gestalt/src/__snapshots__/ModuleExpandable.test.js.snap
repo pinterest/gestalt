@@ -56,7 +56,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -79,7 +79,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -171,7 +171,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -194,7 +194,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -288,7 +288,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon red iconBlock"
+                      className="icon error iconBlock"
                       height={16}
                       role="img"
                       viewBox="0 0 24 24"
@@ -308,7 +308,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 red alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 errorText alignStart breakWord fontWeightBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -331,7 +331,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -427,7 +427,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -450,7 +450,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -465,7 +465,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -480,7 +480,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -576,7 +576,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -673,7 +673,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 darkGray alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -696,7 +696,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -790,7 +790,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon red iconBlock"
+                      className="icon error iconBlock"
                       height={16}
                       role="img"
                       viewBox="0 0 24 24"
@@ -810,7 +810,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 red alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 errorText alignStart breakWord fontWeightBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -833,7 +833,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
