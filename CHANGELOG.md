@@ -1,3 +1,9 @@
+## 47.1.1 (Mar 31, 2022)
+
+### Patch
+
+- ComboBox: Update ComboBox tag variant example in Docs (#2029)
+
 ## 47.1.0 (Mar 31, 2022)
 
 ### Minor
