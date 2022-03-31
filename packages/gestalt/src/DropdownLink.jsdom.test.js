@@ -8,7 +8,7 @@ describe('Dropdown.Link', () => {
   test('calls onClick when Item clicked', () => {
     render(
       <Dropdown.Link
-        badgeText="New"
+        badge={{ text: 'New' }}
         href="/somePath"
         onClick={onClickMock}
         option={{ value: 'item 4', label: 'Item 4' }}
@@ -22,7 +22,7 @@ describe('Dropdown.Link', () => {
     render(
       <Dropdown.Link
         onClick={onClickMock}
-        badgeText="New"
+        badge={{ text: 'New' }}
         href="https://www.pinterest.com"
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
@@ -36,7 +36,7 @@ describe('Dropdown.Link', () => {
   test('adds badge and external icon', () => {
     render(
       <Dropdown.Link
-        badgeText="Beta Badge"
+        badge={{ text: 'Beta Badge' }}
         href="http://www.pinterest.com"
         isExternal
         onClick={onClickMock}

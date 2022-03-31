@@ -28,7 +28,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
 - As symbolic communication for elements that do not have room for text, like the number of pins in a carousel. In this case, ensure the icon choice is easily recognizable and makes sense to international users.
 - To convey a critical meaning that cannot be communicated with words, like a downward chevron in a Button to indicate it reveals a menu.
@@ -37,7 +37,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
 - For purposes that are decorative or for visual embellishment, such as how illustrations are typically used. Contact us if this is needed.
 - As a visual reinforcement for associated text, without adding new meaning.

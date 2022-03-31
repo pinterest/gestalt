@@ -9,6 +9,17 @@ import { CookiesProvider } from 'react-cookie';
 import { useRouter } from 'next/router';
 import { Box } from 'gestalt';
 import App from '../components/App.js';
+import DocsExperimentProvider from '../components/contexts/DocsExperimentProvider.js';
+import DocsI18nProvider from '../components/contexts/DocsI18nProvider.js';
+
+// Adding providers here instead of components/App.js as they're needed by visual tests as well
+function Providers({ children }: {| children: Node |}): Node {
+  return (
+    <DocsExperimentProvider>
+      <DocsI18nProvider>{children}</DocsI18nProvider>
+    </DocsExperimentProvider>
+  );
+}
 
 // This default export is required in a new `pages/_app.js` file.
 function GestaltApp(
@@ -20,9 +31,11 @@ function GestaltApp(
   // Hide navigation / sidebar for visual tests
   if (router.pathname.startsWith('/visual-test/')) {
     return (
-      <Box data-test-id="visual-test" display="inlineBlock">
-        <Component {...pageProps} />
-      </Box>
+      <Providers>
+        <Box data-test-id="visual-test" display="inlineBlock">
+          <Component {...pageProps} />
+        </Box>
+      </Providers>
     );
   }
 
@@ -30,9 +43,11 @@ function GestaltApp(
 
   return (
     <CookiesProvider cookies={cookies}>
-      <App>
-        <Component {...pageProps} />
-      </App>
+      <Providers>
+        <App>
+          <Component {...pageProps} />
+        </App>
+      </Providers>
     </CookiesProvider>
   );
 }

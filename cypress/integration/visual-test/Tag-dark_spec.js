@@ -3,9 +3,13 @@ describe('Tag visual dark mode regression check', () => {
     cy.visit('/visual-test/Tag-dark');
   });
 
-  it('Compares screenshots', () => {
+  it('Compares snapshots', () => {
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'Tag-dark',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });

@@ -19,7 +19,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Arranging a group of buttons in a horizontal or vertical stack due to limited space.
           - Showing all the available options at one glance.
@@ -28,7 +28,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Grouping 4 or more actions, consider using an ellipses [IconButton](/iconbutton) after 3 options.
           - Switching between different views. Use [SegmentedControl](/segmentedcontrol) instead.

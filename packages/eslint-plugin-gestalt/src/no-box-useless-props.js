@@ -7,8 +7,7 @@ import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
-  flex:
-    '`direction`, `smDirection`, `mdDirection`, `lgDirection`, and `wrap` must be used with `display="flex", or dangerously set display of "inline-flex", "inline-grid", or "grid"`',
+  flex: '`direction`, `smDirection`, `mdDirection`, `lgDirection`, and `wrap` must be used with `display="flex", or dangerously set display of "inline-flex", "inline-grid", or "grid"`',
 };
 
 const displayPropNames = ['display', 'smDisplay', 'mdDisplay', 'lgDisplay'];

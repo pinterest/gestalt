@@ -11,8 +11,9 @@ import Page from '../components/Page.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="TapArea">
-      <PageHeader name="TapArea" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
       <PropTable
         props={[
           {
@@ -106,8 +107,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'onBlur',
-            type:
-              '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
+            type: '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
             required: false,
             defaultValue: null,
             description: ['Callback fired when a TapArea component loses focus.'],
@@ -115,8 +115,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'onFocus',
-            type:
-              '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
+            type: '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
             required: false,
             defaultValue: null,
             description: [
@@ -126,40 +125,35 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'onMouseDown',
-            type:
-              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
+            type: '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
             required: false,
             defaultValue: null,
             description: ['Callback fired when a click event begins.'],
           },
           {
             name: 'onMouseUp',
-            type:
-              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
+            type: '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
             required: false,
             defaultValue: null,
             description: ['Callback fired when a click event ends.'],
           },
           {
             name: 'onMouseEnter',
-            type:
-              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
+            type: '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
             required: false,
             defaultValue: null,
             description: ['Callback fired when a mouse pointer moves onto a TapArea component.'],
           },
           {
             name: 'onMouseLeave',
-            type:
-              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
+            type: '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
             required: false,
             defaultValue: null,
             description: ['Callback fired when a mouse pointer moves out a TapArea component.'],
           },
           {
             name: 'onTap',
-            type:
-              '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) }) => void',
+            type: '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) }) => void',
             required: false,
             defaultValue: null,
             description: [
@@ -257,6 +251,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
         ]}
       />
+
       <Example
         name="Basic TapArea"
         id="basic-taparea"
@@ -285,13 +280,14 @@ function TapAreaExample() {
 }
 `}
       />
+
       <Example
         id="link_buttons"
         description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
 TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
   `}
-        name="TapArea with Link/Buttons"
+        name="TapArea with Link/Button"
         defaultCode={`
 function TapAreaExample() {
   const [touches, setTouches] = React.useState(0);
@@ -328,12 +324,14 @@ function TapAreaExample() {
           Touched {touches} {touches === 1 ? 'time' : 'times'}
         </Text>
       </Box>
-    </Box>  );
+    </Box>
+  );
 }
 `}
       />
+
       <Example
-        name="Roles & Compress Behavior"
+        name="Roles & compress behavior"
         id="roles"
         defaultCode={`
 function Example() {
@@ -429,8 +427,9 @@ function Example() {
 }
 `}
       />
+
       <Example
-        name="Height & Width"
+        name="Height & width"
         id="fullHeightWidth"
         defaultCode={`
 <Box color="olive" display="flex" width={500} height={250}>
@@ -455,9 +454,47 @@ function Example() {
 </Box>
 `}
       />
+
+      <Example
+        name="Inline usage"
+        id="inlineUsage"
+        description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
+        defaultCode={`
+<Box color="eggplant" height={250} padding={3} width={500}>
+  <Flex direction="column" gap={6}>
+    <Flex.Item>
+      <Text color="inverse" inline>Other content</Text>
+      <Box borderStyle="sm" margin={3} column={6}>
+        <TapArea>
+          <Box height="100%" color="lightGray">
+            <Text align="center">
+              Default behavior (block)
+            </Text>
+          </Box>
+        </TapArea>
+      </Box>
+    </Flex.Item>
+
+    <Flex.Item>
+      <Text color="inverse" inline>Other content</Text>
+      <Box borderStyle="sm" display="inlineBlock" margin={3} column={6}>
+        <TapArea>
+          <Box height="100%" color="lightGray">
+            <Text align="center">
+              Inline behavior
+            </Text>
+          </Box>
+        </TapArea>
+      </Box>
+    </Flex.Item>
+  </Flex>
+</Box>
+`}
+      />
+
       <Combination
         id="mouseCursor"
-        name="Mouse Cursor"
+        name="Mouse cursor"
         mouseCursor={['copy', 'grab', 'grabbing', 'move', 'noDrop', 'pointer', 'zoomIn', 'zoomOut']}
       >
         {(props, i) => (
@@ -469,6 +506,7 @@ function Example() {
           </TapArea>
         )}
       </Combination>
+
       <Combination
         id="rounding"
         name="Rounding"
@@ -493,9 +531,10 @@ function Example() {
           </TapArea>
         )}
       </Combination>
+
       <Example
         id="ref"
-        name="ref"
+        name="Ref"
         defaultCode={`
 function TapAreaRefExample() {
   const ref = React.useRef();
@@ -524,6 +563,7 @@ function TapAreaRefExample() {
   );
 }`}
       />
+
       <Example
         name="Accessibility: label, controls, expanded, & popup"
         id="accessibility"
@@ -593,6 +633,7 @@ function MenuButtonExample() {
 }
 `}
       />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

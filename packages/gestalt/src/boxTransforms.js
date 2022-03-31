@@ -163,6 +163,7 @@ const color: Functor<Color> = mapping({
   lightWash: colors.lightWashBg,
   darkWash: colors.darkWashBg,
   transparentDarkGray: colors.transparentDarkGrayBg,
+  default: colors.default,
   infoBase: colors.infoBase,
   infoWeak: colors.infoWeak,
   errorBase: colors.errorBase,
@@ -180,6 +181,8 @@ const color: Functor<Color> = mapping({
   brand: colors.brand,
   education: colors.education,
   elevationAccent: colors.elevationAccent,
+  elevationFloating: colors.elevationFloating,
+  elevationRaised: colors.elevationRaised,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);
@@ -204,17 +207,19 @@ const left: Functor<boolean> = toggle(layout.left0);
 
 type MarginFunctorType = Functor<Margin>;
 
-const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (m) => {
-  if (typeof m === 'number') {
-    return bind(rangeWithZero(selector), whitespace)(m);
-  }
+const transformNumberOrPassthrough =
+  (selector: string): MarginFunctorType =>
+  (m) => {
+    if (typeof m === 'number') {
+      return bind(rangeWithZero(selector), whitespace)(m);
+    }
 
-  if (m === 'auto') {
-    return fromClassName(whitespace[`${selector}Auto`]);
-  }
+    if (m === 'auto') {
+      return fromClassName(whitespace[`${selector}Auto`]);
+    }
 
-  return identity();
-};
+    return identity();
+  };
 
 const marginStart: MarginFunctorType = transformNumberOrPassthrough('marginStart');
 const marginEnd: MarginFunctorType = transformNumberOrPassthrough('marginEnd');

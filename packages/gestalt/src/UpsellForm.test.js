@@ -3,6 +3,8 @@ import { create } from 'react-test-renderer';
 import TextField from './TextField.js';
 import UpsellForm from './UpsellForm.js';
 
+jest.mock('./contexts/I18nProvider.js');
+
 describe('UpsellForm', () => {
   it('renders', () => {
     const tree = create(

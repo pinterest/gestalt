@@ -74,6 +74,10 @@ type Props = {|
 
 /**
  * Use [Checkbox](https://gestalt.pinterest.systems/checkbox) instead of [Switch](https://gestalt.pinterest.systems/switch) when displaying 3 or more toggle inputs.
+ *
+ * ![Checkbox light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Checkbox%20%230.png)
+ * ![Checkbox dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Checkbox-dark%20%230.png)
+ *
  */
 const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Divider, Box, Flex, ColorSchemeProvider } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="white" borderStyle="shadow" display="inlineBlock" padding={1}>

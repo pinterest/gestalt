@@ -5,7 +5,19 @@
 
 export type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight';
 
-export const allowedColors = [
+export const semanticColors = [
+  'default',
+  'subtle',
+  'success',
+  'error',
+  'warning',
+  'inverse',
+  'shopping',
+  'light',
+  'dark',
+];
+
+export const literalColors = [
   'blue',
   'darkGray',
   'eggplant',
@@ -24,6 +36,8 @@ export const allowedColors = [
   'watermelon',
   'white',
 ];
+
+export const allowedColors: $ReadOnlyArray<string> = [...semanticColors, ...literalColors];
 
 export type Color =
   | 'blue'

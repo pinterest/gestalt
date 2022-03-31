@@ -3,9 +3,13 @@ describe('Datapoint visual regression check', () => {
     cy.visit('/visual-test/Datapoint');
   });
 
-  it('Compares screenshots', () => {
+  it('Compares snapshots', () => {
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'Datapoint',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });

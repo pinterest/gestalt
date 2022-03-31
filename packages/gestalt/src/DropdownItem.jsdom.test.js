@@ -8,7 +8,7 @@ describe('Dropdown.Item', () => {
   test('calls onSelect when Item clicked', () => {
     render(
       <Dropdown.Item
-        badgeText="New"
+        badge={{ text: 'New' }}
         onSelect={onSelectMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
@@ -20,7 +20,7 @@ describe('Dropdown.Item', () => {
   test('adds badge', () => {
     render(
       <Dropdown.Item
-        badgeText="Beta Badge"
+        badge={{ text: 'Beta Badge' }}
         onSelect={onSelectMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
@@ -31,7 +31,7 @@ describe('Dropdown.Item', () => {
   test('adds selected icon when item is selected', () => {
     render(
       <Dropdown.Item
-        badgeText="New"
+        badge={{ text: 'New' }}
         onSelect={onSelectMock}
         option={{ value: 'item 4', label: 'Item 4' }}
         selected={{ value: 'item 4', label: 'Item 4' }}

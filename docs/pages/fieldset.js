@@ -67,7 +67,7 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - When inputs within a broader form are closely related and would benefit from a shared legend, such as TextFields for a billing address or a group of Checkboxes.
         `}
@@ -75,7 +75,7 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When the fields are unrelated. Use [TextFields](/textfield) and other input components within a \`<form/>\`.
         `}
@@ -156,7 +156,7 @@ function RadioButtonExample() {
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`
-      By default, the \`legend\` is visible above the items in the Fieldset. However, if the form items are labelled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the legend. In this case, it is still available to screen reader users, but will not appear visually on the screen.
+      By default, the \`legend\` is visible above the items in the Fieldset. However, if the form items are labeled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the legend. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
       In the example below, the "Company Account Goals" text is acting as a heading and a legend for the checkboxes, so instead of repeating another legend, we visually hide the Fieldset \`legend\`. When a user focuses on the first checkbox, a screen reader will announce "Sell more products, unchecked, checkbox, Choose up to 3 company account goals, group".
       `}

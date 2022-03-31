@@ -59,7 +59,7 @@ Custom components can also be made from scratch, using native DOM elements and C
         />
       </MainSection>
 
-      <MainSection name="Modifications to Existing Components">
+      <MainSection name="Modifications to existing components">
         <MainSection.Subsection
           title={`Box's dangerouslySetInlineStyle`}
           description={`

@@ -1,6 +1,6 @@
 // @flow strict
 import { useEffect, type Node } from 'react';
-import { ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider, OnLinkNavigationProvider } from 'gestalt';
 import { useRouter } from 'next/router';
 import { AppContextProvider, AppContextConsumer } from './appContext.js';
 import { NavigationContextProvider } from './navigationContext.js';
@@ -12,6 +12,25 @@ type Props = {|
 
 export default function App({ children }: Props): Node {
   const router = useRouter();
+
+  // $FlowIssue[prop-missing]
+  const isLeftClickEvent = (event) => event.button === 0; // ignore everything but left clicks
+  const isModifiedEvent = (event) =>
+    // $FlowIssue[prop-missing]
+    !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey); // ignore clicks with modifier keys
+
+  const useOnNavigation = ({ href, target }) => {
+    const onNavigationClick = ({ event }) => {
+      if (event.defaultPrevented) return; // onClick prevented default
+      if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
+      if (target === 'blank') return; // let browser handle "target=_blank"
+
+      event.preventDefault();
+      router.push(href);
+    };
+
+    return onNavigationClick;
+  };
 
   useEffect(() => {
     // Report route changes to Google Analytics
@@ -29,14 +48,17 @@ export default function App({ children }: Props): Node {
     };
   }, [router.events]);
 
+  // NOTE: there are other Providers added in pages/_app.js
   return (
     <AppContextProvider>
       <AppContextConsumer>
         {({ colorScheme }) => (
           <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
-            <NavigationContextProvider>
-              <AppLayout>{children}</AppLayout>
-            </NavigationContextProvider>
+            <OnLinkNavigationProvider onNavigation={useOnNavigation}>
+              <NavigationContextProvider>
+                <AppLayout>{children}</AppLayout>
+              </NavigationContextProvider>
+            </OnLinkNavigationProvider>
           </ColorSchemeProvider>
         )}
       </AppContextConsumer>

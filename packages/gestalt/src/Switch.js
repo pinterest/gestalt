@@ -7,7 +7,7 @@ import styles from './Switch.css';
 
 type Props = {|
   /**
-   * Indicates if the input is currently disabled. See [Switch combinations](https://gestalt.pinterest.systems/switch#switchCombinations) for more details.
+   * Indicates if the input is currently disabled. See [Switch combinations](https://gestalt.pinterest.systems/switch#Disabled-and-switched-combinations) for more details.
    */
   disabled?: boolean,
   /**
@@ -23,7 +23,7 @@ type Props = {|
    */
   onChange: ({| event: SyntheticInputEvent<>, value: boolean |}) => void,
   /**
-   * Indicates the current value of the input. See [Switch combinations](https://gestalt.pinterest.systems/switch#switchCombinations) for more details.
+   * Indicates the current value of the input. See [Switch combinations](https://gestalt.pinterest.systems/switch#Disabled-and-switched-combinations) for more details.
    */
   switched?: boolean,
 |};
@@ -32,6 +32,10 @@ type Props = {|
  * Use [Switch](https://gestalt.pinterest.systems/switch) for single cell options that can be turned on and off only. If you have a cell with multiple options that can activated, consider using [Checkbox](https://gestalt.pinterest.systems/checkbox).
  *
  * Switch supports right-to-left(RTL) language locales layout (auto flip on RTL locales like Arabic).
+ *
+ * ![Switch light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Switch%20%230.png)
+ * ![Switch dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Switch-dark%20%230.png)
+ *
  */
 export default function Switch({
   disabled = false,

@@ -64,3 +64,82 @@ exports[`SelectList SelectList normal 1`] = `
   </div>
 </div>
 `;
+
+exports[`SelectList SelectList with a hidden label 1`] = `
+<div
+  className="box"
+>
+  <label
+    className="label visuallyHidden"
+    htmlFor="test"
+  >
+    <div
+      className="formLabel"
+    >
+      <div
+        className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+      >
+        testing
+      </div>
+    </div>
+  </label>
+  <div
+    className="box relative rounding4 whiteBg xsDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="absolute bottom0 box itemsCenter right0 top0 xsDisplayFlex"
+      style={
+        Object {
+          "paddingRight": 14,
+          "paddingTop": 2,
+        }
+      }
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon darkGray iconBlock"
+        height={12}
+        role="img"
+        viewBox="0 0 24 24"
+        width={12}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <select
+      aria-describedby={null}
+      aria-invalid="false"
+      className="select base enabled normal medium"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+    >
+      <option
+        value="value1"
+      >
+        option1
+      </option>
+      <option
+        value="value2"
+      >
+        option2
+      </option>
+      <option
+        value="value3"
+      >
+        option3
+      </option>
+    </select>
+  </div>
+</div>
+`;

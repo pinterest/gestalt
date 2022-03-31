@@ -45,7 +45,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - When displaying high priority, surface-level information to the user.
           - When providing persistent, non-blocking feedback.
@@ -55,7 +55,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When providing messaging/guidance for specific elements or areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
           - When displaying information that is intended for promotional/marketing purposes. Use [Upsell](/upsell) instead.

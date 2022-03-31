@@ -63,7 +63,7 @@ function ComboBoxExample(props) {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Presenting users with a long list of options (typically 10 or more) that can be filtered by typing in the text field.
         `}
@@ -71,7 +71,7 @@ function ComboBoxExample(props) {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - For shorter lists of items where filtering is not needed, typically under 10 items.
         `}
@@ -96,7 +96,7 @@ function ComboBoxExample(props) {
         <MainSection.Subsection
           title="Labels"
           description={`
-      ComboBox requires both \`label\` and \`accessibilityClearButtonLabel\`. By default, the \`label\` is visible above TextField. However, if the form items are labelled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.
+      ComboBox requires both \`label\` and \`accessibilityClearButtonLabel\`. By default, the \`label\` is visible above TextField. However, if the form items are labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
       In the example below, the "Discover this week's top searched trends across all categories" text is acting as a heading, so instead of repeating another label, we visually hide the label. When a user focuses on the ComboBox, a screen reader will announce "Choose a category to display top search trends, Select category".
       `}
@@ -530,7 +530,7 @@ function ComboBoxExample(props) {
 function ComboBoxExample(props) {
   const ref = React.useRef();
   const [selected, setSelected] = React.useState([]);
-  const [defaultOption, setDefaultOption] = React.useState('');
+  const [searchTerm, setSearchTerm] = React.useState('');
 
   const PRONOUNS = [
     'ey / em',
@@ -546,36 +546,33 @@ function ComboBoxExample(props) {
 
   const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
 
-  const [unselectedOptions, setUnselectedOptions] = React.useState(options.filter((pronoun) => !selected.includes(pronoun.value)));
-  const [suggestedOptions, setSuggestedOptions] = React.useState(unselectedOptions);
+  const [suggestedOptions, setSuggestedOptions] = React.useState(options.filter((pronoun) => !selected.includes(pronoun.value)));
 
   const handleOnSelect = ({ item: { label } }) => {
     if (!selected.includes(label) && selected.length < 2) {
       const newSelected = [...selected, label];
       setSelected(newSelected);
       setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
-      setDefaultOption('');
+      setSearchTerm('');
     }
   };
 
   const handleOnChange = ({ value }) => {
-    setDefaultOption(value);
-    if (value) {
-      setDefaultOption(value);
-      const filteredOptions = unselectedOptions.filter((item) =>
+    setSearchTerm(value);
+
+    const suggested = value
+      ? suggestedOptions.filter((item) =>
         item.label.toLowerCase().includes(value.toLowerCase()),
-      );
-      setSuggestedOptions(filteredOptions);
-    } else {
-      setSuggestedOptions(unselectedOptions);
-    }
+      )
+      : options.filter((option) => !selected.includes(option.value))
+
+    setSuggestedOptions(suggested);
   };
 
-  const handleOnBlur = () => setDefaultOption("");
+  const handleOnBlur = () => setSearchTerm("");
 
   const handleClear = () => {
     setSelected([]);
-    setUnselectedOptions(options);
     setSuggestedOptions(options);
   };
 
@@ -589,7 +586,6 @@ function ComboBoxExample(props) {
     if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
       const newSelected = [...selected.slice(0, -1)];
       setSelected(newSelected);
-      setUnselectedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
       setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
     }
   };
@@ -597,7 +593,6 @@ function ComboBoxExample(props) {
   const handleRemoveTag = (removedValue) => {
     const newSelected = selected.filter((tagValue) => tagValue !== removedValue);
     setSelected(newSelected);
-    setUnselectedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
     setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
   };
 
@@ -615,7 +610,7 @@ function ComboBoxExample(props) {
       accessibilityClearButtonLabel="Clear the current value"
       label="Pronouns"
       id="tags"
-      inputValue={defaultOption}
+      inputValue={searchTerm}
       noResultText="No results for your selection"
       options={suggestedOptions}
       ref={ref}

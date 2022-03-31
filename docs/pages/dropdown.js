@@ -56,13 +56,13 @@ export default function DropdownPage({
                   option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
                 />
                 <Dropdown.Item
-                  badgeText="New"
+                  badge={{ text: 'New' }}
                   onSelect={onSelect}
                   option={{ value: "item 4", label: "Item 4" }}
                   selected={selected}
                 />
                 <Dropdown.Link
-                  badgeText="New"
+                  badge={{ text: 'New' }}
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
@@ -85,7 +85,7 @@ export default function DropdownPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Displaying a list of actions, options, or links. Usually displays 3 or more options.
           - Allowing complex functionality that a [SelectList](/selectlist) can't accomplish.
@@ -95,7 +95,7 @@ export default function DropdownPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/radiobutton) or [Checkboxes](/checkbox) instead.
           - When it is desirable to filter a long list of options. Use [ComboBox](/combobox) instead.
@@ -149,13 +149,13 @@ export default function DropdownPage({
                   option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
                 />
                 <Dropdown.Item
-                  badgeText="New"
+                  badge={{ text: 'New' }}
                   onSelect={onSelect}
                   option={{ value: "item 4", label: "Item 4" }}
                   selected={selected}
                 />
                 <Dropdown.Link
-                  badgeText="New"
+                  badge={{ text: 'New' }}
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
@@ -270,7 +270,7 @@ function OrderDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Hide Pin", label: "Hide Pin" }}
             selected={selected}
@@ -323,7 +323,7 @@ function NoTooltipsDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Hide Pin", label: "Hide Pin" }}
             selected={selected}
@@ -384,7 +384,7 @@ function ExternalLinksDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Report a bug", label: "Report a bug" }}
             selected={selected}
@@ -437,7 +437,7 @@ function CustomContentDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Report a bug", label: "Report a bug" }}
             selected={selected}
@@ -517,7 +517,7 @@ function TruncationDropdownExample() {
       {open && (
         <Dropdown anchor={anchorRef.current} id="truncation-dropdown-example" onDismiss={() => setOpen(false)}>
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{
               value: 'Homefeed anpassen',
@@ -730,7 +730,7 @@ function SectionsIconButtonDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badgeText="New"
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}
@@ -813,7 +813,7 @@ function CustomHeaderExample() {
               selected={selected}
             />
             <Dropdown.Item
-              badgeText="New"
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'item 4', label: 'Compact' }}
               selected={selected}
@@ -964,7 +964,7 @@ function BadgesDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badgeText="New"
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}

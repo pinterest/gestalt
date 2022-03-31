@@ -1,12 +1,11 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useState } from 'react';
-import { Box, Flex, FixedZIndex, Text, IconButton, Sticky } from 'gestalt';
+import { Box, Flex, FixedZIndex, Text, IconButton, Sticky, Link } from 'gestalt';
 // $FlowExpectedError[untyped-import]
 import GestaltPackageJson from 'gestalt/package.json';
 import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import HeaderMenu from './HeaderMenu.js';
-import Link from './Link.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
 

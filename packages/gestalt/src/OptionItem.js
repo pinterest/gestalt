@@ -20,8 +20,13 @@ export type OptionItemType = {|
   value: string,
 |};
 
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
 type Props = {|
-  badgeText?: string,
+  badge?: BadgeType,
   children?: Node,
   dataTestId?: string,
   hoveredItemIndex: ?number,
@@ -49,7 +54,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
   ?HTMLElement,
 >(function OptionItem(
   {
-    badgeText,
+    badge,
     children,
     dataTestId,
     onSelect,
@@ -98,11 +103,11 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
               <Text color="darkGray" inline lineClamp={1} weight={textWeight}>
                 {option?.label}
               </Text>
-              {badgeText && (
+              {badge && (
                 <Box marginStart={2} marginTop={1}>
                   {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
-                  <Badge text={badgeText} />
+                  <Badge text={badge.text} type={badge.type || 'info'} />
                 </Box>
               )}
             </Fragment>

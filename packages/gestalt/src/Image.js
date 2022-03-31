@@ -23,6 +23,10 @@ type Props = {|
    */
   crossOrigin?: 'anonymous' | 'use-credentials',
   /**
+   * Sends a hint to the browser specifying whether or not it is allowed to try to parallelize loading your image. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding) for more details.
+   */
+  decoding?: 'sync' | 'async' | 'auto',
+  /**
    * HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.
    */
   elementTiming?: string,
@@ -76,6 +80,10 @@ type Props = {|
 
 /**
  * [Image](https://gestalt.pinterest.systems/image) is the workhorse of Pinterest. If you define Pinterest to be all about collecting ideas, then images are how we choose to represent those ideas. In response, we've added a few extra superpowers to the regular img tag to make it even more awesome.
+ *
+ * ![Image light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Image%20%230.png)
+ * ![Image dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Image-dark%20%230.png)
+ *
  */
 export default class Image extends PureComponent<Props> {
   static defaultProps: {|
@@ -131,6 +139,7 @@ export default class Image extends PureComponent<Props> {
       color,
       children,
       crossOrigin,
+      decoding,
       elementTiming,
       fit,
       importance,
@@ -177,6 +186,7 @@ export default class Image extends PureComponent<Props> {
           alt={alt}
           className={styles.img}
           crossOrigin={crossOrigin}
+          decoding={decoding}
           elementtiming={elementTiming}
           importance={importance}
           loading={loading}

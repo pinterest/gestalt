@@ -33,15 +33,9 @@ const CARD_SIZE_NAME_TO_PIXEL = {
 };
 
 const TYPE_TO_COLOR = {
-  do: 'pine',
-  "don't": 'red',
-  info: 'darkGray',
-};
-
-// Colors used here map to colors.css's .pine and .red styles
-const COLOR_TO_HEX = {
-  pine: '#0a6955',
-  red: '#e60023',
+  do: 'success',
+  "don't": 'error',
+  info: 'default',
 };
 
 function MainSectionCard({
@@ -59,7 +53,7 @@ function MainSectionCard({
   const code = defaultCode?.trim();
   const scope = { ...gestalt, DatePicker };
   const borderStyle =
-    type !== 'info' ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}` : undefined;
+    type !== 'info' ? `3px solid var(--color-background-${TYPE_TO_COLOR[type]}-base)` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
   // Only show code if it's a md or lg card and it's not a Do/Don't
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';

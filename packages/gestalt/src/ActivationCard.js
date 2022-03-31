@@ -2,7 +2,6 @@
 import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
-import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
@@ -120,7 +119,9 @@ function CompletedCard({ dismissButton, message, status, statusMessage, title }:
         )}
         <Box>
           <Box>
-            <Heading size="400">{title}</Heading>
+            <Text size="400" weight="bold">
+              {title}
+            </Text>
           </Box>
           {message && (
             <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
@@ -178,7 +179,9 @@ function UncompletedCard({
         </Box>
       </Box>
       <Box marginTop={6}>
-        <Heading size="400">{title}</Heading>
+        <Text size="400" weight="bold">
+          {title}
+        </Text>
       </Box>
       {message && (
         <Box flex="grow" direction="column" alignContent="start" marginTop={2}>

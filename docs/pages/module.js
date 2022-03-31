@@ -22,7 +22,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Grouping and organizing content to keep the page clean and digestible.
           - Displaying additional related content about a particular subject.
@@ -32,7 +32,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - In a layout that conveys a clear sense of information hierarchy. Use [SegmentedControl](/segmentedcontrol) instead.
           - When long content can’t be displayed all at once, and scrolling is necessary.
@@ -66,7 +66,7 @@ export default function DocsPage({
             defaultCode={`
 function ModuleExample() {
   return (
-    <Flex direction="column" gap={2} maxWidth={800}>
+    <Flex direction="column" gap={2} maxWidth={800} flex="grow">
       <Module id="ModuleExample - default - 1">
         <Text size="200">This is example content.</Text>
       </Module>
@@ -175,8 +175,15 @@ function ModuleExample() {
   return (
     <Box column={12} maxWidth={800} padding={2}>
       <Module
-        badgeText="Try it out!"
+        badge={{ text: 'Beta' }}
         id="ModuleExample - badge"
+        title="Title"
+        >
+        <Text size="200">This is example content.</Text>
+      </Module>
+      <Module
+        badge={{text: 'Not started', type: 'neutral' }}
+        id="ModuleExample - badge neutral"
         title="Title"
         >
         <Text size="200">This is example content.</Text>
@@ -292,7 +299,7 @@ function ModuleExample2() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="ExpExpandable - Icon, Badge and IconButton"
+          title="Expandable - Icon, Badge and IconButton"
           description={`
     An Icon can be provided to be placed before the \`title\`.
     It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
@@ -322,7 +329,7 @@ function ModuleExample3() {
             title: 'Example with icon',
           },
           {
-            badgeText: 'Try it out!',
+            badge: { text: 'New' },
             children: <Text size="200">Children2</Text>,
             title: 'Example with badge',
           },

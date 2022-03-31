@@ -14,12 +14,13 @@ import {
   type Node,
 } from 'react';
 import Box from './Box.js';
+import ComboBoxItem from './ComboBoxItem.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
-import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
-import ComboBoxItem from './ComboBoxItem.js';
+import Text from './Text.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
@@ -27,6 +28,7 @@ import handleContainerScrolling, {
 } from './utils/keyboardNavigation.js';
 
 type Size = 'md' | 'lg';
+
 type OptionType = {|
   label: string,
   subtext?: string,
@@ -200,9 +202,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
   const isNotControlled = !isControlledInput && !tags;
-
-  const textfieldIconButton =
-    controlledInputValue || textfieldInput || (tags && tags.length > 0) ? 'clear' : 'expand';
 
   // ==== TAGS: Force disable state in Tags if ComboBox is disabled as well ====
 
@@ -412,10 +411,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         role="combobox"
       >
         <InternalTextField
-          accessibilityClearButtonLabel={accessibilityClearButtonLabel}
           // add accessibilityControls once the option list element exists
           accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
-          // add accessibilityActivedescendant once the option list element exists
+          // add accessibilityActiveDescendant once the option list element exists
           accessibilityActiveDescendant={
             showOptionsList && innerRef.current && hoveredItemIndex !== null
               ? `${id}-item-${hoveredItemIndex}`
@@ -426,16 +424,32 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           errorMessage={errorMessage}
           hasError={!!errorMessage}
           helperText={helperText}
+          iconButton={
+            controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
+              <InternalTextFieldIconButton
+                accessibilityLabel={accessibilityClearButtonLabel}
+                hoverStyle="default"
+                icon="cancel"
+                onClick={handleOnClickIconButtonClear}
+                pogPadding={size === 'lg' ? 2 : 1}
+                tapStyle="compress"
+              />
+            ) : (
+              <InternalTextFieldIconButton
+                accessibilityHidden
+                hoverStyle="none"
+                icon="arrow-down"
+                onClick={handleSetShowOptionsList}
+                pogPadding={size === 'lg' ? 2 : 1}
+                tapStyle="none"
+              />
+            )
+          }
           id={`combobox-${id}`}
           label={label}
           labelDisplay={labelDisplay}
           onBlur={handleOnBlur}
           onChange={handleOnChange}
-          onClickIconButton={
-            textfieldIconButton === 'clear'
-              ? handleOnClickIconButtonClear
-              : handleSetShowOptionsList
-          }
           onClick={handleSetShowOptionsList}
           onFocus={handleOnFocus}
           onKeyDown={handleOnKeyDown}
@@ -443,7 +457,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           ref={innerRef}
           size={size}
           tags={selectedTags}
-          textfieldIconButton={textfieldIconButton}
           type="text"
           value={controlledInputValue ?? textfieldInput}
         />

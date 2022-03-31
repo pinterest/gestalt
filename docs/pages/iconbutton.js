@@ -10,9 +10,9 @@ import Page from '../components/Page.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="IconButton">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="IconButton"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 function SectionsIconButtonDropdownExample() {
@@ -59,7 +59,7 @@ function SectionsIconButtonDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badgeText="New"
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}
@@ -90,8 +90,7 @@ function SectionsIconButtonDropdownExample() {
           },
           {
             name: 'bgColor',
-            type:
-              '"transparent" | "darkGray" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "red"',
+            type: '"transparent" | "darkGray" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "red"',
             defaultValue: 'transparent',
             description:
               'Primary colors to apply to the IconButton background. See [background color](#Background-color) variant to learn more.',
@@ -123,8 +122,7 @@ function SectionsIconButtonDropdownExample() {
 
           {
             name: 'onClick',
-            type:
-              '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
+            type: '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
             description:
               'Callback fired when the component is clicked, pressed or tapped. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
           },
@@ -141,13 +139,6 @@ function SectionsIconButtonDropdownExample() {
               'Forward the ref to the underlying button or anchor element. See the [ref](#Ref) variant to learn more.',
           },
           {
-            name: 'tabIndex',
-            type: `-1 | 0`,
-            defaultValue: 0,
-            description:
-              'Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.',
-          },
-          {
             name: 'role',
             type: `'button' | 'link'`,
             defaultValue: 'button',
@@ -162,6 +153,13 @@ function SectionsIconButtonDropdownExample() {
               'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
           },
           {
+            name: 'tabIndex',
+            type: `-1 | 0`,
+            defaultValue: 0,
+            description:
+              'Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.',
+          },
+          {
             name: 'tooltip',
             type: `{| text: string, accessibilityLabel?: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
             description: `Adds a [Tooltip](/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
@@ -170,15 +168,9 @@ function SectionsIconButtonDropdownExample() {
       />
       <PropTable
         Component={IconButton}
-        name="Additional role = button"
+        name='Additional role="button"'
         id="role_button"
         props={[
-          {
-            name: 'role',
-            type: 'button',
-            description:
-              'Sets button interaction in the component. See the [role](#Role) variant to learn more.',
-          },
           {
             name: 'accessibilityControls',
             type: 'string',
@@ -198,25 +190,31 @@ function SectionsIconButtonDropdownExample() {
               'Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
           },
           {
+            name: 'role',
+            type: 'button',
+            description:
+              'Sets button interaction in the component. See the [role](#Role) variant to learn more.',
+          },
+          {
             name: 'selected',
             type: 'boolean',
             description:
               'Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more.',
           },
+          {
+            name: 'type',
+            type: `'submit' | 'button'`,
+            required: false,
+            defaultValue: 'button',
+            description: 'Use "submit" if IconButton is used within or associated with a form.',
+          },
         ]}
       />
       <PropTable
         Component={IconButton}
-        name="Additional role = link"
+        name='Additional role="link"'
         id="role_link"
         props={[
-          {
-            name: 'role',
-            type: 'link',
-            required: true,
-            description:
-              'Sets link interaction in the component. See the [role](#Role) variant and [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
-          },
           {
             name: 'href',
             type: 'string',
@@ -230,6 +228,13 @@ function SectionsIconButtonDropdownExample() {
               'Specifies the relationship between the current document and the linked document. See the [role](#Role) variant to learn more.',
           },
           {
+            name: 'role',
+            type: 'link',
+            required: true,
+            description:
+              'Sets link interaction in the component. See the [role](#Role) variant and [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+          },
+          {
             name: 'target',
             type: `null | 'self' | 'blank'`,
             description: `Define the frame or window to open the anchor defined on \`href\`. See the [role](#Role) variant to learn more.`,
@@ -241,7 +246,7 @@ function SectionsIconButtonDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
 - Interface space is limited. Prioritize using a [Button](/button) if space is available.
 - Triggering a [Modal](/modal) to complete a related task.
@@ -252,7 +257,7 @@ function SectionsIconButtonDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
 - Displaying icons that don't have actions associated with them. Use an [Icon](/icon) instead.
 - Displaying multiple IconButtons on a surface that uses the same icon for different actions.
@@ -409,7 +414,7 @@ function OrderDropdownExample() {
             selected={selected}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: "Hide Pin", label: "Hide Pin" }}
             selected={selected}
@@ -871,7 +876,7 @@ function SectionsIconButtonDropdownExample() {
           </Dropdown.Section>
           <Dropdown.Section label="Add">
             <Dropdown.Item
-              badgeText="New"
+              badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
               selected={selected}

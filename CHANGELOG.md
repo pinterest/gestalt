@@ -1,3 +1,303 @@
+## 47.1.1 (Mar 31, 2022)
+
+### Patch
+
+- ComboBox: Update ComboBox tag variant example in Docs (#2029)
+
+## 47.1.0 (Mar 31, 2022)
+
+### Minor
+
+- TextField: Add experimental show/hide password button (#1995)
+
+## 47.0.0 (Mar 30, 2022)
+
+### Major
+
+- Internal: add "gestalt" as external dependency for "gestalt-datepicker" (#2030)
+
+## 46.7.15 (Mar 30, 2022)
+
+### Patch
+
+- Internal: fix flow issue in Iconography and SVGs docs (#2025)
+
+## 46.7.14 (Mar 30, 2022)
+
+### Patch
+
+- TapArea: add inline example (#2027)
+
+## 46.7.13 (Mar 30, 2022)
+
+### Patch
+
+- TextField: remove stray reference to type="number" (#2026)
+
+## 46.7.12 (Mar 29, 2022)
+
+### Patch
+
+- Internal: update RFC template (#2024)
+
+## 46.7.11 (Mar 29, 2022)
+
+### Patch
+
+- Development: Added RFCs (request for comments) section and /RFCS folder with process (#2018)
+
+## 46.7.10 (Mar 28, 2022)
+
+### Patch
+
+- Color usage: Add dark mode examples (#2019)
+
+## 46.7.9 (Mar 28, 2022)
+
+### Patch
+
+- NumberField, TextField: update docs on usage (#2022)
+
+## 46.7.8 (Mar 28, 2022)
+
+### Patch
+
+- Component overview: reclass Fieldset cmp (#2021)
+
+## 46.7.7 (Mar 28, 2022)
+
+### Patch
+
+- Component Overview: new page for visual component browsing (#2008)
+
+## 46.7.6 (Mar 26, 2022)
+
+### Patch
+
+- Docs: add legal disclaimer re: brand icons (#2020)
+
+## 46.7.5 (Mar 24, 2022)
+
+### Patch
+
+- ButtonGroup, Label, Fieldset, Image, Collage: add visual diff testing and screenshot to description in VSCode (Flow extension) (#2017)
+
+## 46.7.4 (Mar 23, 2022)
+
+### Patch
+
+- Switch: Clean up docs (#2016)
+
+## 46.7.3 (Mar 23, 2022)
+
+### Patch
+
+- Docs: implemented OnLinkNavigationProvider in Docs to extend next/router to all Gestalt components used in Docs (#2011)
+
+## 46.7.2 (Mar 23, 2022)
+
+### Patch
+
+- I18nProvider: s/Text/TextField/ (#2014)
+
+## 46.7.1 (Mar 22, 2022)
+
+### Patch
+
+- Bump node-forge from 1.2.1 to 1.3.0 (#2013)
+
+## 46.7.0 (Mar 22, 2022)
+
+### Minor
+
+- Image: add decoding prop (#2005)
+
+## 46.6.0 (Mar 22, 2022)
+
+### Minor
+
+- I18nProvider: create new Context (#2001)
+
+## 46.5.1 (Mar 22, 2022)
+
+### Patch
+
+- Internal: add resolution for `minimist` to address vulnerability (#2010)
+
+## 46.5.0 (Mar 22, 2022)
+
+### Minor
+
+- SelectList: Add option for hidden label (#2004)
+
+## 46.4.3 (Mar 22, 2022)
+
+### Patch
+
+- Internal: upgrade prettier to 2.6.0 (#2002)
+
+## 46.4.2 (Mar 22, 2022)
+
+### Patch
+
+- Docs: Roadmap (#1946)
+
+## 46.4.1 (Mar 21, 2022)
+
+### Patch
+
+- Internal: Fix flaky flow issue on Text (#2007)
+
+## 46.4.0 (Mar 18, 2022)
+
+### Minor
+
+- ExperimentProvider: create new Context (#2000)
+
+## 46.3.0 (Mar 18, 2022)
+
+### Minor
+
+- Datapoint: Add option for Badge (#1999)
+
+## 46.2.1 (Mar 18, 2022)
+
+### Patch
+
+- Docs: Add Elevation dark mode examples to guidelines (#1997)
+
+## 46.2.0 (Mar 17, 2022)
+
+### Minor
+
+- IconButton: add type prop (#1998)
+
+## 46.1.4 (Mar 17, 2022)
+
+### Patch
+
+- InternalTextFieldIconButton: create component from InternalTextField (#1993)
+
+## 46.1.3 (Mar 17, 2022)
+
+### Patch
+
+- PageHeader: add visual diff testing and screenshot to description in VSCode (Flow extension) (#1994)
+
+## 46.1.2 (Mar 17, 2022)
+
+### Patch
+
+- Internal: modified Cypress visual diff testing threshold to catch dark mode changes (#1990)
+
+## 46.1.1 (Mar 16, 2022)
+
+### Patch
+
+- Text: rework color class logic to appease Flow (#1992)
+
+## 46.1.0 (Mar 16, 2022)
+
+### Minor
+
+- Text: Add title prop (#1989)
+
+## 46.0.1 (Mar 16, 2022)
+
+### Patch
+
+- Prevent errors (#1988)
+
+## 46.0.0 (Mar 15, 2022)
+
+### Major
+
+- Dropdown, Module: Change badge prop to allow type (#1982)
+
+## 45.11.3 (Mar 15, 2022)
+
+### Patch
+
+- Tooling: fix in generic codemods to handle nested children components (#1983)
+
+## 45.11.2 (Mar 15, 2022)
+
+### Patch
+
+- ActivationCard: Use Text instead of Heading for UncompletedCard (#1986)
+
+## 45.11.1 (Mar 15, 2022)
+
+### Patch
+
+- Docs: Update navigation and badge colors (#1984)
+
+## 45.11.0 (Mar 11, 2022)
+
+### Minor
+
+- Text: Add new semantic colors (#1973)
+
+## 45.10.7 (Mar 10, 2022)
+
+### Patch
+
+- ActivationCard: Use Text instead of Heading (#1980)
+
+## 45.10.6 (Mar 10, 2022)
+
+### Patch
+
+- Docs: Add Elevation guidelines page (#1979)
+
+## 45.10.5 (Mar 9, 2022)
+
+### Patch
+
+- Development: updated info re updating Cypress visual diff snapshots tests (#1978)
+
+## 45.10.4 (Mar 9, 2022)
+
+### Patch
+
+- Tooling: new `modifyPropValue` & `detectManualReplacement` codemods (#1969)
+
+## 45.10.3 (Mar 9, 2022)
+
+### Patch
+
+- Docs: Sentence casing updates (#1977)
+
+## 45.10.2 (Mar 9, 2022)
+
+### Patch
+
+- Link, Module, NumberField, RadioButton, SearchField, SelectList, Status, Switch , TextArea, TextField: add visual diff testing and screenshot to description in VSCode (Flow extension) (#1972)
+
+## 45.10.1 (Mar 9, 2022)
+
+### Patch
+
+- Datapoint: docs nits (#1976)
+
+## 45.10.0 (Mar 9, 2022)
+
+### Minor
+
+- Badge: Add new 'type' variations and Best practices, A11Y, Related documentation (#1971)
+
+## 45.9.2 (Mar 8, 2022)
+
+### Patch
+
+- Docs: Added design guidelines to Datapoint docs (#1974)
+
+## 45.9.1 (Mar 8, 2022)
+
+### Patch
+
+- Docs: Add About us page (#1975)
+
 ## 45.9.0 (Mar 7, 2022)
 
 ### Minor

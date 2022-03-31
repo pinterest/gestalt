@@ -3,9 +3,13 @@ describe('ActivationCard visual regression check', () => {
     cy.visit('/visual-test/ActivationCard');
   });
 
-  it('Compares screenshots', () => {
+  it('Compares snapshots', () => {
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
       name: 'ActivationCard',
+      imageConfig: {
+        threshold: 0.001,
+        thresholdType: 'percent',
+      },
     });
   });
 });

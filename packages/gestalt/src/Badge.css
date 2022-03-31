@@ -3,11 +3,11 @@
   composes: inlineBlock from "./Layout.css";
   composes: rounding1 from "./Borders.css";
   composes: fontWeightBold from './Typography.css';
-  composes: white from './Colors.css';
+  color: var(--color-text-inverse);
   font-size: 10px;
   height: min-content;
   margin-top: -4px;
-  padding: 2px;
+  padding: 2px 4px;
   white-space: nowrap;
 }
 
@@ -17,4 +17,12 @@
 
 .top {
   vertical-align: super;
+}
+
+.darkWash {
+  color: var(--color-text-light);
+}
+
+.lightWash {
+  color: var(--color-text-dark);
 }

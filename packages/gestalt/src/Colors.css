@@ -50,6 +50,10 @@
 
 /** Design Token Colors **/
 
+.default {
+  background-color: var(--color-background-default);
+}
+
 .infoBase {
   background-color: var(--color-background-info-base);
 }
@@ -114,8 +118,62 @@
   background-color: var(--color-background-education);
 }
 
+.washDark {
+  background-color: var(--color-background-wash-dark);
+}
+
+.washLight {
+  background-color: var(--color-background-wash-light);
+}
+
 .elevationAccent {
   background-color: var(--color-background-elevation-accent);
+}
+
+.elevationFloating {
+  background-color: var(--color-background-elevation-floating);
+}
+
+.elevationRaised {
+  background-color: var(--color-background-elevation-raised);
+}
+
+/* semantic text colors */
+
+.inverseText {
+  color: var(--color-text-inverse);
+}
+
+.errorText {
+  color: var(--color-text-error);
+}
+
+.defaultText {
+  color: var(--color-text-default);
+}
+
+.subtleText {
+  color: var(--color-text-subtle);
+}
+
+.warningText {
+  color: var(--color-text-warning);
+}
+
+.successText {
+  color: var(--color-text-success);
+}
+
+.shoppingText {
+  color: var(--color-text-shopping);
+}
+
+.lightText {
+  color: var(--color-text-light);
+}
+
+.darkText {
+  color: var(--color-text-dark);
 }
 
 /** PRIMARY COLORS **/

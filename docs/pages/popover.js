@@ -133,7 +133,7 @@ function PopoverExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Providing additional information for related context without cluttering the surface of a workflow.
           - Bringing attention to specific user interface elements for educational purposes. In this case, likely used with a [Pulsar](/pulsar).
@@ -143,7 +143,7 @@ function PopoverExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Displaying critical information that prevents users from accomplishing a task.
           - Displaying information out of context.

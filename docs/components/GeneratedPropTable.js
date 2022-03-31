@@ -3,9 +3,7 @@ import { type Node, type ComponentType } from 'react';
 import { type DocGen } from './docgen.js';
 import PropTable from './PropTable.js';
 
-function getTypeOverrideValue(
-  description?: string,
-): {|
+function getTypeOverrideValue(description?: string): {|
   description?: string,
   typeOverride?: string,
 |} {
@@ -20,9 +18,7 @@ function getTypeOverrideValue(
 }
 
 // Provide a default value where the actual one can't be parsed, e.g. Box
-function getDefaultValue(
-  description?: string,
-): {|
+function getDefaultValue(description?: string): {|
   description?: string,
   defaultValue?: string,
 |} {
@@ -37,9 +33,7 @@ function getDefaultValue(
 }
 
 // Support the older-style links in props, where the prop name is a link
-function getHref(
-  description?: string,
-): {|
+function getHref(description?: string): {|
   description?: string,
   href?: string,
 |} {
@@ -91,14 +85,11 @@ export default function GeneratedPropTable({
       const { description: descriptionWithoutLink, href } = getHref(descriptionWithoutDomain);
 
       // Parse out default value override
-      const {
-        description: descriptionWithoutDefault,
-        defaultValue: defaultValueOverride,
-      } = getDefaultValue(descriptionWithoutLink);
+      const { description: descriptionWithoutDefault, defaultValue: defaultValueOverride } =
+        getDefaultValue(descriptionWithoutLink);
 
-      const { description: descriptionWithoutTypeOverride, typeOverride } = getTypeOverrideValue(
-        descriptionWithoutDefault,
-      );
+      const { description: descriptionWithoutTypeOverride, typeOverride } =
+        getTypeOverrideValue(descriptionWithoutDefault);
 
       // Trim leading `|`
       const transformedType = (

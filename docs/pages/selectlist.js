@@ -37,7 +37,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - When presenting users with a list of options that utilizes the native select functionality of the browser or device.
           - When presenting users with a list of options to choose from, like display settings.
@@ -46,7 +46,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When more than 10 options are presented and the ability to filter the list would be beneficial. Use [ComboBox](/comboBox) instead.
           - When extra functionality, like groups, subtext or badges, is needed. Use [Dropdown](/dropdown) instead.
@@ -267,8 +267,47 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         <MainSection.Subsection
           title="Labels"
           description={`
-      SelectList comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.`}
-        />
+      SelectList comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.
+
+      If SelectList is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+<Flex gap={6}>
+  <SelectList
+    id="selectlistexampleA11yVisible"
+    onChange={() => {}}
+    options={[
+      {label: 'Last 5 days', value: '5'},
+      {label: 'Last week', value: '7'},
+      {label: 'Last 30 days', value: '30'},
+      {label: 'Last sixth months', value: '6m'},
+      {label: 'Last year', value: '365'},
+    ]}
+    label='Date range'
+    size='lg'
+  />
+  <Flex gap={2} direction="column">
+    <Text weight="bold" size="300">Date range</Text>
+    <SelectList
+      id="selectlistexampleA11yHiddenLabel"
+      onChange={() => {}}
+      options={[
+        {label: 'Last 5 days', value: '5'},
+        {label: 'Last week', value: '7'},
+        {label: 'Last 30 days', value: '30'},
+        {label: 'Last sixth months', value: '6m'},
+        {label: 'Last year', value: '365'},
+      ]}
+      label='Date range'
+      labelDisplay="hidden"
+      size='lg'
+    />
+  </Flex>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">
@@ -312,6 +351,33 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
     size='md'
     label='Country'
   />`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Label visibility"
+          description={`In some cases, the label for a SelectList is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure SelectList is properly labeled for screen readers while using a different element to represent the label visually.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+            <Flex gap={2} direction="column">
+<Text weight="bold" size="300">Date range</Text>
+<SelectList
+  id="selectlistexampleHiddenLabel"
+  onChange={() => {}}
+  options={[
+    {label: 'Last 5 days', value: '5'},
+    {label: 'Last week', value: '7'},
+    {label: 'Last 30 days', value: '30'},
+    {label: 'Last sixth months', value: '6m'},
+    {label: 'Last year', value: '365'},
+  ]}
+  label='Date range'
+  labelDisplay="hidden"
+  size='lg'
+/>
+</Flex>
+`}
           />
         </MainSection.Subsection>
         <MainSection.Subsection

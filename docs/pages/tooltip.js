@@ -52,7 +52,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Providing helpful, but non-essential context to a UI element.
           - Enhancing a baseline understanding of an element or feature.
@@ -61,7 +61,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
           - Offering context at the surface-level scope. Consider a [Callout](/callout) instead.

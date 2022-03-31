@@ -21,9 +21,11 @@ import Datapoint from './Datapoint.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
+import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
+import I18nProvider from './contexts/I18nProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
@@ -92,10 +94,12 @@ export {
   DeviceTypeProvider,
   Divider,
   Dropdown,
+  ExperimentProvider,
   Fieldset,
   FixedZIndex,
   Flex,
   Heading,
+  I18nProvider,
   Icon,
   IconButton,
   Image,

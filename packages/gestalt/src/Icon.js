@@ -61,8 +61,7 @@ type Props = {|
   size?: number | string,
 |};
 
-// $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-const IconNames = Object.keys(icons);
+const IconNames: $ReadOnlyArray<$Keys<typeof icons>> = Object.keys(icons);
 
 const flipOnRtlIconNames = [
   'ads-stats',
@@ -93,8 +92,8 @@ const flipOnRtlIconNames = [
  *
  * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/iconography_and_svgs) to explore the full icon library.
  *
- * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon%20%230.png)
- * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon-dark%20%230.png)
+ * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon-list%20%230.png)
+ * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon-list-dark%20%230.png)
  *
  */
 export default function Icon({

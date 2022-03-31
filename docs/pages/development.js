@@ -1,10 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Heading, Link, Text } from 'gestalt';
+import { Box, Image, Flex, Heading, Link, Text } from 'gestalt';
 import Card from '../components/Card.js';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
+import MainSection from '../components/MainSection.js';
 
 export default function ContainerPage(): Node {
   return (
@@ -45,7 +46,7 @@ export default function ContainerPage(): Node {
           </ul>
         </Flex>
       </Card>
-      <Card name="Set up your Gestalt Repository">
+      <Card name="Set up your Gestalt repository">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>
             <li>
@@ -124,7 +125,7 @@ git remote -v
           </ul>
         </Flex>
       </Card>
-      <Card name="Set up VS Code">
+      <Card name="Set up Visual Studio Code">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>
             <li>
@@ -160,7 +161,7 @@ git remote -v
           </ul>
         </Flex>
       </Card>
-      <Card name="Run the Gestalt Documentation Server">
+      <Card name="Run the Gestalt documentation server">
         <Flex alignItems="start" direction="column" gap={4}>
           <Text>
             Whenever you make changes to Gestalt, please test them out locally before making a PR.
@@ -176,7 +177,7 @@ git remote -v
           </Text>
         </Flex>
       </Card>
-      <Card name="Create a Pull Request">
+      <Card name="Create a pull request">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>
             <li>
@@ -242,6 +243,66 @@ yarn jest -u
 yarn cypress open
 ~~~"
                   />
+                </li>
+                <li>
+                  <Text>
+                    Run{' '}
+                    <Link href="https://github.com/meinaart/cypress-plugin-snapshots" inline>
+                      <Text weight="bold">Cypress visual diff snapshot tests</Text>
+                    </Link>
+                    . If any component changes are expected to visually modify your component, you
+                    must update the snapshot tests. In order to run the tests, you must start the
+                    documentation server in one terminal and the Cypress testing interface in
+                    another.
+                  </Text>
+                  <Markdown
+                    text="
+~~~bash
+// Terminal tab #1
+yarn start
+~~~"
+                  />
+                  <Markdown
+                    text="
+~~~bash
+// Terminal tab #2
+yarn cypress open
+~~~"
+                  />
+                  <Flex wrap justifyContent="center">
+                    <Box as="figure" width={400}>
+                      <Image
+                        alt=""
+                        color="white"
+                        naturalHeight={262}
+                        naturalWidth={400}
+                        src="https://i.ibb.co/FY1pp4Y/Screen-Shot-2022-03-09-at-4-49-21-PM.png"
+                      />
+                      <Text size="100" align="center">
+                        <Box as="figcaption" marginTop={3}>
+                          Each failing snapshot test will display an error message. Click on
+                          &quot;Compare Snapshot&quot;. It will open a separate interface displaying
+                          the expected and the received snapshots side by side for your comparison.
+                        </Box>
+                      </Text>
+                    </Box>
+                    <Box as="figure" width={400}>
+                      <Image
+                        alt=""
+                        color="white"
+                        naturalHeight={176}
+                        naturalWidth={400}
+                        src="https://i.ibb.co/7NyhPRD/Screen-Shot-2022-03-09-at-4-49-40-PM.png"
+                      />
+                      <Text size="100" align="center">
+                        <Box as="figcaption" marginTop={3}>
+                          On this new interface displaying the expected and the received snapshots,
+                          click on the &quot;Update snapshot&quot; button to reconcile the changes.
+                          Only update if the changes are expected, otherwise revisit the code.
+                        </Box>
+                      </Text>
+                    </Box>
+                  </Flex>
                 </li>
                 <li>
                   <Text>Update CSS flow types.</Text>
@@ -448,6 +509,9 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
           </ul>
         </Flex>
       </Card>
+      <MainSection name="RFCs">
+        <MainSection.Subsection description="Find the RFCs (request for comments) process and repository [here](https://github.com/pinterest/gestalt/tree/master/rfcs)." />
+      </MainSection>
     </Page>
   );
 }

@@ -8,9 +8,9 @@ import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function TextFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="TextField">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="TextField"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 function Example(props) {
@@ -22,7 +22,9 @@ function Example(props) {
         autoComplete="username"
         id="header-example"
         label="Username"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         placeholder="Please enter your username"
         type="text"
         value={value}
@@ -40,7 +42,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Any time succinct data needs to be entered by a user, like a date, email address, name, or Pin title.
         `}
@@ -48,7 +50,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](/textarea) instead.`}
           />
@@ -72,7 +74,9 @@ function Example(props) {
         helperText="Password should be at least 20 characters in length"
         id="best-practices-do-helper-text"
         label="New password"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         type="password"
         value={value}
       />
@@ -95,7 +99,9 @@ function Example(props) {
         autoComplete="new-password"
         id="best-practices-dont-placeholder"
         label=""
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         placeholder="Password should be at least 20 characters in length"
         type="password"
         value={value}
@@ -122,7 +128,9 @@ function Example(props) {
         autoComplete="username"
         id="best-practices-do-label"
         label="Username"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         type="text"
         value={value}
       />
@@ -146,7 +154,9 @@ function Example(props) {
           autoComplete="username"
           id="best-practices-dont-label"
           label=""
-          onChange={({ value }) => setValue(value)}
+          onChange={({ value }) => {
+            setValue(value);
+          }}
           type="username"
           value={value}
         />
@@ -173,14 +183,18 @@ function Example(props) {
       <TextField
         id="best-practices-do-related-city"
         label="City"
-        onChange={({ value }) => setCityValue(value)}
+        onChange={({ value }) => {
+          setCityValue(value);
+        }}
         type="text"
         value={cityValue}
       />
       <TextField
         id="best-practices-do-related-state"
         label="State"
-        onChange={({ value }) => setStateValue(value)}
+        onChange={({ value }) => {
+          setStateValue(value);
+        }}
         type="text"
         value={stateValue}
       />
@@ -204,15 +218,18 @@ function Example(props) {
         autoComplete="new-password"
         id="best-practices-dont-related-password"
         label="Password"
-        onChange={({ value }) => setPasswordValue(value)}
+        onChange={({ value }) => {
+          setPasswordValue(value);
+        }}
         type="password"
         value={passwordValue}
       />
       <TextField
         id="best-practices-dont-related-zip-code"
         label="ZIP Code"
-        onChange={({ value }) => setZipCodeValue(value)}
-        type="number"
+        onChange={({ value }) => {
+          setZipCodeValue(value);
+        }}
         value={zipCodeValue}
       />
     </Flex>
@@ -238,7 +255,9 @@ function Example(props) {
         errorMessage="Password is too short! You need 20+ characters"
         id="best-practices-do-error-message"
         label="Password"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         type="password"
         value={value}
       />
@@ -262,7 +281,9 @@ function Example(props) {
         errorMessage="There is an error"
         id="best-practices-dont-error-message"
         label="Password"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         type="password"
         value={value}
       />
@@ -291,21 +312,27 @@ function Example(props) {
       <TextField
         id="best-practices-do-required-firstName"
         label="First name"
-        onChange={({ value }) => setName((name) => ({ ...name, first: value }))}
+        onChange={({ value }) => {
+          setName((nameFields) => ({ ...nameFields, first: value }));
+        }}
         type="text"
         value={name.first}
       />
       <TextField
         id="best-practices-do-required-middleName"
         label="Middle name (optional)"
-        onChange={({ value }) => setName((name) => ({ ...name, middle: value }))}
+        onChange={({ value }) => {
+          setName((nameFields) => ({ ...nameFields, middle: value }));
+        }}
         type="text"
         value={name.middle}
       />
       <TextField
         id="best-practices-do-required-lastName"
         label="Last name"
-        onChange={({ value }) => setName((name) => ({ ...name, last: value }))}
+        onChange={({ value }) => {
+          setName((nameFields) => ({ ...nameFields, last: value }));
+        }}
         type="text"
         value={name.last}
       />
@@ -332,14 +359,18 @@ function Example(props) {
         helperText="* This field is required."
         id="best-practices-dont-required-firstName"
         label="First name"
-        onChange={({ value }) => setName((name) => ({ ...name, first: value }))}
+        onChange={({ value }) => {
+          setName((nameFields) => ({ ...nameFields, first: value }));
+        }}
         type="text"
         value={name.first}
       />
       <TextField
         id="best-practices-dont-required-middleName"
         label="Middle name"
-        onChange={({ value }) => setName((name) => ({ ...name, middle: value }))}
+        onChange={({ value }) => {
+          setName((nameFields) => ({ ...nameFields, middle: value }));
+        }}
         type="text"
         value={name.middle}
       />
@@ -347,7 +378,9 @@ function Example(props) {
         helperText="* This field is required."
         id="best-practices-dont-required-lastName"
         label="Last name"
-        onChange={({ value }) => setName((name) => ({ ...name, last: value }))}
+        onChange={({ value }) => {
+          setName((nameFields) => ({ ...nameFields, last: value }));
+        }}
         type="text"
         value={name.last}
       />
@@ -380,7 +413,6 @@ function Example(props) {
           description={`
     TextField has conventional keyboard support.
     - Users relying on the keyboard expect to move focus to each TextField by using the tab key or shift+tab when moving backwards
-    - If \`type\` is set to \`"number"\` (or if using [NumberField](/numberfield)), users can press the up and down arrow keys to adjust the field value
     - Setting \`disabled\` will prevent TextField from receiving keyboard focus or input
     `}
         />
@@ -427,7 +459,9 @@ function Example(props) {
       disabled
       id="variants-disabled"
       label="Disabled"
-      onChange={({ value }) => setValue(value)}
+      onChange={({ value }) => {
+        setValue(value);
+      }}
       placeholder="Name"
       value={value}
     />
@@ -455,7 +489,9 @@ function Example(props) {
         helperText="Password should be at least 20 characters long"
         id="variants-helper-text"
         label="Password"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         type="password"
         value={value}
       />
@@ -484,7 +520,9 @@ function Example(props) {
       errorMessage={!value ? "This field can't be blank!" : null}
       id="variants-error-message"
       label="With an error message"
-      onChange={({ value }) => setValue(value)}
+      onChange={({ value }) => {
+        setValue(value);
+      }}
       value={value}
     />
   );
@@ -586,15 +624,21 @@ function TextFieldPopoverExample() {
         id="variants-refs"
         label="Focus the TextField to show the Popover"
         onChange={() => {}}
-        onBlur={() => setOpen(false)}
-        onFocus={() => setOpen(true)}
+        onBlur={() => {
+          setOpen(false);
+        }}
+        onFocus={() => {
+          setOpen(true);
+        }}
         ref={anchorRef}
       />
       {open && (
         <Popover
           anchor={anchorRef.current}
           idealDirection="down"
-          onDismiss={() => setOpen(false)}
+          onDismiss={() => {
+            setOpen(false);
+          }}
           shouldFocus={false}
           size="md"
         >
@@ -618,7 +662,7 @@ function TextFieldPopoverExample() {
       When users need to enter long amounts of text, use TextArea to ensure the full content will be shown.
 
       **[NumberField](/numberfield)**
-      For numerical input, use NumberField. (For telephone numbers, use \`<TextField type="tel" />\`.)
+      For numerical input, use NumberField. Exceptions: for telephone numbers, use \`<TextField type="tel" />\`. And for numerical input with possible leading 0's (e.g. ZIP codes), use \`<TextField type="text" />\`.
 
       **[SearchField](/searchfield)**
       If the input is used for searching content, use SearchField.

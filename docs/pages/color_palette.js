@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import ColorPalette from '../components/ColorPalette.js';
@@ -8,21 +8,42 @@ import ColorTile from '../components/ColorTile.js';
 import Page from '../components/Page.js';
 
 const colors = [
-  { name: 'Pushpin', id: 'red', textColor: 'white' },
-  { name: 'Flaminglow', id: 'pink', textColor: 'darkGray' },
-  { name: 'Skycicle', id: 'blue', textColor: 'darkGray' },
-  { name: 'Spabattical', id: 'teal', textColor: 'darkGray' },
-  { name: 'Matchacado', id: 'green', textColor: 'darkGray' },
-  { name: 'Mysticool', id: 'purple', textColor: 'white' },
-  { name: 'Firetini', id: 'orange', textColor: 'darkGray' },
-  { name: 'Caramellow', id: 'yellow', textColor: 'darkGray' },
+  { name: 'Pushpin', id: 'red', textColor: 'light' },
+  { name: 'Flaminglow', id: 'pink', textColor: 'dark' },
+  { name: 'Skycicle', id: 'blue', textColor: 'dark' },
+  { name: 'Spabattical', id: 'teal', textColor: 'dark' },
+  { name: 'Matchacado', id: 'green', textColor: 'dark' },
+  { name: 'Mysticool', id: 'purple', textColor: 'light' },
+  { name: 'Firetini', id: 'orange', textColor: 'dark' },
+  { name: 'Caramellow', id: 'yellow', textColor: 'dark' },
 ];
 
 const neutrals = [
-  { name: 'Mochimalist', id: 'white', textColor: 'darkGray' },
-  { name: 'Roboflow', id: 'gray', textColor: 'darkGray' },
-  { name: 'Cosmicore', id: 'black', textColor: 'white' },
+  { name: 'Mochimalist', id: 'white', textColor: 'dark' },
+  { name: 'Roboflow', id: 'gray', textColor: 'dark' },
+  { name: 'Cosmicore', id: 'black', textColor: 'light' },
 ];
+
+type ColorCardProps = {|
+  children: Node,
+  colorScheme: 'light' | 'dark',
+|};
+function ColorSchemeCard({ children, colorScheme }: ColorCardProps): Node {
+  return (
+    <Flex gap={4}>
+      <ColorSchemeProvider key={colorScheme} colorScheme={colorScheme} id={colorScheme}>
+        <Box padding={4} color="default">
+          <Flex gap={4} direction="column">
+            <Text weight="bold" size="400" color="default">
+              {colorScheme === 'light' ? 'Light mode' : 'Dark mode'}
+            </Text>
+            {children}
+          </Flex>
+        </Box>
+      </ColorSchemeProvider>
+    </Flex>
+  );
+}
 
 export default function ColorPage(): Node {
   return (
@@ -43,33 +64,71 @@ export default function ColorPage(): Node {
         The baseline palette is comprised of our hero and neutrals colors, allowing the Pinterest content to shine, while ensuring enough color contrast. In addition, the colors used serve specific purposes in order to provide a better user experience. Check out [Color Usage](/color_usage) for more details about their intended usage.
         `}
       >
-        <Flex direction="column">
-          <ColorTile fullTokenName="color-red-pushpin-450" description="Pushpin 450" number={450} />
-          <ColorTile
-            fullTokenName="color-black-cosmicore-900"
-            description="Cosmicore 900"
-            number={900}
-          />
-          <ColorTile
-            fullTokenName="color-blue-skycicle-500"
-            description="Skycicle 500"
-            number={500}
-          />
-          <ColorTile
-            fullTokenName="color-gray-roboflow-500"
-            description="Roboflow 500"
-            number={500}
-          />
-          <ColorTile
-            fullTokenName="color-gray-roboflow-200"
-            description="Roboflow 200"
-            number={200}
-          />
-          <ColorTile
-            fullTokenName="color-white-mochimalist-0"
-            description="Mochimalist 0"
-            number={0}
-          />
+        <Flex gap={4}>
+          <ColorSchemeCard colorScheme="light">
+            <ColorTile
+              fullTokenName="color-red-pushpin-450"
+              description="Pushpin 450"
+              number={450}
+            />
+            <ColorTile
+              fullTokenName="color-black-cosmicore-900"
+              description="Cosmicore 900"
+              number={900}
+            />
+            <ColorTile
+              fullTokenName="color-blue-skycicle-500"
+              description="Skycicle 500"
+              number={500}
+            />
+            <ColorTile
+              fullTokenName="color-gray-roboflow-500"
+              description="Roboflow 500"
+              number={500}
+            />
+            <ColorTile
+              fullTokenName="color-gray-roboflow-200"
+              description="Roboflow 200"
+              number={200}
+            />
+            <ColorTile
+              fullTokenName="color-white-mochimalist-0"
+              description="Mochimalist 0"
+              number={0}
+            />
+          </ColorSchemeCard>
+          <ColorSchemeCard colorScheme="dark">
+            <ColorTile
+              fullTokenName="color-red-pushpin-450"
+              description="Pushpin 450"
+              number={450}
+            />
+            <ColorTile
+              fullTokenName="color-white-mochimalist-0"
+              description="Mochimalist 0"
+              number={0}
+            />
+            <ColorTile
+              fullTokenName="color-blue-skycicle-300"
+              description="Skycicle 300"
+              number={300}
+            />
+            <ColorTile
+              fullTokenName="color-gray-roboflow-300"
+              description="Roboflow 300"
+              number={300}
+            />
+            <ColorTile
+              fullTokenName="color-gray-roboflow-500"
+              description="Roboflow 500"
+              number={500}
+            />
+            <ColorTile
+              fullTokenName="color-black-cosmicore-900"
+              description="Cosmicore 900"
+              number={900}
+            />
+          </ColorSchemeCard>
         </Flex>
       </MainSection>
       <MainSection

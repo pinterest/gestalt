@@ -4,7 +4,7 @@ import IconButton from './IconButton.js';
 
 const Valid = (
   <ModuleTitle
-    badgeText="badge-text"
+    badge={{ text: 'badge-text' }}
     icon="lock"
     iconAccessibilityLabel="test label"
     iconButton={

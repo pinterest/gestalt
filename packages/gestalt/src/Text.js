@@ -4,7 +4,7 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
-import { allowedColors } from './textTypes.js';
+import { allowedColors, semanticColors } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -53,7 +53,16 @@ type Props = {|
     | 'purple'
     | 'red'
     | 'watermelon'
-    | 'white',
+    | 'white'
+    | 'default'
+    | 'subtle'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'shopping'
+    | 'inverse'
+    | 'light'
+    | 'dark',
   /**
    * Link: https://gestalt.pinterest.systems/text#inline
    */
@@ -79,6 +88,10 @@ type Props = {|
    */
   size?: Size,
   /**
+   * This populates the `title` attribute of the element, which is visible on hover in most browsers. This is useful when truncating the text with `lineClamp` when `children` is a `React.Node`. See the [Title variant](https://gestalt.pinterest.systems/text#Title) for more details.
+   */
+  title?: string,
+  /**
    * Link: https://gestalt.pinterest.systems/text#styles
    */
   underline?: boolean,
@@ -103,13 +116,28 @@ export default function Text({
   lineClamp,
   overflow = 'breakWord',
   size = '300',
+  title,
   underline = false,
   weight = 'normal',
 }: Props): Node {
+  let colorClass = null;
+  const colorName = semanticColors.includes(color) ? `${color}Text` : color;
+  if (
+    allowedColors.includes(color) &&
+    colorName !== 'dark' &&
+    colorName !== 'error' &&
+    colorName !== 'light' &&
+    colorName !== 'subtle' &&
+    colorName !== 'success' &&
+    colorName !== 'warning'
+  ) {
+    colorClass = colors[colorName];
+  }
+
   const cs = cx(
     styles.Text,
     typography[`fontSize${SIZE_SCALE[size]}`],
-    color && allowedColors.includes(color) && colors[color],
+    color && colorClass,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
@@ -130,7 +158,9 @@ export default function Text({
   return (
     <Tag
       className={cs}
-      title={isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined}
+      title={
+        title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
+      }
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
     >
       {children}

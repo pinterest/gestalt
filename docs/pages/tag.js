@@ -53,7 +53,7 @@ export default function DocsPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - In conjunction with [TextField](/textfield#tagsExample), [TextArea](/textarea#tagsExample), and [ComboBox](/combobox#Tags), or as a standalone element to display selected options.
         `}
@@ -61,7 +61,7 @@ export default function DocsPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - As a replacement for the [Badge](/badge), as the Badge is a singular element that gives context to a specific subject.
         `}

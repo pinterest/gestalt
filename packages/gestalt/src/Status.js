@@ -59,6 +59,10 @@ type Props = {|
 
 /**
  * [Status](https://gestalt.pinterest.systems/status) is a graphic indicator of an element’s state.
+ *
+ * ![Status light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Status%20%230.png)
+ * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Status-dark%20%230.png)
+ *
  */
 export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
   const { icon, color } = ICON_COLOR_MAP[type];

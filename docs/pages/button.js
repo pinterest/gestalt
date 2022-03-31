@@ -92,8 +92,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           },
           {
             name: 'onClick',
-            type:
-              '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
+            type: '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
             required: false,
             defaultValue: null,
             description: [
@@ -184,7 +183,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Communicating an action that will occur.
           - Triggering or enabling an action, such as submitting requested information.
@@ -194,7 +193,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - Directing users to a new page or different part within the same page. Instead, use [Link](/link).
           - Limited space available. Consider using an [IconButton](/iconbutton) instead.

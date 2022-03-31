@@ -82,6 +82,10 @@ type Props = {|
 
 /**
  * [SearchField](https://gestalt.pinterest.systems/searchfield) allows users to search for free-form content.
+ *
+ * ![SearchFields light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SearchFields%20%230.png)
+ * ![SearchFields dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SearchFields-dark%20%230.png)
+ *
  */
 const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

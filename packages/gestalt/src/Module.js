@@ -7,11 +7,20 @@ import icons from './icons/index.js';
 import ModuleExpandable from './ModuleExpandable.js';
 import ModuleTitle from './ModuleTitle.js';
 
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
 /**
  * [Module](https://gestalt.pinterest.systems/module) is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
+ *
+ * ![Module light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Module%20%230.png)
+ * ![Module dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Module-dark%20%230.png)
+ *
  */
 export default function Module({
-  badgeText,
+  badge,
   children,
   icon,
   iconAccessibilityLabel,
@@ -26,7 +35,7 @@ export default function Module({
    *
    * Link: https://gestalt.pinterest.systems/text#static-badge
    */
-  badgeText?: string,
+  badge?: BadgeType,
   /**
    * Content to display underneath Module title
    *
@@ -34,7 +43,7 @@ export default function Module({
    */
   children?: Node,
   /**
-   * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/iconography_and_svgs#Search-icon-library).
+   * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/iconography_and_svgs#Search-icon-library).
    *
    * Link: https://gestalt.pinterest.systems/module#static-icon
    */
@@ -46,7 +55,7 @@ export default function Module({
    */
   iconAccessibilityLabel?: string,
   /**
-   * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badgeText` or `icon`.
+   * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badge` or `icon`.
    *
    * Link: https://gestalt.pinterest.systems/module#static-iconbutton
    */
@@ -75,7 +84,7 @@ export default function Module({
       <Flex direction="column" gap={6}>
         {title && (
           <ModuleTitle
-            badgeText={badgeText}
+            badge={badge}
             icon={icon}
             iconAccessibilityLabel={iconAccessibilityLabel}
             iconButton={iconButton}

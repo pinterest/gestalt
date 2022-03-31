@@ -6,10 +6,16 @@ import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
+import Badge from './Badge.js';
 
 type TrendObject = {|
   accessibilityLabel: string,
   value: number,
+|};
+
+type BadgeObject = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
 |};
 
 type Props = {|
@@ -25,6 +31,10 @@ type Props = {|
    * Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](https://gestalt.pinterest.systems#Tooltip-text) variant to learn more.
    */
   tooltipText?: string,
+  /**
+   * Adds a badge to the title. Currently a beta feature, expect changes.
+   */
+  badge?: BadgeObject,
   /**
    * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems#Trend) variant to learn more.
    */
@@ -49,6 +59,7 @@ type Props = {|
  *
  */
 export default function Datapoint({
+  badge,
   size = 'md',
   title,
   tooltipText,
@@ -69,6 +80,7 @@ export default function Datapoint({
             </TapArea>
           </Tooltip>
         )}
+        {badge && <Badge text={badge.text} type={badge.type} />}
       </Flex>
       <Flex gap={size === 'lg' ? 4 : 2} alignItems="center">
         <Text size={size === 'lg' ? '500' : '400'} weight="bold">

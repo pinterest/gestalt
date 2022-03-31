@@ -27,7 +27,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - To describe the status of an individual element, such an an item in a list or a row in a table.
         `}
@@ -35,7 +35,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - To describe surface-level errors. Use [Callout](/callout) instead.
           - To describe whether a numeric value is going up or down. Use [Datapoint](/datapoint) instead.

@@ -1,8 +1,8 @@
 // @flow strict
 import { Box, Button, Flex, Heading, Text } from 'gestalt';
 import { type Node } from 'react';
-import HomePageCard from '../components/HomePageCard.js';
-import HomePageSection from '../components/HomePageSection.js';
+import IllustrationCard from '../components/IllustrationCard.js';
+import IllustrationSection from '../components/IllustrationSection.js';
 import Page from '../components/Page.js';
 import Hero from '../graphics/HeroGraphic.js';
 import Design from '../graphics/design.svg';
@@ -18,7 +18,7 @@ export default function HomePage(): Node {
       <Box width="100%">
         <Flex direction="column">
           {/* Hero */}
-          <HomePageSection>
+          <IllustrationSection>
             {/* Cannot be Flex due to display none and minWidth needed on child */}
             <Box display="flex" alignItems="center" justifyContent="between">
               <Flex gap={6} direction="column">
@@ -41,58 +41,58 @@ export default function HomePage(): Node {
                 <Hero />
               </Box>
             </Box>
-          </HomePageSection>
+          </IllustrationSection>
           {/* Getting Started */}
-          <HomePageSection title="Getting started">
-            <HomePageCard
+          <IllustrationSection title="Getting started">
+            <IllustrationCard
               title="Design"
               href="/design"
               isNew
               description="Our brand-new guide for designers to get started using Gestalt"
-              color="blue-skycicle"
+              color="blue-skycicle-450"
               image={<Design />}
             />
-            <HomePageCard
+            <IllustrationCard
               href="/development"
               title="Development"
               description="How to set up for development and create pull requests"
-              color="blue-skycicle"
+              color="blue-skycicle-450"
               image={<Development />}
             />
-            <HomePageCard
+            <IllustrationCard
               href="/how_to_work_with_us"
               title="How to work with us"
               description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
-              color="blue-skycicle"
+              color="blue-skycicle-450"
               image={<HowToWork />}
             />
-          </HomePageSection>
+          </IllustrationSection>
           {/* Guidelines */}
-          <HomePageSection title="Guidelines">
-            <HomePageCard
+          <IllustrationSection title="Guidelines">
+            <IllustrationCard
               href="/accessibility"
               title="Accessibility"
               description="How to create an inclusive product that brings inspiration to everyone"
-              color="teal-spabattical"
+              color="teal-spabattical-450"
               image={<A11Y />}
             />
 
-            <HomePageCard
+            <IllustrationCard
               href="/color_palette"
               title="Color"
               description="A full range of options based on Pinterest’s brand color palette"
-              color="teal-spabattical"
+              color="teal-spabattical-450"
               image={<Color />}
             />
 
-            <HomePageCard
+            <IllustrationCard
               title="Design tokens"
               href="/design_tokens"
               description="Values used to construct layouts and components, such as spacing and color"
-              color="teal-spabattical"
+              color="teal-spabattical-450"
               image={<DesignTokens />}
             />
-          </HomePageSection>
+          </IllustrationSection>
         </Flex>
       </Box>
     </Page>

@@ -47,7 +47,7 @@
     "cypress-plugin-snapshots": "^1.4.4",
     "eslint": "8.8.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-flowtype": "^8.0.3",
@@ -68,7 +68,7 @@
     "postcss": "^8.4.5",
     "postcss-modules": "^4.3.0",
     "postcss-preset-env": "^7.2.0",
-    "prettier": "2.1.2",
+    "prettier": "2.6.0",
     "prop-types": "^15.7.2",
     "react-docgen": "^5.4.0",
     "react-test-renderer": "^17.0.1",
@@ -93,6 +93,7 @@
     "glob-parent": "5.1.2",
     "immer": "8.0.1",
     "lodash": "4.17.21",
+    "minimist": "1.2.6",
     "multicast-dns": "7.2.3",
     "node-fetch": "^2.6.7",
     "node-forge": "^1.0.0",
@@ -135,7 +136,8 @@
         "testPathIgnorePatterns": [
           "/node_modules/",
           "<rootDir>/scripts/templates/",
-          "jsdom.test.js"
+          "jsdom.test.js",
+          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.js"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"

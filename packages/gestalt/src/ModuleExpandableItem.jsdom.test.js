@@ -43,7 +43,7 @@ describe('ModuleExpandableItem', () => {
   it('should render badge correctly', () => {
     const props = {
       ...baseProps,
-      badgeText: 'badge text',
+      badge: { text: 'badge text' },
     };
     render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();

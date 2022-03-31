@@ -104,7 +104,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to Use"
+            title="When to use"
             description={`
           - Allowing users to choose a date or date range by clicking through the calendar popup or typing in the text field.
           - Limiting date options to a specific range of dates.
@@ -113,7 +113,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When Not to Use"
+            title="When not to use"
             description={`
           - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/textfield) with type=”date”.
         `}
