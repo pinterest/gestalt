@@ -264,7 +264,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       />
       {(!!errorMessage || !!helperText) && (
         <Box marginTop={2}>
-          <Text color={errorMessage ? 'red' : 'gray'} size="100">
+          <Text color={errorMessage ? 'error' : 'subtle'} size="100">
             {errorMessage || helperText}
           </Text>
         </Box>

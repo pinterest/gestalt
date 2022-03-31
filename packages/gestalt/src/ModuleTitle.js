@@ -29,7 +29,8 @@ export default function ModuleTitle(props: {|
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);
   const hasError = type === 'error';
   const hasIcon = hasError || decoration === 'icon';
-  const color = hasError ? 'error' : 'default';
+  const textColor = hasError ? 'error' : 'default';
+  const iconColor = hasError ? 'red' : 'darkGray';
 
   return (
     <Flex alignItems="center" gap={2}>
@@ -37,7 +38,7 @@ export default function ModuleTitle(props: {|
         <Flex.Item minWidth={0}>
           <Icon
             accessibilityLabel={iconAccessibilityLabel}
-            color={color}
+            color={iconColor}
             icon={hasError ? 'workflow-status-problem' : props.icon}
           />
         </Flex.Item>
@@ -45,7 +46,7 @@ export default function ModuleTitle(props: {|
 
       {title && (
         <Flex.Item minWidth={0}>
-          <Text color={color} lineClamp={1} weight="bold">
+          <Text color={textColor} lineClamp={1} weight="bold">
             {title}
           </Text>
         </Flex.Item>
