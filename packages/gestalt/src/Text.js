@@ -37,7 +37,6 @@ type Props = {|
    * Link: https://gestalt.pinterest.systems/text#color
    */
   color?:
-    | 'white'
     | 'default'
     | 'subtle'
     | 'success'

@@ -8,7 +8,6 @@ import sidebarIndex from './sidebarIndex.js';
 
 type Props = {|
   textColor?:
-    | 'white'
     | 'default'
     | 'subtle'
     | 'success'
