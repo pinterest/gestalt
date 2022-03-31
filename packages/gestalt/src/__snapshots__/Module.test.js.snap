@@ -140,7 +140,7 @@ exports[`Module renders an error correctly 1`] = `
           <svg
             aria-hidden={null}
             aria-label="there is an error"
-            className="icon error iconBlock"
+            className="icon red iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -314,7 +314,7 @@ exports[`Module renders an icon correctly 1`] = `
           <svg
             aria-hidden={null}
             aria-label="locked"
-            className="icon default iconBlock"
+            className="icon darkGray iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"

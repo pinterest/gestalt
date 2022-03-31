@@ -288,7 +288,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon error iconBlock"
+                      className="icon red iconBlock"
                       height={16}
                       role="img"
                       viewBox="0 0 24 24"
@@ -790,7 +790,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon error iconBlock"
+                      className="icon red iconBlock"
                       height={16}
                       role="img"
                       viewBox="0 0 24 24"
