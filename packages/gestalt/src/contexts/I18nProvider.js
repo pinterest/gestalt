@@ -23,6 +23,13 @@ export const initialContext = {
   },
 };
 
+const defaultTranslations: I18nContextType = {
+  TextField: {
+    accessibilityHidePasswordLabel: 'Hide password',
+    accessibilityShowPasswordLabel: 'Show password',
+  },
+};
+
 const I18nContext: Context<I18nContextType> = createContext<I18nContextType>(initialContext);
 
 /**
@@ -39,7 +46,7 @@ export function useI18nContext<C: ValidComponent>(
   const propsTranslations = useContext(I18nContext);
   const componentTranslations = propsTranslations[componentName];
 
-  // No translation provided for the entire component
+  // No translation provided for the entire component even in initialContext
   if (!componentTranslations) {
     throw new Error(
       `${componentName} translations not available — please add translations to I18nProvider`,
@@ -57,15 +64,28 @@ export function useI18nContext<C: ValidComponent>(
     (item) => !translationPropNames.includes(item),
   );
   const missingAndNullTranslations = [...nullTranslations, ...missingTranslations];
+
   if (missingAndNullTranslations.length > 0) {
     const multipleMissing = missingAndNullTranslations.length > 1;
-    throw new Error(
-      `${componentName} prop${multipleMissing ? 's' : ''} ${missingAndNullTranslations.join(
-        ', ',
-      )} ${
-        multipleMissing ? 'are' : 'is'
-      } missing translations — please add translations to I18nProvider`,
-    );
+    const isNotProd = process.env.NODE_ENV !== 'production';
+
+    if (isNotProd) {
+      // Ideally we would throw an actual error here (at least in dev), but this wasn't working with the mocks in Pinboard
+      // eslint-disable-next-line no-console
+      console.error(
+        `${componentName} prop${multipleMissing ? 's' : ''} ${missingAndNullTranslations.join(
+          ', ',
+        )} ${
+          multipleMissing ? 'are' : 'is'
+        } missing translations — please add translations to I18nProvider`,
+      );
+    }
+    const defaultComponentTranslations = defaultTranslations[componentName];
+    Object.keys(defaultComponentTranslations).forEach((propName) => {
+      if (!componentTranslations[propName]) {
+        componentTranslations[propName] = defaultComponentTranslations[propName];
+      }
+    });
   }
 
   return componentTranslations;
