@@ -7,7 +7,6 @@ export default function Snapshot(): Node {
     <Box width="100vw">
       <PageHeader
         title="Product groups"
-        subtext="S. E. All products USD"
         helperIconButton={{
           accessibilityLabel: 'test',
           accessibilityControls: 'test',
@@ -17,7 +16,6 @@ export default function Snapshot(): Node {
         thumbnail={
           <Image
             alt="square"
-            color="#000"
             fit="cover"
             naturalHeight={1}
             naturalWidth={1}

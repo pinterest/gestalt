@@ -8,61 +8,68 @@ import MainSection from '../components/MainSection.js';
 
 export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="PageHeader">
+    <Page title={generatedDocGen?.displayName}>
       <DocsPageHeader
-        name="PageHeader"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         shadedCodeExample
         defaultCode={`
-      function IntroPageHeaderExample() {
-        return (
-          <Box width="100%">
-            <PageHeader
-              title="Product groups"
-              subtext="S. E. All products USD."
-              badge={{ text: 'Beta', tooltipText: 'This feature is on beta phase' }}
-              helperIconButton={{
-                accessibilityLabel: 'test',
-                accessibilityControls: 'test',
-                accessibilityExpanded: false,
-                onClick: () => {},
-              }}
-              helperLink={{
-                text: "Learn more",
-                accessibilityLabel: "Learn more",
-                href: "#",
-                onClick: () => {},
-              }}
-              items={[
-                <Datapoint size="md" title="Spend" value="$1.23M" trend={{value: 29, accessibilityLabel: "Trending up"}} />,
-              ]}
-              secondaryAction={<Button size="lg" text="View analytics" />}
-              primaryAction={<Button color="red" size="lg" text="Promote" />}
-              thumbnail={
-                <Image
-                  alt="square"
-                  color="#000"
-                  fit="cover"
-                  naturalHeight={1}
-                  naturalWidth={1}
-                  src="https://i.ibb.co/d0pQsJz/stock3.jpg"
-                />
-              }
-              dropdownItems={[
-                <Dropdown.Item
-                  option={{ value: 'Promote', label: 'Promote' }}
-                  onSelect={() => {}}
-                />,
-                <Dropdown.Link
-                  option={{ value: 'View analytics', label: 'View analytics' }}
-                  href="https://pinterest.com"
-                />
-              ]}
-              dropdownAccessibilityLabel="More options"
-            />
-          </Box>
-        );
-      }
+function Example() {
+  return (
+    <Box width="100%">
+      <PageHeader
+        title="Product groups"
+        subtext="S. E. All products USD."
+        badge={{ text: 'Beta', tooltipText: 'This feature is on beta phase' }}
+        helperIconButton={{
+          accessibilityLabel: 'test',
+          accessibilityControls: 'test',
+          accessibilityExpanded: false,
+          onClick: () => {},
+        }}
+        helperLink={{
+          text: 'Learn more',
+          accessibilityLabel: 'Learn more',
+          href: '#',
+          onClick: () => {},
+        }}
+        items={[
+          <Datapoint
+            size="md"
+            title="Spend"
+            value="$1.23M"
+            trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+          />,
+        ]}
+        primaryAction={{
+          component: <Button color="red" size="lg" text="Promote" />,
+          dropdownItems: [
+            <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
+          ],
+        }}
+        secondaryAction={{
+          component: <Button size="lg" text="View analytics" />,
+          dropdownItems: [
+            <Dropdown.Link
+              option={{ value: 'View analytics', label: 'View analytics' }}
+              href="https://pinterest.com"
+            />,
+          ],
+        }}
+        thumbnail={
+          <Image
+            alt="square"
+            fit="cover"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/d0pQsJz/stock3.jpg"
+          />
+        }
+        dropdownAccessibilityLabel="More options"
+      />
+    </Box>
+  );
+}
     `}
       />
 
@@ -79,16 +86,19 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
   <PageHeader
     title="Product groups"
     subtext="S. E. All products USD"
-    primaryAction={<Button color="red" size="lg" text="Create group" />}
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: 'Create group', label: 'Create group' }}
-        onSelect={() => {}}
-      />
-    ]}
+    primaryAction={{
+      component: <Button color="red" size="lg" text="Create group" />,
+      dropdownItems: [
+        <Dropdown.Item
+          option={{ value: 'Create group', label: 'Create group' }}
+          onSelect={() => {}}
+        />,
+      ],
+    }}
     dropdownAccessibilityLabel="More options"
   />
-</Box>`}
+</Box>;
+`}
             shaded
           />
           <MainSection.Card
@@ -101,7 +111,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
 <Box width="100%">
   <PageHeader
     title="Settings"
-    primaryAction={
+    primaryAction={{ component:
       <Tooltip text="Additional options">
         <IconButton
           icon="ellipsis"
@@ -109,17 +119,17 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
           size="lg"
           accessibilityLabel="Additional options"
         />
-      </Tooltip>
-    }
-    dropdownItems={[
+      </Tooltip>, dropdownItems:[
       <Dropdown.Item
         option={{ value: 'Item', label: 'Item' }}
         onSelect={() => {}}
       />,
-    ]}
+    ]
+    }}
     dropdownAccessibilityLabel="Additional options"
   />
-</Box>`}
+</Box>
+`}
             shaded
           />
           <MainSection.Card
@@ -132,60 +142,43 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
 <Flex direction="column" flex="grow">
   <PageHeader
     title="Settings"
-    primaryAction={
-      <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
-      </Tooltip>
-    }
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: 'Item', label: 'Item' }}
-        onSelect={() => {}}
-      />,
-    ]}
+    primaryAction={{
+      component: (
+        <Tooltip text="Additional options" idealDirection="up">
+          <IconButton
+            icon="ellipsis"
+            iconColor="darkGray"
+            size="lg"
+            accessibilityLabel="Additional options"
+          />
+        </Tooltip>
+      ),
+      dropdownItems: [
+        <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
+      ],
+    }}
     dropdownAccessibilityLabel="Additional options"
   />
-  <Box
-    display="flex"
-    wrap
-    width="80%"
-    direction="column"
-    marginStart={5}
-  >
+  <Box display="flex" wrap width="80%" direction="column" marginStart={5}>
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="400" accessibilityLevel={2}>Edit profile</Heading>
+      <Heading size="400" accessibilityLevel={2}>
+        Edit profile
+      </Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <TextField
-        label="Name"
-        id="textfield1"
-        onChange={() => {}}
-        placeholder="Placeholder"
-      />
+      <TextField label="Name" id="textfield1" onChange={() => {}} placeholder="Placeholder" />
     </Box>
-
     <Box flex="grow" paddingX={3} paddingY={3}>
       <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
         <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            label="Phone"
-            id="textfield2"
-            onChange={() => {}}
-            placeholder="Placeholder"
-          />
+          <TextField label="Phone" id="textfield2" onChange={() => {}} placeholder="Placeholder" />
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            label="Email"
-            id="textfield3"
-            onChange={() => {}}
-            placeholder="Placeholder"
-          />
+          <TextField label="Email" id="textfield3" onChange={() => {}} placeholder="Placeholder" />
         </Box>
       </Box>
     </Box>
-
     <Box flex="grow" paddingX={3} paddingY={3}>
       <SelectList
         label="Location"
@@ -222,21 +215,25 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
   <PageHeader
     title="Product groups"
     subtext="S. E. All products USD"
-    primaryAction={<Button color="red" size="lg" text="Create product group" />}
-    secondaryAction={<Button color="red" size="lg" text="Promote" />}
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: 'Create product group', label: 'Create product group' }}
-        onSelect={() => {}}
-      />,
-      <Dropdown.Item
-        option={{ value: 'Promote', label: 'Promote' }}
-        onSelect={() => {}}
-      />,
-    ]}
+    primaryAction={{
+      component: <Button color="red" size="lg" text="Create product group" />,
+      dropdownItems: [
+        <Dropdown.Item
+          option={{ value: 'Create product group', label: 'Create product group' }}
+          onSelect={() => {}}
+        />,
+      ],
+    }}
+    secondaryAction={{
+      component: <Button color="red" size="lg" text="Promote" />,
+      dropdownItems: [
+        <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
+      ],
+    }}
     dropdownAccessibilityLabel="Additional options"
   />
-</Box>`}
+</Box>;
+`}
             shaded
           />
           <MainSection.Card
@@ -250,21 +247,25 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
   <PageHeader
     title="Product groups"
     subtext="Product groups are created in order to relate certain products together for tracking purposes"
-    primaryAction={<Button color="red" size="lg" text="Create product group" />}
-    secondaryAction={<Button text="Promote" size="lg" />}
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: 'Create product group', label: 'Create product group' }}
-        onSelect={() => {}}
-      />,
-      <Dropdown.Item
-        option={{ value: 'Promote', label: 'Promote' }}
-        onSelect={() => {}}
-      />,
-    ]}
+    primaryAction={{
+      component: <Button color="red" size="lg" text="Create product group" />,
+      dropdownItems: [
+        <Dropdown.Item
+          option={{ value: 'Create product group', label: 'Create product group' }}
+          onSelect={() => {}}
+        />,
+      ],
+    }}
+    secondaryAction={{
+      component: <Button text="Promote" size="lg" />,
+      dropdownItems: [
+        <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
+      ],
+    }}
     dropdownAccessibilityLabel="Additional options"
   />
-</Box>`}
+</Box>;
+`}
             shaded
           />
           <MainSection.Card
@@ -278,56 +279,41 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
   <PageHeader
     title="Settings"
     maxWidth="50%"
-    primaryAction={
-      <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
-      </Tooltip>
-    }
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: 'Item', label: 'Item' }}
-        onSelect={() => {}}
-      />,
-    ]}
+    primaryAction={{
+      component: (
+        <Tooltip text="Additional options" idealDirection="up">
+          <IconButton
+            icon="ellipsis"
+            iconColor="darkGray"
+            size="lg"
+            accessibilityLabel="Additional options"
+          />
+        </Tooltip>
+      ),
+      dropdownItems: [
+        <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
+      ],
+    }}
     dropdownAccessibilityLabel="Additional options"
   />
-  <Box
-    display="flex"
-    wrap
-    width="80%"
-    direction="column"
-    marginStart={5}
-  >
+  <Box display="flex" wrap width="80%" direction="column" marginStart={5}>
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="400" accessibilityLevel={2}>Edit profile</Heading>
+      <Heading size="400" accessibilityLevel={2}>
+        Edit profile
+      </Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <TextField
-        label="Name"
-        id="textfield4"
-        onChange={() => {}}
-        placeholder="Placeholder"
-      />
+      <TextField label="Name" id="textfield4" onChange={() => {}} placeholder="Placeholder" />
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
       <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
         <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            label="Phone"
-            id="textfield5"
-            onChange={() => {}}
-            placeholder="Placeholder"
-          />
+          <TextField label="Phone" id="textfield5" onChange={() => {}} placeholder="Placeholder" />
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            label="Email"
-            id="textfield6"
-            onChange={() => {}}
-            placeholder="Placeholder"
-          />
+          <TextField label="Email" id="textfield6" onChange={() => {}} placeholder="Placeholder" />
         </Box>
       </Box>
     </Box>
@@ -372,56 +358,41 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
 <Flex direction="column" flex="grow">
   <PageHeader
     title="Settings"
-    primaryAction={
-      <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
-      </Tooltip>
-    }
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: 'Item', label: 'Item' }}
-        onSelect={() => {}}
-      />
-    ]}
+    primaryAction={{
+      component: (
+        <Tooltip text="Additional options" idealDirection="up">
+          <IconButton
+            icon="ellipsis"
+            iconColor="darkGray"
+            size="lg"
+            accessibilityLabel="Additional options"
+          />
+        </Tooltip>
+      ),
+      dropdownItems: [
+        <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
+      ],
+    }}
     dropdownAccessibilityLabel="Additional options"
   />
-  <Box
-    display="flex"
-    wrap
-    width="80%"
-    direction="column"
-    marginStart={5}
-  >
+  <Box display="flex" wrap width="80%" direction="column" marginStart={5}>
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="400" accessibilityLevel={2}>Edit profile</Heading>
+      <Heading size="400" accessibilityLevel={2}>
+        Edit profile
+      </Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <TextField
-        label="Name"
-        id="textfield7"
-        onChange={() => {}}
-        placeholder="Placeholder"
-      />
+      <TextField label="Name" id="textfield7" onChange={() => {}} placeholder="Placeholder" />
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
       <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
         <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            label="Phone"
-            id="textfield8"
-            onChange={() => {}}
-            placeholder="Placeholder"
-          />
+          <TextField label="Phone" id="textfield8" onChange={() => {}} placeholder="Placeholder" />
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            label="Email"
-            id="textfield9"
-            onChange={() => {}}
-            placeholder="Placeholder"
-          />
+          <TextField label="Email" id="textfield9" onChange={() => {}} placeholder="Placeholder" />
         </Box>
       </Box>
     </Box>
@@ -444,15 +415,18 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
   <PageHeader
     title="Langer Seitentitel, der in einigen Sprachen möglicherweise abgeschnitten wird"
     subtext="2.131 Produkte"
-    primaryAction={<Button color="red" size="lg" text="Schnell erstellen" />}
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: '', label: 'Schnell erstellenSchnell erstellen' }}
-        onSelect={() => {}}
-      />    ]}
+    primaryAction={{
+      component: <Button color="red" size="lg" text="Schnell erstellen" />,
+      dropdownItems: [
+        <Dropdown.Item
+          option={{ value: '', label: 'Schnell erstellenSchnell erstellen' }}
+          onSelect={() => {}}
+        />,
+      ],
+    }}
     dropdownAccessibilityLabel="Zusatzoptionen"
   />
-</Box>
+</Box>;
   `}
         />
       </MainSection>
@@ -465,7 +439,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-function PrimaryActionExample() {
+            function Example() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
   const anchorRef = React.useRef(null);
@@ -484,100 +458,108 @@ function PrimaryActionExample() {
       <PageHeader
         title="Product groups"
         subtext="S. E. All products USD"
-        primaryAction={<Button color="red" size="lg" text="Create group" />}
-        dropdownItems={[
-          <Dropdown.Item
-            option={{ value: 'Create group', label: 'Create group' }}
-            onSelect={() => {}}
-          />
-        ]}
+        primaryAction={{
+          component: <Button color="red" size="lg" text="Create group" />,
+          dropdownItems: [
+            <Dropdown.Item
+              option={{ value: 'Create group', label: 'Create group' }}
+              onSelect={() => {}}
+            />,
+          ],
+        }}
         dropdownAccessibilityLabel="Additional options"
       />
       <Divider />
       <PageHeader
         title="Kitchen Reno Ideas"
-        primaryAction={
-          <React.Fragment>
-            <Tooltip idealDirection="up" text="Board options">
-              <IconButton
-                accessibilityControls="page-header-example"
-                accessibilityHaspopup
-                accessibilityExpanded={open}
-                accessibilityLabel="Board options"
-                icon="ellipsis"
-                iconColor="darkGray"
-                selected={open}
-                onClick={() => setOpen((prevVal) => !prevVal)}
-                ref={anchorRef}
-                size="lg"
-              />
-            </Tooltip>
-            {open && (
-              <Dropdown
-                id="page-header-example"
-                anchor={anchorRef.current}
-                onDismiss={() => {
-                  setOpen(false);
-                }}
-              >
-                <Dropdown.Item
-                  handleSelect={handleSelect}
-                  selected={selected}
-                  option={{
-                    value: 'Edit Board',
-                    label: 'Edit Board',
+        primaryAction={{
+          component: (
+            <React.Fragment>
+              <Tooltip idealDirection="up" text="Board options">
+                <IconButton
+                  accessibilityControls="page-header-example"
+                  accessibilityHaspopup
+                  accessibilityExpanded={open}
+                  accessibilityLabel="Board options"
+                  icon="ellipsis"
+                  iconColor="darkGray"
+                  selected={open}
+                  onClick={() => setOpen((prevVal) => !prevVal)}
+                  ref={anchorRef}
+                  size="lg"
+                />
+              </Tooltip>
+              {open && (
+                <Dropdown
+                  id="page-header-example"
+                  anchor={anchorRef.current}
+                  onDismiss={() => {
+                    setOpen(false);
                   }}
-                />
-                <Dropdown.Item
-                  handleSelect={handleSelect}
-                  selected={selected}
-                  option={{ value: 'Share', label: 'Share' }}
-                />
-                <Dropdown.Item
-                  handleSelect={handleSelect}
-                  selected={selected}
-                  badge={{ text: 'New' }}
-                  option={{
-                    value: 'Merge',
-                    label: 'Merge',
-                  }}
-                />
-              </Dropdown>
-            )}
-          </React.Fragment>
-        }
-        dropdownItems={[
-          <Dropdown.Item
-            option={{ value: 'Edit board', label: 'Edit board' }}
-            onSelect={() => {}}
-          />,
-          <Dropdown.Item
-            option={{ value: 'Share board', label: 'Share board' }}
-            onSelect={() => {}}
-          />,
-          <Dropdown.Item
-            option={{ value: 'Merge board', label: 'Merge board' }}
-            onSelect={() => {}}
-          />
-        ]}
+                >
+                  <Dropdown.Item
+                    handleSelect={handleSelect}
+                    selected={selected}
+                    option={{
+                      value: 'Edit Board',
+                      label: 'Edit Board',
+                    }}
+                  />
+                  <Dropdown.Item
+                    handleSelect={handleSelect}
+                    selected={selected}
+                    option={{ value: 'Share', label: 'Share' }}
+                  />
+                  <Dropdown.Item
+                    handleSelect={handleSelect}
+                    selected={selected}
+                    badge={{ text: 'New' }}
+                    option={{
+                      value: 'Merge',
+                      label: 'Merge',
+                    }}
+                  />
+                </Dropdown>
+              )}
+            </React.Fragment>
+          ),
+          dropdownItems: [
+            <Dropdown.Item
+              option={{ value: 'Edit board', label: 'Edit board' }}
+              onSelect={() => {}}
+            />,
+            <Dropdown.Item
+              option={{ value: 'Share board', label: 'Share board' }}
+              onSelect={() => {}}
+            />,
+            <Dropdown.Item
+              option={{ value: 'Merge board', label: 'Merge board' }}
+              onSelect={() => {}}
+            />,
+          ],
+        }}
         dropdownAccessibilityLabel="Additional options"
-
       />
       <Divider />
       <PageHeader
         title="Product groups"
-        primaryAction={
-          <Text weight="bold">
-            <Link href="www.pinterest.com">Switch to quick ad creation</Link>
-          </Text>
-        }
-        dropdownItems={[
-          <Dropdown.Link
-            key="Visit"
-            href="www.pinterest.com"
-            option={{ value: 'Switch to quick ad creation', label: 'Switch to quick ad creation' }}
-          />,
-        ]}
+        primaryAction={{
+          component: (
+            <Text weight="bold">
+              <Link href="www.pinterest.com">Switch to quick ad creation</Link>
+            </Text>
+          ),
+          dropdownItems: [
+            <Dropdown.Link
+              key="Visit"
+              href="www.pinterest.com"
+              option={{
+                value: 'Switch to quick ad creation',
+                label: 'Switch to quick ad creation',
+              }}
+            />,
+          ],
+        }}
         dropdownAccessibilityLabel="Additional options"
       />
     </Flex>
@@ -594,7 +576,7 @@ function PrimaryActionExample() {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-function SecondaryActionExample() {
+function Example() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
   const anchorRef = React.useRef(null);
@@ -613,95 +595,107 @@ function SecondaryActionExample() {
       <PageHeader
         title="Product groups"
         subtext="S. E. All products USD"
-        primaryAction={<Button color="red" size="lg" text="Create product group" />}
-        secondaryAction={<Button text="Promote" size="lg"/>}
-        dropdownItems={[
-          <Dropdown.Item
-            option={{ value: 'Create product group', label: 'Create product group' }}
-            onSelect={() => {}}
-          />,
-          <Dropdown.Item
-            option={{ value: 'Promote', label: 'Promote' }}
-            onSelect={() => {}}
-          />
-        ]}
+        primaryAction={{
+          component: <Button color="red" size="lg" text="Create product group" />,
+          dropdownItems: [
+            <Dropdown.Item
+              option={{ value: 'Create product group', label: 'Create product group' }}
+              onSelect={() => {}}
+            />,
+          ],
+        }}
+        secondaryAction={{
+          component: <Button text="Promote" size="lg" />,
+          dropdownItems: [
+            <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
+          ],
+        }}
         dropdownAccessibilityLabel="Additional options"
       />
       <Divider />
       <PageHeader
         title="Custom reports"
-        dropdownItems={[
-          <Dropdown.Item
-            option={{ value: 'Create new report', label: 'Create new report' }}
-            onSelect={() => {}}
-          />,
-          <Dropdown.Item
-            option={{ value: 'Share report', label: 'Share report' }}
-            onSelect={() => {}}
-          />,
-          <Dropdown.Link
-            option={{ value: 'Visit help center', label: 'Visit help center' }}
-            isExternal
-            onSelect={() => {}}
-          />
-          ,
-          <Dropdown.Item
-            option={{ value: 'Delete report', label: 'Delete report' }}
-            onSelect={() => {}}
-          />,
-        ]}
         dropdownAccessibilityLabel="Additional options"
-        primaryAction={<Button color="red" size="lg" text="Create new report" />}
-        secondaryAction={
-          <React.Fragment>
-            <Tooltip idealDirection="up" text="Board options">
-              <IconButton
-                accessibilityControls="page-header-example"
-                accessibilityHaspopup
-                accessibilityExpanded={open}
-                accessibilityLabel="Board options"
-                icon="ellipsis"
-                iconColor="darkGray"
-                selected={open}
-                onClick={() => setOpen((prevVal) => !prevVal)}
-                ref={anchorRef}
-                size="lg"
-              />
-            </Tooltip>
-            {open && (
-              <Dropdown
-                id="page-header-example"
-                anchor={anchorRef.current}
-                onDismiss={() => {
-                  setOpen(false);
-                }}
-              >
-                <Dropdown.Item
-                  handleSelect={handleSelect}
-                  selected={selected}
-                  option={{
-                    value: 'Share Report',
-                    label: 'Share Report',
+        primaryAction={{
+          component: <Button color="red" size="lg" text="Create new report" />,
+          dropdownItems: [
+            <Dropdown.Item
+              option={{ value: 'Create new report', label: 'Create new report' }}
+              onSelect={() => {}}
+            />,
+          ],
+        }}
+        secondaryAction={{
+          component: (
+            <React.Fragment>
+              <Tooltip idealDirection="up" text="Board options">
+                <IconButton
+                  accessibilityControls="page-header-example"
+                  accessibilityHaspopup
+                  accessibilityExpanded={open}
+                  accessibilityLabel="Board options"
+                  icon="ellipsis"
+                  iconColor="darkGray"
+                  selected={open}
+                  onClick={() => setOpen((prevVal) => !prevVal)}
+                  ref={anchorRef}
+                  size="lg"
+                />
+              </Tooltip>
+              {open && (
+                <Dropdown
+                  id="page-header-example"
+                  anchor={anchorRef.current}
+                  onDismiss={() => {
+                    setOpen(false);
                   }}
-                />
-                <Dropdown.Item
-                  handleSelect={handleSelect}
-                  selected={selected}
-                  option={{ value: 'Help center', label: 'Help center' }}
-                />
-                <Dropdown.Item
-                  handleSelect={handleSelect}
-                  selected={selected}
-                  badge={{ text: 'New' }}
-                  option={{
-                    value: 'Delete',
-                    label: 'Delete',
-                  }}
-                />
-              </Dropdown>
-            )}
-          </React.Fragment>
-        }
+                >
+                  <Dropdown.Item
+                    handleSelect={handleSelect}
+                    selected={selected}
+                    option={{
+                      value: 'Share Report',
+                      label: 'Share Report',
+                    }}
+                  />
+                  <Dropdown.Item
+                    handleSelect={handleSelect}
+                    selected={selected}
+                    option={{ value: 'Help center', label: 'Help center' }}
+                  />
+                  <Dropdown.Item
+                    handleSelect={handleSelect}
+                    selected={selected}
+                    badge={{ text: 'New' }}
+                    option={{
+                      value: 'Delete',
+                      label: 'Delete',
+                    }}
+                  />
+                </Dropdown>
+              )}
+            </React.Fragment>
+          ),
+          dropdownItems: [
+            <Dropdown.Item
+              option={{ value: 'Create new report', label: 'Create new report' }}
+              onSelect={() => {}}
+            />,
+            <Dropdown.Item
+              option={{ value: 'Share report', label: 'Share report' }}
+              onSelect={() => {}}
+            />,
+            <Dropdown.Link
+              option={{ value: 'Visit help center', label: 'Visit help center' }}
+              isExternal
+              onSelect={() => {}}
+            />,
+            <Dropdown.Item
+              option={{ value: 'Delete report', label: 'Delete report' }}
+              onSelect={() => {}}
+            />,
+          ],
+        }}
       />
     </Flex>
   );
@@ -723,16 +717,18 @@ function SecondaryActionExample() {
   <PageHeader
     title="Create product group"
     subtext="2,131 products"
-    primaryAction={<Button color="red" size="lg" text="Quick create" />}
-    dropdownItems={[
-      <Dropdown.Item
-        option={{ value: 'Quick create', label: 'Quick create' }}
-        onSelect={() => {}}
-      />
-    ]}
+    primaryAction={{
+      component: <Button color="red" size="lg" text="Quick create" />,
+      dropdownItems: [
+        <Dropdown.Item
+          option={{ value: 'Quick create', label: 'Quick create' }}
+          onSelect={() => {}}
+        />,
+      ],
+    }}
     dropdownAccessibilityLabel="Additional options"
   />
-</Box>
+</Box>;
         `}
           />
         </MainSection.Subsection>
@@ -745,21 +741,25 @@ function SecondaryActionExample() {
             cardSize="lg"
             defaultCode={`
 <Box width="100%" color="lightGray" padding={2}>
-  <Box color="white" marginBottom={4} >
+  <Box color="white" marginBottom={4}>
     <PageHeader
       title="All boards"
       maxWidth="65%"
-      primaryAction={
-        <Tooltip text="Additional options" idealDirection="up">
-          <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
-        </Tooltip>
-      }
-      dropdownItems={[
-        <Dropdown.Item
-          option={{ value: 'Item', label: 'Item' }}
-          onSelect={() => {}}
-        />
-      ]}
+      primaryAction={{
+        component: (
+          <Tooltip text="Additional options" idealDirection="up">
+            <IconButton
+              icon="ellipsis"
+              iconColor="darkGray"
+              size="lg"
+              accessibilityLabel="Additional options"
+            />
+          </Tooltip>
+        ),
+        dropdownItems: [
+          <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
+        ],
+      }}
       dropdownAccessibilityLabel="Additional options"
     />
   </Box>
@@ -789,8 +789,10 @@ function SecondaryActionExample() {
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const docGen = await docgen({ componentName: 'PageHeader' });
-  docGen.props.dropdownItems.flowType.raw =
-    '$ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>';
+  docGen.props.primaryAction.flowType.raw =
+    '{| component: React.Element<typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip>>, dropdownItems: $ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>> |}';
+  docGen.props.secondaryAction.flowType.raw =
+    '{| component: React.Element<typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip>>, dropdownItems: $ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>> |}';
   return {
     props: { generatedDocGen: docGen },
   };

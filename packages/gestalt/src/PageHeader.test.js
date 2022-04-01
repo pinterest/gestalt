@@ -27,14 +27,16 @@ describe('PageHeader', () => {
     const tree = create(
       <PageHeader
         title="Settings"
-        primaryAction={<Button size="lg" color="red" text="Create" />}
-        dropdownItems={[
-          <Dropdown.Item
-            key="Create"
-            option={{ value: 'Create', label: 'Create' }}
-            onSelect={() => {}}
-          />,
-        ]}
+        primaryAction={{
+          component: <Button size="lg" color="red" text="Create" />,
+          dropdownItems: [
+            <Dropdown.Item
+              key="Create"
+              option={{ value: 'Create', label: 'Create' }}
+              onSelect={() => {}}
+            />,
+          ],
+        }}
         dropdownAccessibilityLabel="test"
       />,
     ).toJSON();
@@ -45,21 +47,27 @@ describe('PageHeader', () => {
     const tree = create(
       <PageHeader
         title="Settings"
-        primaryAction={<Button size="lg" color="red" text="Create" />}
-        secondaryAction={<Link href="www.pinterest.com">Help center</Link>}
-        dropdownItems={[
-          <Dropdown.Item
-            key="Create"
-            option={{ value: 'Create', label: 'Create' }}
-            onSelect={() => {}}
-          />,
-          <Dropdown.Link
-            key="Analytics"
-            isExternal
-            option={{ value: 'Help center', label: 'Help center' }}
-            href="https://pinterest.com"
-          />,
-        ]}
+        primaryAction={{
+          component: <Button size="lg" color="red" text="Create" />,
+          dropdownItems: [
+            <Dropdown.Item
+              key="Create"
+              option={{ value: 'Create', label: 'Create' }}
+              onSelect={() => {}}
+            />,
+          ],
+        }}
+        secondaryAction={{
+          component: <Link href="www.pinterest.com">Help center</Link>,
+          dropdownItems: [
+            <Dropdown.Link
+              key="Analytics"
+              isExternal
+              option={{ value: 'Help center', label: 'Help center' }}
+              href="https://pinterest.com"
+            />,
+          ],
+        }}
         dropdownAccessibilityLabel="test"
       />,
     ).toJSON();

@@ -40,7 +40,7 @@ exports[`PageHeader renders 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 xsDirectionRow"
+              className="Flex rowGap2 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -71,11 +71,6 @@ exports[`PageHeader renders 1`] = `
                       </div>
                       <div
                         className="box smDisplayBlock xsDisplayNone"
-                        style={
-                          Object {
-                            "marginTop": "-7px",
-                          }
-                        }
                       >
                         <h1
                           className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
@@ -166,7 +161,7 @@ exports[`PageHeader renders primary action 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 xsDirectionRow"
+              className="Flex rowGap2 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -197,11 +192,6 @@ exports[`PageHeader renders primary action 1`] = `
                       </div>
                       <div
                         className="box smDisplayBlock xsDisplayNone"
-                        style={
-                          Object {
-                            "marginTop": "-7px",
-                          }
-                        }
                       >
                         <h1
                           className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
@@ -388,7 +378,7 @@ exports[`PageHeader renders secondary action 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 xsDirectionRow"
+              className="Flex rowGap2 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -419,11 +409,6 @@ exports[`PageHeader renders secondary action 1`] = `
                       </div>
                       <div
                         className="box smDisplayBlock xsDisplayNone"
-                        style={
-                          Object {
-                            "marginTop": "-7px",
-                          }
-                        }
                       >
                         <h1
                           className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
@@ -678,11 +663,6 @@ exports[`PageHeader renders subtext 1`] = `
                       </div>
                       <div
                         className="box smDisplayBlock xsDisplayNone"
-                        style={
-                          Object {
-                            "marginTop": "-7px",
-                          }
-                        }
                       >
                         <h1
                           className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
@@ -818,11 +798,6 @@ exports[`PageHeader renders within a max width 1`] = `
                       </div>
                       <div
                         className="box smDisplayBlock xsDisplayNone"
-                        style={
-                          Object {
-                            "marginTop": "-7px",
-                          }
-                        }
                       >
                         <h1
                           className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
