@@ -36,7 +36,7 @@
     {
       "task": "Side nav menu component",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Web",
       "description": "Creation of a baseline component to support side navigation layout patterns.",
       "link": ""
@@ -220,7 +220,7 @@
     {
       "task": "Visual component overview",
       "deadline": "Quarter 1",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "",
       "description": "Provide a visual component overview within the Gestalt docs to make finding components faster/easier.",
       "link": ""
@@ -236,7 +236,7 @@
     {
       "task": "Elevation visual guidelines",
       "deadline": "Quarter 1",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "",
       "description": "Development of usage guidelines and best practices for usage of elevation within Gestalt.",
       "link": ""
@@ -364,7 +364,7 @@
     {
       "task": "Typographic visual guidelines",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "",
       "description": "Publish guidelines and best practices for typographic treatment within Gestalt.",
       "link": ""
