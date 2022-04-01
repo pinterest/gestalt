@@ -25,21 +25,27 @@ export default function Snapshot(): Node {
               trend={{ value: 29, accessibilityLabel: 'Trending up' }}
             />,
           ]}
-          primaryAction={<Button color="red" size="lg" text="Promote" />}
-          secondaryAction={<Button size="lg" text="View analytics" />}
-          dropdownItems={[
-            <Dropdown.Item
-              key="Promote"
-              option={{ value: 'Promote', label: 'Promote' }}
-              onSelect={() => {}}
-            />,
-            <Dropdown.Link
-              key="Analytics"
-              isExternal
-              option={{ value: 'View analytics', label: 'View analytics' }}
-              href="https://pinterest.com"
-            />,
-          ]}
+          primaryAction={{
+            component: <Button color="red" size="lg" text="Promote" />,
+            dropdownItems: [
+              <Dropdown.Item
+                key="Promote"
+                option={{ value: 'Promote', label: 'Promote' }}
+                onSelect={() => {}}
+              />,
+            ],
+          }}
+          secondaryAction={{
+            component: <Button size="lg" text="View analytics" />,
+            dropdownItems: [
+              <Dropdown.Link
+                key="Analytics"
+                isExternal
+                option={{ value: 'View analytics', label: 'View analytics' }}
+                href="https://pinterest.com"
+              />,
+            ],
+          }}
           dropdownAccessibilityLabel="test"
         />
       </Box>

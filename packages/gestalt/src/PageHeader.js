@@ -14,7 +14,7 @@ import {
   PageHeaderBadge,
   PageHeaderHelperIconButton,
   PageHeaderSubtext,
-  PageHeaderThubnail,
+  PageHeaderThumbnail,
   PageHeaderActionBlock,
   PageHeaderItemsBlock,
 } from './PageHeaderComponents.js';
@@ -33,10 +33,6 @@ type Props = {|
    * Specify a bottom border style for PageHeader: "sm" is 1px.
    */
   borderStyle?: 'sm' | 'none',
-  /**
-   * Primary and secondary actions are replaced with a [Dropdown](https://gestalt.netlify.app/dropdown) under the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)).
-   */
-  dropdownItems?: $ReadOnlyArray<Node>,
   /**
    * Label used for screen readers to provide information about the IconButton replacing actions the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)).
    */
@@ -78,13 +74,13 @@ type Props = {|
    */
   maxWidth?: Dimension,
   /**
-   * The primary action of the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
+   * The primary action of the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown). Primary and secondary actions are replaced with a [Dropdown](https://gestalt.netlify.app/dropdown) under the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). `primaryAction` takes both the main component and its equivalent using Dropdown subcomponents.
    */
-  primaryAction?: ActionType,
+  primaryAction?: {| component: ActionType, dropdownItems: $ReadOnlyArray<Node> |},
   /**
-   * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
+   * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown). `secondaryAction` takes both the main component and its equivalent using Dropdown subcomponents.
    */
-  secondaryAction?: ActionType,
+  secondaryAction?: {| component: ActionType, dropdownItems: $ReadOnlyArray<Node> |},
   /**
    * Used for metadata related to the current page, not designed to describe the title or the current surface. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization).
    */
@@ -110,7 +106,6 @@ type Props = {|
  */
 export default function PageHeader({
   badge,
-  dropdownItems,
   dropdownAccessibilityLabel,
   helperIconButton,
   helperLink,
@@ -133,10 +128,10 @@ export default function PageHeader({
             <Flex.Item minWidth={0} flex="grow" alignSelf="center">
               <Box marginEnd={6}>
                 <Flex gap={2}>
-                  {thumbnail ? <PageHeaderThubnail thumbnail={thumbnail} /> : null}
+                  {thumbnail ? <PageHeaderThumbnail thumbnail={thumbnail} /> : null}
                   <Flex direction="column" gap={1}>
                     <Flex alignItems="center">
-                      <PageHeaderTitle title={title} />
+                      <PageHeaderTitle hasThumbnail={!!thumbnail} title={title} />
                       <Box display="none" smDisplay="block" marginStart={badge ? 1 : 3}>
                         <Flex gap={3}>
                           {badge ? (
@@ -146,7 +141,12 @@ export default function PageHeader({
                             />
                           ) : null}
                           {helperIconButton ? (
-                            <PageHeaderHelperIconButton helperIconButton={helperIconButton} />
+                            <PageHeaderHelperIconButton
+                              accessibilityLabel={helperIconButton.accessibilityLabel}
+                              accessibilityControls={helperIconButton.accessibilityControls}
+                              accessibilityExpanded={helperIconButton.accessibilityExpanded}
+                              onClick={helperIconButton.onClick}
+                            />
                           ) : null}
                         </Flex>
                       </Box>
@@ -165,7 +165,6 @@ export default function PageHeader({
                   <PageHeaderActionBlock
                     primaryAction={primaryAction}
                     secondaryAction={secondaryAction}
-                    dropdownItems={dropdownItems}
                     dropdownAccessibilityLabel={dropdownAccessibilityLabel}
                   />
                 ) : null}
