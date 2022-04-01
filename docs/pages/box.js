@@ -422,9 +422,9 @@ function Example() {
         <MainSection.Subsection
           title="Colors"
           description={`
-          The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case.
+          The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case. For full details on how to use our colors, visit our [Color usage page](/color_usage).
 
-          ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
+          _⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon._
         `}
         >
           <CombinationNew
@@ -446,9 +446,6 @@ function Example() {
               'inverse',
               'brand',
               'education',
-              'elevationAccent',
-              'elevationFloating',
-              'elevationRaised',
               'transparent',
               'transparentDarkGray',
               'lightWash',
@@ -459,6 +456,16 @@ function Example() {
             {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
           </CombinationNew>
         </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Elevation"
+          description="These colors can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode. For full details, visit our [Elevation foundations page](/elevation)."
+        >
+          <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
+            {/* eslint-disable-next-line react/prop-types */}
+            {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
+          </CombinationNew>
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`The \`rounding\` property sets a border radius for the Box. Options are \`circle\` or \`pill\` for fully rounded corners or 0-8 representing the radius in 4px increments.`}
           title="Rounding"
