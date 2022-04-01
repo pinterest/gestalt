@@ -1,3 +1,9 @@
+## 47.1.4 (Apr 1, 2022)
+
+### Patch
+
+- I18nProvider: provide default strings, downgrade throwing errors to console (#2036)
+
 ## 47.1.3 (Mar 31, 2022)
 
 ### Patch
