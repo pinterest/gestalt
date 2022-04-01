@@ -44,7 +44,7 @@ describe('useI18nContext', () => {
     }).toThrow();
   });
 
-  it('throws on missing translations for supported component', () => {
+  it('provides defaults for partial missing translations for supported component', () => {
     function TestComponent() {
       const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
         useI18nContext('TextField');
@@ -52,32 +52,21 @@ describe('useI18nContext', () => {
       return <div>{[accessibilityHidePasswordLabel, accessibilityShowPasswordLabel]}</div>;
     }
 
-    expect(() => {
-      render(<TestComponent />);
-    }).toThrow();
-  });
+    render(
+      <I18nProvider
+        value={{
+          // $FlowExpectedError[prop-missing]
+          TextField: {
+            accessibilityHidePasswordLabel: 'Hide password',
+          },
+        }}
+      >
+        <TestComponent />
+      </I18nProvider>,
+    );
 
-  it('throws on partial missing translations for supported component', () => {
-    function TestComponent() {
-      const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
-        useI18nContext('TextField');
-
-      return <div>{[accessibilityHidePasswordLabel, accessibilityShowPasswordLabel]}</div>;
-    }
-
-    expect(() => {
-      render(
-        <I18nProvider
-          value={{
-            // $FlowExpectedError[prop-missing]
-            TextField: {
-              accessibilityHidePasswordLabel: 'Hide password',
-            },
-          }}
-        >
-          <TestComponent />
-        </I18nProvider>,
-      );
-    }).toThrow();
+    // This is a bit roundabout — we don't really care that these strings are in the document, but that they were returned from the Hook correctly
+    expect(screen.getByText(/Hide password/)).toBeInTheDocument();
+    expect(screen.getByText(/Show password/)).toBeInTheDocument();
   });
 });
