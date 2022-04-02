@@ -1,3 +1,9 @@
+## 47.1.5 (Apr 2, 2022)
+
+### Patch
+
+- Icon: add back to sidebar index (#2038)
+
 ## 47.1.4 (Apr 1, 2022)
 
 ### Patch
