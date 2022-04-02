@@ -51,6 +51,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Column',
       'Container',
       'Flex',
+      'Icon',
       'Layer',
       'Letterbox',
       'Mask',
