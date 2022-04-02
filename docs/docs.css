@@ -104,7 +104,7 @@ html[dir="rtl"] .Markdown ul + pre {
   scroll-margin-top: 75px;
 }
 
-.Markdown h3 {
+.Markdown .mdx-header:not() h3 {
   color: var(--g-colorGray200);
 }
 

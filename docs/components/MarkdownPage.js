@@ -5,17 +5,34 @@ import { Text, Box } from 'gestalt';
 import MainSection from './MainSection';
 import { MDXProvider } from '@mdx-js/react';
 import ReactDOMServer from 'react-dom/server';
+import { MAX_WIDTH } from './MainSectionSubsection.js';
 
-export default function MarkdownPage({ children, meta, pageProps }) {
+export default function MarkdownPage({ children, meta, pageProps, pageSourceUrl }) {
   const components = {
     pre: (props, meta) => {
       return <MainSection.Card defaultCode={props.children.props.children} />;
     },
+
     h2: (props, meta) => {
-      return <MainSection name={props.children} />;
+      return (
+        <Box marginTop={12} marginBottom={4}>
+          <MainSection name={props.children} />
+        </Box>
+      );
     },
     h3: (props, meta) => {
-      return <MainSection.Subsection title={props.children} />;
+      return (
+        <Box
+          ref={(node) => {
+            // eek, hacky. Getting around the .Markdown > h3 coloring css
+            if (node) {
+              node.classList.add('mdx-header');
+            }
+          }}
+        >
+          <MainSection.Subsection title={props.children} />{' '}
+        </Box>
+      );
     },
     Card: (props, meta) => {
       const newProps = Object.assign({}, props);
@@ -51,12 +68,22 @@ export default function MarkdownPage({ children, meta, pageProps }) {
     },
   };
 
+  const maxWidth = meta.component ? 'none' : MAX_WIDTH + 'px';
+
   return (
     <MDXProvider components={components}>
-      <Page title={meta.title} className="Markdown">
-        <PageHeader name={meta.title} badge={meta.badge} description={meta.description} noMargin />
+      <Page title={meta.title} className="Markdown" pageSourceUrl={pageSourceUrl}>
+        <PageHeader
+          name={meta.title}
+          badge={meta.badge}
+          description={meta.description}
+          noMargin
+          showSourceLink={meta.component || false}
+        />
         <Text>
-          <article className="Markdown">{children}</article>
+          <article className="Markdown" style={{ maxWidth }}>
+            {children}
+          </article>
         </Text>
       </Page>
     </MDXProvider>

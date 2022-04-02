@@ -1,26 +1,13 @@
-import MarkdownPage from '../components/MarkdownPage';
-import GeneratedPropTable from '../components/GeneratedPropTable';
-import metadata from '../components/metadata';
-import { Box, Text, Flex, Icon } from 'gestalt';
-import MainSection from '../components/MainSection.js';
+---
+title: Redbox
+description: You can use a redbox when you need a beautiful box that's red. Draws attention from users, and bulls. Look closer and you might find a DVD
+badge: pilot
+component: true
+---
 
-export const meta = {
-  title: 'Redbox',
-  description:
-    "You can use a redbox when you need a beautiful box that's red. Draws attention from users, and bulls. Look closer and you might find a DVD.",
-  badge: 'pilot',
-};
-
-export default ({ children, generatedDocGen }) => (
-  <MarkdownPage meta={meta}>{children}</MarkdownPage>
-);
-
-**Note:** This page is written in [MDX](https://mdxjs.com/). Kind of cool!
+**Note:** You found Redbox. Checkout the source code for this page. It's completely written in [MDX](https://mdxjs.com/).
 
 <br/>
-
-
-
 
 <Code cardSize="lg" showCode={false} removeMarginBottom={false}>
   {`<Box
@@ -33,19 +20,17 @@ export default ({ children, generatedDocGen }) => (
   ></Box>`}
 </Code>
 
-
 ### What goes into Redbox
 
 Redbox is designed on three fundamentals:
 
-1. **Steal Attention**: 
-    If you put a Redbox on a page, users can't look away. Engagement skyrockets. It's the most attractive thing on a page.
-2. **Loads pages *fast***: 
-    Want pages to load faster? Redbox makes your pages load in 25ms seconds or less using our Gestalt Redbox cache CDN. 
+1. **Steal Attention**:
+   If you put a Redbox on a page, users can't look away. Engagement skyrockets. It's the most attractive thing on a page.
+2. **Loads pages _fast_**:
+   Want pages to load faster? Redbox makes your pages load in 25ms seconds or less using our Gestalt Redbox cache CDN.
 3. **Privacy First**
-    As we like to say: 
-    > A Redbox a day keeps the hackers away
-
+   As we like to say:
+   > A Redbox a day keeps the hackers away
 
 <br/>
 
@@ -58,7 +43,6 @@ Redbox is designed on three fundamentals:
       - Grasp attention
   </Group>
 
-
     <Group>
       <Dont title="When not to Use" />
         - If you're background is already red
@@ -66,9 +50,6 @@ Redbox is designed on three fundamentals:
       </Group>
 
 </TwoCol>
-
-
-<GeneratedPropTable generatedDocGen={metadata['Avatar']} />
 
 ## Best practices
 
@@ -108,7 +89,6 @@ Redbox is designed on three fundamentals:
       <Dont />
        Do not use multiple red boxes. Use a `RedboxGroup` for that.
       </Group>
-
 
       <Group>
         <Code cardSize="lg" showCode={false}>
@@ -194,7 +174,6 @@ If Redbox is used as a control Button to show/hide a Popover-based component, we
 - `accessibilityExpanded`: informs the screen reader whether the button-anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
   `
 
-
 ### Usage
 
 Some interactive example to get the best out of redbox
@@ -228,7 +207,6 @@ Some interactive example to get the best out of redbox
     This example uses a tiny redbox
 </Group>
 </TwoCol>
-
 
 ## Resources
 
