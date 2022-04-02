@@ -8,24 +8,8 @@ const path = require('path');
 
 const root /*: string */ = path.join(__dirname, '../');
 
-const requireGFM = require('remark-gfm');
-import remarkFrontmatter from 'remark-frontmatter';
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter-nextjs';
-
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, requireGFM],
-    rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    providerImportSource: '@mdx-js/react',
-  },
-});
-
-module.exports = withMDX({
+module.exports = {
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-
   serverRuntimeConfig: {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
@@ -33,11 +17,17 @@ module.exports = withMDX({
   webpack: (
     config /*: WebpackConfig */,
     { dev } /*: {| dev: boolean |} */,
-  ) /*: WebpackConfig */ => ({
-    ...config,
-    watchOptions: {
-      ...config.watchOptions,
-      poll: dev ? 500 : false,
-    },
-  }),
-});
+  ) /*: WebpackConfig */ => {
+    // These modules resolve by default in the server-side functions.
+    // Explicitly tell webpack to ignore resolving for the client bundle
+    config.resolve.fallback = { fs: false, path: false };
+
+    return {
+      ...config,
+      watchOptions: {
+        ...config.watchOptions,
+        poll: dev ? 500 : false,
+      },
+    };
+  },
+};
