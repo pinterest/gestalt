@@ -75,7 +75,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     ),
   };
 
-  const maxWidth = meta.component ? 'none' : `${MAX_WIDTH} px`;
+  const maxWidth = meta.component ? 'none' : `${MAX_WIDTH}px`;
 
   return (
     <MDXProvider components={components}>
