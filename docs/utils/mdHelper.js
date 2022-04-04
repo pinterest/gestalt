@@ -19,7 +19,6 @@ export function getDocByRoute(route: string) {
 
 export function getAllMarkdownPosts() {
   const docsDirectory = path.join(process.cwd(), 'markdown');
-  // requiring fs here as a dynamic import
 
   const fileContents = fs.readdirSync(docsDirectory);
   const cleanedNames = fileContents.map((name) => name.replace('.md', ''));

@@ -98,14 +98,20 @@ You can also reference our [Communication Guidelines](https://pinch.pinadmin.com
 Our meetings, events, and timelines can be found on the [Gestalt Event Calendar](https://pinch.pinadmin.com/gestaltCalendar). We offer two different meetings for the community to bring questions, comments, ideas, and feedback:
 
 1. **Gestalt Office Hours**
+
    - _Purpose_
      For product designers seeking feedback on their usage of design systems and visual language. This is also a great time to propose new components or component changes.
+
    - _Audience_
      Primarily designers, though engineers are welcome if there are technical concerns as well.
+
    - _Cadence_
      Twice a week on Tuesdays and Thursdays. Please [sign up](https://pinch.pinadmin.com/gestaltSignUp) for a half-hour slot with your discussion topic.
-2. **Component Crit** - _Purpose_
-   For systems designers seeking feedback from the larger design org on systems-related designs. - _Audience_
-   Pinterest designers and Gestalt engineers. The agenda for the Crit can be found in the recurring calendar invite. Please continue to bring component work to Office Hours. - _Cadence_
-   Every other Friday. Please sign up through the link in the calendar invite.
-   `
+
+2. **Component Crit**
+
+   - _Purpose_
+
+     For systems designers seeking feedback from the larger design org on systems-related designs. - _Audience_
+     Pinterest designers and Gestalt engineers. The agenda for the Crit can be found in the recurring calendar invite. Please continue to bring component work to Office Hours. - _Cadence_
+     Every other Friday. Please sign up through the link in the calendar invite.

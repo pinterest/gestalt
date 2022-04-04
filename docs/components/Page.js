@@ -25,7 +25,7 @@ export default function Page({
 
   const editPageUrl =
     pageSourceUrl ||
-    `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}js`;
+    `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
 
   useEffect(() => {
     if (page && document) {
