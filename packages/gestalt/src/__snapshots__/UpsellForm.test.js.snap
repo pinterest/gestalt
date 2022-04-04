@@ -34,6 +34,7 @@ exports[`UpsellForm renders 1`] = `
               onFocus={[Function]}
               onKeyDown={[Function]}
               placeholder="Name"
+              readOnly={false}
               type="text"
             />
           </div>

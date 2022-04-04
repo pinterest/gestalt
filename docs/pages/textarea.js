@@ -1,7 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import Card from '../components/Card.js';
-import Example from '../components/Example.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
@@ -10,8 +8,27 @@ import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="TextArea">
-      <PageHeader name="TextArea" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        defaultCode={`
+      function Example(props) {
+        const [value, setValue] = React.useState('')
+        return (
+          <Box width="100%">
+            <TextArea
+              id="headerExample"
+              onChange={({value}) => setValue(value)}
+              placeholder="Write something about yourself..."
+              label="About me"
+              value={value}
+            />
+          </Box>
+        );
+      }
+          `}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -36,102 +53,147 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        id="basicExample"
-        name="Example"
-        description={`
-    A \`TextArea\` will expand to fill the width of the parent container.
-  `}
-        defaultCode={`
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Default"
+          description={`
+      \`TextArea\` will expand to fill the width of the parent container by default.
+    `}
+        >
+          <MainSection.Card
+            defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <TextArea
-      id="aboutme"
-      onChange={({value}) => setValue(value)}
-      placeholder="Write something about yourself..."
-      label="With a placeholder"
-      value={value}
-    />
-  );
-}
-`}
-      />
-      <Example
-        id="disabledExample"
-        name="Example: Disabled"
-        defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <TextArea
-      disabled
-      id="disabled"
-      onChange={({value}) => setValue(value)}
-      placeholder="Write something about yourself..."
-      label="With a placeholder"
-      value={value}
-    />
-  );
-}
-`}
-      />
-      <Example
-        id="helperText"
-        name="Example: Helper Text"
-        description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
-        defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <Box padding={2} color="white">
+    <Box width="100%">
       <TextArea
-        id="aboutmemore"
+        id="aboutme"
         onChange={({value}) => setValue(value)}
         placeholder="Write something about yourself..."
-        helperText="I love to sail, run and visit remote places"
-        label="With a placeholder"
+        label="About me"
         value={value}
       />
     </Box>
   );
 }
-`}
-      />
-      <Example
-        id="errorMessageExample"
-        name="Example: Error message"
-        description={`
-    A TextArea can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
-        defaultCode={`
+      `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Helper text"
+          description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
+        >
+          <MainSection.Card
+            defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <TextArea
-      id="witherror"
-      onChange={({value}) => setValue(value)}
-      errorMessage={!value ? "This field can't be blank!" : null}
-      placeholder="Write something about yourself..."
-      label="With an error message"
-      value={value}
-    />
+    <Box width="100%">
+      <TextArea
+        id="aboutmemore"
+        onChange={({value}) => setValue(value)}
+        placeholder="Write something about yourself..."
+        helperText="Describe your favorite hobbies, foods, or books."
+        label="About me"
+        value={value}
+      />
+    </Box>
   );
 }
-`}
+      `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Read-only"
+          description={`
+      \`TextArea\` can be in read-only mode in order to present information to the user without allowing them to edit the content. Typically this variation is used to show content or information that the user does not have permission or access to edit.
+    `}
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('To keep shopping inspirational and actionable, we set high standards for our Merchants. Your website was not approved due to fuzzy, low quality images.');
+  return (
+    <Box width="100%">
+      <TextArea
+        id="aboutmereadonly"
+        onChange={({value}) => setValue(value)}
+        label="Current errors"
+        value={value}
+        readOnly
       />
-      <Example
-        id="refExample"
-        name="Example: ref"
-        description={`
-    A \`TextArea\` with an anchor ref to a Popover component
-  `}
-        defaultCode={`
+    </Box>
+  );
+}
+      `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Disabled"
+          description={`
+      \`TextArea\` can be disabled to indicate the user is unable to interact with it, either by mouse or keyboard. Disabled fields do not need to pass contrast requirements, so do not use a \`disabled\` TextArea to present information to the user (use \`readOnly\` instead).
+    `}
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box width="100%">
+      <TextArea
+        disabled
+        id="disabled"
+        onChange={({value}) => setValue(value)}
+        placeholder="Write something about yourself..."
+        label="About me"
+        value={value}
+      />
+    </Box>
+  );
+}
+      `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Error message"
+          description={`
+    A TextArea can display its own error message.
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box width="100%">
+      <TextArea
+        id="witherror"
+        onChange={({value}) => setValue(value)}
+        errorMessage={!value ? "This field can't be blank!" : null}
+        placeholder="Write something about yourself..."
+        label="About me"
+        value={value}
+      />
+    </Box>
+  );
+}
+      `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="With a ref"
+          description={`
+          A \`TextArea\` with an anchor ref to a Popover component
+        `}
+        >
+          <MainSection.Card
+            defaultCode={`
 function TextAreaPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
   return (
-    <Box marginBottom={12}>
+    <Box marginBottom={12} width="100%">
       <TextArea
         ref={anchorRef}
         label="Focus the TextArea to show the Popover"
@@ -157,17 +219,19 @@ function TextAreaPopoverExample() {
   );
 }
 `}
-      />
-      <Example
-        id="tagsExample"
-        name="Example: Tags"
-        description={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="With tags"
+          description={`
     You can include [Tag](/tag) elements in the input using the \`tags\` prop.
 
     Note that the \`TextArea\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
 
     This example showcases the recommended behavior.`}
-        defaultCode={`
+        >
+          <MainSection.Card
+            defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('');
   const [tags, setTags] = React.useState(['San Francisco', 'New York']);
@@ -214,41 +278,45 @@ function Example(props) {
   ));
 
   return (
-    <TextArea
-      id="cities"
-      label="Cities"
-      ref={ref}
-      onChange={onChangeTagManagement}
-      onKeyDown={onKeyDownTagManagement}
-      placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}
-      tags={renderedTags}
-      value={value}
-    />
+    <Box width="100%">
+      <TextArea
+        id="cities"
+        label="Cities"
+        ref={ref}
+        onChange={onChangeTagManagement}
+        onKeyDown={onKeyDownTagManagement}
+        placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}
+        tags={renderedTags}
+        value={value}
+      />
+    </Box>
   );
 }
 `}
-      />
-      <Card
-        description={`
-    \`TextArea\` intentionally lacks support for autofocus. Generally speaking,
-    autofocus interrupts normal page flow for screen readers making it an
-    anti-pattern for accessibility.
-  `}
-        name="Autofocus"
-      />
-      <Card
-        description={`
-    \`TextArea\` is commonly used as an input in forms alongside submit buttons.
-    In these cases, users expect that pressing Enter or Return with the input
-    focused will submit the form.
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Autofocus"
+          description={`
+        \`TextArea\` intentionally lacks support for autofocus. Generally speaking,
+        autofocus interrupts normal page flow for screen readers making it an
+        anti-pattern for accessibility.
+      `}
+        />
+        <MainSection.Subsection
+          title="Form submission"
+          description={`
+        \`TextArea\` is commonly used as an input in forms alongside submit buttons.
+        In these cases, users expect that pressing Enter or Return with the input
+        focused will submit the form.
 
-    Out of the box, \`TextArea\` doesn't expose an \`onSubmit\` handler or
-    individual key event handlers due to the complexities of handling these
-    properly. Instead, developers are encouraged to wrap the \`TextArea\`
-    in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
-  `}
-        name="onSubmit"
-      />
+        Out of the box, \`TextArea\` doesn't expose an \`onSubmit\` handler or
+        individual key event handlers due to the complexities of handling these
+        properly. Instead, developers are encouraged to wrap the \`TextArea\`
+        in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
+      `}
+        />
+      </MainSection>
     </Page>
   );
 }

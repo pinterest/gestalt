@@ -204,11 +204,11 @@ declare module "prettier" {
     languages: Array<SupportLanguage>,
     options: Array<SupportOption>
   |};
-                                                             
+
   declare export type FileInfo = {|
     ignored: boolean,
     inferredParser: PrettierParserName | null,
-  |};                                                          
+  |};
 
   declare export type Prettier = {|
     format: (source: string, options?: Options) => string,

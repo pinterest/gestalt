@@ -152,6 +152,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                         onFocus={[Function]}
                         onKeyDown={[Function]}
                         placeholder="Name"
+                        readOnly={false}
                         type="text"
                       />
                     </div>

@@ -14,7 +14,7 @@ type Props = {|
    */
   autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
   /**
-   * Indicate if the input is disabled.
+   * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/textfield#Disabled) for more details.
    */
   disabled?: boolean,
   /**
@@ -74,6 +74,10 @@ type Props = {|
    */
   placeholder?: string,
   /**
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textfield#Read-only) for more details.
+   */
+  readOnly?: boolean,
+  /**
    * Ref that is forwarded to the underlying input element.
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
@@ -120,6 +124,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     onFocus,
     onKeyDown,
     placeholder,
+    readOnly = false,
     size = 'md',
     tags,
     type: typeProp = 'text',
@@ -184,6 +189,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       onKeyDown={onKeyDown}
       placeholder={placeholder}
       size={size}
+      readOnly={readOnly}
       ref={ref}
       tags={tags}
       type={type}

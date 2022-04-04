@@ -446,32 +446,6 @@ function Example(props) {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Disabled"
-          description="Disabled TextFields cannot be interacted with using the mouse or keyboard."
-        >
-          <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <TextField
-      disabled
-      id="variants-disabled"
-      label="Disabled"
-      onChange={({ value }) => {
-        setValue(value);
-      }}
-      placeholder="Name"
-      value={value}
-    />
-  );
-}
-`}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
           title="Helper text"
           description={`
           Whenever you want to provide more information about a form field, you should use \`helperText\`.
@@ -502,6 +476,57 @@ function Example(props) {
           />
         </MainSection.Subsection>
 
+        <MainSection.Subsection
+          title="Read-only"
+          description="Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit."
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('****maz@pinterest.com');
+
+  return (
+    <TextField
+      id="variants-readonly"
+      label="Email address"
+      onChange={({ value }) => {
+        setValue(value);
+      }}
+      placeholder="Name"
+      value={value}
+      readOnly
+    />
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Disabled"
+          description="`disabled` TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use `readOnly` instead)."
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <TextField
+      disabled
+      id="variants-disabled"
+      label="New password"
+      onChange={({ value }) => {
+        setValue(value);
+      }}
+      placeholder="6-18 characters"
+      value={value}
+    />
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
           title="Error message"
           description={`

@@ -16,6 +16,7 @@ exports[`TextField TextField normal 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -40,6 +41,30 @@ exports[`TextField TextField with autocomplete 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with disabled 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base disabled normal medium truncate"
+      disabled={true}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -62,6 +87,7 @@ exports[`TextField TextField with error 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -98,6 +124,7 @@ exports[`TextField TextField with hasError 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -121,6 +148,30 @@ exports[`TextField TextField with name 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with readOnly 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={true}
       type="text"
     />
   </div>
@@ -339,6 +390,7 @@ exports[`TextField TextField with tags 1`] = `
           onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
+          readOnly={false}
           type="text"
         />
       </div>
