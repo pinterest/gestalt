@@ -1,12 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Heading } from 'gestalt';
+import { Box, Flex, Heading, Tooltip, Badge } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
 
 type Props = {|
   children?: Node,
+  badge?: {| text: string, tooltipText: string |},
   description?: string,
   headingSize?: '400' | '500',
   id?: string,
@@ -34,6 +35,7 @@ export const copyToClipboard = (hash: string): boolean => {
 
 export default function Card({
   children,
+  badge,
   description,
   headingSize = '500',
   id,
@@ -59,6 +61,11 @@ export default function Card({
         >
           <Flex alignItems="center" gap={2}>
             <Heading size={headingSize}>{name}</Heading>
+            {badge ? (
+              <Tooltip inline text={badge.tooltipText}>
+                <Badge text={badge.text} position="middle" />
+              </Tooltip>
+            ) : null}
             <CopyLinkButton
               name={name}
               onClick={() => {

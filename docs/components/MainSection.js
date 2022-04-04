@@ -5,15 +5,16 @@ import Card from './Card.js';
 import MainSectionSubsection from './MainSectionSubsection.js';
 
 type Props = {|
+  badge?: {| text: string, tooltipText: string |},
   children?: Node,
   description?: string,
   name: string,
   showHeading?: boolean,
 |};
 
-function MainSection({ children, description, name, showHeading = true }: Props): Node {
+function MainSection({ badge, children, description, name, showHeading = true }: Props): Node {
   return (
-    <Card name={name} showHeading={showHeading} description={description}>
+    <Card badge={badge} name={name} showHeading={showHeading} description={description}>
       {children}
     </Card>
   );

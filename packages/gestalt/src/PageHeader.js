@@ -8,7 +8,6 @@ import Text from './Text.js';
 import Tooltip from './Tooltip.js';
 import Flex from './Flex.js';
 import Image from './Image.js';
-import { type Dimension } from './boxTypes.js';
 import {
   PageHeaderTitle,
   PageHeaderBadge,
@@ -26,19 +25,19 @@ export type ActionType = Element<
 
 type Props = {|
   /**
-   * Add a badge displayed after the title. Be sure to localize the text.
+   * Add [Badge](https://gestalt.pinterest.systems/badge) displayed after the title. Be sure to localize the text. See the [title variant](https://gestalt.pinterest.systems/pageheader#Title) to learn more.
    */
   badge?: {| text: string, tooltipText?: string |},
   /**
-   * Specify a bottom border style for PageHeader: "sm" is 1px.
+   * Specify a bottom border style for PageHeader: "sm" is 1px. See the [max width & border variant](https://gestalt.pinterest.systems/pageheader##Max-width-and-border) to learn more.
    */
   borderStyle?: 'sm' | 'none',
   /**
-   * Label used for screen readers to provide information about the IconButton replacing actions the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)).
+   * Label used for screen readers to provide information about the action [IconButton](https://gestalt.pinterest.systems/iconbutton) displayed under the [sm breakpoint](https://gestalt.pinterest.systems/screen_sizes#Web-(px)). See the [primary action variant](https://gestalt.pinterest.systems/pageheader#Primary-action) or [secondary action variant](https://gestalt.pinterest.systems/pageheader#Secondary-action) to learn more.
    */
   dropdownAccessibilityLabel?: string,
   /**
-   * Helper IconButton to be placed after the title for a supplemental Call To Action (CTA).
+   * Helper [IconButton](https://gestalt.pinterest.systems/iconbutton) to be placed after the title for a supplemental Call To Action (CTA). See the [title variant](https://gestalt.pinterest.systems/pageheader#Title) to learn more.
    */
   helperIconButton?: {|
     accessibilityLabel: string,
@@ -54,7 +53,7 @@ type Props = {|
     |}) => void,
   |},
   /**
-   * Helper Link to be placed after the subtext.
+   * Helper [Link](https://gestalt.pinterest.systems/link) to be placed after the subtext. See the [subtext variant](https://gestalt.pinterest.systems/pageheader#Subtext) to learn more.
    */
   helperLink?: {|
     text: string,
@@ -66,37 +65,41 @@ type Props = {|
     |}) => void,
   |},
   /**
-   * Optional row of components.
+   * Optional row of components. We mostly recommend using [Datapoint](https://gestalt.pinterest.systems/datapoint). See the [complementary items variant](https://gestalt.pinterest.systems/pageheader#Complementary-items) to learn more.
    */
   items?: $ReadOnlyArray<Node>,
   /**
-   * Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`. See the [max width](https://gestalt.pinterest.systems/pageheader#Max-width) variant for more info.
+   * Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`. See the [max width & border variant](https://gestalt.pinterest.systems/pageheader##Max-width-and-border) for more info.
    */
-  maxWidth?: Dimension,
+  maxWidth?: number | string,
   /**
-   * The primary action of the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown). Primary and secondary actions are replaced with a [Dropdown](https://gestalt.netlify.app/dropdown) under the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). `primaryAction` takes both the main component and its equivalent using Dropdown subcomponents.
+   * The primary action of the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of [IconButton](https://gestalt.pinterest.systems/iconbutton), Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
+   *
+   * Primary and secondary actions are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). `primaryAction` takes both the main component and its equivalent using Dropdown subcomponents. See the [primary action variant](https://gestalt.pinterest.systems/pageheader#Primary-action) to learn more.
    */
   primaryAction?: {| component: ActionType, dropdownItems: $ReadOnlyArray<Node> |},
   /**
-   * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown). `secondaryAction` takes both the main component and its equivalent using Dropdown subcomponents.
+   * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
+   *
+   * Primary and secondary actions are are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). `secondaryAction` takes both the main component and its equivalent using Dropdown subcomponents. See the [secondary action variant](https://gestalt.pinterest.systems/pageheader#Secondary-action) to learn more.
    */
   secondaryAction?: {| component: ActionType, dropdownItems: $ReadOnlyArray<Node> |},
   /**
-   * Used for metadata related to the current page, not designed to describe the title or the current surface. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization).
+   * Used primarily for metadata related to the current page, not designed to describe the title or the current surface. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization). See the [subtext variant](https://gestalt.pinterest.systems/pageheader#Subtext) to learn more.
    */
   subtext?: string,
   /**
-   * Page title. Will always be a level 1 heading. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization).
+   * Page title. Will always be a level 1 heading. Content should be [localized](https://gestalt.pinterest.systems/pageheader#Localization). See the [title variant](https://gestalt.pinterest.systems/pageheader#Title) to learn more.
    */
   title: string,
   /**
-   * An optional thumbnail image to be displayed next to the title.
+   * An optional thumbnail [Image](https://gestalt.pinterest.systems/image) to be displayed next to the title. See the [title variant](https://gestalt.pinterest.systems/pageheader#Title) to learn more.
    */
   thumbnail?: Element<typeof Image>,
 |};
 
 /**
- * [PageHeader](https://gestalt.pinterest.systems/pageheader) is used to indicate the title of the current page, as well as optional actions.
+ * [PageHeader](https://gestalt.pinterest.systems/pageheader) is used to indicate the title of the current screen and can also provide additional content and actions that relate to the current screen as a whole.
  *
  * ![PageHeader light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-items-secondaryAction-md%20%230.png)
  * ![PageHeader light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/PageHeader-thumbnail-badge-iconButton-sm%20%230.png)
@@ -105,6 +108,7 @@ type Props = {|
  */
 export default function PageHeader({
   badge,
+  borderStyle = 'none',
   dropdownAccessibilityLabel,
   helperIconButton,
   helperLink,
@@ -115,7 +119,6 @@ export default function PageHeader({
   subtext,
   title,
   thumbnail,
-  borderStyle = 'none',
 }: Props): Node {
   const { text: badgeText, tooltipText: badgeTooltipText } = badge || {};
 
@@ -161,7 +164,7 @@ export default function PageHeader({
               </Box>
             </Flex.Item>
             <Flex.Item minWidth={0} flex="none">
-              <Flex gap={4} alignItems={subtext ? undefined : 'center'} height="100%">
+              <Flex gap={8} alignItems="center" height="100%">
                 {items && items.length !== 0 ? <PageHeaderItemsBlock items={items} /> : null}
                 {primaryAction || secondaryAction ? (
                   <PageHeaderActionBlock
