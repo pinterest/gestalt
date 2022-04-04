@@ -9,6 +9,8 @@
 ### Patch
 
 - TextField: fix stale type value when passed dynamically (#2039)
+- TextArea, TextField: Add support for readOnly fields (#2031)
+- Borders: Update border color for multiple components (#2023)
 
 ## 47.1.5 (Apr 2, 2022)
 
