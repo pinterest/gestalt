@@ -1,4 +1,5 @@
-import * as path from 'path';
+// @flow strict
+import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
@@ -16,7 +17,7 @@ export function getDocByRoute(route: string) {
   }
 }
 
-export function getAllMarkdownPosts(route: string) {
+export function getAllMarkdownPosts() {
   const docsDirectory = path.join(process.cwd(), 'markdown');
   // requiring fs here as a dynamic import
 

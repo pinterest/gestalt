@@ -1,10 +1,22 @@
-import ReactDOMServer from 'react-dom/server';
-import { getDocByRoute, markdownToHtml, getAllMarkdownPosts } from '../utils/mdHelper';
-import { serialize } from 'next-mdx-remote/serialize';
+// @flow strict
 import { MDXRemote } from 'next-mdx-remote';
-import MarkdownPage from '../components/MarkdownPage';
+import { serialize } from 'next-mdx-remote/serialize';
 
-export default function DocumentPage({ content, meta, pageSourceUrl }) {
+import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
+import MarkdownPage from '../components/MarkdownPage.js';
+
+type Props = {|
+  content: MDXRemoteSerializeResult<Record<string, unknown>>,
+  meta: {|
+    title: string,
+    badge: 'pilot' | 'deprecated',
+    component?: boolean,
+    description: string,
+  |},
+  pageSourceUrl: string,
+|};
+
+export default function DocumentPage({ content, meta, pageSourceUrl }: Props): Node {
   return (
     <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
       <MDXRemote {...content} />
@@ -19,14 +31,14 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      meta: meta,
+      meta,
       content: mdxSource,
       pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/pages/markdown/${id}.md`,
     },
   };
 }
 
-export async function getStaticPaths({ params }) {
+export async function getStaticPaths() {
   // get the paths that exist
   const paths = getAllMarkdownPosts();
   return {
