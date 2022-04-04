@@ -107,7 +107,7 @@ exports[`PageHeader renders 1`] = `
           }
         >
           <div
-            className="Flex rowGap4 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -228,7 +228,7 @@ exports[`PageHeader renders primary action 1`] = `
           }
         >
           <div
-            className="Flex rowGap4 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -445,7 +445,7 @@ exports[`PageHeader renders secondary action 1`] = `
           }
         >
           <div
-            className="Flex rowGap4 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -713,7 +713,7 @@ exports[`PageHeader renders subtext 1`] = `
           }
         >
           <div
-            className="Flex rowGap4 xsDirectionRow"
+            className="Flex rowGap8 xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -848,7 +848,7 @@ exports[`PageHeader renders within a max width 1`] = `
           }
         >
           <div
-            className="Flex rowGap4 xsDirectionRow"
+            className="Flex rowGap8 xsDirectionRow"
             style={
               Object {
                 "height": "100%",

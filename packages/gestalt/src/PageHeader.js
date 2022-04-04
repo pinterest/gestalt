@@ -161,7 +161,7 @@ export default function PageHeader({
               </Box>
             </Flex.Item>
             <Flex.Item minWidth={0} flex="none">
-              <Flex gap={4} alignItems={subtext ? undefined : 'center'} height="100%">
+              <Flex gap={8} alignItems={subtext ? undefined : 'center'} height="100%">
                 {items && items.length !== 0 ? <PageHeaderItemsBlock items={items} /> : null}
                 {primaryAction || secondaryAction ? (
                   <PageHeaderActionBlock

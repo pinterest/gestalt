@@ -195,9 +195,10 @@ export function PageHeaderActionBlock({
 export function PageHeaderItemsBlock({ items }: {| items: $ReadOnlyArray<Node> |}): Node {
   return (
     <Box display="none" lgDisplay="block" overflow="hidden">
-      <Flex gap={2}>
-        {items[0] ? items[0] : null}
-        {items?.[1] ? items[1] : null}
+      <Flex gap={6}>
+        {items.slice(0, 2).map((item, i) => (
+          <Flex.Item key={i}>{item}</Flex.Item>
+        ))}
       </Flex>
     </Box>
   );
