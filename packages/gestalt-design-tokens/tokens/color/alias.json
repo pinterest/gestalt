@@ -243,12 +243,17 @@
       "container": {
         "value": "{color.gray.roboflow.300.value}",
         "darkValue": "{color.gray.roboflow.600.value}",
-        "comment": "Used to delineate a larger container, like a card"
+        "comment": "Used to delineate a larger container, like a card or TextArea"
       },
       "default": {
         "value": "{color.gray.roboflow.500.value}",
         "darkValue": "{color.gray.roboflow.300.value}",
-        "comment": "Used to indicate specific UI element boundaries, like a TextField or SelectList"
+        "comment": "Used to indicate specific UI element boundaries, like a Checkbox or RadioButton"
+      },
+      "error": {
+        "value": "{color.red.pushpin.500.value}",
+        "darkValue": "{color.red.pushpin.300.value}",
+        "comment": "Used to indicate an error on a contained element, like TextField or TextArea"
       }
     }
   }

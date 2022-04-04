@@ -23,7 +23,7 @@
 }
 
 .borderColorRed {
-  border-color: var(--g-colorRed100);
+  border-color: var(--color-border-error);
 }
 
 .borderColorLightGrayHovered {
