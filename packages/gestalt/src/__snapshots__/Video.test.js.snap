@@ -66,6 +66,7 @@ exports[`Video with callbacks 1`] = `
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
+  --color-border-error: #cc0000;
   --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
   --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -171,6 +172,7 @@ exports[`Video with children 1`] = `
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
+  --color-border-error: #cc0000;
   --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
   --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -493,6 +495,7 @@ exports[`Video with crossOrigin 1`] = `
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
+  --color-border-error: #cc0000;
   --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
   --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -599,6 +602,7 @@ exports[`Video with media attributes 1`] = `
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
+  --color-border-error: #cc0000;
   --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
   --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -705,6 +709,7 @@ exports[`Video with multiple sources 1`] = `
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
+  --color-border-error: #cc0000;
   --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
   --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -817,6 +822,7 @@ exports[`Video with objectFit 1`] = `
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
+  --color-border-error: #cc0000;
   --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
   --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -927,6 +933,7 @@ exports[`Video with source 1`] = `
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
+  --color-border-error: #cc0000;
   --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
   --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
