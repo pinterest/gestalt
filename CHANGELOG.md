@@ -1,3 +1,9 @@
+## 47.1.6 (Apr 4, 2022)
+
+### Patch
+
+- TextField: fix stale type value when passed dynamically (#2039)
+
 ## 47.1.5 (Apr 2, 2022)
 
 ### Patch
