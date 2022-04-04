@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Element, type Node, useState } from 'react';
+import { forwardRef, type Element, type Node, useEffect, useState } from 'react';
 import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
@@ -131,6 +131,10 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
    * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
    */
   const [type, setType] = useState<Type>(typeProp);
+
+  useEffect(() => {
+    setType(typeProp);
+  }, [typeProp]);
 
   const isPasswordField = typeProp === 'password';
   const isCurrentlyPasswordType = type === 'password';
