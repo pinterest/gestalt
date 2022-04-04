@@ -1,17 +1,20 @@
 {
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "baseUrl": "http://localhost:3000",
-  "projectId": "x99ctf",
-  "viewportHeight": 1080,
-  "viewportWidth": 1920,
-  "defaultCommandTimeout": 10000,
-  "retries": {
-    "runMode": 2,
-    "openMode": 0
-  },
   "cypress-plugin-snapshots": {
-    "serverPort": 3000,
-    "autoCleanUp": true
+    "autoCleanUp": true,
+    "screenshotConfig": {
+      "timeout": 50000
+    },
+    "serverPort": 3000
   },
-  "ignoreTestFiles": ["**/__image_snapshots__/*"]
+  "defaultCommandTimeout": 10000,
+  "ignoreTestFiles": ["**/__image_snapshots__/*"],
+  "projectId": "x99ctf",
+  "retries": {
+    "openMode": 0,
+    "runMode": 2
+  },
+  "viewportHeight": 1080,
+  "viewportWidth": 1920
 }
