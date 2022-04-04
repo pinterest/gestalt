@@ -1,3 +1,9 @@
+## 47.1.7 (Apr 4, 2022)
+
+### Patch
+
+- Internal: increase Cypress timeout threshold (#2041)
+
 ## 47.1.6 (Apr 4, 2022)
 
 ### Patch
