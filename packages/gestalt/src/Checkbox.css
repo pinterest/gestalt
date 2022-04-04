@@ -1,5 +1,9 @@
 .border {
-  composes: borderColorLightGray from "./Borders.css";
+  composes: borderColorDarkGray from "./Borders.css";
+}
+
+.borderSelected {
+  composes: borderColorSelected from "./Borders.css";
 }
 
 .borderDarkGray {

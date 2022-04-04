@@ -141,7 +141,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   if (disabled) {
     borderStyle = styles.borderDisabled;
   } else if (!disabled && (checked || indeterminate)) {
-    borderStyle = styles.borderDarkGray;
+    borderStyle = styles.borderSelected;
   } else if (hasError || errorMessage) {
     borderStyle = styles.borderError;
   } else if (!disabled && hovered) {

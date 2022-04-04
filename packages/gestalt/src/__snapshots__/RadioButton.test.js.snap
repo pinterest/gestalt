@@ -59,7 +59,7 @@ exports[`RadioButton checked 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgEnabled BorderDarkGray BorderCheckedMd sizeMd RadioButton"
+        className="BgEnabled BorderSelected BorderCheckedMd sizeMd RadioButton"
       >
         <input
           checked={true}

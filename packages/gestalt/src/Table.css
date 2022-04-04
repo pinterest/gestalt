@@ -35,19 +35,19 @@
 }
 
 .horizontalScrollRight .columnStickyShadow {
-  box-shadow: 8px 0 8px -8px var(--g-colorGray150);
+  box-shadow: 8px 0 8px -8px var(--color-border-container);
 }
 
 .horizontalScrollLeft .columnStickyShadow {
-  box-shadow: -8px 0 8px -8px var(--g-colorGray150);
+  box-shadow: -8px 0 8px -8px var(--color-border-container);
 }
 
 .thead tr:last-child th {
-  border-bottom: 1px solid var(--g-colorGray150);
+  border-bottom: 1px solid var(--color-border-container);
 }
 
 .tbody tr:not(:last-child) td {
-  border-bottom: 1px solid var(--g-colorGray150);
+  border-bottom: 1px solid var(--color-border-container);
 }
 
 .hoverShadeGray:hover {

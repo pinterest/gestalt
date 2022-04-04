@@ -78,7 +78,7 @@ exports[`Checkbox checked 1`] = `
           type="checkbox"
         />
         <div
-          className="darkGrayBg borderDarkGray borderRadiusMd sizeMd check"
+          className="darkGrayBg borderSelected borderRadiusMd sizeMd check"
         >
           <svg
             aria-hidden={true}
@@ -256,7 +256,7 @@ exports[`Checkbox indeterminate 1`] = `
           type="checkbox"
         />
         <div
-          className="darkGrayBg borderDarkGray borderRadiusMd sizeMd check"
+          className="darkGrayBg borderSelected borderRadiusMd sizeMd check"
         >
           <svg
             aria-hidden={true}

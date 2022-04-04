@@ -98,7 +98,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   if (disabled && checked) {
     borderStyle = styles.BorderDisabledChecked;
   } else if (!disabled && checked) {
-    borderStyle = styles.BorderDarkGray;
+    borderStyle = styles.BorderSelected;
   } else if (!disabled && hovered) {
     borderStyle = styles.BorderHovered;
   }
