@@ -404,19 +404,19 @@ function Example() {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width. Specifying "shadow" adds an even box-shadow around the entire container, while \`raisedTopShadow\` and \`raisedBottomShadow\` add shadows to indicate an elevated header or footer. See the [elevation foundations page](/elevation) for more details.`}
+          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size (\`sm\` or \`lg\`) enables a solid, light gray color in that width. Specifying \`shadow\` adds an even box-shadow around the entire container, while \`raisedTopShadow\` and \`raisedBottomShadow\` add shadows to indicate an elevated header or footer. See the [elevation foundations page](/elevation) for more details.`}
           title="Borders"
         >
           <CombinationNew
             borderStyle={['sm', 'lg', 'shadow', 'raisedTopShadow', 'raisedBottomShadow']}
           >
-            {(props) => (
+            {({ borderStyle }) => (
               <Box
                 width={60}
                 height={60}
                 rounding="circle"
                 color="white"
-                borderStyle={props.borderStyle} // eslint-disable-line react/prop-types
+                borderStyle={borderStyle}
               />
             )}
           </CombinationNew>
