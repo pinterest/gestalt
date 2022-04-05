@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import React, { type Node } from 'react';
 import { Box } from 'gestalt';
 import Page from '../components/Page.js';
 import CombinationNew from '../components/CombinationNew.js';
@@ -461,8 +461,7 @@ function Example() {
           description="These colors can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode. For full details, visit our [Elevation foundations page](/elevation)."
         >
           <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
-            {/* eslint-disable-next-line react/prop-types */}
-            {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
+            {({ color }) => <Box width={60} height={60} rounding="circle" color={color} />}
           </CombinationNew>
         </MainSection.Subsection>
 
