@@ -500,7 +500,6 @@ function Example() {
         {(props, i) => (
           <TapArea id={`example-${i}`} {...props}>
             <Box borderStyle="lg" padding={3} color="white">
-              {/* eslint-disable-next-line react/prop-types */}
               <Text>{props.mouseCursor}</Text>
             </Box>
           </TapArea>
@@ -517,7 +516,6 @@ function Example() {
             <Box
               color="white"
               borderStyle="lg"
-              // eslint-disable-next-line react/prop-types
               width={props.rounding === 'pill' ? 120 : 70}
               height={70}
               display="flex"
@@ -525,7 +523,6 @@ function Example() {
               justifyContent="center"
               {...props}
             >
-              {/* eslint-disable-next-line react/prop-types */}
               <Text>{props.rounding}</Text>
             </Box>
           </TapArea>

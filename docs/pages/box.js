@@ -414,7 +414,7 @@ function Example() {
                 height={60}
                 rounding="circle"
                 color="white"
-                borderStyle={props.borderStyle} // eslint-disable-line react/prop-types
+                borderStyle={props.borderStyle}
               />
             )}
           </CombinationNew>
@@ -455,7 +455,6 @@ function Example() {
               'darkWash',
             ]}
           >
-            {/* eslint-disable-next-line react/prop-types */}
             {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
           </CombinationNew>
         </MainSection.Subsection>
@@ -467,9 +466,9 @@ function Example() {
             {(props) => (
               <Box
                 color="gray"
-                width={props.rounding === 'pill' ? 120 : 70} // eslint-disable-line react/prop-types
+                width={props.rounding === 'pill' ? 120 : 70}
                 height={70}
-                rounding={props.rounding} // eslint-disable-line react/prop-types
+                rounding={props.rounding}
               />
             )}
           </CombinationNew>
@@ -477,7 +476,6 @@ function Example() {
 
         <MainSection.Subsection description="" title="Opacity">
           <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
-            {/* eslint-disable-next-line react/prop-types */}
             {(props) => <Box color="darkGray" width={60} height={60} opacity={props.opacity} />}
           </CombinationNew>
         </MainSection.Subsection>
@@ -489,7 +487,6 @@ function Example() {
           title="Column layout"
         >
           <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
-            {/* eslint-disable-next-line react/prop-types */}
             {(props) => <Box height={100} color="midnight" column={props.column} />}
           </CombinationNew>
         </MainSection.Subsection>

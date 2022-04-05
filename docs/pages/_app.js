@@ -24,7 +24,7 @@ function Providers({ children }: {| children: Node |}): Node {
 // This default export is required in a new `pages/_app.js` file.
 function GestaltApp(
   // $FlowFixMe[signature-verification-failure]
-  { Component, pageProps, cookieHeader }, // eslint-disable-line react/prop-types
+  { Component, pageProps, cookieHeader },
 ): Node {
   const router = useRouter();
 

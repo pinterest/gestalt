@@ -36,13 +36,9 @@ export default function Sticky(props: Props): Node {
   const zIndex = props.zIndex || DEFAULT_ZINDEX;
   const style = {
     ...(height !== undefined ? { height } : {}),
-    // eslint-disable-next-line react/prop-types
     top: props.top != null ? props.top : undefined,
-    // eslint-disable-next-line react/prop-types
     left: props.left != null ? props.left : undefined,
-    // eslint-disable-next-line react/prop-types
     right: props.right != null ? props.right : undefined,
-    // eslint-disable-next-line react/prop-types
     bottom: props.bottom != null ? props.bottom : undefined,
     zIndex: zIndex.index(),
   };
