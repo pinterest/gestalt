@@ -73,6 +73,7 @@ describe('ColorSchemeProvider', () => {
         --color-background-elevation-raised: rgba(0, 0, 0, 0);
         --color-border-container: #cdcdcd;
         --color-border-default: #767676;
+        --color-border-error: #cc0000;
         --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
         --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
         --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -139,6 +140,7 @@ describe('ColorSchemeProvider', () => {
         --color-background-elevation-raised: rgba(0, 0, 0, 0);
         --color-border-container: #cdcdcd;
         --color-border-default: #767676;
+        --color-border-error: #cc0000;
         --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
         --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
         --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
@@ -205,6 +207,7 @@ describe('ColorSchemeProvider', () => {
         --color-background-elevation-raised: #4a4a4a;
         --color-border-container: #4a4a4a;
         --color-border-default: #cdcdcd;
+        --color-border-error: #f47171;
         --elevation-floating: none;
         --elevation-raised-top: 0 0.5px 0 #f9f9f9;
         --elevation-raised-bottom: 0 -0.5px 0 #f9f9f9;
@@ -272,6 +275,7 @@ describe('ColorSchemeProvider', () => {
         --color-background-elevation-raised: #4a4a4a;
         --color-border-container: #4a4a4a;
         --color-border-default: #cdcdcd;
+        --color-border-error: #f47171;
         --elevation-floating: none;
         --elevation-raised-top: 0 0.5px 0 #f9f9f9;
         --elevation-raised-bottom: 0 -0.5px 0 #f9f9f9;
@@ -338,6 +342,7 @@ describe('ColorSchemeProvider', () => {
         --color-background-elevation-raised: rgba(0, 0, 0, 0);
         --color-border-container: #cdcdcd;
         --color-border-default: #767676;
+        --color-border-error: #cc0000;
         --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
         --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
         --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
