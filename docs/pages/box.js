@@ -404,10 +404,12 @@ function Example() {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width, while specifying "shadow" adds a box-shadow instead.`}
+          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width. Specifying "shadow" adds an even box-shadow around the entire container, while \`raisedTopShadow\` and \`raisedBottomShadow\` add shadows to indicate an elevated header or footer. See the [elevation foundations page](/elevation) for more details.`}
           title="Borders"
         >
-          <CombinationNew borderStyle={['sm', 'lg', 'shadow']}>
+          <CombinationNew
+            borderStyle={['sm', 'lg', 'shadow', 'raisedTopShadow', 'raisedBottomShadow']}
+          >
             {(props) => (
               <Box
                 width={60}

@@ -125,7 +125,7 @@ type Props = {
    * Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the [borders](https://gestalt.pinterest.systems/box#Borders) variant for more details.
    * Default: 'none'
    */
-  borderStyle?: 'sm' | 'lg' | 'shadow' | 'none',
+  borderStyle?: 'sm' | 'lg' | 'shadow' | 'raisedTopShadow' | 'raisedBottomShadow' | 'none',
   /**
    * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.pinterest.systems/box#Absolute-positioning) variant for more info.
    * Default: false

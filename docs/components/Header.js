@@ -18,6 +18,7 @@ function Header() {
       paddingX={4}
       mdPaddingX={6}
       color="lightGray"
+      borderStyle="raisedTopShadow"
       display="flex"
       direction="row"
       alignItems="center"

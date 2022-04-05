@@ -95,6 +95,11 @@ test('Box has correct classes when borderStyle is shadow', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Box has correct classes when borderStyle is raisedTopShadow', () => {
+  const tree = create(<Box borderStyle="raisedTopShadow" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Box has correct zIndex', () => {
   const zIndexStub = {
     index() {
