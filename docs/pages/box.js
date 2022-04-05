@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import Page from '../components/Page.js';
 import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';
@@ -460,11 +460,48 @@ function Example() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Elevation"
-          description="These colors can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode. For full details, visit our [Elevation foundations page](/elevation)."
+          description="Colors and shadows can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode, while `shadow` is only applicable in light mode. For full details, visit our [Elevation foundations page](/elevation)."
         >
-          <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
-            {({ color }) => <Box width={60} height={60} rounding="circle" color={color} />}
-          </CombinationNew>
+          <Flex direction="column" gap={2}>
+            <Text size="400">Color</Text>
+            <Box>
+              <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
+                {({ color }) => (
+                  <Flex gap={4} direction="row">
+                    <ColorSchemeProvider colorScheme="light" id="light">
+                      <Box color="default" padding={8}>
+                        <Box width={60} height={60} rounding="circle" color={color} />
+                      </Box>
+                    </ColorSchemeProvider>
+                    <ColorSchemeProvider colorScheme="dark" id="dark">
+                      <Box color="default" padding={8}>
+                        <Box width={60} height={60} rounding="circle" color={color} />
+                      </Box>
+                    </ColorSchemeProvider>
+                  </Flex>
+                )}
+              </CombinationNew>
+            </Box>
+            <Text size="400">Borders and Shadows</Text>
+            <Box>
+              <CombinationNew borderStyle={['shadow', 'raisedTopShadow', 'raisedBottomShadow']}>
+                {({ borderStyle }) => (
+                  <Flex gap={4} direction="row">
+                    <ColorSchemeProvider colorScheme="light" id="light">
+                      <Box color="default" padding={8}>
+                        <Box width={60} height={60} rounding="circle" borderStyle={borderStyle} />
+                      </Box>
+                    </ColorSchemeProvider>
+                    <ColorSchemeProvider colorScheme="dark" id="dark">
+                      <Box color="default" padding={8}>
+                        <Box width={60} height={60} rounding="circle" borderStyle={borderStyle} />
+                      </Box>
+                    </ColorSchemeProvider>
+                  </Flex>
+                )}
+              </CombinationNew>
+            </Box>
+          </Flex>
         </MainSection.Subsection>
 
         <MainSection.Subsection
