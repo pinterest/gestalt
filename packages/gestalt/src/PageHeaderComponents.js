@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, useRef, Fragment, type Element, type Node } from 'react';
+import { cloneElement, useState, useRef, Fragment, type Element, type Node } from 'react';
 import Box from './Box.js';
 import Heading from './Heading.js';
 import Badge from './Badge.js';
@@ -141,12 +141,23 @@ export function PageHeaderActionBlock({
   secondaryAction,
   dropdownAccessibilityLabel = '',
 }: {|
-  primaryAction?: {| component: ActionType, dropdownItems: $ReadOnlyArray<Node> |},
-  secondaryAction?: {| component: ActionType, dropdownItems: $ReadOnlyArray<Node> |},
+  primaryAction?: {|
+    component: ActionType,
+    dropdownItems: $ReadOnlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>,
+  |},
+  secondaryAction?: {|
+    component: ActionType,
+    dropdownItems: $ReadOnlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>,
+  |},
   dropdownAccessibilityLabel?: string,
 |}): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
+
+  const consolidatedDropdownItems = [
+    ...(primaryAction?.dropdownItems ?? []),
+    ...(secondaryAction?.dropdownItems ?? []),
+  ];
 
   return (
     <Fragment>
@@ -184,7 +195,9 @@ export function PageHeaderActionBlock({
             id="pageheader-dropdown"
             onDismiss={() => setOpen(false)}
           >
-            {[...(primaryAction?.dropdownItems ?? []), ...(secondaryAction?.dropdownItems ?? [])]}
+            {consolidatedDropdownItems.map((element, idx) =>
+              cloneElement(element, { key: `pageheader-dropdown-item-${idx}` }),
+            )}
           </Dropdown>
         )}
       </Box>

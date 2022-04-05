@@ -97,7 +97,7 @@ function Example() {
     }}
     dropdownAccessibilityLabel="More options"
   />
-</Box>;
+</Box>
 `}
             shaded
           />
@@ -232,7 +232,7 @@ function Example() {
     }}
     dropdownAccessibilityLabel="Additional options"
   />
-</Box>;
+</Box>
 `}
             shaded
           />
@@ -264,7 +264,7 @@ function Example() {
     }}
     dropdownAccessibilityLabel="Additional options"
   />
-</Box>;
+</Box>
 `}
             shaded
           />
@@ -341,7 +341,7 @@ function Example() {
       />
     </Box>
   </Box>
-</Flex>;
+</Flex>
         `}
             shaded
           />
@@ -397,7 +397,7 @@ function Example() {
       </Box>
     </Box>
   </Box>
-</Flex>;
+</Flex>
         `}
           shaded
         />
@@ -426,7 +426,7 @@ function Example() {
     }}
     dropdownAccessibilityLabel="Zusatzoptionen"
   />
-</Box>;
+</Box>
   `}
         />
       </MainSection>
@@ -563,7 +563,7 @@ function Example() {
         dropdownAccessibilityLabel="Additional options"
       />
     </Flex>
-  );
+  )
 }
       `}
             shaded
@@ -698,7 +698,7 @@ function Example() {
         }}
       />
     </Flex>
-  );
+  )
 }
         `}
             shaded
@@ -728,7 +728,7 @@ function Example() {
     }}
     dropdownAccessibilityLabel="Additional options"
   />
-</Box>;
+</Box>
         `}
           />
         </MainSection.Subsection>
@@ -769,7 +769,7 @@ function Example() {
     <Text>@kreethiM</Text>
     <Text weight="bold">4 followers · 0 following </Text>
   </Flex>
-</Box>;
+</Box>
       `}
           />
         </MainSection.Subsection>

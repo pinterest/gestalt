@@ -12,7 +12,7 @@ export default function Snapshot(): Node {
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Item
-              key="Promote"
+              key="secondaryAction_primaryAction"
               option={{ value: 'Promote', label: 'Promote' }}
               onSelect={() => {}}
             />,
@@ -22,7 +22,7 @@ export default function Snapshot(): Node {
           component: <Button size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Link
-              key="Analytics"
+              key="secondaryAction_secondaryAction"
               isExternal
               option={{ value: 'View analytics', label: 'View analytics' }}
               href="https://pinterest.com"

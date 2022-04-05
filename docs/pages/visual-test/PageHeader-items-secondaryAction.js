@@ -10,14 +10,14 @@ export default function Snapshot(): Node {
         subtext="S. E. All products USD"
         items={[
           <Datapoint
-            key="Spend"
+            key="items-secondaryAction-datapoint-spend"
             size="md"
             title="Spend"
             value="$1.23M"
             trend={{ value: 29, accessibilityLabel: 'Trending up' }}
           />,
           <Datapoint
-            key="Spend2"
+            key="items-secondaryAction-datapoint-spend2"
             size="md"
             title="Spend"
             value="$1.23M"
@@ -28,7 +28,7 @@ export default function Snapshot(): Node {
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Item
-              key="Promote"
+              key="items-secondaryAction-primaryAction"
               option={{ value: 'Promote', label: 'Promote' }}
               onSelect={() => {}}
             />,
@@ -38,8 +38,8 @@ export default function Snapshot(): Node {
           component: <Button size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Link
-              key="Analytics"
               isExternal
+              key="items-secondaryAction-secondaryAction"
               option={{ value: 'View analytics', label: 'View analytics' }}
               href="https://pinterest.com"
             />,

@@ -15,7 +15,7 @@ export default function Snapshot(): Node {
           ),
           dropdownItems: [
             <Dropdown.Link
-              key="Visit"
+              key="primaryActionLink"
               href="www.pinterest.com"
               option={{
                 value: 'Switch to quick ad creation',

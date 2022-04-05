@@ -11,7 +11,7 @@ export default function Snapshot(): Node {
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Item
-              key="Create"
+              key="primaryAction"
               option={{ value: 'Create group', label: 'Create group' }}
               onSelect={() => {}}
             />,

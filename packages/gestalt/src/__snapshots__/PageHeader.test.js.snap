@@ -2,7 +2,7 @@
 
 exports[`PageHeader renders 1`] = `
 <div
-  className={null}
+  className="pageHeader"
 >
   <div
     className="box paddingX8 paddingY4 whiteBg"
@@ -40,7 +40,7 @@ exports[`PageHeader renders 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -123,7 +123,7 @@ exports[`PageHeader renders 1`] = `
 
 exports[`PageHeader renders primary action 1`] = `
 <div
-  className={null}
+  className="pageHeader"
 >
   <div
     className="box paddingX8 paddingY4 whiteBg"
@@ -161,7 +161,7 @@ exports[`PageHeader renders primary action 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -273,7 +273,7 @@ exports[`PageHeader renders primary action 1`] = `
                           className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
-                            className="Text fontSize300 white alignCenter fontWeightBold"
+                            className="Text fontSize300 inverseText alignCenter fontWeightBold"
                           >
                             Create
                           </div>
@@ -310,7 +310,13 @@ exports[`PageHeader renders primary action 1`] = `
                     className="button tapTransition enabled"
                   >
                     <div
-                      className="Text fontSize300 inverseText alignCenter fontWeightBold"
+                      className="pog transparent"
+                      style={
+                        Object {
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
                     >
                       <svg
                         aria-hidden={true}
@@ -340,7 +346,7 @@ exports[`PageHeader renders primary action 1`] = `
 
 exports[`PageHeader renders secondary action 1`] = `
 <div
-  className={null}
+  className="pageHeader"
 >
   <div
     className="box paddingX8 paddingY4 whiteBg"
@@ -378,7 +384,7 @@ exports[`PageHeader renders secondary action 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -594,7 +600,7 @@ exports[`PageHeader renders secondary action 1`] = `
 
 exports[`PageHeader renders subtext 1`] = `
 <div
-  className={null}
+  className="pageHeader"
 >
   <div
     className="box paddingX8 paddingY4 whiteBg"
@@ -632,7 +638,7 @@ exports[`PageHeader renders subtext 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 xsDirectionRow"
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -695,7 +701,7 @@ exports[`PageHeader renders subtext 1`] = `
                         className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                       >
                         5 followers
-
+                         
                       </span>
                     </div>
                   </div>
@@ -713,7 +719,7 @@ exports[`PageHeader renders subtext 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 xsDirectionRow"
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -729,7 +735,7 @@ exports[`PageHeader renders subtext 1`] = `
 
 exports[`PageHeader renders within a max width 1`] = `
 <div
-  className={null}
+  className="pageHeader"
 >
   <div
     className="box paddingX8 paddingY4 whiteBg"
@@ -767,7 +773,7 @@ exports[`PageHeader renders within a max width 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap2 xsDirectionRow"
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -830,7 +836,7 @@ exports[`PageHeader renders within a max width 1`] = `
                         className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                       >
                         5 followers
-
+                         
                       </span>
                     </div>
                   </div>
@@ -848,7 +854,7 @@ exports[`PageHeader renders within a max width 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 xsDirectionRow"
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
