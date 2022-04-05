@@ -44,6 +44,24 @@ const ignoredProps = [
   'lgPaddingY',
 ];
 
+type ColorCardProps = {|
+  children: Node,
+|};
+function ColorSchemeLayout({ children }: ColorCardProps): Node {
+  return (
+    <Flex gap={4}>
+      {['light', 'dark'].map((scheme) => (
+        <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
+          <Box color="default" padding={4} display="flex" direction="column" alignItems="center">
+            {children}
+            <Text>{scheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
+          </Box>
+        </ColorSchemeProvider>
+      ))}
+    </Flex>
+  );
+}
+
 export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Box">
@@ -467,18 +485,9 @@ function Example() {
             <Box>
               <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
                 {({ color }) => (
-                  <Flex gap={4} direction="row">
-                    <ColorSchemeProvider colorScheme="light" id="light">
-                      <Box color="default" padding={8}>
-                        <Box width={60} height={60} rounding="circle" color={color} />
-                      </Box>
-                    </ColorSchemeProvider>
-                    <ColorSchemeProvider colorScheme="dark" id="dark">
-                      <Box color="default" padding={8}>
-                        <Box width={60} height={60} rounding="circle" color={color} />
-                      </Box>
-                    </ColorSchemeProvider>
-                  </Flex>
+                  <ColorSchemeLayout>
+                    <Box width={60} height={60} rounding="circle" color={color} marginBottom={8} />
+                  </ColorSchemeLayout>
                 )}
               </CombinationNew>
             </Box>
@@ -486,18 +495,15 @@ function Example() {
             <Box>
               <CombinationNew borderStyle={['shadow', 'raisedTopShadow', 'raisedBottomShadow']}>
                 {({ borderStyle }) => (
-                  <Flex gap={4} direction="row">
-                    <ColorSchemeProvider colorScheme="light" id="light">
-                      <Box color="default" padding={8}>
-                        <Box width={60} height={60} rounding="circle" borderStyle={borderStyle} />
-                      </Box>
-                    </ColorSchemeProvider>
-                    <ColorSchemeProvider colorScheme="dark" id="dark">
-                      <Box color="default" padding={8}>
-                        <Box width={60} height={60} rounding="circle" borderStyle={borderStyle} />
-                      </Box>
-                    </ColorSchemeProvider>
-                  </Flex>
+                  <ColorSchemeLayout>
+                    <Box
+                      width={60}
+                      height={60}
+                      rounding="circle"
+                      borderStyle={borderStyle}
+                      marginBottom={8}
+                    />
+                  </ColorSchemeLayout>
                 )}
               </CombinationNew>
             </Box>
