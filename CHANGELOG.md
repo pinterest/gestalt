@@ -1,3 +1,9 @@
+## 47.1.8 (Apr 5, 2022)
+
+### Patch
+
+- Box: Create elevation section (#2037)
+
 ## 47.1.7 (Apr 4, 2022)
 
 ### Patch
