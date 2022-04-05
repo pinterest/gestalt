@@ -1,7 +1,7 @@
 // @flow strict
 
 /*::
-type WebpackConfig = {| watchOptions: {| poll: number | false |} |};
+type WebpackConfig = {| watchOptions: {| poll: number | false |}  ,resolve: {fallback: { fs: false, path: false }}, |};
 */
 
 const path = require('path');

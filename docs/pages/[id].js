@@ -1,12 +1,13 @@
 // @flow strict
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { type Node } from 'react';
 
 import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
 import MarkdownPage from '../components/MarkdownPage.js';
 
 type Props = {|
-  content: MDXRemoteSerializeResult<Record<string, unknown>>,
+  content: MDXRemoteSerializeResult,
   meta: {|
     title: string,
     badge: 'pilot' | 'deprecated',

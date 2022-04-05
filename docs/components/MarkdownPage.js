@@ -1,9 +1,11 @@
+// @flow strict
+
 // ignoring: since we do in fact want to render each component md block again
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/no-unstable-nested-components */
-// @flow strict
 import { Text, Box } from 'gestalt';
 import { MDXProvider } from '@mdx-js/react';
+import { type Node } from 'react';
 
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
@@ -48,7 +50,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
       newProps.description = undefined;
       return <MainSection.Card {...newProps} />;
     },
-    Code: (props: {| removeMarginBottom: boolean |}) => {
+    Code: (props: {| removeMarginBottom: boolean, children: Node |}) => {
       const newProps = { ...props };
       newProps.children = undefined;
       newProps.removeMarginBottom = undefined;
@@ -62,10 +64,10 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     },
     Group: (props) => <Box marginBottom={12}>{props.children}</Box>,
     Do: (props: {| title: string |}) => (
-      <MainSection.Card type={props.title || 'do'} title="Do" removeMarginBottom />
+      <MainSection.Card type="do" title={props.title || 'Do'} removeMarginBottom />
     ),
     Dont: (props: {| title: string |}) => (
-      <MainSection.Card type={props.title || "don't"} title="Don't" removeMarginBottom />
+      <MainSection.Card type="don't" title={props.title || "Don't"} removeMarginBottom />
     ),
     TwoCol: (props) => (
       <MainSection.Subsection columns={2}>{props.children}</MainSection.Subsection>

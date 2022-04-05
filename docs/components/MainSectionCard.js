@@ -19,7 +19,7 @@ type Props = {|
   showCode?: boolean,
   title?: string | Array<string>,
   type?: 'do' | "don't" | 'info',
-  removeMarginBottom: boolean,
+  removeMarginBottom?: boolean,
 |};
 
 type PreviewCardProps = {|

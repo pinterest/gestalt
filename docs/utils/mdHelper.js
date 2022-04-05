@@ -3,7 +3,9 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export function getDocByRoute(route: string) {
+export function getDocByRoute(
+  route: string,
+): {| content?: string, meta: { [key: string]: string }, route: string, isMDX: boolean |} {
   const docsDirectory = path.join(process.cwd(), 'markdown');
   const fullPath = path.join(docsDirectory, `${route}.md`);
 
@@ -13,11 +15,11 @@ export function getDocByRoute(route: string) {
 
     return { route, meta: data, content, isMDX: true };
   } catch (ex) {
-    return { route, isMDX: false };
+    return { route, isMDX: false, meta: {} };
   }
 }
 
-export function getAllMarkdownPosts() {
+export function getAllMarkdownPosts(): Array<string> {
   const docsDirectory = path.join(process.cwd(), 'markdown');
 
   const fileContents = fs.readdirSync(docsDirectory);
