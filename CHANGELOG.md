@@ -1,3 +1,9 @@
+## 48.0.1 (Apr 6, 2022)
+
+### Patch
+
+- Text: Fix type issue (#2049)
+
 ## 48.0.0 (Apr 6, 2022)
 
 ### Major
