@@ -5,7 +5,7 @@ import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
 import { semanticColors } from './textTypes.js';
-import { useExperimentContext } from './contexts/ExperimentProvider.js';
+import useInExperiment from './useInExperiment.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -107,7 +107,10 @@ export default function Text({
 }: Props): Node {
   const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
 
-  const { anyEnabled: inSemiBoldExp } = useExperimentContext('gestalt_semibold_weight');
+  const inSemiBoldExp = useInExperiment({
+    webExperimentName: 'web_gestalt_semibold_weight',
+    mwebExperimentName: 'mweb_gestalt_semibold_weight',
+  });
 
   const fontWeightStyle = inSemiBoldExp ? typography.fontWeightSemiBold : typography.fontWeightBold;
 

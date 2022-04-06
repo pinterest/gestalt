@@ -8,7 +8,7 @@ import icons from './icons/index.js';
 import styles from './Icon.css';
 import colors from './Colors.css';
 import avatarStyles from './AvatarGroup.css';
-import { useExperimentContext } from './contexts/ExperimentProvider.js';
+import useInExperiment from './useInExperiment.js';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
@@ -69,7 +69,10 @@ export default function AvatarFoundation({
 
   const cs = classnames(styles.icon, colors.darkGray);
 
-  const { anyEnabled: inSemiBoldExp } = useExperimentContext('gestalt_semibold_weight');
+  const inSemiBoldExp = useInExperiment({
+    webExperimentName: 'web_gestalt_semibold_weight',
+    mwebExperimentName: 'mweb_gestalt_semibold_weight',
+  });
 
   const fontWeightStyle = inSemiBoldExp ? typography.fontWeightSemiBold : typography.fontWeightBold;
 

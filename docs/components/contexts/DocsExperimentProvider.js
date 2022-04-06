@@ -8,7 +8,7 @@ import { ExperimentProvider } from 'gestalt';
  * - Unless you want the experimental behavior live on the docs for everyone, REMOVE YOUR EXPERIMENT HERE before merging your PR!
  * */
 
-const enabledExperiments = ['gestalt_semibold_weight'];
+const enabledExperiments = [];
 
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   return experiments.reduce(
