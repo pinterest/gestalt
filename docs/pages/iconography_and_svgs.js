@@ -5,28 +5,29 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 
+const { icons } = Icon;
 type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
 
 function ClickableIcon({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
   return (
-    <Tooltip text={String(iconName)} accessibilityLabel="">
+    <Tooltip text={iconName} accessibilityLabel="">
       <TapArea rounding="circle" tapStyle="compress" onTap={onTap}>
         <Box padding={2}>
-          <Icon color="darkGray" accessibilityLabel={String(iconName)} icon={iconName} />
+          <Icon color="darkGray" accessibilityLabel={iconName} icon={iconName} />
         </Box>
       </TapArea>
     </Tooltip>
   );
 }
 
+function findIcon(icon?: string): ?IconName {
+  return icons.find((name) => name === icon);
+}
+
 export default function IconPage(): Node {
-  const { icons } = Icon;
   const [showToastText, setShowToastText] = useState(false);
 
-  const iconOptions: Array<{|
-    label: IconName,
-    value: string,
-  |}> = icons.map((name, index) => ({
+  const iconOptions = icons.map((name, index) => ({
     label: name,
     value: `value${index}`,
   }));
@@ -40,9 +41,7 @@ export default function IconPage(): Node {
     setInputValue(value);
     setSuggestedOptions(
       value
-        ? iconOptions.filter(({ label }) =>
-            String(label).toLowerCase().includes(value.toLowerCase()),
-          )
+        ? iconOptions.filter(({ label }) => label.toLowerCase().includes(value.toLowerCase()))
         : iconOptions,
     );
   };
@@ -63,7 +62,7 @@ export default function IconPage(): Node {
     }
   };
 
-  const selectedIcon: ?IconName = icons.find((name) => name === selected?.label);
+  const selectedIcon = findIcon(selected?.label);
 
   return (
     <Page title="Iconography and SVGs">
@@ -81,7 +80,7 @@ export default function IconPage(): Node {
               id="controlled"
               inputValue={inputValue}
               noResultText="No results for your selection"
-              options={suggestedOptions.map(({ value, label }) => ({ value, label }))}
+              options={suggestedOptions}
               onBlur={() => {
                 if (!selected) setInputValue('');
                 setSuggestedOptions(iconOptions);
@@ -109,13 +108,12 @@ export default function IconPage(): Node {
               {selectedIcon ? (
                 <ClickableIcon iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
               ) : (
-                (suggestedOptions || iconOptions).map(({ label: iconName }, index) => (
-                  <ClickableIcon
-                    key={index}
-                    iconName={iconName}
-                    onTap={buildHandleIconClick(iconName)}
-                  />
-                ))
+                (suggestedOptions || iconOptions).map(({ label: iconName }, index) => {
+                  const icon = findIcon(iconName);
+                  return icon ? (
+                    <ClickableIcon key={index} iconName={icon} onTap={buildHandleIconClick(icon)} />
+                  ) : null;
+                })
               )}
             </Flex>
           </Box>
