@@ -1,3 +1,9 @@
+## 47.2.0 (Apr 6, 2022)
+
+### Minor
+
+- Box: Add new raised shadow options to borderStyle (#2044)
+
 ## 47.1.8 (Apr 5, 2022)
 
 ### Patch
