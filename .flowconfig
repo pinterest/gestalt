@@ -1,5 +1,5 @@
 [version]
-0.171.0
+0.175.1
 
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
