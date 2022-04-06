@@ -1,3 +1,9 @@
+## 48.0.0 (Apr 6, 2022)
+
+### Major
+
+- Text: Deprecate old colors (#2028)
+
 ## 47.2.0 (Apr 6, 2022)
 
 ### Minor
