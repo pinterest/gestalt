@@ -1,3 +1,9 @@
+## 48.0.2 (Apr 6, 2022)
+
+### Patch
+
+- TextField: use device type in exp checks (#2050)
+
 ## 48.0.1 (Apr 6, 2022)
 
 ### Patch
