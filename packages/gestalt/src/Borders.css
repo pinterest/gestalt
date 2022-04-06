@@ -123,3 +123,11 @@ html[dir="rtl"] .borderLeft {
 .shadow {
   box-shadow: var(--elevation-floating);
 }
+
+.raisedTop {
+  box-shadow: var(--elevation-raised-top);
+}
+
+.raisedBottom {
+  box-shadow: var(--elevation-raised-bottom);
+}

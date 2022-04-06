@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import Page from '../components/Page.js';
 import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';
@@ -43,6 +43,24 @@ const ignoredProps = [
   'mdPaddingY',
   'lgPaddingY',
 ];
+
+type ColorCardProps = {|
+  children: Node,
+|};
+function ColorSchemeLayout({ children }: ColorCardProps): Node {
+  return (
+    <Flex gap={4}>
+      {['light', 'dark'].map((scheme) => (
+        <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
+          <Box color="default" padding={4} display="flex" direction="column" alignItems="center">
+            {children}
+            <Text>{scheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
+          </Box>
+        </ColorSchemeProvider>
+      ))}
+    </Flex>
+  );
+}
 
 export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -404,17 +422,19 @@ function Example() {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width, while specifying "shadow" adds a box-shadow instead.`}
+          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size (\`sm\` or \`lg\`) enables a solid, light gray color in that width. Specifying \`shadow\` adds an even box-shadow around the entire container, while \`raisedTopShadow\` and \`raisedBottomShadow\` add shadows to indicate an elevated header or footer. See the [elevation foundations page](/elevation) for more details.`}
           title="Borders"
         >
-          <CombinationNew borderStyle={['sm', 'lg', 'shadow']}>
-            {(props) => (
+          <CombinationNew
+            borderStyle={['sm', 'lg', 'shadow', 'raisedTopShadow', 'raisedBottomShadow']}
+          >
+            {({ borderStyle }) => (
               <Box
                 width={60}
                 height={60}
                 rounding="circle"
                 color="white"
-                borderStyle={props.borderStyle} // eslint-disable-line react/prop-types
+                borderStyle={borderStyle}
               />
             )}
           </CombinationNew>
@@ -458,11 +478,36 @@ function Example() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Elevation"
-          description="These colors can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode. For full details, visit our [Elevation foundations page](/elevation)."
+          description="Colors and shadows can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode, while `shadow` is only applicable in light mode. For full details, visit our [Elevation foundations page](/elevation)."
         >
-          <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
-            {({ color }) => <Box width={60} height={60} rounding="circle" color={color} />}
-          </CombinationNew>
+          <Flex direction="column" gap={2}>
+            <Text size="400">Color</Text>
+            <Box>
+              <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
+                {({ color }) => (
+                  <ColorSchemeLayout>
+                    <Box width={60} height={60} rounding="circle" color={color} marginBottom={8} />
+                  </ColorSchemeLayout>
+                )}
+              </CombinationNew>
+            </Box>
+            <Text size="400">Borders and Shadows</Text>
+            <Box>
+              <CombinationNew borderStyle={['shadow', 'raisedTopShadow', 'raisedBottomShadow']}>
+                {({ borderStyle }) => (
+                  <ColorSchemeLayout>
+                    <Box
+                      width={60}
+                      height={60}
+                      rounding="circle"
+                      borderStyle={borderStyle}
+                      marginBottom={8}
+                    />
+                  </ColorSchemeLayout>
+                )}
+              </CombinationNew>
+            </Box>
+          </Flex>
         </MainSection.Subsection>
 
         <MainSection.Subsection
