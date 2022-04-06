@@ -176,12 +176,12 @@ export default function Toc({ cards }: Props): Node {
               <Box padding={2}>
                 {anchor.getElementsByTagName('h2').length > 0 ? (
                   <Text color={isActive ? 'success' : 'default'} weight="bold">
-                    {anchor.innerText}
+                    {anchor.innerText?.replace('Beta', '')}
                   </Text>
                 ) : (
                   <Box paddingX={3}>
                     <Text size="200" color={isActive ? 'success' : 'default'} weight="bold">
-                      {anchor.innerText}
+                      {anchor.innerText?.replace('Beta', '').replace('Alpha', '')}
                     </Text>
                   </Box>
                 )}
