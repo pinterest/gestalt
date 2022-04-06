@@ -13,6 +13,7 @@ export const semanticColors = [
   'warning',
   'inverse',
   'shopping',
+  'link',
   'light',
   'dark',
 ];
