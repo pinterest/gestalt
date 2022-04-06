@@ -1,3 +1,9 @@
+## 48.0.4 (Apr 6, 2022)
+
+### Patch
+
+- Internal: Fix flow issue without .map() in Iconography and SVGs docs (#2046)
+
 ## 48.0.3 (Apr 6, 2022)
 
 ### Patch
