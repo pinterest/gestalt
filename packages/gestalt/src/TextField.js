@@ -5,6 +5,7 @@ import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import { useExperimentContext } from './contexts/ExperimentProvider.js';
 import { useI18nContext } from './contexts/I18nProvider.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
@@ -132,6 +133,8 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   }: Props,
   ref,
 ): Node {
+  const deviceType = useDeviceType();
+
   /**
    * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
    */
@@ -150,7 +153,15 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const { anyEnabled: inMwebShowPasswordExp } = useExperimentContext(
     'mweb_unauth_show_password_button',
   );
-  const inShowPasswordExp = inWebShowPasswordExp || inMwebShowPasswordExp;
+  let inShowPasswordExp = false;
+
+  if (deviceType) {
+    if (deviceType === 'desktop') {
+      inShowPasswordExp = inWebShowPasswordExp;
+    } else {
+      inShowPasswordExp = inMwebShowPasswordExp;
+    }
+  }
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
     useI18nContext('TextField');
 
