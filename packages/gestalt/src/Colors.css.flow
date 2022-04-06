@@ -34,6 +34,7 @@ declare module.exports: {|
   +'lightGrayHoveredBg': string,
   +'lightText': string,
   +'lightWashBg': string,
+  +'linkText': string,
   +'maroon': string,
   +'maroonBg': string,
   +'midnight': string,
