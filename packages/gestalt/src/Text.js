@@ -43,6 +43,7 @@ type Props = {|
     | 'error'
     | 'warning'
     | 'shopping'
+    | 'link'
     | 'inverse'
     | 'light'
     | 'dark',

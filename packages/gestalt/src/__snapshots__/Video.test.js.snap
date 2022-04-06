@@ -44,6 +44,7 @@ exports[`Video with callbacks 1`] = `
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
@@ -150,6 +151,7 @@ exports[`Video with children 1`] = `
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
@@ -473,6 +475,7 @@ exports[`Video with crossOrigin 1`] = `
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
@@ -580,6 +583,7 @@ exports[`Video with media attributes 1`] = `
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
@@ -687,6 +691,7 @@ exports[`Video with multiple sources 1`] = `
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
@@ -800,6 +805,7 @@ exports[`Video with objectFit 1`] = `
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
@@ -911,6 +917,7 @@ exports[`Video with source 1`] = `
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
