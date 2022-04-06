@@ -74,11 +74,11 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
         <div
           className={classnames(layoutStyles.flexGrow, flexStyles.Flex, layoutStyles.flexColumn)}
         >
-          <Text color="darkGray" inline lineClamp={1}>
+          <Text color="default" inline lineClamp={1}>
             {label}
           </Text>
           {subtext && (
-            <Text size="200" inline color="gray" lineClamp={2}>
+            <Text size="200" inline color="subtle" lineClamp={2}>
               {subtext}
             </Text>
           )}

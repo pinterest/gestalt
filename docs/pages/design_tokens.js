@@ -70,7 +70,7 @@ export default function DesignTokensPage(): Node {
                       <Table.Cell>
                         <Flex direction="column" gap={2}>
                           <Text>${token.name}</Text>
-                          <Text color="gray">{token.comment || ''}</Text>
+                          <Text color="subtle">{token.comment || ''}</Text>
                         </Flex>
                       </Table.Cell>
                       <Table.Cell>

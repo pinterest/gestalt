@@ -76,7 +76,7 @@ export default function Status({ accessibilityLabel, subtext, title, type }: Pro
 
       {subtext && title && (
         <Box marginStart={6}>
-          <Text color="gray" size="200">
+          <Text color="subtle" size="200">
             {subtext}
           </Text>
         </Box>

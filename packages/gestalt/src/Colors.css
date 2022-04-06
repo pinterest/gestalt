@@ -168,6 +168,10 @@
   color: var(--color-text-shopping);
 }
 
+.linkText {
+  color: var(--color-text-link);
+}
+
 .lightText {
   color: var(--color-text-light);
 }

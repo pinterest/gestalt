@@ -39,7 +39,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -64,7 +64,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -104,7 +104,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -186,7 +186,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -211,7 +211,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -251,7 +251,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -326,7 +326,7 @@ function PopoverExample() {
             size="xs"
           >
             <Box padding={3}>
-              <Text color="white" align="center">
+              <Text color="inverse" align="center">
                 You already have a board with that name
               </Text>
             </Box>
@@ -373,7 +373,7 @@ function PopoverExample() {
             size="xs"
           >
             <Box padding={3}>
-              <Text color="white" align="center">
+              <Text color="inverse" align="center">
                 Filter your board to see your favorite Pins, and more
               </Text>
             </Box>
@@ -414,7 +414,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -439,7 +439,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -480,7 +480,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -559,7 +559,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -584,7 +584,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -624,7 +624,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -710,7 +710,7 @@ function PopoverExample() {
               size="xs"
             >
               <Box padding={3}>
-                <Text color="white" align="center">
+                <Text color="inverse" align="center">
                   Filter your board to see your favorite Pins, and more
                 </Text>
               </Box>
@@ -750,7 +750,7 @@ function PopoverExample() {
 
   const List = ({ title }) => (
     <Flex direction="column" gap={4}>
-      <Text color="darkGray" size="100">
+      <Text color="default" size="100">
         { title }
       </Text>
       <Flex direction="column" gap={4}>
@@ -775,7 +775,7 @@ function PopoverExample() {
                     />
                   </Mask>
                 </Box>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   {data[1]}
                 </Text>
               </Flex>
@@ -815,7 +815,7 @@ function PopoverExample() {
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                 <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
                   <SearchBoardField />
@@ -899,7 +899,7 @@ function PopoverExample() {
           >
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={4}>
-                <Text color="white" align="center">
+                <Text color="inverse" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Button
@@ -961,7 +961,7 @@ function ScrollBoundaryContainerExample() {
 
     const List = ({ title }) => (
       <Flex direction="column" gap={4}>
-        <Text color="darkGray" size="100">
+        <Text color="default" size="100">
           { title }
         </Text>
         <Flex direction="column" gap={4}>
@@ -990,7 +990,7 @@ function ScrollBoundaryContainerExample() {
                       />
                     </Mask>
                   </Box>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     {data[1]}
                   </Text>
                 </Flex>
@@ -1028,7 +1028,7 @@ function ScrollBoundaryContainerExample() {
               <Box width={360}>
                 <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                   <Flex direction="column" gap={6}>
-                    <Text align="center" color="darkGray" weight="bold">
+                    <Text align="center" color="default" weight="bold">
                       Save to board
                     </Text>
                     <SearchBoardField/>
@@ -1214,7 +1214,7 @@ function Example() {
               alignItems="center"
               direction="column"
             >
-              <Text color="white" align="center">
+              <Text color="inverse" align="center">
                 Need help with something? Check out our Help Center.
               </Text>
             </Box>
@@ -1296,7 +1296,7 @@ function Example() {
                   alignItems="center"
                   direction="column"
                 >
-                  <Text color="white" align="center">
+                  <Text color="inverse" align="center">
                     Need help with something? Check out our Help Center.
                   </Text>
                 </Box>

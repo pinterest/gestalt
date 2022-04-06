@@ -71,7 +71,7 @@ function Example() {
                   direction="column"
                   column={12}
                 >
-                  <Text color="white" align="center">
+                  <Text color="inverse" align="center">
                     Need help with something? Check out our Help Center.
                   </Text>
                 </Box>

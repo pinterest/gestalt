@@ -17,7 +17,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
         defaultCode={`
           <Flex gap={1}>
               <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
-            <Text align="center" color="darkGray" weight="bold">
+            <Text align="center" color="default" weight="bold">
               Pinterest
             </Text>
           </Flex>`}

@@ -51,6 +51,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-warning: #bd5b00;
         --color-text-inverse: #ffffff;
         --color-text-shopping: #0074e8;
+        --color-text-link: #004ba9;
         --color-text-icon-default: #111111;
         --color-text-icon-subtle: #767676;
         --color-text-icon-success: #005f3e;
@@ -118,6 +119,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-warning: #bd5b00;
         --color-text-inverse: #ffffff;
         --color-text-shopping: #0074e8;
+        --color-text-link: #004ba9;
         --color-text-icon-default: #111111;
         --color-text-icon-subtle: #767676;
         --color-text-icon-success: #005f3e;
@@ -185,6 +187,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-warning: #e18d00;
         --color-text-inverse: #111111;
         --color-text-shopping: #75bfff;
+        --color-text-link: #45a3fe;
         --color-text-icon-default: #ffffff;
         --color-text-icon-subtle: #a5a5a5;
         --color-text-icon-success: #39d377;
@@ -253,6 +256,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-warning: #e18d00;
         --color-text-inverse: #111111;
         --color-text-shopping: #75bfff;
+        --color-text-link: #45a3fe;
         --color-text-icon-default: #ffffff;
         --color-text-icon-subtle: #a5a5a5;
         --color-text-icon-success: #39d377;
@@ -320,6 +324,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-warning: #bd5b00;
         --color-text-inverse: #ffffff;
         --color-text-shopping: #0074e8;
+        --color-text-link: #004ba9;
         --color-text-icon-default: #111111;
         --color-text-icon-subtle: #767676;
         --color-text-icon-success: #005f3e;

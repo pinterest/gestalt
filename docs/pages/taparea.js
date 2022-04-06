@@ -314,13 +314,13 @@ function TapAreaExample() {
               rounding="pill"
               target="blank"
             >
-              <Text align="center" color="white">Find More on Pinterest</Text>
+              <Text align="center" color="inverse">Find More on Pinterest</Text>
             </Link>
           </Box>
         </Box>
       </TapArea>
       <Box paddingY={2}>
-        <Text color="gray" align="center">
+        <Text color="subtle" align="center">
           Touched {touches} {touches === 1 ? 'time' : 'times'}
         </Text>
       </Box>

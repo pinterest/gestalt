@@ -125,7 +125,7 @@ function CompletedCard({ dismissButton, message, status, statusMessage, title }:
           </Box>
           {message && (
             <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-              <Text color="gray" size="200">
+              <Text color="subtle" size="200">
                 {message}
               </Text>
             </Box>
@@ -173,7 +173,7 @@ function UncompletedCard({
           </Box>
         )}
         <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
-          <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="200">
+          <Text color={isStarted ? 'default' : 'subtle'} weight="bold" size="200">
             {statusMessage}
           </Text>
         </Box>
@@ -185,7 +185,7 @@ function UncompletedCard({
       </Box>
       {message && (
         <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-          <Text color="gray" size="200">
+          <Text color="subtle" size="200">
             {message}
           </Text>
         </Box>

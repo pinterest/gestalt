@@ -133,7 +133,7 @@ class PopoverExample extends React.Component {
             shouldFocus={false}
           >
             <Box column={12} padding={3}>
-              <Text color="white" weight="bold">
+              <Text color="inverse" weight="bold">
                 Create a board to save Pins about Kitchen Design for later
               </Text>
             </Box>

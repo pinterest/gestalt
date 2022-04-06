@@ -714,8 +714,8 @@ function Example() {
     return (
       <Table.Row>
         <Table.Cell>
-          <Text color="darkGray">{name}</Text>
-          <Text color="gray" size="sm" lineClamp={lineClamp}>{subtext}</Text>
+          <Text color="default">{name}</Text>
+          <Text color="subtle" size="sm" lineClamp={lineClamp}>{subtext}</Text>
         </Table.Cell>
         <Table.Cell>
           <Text align="end">{total}</Text>
@@ -781,8 +781,8 @@ function Example() {
     return (
       <Table.Row>
         <Table.Cell>
-          <Text color="darkGray">{name}</Text>
-          <Text color="gray" size="100" lineClamp={lineClamp}>{subtext}</Text>
+          <Text color="default">{name}</Text>
+          <Text color="subtle" size="100" lineClamp={lineClamp}>{subtext}</Text>
         </Table.Cell>
         <Table.Cell>
           <Text align="end" lineClamp={lineClamp}>{total}</Text>

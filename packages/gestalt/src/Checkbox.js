@@ -209,12 +209,12 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
-              <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? '200' : '300'}>
+              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                 {label}
               </Text>
               {subtext && (
                 <Box paddingY={1}>
-                  <Text color="gray" size={size === 'sm' ? '200' : '300'}>
+                  <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
                     <Box display="visuallyHidden">:</Box> {subtext}
                   </Text>
                 </Box>
@@ -225,7 +225,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
       </Box>
       {errorMessage && (
         <Box marginTop={2}>
-          <Text color="red" size="100">
+          <Text color="error" size="100">
             <FormErrorMessage id={id} text={errorMessage} />
           </Text>
         </Box>

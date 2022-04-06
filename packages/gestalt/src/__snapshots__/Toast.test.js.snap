@@ -27,7 +27,7 @@ exports[`<Toast /> Error Toast 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>
@@ -82,10 +82,10 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
         >
           <span
-            className="textColorOverrideWhite"
+            className="textColorOverrideLight"
           >
             Saved to
              
@@ -131,7 +131,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 darkGray alignCenter fontWeightBold"
+              className="Text fontSize300 defaultText alignCenter fontWeightBold"
             >
               Undo
             </div>
@@ -188,10 +188,10 @@ exports[`<Toast /> Text + Image 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
         >
           <span
-            className="textColorOverrideWhite"
+            className="textColorOverrideLight"
           >
             Saved to
              
@@ -248,7 +248,7 @@ exports[`<Toast /> Text Only 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>

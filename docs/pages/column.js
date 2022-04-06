@@ -177,15 +177,15 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
 <Box display="flex" direction="row">
   <Column span={6}>
     <Box color="darkGray" padding={2}>
-      <Text color="white">Tall column</Text>
+      <Text color="inverse">Tall column</Text>
       <Box height={200} />
-      <Text color="white">With lots of content</Text>
+      <Text color="inverse">With lots of content</Text>
     </Box>
   </Column>
 
   <Column span={6}>
     <Box color="gray" height="100%" padding={2}>
-      <Text color="white">Short column</Text>
+      <Text color="inverse">Short column</Text>
     </Box>
   </Column>
 </Box>
@@ -197,7 +197,7 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
         defaultCode={`
 <Box paddingY={2} color="darkGray">
   <Box paddingX={2} marginBottom={2}>
-    <Text color="white">Content</Text>
+    <Text color="inverse">Content</Text>
   </Box>
   <Box
     display="flex"
@@ -210,17 +210,17 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
   >
     <Column span={12}>
       <Box paddingX={2} marginBottom={2}>
-        <Text color="white">Row</Text>
+        <Text color="inverse">Row</Text>
       </Box>
     </Column>
     <Column span={6}>
       <Box paddingX={2}>
-        <Box color="white">Column A</Box>
+        <Box color="white"><Text color="dark">Column A</Text></Box>
       </Box>
     </Column>
     <Column span={6}>
       <Box paddingX={2}>
-        <Box color="white">Column B</Box>
+        <Box color="white"><Text color="dark">Column B</Text></Box>
       </Box>
     </Column>
   </Box>

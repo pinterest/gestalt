@@ -24,14 +24,14 @@ describe('<Button />', () => {
   test('Custom white text color on transparent background', () => {
     const instance = create(<Button color="transparentWhiteText" text="Hello World" />).root;
     expect(instance.findAll((element) => element.type === 'div')[1].props.className).toContain(
-      'white',
+      'inverseText',
     );
   });
 
   test('Default darkGray text color on transparent background', () => {
     const instance = create(<Button color="transparent" text="Hello World" />).root;
     expect(instance.findAll((element) => element.type === 'div')[1].props.className).toContain(
-      'darkGray',
+      'defaultText',
     );
   });
 

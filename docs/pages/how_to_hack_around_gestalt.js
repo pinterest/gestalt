@@ -110,7 +110,7 @@ _Alternative_: When possible, stick to the styles available on Gestalt component
           <MainSection.Card
             cardSize="lg" // this actually makes the rendered element smaller, which is desired
             defaultCode={`
-<Text color="red">
+<Text color="error">
   <span style={{ fontFamily: 'cursive' }}>
     Custom text
   </span>

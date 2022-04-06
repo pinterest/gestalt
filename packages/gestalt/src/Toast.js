@@ -56,16 +56,16 @@ export default function Toast({
   const isMobileWidth = responsiveMinWidth === 'xs';
 
   let containerColor = isDarkMode ? 'white' : 'darkGray';
-  let textColor = isDarkMode ? 'darkGray' : 'white';
+  let textColor = isDarkMode ? 'dark' : 'light';
   let textElement = text;
 
   // If `text` is a Node, we need to override any text colors within to ensure they all match
   if (typeof text !== 'string') {
     let textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDarkGray
-      : styles.textColorOverrideWhite;
+      ? styles.textColorOverrideDark
+      : styles.textColorOverrideLight;
     if (isErrorVariant) {
-      textColorOverrideStyles = styles.textColorOverrideWhite;
+      textColorOverrideStyles = styles.textColorOverrideLight;
     }
 
     textElement = <span className={textColorOverrideStyles}>{text}</span>;
@@ -74,7 +74,7 @@ export default function Toast({
   // Error variant does not currently support dark mode
   if (isErrorVariant) {
     containerColor = 'red';
-    textColor = 'white';
+    textColor = 'light';
   }
 
   const hasImage = thumbnail != null;

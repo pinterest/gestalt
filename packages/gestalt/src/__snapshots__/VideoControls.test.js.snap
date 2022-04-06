@@ -50,7 +50,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -131,7 +131,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -226,7 +226,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -307,7 +307,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -402,7 +402,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -483,7 +483,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -578,7 +578,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -659,7 +659,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -754,7 +754,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:07
     </div>
@@ -835,7 +835,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:07
     </div>

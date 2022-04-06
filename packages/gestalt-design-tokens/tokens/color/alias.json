@@ -44,6 +44,11 @@
         "darkValue": "{color.blue.skycicle.300.value}",
         "comment": "Text color to use for shopping surfaces"
       },
+      "link": {
+        "value": "{color.blue.skycicle.700.value}",
+        "darkValue": "{color.blue.skycicle.400.value}",
+        "comment": "Text color to use for links in documentation sites"
+      },
       "icon": {
         "default": {
           "value": "{color.black.cosmicore.900.value}",

@@ -240,7 +240,7 @@ function Example() {
               width={360}
             >
               <Flex direction="column" gap={6}>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   Invite collaborators
                 </Text>
                 <SearchCollaboratorsField />
@@ -498,7 +498,7 @@ const List = () => (
               width={360}
             >
               <Flex direction="column" gap={6}>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   Collaborators
                 </Text>
                 <List />

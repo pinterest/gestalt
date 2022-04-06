@@ -180,7 +180,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Tooltip
   link={
-    <Text color="white" size="100" weight="bold">
+    <Text color="inverse" size="100" weight="bold">
       <Link
         href="https://help.pinterest.com/en/business/article/get-a-business-account"
         target="blank"
@@ -386,7 +386,7 @@ function SectionsIconButtonDropdownExample() {
     <Tooltip
       text="Use your Pin to expand your targeting."
       link={
-        <Text color="white" size="100" weight="bold">
+        <Text color="inverse" size="100" weight="bold">
           <Link
             href="https://help.pinterest.com/en/business/article/expanded-targeting"
             target="blank"

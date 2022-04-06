@@ -61,7 +61,7 @@ function Example() {
         }
       >
         <Box color="red" display="inlineBlock" padding={4}>
-          <Text color="white">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion disabled'}</Text>
+          <Text color="inverse">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion disabled'}</Text>
         </Box>
       </div>
     </React.Fragment>

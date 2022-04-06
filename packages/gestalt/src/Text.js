@@ -4,7 +4,7 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
-import { allowedColors, semanticColors } from './textTypes.js';
+import { semanticColors } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -37,29 +37,13 @@ type Props = {|
    * Link: https://gestalt.pinterest.systems/text#color
    */
   color?:
-    | 'blue'
-    | 'darkGray'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
-    | 'watermelon'
-    | 'white'
     | 'default'
     | 'subtle'
     | 'success'
     | 'error'
     | 'warning'
     | 'shopping'
+    | 'link'
     | 'inverse'
     | 'light'
     | 'dark',
@@ -110,7 +94,7 @@ type Props = {|
 export default function Text({
   align = 'start',
   children,
-  color = 'darkGray',
+  color = 'default',
   inline = false,
   italic = false,
   lineClamp,
@@ -120,19 +104,7 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  let colorClass = null;
-  const colorName = semanticColors.includes(color) ? `${color}Text` : color;
-  if (
-    allowedColors.includes(color) &&
-    colorName !== 'dark' &&
-    colorName !== 'error' &&
-    colorName !== 'light' &&
-    colorName !== 'subtle' &&
-    colorName !== 'success' &&
-    colorName !== 'warning'
-  ) {
-    colorClass = colors[colorName];
-  }
+  const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
 
   const cs = cx(
     styles.Text,

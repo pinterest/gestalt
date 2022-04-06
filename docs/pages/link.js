@@ -98,7 +98,7 @@ function TabExample() {
             role="tab"
           >
             <Box padding={3} rounding="pill">
-              <Text color={index === activeIndex ? 'white' : 'darkGray'}>{text}</Text>
+              <Text color={index === activeIndex ? 'inverse' : 'default'}>{text}</Text>
             </Box>
           </Link>
         </Box>
@@ -120,12 +120,12 @@ function TabExample() {
 <Box>
   <Link href="https://pinterest.com">
     <Box padding={2}>
-      <Text color="red" weight="bold">
+      <Text color="error" weight="bold">
         Incorrect underline color: Pinterest.com
       </Text>
     </Box>
   </Link>
-  <Text color="red" weight="bold">
+  <Text color="error" weight="bold">
     <Link href="https://pinterest.com">
       <Box padding={2}>Correct underline color: Pinterest.com</Box>
     </Link>

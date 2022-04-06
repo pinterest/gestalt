@@ -15,13 +15,19 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 const DEFAULT_TEXT_COLORS = {
-  blue: 'white',
-  gray: 'darkGray',
-  red: 'white',
-  transparent: 'darkGray',
-  semiTransparentWhite: 'darkGray',
-  transparentWhiteText: 'white',
-  white: 'darkGray',
+  blue: 'inverse',
+  gray: 'default',
+  red: 'inverse',
+  transparent: 'default',
+  semiTransparentWhite: 'default',
+  transparentWhiteText: 'inverse',
+  white: 'default',
+};
+
+const NEW_TO_OLD_COLOR_MAPPING = {
+  inverse: 'white',
+  default: 'darkGray',
+  subtle: 'gray',
 };
 
 const SIZE_NAME_TO_PIXEL = {
@@ -183,9 +189,9 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
   const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
 
   const textColor =
-    (disabled && 'gray') ||
-    (selected && 'white') ||
-    ((isDarkModeRed || isDarkModeBlue) && 'darkGray') ||
+    (disabled && 'subtle') ||
+    (selected && 'inverse') ||
+    ((isDarkModeRed || isDarkModeBlue) && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
@@ -225,7 +231,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         wrappedComponent="button"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd
+            text={buttonText}
+            textColor={NEW_TO_OLD_COLOR_MAPPING[textColor]}
+            icon={iconEnd}
+            size={size}
+          />
         ) : (
           buttonText
         )}
@@ -256,7 +267,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         type="submit"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd
+            text={buttonText}
+            textColor={NEW_TO_OLD_COLOR_MAPPING[textColor]}
+            icon={iconEnd}
+            size={size}
+          />
         ) : (
           buttonText
         )}
@@ -289,7 +305,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd
+            text={buttonText}
+            textColor={NEW_TO_OLD_COLOR_MAPPING[textColor]}
+            icon={iconEnd}
+            size={size}
+          />
         ) : (
           buttonText
         )}

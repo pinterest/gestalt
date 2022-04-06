@@ -58,7 +58,6 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`
         You can specify which color you want for your text. Most colors change in dark mode, but \`light\` and \`dark\` are available when no switch is desired.
 
-        ⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon.
         `}
         >
           <MainSection.Card

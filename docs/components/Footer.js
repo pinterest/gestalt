@@ -12,7 +12,7 @@ export default function Footer(): Node {
             <Box aria-hidden>
               <Icon icon="pinterest" color="red" size={24} accessibilityLabel="" />
             </Box>
-            <Text color="darkGray" weight="bold">
+            <Text color="default" weight="bold">
               <Link
                 accessibilityLabel="Visit Pinterest.com"
                 href="https://www.pinterest.com"

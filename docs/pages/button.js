@@ -430,7 +430,7 @@ function WhiteButtonExample() {
           >
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={4}>
-                <Text color="white" align="center">
+                <Text color="light" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Button
@@ -483,7 +483,7 @@ function SemiTransparentWhiteButtonExample() {
           >
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={4}>
-                <Text color="white" align="center">
+                <Text color="light" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Flex alignItems="stretch" direction="column" gap={2}>
