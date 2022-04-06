@@ -1,3 +1,9 @@
+## 48.0.5 (Apr 6, 2022)
+
+### Patch
+
+- Roadmap: updates for March (#2035)
+
 ## 48.0.4 (Apr 6, 2022)
 
 ### Patch
