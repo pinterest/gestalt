@@ -1,3 +1,9 @@
+## 48.0.8 (Apr 7, 2022)
+
+### Patch
+
+- Avatar: adjustments in Avatar docs (#2054)
+
 ## 48.0.7 (Apr 7, 2022)
 
 ### Patch
