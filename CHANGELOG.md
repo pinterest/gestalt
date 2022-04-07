@@ -1,3 +1,9 @@
+## 48.0.6 (Apr 7, 2022)
+
+### Patch
+
+- Updated README's language to reflect Gestalt's shift towards a designs system (#2053)
+
 ## 48.0.5 (Apr 6, 2022)
 
 ### Patch
