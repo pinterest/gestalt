@@ -9,7 +9,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
     <div>
       <div
         class="container"
-        style="stroke: #efefef; visibility: visible; top: 8px; left: -10px;"
+        style="visibility: visible; top: 8px; left: -10px;"
       >
         <div
           class="rounding4 contents maxDimensions minDimensions"

@@ -5,7 +5,6 @@ import Caret from './Caret.js';
 import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import {
   type CaretOffset,
@@ -50,12 +49,8 @@ type OwnProps = {|
 type HookProps = {|
   scrollBoundaryContainerRef: ?HTMLElement,
 |};
-type ColorSchemeProps = {|
-  colorGray100: string,
-  isDarkMode: boolean,
-|};
 
-type Props = {| ...OwnProps, ...ColorSchemeProps, ...HookProps |};
+type Props = {| ...OwnProps, ...HookProps |};
 
 type State = {|
   popoverOffset: {|
@@ -207,24 +202,12 @@ class Contents extends Component<Props, State> {
   };
 
   render(): Node {
-    const {
-      bgColor,
-      border,
-      caret,
-      children,
-      colorGray100,
-      id,
-      isDarkMode,
-      role,
-      rounding,
-      width,
-    } = this.props;
+    const { bgColor, border, caret, children, id, role, rounding, width } = this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
 
     // Needed to prevent UI thrashing
     const visibility = popoverDir === null ? 'hidden' : 'visible';
     const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
-    const stroke = bgColor === 'white' && !isDarkMode ? colorGray100 : null;
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
@@ -232,7 +215,7 @@ class Contents extends Component<Props, State> {
       <div
         className={styles.container}
         // popoverOffset positions the Popover component
-        style={{ stroke, visibility, ...popoverOffset }}
+        style={{ visibility, ...popoverOffset }}
       >
         <div
           className={classnames(
@@ -282,15 +265,7 @@ class Contents extends Component<Props, State> {
 }
 
 export default function WrappedContents(props: OwnProps): Node {
-  const { colorGray100, name: colorSchemeName } = useColorScheme();
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
 
-  return (
-    <Contents
-      {...props}
-      colorGray100={colorGray100}
-      isDarkMode={colorSchemeName === 'darkMode'}
-      scrollBoundaryContainerRef={scrollBoundaryContainerRef}
-    />
-  );
+  return <Contents {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
 }
