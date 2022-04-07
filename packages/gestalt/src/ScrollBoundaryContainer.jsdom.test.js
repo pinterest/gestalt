@@ -2,7 +2,7 @@
 import { createRef } from 'react';
 import { render } from '@testing-library/react';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import Box from './Box.js';
 
 describe('ScrollBoundaryContainer', () => {

@@ -32,7 +32,7 @@ import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
-import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
+import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import { FixedZIndex } from './zIndex.js';
 
 type Size = 'sm' | 'md' | 'lg';

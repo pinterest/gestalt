@@ -5,7 +5,7 @@ import Caret from './Caret.js';
 import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import {
   type CaretOffset,
   type ClientRect,
