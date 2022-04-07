@@ -1,3 +1,9 @@
+## 48.0.7 (Apr 7, 2022)
+
+### Patch
+
+- Popover: remove unused caret stroke style (#2052)
+
 ## 48.0.6 (Apr 7, 2022)
 
 ### Patch
