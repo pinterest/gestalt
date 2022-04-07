@@ -4,7 +4,7 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
 import typography from './Typography.css';
-import { literalColors } from './textTypes.js';
+import { semanticColors } from './textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -56,23 +56,15 @@ type Props = {|
    * The color of the text. See [Colors example](https://gestalt.pinterest.systems#colors) for more details.
    */
   color?:
-    | 'blue'
-    | 'darkGray'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
-    | 'watermelon'
-    | 'white',
+    | 'default'
+    | 'subtle'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'shopping'
+    | 'inverse'
+    | 'light'
+    | 'dark',
   /**
    * A unique identifier for the element.
    */
@@ -103,7 +95,7 @@ export default function Heading({
   accessibilityLevel,
   align = 'start',
   children,
-  color = 'darkGray',
+  color = 'default',
   lineClamp,
   id,
   overflow = 'breakWord',
@@ -112,7 +104,7 @@ export default function Heading({
   const cs = cx(
     styles.Heading,
     typography[`fontSize${SIZE_SCALE[size]}`],
-    color && literalColors.includes(color) && colors[color],
+    color && semanticColors.includes(color) && colors[`${color}Text`],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
