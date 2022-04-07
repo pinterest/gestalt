@@ -89,7 +89,11 @@ type Props = {|
 /**
  * [Pog](https://gestalt.pinterest.systems/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/pog/iconbutton).
  *
- *This abstraction to allow for links that look like IconButton.
+ * This is an abstraction to allow for links that look like IconButton.
+ *
+ * ![Pog light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Pog%20%230.png)
+ * ![Pog dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Pog-dark%20%230.png)
+ *
  */
 export default function Pog({
   accessibilityLabel = '',

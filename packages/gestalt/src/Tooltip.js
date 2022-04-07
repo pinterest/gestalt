@@ -76,6 +76,9 @@ type Props = {|
 
 /**
  * [Tooltip](https://gestalt.pinterest.systems/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.
+ *
+ * ![Tooltip light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tooltip%20%230.png)
+ * ![Tooltip dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Tooltip-dark%20%230.png)
  */
 export default function Tooltip({
   accessibilityLabel,

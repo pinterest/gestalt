@@ -132,6 +132,8 @@ type Props = {|
  * [Upsells](https://gestalt.pinterest.systems/upsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.
  *
  * ⚠️ Please note: Upsell is not currently supported in dark mode.
+ *
+ * ![Upsell light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Upsell%20%230.png)
  */
 export default function Upsell({
   children,
