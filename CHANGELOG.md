@@ -1,3 +1,9 @@
+## 48.0.9 (Apr 7, 2022)
+
+### Patch
+
+- ScrollBoundaryContainer: rename ScrollBoundaryContainer files to correctly autogenerate docs (bug) (#2055)
+
 ## 48.0.8 (Apr 7, 2022)
 
 ### Patch
