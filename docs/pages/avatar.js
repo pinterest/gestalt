@@ -13,32 +13,32 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         name="Avatar"
         description={generatedDocGen?.description}
         defaultCode={`
-      <Flex gap={4} wrap>
-        <Avatar
-          size="xs"
-          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-          name="Keerthi"
-        />
-        <Avatar
-          size="sm"
-          name="Keerthi"
-        />
-        <Avatar
-          size="md"
-          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-          name="Keerthi"
-          verified
-        />
-        <Avatar
-          size="lg"
-          name="Ayesha"
-        />
-        <Avatar
-          size="xl"
-          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-          name="Keerthi"
-        />
-      </Flex>
+<Flex gap={4} wrap>
+  <Avatar
+    size="xs"
+    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+    name="Keerthi"
+  />
+  <Avatar
+    size="sm"
+    name="Keerthi"
+  />
+  <Avatar
+    size="md"
+    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+    name="Keerthi"
+    verified
+  />
+  <Avatar
+    size="lg"
+    name="Ayesha"
+  />
+  <Avatar
+    size="xl"
+    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+    name="Keerthi"
+  />
+</Flex>
       `}
       />
 
@@ -89,6 +89,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
               />
             `}
           />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -140,6 +143,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
                 </Mask>
             `}
           />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -170,6 +176,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
               </Flex>
             `}
           />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -268,17 +277,19 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         >
           <MainSection.Card
             defaultCode={`
-<Flex flex="grow">
-  <Box width={40}>
-    <Avatar name="Julia" />
-  </Box>
-  <Box column={2}>
-    <Avatar name="Julia" />
-  </Box>
-  <Box column={4}>
-    <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
-  </Box>
-</Flex>
+<Box width="100%" maxWidth={900}>
+  <Flex>
+    <Box width={40}>
+      <Avatar name="Julia" />
+    </Box>
+    <Box column={2}>
+      <Avatar name="Julia" />
+    </Box>
+    <Box column={4}>
+      <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
+    </Box>
+  </Flex>
+</Box>
   `}
           />
         </MainSection.Subsection>
