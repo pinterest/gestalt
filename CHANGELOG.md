@@ -1,3 +1,9 @@
+## 48.0.10 (Apr 7, 2022)
+
+### Patch
+
+- Image: update Docs to fix heading issues and other visual improvements (a11y bug) (#2056)
+
 ## 48.0.9 (Apr 7, 2022)
 
 ### Patch
