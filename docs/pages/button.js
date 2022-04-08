@@ -236,7 +236,8 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
 </Flex>
 `}
           />
-
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -259,6 +260,8 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
 </Flex>
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -275,6 +278,8 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           <Button text="Create new Pinterest account" size="lg" color="red" iconEnd='person-add' />
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -290,6 +295,18 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
         iconColor="gray"
         size="lg"
       />
+    </Tooltip>
+  </Flex>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
+            defaultCode={`
+  <Flex gap={1}>
+    <Tooltip text="You need to fill in a username to create an account">
+      <Button text="Create account" disabled size="lg" color="red" />
     </Tooltip>
   </Flex>
 `}
