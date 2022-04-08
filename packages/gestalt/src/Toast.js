@@ -40,6 +40,10 @@ type Props = {|
  * [Toasts](https://gestalt.pinterest.systems/toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
  *
  * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
+ *
+ * ⚠️ Please note: Toast is not currently supported in dark mode.
+ *
+ * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Toast%20%230.png)
  */
 export default function Toast({
   button,

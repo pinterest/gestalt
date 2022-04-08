@@ -305,6 +305,8 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 
 /**
  * Like Image, [Video](https://gestalt.pinterest.systems/video) is used for media layout. This component is supercharged with lots of goodies to turn a regular video in a full blown viewing experience.
+ *
+ * ![Video light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Video%20%230.png)
  */
 export default class Video extends PureComponent<Props, State> {
   video: ?HTMLVideoElement;
