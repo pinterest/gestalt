@@ -1,3 +1,9 @@
+## 48.0.12 (Apr 8, 2022)
+
+### Patch
+
+- Button: Fix layout in docs (#2060)
+
 ## 48.0.11 (Apr 8, 2022)
 
 ### Patch
