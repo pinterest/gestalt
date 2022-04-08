@@ -1,3 +1,9 @@
+## 49.0.0 (Apr 8, 2022)
+
+### Major
+
+- PageHeader: PageHeader redesign v.2 (Part I: core changes) (#1996)
+
 ## 48.0.12 (Apr 8, 2022)
 
 ### Patch
