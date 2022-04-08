@@ -1,3 +1,9 @@
+## 48.0.11 (Apr 8, 2022)
+
+### Patch
+
+- Pog, Toast, Tooltip, Upsell, Video: add visual diff testing and screenshot to description in VSCode (Flow extension) (#2057)
+
 ## 48.0.10 (Apr 7, 2022)
 
 ### Patch
