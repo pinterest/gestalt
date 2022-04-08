@@ -12,6 +12,10 @@ describe('PageHeader Accessibility check', () => {
           id: 'heading-order',
           enabled: false,
         },
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
       ],
     });
     cy.checkA11y();

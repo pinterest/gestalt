@@ -4,22 +4,20 @@ import { PageHeader, Button, Box, Dropdown } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
-    <Box width="100vw">
+    <Box width="100vw" height={170}>
       <PageHeader
         title="Product groups"
-        subtext="S. E. All products USD"
         primaryAction={{
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Item
-              key="maxWidth"
+              key="primaryAction"
               option={{ value: 'Create group', label: 'Create group' }}
               onSelect={() => {}}
             />,
           ],
         }}
         dropdownAccessibilityLabel="test"
-        maxWidth={600}
       />
     </Box>
   );

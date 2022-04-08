@@ -1,0 +1,8 @@
+.pageHeader {
+  width: 100%;
+}
+
+.pageHeaderBorderBottom {
+  border-bottom: 1px solid var(--color-border-container);
+  width: 100%;
+}
