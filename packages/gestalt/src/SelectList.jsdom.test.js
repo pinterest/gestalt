@@ -7,11 +7,13 @@ describe('<SelectList />', () => {
     { label: 'option1', value: 'value1' },
     { label: 'option2', value: 'value2' },
     { label: 'option3', value: 'value3' },
-  ];
+  ].map(({ label, value }) => <SelectList.Option key={label} label={label} value={value} />);
 
   it('Renders an FormErrorMessage if an error message is passed in', () => {
     const { getByText } = render(
-      <SelectList errorMessage="Error message" id="test" onChange={jest.fn()} options={options} />,
+      <SelectList errorMessage="Error message" id="test" onChange={jest.fn()}>
+        {options}
+      </SelectList>,
     );
 
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
@@ -20,7 +22,9 @@ describe('<SelectList />', () => {
 
   it('SelectList with name', () => {
     const { container } = render(
-      <SelectList name="select_name" id="select_id" onChange={jest.fn()} options={options} />,
+      <SelectList name="select_name" id="select_id" onChange={jest.fn()}>
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('[name="select_name"]')).toBeVisible();
@@ -29,19 +33,18 @@ describe('<SelectList />', () => {
   it('SelectList with errorMessage prop change', () => {
     const handleChange = jest.fn();
     const { getByText, rerender } = render(
-      <SelectList id="test" onChange={handleChange} options={options} />,
+      <SelectList id="test" onChange={handleChange}>
+        {options}
+      </SelectList>,
     );
     expect(() => {
       // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
     rerender(
-      <SelectList
-        id="test"
-        onChange={handleChange}
-        options={options}
-        errorMessage="Error message"
-      />,
+      <SelectList id="test" onChange={handleChange} errorMessage="Error message">
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Error message')).toBeVisible();
@@ -49,7 +52,9 @@ describe('<SelectList />', () => {
 
   it('SelectList with disabled', () => {
     const { container } = render(
-      <SelectList disabled id="test" onChange={jest.fn()} options={options} />,
+      <SelectList disabled id="test" onChange={jest.fn()}>
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('select[disabled]')).toBeVisible();
@@ -57,12 +62,9 @@ describe('<SelectList />', () => {
 
   it('SelectList with placeholder', () => {
     const { container } = render(
-      <SelectList
-        id="test"
-        onChange={jest.fn()}
-        options={options}
-        placeholder={options[0].label}
-      />,
+      <SelectList id="test" onChange={jest.fn()} placeholder="option1">
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('option')).toBeDisabled();
@@ -70,11 +72,10 @@ describe('<SelectList />', () => {
 
   it('SelectList with disabled options', () => {
     const { container } = render(
-      <SelectList
-        id="test"
-        onChange={jest.fn()}
-        options={[...options, { label: 'option4', value: 'value4', disabled: true }]}
-      />,
+      <SelectList id="test" onChange={jest.fn()}>
+        {options}
+        <SelectList.Option disabled label="option4" value="value4" />
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('option[value="value4"]')).toBeDisabled();
@@ -86,9 +87,10 @@ describe('<SelectList />', () => {
         id="test"
         label="Label for the select list"
         onChange={jest.fn()}
-        options={options}
-        placeholder={options[0].label}
-      />,
+        placeholder="option1"
+      >
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Label for the select list')).toBeVisible();
@@ -101,9 +103,10 @@ describe('<SelectList />', () => {
         label="Label for the select list"
         helperText="Helper text for the select list"
         onChange={jest.fn()}
-        options={options}
-        placeholder={options[0].label}
-      />,
+        placeholder="option1"
+      >
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Helper text for the select list')).toBeVisible();
@@ -117,9 +120,10 @@ describe('<SelectList />', () => {
         helperText="Helper text for the select list"
         errorMessage="Error message for the select list"
         onChange={jest.fn()}
-        options={options}
-        placeholder={options[0].label}
-      />,
+        placeholder="option1"
+      >
+        {options}
+      </SelectList>,
     );
     expect(() => {
       // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
@@ -129,7 +133,9 @@ describe('<SelectList />', () => {
 
   it('adds a "medium" classname by default', () => {
     const { container } = render(
-      <SelectList name="select_name" id="select_id" onChange={jest.fn()} options={options} />,
+      <SelectList name="select_name" id="select_id" onChange={jest.fn()}>
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.medium')).toBeVisible();
@@ -137,13 +143,9 @@ describe('<SelectList />', () => {
 
   it('adds a "large" classname when size is set to "lg"', () => {
     const { container } = render(
-      <SelectList
-        name="select_name"
-        id="select_id"
-        onChange={jest.fn()}
-        options={options}
-        size="lg"
-      />,
+      <SelectList name="select_name" id="select_id" onChange={jest.fn()} size="lg">
+        {options}
+      </SelectList>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.large')).toBeVisible();

@@ -1,17 +1,23 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
 import formElement from './FormElement.css';
 import layout from './Layout.css';
+import styles from './SelectList.css';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
 import Icon from './Icon.js';
-import styles from './SelectList.css';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import SelectListGroup from './SelectList/SelectListGroup.js';
+import SelectListOption from './SelectList/SelectListOption.js';
 
 type Props = {|
+  /**
+   * One or more SelectList.Option components, which may be grouped using SelectList.Group.
+   */
+  children: Node,
   /**
    * Used to disable the entire SelectList.
    */
@@ -45,10 +51,6 @@ type Props = {|
    */
   onChange: AbstractEventHandler<SyntheticInputEvent<HTMLSelectElement>, {| value: string |}>,
   /**
-   * The options displayed in the dropdown list. Note that ``disabled`` here is used to disable a single option. Be sure to localize the label.
-   */
-  options: $ReadOnlyArray<{| label: string, value: string, disabled?: boolean |}>,
-  /**
    * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
   placeholder?: string,
@@ -69,7 +71,8 @@ type Props = {|
  * ![SelectList dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SelectList-dark.spec.mjs-snapshots/SelectList-dark-chromium-darwin.png)
  *
  */
-export default function SelectList({
+function SelectList({
+  children,
   disabled = false,
   errorMessage,
   helperText,
@@ -78,7 +81,6 @@ export default function SelectList({
   labelDisplay = 'visible',
   name,
   onChange,
-  options,
   placeholder,
   size = 'md',
   value,
@@ -155,11 +157,7 @@ export default function SelectList({
               {placeholder}
             </option>
           )}
-          {(options ?? []).map((option) => (
-            <option key={option.value} value={option.value} disabled={option.disabled}>
-              {option.label}
-            </option>
-          ))}
+          {children}
         </select>
       </Box>
       {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
@@ -167,3 +165,8 @@ export default function SelectList({
     </Box>
   );
 }
+
+SelectList.Option = SelectListOption;
+SelectList.Group = SelectListGroup;
+
+export default SelectList;
