@@ -15,6 +15,7 @@ test('Callout handles onDismiss callback', () => {
       type="error"
     />,
   );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   getByLabelText('Dismiss banner').click();
   expect(mockOnDismiss).toHaveBeenCalled();
 });

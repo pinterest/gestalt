@@ -11,6 +11,7 @@ describe('TextField', () => {
       <TextField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     );
     expect(() => {
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
 
@@ -23,6 +24,7 @@ describe('TextField', () => {
         onBlur={jest.fn()}
       />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Error message')).toBeVisible();
   });
 
@@ -37,6 +39,7 @@ describe('TextField', () => {
         value="TextField Text"
       />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const input = getByDisplayValue('TextField Text');
     fireEvent.focus(input);
     expect(input).toHaveDescription('Error message');
@@ -64,6 +67,7 @@ describe('TextField', () => {
       <TextField id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextField Text" />,
     );
 
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.blur(getByDisplayValue('TextField Text'));
     expect(mockBlur).toHaveBeenCalled();
   });
@@ -74,6 +78,7 @@ describe('TextField', () => {
       <TextField id="test" onChange={mockChange} value="TextField Text" />,
     );
 
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');
     expect(input).not.toBe(null);
 
@@ -91,6 +96,7 @@ describe('TextField', () => {
       <TextField id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextField Text" />,
     );
 
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.focus(getByDisplayValue('TextField Text'));
     expect(mockFocus).toHaveBeenCalled();
   });
@@ -101,6 +107,7 @@ describe('TextField', () => {
       <TextField id="test" onChange={() => {}} onKeyDown={mockKeyDown} value="TextField Text" />,
     );
 
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');
     expect(input).not.toBe(null);
 
@@ -121,6 +128,7 @@ describe('TextField', () => {
         value="TextField Text"
       />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Label for the text field')).toBeVisible();
   });
 
@@ -134,6 +142,7 @@ describe('TextField', () => {
         value="TextField Text"
       />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Helper text for the text field')).toBeVisible();
   });
 
@@ -149,6 +158,7 @@ describe('TextField', () => {
       />,
     );
     expect(() => {
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Helper text for the text field');
     }).toThrow('Unable to find an element with the text: Helper text for the text field');
   });
@@ -157,6 +167,7 @@ describe('TextField', () => {
     const { container } = render(
       <TextField id="test" onChange={() => {}} value="TextField Text" />,
     );
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.medium')).toBeVisible();
   });
 
@@ -164,6 +175,7 @@ describe('TextField', () => {
     const { container } = render(
       <TextField id="test" onChange={() => {}} value="TextField Text" size="lg" />,
     );
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.large')).toBeVisible();
   });
 });

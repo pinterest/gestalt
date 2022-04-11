@@ -7,6 +7,7 @@ describe('TapArea', () => {
   it('TapArea handles onTap callback', () => {
     const mockOnTap = jest.fn();
     const { getByText } = render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('TapArea').click();
     expect(mockOnTap).toHaveBeenCalled();
   });
@@ -14,7 +15,9 @@ describe('TapArea', () => {
   it('TapArea handles onBlur callback', () => {
     const mockOnBlur = jest.fn();
     const { getByText } = render(<TapArea onBlur={mockOnBlur}>TapArea</TapArea>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.focus(getByText('TapArea'));
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.blur(getByText('TapArea'));
     expect(mockOnBlur).toHaveBeenCalled();
   });
@@ -22,6 +25,7 @@ describe('TapArea', () => {
   it('TapArea handles onFocus callback', () => {
     const mockOnFocus = jest.fn();
     const { getByText } = render(<TapArea onFocus={mockOnFocus}>TapArea</TapArea>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.focus(getByText('TapArea'));
     expect(mockOnFocus).toHaveBeenCalled();
   });
@@ -29,6 +33,7 @@ describe('TapArea', () => {
   it('TapArea handles onMouseEnter callback', () => {
     const mockOnMouseEnter = jest.fn();
     const { getByText } = render(<TapArea onMouseEnter={mockOnMouseEnter}>TapArea</TapArea>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.mouseEnter(getByText('TapArea'));
     expect(mockOnMouseEnter).toHaveBeenCalled();
   });
@@ -36,6 +41,7 @@ describe('TapArea', () => {
   it('TapArea handles onMouseLeave callback', () => {
     const mockOnMouseLeave = jest.fn();
     const { getByText } = render(<TapArea onMouseLeave={mockOnMouseLeave}>TapArea</TapArea>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.mouseLeave(getByText('TapArea'));
     expect(mockOnMouseLeave).toHaveBeenCalled();
   });
@@ -44,6 +50,7 @@ describe('TapArea', () => {
     const mockOnTap = jest.fn();
     const { getByText } = render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
     const mockEvent = { charCode: 32, preventDefault: jest.fn() };
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.keyPress(getByText('TapArea'), mockEvent);
     expect(mockOnTap).toHaveBeenCalled();
   });

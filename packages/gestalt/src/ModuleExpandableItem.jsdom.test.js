@@ -17,6 +17,7 @@ describe('ModuleExpandableItem', () => {
   it('should render the collapsed state correctly', () => {
     render(<ModuleExpandableItem {...baseProps}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children/i)).toBeNull();
 
@@ -36,6 +37,7 @@ describe('ModuleExpandableItem', () => {
     render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /test label/i })).toBeInTheDocument();
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children/i)).toBeNull();
   });
@@ -47,7 +49,9 @@ describe('ModuleExpandableItem', () => {
     };
     render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/badge text/i)).toBeInTheDocument();
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children/i)).toBeNull();
   });
@@ -61,6 +65,7 @@ describe('ModuleExpandableItem', () => {
     render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /test label/i })).toBeInTheDocument();
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children/i)).toBeNull();
   });

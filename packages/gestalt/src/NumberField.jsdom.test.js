@@ -9,6 +9,7 @@ describe('NumberField', () => {
       <NumberField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     );
     expect(() => {
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
 
@@ -21,6 +22,7 @@ describe('NumberField', () => {
         onBlur={jest.fn()}
       />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Error message')).toBeVisible();
   });
 
@@ -35,6 +37,7 @@ describe('NumberField', () => {
         value={42}
       />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const input = getByDisplayValue('42');
     fireEvent.focus(input);
     expect(input).toHaveDescription('Error message');
@@ -62,6 +65,7 @@ describe('NumberField', () => {
       <NumberField id="test" onBlur={mockBlur} onChange={jest.fn()} value={42} />,
     );
 
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.blur(getByDisplayValue('42'));
     expect(mockBlur).toHaveBeenCalled();
   });
@@ -70,6 +74,7 @@ describe('NumberField', () => {
     const mockChange = jest.fn();
     const { container } = render(<NumberField id="test" onChange={mockChange} value={42} />);
 
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');
     expect(input).not.toBe(null);
 
@@ -87,6 +92,7 @@ describe('NumberField', () => {
       <NumberField id="test" onChange={jest.fn()} onFocus={mockFocus} value={42} />,
     );
 
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.focus(getByDisplayValue('42'));
     expect(mockFocus).toHaveBeenCalled();
   });
@@ -97,6 +103,7 @@ describe('NumberField', () => {
       <NumberField id="test" onChange={() => {}} onKeyDown={mockKeyDown} value={42} />,
     );
 
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');
     expect(input).not.toBe(null);
 
@@ -112,6 +119,7 @@ describe('NumberField', () => {
     const { getByText } = render(
       <NumberField id="test" label="Label for the number field" onChange={() => {}} value={42} />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Label for the number field')).toBeVisible();
   });
 
@@ -125,6 +133,7 @@ describe('NumberField', () => {
         value={42}
       />,
     );
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Helper text for the number field')).toBeVisible();
   });
 
@@ -140,12 +149,14 @@ describe('NumberField', () => {
       />,
     );
     expect(() => {
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Helper text for the number field');
     }).toThrow('Unable to find an element with the text: Helper text for the number field');
   });
 
   it('adds a "medium" classname by default', () => {
     const { container } = render(<NumberField id="test" onChange={() => {}} value={42} />);
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.medium')).toBeVisible();
   });
 
@@ -153,6 +164,7 @@ describe('NumberField', () => {
     const { container } = render(
       <NumberField id="test" onChange={() => {}} value={42} size="lg" />,
     );
+// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.large')).toBeVisible();
   });
 });

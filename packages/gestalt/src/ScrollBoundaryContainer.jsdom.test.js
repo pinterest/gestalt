@@ -15,6 +15,7 @@ describe('ScrollBoundaryContainer', () => {
       </ScrollBoundaryContainer>,
     );
 
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByTestId('childrenId')).toBeTruthy();
   });
 

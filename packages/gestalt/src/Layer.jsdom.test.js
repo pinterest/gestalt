@@ -8,6 +8,7 @@ describe('Layer in browser render', () => {
     it('appends itself to body on mount', () => {
       const { body } = document;
       const { getByText } = render(<Layer>content</Layer>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       const element = getByText('content');
       expect(body && body.contains(element)).toBeTruthy();
     });
@@ -15,6 +16,7 @@ describe('Layer in browser render', () => {
     it('removes itself from body on unmount', () => {
       const { body } = document;
       const { getByText, unmount } = render(<Layer>content</Layer>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       const element = getByText('content');
       unmount();
       expect(body && body.contains(element)).toBeFalsy();
@@ -22,6 +24,7 @@ describe('Layer in browser render', () => {
 
     it('sets the zIndex if it is defined', () => {
       const { getByText } = render(<Layer zIndex={new FixedZIndex(200)}>content</Layer>);
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       const element = getByText('content');
       expect(element.style.zIndex).toEqual('200');
     });

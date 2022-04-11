@@ -9,9 +9,11 @@ describe('<SegmentedControl />', () => {
       <SegmentedControl items={['Item1', 'Item2']} selectedItemIndex={0} onChange={mockOnChange} />,
     );
 
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('Item1').click();
     expect(mockOnChange).toHaveBeenCalled();
 
+// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('Item2').click();
     expect(mockOnChange).toHaveBeenCalled();
   });

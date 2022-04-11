@@ -36,6 +36,7 @@ describe('<Tabs />', () => {
       />,
     ).root;
 
+// eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     expect(instance.findByProps({ id: 'news-tab' })).toBeDefined();
   });
 

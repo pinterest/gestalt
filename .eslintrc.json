@@ -18,11 +18,12 @@
   "plugins": [
     "eslint-comments",
     "flowtype",
+    "import",
     "jest",
     "jsx-a11y",
     "react",
     "react-hooks",
-    "import"
+    "testing-library"
   ],
   "settings": {
     "next": {
@@ -107,6 +108,7 @@
       "env": {
         "jest": true
       },
+      "extends": ["plugin:testing-library/react"],
       "globals": {
         "page": true,
         "browser": true

@@ -50,6 +50,7 @@ describe('DatePicker', () => {
 
     fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
 
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
 
     const selectedDay = screen.getByText('13');
@@ -71,6 +72,7 @@ describe('DatePicker', () => {
     fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
 
     // Test correct render of DatePicker popover
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
     // Test that initial passed value is styled as selected
     expect(screen.getByText('14')).toHaveClass(
@@ -87,6 +89,7 @@ describe('DatePicker', () => {
     fireEvent.focus(screen.getByDisplayValue('12/13/2018'));
 
     // Test correct render of DatePicker popover
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
   });
 
@@ -111,6 +114,7 @@ describe('DatePicker', () => {
     fireEvent.focus(screen.getByDisplayValue('12/13/2018'));
 
     // Test correct render of DatePicker popover
+// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
 
     expect(screen.getByText('13')).toHaveClass(
