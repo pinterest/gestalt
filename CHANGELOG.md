@@ -1,3 +1,9 @@
+## 50.0.0 (Apr 11, 2022)
+
+### Major
+
+- Heading: Deprecate old color options, add new semantic colors (#2058)
+
 ## 49.0.1 (Apr 11, 2022)
 
 ### Patch
