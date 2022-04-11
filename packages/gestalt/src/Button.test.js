@@ -19,7 +19,7 @@ describe('<Button />', () => {
 
   test('iconEnd', () => {
     const instance = create(<Button color="white" iconEnd="arrow-down" text="Menu" />).root;
-// eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
   test('Custom white text color on transparent background', () => {

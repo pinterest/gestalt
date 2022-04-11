@@ -25,7 +25,7 @@ describe('Dropdown.Item', () => {
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
-// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
   });
 

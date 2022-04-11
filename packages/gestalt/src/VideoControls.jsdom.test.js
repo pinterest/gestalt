@@ -31,7 +31,7 @@ test('VideoControls handles play events', () => {
       volume={0}
     />,
   );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.click(getByLabelText('Play'));
   expect(mockOnPlay).toHaveBeenCalled();
 });
@@ -65,7 +65,7 @@ test('VideoControls handles pause events', () => {
       volume={0}
     />,
   );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.click(getByLabelText('Pause'));
   expect(mockOnPause).toHaveBeenCalled();
 });
@@ -99,7 +99,7 @@ test('VideoControls handles volume events', () => {
       volume={0}
     />,
   );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.click(getByLabelText('Unmute'));
   expect(mockOnVolumeChange).toHaveBeenCalled();
 });

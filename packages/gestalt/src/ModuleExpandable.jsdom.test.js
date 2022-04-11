@@ -57,30 +57,30 @@ describe('ModuleExpandable', () => {
 
     expect(screen.getByText(/Title1/i)).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /lock icon label/i })).toBeInTheDocument();
-// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children1/i)).toBeNull();
 
     expect(screen.getByText(/Title2/i)).toBeInTheDocument();
-// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary2/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children2/i)).toBeNull();
 
     expect(screen.getByText(/Title3/i)).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /Error icon/i })).toBeInTheDocument();
-// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary3/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children3/i)).toBeNull();
 
     expect(screen.getByText(/Title4/i)).toBeInTheDocument();
     expect(screen.getByText(/badge text/i)).toBeInTheDocument();
-// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary4/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children4/i)).toBeNull();
 
     expect(screen.getByText(/Title5/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Get help/i })).toBeInTheDocument();
-// eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText(/summary5/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children5/i)).toBeNull();
   });

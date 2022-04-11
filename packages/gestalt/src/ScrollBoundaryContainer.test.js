@@ -26,7 +26,7 @@ describe('ScrollBoundaryContainer', () => {
     expect(tree).toMatchSnapshot();
 
     const instance = component.root;
-// eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     const element = instance.findByType('div');
     expect(element.props.className.includes('overflowScroll')).toBe(true);
     expect(element.props.style.height).toEqual(200);

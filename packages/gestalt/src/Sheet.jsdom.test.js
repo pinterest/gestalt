@@ -104,7 +104,7 @@ describe('Sheet', () => {
       </Sheet>,
     );
 
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('div[role="dialog"]')).toBe(document.activeElement);
   });
 
@@ -124,7 +124,7 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnAnimationEnd).toHaveBeenCalledTimes(1);
@@ -142,9 +142,9 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByLabelText('Dismiss').click();
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
@@ -165,7 +165,7 @@ describe('Sheet', () => {
     fireEvent.keyUp(window.document, {
       keyCode: 27,
     });
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
@@ -184,10 +184,10 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = container.querySelector('div[role="dialog"]').parentElement.firstElementChild;
     fireEvent.click(backDrop);
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
@@ -210,10 +210,10 @@ describe('Sheet', () => {
         )}
       </Sheet>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
     fireEvent.click(button);
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
@@ -237,10 +237,10 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
     fireEvent.click(button);
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
@@ -265,10 +265,10 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
     fireEvent.click(button);
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
@@ -287,10 +287,10 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = container.querySelector('div[role="dialog"]').parentElement.firstElementChild;
     fireEvent.click(backDrop);
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(0);

@@ -16,7 +16,7 @@ test('VideoPlayhead handles on mouse down and up events', () => {
     />,
   );
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.mouseDown(getByRole('progressbar'), {
     clientX: 0,
     preventDefault: jest.fn(),
@@ -24,7 +24,7 @@ test('VideoPlayhead handles on mouse down and up events', () => {
   expect(mockOnPlayheadDown).toHaveBeenCalledTimes(1);
   expect(mockOnPlayheadUp).toHaveBeenCalledTimes(0);
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.mouseUp(getByRole('progressbar'), { clientX: 0 });
   expect(mockOnPlayheadDown).toHaveBeenCalledTimes(1);
   expect(mockOnPlayheadUp).toHaveBeenCalledTimes(1);
@@ -43,14 +43,14 @@ test('VideoPlayhead ends seek when mouse leaves', () => {
       onPlayheadUp={mockOnPlayheadUp}
     />,
   );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.mouseDown(getByRole('progressbar'), {
     preventDefault: jest.fn(),
   });
   expect(mockOnPlayheadDown).toHaveBeenCalledTimes(1);
   expect(mockOnPlayheadUp).toHaveBeenCalledTimes(0);
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.mouseLeave(getByRole('progressbar'), {
     preventDefault: jest.fn(),
   });

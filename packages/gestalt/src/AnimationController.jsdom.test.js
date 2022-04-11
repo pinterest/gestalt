@@ -34,7 +34,7 @@ describe('AnimationController', () => {
       </AnimationController>,
     );
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getNodeText(getByLabelText('animated'))).toEqual('in');
   });
 
@@ -47,7 +47,7 @@ describe('AnimationController', () => {
       </AnimationController>,
     );
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getNodeText(getByLabelText('animated'))).toEqual('');
   });
 
@@ -57,10 +57,10 @@ describe('AnimationController', () => {
         {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
       </AnimationController>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.animationEnd(getByLabelText('animated'));
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getNodeText(getByLabelText('animated'))).toEqual('postIn');
   });
 
@@ -70,10 +70,10 @@ describe('AnimationController', () => {
         {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
       </AnimationController>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.click(getByLabelText('animated'));
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getNodeText(getByLabelText('animated'))).toEqual('out');
   });
 
@@ -83,12 +83,12 @@ describe('AnimationController', () => {
         {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
       </AnimationController>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.click(getByLabelText('animated'));
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.animationEnd(getByLabelText('animated'));
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(queryByLabelText('animated')).toEqual(null);
   });
 
@@ -100,10 +100,10 @@ describe('AnimationController', () => {
         {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
       </AnimationController>,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.click(getByLabelText('animated'));
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(queryByLabelText('animated')).toEqual(null);
   });
 });

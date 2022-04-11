@@ -313,25 +313,25 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com');
 
     fireEvent.keyDown(window.document, {
       keyCode: UP_ARROW,
     });
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
   });
 
@@ -380,13 +380,13 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-1');
 
     fireEvent.keyDown(window.document, {
@@ -442,13 +442,13 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-8-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
-// eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com/today');
 
     // NOTE(rjames): I suspect this may be an RTL bug. This behavior works fine

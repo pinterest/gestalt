@@ -15,7 +15,7 @@ test('Upsell handles onDismiss callback', () => {
       }}
     />,
   );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   getByLabelText('Dismiss banner').click();
   expect(mockOnDismiss).toHaveBeenCalled();
 });

@@ -9,7 +9,7 @@ describe('TextArea', () => {
       <TextArea id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     );
     expect(() => {
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
 
@@ -22,7 +22,7 @@ describe('TextArea', () => {
         onBlur={jest.fn()}
       />,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Error message')).toBeVisible();
   });
 
@@ -32,7 +32,7 @@ describe('TextArea', () => {
       <TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextArea Text" />,
     );
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.blur(getByDisplayValue('TextArea Text'));
     expect(mockBlur).toHaveBeenCalled();
   });
@@ -43,7 +43,7 @@ describe('TextArea', () => {
       <TextArea id="test" onChange={mockChange} value="TextArea Text" />,
     );
 
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const textarea = container.querySelector('textarea');
     expect(textarea).not.toBe(null);
 
@@ -61,7 +61,7 @@ describe('TextArea', () => {
       <TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextArea Text" />,
     );
 
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.focus(getByDisplayValue('TextArea Text'));
     expect(mockFocus).toHaveBeenCalled();
   });
@@ -72,7 +72,7 @@ describe('TextArea', () => {
       <TextArea id="test" onChange={() => {}} onKeyDown={mockKeyDown} value="TextArea Text" />,
     );
 
-// eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const textarea = container.querySelector('textarea');
     expect(textarea).not.toBe(null);
 
@@ -109,7 +109,7 @@ describe('TextArea', () => {
         value="TextArea Text"
       />,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Label for the text area')).toBeVisible();
   });
 
@@ -123,7 +123,7 @@ describe('TextArea', () => {
         value="TextArea Text"
       />,
     );
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Helper text for the text area')).toBeVisible();
   });
 
@@ -139,7 +139,7 @@ describe('TextArea', () => {
       />,
     );
     expect(() => {
-// eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
+      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Helper text for the text area');
     }).toThrow('Unable to find an element with the text: Helper text for the text area');
   });
