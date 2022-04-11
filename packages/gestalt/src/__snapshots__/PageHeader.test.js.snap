@@ -58,7 +58,7 @@ exports[`PageHeader renders 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -73,7 +73,7 @@ exports[`PageHeader renders 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -179,7 +179,7 @@ exports[`PageHeader renders primary action 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -194,7 +194,7 @@ exports[`PageHeader renders primary action 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -402,7 +402,7 @@ exports[`PageHeader renders secondary action 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -417,7 +417,7 @@ exports[`PageHeader renders secondary action 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -656,7 +656,7 @@ exports[`PageHeader renders subtext 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -671,7 +671,7 @@ exports[`PageHeader renders subtext 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -791,7 +791,7 @@ exports[`PageHeader renders within a max width 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -806,7 +806,7 @@ exports[`PageHeader renders within a max width 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,

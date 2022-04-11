@@ -35,7 +35,7 @@ exports[`Sheet should render all props with nodes 1`] = `
                   class="box paddingX8 paddingY8 xsDisplayFlex"
                 >
                   <h1
-                    class="Heading fontSize500 darkGray alignStart breakWord"
+                    class="Heading fontSize500 defaultText alignStart breakWord"
                   >
                     Sheet title
                   </h1>
@@ -134,7 +134,7 @@ exports[`Sheet should render all props with render props 1`] = `
                   class="box paddingX8 paddingY8 xsDisplayFlex"
                 >
                   <h1
-                    class="Heading fontSize500 darkGray alignStart breakWord"
+                    class="Heading fontSize500 defaultText alignStart breakWord"
                   >
                     Sheet title
                   </h1>

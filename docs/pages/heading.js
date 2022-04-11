@@ -19,7 +19,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         description="These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/text) instead."
         defaultCode={`
 <Flex gap={4} direction="column">
-  <Heading size="lg">Heading size 100</Heading>
+  <Heading size="100">Heading size 100</Heading>
   <span lang="ja">
     <Heading size="100">こんにちは</Heading>
   </span>
@@ -58,29 +58,47 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Example: Colors"
         defaultCode={`
 <Box>
-  <Box margin={-1}>
     <Box color="gray" padding={1}>
-      <Heading color="white" size="500">
-        White
+      <Heading color="inverse" size="500">
+        Inverse
       </Heading>
     </Box>
-  </Box>
 
   <Heading size="500">
-    Dark gray (default)
+    Default
   </Heading>
 
-  <Heading color="gray" size="500">
-    Gray
+  <Heading color="subtle" size="500">
+    Subtle
   </Heading>
 
-  <Heading color="blue" size="500">
-    Blue
+  <Heading color="success" size="500">
+    Success
   </Heading>
 
-  <Heading color="red" size="500">
-    Red
+  <Heading color="error" size="500">
+    Error
   </Heading>
+
+  <Heading color="warning" size="500">
+    Warning
+  </Heading>
+
+  <Heading color="shopping" size="500">
+    Shopping
+  </Heading>
+
+  <Box color="primary" padding={1}>
+    <Heading color="light" size="500">
+      Light
+    </Heading>
+  </Box>
+
+  <Box color="infoWeak" padding={1}>
+    <Heading color="dark" size="500">
+      Dark
+    </Heading>
+  </Box>
 </Box>
 `}
       />

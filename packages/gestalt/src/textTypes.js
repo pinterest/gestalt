@@ -18,45 +18,4 @@ export const semanticColors = [
   'dark',
 ];
 
-export const literalColors = [
-  'blue',
-  'darkGray',
-  'eggplant',
-  'gray',
-  'green',
-  'lightGray',
-  'maroon',
-  'midnight',
-  'navy',
-  'olive',
-  'orange',
-  'orchid',
-  'pine',
-  'purple',
-  'red',
-  'watermelon',
-  'white',
-];
-
-export const allowedColors: $ReadOnlyArray<string> = [...semanticColors, ...literalColors];
-
-export type Color =
-  | 'blue'
-  | 'darkGray'
-  | 'eggplant'
-  | 'gray'
-  | 'green'
-  | 'lightGray'
-  | 'maroon'
-  | 'midnight'
-  | 'navy'
-  | 'olive'
-  | 'orange'
-  | 'orchid'
-  | 'pine'
-  | 'purple'
-  | 'red'
-  | 'watermelon'
-  | 'white';
-
 export type FontWeight = 'bold' | 'normal';
