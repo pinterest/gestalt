@@ -26,6 +26,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -46,6 +47,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -61,6 +63,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/bunny/movie.mp4" />);
@@ -76,6 +79,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -106,6 +110,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />);
@@ -126,6 +131,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -156,6 +162,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -191,6 +198,7 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('video').attributes.disableremoteplayback).toBeDefined();
   });
 
@@ -209,6 +217,7 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('video').attributes.disableremoteplayback).toBeUndefined();
   });
 
@@ -227,6 +236,7 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByLabelText(container, 'Progress bar')).toBeDefined();
   });
 });

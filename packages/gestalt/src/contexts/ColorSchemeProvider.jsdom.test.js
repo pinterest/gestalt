@@ -10,6 +10,7 @@ function ThemeAwareComponent() {
 describe('ColorSchemeProvider', () => {
   it('renders child content in a div', () => {
     const { container } = render(<ColorSchemeProvider>Child 1</ColorSchemeProvider>);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('div')).toMatchInlineSnapshot(`
         <div>
           Child 1
@@ -18,6 +19,7 @@ describe('ColorSchemeProvider', () => {
   });
   it('renders styling for light mode when no color scheme specified', () => {
     const { container } = render(<ColorSchemeProvider>Content</ColorSchemeProvider>);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         :root {
@@ -86,6 +88,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="light">Content</ColorSchemeProvider>,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         :root {
@@ -154,6 +157,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="dark">Content</ColorSchemeProvider>,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         :root {
@@ -222,6 +226,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="userPreference">Content</ColorSchemeProvider>,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         @media(prefers-color-scheme: dark) {
@@ -290,7 +295,9 @@ describe('ColorSchemeProvider', () => {
   });
   it('renders styling with a custom class if has an id', () => {
     const { container } = render(<ColorSchemeProvider id="testId">Content</ColorSchemeProvider>);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.__gestaltThemetestId')).toBeTruthy();
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         .__gestaltThemetestId {
@@ -359,6 +366,7 @@ describe('ColorSchemeProvider', () => {
 describe('useColorScheme', () => {
   it('uses light mode theme when not in theme provider', () => {
     const { getByText } = render(<ThemeAwareComponent />);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('lightMode')).toBeTruthy();
   });
   it('uses light mode theme when specified', () => {
@@ -367,6 +375,7 @@ describe('useColorScheme', () => {
         <ThemeAwareComponent />
       </ColorSchemeProvider>,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('lightMode')).toBeTruthy();
   });
   it('uses dark mode theme when specified', () => {
@@ -375,6 +384,7 @@ describe('useColorScheme', () => {
         <ThemeAwareComponent />
       </ColorSchemeProvider>,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('darkMode')).toBeTruthy();
   });
   it('uses theme based on matchMedia when userPreference', () => {
@@ -390,8 +400,10 @@ describe('useColorScheme', () => {
         <ThemeAwareComponent />
       </ColorSchemeProvider>,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('lightMode')).toBeTruthy();
     act(() => listener({ matches: true }));
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('darkMode')).toBeTruthy();
   });
 });

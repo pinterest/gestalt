@@ -31,6 +31,7 @@ describe('SelectList', () => {
         placeholder="Placeholder text"
       />,
     );
+    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     expect(component.root.findByProps({ hidden: true, disabled: true }).children).toEqual([
       'Placeholder text',
     ]);
@@ -44,6 +45,7 @@ describe('SelectList', () => {
         options={[...options, { label: 'option4', value: 'value4', disabled: true }]}
       />,
     );
+    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     expect(component.root.findByProps({ disabled: true }).children).toEqual(['option4']);
   });
 

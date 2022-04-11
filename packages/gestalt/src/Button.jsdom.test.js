@@ -7,6 +7,7 @@ describe('Button', () => {
   it('handles click', () => {
     const mockOnClick = jest.fn();
     const { getByText } = render(<Button text="ButtonText" onClick={mockOnClick} />);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('ButtonText').click();
     expect(mockOnClick).toHaveBeenCalled();
   });

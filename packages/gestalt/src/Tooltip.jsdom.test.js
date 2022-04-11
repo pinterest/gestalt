@@ -32,6 +32,7 @@ test('Tooltip renders the link when hovered', () => {
     </Tooltip>,
   );
 
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   const ariaContainer = container.querySelector('[aria-label]');
   expect(ariaContainer).not.toBe(null);
 
@@ -39,6 +40,7 @@ test('Tooltip renders the link when hovered', () => {
     fireEvent.mouseEnter(ariaContainer);
   }
   const { body } = document;
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   const element = getByText('Learn more');
   expect(body && body.contains(element)).toBeTruthy();
 });
@@ -50,6 +52,7 @@ test('Tooltip should render as expected when hovered', () => {
     </Tooltip>,
   );
 
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   const ariaContainer = container.querySelector('[aria-label]');
   expect(ariaContainer).not.toBe(null);
 
@@ -57,6 +60,7 @@ test('Tooltip should render as expected when hovered', () => {
     fireEvent.mouseEnter(ariaContainer);
   }
 
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   expect(getByText('This is a tooltip')).toBeVisible();
 });
 
@@ -77,6 +81,7 @@ test('Tooltip renders with zIndex', () => {
       <div>Hi</div>
     </Tooltip>,
   );
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   const ariaContainer = container.querySelector('[aria-label]');
   expect(ariaContainer).not.toBe(null);
 
@@ -85,7 +90,9 @@ test('Tooltip renders with zIndex', () => {
   }
 
   const { body } = document;
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   const tooltipText = getByText('This is a tooltip');
+  // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
   const layer = body && body.querySelector('.layer');
   expect(layer && getComputedStyle(layer).zIndex).toEqual('100');
   expect(body && body.contains(tooltipText)).toBe(true);

@@ -14,6 +14,7 @@ describe('<SelectList />', () => {
       <SelectList errorMessage="Error message" id="test" onChange={jest.fn()} options={options} />,
     );
 
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Error message')).toBeVisible();
   });
 
@@ -21,6 +22,7 @@ describe('<SelectList />', () => {
     const { container } = render(
       <SelectList name="select_name" id="select_id" onChange={jest.fn()} options={options} />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('[name="select_name"]')).toBeVisible();
   });
 
@@ -30,6 +32,7 @@ describe('<SelectList />', () => {
       <SelectList id="test" onChange={handleChange} options={options} />,
     );
     expect(() => {
+      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
     rerender(
@@ -40,6 +43,7 @@ describe('<SelectList />', () => {
         errorMessage="Error message"
       />,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Error message')).toBeVisible();
   });
 
@@ -47,6 +51,7 @@ describe('<SelectList />', () => {
     const { container } = render(
       <SelectList disabled id="test" onChange={jest.fn()} options={options} />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('select[disabled]')).toBeVisible();
   });
 
@@ -59,6 +64,7 @@ describe('<SelectList />', () => {
         placeholder={options[0].label}
       />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('option')).toBeDisabled();
   });
 
@@ -70,6 +76,7 @@ describe('<SelectList />', () => {
         options={[...options, { label: 'option4', value: 'value4', disabled: true }]}
       />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('option[value="value4"]')).toBeDisabled();
   });
 
@@ -83,6 +90,7 @@ describe('<SelectList />', () => {
         placeholder={options[0].label}
       />,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Label for the select list')).toBeVisible();
   });
 
@@ -97,6 +105,7 @@ describe('<SelectList />', () => {
         placeholder={options[0].label}
       />,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByText('Helper text for the select list')).toBeVisible();
   });
 
@@ -113,6 +122,7 @@ describe('<SelectList />', () => {
       />,
     );
     expect(() => {
+      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       getByText('Helper text for the select list');
     }).toThrow('Unable to find an element with the text: Helper text for the select list');
   });
@@ -121,6 +131,7 @@ describe('<SelectList />', () => {
     const { container } = render(
       <SelectList name="select_name" id="select_id" onChange={jest.fn()} options={options} />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.medium')).toBeVisible();
   });
 
@@ -134,6 +145,7 @@ describe('<SelectList />', () => {
         size="lg"
       />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.large')).toBeVisible();
   });
 });
