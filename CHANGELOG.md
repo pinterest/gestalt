@@ -1,3 +1,9 @@
+## 50.0.1 (Apr 11, 2022)
+
+### Patch
+
+- Internal: add eslint-plugin-testing-library (#2062)
+
 ## 50.0.0 (Apr 11, 2022)
 
 ### Major
