@@ -110,7 +110,7 @@ type Props = {|
   /**
    * Callback triggered when an [play() method's Promise is rejected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) during playing a video, such as [blocked automatic playback](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play#exceptions). See [updates example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
    */
-  onPlayError?: () => void,
+  onPlayError?: ({| error: Error |}) => void,
   /**
    * Callback triggered when the video full screen status changes. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
    */
@@ -458,10 +458,8 @@ export default class Video extends PureComponent<Props, State> {
       if (!isPlaying) {
         try {
           await this.video.play();
-          console.log('playing');
-        } catch (err) {
-          this.props.onPlayError?.();
-          console.log('ERROR', err, this.props.src );
+        } catch (error) {
+          this.props.onPlayError?.({ error });
         }
       }
     }
