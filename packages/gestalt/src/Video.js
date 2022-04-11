@@ -108,6 +108,10 @@ type Props = {|
    */
   onError?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
   /**
+   * Callback triggered when an [play() method's Promise is rejected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) during playing a video, such as [blocked automatic playback](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play#exceptions). See [updates example](https://gestalt.pinterest.systems/video#videoControlsExample) for more details.
+   */
+  onPlayError?: () => void,
+  /**
    * Callback triggered when the video full screen status changes. See [updates example](https://gestalt.pinterest.systems/video#videoUpdatesExample) for more details.
    */
   onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
@@ -444,14 +448,22 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Play the video
-  play: () => void = () => {
+  play: () => Promise<void> = async () => {
     if (this.video) {
       const isPlaying =
         this.video.currentTime > 0 &&
         !this.video.paused &&
         !this.video.ended &&
         this.video.readyState > 2;
-      if (!isPlaying) this.video.play();
+      if (!isPlaying) {
+        try {
+          await this.video.play();
+          console.log('playing');
+        } catch (err) {
+          this.props.onPlayError?.();
+          console.log('ERROR', err, this.props.src );
+        }
+      }
     }
   };
 

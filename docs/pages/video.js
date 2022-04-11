@@ -14,7 +14,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <Example
+      {/* <Example
         id="basicExample"
         name="Video media basics"
         description={`
@@ -29,7 +29,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   src="https://media.w3.org/2010/05/bunny/movie.mp4"
 />
 `}
-      />
+      /> */}
       <Example
         name="Video multiple sources"
         description={`
@@ -40,7 +40,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 <Video
   aspectRatio={426 / 240}
   captions=""
-  playing
   src={[
     {
       type: "video/mp4",
@@ -66,7 +65,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   aspectRatio={1920 / 1080}
   captions=""
   loop
-  playing
   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
 />
 `}
@@ -79,25 +77,33 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     such as play/pause, timestamps, mute, and fullscreen. Pass in the \`controls\` prop to make them appear.
   `}
         defaultCode={`
-<Video
-  accessibilityMaximizeLabel="Maximize"
-  accessibilityMinimizeLabel="Minimize"
-  accessibilityMuteLabel="Mute"
-  accessibilityPauseLabel="Pause"
-  accessibilityPlayLabel="Play"
-  accessibilityProgressBarLabel="Progress bar"
-  accessibilityUnmuteLabel="Unmute"
-  aspectRatio={853 / 480}
-  captions=""
-  controls
-  src="https://media.w3.org/2010/05/bunny/movie.mp4"
-/>
+        function Example() {
+  const [playing, setPlaying] = React.useState(true);
+
+  return <Video
+    accessibilityMaximizeLabel="Maximize"
+    accessibilityMinimizeLabel="Minimize"
+    accessibilityMuteLabel="Mute"
+    accessibilityPauseLabel="Pause"
+    accessibilityPlayLabel="Play"
+    accessibilityProgressBarLabel="Progress bar"
+    accessibilityUnmuteLabel="Unmute"
+    aspectRatio={853 / 480}
+    captions=""
+    controls
+    onPlayError={() => { console.log('hi'); setPlaying(false) }}
+    onPlay={() => setPlaying(true)}
+    onPause={() => setPlaying(false)}
+    playing={playing}
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+  />
+}
 `}
       />
-      <Example
+      {/* <Example
         name="Video with children"
         description={`
-    \`Video\` component can show components in the \`chilren\` prop on top of the html video element, while under the controls.
+    \`Video\` component can show components in the \`children\` prop on top of the html video element, while under the controls.
     The children of \`Video\` are not same as the children of the html \`video\` element; they're "outside" the html \`video\` element.
   `}
         defaultCode={`
@@ -112,7 +118,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   aspectRatio={853 / 480}
   captions=""
   controls
-  playing
   src="https://media.w3.org/2010/05/bunny/movie.mp4"
 >
   <Box width="100%" height="100%"
@@ -128,8 +133,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   </Box>
 </Video>
 `}
-      />
-      <Example
+      /> */}
+      {/* <Example
         id="videoUpdatesExample"
         name="Video updates"
         description={`
@@ -210,7 +215,7 @@ function Example() {
   );
 }
 `}
-      />
+      /> */}
     </Page>
   );
 }
