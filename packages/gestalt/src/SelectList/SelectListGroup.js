@@ -16,6 +16,9 @@ type Props = {|
   label: string,
 |};
 
+/**
+ * Use [SelectList.Group](https://gestalt.pinterest.systems/selectlist#SelectList.Group) to group a subset of the options within SelectList.
+ */
 export default function SelectListGroup({ children, disabled, label }: Props): Element<'optgroup'> {
   return (
     <optgroup disabled={disabled} label={label}>
@@ -23,3 +26,5 @@ export default function SelectListGroup({ children, disabled, label }: Props): E
     </optgroup>
   );
 }
+
+SelectListGroup.displayName = 'SelectList.Group';

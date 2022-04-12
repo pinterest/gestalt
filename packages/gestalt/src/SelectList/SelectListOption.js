@@ -16,6 +16,9 @@ type Props = {|
   value: string,
 |};
 
+/**
+ * Use [SelectList.Option](https://gestalt.pinterest.systems/selectlist#SelectList.Option) to define the available options within SelectList.
+ */
 export default function SelectListOption({ disabled, label, value }: Props): Element<'option'> {
   return (
     <option disabled={disabled} value={value}>
@@ -23,3 +26,5 @@ export default function SelectListOption({ disabled, label, value }: Props): Ele
     </option>
   );
 }
+
+SelectListOption.displayName = 'SelectList.Option';

@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import formElement from './FormElement.css';
 import layout from './Layout.css';
 import styles from './SelectList.css';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
@@ -49,7 +48,7 @@ type Props = {|
   /**
    * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
-  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLSelectElement>, {| value: string |}>,
+  onChange: ({| event: SyntheticInputEvent<HTMLSelectElement>, value: string |}) => void,
   /**
    * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
