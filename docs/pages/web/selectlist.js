@@ -1,19 +1,23 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { overrideTypes, type DocGen } from '../../docs-components/docgen.js';
+import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 
-export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   return (
-    <Page title="SelectList">
+    <Page title={generatedDocGen?.SelectList?.displayName}>
       <PageHeader
-        name="SelectList"
-        description={generatedDocGen?.description}
+        name={generatedDocGen?.SelectList?.displayName}
+        description={generatedDocGen?.SelectList?.description}
         defaultCode={`
 <SelectList
   id="selectlistexample1"
@@ -35,7 +39,31 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
     `}
       />
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen?.SelectList} />
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.SelectListOption?.displayName}
+          description={generatedDocGen?.SelectListOption?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.SelectListOption}
+            id="SelectList.Option"
+            name="SelectList.Option"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title={generatedDocGen?.SelectListGroup?.displayName}
+          description={generatedDocGen?.SelectListGroup?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.SelectListGroup}
+            id="SelectList.Group"
+            name="SelectList.Group"
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -583,6 +611,41 @@ function Example(props) {
 `}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Groups"
+          description="SelectList.Group can be used to group related options. Note that disabling a group disables all of its options."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<SelectList
+  helperText="Note that the family members aren't secondary!"
+  id="selectlistexample15"
+  label="Choose your favorite secondary character"
+  onChange={() => {}}
+  placeholder="Select a character"
+  size="lg"
+  >
+    <SelectList.Group disabled label="Family">
+      {['Bart', 'Lisa', 'Homer', 'Marge', 'Maggie'].map((name) =>
+        <SelectList.Option key={name} label={name} value={name} />
+      )}
+    </SelectList.Group>
+    <SelectList.Group label="Neighbors">
+      {['Ned', 'Maude', 'Rod', 'Todd'].map((name) =>
+        <SelectList.Option key={name} label={name} value={name} />
+      )}
+    </SelectList.Group>
+    <SelectList.Group label="Cartoons">
+      {['Itchy', 'Scratchy', 'Poochie'].map((name) =>
+        <SelectList.Option key={name} label={name} value={name} />
+      )}
+    </SelectList.Group>
+</SelectList>
+`}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
@@ -608,13 +671,14 @@ If users need the ability to choose between a yes/no option, use Checkbox.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const docGen = await docgen({ componentName: 'SelectList' });
-  const overriddenDocGen = overrideTypes(docGen, {
-    onChange: '({| event: SyntheticInputEvent<HTMLSelectElement>, value: string |}) => void',
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const docgen = await multipledocgen({
+    componentName: ['SelectList', 'SelectListOption', 'SelectListGroup'],
   });
 
   return {
-    props: { generatedDocGen: overriddenDocGen },
+    props: { generatedDocGen: docgen },
   };
 }
