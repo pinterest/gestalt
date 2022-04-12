@@ -164,13 +164,16 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
   const innerRef = useRef(null);
   useImperativeHandle(ref, () => innerRef.current);
 
+  const [selected, setSelected] = useState<?Date>(dateValue);
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
   // in the month and we need to keep the popover pointed at the input correctly
-  const [selected, setSelected] = useState<?Date>(dateValue);
   const [, setMonth] = useState<?number>();
   const [format, setFormat] = useState<?string>();
   const [updatedLocale, setUpdatedLocale] = useState<?string>();
   const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
+
+  // TO DO: Ideally this component should be fully controlled using value + onChange, where selected/setSelected are unnecessary.
+  useEffect(() => setSelected(dateValue), [dateValue]);
 
   useEffect(() => {
     if (rangeSelector) {
