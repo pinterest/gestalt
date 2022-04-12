@@ -290,8 +290,8 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
             <Dropdown
               anchor={anchorRef.current}
               id="selectlistexample9"
-              onDismiss={() => { setOpen(false)}; }
-              >
+              onDismiss={() => { setOpen(false); }}
+            >
               {[
                 { value: "item 1", label: "Last 7 days" },
                 { value: "item 2", label: "Last 14 days" },
@@ -398,7 +398,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
   label="Country"
   onChange={() => {}}
   size="lg"
-/>
+>
   {[
     { label: 'Algeria', value: 'algeria' },
     { label: 'Belgium', value: 'belgium' },
