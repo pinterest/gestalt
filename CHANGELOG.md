@@ -1,3 +1,9 @@
+## 50.0.2 (Apr 12, 2022)
+
+### Patch
+
+- PageHeader: New Docs (#2048)
+
 ## 50.0.1 (Apr 11, 2022)
 
 ### Patch
