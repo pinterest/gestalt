@@ -267,7 +267,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
           </Flex>
           <SelectList
             label="Location"
-            id="selectlist"
+            id="selectlist1"
             options={[
               {
                 value: 'belgium',
@@ -336,7 +336,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
           </Flex>
           <SelectList
             label="Location"
-            id="selectlist"
+            id="selectlist2"
             options={[
               {
                 value: 'belgium',
@@ -403,7 +403,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Include a profile avatar image in PageHeader, as the user avatar should be provided in the main app header"
+            description="Include a profile avatar image in PageHeader, as the user avatar should be provided in the main app navigation"
             defaultCode={`
 <PageHeader
   title="My apps"
@@ -645,8 +645,8 @@ Be brief with text in all components to account for languages with longer words.
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`PageHeader's \`title\` is the main part of the component as it represents the page's main heading (it will always be a level 1 heading). It can be complemented with three additional elements: a thumbnail (left) and a badge and/or a helperIcon (right). Don't forget to localized its content.`}
           title="Title"
+          description={`PageHeader's \`title\` is the main part of the component as it represents the page's main heading (it will always be a level 1 heading). It can be complemented with three additional elements: a thumbnail (left) and a badge and/or a help Icon (right). Don't forget to localized its content.`}
         >
           <MainSection.Card
             shaded
@@ -675,6 +675,7 @@ Be brief with text in all components to account for languages with longer words.
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          title="Primary action"
           description={`PageHeader supports an optional \`primaryAction\`. It can be a [Button](/button), a [Link](/link) or an [IconButton](/iconbutton) with a [Tooltip](/tooltip) and optional [Dropdown](/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.
 
 If there's already a primary action elsewhere on the page, PageHeader can have 1 or 2 secondary actions. Use \`primaryAction\` as an additional secondary action.
@@ -682,8 +683,9 @@ If there's already a primary action elsewhere on the page, PageHeader can have 1
 Primary and secondary actions are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). \`primaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
 
 For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reuse the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.netlify.app/dropdown) below the sm breakpoint.
+
+Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
 `}
-          title="Primary action"
         >
           <MainSection.Card
             cardSize="lg"
@@ -819,13 +821,16 @@ For example, Button should be complemented with [Dropdown.Item](https://gestalt.
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          title="Secondary action"
           description={`PageHeader also supports an optional \`secondaryAction\`. It will likely be a [Button](/button) or an [IconButton](/iconbutton) with a [Tooltip](/tooltip) and optional [Dropdown](/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.
 
 Primary and secondary actions are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). \`secondaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
 
 For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reused the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.netlify.app/dropdown) below the sm breakpoint.
+
+Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
+
           `}
-          title="Secondary action"
         >
           <MainSection.Card
             cardSize="lg"
@@ -908,8 +913,8 @@ function Example() {
                     handleSelect={handleSelect}
                     selected={selected}
                     option={{
-                      value: 'Share Report',
-                      label: 'Share Report',
+                      value: 'Share report',
+                      label: 'Share report',
                     }}
                   />
                   <Dropdown.Item
@@ -931,10 +936,6 @@ function Example() {
             </React.Fragment>
           ),
           dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Create new report', label: 'Create new report' }}
-              onSelect={() => {}}
-            />,
             <Dropdown.Item
               option={{ value: 'Share report', label: 'Share report' }}
               onSelect={() => {}}
@@ -959,8 +960,8 @@ function Example() {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`PageHeader supports an optional pair of components next to the CTA section. It's strongly recommended to limit this space to data display components, mostly [Datapoint](https://gestalt.pinterest.systems/datapoint). These complementary component section is hidden in small breakpoints.`}
           title="Complementary items"
+          description={`PageHeader supports an optional pair of components next to the CTA section. It's strongly recommended to limit this space to data display components, mostly [Datapoint](https://gestalt.pinterest.systems/datapoint). The complementary component section is hidden in small breakpoints.`}
         >
           <MainSection.Card
             shaded
@@ -1036,10 +1037,10 @@ function Example() {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          title="Max width & border"
           description={` A \`maxWidth\` should only be supplied when the content of the page is center aligned. The PageHeader’s padding should match the page’s overall padding.
 
 PageHeader also supports a bottom border to show the division between PageHeader and the page content below.`}
-          title="Max width & border"
         >
           <MainSection.Card
             shaded
@@ -1084,7 +1085,7 @@ PageHeader also supports a bottom border to show the division between PageHeader
           </Flex>
           <SelectList
             label="Location"
-            id="selectlist"
+            id="selectlist3"
             options={[
               {
                 value: 'belgium',

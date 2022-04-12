@@ -31,7 +31,7 @@ type Props = {|
    */
   badge?: {| text: string, tooltipText?: string |},
   /**
-   * Specify a bottom border style for PageHeader: "sm" is 1px. See the [max width & border variant](https://gestalt.pinterest.systems/pageheader##Max-width-and-border) to learn more.
+   * Specify a bottom border style for PageHeader: "sm" is 1px. See the [max width & border variant](https://gestalt.pinterest.systems/pageheader#Max-width-and-border) to learn more.
    */
   borderStyle?: 'sm' | 'none',
   /**
