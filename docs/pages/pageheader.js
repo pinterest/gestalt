@@ -488,8 +488,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description={`
-Overload PageHeader with a help IconButton, help Link and info icons. These may amount to visual noise once a user understands the page contents.`}
+            description={`Overload PageHeader with a help IconButton, help Link and info Tooltips. Too many sources of help on the page may confuse users. If there are multiple items to explain, use the help IconButton to open a [Sheet](/sheet) with further help. If you want to lead users to external documentation, add a help Link with the \`helperLink\` prop.`}
             defaultCode={`
 <PageHeader
   title="Ads overview"
