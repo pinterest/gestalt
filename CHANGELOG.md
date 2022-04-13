@@ -1,3 +1,9 @@
+## 50.0.5 (Apr 13, 2022)
+
+### Patch
+
+- PageHeader: Best practice update (#2066)
+
 ## 50.0.4 (Apr 13, 2022)
 
 ### Patch
