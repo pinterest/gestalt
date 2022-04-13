@@ -1,9 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Checkbox } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import Example from '../components/Example.js';
-import Combination from '../components/Combination.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
@@ -11,9 +8,26 @@ import Page from '../components/Page.js';
 
 export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Checkbox">
-      <PageHeader name="Checkbox" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
 
+  return (
+      <Checkbox
+        checked={checked1}
+        id="checkbox"
+        label="I agree that this is a checkbox"
+        onChange={({ checked }) => setChecked1(checked)}
+        subtext="Nothing will happen if you disagree"
+      />
+  );
+}
+`}
+      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
@@ -23,8 +37,9 @@ export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: Do
             type="do"
             title="When to use"
             description={`
-          - Presenting users with a list of multiple, related options where users can select all, some, or none of the options. With Checkboxes, users can select more than one option.
-          - Presenting users with a single option that can be selected or not.
+- In a list, form or a [Table](/table), to present users with multiple, related options where more than one option can be selected. Users must be able to select all, none or some of the presented options.
+- In a Form, along with a [TextField](/textfield), or other spaces that are too small for a [Switch](/switch)
+- When selection doesn’t take immediate effect and requires form submission
         `}
           />
           <MainSection.Card
@@ -32,39 +47,459 @@ export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: Do
             type="don't"
             title="When not to use"
             description={`
-          - Situations where users can only choose one out of multiple, related options. Use [RadioButtons](/radiobutton) instead.
-          - When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.
+- Situations where users can only choose one out of multiple, related options. Use [RadioButton](/radiobutton) instead.
+- When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.
+- When visually, it’s hard to tell that a checkbox turns something on or off. Use [Switch](/switch) instead.
         `}
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        id="single"
-        name="Example"
-        defaultCode={`
-function CheckboxExample() {
-  const [checked, setChecked] = React.useState(true);
+
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use checkboxes for multi-selection of related list items"
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+  const [checked4, setChecked4] = React.useState(false);
 
   return (
-      <Checkbox
-        checked={checked}
-        id="usa"
-        label="United States of America"
-        name="usa"
-        onChange={({ checked }) => {
-          setChecked(checked);
-        }}
-      />
+    <Fieldset legend="Select what you enjoy">
+      <Flex direction="column" gap={2}>
+        <Checkbox
+          checked={checked1}
+          id="Fashion"
+          label="Fashion"
+          onChange={({ checked }) => setChecked1(checked)}
+        />
+        <Checkbox
+          checked={checked2}
+          id="Beauty"
+          label="Beauty"
+          onChange={({ checked }) => setChecked2(checked)}
+        />
+        <Checkbox
+          checked={checked3}
+          id="Interior_design"
+          label="Interior design"
+          onChange={({ checked }) => setChecked3(checked)}
+        />
+        <Checkbox
+          checked={checked4}
+          id="Other"
+          label="Other"
+          onChange={({ checked }) => setChecked4(checked)}
+        />
+      </Flex>
+    </Fieldset>
   );
 }
 `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use checkboxes for one selection. Use [RadioButton](/radiobutton) instead."
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+  const [checked4, setChecked4] = React.useState(false);
+
+  return (
+    <Fieldset legend="Pick one topic from the list">
+      <Flex direction="column" gap={2}>
+        <Checkbox
+          checked={checked1}
+          id="Fashion2"
+          label="Fashion"
+          onChange={({ checked }) => setChecked1(checked)}
+        />
+        <Checkbox
+          checked={checked2}
+          id="Beauty2"
+          label="Beauty"
+          onChange={({ checked }) => setChecked2(checked)}
+        />
+        <Checkbox
+          checked={checked3}
+          id="Interior_design_3"
+          label="Interior design"
+          onChange={({ checked }) => setChecked3(checked)}
+        />
+        <Checkbox
+          checked={checked4}
+          id="Other4"
+          label="Other"
+          onChange={({ checked }) => setChecked4(checked)}
+        />
+      </Flex>
+    </Fieldset>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use a single Checkbox in forms where the selection only takes effect after submitting the form"
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+
+  return (
+    <Flex direction="column" gap={6}>
+      <TextField
+        id="name"
+        label="Name"
+        onChange={() => {}}
+        value=""
       />
-      <Example
-        id="group"
-        description="Here is an example of an accessible group of checkboxes. When creating a group of Checkboxes, be sure to wrap them in a [Fieldset](/fieldset)."
-        name="Example: Group"
-        defaultCode={`
-function CheckboxExample() {
+      <TextField
+        id="email"
+        label="Email"
+        onChange={() => {}}
+        value=""
+      />
+      <Checkbox
+        checked={checked1}
+        id="terms"
+        label="I agree to the Terms and Conditions"
+        onChange={({ checked }) => setChecked1(checked)}
+      />
+      <Button
+        accessibilityLabel='Submit'
+        color="red"
+        text="Submit"
+        size="lg"
+      />
+    </Flex>
+  );
+}
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](/switch) instead."
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+
+  return (
+    <Checkbox
+      checked={checked1}
+      id="location"
+      label="Turn location tracking off"
+      subtext="Change will auto-save"
+      onChange={({ checked }) => setChecked1(checked)}
+    />
+
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use info [Tooltips](/tooltip) or subtext."
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+
+  return (
+    <Flex direction="column" gap={4}>
+      <Text size={400} weight="bold">How do you like your eggs?</Text>
+      <Text>Select all the options that apply</Text>
+      <Fieldset legendDisplay="hidden" legend="How do you like your eggs? Select all the options that apply">
+        <Flex direction="column" gap={2}>
+          <Checkbox
+            checked={checked1}
+            id="Overeasy"
+            label="Overeasy"
+            onChange={({ checked }) => setChecked1(checked)}
+          />
+          <Checkbox
+            checked={checked2}
+            id="Sunny"
+            label="Sunny side up"
+            onChange={({ checked }) => setChecked2(checked)}
+          />
+          <Flex gap={2} alignItems="center">
+            <Checkbox
+              checked={checked3}
+              id="Scramboiled"
+              label="Scramboiled"
+              onChange={({ checked }) => setChecked3(checked)}
+            />
+            <Tooltip text="A hardboiled egg that is then scrambled" idealDirection="up">
+              <Icon icon="info-circle" accessibilityLabel="" size={14} color="darkGray"/>
+            </Tooltip>
+          </Flex>
+        </Flex>
+      </Fieldset>
+    </Flex>
+  );
+}
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use lengthy text that truncates and doesn’t offer clear instructions for what you are expected to select"
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+
+  return (
+    <Flex direction="column" gap={4}>
+      <Text size={400} weight="bold">Which one?</Text>
+      <Fieldset legendDisplay="hidden" legend="Which one?">
+        <Flex direction="column" gap={2}>
+          <Checkbox
+            checked={checked1}
+            id="Overeasy2"
+            label="Overeasy with a touch of salt and maybe a slice of bacon on top that isn't fully cooked and has no pepper."
+            onChange={({ checked }) => setChecked1(checked)}
+          />
+          <Checkbox
+            checked={checked2}
+            id="Sunny2"
+            label="Sunny side up"
+            onChange={({ checked }) => setChecked2(checked)}
+          />
+          <Checkbox
+            checked={checked3}
+            id="Scramboiled3"
+            label="Scramboiled--this is when you boil an egg, then you scrambled it in the pan along with the shells."
+            onChange={({ checked }) => setChecked3(checked)}
+          />
+        </Flex>
+      </Fieldset>
+    </Flex>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use Checkbox at the start of a table row to make it clear which rows are multi-selectable"
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+
+  return (
+    <Table accessibilityLabel="Campaign selection" maxHeight={200}>
+      <Table.Header sticky>
+        <Table.Row>
+          <Table.HeaderCell/>
+          <Table.HeaderCell>
+            <Text weight="bold">Name</Text>
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked1}
+                id="1"
+                onChange={({ checked }) => setChecked1(checked)}
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Label htmlFor="1">
+              <Text>Summertime picnic</Text>
+            </Label>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked2}
+                id="2"
+                onChange={({ checked }) => setChecked2(checked)}
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Label htmlFor="2">
+              <Text>Summer 1950</Text>
+            </Label>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked3}
+                id="3"
+                onChange={({ checked }) => setChecked3(checked)}
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Label htmlFor="3">
+              <Text>Back to school</Text>
+            </Label>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  );
+}
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use numerous checkboxes in table rows that make it hard to tell what items apply to multi-select actions"
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+
+  return (
+    <Table accessibilityLabel="Campaign selection" maxHeight={200}>
+      <Table.Header sticky>
+        <Table.Row>
+          <Table.HeaderCell/>
+          <Table.HeaderCell>
+            <Text weight="bold">Active</Text>
+          </Table.HeaderCell>
+          <Table.HeaderCell>
+            <Text weight="bold">Name</Text>
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked1}
+                id="4"
+                onChange={({ checked }) => setChecked1(checked)}
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Checkbox
+              id="5"
+              onChange={() => {}}
+              size="sm"
+              label="off"
+            />
+          </Table.Cell>
+          <Table.Cell>
+            <Label htmlFor="4">
+              <Text>Summertime picnic</Text>
+            </Label>
+            </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked2}
+                id="6"
+                onChange={({ checked }) => setChecked2(checked)}
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Checkbox
+              checked
+              id="7"
+              onChange={() => {}}
+              size="sm"
+              label="on"
+            />
+          </Table.Cell>
+          <Table.Cell>
+            <Label htmlFor="6">
+              <Text>Summer 1950</Text>
+            </Label>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked3}
+                id="8"
+                onChange={({ checked }) => setChecked3(checked)}
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Checkbox
+              id="9"
+              onChange={() => {}}
+              size="sm"
+              label="off"
+            />
+          </Table.Cell>
+          <Table.Cell>
+            <Label htmlFor="8">
+              <Text>Back to school</Text>
+            </Label>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="Labels"
+          description={`Checkboxes should have labels that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the \`label\` prop. If that’s not possible, make sure your stand-alone Label has an \`htmlFor\` prop that matches the \`id\` of the checkbox. Test that a checkbox and label are properly connected by clicking or tapping on the label and confirming that it activates the checkbox next to it.
+`}
+        />
+        <MainSection.Subsection
+          title="Legends"
+          description={`All groups of related Checkboxes should have a legend, which is provided by wrapping them in [Fieldset](/fieldset) component.
+`}
+        >
+          {' '}
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+function Example() {
     const [checkedEn, setCheckedEn] = React.useState(false);
     const [checkedSp, setCheckedSp] = React.useState(false);
     const [checkedCh, setCheckedCh] = React.useState(false);
@@ -77,42 +512,164 @@ function CheckboxExample() {
           id="english"
           label="English"
           name="english"
-          onChange={({ checked }) => {
-            setCheckedEn(checked);
-          }}
+          onChange={({ checked }) => setCheckedEn(checked)}
         />
-
         <Checkbox
           checked={checkedSp}
           id="spanish"
           label="Spanish"
           name="spanish"
-          onChange={({ checked }) => {
-            setCheckedSp(checked);
-          }}
+          onChange={({ checked }) => setCheckedSp(checked)}
         />
-
         <Checkbox
           checked={checkedCh}
           id="chinese"
           label="Chinese"
           name="chinese"
-          onChange={({ checked }) => {
-            setCheckedCh(checked);
-          }}
+          onChange={({ checked }) => setCheckedCh(checked)}
         />
       </Flex>
     </Fieldset>
   );
 }
 `}
-      />
-      <Example
-        id="subtext"
-        description="Here is an example of a group of checkboxes with additional subtext applied."
-        name="Example: With Subtext"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Keyboard navigation"
+          description={`
+    Checkbox has conventional keyboard support.
+    - Users relying on the keyboard expect to move focus to each Checkbox by using the tab key or shift+tab when moving backwards
+    - Setting \`disabled\` will prevent Checkbox from receiving keyboard focus or input
+
+    In order to ensure proper tab order, wrap a group of related Checkboxes in [Fieldset](/fieldset).
+    `}
+        />
+        <MainSection.Subsection
+          title="Error message"
+          description={`Checkbox’s error state displays an error-themed color border. Checkbox must always show an error message to indicate error status to ensure color is not the only indicator of status or information. Use \`errorMessage\` prop to display the appropriate error message that helps the user resolve the problem. Error messages should be clear, direct and conversational. For an example, see [Writing](#Writing).`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function CheckboxExample() {
+  return (
+      <Checkbox
+        id="error"
+        errorMessage="You must agree to the Terms and Conditions"
+        label="I agree to the Terms and Conditions"
+        name="error"
+        onChange={() => {}}
+      />
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize \`label\` and any \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
+      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Size"
+          description={`Checkbox has \`size="sm"\` (16px) and \`size='md'\` (24px).`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+function Example() {
+    const [checked1, setChecked1] = React.useState(false);
+    const [checked2, setChecked2] = React.useState(false);
+
+  return (
+    <Flex gap={6}>
+      <Checkbox
+        checked={checked1}
+        id="sm"
+        label="Small size"
+        onChange={({ checked }) => setChecked1(checked)}
+        size="sm"
+      />
+      <Checkbox
+        checked={checked2}
+        id="md"
+        label="Medium size"
+        onChange={({ checked }) => setChecked2(checked)}
+      />
+    </Flex>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="State"
+          description={`Checkbox has unchecked, checked, error, indeterminate and disabled states.
+
+Indeterminate is a state that is neither checked nor unchecked — e.g. a "Select all" checkbox when not all items are selected or unselected. Indeterminism is purely presentational - the value of a checkbox and its indeterminism are independent.
+   `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+function Example() {
+    const [checked1, setChecked1] = React.useState(false);
+    const [checked2, setChecked2] = React.useState(true);
+    const [checked3, setChecked3] = React.useState(false);
+    const [checked4, setChecked4] = React.useState(false);
+    const [checked5, setChecked5] = React.useState(false);
+
+  return (
+    <Flex gap={6}>
+      <Checkbox
+        checked={false}
+        id="Unchecked"
+        label="Unchecked"
+        onChange={() => setChecked1(false)}
+      />
+      <Checkbox
+        checked={checked2}
+        id="Checked"
+        label="Checked"
+        onChange={() => setChecked2(true)}
+      />
+      <Checkbox
+        checked={checked4}
+        id="ErrorState"
+        label="Error"
+        errorMessage="error message"
+        onChange={({ checked }) => setChecked4(checked)}
+      />
+      <Checkbox
+        checked={checked3}
+        id="Indeterminate"
+        label="Indeterminate"
+        indeterminate
+        onChange={({ checked }) => setChecked3(checked)}
+      />
+      <Checkbox
+        checked={checked4}
+        id="Disabled"
+
+        label="Disabled"
+        disabled
+        onChange={({ checked }) => setChecked4(checked)}
+      />
+
+    </Flex>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="With subtext" description="Checkbox supports subtexts">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+function Example() {
     const [checkedEn, setCheckedEn] = React.useState(false);
     const [checkedSp, setCheckedSp] = React.useState(false);
     const [checkedCh, setCheckedCh] = React.useState(false);
@@ -155,12 +712,18 @@ function CheckboxExample() {
   );
 }
 `}
-      />
-      <Example
-        id="images"
-        description="Here is an example of a group of checkboxes with images included. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context."
-        name="Example: With Images"
-        defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="With Image"
+          description={`Checkbox supports images. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context.
+
+Spacing is already accounted for; simply specify the width and height.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function CheckboxExample() {
     const [checkedCoral, setCheckedCoral] = React.useState(false);
     const [checkedBlue, setCheckedBlue] = React.useState(false);
@@ -195,84 +758,47 @@ function CheckboxExample() {
   );
 }
 `}
-      />
-      <Example
-        description="Here is an example of a checkbox showing an error message."
-        id="hasError"
-        name="Example: Error state"
-        skipContrastCheck
-        defaultCode={`
-function CheckboxExample() {
-  return (
-      <Checkbox
-        id="error"
-        errorMessage="This checkbox has an error"
-        label="Email"
-        name="error"
-        onChange={() => {}}
-      />
-  );
-}
-`}
-      />
-      <Example
-        id="refExample"
-        name="Example: ref"
-        description={`The underlying \`input\` element can be accessed via \`ref\`.`}
-        defaultCode={`
-function CheckboxExample() {
-  const ref = React.useRef();
-  const [label, setLabel] = React.useState('24');
-  const [size, setSize] = React.useState('md');
-  const [switched, setSwitched] = React.useState(false);
-
-  React.useEffect(() => {
-      setLabel(ref.current && ref.current.offsetHeight)
-  }, [size]);
-
-  return (
-    <Flex gap={4}>
-      <Label htmlFor="emailNotifications">
-        <Flex gap={2}>
-          <Switch
-            onChange={() => {
-              setSize(size === "sm" ? "md" : "sm")
-              setSwitched(!switched)}
-            }
-            id="emailNotifications"
-            switched={switched}
           />
-          <Text>Toggle Checkbox to small size</Text>
-        </Flex>
+        </MainSection.Subsection>
+      </MainSection>
 
-      </Label>
-        <Checkbox
-          id="sizing"
-          checked={true}
-          label={\`\${label}px Checkbox\`}
-          onChange={() => {} }
-          value="value"
-          ref={ref}
-          size={size}
+      <MainSection name="Writing">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`
+- Be clear and brief with checkbox labels so they are easily scanned`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`
+- Include lengthy text labels that make it hard for a user to scan a list of choices`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+      **[RadioButton](/radiobutton)**
+      Use when presenting a user with a list of choices for which there can only be one selection.
+`}
         />
-    </Flex>
-  );
-}`}
-      />
-      <Combination
-        checked={[false, true]}
-        disabled={[false, true]}
-        hasCheckerboard={false}
-        hasError={[false, true]}
-        id="combinations"
-        indeterminate={[false, true]}
-        size={['sm', 'md']}
-        labelPrefix="checkbox-combinations"
-      >
-        {(props, i) => (
-          <Checkbox id={`checkbox-combinations-${i}`} onChange={() => {}} {...props} />
-        )}
-      </Combination>
+        <MainSection.Subsection
+          description={`
+      **[Switch](/Switch)**
+      Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm Form submission.
+`}
+        />
+        <MainSection.Subsection
+          description={`
+      **[Fieldset](/fieldset)**
+      Use to group a list of related Checkboxes with a legend that describes the list.
+    `}
+        />
+      </MainSection>
     </Page>
   );
 }
