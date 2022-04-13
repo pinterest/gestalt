@@ -1,3 +1,9 @@
+## 50.0.3 (Apr 13, 2022)
+
+### Patch
+
+- Datepicker: fix controlled state [bug] (#2064)
+
 ## 50.0.2 (Apr 12, 2022)
 
 ### Patch
