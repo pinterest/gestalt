@@ -33,6 +33,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Accessibility',
       'Color palette',
       'Color usage',
+      'Color examples',
       'Design tokens',
       'Elevation',
       'Iconography and SVGs',
