@@ -180,6 +180,48 @@
   color: var(--color-text-dark);
 }
 
+/* semantic icon colors */
+
+.inverseIcon {
+  color: var(--color-text-icon-inverse);
+}
+
+.errorIcon {
+  color: var(--color-text-icon-error);
+}
+
+.defaultIcon {
+  color: var(--color-text-icon-default);
+}
+
+.subtleIcon {
+  color: var(--color-text-icon-subtle);
+}
+
+.warningIcon {
+  color: var(--color-text-icon-warning);
+}
+
+.successIcon {
+  color: var(--color-text-icon-success);
+}
+
+.shoppingIcon {
+  color: var(--color-text-icon-shopping);
+}
+
+.linkIcon {
+  color: var(--color-text-icon-link);
+}
+
+.lightIcon {
+  color: var(--color-text-icon-light);
+}
+
+.darkIcon {
+  color: var(--color-text-icon-dark);
+}
+
 /** PRIMARY COLORS **/
 
 /* red */

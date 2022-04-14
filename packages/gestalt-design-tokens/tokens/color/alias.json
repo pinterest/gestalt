@@ -79,6 +79,19 @@
           "value": "{color.white.mochimalist.0.value}",
           "darkValue": "{color.black.cosmicore.900.value}",
           "comment": "Icon color to use on inverted backgrounds"
+        },
+        "shopping": {
+          "value": "{color.blue.skycicle.500.value}",
+          "darkValue": "{color.blue.skycicle.300.value}",
+          "comment": "Icon color to use for shopping surfaces"
+        },
+        "light": {
+          "value": "{color.white.mochimalist.0.value}",
+          "comment": "Icon color that will always remain light"
+        },
+        "dark": {
+          "value": "{color.black.cosmicore.900.value}",
+          "comment": "Icon color that will always remain dark"
         }
       }
     },

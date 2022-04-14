@@ -22,7 +22,17 @@ export type IconColor =
   | 'purple'
   | 'red'
   | 'watermelon'
-  | 'white';
+  | 'white'
+  | 'default'
+  | 'subtle'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'inverse'
+  | 'shopping'
+  | 'link'
+  | 'light'
+  | 'dark';
 
 type Props = {|
   /**
