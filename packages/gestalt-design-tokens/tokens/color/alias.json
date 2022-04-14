@@ -219,11 +219,11 @@
       "wash": {
         "dark": {
           "value": "rgba(0, 0, 0, 0.8)",
-          "comment": "Background color to indicate educational moments or messages"
+          "comment": "Background color to supply a dark wash over an item"
         },
         "light": {
           "value": "rgba(255, 255, 255, 0.9)",
-          "comment": "Background color to indicate educational moments or messages"
+          "comment": "Background color to supply a light wash over an item"
         }
       },
       "elevation": {
