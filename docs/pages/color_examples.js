@@ -85,7 +85,7 @@ export default function ColorExamplesPage(): Node {
                     href="https://gestalt.pinterest.systems/color_palette#Extended-palette"
                   >
                     <Text inline underline>
-                      Pinterest's brand colors
+                      Pinterest&apos;s brand colors
                     </Text>
                   </Link>{' '}
                   and purpose, following our color standards.
