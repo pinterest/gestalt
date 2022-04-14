@@ -1,3 +1,9 @@
+## 50.0.8 (Apr 14, 2022)
+
+### Patch
+
+- Docs: Add color examples page (#2068)
+
 ## 50.0.7 (Apr 14, 2022)
 
 ### Patch
