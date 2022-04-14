@@ -1,30 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import {
-  Box,
-  Button,
-  ColorSchemeProvider,
-  Datapoint,
-  Flex,
-  Heading,
-  IconButton,
-  Label,
-  Link,
-  SearchField,
-  SelectList,
-  Status,
-  Switch,
-  Text,
-} from 'gestalt';
+import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
-import ColorTile from '../components/ColorTile.js';
 import Page from '../components/Page.js';
-import { string } from 'prop-types';
 import A11Y from '../graphics/accessibility.svg';
 import ColorEase from '../graphics/color-examples/colorEase.svg';
 import Consistency from '../graphics/color-examples/consistency.svg';
-import Brand from '../graphics/color-examples/brand.png';
 
 type PrincipleCardProps = {|
   color: string,
@@ -118,8 +100,8 @@ export default function ColorExamplesPage(): Node {
               heading="Accessible information"
               text={
                 <Text>
-                  All color pairings must pass WCAG's AA color contrast standards. Using our color
-                  tokens properly ensures our colors meet legibility standards. Check out our{' '}
+                  All color pairings must pass WCAG&apos;s AA color contrast standards. Using our
+                  color tokens properly ensures our colors meet legibility standards. Check out our{' '}
                   <Link inline href="https://gestalt.netlify.app/accessibility">
                     <Text inline underline>
                       accessibility guidelines
