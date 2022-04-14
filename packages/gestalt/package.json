@@ -17,8 +17,8 @@
     "gestalt-design-tokens": ">0.0.0"
   },
   "peerDependencies": {
-    "react": "^16.13.1 || 17.x",
-    "react-dom": "^16.13.1 || 17.x"
+    "react": "^16.13.1 || ^17.0 || ^18.0",
+    "react-dom": "^16.13.1 || ^17.0 || ^18.0"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
