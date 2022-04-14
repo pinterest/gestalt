@@ -1,3 +1,9 @@
+## 50.0.6 (Apr 14, 2022)
+
+### Patch
+
+- Internal: Bump peer dependencies to support React 18 (#2069)
+
 ## 50.0.5 (Apr 13, 2022)
 
 ### Patch
