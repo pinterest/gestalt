@@ -1,3 +1,9 @@
+## 50.0.7 (Apr 14, 2022)
+
+### Patch
+
+- Button: prop table fixes (#2070)
+
 ## 50.0.6 (Apr 14, 2022)
 
 ### Patch
