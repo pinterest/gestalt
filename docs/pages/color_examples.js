@@ -57,15 +57,15 @@ export default function ColorExamplesPage(): Node {
               heading="Ease of content"
               text={
                 <Text>
-                  Pinterest user content is varied; from rich pinboards featuring every color
-                  imaginable to complex charts and graphs for our business and platform interfaces,
-                  and having a limited range of colors supports consistency, making our product
-                  easier to interact with. Keep in mind that continuous use of high-contrast and
-                  saturated colors can create fatigue and eye strain. See{' '}
+                  Pinterest user content is varied; from rich pin boards featuring every color
+                  imaginable to complex charts and graphs for our business and platform interfaces.
+                  Having a limited range of colors supports consistency, making our product easier
+                  to interact with. Keep in mind that continuous use of high-contrast and saturated
+                  colors can create fatigue and eye strain. See our{' '}
                   <Link inline href="https://gestalt.pinterest.systems/color_usage">
-                    <Text underline>color usage</Text>
+                    <Text underline>color usage guidelines</Text>
                   </Link>{' '}
-                  for color usage for color tokens guidelines.
+                  for more information about our color choices.
                 </Text>
               }
             />
@@ -77,18 +77,19 @@ export default function ColorExamplesPage(): Node {
               heading="Consistency of visuals"
               text={
                 <Text>
-                  Colors should be applied purposefully as it can convey meaning in numerous ways.
-                  For example, light and dark mode themes have different color hues and saturation
-                  for better contrast; however, the colors should be consistent with{' '}
+                  Colors should be applied purposefully, as they can convey meaning in numerous
+                  ways. For example, colors often change between light and dark modes to help
+                  portray elevation and hierarchy, while ensuring proper contrast and legibility.
+                  Any colors used should be consistent with the full{' '}
                   <Link
                     inline
                     href="https://gestalt.pinterest.systems/color_palette#Extended-palette"
                   >
                     <Text inline underline>
-                      Pinterest&apos;s brand colors
+                      Pinterest color palette
                     </Text>
                   </Link>{' '}
-                  and purpose, following our color standards.
+                  and follow our color standards and guidelines.
                 </Text>
               }
             />
@@ -125,6 +126,7 @@ export default function ColorExamplesPage(): Node {
               <IconButton
                 icon="speech"
                 iconColor="darkGray"
+                accessibilityLabel="Comment"
               />
               <Button
                 color="gray"
@@ -137,6 +139,7 @@ export default function ColorExamplesPage(): Node {
               <IconButton
                 icon="share"
                 iconColor="darkGray"
+                accessibilityLabel="Share"
               />
             </Flex>
 `}
@@ -185,9 +188,11 @@ export default function ColorExamplesPage(): Node {
             description="Repurpose colors. Using colors for their intended meaning supports good comprehension and avoids usability and accessibility issues."
             defaultCode={`
             <Flex>
-              <Flex direction="column">
+              <Flex direction="column" gap={2}>
                 <Flex gap={2}>
-                  <Text weight="bold"> Search privacy</Text>
+                  <Label htmlFor="dont-01">
+                    <Text weight="bold"> Search privacy</Text>
+                  </Label>
                   <Badge inline type="error" text="New"/>
                 </Flex>
                 <Text color="subtle">Hide your profile from search engines</Text>
@@ -212,6 +217,7 @@ export default function ColorExamplesPage(): Node {
                 naturalWidth={"200"}
                 naturalHeight={"350"}
                 src="https://i.ibb.co/7yLs8qG/Brand.png"
+                alt="An example of brand colors used in the Pinterest app."
               />
             </Box>
 `}
@@ -224,7 +230,7 @@ export default function ColorExamplesPage(): Node {
             <Flex gap={2}>
               <Box
                 dangerouslySetInlineStyle={{
-                  __style: {backgroundColor: 'yellow'}
+                  __style: {backgroundColor: 'gold'}
                 }}
                 rounding="pill"
                 padding={3}
@@ -240,7 +246,7 @@ export default function ColorExamplesPage(): Node {
                 rounding="circle"
                 padding={3}
               >
-                <Icon icon="add" color="white"/>
+                <Icon icon="add" color="white" accessibilityLabel="Create"/>
               </Box>
             </Flex>
 `}
@@ -264,10 +270,10 @@ export default function ColorExamplesPage(): Node {
             description="Apply alternative colors to text and icons. Always refer to [color usage](/color_usage) for the appropriate color pattern. "
             defaultCode={`
             <Flex gap={1} alignItems="center">
-              <Icon icon="eye"/>
+              <Icon icon="eye" accessibilityLabel="views"/>
               <Text weight="bold">
                 <Box dangerouslySetInlineStyle={{
-                  __style: {color: 'mediumpurple'}
+                  __style: {color: 'darkmagenta'}
                 }}>
                   views
                 </Box>
@@ -284,9 +290,8 @@ export default function ColorExamplesPage(): Node {
             defaultCode={`
             <Flex direction="column" gap={8} alignItems="center">
               <Flex gap={4}>
-                <IconButton icon="speech" />
-
-                <IconButton icon="share" iconColor="darkGray" />
+                <IconButton icon="speech" accessibilityLabel="Comment" />
+                <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share"/>
               </Flex>
               <Flex gap={4}>
                 <Button color="red" text="Primary" />
@@ -312,18 +317,18 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will evaluate."
+            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will evaluate."
             defaultCode={`
             <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
               <Box color="white" padding={10}>
                 <Flex direction="column" gap={8} alignItems="center">
                   <Flex gap={4}>
-                    <IconButton icon="speech" />
-                    <IconButton icon="share" iconColor="darkGray" />
+                    <IconButton icon="speech" accessibilityLabel="Comment"/>
+                    <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" />
                   </Flex>
                   <Flex gap={4}>
                     <Button color="red" text="Primary" />
-                      <Box color="darkGray" rounding="pill" padding={3}>
+                      <Box color="warningWeak" rounding="pill" padding={3}>
                         <TapArea color="white">
                           <Text weight="bold" color="inverse">
                             Secondary
@@ -335,7 +340,7 @@ export default function ColorExamplesPage(): Node {
                   <Flex gap={4}>
                     <SearchField
                       accessibilityLabel={'Search you Pins'}
-                      id={'color-do-search'}
+                      id={'color-dont-search'}
                       placeholder="Search your Pins"
                       onChange={() => {}}
                     />
@@ -362,6 +367,7 @@ export default function ColorExamplesPage(): Node {
                 naturalWidth={"200"}
                 naturalHeight={"350"}
                 src="https://i.ibb.co/5rQQnDR/screen-sample-01.png"
+                alt="Example showing mobile dark mode on the Pinterest app."
               />
             </Box>
 `}
@@ -369,7 +375,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will assist."
+            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will assist."
             defaultCode={`
             <Box width={200} height={305}>
               <Image
@@ -377,6 +383,7 @@ export default function ColorExamplesPage(): Node {
                 naturalWidth={"200"}
                 naturalHeight={"350"}
                 src="https://i.ibb.co/FqM70HS/screen-sample-02.png"
+                alt="Example showing an incorrect mobile dark mode on the Pinterest app."
               />
             </Box>
 `}
