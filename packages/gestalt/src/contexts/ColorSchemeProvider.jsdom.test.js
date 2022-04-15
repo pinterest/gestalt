@@ -60,6 +60,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #cc0000;
         --color-text-icon-warning: #bd5b00;
         --color-text-icon-inverse: #ffffff;
+        --color-text-icon-shopping: #0074e8;
         --color-background-default: #ffffff;
         --color-background-info-base: #0074e8;
         --color-background-error-base: #cc0000;
@@ -129,6 +130,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #cc0000;
         --color-text-icon-warning: #bd5b00;
         --color-text-icon-inverse: #ffffff;
+        --color-text-icon-shopping: #0074e8;
         --color-background-default: #ffffff;
         --color-background-info-base: #0074e8;
         --color-background-error-base: #cc0000;
@@ -198,6 +200,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #eb4242;
         --color-text-icon-warning: #e18d00;
         --color-text-icon-inverse: #111111;
+        --color-text-icon-shopping: #75bfff;
         --color-background-default: #111111;
         --color-background-info-base: #75bfff;
         --color-background-error-base: #f47171;
@@ -268,6 +271,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #eb4242;
         --color-text-icon-warning: #e18d00;
         --color-text-icon-inverse: #111111;
+        --color-text-icon-shopping: #75bfff;
         --color-background-default: #111111;
         --color-background-info-base: #75bfff;
         --color-background-error-base: #f47171;
@@ -338,6 +342,7 @@ describe('ColorSchemeProvider', () => {
         --color-text-icon-error: #cc0000;
         --color-text-icon-warning: #bd5b00;
         --color-text-icon-inverse: #ffffff;
+        --color-text-icon-shopping: #0074e8;
         --color-background-default: #ffffff;
         --color-background-info-base: #0074e8;
         --color-background-error-base: #cc0000;
