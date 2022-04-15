@@ -1,3 +1,9 @@
+## 50.0.9 (Apr 15, 2022)
+
+### Patch
+
+- Checkbox: Updated Docs (v.1) (#2067)
+
 ## 50.0.8 (Apr 14, 2022)
 
 ### Patch
