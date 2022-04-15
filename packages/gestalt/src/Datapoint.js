@@ -52,8 +52,6 @@ type Props = {|
 /**
  * [Datapoint](https://gestalt.pinterest.systems/datapoint) displays at-a-glance data for a user to quickly view key metrics.
  *
- * ⚠️ Please note: Datapoint is not currently supported in dark mode.
- *
  * ![Datapoint light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Datapoint%20%230.png)
  * ![Datapoint dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Datapoint-dark%20%230.png)
  *

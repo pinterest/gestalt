@@ -51,6 +51,7 @@ exports[`Video with callbacks 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
@@ -158,6 +159,7 @@ exports[`Video with children 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
@@ -482,6 +484,7 @@ exports[`Video with crossOrigin 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
@@ -590,6 +593,7 @@ exports[`Video with media attributes 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
@@ -698,6 +702,7 @@ exports[`Video with multiple sources 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
@@ -812,6 +817,7 @@ exports[`Video with objectFit 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;
@@ -924,6 +930,7 @@ exports[`Video with source 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-error-base: #cc0000;

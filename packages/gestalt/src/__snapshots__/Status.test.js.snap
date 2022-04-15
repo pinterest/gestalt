@@ -13,7 +13,7 @@ exports[`Status renders with accessibilityLabel 1`] = `
       <svg
         aria-hidden={null}
         aria-label="some accessibilityLabel"
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ exports[`Status renders with title 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ exports[`Status renders with title and subtext 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"

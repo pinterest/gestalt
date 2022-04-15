@@ -62,7 +62,7 @@ function MainSectionCard({
       <Box
         alignItems="center"
         borderStyle="sm"
-        color={shaded ? 'lightGray' : 'white'}
+        color={shaded ? 'tertiary' : 'default'}
         display="flex"
         height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
         justifyContent="center"

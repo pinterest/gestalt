@@ -58,7 +58,7 @@ export default function CombinationNew({ children, hideTitle, shaded, ...props }
       combinationTitles.some(
         (title) =>
           title.toLowerCase().includes('color') &&
-          (title.includes('white') || title.includes('inverse')),
+          (title.includes('white') || title.includes('inverse') || title.includes('light')),
       );
     return (
       <MainSectionCard
