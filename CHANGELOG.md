@@ -1,3 +1,9 @@
+## 50.1.0 (Apr 18, 2022)
+
+### Minor
+
+- Icon: Add support for new semantic colors (#2072)
+
 ## 50.0.9 (Apr 15, 2022)
 
 ### Patch
