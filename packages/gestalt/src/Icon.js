@@ -5,6 +5,18 @@ import styles from './Icon.css';
 import icons from './icons/index.js';
 import colors from './Colors.css';
 
+const semanticColors = [
+  'default',
+  'subtle',
+  'success',
+  'error',
+  'warning',
+  'inverse',
+  'shopping',
+  'light',
+  'dark',
+];
+
 export type IconColor =
   | 'blue'
   | 'darkGray'
@@ -22,7 +34,16 @@ export type IconColor =
   | 'purple'
   | 'red'
   | 'watermelon'
-  | 'white';
+  | 'white'
+  | 'default'
+  | 'subtle'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'inverse'
+  | 'shopping'
+  | 'light'
+  | 'dark';
 
 type Props = {|
   /**
@@ -32,9 +53,9 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
-   * These are all the colors available to apply to the Icon; however, we advise only using primary colors within the product to ensure consistency and accessible color contrast.
+   * These are all the colors available to apply to the Icon. However, the literal options ("blue" , "darkGray" , "eggplant" , "gray" , "green" , "lightGray" , "maroon" , "midnight" , "navy" , "olive" , "orange" , "orchid" , "pine" , "purple" , "red" , "watermelon" and "white") will be deprecated soon. Avoid using them in any new implementations.
    *
-   * See the [primary-color combinations](https://gestalt.pinterest.systems/icon#Primary-color-combinations) variant to learn more.
+   * See the [color variant](https://gestalt.pinterest.systems/icon#Colors) to learn more.
    */
   color?: IconColor,
   /**
@@ -104,10 +125,23 @@ export default function Icon({
   inline = false,
   size = 16,
 }: Props): Node {
+  let colorClass = null;
+  const colorName = semanticColors.includes(color) ? `${color}Icon` : color;
+  if (
+    colorName !== 'dark' &&
+    colorName !== 'error' &&
+    colorName !== 'light' &&
+    colorName !== 'subtle' &&
+    colorName !== 'success' &&
+    colorName !== 'warning'
+  ) {
+    colorClass = colors[colorName];
+  }
+
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles.icon,
-    colors[color],
+    colorClass,
     { [styles.iconBlock]: !inline },
   );
 

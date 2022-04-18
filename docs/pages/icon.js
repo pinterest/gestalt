@@ -136,9 +136,27 @@ If an icon has a visible label that describes what the icon represents, \`access
       </MainSection>
       <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
       <MainSection name="Variants">
-        <MainSection.Subsection title="Primary-color combinations">
-          <CombinationNew color={['gray', 'darkGray', 'red']}>
-            {({ color }) => <Icon icon="heart" accessibilityLabel="" color={color} />}
+        <MainSection.Subsection
+          title="Colors"
+          description={`
+        Icons can be created using the following color options. See the [design tokens](/design_tokens#Text-color) for more info.
+
+        ⚠️ Please note: the previous options ("blue" , "darkGray" , "eggplant" , "gray" , "green" , "lightGray" , "maroon" , "midnight" , "navy" , "olive" , "orange" , "orchid" , "pine" , "purple" , "red" , "watermelon" and "white") are still valid, but will be deprecated soon. Avoid using them in any new implementations.`}
+        >
+          <CombinationNew
+            color={[
+              'default',
+              'subtle',
+              'success',
+              'error',
+              'warning',
+              'inverse',
+              'shopping',
+              'light',
+              'dark',
+            ]}
+          >
+            {({ color }) => <Icon icon="heart" accessibilityLabel="" color={color} size={24} />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection

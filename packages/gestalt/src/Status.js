@@ -8,31 +8,31 @@ import Text from './Text.js';
 const ICON_COLOR_MAP = {
   canceled: {
     icon: 'workflow-status-canceled',
-    color: 'gray',
+    color: 'subtle',
   },
   halted: {
     icon: 'workflow-status-halted',
-    color: 'darkGray',
+    color: 'default',
   },
   inProgress: {
     icon: 'workflow-status-in-progress',
-    color: 'green',
+    color: 'success',
   },
   ok: {
     icon: 'workflow-status-ok',
-    color: 'green',
+    color: 'success',
   },
   problem: {
     icon: 'workflow-status-problem',
-    color: 'red',
+    color: 'error',
   },
   unstarted: {
     icon: 'workflow-status-unstarted',
-    color: 'darkGray',
+    color: 'default',
   },
   warning: {
     icon: 'workflow-status-warning',
-    color: 'orange',
+    color: 'warning',
   },
 };
 

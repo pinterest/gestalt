@@ -53,7 +53,7 @@ exports[`Datapoint renders 1`] = `
             <svg
               aria-hidden={null}
               aria-label="Value change icon accessibility label"
-              className="icon pine iconBlock"
+              className="icon successIcon iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"
@@ -142,7 +142,7 @@ exports[`Datapoint renders a badge 1`] = `
             <svg
               aria-hidden={null}
               aria-label="Value change icon accessibility label"
-              className="icon pine iconBlock"
+              className="icon successIcon iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"
@@ -273,7 +273,7 @@ exports[`Datapoint renders a tooltip 1`] = `
             <svg
               aria-hidden={null}
               aria-label="Value change icon accessibility label"
-              className="icon pine iconBlock"
+              className="icon successIcon iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"
@@ -353,7 +353,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
             <svg
               aria-hidden={null}
               aria-label="Value change icon accessibility label"
-              className="icon pine iconBlock"
+              className="icon successIcon iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"

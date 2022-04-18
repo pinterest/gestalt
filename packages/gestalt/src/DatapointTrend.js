@@ -10,12 +10,6 @@ const TREND_COLOR_MAP = {
   neutral: 'default',
 };
 
-const NEW_TO_OLD_COLOR_MAPPING = {
-  success: 'pine',
-  error: 'red',
-  default: 'darkGray',
-};
-
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 
 function getValueColor({ sentiment, value }) {
@@ -46,7 +40,7 @@ export default function DatapointTrend({
       {value !== 0 && (
         <Icon
           accessibilityLabel={iconAccessibilityLabel}
-          color={NEW_TO_OLD_COLOR_MAPPING[color]}
+          color={color}
           icon={value > 0 ? 'sort-ascending' : 'sort-descending'}
           size={16}
         />
