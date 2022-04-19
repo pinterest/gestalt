@@ -173,7 +173,9 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
   const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
 
   // TO DO: Ideally this component should be fully controlled using value + onChange, where selected/setSelected are unnecessary.
-  useEffect(() => setSelected(dateValue), [dateValue]);
+  useEffect(() => {
+    setSelected(dateValue);
+  }, [dateValue]);
 
   useEffect(() => {
     if (rangeSelector) {
