@@ -63,6 +63,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
+          - Using a separate Tooltip instance with IconButton. Use [IconButton's built-in tooltip](/iconbutton#With-Tooltip) instead.
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
           - Offering context at the surface-level scope. Consider a [Callout](/callout) instead.
         `}
