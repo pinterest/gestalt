@@ -233,6 +233,7 @@ export default function ActivationCard({
       display="flex"
       flex="grow"
       borderStyle="shadow"
+      color="elevationFloating"
       rounding={4}
       padding={6}
       maxWidth={400}
