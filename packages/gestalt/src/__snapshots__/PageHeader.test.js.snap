@@ -479,7 +479,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       }
                     >
                       <a
-                        className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+                        className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
                         href="www.pinterest.com"
                         onBlur={[Function]}
                         onClick={[Function]}

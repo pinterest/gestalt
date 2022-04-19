@@ -317,7 +317,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     >
       <a
         aria-label="Learn more about tags"
-        className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+        className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}
@@ -468,7 +468,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     >
       <a
         aria-label="Learn more about tags"
-        className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+        className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}

@@ -2,7 +2,7 @@
 
 exports[`Link-role tapArea supports press style 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+  className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
   href="http://www.test.com"
   onBlur={[Function]}
   onClick={[Function]}

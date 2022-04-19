@@ -119,7 +119,7 @@ export function PageHeaderSubtext({
       <Text inline>
         {subtext}{' '}
         {helperLink ? (
-          <Text inline underline>
+          <Text inline>
             <Link
               accessibilityLabel={helperLink.accessibilityLabel}
               href={helperLink.href}
@@ -127,7 +127,7 @@ export function PageHeaderSubtext({
               target="blank"
               inline
             >
-              <span style={{ textDecoration: 'underline' }}>{helperLink.text}</span>
+              {helperLink.text}
             </Link>
           </Text>
         ) : null}

@@ -119,7 +119,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
                 >
                   <a
-                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
+                    class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
                     href="https://pinterest.com"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -240,7 +240,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
                 >
                   <a
-                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
+                    class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
                     href="https://pinterest.com"
                     rel="noopener noreferrer"
                     target="_blank"
@@ -319,7 +319,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
                 >
                   <a
-                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
+                    class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
                     href="https://pinterest.com"
                     rel="noopener noreferrer"
                     target="_blank"
