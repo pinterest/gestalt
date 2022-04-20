@@ -30,7 +30,7 @@
     "@testing-library/dom": "^8.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.0.4",
-    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.1.9",
     "axe-core": "^4.1.1",
     "babel-jest": "^27.4.6",
