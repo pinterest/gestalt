@@ -1,3 +1,9 @@
+## 50.1.1 (Apr 20, 2022)
+
+### Patch
+
+- Internal: upgrade testing-library/hooks to 8.0.0 (#2078)
+
 ## 50.1.0 (Apr 18, 2022)
 
 ### Minor
