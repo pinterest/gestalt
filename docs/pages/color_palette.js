@@ -157,7 +157,7 @@ export default function ColorPage(): Node {
 
         <MainSection.Subsection
           title="Reserved"
-          description="These 450 colors are reserved for Brand usage. They are among the least accessible colors, so are reserved for larger brand moments, and not commonly used for functional color pairing. They should not be used within the product, except Pushpin 450, which is our hero primary color and part of our Baseline color palette."
+          description="The 450 colors are primarily reserved for Brand usage as they are among the least accessible colors. This set works best within larger brand moments, and is not commonly used for functional color pairings. While Pushpin 450 is our hero, primary product color, please only use other 450 colors when absolutely necessary while maintaining accessibility."
         >
           <Flex direction="column">
             {colors.map(({ id, name, textColor }) => (
