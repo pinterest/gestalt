@@ -1,3 +1,9 @@
+## 50.1.3 (Apr 20, 2022)
+
+### Patch
+
+- Docs: Tooltip / IconButton usage guidance (#2074)
+
 ## 50.1.2 (Apr 20, 2022)
 
 ### Patch
