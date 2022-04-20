@@ -1,3 +1,9 @@
+## 50.1.2 (Apr 20, 2022)
+
+### Patch
+
+- Datepicker: fix useEffect side effect (#2076)
+
 ## 50.1.1 (Apr 20, 2022)
 
 ### Patch
