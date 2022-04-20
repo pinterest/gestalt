@@ -1,3 +1,9 @@
+## 50.1.4 (Apr 20, 2022)
+
+### Patch
+
+- Docs: Update palette info (#2079)
+
 ## 50.1.3 (Apr 20, 2022)
 
 ### Patch
