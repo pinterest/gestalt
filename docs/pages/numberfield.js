@@ -522,7 +522,7 @@ function Example(props) {
   const [value2, setValue2] = React.useState();
 
   return (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={2} width="80%">
       <NumberField
         id="minMaxStepExampleNumberField1"
         label="Stepping in intervals of 5"
