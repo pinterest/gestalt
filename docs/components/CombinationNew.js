@@ -5,7 +5,6 @@ import MainSectionCard from './MainSectionCard.js';
 
 type Props = {
   children: (props: { [key: string]: any, ... }, index?: number) => Node, // flowlint-line unclear-type:off
-  shaded?: boolean,
   hideTitle?: boolean,
   ...
 };
@@ -48,23 +47,29 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default function CombinationNew({ children, hideTitle, shaded, ...props }: Props): Node {
+export default function CombinationNew({ children, hideTitle, ...props }: Props): Node {
   const CardArray = combinations(props).map((combination, i) => {
     const combinationTitles = Object.keys(combination).map((key) =>
       toReactAttribute(key, combination[key]),
     );
-    const shadeCard =
-      shaded ||
-      combinationTitles.some(
-        (title) =>
-          title.toLowerCase().includes('color') &&
-          (title.includes('white') || title.includes('inverse') || title.includes('light')),
-      );
+
+    let cardShadeColor;
+
+    if (combinationTitles.some((title) => title.includes('white') || title.includes('inverse'))) {
+      cardShadeColor = 'tertiary';
+    }
+    if (combinationTitles.some((title) => title.includes('"light"'))) {
+      cardShadeColor = 'darkWash';
+    }
+    if (combinationTitles.some((title) => title.includes('"dark"'))) {
+      cardShadeColor = 'lightWash';
+    }
+
     return (
       <MainSectionCard
         key={i}
         cardSize="sm"
-        shaded={shadeCard}
+        shadeColor={cardShadeColor}
         title={hideTitle ? undefined : combinationTitles}
       >
         {children(combination, i)}

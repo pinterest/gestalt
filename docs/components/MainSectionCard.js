@@ -15,6 +15,7 @@ type Props = {|
   defaultCode?: string,
   description?: string,
   iframeContent?: string,
+  shadeColor?: 'tertiary' | 'darkWash' | 'lightWash' | 'default',
   shaded?: boolean,
   showCode?: boolean,
   title?: string | Array<string>,
@@ -44,6 +45,7 @@ function MainSectionCard({
   description,
   iframeContent,
   shaded = false,
+  shadeColor,
   showCode = true,
   title,
   type = 'info',
@@ -56,13 +58,14 @@ function MainSectionCard({
   // Only show code if it's a md or lg card and it's not a Do/Don't
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
   const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
+  const cardShadeColor = shaded && !shadeColor ? 'secondary' : shadeColor;
 
   const PreviewCard = useCallback(
     ({ children: cardChildren }: PreviewCardProps) => (
       <Box
         alignItems="center"
         borderStyle="sm"
-        color={shaded ? 'tertiary' : 'default'}
+        color={cardShadeColor}
         display="flex"
         height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
         justifyContent="center"
@@ -73,7 +76,7 @@ function MainSectionCard({
         {cardChildren}
       </Box>
     ),
-    [cardSize, shaded],
+    [cardSize, cardShadeColor],
   );
 
   const TitleAndDescription = (
