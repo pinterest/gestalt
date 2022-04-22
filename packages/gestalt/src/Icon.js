@@ -13,7 +13,7 @@ const semanticColors = [
   'warning',
   'inverse',
   'shopping',
-  'brand',
+  'brandPrimary',
   'light',
   'dark',
 ];
@@ -43,7 +43,7 @@ export type IconColor =
   | 'warning'
   | 'inverse'
   | 'shopping'
-  | 'brand'
+  | 'brandPrimary'
   | 'light'
   | 'dark';
 
@@ -136,7 +136,7 @@ export default function Icon({
     colorName !== 'subtle' &&
     colorName !== 'success' &&
     colorName !== 'warning' &&
-    colorName !== 'brand'
+    colorName !== 'brandPrimary'
   ) {
     colorClass = colors[colorName];
   }

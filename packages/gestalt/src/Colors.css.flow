@@ -5,6 +5,7 @@ declare module.exports: {|
   +'blue': string,
   +'blueBg': string,
   +'brand': string,
+  +'brandPrimaryIcon': string,
   +'darkGray': string,
   +'darkGrayBg': string,
   +'darkIcon': string,

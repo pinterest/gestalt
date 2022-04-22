@@ -210,8 +210,8 @@
   color: var(--color-text-icon-shopping);
 }
 
-.brandIcon {
-  color: var(--color-text-icon-brand);
+.brandPrimaryIcon {
+  color: var(--color-text-icon-brand-primary);
 }
 
 .lightIcon {

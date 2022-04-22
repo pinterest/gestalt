@@ -86,8 +86,10 @@
           "comment": "Icon color to use for shopping surfaces"
         },
         "brand": {
-          "value": "{color.red.pushpin.450.value}",
-          "comment": "Icon color to use solely for representing the Pinterest brand"
+          "primary": {
+            "value": "{color.red.pushpin.450.value}",
+            "comment": "Icon color to use solely for representing the Pinterest brand"
+          }
         },
         "light": {
           "value": "{color.white.mochimalist.0.value}",
