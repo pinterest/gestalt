@@ -5,6 +5,7 @@ import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
 import { semanticColors } from './textTypes.js';
+import useInExperiment from './useInExperiment.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -106,6 +107,13 @@ export default function Text({
 }: Props): Node {
   const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
 
+  const inSemiBoldExp = useInExperiment({
+    webExperimentName: 'web_gestalt_semibold_weight',
+    mwebExperimentName: 'mweb_gestalt_semibold_weight',
+  });
+
+  const fontWeightStyle = inSemiBoldExp ? typography.fontWeightSemiBold : typography.fontWeightBold;
+
   const cs = cx(
     styles.Text,
     typography[`fontSize${SIZE_SCALE[size]}`],
@@ -120,7 +128,7 @@ export default function Text({
     overflow === 'noWrap' && typography.noWrap,
     italic && typography.fontStyleItalic,
     underline && typography.underline,
-    weight === 'bold' && typography.fontWeightBold,
+    weight === 'bold' && fontWeightStyle,
     weight === 'normal' && typography.fontWeightNormal,
     isNotNullish(lineClamp) && typography.lineClamp,
   );

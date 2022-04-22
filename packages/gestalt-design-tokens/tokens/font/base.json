@@ -25,6 +25,10 @@
         "value": "400",
         "comment": "Default font weight"
       },
+      "semibold": {
+        "value": "600",
+        "comment": "Font weight: to be used in experiment to replace bold"
+      },
       "bold": {
         "value": "700",
         "comment": "Font weight used for column headers, headings, and inline-links"

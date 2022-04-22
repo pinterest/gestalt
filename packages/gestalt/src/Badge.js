@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
+import useInExperiment from './useInExperiment.js';
 
 type Position = 'middle' | 'top';
 
@@ -48,7 +49,14 @@ export default function Badge({ position = 'middle', text, type = 'info' }: Prop
     'lightWash': 'washLight',
   };
 
-  const cs = cx(styles.Badge, styles[position], colors[TYPE_COLOR_MAP[type]], {
+  const inSemiBoldExp = useInExperiment({
+    webExperimentName: 'web_gestalt_semibold_weight',
+    mwebExperimentName: 'mweb_gestalt_semibold_weight',
+  });
+
+  const badgeStyle = inSemiBoldExp ? styles.BadgeSemiBold : styles.Badge;
+
+  const cs = cx(badgeStyle, styles[position], colors[TYPE_COLOR_MAP[type]], {
     [styles.darkWash]: type === 'darkWash',
     [styles.lightWash]: type === 'lightWash',
   });
