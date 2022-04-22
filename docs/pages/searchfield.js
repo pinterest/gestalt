@@ -216,6 +216,36 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
   }
 `}
           />
+          <MainSection.Card
+            description={`
+            SearchField comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SearchField.
+
+            If SearchField is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
+            defaultCode={`
+<Flex gap={6}>
+<SearchField
+  accessibilityLabel=""
+  accessibilityClearButtonLabel="Clear search field"
+  id="searchfieldexampleA11yVisible"
+  onChange={() => {}}
+  label='Search messages'
+  size='md'
+/>
+<Flex gap={2} direction="column">
+  <Text weight="bold" size="300">Search messages</Text>
+  <SearchField
+    accessibilityLabel=""
+    accessibilityClearButtonLabel="Clear search field"
+    id="searchfieldexampleA11yHiddenLabel"
+    onChange={() => {}}
+    label='Search messages'
+    labelDisplay="hidden"
+    size='md'
+  />
+</Flex>
+</Flex>
+`}
+          />
         </MainSection.Subsection>
       </MainSection>
 
@@ -292,6 +322,36 @@ function SearchFieldExample() {
           value={value}
         />
         </Flex.Item>
+    </Flex>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Label visibility"
+          description={`In some cases, the label for a SearchField is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure SearchField is properly labeled for screen readers while using a different element to represent the label visually.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+function SearchFieldExample() {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Flex gap={2} direction="column" width="100%">
+      <Text weight="bold" size="300">Search Messages</Text>
+      <SearchField
+      accessibilityLabel=""
+      accessibilityClearButtonLabel="Clear search field"
+      id="searchfieldexampleHiddenLabel"
+      onChange={({value}) => setValue(value)}
+      label='Search Messages'
+      labelDisplay="hidden"
+      placeholder="Search by name"
+      value={value}
+      />
     </Flex>
   );
 }
