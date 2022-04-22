@@ -1,3 +1,9 @@
+## 50.3.0 (Apr 22, 2022)
+
+### Minor
+
+- Icon: Add brandPrimary color option (#2081)
+
 ## 50.2.1 (Apr 22, 2022)
 
 ### Patch
