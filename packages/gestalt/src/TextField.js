@@ -39,6 +39,10 @@ type Props = {|
    */
   label?: string,
   /**
+   * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
+   */
+  labelDisplay?: 'visible' | 'hidden',
+  /**
    * A unique name for the input.
    */
   name?: string,
@@ -119,6 +123,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     helperText,
     id,
     label,
+    labelDisplay = 'visible',
     name,
     onBlur,
     onChange,
@@ -197,6 +202,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       iconButton={iconButton}
       id={id}
       label={label}
+      labelDisplay={labelDisplay}
       name={name}
       onBlur={onBlur}
       onChange={onChange}

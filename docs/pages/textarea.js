@@ -105,6 +105,27 @@ function Example(props) {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          title="Label visibility"
+          description={`In some cases, the label for a TextArea is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure TextArea is properly labeled for screen readers while using a different element to represent the label visually.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+          <Flex gap={2} direction="column" width="100%">
+<Text weight="bold" size="300">About me</Text>
+<TextArea
+id="textareaexampleHiddenLabel"
+placeholder="Write something about yourself..."
+onChange={() => {}}
+label='About me'
+labelDisplay="hidden"
+size='lg'
+/>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
           title="Read-only"
           description={`
       \`TextArea\` can be in read-only mode in order to present information to the user without allowing them to edit the content. Typically this variation is used to show content or information that the user does not have permission or access to edit.
