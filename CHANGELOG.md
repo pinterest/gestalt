@@ -1,3 +1,9 @@
+## 50.2.1 (Apr 22, 2022)
+
+### Patch
+
+- ActivationCard: Apply new elevation token for dark mode (#2077)
+
 ## 50.2.0 (Apr 22, 2022)
 
 ### Minor
