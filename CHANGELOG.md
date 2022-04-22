@@ -1,3 +1,9 @@
+## 50.2.0 (Apr 22, 2022)
+
+### Minor
+
+- Font weight: implement experiment to change font weight from bold to semibold (#2047)
+
 ## 50.1.4 (Apr 20, 2022)
 
 ### Patch
