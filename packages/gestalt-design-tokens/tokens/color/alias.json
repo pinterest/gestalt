@@ -85,6 +85,12 @@
           "darkValue": "{color.blue.skycicle.300.value}",
           "comment": "Icon color to use for shopping surfaces"
         },
+        "brand": {
+          "primary": {
+            "value": "{color.red.pushpin.450.value}",
+            "comment": "Icon color to use solely for representing the Pinterest brand"
+          }
+        },
         "light": {
           "value": "{color.white.mochimalist.0.value}",
           "comment": "Icon color that will always remain light"
