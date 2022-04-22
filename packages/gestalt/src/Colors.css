@@ -210,6 +210,10 @@
   color: var(--color-text-icon-shopping);
 }
 
+.brandIcon {
+  color: var(--color-text-icon-brand);
+}
+
 .lightIcon {
   color: var(--color-text-icon-light);
 }
