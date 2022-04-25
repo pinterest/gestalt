@@ -1,3 +1,9 @@
+## 51.0.0 (Apr 25, 2022)
+
+### Major
+
+- Link: design changes (part I: inline/underline) (#2073)
+
 ## 50.3.0 (Apr 22, 2022)
 
 ### Minor
