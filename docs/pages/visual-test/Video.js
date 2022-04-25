@@ -16,6 +16,8 @@ export default function Snapshot(): Node {
         accessibilityUnmuteLabel=""
         captions=""
         controls
+        onPlay={() => {}}
+        onPlayError={() => {}}
         poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
         src="https://media.w3.org/2010/05/bunny/movie.mp4"
       />

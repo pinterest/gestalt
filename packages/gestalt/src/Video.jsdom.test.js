@@ -20,6 +20,8 @@ describe('Video loading', () => {
   it('Does not load when string src does not change', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
@@ -36,6 +38,8 @@ describe('Video loading', () => {
   it('Does not load when array src does not change', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -57,6 +61,8 @@ describe('Video loading', () => {
   it('Loads when string src changes to new string src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
@@ -73,6 +79,8 @@ describe('Video loading', () => {
   it('Loads when string src changes to new array src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
@@ -99,6 +107,8 @@ describe('Video loading', () => {
   it('Loads when array src changes to new string src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -120,6 +130,8 @@ describe('Video loading', () => {
   it('Loads when array src changes to new array src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -151,6 +163,8 @@ describe('Video loading', () => {
   it('Loads when array src changes to new length array src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -186,6 +200,8 @@ describe('Video loading', () => {
   it('DisableRemotePlayback is set on <video />', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -205,6 +221,8 @@ describe('Video loading', () => {
   it('DisableRemotePlayback is not set on <video />', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -224,6 +242,8 @@ describe('Video loading', () => {
   it('Progress bar label is set', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       controls: true,

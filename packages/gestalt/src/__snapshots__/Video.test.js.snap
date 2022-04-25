@@ -80,7 +80,6 @@ exports[`Video with callbacks 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
-      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -89,6 +88,8 @@ exports[`Video with callbacks 1`] = `
       onEnded={[Function]}
       onError={[Function]}
       onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
       onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
@@ -188,7 +189,6 @@ exports[`Video with children 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
-      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -197,6 +197,8 @@ exports[`Video with children 1`] = `
       onEnded={[Function]}
       onError={[Function]}
       onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
       onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
@@ -513,7 +515,6 @@ exports[`Video with crossOrigin 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
-      autoPlay={false}
       className="video"
       crossOrigin="anonymous"
       disableRemotePlayback={false}
@@ -523,6 +524,8 @@ exports[`Video with crossOrigin 1`] = `
       onEnded={[Function]}
       onError={[Function]}
       onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
       onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
@@ -622,7 +625,6 @@ exports[`Video with media attributes 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
-      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       loop={true}
@@ -632,6 +634,8 @@ exports[`Video with media attributes 1`] = `
       onEnded={[Function]}
       onError={[Function]}
       onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
       onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
@@ -731,7 +735,6 @@ exports[`Video with multiple sources 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
-      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -740,6 +743,8 @@ exports[`Video with multiple sources 1`] = `
       onEnded={[Function]}
       onError={[Function]}
       onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
       onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
@@ -846,7 +851,6 @@ exports[`Video with objectFit 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
-      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -855,6 +859,8 @@ exports[`Video with objectFit 1`] = `
       onEnded={[Function]}
       onError={[Function]}
       onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
       onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
@@ -959,7 +965,6 @@ exports[`Video with source 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
-      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -968,6 +973,8 @@ exports[`Video with source 1`] = `
       onEnded={[Function]}
       onError={[Function]}
       onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
       onPlaying={[Function]}
       onProgress={[Function]}
       onSeeked={[Function]}
