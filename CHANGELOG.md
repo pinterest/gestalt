@@ -1,3 +1,9 @@
+## 52.0.0 (Apr 25, 2022)
+
+### Major
+
+- Video: handle HTMLMediaElement.play() Promise rejection and autoplay blocking, and API improvements (#2063)
+
 ## 51.0.0 (Apr 25, 2022)
 
 ### Major
