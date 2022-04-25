@@ -38,10 +38,6 @@ type Props = {|
    */
   label?: string,
   /**
-   * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
-   */
-  labelDisplay?: 'visible' | 'hidden',
-  /**
    *
    */
   onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
@@ -101,7 +97,6 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     autoComplete,
     id,
     label,
-    labelDisplay,
     onBlur,
     onChange,
     onFocus,
@@ -178,7 +173,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
 
   return (
     <span>
-      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
+      {label && <FormLabel id={id} label={label} />}
       <Box
         alignItems="center"
         display="flex"
