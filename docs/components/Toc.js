@@ -169,7 +169,7 @@ export default function Toc({ cards }: Props): Node {
             <Box color={isActive ? 'successBase' : 'secondary'} width={1} flex="none" />
 
             <Link
-              hoverStyle={isActive ? 'none' : 'underline'}
+              underline={isActive ? 'none' : 'hover'}
               href={`#${anchor.id}`}
               onClick={({ event }) => handleClick(anchor.id, event)}
             >

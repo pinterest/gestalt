@@ -4,6 +4,7 @@ import { create } from 'react-test-renderer';
 import Button from './Button.js';
 import Link from './Link.js';
 import Toast from './Toast.js';
+import Text from './Text.js';
 
 describe('<Toast />', () => {
   test('Text Only', () => {
@@ -32,7 +33,15 @@ describe('<Toast />', () => {
         text={
           <Fragment>
             Saved to{' '}
-            <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">Home decor</Link>
+            <Text inline weight="bold">
+              <Link
+                inline
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                underline="hover"
+              >
+                Home decor
+              </Link>
+            </Text>
           </Fragment>
         }
       />,
@@ -52,7 +61,15 @@ describe('<Toast />', () => {
         text={
           <Fragment>
             Saved to{' '}
-            <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">Home decor</Link>
+            <Text inline weight="bold">
+              <Link
+                inline
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                underline="hover"
+              >
+                Home decor
+              </Link>
+            </Text>
           </Fragment>
         }
         button={<Button size="lg" text="Undo" />}

@@ -1,7 +1,11 @@
 .link {
-  composes: noUnderline from "./Typography.css";
   color: inherit; /* Links should have the correct underline color */
   outline: none;
+}
+
+.hoverNoUnderline:hover,
+.hoverNoUnderline:focus {
+  text-decoration: none;
 }
 
 .hoverUnderline:hover,

@@ -175,7 +175,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       >
         {href ? (
           <Link
-            hoverStyle="none"
+            underline="none"
             href={href}
             onClick={onClick}
             target={isExternal ? 'blank' : 'self'}

@@ -5,10 +5,11 @@ import { Text, Link, Box, ColorSchemeProvider } from 'gestalt';
 export default function Screenshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" display="inlineBlock" padding={1}>
-        <Text>
-          <Link href="https://pinterest.com">
-            <Box padding={2}>Visit our help center</Box>
+      <Box color="white" display="inlineBlock" padding={4}>
+        <Text inline>
+          Visit our{' '}
+          <Link inline href="https://pinterest.com">
+            Business Help Center
           </Link>
         </Text>
       </Box>

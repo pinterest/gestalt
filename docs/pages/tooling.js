@@ -282,7 +282,6 @@ To learn more about developing generic codemods, read this [page](https://github
                     inline
                     onClick={() => trackButtonClick('Gestalt Usage Visualizer')}
                     target="blank"
-                    hoverStyle="underline"
                     // eslint-disable-next-line no-script-url, no-template-curly-in-string
                     href="javascript:(function(){[...document.querySelectorAll('[style]'),...document.querySelectorAll('[class]')].filter(el=>[...el.classList].some(classname=>classname.length>3)||el.classList=='').forEach(el=>{el.setAttribute('style',`${el.getAttribute('style')||''};border:solid 1px#ff0000;`)})})();"
                   >

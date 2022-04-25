@@ -325,7 +325,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -456,7 +456,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -587,7 +587,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       >
         <a
           aria-label="Learn more: upsell messages"
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -618,7 +618,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -700,7 +700,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}

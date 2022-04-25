@@ -89,24 +89,28 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           >
             Saved to
              
-            <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-              href="https://www.pinterest.com/search/pins/?q=home%20decor"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-              target={null}
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
             >
-              Home decor
-            </a>
+              <a
+                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Home decor
+              </a>
+            </span>
           </span>
         </div>
       </div>
@@ -195,24 +199,28 @@ exports[`<Toast /> Text + Image 1`] = `
           >
             Saved to
              
-            <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-              href="https://www.pinterest.com/search/pins/?q=home%20decor"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-              target={null}
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
             >
-              Home decor
-            </a>
+              <a
+                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Home decor
+              </a>
+            </span>
           </span>
         </div>
       </div>

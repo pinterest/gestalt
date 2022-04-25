@@ -20,6 +20,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type AriaCurrent } from './ariaTypes.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
+import textStyles from './Typography.css';
 
 type Props = {|
   accessibilityCurrent?: AriaCurrent,
@@ -113,6 +114,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   const className = classnames(
     linkStyles.link,
+    textStyles.noUnderline,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),

@@ -100,7 +100,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
   <div>
     <a
       aria-label="test"
-      class="link hideOutline tapTransition pill accessibilityOutline block pointer"
+      class="link noUnderline hideOutline tapTransition pill accessibilityOutline block pointer"
       href="www.pinterest.com"
       rel=""
       tabindex="0"
