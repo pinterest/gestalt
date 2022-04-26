@@ -233,7 +233,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
         maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
         minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
         nextMonthButtonLabel={
-          <Icon accessibilityLabel="" color="darkGray" icon="arrow-forward" size={16} />
+          <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
         }
         onChange={(value: Date, event: SyntheticInputEvent<HTMLInputElement>) => {
           setSelected(value);
@@ -249,7 +249,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
         )}
         popperPlacement={popperPlacement[idealDirection]}
         previousMonthButtonLabel={
-          <Icon accessibilityLabel="" color="darkGray" icon="arrow-back" size={16} />
+          <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
         }
         ref={(refElement) => {
           if (!innerRef || !refElement) {

@@ -134,7 +134,7 @@ export default function SelectList({
           <Icon
             icon="arrow-down"
             size={12}
-            color={disabled ? 'gray' : 'darkGray'}
+            color={disabled ? 'subtle' : 'default'}
             accessibilityLabel=""
           />
         </Box>

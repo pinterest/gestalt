@@ -20,7 +20,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
       <Flex gap={4} alignItems="center" flex="grow">
         <Icon
           icon="pinterest"
-          color="red"
+          color="brandPrimary"
           size={20}
           accessibilityLabel="Pinterest"
         />
@@ -188,7 +188,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
       <Flex alignItems="center" flex="grow" gap={4}>
         <Icon
           accessibilityLabel="Pinterest"
-          color="red"
+          color="brandPrimary"
           icon="pinterest"
           size={20}
         />
@@ -237,7 +237,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
       <Flex alignItems="center" flex="grow" gap={4}>
         <Icon
           accessibilityLabel="Pinterest"
-          color="red"
+          color="brandPrimary"
           icon="pinterest"
           size={20}
         />

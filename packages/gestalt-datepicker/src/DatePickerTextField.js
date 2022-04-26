@@ -67,7 +67,7 @@ function DatePickerTextField(props: Props) {
         </Box>
         <div className={classnames(styles.calendarIcon)}>
           <Box position="relative" marginEnd={4}>
-            <Icon accessibilityLabel="" color="darkGray" icon="calendar" />
+            <Icon accessibilityLabel="" color="default" icon="calendar" />
           </Box>
         </div>
       </Box>

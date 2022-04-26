@@ -124,7 +124,7 @@ function ScrollBoundaryContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="darkGray"
+                color="default"
               />
             </Tooltip>
           </Flex>
@@ -185,7 +185,7 @@ function ScrollBoundaryContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="darkGray"
+                color="default"
               />
             </Tooltip>
           </Flex>
@@ -245,7 +245,7 @@ function ScrollBoundaryContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="darkGray"
+                color="default"
               />
             </Tooltip>
           </Flex>

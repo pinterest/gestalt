@@ -81,17 +81,17 @@ type Props = {|
 const CALLOUT_TYPE_ATTRIBUTES = {
   info: {
     icon: 'info-circle',
-    color: 'blue',
+    color: 'shopping',
     backgroundColor: '#EBF4FE',
   },
   warning: {
     icon: 'workflow-status-warning',
-    color: 'orange',
+    color: 'warning',
     backgroundColor: '#FDF5EC',
   },
   error: {
     icon: 'workflow-status-problem',
-    color: 'red',
+    color: 'error',
     backgroundColor: '#FDEBEE',
   },
 };

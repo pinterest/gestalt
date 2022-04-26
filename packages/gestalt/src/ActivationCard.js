@@ -11,9 +11,9 @@ import styles from './ActivationCard.css';
 
 const STATUS_ICONS = {
   notStarted: undefined,
-  pending: { symbol: 'clock', color: 'gray' },
-  needsAttention: { symbol: 'workflow-status-problem', color: 'red' },
-  complete: { symbol: 'check-circle', color: 'green' },
+  pending: { symbol: 'clock', color: 'subtle' },
+  needsAttention: { symbol: 'workflow-status-problem', color: 'error' },
+  complete: { symbol: 'check-circle', color: 'success' },
 };
 
 type LinkData = {|

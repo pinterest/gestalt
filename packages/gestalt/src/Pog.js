@@ -21,6 +21,13 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
   xl: 24,
 };
 
+const OLD_TO_NEW_COLOR_MAP = {
+  'white': 'inverse',
+  'gray': 'subtle',
+  'darkGray': 'default',
+  'red': 'error',
+};
+
 const defaultIconButtonIconColors = {
   darkGray: 'white',
   gray: 'white',
@@ -132,7 +139,7 @@ export default function Pog({
     <div className={classes} style={inlineStyle}>
       <Icon
         accessibilityLabel={accessibilityLabel || ''}
-        color={color}
+        color={OLD_TO_NEW_COLOR_MAP[color]}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}
         size={iconSizeInPx}

@@ -11,7 +11,7 @@ export default function Snapshot(): Node {
         <Flex gap={1} wrap>
           {icons.map((name, index) => (
             <Box key={index} padding={2}>
-              <Icon color="darkGray" accessibilityLabel="" icon={name} />
+              <Icon color="default" accessibilityLabel="" icon={name} />
             </Box>
           ))}
         </Flex>

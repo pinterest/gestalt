@@ -245,7 +245,7 @@ function Example() {
               onChange={({ checked }) => setChecked3(checked)}
             />
             <Tooltip text="A hardboiled egg that is then scrambled" idealDirection="up">
-              <Icon icon="info-circle" accessibilityLabel="" size={14} color="darkGray"/>
+              <Icon icon="info-circle" accessibilityLabel="" size={14} color="default"/>
             </Tooltip>
           </Flex>
         </Flex>

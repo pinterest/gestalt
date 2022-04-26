@@ -230,7 +230,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
             >
               <Icon
                 accessibilityLabel={accessibilityClearButtonLabel || ''}
-                color={focused ? 'white' : 'darkGray'}
+                color={focused ? 'inverse' : 'default'}
                 icon="cancel"
                 size={clearIconSize}
               />

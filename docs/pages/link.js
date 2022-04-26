@@ -253,7 +253,7 @@ Use the "visit" icon to represent an external Link/domain in a text context. The
       <Link href="https://www.w3.org/WAI/standards-guidelines/" inline> WCAG accessibility resources</Link>
     </Text>
   </Text>
-  <Icon icon="link" accessibilityLabel="" color="darkGray" />
+  <Icon icon="link" accessibilityLabel="" color="default" />
 </Flex>
             `}
           />
