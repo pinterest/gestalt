@@ -1,3 +1,9 @@
+## 52.0.1 (Apr 26, 2022)
+
+### Patch
+
+- Video: fix on Flow type (#2086)
+
 ## 52.0.0 (Apr 25, 2022)
 
 ### Major
