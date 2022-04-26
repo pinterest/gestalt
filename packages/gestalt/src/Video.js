@@ -1,5 +1,5 @@
 // @flow strict
-import { PureComponent, type Node, type Ref } from 'react';
+import { PureComponent, type Node } from 'react';
 import classnames from 'classnames';
 import VideoControls from './VideoControls.js';
 import ColorSchemeProvider from './contexts/ColorSchemeProvider.js';
@@ -211,10 +211,6 @@ type Props = {|
    * Specifies how, if at all, the video should be pre-loaded when the page loads. See the [MDN Web Docs: preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-preload)
    */
   preload: 'auto' | 'metadata' | 'none',
-  /**
-   * Ref on the Gestalt Video component.
-   */
-  ref?: Ref<typeof Video>, // eslint-disable-line no-use-before-define
   /**
    * The URL of the video file to play. This can also be supplied as a list of video types to respective video source urls in fallback order for support on various browsers. See [multiple sources example](https://gestalt.pinterest.systems/video#Video-multiple-sources) for more details.
    */
