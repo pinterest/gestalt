@@ -4,7 +4,6 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
-import deepCloneReplacingUndefined from '../utils/deepCloneReplacingUndefined.js';
 import MainSection from '../components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
@@ -366,7 +365,17 @@ function Example () {
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Video' });
 
+  generatedDocGen.props.ref = {
+    required: false,
+    defaultValue: null,
+    flowType: {
+      name: 'Ref',
+      raw: 'Ref<typeof Video>',
+    },
+    description: 'Ref on the Gestalt Video component.',
+  };
+
   return {
-    props: { generatedDocGen: deepCloneReplacingUndefined(generatedDocGen) },
+    props: { generatedDocGen },
   };
 }
