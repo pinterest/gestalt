@@ -399,8 +399,34 @@ function Example(props) {
         />
         <MainSection.Subsection
           title="Labels"
-          description="Ensure the labels are precise and concise. Labels should only describe the text field they are associated with, and they must be visible."
-        />
+          description={`
+      TextField comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct TextField.
+
+      If TextField is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+<Flex gap={6}>
+  <TextField
+    id="textfieldexampleA11yVisible"
+    onChange={() => {}}
+    label='First name'
+    size='lg'
+  />
+  <Flex gap={2} direction="column">
+    <Text weight="bold" size="300">First name</Text>
+    <TextField
+      id="textfieldexampleA11yHiddenLabel"
+      onChange={() => {}}
+      label='First name'
+      labelDisplay="hidden"
+      size='lg'
+    />
+  </Flex>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
           title="Validation"
           description={`
@@ -472,6 +498,26 @@ function Example(props) {
     </Box>
   );
 }
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Label visibility"
+          description={`In some cases, the label for a TextField is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure TextField is properly labeled for screen readers while using a different element to represent the label visually.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex gap={2} direction="column">
+  <Text weight="bold" size="300">First name</Text>
+  <TextField
+    id="textfieldexampleHiddenLabel"
+    onChange={() => {}}
+    label='First name'
+    labelDisplay="hidden"
+    size='lg'
+  />
+</Flex>
 `}
           />
         </MainSection.Subsection>
