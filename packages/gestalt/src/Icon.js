@@ -5,37 +5,7 @@ import styles from './Icon.css';
 import icons from './icons/index.js';
 import colors from './Colors.css';
 
-const semanticColors = [
-  'default',
-  'subtle',
-  'success',
-  'error',
-  'warning',
-  'inverse',
-  'shopping',
-  'brandPrimary',
-  'light',
-  'dark',
-];
-
 export type IconColor =
-  | 'blue'
-  | 'darkGray'
-  | 'eggplant'
-  | 'gray'
-  | 'green'
-  | 'lightGray'
-  | 'maroon'
-  | 'midnight'
-  | 'navy'
-  | 'olive'
-  | 'orange'
-  | 'orchid'
-  | 'pine'
-  | 'purple'
-  | 'red'
-  | 'watermelon'
-  | 'white'
   | 'default'
   | 'subtle'
   | 'success'
@@ -127,19 +97,7 @@ export default function Icon({
   inline = false,
   size = 16,
 }: Props): Node {
-  let colorClass = null;
-  const colorName = semanticColors.includes(color) ? `${color}Icon` : color;
-  if (
-    colorName !== 'dark' &&
-    colorName !== 'error' &&
-    colorName !== 'light' &&
-    colorName !== 'subtle' &&
-    colorName !== 'success' &&
-    colorName !== 'warning' &&
-    colorName !== 'brandPrimary'
-  ) {
-    colorClass = colors[colorName];
-  }
+  const colorClass = colors[`${color}Icon`];
 
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
