@@ -1,3 +1,9 @@
+## 52.1.0 (Apr 26, 2022)
+
+### Minor
+
+- TextField & TextArea: Added labelDisplay prop (#2083)
+
 ## 52.0.1 (Apr 26, 2022)
 
 ### Patch
