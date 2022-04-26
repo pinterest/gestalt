@@ -91,13 +91,13 @@ const flipOnRtlIconNames = [
  */
 export default function Icon({
   accessibilityLabel,
-  color = 'gray',
+  color = 'subtle',
   dangerouslySetSvgPath,
   icon,
   inline = false,
   size = 16,
 }: Props): Node {
-  const colorClass = colors[`${color}Icon`];
+  const colorClass = colors[`${color}Icon`] && colors[`${color}Icon`];
 
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,

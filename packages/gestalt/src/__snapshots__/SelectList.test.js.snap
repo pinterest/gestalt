@@ -24,7 +24,7 @@ exports[`SelectList SelectList normal 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -103,7 +103,7 @@ exports[`SelectList SelectList with a hidden label 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"

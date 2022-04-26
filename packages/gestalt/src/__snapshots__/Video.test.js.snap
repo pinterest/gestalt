@@ -249,7 +249,7 @@ exports[`Video with children 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Play"
-            className="icon white iconBlock"
+            className="icon lightIcon iconBlock"
             height={20}
             role="img"
             viewBox="0 0 24 24"
@@ -286,7 +286,7 @@ exports[`Video with children 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="rtlSupport icon white iconBlock"
+            className="rtlSupport icon lightIcon iconBlock"
             height={20}
             role="img"
             viewBox="0 0 24 24"
@@ -418,7 +418,7 @@ exports[`Video with children 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Unmute"
-            className="icon white iconBlock"
+            className="icon lightIcon iconBlock"
             height={20}
             role="img"
             viewBox="0 0 24 24"

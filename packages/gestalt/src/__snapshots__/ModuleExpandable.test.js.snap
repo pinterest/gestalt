@@ -100,7 +100,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               <svg
                 aria-hidden={null}
                 aria-label="click to expand"
-                className="icon darkGray iconBlock"
+                className="icon defaultIcon iconBlock"
                 height="12"
                 role="img"
                 viewBox="0 0 24 24"
@@ -215,7 +215,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               <svg
                 aria-hidden={null}
                 aria-label="click to expand"
-                className="icon darkGray iconBlock"
+                className="icon defaultIcon iconBlock"
                 height="12"
                 role="img"
                 viewBox="0 0 24 24"
@@ -288,7 +288,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon red iconBlock"
+                      className="icon errorIcon iconBlock"
                       height={16}
                       role="img"
                       viewBox="0 0 24 24"
@@ -352,7 +352,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               <svg
                 aria-hidden={null}
                 aria-label="click to expand"
-                className="icon darkGray iconBlock"
+                className="icon defaultIcon iconBlock"
                 height="12"
                 role="img"
                 viewBox="0 0 24 24"
@@ -501,7 +501,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
               <svg
                 aria-hidden={null}
                 aria-label="click to expand"
-                className="icon darkGray iconBlock"
+                className="icon defaultIcon iconBlock"
                 height="12"
                 role="img"
                 viewBox="0 0 24 24"
@@ -597,7 +597,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               <svg
                 aria-hidden={null}
                 aria-label="click to collapse"
-                className="icon darkGray iconBlock"
+                className="icon defaultIcon iconBlock"
                 height="12"
                 role="img"
                 viewBox="0 0 24 24"
@@ -717,7 +717,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               <svg
                 aria-hidden={null}
                 aria-label="click to expand"
-                className="icon darkGray iconBlock"
+                className="icon defaultIcon iconBlock"
                 height="12"
                 role="img"
                 viewBox="0 0 24 24"
@@ -790,7 +790,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon red iconBlock"
+                      className="icon errorIcon iconBlock"
                       height={16}
                       role="img"
                       viewBox="0 0 24 24"
@@ -854,7 +854,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               <svg
                 aria-hidden={null}
                 aria-label="click to expand"
-                className="icon darkGray iconBlock"
+                className="icon defaultIcon iconBlock"
                 height="12"
                 role="img"
                 viewBox="0 0 24 24"

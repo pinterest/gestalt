@@ -231,7 +231,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -291,7 +291,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -351,7 +351,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"

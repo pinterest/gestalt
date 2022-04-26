@@ -73,7 +73,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -225,7 +225,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -277,7 +277,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -388,7 +388,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -519,7 +519,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
