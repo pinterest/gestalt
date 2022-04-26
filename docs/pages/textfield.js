@@ -508,15 +508,15 @@ function Example(props) {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-          <Flex gap={2} direction="column">
-<Text weight="bold" size="300">First name</Text>
-<TextField
-id="textfieldexampleHiddenLabel"
-onChange={() => {}}
-label='First name'
-labelDisplay="hidden"
-size='lg'
-/>
+<Flex gap={2} direction="column">
+  <Text weight="bold" size="300">First name</Text>
+  <TextField
+    id="textfieldexampleHiddenLabel"
+    onChange={() => {}}
+    label='First name'
+    labelDisplay="hidden"
+    size='lg'
+  />
 </Flex>
 `}
           />

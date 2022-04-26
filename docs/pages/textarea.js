@@ -111,16 +111,16 @@ function Example(props) {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-          <Flex gap={2} direction="column" width="100%">
-<Text weight="bold" size="300">About me</Text>
-<TextArea
-id="textareaexampleHiddenLabel"
-placeholder="Write something about yourself..."
-onChange={() => {}}
-label='About me'
-labelDisplay="hidden"
-size='lg'
-/>
+<Flex gap={2} direction="column" width="100%">
+  <Text weight="bold" size="300">About me</Text>
+  <TextArea
+    id="textareaexampleHiddenLabel"
+    placeholder="Write something about yourself..."
+    onChange={() => {}}
+    label='About me'
+    labelDisplay="hidden"
+    size='lg'
+  />
 </Flex>
 `}
           />

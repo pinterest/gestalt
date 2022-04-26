@@ -15,6 +15,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         defaultCode={`
   function SearchFieldExample() {
     const [value, setValue] = React.useState('');
+
     return (
       <Flex gap={4} alignItems="center" flex="grow">
         <Icon
@@ -170,6 +171,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           title="Labels"
           description={`
       SearchField should ideally have a visible label above the input using the \`label\` prop. However, if need be, \`accessibilityLabel\` can be used to provide screen readers with context about the SearchField.
+
       Be sure to also specify (and localize) a string for the \`accessibilityClearButtonLabel\`.
       `}
         >
@@ -214,6 +216,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         <MainSection.Subsection
           description={`
       Be sure to localize the \`accessibilityLabel\`, \`accessibilityClearButtonLabel\`, \`errorMessage\`, \`label\` and \`placeholder\` prop values. Also localize \`value\` for those cases when it can be translated.
+
       Note that localization can lengthen text by 20 to 30 percent.
       `}
         >
