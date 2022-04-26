@@ -1,12 +1,12 @@
 // @flow strict
 import { type Element, type Node } from 'react';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
 import styles from './Toast.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 const TOAST_MAX_WIDTH_PX = 500;
 const TOAST_WIDTH_PX = 330;
@@ -59,7 +59,7 @@ export default function Toast({
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
-  let containerColor = isDarkMode ? 'white' : 'darkGray';
+  let containerColor = 'darkGray';
   let textColor = isDarkMode ? 'dark' : 'light';
   let textElement = text;
 
