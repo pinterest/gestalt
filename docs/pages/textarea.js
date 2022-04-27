@@ -191,7 +191,7 @@ function Example(props) {
   return (
     <Box width="100%">
       <TextArea
-        id="best-practices-do-helpertext"
+        id="best-practices-dont-placeholder"
         label="Campaign description"
         onChange={({ value }) => {
           setValue(value);
