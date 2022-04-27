@@ -46,6 +46,10 @@ type Props = {|
    */
   label?: string,
   /**
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
+   */
+  labelDisplay?: 'visible' | 'hidden',
+  /**
    * A unique name for the input used to reference form data after it’s submitted. If the name attribute is not specified then the data of the checkbox would not be sent in the form submission.
    */
   name?: string,
@@ -91,6 +95,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     image,
     indeterminate = false,
     label,
+    labelDisplay = 'visible',
     name,
     onChange,
     onClick,
@@ -206,20 +211,22 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         </Label>
         {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
-          <Label htmlFor={id}>
-            <Box paddingX={1}>
-              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
-                {label}
-              </Text>
-              {subtext && (
-                <Box paddingY={1}>
-                  <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
-                    <Box display="visuallyHidden">:</Box> {subtext}
-                  </Text>
-                </Box>
-              )}
-            </Box>
-          </Label>
+          <Box display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}>
+            <Label htmlFor={id}>
+              <Box paddingX={1}>
+                <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
+                  {label}
+                </Text>
+                {subtext && (
+                  <Box paddingY={1}>
+                    <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
+                      <Box display="visuallyHidden">:</Box> {subtext}
+                    </Text>
+                  </Box>
+                )}
+              </Box>
+            </Label>
+          </Box>
         )}
       </Box>
       {errorMessage && (
