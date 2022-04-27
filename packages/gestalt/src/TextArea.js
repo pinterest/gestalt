@@ -91,7 +91,7 @@ type Props = {|
    */
   rows?: number,
   /**
-   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/textarea#With-Tags) for more details.
+   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/textarea#With-tags) for more details.
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   /**

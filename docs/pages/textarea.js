@@ -53,6 +53,259 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="sm"
+            type="do"
+            description="Use TextArea as an affordance to input longer-form text content — typically anything longer than a brief sentence."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-do-content-length"
+        label="Board description"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        placeholder="What's your board about?"
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+          <MainSection.Card
+            cardSize="sm"
+            type="don't"
+            description="Use TextArea when the text input is a single, non-sentence response — even in cases with long content. Use [TextField](https://gestalt.pinterest.systems/textfield) instead."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('https://www.pinterest.com/pin/768145280205600341/');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-dont-single-line"
+        label="Destination URL"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="sm"
+            type="do"
+            description="Use `label` to clearly denote what information the user should input. Use `placeholder` sparingly as [they can erode usability of form fields](https://www.nngroup.com/articles/form-design-placeholders/)."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-do-label"
+        label="Tell everyone what this Pin is about"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+          <MainSection.Card
+            cardSize="sm"
+            type="don't"
+            description="Use `placeholder` as a replacement for `label`, as this creates accessibility and usability issues."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-dont-remove-label"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        placeholder="Tell us your story"
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="sm"
+            type="do"
+            description="Use `helperText` to provide additional context that will aid the user in most effectively inputing information."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-do-helpertext"
+        label="Explain what people can see in this Pin"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        helperText="This text will be read aloud by screen readers"
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+          <MainSection.Card
+            cardSize="sm"
+            type="don't"
+            description="Use `placeholder` to provide any information necessary to filling out the form field. Placeholder text disappears after the user begins entering data and should not contain crucial information."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-dont-placeholder"
+        label="Campaign description"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        placeholder="Maximum of 500 characters"
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="sm"
+            type="do"
+            description="Set the height of TextArea using `row` to ensure that the typical amount of text entered will be visible without needing to scroll."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-do-height"
+        label="Have feedback on this product?"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        placeholder="Tell us about your experience, what you love, or what we could improve."
+        helperText="Please don't submit passwords, email addresses, or other sensitive or personal info."
+        rows={5}
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+          <MainSection.Card
+            cardSize="sm"
+            type="don't"
+            description="Set the `row` prop to less than 2. Use TextField when expecting only a single line of text."
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Box width="100%">
+      <TextArea
+        id="best-practices-dont-row-height-1"
+        label="Send a message"
+        onChange={({ value }) => {
+          setValue(value);
+        }}
+        rows={1}
+        value={value}
+      />
+    </Box>
+  );
+}
+            `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="Comprehension"
+          description="Be sure to [provide instructions](https://www.w3.org/WAI/tutorials/forms/instructions/) to help users understand how to complete the form and use individual form controls."
+        />
+        <MainSection.Subsection
+          title="Labels"
+          description="Ensure the labels are precise and concise. Labels should only describe the text field they are associated with, and they must be visible. If you cannot use the `label` prop, ensure the alternative label's `htmlFor` attribute matches the TextArea's `id`. Labels are properly associated when clicking the label focuses the TextArea."
+        />
+        <MainSection.Subsection
+          title="Validation"
+          description={`
+    When providing a validation message, make sure the instructions are clear and help users complete the field. For example, "This field is required to submit". In addition, use the helper text to provide instructions to help users understand how to complete the text field or to indicate any needed input, allowed formats, timing limitations, or other pertinent information.
+
+    These practices give users of assistive technologies more information about the form, helping them to fill it out.
+  `}
+        />
+        <MainSection.Subsection
+          title="Keyboard navigation"
+          description={`
+    TextArea has conventional keyboard support.
+    - Users relying on the keyboard expect to move focus to each TextArea by using the tab key or shift+tab when moving backwards.
+    - Setting \`disabled\` will prevent TextArea from receiving keyboard focus or input.
+  `}
+        />
+        <MainSection.Subsection
+          title="Autofocus"
+          description={`
+    TextArea intentionally lacks support for autofocus. Generally speaking, autofocus interrupts normal page flow for screen readers making it an anti-pattern for accessibility.
+  `}
+        />
+        <MainSection.Subsection
+          title="onSubmit"
+          description={`
+    TextArea is commonly used as an input in forms alongside submit buttons. In these cases, users expect that pressing Enter or Return with the input focused will submit the form.
+
+    Out of the box, TextArea doesn't expose an \`onSubmit\` handler or individual key event handlers due to the complexities of handling these properly. Instead, developers are encouraged to wrap TextField in a \`<form>\` with an \`onSubmit\` handler.
+  `}
+        />
+      </MainSection>
+
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, and \`placeholder\`.`}
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Default"
@@ -180,7 +433,7 @@ function Example(props) {
           title="Error message"
           description={`
     A TextArea can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will handle the rest.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -316,26 +569,20 @@ function Example(props) {
 `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Autofocus"
-          description={`
-        \`TextArea\` intentionally lacks support for autofocus. Generally speaking,
-        autofocus interrupts normal page flow for screen readers making it an
-        anti-pattern for accessibility.
-      `}
-        />
-        <MainSection.Subsection
-          title="Form submission"
-          description={`
-        \`TextArea\` is commonly used as an input in forms alongside submit buttons.
-        In these cases, users expect that pressing Enter or Return with the input
-        focused will submit the form.
+      </MainSection>
 
-        Out of the box, \`TextArea\` doesn't expose an \`onSubmit\` handler or
-        individual key event handlers due to the complexities of handling these
-        properly. Instead, developers are encouraged to wrap the \`TextArea\`
-        in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
-      `}
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+      **[TextField](/textfield)**
+      TextField is ideal for short-form, single answer text input.
+
+      **[Tag](/tag)**
+      Tag can be used in conjunction with TextArea to display separate elements of content.
+
+      **[ComboBox](/combobox)**
+      ComboBox + Tag is the recommended alternative to [TextArea + Tag](/textarea#With-tags) when selecting from a finite list list of items.
+    `}
         />
       </MainSection>
     </Page>
