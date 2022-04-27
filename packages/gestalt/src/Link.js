@@ -18,6 +18,59 @@ import getRoundingClassName from './getRoundingClassName.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import layoutStyles from './Layout.css';
+import Icon from './Icon.js';
+import Box from './Box.js';
+import Text from './Text.js';
+
+type ExternalLinkIcon =
+  | 'none'
+  | 'default'
+  | {|
+      size: $ElementType<React$ElementConfig<typeof Text>, 'size'>,
+      color: $ElementType<React$ElementConfig<typeof Icon>, 'color'>,
+    |};
+
+function ExternalIcon({
+  externalLinkIcon,
+  position,
+}: {|
+  externalLinkIcon: ExternalLinkIcon,
+  position: 'rtl' | 'ltr',
+|}): Node {
+  const externalLinkIconMap = {
+    '100': 12,
+    '200': 14,
+    '300': 16,
+    '400': 20,
+    '500': 28,
+    '600': 36,
+    'sm': 12,
+    'md': 14,
+    'lg': 16,
+  };
+
+  return externalLinkIcon === 'none' ? null : (
+    <div aria-hidden className={classnames(position === 'rtl' ? styles.rtlIcon : styles.ltrIcon)}>
+      <Box
+        marginEnd={position === 'rtl' ? 1 : 0}
+        marginStart={position === 'rtl' ? 0 : 1}
+        display="inlineBlock"
+      >
+        <Icon
+          inline
+          icon="visit"
+          accessibilityLabel=""
+          size={
+            externalLinkIcon === 'default'
+              ? externalLinkIconMap['300']
+              : externalLinkIconMap[externalLinkIcon?.size ?? '300']
+          }
+          color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
+        />
+      </Box>
+    </div>
+  );
+}
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
@@ -27,7 +80,7 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
+   * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-tab-Link) for more information.
    */
   accessibilitySelected?: boolean,
   /**
@@ -66,7 +119,7 @@ type Props = {|
    */
   ref?: Ref<'a'>,
   /**
-   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them. See the [rel variant](https://gestalt.pinterest.systems/link#Rel) to learn more.
+   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
    */
   rel?: 'none' | 'nofollow',
   /**
@@ -94,6 +147,10 @@ See the [target variant](https://gestalt.pinterest.systems/link#Target) to learn
    * When `underline` is supplied, we override the underline style internally managed by the component. See the [underline variant](https://gestalt.pinterest.systems/link#Underline) to learn more.
    */
   underline?: 'auto' | 'none' | 'always' | 'hover',
+  /**
+   * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
+   */
+  externalLinkIcon?: ExternalLinkIcon,
 |};
 
 /**
@@ -111,6 +168,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     accessibilityLabel,
     accessibilitySelected,
     children,
+    externalLinkIcon = 'none',
     href,
     id,
     inline = false,
@@ -233,7 +291,13 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       role={role}
       target={target ? `_${target}` : null}
     >
+      {externalLinkIcon === 'none' ? null : (
+        <ExternalIcon externalLinkIcon={externalLinkIcon} position="rtl" />
+      )}
       {children}
+      {externalLinkIcon === 'none' ? null : (
+        <ExternalIcon externalLinkIcon={externalLinkIcon} position="ltr" />
+      )}
     </a>
   );
 });

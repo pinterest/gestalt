@@ -163,16 +163,16 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   </Flex.Item>
   <Button fullWidth text="Create account" size="md" color="red" />
   <Button fullWidth text="Log into existing account" size="md" type="submit" />
-  <Text size="sm" align="center">
+  <Text size="100" align="center">
     By continuing, you agree to Pinterest's
-    <Text size="sm" inline>
+    <Text size="100" inline>
       <Link href="https://www.pinterest.com" inline>
         {' '}
         Business Terms of Service{' '}
       </Link>
     </Text>{' '}
     and acknowledge you've read our
-    <Text size="sm" inline>
+    <Text size="100" inline>
       <Link href="https://www.pinterest.com" inline>
         {' '}
         Privacy Policy{' '}
@@ -213,16 +213,16 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   </Flex.Item>
   <Button fullWidth text="Create account" size="md" color="red" />
   <Button fullWidth text="Log into existing account" size="md" type="submit" />
-  <Text size="sm" align="center">
+  <Text size="100" align="center">
     By continuing, you agree to Pinterest's
-    <Text size="sm" inline weight="bold">
+    <Text size="100" inline weight="bold">
       <Link href="https://www.pinterest.com" inline>
         {' '}
         Business Terms of Service{' '}
       </Link>
     </Text>{' '}
     and acknowledge you've read our
-    <Text size="sm" inline weight="bold">
+    <Text size="100" inline weight="bold">
       <Link href="https://www.pinterest.com" inline>
         {' '}
         Privacy Policy{' '}
@@ -233,14 +233,16 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
           />
         </MainSection.Subsection>
-        {/* <MainSection.Subsection columns={2}>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
-            description={`\`isExternal\` PROP COMING SOON.
-
-Use the "visit" icon to represent an external Link/domain in a text context. The icon should match the text size. Please note: Disclaimers and links taking users to Pinterest sub-sites don't need to display an external link icon.`}
+            description={`
+Use the "visit" icon to represent an external Link/domain in a text context. The icon should match the text size and color. Please note: Disclaimers and links taking users to Pinterest sub-sites don't need to display an external link icon.`}
             defaultCode={`
-<Text weight="bold"> Coming soon </Text>
+<Text inline>
+  To receive push notifications instead of texts,
+  <Link href="https://authy.com/download/" inline externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>.
+</Text>
 `}
           />
           <MainSection.Card
@@ -257,7 +259,7 @@ Use the "visit" icon to represent an external Link/domain in a text context. The
 </Flex>
             `}
           />
-        </MainSection.Subsection> */}
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection
@@ -267,7 +269,7 @@ Avoid using Link to perform actions other than navigation or accessing external 
       `}
       >
         <MainSection.Subsection
-          title="Accessible Content"
+          title="Accessible content"
           description={`
 When providing the content for the link, avoid generic phrases like "click here" or "go to". Make sure to write a meaningful descriptive label that clearly indicates the link’s destination. Review [Writing guidelines](#Writing) for reference.
 
@@ -393,7 +395,7 @@ Accessible content is critical if we consider that assistive technology also pre
       </Table.Cell>
       <Table.Cell>
         <Flex direction="column" gap={2}>
-          <Text size="sm">1000/day</Text>
+          <Text size="100">1000/day</Text>
           <Text>
             <Link
               accessibilityLabel="See rate limit details for trial package"
@@ -407,7 +409,7 @@ Accessible content is critical if we consider that assistive technology also pre
       </Table.Cell>
       <Table.Cell>
         <Flex direction="column" gap={1}>
-          <Text size="sm">Variable</Text>
+          <Text size="100">Variable</Text>
           <Text>
             <Link
               accessibilityLabel="See rate limit details for standard package"
@@ -430,8 +432,20 @@ Accessible content is critical if we consider that assistive technology also pre
           title="Keyboard navigation"
           description="Give Link keyboard focus with the tab key (or shift + tab when tabbing backwards). Activate Link with the enter/return key."
         />
+
         <MainSection.Subsection
-          title="Accessible Tab Link"
+          title="External links"
+          description={`An external link, also called an outbound link, is a link from Pinterest to a different website.
+
+When rendering an external Link, add text for screen readers to announce that Link will go to a different destination. Users should be informed that they will be moving out of a domain and which domain they are moving to. This is particularly relevant for those with cognitive impairments or people relying on assistive technology.
+
+When possible, limit one external Link per paragraph, as adding more than two icons in the same block of text can clutter the design and create readability issues.
+
+For external Links that aren't in a paragraph or text context, consider [Button's link role](https://gestalt.netlify.app/button#Role) or [IconButton's link role](https://gestalt.netlify.app/iconbutton#Role).`}
+        />
+
+        <MainSection.Subsection
+          title="Accessible tab Link"
           description={`Use \`accessibilitySelected\` and \`role="tab"\` when using Link as a tab. However, don't use Link to create custom tabs, use [Tabs](/tabs) instead.`}
         >
           <MainSection.Card
@@ -486,9 +500,9 @@ function TabExample() {
             defaultCode={`
 <Box color="infoBase" width="50%" padding={4} rounding={3}>
   <Flex direction="column" gap={3} alignItems="center">
-    <Text color="inverse" weight="bold" size={600}>Tips</Text>
+    <Text color="inverse" weight="bold" size="600">Tips</Text>
       <Flex gap={1} alignItems="center">
-        <Text color="inverse" size={400} align="center" weight="bold">
+        <Text color="inverse" size="400" align="center" weight="bold">
           <Link href="https://pinterest.com" inline>Add a Pinterest widget</Link>{" "}
           and get inspired right from your phone's home screen.
         </Text>
@@ -624,20 +638,51 @@ However, Link's underline style can be overridden at any time using the \`underl
 `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Rel"
-          description={`\`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link. Don't use "nofollow" with urls redirecting to any Pinterest site.`}
-        >
-          <MainSection.Card
-            defaultCode={`
+      </MainSection>
+
+      <MainSection.Subsection
+        title="externalLinkIcon and rel"
+        columns={2}
+        description={`An external link, also called an outbound link, is a link from Pinterest to a different website. External links require specific SEO, visual, and accessibility treatments.
+
+\`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link. Don't use "nofollow" with urls redirecting to any Pinterest domain or subsite.
+
+\`externalLinkIcon\` is optional. \`externalLinkIcon\` displays a "visit" icon at the end of external Links to visually communicate an outbound link destination to the user. Follow Link's [Best practices](#Best-practices) to properly use the "visit" icon on external Links.
+
+As the "visit" icon is a visual/graphic representation, it's hidden to assistive technologies to avoid duplication of information. Instead, follow accessibility best practices for external links as detailed in the [Accessibility section](#External-links).
+
+
+The "visit" icon should also match [Text](/text)'s \`size\` and \`color\`. \`externalLinkIcon="default"\` automatically sets the "visit" icon style to match Text's default properties: \`size="300"\` and \`color="default"\` as shown in the first example. However, for different Text treatments, \`externalLinkIcon\` can be used to match custom Text properties as shown in the second example.
+      `}
+      >
+        <MainSection.Card
+          defaultCode={`
 <Text inline>
   To receive push notifications instead of texts,
-  <Link href="https://authy.com/download/" inline target="blank" rel="nofollow"> download the Authy app</Link>.
+  <Link href="https://authy.com/download/" inline externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>
 </Text>
 `}
-          />
-        </MainSection.Subsection>
-      </MainSection>
+        />
+        <MainSection.Card
+          defaultCode={`
+<Flex direction="column" gap={4}>
+  <Text inline size="100">
+    Visit
+    <Link href="https://authy.com/download/" inline externalLinkIcon={{ size: "100" }} target="blank" rel="nofollow">
+    MyBusiness.com
+    </Link>{" "}
+    for shipping details
+  </Text>
+  <Text inline size="400" color="success">
+    <Link href="https://authy.com/download/" inline externalLinkIcon={{ size: "400", color: "success" }} target="blank" rel="nofollow">
+      MyBusiness.com
+    </Link>{" "}
+    was successfully claimed
+  </Text>
+</Flex>
+`}
+        />
+      </MainSection.Subsection>
 
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>

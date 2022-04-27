@@ -12,3 +12,13 @@
 .hoverUnderline:focus {
   text-decoration: underline;
 }
+
+html[dir="rtl"] .ltrIcon,
+html:not([dir="rtl"]) .rtlIcon {
+  display: none;
+}
+
+html:not([dir="rtl"]) .ltrIcon,
+html [dir="rtl"] .rtlIcon {
+  display: inline;
+}

@@ -74,7 +74,7 @@
 
 ### Major
 
-- Link: design changes (part I: inline/underline) (#2073)
+- Link: design changes (part I inline/underline) (#2073)
 
 ## 50.3.0 (Apr 22, 2022)
 
