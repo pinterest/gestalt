@@ -1,3 +1,9 @@
+## 52.1.1 (Apr 27, 2022)
+
+### Patch
+
+- Added default value to labelDisplay prop in TextArea component (#2089)
+
 ## 52.1.0 (Apr 26, 2022)
 
 ### Minor
