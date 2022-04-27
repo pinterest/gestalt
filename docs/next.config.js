@@ -10,6 +10,10 @@ const root /*: string */ = path.join(__dirname, '../');
 
 module.exports = {
   reactStrictMode: true,
+  experimental: {
+    concurrentFeatures: true,
+    reactStrictMode: true,
+  },
   serverRuntimeConfig: {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
