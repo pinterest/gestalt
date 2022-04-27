@@ -548,27 +548,6 @@ function Example(props) {
 `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Autofocus"
-          description={`
-        \`TextArea\` intentionally lacks support for autofocus. Generally speaking,
-        autofocus interrupts normal page flow for screen readers making it an
-        anti-pattern for accessibility.
-      `}
-        />
-        <MainSection.Subsection
-          title="Form submission"
-          description={`
-        \`TextArea\` is commonly used as an input in forms alongside submit buttons.
-        In these cases, users expect that pressing Enter or Return with the input
-        focused will submit the form.
-
-        Out of the box, \`TextArea\` doesn't expose an \`onSubmit\` handler or
-        individual key event handlers due to the complexities of handling these
-        properly. Instead, developers are encouraged to wrap the \`TextArea\`
-        in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
-      `}
-        />
       </MainSection>
 
       <MainSection name="Related">
