@@ -1,3 +1,9 @@
+## 52.1.2 (Apr 27, 2022)
+
+### Patch
+
+- TextArea: design guidelines (#2088)
+
 ## 52.1.1 (Apr 27, 2022)
 
 ### Patch
