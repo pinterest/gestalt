@@ -326,13 +326,13 @@ function Example() {
                 id="1"
                 onChange={({ checked }) => setChecked1(checked)}
                 size="sm"
+                label="Select Summertime picnic row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="1">
-              <Text>Summertime picnic</Text>
-            </Label>
+            <Text>Summertime picnic</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -343,13 +343,13 @@ function Example() {
                 id="2"
                 onChange={({ checked }) => setChecked2(checked)}
                 size="sm"
+                label="Select Summer 1950 row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="2">
-              <Text>Summer 1950</Text>
-            </Label>
+            <Text>Summer 1950</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -360,13 +360,13 @@ function Example() {
                 id="3"
                 onChange={({ checked }) => setChecked3(checked)}
                 size="sm"
+                label="Select Back to school row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="3">
-              <Text>Back to school</Text>
-            </Label>
+            <Text>Back to school</Text>
           </Table.Cell>
         </Table.Row>
       </Table.Body>
@@ -407,6 +407,8 @@ function Example() {
                 id="4"
                 onChange={({ checked }) => setChecked1(checked)}
                 size="sm"
+                label="Select Summertime picnic row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
@@ -419,10 +421,8 @@ function Example() {
             />
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="4">
-              <Text>Summertime picnic</Text>
-            </Label>
-            </Table.Cell>
+            <Text>Summertime picnic</Text>
+          </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
@@ -432,6 +432,8 @@ function Example() {
                 id="6"
                 onChange={({ checked }) => setChecked2(checked)}
                 size="sm"
+                label="Select Summer 1950 row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
@@ -445,9 +447,7 @@ function Example() {
             />
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="6">
-              <Text>Summer 1950</Text>
-            </Label>
+            <Text>Summer 1950</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -458,6 +458,8 @@ function Example() {
                 id="8"
                 onChange={({ checked }) => setChecked3(checked)}
                 size="sm"
+                label="Select Back to school row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
@@ -470,9 +472,7 @@ function Example() {
             />
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="8">
-              <Text>Back to school</Text>
-            </Label>
+            <Text>Back to school</Text>
           </Table.Cell>
         </Table.Row>
       </Table.Body>
@@ -791,16 +791,14 @@ function Example() {
                 checked={checked1}
                 id="label-visibility-example-checkbox-1"
                 onChange={({ checked }) => setChecked1(checked)}
-                label="Summertime picnic"
+                label="Select Summertime picnic row"
                 labelDisplay="hidden"
                 size="sm"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="1">
-              <Text>Summertime picnic</Text>
-            </Label>
+            <Text>Summertime picnic</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -810,16 +808,14 @@ function Example() {
                 checked={checked2}
                 id="label-visibility-example-checkbox-2"
                 onChange={({ checked }) => setChecked2(checked)}
-                label="Summer 1950"
+                label="Select Summer 1950 row"
                 labelDisplay="hidden"
                 size="sm"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="2">
-              <Text>Summer 1950</Text>
-            </Label>
+            <Text>Summer 1950</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -829,16 +825,14 @@ function Example() {
                 checked={checked3}
                 id="label-visibility-example-checkbox-3"
                 onChange={({ checked }) => setChecked3(checked)}
-                label="Back to school"
+                label="Select Back to school row"
                 labelDisplay="hidden"
                 size="sm"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="3">
-              <Text>Back to school</Text>
-            </Label>
+            <Text>Back to school</Text>
           </Table.Cell>
         </Table.Row>
       </Table.Body>
