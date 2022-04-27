@@ -488,6 +488,8 @@ function Example() {
         <MainSection.Subsection
           title="Labels"
           description={`Checkboxes should have labels that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the \`label\` prop. If that’s not possible, make sure your stand-alone Label has an \`htmlFor\` prop that matches the \`id\` of the checkbox. Test that a checkbox and label are properly connected by clicking or tapping on the label and confirming that it activates the checkbox next to it.
+
+If Checkbox is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen. See the [Label visibility example](/checkbox#Label-visibility) for more detail.
 `}
         />
         <MainSection.Subsection
@@ -763,7 +765,7 @@ function CheckboxExample() {
 
         <MainSection.Subsection
           title="Label visibility"
-          description={`In some cases, the label for a Checkbox is represented in a different way visually, as demonstrated below. In these instances, you can set labelDisplay="hidden" to ensure Checkbox is properly labeled for screen readers while using a different element to represent the label visually.`}
+          description={`In some cases, the label for a Checkbox is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure Checkbox is properly labeled for screen readers while using a different element to represent the label visually.`}
         >
           <MainSection.Card
             cardSize="lg"
