@@ -1,3 +1,9 @@
+## 52.2.0 (Apr 27, 2022)
+
+### Minor
+
+- Masonry: Fix hydration for server rendered flexible grids (#2084)
+
 ## 52.1.2 (Apr 27, 2022)
 
 ### Patch
