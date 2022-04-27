@@ -1,5 +1,5 @@
 // @flow strict
-import { Component, type Node } from 'react';
+import { Component, type Node, Suspense, useRef, useState } from 'react';
 import { Box, Masonry, Image, Label, Text } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import PageHeader from '../components/PageHeader.js';
@@ -90,6 +90,106 @@ function GridComponent({ data }: { data: Pin, ... }) {
   );
 }
 
+// *****************************
+/* eslint-disable react/prop-types, no-unused-vars */
+let items = [];
+let pendingPromise;
+
+const getRandomColor = () => {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i = 1) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+function fetchItems() {
+  if (!pendingPromise) {
+    pendingPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        const newItems = Array(10)
+          .fill(undefined)
+          .map(() => ({
+            color: getRandomColor(),
+          }));
+
+        items = [...items, ...newItems];
+        resolve(items);
+        pendingPromise = null;
+      }, 1000);
+    });
+  }
+  return pendingPromise;
+}
+
+function useMockData() {
+  const [data, setData] = useState(items);
+  const [shouldFetch, setShouldFetch] = useState(false);
+  const fetch = async () => {
+    const fetchedItems = await fetchItems();
+    setShouldFetch(false);
+    setData(fetchedItems);
+  };
+  if (data.length === 0 || shouldFetch) {
+    fetch();
+  }
+  const fetchMore = () => {
+    setShouldFetch(true);
+  };
+
+  if (pendingPromise) {
+    throw pendingPromise;
+  }
+
+  return { items: data, fetchMore };
+}
+function Item({ data, isMeasuring }) {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{ __style: { backgroundColor: data.color } }}
+      height={300}
+      width={200}
+    />
+  );
+}
+
+function SuspenseGrid() {
+  const { items: mockDataItems, fetchMore } = useMockData();
+  const scrollContainerRef = useRef();
+  return (
+    // $FlowFixMe
+    <Box height={500} ref={scrollContainerRef} overflow="scrollY" width={500}>
+      <Masonry
+        comp={Item}
+        columnWidth={200}
+        items={mockDataItems}
+        minCols={2}
+        loadItems={fetchMore}
+        // $FlowFixMe
+        scrollContainer={() => scrollContainerRef.current}
+        virtualize={false}
+      />
+    </Box>
+  );
+}
+
+function Demo() {
+  return (
+    <Box>
+      <Box>
+        Scroll the grid and notice that when the subsequent pages come in, Masonry is unmounted
+        because the Suspense boundary surrounds the entire grid.
+      </Box>
+      <Suspense fallback={<Box>Loading...</Box>}>
+        <SuspenseGrid />
+      </Suspense>
+    </Box>
+  );
+}
+/* eslint-enable react/prop-types, no-unused-vars */
+// *************************
+
 class ExampleMasonry extends Component<Props, State> {
   // ref on a component gets the mounted instance of the component
   // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
@@ -128,6 +228,7 @@ class ExampleMasonry extends Component<Props, State> {
       width: `${this.state.width}px`,
     };
     const { scrollContainer } = this;
+
     return (
       <div>
         <Label htmlFor={`input-${this.props.id || ''}`}>
@@ -175,8 +276,12 @@ class ExampleMasonry extends Component<Props, State> {
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Masonry">
-      <PageHeader name="Masonry" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
+      <Card name="foo">
+        <Demo />
+      </Card>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
