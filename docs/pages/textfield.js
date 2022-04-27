@@ -405,36 +405,30 @@ function Example(props) {
           title="Validation"
           description={`
     When providing a validation message, make sure the instructions are clear and help users complete the field. For example, "Passwords must contain at least 20 characters". In addition, use the helper text to provide instructions to help users understand how to complete the text field or to indicate any needed input, allowed formats, timing limitations, or other pertinent information.
-    These practices give screen readers and users of assistive technologies more information about the form, helping them to fill it out.
+
+    These practices give users of assistive technologies more information about the form, helping them to fill it out.
     `}
         />
         <MainSection.Subsection
           title="Keyboard navigation"
           description={`
     TextField has conventional keyboard support.
-    - Users relying on the keyboard expect to move focus to each TextField by using the tab key or shift+tab when moving backwards
-    - Setting \`disabled\` will prevent TextField from receiving keyboard focus or input
+    - Users relying on the keyboard expect to move focus to each TextField by using the tab key or shift+tab when moving backwards.
+    - Setting \`disabled\` will prevent TextField from receiving keyboard focus or input.
     `}
         />
         <MainSection.Subsection
           title="Autofocus"
           description={`
-    TextField intentionally lacks support for autofocus. Generally speaking,
-    autofocus interrupts normal page flow for screen readers making it an
-    anti-pattern for accessibility.
+    TextField intentionally lacks support for autofocus. Generally speaking, autofocus interrupts normal page flow for screen readers making it an anti-pattern for accessibility.
   `}
         />
         <MainSection.Subsection
           title="onSubmit"
           description={`
-    TextField is commonly used as an input in forms alongside submit buttons.
-    In these cases, users expect that pressing Enter or Return with the input
-    focused will submit the form.
+    TextField is commonly used as an input in forms alongside submit buttons. In these cases, users expect that pressing Enter or Return with the input focused will submit the form.
 
-    Out of the box, TextField doesn't expose an \`onSubmit\` handler or
-    individual key event handlers due to the complexities of handling these
-    properly. Instead, developers are encouraged to wrap TextField
-    in a \`<form>\` and attach an \`onSubmit\` handler to that \`<form>\`.
+    Out of the box, TextField doesn't expose an \`onSubmit\` handler or individual key event handlers due to the complexities of handling these properly. Instead, developers are encouraged to wrap TextField in a \`<form>\` with an \`onSubmit\` handler..
   `}
         />
       </MainSection>
