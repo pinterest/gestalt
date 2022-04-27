@@ -20,10 +20,10 @@
     "history": "^5.0.0",
     "lz-string": "^1.4.4",
     "marked": "^4.0.10",
-    "next": "^12.1.0",
-    "react": "^17.0.1",
+    "next": "^12.1.5",
+    "react": "^18.1.0",
     "react-cookie": "^4.1.1",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.1.0",
     "react-live": "^2.3.0"
   },
   "browserslist": ["last 2 versions", "not IE < 11", "not <1%"],
