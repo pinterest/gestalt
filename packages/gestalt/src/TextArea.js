@@ -118,7 +118,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
     helperText,
     id,
     label,
-    labelDisplay,
+    labelDisplay = 'visible',
     name,
     onBlur,
     onChange,
