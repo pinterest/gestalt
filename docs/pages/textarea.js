@@ -133,7 +133,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Remove the label, as this creates accessibility and usability issues."
+            description="Use `placeholder` as a replacement for `label`, as this creates accessibility and usability issues."
             defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('');
@@ -141,7 +141,7 @@ function Example(props) {
   return (
     <Box width="100%">
       <TextArea
-        id="best-practices-dont-placeholder"
+        id="best-practices-dont-remove-label"
         onChange={({ value }) => {
           setValue(value);
         }}
