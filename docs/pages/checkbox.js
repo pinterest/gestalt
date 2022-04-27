@@ -789,7 +789,7 @@ function Example() {
             <Box width={20}>
               <Checkbox
                 checked={checked1}
-                id="1"
+                id="label-visibility-example-checkbox-1"
                 onChange={({ checked }) => setChecked1(checked)}
                 label="Summertime picnic"
                 labelDisplay="hidden"
@@ -808,7 +808,7 @@ function Example() {
             <Box width={20}>
               <Checkbox
                 checked={checked2}
-                id="2"
+                id="label-visibility-example-checkbox-2"
                 onChange={({ checked }) => setChecked2(checked)}
                 label="Summer 1950"
                 labelDisplay="hidden"
@@ -827,7 +827,7 @@ function Example() {
             <Box width={20}>
               <Checkbox
                 checked={checked3}
-                id="3"
+                id="label-visibility-example-checkbox-3"
                 onChange={({ checked }) => setChecked3(checked)}
                 label="Back to school"
                 labelDisplay="hidden"
