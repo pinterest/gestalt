@@ -549,6 +549,10 @@ type OutputType = Element<As>;
 
 /**
  * [Box](https://gestalt.pinterest.systems/box) is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content.
+ *
+ * ![Box light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Box%20%230.png)
+ * ![Box dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Box-dark%20%230.png)
+ *
  */
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }: Props, ref): OutputType {

@@ -32,6 +32,9 @@ type ColumnProps = {|
 
 /**
  * Use [Column](https://gestalt.pinterest.systems/column) to implement a 12-column system.
+ *
+ * ![Column light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Column%20%230.png)
+ *
  */
 export default function Column(props: ColumnProps): Node {
   const { children } = props;
