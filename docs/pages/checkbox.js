@@ -326,13 +326,13 @@ function Example() {
                 id="1"
                 onChange={({ checked }) => setChecked1(checked)}
                 size="sm"
+                label="Select Summertime picnic row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="1">
-              <Text>Summertime picnic</Text>
-            </Label>
+            <Text>Summertime picnic</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -343,13 +343,13 @@ function Example() {
                 id="2"
                 onChange={({ checked }) => setChecked2(checked)}
                 size="sm"
+                label="Select Summer 1950 row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="2">
-              <Text>Summer 1950</Text>
-            </Label>
+            <Text>Summer 1950</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -360,13 +360,13 @@ function Example() {
                 id="3"
                 onChange={({ checked }) => setChecked3(checked)}
                 size="sm"
+                label="Select Back to school row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="3">
-              <Text>Back to school</Text>
-            </Label>
+            <Text>Back to school</Text>
           </Table.Cell>
         </Table.Row>
       </Table.Body>
@@ -407,6 +407,8 @@ function Example() {
                 id="4"
                 onChange={({ checked }) => setChecked1(checked)}
                 size="sm"
+                label="Select Summertime picnic row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
@@ -419,10 +421,8 @@ function Example() {
             />
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="4">
-              <Text>Summertime picnic</Text>
-            </Label>
-            </Table.Cell>
+            <Text>Summertime picnic</Text>
+          </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
@@ -432,6 +432,8 @@ function Example() {
                 id="6"
                 onChange={({ checked }) => setChecked2(checked)}
                 size="sm"
+                label="Select Summer 1950 row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
@@ -445,9 +447,7 @@ function Example() {
             />
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="6">
-              <Text>Summer 1950</Text>
-            </Label>
+            <Text>Summer 1950</Text>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -458,6 +458,8 @@ function Example() {
                 id="8"
                 onChange={({ checked }) => setChecked3(checked)}
                 size="sm"
+                label="Select Back to school row"
+                labelDisplay="hidden"
               />
             </Box>
           </Table.Cell>
@@ -470,9 +472,7 @@ function Example() {
             />
           </Table.Cell>
           <Table.Cell>
-            <Label htmlFor="8">
-              <Text>Back to school</Text>
-            </Label>
+            <Text>Back to school</Text>
           </Table.Cell>
         </Table.Row>
       </Table.Body>
@@ -488,6 +488,8 @@ function Example() {
         <MainSection.Subsection
           title="Labels"
           description={`Checkboxes should have labels that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the \`label\` prop. If that’s not possible, make sure your stand-alone Label has an \`htmlFor\` prop that matches the \`id\` of the checkbox. Test that a checkbox and label are properly connected by clicking or tapping on the label and confirming that it activates the checkbox next to it.
+
+If Checkbox is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen. See the [Label visibility example](/checkbox#Label-visibility) for more detail.
 `}
         />
         <MainSection.Subsection
@@ -755,6 +757,88 @@ function CheckboxExample() {
         />
       </Flex>
     </Fieldset>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Label visibility"
+          description={`In some cases, the label for a Checkbox is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure Checkbox is properly labeled for screen readers while using a different element to represent the label visually.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+
+  return (
+    <Table accessibilityLabel="Campaign selection" maxHeight={200}>
+      <Table.Header sticky>
+        <Table.Row>
+          <Table.HeaderCell/>
+          <Table.HeaderCell>
+            <Text weight="bold">Name</Text>
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked1}
+                id="label-visibility-example-checkbox-1"
+                onChange={({ checked }) => setChecked1(checked)}
+                label="Select Summertime picnic row"
+                labelDisplay="hidden"
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Text>Summertime picnic</Text>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked2}
+                id="label-visibility-example-checkbox-2"
+                onChange={({ checked }) => setChecked2(checked)}
+                label="Select Summer 1950 row"
+                labelDisplay="hidden"
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Text>Summer 1950</Text>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Box width={20}>
+              <Checkbox
+                checked={checked3}
+                id="label-visibility-example-checkbox-3"
+                onChange={({ checked }) => setChecked3(checked)}
+                label="Select Back to school row"
+                labelDisplay="hidden"
+                size="sm"
+              />
+            </Box>
+          </Table.Cell>
+          <Table.Cell>
+            <Text>Back to school</Text>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
   );
 }
 `}

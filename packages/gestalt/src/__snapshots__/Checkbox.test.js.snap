@@ -32,20 +32,24 @@ exports[`Checkbox 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -96,20 +100,24 @@ exports[`Checkbox checked 1`] = `
         </div>
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -160,20 +168,24 @@ exports[`Checkbox disabled & checked 1`] = `
         </div>
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -210,20 +222,24 @@ exports[`Checkbox disabled 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -274,20 +290,24 @@ exports[`Checkbox indeterminate 1`] = `
         </div>
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -324,20 +344,24 @@ exports[`Checkbox small 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -401,20 +425,24 @@ exports[`Checkbox with an image 1`] = `
         </div>
       </div>
     </div>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -451,20 +479,24 @@ exports[`Checkbox with error 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
   <div
     className="box marginTop2"
@@ -523,35 +555,39 @@ exports[`Checkbox with subtext 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
-        >
-          Name
-        </div>
-        <div
-          className="box paddingY1"
+          className="box paddingX1"
         >
           <div
-            className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
+          <div
+            className="box paddingY1"
           >
             <div
-              className="box xsDisplayVisuallyHidden"
+              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
             >
-              :
+              <div
+                className="box xsDisplayVisuallyHidden"
+              >
+                :
+              </div>
+               
+              Additional Info
             </div>
-             
-            Additional Info
           </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
