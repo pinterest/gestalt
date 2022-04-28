@@ -28,7 +28,7 @@
     {
       "task": "PageHeader component",
       "deadline": "Quarter 1",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Web",
       "description": "Adjustments to the existing PageHeader component to be more compatible with product needs.",
       "link": ""
@@ -44,7 +44,7 @@
     {
       "task": "Link component improvements",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Web",
       "description": "Update Link component to support external indicator and more accessible styling.",
       "link": ""
@@ -92,7 +92,7 @@
     {
       "task": "Modal/Sheet component",
       "deadline": "Quarter 4",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Mobile web",
       "description": "Development of a mobile-specific treatment of the Modal component.",
       "link": ""
@@ -204,7 +204,7 @@
     {
       "task": "Elevation design tokens",
       "deadline": "",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of tokens to support the styling of elevated elements within a layout.",
       "link": ""
@@ -308,7 +308,7 @@
     {
       "task": "Link component design guidelines",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Link web documentation.",
       "link": ""
@@ -332,7 +332,7 @@
     {
       "task": "Tabs component design guidelines",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Tabs mobile documentation.",
       "link": ""
@@ -348,7 +348,7 @@
     {
       "task": "Avatar component design guidelines",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Avatar mobile documentation.",
       "link": ""
@@ -356,7 +356,7 @@
     {
       "task": "Product color visual guidelines",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "",
       "description": "Publish guidelines and best practices for utilizing color within Gestalt.",
       "link": ""
@@ -372,7 +372,7 @@
     {
       "task": "Component scorecard",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "",
       "description": "Provide detailed info on the status and health of each component in the Gestalt docs.",
       "link": ""
@@ -380,7 +380,7 @@
     {
       "task": "Dark mode visual guidelines",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "",
       "description": "Publish guidelines for designing for dark mode using Gestalt.",
       "link": ""
@@ -404,7 +404,7 @@
     {
       "task": "Checkbox component design guidelines",
       "deadline": "Quarter 3",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Checkbox web documentation.",
       "link": ""
@@ -436,7 +436,7 @@
     {
       "task": "TextArea component design guidelines",
       "deadline": "Quarter 4",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to TextArea web documentation.",
       "link": ""
