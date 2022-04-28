@@ -1,3 +1,9 @@
+## 53.0.0 (Apr 28, 2022)
+
+### Major
+
+- Icon: Deprecate old literal colors (#2087)
+
 ## 52.2.2 (Apr 28, 2022)
 
 ### Patch
