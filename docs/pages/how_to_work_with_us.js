@@ -45,7 +45,7 @@ We love to see more iteration from the product designer asking for the component
         />
       </MainSection>
 
-      <MainSection name="Contribuiting to Gestalt">
+      <MainSection name="Contributing to Gestalt">
         <MainSection.Subsection
           title="Making a design contribution"
           description={`

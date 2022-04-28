@@ -207,7 +207,7 @@ function Example() {
         **[Web Accessibility Wiki](https://w.pinadmin.com/display/WT/Accessibility)**
         Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests).
 
-        **[Product Accessibility Working Group](https://paper.dropbox.com/doc/Product-Accessibility-Working-Group--BO3YB5RlBqMR_dd4mPlH47TQAg-3yV0JaSZlrnj5escjkAex)**
+        **[Product Accessibility Working Group](http://pinch.pinadmin.com/productAccessibilityWorkingGroup)**
         Details about the accessibility working group, including success metrics and project statuses.
 
         **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**
