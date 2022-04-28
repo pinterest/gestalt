@@ -1,3 +1,9 @@
+## 53.1.0 (Apr 28, 2022)
+
+### Minor
+
+- Checkbox: Added labelDisplay prop (#2090)
+
 ## 53.0.0 (Apr 28, 2022)
 
 ### Major
