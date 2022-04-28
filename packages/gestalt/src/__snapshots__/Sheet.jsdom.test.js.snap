@@ -60,7 +60,7 @@ exports[`Sheet should render all props with nodes 1`] = `
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="18"
                         role="img"
                         viewBox="0 0 24 24"
@@ -159,7 +159,7 @@ exports[`Sheet should render all props with render props 1`] = `
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="18"
                         role="img"
                         viewBox="0 0 24 24"
@@ -249,7 +249,7 @@ exports[`Sheet should render animation in 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon darkGray iconBlock"
+                      class="icon defaultIcon iconBlock"
                       height="18"
                       role="img"
                       viewBox="0 0 24 24"
@@ -322,7 +322,7 @@ exports[`Sheet should render animation out 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon darkGray iconBlock"
+                      class="icon defaultIcon iconBlock"
                       height="18"
                       role="img"
                       viewBox="0 0 24 24"

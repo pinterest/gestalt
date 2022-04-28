@@ -111,7 +111,7 @@ function VideoControls({
         <TapArea onTap={handlePlayingChange} fullWidth={false}>
           <Icon
             accessibilityLabel={playing ? accessibilityPauseLabel : accessibilityPlayLabel}
-            color="white"
+            color="light"
             icon={playing ? 'pause' : 'play'}
             size={20}
           />
@@ -126,7 +126,7 @@ function VideoControls({
                   ? accessibilityHideCaptionsLabel
                   : accessibilityShowCaptionsLabel
               }
-              color="white"
+              color="light"
               icon={captionsButton === 'enabled' ? 'speech-ellipsis' : 'speech'}
               size={20}
             />
@@ -157,7 +157,7 @@ function VideoControls({
         <TapArea onTap={handleVolumeChange} fullWidth={false}>
           <Icon
             accessibilityLabel={muted ? accessibilityUnmuteLabel : accessibilityMuteLabel}
-            color="white"
+            color="light"
             icon={muted ? 'mute' : 'sound'}
             size={20}
           />
@@ -170,7 +170,7 @@ function VideoControls({
               accessibilityLabel={
                 fullscreen ? accessibilityMinimizeLabel : accessibilityMaximizeLabel
               }
-              color="white"
+              color="light"
               icon={fullscreen ? 'minimize' : 'maximize'}
               size={20}
             />

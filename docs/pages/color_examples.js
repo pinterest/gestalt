@@ -246,7 +246,7 @@ export default function ColorExamplesPage(): Node {
                 rounding="circle"
                 padding={3}
               >
-                <Icon icon="add" color="white" accessibilityLabel="Create"/>
+                <Icon icon="add" color="inverse" accessibilityLabel="Create"/>
               </Box>
             </Flex>
 `}

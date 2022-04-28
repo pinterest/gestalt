@@ -48,7 +48,7 @@ exports[`renders correctly when active 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -113,7 +113,7 @@ exports[`renders correctly when inactive 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon gray iconBlock"
+            className="icon subtleIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"

@@ -11,7 +11,7 @@ export default function Snapshot(): Node {
           onDismiss: () => {},
         }}
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+          component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
         }}
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{

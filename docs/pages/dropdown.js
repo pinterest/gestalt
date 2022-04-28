@@ -447,7 +447,7 @@ function CustomContentDropdownExample() {
             isExternal
             option={{ value: "Get help", label: "Get help" }}
           >
-            <Icon accessibilityLabel="Ad" color="darkGray" icon="ad"/>
+            <Icon accessibilityLabel="Ad" color="default" icon="ad"/>
             <Text>Get help</Text>
           </Dropdown.Link>
           <Dropdown.Link

@@ -47,7 +47,7 @@ exports[`renders correctly 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={12}
             role="img"
             viewBox="0 0 24 24"
@@ -114,7 +114,7 @@ exports[`renders correctly with explicit hover 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={12}
             role="img"
             viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ exports[`renders correctly without hover 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={12}
             role="img"
             viewBox="0 0 24 24"

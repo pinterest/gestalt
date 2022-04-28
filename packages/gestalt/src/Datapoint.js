@@ -74,7 +74,7 @@ export default function Datapoint({
             {/* Interactive elements require an a11yLabel on them or their children.
             That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
             <TapArea accessibilityLabel={tooltipText} rounding="circle" tapStyle="none">
-              <Icon accessibilityLabel="" size={16} icon="info-circle" color="gray" />
+              <Icon accessibilityLabel="" size={16} icon="info-circle" color="subtle" />
             </TapArea>
           </Tooltip>
         )}

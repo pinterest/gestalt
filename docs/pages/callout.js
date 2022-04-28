@@ -95,7 +95,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
           <Flex direction="column" gap={4}>
             <Flex alignItems="center" justifyContent="start">
-              <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
+              <Icon accessibilityLabel="" icon="pinterest" color="error" size={32}/>
               <ButtonGroup>
                 <Button color="transparent" iconEnd="arrow-down" text="Business" />
                 <Button color="transparent" iconEnd="arrow-down" text="Create" />
@@ -157,7 +157,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
         <Flex direction="column" gap={4}>
           <Flex alignItems="center" justifyContent="start">
-            <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
+            <Icon accessibilityLabel="" icon="pinterest" color="error" size={32}/>
             <ButtonGroup>
               <Button color="transparent" iconEnd="arrow-down" text="Business" />
               <Button color="transparent" iconEnd="arrow-down" text="Create" />
@@ -172,7 +172,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             <Flex gap={2} direction="column">
               <Upsell
                 imageData={{
-                  component: <Icon icon="send" accessibilityLabel="Send" color="darkGray" size={32}/>
+                  component: <Icon icon="send" accessibilityLabel="Send" color="default" size={32}/>
                 }}
                 message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
                 primaryAction={{

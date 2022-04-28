@@ -196,7 +196,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
               {(checked || indeterminate) && (
                 <Icon
                   accessibilityLabel=""
-                  color="white"
+                  color="inverse"
                   icon={indeterminate ? 'dash' : 'check'}
                   size={size === 'sm' ? 8 : 12}
                 />

@@ -92,7 +92,7 @@ export default function ModuleExpandableItem({
                   accessibilityLabel={
                     isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel
                   }
-                  color="darkGray"
+                  color="default"
                   icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
                   size="12"
                 />

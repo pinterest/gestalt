@@ -91,7 +91,7 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
           )}
         >
           {isSelected ? (
-            <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
+            <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
           ) : (
             <div style={{ width: '12px' }} />
           )}

@@ -54,7 +54,7 @@ function SegmentedControlExample() {
     <Icon
       icon="pin"
       accessibilityLabel="Pin"
-      color="darkGray"
+      color="default"
     />,
   ];
 

@@ -25,7 +25,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon red iconBlock"
+        className="icon errorIcon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -142,7 +142,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Pending"
-        className="icon gray iconBlock"
+        className="icon subtleIcon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -207,7 +207,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Complete"
-          className="icon green iconBlock"
+          className="icon successIcon iconBlock"
           height={40}
           role="img"
           viewBox="0 0 24 24"
@@ -270,7 +270,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon red iconBlock"
+        className="icon errorIcon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -379,7 +379,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon gray iconBlock"
+            className="icon subtleIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -421,7 +421,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon red iconBlock"
+        className="icon errorIcon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -523,7 +523,7 @@ exports[`<ActivationCard /> message + title 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon red iconBlock"
+        className="icon errorIcon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"

@@ -26,7 +26,7 @@ exports[`<Callout /> Error Callout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="error"
-          className="icon red iconBlock"
+          className="icon errorIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ exports[`<Callout /> Info Callout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon shoppingIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -146,7 +146,7 @@ exports[`<Callout /> Warning Callout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="warning"
-          className="icon orange iconBlock"
+          className="icon warningIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -206,7 +206,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon shoppingIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -316,7 +316,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -359,7 +359,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon shoppingIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -494,7 +494,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon shoppingIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -598,7 +598,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon shoppingIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -700,7 +700,7 @@ exports[`<Callout /> message + title 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon shoppingIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"

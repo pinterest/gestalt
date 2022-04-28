@@ -162,7 +162,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon red iconBlock"
+        className="icon brandPrimaryIcon iconBlock"
         height="100%"
         role="img"
         viewBox="0 0 24 24"
@@ -516,7 +516,7 @@ exports[`Avatar renders the verified icon 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon red iconBlock"
+        className="icon brandPrimaryIcon iconBlock"
         height="100%"
         role="img"
         viewBox="0 0 24 24"

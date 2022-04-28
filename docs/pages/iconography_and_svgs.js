@@ -13,7 +13,7 @@ function ClickableIcon({ iconName, onTap }: {| iconName: IconName, onTap: () => 
     <Tooltip text={iconName} accessibilityLabel="">
       <TapArea rounding="circle" tapStyle="compress" onTap={onTap}>
         <Box padding={2}>
-          <Icon color="darkGray" accessibilityLabel={iconName} icon={iconName} />
+          <Icon color="default" accessibilityLabel={iconName} icon={iconName} />
         </Box>
       </TapArea>
     </Tooltip>
