@@ -1,3 +1,9 @@
+## 52.2.2 (Apr 28, 2022)
+
+### Patch
+
+- Updated roadmap for April (#2093)
+
 ## 52.2.1 (Apr 28, 2022)
 
 ### Patch
