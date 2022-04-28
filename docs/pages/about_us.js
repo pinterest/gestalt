@@ -66,7 +66,7 @@ From space to space, across any journey, Pinterest's elements should keep their 
       <MainSection name="Connect with Gestalt">
         <MainSection.Subsection
           description={`
-[Meet the Gestalt team](https://docs.google.com/presentation/d/16LgONudktdWFDlT9X0aKEKZ0SJcOEh53BGmZN_BoGWY/edit?usp=sharing). We are designers, engineers, producers, writers, and so much more! We love to show our work, debate, and challenge each other, but ultimately we trust and empower each other to create great work, and we're always open to feedback.
+[Meet the Gestalt team](http://pinch.pinadmin.com/gestaltOnboarding). We are designers, engineers, producers, writers, and so much more! We love to show our work, debate, and challenge each other, but ultimately we trust and empower each other to create great work, and we're always open to feedback.
 
 You can connect with us through our slack channels, weekly meetings, and events. Visit [How to work with us](/how_to_work_with_us) for support and collaboration details.
 `}
