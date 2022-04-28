@@ -1,3 +1,9 @@
+## 52.2.1 (Apr 28, 2022)
+
+### Patch
+
+- Docs: Typo fixes and link shortening (#2094)
+
 ## 52.2.0 (Apr 27, 2022)
 
 ### Minor
