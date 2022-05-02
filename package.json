@@ -161,7 +161,8 @@
           "<rootDir>scripts/setupJest.js"
         ]
       }
-    ]
+    ],
+    "reporters": ["default", "github-actions"]
   },
   "lint-staged": {
     "*.js": [
