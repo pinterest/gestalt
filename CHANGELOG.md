@@ -1,3 +1,9 @@
+## 53.3.0 (May 2, 2022)
+
+### Minor
+
+- Link: design changes (part II externalLinkIcon) (#2092)
+
 ## 53.2.0 (May 2, 2022)
 
 ### Minor
