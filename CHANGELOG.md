@@ -1,3 +1,9 @@
+## 53.4.0 (May 2, 2022)
+
+### Minor
+
+- DatePicker: add name prop (#2097)
+
 ## 53.3.0 (May 2, 2022)
 
 ### Minor
