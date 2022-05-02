@@ -28,12 +28,12 @@
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@rollup/plugin-replace": "^2.4.2",
     "@testing-library/dom": "^8.0.0",
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^11.0.4",
     "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.1.9",
     "axe-core": "^4.1.1",
-    "babel-jest": "^27.4.6",
+    "babel-jest": "^28.0.3",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "blueimp-md5": "^2.18.0",
     "caniuse-lite": "^1.0.30001305",
@@ -52,7 +52,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jest": "^26.0.0",
+    "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
@@ -60,7 +60,8 @@
     "flow-bin": "^0.175.1",
     "husky": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "27.4.7",
+    "jest": "28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "jscodeshift": "^0.11.0",
     "lint-staged": "^10.4.0",
     "netlify-cli": "^2.65.1",
@@ -161,6 +162,10 @@
           "<rootDir>scripts/setupJest.js"
         ]
       }
+    ],
+    "reporters": [
+      "default",
+      "github-actions"
     ]
   },
   "lint-staged": {
