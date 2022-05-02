@@ -21,6 +21,45 @@ exports[`default 1`] = `
 </a>
 `;
 
+exports[`external link with nofollow 1`] = `
+<a
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="nofollow"
+  target={null}
+>
+  Link
+  <div
+    aria-hidden={true}
+    className="box marginStart1 xsDisplayInlineBlock"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon defaultIcon"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</a>
+`;
+
 exports[`inline and auto underline 1`] = `
 <a
   className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
@@ -206,27 +245,6 @@ exports[`with custom rounding, and tapStyle 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  target={null}
->
-  Link
-</a>
-`;
-
-exports[`with nofollow 1`] = `
-<a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
-  href="https://example.com"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  rel="nofollow"
   target={null}
 >
   Link

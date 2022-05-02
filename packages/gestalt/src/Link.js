@@ -18,6 +18,47 @@ import getRoundingClassName from './getRoundingClassName.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import layoutStyles from './Layout.css';
+import Icon from './Icon.js';
+import Box from './Box.js';
+import Text from './Text.js';
+
+const externalLinkIconMap = {
+  '100': 12,
+  '200': 14,
+  '300': 16,
+  '400': 20,
+  '500': 28,
+  '600': 36,
+  'sm': 12,
+  'md': 14,
+  'lg': 16,
+};
+
+type ExternalLinkIcon =
+  | 'none'
+  | 'default'
+  | {|
+      color: $ElementType<React$ElementConfig<typeof Icon>, 'color'>,
+      size: $ElementType<React$ElementConfig<typeof Text>, 'size'>,
+    |};
+
+function ExternalIcon({ externalLinkIcon }: {| externalLinkIcon: ExternalLinkIcon |}): Node {
+  return externalLinkIcon === 'none' ? null : (
+    <Box aria-hidden display="inlineBlock" marginStart={1}>
+      <Icon
+        inline
+        icon="visit"
+        accessibilityLabel=""
+        size={
+          externalLinkIcon === 'default'
+            ? externalLinkIconMap['300']
+            : externalLinkIconMap[externalLinkIcon?.size ?? '300']
+        }
+        color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
+      />
+    </Box>
+  );
+}
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
@@ -27,13 +68,17 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
+   * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-tab-Link) for more information.
    */
   accessibilitySelected?: boolean,
   /**
    * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/link#Link-and-Text) to learn more.
    */
   children?: Node,
+  /**
+   * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
+   */
+  externalLinkIcon?: ExternalLinkIcon,
   /**
    * The URL that the hyperlink points to.
    */
@@ -66,7 +111,7 @@ type Props = {|
    */
   ref?: Ref<'a'>,
   /**
-   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them. See the [rel variant](https://gestalt.pinterest.systems/link#Rel) to learn more.
+   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
    */
   rel?: 'none' | 'nofollow',
   /**
@@ -111,6 +156,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     accessibilityLabel,
     accessibilitySelected,
     children,
+    externalLinkIcon = 'none',
     href,
     id,
     inline = false,
@@ -234,6 +280,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       target={target ? `_${target}` : null}
     >
       {children}
+      <ExternalIcon externalLinkIcon={externalLinkIcon} />
     </a>
   );
 });

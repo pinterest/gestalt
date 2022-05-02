@@ -74,11 +74,11 @@ it('target blank', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('with nofollow', () =>
+it('external link with nofollow', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" rel="nofollow">
+        <Link href="https://example.com" rel="nofollow" externalLinkIcon="default">
           Link
         </Link>,
       )
