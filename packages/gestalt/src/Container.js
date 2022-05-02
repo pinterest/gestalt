@@ -11,6 +11,9 @@ type Props = {|
 
 /**
  * [Containers](https://gestalt.pinterest.systems/container ) are useful in responsively laying out content on different screens.
+ *
+ * ![Container light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Container%20%230.png)
+ *
  */
 export default function Container({ children }: Props): Node {
   return (
