@@ -783,6 +783,8 @@ function SizesExample(props) {
   }
   const initialState = {};
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [disabled, setDisabled] = React.useState(true);
+
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
@@ -809,6 +811,7 @@ function SizesExample(props) {
       {state.size && (
         <Layer zIndex={sheetZIndex}>
           <Sheet
+            onDismissDisabled={disabled}
             accessibilityDismissButtonLabel="Dismiss"
             accessibilitySheetLabel="Example sheet to demonstrate different sizes"
             footer={

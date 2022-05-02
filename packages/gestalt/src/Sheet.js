@@ -62,6 +62,7 @@ type AnimatedSheetMainProps = {|
   ...SheetMainProps,
   children: NodeOrRenderProp,
   footer?: NodeOrRenderProp,
+  onDismissDisabled?: boolean,
 |};
 
 type AnimatedSheetWithHeadingProps = {|
@@ -278,10 +279,11 @@ export default function AnimatedSheet(props: AnimatedSheetProps): Node {
   const {
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
-    children,
+  children,
     closeOnOutsideClick,
     onAnimationEnd,
     onDismiss,
+    onDismissDisabled,
     footer,
     heading = undefined,
     size,
@@ -295,16 +297,24 @@ export default function AnimatedSheet(props: AnimatedSheetProps): Node {
           accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
           accessibilitySheetLabel={accessibilitySheetLabel}
           closeOnOutsideClick={closeOnOutsideClick}
-          footer={typeof footer === 'function' ? footer({ onDismissStart }) : footer}
+          footer={
+            typeof footer === 'function'
+              ? footer({ onDismissStart: onDismissDisabled ? () => {} : onDismissStart })
+              : footer
+          }
           heading={heading}
           onAnimationEnd={onAnimationEnd}
-          onDismiss={onDismissStart}
+          onDismiss={onDismissDisabled ? () => {} : onDismissStart}
           size={size}
           subHeading={
-            typeof subHeading === 'function' ? subHeading({ onDismissStart }) : subHeading
+            typeof subHeading === 'function'
+              ? subHeading({ onDismissStart: onDismissDisabled ? () => {} : onDismissStart })
+              : subHeading
           }
         >
-          {typeof children === 'function' ? children({ onDismissStart }) : children}
+          {typeof children === 'function'
+            ? children({ onDismissStart: onDismissDisabled ? () => {} : onDismissStart })
+            : children}
         </Sheet>
       )}
     </AnimationController>
