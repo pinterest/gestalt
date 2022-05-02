@@ -1,3 +1,9 @@
+## 53.4.1 (May 2, 2022)
+
+### Patch
+
+- Internal: upgrade Jest to v28 (#2098)
+
 ## 53.4.0 (May 2, 2022)
 
 ### Minor
