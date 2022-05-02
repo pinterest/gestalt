@@ -1,3 +1,9 @@
+## 53.2.0 (May 2, 2022)
+
+### Minor
+
+- Box, Column, Container, Flex, Table: add visual diff testing and screenshot to description in VSCode (Flow extension) (#2096)
+
 ## 53.1.1 (Apr 28, 2022)
 
 ### Patch
