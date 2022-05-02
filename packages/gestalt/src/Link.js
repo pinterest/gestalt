@@ -22,53 +22,41 @@ import Icon from './Icon.js';
 import Box from './Box.js';
 import Text from './Text.js';
 
+const externalLinkIconMap = {
+  '100': 12,
+  '200': 14,
+  '300': 16,
+  '400': 20,
+  '500': 28,
+  '600': 36,
+  'sm': 12,
+  'md': 14,
+  'lg': 16,
+};
+
 type ExternalLinkIcon =
   | 'none'
   | 'default'
   | {|
-      size: $ElementType<React$ElementConfig<typeof Text>, 'size'>,
       color: $ElementType<React$ElementConfig<typeof Icon>, 'color'>,
+      size: $ElementType<React$ElementConfig<typeof Text>, 'size'>,
     |};
 
-function ExternalIcon({
-  externalLinkIcon,
-  position,
-}: {|
-  externalLinkIcon: ExternalLinkIcon,
-  position: 'rtl' | 'ltr',
-|}): Node {
-  const externalLinkIconMap = {
-    '100': 12,
-    '200': 14,
-    '300': 16,
-    '400': 20,
-    '500': 28,
-    '600': 36,
-    'sm': 12,
-    'md': 14,
-    'lg': 16,
-  };
-
+function ExternalIcon({ externalLinkIcon }: {| externalLinkIcon: ExternalLinkIcon |}): Node {
   return externalLinkIcon === 'none' ? null : (
-    <div aria-hidden className={classnames(position === 'rtl' ? styles.rtlIcon : styles.ltrIcon)}>
-      <Box
-        marginEnd={position === 'rtl' ? 1 : 0}
-        marginStart={position === 'rtl' ? 0 : 1}
-        display="inlineBlock"
-      >
-        <Icon
-          inline
-          icon="visit"
-          accessibilityLabel=""
-          size={
-            externalLinkIcon === 'default'
-              ? externalLinkIconMap['300']
-              : externalLinkIconMap[externalLinkIcon?.size ?? '300']
-          }
-          color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
-        />
-      </Box>
-    </div>
+    <Box aria-hidden display="inlineBlock" marginStart={1}>
+      <Icon
+        inline
+        icon="visit"
+        accessibilityLabel=""
+        size={
+          externalLinkIcon === 'default'
+            ? externalLinkIconMap['300']
+            : externalLinkIconMap[externalLinkIcon?.size ?? '300']
+        }
+        color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
+      />
+    </Box>
   );
 }
 
@@ -87,6 +75,10 @@ type Props = {|
    * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/link#Link-and-Text) to learn more.
    */
   children?: Node,
+  /**
+   * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
+   */
+  externalLinkIcon?: ExternalLinkIcon,
   /**
    * The URL that the hyperlink points to.
    */
@@ -147,10 +139,6 @@ See the [target variant](https://gestalt.pinterest.systems/link#Target) to learn
    * When `underline` is supplied, we override the underline style internally managed by the component. See the [underline variant](https://gestalt.pinterest.systems/link#Underline) to learn more.
    */
   underline?: 'auto' | 'none' | 'always' | 'hover',
-  /**
-   * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
-   */
-  externalLinkIcon?: ExternalLinkIcon,
 |};
 
 /**
@@ -291,13 +279,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       role={role}
       target={target ? `_${target}` : null}
     >
-      {externalLinkIcon === 'none' ? null : (
-        <ExternalIcon externalLinkIcon={externalLinkIcon} position="rtl" />
-      )}
       {children}
-      {externalLinkIcon === 'none' ? null : (
-        <ExternalIcon externalLinkIcon={externalLinkIcon} position="ltr" />
-      )}
+      <ExternalIcon externalLinkIcon={externalLinkIcon} />
     </a>
   );
 });

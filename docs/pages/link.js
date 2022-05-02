@@ -237,7 +237,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             type="do"
             description={`
-Use the "visit" icon to represent an external Link/domain in a text context. The icon should match the text size and color. Please note: Disclaimers and links taking users to Pinterest sub-sites don't need to display an external link icon.`}
+Use the "visit" icon to represent an external Link/domain in a text context. The icon should match the text size and color.`}
             defaultCode={`
 <Text inline>
   To receive push notifications instead of texts,
@@ -260,6 +260,38 @@ Use the "visit" icon to represent an external Link/domain in a text context. The
             `}
           />
         </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            type="do"
+            description={`
+Provide a meaningful descriptive label to the link that clearly indicates the link’s destination.`}
+            defaultCode={`
+<Text>
+      Visit{' '}
+      <Text inline>
+        <Link inline href="https://pinterest.com">
+          Pinterest.com
+        </Link>
+      </Text>{' '}
+      for more information.
+    </Text>
+`}
+          />
+          <MainSection.Card
+            type="don't"
+            description={`Use generic phrases like "click here" or "go to" on links. Review [Writing guidelines](#Writing) for reference.`}
+            defaultCode={`
+<Text>
+  For more information,{' '}
+  <Text inline>
+    <Link accessibilityLabel="visit https://pinterest.com" inline href="https://pinterest.com">
+      click here
+    </Link>
+  </Text>
+</Text>
+            `}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection
@@ -271,8 +303,6 @@ Avoid using Link to perform actions other than navigation or accessing external 
         <MainSection.Subsection
           title="Accessible content"
           description={`
-When providing the content for the link, avoid generic phrases like "click here" or "go to". Make sure to write a meaningful descriptive label that clearly indicates the link’s destination. Review [Writing guidelines](#Writing) for reference.
-
 Sometimes we don't have space to be more verbose and the Link content can't provide enough context. In those cases, use the \`accessibilityLabel\` prop. \`accessibilityLabel\` adds an aria-label attribute to the link, which assistive technologies like screen readers can access. Typically, the label text replaces the visible text on the Link for users who use assistive technology. As shown in the second example, we don't recommend doing just "Learn more" or "See details" but, if needed, we can override it to be "Learn more about personalization and data" or "See rate limit details for trial package".
 
 Accessible content is critical if we consider that assistive technology also presents links in isolation from their contexts. For example, screen reader rotors list all the links present in a page. If all listed links are repetitions of the same generic phrases, therefore, the page is not accessible.
@@ -282,15 +312,6 @@ Accessible content is critical if we consider that assistive technology also pre
             defaultCode={`
 <Box>
   <Text size="500">Bad ❌</Text>
-  <Text>
-    For more information,{' '}
-    <Text inline>
-      <Link accessibilityLabel="visit https://pinterest.com" inline href="https://pinterest.com">
-        click here
-      </Link>
-    </Text>
-    .
-  </Text>
   <Box paddingY={4}>
     <Text size="500">Good ✅</Text>
     <Text>
@@ -441,7 +462,7 @@ When rendering an external Link, add text for screen readers to announce that Li
 
 When possible, limit one external Link per paragraph, as adding more than two icons in the same block of text can clutter the design and create readability issues.
 
-For external Links that aren't in a paragraph or text context, consider [Button's link role](https://gestalt.netlify.app/button#Role) or [IconButton's link role](https://gestalt.netlify.app/iconbutton#Role).`}
+For external Links that aren't in a paragraph or text context, consider [Button](https://gestalt.netlify.app/button#Role) or [IconButton](https://gestalt.netlify.app/iconbutton#Role) with \`role="link"\`.`}
         />
 
         <MainSection.Subsection

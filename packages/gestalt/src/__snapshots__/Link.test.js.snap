@@ -38,50 +38,24 @@ exports[`external link with nofollow 1`] = `
   rel="nofollow"
   target={null}
 >
-  <div
-    aria-hidden={true}
-    className="rtlIcon"
-  >
-    <div
-      className="box marginEnd1 marginStart0 xsDisplayInlineBlock"
-    >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="icon defaultIcon"
-        height={16}
-        role="img"
-        viewBox="0 0 24 24"
-        width={16}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-  </div>
   Link
   <div
     aria-hidden={true}
-    className="ltrIcon"
+    className="box marginStart1 xsDisplayInlineBlock"
   >
-    <div
-      className="box marginEnd0 marginStart1 xsDisplayInlineBlock"
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon defaultIcon"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
     >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="icon defaultIcon"
-        height={16}
-        role="img"
-        viewBox="0 0 24 24"
-        width={16}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
 </a>
 `;

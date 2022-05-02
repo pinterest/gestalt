@@ -4,6 +4,4 @@ declare module.exports: {|
   +'hoverNoUnderline': string,
   +'hoverUnderline': string,
   +'link': string,
-  +'ltrIcon': string,
-  +'rtlIcon': string,
 |};
