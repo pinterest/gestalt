@@ -134,7 +134,6 @@ function Sheet(props: SheetProps): Node {
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
   const { animationState: animationStateFromHook, onAnimationEnd: onAnimationEndFromHook } =
     useAnimation();
-  const containerRef = useRef<?HTMLDivElement>(null);
   const contentRef = useRef<?HTMLElement>(null);
 
   // Handle onDismiss triggering from ESC keyup event
@@ -187,7 +186,7 @@ function Sheet(props: SheetProps): Node {
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div className={sheetStyles.container} ref={containerRef}>
+        <div className={sheetStyles.container}>
           <Backdrop
             animationState={animationStateFromHook}
             closeOnOutsideClick={closeOnOutsideClick}

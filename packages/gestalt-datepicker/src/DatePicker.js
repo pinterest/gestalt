@@ -88,6 +88,10 @@ type Props = {|
    */
   minDate?: Date,
   /**
+   * A unique name for the input.
+   */
+  name?: string,
+  /**
    * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
    */
   nextRef?: {| current: ?HTMLInputElement |},
@@ -151,6 +155,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
     localeData,
     maxDate,
     minDate,
+    name,
     nextRef,
     onChange,
     placeholder,
@@ -220,7 +225,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       )}
       <ReactDatePicker
         calendarClassName={classnames(styles['react-datepicker'])}
-        customInput={<DatePickerTextField id={id} />}
+        customInput={<DatePickerTextField name={name} id={id} />}
         dateFormat={format}
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
