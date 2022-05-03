@@ -1,3 +1,9 @@
+## 53.4.2 (May 3, 2022)
+
+### Patch
+
+- Avatar: Add data test id for testing (#2100)
+
 ## 53.4.1 (May 2, 2022)
 
 ### Patch
