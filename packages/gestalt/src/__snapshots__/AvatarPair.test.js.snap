@@ -30,6 +30,7 @@ exports[`AvatarPair Renders only the first 2 collobarators when multiple are pas
   >
     <div
       className="box circle relative"
+      data-test-id="gestalt-avatar-svg"
       style={
         Object {
           "boxShadow": "0 0 0 1px #fff",
@@ -85,6 +86,7 @@ exports[`AvatarPair Renders only the first 2 collobarators when multiple are pas
   >
     <div
       className="box circle relative"
+      data-test-id="gestalt-avatar-svg"
       style={
         Object {
           "boxShadow": "0 0 0 1px #fff",
@@ -160,6 +162,7 @@ exports[`AvatarPair Renders renders 2 collaborators 1`] = `
   >
     <div
       className="box circle relative"
+      data-test-id="gestalt-avatar-svg"
       style={
         Object {
           "boxShadow": "0 0 0 1px #fff",
@@ -215,6 +218,7 @@ exports[`AvatarPair Renders renders 2 collaborators 1`] = `
   >
     <div
       className="box circle relative"
+      data-test-id="gestalt-avatar-svg"
       style={
         Object {
           "boxShadow": "0 0 0 1px #fff",
@@ -290,6 +294,7 @@ exports[`AvatarPair Renders renders the avatar with text when no image is provid
   >
     <div
       className="box circle relative"
+      data-test-id="gestalt-avatar-svg"
       style={
         Object {
           "boxShadow": "0 0 0 1px #fff",
