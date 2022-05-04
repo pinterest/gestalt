@@ -1,3 +1,9 @@
+## 54.1.0 (May 4, 2022)
+
+### Minor
+
+- Icon: update gmail icon design (#2103)
+
 ## 54.0.0 (May 4, 2022)
 
 ### Major
