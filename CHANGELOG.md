@@ -1,3 +1,9 @@
+## 54.0.0 (May 4, 2022)
+
+### Major
+
+- Link: remove `role` and `accessibilitySelected` props (#2102)
+
 ## 53.4.3 (May 4, 2022)
 
 ### Patch
