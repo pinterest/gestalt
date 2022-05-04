@@ -1,3 +1,9 @@
+## 53.4.3 (May 4, 2022)
+
+### Patch
+
+- Tabs: quick prop-table update (#2101)
+
 ## 53.4.2 (May 3, 2022)
 
 ### Patch
