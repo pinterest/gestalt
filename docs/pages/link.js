@@ -464,47 +464,6 @@ When possible, limit one external Link per paragraph, as adding more than two ic
 
 For external Links that aren't in a paragraph or text context, consider [Button](https://gestalt.netlify.app/button#Role) or [IconButton](https://gestalt.netlify.app/iconbutton#Role) with \`role="link"\`.`}
         />
-
-        <MainSection.Subsection
-          title="Accessible tab Link"
-          description={`Use \`accessibilitySelected\` and \`role="tab"\` when using Link as a tab. However, don't use Link to create custom tabs, use [Tabs](/tabs) instead.`}
-        >
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
-function TabExample() {
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  return (
-    <Box display="flex" alignItems="center" role="tablist">
-      {['Boards', 'Pins'].map((text, index) => (
-        <Box
-          color={index === activeIndex ? 'darkGray' : undefined}
-          display="inlineBlock"
-          key={text}
-          rounding="pill"
-        >
-          <Link
-            accessibilitySelected={index === activeIndex}
-            underline="none"
-            href="https://pinterest.com"
-            onClick={({ event }) => {
-              event.preventDefault();
-              setActiveIndex(index);
-            }}
-            rounding="pill"
-            role="tab"
-          >
-            <Box padding={3} rounding="pill">
-              <Text color={index === activeIndex ? 'inverse' : 'default'}>{text}</Text>
-            </Box>
-          </Link>
-        </Box>
-      ))}
-    </Box>
-  );
-}`}
-          />
-        </MainSection.Subsection>
       </MainSection>
 
       <MainSection
