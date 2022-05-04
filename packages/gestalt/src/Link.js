@@ -68,10 +68,6 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-tab-Link) for more information.
-   */
-  accessibilitySelected?: boolean,
-  /**
    * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/link#Link-and-Text) to learn more.
    */
   children?: Node,
@@ -115,10 +111,6 @@ type Props = {|
    */
   rel?: 'none' | 'nofollow',
   /**
-   * When supplied, Link acts a tab. See the [Accessible Tab Link](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
-   */
-  role?: 'tab',
-  /**
    * Sets a border radius for Link. Select a rounding option that aligns with its children.
    */
   rounding?: Rounding,
@@ -154,7 +146,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 >(function Link(
   {
     accessibilityLabel,
-    accessibilitySelected,
     children,
     externalLinkIcon = 'none',
     href,
@@ -164,7 +155,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     onClick,
     onFocus,
     rel = 'none',
-    role,
     rounding = 0,
     underline = 'auto',
     tapStyle = 'none',
@@ -232,7 +222,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   return (
     <a
       aria-label={accessibilityLabel}
-      aria-selected={accessibilitySelected}
       className={className}
       href={href}
       id={id}
@@ -276,7 +265,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
-      role={role}
       target={target ? `_${target}` : null}
     >
       {children}
