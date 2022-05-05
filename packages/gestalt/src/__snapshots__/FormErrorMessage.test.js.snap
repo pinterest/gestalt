@@ -27,9 +27,7 @@ exports[`FormErrorMessage with no errorMessage 1`] = `
     <span
       className="formErrorMessage"
       id="test-error"
-    >
-      
-    </span>
+    />
   </div>
 </div>
 `;
