@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Video with callbacks 1`] = `
+exports[`<Video /> Video with callbacks 1`] = `
 <div
   className="player blackBg"
   style={
@@ -80,6 +80,7 @@ exports[`Video with callbacks 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
+      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -109,7 +110,7 @@ exports[`Video with callbacks 1`] = `
 </div>
 `;
 
-exports[`Video with children 1`] = `
+exports[`<Video /> Video with children 1`] = `
 <div
   className="player blackBg"
   style={
@@ -189,6 +190,7 @@ exports[`Video with children 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
+      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -435,7 +437,7 @@ exports[`Video with children 1`] = `
 </div>
 `;
 
-exports[`Video with crossOrigin 1`] = `
+exports[`<Video /> Video with crossOrigin 1`] = `
 <div
   className="player blackBg"
   style={
@@ -515,6 +517,7 @@ exports[`Video with crossOrigin 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
+      autoPlay={false}
       className="video"
       crossOrigin="anonymous"
       disableRemotePlayback={false}
@@ -545,7 +548,7 @@ exports[`Video with crossOrigin 1`] = `
 </div>
 `;
 
-exports[`Video with media attributes 1`] = `
+exports[`<Video /> Video with media attributes 1`] = `
 <div
   className="player blackBg"
   style={
@@ -625,6 +628,7 @@ exports[`Video with media attributes 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
+      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       loop={true}
@@ -655,7 +659,7 @@ exports[`Video with media attributes 1`] = `
 </div>
 `;
 
-exports[`Video with multiple sources 1`] = `
+exports[`<Video /> Video with multiple sources 1`] = `
 <div
   className="player blackBg"
   style={
@@ -735,6 +739,7 @@ exports[`Video with multiple sources 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
+      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -771,7 +776,7 @@ exports[`Video with multiple sources 1`] = `
 </div>
 `;
 
-exports[`Video with objectFit 1`] = `
+exports[`<Video /> Video with objectFit 1`] = `
 <div
   className="player blackBg"
   style={
@@ -851,6 +856,7 @@ exports[`Video with objectFit 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
+      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}
@@ -885,7 +891,7 @@ exports[`Video with objectFit 1`] = `
 </div>
 `;
 
-exports[`Video with source 1`] = `
+exports[`<Video /> Video with source 1`] = `
 <div
   className="player blackBg"
   style={
@@ -965,6 +971,7 @@ exports[`Video with source 1`] = `
     className="__gestaltThemeVideo"
   >
     <video
+      autoPlay={false}
       className="video"
       disableRemotePlayback={false}
       muted={true}

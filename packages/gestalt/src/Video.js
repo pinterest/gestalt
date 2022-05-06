@@ -1,8 +1,7 @@
 // @flow strict
-import { PureComponent, type Node } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState, type Node } from 'react';
 import classnames from 'classnames';
 import VideoControls from './VideoControls.js';
-import ColorSchemeProvider from './contexts/ColorSchemeProvider.js';
 import styles from './Video.css';
 import colors from './Colors.css';
 import Box from './Box.js';
@@ -66,7 +65,7 @@ type Props = {|
   /**
    * Background color used to fill the video's placeholder.
    */
-  backgroundColor: BackgroundColor,
+  backgroundColor?: BackgroundColor,
   /**
    * The URL of the captions track for the video (.vtt file). Warning: Captions aren't currently supported. See the [accessibility section](https://gestalt.pinterest.systems/video#Captions) to learn more.
    */
@@ -194,11 +193,11 @@ type Props = {|
   /**
    * Specifies the speed at which the video plays: 1 for normal. See the [video updates variant](https://gestalt.pinterest.systems/video#Video-updates) to learn more.
    */
-  playbackRate: number,
+  playbackRate?: number,
   /**
    * Specifies whether the video should play or not. See [autoplay and error detection variant](https://gestalt.pinterest.systems/video#Autoplay-and-error-detection) to learn more.
    */
-  playing: boolean,
+  playing?: boolean,
   /**
    * Serves as a hint to the user agent that the video should to be displayed "inline" in the document by default, constrained to the element's playback area, instead of being displayed fullscreen or in an independent resizable window. This attribute is mainly relevant to iOS Safari browsers. See the [MDN Web Docs: playsinline](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-playsinline)
    */
@@ -210,7 +209,7 @@ type Props = {|
   /**
    * Specifies how, if at all, the video should be pre-loaded when the page loads. See the [MDN Web Docs: preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-preload)
    */
-  preload: 'auto' | 'metadata' | 'none',
+  preload?: 'auto' | 'metadata' | 'none',
   /**
    * The URL of the video file to play. This can also be supplied as a list of video types to respective video source urls in fallback order for support on various browsers. See [multiple sources example](https://gestalt.pinterest.systems/video#Video-multiple-sources) for more details.
    */
@@ -218,19 +217,11 @@ type Props = {|
   /**
    * Specifies the volume of the video audio: 0 for muted, 1 for max. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
    */
-  volume: number,
-|};
-
-type State = {|
-  currentTime: number,
-  duration: number,
-  fullscreen: boolean,
-  captionsButton: 'enabled' | 'disabled' | null,
+  volume?: number,
 |};
 
 // For more information on fullscreen and vendor prefixes see
 // https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
-
 const requestFullscreen = (element: HTMLElement) => {
   // $FlowFixMe[method-unbinding]
   if (element.requestFullscreen) {
@@ -325,181 +316,138 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
  *
  * ![Video light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Video%20%230.png)
  */
-export default class Video extends PureComponent<Props, State> {
-  video: ?HTMLVideoElement;
+const VideoWithForwardRef: React$AbstractComponent<Props, HTMLVideoElement> = forwardRef<
+  Props,
+  HTMLVideoElement,
+>(function Video(
+  {
+    accessibilityHideCaptionsLabel,
+    accessibilityMaximizeLabel,
+    accessibilityMinimizeLabel,
+    accessibilityMuteLabel,
+    accessibilityPauseLabel,
+    accessibilityPlayLabel,
+    accessibilityProgressBarLabel,
+    accessibilityShowCaptionsLabel,
+    accessibilityUnmuteLabel,
+    autoplay = false,
+    aspectRatio,
+    backgroundColor = 'black',
+    captions,
+    children,
+    controls,
+    crossOrigin,
+    disableRemotePlayback = false,
+    loop,
+    objectFit,
+    onControlsPlay,
+    onControlsPause,
+    onDurationChange,
+    onEnded,
+    onError,
+    onPause,
+    onPlay,
+    onPlayError,
+    onFullscreenChange,
+    onLoadedChange,
+    onLoadStart,
+    onPlaying,
+    onPlayheadDown,
+    onPlayheadUp,
+    onReady,
+    onSeek,
+    onSeeking,
+    onStalled,
+    onTimeChange,
+    onVolumeChange,
+    onWaiting,
+    playbackRate = 1,
+    playing = false,
+    playsInline,
+    poster,
+    preload = 'auto',
+    src,
+    volume = 0,
+  }: Props,
+  ref,
+): Node {
+  const videoRef = useRef<null | HTMLVideoElement>(null);
+  const playerRef = useRef<null | HTMLDivElement>(null);
 
-  player: ?HTMLDivElement;
+  useImperativeHandle(ref, () => videoRef.current);
 
-  static defaultProps: {|
-    disableRemotePlayback: boolean,
-    backgroundColor: BackgroundColor,
-    playbackRate: number,
-    playing: boolean,
-    preload: 'auto' | 'metadata' | 'none',
-    volume: number,
-  |} = {
-    disableRemotePlayback: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
-    backgroundColor: 'black',
-    // eslint-disable-next-line react/default-props-match-prop-types
-    playbackRate: 1,
-    // eslint-disable-next-line react/default-props-match-prop-types
-    playing: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
-    preload: 'auto',
-    // eslint-disable-next-line react/default-props-match-prop-types
-    volume: 0,
-  };
-
-  state: State = {
-    currentTime: 0,
-    duration: 0,
-    fullscreen: false,
-    captionsButton: this.props.captions ? 'enabled' : null,
-  };
-
-  /**
-   * React lifecycle hooks pertinent to Video
-   */
-
-  componentDidMount() {
-    const { captions, playbackRate, volume, playing, autoplay } = this.props;
-    // Set up event listeners to catch backdoors in fullscreen
-    // changes such as using the ESC key to exit
-    if (typeof document !== 'undefined') {
-      addFullscreenEventListener(this.handleFullscreenChange);
-    }
-    // Load the video to hydrate the DOM after a server render
-    this.load();
-    // Set the initial volume
-    this.setVolume(volume);
-    // Set the initial playback rate
-    this.setPlaybackRate(playbackRate);
-
-    if (!autoplay && playing) {
-      this.play();
-    }
-
-    if (captions && this.video && this.video.textTracks && this.video.textTracks[0]) {
-      this.video.textTracks[0].mode = 'showing';
-    }
-  }
-
-  componentDidUpdate(prevProps: Props) {
-    // If the video source changed, reload the video
-    if (isNewSource(prevProps.src, this.props.src)) {
-      this.load();
-    }
-    // If the volume changed, set the new volume
-    if (prevProps.volume !== this.props.volume) {
-      this.setVolume(this.props.volume);
-    }
-    // If the playback rate changed, set the new rate
-    if (prevProps.playbackRate !== this.props.playbackRate) {
-      this.setPlaybackRate(this.props.playbackRate);
-    }
-    // If the playback changed, play or pause the video
-    if (prevProps.playing !== this.props.playing) {
-      if (this.props.playing) {
-        this.play();
-      } else {
-        this.pause();
-      }
-    }
-  }
-
-  componentWillUnmount() {
-    removeFullscreenEventListener(this.handleFullscreenChange);
-  }
-
-  /**
-   * DOM reference housekeeping that is needed for functionality
-   */
-
-  // The player element encapsulates the actual video DOM
-  // element as well as the controls to bring both fullscreen
-  setPlayerRef: (ref: ?HTMLDivElement) => void = (ref) => {
-    this.player = ref;
-  };
-
-  // The actual reference to the video HTML DOM element
-  setVideoRef: (ref: ?HTMLVideoElement) => void = (ref) => {
-    this.video = ref;
-  };
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
+  const [fullscreen, setFullscreen] = useState<boolean>(false);
+  const [captionsButton, setCaptionsButton] = useState<'enabled' | 'disabled' | null>(
+    captions ? 'enabled' : null,
+  );
+  const [previousSrc, setPreviousSrc] = useState<Source>(src);
 
   /**
    * Functions that directly interact with the HTML video element
    */
 
   // Set the video to the desired playback rate: 1 (normal)
-  setPlaybackRate: (playbackRate: number) => void = (playbackRate) => {
-    if (this.video) {
-      this.video.playbackRate = playbackRate;
+  const setPlaybackRate: (newPlaybackRate: number) => void = (newPlaybackRate) => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = newPlaybackRate;
     }
   };
 
   // Set the video to the desired volume: 0 (muted) -> 1 (max)
-  setVolume: (volume: number) => void = (volume) => {
-    if (this.video) {
-      this.video.volume = volume;
+  const setVolume: (newVolume: number) => void = (newVolume) => {
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
     }
   };
 
   // Change the video source and re-load the video
-  load: () => void = () => {
-    // $FlowFixMe[method-unbinding]
-    if (this.video && this.video.load) {
-      this.video.load();
-    }
-  };
+  const load: () => void = () => videoRef?.current?.load();
 
   // Pause the video
-  pause: () => void = () => {
-    if (this.video) {
-      this.video.pause();
-    }
-  };
+  const pause: () => void = () => videoRef?.current?.pause();
 
   // Play the video
-  play: () => Promise<void> = async () => {
-    if (this.video) {
+  const play: () => Promise<void> = async () => {
+    if (videoRef.current) {
       const isPlaying =
-        this.video.currentTime > 0 &&
-        !this.video.paused &&
-        !this.video.ended &&
-        this.video.readyState > 2;
+        videoRef.current.currentTime > 0 &&
+        !videoRef.current.paused &&
+        !videoRef.current.ended &&
+        videoRef.current.readyState > 2;
       if (!isPlaying) {
-        const startPlayPromise = this.video.play();
+        const startPlayPromise = videoRef.current.play();
         if (startPlayPromise !== undefined) {
-          startPlayPromise.then().catch((error) => this.props.onPlayError?.({ error }));
+          startPlayPromise.then().catch((error) => onPlayError?.({ error }));
         }
       }
     }
   };
 
   // Seek the video to the desired time
-  seek: (time: number) => void = (time) => {
-    if (this.video) {
-      this.video.currentTime = time;
+  const seek: (time: number) => void = (time) => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = time;
     }
   };
 
   // Toggle captions on/off
-  toggleCaptions: () => void = () => {
-    const [videoTrack] = this.video?.textTracks || [];
+  const toggleCaptions: () => void = () => {
+    const [videoTrack] = videoRef.current?.textTracks || [];
     if (videoTrack) {
       const isShowing = videoTrack.mode === 'showing';
       videoTrack.mode = isShowing ? 'disabled' : 'showing';
-      this.setState({ captionsButton: isShowing ? 'disabled' : 'enabled' });
+      setCaptionsButton(isShowing ? 'disabled' : 'enabled');
     }
   };
 
   // Enter/exit fullscreen video player mode
-  toggleFullscreen: () => void = () => {
+  const toggleFullscreen: () => void = () => {
     if (isFullscreen()) {
       exitFullscreen();
-    } else if (this.player) {
-      requestFullscreen(this.player);
+    } else if (playerRef.current) {
+      requestFullscreen(playerRef.current);
     }
   };
 
@@ -508,262 +456,251 @@ export default class Video extends PureComponent<Props, State> {
    */
 
   // Sent when enough data is available that the media can be played
-  handleCanPlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onReady } = this.props;
-
+  const handleCanPlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onReady?.({ event });
-  };
 
   // Sent when playback of the media starts after having been paused.
-  handleControlsPlay: (
+  const handleControlsPlay: (
     event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
-    const { onControlsPlay } = this.props;
-
-    onControlsPlay?.({ event });
-  };
+  ) => void = (event) => onControlsPlay?.({ event });
 
   // Sent when playback is paused.
-  handleControlsPause: (
+  const handleControlsPause: (
     event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
-    const { onControlsPause } = this.props;
-
-    onControlsPause?.({ event });
-  };
+  ) => void = (event) => onControlsPause?.({ event });
 
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
-  handleDurationChange: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onDurationChange } = this.props;
-    const duration = (this.video && this.video.duration) || 0;
-    this.setState({ duration });
-
-    onDurationChange?.({ event, duration });
+  const handleDurationChange: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const newDuration = videoRef?.current?.duration || 0;
+    setDuration(newDuration);
+    onDurationChange?.({ event, duration: newDuration });
   };
 
   // Sent when playback completes.
-  handleEnded: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onEnded } = this.props;
-
+  const handleEnded: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onEnded?.({ event });
-  };
 
   // Sent when an error occurs.
-  handleError: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onError } = this.props;
-
+  const handleError: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onError?.({ event });
-  };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullscreenChange: EventListener = (event) => {
-    const { onFullscreenChange } = this.props;
-    const fullscreen = !!isFullscreen();
-    this.setState({ fullscreen });
-
-    onFullscreenChange?.({ event, fullscreen });
+  const handleFullscreenChange: EventListener = (event) => {
+    const newFullscreen = !!isFullscreen();
+    setFullscreen(newFullscreen);
+    onFullscreenChange?.({ event, fullscreen: newFullscreen });
   };
 
   // Sent when the video has started to load
-  handleLoadStart: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onLoadStart } = this.props;
-
+  const handleLoadStart: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onLoadStart?.({ event });
-  };
 
   // Sent when playback of the media is paused.
-  handlePause: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onPause } = this.props;
-
+  const handlePause: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onPause?.({ event });
-  };
 
   // Sent when playback of the media is ready to start after having been paused.
-  handlePlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onPlay } = this.props;
-
+  const handlePlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onPlay?.({ event });
-  };
 
   // Sent when playback of the media is ready to start after having been paused.
-  handlePlaying: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onPlaying } = this.props;
-
+  const handlePlaying: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onPlaying?.({ event });
-  };
 
   // Sent when mouse down event happens on playhead
-  handlePlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
-    const { onPlayheadDown } = this.props;
-
+  const handlePlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) =>
     onPlayheadDown?.({ event });
-  };
 
   // Sent when mouse up event happens on playhead
-  handlePlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
-    const { onPlayheadUp } = this.props;
-
+  const handlePlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) =>
     onPlayheadUp?.({ event });
-  };
 
   // Sent periodically to inform interested parties of progress downloading the media
-  handleProgress: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onLoadedChange } = this.props;
-    const { buffered } = this.video || {};
+  const handleProgress: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { buffered } = videoRef.current || {};
     const loaded = buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
-
     onLoadedChange?.({ event, loaded });
   };
 
   // Sent when a seek operation completes.
-  handleSeek: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onSeek } = this.props;
-
+  const handleSeek: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onSeek?.({ event });
-  };
 
   // Sent when a seek operation beings.
-  handleSeeking: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onSeeking } = this.props;
-
+  const handleSeeking: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onSeeking?.({ event });
-  };
 
   // Sent when trying to fetch data but the data is unexpectedly not forthcoming.
-  handleStalled: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onStalled } = this.props;
-
+  const handleStalled: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onStalled?.({ event });
-  };
 
   // The time indicated by the element's currentTime attribute has changed
-  handleTimeUpdate: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onTimeChange } = this.props;
-    const currentTime = (this.video && this.video.currentTime) || 0;
-    this.setState({ currentTime });
-
-    onTimeChange?.({ event, time: currentTime });
+  const handleTimeUpdate: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const newCurrentTime = videoRef?.current?.currentTime || 0;
+    setCurrentTime(newCurrentTime);
+    onTimeChange?.({ event, time: newCurrentTime });
   };
 
   // Sent when the audio volume changes
-  handleVolumeChange: (
+  const handleVolumeChange: (
     event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
   ) => void = (event) => {
-    const { onVolumeChange } = this.props;
-    const muted = (this.video && this.video.muted) || false;
-
+    const muted = videoRef?.current?.muted || false;
     onVolumeChange?.({ event, volume: muted ? 1 : 0 });
   };
 
   // Sent when playback has stopped because of a temporary lack of data.
-  handleWaiting: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
-    const { onWaiting } = this.props;
-
+  const handleWaiting: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) =>
     onWaiting?.({ event });
-  };
 
-  render(): Node {
-    const {
-      aspectRatio,
-      autoplay,
-      backgroundColor,
-      captions,
-      children,
-      crossOrigin,
-      disableRemotePlayback,
-      loop,
-      objectFit,
-      playing,
-      playsInline,
-      poster,
-      preload,
-      src,
-      volume,
-    } = this.props;
-    const { currentTime, duration, fullscreen, captionsButton } = this.state;
-    const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
+  useEffect(() => {
+    // Set up event listeners to catch backdoors in fullscreen
+    // changes such as using the ESC key to exit
+    if (typeof document !== 'undefined') addFullscreenEventListener(handleFullscreenChange);
 
-    const playerClasses = classnames(styles.player, {
-      [colors.blackBg]: backgroundColor === 'black',
-      [colors.transparentBg]: backgroundColor === 'transparent',
-    });
-    return (
-      <div
-        ref={this.setPlayerRef}
-        className={playerClasses}
-        style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
-      >
-        <ColorSchemeProvider id="Video" colorScheme="light">
-          <video
-            autoPlay={autoplay}
-            className={styles.video}
-            {...((crossOrigin ? { crossOrigin } : { ...null }): {|
-              crossOrigin?: CrossOrigin,
-            |})}
-            disableRemotePlayback={disableRemotePlayback}
-            loop={loop}
-            muted={volume === 0}
-            {...(objectFit ? { style: { objectFit } } : null)}
-            onCanPlay={this.handleCanPlay}
-            onDurationChange={this.handleDurationChange}
-            onEnded={this.handleEnded}
-            onError={this.handleError}
-            onLoadStart={this.handleLoadStart}
-            onPlay={this.handlePlay}
-            onPause={this.handlePause}
-            onPlaying={this.handlePlaying}
-            onProgress={this.handleProgress}
-            onSeeked={this.handleSeek}
-            onSeeking={this.handleSeeking}
-            onStalled={this.handleStalled}
-            onTimeUpdate={this.handleTimeUpdate}
-            onWaiting={this.handleWaiting}
-            playsInline={playsInline}
-            poster={poster}
-            preload={preload}
-            src={typeof src === 'string' ? src : undefined}
-            ref={this.setVideoRef}
-          >
-            {Array.isArray(src) &&
-              src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
-            <track kind="captions" src={captions} />
-          </video>
-          {Boolean(children) && (
-            <Box position="absolute" top left bottom right overflow="hidden">
-              {children}
-            </Box>
-          )}
-          {/* Need to use full path for these props so Flow can infer correct subtype */}
-          {this.props.controls && (
-            <VideoControls
-              accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
-              accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
-              accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
-              accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
-              accessibilityMuteLabel={this.props.accessibilityMuteLabel}
-              accessibilityPauseLabel={this.props.accessibilityPauseLabel}
-              accessibilityPlayLabel={this.props.accessibilityPlayLabel}
-              accessibilityProgressBarLabel={this.props.accessibilityProgressBarLabel}
-              accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
-              captionsButton={captionsButton}
-              currentTime={currentTime}
-              duration={duration}
-              fullscreen={fullscreen}
-              onCaptionsChange={this.toggleCaptions}
-              onPlay={this.handleControlsPlay}
-              onPlayheadDown={this.handlePlayheadDown}
-              onPlayheadUp={this.handlePlayheadUp}
-              onPause={this.handleControlsPause}
-              onFullscreenChange={this.toggleFullscreen}
-              onVolumeChange={this.handleVolumeChange}
-              playing={playing}
-              seek={this.seek}
-              volume={volume}
-            />
-          )}
-        </ColorSchemeProvider>
-      </div>
-    );
+    // Load the video to hydrate the DOM after a server render
+    load();
+    // Set the initial volume
+    setVolume(volume);
+    // Set the initial playback rate
+    setPlaybackRate(playbackRate);
+
+    if (!autoplay && playing) play();
+
+    if (captions && videoRef?.current?.textTracks[0]) {
+      videoRef.current.textTracks[0].mode = 'showing';
+    }
+
+    return () => removeFullscreenEventListener(handleFullscreenChange);
+  }, []);
+
+  useEffect(() => {
+    // If the video source changed, reload the video
+    if (isNewSource(previousSrc, src)) {
+      setPreviousSrc(src);
+      load();
+    }
+  }, [setPreviousSrc, src]);
+
+  useEffect(() => {
+    // If the volume changed, set the new volume
+    setVolume(volume);
+  }, [volume]);
+
+  useEffect(() => {
+    // If the playback rate changed, set the new rate
+    setPlaybackRate(playbackRate);
+  }, [playbackRate]);
+
+  useEffect(() => {
+    // If the playback changed, play or pause the video
+    if (playing) {
+      play();
+    } else {
+      if (videoRef.current) {
+        const isPlaying =
+          videoRef.current.currentTime > 0 &&
+          !videoRef.current.paused &&
+          !videoRef.current.ended &&
+          videoRef.current.readyState > 2;
+        isPlaying && pause(); // this is messy. there should be a better way t prevent the initial pause. Use useRef to save prevState and see change in value!
+      }
+    }
+  }, [play, playing]);
+
+  let crossOriginPolicy = crossOrigin || undefined;
+  if (captions && crossOriginPolicy !== 'anonymous') {
+    if (crossOriginPolicy === undefined) {
+      crossOriginPolicy = 'anonymous';
+    } else {
+      throw new Error(`"The crossOrigin policy must be set to 'anonymous' for captions to work."`);
+    }
   }
-}
+
+  return (
+    <div
+      ref={playerRef}
+      className={classnames(styles.player, {
+        [colors.blackBg]: backgroundColor === 'black',
+        [colors.transparentBg]: backgroundColor === 'transparent',
+      })}
+      style={{
+        paddingBottom: (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`,
+        height: fullscreen ? '100%' : 0,
+      }}
+    >
+      <video
+        autoPlay={autoplay}
+        className={styles.video}
+        {...((crossOrigin ? { crossOrigin } : { ...null }): {|
+          crossOrigin?: CrossOrigin,
+        |})}
+        disableRemotePlayback={disableRemotePlayback}
+        loop={loop}
+        muted={volume === 0}
+        {...(objectFit ? { style: { objectFit } } : null)}
+        onCanPlay={handleCanPlay}
+        onDurationChange={handleDurationChange}
+        onEnded={handleEnded}
+        onError={handleError}
+        onLoadStart={handleLoadStart}
+        onPlay={handlePlay}
+        onPause={handlePause}
+        onPlaying={handlePlaying}
+        onProgress={handleProgress}
+        onSeeked={handleSeek}
+        onSeeking={handleSeeking}
+        onStalled={handleStalled}
+        onTimeUpdate={handleTimeUpdate}
+        onWaiting={handleWaiting}
+        playsInline={playsInline}
+        poster={poster}
+        preload={preload}
+        src={typeof src === 'string' ? src : undefined}
+        ref={videoRef}
+      >
+        {Array.isArray(src) &&
+          src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
+        <track kind="captions" src={captions} />
+      </video>
+      {Boolean(children) && (
+        <Box position="absolute" top left bottom right overflow="hidden">
+          {children}
+        </Box>
+      )}
+      {/* Need to use full path for these props so Flow can infer correct subtype */}
+      {controls && (
+        <VideoControls
+          accessibilityHideCaptionsLabel={accessibilityHideCaptionsLabel || ''}
+          accessibilityShowCaptionsLabel={accessibilityShowCaptionsLabel || ''}
+          accessibilityMaximizeLabel={accessibilityMaximizeLabel}
+          accessibilityMinimizeLabel={accessibilityMinimizeLabel}
+          accessibilityMuteLabel={accessibilityMuteLabel}
+          accessibilityPauseLabel={accessibilityPauseLabel}
+          accessibilityPlayLabel={accessibilityPlayLabel}
+          accessibilityProgressBarLabel={accessibilityProgressBarLabel}
+          accessibilityUnmuteLabel={accessibilityUnmuteLabel}
+          captionsButton={captionsButton}
+          currentTime={currentTime}
+          duration={duration}
+          fullscreen={fullscreen}
+          onCaptionsChange={toggleCaptions}
+          onPlay={handleControlsPlay}
+          onPlayheadDown={handlePlayheadDown}
+          onPlayheadUp={handlePlayheadUp}
+          onPause={handleControlsPause}
+          onFullscreenChange={toggleFullscreen}
+          onVolumeChange={handleVolumeChange}
+          playing={playing}
+          seek={seek}
+          volume={volume}
+        />
+      )}
+    </div>
+  );
+});
+
+VideoWithForwardRef.displayName = 'Video';
+
+export default VideoWithForwardRef;

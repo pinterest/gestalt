@@ -15,6 +15,7 @@ const A11Y_LABELS = Object.freeze({
 describe('Video loading', () => {
   beforeEach(() => {
     window.HTMLMediaElement.prototype.load = () => {};
+    window.HTMLMediaElement.prototype.pause = () => {};
   });
 
   it('Does not load when string src does not change', () => {
