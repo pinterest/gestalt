@@ -8,6 +8,7 @@ import Button from './Button.js';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import styles from './Callout.css';
+import { MESSAGING_TYPE_ATTRIBUTES } from './messaging.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { type ActionDataType } from './commonTypes.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -78,24 +79,6 @@ type Props = {|
   title?: string,
 |};
 
-const CALLOUT_TYPE_ATTRIBUTES = {
-  info: {
-    icon: 'info-circle',
-    color: 'shopping',
-    backgroundColor: '#EBF4FE',
-  },
-  warning: {
-    icon: 'workflow-status-warning',
-    color: 'warning',
-    backgroundColor: '#FDF5EC',
-  },
-  error: {
-    icon: 'workflow-status-problem',
-    color: 'error',
-    backgroundColor: '#FDEBEE',
-  },
-};
-
 function CalloutAction({
   data,
   stacked,
@@ -157,9 +140,8 @@ function CalloutAction({
 /**
  * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
  *
- * ⚠️ Please note: Callout is not currently optimized for dark mode.
- *
  * ![Callout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Callout%20%230.png)
+ * ![Callout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Callout-dark%20%230.png)
  *
  */
 export default function Callout({
@@ -179,11 +161,7 @@ export default function Callout({
 
   return (
     <Box
-      dangerouslySetInlineStyle={{
-        __style: {
-          backgroundColor: CALLOUT_TYPE_ATTRIBUTES[type].backgroundColor,
-        },
-      }}
+      color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
       display="flex"
       direction="column"
       smDirection="row"
@@ -206,8 +184,8 @@ export default function Callout({
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel}
-              color={CALLOUT_TYPE_ATTRIBUTES[type].color}
-              icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
+              color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
+              icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
               size={32}
             />
           </Box>

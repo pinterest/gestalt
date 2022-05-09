@@ -1,12 +1,11 @@
-describe('SlimBanner light mode visual regression check', () => {
+describe('SlimBanner visual regression check', () => {
   beforeEach(() => {
-    cy.visit('/visual-test/SlimBanner-light');
+    cy.visit('/visual-test/SlimBanner');
   });
 
-  // eslint-disable-next-line jest/expect-expect
   it('Compares snapshots', () => {
     cy.get('[data-test-id="visual-test"]').toMatchImageSnapshot({
-      name: 'SlimBanner-light',
+      name: 'SlimBanner',
       imageConfig: {
         threshold: 0.001,
         thresholdType: 'percent',
