@@ -1,3 +1,9 @@
+## 54.2.0 (May 9, 2022)
+
+### Minor
+
+- Icon: Add info color option (#2109)
+
 ## 54.1.0 (May 4, 2022)
 
 ### Minor
