@@ -90,6 +90,11 @@
           }
         },
         {
+          "destination": "colors-dark.xml",
+          "format": "androidColorDark",
+          "filter": "customDarkColorFilter"
+        },
+        {
           "destination": "space.xml",
           "format": "android/resources",
           "resourceType": "dimen",

@@ -73,6 +73,11 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
+  name: 'androidColorDark',
+  formatter: darkFormatWrapper(`android/colors`),
+});
+
+StyleDictionary.registerFormat({
   name: 'cssDarkJson',
   formatter: darkFormatWrapper(`json/flat`),
 });
