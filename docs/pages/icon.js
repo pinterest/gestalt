@@ -148,6 +148,7 @@ If an icon has a visible label that describes what the icon represents, \`access
               'success',
               'error',
               'warning',
+              'info',
               'inverse',
               'shopping',
               'brandPrimary',

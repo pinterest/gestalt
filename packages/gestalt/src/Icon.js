@@ -11,6 +11,7 @@ export type IconColor =
   | 'success'
   | 'error'
   | 'warning'
+  | 'info'
   | 'inverse'
   | 'shopping'
   | 'brandPrimary'
