@@ -50,6 +50,7 @@ exports[`Video with callbacks 1`] = `
   --color-text-icon-success: #005f3e;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -159,6 +160,7 @@ exports[`Video with children 1`] = `
   --color-text-icon-success: #005f3e;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -485,6 +487,7 @@ exports[`Video with crossOrigin 1`] = `
   --color-text-icon-success: #005f3e;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -595,6 +598,7 @@ exports[`Video with media attributes 1`] = `
   --color-text-icon-success: #005f3e;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -705,6 +709,7 @@ exports[`Video with multiple sources 1`] = `
   --color-text-icon-success: #005f3e;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -821,6 +826,7 @@ exports[`Video with objectFit 1`] = `
   --color-text-icon-success: #005f3e;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -935,6 +941,7 @@ exports[`Video with source 1`] = `
   --color-text-icon-success: #005f3e;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
