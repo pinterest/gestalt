@@ -50,14 +50,14 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
       newProps.description = undefined;
       return <MainSection.Card {...newProps} />;
     },
-    Code: (props: {| removeMarginBottom: boolean, children: Node |}) => {
+    Code: (props: {| removeMarginBottom: boolean, children: string| null |}) => {
       const newProps = { ...props };
-      newProps.children = undefined;
-      newProps.removeMarginBottom = undefined;
+      newProps.children = null;
+      newProps.removeMarginBottom = false;
       return (
         <MainSection.Card
           {...newProps}
-          defaultCode={props.children}
+          defaultCode={props.children || ""}
           removeMarginBottom={!('removeMarginBottom' in props) ? true : props.removeMarginBottom}
         />
       );
@@ -71,17 +71,14 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     ),
     TwoCol: (props) => (
       <MainSection.Subsection columns={2}>{props.children}</MainSection.Subsection>
-    ),
-    ThreeCol: (props) => (
-      <MainSection.Subsection columns={3}>{props.children}</MainSection.Subsection>
-    ),
+    )
   };
 
   const maxWidth = meta.component ? 'none' : `${MAX_WIDTH}px`;
 
   return (
     <MDXProvider components={components}>
-      <Page title={meta.title} className="Markdown" pageSourceUrl={pageSourceUrl}>
+      <Page title={meta.title} pageSourceUrl={pageSourceUrl}>
         <PageHeader
           name={meta.title}
           badge={meta.badge}

@@ -1,10 +1,16 @@
 // @flow strict
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { type Node } from 'react';
 
 import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
 import MarkdownPage from '../components/MarkdownPage.js';
+
+type MDXRemoteSerializeResult = {|
+  compiledSource: string,
+
+  frontmatter?: { [key: string]: string },
+|};
 
 type Props = {|
   content: MDXRemoteSerializeResult,
@@ -25,7 +31,9 @@ export default function DocumentPage({ content, meta, pageSourceUrl }: Props): N
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: {| params: {| id: string |} |}): Promise<{|
+  props: {| meta: { [key: string]: string }, content: {||}, pageSourceUrl: string |},
+|}> {
   const { id } = context.params;
   const { meta, content } = getDocByRoute(id);
   const mdxSource = await serialize(content);
@@ -39,7 +47,10 @@ export async function getStaticProps(context) {
   };
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{|
+  paths: {| params: {| id: string |} |}[],
+  fallback: boolean,
+|}> {
   // get the paths that exist
   const paths = getAllMarkdownPosts();
   return {
