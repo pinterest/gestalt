@@ -1,3 +1,5 @@
+
+
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
@@ -52,6 +54,7 @@ import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
 import Sheet from './Sheet.js';
+import SlimBanner from './SlimBanner.js';
 import Spinner from './Spinner.js';
 import Status from './Status.js';
 import Sticky from './Sticky.js';
@@ -126,6 +129,7 @@ export {
   SegmentedControl,
   SelectList,
   Sheet,
+  SlimBanner,
   Spinner,
   Status,
   Sticky,
