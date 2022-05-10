@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { RadioButton } from 'gestalt';
+import { RadioButton, RadioGroup } from 'gestalt';
 import Combination from '../components/Combination.js';
 import Example from '../components/Example.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
@@ -11,8 +11,8 @@ import docgen, { type DocGen } from '../components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="RadioButton">
-      <PageHeader name="RadioButton" description={generatedDocGen?.description} />
+    <Page title="RadioGroup">
+      <PageHeader name="RadioGroup" description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -105,6 +105,32 @@ function RadioButtonExample() {
           />
         </Flex>
       </Fieldset>
+      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" orientation="row">
+      <RadioButton
+            checked={favoriteFood === 'pizza'}
+            id="favoritePizza"
+            label="Pizza"
+            name="favoriteFood"
+            onChange={() => setFavoriteFood( 'pizza' )}
+            value="pizza"
+          />
+          <RadioButton
+            checked={favoriteFood === 'curry'}
+            id="favoriteCurry"
+            label="Curry"
+            name="favoriteFood"
+            onChange={() => setFavoriteFood( 'curry' )}
+            value="curry"
+          />
+          <RadioButton
+            checked={favoriteFood === 'sushi'}
+            id="favoriteSushi"
+            label="Sushi"
+            name="favoriteFood"
+            onChange={() => setFavoriteFood( 'sushi' )}
+            value="sushi"
+          />
+        </RadioGroup>
     </Flex>
   );
 }
@@ -348,6 +374,6 @@ function RadioButtonPopoverExample() {
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'RadioButton' }) },
+    props: { generatedDocGen: await docgen({ componentName: 'RadioGroup' }) },
   };
 }

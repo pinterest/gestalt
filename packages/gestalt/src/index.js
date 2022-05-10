@@ -1,3 +1,5 @@
+
+
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
@@ -46,6 +48,7 @@ import Pog from './Pog.js';
 import Popover from './Popover.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
+import RadioGroup from './RadioGroup.js';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
 import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
@@ -121,6 +124,7 @@ export {
   Popover,
   Pulsar,
   RadioButton,
+  RadioGroup,
   ScrollBoundaryContainer,
   ScrollFetch,
   SearchField,

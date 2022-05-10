@@ -238,8 +238,8 @@ const GENERAL: ListItemType = [
   },
   {
     svg: <RadioButton />,
-    name: 'RadioButton',
-    description: 'se RadioButtons when you have a few options that a user can choose from.',
+    name: 'RadioGroup',
+    description: 'Use RadioGroup when you have a few options that a user can choose from.',
     category: 'Controls',
   },
   {
