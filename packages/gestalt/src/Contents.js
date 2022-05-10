@@ -213,51 +213,48 @@ class Contents extends Component<Props, State> {
 
     return (
       <div
-        className={styles.container}
+        className={classnames(
+          styles.container,
+          rounding === 2 && borders.rounding2,
+          rounding === 4 && borders.rounding4,
+          styles.contents,
+          styles.maxDimensions,
+          width !== null && styles.minDimensions,
+        )}
+        ref={this.setPopoverRef}
+        tabIndex={-1}
         // popoverOffset positions the Popover component
         style={{ visibility, ...popoverOffset }}
       >
+        {caret && popoverDir && (
+          <div
+            className={classnames(colors[bgColorElevated], styles.caret)}
+            // caretOffset positions the Caret on the Popover
+            style={{ ...caretOffset }}
+          >
+            <Caret
+              direction={popoverDir}
+              height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
+              width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
+            />
+          </div>
+        )}
         <div
+          id={id}
+          role={role}
           className={classnames(
+            border && styles.border,
+            colors[background],
+            colors[bgColorElevated],
             rounding === 2 && borders.rounding2,
             rounding === 4 && borders.rounding4,
-            styles.contents,
+            styles.innerContents,
             styles.maxDimensions,
             width !== null && styles.minDimensions,
           )}
-          ref={this.setPopoverRef}
-          tabIndex={-1}
+          style={{ maxWidth: width }}
         >
-          {caret && popoverDir && (
-            <div
-              className={classnames(colors[bgColorElevated], styles.caret)}
-              // caretOffset positions the Caret on the Popover
-              style={{ ...caretOffset }}
-            >
-              <Caret
-                direction={popoverDir}
-                height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
-                width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
-              />
-            </div>
-          )}
-          <div
-            id={id}
-            role={role}
-            className={classnames(
-              border && styles.border,
-              colors[background],
-              colors[bgColorElevated],
-              rounding === 2 && borders.rounding2,
-              rounding === 4 && borders.rounding4,
-              styles.innerContents,
-              styles.maxDimensions,
-              width !== null && styles.minDimensions,
-            )}
-            style={{ maxWidth: width }}
-          >
-            {children}
-          </div>
+          {children}
         </div>
       </div>
     );

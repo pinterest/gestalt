@@ -3,7 +3,7 @@
 exports[`Controller renders 1`] = `
 <div>
   <div
-    className="container"
+    className="container contents maxDimensions minDimensions"
     style={
       Object {
         "left": -10,
@@ -11,42 +11,38 @@ exports[`Controller renders 1`] = `
         "visibility": "visible",
       }
     }
+    tabIndex={-1}
   >
     <div
-      className="contents maxDimensions minDimensions"
-      tabIndex={-1}
+      className="darkGray caret"
+      style={
+        Object {
+          "bottom": null,
+          "left": 10,
+          "right": null,
+          "top": -4,
+        }
+      }
     >
-      <div
-        className="darkGray caret"
-        style={
-          Object {
-            "bottom": null,
-            "left": 10,
-            "right": null,
-            "top": -4,
-          }
-        }
+      <svg
+        height={4}
+        width={12}
       >
-        <svg
-          height={4}
-          width={12}
-        >
-          <path
-            d="M0 4c.694 0 1.36-.278 1.846-.773L4.376.66c.806-.819 2.187-.885 3.083-.148.057.047.111.096.163.148l2.526 2.565A2.6 2.6 0 0012 4"
-            stroke="rgba(0, 0, 0, 0.02)"
-          />
-        </svg>
-      </div>
-      <div
-        className="border darkGrayBg darkGray innerContents maxDimensions minDimensions"
-        id=""
-        style={
-          Object {
-            "maxWidth": 230,
-          }
-        }
-      />
+        <path
+          d="M0 4c.694 0 1.36-.278 1.846-.773L4.376.66c.806-.819 2.187-.885 3.083-.148.057.047.111.096.163.148l2.526 2.565A2.6 2.6 0 0012 4"
+          stroke="rgba(0, 0, 0, 0.02)"
+        />
+      </svg>
     </div>
+    <div
+      className="border darkGrayBg darkGray innerContents maxDimensions minDimensions"
+      id=""
+      style={
+        Object {
+          "maxWidth": 230,
+        }
+      }
+    />
   </div>
 </div>
 `;
