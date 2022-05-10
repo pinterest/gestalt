@@ -1,3 +1,9 @@
+## 54.2.2 (May 10, 2022)
+
+### Patch
+
+- Badge, Link: updated snapshots (#2111)
+
 ## 54.2.1 (May 10, 2022)
 
 ### Patch
