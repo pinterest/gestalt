@@ -1,3 +1,9 @@
+## 54.2.3 (May 10, 2022)
+
+### Patch
+
+- Docs: Update Open Forum details (#2112)
+
 ## 54.2.2 (May 10, 2022)
 
 ### Patch
