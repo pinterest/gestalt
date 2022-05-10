@@ -1,3 +1,9 @@
+## 54.2.1 (May 10, 2022)
+
+### Patch
+
+- Tooltip: minor refactor (#2105)
+
 ## 54.2.0 (May 9, 2022)
 
 ### Minor
