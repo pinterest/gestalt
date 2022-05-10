@@ -127,7 +127,7 @@ Our meetings, events, and timelines can be found on the [Gestalt Event Calendar]
     - _Purpose_
       For systems designers seeking feedback from the larger design org and everything else design system related.
     - _Audience_
-      Pinterest designers and Gestalt engineers. The agenda for the Crit can be found in the recurring calendar invite. Please continue to bring component work to Office Hours.
+      Pinterest designers and Gestalt engineers. The agenda for the open forum can be found in the recurring calendar invite. Please continue to bring component work to Office Hours.
     - _Cadence_
       Every third Thursday of the month. Please sign up through the link in the calendar invite.
 `}
