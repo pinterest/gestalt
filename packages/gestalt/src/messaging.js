@@ -30,4 +30,4 @@ export const MESSAGING_TYPE_ATTRIBUTES = Object.freeze({
   },
 });
 
-export {};
+export const UNDEFINED = undefined;

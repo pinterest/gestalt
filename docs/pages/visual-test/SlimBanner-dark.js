@@ -8,11 +8,20 @@ export default function Snapshot(): Node {
       <Box color="white" display="inlineBlock" padding={1}>
         <Flex direction="column" gap={1} width={400}>
           <SlimBanner message="Your total audience includes all users who have seen your Pins." />
-          {['error', 'success', 'warning', 'info'].map((status) => (
+          {[
+            'error',
+            'success',
+            'warning',
+            'info',
+            'errorLite',
+            'successLite',
+            'warningLite',
+            'infoLite',
+          ].map((type) => (
             <SlimBanner
-              key={status}
-              status={status}
-              message={`This is a/an ${status} message.`}
+              key={type}
+              type={type}
+              message={`This is a/an ${type} message.`}
               iconAccessibilityLabel="test"
               helperLink={{
                 text: 'Learn more',
@@ -20,15 +29,6 @@ export default function Snapshot(): Node {
                 href: 'http://www.pinterest.com',
                 onClick: () => {},
               }}
-            />
-          ))}
-          {['error', 'success', 'warning', 'info'].map((status) => (
-            <SlimBanner
-              key={status}
-              type="light"
-              status={status}
-              message={`This is a/an ${status} message.`}
-              iconAccessibilityLabel="test"
             />
           ))}
         </Flex>

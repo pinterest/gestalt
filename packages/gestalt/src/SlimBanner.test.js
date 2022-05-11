@@ -3,13 +3,8 @@ import { create } from 'react-test-renderer';
 import SlimBanner from './SlimBanner.js';
 
 describe('SlimBanner', () => {
-  it('renders default status with message', () => {
+  it('renders neutral type with message', () => {
     const tree = create(<SlimBanner message="test" />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('renders default status light type with message', () => {
-    const tree = create(<SlimBanner type="light" message="test" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -17,19 +12,18 @@ describe('SlimBanner', () => {
     const tree = create(
       <SlimBanner
         message="test"
-        status="error"
+        type="error"
         iconAccessibilityLabel="accessibility label with error"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders an icon light type with accessibility label', () => {
+  it('renders non-neutral lite with accessibility label', () => {
     const tree = create(
       <SlimBanner
         message="test"
-        status="error"
-        type="light"
+        type="errorLite"
         iconAccessibilityLabel="accessibility label with error"
       />,
     ).toJSON();

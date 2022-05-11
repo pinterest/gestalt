@@ -117,19 +117,22 @@ export function PageHeaderSubtext({
   return (
     <Box display="none" smDisplay="block">
       <Text inline>
-        {subtext}{' '}
+        {subtext}
         {helperLink ? (
-          <Text inline>
-            <Link
-              accessibilityLabel={helperLink.accessibilityLabel}
-              href={helperLink.href}
-              onClick={helperLink.onClick}
-              target="blank"
-              inline
-            >
-              {helperLink.text}
-            </Link>
-          </Text>
+          <Fragment>
+            {' '}
+            <Text inline>
+              <Link
+                accessibilityLabel={helperLink.accessibilityLabel}
+                href={helperLink.href}
+                onClick={helperLink.onClick}
+                target="blank"
+                inline
+              >
+                {helperLink.text}
+              </Link>
+            </Text>
+          </Fragment>
         ) : null}
       </Text>
     </Box>

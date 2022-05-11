@@ -1,11 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
+import { Fragment, type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Link from './Link.js';
 import Text from './Text.js';
 import Flex from './Flex.js';
 import { MESSAGING_TYPE_ATTRIBUTES } from './messaging.js';
+
+const SLIMBANNER_MIN_WIDTH = 320;
 
 type Props = {|
   /**
@@ -31,17 +33,22 @@ type Props = {|
    */
   message: string,
   /**
-   * The type of status to display. See the [status variant](https://gestalt.pinterest.systems/slimbanner#Variants) to learn more.
+   * The type of SlimBanner. See the [variants](https://gestalt.pinterest.systems/slimbanner#Variants) to learn more.
    */
-  status?: 'neutral' | 'error' | 'info' | 'warning' | 'success',
-  /**
-   * The type of SlimBanner. See the [type variant](https://gestalt.pinterest.systems/slimbanner#Variants) to learn more.
-   */
-  type?: 'default' | 'light',
+  type?:
+    | 'neutral'
+    | 'error'
+    | 'info'
+    | 'warning'
+    | 'success'
+    | 'errorLite'
+    | 'infoLite'
+    | 'warningLite'
+    | 'successLite',
 |};
 
 /**
- * [SlimBanner](https://gestalt.pinterest.systems/slimbanner) conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. Since they are about a specific section of a page or surface, SectionAlerts sit inside of a section, and not at the top of the page. For alerts that apply to the whole page, use [SlimBanner](https://gestalt.pinterest.systems/slimbanner).
+ * [SlimBanner](https://gestalt.pinterest.systems/slimbanner) conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. Since they are about a specific section of a page or surface, SlimBanner sits inside of a section, and not at the top of the page. For alerts that apply to the whole page, use [SlimBanner](https://gestalt.pinterest.systems/slimbanner).
  *
  * ![SlimBanner light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SlimBanner%20%230.png)
  * ![SlimBanner dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SlimBanner-dark%20%230.png)
@@ -51,46 +58,63 @@ export default function SlimBanner({
   helperLink,
   iconAccessibilityLabel,
   message,
-  status = 'neutral',
-  type = 'default',
+  type = 'neutral',
 }: Props): Node {
-  const colorText = status === 'default' || type === 'light' ? 'default' : 'dark';
+  const isLite = ['errorLite', 'infoLite', 'warningLite', 'successLite'].includes(type);
+  const isDefault = type === 'default';
+  const colorText = isDefault || isLite ? 'default' : 'dark';
+  const statusMap = {
+    'errorLite': 'error',
+    'infoLite': 'info',
+    'warningLite': 'warning',
+    'successLite': 'success',
+  };
+  const { backgroundColor, iconColor, icon } =
+    MESSAGING_TYPE_ATTRIBUTES[
+      type === 'errorLite' ||
+      type === 'infoLite' ||
+      type === 'warningLite' ||
+      type === 'successLite'
+        ? statusMap[type]
+        : type
+    ];
 
   return (
     <Box
-      color={type === 'light' ? 'transparent' : MESSAGING_TYPE_ATTRIBUTES[status].backgroundColor}
-      padding={type === 'light' ? 0 : 4}
-      paddingY={type === 'light' ? 1 : 0}
+      color={isLite ? 'transparent' : backgroundColor}
+      padding={isLite ? 0 : 4}
+      paddingY={isLite ? 1 : 0}
       rounding={4}
       width="100%"
-      minWidth={320}
+      minWidth={SLIMBANNER_MIN_WIDTH}
     >
-      <Flex gap={type === 'light' ? 2 : 4}>
-        {status !== 'default' && iconAccessibilityLabel ? (
+      <Flex gap={isLite ? 2 : 4}>
+        {!isDefault && iconAccessibilityLabel ? (
           <Icon
             accessibilityLabel={iconAccessibilityLabel}
-            color={MESSAGING_TYPE_ATTRIBUTES[status].iconColor}
-            icon={MESSAGING_TYPE_ATTRIBUTES[status].icon}
+            color={iconColor}
+            icon={icon}
             size={16}
           />
         ) : null}
-        <Box
-          dangerouslySetInlineStyle={{ __style: status !== 'default' ? { marginTop: '-1px' } : {} }}
-        >
+        <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
           <Text inline color={colorText}>
-            {message}{' '}
+            {message}
             {helperLink ? (
-              <Text inline color={colorText}>
-                <Link
-                  accessibilityLabel={helperLink.accessibilityLabel}
-                  href={helperLink.href}
-                  onClick={helperLink.onClick}
-                  target="blank"
-                  inline
-                >
-                  {helperLink.text}
-                </Link>
-              </Text>
+              <Fragment>
+                {' '}
+                <Text inline color={colorText}>
+                  <Link
+                    accessibilityLabel={helperLink.accessibilityLabel}
+                    href={helperLink.href}
+                    onClick={helperLink.onClick}
+                    target="blank"
+                    inline
+                  >
+                    {helperLink.text}
+                  </Link>
+                </Text>
+              </Fragment>
             ) : null}
           </Text>
         </Box>
