@@ -11,9 +11,9 @@ type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 type Props = {|
   /**
-   * Indicate if autocomplete should be available on the input, and the type of autocomplete.
+   * Indicate if autocomplete should be available on the input, and the type of autocomplete. Autocomplete values are implemented upon request. [Reach out to the Gestalt team](/how_to_work_with_us#Slack-channels) if you need [additional autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) to be supported.
    */
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
+  autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   /**
    * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/textfield#Disabled) for more details.
    */

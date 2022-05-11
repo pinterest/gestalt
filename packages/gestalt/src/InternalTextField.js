@@ -23,7 +23,7 @@ type Props = {|
   // OPTIONAL
   accessibilityControls?: string,
   accessibilityActiveDescendant?: string,
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
+  autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
   errorMessage?: Node,
   hasError?: boolean,
