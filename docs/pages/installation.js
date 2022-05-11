@@ -9,7 +9,7 @@ import Page from '../components/Page.js';
 export default function DocsPage(): Node {
   return (
     <Page title="Installation Guidelines">
-      <PageHeader name="Installation" showSourceLink={false} />
+      <PageHeader name="Installation" type="guidelines" />
       <Card name="Install">
         <Flex alignItems="start" direction="column" gap={4}>
           <Markdown

@@ -6,6 +6,9 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -265,8 +268,8 @@ function TabExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection
-        name="Accessibility"
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
         description="Tabs are intended for page-level navigation between multiple URLs.
   Each tab must have an individual title that precisely describes the tab content. Provide a short, descriptive label for screen-readers using `accessibilityLabel`. It is helpful for users of assistive technologies so they have the necessary information to navigate the content efficiently."
       >
@@ -283,7 +286,7 @@ function TabExample() {
       The tab/link **must** announce a state of "current" if the \`href\` matches the current window URL.`}
         />
         <MainSection.Card />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description={`Be sure to localize \`text\` and \`accessibilityLabel\`.
@@ -380,6 +383,8 @@ function TabExample() {
 }
   `}
       />
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

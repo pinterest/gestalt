@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -260,7 +263,7 @@ function Example(props) {
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Comprehension"
           description="Be sure to [provide instructions](https://www.w3.org/WAI/tutorials/forms/instructions/) to help users understand how to complete the form and use individual form controls."
@@ -299,7 +302,7 @@ function Example(props) {
     Out of the box, TextArea doesn't expose an \`onSubmit\` handler or individual key event handlers due to the complexities of handling these properly. Instead, developers are encouraged to wrap TextField in a \`<form>\` with an \`onSubmit\` handler.
   `}
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -570,6 +573,8 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

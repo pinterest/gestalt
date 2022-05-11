@@ -64,7 +64,7 @@ function TableEntry({
 export default function ToolingPage(): Node {
   return (
     <Page title="Tooling">
-      <PageHeader name="Tooling" showSourceLink={false} />
+      <PageHeader name="Tooling" type="guidelines" />
       <MainSection name="Core design system">
         <MainSection.Subsection />
         <Flex gap={2} maxWidth={MAX_WIDTH} direction="column">

@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -116,11 +119,10 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Accessibility"
-        description={`Datapoint's trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up). `}
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description={`Datapoint's trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up).`}
       />
-
       <MainSection
         name="Localization"
         description={`
@@ -205,6 +207,8 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

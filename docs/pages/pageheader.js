@@ -5,6 +5,9 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import DocsPageHeader from '../components/PageHeader.js'; // renaming to avoid confusion
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -541,10 +544,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Accessibility"
-        description={`Be sure to follow any accessibility guidelines for the components used within PageHeader. The heading within PageHeader will be rendered as a level 1 heading, so ensure there are no other level 1 headings present on the page. For headings level 2-6, use [Headings](/heading). Learn more about <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="blank" rel="noopener noreferrer nofollow">creating accessible headings</a>.`}
-      >
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Card
           cardSize="lg"
           defaultCode={`
@@ -594,7 +594,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
         `}
           shaded
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -1144,6 +1144,8 @@ PageHeader also supports a bottom border to show the division between PageHeader
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

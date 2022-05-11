@@ -66,7 +66,7 @@ export default function IconPage(): Node {
 
   return (
     <Page title="Iconography and SVGs">
-      <PageHeader name="Iconography and SVGs" folderName="icons" />
+      <PageHeader name="Iconography and SVGs" folderName="icons" type="guidelines" />
 
       <MainSection
         name="Icon library"

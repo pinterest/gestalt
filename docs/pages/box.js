@@ -7,6 +7,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 const ignoredProps = [
   'smColumn',
@@ -225,9 +228,9 @@ function MenuButtonExample() {
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Accessibility"
-        description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/checkboxes). `}
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/checkboxes).`}
       >
         <MainSection.Subsection
           title="Visually hidden content"
@@ -357,7 +360,7 @@ function MenuButtonExample() {
 `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -838,6 +841,8 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

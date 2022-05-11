@@ -7,6 +7,8 @@ import Card from '../components/Card.js';
 import Page from '../components/Page.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import deepCloneReplacingUndefined from '../utils/deepCloneReplacingUndefined.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 type Props = {|
   flexible?: boolean,
@@ -180,6 +182,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
       <Card
         description={`
     The number of columns in this grid changes responsively based on the width of the parent.
@@ -213,7 +217,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     <Masonry comp={Item} items={items} minCols={1} />
-    ~~~
+    ~~~Pcard
   `}
         name="Non-flexible item width"
       >
@@ -232,6 +236,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       >
         <ExampleMasonry layout="uniformRow" id="uniform" />
       </Card>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

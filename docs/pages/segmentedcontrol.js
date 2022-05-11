@@ -6,6 +6,8 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -36,14 +38,17 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
-      <Example
-        description="Segmented Control is a naive component, meaning you need to wire any additional behavior when the user clicks on an item.
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          description="Segmented Control is a naive component, meaning you need to wire any additional behavior when the user clicks on an item.
 
     If you'd like the tabs to control hiding or showing content, that state should
     live in a parent component.
     "
-        name="Example"
-        defaultCode={`
+          name="Example"
+          defaultCode={`
 function SegmentedControlExample() {
   const [itemIndex, setItemIndex] = React.useState(0);
 
@@ -80,12 +85,11 @@ function SegmentedControlExample() {
   );
 }
     `}
-      />
-
-      <Example
-        description="Segmented Control can have responsive widths where the width of an item is based on its content."
-        name="Example: Responsive"
-        defaultCode={`
+        />
+        <Example
+          description="Segmented Control can have responsive widths where the width of an item is based on its content."
+          name="Example: Responsive"
+          defaultCode={`
 function SegmentedControlExample() {
   const [item1Index, setItem1Index] = React.useState(0);
   const [item2Index, setItem2Index] = React.useState(0);
@@ -115,7 +119,10 @@ function SegmentedControlExample() {
   );
 }
     `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

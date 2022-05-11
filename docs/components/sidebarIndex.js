@@ -19,6 +19,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
     pages: [
       'About us',
       'Component overview',
+      'Component status',
       'Design',
       'Development',
       'How to work with us',

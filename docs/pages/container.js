@@ -5,6 +5,8 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -12,6 +14,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader name="Container" description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <Example
         description="
@@ -28,6 +32,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Box>
 `}
       />
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

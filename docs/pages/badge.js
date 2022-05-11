@@ -5,6 +5,9 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -126,12 +129,13 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection
-        name="Accessibility"
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
         description={`
         The badge text is read out by assistive technologies like screen readers so all users can access the meaning of the badge in context. Text should demonstrate the sentiment clearly enough to be understood immediately without relying on color alone.
         `}
       />
+
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`text\` prop. Note that localization can lengthen text by 20 to 30 percent. `}
@@ -306,6 +310,8 @@ function ModuleExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

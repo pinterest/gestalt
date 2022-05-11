@@ -4,6 +4,8 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DividerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -321,9 +323,10 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
-        <MainSection.Subsection description="Divider is not focusable and is treated as decorative. Screen readers on tab navigation don't announce Dividers but do announce them on left/right quick navigation." />
-      </MainSection>
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description="Divider is not focusable and is treated as decorative. Screen readers on tab navigation don't announce Dividers but do announce them on left/right quick navigation."
+      />
       <MainSection name="Localization">
         <MainSection.Subsection description="If you are aligning Divider to content, ensure that it switches sides according to the content's start-end alignment." />
       </MainSection>
@@ -383,6 +386,7 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

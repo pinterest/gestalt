@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -335,7 +336,7 @@ function RadioButtonExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen.RadioGroup.displayName}>
         <MainSection.Subsection
           title="Labels"
           description="Each RadioButton in a RadioGroup should have a label that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the label prop. If that’s not possible, make sure your standalone Label has an `htmlFor` prop that matches the `id` of the RadioButton. Test that a RadioButton and label are properly connected by clicking or tapping on the label and confirming that it activates the RadioButton next to it."
@@ -348,7 +349,7 @@ function RadioButtonExample() {
           title="Keyboard interaction"
           description={`After focus has been set on the first RadioButton inside a RadioGroup, the arrow keys are used to cycle focus between the various options. Clicking or tapping the label of RadioButton should also focus that particular RadioButton. All RadioGroup.RadioButtons within a RadioGroup should share the same \`name\` to ensure keyboard accessibility, but that \`name\` needs to be unique from other RadioGroup buttons on the page.`}
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description={`Be sure to localize \`errorMessage\`, \`subtext\`, \`label\`, and \`legend\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}

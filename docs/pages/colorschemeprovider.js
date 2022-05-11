@@ -5,13 +5,21 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="ColorSchemeProvider">
-      <PageHeader name="ColorSchemeProvider" description={generatedDocGen?.description} />
+      <PageHeader
+        name="ColorSchemeProvider"
+        description={generatedDocGen?.description}
+        type="utils"
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -60,6 +68,7 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

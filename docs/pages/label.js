@@ -5,6 +5,9 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
+import MainSection from '../components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -13,12 +16,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <Example
-        description={`
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          description={`
     Whenever you are using a [SelectList](/selectlist), [Switch](/switch), [TextField](/textfield) or [TextArea](/textarea) component, you should use a \`Label\`.
   `}
-        name="Example"
-        defaultCode={`
+          name="Example"
+          defaultCode={`
 function LabelExample() {
   const [switched, setSwitched] = React.useState(false);
 
@@ -38,7 +44,10 @@ function LabelExample() {
   );
 }
 `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

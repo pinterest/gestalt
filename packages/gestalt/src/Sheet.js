@@ -274,7 +274,7 @@ function Sheet(props: SheetProps): Node {
 /**
  * [Sheets](https://gestalt.pinterest.systems/sheet ) are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of Sheet displays content in a panel that opens from the side of the screen for the user to read or input information. Sheets have default, internal padding for content.
  */
-export default function AnimatedSheet(props: AnimatedSheetProps): Node {
+function AnimatedSheet(props: AnimatedSheetProps): Node {
   const {
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
@@ -310,3 +310,7 @@ export default function AnimatedSheet(props: AnimatedSheetProps): Node {
     </AnimationController>
   );
 }
+
+AnimatedSheet.displayName = 'Sheet';
+
+export default AnimatedSheet;

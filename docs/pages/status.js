@@ -5,6 +5,9 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -106,8 +109,8 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection
-        name="Accessibility"
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
         description="Icons are a great way to help users who have difficulties with reading, focus attention, and low vision impairments. For such use cases, Status can be used without accompanying `title` text."
       >
         <MainSection.Subsection
@@ -140,7 +143,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
 </Flex>`}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -173,6 +176,8 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

@@ -1,10 +1,7 @@
 // @flow strict
 import { Fragment, useState, type Element, type Node } from 'react';
 import { Box, Fieldset, RadioButton, Flex, Text } from 'gestalt';
-import FOUNDATION_LIST from '../components/componentOverviewFoundationsList.js';
-import UTILITIES_LIST from '../components/componentOverviewUtilitiesList.js';
-import BUILDING_BLOCKS_LIST from '../components/componentOverviewBuildingBlocksList.js';
-import GENERAL_COMPONENT_LIST from '../components/componentOverviewGeneralComponentsList.js';
+import COMPONENT_DATA from '../components/COMPONENT_DATA.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import IllustrationCard from '../components/IllustrationCard.js';
@@ -50,7 +47,7 @@ const getIllustrationCardColor = (category: string, hasDarkBackground?: boolean)
 };
 
 // GENERAL_COMPONENT_LIST is an array with component data. Each array item contains the SVG data and other metadata such as the component category. The following reduce method processes the GENERAL_COMPONENT_LIST array into an object grouping and mapping components per category so that we can map per category and pass each category value to <List />.
-const GENERAL_COMPONENT_CATEGORY_MAP = GENERAL_COMPONENT_LIST.reduce(
+const GENERAL_COMPONENT_CATEGORY_MAP = COMPONENT_DATA.generalComponents.reduce(
   (acc, cur) => ({
     ...acc,
     [cur.category]: (acc[cur.category] ?? []).concat(cur),
@@ -58,13 +55,32 @@ const GENERAL_COMPONENT_CATEGORY_MAP = GENERAL_COMPONENT_LIST.reduce(
   {},
 );
 
+type Status = 'notAvailable' | 'partial' | 'planned' | 'ready';
+
 export type ListItemType = Array<{|
-  svg: Element<typeof Accessibility>,
-  name: string,
-  description: string,
   category: string,
-  path?: string,
+  description: string,
   hasDarkBackground?: boolean,
+  name: string,
+  path?: string,
+  status?: {|
+    accessible: {|
+      summary: ?Status,
+      a11yVisual: ?Status,
+      a11yScreenreader: ?Status,
+      a11yNavigation: ?Status,
+      a11yComprehension: ?Status,
+    |},
+    android: Status,
+    badge: null | 'New' | 'Pilot',
+    deprecated?: boolean,
+    documentation: Status,
+    iOS: Status,
+    figma: Status,
+    figmaOnly?: boolean,
+    responsive: Status,
+  |},
+  svg: Element<typeof Accessibility>,
 |}>;
 
 function List({ array, title = '' }: {| array: ListItemType, title?: string |}): Node {
@@ -104,7 +120,7 @@ export default function ComponentOverview(): Node {
           <PageHeader
             name="Component overview"
             description="Not sure which component you need? Take a look below or set up time with the Gestalt team."
-            showSourceLink={false}
+            type="guidelines"
           />
         </IllustrationContainer>
         <IllustrationContainer justifyContent="start">
@@ -140,22 +156,22 @@ export default function ComponentOverview(): Node {
         {order === 'alphabetical' ? (
           <List
             array={[
-              ...FOUNDATION_LIST,
-              ...UTILITIES_LIST,
-              ...BUILDING_BLOCKS_LIST,
-              ...GENERAL_COMPONENT_LIST,
+              ...COMPONENT_DATA.foundations,
+              ...COMPONENT_DATA.utilityComponents,
+              ...COMPONENT_DATA.buildingBlockComponents,
+              ...COMPONENT_DATA.generalComponents,
             ]}
           />
         ) : (
           <Fragment>
-            <List array={FOUNDATION_LIST} title="Foundations" />
+            <List array={COMPONENT_DATA.foundations} title="Foundations" />
             {Object.keys(GENERAL_COMPONENT_CATEGORY_MAP)
               .sort()
               .map((category, idx) => (
                 <List key={idx} array={GENERAL_COMPONENT_CATEGORY_MAP[category]} title={category} />
               ))}
-            <List array={BUILDING_BLOCKS_LIST} title="Building blocks" />
-            <List array={UTILITIES_LIST} title="Utilities" />
+            <List array={COMPONENT_DATA.buildingBlockComponents} title="Building blocks" />
+            <List array={COMPONENT_DATA.utilityComponents} title="Utilities" />
           </Fragment>
         )}
       </Flex>

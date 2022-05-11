@@ -5,6 +5,9 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -216,8 +219,8 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Accessibility"
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
         description={`
           The avatar should have a text equivalent. Use the \`accessibilityLabel\` prop to ensure there is a text description for the image. The VoiceOver description will default to the \`name\` prop if \`accessibilityLabel\` is not provided.
 
@@ -328,6 +331,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

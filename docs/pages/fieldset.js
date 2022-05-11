@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -82,16 +85,16 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
-        <MainSection.Subsection
-          description={`
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description={`
       Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).
 
       In the example below, the pet RadioButtons are surrounded by a fieldset and include a \`legend\` of "Favorite pet". Learn more about the [use of fieldset and legend](https://www.w3.org/WAI/tutorials/forms/grouping/#associating-related-controls-with-fieldset).`}
-        >
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
+      >
+        <MainSection.Card
+          cardSize="lg"
+          defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState(undefined);
   const [name, setName] = React.useState('')
@@ -149,9 +152,8 @@ function RadioButtonExample() {
   );
 }
 `}
-          />
-        </MainSection.Subsection>
-      </MainSection>
+        />
+      </AccessibilitySection>
       <MainSection name="Localization" description={`Be sure to localize the \`legend\` text.`} />
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -290,6 +292,8 @@ function CheckboxExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

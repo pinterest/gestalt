@@ -10,7 +10,7 @@ import MainSection from '../components/MainSection.js';
 export default function ContainerPage(): Node {
   return (
     <Page title="Development Guidelines">
-      <PageHeader name="Development" showSourceLink={false} />
+      <PageHeader name="Development" type="guidelines" />
       <Card name="Set up your laptop">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>

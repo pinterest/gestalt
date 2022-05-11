@@ -6,6 +6,8 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -34,9 +36,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   }
 `}
       />
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -58,12 +58,16 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        description={`
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          description={`
     Pulsars can be shown and hidden using the \`paused\` prop.
   `}
-        name="Example"
-        defaultCode={`
+          name="Example"
+          defaultCode={`
   function PulsarExample() {
     const [isPulsing, setIsPulsing] = React.useState(true);
 
@@ -83,13 +87,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     );
   }
 `}
-      />
-      <Example
-        description="
+        />
+        <Example
+          description="
 
   "
-        name="Example: Popover"
-        defaultCode={`
+          name="Example: Popover"
+          defaultCode={`
 class PopoverExample extends React.Component {
   constructor(props) {
     super(props);
@@ -144,7 +148,10 @@ class PopoverExample extends React.Component {
   }
 }
 `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

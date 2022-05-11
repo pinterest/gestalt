@@ -70,7 +70,7 @@ export default function Blog(): Node {
     Follow along to learn about documentation updates, new components, events, and more!
     To get the full details for each version, view the [changelog in GitHub](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md).
     `}
-        showSourceLink={false}
+        type="guidelines"
       />
 
       <RadioGroup id="filter" legend="Filter posts by" direction="row">

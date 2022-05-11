@@ -5,6 +5,9 @@ import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
+import MainSection from '../components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -48,9 +51,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
         ]}
       />
-      <Example
-        name="Example: Sticky top"
-        defaultCode={`
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Example">
+        <Example
+          name="Sticky top"
+          defaultCode={`
 function Example() {
   const BOX_ZINDEX = new FixedZIndex(1);
   const STICKY_ZINDEX = new CompositeZIndex([BOX_ZINDEX]);
@@ -96,7 +102,10 @@ function Example() {
   )
 }
 `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

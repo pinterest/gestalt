@@ -9,7 +9,7 @@ import Page from '../components/Page.js';
 export default function ContainerPage(): Node {
   return (
     <Page title="Frequently asked questions">
-      <PageHeader name="Frequently asked questions" showSourceLink={false} />
+      <PageHeader name="Frequently asked questions" type="guidelines" />
       <Card name="Gestalt usage">
         <Flex alignItems="start" direction="column" gap={4}>
           <Heading size="400">What are the benefits of using the Gestalt library?</Heading>

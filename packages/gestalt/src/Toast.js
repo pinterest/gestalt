@@ -41,8 +41,6 @@ type Props = {|
  *
  * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
  *
- * ⚠️ Please note: Toast is not currently supported in dark mode.
- *
  * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({

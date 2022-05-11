@@ -6,6 +6,8 @@ import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -131,7 +133,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         />
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Accessible sizing"
           description="A minimum text size of 16 px (12pt) is recommended for readability. Some short text labels, or secondary text can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability."
@@ -140,7 +142,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="Accessible color"
           description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/color_usage#Standard-text-colors). See our [accessibility](/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders."
@@ -454,6 +456,8 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

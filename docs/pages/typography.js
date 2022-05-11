@@ -59,7 +59,7 @@ export default function TypographyPage(): Node {
         name="Typography"
         description={`Our typographic system creates a content hierarchy that is scannable and efficient.
     `}
-        showSourceLink={false}
+        type="guidelines"
       />
 
       <MainSection name="Principles">

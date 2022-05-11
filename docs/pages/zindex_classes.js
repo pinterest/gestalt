@@ -3,6 +3,8 @@ import { type Node } from 'react';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage(): Node {
   return (
@@ -11,6 +13,9 @@ export default function DocsPage(): Node {
         name="Z-Index Classes"
         description="FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components."
       />
+
+      <AccessibilitySection name="Z-Index Classes" />
+
       <MainSection name="FixedZIndex">
         <MainSection.Subsection>
           <MainSection.Card
@@ -661,6 +666,9 @@ However, this is an escape hatch that should only be used when the source code i
 `}
         />
       </MainSection>
+
+      <QualityChecklist component="Z-Index Classes" />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

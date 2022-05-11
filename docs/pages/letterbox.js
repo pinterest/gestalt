@@ -5,6 +5,9 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
+import MainSection from '../components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -13,9 +16,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <Example
-        name="Tall content (564:806)"
-        defaultCode={`
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          name="Tall content (564:806)"
+          defaultCode={`
 <Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
   <Image
     alt="tall"
@@ -25,10 +31,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   />
 </Letterbox>
 `}
-      />
-      <Example
-        name="Wide content (564:517)"
-        defaultCode={`
+        />
+        <Example
+          name="Wide content (564:517)"
+          defaultCode={`
 <Letterbox width={200} height={200} contentAspectRatio={564 / 517}>
   <Image
     alt="wide"
@@ -38,10 +44,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   />
 </Letterbox>
 `}
-      />
-      <Example
-        name="Square content (1:1)"
-        defaultCode={`
+        />
+        <Example
+          name="Square content (1:1)"
+          defaultCode={`
 <Letterbox width={200} height={200} contentAspectRatio={1}>
   <Image
     alt="square"
@@ -51,10 +57,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   />
 </Letterbox>
 `}
-      />
-      <Example
-        name="Square content (1:1) in a vertical frame"
-        defaultCode={`
+        />
+        <Example
+          name="Square content (1:1) in a vertical frame"
+          defaultCode={`
 <Letterbox width={200} height={300} contentAspectRatio={1}>
   <Image
     alt="square"
@@ -64,10 +70,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   />
 </Letterbox>
 `}
-      />
-      <Example
-        name="Square content (1:1) in a horizontal frame"
-        defaultCode={`
+        />
+        <Example
+          name="Square content (1:1) in a horizontal frame"
+          defaultCode={`
 <Letterbox width={300} height={200} contentAspectRatio={1}>
   <Image
     alt="square"
@@ -77,7 +83,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   />
 </Letterbox>
 `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

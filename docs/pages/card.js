@@ -6,14 +6,14 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Card">
       <PageHeader name="Card" description={generatedDocGen?.description} />
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -35,12 +35,16 @@ export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        description={`
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variant">
+        <Example
+          description={`
     Using \`Card\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
   `}
-        name="Example"
-        defaultCode={`
+          name="Example"
+          defaultCode={`
 function CardExample() {
   return (
     <Box maxWidth={236} padding={2} column={12}>
@@ -64,7 +68,10 @@ function CardExample() {
   );
 }
 `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }
