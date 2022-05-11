@@ -1,3 +1,9 @@
+## 54.3.0 (May 11, 2022)
+
+### Minor
+
+- TextField: add bday to autocomplete (#2113)
+
 ## 54.2.3 (May 10, 2022)
 
 ### Patch
