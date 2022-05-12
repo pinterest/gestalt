@@ -1,3 +1,9 @@
+## 55.0.0 (May 12, 2022)
+
+### Major
+
+- Eslint plugin: Remove excludeTests & excludePaths (#2116)
+
 ## 54.3.0 (May 11, 2022)
 
 ### Minor
