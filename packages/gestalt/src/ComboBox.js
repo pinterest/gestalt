@@ -26,6 +26,7 @@ import handleContainerScrolling, {
   KEYS,
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
+import { type Indexable } from './zIndex.js';
 
 type Size = 'md' | 'lg';
 
@@ -144,6 +145,10 @@ type Props = {|
    * List of tags to display in the component. See [tags](https://gestalt.pinterest.systems/combobox#Tags) variant to learn more.
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
+  /**
+   * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/zindex_classes)
+   */
+  zIndex?: Indexable,
 |};
 
 /**
@@ -181,6 +186,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     size = 'md',
     selectedOption,
     tags,
+    zIndex,
   }: Props,
   ref,
 ): Node {
@@ -462,7 +468,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         />
       </Box>
       {showOptionsList && innerRef.current ? (
-        <Layer>
+        <Layer zIndex={zIndex}>
           <Popover
             anchor={innerRef.current}
             onKeyDown={handleKeyDown}
