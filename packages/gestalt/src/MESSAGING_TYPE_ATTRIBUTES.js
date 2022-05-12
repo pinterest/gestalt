@@ -1,11 +1,11 @@
 // @flow strict
 
-export const MESSAGING_TYPE_ATTRIBUTES = Object.freeze({
+export default Object.freeze({
   neutral: {
     backgroundColor: 'secondary',
   },
   success: {
-    icon: 'info-circle',
+    icon: 'check-circle',
     iconColor: 'success',
     color: 'successBase',
     backgroundColor: 'successWeak',
@@ -29,5 +29,3 @@ export const MESSAGING_TYPE_ATTRIBUTES = Object.freeze({
     backgroundColor: 'errorWeak',
   },
 });
-
-export const UNDEFINED = undefined;

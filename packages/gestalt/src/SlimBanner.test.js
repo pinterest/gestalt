@@ -19,11 +19,11 @@ describe('SlimBanner', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders non-neutral lite with accessibility label', () => {
+  it('renders non-neutral compact with accessibility label', () => {
     const tree = create(
       <SlimBanner
         message="test"
-        type="errorLite"
+        type="errorBare"
         iconAccessibilityLabel="accessibility label with error"
       />,
     ).toJSON();

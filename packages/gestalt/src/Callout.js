@@ -8,7 +8,7 @@ import Button from './Button.js';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import styles from './Callout.css';
-import { MESSAGING_TYPE_ATTRIBUTES } from './messaging.js';
+import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { type ActionDataType } from './commonTypes.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';

@@ -12,10 +12,10 @@ export default function Snapshot(): Node {
           'success',
           'warning',
           'info',
-          'errorLite',
-          'successLite',
-          'warningLite',
-          'infoLite',
+          'errorBare',
+          'successBare',
+          'warningBare',
+          'infoBare',
         ].map((type) => (
           <SlimBanner
             key={type}

@@ -13,7 +13,11 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
-  <SlimBanner message="Your total audience includes all users who have seen or engaged with any of your Pins in the last 30 days." />
+<SlimBanner
+  type="info"
+  message="Idea Pins are now available across platforms."
+  iconAccessibilityLabel="Information"
+/>
 `}
       />
 
@@ -38,7 +42,7 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
             description={`
 - When displaying information that pertains to the whole page and is of the highest priority. Use [Callout](/callout) instead.
 - When interacting with the SlimBanner is required for the user to proceed with a task or flow. Use [Modal](/modal) instead.
-- When describing the function of an interactive element that doesn’t have a text label. Use [Toast](/toast) instead.
+- When describing the function of an interactive element that doesn’t have a text label. Use [Tooltip](/tooltip) instead.
 - When calling a users attention to a feature for the first time. Use [Popover](/popover) instead.
         `}
           />
@@ -55,7 +59,7 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
 <SlimBanner
   type="info"
   message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
-  iconAccessibilityLabel="Information banner"
+  iconAccessibilityLabel="Information"
   helperLink={{
       text: 'Learn more',
       accessibilityLabel: 'Learn more about campaign budget optimization',
@@ -69,12 +73,12 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="lg"
             type="don't"
             description={`
-Use for messages generated in response to user interaction. Use [Toast](/toast) or [Modal](/modal) instead.`}
+Use for messages generated as an immediate response to user interaction. Instead, use [Toast]/toast) for ephemeral messages, and [Modal](/modal) for a message that remains on the screen until it’s dismissed by a user.`}
             defaultCode={`
 <SlimBanner
   type="success"
   message="The Pin was added to your"
-  iconAccessibilityLabel="Information banner"
+  iconAccessibilityLabel="Information"
   helperLink={{
       text: 'Vision Board',
       accessibilityLabel: 'Vision Board',
@@ -92,8 +96,8 @@ Use for messages generated in response to user interaction. Use [Toast](/toast) 
             type="do"
             description="Place SlimBanner near elements of a section that it most relates to"
             defaultCode={`
-<Flex direction="column" width="100%" gap={2}>
-  <PageHeader title="Ads overview"  />
+<Flex direction="column" width="100%" gap={6}>
+  <Text weight="bold" size="500">Ads overview</Text>
   <Module id="doExample" title="Campaign optimization & delivery">
     <Flex direction="column" width="100%" gap={8}>
       <TextField
@@ -145,7 +149,7 @@ Use for messages generated in response to user interaction. Use [Toast](/toast) 
       <SlimBanner
         type="info"
         message="For best conversion campaign performance we recommend setting optimization & delivery at the campaign level so all ad groups have the same values, but you can set them individually."
-        iconAccessibilityLabel="Information banner"
+        iconAccessibilityLabel="Information"
       />
     </Flex>
   </Module>
@@ -159,40 +163,12 @@ Use for messages generated in response to user interaction. Use [Toast](/toast) 
             description={`
 Place SlimBanner at the top of a page and use them for highest-priority messaging. Use [Callout](/callout) instead`}
             defaultCode={`
-<Flex direction="column" width="100%" gap={2}>
-  <PageHeader
-    title="Ads overview"
-    helperLink={{
-      text: "Learn more.",
-      accessibilityLabel: "Learn more Pinterest.com",
-      href: "http://www.pinterest.com",
-      onClick: () => {} }}
-    items={[
-      <Datapoint
-        size="md"
-        title="Impressions"
-        value="$1.25M"
-        trend={{ value: 30, accessibilityLabel: 'Trending up' }}
-      />,
-      <Datapoint
-        size="md"
-        title="Engagement"
-        value="10%"
-        trend={{ value: 5, accessibilityLabel: 'Trending up' }}
-      />
-    ]}
-    primaryAction={{
-      component: <Button color="red" size="lg" text="Create ad" />,
-      dropdownItems: [
-        <Dropdown.Item option={{ value: 'Create ad', label: 'Create ad' }} onSelect={() => {}} />,
-      ],
-    }}
-    dropdownAccessibilityLabel="More options"
-  />
+<Flex direction="column" width="100%" gap={6}>
+  <Text weight="bold" size="500">Ads overview</Text>
   <SlimBanner
   type="error"
   message="There is an issue with your billing account so all ads currently paused."
-  iconAccessibilityLabel="Error banner"
+  iconAccessibilityLabel="Error"
   />
 </Flex>
         `}
@@ -202,25 +178,23 @@ Place SlimBanner at the top of a page and use them for highest-priority messagin
           <MainSection.Card
             cardSize="lg"
             type="do"
-            description={`Use "lite" SlimBanners for dense interfaces where space is an issue.`}
+            description={`Use "bare" SlimBanners for dense interfaces where space is an issue.`}
             defaultCode={`
-<Flex direction="column" width="100%" gap={2}>
-  <PageHeader title="Campaign details" />
-  <Box paddingX={8}>
-    <Flex width="100%" direction="column" gap={4}>
-      <Heading size="400">Campaign name</Heading>
-      <Text>Give your campaign a name. Only you will see what you've named your campaign.</Text>
-      <Heading size="400">Campaign spend limits</Heading>
-      <Text>For video views and web sessions objectives only, campaign spend limits help you control the amount your campaign spends.</Text>
-      <SlimBanner
-        type="warningLite"
-        message="Spend limits may change your overall billing details."
-        iconAccessibilityLabel="Warning banner"
-      />
-      <Heading size="400">Campaign status</Heading>
-      <Text>Set your campaign status to active to begin serving ads as soon as you launch or set your campaign status to paused and activate it later.</Text>
-    </Flex>
-  </Box>
+<Flex direction="column" width="100%" gap={6}>
+  <Text weight="bold" size="500">Campaign details</Text>
+  <Flex width="100%" direction="column" gap={4}>
+    <Heading size="400">Campaign name</Heading>
+    <Text>Give your campaign a name. Only you will see what you've named your campaign.</Text>
+    <Heading size="400">Campaign spend limits</Heading>
+    <Text>For video views and web sessions objectives only, campaign spend limits help you control the amount your campaign spends.</Text>
+    <SlimBanner
+      type="warningBare"
+      message="Spend limits may change your overall billing details."
+      iconAccessibilityLabel="Warning"
+    />
+    <Heading size="400">Campaign status</Heading>
+    <Text>Set your campaign status to active to begin serving ads as soon as you launch or set your campaign status to paused and activate it later.</Text>
+  </Flex>
 </Flex>
         `}
           />
@@ -230,45 +204,85 @@ Place SlimBanner at the top of a page and use them for highest-priority messagin
             description={`
 Use a regular SlimBanner with a background for dense interfaces where space is an issue.`}
             defaultCode={`
-<Flex direction="column" width="100%" gap={2}>
-  <PageHeader title="Campaign details" />
-  <Box paddingX={8}>
-    <Flex width="100%" direction="column" gap={4}>
-      <Heading size="400">Campaign name</Heading>
-      <Text>Give your campaign a name. Only you will see what you've named your campaign.</Text>
-      <Heading size="400">Campaign spend limits</Heading>
-      <Text>For video views and web sessions objectives only, campaign spend limits help you control the amount your campaign spends.</Text>
-      <SlimBanner
-        type="warning"
-        message="Spend limits may change your overall billing details."
-        iconAccessibilityLabel="Warning banner"
-      />
-      <Heading size="400">Campaign status</Heading>
-      <Text>Set your campaign status to active to begin serving ads as soon as you launch or set your campaign status to paused and activate it later.</Text>
-    </Flex>
-  </Box>
+<Flex direction="column" width="100%" gap={6}>
+  <Text weight="bold" size="500">Campaign details</Text>
+  <Flex width="100%" direction="column" gap={4}>
+    <Heading size="400">Campaign name</Heading>
+    <Text>Give your campaign a name. Only you will see what you've named your campaign.</Text>
+    <Heading size="400">Campaign spend limits</Heading>
+    <Text>For video views and web sessions objectives only, campaign spend limits help you control the amount your campaign spends.</Text>
+    <SlimBanner
+      type="warning"
+      message="Spend limits may change your overall billing details."
+      iconAccessibilityLabel="Warning"
+    />
+    <Heading size="400">Campaign status</Heading>
+    <Text>Set your campaign status to active to begin serving ads as soon as you launch or set your campaign status to paused and activate it later.</Text>
+  </Flex>
 </Flex>
         `}
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={1}>
-          <MainSection.Card cardSize="lg" type="do" description="TBD." defaultCode="" />
+          <MainSection.Card
+            cardSize="lg"
+            type="do"
+            description="Strive for using one SlimBanner per section instead of stacking. If SlimBanner must stack, errors and warnings take precedence."
+            defaultCode={`
+<SlimBanner
+  type="info"
+  message="Tag manager can help you optimize your advertiser spend."
+  iconAccessibilityLabel="Information"
+  helperLink={{
+    text: 'Get started',
+    accessibilityLabel: 'Get started with Tag manager',
+    href: 'http://www.pinterest.com',
+    onClick: () => {},
+  }}
+/>
+`}
+          />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description={`
-Stack multiple SlimBanners or combine them with other components like [Callouts](/callout) or [Upsells](/upsell).`}
-            defaultCode=""
+Combine SlimBanners with other components like [Callouts](/callout) or [Upsells](/upsell).`}
+            defaultCode={`
+<Flex width="100%" direction="column" gap={2}>
+  <Callout
+    dismissButton={{
+      accessibilityLabel: 'Dismiss this banner',
+      onDismiss: () => {},
+    }}
+    iconAccessibilityLabel="Info"
+    message="Measure the impact tags have on your business by adding and managing tags"
+    primaryAction={{
+      accessibilityLabel: "Get started with tags",
+      href: "https://pinterest.com",
+      label: "Get started with tags",
+      target: "blank",
+    }}
+    title="Use Tag manager to optimize your advertiser spend"
+    type="info"
+  />
+  <SlimBanner
+    type="warning"
+    message="You haven't added any tags."
+    iconAccessibilityLabel="Warning"
+  />
+</Flex>
+    `}
           />
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Accessibility"
-        description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. They should also be localized.
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. They should also be localized.`}
+          title="Labels"
+        />
+      </MainSection>
 
-`}
-      />
       <MainSection
         name="Localization"
         description={`Remember to localize \`message\`, \`helperLink\` and \`iconAccessibilityLabel\`.
@@ -296,7 +310,7 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
             defaultCode={`
 <Flex direction="column" gap={5} width="100%">
   <SlimBanner type="info" iconAccessibilityLabel="Info" message="Idea Pins are now available across platforms."/>
-  <SlimBanner type="infoLite" iconAccessibilityLabel="Info" message="Idea Pins are now available across platforms."/>
+  <SlimBanner type="infoBare" iconAccessibilityLabel="Info" message="Idea Pins are now available across platforms."/>
 </Flex>
 `}
           />
@@ -310,7 +324,7 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
             defaultCode={`
 <Flex direction="column" gap={5} width="100%">
   <SlimBanner type="success" iconAccessibilityLabel="Info" message="Your ads are doing great! Keep it up by using recommendations to optimize your ad spend."/>
-  <SlimBanner type="successLite" iconAccessibilityLabel="Info" message="Your ads are doing great! Keep it up by using recommendations to optimize your ad spend."/>
+  <SlimBanner type="successBare" iconAccessibilityLabel="Info" message="Your ads are doing great! Keep it up by using recommendations to optimize your ad spend."/>
 </Flex>
 `}
           />
@@ -329,18 +343,18 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
     message="This feature is being sunset and will not be available after May 1, 2024."
     helperLink={{
       text: "Learn more.",
-      accessibilityLabel: "Learn more Pinterest.com",
+      accessibilityLabel: "Learn more about deprecated features",
       href: "http://www.pinterest.com",
       onClick: () => {}
       }}
   />
   <SlimBanner
-    type="warningLite"
+    type="warningBare"
     iconAccessibilityLabel="Info"
     message="This feature is being sunset and will not be available after May 1, 2024."
     helperLink={{
       text: "Learn more.",
-      accessibilityLabel: "Learn more Pinterest.com",
+      accessibilityLabel: "Learn more about deprecated features",
       href: "http://www.pinterest.com",
       onClick: () => {}
       }}
@@ -369,7 +383,7 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
       }}
   />
   <SlimBanner
-    type="errorLite"
+    type="errorBare"
     iconAccessibilityLabel="Info"
     message="There are issues with your account."
     helperLink={{
@@ -384,14 +398,14 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`For dense interfaces and placement inline, next to blocks of text, set SlimBanner to its compact type: “infoLite”, “successLite”, “warningLite”, “errorLite”.`}
+          description="For dense interfaces and placement inline, next to blocks of text, set SlimBanner to its compact type: “infoBare”, “successBare”, “warningBare”, “errorBare”."
           title="Compact"
         >
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={5} width="100%">
-  {['infoLite', 'successLite', 'warningLite', 'errorLite'].map(type => (
+  {['infoBare', 'successBare', 'warningBare', 'errorBare'].map(type => (
     <SlimBanner
       key={type}
       type={type}
@@ -404,7 +418,7 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`The SlimBanner message can be complemented with a helper Link.`}
+          description="The SlimBanner message can be complemented with a helper Link."
           title="helperLink"
         >
           <MainSection.Card
@@ -413,7 +427,7 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
 <SlimBanner
   type="info"
   message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
-  iconAccessibilityLabel="Information banner"
+  iconAccessibilityLabel="Information"
   helperLink={{
       text: 'Learn more',
       accessibilityLabel: 'Learn more about campaign budget optimization',
@@ -441,11 +455,12 @@ Stack multiple SlimBanners or combine them with other components like [Callouts]
             type="don't"
             description={`
 - Write messages that are wordy and take up a lot of space
-- Use exclamation points for warning and error status if the tone isn’t celebratory, for example: “Update your account!”
+- For warnings and errors, exclamation points if the tone isn’t celebratory, for example: “Update your account!”
 `}
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -456,7 +471,7 @@ An Upsell is used to market new features or to encourage a user to try recommend
 Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.
 
 **[Toast](/Toast)**
-Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsells and Banner Alerts, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
+Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsells and SlimBanners, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
 
 **[Tooltip](/Tooltip)**
 Tooltip provides helpful information regarding an interactive UI element, typically an Iconbutton. It is displayed on hover of a UI element, and disappears on mouse out.
