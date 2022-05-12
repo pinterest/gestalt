@@ -34,22 +34,7 @@ const rule: ESLintRule = {
       url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-box-no-disallowed',
     },
     fixable: 'code',
-    schema: [
-      {
-        type: 'object',
-        properties: {
-          excludeTests: {
-            type: 'boolean',
-          },
-          excludePaths: {
-            type: 'array',
-            items: { type: 'string' },
-            uniqueItems: true,
-          },
-        },
-        additionalProperties: false,
-      },
-    ],
+    schema: [],
     messages: {
       disallowedLonelyRef: `Use <Box ref={ref}></Box> or other Gestalt components that support ref.`,
       disallowed: `Use <Box></Box>.`,
@@ -88,21 +73,8 @@ const rule: ESLintRule = {
         ...ignoreEslintPluginJsxA11yConflictingAttributes,
       ];
 
-      const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
-
-      const isTest = excludeTests && context.getFilename().endsWith('.test.js');
-
-      const isExcludedPath =
-        excludePaths?.length !== 0 &&
-        excludePaths?.some((path) => {
-          const pathRegex = new RegExp(`${path}`, 'g');
-          return pathRegex.test(context.getFilename());
-        });
-
       // First, exit if div should stay unmodified
       if (
-        isTest ||
-        isExcludedPath ||
         !isTag({ elementNode: node.openingElement, tagName: 'div' }) ||
         hasSpreadAttributes({ elementNode: node.openingElement }) ||
         hasAttributes({

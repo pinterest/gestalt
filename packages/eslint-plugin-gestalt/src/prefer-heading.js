@@ -37,22 +37,7 @@ const rule: ESLintRule = {
       url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-link',
     },
     fixable: 'code',
-    schema: [
-      {
-        type: 'object',
-        properties: {
-          excludeTests: {
-            type: 'boolean',
-          },
-          excludePaths: {
-            type: 'array',
-            items: { type: 'string' },
-            uniqueItems: true,
-          },
-        },
-        additionalProperties: false,
-      },
-    ],
+    schema: [],
     messages: {
       fixMessageHeading: MESSAGES.fixMessageHeading,
       suggestionMessageA11yLevelNone: MESSAGES.suggestionMessageA11yLevelNone,
@@ -79,21 +64,8 @@ const rule: ESLintRule = {
     const jSXElementFnc = (node) => {
       const headingDisallowedAttributes = ['className'];
 
-      const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
-
-      const isTest = excludeTests && context.getFilename().endsWith('.test.js');
-
-      const isExcludedPath =
-        excludePaths?.length !== 0 &&
-        excludePaths?.some((path) => {
-          const pathRegex = new RegExp(`${path}`, 'g');
-          return pathRegex.test(context.getFilename());
-        });
-
       // First, exit if anchor tag should stay unmodified
       if (
-        isTest ||
-        isExcludedPath ||
         !isTag({ elementNode: node.openingElement, tagName: headingTags }) ||
         hasSpreadAttributes({ elementNode: node.openingElement }) ||
         hasAttributes({
