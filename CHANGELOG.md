@@ -1,3 +1,9 @@
+## 55.1.1 (May 12, 2022)
+
+### Patch
+
+- Datapoint: add prop to set z-index on integrated tooltip (#2115)
+
 ## 55.1.0 (May 12, 2022)
 
 ### Minor
