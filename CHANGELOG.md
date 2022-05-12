@@ -1,3 +1,9 @@
+## 55.1.0 (May 12, 2022)
+
+### Minor
+
+- ComboBox: add `zIndex` prop (#2117)
+
 ## 55.0.0 (May 12, 2022)
 
 ### Major
