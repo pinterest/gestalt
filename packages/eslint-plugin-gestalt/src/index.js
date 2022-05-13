@@ -1,6 +1,5 @@
 // @flow strict
 /* eslint-disable import/no-import-module-exports */
-import buttonIconRestrictions from './button-icon-restrictions.js';
 import noBoxDangerousStyleDuplicates from './no-box-dangerous-style-duplicates.js';
 import noBoxDisallowedProps from './no-box-disallowed-props.js';
 import noBoxUselessProps from './no-box-useless-props.js';
@@ -17,7 +16,6 @@ import preferLink from './prefer-link.js';
 
 module.exports = {
   rules: {
-    'button-icon-restrictions': buttonIconRestrictions,
     'no-box-disallowed-props': noBoxDisallowedProps,
     'no-box-useless-props': noBoxUselessProps,
     'no-box-marginleft-marginright': noBoxMarginleftMarginright,

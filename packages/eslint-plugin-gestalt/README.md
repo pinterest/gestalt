@@ -40,14 +40,6 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-### gestalt/button-icon-restrictions
-
-Require specific props when using an icon with Button. Gestalt is more permissive than PDS recommends in adding icons to Buttons. Buttons using iconEnd must use:
-
-- icon "arrow-down"
-- color "white"
-- size "lg"
-
 ### gestalt/no-box-marginleft-marginright
 
 Disallow marginLeft/marginRight on Box. In order to have consistent usage of marginLeft/marginRight on Box in production, we update all of them to marginStart/marginEnd
