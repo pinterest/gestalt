@@ -1,3 +1,9 @@
+## 55.1.2 (May 13, 2022)
+
+### Patch
+
+- Icons: Update heart-outline svg (#2118)
+
 ## 55.1.1 (May 12, 2022)
 
 ### Patch
