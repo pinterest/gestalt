@@ -1,3 +1,9 @@
+## 55.2.0 (May 13, 2022)
+
+### Minor
+
+- SlimBanner, Callout: new SlimBanner component, fix darkMode Callout (#2108)
+
 ## 55.1.2 (May 13, 2022)
 
 ### Patch
