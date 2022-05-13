@@ -2,12 +2,7 @@
 
 exports[`<Callout /> Error Callout 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#FDEBEE",
-    }
-  }
+  className="box errorWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -62,12 +57,7 @@ exports[`<Callout /> Error Callout 1`] = `
 
 exports[`<Callout /> Info Callout 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -86,7 +76,7 @@ exports[`<Callout /> Info Callout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon shoppingIcon iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -122,12 +112,7 @@ exports[`<Callout /> Info Callout 1`] = `
 
 exports[`<Callout /> Warning Callout 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#FDF5EC",
-    }
-  }
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 warningWeak xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -182,12 +167,7 @@ exports[`<Callout /> Warning Callout 1`] = `
 
 exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -206,7 +186,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon shoppingIcon iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -335,12 +315,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
 
 exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -359,7 +334,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon shoppingIcon iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -470,12 +445,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
 
 exports[`<Callout /> message + title + primaryAction with href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -494,7 +464,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon shoppingIcon iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -574,12 +544,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
 
 exports[`<Callout /> message + title + primaryAction without href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -598,7 +563,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon shoppingIcon iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -676,12 +641,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
 
 exports[`<Callout /> message + title 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -700,7 +660,7 @@ exports[`<Callout /> message + title 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon shoppingIcon iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"

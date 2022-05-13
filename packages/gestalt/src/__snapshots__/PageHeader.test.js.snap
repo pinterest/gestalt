@@ -701,7 +701,6 @@ exports[`PageHeader renders subtext 1`] = `
                         className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                       >
                         5 followers
-                         
                       </span>
                     </div>
                   </div>
@@ -836,7 +835,6 @@ exports[`PageHeader renders within a max width 1`] = `
                         className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                       >
                         5 followers
-                         
                       </span>
                     </div>
                   </div>

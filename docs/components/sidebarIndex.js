@@ -109,6 +109,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Module',
       'Popover',
       'Sheet',
+      'SlimBanner',
       'Status',
       'Toast',
       'Tooltip',

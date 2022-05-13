@@ -275,6 +275,13 @@ const GENERAL: ListItemType = [
       "Spinner helps indicate that a surface's content or portion of content is currently loading.",
     category: 'Loading',
   },
+
+  {
+    svg: <Callout />,
+    name: 'SlimBanner',
+    description: 'SlimBanner conveys brief information related to a specific section of a page.',
+    category: 'Messaging',
+  },
   {
     svg: <Status />,
     name: 'Status',
