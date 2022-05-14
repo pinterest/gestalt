@@ -31,7 +31,7 @@ export default function DocsPage({
             <Module.Expandable
             accessibilityExpandLabel="Expand the module"
             accessibilityCollapseLabel="Collapse the module"
-            id="ModuleExample - default"
+            id="ModuleExample - header expandable"
             items={[
               {
                 children: <Text size="200">Content here</Text>,
