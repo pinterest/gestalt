@@ -81,7 +81,7 @@ export default function ModuleExpandable({
   );
 
   return (
-    <Box borderStyle="shadow" rounding={4}>
+    <Box borderStyle="shadow" color="elevationFloating" rounding={4}>
       {items.map(
         (
           { badge, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },
