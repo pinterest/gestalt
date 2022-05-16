@@ -1,3 +1,9 @@
+## 55.2.2 (May 16, 2022)
+
+### Patch
+
+- Eslint: Loosen Button iconEnd restrictions (#2121)
+
 ## 55.2.1 (May 16, 2022)
 
 ### Patch
