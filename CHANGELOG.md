@@ -1,3 +1,9 @@
+## 55.2.1 (May 16, 2022)
+
+### Patch
+
+- Module: Update for dark mode support (#2120)
+
 ## 55.2.0 (May 13, 2022)
 
 ### Minor
