@@ -11,15 +11,6 @@ const validWithSize = readFileSync(
   path.resolve(__dirname, './__fixtures__/button-icon-restrictions/valid/valid-size.js'),
   'utf-8',
 );
-
-const invalidMissingColor = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-no-color.js'),
-  'utf-8',
-);
-const invalidWrongColor = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-color.js'),
-  'utf-8',
-);
 const invalidRenamed = readFileSync(
   path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-renamed.js'),
   'utf-8',
@@ -28,25 +19,13 @@ const invalidWrongIcon = readFileSync(
   path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-icon.js'),
   'utf-8',
 );
-const invalidWrongSize = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-size.js'),
-  'utf-8',
-);
-const invalidWithoutSize = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-no-size.js'),
-  'utf-8',
-);
 
 const errorMessage = 'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"';
 
 ruleTester.run('button-icon-restrictions', rule, {
   valid: [validWithSize].map((code) => ({ code })),
-  invalid: [
-    invalidMissingColor,
-    invalidWrongColor,
-    invalidRenamed,
-    invalidWrongIcon,
-    invalidWrongSize,
-    invalidWithoutSize,
-  ].map((code) => ({ code, errors: [{ message: errorMessage }] })),
+  invalid: [invalidRenamed, invalidWrongIcon].map((code) => ({
+    code,
+    errors: [{ message: errorMessage }],
+  })),
 });
