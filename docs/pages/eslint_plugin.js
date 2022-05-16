@@ -83,15 +83,12 @@ With AUTOFIX!
       </MainSection>
       <MainSection
         name="Gestalt restrictions"
-        description="The following Eslint rules restrict the usage of Gestalt component props to enforce design consistency and code safety anf best practices."
+        description="The following Eslint rules restrict the usage of Gestalt component props to enforce design consistency, code safety and best practices."
       >
         <MainSection.Subsection
           title="gestalt/button-icon-restrictions"
           description={`
-        Require specific props when using an icon with Button. Gestalt recommends in adding icons to Buttons. Buttons using \`iconEnd\` must use:
-        * icon &quot;arrow-down&quot;
-        * color &quot;white&quot;
-        * size &quot;lg&quot;
+        Require a specific icon when using an icon with Button. Buttons using \`iconEnd\` must use icon &quot;arrow-down&quot;
       `}
         />
         <MainSection.Subsection
