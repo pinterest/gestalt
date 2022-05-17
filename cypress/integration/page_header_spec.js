@@ -10,7 +10,10 @@ describe('Page Headers', () => {
   it('navigates to the development page', () => {
     cy.contains('a', 'Development').click();
     cy.url().should('match', /development/);
-    cy.get('.docSearch-content h1').invoke('text').invoke('trim').should('equal', 'Development');
+    cy.get('.docSearch-content h1').should(($h1) => {
+      const trimmedText = $h1.text().trim();
+      expect(trimmedText).to.equal('Development');
+    });
     cy.url().should('include', Cypress.config('baseUrl'));
   });
 });

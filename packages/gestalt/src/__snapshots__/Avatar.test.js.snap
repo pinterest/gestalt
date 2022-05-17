@@ -577,9 +577,7 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
           fill="#111"
           fontSize="40px"
           textAnchor="middle"
-        >
-          
-        </text>
+        />
       </svg>
     </div>
   </div>

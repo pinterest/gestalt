@@ -126,8 +126,9 @@
         "scripts/templates/accessibility_ComponentName_spec.js"
       ],
       "rules": {
+        "flowtype/require-valid-file-annotation": "off",
         "jest/expect-expect": "off",
-        "flowtype/require-valid-file-annotation": "off"
+        "jest/valid-expect": "off"
       }
     }
   ]
