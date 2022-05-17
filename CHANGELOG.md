@@ -1,3 +1,9 @@
+## 56.0.0 (May 17, 2022)
+
+### Major
+
+- Internal: upgrade to React 18 (#2104)
+
 ## 55.2.2 (May 16, 2022)
 
 ### Patch
