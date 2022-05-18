@@ -74,7 +74,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Controls',
-    pages: ['Checkbox', 'RadioGroup', 'Switch'],
+    pages: ['Checkbox', 'RadioButton', 'RadioGroup', 'Switch'],
   },
   {
     sectionName: 'Data',

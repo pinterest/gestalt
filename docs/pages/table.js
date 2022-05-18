@@ -1174,7 +1174,7 @@ function MainExample() {
               <Text weight="bold">Open/Close row</Text>
             </Box>
           </Table.HeaderCell>
-          {['Campaing', 'Status', 'Budget', 'Scope'].map((title, idx) => (
+          {['Campaign', 'Status', 'Budget', 'Scope'].map((title, idx) => (
             <Table.HeaderCell key={idx}>
               <Text weight="bold">{title}</Text>
             </Table.HeaderCell>
