@@ -20,7 +20,16 @@ npm i gestalt --save
 or
 ~~~jsx
 yarn add gestalt
-~~~"
+~~~
+To install the DatePicker package:
+~~~jsx
+npm i gestalt-datepicker --save
+~~~
+or
+~~~jsx
+yarn add gestalt-datepicker
+~~~
+"
           />
         </Flex>
       </Card>
