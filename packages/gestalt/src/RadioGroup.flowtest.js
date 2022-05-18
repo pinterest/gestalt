@@ -2,7 +2,7 @@
 import RadioGroup from './RadioGroup.js';
 
 const Valid = (
-  <RadioGroup legend="testing">
+  <RadioGroup legend="testing" id="testing-valid">
     <div>hello</div>
   </RadioGroup>
 );

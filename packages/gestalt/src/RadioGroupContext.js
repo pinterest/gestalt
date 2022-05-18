@@ -3,12 +3,10 @@ import { createContext, useContext, type Context } from 'react';
 
 type RadioGroupContextType = {|
   parentName: string,
-  hasError?: boolean,
 |};
 
 const initialContextState = {
   parentName: '',
-  hasError: false,
 };
 
 const context: Context<RadioGroupContextType> =
@@ -17,8 +15,8 @@ const context: Context<RadioGroupContextType> =
 const RadioGroupContextProvider = context.Provider;
 
 function useRadioGroupContext(): RadioGroupContextType {
-  const { parentName } = useContext(context);
-  return { parentName };
+  const contextContent = useContext(context);
+  return contextContent;
 }
 
 export { RadioGroupContextProvider, useRadioGroupContext };

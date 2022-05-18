@@ -15,7 +15,7 @@ describe('RadioGroup', () => {
 
   it('renders a hidden legend', () => {
     const tree = create(
-      <RadioGroup legend="testing" legendDisplay="hidden">
+      <RadioGroup legend="testing" legendDisplay="hidden" id="hiddenEx">
         <RadioButton id="choice-1" onChange={() => {}} name="choice" value="choice-1" />
       </RadioGroup>,
     ).toJSON();
@@ -24,7 +24,7 @@ describe('RadioGroup', () => {
 
   it('renders an error', () => {
     const tree = create(
-      <RadioGroup legend="testing" errorMessage="please pick one" id="testing">
+      <RadioGroup legend="testing" errorMessage="please pick one" id="testingErrorEx">
         <RadioButton id="choice-1" onChange={() => {}} name="choice" value="choice-1" />
       </RadioGroup>,
     ).toJSON();

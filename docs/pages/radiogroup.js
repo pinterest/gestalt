@@ -13,22 +13,22 @@ export default function DocsPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="RadioGroup">
+    <Page title={generatedDocGen.RadioGroup.displayName}>
       <PageHeader
-        name="RadioGroup"
+        name={generatedDocGen.RadioGroup.displayName}
         description={generatedDocGen.RadioGroup?.description}
         defaultCode={`
       function RadioButtonExample() {
-        const [favorite, setFavorite] = React.useState(undefined);
+        const [favorite, setFavorite] = React.useState();
 
         return (
-          <RadioGroup legend="Gender">
+          <RadioGroup legend="Gender" id="header-example">
             <RadioGroup.RadioButton
               checked={favorite === 'Female'}
               id="genderFemale"
               label="Female"
               name="gender-pref"
-              onChange={() => setFavorite( 'Female' )}
+              onChange={() => setFavorite('Female')}
               value="Female"
             />
             <RadioGroup.RadioButton
@@ -36,7 +36,7 @@ export default function DocsPage({
               id="genderMale"
               label="Male"
               name="gender-pref"
-              onChange={() => setFavorite( 'Male' )}
+              onChange={() => setFavorite('Male')}
               value="Male"
             />
             <RadioGroup.RadioButton
@@ -44,7 +44,7 @@ export default function DocsPage({
               id="genderNon-binary"
               label="Non-binary"
               name="gender-pref"
-              onChange={() => setFavorite( 'Non-binary' )}
+              onChange={() => setFavorite('Non-binary')}
               value="Non-binary"
             />
             <RadioGroup.RadioButton
@@ -52,7 +52,7 @@ export default function DocsPage({
               id="genderPrefer not to state"
               label="Prefer not to state"
               name="gender-pref"
-              onChange={() => setFavorite( 'Prefer not to state' )}
+              onChange={() => setFavorite('Prefer not to state')}
               value="Prefer not to state"
             />
           </RadioGroup>
@@ -62,12 +62,19 @@ export default function DocsPage({
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.RadioGroup} />
-      <GeneratedPropTable
-        Component={RadioGroup?.RadioButton}
-        name="RadioGroup.RadioButton"
-        id="RadioGroup.RadioButton"
-        generatedDocGen={generatedDocGen.RadioGroupButton}
-      />
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.RadioGroupButton.displayName}
+          description={generatedDocGen?.RadioGroupButton.description}
+        >
+          <GeneratedPropTable
+            Component={RadioGroup?.RadioButton}
+            name="RadioGroup.RadioButton"
+            id="RadioGroup.RadioButton"
+            generatedDocGen={generatedDocGen.RadioGroupButton}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -76,8 +83,8 @@ export default function DocsPage({
             type="do"
             title="When to use"
             description={`
-          - In a list, form or a Table, to present users with multiple, related options where only one option can be selected.
-          - When selection doesn’t take immediate effect and requires Form submission.
+          - In a list, form or table, to present users with multiple, related options where only one option can be selected.
+          - When selection doesn’t take immediate effect and requires form submission.
         `}
           />
           <MainSection.Card
@@ -88,7 +95,7 @@ export default function DocsPage({
           - Situations where users can select multiple options. Use [Checkbox](/checkbox) instead.
           - When there is only one item to select or deselect. Use Checkbox instead.
           - When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.
-          - When visually, it’s hard to tell that a RadioGroup turns something on or off. Use Switch instead.
+          - When it is visually difficult to observe that RadioGroup turns something on or off. Use Switch instead.
         `}
           />
         </MainSection.Subsection>
@@ -101,7 +108,7 @@ export default function DocsPage({
         />
         <MainSection.Subsection
           title="Legends"
-          description={`Each RadioGroup should have a legend that clearly delineates what is being chosen. If you cannot use the provided legend styling, \`legendDisplay\` can be set to \`hidden\`, and an alternative legend can be displayed.`}
+          description={`Each RadioGroup should have a \`legend\` that clearly delineates what is being chosen. If you cannot use the provided legend styling, \`legendDisplay\` can be set to \`hidden\`, and an alternative legend can be displayed. See the [legend visibility](#Legend-visibility) variant for an example.`}
         />
         <MainSection.Subsection
           title="Keyboard interaction"
@@ -126,18 +133,18 @@ export default function DocsPage({
           <MainSection.Card
             defaultCode={`
 function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState(undefined);
-  const [favoriteFood, setFavoriteFood] = React.useState(undefined);
+  const [favorite, setFavorite] = React.useState();
+  const [favoriteFood, setFavoriteFood] = React.useState();
 
   return (
     <Flex gap={8}>
-      <RadioGroup legend="What is your favorite pet?">
+      <RadioGroup legend="What is your favorite pet?" id="directionExample-1">
         <RadioGroup.RadioButton
           checked={favorite === 'dogs'}
           id="favoriteDog"
           label="Dogs"
           name="favorite"
-          onChange={() => setFavorite( 'dogs' )}
+          onChange={() => setFavorite('dogs')}
           value="dogs"
         />
         <RadioGroup.RadioButton
@@ -145,7 +152,7 @@ function RadioButtonExample() {
           id="favoriteCat"
           label="Cats"
           name="favorite"
-          onChange={() => setFavorite( 'cats' )}
+          onChange={() => setFavorite('cats')}
           value="cats"
         />
         <RadioGroup.RadioButton
@@ -153,18 +160,18 @@ function RadioButtonExample() {
           id="favoritePlants"
           label="Plants"
           name="favorite"
-          onChange={() => setFavorite( 'plants' )}
+          onChange={() => setFavorite('plants')}
           value="plants"
         />
       </RadioGroup>
 
-      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" direction="row" id="directionExample>
+      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" direction="row" id="directionExample">
         <RadioGroup.RadioButton
           checked={favoriteFood === 'pizza'}
           id="favoritePizza"
           label="Pizza"
           name="favoriteFood"
-          onChange={() => setFavoriteFood( 'pizza' )}
+          onChange={() => setFavoriteFood('pizza')}
           value="pizza"
         />
         <RadioGroup.RadioButton
@@ -172,7 +179,7 @@ function RadioButtonExample() {
           id="favoriteCurry"
           label="Curry"
           name="favoriteFood"
-          onChange={() => setFavoriteFood( 'curry' )}
+          onChange={() => setFavoriteFood('curry')}
           value="curry"
         />
         <RadioGroup.RadioButton
@@ -180,7 +187,7 @@ function RadioButtonExample() {
           id="favoriteSushi"
           label="Sushi"
           name="favoriteFood"
-          onChange={() => setFavoriteFood( 'sushi' )}
+          onChange={() => setFavoriteFood('sushi')}
           value="sushi"
         />
       </RadioGroup>
@@ -192,13 +199,13 @@ function RadioButtonExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Size"
-          description="RadioButtons can be either `sm` (16px) or `md` (24px) which is the default."
+          description="RadioButtons can be either `sm` (16px) or `md` (24px), which is the default."
         >
           <MainSection.Card
             defaultCode={`
 function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState(undefined);
-  const [favoriteFood, setFavoriteFood] = React.useState(undefined);
+  const [favorite, setFavorite] = React.useState();
+  const [favoriteFood, setFavoriteFood] = React.useState();
 
   return (
     <Flex gap={8}>
@@ -208,7 +215,7 @@ function RadioButtonExample() {
           id="favoriteSizePizzaSm"
           label="Pizza"
           name="favoriteFoodSm"
-          onChange={() => setFavorite( 'pizza' )}
+          onChange={() => setFavorite('pizza')}
           value="pizza"
           size="sm"
         />
@@ -217,7 +224,7 @@ function RadioButtonExample() {
           id="favoriteSizeCurrySm"
           label="Curry"
           name="favoriteFoodSm"
-          onChange={() => setFavorite( 'curry' )}
+          onChange={() => setFavorite('curry')}
           value="curry"
           size="sm"
         />
@@ -226,7 +233,7 @@ function RadioButtonExample() {
           id="favoriteSizeSushiSm"
           label="Sushi"
           name="favoriteFoodSm"
-          onChange={() => setFavorite( 'sushi' )}
+          onChange={() => setFavorite('sushi')}
           value="sushi"
           size="sm"
         />
@@ -238,7 +245,7 @@ function RadioButtonExample() {
           id="favoriteSizePizza"
           label="Pizza"
           name="favoriteFood"
-          onChange={() => setFavoriteFood( 'pizza' )}
+          onChange={() => setFavoriteFood('pizza')}
           value="pizza"
         />
         <RadioGroup.RadioButton
@@ -246,7 +253,7 @@ function RadioButtonExample() {
           id="favoriteSizeCurry"
           label="Curry"
           name="favoriteFood"
-          onChange={() => setFavoriteFood( 'curry' )}
+          onChange={() => setFavoriteFood('curry')}
           value="curry"
         />
         <RadioGroup.RadioButton
@@ -254,7 +261,7 @@ function RadioButtonExample() {
           id="favoriteSizeSushi"
           label="Sushi"
           name="favoriteFood"
-          onChange={() => setFavoriteFood( 'sushi' )}
+          onChange={() => setFavoriteFood('sushi')}
           value="sushi"
         />
       </RadioGroup>
@@ -271,16 +278,16 @@ function RadioButtonExample() {
           <MainSection.Card
             defaultCode={`
 function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState(undefined);
+  const [favorite, setFavorite] = React.useState();
 
   return (
-      <RadioGroup legend="Which state is your favorite?" direction="row">
+      <RadioGroup legend="Which state is your favorite?" direction="row" id="rowExample">
         <RadioGroup.RadioButton
           checked={false}
           id="unchecked"
           label="Unchecked"
           name="stateExample"
-          onChange={() => setFavorite( 'unchecked' )}
+          onChange={() => setFavorite('unchecked')}
           value="unchecked"
         />
         <RadioGroup.RadioButton
@@ -288,24 +295,24 @@ function RadioButtonExample() {
           id="checked"
           label="Checked"
           name="stateExample"
-          onChange={() => setFavorite( 'checked' )}
+          onChange={() => setFavorite('checked')}
           value="checked"
         />
         <RadioGroup.RadioButton
           checked={false}
           id="uncheckedDisabled"
-          label="Unchecked but disabled"
+          label="Unchecked and disabled"
           name="stateExample"
-          onChange={() => setFavorite( 'uncheckedDisabled' )}
+          onChange={() => setFavorite('uncheckedDisabled')}
           value="uncheckedDisabled"
           disabled
         />
         <RadioGroup.RadioButton
           checked={true}
           id="checkedDisabled"
-          label="Checked but disabled"
+          label="Checked and disabled"
           name="stateExample"
-          onChange={() => setFavorite( 'checkedDisabled' )}
+          onChange={() => setFavorite('checkedDisabled')}
           value="checkedDisabled"
           disabled
         />
@@ -315,21 +322,24 @@ function RadioButtonExample() {
         `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="With subtext">
+        <MainSection.Subsection
+          title="With subtext"
+          description="Use `subtext` to provide extra context or information for each option."
+        >
           <MainSection.Card
             defaultCode={`
 function RadioButtonExample() {
-  const [availability, setAvailability] = React.useState(undefined);
+  const [availability, setAvailability] = React.useState();
 
   return (
-    <RadioGroup legend="Which time slot works best for you?">
+    <RadioGroup legend="Which time slot works best for you?" id="subtextExample">
         <RadioGroup.RadioButton
           checked={availability === 'monday'}
           id="monday"
           label="Monday"
           subtext="Morning and afternoon"
           name="Availability"
-          onChange={() => setAvailability( 'monday' )}
+          onChange={() => setAvailability('monday')}
           value="monday"
         />
         <RadioGroup.RadioButton
@@ -338,7 +348,7 @@ function RadioButtonExample() {
           label="Tuesday"
           subtext="Morning, afternoon, and evening"
           name="Availability"
-          onChange={() => setAvailability( 'tuesday' )}
+          onChange={() => setAvailability('tuesday')}
           value="tuesday"
         />
         <RadioGroup.RadioButton
@@ -347,7 +357,7 @@ function RadioButtonExample() {
           label="Wednesday"
           subtext="Evening only"
           name="Availability"
-          onChange={() => setAvailability( 'wednesday' )}
+          onChange={() => setAvailability('wednesday')}
           value="wednesday"
         />
     </RadioGroup>
@@ -358,15 +368,15 @@ function RadioButtonExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="With Image"
-          description="When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context."
+          description="When including images, you can use the `subtext` property to clearly describe the information being presented by the image, or use the image's `alt` text to provide more context."
         >
           <MainSection.Card
             defaultCode={`
 function RadioButtonExample() {
-  const [artPreference, setArtPreference] = React.useState(undefined);
+  const [artPreference, setArtPreference] = React.useState();
 
   return (
-    <RadioGroup legend="Pick a placeholder image">
+    <RadioGroup legend="Pick a placeholder image" id="imageExample">
       <RadioGroup.RadioButton
         checked={artPreference === 'coral'}
         id="coral"
@@ -375,7 +385,7 @@ function RadioButtonExample() {
         image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
 
         name="Art Preference"
-        onChange={() => setArtPreference( 'coral' )}
+        onChange={() => setArtPreference('coral')}
         value="coral"
       />
       <RadioGroup.RadioButton
@@ -385,7 +395,7 @@ function RadioButtonExample() {
         subtext="Typography and shoe in blue"
         image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
         name="Art Preference"
-        onChange={() => setArtPreference( 'blue' )}
+        onChange={() => setArtPreference('blue')}
         value="blue"
       />
       <RadioGroup.RadioButton
@@ -395,7 +405,7 @@ function RadioButtonExample() {
         subtext="Abstract art in green"
         image={<Box height={100} width={80}><Image alt="Abstract art in green" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
         name="Art Preference"
-        onChange={() => setArtPreference( 'green' )}
+        onChange={() => setArtPreference('green')}
         value="green"
       />
     </RadioGroup>
@@ -406,12 +416,12 @@ function RadioButtonExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="With an error"
-          description="Use `errorMessage` to show an error message below the radio options. Be sure to add `id` as well in order to properly link the message to the RadioGroup."
+          description="Use `errorMessage` to show an error message below the radio options."
         >
           <MainSection.Card
             defaultCode={`
 function RadioButtonExample() {
-  const [availability, setAvailability] = React.useState(undefined);
+  const [availability, setAvailability] = React.useState();
 
   return (
     <RadioGroup legend="Which time slot works best for you?" errorMessage="Please select one" id="VariantWithErrorMessage">
@@ -421,7 +431,7 @@ function RadioButtonExample() {
           label="Monday"
           subtext="Morning and afternoon"
           name="Availability with error"
-          onChange={() => setAvailability( 'monday' )}
+          onChange={() => setAvailability('monday')}
           value="monday"
         />
         <RadioGroup.RadioButton
@@ -430,7 +440,7 @@ function RadioButtonExample() {
           label="Tuesday"
           subtext="Morning, afternoon, and evening"
           name="Availability with error"
-          onChange={() => setAvailability( 'tuesday' )}
+          onChange={() => setAvailability('tuesday')}
           value="tuesday"
         />
         <RadioGroup.RadioButton
@@ -439,7 +449,7 @@ function RadioButtonExample() {
           label="Wednesday"
           subtext="Evening only"
           name="Availability with error"
-          onChange={() => setAvailability( 'wednesday' )}
+          onChange={() => setAvailability('wednesday')}
           value="wednesday"
         />
     </RadioGroup>
@@ -451,15 +461,15 @@ function RadioButtonExample() {
         <MainSection.Subsection
           title="Legend visibility"
           description={`
-            By default, the legend is visible above the items in the RadioGroup. However, if the form items are labeled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the legend. In this case, it is still available to screen reader users, but will not appear visually on the screen.
+            By default, the \`legend\` is visible above the items in the RadioGroup. However, if the form items are labeled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the \`legend\`. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
-            In the example below, the "Primary company account goal" text is acting as a heading and a legend for the radio buttons, so instead of repeating another legend, we visually hide the RadioGroup \`legend\`. When a user focuses on the first radio, a screen reader will announce "Sell more products, radio button, 1 of 3, Primary company account goal?, group".
+            In the example below, the "Primary company account goal" text is acting as a heading and a legend for the radio buttons, so instead of repeating another legend, we visually hide the RadioGroup \`legend\`. When a user focuses on the first radio, a screen reader will announce "Sell more products, radio button, 1 of 3, Primary company account goal, group".
         `}
         >
           <MainSection.Card
             defaultCode={`
 function RadioButtonExample() {
-  const [goal, setGoal] = React.useState(undefined);
+  const [goal, setGoal] = React.useState();
 
   return (
     <Flex direction="column" gap={4}>
@@ -474,13 +484,13 @@ function RadioButtonExample() {
           </Text>
         </Text>
       </Flex>
-      <RadioGroup legend="Primary company account goal?" legendDisplay="hidden">
+      <RadioGroup legend="Primary company account goal" legendDisplay="hidden" id="legendExample">
         <RadioGroup.RadioButton
           checked={goal === "sell"}
           id="sell"
           label="Sell more products"
           name="account goals"
-          onChange={() => setGoal( 'sell' )}
+          onChange={() => setGoal('sell')}
           value="sell"
         />
         <RadioGroup.RadioButton
@@ -488,7 +498,7 @@ function RadioButtonExample() {
           id="leads"
           label="Generate more leads for the company"
           name="account goals"
-          onChange={() => setGoal( 'leads' )}
+          onChange={() => setGoal('leads')}
           value="leads"
         />
         <RadioGroup.RadioButton
@@ -496,7 +506,7 @@ function RadioButtonExample() {
           id="interest"
           label="Create content on Pinterest to attract an audience"
           name="account goals"
-          onChange={() => setGoal( 'interest' )}
+          onChange={() => setGoal('interest')}
           value="interest"
         />
       </RadioGroup>
@@ -508,7 +518,7 @@ function RadioButtonExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Using ref"
-          description={`The innermost \`RadioButton\` element can be accessed via \`ref\``}
+          description={`The actual \`<input/>\` within the \`RadioButton\` element can be accessed via \`ref\`.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -537,7 +547,7 @@ function RadioButtonExample() {
           <Text>Toggle RadioButton to small size</Text>
         </Flex>
       </Label>
-      <RadioGroup legend="Ref example" legendDisplay="hidden">
+      <RadioGroup legend="Ref example" legendDisplay="hidden" id="refExample">
         <RadioGroup.RadioButton
           id="sizing"
           checked={false}
@@ -556,7 +566,7 @@ function RadioButtonExample() {
         <MainSection.Subsection
           title="Adding a Popover"
           description={`
-    A \`RadioButton\` with an anchor ref to a Popover component doesn't pass the correct positioning to the Popover. Instead set the anchor ref to the parent container.
+    \`RadioButton\` with an anchor ref to a Popover component doesn't pass the correct positioning to the Popover. Instead set the anchor ref to the parent container.
   `}
         >
           <MainSection.Card
@@ -569,7 +579,7 @@ function RadioButtonPopoverExample() {
   const anchorDogRef = React.useRef();
 
   return (
-    <RadioGroup legend="Tell us about yourself">
+    <RadioGroup legend="Tell us about yourself" id="popoverExample">
       <Box display="inlineBlock" ref={anchorCatRef}>
         <RadioGroup.RadioButton
           id="cat"
@@ -619,8 +629,8 @@ function RadioButtonPopoverExample() {
                   underline="always"
                 >
                   { option === "cat"
-                      ? "Check cats on Pinterest!"
-                      : "Check dogs on Pinterest!"
+                      ? "Check out cats on Pinterest!"
+                      : "Check out dogs on Pinterest!"
                   }
                 </Link>
               </Text>
@@ -641,17 +651,17 @@ function RadioButtonPopoverExample() {
             cardSize="md"
             type="do"
             description={`
-            - Be brief with RadioGroup button labels so they are easily scanned
-            - Error messages should be simple, clear and direct without negative, overly clever and technical language
-            - A good error message: “To continue you must select one item from this list”`}
+            - Be brief with RadioGroup button labels so they are easily scanned.
+            - Error messages should be simple, clear and direct without negative, overly clever and technical language.
+            - A good error message: “To continue you must select one item from this list.”`}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description={`
-            - Include lengthy text labels that make it hard for a user to scan a list of choices
-            - Write error messages that are overly-technical, long, negative, and too clever
-            - A not-so-great error message: “Hey there, nice try, but not selecting something is baaaad. Bad as in bad. Per error code i-five, you must select a choice from this boolean”`}
+            - Include lengthy text labels that make it hard for a user to scan a list of choices.
+            - Write error messages that are overly-technical, long, negative, and too clever.
+            - A not-so-great error message: “Hey there, nice try, but not selecting something is baaaad. Bad as in bad. Per error code i-five, you must select a choice from this boolean”.`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -666,7 +676,7 @@ function RadioButtonPopoverExample() {
         <MainSection.Subsection
           description={`
     **[Switch](/Switch)**
-    Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm Form submission.
+    Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm form submission.
 `}
         />
         <MainSection.Subsection
