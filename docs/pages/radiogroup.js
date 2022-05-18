@@ -101,7 +101,7 @@ export default function DocsPage({
         />
         <MainSection.Subsection
           title="Legends"
-          description={`All RadioGroup should have a legend that clearly delineates what is being chosen. If you cannot use the provided legend styling, \`legendVisibility\` can be set to \`hidden\`, and an alternative legend can be displayed.`}
+          description={`Each RadioGroup should have a legend that clearly delineates what is being chosen. If you cannot use the provided legend styling, \`legendDisplay\` can be set to \`hidden\`, and an alternative legend can be displayed.`}
         />
         <MainSection.Subsection
           title="Keyboard interaction"
