@@ -64,18 +64,24 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use a label to give the Switch context when possible."
             defaultCode={`
-<Flex gap={2} alignItems="center" width="100%" maxWidth={300}>
-  <Flex.Item flex="grow">
-    <Label htmlFor="showsecretboards">
-      <Text weight="bold">Make this board secret</Text>
-    </Label>
-  </Flex.Item>
-  <Switch
-    onChange={() => {}}
-    id="showsecretboards"
-    switched={true}
-  />
-</Flex>
+function SwitchExample() {
+  const [switched, setSwitched] = React.useState(true);
+
+  return (
+    <Flex gap={2} alignItems="center" width="100%" maxWidth={300}>
+      <Flex.Item flex="grow">
+        <Label htmlFor="makesecret">
+          <Text weight="bold">Make this board secret</Text>
+        </Label>
+      </Flex.Item>
+      <Switch
+        onChange={() => setSwitched(!switched)}
+        id="makesecret"
+        switched={switched}
+      />
+    </Flex>
+  );
+}
 `}
           />
           <MainSection.Card
@@ -83,16 +89,22 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Truncate label text, instead allow it to wrap to form another line. "
             defaultCode={`
-<Flex gap={2} alignItems="center">
-  <Switch
-    onChange={() => {}}
-    id="setboard"
-    switched={false}
-  />
-  <Label htmlFor="setboard">
-    <Text>Set board to...</Text>
-  </Label>
-</Flex>
+function SwitchExample() {
+  const [switched, setSwitched] = React.useState(false);
+
+  return (
+    <Flex gap={2} alignItems="center">
+      <Switch
+        onChange={() => setSwitched(!switched)}
+        id="setboard"
+        switched={switched}
+      />
+      <Label htmlFor="setboard">
+        <Text>Set board to...</Text>
+      </Label>
+    </Flex>
+  );
+}
 `}
           />
           <MainSection.Card
@@ -124,25 +136,25 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 <Flex direction="column" gap={2} width="100%" maxWidth={300}>
   <Heading size="300">On Pinterest notifications</Heading>
   <Flex direction="column" gap={4}>
-    <Flex>
+    <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Comments</Text>
       </Flex.Item>
       <Icon icon="check-circle" color="default" />
     </Flex>
-    <Flex>
+    <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Mentions</Text>
       </Flex.Item>
       <Icon icon="check-circle" color="default" />
     </Flex>
-    <Flex>
+    <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Views</Text>
       </Flex.Item>
       <Icon icon="circle-outline" />
     </Flex>
-    <Flex>
+    <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Saves</Text>
       </Flex.Item>
@@ -161,7 +173,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   <Heading size="300">Tune your home feed</Heading>
   <Text>Turn off any boards that you don't want us to use for your home feed recommendations</Text>
   <Flex direction="column" gap={4}>
-    <Flex>
+    <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Label htmlFor="boardfood">
           <Flex direction="column" gap={1}>
@@ -176,7 +188,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         switched={false}
       />
     </Flex>
-    <Flex>
+    <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Label htmlFor="boardoutfits">
           <Flex direction="column" gap={1}>
@@ -191,7 +203,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         switched={true}
       />
     </Flex>
-    <Flex>
+    <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Label htmlFor="boardhomedecor">
           <Flex direction="column" gap={1}>
@@ -240,24 +252,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-        function SwitchExample() {
-          const [switched, setSwitched] = React.useState(false);
-
-          return (
-            <Box display="flex" alignItems="center">
-              <Box paddingX={2}>
-                <Label htmlFor="emailNotifications">
-                  <Text>Airplane mode</Text>
-                </Label>
-              </Box>
-              <Switch
-                onChange={() => setSwitched(!switched)}
-                id="emailNotifications"
-                switched={switched}
-              />
-            </Box>
-          );
-        }
+            <Flex gap={8} width="100%">
+            <Flex direction="column" gap={4}>
+              <Flex alignItems="center">
+              <Flex.Item flex="grow">
+                <Text>Work in progress</Text>
+              </Flex.Item>
+            </Flex>
+            </Flex>
+            </Flex>
         `}
           />
         </MainSection.Subsection>
