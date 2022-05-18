@@ -1,3 +1,9 @@
+## 56.0.1 (May 18, 2022)
+
+### Patch
+
+- DatePicker: Add note about installing as a separate package (#2124)
+
 ## 56.0.0 (May 17, 2022)
 
 ### Major
