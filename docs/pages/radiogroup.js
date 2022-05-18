@@ -158,7 +158,7 @@ function RadioButtonExample() {
         />
       </RadioGroup>
 
-      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" direction="row">
+      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" direction="row" id="directionExample>
         <RadioGroup.RadioButton
           checked={favoriteFood === 'pizza'}
           id="favoritePizza"
@@ -202,7 +202,7 @@ function RadioButtonExample() {
 
   return (
     <Flex gap={8}>
-      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one">
+      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" id="sizeExample">
         <RadioGroup.RadioButton
           checked={favorite === 'pizza'}
           id="favoriteSizePizzaSm"
@@ -232,7 +232,7 @@ function RadioButtonExample() {
         />
       </RadioGroup>
 
-      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one">
+      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" id="sizeExampleMd">
         <RadioGroup.RadioButton
           checked={favoriteFood === 'pizza'}
           id="favoriteSizePizza"
