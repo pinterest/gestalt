@@ -62,9 +62,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use a label to give the Switch context when possible."
+            description="Use a label to give Switch context when possible."
             defaultCode={`
-function SwitchExample2() {
+function SwitchExample() {
   const [switched, setSwitched] = React.useState(true);
 
   return (
@@ -87,9 +87,9 @@ function SwitchExample2() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Truncate label text, instead allow it to wrap to form another line. "
+            description="Truncate label text. Instead, allow it to wrap to form another line. "
             defaultCode={`
-function SwitchExample3() {
+function SwitchExample() {
   const [switched, setSwitched] = React.useState(false);
 
   return (
@@ -107,6 +107,8 @@ function SwitchExample3() {
 }
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -121,7 +123,7 @@ function SwitchExample3() {
   />
   <Label htmlFor="showsecretboards">
     <Flex direction="column" gap={1}>
-      <Text color="subtle">Show secret boards</Text>
+      <Text>Show secret boards</Text>
       <Text size="100" color="subtle">You don't have any secret boards</Text>
     </Flex>
   </Label>
@@ -164,6 +166,8 @@ function SwitchExample3() {
 </Flex>
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -226,10 +230,7 @@ function SwitchExample3() {
       </MainSection>
       <MainSection
         name="Accessibility"
-        description={`
-    Switches should have labels that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect. Therefore, make sure to supply the \`label\` prop. If that is not possible, make sure your stand-alone Label has an \`htmlFor\` prop that matches the \`id\` on the Switch. Test that the Switch and label are properly connected by clicking or tapping on the label and confirming that it activates the Switch next to it.
-
-      If Switch is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen. See the [Label visibility example](https://gestalt.netlify.app/checkbox#Label-visibility) for more detail.`}
+        description={`Switches should have [Labels](https://github.com/Label) that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect. Make sure Label has an \`htmlFor\` prop that matches the \`id\` on the Switch. Test that the Switch and Label are properly connected by clicking or tapping on the label and confirming that it activates the Switch next to it.`}
       >
         <MainSection.Subsection
           title="Keyboard navigation"
@@ -237,14 +238,15 @@ function SwitchExample3() {
           description={`
     Switch has conventional keyboard support.
     - Users relying on the keyboard expect to move focus to the Switch by using the tab key or shift+tab when moving backwards.
-    - Setting \`disabled\` will prevent Switch from receiving keyboard focus or input
+    - Setting \`disabled\` will prevent Switch from receiving keyboard focus or input.
+    - Once focused, the Space key toggles the Switch.
 `}
         />
       </MainSection>
 
       <MainSection
         name="Localization"
-        description={`Be sure to localize \`label\` and any \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
+        description={`Be sure to localize \`label\` and \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
       />
 
       <MainSection name="Variants">
@@ -255,7 +257,7 @@ function SwitchExample3() {
         >
           <MainSection.Card
             defaultCode={`
-        function SwitchExample4() {
+        function SwitchExample() {
           const [switched, setSwitched] = React.useState(false);
 
           return (
@@ -279,7 +281,7 @@ function SwitchExample3() {
         <MainSection.Subsection title="Disabled and switched combinations">
           <MainSection.Card
             defaultCode={`
-function SwitchExample5() {
+function SwitchExample() {
   return (
     <Flex alignItems="center" gap={8}>
       <Flex direction="column" gap={2}>
@@ -339,9 +341,9 @@ function SwitchExample5() {
             type="do"
             description={`
 - Be clear and brief with Switch labels so they can be easily understood.
-- When possible, use verb to clarify the action. Something like “set…” or “show…”
+- When possible, use verbs to clarify the action. Something like “set…” or “show…”.
 - If possible, be clear whether the setting is activated or deactivated.
-- Use sentence case for labels
+- Use sentence case for labels.
 `}
           />
           <MainSection.Card
@@ -349,7 +351,7 @@ function SwitchExample5() {
             type="don't"
             description={`
 - Use vague language out of context, like “turn on” or “turn off” repeating the state of the switch is redundant and can clutter the interface.
-- Don’t use “you,” “your,” or “my” to describe and action. Instead describe switches objectively.
+- Don’t use “you,” “your,” or “my” to describe an action. Instead describe switches objectively.
 `}
           />
         </MainSection.Subsection>
