@@ -338,7 +338,7 @@ function RadioButtonExample() {
       <MainSection name="Accessibility">
         <MainSection.Subsection
           title="Labels"
-          description="Each RadioButton in a RadioGroup should have a label that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the label prop. If that’s not possible, make sure your stand-alone Label has an `htmlFor` prop that matches the `id` of the RadioButton. Test that a RadioButton and label are properly connected by clicking or tapping on the label and confirming that it activates the RadioButton next to it."
+          description="Each RadioButton in a RadioGroup should have a label that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the label prop. If that’s not possible, make sure your standalone Label has an `htmlFor` prop that matches the `id` of the RadioButton. Test that a RadioButton and label are properly connected by clicking or tapping on the label and confirming that it activates the RadioButton next to it."
         />
         <MainSection.Subsection
           title="Legends"
@@ -347,11 +347,6 @@ function RadioButtonExample() {
         <MainSection.Subsection
           title="Keyboard interaction"
           description={`After focus has been set on the first RadioButton inside a RadioGroup, the arrow keys are used to cycle focus between the various options. Clicking or tapping the label of RadioButton should also focus that particular RadioButton. All RadioGroup.RadioButtons within a RadioGroup should share the same \`name\` to ensure keyboard accessibility, but that \`name\` needs to be unique from other RadioGroup buttons on the page.`}
-        />
-        <MainSection.Subsection
-          title="Error message"
-          description={`If RadioGroup has an \`errorMessage\`, the \`id\` on RadioGroup must also be set to properly link the error message to RadioGroup.
-    `}
         />
       </MainSection>
       <MainSection
