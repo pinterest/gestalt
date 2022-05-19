@@ -331,6 +331,50 @@ function SwitchExample5() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <MainSection name="Writing">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`
+- Be clear and brief with Switch labels so they can be easily understood.
+- When possible, use verb to clarify the action. Something like “set…” or “show…”
+- If possible, be clear whether the setting is activated or deactivated.
+- Use sentence case for labels
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`
+- Use vague language out of context, like “turn on” or “turn off” repeating the state of the switch is redundant and can clutter the interface.
+- Don’t use “you,” “your,” or “my” to describe and action. Instead describe switches objectively.
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+      **[RadioButton](/radiobutton)**
+      Use when presenting a user with a list of choices for which there can only be one selection.
+`}
+        />
+        <MainSection.Subsection
+          description={`
+      **[Checkbox](/checkbox)**
+      Used when presenting a user with a list of choices for which there can be multiple selections.
+`}
+        />
+        <MainSection.Subsection
+          description={`
+      **[Fieldset](/fieldset)**
+      Used to group a list of related Switches with a legend that describes the list.
+    `}
+        />
+      </MainSection>
     </Page>
   );
 }
