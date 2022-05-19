@@ -100,7 +100,241 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Best Practices" />
+      <MainSection name="Best Practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use RadioGroup to select only one option from a list of 2 or more items."
+            defaultCode={`
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState('reading');
+
+  return (
+      <RadioGroup legend="If you had to pick one, which hobby would you pick?" id="bestPracticeDo">
+        <RadioGroup.RadioButton
+          checked={favorite === 'knitting'}
+          id="knitting"
+          label="Knitting"
+          name="hobby"
+          onChange={() => setFavorite('knitting')}
+          value="knitting"
+        />
+        <RadioGroup.RadioButton
+          checked={favorite === 'reading'}
+          id="reading"
+          label="Reading"
+          name="hobby"
+          onChange={() => setFavorite('reading')}
+          value="reading"
+        />
+        <RadioGroup.RadioButton
+          checked={favorite === 'pottery'}
+          id="pottery"
+          label="Pottery"
+          name="hobby"
+          onChange={() => setFavorite('pottery')}
+          value="pottery"
+        />
+      </RadioGroup>
+  );
+}
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use RadioGroup to select multiple items."
+            defaultCode={`
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState();
+
+  return (
+      <RadioGroup legend="Choose all of your favorite hobbies" id="bestPracticeDont">
+        <RadioGroup.RadioButton
+          checked={false}
+          id="knitting-dont"
+          label="Knitting"
+          name="hobby-dont"
+          onChange={() => setFavorite('knitting')}
+          value="knitting"
+        />
+        <RadioGroup.RadioButton
+          checked={false}
+          id="reading-dont"
+          label="Reading"
+          name="hobby-dont"
+          onChange={() => setFavorite('reading')}
+          value="reading"
+        />
+        <RadioGroup.RadioButton
+          checked={false}
+          id="pottery-dont"
+          label="Pottery"
+          name="hobby-dont"
+          onChange={() => setFavorite('pottery')}
+          value="pottery"
+        />
+      </RadioGroup>
+  );
+}
+        `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use [IconButtons with Tooltips](/iconbutton#With-Tooltip) or `subtext`."
+            defaultCode={`
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState();
+
+  return (
+      <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
+        <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+          <RadioGroup.RadioButton
+            checked={favorite === "daily"}
+            id="daily"
+            name="budget"
+            onChange={() => setFavorite('daily')}
+            value="daily"
+          />
+          <Label htmlFor="daily">
+            <Flex alignItems="center">
+              <Text>Daily</Text>
+              <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
+            </Flex>
+          </Label>
+        </Flex>
+        <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+          <RadioGroup.RadioButton
+            checked={favorite === "lifetime"}
+            id="lifetime"
+            name="budget"
+            onChange={() => setFavorite('lifetime')}
+            value="lifetime"
+          />
+          <Label htmlFor="lifetime">
+            <Flex alignItems="center">
+              <Text>Lifetime</Text>
+              <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
+            </Flex>
+          </Label>
+        </Flex>
+      </RadioGroup>
+  );
+}
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use lengthy text that truncates and doesn’t offer clear instructions for how to make a selection."
+            defaultCode={`
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState();
+
+  return (
+      <RadioGroup legend="Campaign budget" id="bestPracticeLabelsDont">
+        <RadioGroup.RadioButton
+          checked={false}
+          id="daily-dont"
+          label="Daily-Daily spend limit. Choose this option to set a cap for the amount your campaign can spend each day."
+          name="spend-dont"
+          onChange={() => setFavorite('daily')}
+          value="daily"
+        />
+        <RadioGroup.RadioButton
+          checked={false}
+          id="lifetime-dont"
+          label="Lifetime-Lifetime spend limit. Choose this option to seta a cap for the amount your campaign can spend over the course of its lifetime."
+          name="spend-dont"
+          onChange={() => setFavorite('lifetime')}
+          value="lifetime"
+        />
+      </RadioGroup>
+  );
+}
+        `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use RadioGroup when you need a clear answer to a binary question that requires form submission."
+            defaultCode={`
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState();
+
+  return (
+    <Flex gap={4} direction="column">
+      <RadioGroup legend="Feed preference" id="bestPracticeFeedsDo">
+        <RadioGroup.RadioButton
+          checked={favorite === "grid"}
+          id="grid-do"
+          label="Grid"
+          name="feed-do"
+          onChange={() => setFavorite('grid')}
+          value="grid"
+        />
+        <RadioGroup.RadioButton
+          checked={favorite === "list"}
+          id="list-do"
+          label="List"
+          name="feed-do"
+          onChange={() => setFavorite('list')}
+          value="list"
+        />
+      </RadioGroup>
+      <Button color="red" text="Submit"/>
+    </Flex>
+  );
+}
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use a RadioGroup to turn a state on and off with immediate effect on mobile; use [Switch](/switch) instead."
+            defaultCode={`
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState();
+
+  return (
+    <Flex gap={4} direction="column">
+      <Flex direction="column" gap={2}>
+        <Text size="400" weight="bold">Auto-renew subscription</Text>
+        <Text size="200">
+          Change will auto-save
+        </Text>
+      </Flex>
+      <RadioGroup direction="row" legend="Auto-renew subscription" legendDisplay="hidden" id="bestPracticeFeedsDont">
+        <RadioGroup.RadioButton
+          checked={false}
+          id="on-dont"
+          label="On"
+          name="feed-dont"
+          onChange={() => setFavorite('on')}
+          value="on"
+        />
+        <RadioGroup.RadioButton
+          checked={false}
+          id="Off-do"
+          label="Off"
+          name="feed-dont"
+          onChange={() => setFavorite('Off')}
+          value="Off"
+        />
+      </RadioGroup>
+      </Flex>
+  );
+}
+        `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
       <MainSection name="Accessibility">
         <MainSection.Subsection
           title="Labels"
@@ -112,7 +346,7 @@ export default function DocsPage({
         />
         <MainSection.Subsection
           title="Keyboard interaction"
-          description={`After focus has been set on the first RadioButton inside a RadioGroup, the arrow keys are used to cycle focus between the various options. Clicking or tapping the label of RadioButton should also focus that particular RadioButton. `}
+          description={`After focus has been set on the first RadioButton inside a RadioGroup, the arrow keys are used to cycle focus between the various options. Clicking or tapping the label of RadioButton should also focus that particular RadioButton. All RadioGroup.RadioButtons within a RadioGroup should share the same \`name\` to ensure keyboard accessibility, but that \`name\` needs to be unique from other RadioGroup buttons on the page.`}
         />
         <MainSection.Subsection
           title="Error message"
@@ -456,6 +690,53 @@ function RadioButtonExample() {
   );
 }
           `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="With custom labels"
+          description="The `label` on RadioGroup.RadioButton can be replaced with a custom [Label](/Label), as demonstrated below. Ensure the `htmlFor` property matches the `id` on the RadioButton."
+        >
+          <MainSection.Card
+            defaultCode={`
+        function RadioButtonExample() {
+          const [favorite, setFavorite] = React.useState();
+
+          return (
+              <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
+                <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+                  <RadioGroup.RadioButton
+                    checked={favorite === "daily"}
+                    id="daily-label-ex-custom"
+                    name="budget-custom-label"
+                    onChange={() => setFavorite('daily')}
+                    value="daily"
+                  />
+                  <Label htmlFor="daily-label-ex">
+                    <Flex alignItems="center">
+                      <Text>Daily</Text>
+                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
+                    </Flex>
+                  </Label>
+                </Flex>
+                <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+                  <RadioGroup.RadioButton
+                    checked={favorite === "lifetime"}
+                    id="lifetime-label-ex-custom"
+                    name="budget-custom-label"
+                    onChange={() => setFavorite('lifetime')}
+                    value="lifetime"
+                  />
+                  <Label htmlFor="lifetime-label-ex">
+                    <Flex alignItems="center">
+                      <Text>Lifetime</Text>
+                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
+                    </Flex>
+                  </Label>
+                </Flex>
+              </RadioGroup>
+          );
+        }
+                `}
           />
         </MainSection.Subsection>
         <MainSection.Subsection

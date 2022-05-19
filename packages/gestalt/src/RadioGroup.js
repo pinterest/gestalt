@@ -53,7 +53,7 @@ export default function RadioGroup({
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
       <Fieldset id={id} legend={legend} errorMessage={errorMessage} legendDisplay={legendDisplay}>
-        <Flex direction={direction} gap={2}>
+        <Flex direction={direction} gap={direction === 'row' ? 4 : 2}>
           {children}
         </Flex>
       </Fieldset>
