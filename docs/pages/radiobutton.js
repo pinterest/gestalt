@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-
 import { SlimBanner } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
@@ -13,17 +12,19 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name="RadioButton"
         description="Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
-      />
-      <SlimBanner
-        type="error"
-        iconAccessibilityLabel="Info"
-        message="The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead."
-        helperLink={{
-          text: 'View RadioGroup',
-          accessibilityLabel: 'View RadioGroup Docs',
-          href: '/radiogroup',
-          onClick: () => {},
-        }}
+        slimBanner={
+          <SlimBanner
+            type="error"
+            iconAccessibilityLabel="Info"
+            message="The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead."
+            helperLink={{
+              text: 'View RadioGroup',
+              accessibilityLabel: 'View RadioGroup Docs',
+              href: '/radiogroup',
+              onClick: () => {},
+            }}
+          />
+        }
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
     </Page>
