@@ -134,7 +134,7 @@ function SwitchExample3() {
             description="Use alternative styling to represent the functionality of a switch. Use Switch instead."
             defaultCode={`
 <Flex direction="column" gap={2} width="100%" maxWidth={300}>
-  <Heading size="300">On Pinterest notifications</Heading>
+  <Heading size="300" accessibilityLevel={3}>On Pinterest notifications</Heading>
   <Flex direction="column" gap={4}>
     <Flex alignItems="center">
       <Flex.Item flex="grow">
