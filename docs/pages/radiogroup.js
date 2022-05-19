@@ -203,7 +203,7 @@ function RadioButtonExample() {
           <Label htmlFor="daily">
             <Flex alignItems="center">
               <Text>Daily</Text>
-              <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
+              <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
             </Flex>
           </Label>
         </Flex>
@@ -218,7 +218,7 @@ function RadioButtonExample() {
           <Label htmlFor="lifetime">
             <Flex alignItems="center">
               <Text>Lifetime</Text>
-              <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
+              <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
             </Flex>
           </Label>
         </Flex>
@@ -711,10 +711,10 @@ function RadioButtonExample() {
                     onChange={() => setFavorite('daily')}
                     value="daily"
                   />
-                  <Label htmlFor="daily-label-ex">
+                  <Label htmlFor="daily-label-ex-custom">
                     <Flex alignItems="center">
                       <Text>Daily</Text>
-                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
+                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
                     </Flex>
                   </Label>
                 </Flex>
@@ -726,10 +726,10 @@ function RadioButtonExample() {
                     onChange={() => setFavorite('lifetime')}
                     value="lifetime"
                   />
-                  <Label htmlFor="lifetime-label-ex">
+                  <Label htmlFor="lifetime-label-ex-custom">
                     <Flex alignItems="center">
                       <Text>Lifetime</Text>
-                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
+                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
                     </Flex>
                   </Label>
                 </Flex>

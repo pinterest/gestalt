@@ -170,7 +170,7 @@ exports[`RadioGroup renders an error 1`] = `
     >
       <span
         className="formErrorMessage"
-        id="testing-error"
+        id="testingErrorEx-error"
       >
         please pick one
       </span>
