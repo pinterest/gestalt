@@ -140,25 +140,25 @@ function SwitchExample3() {
       <Flex.Item flex="grow">
         <Text>Comments</Text>
       </Flex.Item>
-      <Icon icon="check-circle" color="default" />
+      <Icon icon="check-circle" color="default" accessibilityLabel="checked circle" />
     </Flex>
     <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Mentions</Text>
       </Flex.Item>
-      <Icon icon="check-circle" color="default" />
+      <Icon icon="check-circle" color="default" accessibilityLabel="checked circle" />
     </Flex>
     <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Views</Text>
       </Flex.Item>
-      <Icon icon="circle-outline" />
+      <Icon icon="circle-outline" accessibilityLabel="unchecked circle" />
     </Flex>
     <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Saves</Text>
       </Flex.Item>
-      <Icon icon="check-circle" color="default" />
+      <Icon icon="check-circle" color="default" accessibilityLabel="checked circle" />
     </Flex>
   </Flex>
 </Flex>
