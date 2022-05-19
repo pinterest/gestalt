@@ -171,7 +171,7 @@ function SwitchExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use a standalone switch if the surrounding context is clear without an associated label. However, be sure to include a visually hidden label for screen readers."
+            description={`Use a standalone switch if the surrounding context is clear without an immediately adjacent label. However, be sure to pair [Label](https://gestalt.pinterest.systems/label) with Switch using the \`htmlFor\` and \`id\` props.`}
             defaultCode={`
 <Flex direction="column" gap={2} width="100%" maxWidth={300}>
   <Heading size="300">Tune your home feed</Heading>
