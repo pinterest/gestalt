@@ -61,8 +61,8 @@ type Props = {|
 /**
  *  Use [RadioGroup.RadioButtons](https://gestalt.pinterest.systems/radiogroup#RadioGroup.RadioButton) to present an option for selection to the user within a RadioGroup. They should not be used outside of RadioGroup or when the user can select more than one option from a list.
  *
- * ![RadioButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioButton%20%230.png)
- * ![RadioButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioButton-dark%20%230.png)
+ * ![RadioGroup light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioGroup-light%20%230.png)
+ * ![RadioGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioGroup-dark%20%230.png)
  *
  */
 const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
@@ -86,7 +86,7 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 
-  const handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => mixed = (event) =>
+  const handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void = (event) =>
     onChange({ checked: event.target.checked, event });
 
   const handleBlur: () => void = () => setFocused(false);
@@ -121,7 +121,9 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
 
   const { parentName } = useRadioGroupContext();
   if (parentName !== 'RadioGroup') {
-    throw new Error(`RadioGroup.RadioButton must be used within a RadioGroup.`);
+    throw new Error(
+      `RadioGroup.RadioButton must be used within a [RadioGroup](https://gestalt.pinterest.systems/radiogroup).`,
+    );
   }
 
   return (

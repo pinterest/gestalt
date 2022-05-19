@@ -178,3 +178,58 @@ exports[`RadioGroup renders an error 1`] = `
   </div>
 </fieldset>
 `;
+
+exports[`RadioGroup renders in different direction 1`] = `
+<fieldset
+  className="unstyled p0 m0"
+>
+  <legend
+    className="label formLabel paddingX0 visuallyHidden"
+  >
+    <div
+      className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+    >
+      testing
+    </div>
+  </legend>
+  <div
+    className="Flex rowGap4 xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+      >
+        <label
+          className="label"
+          htmlFor="choice-1"
+        >
+          <div
+            className="box paddingX1"
+          >
+            <div
+              className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
+            >
+              <input
+                checked={false}
+                className="input sizeMd InputEnabled"
+                disabled={false}
+                id="choice-1"
+                name="choice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                type="radio"
+                value="choice-1"
+              />
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</fieldset>
+`;

@@ -473,7 +473,7 @@ function RadioButtonExample() {
           checked={favoriteFood === 'pizza'}
           id="favoriteSizePizza"
           label="Pizza"
-          name="favoriteFood"
+          name="favoriteFood-size"
           onChange={() => setFavoriteFood('pizza')}
           value="pizza"
         />
@@ -481,7 +481,7 @@ function RadioButtonExample() {
           checked={favoriteFood === 'curry'}
           id="favoriteSizeCurry"
           label="Curry"
-          name="favoriteFood"
+          name="favoriteFood-size"
           onChange={() => setFavoriteFood('curry')}
           value="curry"
         />
@@ -489,7 +489,7 @@ function RadioButtonExample() {
           checked={favoriteFood === 'sushi'}
           id="favoriteSizeSushi"
           label="Sushi"
-          name="favoriteFood"
+          name="favoriteFood-size"
           onChange={() => setFavoriteFood('sushi')}
           value="sushi"
         />
@@ -502,7 +502,7 @@ function RadioButtonExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="States"
-          description="Remember that disabled RadioButtons cannot be accessed by the keyboard and therefore should not contain any necessary info to complete the choice presented."
+          description="Disabled RadioButtons cannot be accessed by the keyboard and therefore should not contain any necessary info to complete the choice presented."
         >
           <MainSection.Card
             defaultCode={`
@@ -698,7 +698,7 @@ function RadioButtonExample() {
 
           return (
               <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
-                <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+                <Flex direction="row" gap={2} alignItems="center">
                   <RadioGroup.RadioButton
                     checked={favorite === "daily"}
                     id="daily-label-ex-custom"
@@ -713,7 +713,7 @@ function RadioButtonExample() {
                     </Flex>
                   </Label>
                 </Flex>
-                <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+                <Flex direction="row" gap={2} alignItems="center">
                   <RadioGroup.RadioButton
                     checked={favorite === "lifetime"}
                     id="lifetime-label-ex-custom"
@@ -893,7 +893,6 @@ function RadioButtonPopoverExample() {
             <Box padding={3}>
               <Text
                 color="default"
-                weight="bold"
               >
                 <Link
                   href={

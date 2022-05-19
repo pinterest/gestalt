@@ -48,7 +48,7 @@ export default function RadioGroup({
   errorMessage,
   id,
   legend,
-  legendDisplay,
+  legendDisplay = 'visible',
 }: Props): Node {
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
