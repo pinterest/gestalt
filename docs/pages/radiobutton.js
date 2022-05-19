@@ -10,7 +10,10 @@ import docgen, { type DocGen } from '../components/docgen.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="RadioButton">
-      <PageHeader name="RadioButton" description={generatedDocGen?.description} />
+      <PageHeader
+        name="RadioButton"
+        description="Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
+      />
       <SlimBanner
         type="error"
         iconAccessibilityLabel="Info"

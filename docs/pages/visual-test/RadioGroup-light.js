@@ -1,26 +1,28 @@
 // @flow strict
 import { type Node } from 'react';
-import { RadioGroup, ColorSchemeProvider } from 'gestalt';
+import { Box, RadioGroup, ColorSchemeProvider } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <RadioGroup legend="testing" id="testing-example">
-        <RadioGroup.RadioButton
-          id="choice-1"
-          onChange={() => {}}
-          name="choice"
-          value="choice-1"
-          label="this is choice 1"
-        />
-        <RadioGroup.RadioButton
-          id="choice-2"
-          onChange={() => {}}
-          name="choice"
-          value="choice-2"
-          label="this is choice 2"
-        />{' '}
-      </RadioGroup>
+      <Box color="white" display="inlineBlock" padding={1}>
+        <RadioGroup legend="Favorite pet" id="testing-example">
+          <RadioGroup.RadioButton
+            id="choice-1"
+            onChange={() => {}}
+            name="choice"
+            value="dogs"
+            label="Dogs"
+          />
+          <RadioGroup.RadioButton
+            id="choice-2"
+            onChange={() => {}}
+            name="choice"
+            value="cats"
+            label="Cats"
+          />{' '}
+        </RadioGroup>
+      </Box>
     </ColorSchemeProvider>
   );
 }

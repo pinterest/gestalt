@@ -5,21 +5,21 @@ import { Box, RadioGroup, ColorSchemeProvider } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white">
-        <RadioGroup legend="testing" id="testing-example">
+      <Box color="white" display="inlineBlock" padding={1}>
+        <RadioGroup legend="Favorite pet" id="testing-example">
           <RadioGroup.RadioButton
             id="choice-1"
             onChange={() => {}}
             name="choice"
-            value="choice-1"
-            label="this is choice 1"
+            value="dogs"
+            label="Dogs"
           />
           <RadioGroup.RadioButton
             id="choice-2"
             onChange={() => {}}
             name="choice"
-            value="choice-2"
-            label="this is choice 2"
+            value="Cats"
+            label="Cats"
           />
         </RadioGroup>
       </Box>

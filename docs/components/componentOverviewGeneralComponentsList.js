@@ -28,7 +28,6 @@ import NumberField from '../graphics/general/NumberField.svg';
 import PageHeader from '../graphics/general/PageHeader.svg';
 import Popover from '../graphics/general/Popover.svg';
 import Pulsar from '../graphics/general/Pulsar.svg';
-import RadioButton from '../graphics/general/RadioButton.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
@@ -237,7 +236,7 @@ const GENERAL: ListItemType = [
     category: 'Loading',
   },
   {
-    svg: <RadioButton />,
+    svg: <Fieldset />,
     name: 'RadioGroup',
     description: 'Use RadioGroup when you have a few options that a user can choose from.',
     category: 'Controls',
