@@ -17,7 +17,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <SlimBanner
         type="error"
         iconAccessibilityLabel="Info"
-        message="The stand alone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead."
+        message="The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead."
         helperLink={{
           text: 'View RadioGroup',
           accessibilityLabel: 'View RadioGroup Docs',
