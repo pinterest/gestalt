@@ -136,8 +136,8 @@ See the [target variant](https://gestalt.pinterest.systems/link#Target) to learn
 /**
  * [Link](https://gestalt.pinterest.systems/link) is mainly used as navigational element and usually appear within or directly following a paragraph or sentence.
  *
- * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Link%20%230.png)
- * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Link-dark%20%230.png)
+ * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link.spec.mjs-snapshots/Link-chromium-darwin.png)
+ * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link-dark.spec.mjs-snapshots/Link-dark-chromium-darwin.png)
  *
  */
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<

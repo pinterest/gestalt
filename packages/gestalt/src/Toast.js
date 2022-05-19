@@ -43,7 +43,7 @@ type Props = {|
  *
  * ⚠️ Please note: Toast is not currently supported in dark mode.
  *
- * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Toast%20%230.png)
+ * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
   button,

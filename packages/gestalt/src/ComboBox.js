@@ -155,10 +155,10 @@ type Props = {|
  * [ComboBox](https://gestalt.pinterest.systems/combobox) is the combination of a [Textfield](https://gestalt.pinterest.systems/textfield) and an associated [Dropdown](https://gestalt.pinterest.systems/dropdown) that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list.
  * Note: this is a new version of the deprecated component "Typeahead".
  *
- * ![ComboBox closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ComboBox-closed%20%230.png)
- * ![ComboBox open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ComboBox-open%20%230.png)
- * ![ComboBox closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ComboBox-closed-dark%20%230.png)
- * ![ComboBox open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ComboBox-open-dark%20%230.png)
+ * ![Combobox closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-closed.spec.mjs-snapshots/ComboBox-closed-chromium-darwin.png)
+ * ![Combobox open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open.spec.mjs-snapshots/ComboBox-open-chromium-darwin.png)
+ * ![Combobox closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-closed-dark.spec.mjs-snapshots/ComboBox-closed-dark-chromium-darwin.png)
+ * ![Combobox open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open-dark.spec.mjs-snapshots/ComboBox-open-dark-chromium-darwin.png)
  *
  */
 const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<

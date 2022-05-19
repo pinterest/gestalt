@@ -88,8 +88,8 @@ type Props = {|
 /**
  * [Heading](https://gestalt.pinterest.systems/heading) allows you to show headings on the page & has a bigger line height than regular text.
  *
- * ![Heading light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Heading%20%230.png)
- * ![Heading dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Heading-dark%20%230.png)
+ * ![Heading light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading.spec.mjs-snapshots/Heading-chromium-darwin.png)
+ * ![Heading dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading-dark.spec.mjs-snapshots/Heading-dark-chromium-darwin.png)
  *
  */
 export default function Heading({

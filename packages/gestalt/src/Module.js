@@ -15,8 +15,8 @@ type BadgeType = {|
 /**
  * [Module](https://gestalt.pinterest.systems/module) is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
  *
- * ![Module light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Module%20%230.png)
- * ![Module dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Module-dark%20%230.png)
+ * ![Module light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Module.spec.mjs-snapshots/Module-chromium-darwin.png)
+ * ![Module dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Module-dark.spec.mjs-snapshots/Module-dark-chromium-darwin.png)
  *
  */
 export default function Module({

@@ -148,7 +148,7 @@ function Example(props) {
   const [value, setValue] = React.useState('');
 
   return (
-    <div className="cypress-skip-a11y">
+    <div className="skip-accessibility-check">
       <Box padding={2} color="white">
         <TextField
           autoComplete="username"

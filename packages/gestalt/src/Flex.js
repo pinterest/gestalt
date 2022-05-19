@@ -98,7 +98,7 @@ const allowedProps = [
 
  * Use this component for flexbox layouts, especially when even spacing between elements is desired (see the `gap` prop!).
  *
- * ![Flex light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Flex%20%230.png)
+ * ![Flex light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Flex.spec.mjs-snapshots/Flex-chromium-darwin.png)
  *
  */
 export default function Flex({
