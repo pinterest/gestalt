@@ -203,7 +203,7 @@ function RadioButtonExample() {
           <Label htmlFor="daily">
             <Flex alignItems="center">
               <Text>Daily</Text>
-              <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
+              <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
             </Flex>
           </Label>
         </Flex>
@@ -218,7 +218,7 @@ function RadioButtonExample() {
           <Label htmlFor="lifetime">
             <Flex alignItems="center">
               <Text>Lifetime</Text>
-              <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
+              <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
             </Flex>
           </Label>
         </Flex>
@@ -709,7 +709,7 @@ function RadioButtonExample() {
                   <Label htmlFor="daily-label-ex-custom">
                     <Flex alignItems="center">
                       <Text>Daily</Text>
-                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
+                      <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
                     </Flex>
                   </Label>
                 </Flex>
@@ -724,7 +724,7 @@ function RadioButtonExample() {
                   <Label htmlFor="lifetime-label-ex-custom">
                     <Flex alignItems="center">
                       <Text>Lifetime</Text>
-                      <IconButton size="sm" icon="info-circle" iconColor="darkGray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
+                      <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
                     </Flex>
                   </Label>
                 </Flex>
@@ -790,53 +790,6 @@ function RadioButtonExample() {
   );
 }
         `}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Using ref"
-          description={`The actual \`<input/>\` within the \`RadioButton\` element can be accessed via \`ref\`.`}
-        >
-          <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const ref = React.useRef();
-  const [label, setLabel] = React.useState("24 px RadioButton");
-  const [size, setSize] = React.useState('md');
-  const [switched, setSwitched] = React.useState(false);
-
-  React.useEffect(() => {
-      setLabel(ref.current && ref.current.offsetHeight)
-  }, [size]);
-
-  return (
-    <Flex gap={4}>
-      <Label>
-        <Flex gap={2}>
-          <Switch
-            onChange={() => {
-              setSize(size === "sm" ? "md" : "sm")
-              setSwitched(!switched)}
-            }
-            id="emailNotifications"
-            switched={switched}
-          />
-          <Text>Toggle RadioButton to small size</Text>
-        </Flex>
-      </Label>
-      <RadioGroup legend="Ref example" legendDisplay="hidden" id="refExample">
-        <RadioGroup.RadioButton
-          id="sizing"
-          checked={false}
-          label={label + 'px RadioButton'}
-          onChange={() => {} }
-          value="value"
-          ref={ref}
-          size={size}
-        />
-      </RadioGroup>
-    </Flex>
-  );
-}`}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
