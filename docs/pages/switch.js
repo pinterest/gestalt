@@ -64,7 +64,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use a label to give the Switch context when possible."
             defaultCode={`
-function SwitchExample() {
+function SwitchExample2() {
   const [switched, setSwitched] = React.useState(true);
 
   return (
@@ -89,7 +89,7 @@ function SwitchExample() {
             type="don't"
             description="Truncate label text, instead allow it to wrap to form another line. "
             defaultCode={`
-function SwitchExample() {
+function SwitchExample3() {
   const [switched, setSwitched] = React.useState(false);
 
   return (
@@ -273,7 +273,7 @@ function SwitchExample() {
         >
           <MainSection.Card
             defaultCode={`
-        function SwitchExample() {
+        function SwitchExample4() {
           const [switched, setSwitched] = React.useState(false);
 
           return (
@@ -297,7 +297,7 @@ function SwitchExample() {
         <MainSection.Subsection title="Disabled and switched combinations">
           <MainSection.Card
             defaultCode={`
-function SwitchExample() {
+function SwitchExample5() {
   return (
     <Flex alignItems="center" gap={8}>
       <Flex direction="column" gap={2}>
