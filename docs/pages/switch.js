@@ -241,30 +241,12 @@ function SwitchExample3() {
 `}
         />
       </MainSection>
+
       <MainSection
         name="Localization"
         description={`Be sure to localize \`label\` and any \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
-      >
-        <MainSection.Subsection
-          title="With a label"
-          description={`
-        Whenever using Switch, always use a [Label](/label) with it to make your component accessible.`}
-        >
-          <MainSection.Card
-            defaultCode={`
-            <Flex gap={8} width="100%">
-            <Flex direction="column" gap={4}>
-              <Flex alignItems="center">
-              <Flex.Item flex="grow">
-                <Text>Work in progress</Text>
-              </Flex.Item>
-            </Flex>
-            </Flex>
-            </Flex>
-        `}
-          />
-        </MainSection.Subsection>
-      </MainSection>
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="With a label"
