@@ -772,8 +772,8 @@ function CheckboxExample() {
             defaultCode={`
 function Example() {
   const [checked1, setChecked1] = React.useState(false);
-  const [checked2, setChecked2] = React.useState(false);
-  const [checked3, setChecked3] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(true);
+  const [checked3, setChecked3] = React.useState(true);
 
   return (
     <Table accessibilityLabel="Campaign selection" maxHeight={200}>
