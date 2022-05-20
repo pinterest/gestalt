@@ -1,3 +1,9 @@
+## 56.1.1 (May 20, 2022)
+
+### Patch
+
+- Docs: Unified Switch docs (#2122)
+
 ## 56.1.0 (May 20, 2022)
 
 ### Minor
