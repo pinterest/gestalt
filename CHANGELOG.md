@@ -1,3 +1,9 @@
+## 56.2.1 (May 20, 2022)
+
+### Patch
+
+- Docs: adding slimBanner prop into Docs' PageHeader to display information related to the component (#2126)
+
 ## 56.2.0 (May 20, 2022)
 
 ### Minor
