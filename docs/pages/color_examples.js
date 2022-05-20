@@ -330,7 +330,7 @@ export default function ColorExamplesPage(): Node {
                     <Button color="red" text="Primary" />
                       <Box color="warningWeak" rounding="pill" padding={3}>
                         <TapArea color="white">
-                          <Text weight="bold" color="inverse">
+                          <Text weight="bold" color="light">
                             Secondary
                           </Text>
                         </TapArea>
