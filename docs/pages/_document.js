@@ -18,6 +18,8 @@ class GestaltDocument extends Document {
 
   render(): Node {
     const { props } = this;
+    // Flow is wrong here https://github.com/reactivestack/cookies/tree/master/packages/universal-cookie
+    // $FlowFixMe[invalid-constructor]
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];
 
