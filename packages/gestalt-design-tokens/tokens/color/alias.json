@@ -119,7 +119,8 @@
           "comment": "Background color to indicate neutral information"
         },
         "weak": {
-          "value": "{color.blue.skycicle.50.value}",
+          "value": "{color.blue.skycicle.100.value}",
+          "darkValue": "{color.blue.skycicle.800.value}",
           "comment": "Weak background color to indicate neutral information, can be used behind text"
         }
       },
@@ -130,7 +131,8 @@
           "comment": "Background color to indicate errors"
         },
         "weak": {
-          "value": "{color.red.pushpin.50.value}",
+          "value": "{color.red.pushpin.100.value}",
+          "darkValue": "{color.red.pushpin.900.value}",
           "comment": "Weak background color to indicate errors, can be used behind text"
         }
       },
@@ -141,7 +143,8 @@
           "comment": "Background color to indicate warnings"
         },
         "weak": {
-          "value": "{color.orange.firetini.50.value}",
+          "value": "{color.orange.firetini.100.value}",
+          "darkValue": "{color.yellow.caramellow.800.value}",
           "comment": "Weak background color to indicate warnings, can be used behind text"
         }
       },
@@ -152,7 +155,8 @@
           "comment": "Background color to indicate success"
         },
         "weak": {
-          "value": "{color.green.matchacado.50.value}",
+          "value": "{color.green.matchacado.100.value}",
+          "darkValue": "{color.green.matchacado.700.value}",
           "comment": "Weak background color to indicate success, can be used behind text"
         }
       },
