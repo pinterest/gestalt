@@ -1,3 +1,9 @@
+## 56.1.0 (May 20, 2022)
+
+### Minor
+
+- RadioGroup: New component to ensure accessible radio button groups (#2123)
+
 ## 56.0.1 (May 18, 2022)
 
 ### Patch
