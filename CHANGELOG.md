@@ -1,3 +1,9 @@
+## 56.2.2 (May 20, 2022)
+
+### Patch
+
+- Internal: upgrade Flow to 0.178.1 (#2127)
+
 ## 56.2.1 (May 20, 2022)
 
 ### Patch
