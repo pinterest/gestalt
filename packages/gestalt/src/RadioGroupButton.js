@@ -6,17 +6,17 @@ import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
+import { useRadioGroupContext } from './RadioGroupContext.js';
 
 type Props = {|
   /**
-   * Indicates if the input is checked. See the [combinations example](https://gestalt.pinterest.systems/radiobutton#radio-state-combos) for more details.
+   * Indicates if the input is checked. See the [state example](https://gestalt.pinterest.systems/radiogroup#States) for more details.
    */
   checked?: boolean,
   /**
-   * Indicates if the input is disabled. See the [combinations example](https://gestalt.pinterest.systems/radiobutton#radio-state-combos) for more details.
+   * Indicates if the input is disabled. See the [state example](https://gestalt.pinterest.systems/radiogroup#States) for more details.
    */
   disabled?: boolean,
   /**
@@ -24,7 +24,7 @@ type Props = {|
    */
   id: string,
   /**
-   * An optional [Image](https://gestalt.pinterest.systems/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/radiobutton#images) for more details.
+   * An optional [Image](https://gestalt.pinterest.systems/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/radiogroup#With-Image) for more details.
    */
   image?: Node,
   /**
@@ -38,9 +38,9 @@ type Props = {|
   /**
    * Callback triggered when the user interacts with the input.
    */
-  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
+  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
   /**
-   * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/radiobutton#ref) for more details.
+   * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/radiogroup#Using-ref) for more details.
    */
   ref?: HTMLInputElement, // eslint-disable-line react/no-unused-prop-types
   /**
@@ -48,7 +48,7 @@ type Props = {|
    */
   size?: 'sm' | 'md',
   /**
-   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/radiobutton#subtext) for more details.
+   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/radiogroup#With-subtext) for more details.
    */
   subtext?: string,
   /**
@@ -58,13 +58,13 @@ type Props = {|
 |};
 
 /**
- *  Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list. Note: The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead.
+ *  Use [RadioGroup.RadioButtons](https://gestalt.pinterest.systems/radiogroup#RadioGroup.RadioButton) to present an option for selection to the user within a RadioGroup. They should not be used outside of RadioGroup or when the user can select more than one option from a list.
  *
- * ![RadioButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioButton%20%230.png)
- * ![RadioButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioButton-dark%20%230.png)
+ * ![RadioGroup light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioGroup-light%20%230.png)
+ * ![RadioGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioGroup-dark%20%230.png)
  *
  */
-const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function RadioButton(
@@ -85,7 +85,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 
-  const handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => mixed = (event) =>
+  const handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void = (event) =>
     onChange({ checked: event.target.checked, event });
 
   const handleBlur: () => void = () => setFocused(false);
@@ -117,6 +117,13 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
   const { isFocusVisible } = useFocusVisible();
+
+  const { parentName } = useRadioGroupContext();
+  if (parentName !== 'RadioGroup') {
+    throw new Error(
+      `RadioGroup.RadioButton must be used within a [RadioGroup](https://gestalt.pinterest.systems/radiogroup).`,
+    );
+  }
 
   return (
     <Box
@@ -181,6 +188,6 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   );
 });
 
-RadioButtonWithForwardRef.displayName = 'RadioButton';
+RadioGroupButtonWithForwardRef.displayName = 'RadioGroup.RadioButton';
 
-export default RadioButtonWithForwardRef;
+export default RadioGroupButtonWithForwardRef;
