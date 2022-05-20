@@ -133,7 +133,7 @@ type Props = {|
  *
  *
  * ![Upsell light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Upsell%20%230.png)
- * ![Upsell light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Upsell-dark%20%230.png)
+ * ![Upsell dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Upsell-dark%20%230.png)
  */
 export default function Upsell({
   children,
