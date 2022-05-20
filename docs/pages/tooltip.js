@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
@@ -12,6 +13,19 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name="Tooltip"
         description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBanner
+            type="info"
+            iconAccessibilityLabel="Info"
+            message="Planning to use Tooltip with IconButton? Instead, use"
+            helperLink={{
+              text: "IconButton's built-in tooltip.",
+              accessibilityLabel: 'View IconButton Docs, with Tooltip section',
+              href: '/iconbutton#With-Tooltip',
+              onClick: () => {},
+            }}
+          />
+        }
         defaultCode={`
       <Flex>
         <Tooltip text="Align left" accessibilityLabel="">

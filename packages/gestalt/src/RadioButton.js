@@ -58,8 +58,8 @@ type Props = {|
 |};
 
 /**
- *  Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list. Note: The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead.
- *
+ *  Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list.
+ * **NOTE** The standalone RadioButton is soon to be deprecated, use [RadioGroup](https://gestalt.pinterest.systems/radiogroup) and RadioGroup.RadioButton instead.**NOTE**
  * ![RadioButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioButton%20%230.png)
  * ![RadioButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioButton-dark%20%230.png)
  *

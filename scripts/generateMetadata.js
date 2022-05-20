@@ -35,9 +35,9 @@ async function docgen(filePath) {
         // Remove the first markdown link from the description so we don't link to the page itself
         .replace(/\[(.*?)\][[(].*?[\])]/, '$1')
         // Remove images from the description
-        .replace(/!\[(.*?)\][[(].*?[\])]/g, '');
+        .replace(/!\[(.*?)\][[(].*?[\])]/g, '')
+        .replace(/(\*\*NOTE\*\*)[\S\s]+(\*\*NOTE\*\*)/, ''); // Remove NOTES for the Docs but keep them for VSCode description
     }
-
     return parsed;
   } catch {
     return null;
@@ -73,6 +73,7 @@ const getFilesFromDirectory = (directoryPath) => {
   const parsedDataArray = await Promise.all(
     files.map(async (file) => {
       const parsedFile = await docgen(path.join(root, file));
+
       return parsedFile ? { [getComponentNameFromFile(file)]: parsedFile } : null;
     }),
   );
