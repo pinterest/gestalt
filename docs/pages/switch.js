@@ -167,66 +167,6 @@ function SwitchExample() {
 `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description={`Use a standalone switch if the surrounding context is clear without an immediately adjacent label. However, be sure to pair [Label](https://gestalt.pinterest.systems/label) with Switch using the \`htmlFor\` and \`id\` props.`}
-            defaultCode={`
-<Flex direction="column" gap={2} width="100%" maxWidth={300}>
-  <Heading size="300">Tune your home feed</Heading>
-  <Text>Turn off any boards that you don't want us to use for your home feed recommendations</Text>
-  <Flex direction="column" gap={4}>
-    <Flex alignItems="center">
-      <Flex.Item flex="grow">
-        <Label htmlFor="boardfood">
-          <Flex direction="column" gap={1}>
-            <Text>Food</Text>
-            <Text size="100">55 pins · 1 section</Text>
-          </Flex>
-        </Label>
-      </Flex.Item>
-      <Switch
-        onChange={() => {}}
-        id="boardfood"
-        switched={false}
-      />
-    </Flex>
-    <Flex alignItems="center">
-      <Flex.Item flex="grow">
-        <Label htmlFor="boardoutfits">
-          <Flex direction="column" gap={1}>
-            <Text>Outfits</Text>
-            <Text size="100">138 pins · 5 sections</Text>
-          </Flex>
-        </Label>
-      </Flex.Item>
-      <Switch
-        onChange={() => {}}
-        id="boardoutfits"
-        switched={true}
-      />
-    </Flex>
-    <Flex alignItems="center">
-      <Flex.Item flex="grow">
-        <Label htmlFor="boardhomedecor">
-          <Flex direction="column" gap={1}>
-            <Text>Home Decor</Text>
-            <Text size="100">33 pins · 2 sections</Text>
-          </Flex>
-        </Label>
-      </Flex.Item>
-      <Switch
-        onChange={() => {}}
-        id="boardhomedecor"
-        switched={true}
-      />
-    </Flex>
-  </Flex>
-</Flex>
-`}
-          />
-        </MainSection.Subsection>
       </MainSection>
       <MainSection
         name="Accessibility"
@@ -257,24 +197,57 @@ function SwitchExample() {
         >
           <MainSection.Card
             defaultCode={`
-        function SwitchExample() {
-          const [switched, setSwitched] = React.useState(false);
-
-          return (
-            <Box display="flex" alignItems="center">
-              <Box paddingX={2}>
-                <Label htmlFor="emailNotifications">
-                  <Text>Airplane mode</Text>
-                </Label>
-              </Box>
-              <Switch
-                onChange={() => setSwitched(!switched)}
-                id="emailNotifications"
-                switched={switched}
-              />
-            </Box>
-          );
-        }
+      <Flex direction="column" gap={2} width="100%" maxWidth={300}>
+        <Heading size="300">Tune your home feed</Heading>
+        <Text>Turn off any boards that you don't want us to use for your home feed recommendations</Text>
+        <Flex direction="column" gap={4}>
+          <Flex alignItems="center">
+            <Flex.Item flex="grow">
+              <Label htmlFor="boardfood">
+                <Flex direction="column" gap={1}>
+                  <Text>Food</Text>
+                  <Text size="100">55 pins · 1 section</Text>
+                </Flex>
+              </Label>
+            </Flex.Item>
+            <Switch
+              onChange={() => {}}
+              id="boardfood"
+              switched={false}
+            />
+          </Flex>
+          <Flex alignItems="center">
+            <Flex.Item flex="grow">
+              <Label htmlFor="boardoutfits">
+                <Flex direction="column" gap={1}>
+                  <Text>Outfits</Text>
+                  <Text size="100">138 pins · 5 sections</Text>
+                </Flex>
+              </Label>
+            </Flex.Item>
+            <Switch
+              onChange={() => {}}
+              id="boardoutfits"
+              switched={true}
+            />
+          </Flex>
+          <Flex alignItems="center">
+            <Flex.Item flex="grow">
+              <Label htmlFor="boardhomedecor">
+                <Flex direction="column" gap={1}>
+                  <Text>Home Decor</Text>
+                  <Text size="100">33 pins · 2 sections</Text>
+                </Flex>
+              </Label>
+            </Flex.Item>
+            <Switch
+              onChange={() => {}}
+              id="boardhomedecor"
+              switched={true}
+            />
+          </Flex>
+        </Flex>
+      </Flex>
         `}
           />
         </MainSection.Subsection>
