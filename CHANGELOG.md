@@ -1,3 +1,9 @@
+## 56.2.0 (May 20, 2022)
+
+### Minor
+
+- Dark mode: Add support for Callout, Upsell, and SlimBanner (#2128)
+
 ## 56.1.1 (May 20, 2022)
 
 ### Patch
