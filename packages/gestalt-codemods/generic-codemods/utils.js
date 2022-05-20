@@ -190,7 +190,7 @@ const filterJSXByAttribute = ({
 /**
  * deepCloneNode: Returns a collection containing the Gestalt import declaration node-path
  */
-const deepCloneNode = <T>({ node }: { node: T }): T => JSON.parse(JSON.stringify(node));
+const deepCloneNode = <T>({ node }: { node: T }): T => JSON.parse(JSON.stringify(node) ?? '');
 
 /**
  * buildAttributeFromValue: Returns a collection containing the Gestalt import declaration node-path
