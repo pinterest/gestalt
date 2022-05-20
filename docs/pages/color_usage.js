@@ -180,22 +180,22 @@ export default function ColorUsagePage(): Node {
             <ColorTile
               description="Info weak"
               fullTokenName="color-background-info-weak"
-              textColor="dark"
+              textColor="default"
             />
             <ColorTile
               description="Success weak"
               fullTokenName="color-background-success-weak"
-              textColor="dark"
+              textColor="default"
             />
             <ColorTile
               description="Warning weak"
               fullTokenName="color-background-warning-weak"
-              textColor="dark"
+              textColor="default"
             />
             <ColorTile
               description="Error weak"
               fullTokenName="color-background-error-weak"
-              textColor="dark"
+              textColor="default"
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>

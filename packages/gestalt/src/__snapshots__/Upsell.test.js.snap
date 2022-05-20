@@ -2,7 +2,7 @@
 
 exports[`<Upsell /> Basic Upsell 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -40,7 +40,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
 
 exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -244,7 +244,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -407,7 +407,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -538,7 +538,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -651,7 +651,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -733,7 +733,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -813,7 +813,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 
 exports[`<Upsell /> message + title 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"

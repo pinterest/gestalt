@@ -41,7 +41,7 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
         }
       >
         <span
-          className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
         >
           test
         </span>

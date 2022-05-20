@@ -60,7 +60,6 @@ export default function SlimBanner({
 }: Props): Node {
   const isBare = ['errorBare', 'infoBare', 'warningBare', 'successBare'].includes(type);
   const isDefault = type === 'neutral';
-  const colorText = isDefault || isBare ? 'default' : 'dark';
   const statusMap = {
     'errorBare': 'error',
     'infoBare': 'info',
@@ -95,12 +94,12 @@ export default function SlimBanner({
           />
         ) : null}
         <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
-          <Text inline color={colorText}>
+          <Text inline>
             {message}
             {helperLink ? (
               <Fragment>
                 {' '}
-                <Text inline color={colorText}>
+                <Text inline>
                   <Link
                     accessibilityLabel={helperLink.accessibilityLabel}
                     href={helperLink.href}
