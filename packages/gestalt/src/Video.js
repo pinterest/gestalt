@@ -216,6 +216,10 @@ type Props = {|
    */
   src: Source,
   /**
+   * Set the current play time in seconds the video will start from. See [MDN Web Docs: HTMLMediaElement.currentTime](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime)
+   */
+  startTime?: number,
+  /**
    * Specifies the volume of the video audio: 0 for muted, 1 for max. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
    */
   volume: number,
@@ -331,6 +335,7 @@ export default class Video extends PureComponent<Props, State> {
   player: ?HTMLDivElement;
 
   static defaultProps: {|
+    startTime: number,
     disableRemotePlayback: boolean,
     backgroundColor: BackgroundColor,
     playbackRate: number,
@@ -338,6 +343,7 @@ export default class Video extends PureComponent<Props, State> {
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
   |} = {
+    startTime: 0,
     disableRemotePlayback: false,
     // eslint-disable-next-line react/default-props-match-prop-types
     backgroundColor: 'black',
@@ -363,7 +369,7 @@ export default class Video extends PureComponent<Props, State> {
    */
 
   componentDidMount() {
-    const { captions, playbackRate, volume, playing, autoplay } = this.props;
+    const { captions, playbackRate, volume, playing, autoplay, startTime } = this.props;
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (typeof document !== 'undefined') {
@@ -375,6 +381,10 @@ export default class Video extends PureComponent<Props, State> {
     this.setVolume(volume);
     // Set the initial playback rate
     this.setPlaybackRate(playbackRate);
+
+    if (startTime) {
+      this.seek(startTime);
+    }
 
     if (!autoplay && playing) {
       this.play();

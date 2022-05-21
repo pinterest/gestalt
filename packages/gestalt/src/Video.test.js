@@ -136,3 +136,18 @@ test('Video with objectFit', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Video with startTime', () => {
+  const tree = create(
+    <Video
+      {...A11Y_LABELS}
+      startTime={3}
+      aspectRatio={1}
+      captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      onPlay={() => {}}
+      onPlayError={() => {}}
+    />,
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
