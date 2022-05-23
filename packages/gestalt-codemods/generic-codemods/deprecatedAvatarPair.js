@@ -4,7 +4,7 @@
  */
 
 // yarn codemod --parser=flow -t=packages/gestalt-codemods/generics-codemod/deprecatedAvatarPair.js relative/path/to/your/code
-import { initialize, getComponentIdentifierByName, getGestaltImport } from './utils';
+import { initialize, getComponentIdentifierByName, getGestaltImport } from './utils.js';
 
 export default function deprecatedAvatarPair(file, api) {
   const startup = initialize(api, file);
@@ -15,14 +15,20 @@ export default function deprecatedAvatarPair(file, api) {
     'AvatarPair',
   );
 
-  if (AvatarPairCollection.length > 0) {
-    const currentAvatarPairPath =
-      'app/www-unified/components/messages/FullHeightInbox/Conversations/AvatarPair/AvatarPair';
+  startup.src.find(startup.j.JSXElement).forEach((jsxElement) => {
+    const { node } = jsxElement;
 
-    throw new Error(
-      `Remove manually the "AvatarPair" import from "gestalt" and import this component from "${currentAvatarPairPath}". Location: ${file.path} @line: ${node.loc.start.line}`,
-    );
-  }
+    if (AvatarPairCollection.length > 0) {
+      const currentAvatarPairPath =
+        'app/www-unified/components/messages/FullHeightInbox/Conversations/AvatarPair/AvatarPair';
+
+      throw new Error(
+        `Remove manually the "AvatarPair" import from "gestalt" and import this component from "${currentAvatarPairPath}". Location: ${file.path} @line: ${node.loc.start.line}`,
+      );
+    }
+
+    return null;
+  });
 
   return null;
 }
