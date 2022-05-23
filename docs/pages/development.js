@@ -43,6 +43,16 @@ export default function ContainerPage(): Node {
                 </Link>
               </Text>
             </li>
+            <li>
+              <Text weight="bold" inline>
+                <Link inline href="https://docs.docker.com/get-docker/" target="blank">
+                  Install Docker desktop.
+                </Link>{' '}
+                <Text inline>
+                  You can also run the following command: <code>brew install --cask docker</code>
+                </Text>
+              </Text>
+            </li>
           </ul>
         </Flex>
       </Card>

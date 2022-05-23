@@ -46,6 +46,15 @@ import 'gestalt/dist/gestalt.css';
 ~~~
 "
           />
+          <Markdown
+            text="
+~~~jsx
+import DatePicker from 'gestalt-datepicker';
+import 'gestalt-datepicker/dist/gestalt-datepicker.css';
+~~~
+"
+          />
+
           <Text>
             That syntax is Webpack specific (and will work with Create React App), but you can use
             Gestalt anywhere that supports ES6 module bundling and global CSS.
