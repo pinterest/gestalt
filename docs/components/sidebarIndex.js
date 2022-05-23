@@ -40,6 +40,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Iconography and SVGs',
       'Layouts',
       'Screen sizes',
+      'Typography',
     ],
   },
   {
