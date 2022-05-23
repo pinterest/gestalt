@@ -14,7 +14,8 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "flowtype.flow-for-vscode",
-    "orta.vscode-jest"
+    "orta.vscode-jest",
+    "ms-azuretools.vscode-docker"
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
