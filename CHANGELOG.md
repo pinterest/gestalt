@@ -1,3 +1,9 @@
+## 56.3.0 (May 23, 2022)
+
+### Minor
+
+- Internal: Use Playwright instead of Cypress (#2125)
+
 ## 56.2.2 (May 20, 2022)
 
 ### Patch
