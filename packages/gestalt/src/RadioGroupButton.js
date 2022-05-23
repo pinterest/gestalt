@@ -60,8 +60,8 @@ type Props = {|
 /**
  *  Use [RadioGroup.RadioButtons](https://gestalt.pinterest.systems/radiogroup#RadioGroup.RadioButton) to present an option for selection to the user within a RadioGroup. They should not be used outside of RadioGroup or when the user can select more than one option from a list.
  *
- * ![RadioGroup light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioGroup-light%20%230.png)
- * ![RadioGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/RadioGroup-dark%20%230.png)
+ * ![RadioGroup light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioGroup.spec.mjs-snapshots/RadioGroup-chromium-darwin.png)
+ * ![RadioGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioGroup-dark.spec.mjs-snapshots/RadioGroup-dark-chromium-darwin.png)
  *
  */
 const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<

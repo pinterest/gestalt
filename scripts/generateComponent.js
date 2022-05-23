@@ -6,8 +6,8 @@ const path = require('path');
 
 const currentDirectory = __dirname;
 const root = path.join(__dirname, '../');
-const accessibilityIntegrationTests = path.join(root, 'cypress/integration');
-const accessibilityVisualIntegrationTests = path.join(root, 'cypress/integration/visual-test');
+const accessibilityIntegrationTests = path.join(root, 'playwright/accessibility');
+const visualIntegrationTests = path.join(root, 'playwright/visual-test');
 const docs = path.join(root, 'docs/pages');
 const visualtestingPages = path.join(root, 'docs/pages/visual-test');
 
@@ -100,11 +100,8 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(
-        accessibilityIntegrationTests,
-        `accessibility_${componentName}_spec.js`,
-      ),
-      template: 'templates/accessibility_ComponentName_spec.js',
+      outputPath: path.join(accessibilityIntegrationTests, `${componentName}.spec.mjs`),
+      template: 'templates/accessibility_ComponentName.spec.mjs',
       log: 'Generated accessibility integration test',
     }),
     generateFile({
@@ -115,14 +112,14 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(accessibilityVisualIntegrationTests, `${componentName}-light_spec.js`),
-      template: 'templates/ComponentName-light_spec.js',
+      outputPath: path.join(visualIntegrationTests, `${componentName}-light.spec.mjs`),
+      template: 'templates/ComponentName-light.spec.mjs',
       log: 'Generated light mode visual testing integration test',
     }),
     generateFile({
       componentName,
-      outputPath: path.join(accessibilityVisualIntegrationTests, `${componentName}-dark_spec.js`),
-      template: 'templates/ComponentName-dark_spec.js',
+      outputPath: path.join(visualIntegrationTests, `${componentName}-dark.spec.mjs`),
+      template: 'templates/ComponentName-dark.spec.mjs',
       log: 'Generated dark mode visual testing integration test',
     }),
     generateFile({

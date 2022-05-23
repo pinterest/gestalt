@@ -176,8 +176,8 @@ type Props = {|
 /**
  *  [Collage](https://gestalt.pinterest.systems/collage), similarly to [Masonry](https://gestalt.pinterest.systems/masonry), creates a deterministic grid layout that can absolutely position and virtualize images.
  *
- * ![Collage light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Collage%20%230.png)
- * ![Collage dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Collage-dark%20%230.png)
+ * ![Collage light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Collage.spec.mjs-snapshots/Collage-chromium-darwin.png)
+ * ![Collage dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Collage-dark.spec.mjs-snapshots/Collage-dark-chromium-darwin.png)
  *
  */
 export default function Collage(props: Props): Node {

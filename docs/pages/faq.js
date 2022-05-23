@@ -169,15 +169,14 @@ yarn generate ComponentName
           </Heading>
           <Text>
             We use{' '}
-            <Link href="https://docs.cypress.io/" inline>
-              <Text weight="bold">Cypress</Text>
+            <Link href="https://playwright.dev/" inline>
+              <Text weight="bold">Playwright</Text>
             </Link>{' '}
-            for our integration test. If you want to run the tests locally:
+            for our integration tests. If you want to run the tests locally:
             <Markdown
               text={`
 ~~~bash
-yarn docs
-yarn cypress run
+yarn playwright:test
 ~~~
           `}
             />

@@ -48,8 +48,8 @@ type Props = {|
 /**
  * [SlimBanner](https://gestalt.pinterest.systems/slimbanner) conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. Since they are about a specific section of a page or surface, SlimBanner sits inside of a container, and not at the top of the page. For alerts that apply to the whole page, use [Callout](https://gestalt.pinterest.systems/callout).
  *
- * ![SlimBanner light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SlimBanner%20%230.png)
- * ![SlimBanner dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SlimBanner-dark%20%230.png)
+ * ![SlimBanner light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SlimBanner.spec.mjs-snapshots/SlimBanner-chromium-darwin.png)
+ * ![SlimBanner dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SlimBanner-dark.spec.mjs-snapshots/SlimBanner-dark-chromium-darwin.png)
  *
  */
 export default function SlimBanner({

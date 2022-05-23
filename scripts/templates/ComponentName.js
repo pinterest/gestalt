@@ -14,8 +14,8 @@ type Props = {|
 
 /**
  * [ComponentName] https://gestalt.pinterest.systems/componentname component should be used for ... on the page.
- * ![ComponentName light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ComponentName-lightName%20%230.png)
- * ![ComponentName dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ComponentName-dark%20%230.png)
+ * ![ComponentName light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComponentName.spec.mjs-snapshots/ComponentName-chromium-darwin.png)
+ * ![ComponentName dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComponentName-dark.spec.mjs-snapshots/ComponentName-dark-chromium-darwin.png)
  */
 export default function ComponentName({ accessibilityLabel }: Props): Node {
   return (

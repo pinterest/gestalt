@@ -230,43 +230,44 @@ yarn jest -u
                 <li>
                   <Text>
                     Run{' '}
-                    <Link href="https://github.com/component-driven/cypress-axe" inline>
-                      <Text weight="bold">Cypress accessibility integration tests</Text>
+                    <Link href="https://www.npmjs.com/package/@axe-core/playwright" inline>
+                      <Text weight="bold">Playwright accessibility integration tests</Text>
                     </Link>
                     . If any documentation examples are expected to fail accessibility testing, wrap
-                    the example in a container with{' '}
-                    <code>className=&quot;cypress-a11y-skip&quot;</code>.
+                    the example in a container with <code>data-skip-accessibility-check</code>.
                   </Text>
                   <Markdown
                     text="
 ~~~bash
-yarn cypress open
+yarn playwright:test accessibility/
 ~~~"
                   />
                 </li>
                 <li>
                   <Text>
                     Run{' '}
-                    <Link href="https://github.com/meinaart/cypress-plugin-snapshots" inline>
-                      <Text weight="bold">Cypress visual diff snapshot tests</Text>
+                    <Link href="https://playwright.dev/docs/test-snapshots" inline>
+                      <Text weight="bold">Playwright visual diff snapshot tests</Text>
                     </Link>
                     . If any component changes are expected to visually modify your component, you
-                    must update the snapshot tests. In order to run the tests, you must start the
-                    documentation server in one terminal and the Cypress testing interface in
-                    another.
+                    must update the snapshot tests. In order to update the Linux snapshots in the
+                    tests, you must build a docker file and then run docker.
                   </Text>
                   <Markdown
                     text="
 ~~~bash
-// Terminal tab #1
-yarn start
+# Update macOS snapshots
+yarn playwright:test visual-test/ --update-snapshots
 ~~~"
                   />
                   <Markdown
                     text="
 ~~~bash
-// Terminal tab #2
-yarn cypress open
+# Build the docker container (only need to do this once)
+yarn docker:build
+
+# Update the linux snapshots
+yarn docker:run
 ~~~"
                   />
                   <Flex wrap justifyContent="center">
