@@ -2,7 +2,6 @@
 import ActivationCard from '../graphics/general/ActivationCard.svg';
 import Avatar from '../graphics/general/Avatar.svg';
 import AvatarGroup from '../graphics/general/AvatarGroup.svg';
-import AvatarPair from '../graphics/general/AvatarPair.svg';
 import Badge from '../graphics/general/Badge.svg';
 import Button from '../graphics/general/Button.svg';
 import ButtonGroup from '../graphics/general/ButtonGroup.svg';
@@ -66,12 +65,6 @@ const GENERAL: ListItemType = [
     name: 'AvatarGroup',
     description:
       'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
-    category: 'Avatars',
-  },
-  {
-    svg: <AvatarPair />,
-    name: 'AvatarPair',
-    description: 'AvatarPair is used to display two avatars in an overlapping grouping.',
     category: 'Avatars',
   },
   {

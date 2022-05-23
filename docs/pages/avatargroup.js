@@ -52,7 +52,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             title="When not to use"
             description={`
-            - Displaying a group of people, companies and/or brands in a square format. Use [AvatarPair](/avatarpair) instead.
+            - Displaying a group of people, companies and/or brands in a square format. Use [AvatarGroup](/avatargroup) instead.
           `}
           />
         </MainSection.Subsection>
@@ -553,8 +553,8 @@ function LinkExample() {
         **[Avatar](/avatar)**
         Avatar is the ideal component in cases where only one person or brand needs to be displayed.
 
-        **[AvatarPair](/avatarpair)**
-        AvatarPair is the ideal solution when you wish to communicate a group of people/brands (ideally two) laid out in a square format.
+        **[AvatarGroup](/avatargroup)**
+        AvatarGroup is the ideal solution when you wish to communicate a group of people/brands laid out in a square format.
       `}
         />
       </MainSection>
