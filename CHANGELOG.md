@@ -1,3 +1,9 @@
+## 56.3.1 (May 23, 2022)
+
+### Patch
+
+- Development, Installation: added Docker & Datepicker installation guidelines (#2131)
+
 ## 56.3.0 (May 23, 2022)
 
 ### Minor
