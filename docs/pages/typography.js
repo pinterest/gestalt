@@ -7,6 +7,7 @@ import Page from '../components/Page.js';
 import A11Y from '../graphics/accessibility.svg';
 import ColorEase from '../graphics/color-examples/colorEase.svg';
 import Consistency from '../graphics/color-examples/consistency.svg';
+import DefaultAlignment from '../graphics/typography/defaultAlignment.svg';
 
 type PrincipleCardProps = {|
   color: string,
@@ -140,7 +141,20 @@ export default function TypographyPage(): Node {
         />
       </MainSection>
       <MainSection name="Alignment">
-        <MainSection.Subsection title="Default">TBD</MainSection.Subsection>
+        <MainSection.Subsection title="Default">
+          <Flex>
+            <Flex.Item>
+              <DefaultAlignment />
+            </Flex.Item>
+            <Text>
+              - Users tend to read in “F” patterns, so placing text in a similar pattern helps with
+              users absorbing all the information they need for a good experience - Since the
+              starting edge of centered text moves around, it’s harder for users to read; this can
+              be especially difficult for people with dyslexia
+              (https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
+            </Text>
+          </Flex>
+        </MainSection.Subsection>
         <MainSection.Subsection title="Exceptions">TBD</MainSection.Subsection>
       </MainSection>
       <MainSection name="Formatting">
@@ -150,7 +164,107 @@ export default function TypographyPage(): Node {
 
 "
         >
-          TBD
+          <Table accessibilityLabel="Font weight treatements">
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Use case
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Web weight
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    iOS weight
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Android weight
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Example
+                  </Text>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">Body copy</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Regular</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Regular</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Regular</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">TBD</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">Emphasis for in-line text</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Bold</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Semibold</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Medium</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">TBD</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="300">Stand-alone links</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Bold</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Semibold</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Medium</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">TBD</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">Headlines</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Bold</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Semibold</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">Medium</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">TBD</Text>
+                </Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Text decoration"
@@ -177,26 +291,38 @@ export default function TypographyPage(): Node {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>
-                <Text weight="bold">Role</Text>
+                <Text size="200" weight="bold">
+                  Role
+                </Text>
               </Table.HeaderCell>
               <Table.HeaderCell>
-                <Text weight="bold">Size</Text>
+                <Text size="200" weight="bold">
+                  Size
+                </Text>
               </Table.HeaderCell>
               <Table.HeaderCell>
-                <Text weight="bold">Weight</Text>
+                <Text size="200" weight="bold">
+                  Weight
+                </Text>
               </Table.HeaderCell>
               <Table.HeaderCell>
-                <Text weight="bold">Line spacing</Text>
+                <Text size="200" weight="bold">
+                  Line spacing
+                </Text>
               </Table.HeaderCell>
               <Table.HeaderCell>
-                <Text weight="bold">Context</Text>
+                <Text size="200" weight="bold">
+                  Context
+                </Text>
               </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <Text size="100">Help text</Text>
+                <Text size="100" overflow="noWrap">
+                  Help text
+                </Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200">100</Text>
@@ -213,7 +339,9 @@ export default function TypographyPage(): Node {
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="200">Body, dense</Text>
+                <Text size="200" overflow="noWrap">
+                  Body, dense
+                </Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200">200</Text>
@@ -232,7 +360,9 @@ export default function TypographyPage(): Node {
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="300">Body, default</Text>
+                <Text size="300" overflow="noWrap">
+                  Body, default
+                </Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200">300</Text>
@@ -249,7 +379,7 @@ export default function TypographyPage(): Node {
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="400" weight="bold">
+                <Text size="400" weight="bold" overflow="noWrap">
                   Heading, sm
                 </Text>
               </Table.Cell>
@@ -270,7 +400,7 @@ export default function TypographyPage(): Node {
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="500" weight="bold">
+                <Text size="500" weight="bold" overflow="noWrap">
                   Heading, md
                 </Text>
               </Table.Cell>
@@ -291,7 +421,7 @@ export default function TypographyPage(): Node {
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="600" weight="bold">
+                <Text size="600" weight="bold" overflow="noWrap">
                   Heading, lg
                 </Text>
               </Table.Cell>
