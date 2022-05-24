@@ -3,6 +3,7 @@
 import { type Node } from 'react';
 import { Flex, Table, Text } from 'gestalt';
 import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
+import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import { TokenExample } from '../components/TokenExample.js';
@@ -19,7 +20,7 @@ export type Token = {|
 const tokenCategories = [
   { name: 'Spacing', category: 'spacing', id: 'space' },
   { name: 'Background color', category: 'background-color', id: 'background' },
-  { name: 'Text color', category: 'text-color', id: 'text' },
+  { name: 'Text color', category: 'text-color', id: 'color-text' },
   { name: 'Font size', category: 'font-size', id: 'font-size' },
   { name: 'Font weight', category: 'font-weight', id: 'font-weight' },
   { name: 'Font family', category: 'font-family', id: 'font-family' },
@@ -37,6 +38,13 @@ const darkValueCategories = [
 ];
 
 const headers = ['CSS token name', 'Value', 'Dark mode value', 'Example'];
+
+const sortedDataTokens = dataVizTokens.sort((a, b) =>
+  a.name.localeCompare(b.name, undefined, {
+    numeric: true,
+    sensitivity: 'base',
+  }),
+);
 
 const tableHeaders = (category: string): Node => (
   <Table.Header>
@@ -65,46 +73,41 @@ export default function DesignTokensPage(): Node {
         showSourceLink={false}
       />
       <MainSection name="Token values">
-        {tokenCategories.map((category) => (
-          <MainSection.Subsection key={`table${category.name}`} title={category.name}>
-            <Table accessibilityLabel={`${category.name} Values`}>
-              {tableHeaders(category.name)}
-              <Table.Body>
-                {tokens
-                  .sort((a, b) =>
-                    category.name === 'Data visualization'
-                      ? a.name.localeCompare(b.name, undefined, {
-                          numeric: true,
-                          sensitivity: 'base',
-                        })
-                      : 0,
-                  )
-                  .filter((token) => token.name.includes(`${category.id}`))
-                  .map((token: Token) => (
-                    <Table.Row key={`token${token.name}`}>
-                      <Table.Cell>
-                        <Flex direction="column" gap={2}>
-                          <Text>${token.name}</Text>
-                          <Text color="subtle">{token.comment || ''}</Text>
-                        </Flex>
-                      </Table.Cell>
-                      <Table.Cell>
-                        <Text>{token.value}</Text>
-                      </Table.Cell>
-                      {darkValueCategories.includes(category.name) && (
+        {tokenCategories.map((category) => {
+          const tokensToUse = category.name === 'Data visualization' ? sortedDataTokens : tokens;
+          return (
+            <MainSection.Subsection key={`table${category.name}`} title={category.name}>
+              <Table accessibilityLabel={`${category.name} Values`}>
+                {tableHeaders(category.name)}
+                <Table.Body>
+                  {tokensToUse
+                    .filter((token) => token.name.includes(`${category.id}`))
+                    .map((token: Token) => (
+                      <Table.Row key={`token${token.name}`}>
                         <Table.Cell>
-                          <Text>{token.darkValue || '--'}</Text>
+                          <Flex direction="column" gap={2}>
+                            <Text>${token.name}</Text>
+                            <Text color="subtle">{token.comment || ''}</Text>
+                          </Flex>
                         </Table.Cell>
-                      )}
-                      <Table.Cell>
-                        <TokenExample token={token} category={category.category} />
-                      </Table.Cell>
-                    </Table.Row>
-                  ))}
-              </Table.Body>
-            </Table>
-          </MainSection.Subsection>
-        ))}
+                        <Table.Cell>
+                          <Text>{token.value}</Text>
+                        </Table.Cell>
+                        {darkValueCategories.includes(category.name) && (
+                          <Table.Cell>
+                            <Text>{token.darkValue || '--'}</Text>
+                          </Table.Cell>
+                        )}
+                        <Table.Cell>
+                          <TokenExample token={token} category={category.category} />
+                        </Table.Cell>
+                      </Table.Row>
+                    ))}
+                </Table.Body>
+              </Table>
+            </MainSection.Subsection>
+          );
+        })}
       </MainSection>
     </Page>
   );

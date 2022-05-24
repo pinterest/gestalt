@@ -72,7 +72,7 @@ export default function ColorPage(): Node {
                     {MAIN_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}
-                        textColor={step === '03' || step === '05' ? 'light' : 'dark'}
+                        textColor="dark"
                         description={`Data Visualization ${step}`}
                         fullTokenName={`color-data-visualization-${step}`}
                       />
@@ -85,7 +85,7 @@ export default function ColorPage(): Node {
                     {EXTENDED_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}
-                        textColor={step === '09' || step === '12' ? 'light' : 'dark'}
+                        textColor={step === '12' ? 'light' : 'dark'}
                         description={`Data Visualization ${step}`}
                         fullTokenName={`color-data-visualization-${step}`}
                       />
