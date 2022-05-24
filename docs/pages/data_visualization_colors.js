@@ -5,9 +5,43 @@ import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import ColorTile from '../components/ColorTile.js';
 import Page from '../components/Page.js';
+import { capitalizeFirstLetter } from '../components/utils.js';
 
 const MAIN_STEPS = ['01', '02', '03', '04', '05', '06'];
 const EXTENDED_STEPS = ['07', '08', '09', '10', '11', '12'];
+
+type ColorCardProps = {|
+  colorScheme: 'light' | 'dark',
+|};
+function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
+  return (
+    <ColorSchemeProvider colorScheme={colorScheme} id={colorScheme}>
+      <Box color="default" padding={4}>
+        <Flex direction="column" gap={4}>
+          <Heading size="400">{capitalizeFirstLetter(colorScheme)} mode</Heading>
+          <Flex direction="column">
+            <ColorTile
+              textColor={colorScheme}
+              description="Success (Graph)"
+              fullTokenName="color-data-visualization-success-graph"
+            />
+            <ColorTile
+              textColor={colorScheme}
+              description="Success (Text/Icon)"
+              fullTokenName="color-data-visualization-success-text"
+            />
+          </Flex>
+          <ColorTile
+            textColor={colorScheme}
+            description="Error (Graph and Text)"
+            fullTokenName="color-data-visualization-error"
+          />
+        </Flex>
+        <Flex />
+      </Box>
+    </ColorSchemeProvider>
+  );
+}
 
 export default function ColorPage(): Node {
   return (
@@ -30,7 +64,7 @@ export default function ColorPage(): Node {
       >
         <MainSection.Subsection title="Light mode">
           <ColorSchemeProvider colorScheme="light" id="light">
-            <Box color="default" padding={4}>
+            <Box color="default" padding={4} display="inlineBlock">
               <Flex wrap gap={4}>
                 <Flex direction="column" gap={4}>
                   <Text weight="bold">Main palette</Text>
@@ -64,8 +98,8 @@ export default function ColorPage(): Node {
         </MainSection.Subsection>
         <MainSection.Subsection title="Dark mode">
           <ColorSchemeProvider colorScheme="dark" id="dark">
-            <Box color="default" padding={4}>
-              <Flex wrap gap={4}>
+            <Box color="default" padding={4} display="inlineBlock">
+              <Flex wrap gap={4} flex="none">
                 <Flex direction="column" gap={4}>
                   <Text weight="bold">Main palette</Text>
                   <Flex direction="column" gap={1}>
@@ -102,56 +136,8 @@ export default function ColorPage(): Node {
         description="Semantic colors are used to indicate trends in performance data. For successful trends, we use a slightly darker green color for text or icons associated with data to ensure the text has enough contrast."
       >
         <Flex>
-          <ColorSchemeProvider colorScheme="light" id="light">
-            <Box color="default" padding={4}>
-              <Flex direction="column" gap={4}>
-                <Heading size="400">Light mode</Heading>
-                <Flex direction="column">
-                  <ColorTile
-                    textColor="light"
-                    description="Success (Graph)"
-                    fullTokenName="color-data-visualization-success-graph"
-                  />
-                  <ColorTile
-                    textColor="light"
-                    description="Success (Text/Icon)"
-                    fullTokenName="color-data-visualization-success-text"
-                  />
-                </Flex>
-                <ColorTile
-                  textColor="light"
-                  description="Error (Graph and Text)"
-                  fullTokenName="color-data-visualization-error"
-                />
-              </Flex>
-              <Flex />
-            </Box>
-          </ColorSchemeProvider>
-          <ColorSchemeProvider colorScheme="dark" id="dark">
-            <Box color="default" padding={4}>
-              <Flex direction="column" gap={4}>
-                <Heading size="400">Dark mode</Heading>
-                <Flex direction="column">
-                  <ColorTile
-                    textColor="dark"
-                    description="Success (Graph)"
-                    fullTokenName="color-data-visualization-success-graph"
-                  />
-                  <ColorTile
-                    textColor="dark"
-                    description="Success (Text/Icon)"
-                    fullTokenName="color-data-visualization-success-text"
-                  />
-                </Flex>
-                <ColorTile
-                  textColor="dark"
-                  description="Error (Graph and Text)"
-                  fullTokenName="color-data-visualization-error"
-                />
-              </Flex>
-              <Flex />
-            </Box>
-          </ColorSchemeProvider>
+          <SemanticThemeExample colorScheme="light" />
+          <SemanticThemeExample colorScheme="dark" />
         </Flex>
       </MainSection>
     </Page>
