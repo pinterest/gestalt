@@ -1,0 +1,28 @@
+{
+  "color": {
+    "data-visualization": {
+      "primary": {
+        "value": "{color.data-visualization.05.value}",
+        "darkValue": "{color.data-visualization.05.darkValue}",
+        "comment": "Primary data visualization color, used for showing total value or whenever only 1 color is needed in a visualization."
+      },
+      "success": {
+        "graph": {
+          "value": "{color.green.matchacado.500.value}",
+          "darkValue": "{color.green.matchacado.300.value}",
+          "comment": "Semantic color used to show positive or successful changes in graphs"
+        },
+        "text": {
+          "value": "{color.green.matchacado.600.value}",
+          "darkValue": "{color.green.matchacado.400.value}",
+          "comment": "Semantic color used for text or icons related to positive or successful info in graphs"
+        }
+      },
+      "error": {
+        "value": "{color.red.pushpin.500.value}",
+        "darkValue": "{color.red.pushpin.400.value}",
+        "comment": "Semantic color used for show negative or error states in graphs (can also be used for text and icons) "
+      }
+    }
+  }
+}

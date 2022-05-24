@@ -79,6 +79,13 @@ StyleDictionary.registerFilter({
   },
 });
 
+StyleDictionary.registerFilter({
+  name: 'customDataVizFilter',
+  matcher(token) {
+    return token.attributes.category === `color` && token.attributes.type === `data-visualization`;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'android-custom',
   transforms: ['attribute/cti', 'name/cti/snake', 'color/hex8android', 'size/pxToDpOrSp'],

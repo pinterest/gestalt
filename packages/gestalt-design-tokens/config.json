@@ -50,6 +50,29 @@
           "options": {
             "fileHeader": "flowCustomHeader"
           }
+        },
+        {
+          "destination": "tokens_individual.js",
+          "format": "javascript/es6",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
+        },
+        {
+          "destination": "data-viz-tokens.js",
+          "format": "customJSArrayFormat",
+          "filter": "customDataVizFilter",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
+        },
+        {
+          "destination": "data-viz-tokens_individual.js",
+          "format": "javascript/es6",
+          "filter": "customDataVizFilter",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
         }
       ]
     },
