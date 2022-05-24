@@ -24,8 +24,8 @@ export default function ColorPage(): Node {
 
         - The colors in the main palette are used in most cases.
         - Use the extended palette only when more than 6 colors are needed.
-        - When there is only 1 color needed in a visualization, always use Data Visualization #05, which is reserved for showing total value.
-        - When more than 1 color is needed, colors should be applied in the exact order in the palette to maximize contrast between adjacent colors, in order to help with visual differentiation.
+        - When there is only one color needed in a visualization, always use Data Visualization #05, which is reserved for showing total value.
+        - When more than one color is needed, colors should be applied in the exact order in the palette to maximize contrast between adjacent colors, in order to help with visual differentiation.
         `}
       >
         <MainSection.Subsection title="Light mode">
@@ -38,7 +38,7 @@ export default function ColorPage(): Node {
                     {MAIN_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}
-                        textColor="light"
+                        textColor={step === '01' || step === '02' ? 'dark' : 'light'}
                         description={`Data Visualization ${step}`}
                         fullTokenName={`color-data-visualization-${step}`}
                       />
@@ -51,7 +51,7 @@ export default function ColorPage(): Node {
                     {EXTENDED_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}
-                        textColor="light"
+                        textColor={step === '10' ? 'dark' : 'light'}
                         description={`Data Visualization ${step}`}
                         fullTokenName={`color-data-visualization-${step}`}
                       />
