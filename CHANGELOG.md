@@ -1,3 +1,9 @@
+## 57.0.0 (May 24, 2022)
+
+### Major
+
+- AvatarPair: component deprecation (#2130)
+
 ## 56.3.1 (May 23, 2022)
 
 ### Patch
