@@ -333,9 +333,6 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           description={`
         **[AvatarGroup](/avatargroup)**
         AvatarGroup is the ideal component in cases where multiple people/brands need to be displayed.
-
-        **[AvatarPair](/avatarpair)**
-        AvatarPair is the ideal solution when you wish to communicate a group of people/brands (ideally two) laid out in a square format.
       `}
         />
       </MainSection>

@@ -3,7 +3,6 @@ import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';
-import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -77,7 +76,6 @@ export {
   ActivationCard,
   Avatar,
   AvatarGroup,
-  AvatarPair,
   Badge,
   Box,
   Button,

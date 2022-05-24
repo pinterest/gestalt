@@ -70,7 +70,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Avatars',
-    pages: ['Avatar', 'AvatarGroup', 'AvatarPair'],
+    pages: ['Avatar', 'AvatarGroup'],
   },
   {
     sectionName: 'Controls',
