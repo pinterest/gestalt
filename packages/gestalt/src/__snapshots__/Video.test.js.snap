@@ -1028,3 +1028,117 @@ exports[`Video with source 1`] = `
   </div>
 </div>
 `;
+
+exports[`Video with startTime 1`] = `
+<div
+  className="player blackBg"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "100%",
+    }
+  }
+>
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".__gestaltThemeVideo {
+  --g-colorRed0: #ff5247;
+  --g-colorRed100: #e60023;
+  --g-colorRed100Active: #a3081a;
+  --g-colorRed100Hovered: #ad081b;
+  --g-colorGray0: #fff;
+  --g-colorGray0Active: #e0e0e0;
+  --g-colorGray0Hovered: #f0f0f0;
+  --g-colorGray50: #fff;
+  --g-colorGray100: #efefef;
+  --g-colorGray100Active: #dadada;
+  --g-colorGray100Hovered: #e2e2e2;
+  --g-colorGray150: #ddd;
+  --g-colorGray150Hovered: #d0d0d0;
+  --g-colorGray200: #767676;
+  --g-colorGray200Active: #828282;
+  --g-colorGray200Hovered: #878787;
+  --g-colorGray300: #111;
+  --g-colorGray400: #000;
+  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
+  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+  --color-text-default: #111111;
+  --color-text-subtle: #767676;
+  --color-text-success: #005f3e;
+  --color-text-error: #cc0000;
+  --color-text-warning: #bd5b00;
+  --color-text-inverse: #ffffff;
+  --color-text-shopping: #0074e8;
+  --color-text-link: #004ba9;
+  --color-text-icon-default: #111111;
+  --color-text-icon-subtle: #767676;
+  --color-text-icon-success: #005f3e;
+  --color-text-icon-error: #cc0000;
+  --color-text-icon-warning: #bd5b00;
+  --color-text-icon-info: #0074e8;
+  --color-text-icon-inverse: #ffffff;
+  --color-text-icon-shopping: #0074e8;
+  --color-background-default: #ffffff;
+  --color-background-info-base: #0074e8;
+  --color-background-info-weak: #d7edff;
+  --color-background-error-base: #cc0000;
+  --color-background-error-weak: #ffe0e0;
+  --color-background-warning-base: #bd5b00;
+  --color-background-warning-weak: #ffe4c1;
+  --color-background-success-base: #008753;
+  --color-background-success-weak: #c3f9c2;
+  --color-background-shopping: #0074e8;
+  --color-background-secondary-base: #e9e9e9;
+  --color-background-tertiary-base: #767676;
+  --color-background-selected-base: #111111;
+  --color-background-inverse-base: #111111;
+  --color-background-education: #0074e8;
+  --color-background-elevation-accent: #f1f1f1;
+  --color-background-elevation-floating: rgba(0, 0, 0, 0);
+  --color-background-elevation-raised: rgba(0, 0, 0, 0);
+  --color-border-container: #cdcdcd;
+  --color-border-default: #767676;
+  --color-border-error: #cc0000;
+  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
+  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
+ }",
+      }
+    }
+  />
+  <div
+    className="__gestaltThemeVideo"
+  >
+    <video
+      className="video"
+      disableRemotePlayback={false}
+      muted={true}
+      onCanPlay={[Function]}
+      onDurationChange={[Function]}
+      onEnded={[Function]}
+      onError={[Function]}
+      onLoadStart={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
+      onPlaying={[Function]}
+      onProgress={[Function]}
+      onSeeked={[Function]}
+      onSeeking={[Function]}
+      onStalled={[Function]}
+      onTimeUpdate={[Function]}
+      onWaiting={[Function]}
+      preload="auto"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    >
+      <track
+        kind="captions"
+        src="https://media.w3.org/2010/05/sintel/captions.vtt"
+      />
+    </video>
+  </div>
+</div>
+`;
