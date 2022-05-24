@@ -25,9 +25,16 @@ const tokenCategories = [
   { name: 'Font family', category: 'font-family', id: 'font-family' },
   { name: 'Border color', category: 'color-border', id: 'color-border' },
   { name: 'Elevation', category: 'elevation', id: 'elevation' },
+  { name: 'Data visualization', category: 'data-visualization', id: 'data-visualization' },
 ];
 
-const darkValueCategories = ['Background color', 'Elevation', 'Border color', 'Text color'];
+const darkValueCategories = [
+  'Background color',
+  'Elevation',
+  'Border color',
+  'Text color',
+  'Data visualization',
+];
 
 const headers = ['CSS token name', 'Value', 'Dark mode value', 'Example'];
 
@@ -64,6 +71,14 @@ export default function DesignTokensPage(): Node {
               {tableHeaders(category.name)}
               <Table.Body>
                 {tokens
+                  .sort((a, b) =>
+                    category.name === 'Data visualization'
+                      ? a.name.localeCompare(b.name, undefined, {
+                          numeric: true,
+                          sensitivity: 'base',
+                        })
+                      : 0,
+                  )
                   .filter((token) => token.name.includes(`${category.id}`))
                   .map((token: Token) => (
                     <Table.Row key={`token${token.name}`}>

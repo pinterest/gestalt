@@ -28,7 +28,7 @@ StyleDictionary.registerFormat({
   formatter: ({ dictionary, file }) => {
     const tokenArray = dictionary.allTokens.map((token) =>
       JSON.stringify({
-        name: token.name,
+        name: token.path.join('-'),
         value: token.value,
         darkValue: token.darkValue,
         comment: token.comment,
@@ -37,6 +37,14 @@ StyleDictionary.registerFormat({
     );
     return `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
   },
+});
+
+StyleDictionary.registerFormat({
+  name: 'customJSIndividualFormat',
+  formatter: ({ dictionary }) =>
+    `// @flow strict\n\n${StyleDictionary.format['javascript/es6']({
+      dictionary,
+    })}`,
 });
 
 function darkFormatWrapper(format) {
