@@ -1,3 +1,9 @@
+## 57.1.0 (May 24, 2022)
+
+### Minor
+
+- Video: Add startTime prop to explicitly set start time on video node (#2129)
+
 ## 57.0.0 (May 24, 2022)
 
 ### Major
