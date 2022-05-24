@@ -400,6 +400,12 @@ export default class Video extends PureComponent<Props, State> {
     if (isNewSource(prevProps.src, this.props.src)) {
       this.load();
     }
+
+    // If the startTime has changed, update
+    if (prevProps.startTime !== this.props.startTime) {
+      this.seek(this.props.startTime || 0);
+    }
+
     // If the volume changed, set the new volume
     if (prevProps.volume !== this.props.volume) {
       this.setVolume(this.props.volume);
@@ -408,6 +414,7 @@ export default class Video extends PureComponent<Props, State> {
     if (prevProps.playbackRate !== this.props.playbackRate) {
       this.setPlaybackRate(this.props.playbackRate);
     }
+
     // If the playback changed, play or pause the video
     if (prevProps.playing !== this.props.playing) {
       if (this.props.playing) {
