@@ -104,6 +104,7 @@ function Header() {
             id="site-settings-dropdown"
             onDismiss={() => setSettingsDropdownOpen(false)}
             zIndex={POPOVER_ZINDEX}
+            isWithinFixedContainer
           >
             <Dropdown.Item
               onSelect={() => onChangeColorScheme()}

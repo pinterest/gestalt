@@ -33,7 +33,7 @@ export default function HeaderMenu({
         </Text>
       </Tooltip>
 
-      <Tooltip inline text="Check out the source code on GitHub" zIndex={popoverZIndex}>
+      <Tooltip inline text="View source code" zIndex={popoverZIndex}>
         <Text>
           <GestaltLink
             href="https://github.com/pinterest/gestalt"
