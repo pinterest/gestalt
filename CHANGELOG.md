@@ -1,3 +1,9 @@
+## 57.2.0 (May 25, 2022)
+
+### Minor
+
+- Data Visualization: Add design tokens and color palette page (#2133)
+
 ## 57.1.0 (May 24, 2022)
 
 ### Minor
