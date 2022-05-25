@@ -1,3 +1,9 @@
+## 57.2.2 (May 25, 2022)
+
+### Patch
+
+- Site: Move site settings into header dropdown menu (#2135)
+
 ## 57.2.1 (May 25, 2022)
 
 ### Patch
