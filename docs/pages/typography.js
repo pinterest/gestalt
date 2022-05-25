@@ -9,6 +9,9 @@ import Markdown from '../components/Markdown.js';
 import ColorEase from '../graphics/color-examples/colorEase.svg';
 import Consistency from '../graphics/color-examples/consistency.svg';
 import DefaultAlignment from '../graphics/typography/defaultAlignment.svg';
+import Speedy from '../graphics/typography/speedy.svg';
+import Inclusive from '../graphics/typography/inclusive.svg';
+import Minimal from '../graphics/typography/minimal.svg';
 
 type PrincipleCardProps = {|
   color: string,
@@ -54,8 +57,8 @@ export default function TypographyPage(): Node {
         <Flex gap={12} alignContent="between" wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
             <PrincipleLayout
-              color="teal-spabattical-500"
-              image={<ColorEase />}
+              color="teal-spabattical-100"
+              image={<Speedy />}
               heading="Speedy"
               text={
                 <Text>
@@ -67,8 +70,8 @@ export default function TypographyPage(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
             <PrincipleLayout
-              color="orange-firetini-500"
-              image={<Consistency />}
+              color="pink-flaminglow-100"
+              image={<Inclusive />}
               heading="Inclusive"
               text={
                 <Text>
@@ -80,8 +83,8 @@ export default function TypographyPage(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
             <PrincipleLayout
-              color="blue-skycicle-500"
-              image={<A11Y />}
+              color="orange-firetini-100"
+              image={<Minimal />}
               heading="Minimal"
               text={
                 <Text>
