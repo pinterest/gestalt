@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect } from 'react';
-import { Tooltip } from 'gestalt';
+import { CompositeZIndex, Tooltip } from 'gestalt';
 
 function filterKeyboardEvent(event: KeyboardEvent) {
   const target = event.target || event.srcElement;
@@ -8,7 +8,7 @@ function filterKeyboardEvent(event: KeyboardEvent) {
   // $FlowIssue[prop-missing] Flow can't find tagName
   const { tagName } = target;
 
-  // Ingore
+  // Ignore
   // * isContentEditable === true
   // * <input>, <textarea> and <select>
   // * readOnly === true
@@ -38,7 +38,7 @@ function handleKeyDown(event: KeyboardEvent) {
   }
 }
 
-export default function DocSearch(): Node {
+export default function DocSearch({ popoverZIndex }: {| popoverZIndex?: CompositeZIndex |}): Node {
   useEffect(() => {
     if (typeof window === 'undefined' || !window.docsearch) {
       return;
@@ -61,7 +61,7 @@ export default function DocSearch(): Node {
   }, []);
 
   return (
-    <Tooltip inline text="Pro tip: press '/' to quickly access search">
+    <Tooltip inline text="Pro tip: press '/' to quickly access search" zIndex={popoverZIndex}>
       <form className="searchbox">
         <div className="searchbox__wrapper">
           <input
