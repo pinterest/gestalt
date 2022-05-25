@@ -3,7 +3,10 @@ import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
+import flexStyles from './Flex.css';
 import useInExperiment from './useInExperiment.js';
+import Icon from './Icon.js';
+import Box from './Box.js';
 
 type Position = 'middle' | 'top';
 
@@ -29,6 +32,7 @@ type Props = {|
    * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/badge#Type) variant to learn more.
    */
   type?: TypeOptions,
+  icon?: boolean,
 |};
 
 /**
@@ -38,7 +42,12 @@ type Props = {|
  * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.mjs-snapshots/Badge-dark-chromium-darwin.png)
  *
  */
-export default function Badge({ position = 'middle', text, type = 'info' }: Props): Node {
+export default function Badge({
+  position = 'middle',
+  text,
+  type = 'info',
+  icon = false,
+}: Props): Node {
   const TYPE_COLOR_MAP = {
     'info': 'infoBase',
     'error': 'errorBase',
@@ -56,10 +65,15 @@ export default function Badge({ position = 'middle', text, type = 'info' }: Prop
 
   const badgeStyle = inSemiBoldExp ? styles.BadgeSemiBold : styles.Badge;
 
-  const cs = cx(badgeStyle, styles[position], colors[TYPE_COLOR_MAP[type]], {
+  const cs = cx(badgeStyle, styles[position], flexStyles.Flex, colors[TYPE_COLOR_MAP[type]], {
     [styles.darkWash]: type === 'darkWash',
     [styles.lightWash]: type === 'lightWash',
   });
 
-  return <div className={cs}>{text}</div>;
+  return (
+    <div className={cs}>
+      {icon && <Icon icon="info-circle" accessibilityLabel="info" color="inverse" size="14" />}
+      <Box marginStart={icon ? 1 : 0}>{text}</Box>
+    </div>
+  );
 }

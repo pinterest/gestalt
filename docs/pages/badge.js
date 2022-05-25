@@ -185,7 +185,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <Text>Success</Text>
         </Table.Cell>
         <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Completed" type="success"/></Text>
+          <Text size="300">Ads & Campaigns <Badge text="Completed" icon type="success"/></Text>
         </Table.Cell>
       </Table.Row>
       <Table.Row>
@@ -201,7 +201,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <Text>Error</Text>
         </Table.Cell>
         <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Failed" type="error"/></Text>
+          <Text size="300">Ads & Campaigns <Badge text="Failed" icon type="error"/></Text>
         </Table.Cell>
       </Table.Row>
       <Table.Row>
