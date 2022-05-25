@@ -144,7 +144,9 @@ function Header() {
       <Box flex="grow" />
 
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
-        <DocSearch popoverZIndex={POPOVER_ZINDEX} />
+        <Box paddingX={2}>
+          <DocSearch popoverZIndex={POPOVER_ZINDEX} />
+        </Box>
 
         {/* Medium & larger-screen buttons/links */}
         <HeaderMenu isHeader popoverZIndex={POPOVER_ZINDEX} />
