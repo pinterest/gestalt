@@ -90,7 +90,7 @@ export default function DocsPage({
             cardSize="lg"
             defaultCode={`
 <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
-  <Flex alignItems="center" gap={4} width="100%">
+  <Flex alignItems="center" gap={4}>
     <Button text="Button 1" />
     <Flex.Item flex="grow">
       <Button text="Button 2" />
@@ -112,7 +112,7 @@ export default function DocsPage({
             cardSize="lg"
             defaultCode={`
 <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
-  <Flex alignItems="center" gap={4} width="100%">
+  <Flex alignItems="center" gap={4}>
     <Flex.Item flexBasis={200}>
       <Text>Some text</Text>
     </Flex.Item>
