@@ -4,14 +4,15 @@ import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
-import A11Y from '../graphics/accessibility.svg';
 import Markdown from '../components/Markdown.js';
-import ColorEase from '../graphics/color-examples/colorEase.svg';
-import Consistency from '../graphics/color-examples/consistency.svg';
 import DefaultAlignment from '../graphics/typography/defaultAlignment.svg';
 import Speedy from '../graphics/typography/speedy.svg';
 import Inclusive from '../graphics/typography/inclusive.svg';
 import Minimal from '../graphics/typography/minimal.svg';
+import LineLength from '../graphics/typography/lineLength.svg';
+import LineHeightLatin from '../graphics/typography/lineHeightLatin.svg';
+import LineHeightCJK from '../graphics/typography/lineHeightCJK.svg';
+import ParagraphSpacing from '../graphics/typography/paragraphSpacing.svg';
 
 type PrincipleCardProps = {|
   color: string,
@@ -261,7 +262,9 @@ We have numerous React components that use typography as the primary element.
           title="Line length"
           description="For long-form, multi-line paragraphs set at our default font size, use a maximum width of 664 to allow for a max of about 90 characters. Otherwise, it can get hard for users to scan and read text."
         >
-          TBD
+          <Box width="100%" color="infoWeak">
+            <LineLength />
+          </Box>
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Spacing">
@@ -286,21 +289,25 @@ We currently use browser defaults on web UIs so that lines of text are readable 
             `}
             />
           </Box>
-          <Flex gap={4}>
-            <Flex direction="column">
-              <Consistency />
+          <Flex gap={4} width={504}>
+            <Flex.Item flex="shrink">
+              <Box color="infoWeak">
+                <LineHeightLatin />
+              </Box>
               <Text size="100">
                 Latin script in Chrome with line-height set to “normal”, which is about 120% of font
                 size.
               </Text>
-            </Flex>
-            <Flex direction="column">
-              <Consistency />
+            </Flex.Item>
+            <Flex.Item flex="shrink">
+              <Box color="infoWeak">
+                <LineHeightCJK />
+              </Box>
               <Text size="100">
                 Myanmar script in Chrome with line-heigh set to normal, which is about 200% of font
                 size.
               </Text>
-            </Flex>
+            </Flex.Item>
           </Flex>
         </MainSection.Subsection>
 
@@ -386,7 +393,9 @@ Line height is automatically determined by a font’s size. For more info, refer
           title="Paragraph spacing"
           description="Spacing after a paragraph in body copy should be 75% of the body copy font size."
         >
-          <Consistency />
+          <Box color="infoWeak">
+            <ParagraphSpacing />
+          </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Character spacing"
