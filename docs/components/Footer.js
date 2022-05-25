@@ -6,14 +6,7 @@ import trackButtonClick from './buttons/trackButtonClick.js';
 export default function Footer(): Node {
   return (
     <Box color="lightGray" padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
-      <Box
-        paddingX={2}
-        paddingY={1}
-        display="flex"
-        justifyContent="between"
-        direction="column"
-        mdDirection="row"
-      >
+      <Box paddingX={2} paddingY={1} display="flex" direction="column" mdDirection="row">
         <Box column={12} mdColumn={3} padding={2}>
           <Flex alignItems="center" gap={2}>
             <Box aria-hidden>
