@@ -527,12 +527,12 @@ Line height is automatically determined by a font’s size. For more info, refer
                   <Text size="200">Medium</Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Box color="darkGray" rounding={2} padding={2}>
-                    <Text color="inverse" size="100" overflow="noWrap">
-                      Figma is
-                    </Text>
-                    <Text weight="bold" color="inverse" size="100" overflow="noWrap">
-                      not a design system
+                  <Box color="darkGray" rounding={2} padding={2} display="inlineBlock">
+                    <Text color="inverse" size="100" overflow="noWrap" inline>
+                      Figma is{' '}
+                      <Text weight="bold" color="inverse" size="100" overflow="noWrap" inline>
+                        not a design system
+                      </Text>
                     </Text>
                   </Box>
                 </Table.Cell>
@@ -804,7 +804,7 @@ Line height is automatically determined by a font’s size. For more info, refer
             type="do"
             description="Stick to our [design tokens](/design_tokens) and use color combinations with a 4.5:1 contrast ratio between foreground and background."
             defaultCode={`
-<Box>TBD</Box>
+<Box rounding={2} padding={2} color="infoWeak"><Text>This has enough contrast</Text></Box>
 `}
           />
           <MainSection.Card
@@ -812,10 +812,13 @@ Line height is automatically determined by a font’s size. For more info, refer
             type="don't"
             description="Use text that doesn’t pass 4.5:1 contrast ratio when testing with Figma accessibility plugins."
             defaultCode={`
-<Box>TBD</Box>
+<Box rounding={2} padding={2} color="infoWeak"><Text color="inverse">This does not have enough contrast</Text></Box>
 `}
           />
         </MainSection.Subsection>
+        <Heading size="400" accessibilityLevel={3}>
+          Localization
+        </Heading>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
@@ -827,7 +830,7 @@ Use standards that will make it easier to translate to other languages:
 - Avoid ALL CAPS for special emphasis, as certain languages, like Arabic, do not support it
 `}
             defaultCode={`
-<Box>TBD</Box>
+<Text>TBD</Text>
 `}
           />
           <MainSection.Card
@@ -835,72 +838,10 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Set line height to specific sizes, use fonts that don’t have broad language support, and use ALL CAPS."
             defaultCode={`
-<Box>TBD</Box>
+<Text>TBD</Text>
 `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Align, space and style text so that a user can easily read it and understand what actions to take."
-            defaultCode={`
-<Box>TBD</Box>
-`}
-          />
-
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
-            defaultCode={`
- <Box>TBD</Box>
-`}
-          />
-        </MainSection.Subsection>
-
-        <Heading size="400" accessibilityLevel={3}>
-          Internationalization
-        </Heading>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Align, space and style text so that a user can easily read it and understand what actions to take."
-            defaultCode={`
-<Box>TBD</Box>
-`}
-          />
-
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
-            defaultCode={`
- <Box>TBD</Box>
-`}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection title="Style" columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Align, space and style text so that a user can easily read it and understand what actions to take."
-            defaultCode={`
-<Box>TBD</Box>
-`}
-          />
-
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
-            defaultCode={`
- <Box>TBD</Box>
-`}
-          />
-        </MainSection.Subsection>
-
         <Heading size="400" accessibilityLevel={3}>
           Style
         </Heading>
@@ -910,7 +851,19 @@ Use standards that will make it easier to translate to other languages:
             type="do"
             description="Align, space and style text so that a user can easily read it and understand what actions to take."
             defaultCode={`
-<Box>TBD</Box>
+<Box>
+  <Heading accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
+  <Text>
+    <ul>
+      <li>See your account settings</li>
+      <li>Create new Pins for you</li>
+      <li>Send messages on behalf of you</li>
+      <li>Follow things for you</li>
+      <li>See your secret Pins</li>
+      <li>See your secret boards</li>
+    </ul>
+  </Text>
+</Box>
 `}
           />
 
@@ -919,7 +872,15 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
             defaultCode={`
- <Box>TBD</Box>
+<Flex direction="column" gap={2} alignItems="center" >
+  <Heading align="center" accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
+  <Text>See your account settings</Text>
+  <Text>Create new Pins for you</Text>
+  <Text>Send messages on behalf of you</Text>
+  <Text>Follow things for you</Text>
+  <Text> See your secret Pins</Text>
+  <Text>See your secret boards</Text>
+</Flex>
 `}
           />
         </MainSection.Subsection>
@@ -932,7 +893,7 @@ Use standards that will make it easier to translate to other languages:
             type="do"
             description="Wrap text to multiple lines when a user needs to see the full text to understand what is expected. This is likely to happen when translated to languages with longer line-lengths."
             defaultCode={`
-<Box>TBD</Box>
+<Box width={150}><Button color="red" text="Go to the latest updates" /></Box>
 `}
           />
 
@@ -941,7 +902,7 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Truncate text in UI controls like buttons and menus where it can make it hard for a user to understand what is expected. On touch surfaces, a user won’t have a tooltip on hover."
             defaultCode={`
- <Box>TBD</Box>
+<Box width={100}><Button color="red" text="Go to..." /></Box>
 `}
           />
         </MainSection.Subsection>
