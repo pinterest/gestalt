@@ -94,10 +94,14 @@ export default function TypographyPage(): Node {
       </MainSection>
       <MainSection
         name="Typography components"
-        description="We have numerous React components that use typography as the primary element."
-      >
-        TBD
-      </MainSection>
+        description={`
+We have numerous React components that use typography as the primary element.
+
+- [Text](/text): Used for all text on a surface
+- [Heading](/heading): Allows you to show headings on a surface
+- [Link](/link): For both in-line and stand-alone
+`}
+      />
       <MainSection name="Font families">
         <MainSection.Subsection
           title="Product"
@@ -113,7 +117,141 @@ export default function TypographyPage(): Node {
           title="Font sizes"
           description="In order to keep our content hierarchy clean and simple, we have a limited amount of font sizes. These should cover all current use cases for minimal product UI, where our customers’ content is the primary focus of a surface or page."
         >
-          TBD
+          <Table accessibilityLabel="Font sizes">
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Size
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Web value
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    iOS value
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Android value
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Example
+                  </Text>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">100</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">12px</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">12pt</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">12sp</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="100">Gestalt</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">200</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">14px</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">14pt</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">14sp</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">means</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">300</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">16px</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">16pt</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">16sp</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="300">whole</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">400</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">20px</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">20pt</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">20sp</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="400">and so</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">500</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">28px</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">28pt</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">28sp</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="500">are</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">600</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">28px</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">28pt</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">28sp</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="600">you</Text>
+                </Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Line length"
@@ -125,9 +263,146 @@ export default function TypographyPage(): Node {
       <MainSection name="Spacing">
         <MainSection.Subsection
           title="Line height"
-          description="Proper line spacing line height (or leading) is important for readability. If lines of text get too close together, it can be hard to read them; if they are too far apart it can make it difficult to sense a clear hierarchy and group related text blocks. Given that we use system fonts, we rely on percentages on web and system defaults on mobile to ensure blocks are text are still readable for internationalization and dynamic sizing."
-        >
-          TBD
+          description="Line-height refers to the space between lines of text. We use default settings across all platforms."
+        />
+        <MainSection.Subsection>
+          <Heading size="300">Web</Heading>
+          <Text>
+            We currently use browser defaults on web UIs so that lines of text are readable in all
+            languages and scripts. For example, scripts like Hindi have larger ascenders and
+            descenders than Latin scripts. Setting a fixed line height can make scripts like Hindi
+            hard to read.
+          </Text>
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            description="Latin script in Chrome with line-height set to “normal”, which is about 120% of font size"
+            type="do"
+            defaultCode={`
+            <Flex direction="column" gap={2}>
+            <Label htmlFor={"solo-color"}><Text>Audience 1</Text></Label>
+            <Flex alignItems="center" gap={2}>
+              <Box rounding="circle" color="infoBase" width={12} height={12}/>
+              <SelectList
+                id={"solo-color"}
+                onChange={() => {}}
+                options={[
+                  {label: 'Your total audience', value: '5'},
+                  {label: 'Active in the last week', value: '7'},
+                  {label: 'Active in the last month', value: '30'},
+                ]}
+              />
+            </Flex>
+          </Flex>
+`}
+          />
+
+          <MainSection.Card
+            cardSize="md"
+            description="Myanmar script in Chrome with line-heigh set to normal, which is about 200% of font size"
+            type="do"
+            defaultCode={`
+            <Flex direction="column" gap={2}>
+            <Label htmlFor={"solo-color"}><Text>Audience 1</Text></Label>
+            <Flex alignItems="center" gap={2}>
+              <Box rounding="circle" color="infoBase" width={12} height={12}/>
+              <SelectList
+                id={"solo-color"}
+                onChange={() => {}}
+                options={[
+                  {label: 'Your total audience', value: '5'},
+                  {label: 'Active in the last week', value: '7'},
+                  {label: 'Active in the last month', value: '30'},
+                ]}
+              />
+            </Flex>
+          </Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection>
+          <Heading size="300">iOS</Heading>
+          <Text>
+            iOS Leading is automatically determined by a font’s size. Below is a breakdown based on
+            Gestalt’s current font sizes. For more info, refer to Apple’s{' '}
+            <Link
+              inline
+              href="https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/"
+            >
+              Human Interface Guidelines
+            </Link>
+          </Text>
+          <Table accessibilityLabel="Font weight treatements">
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Font size (pt)
+                  </Text>
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Text size="200" weight="bold">
+                    Leading
+                  </Text>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">12</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">16</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">16</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">21</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">20</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">25</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">28</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">34</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text size="200">36</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">43</Text>
+                </Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
+        </MainSection.Subsection>
+        <MainSection.Subsection>
+          <Heading size="300">Android</Heading>
+          <Text>
+            Line height is automatically determined by a font’s size. For more info, refer to{' '}
+            <Link
+              inline
+              href="https://material.io/design/typography/the-type-system.html#type-scale"
+            >
+              Material Design
+            </Link>
+          </Text>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Paragraph spacing"
@@ -147,11 +422,17 @@ export default function TypographyPage(): Node {
               <DefaultAlignment />
             </Flex.Item>
             <Text>
-              - Users tend to read in “F” patterns, so placing text in a similar pattern helps with
-              users absorbing all the information they need for a good experience - Since the
-              starting edge of centered text moves around, it’s harder for users to read; this can
-              be especially difficult for people with dyslexia
-              (https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
+              <ul>
+                <li>
+                  Users tend to read in “F” patterns, so placing text in a similar pattern helps
+                  with users absorbing all the information they need for a good experience
+                </li>
+                <li>
+                  Since the starting edge of centered text moves around, it’s harder for users to
+                  read; this can be especially difficult for people with dyslexia
+                  (https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
+                </li>
+              </ul>
             </Text>
           </Flex>
         </MainSection.Subsection>
@@ -231,7 +512,7 @@ export default function TypographyPage(): Node {
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
-                  <Text size="300">Stand-alone links</Text>
+                  <Text size="200">Stand-alone links</Text>
                 </Table.Cell>
                 <Table.Cell>
                   <Text size="200">Bold</Text>
