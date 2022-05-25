@@ -28,7 +28,8 @@ function Header() {
   const anchorRef = useRef(null);
 
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
-  const DROPDOWN_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
+  // Z-index to use for any popovers on the Header
+  const POPOVER_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
   const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
 
@@ -71,7 +72,11 @@ function Header() {
               <Flex alignItems="center" gap={2}>
                 <GestaltLogo height={40} width={40} />
                 {/* slight tweak to vertically center to logo */}
-                <Box dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}>
+                <Box
+                  display="none"
+                  mdDisplay="block"
+                  dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}
+                >
                   Gestalt Design System
                 </Box>
               </Flex>
@@ -91,20 +96,20 @@ function Header() {
             ref={anchorRef}
             selected={open}
             size="sm"
-            tooltip={{ 'text': 'Site settings' }}
+            tooltip={{ 'text': 'Site settings', 'zIndex': POPOVER_ZINDEX }}
           />
           {open && (
             <Dropdown
               anchor={anchorRef.current}
               id="link-dropdown-example"
               onDismiss={() => setOpen(false)}
-              zIndex={DROPDOWN_ZINDEX}
+              zIndex={POPOVER_ZINDEX}
             >
               <Dropdown.Item
                 onSelect={() => onChangeColorScheme()}
                 option={{ value: 'isDarkMode', label: 'Custom link 1' }}
               >
-                <Flex alignItems="center" justifyContent="between" flex="grow" width="280px">
+                <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
                   <Label htmlFor="darkMode-switch">
                     <Text weight="bold">Dark mode</Text>
                   </Label>
@@ -119,7 +124,7 @@ function Header() {
                 onSelect={() => onTextDirectionChange()}
                 option={{ value: 'isRTL', label: 'Custom link 1' }}
               >
-                <Flex alignItems="center" justifyContent="between" flex="grow" width="280px">
+                <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
                   <Label htmlFor="rtl-switch">
                     <Text weight="bold">Right-to-left</Text>
                   </Label>
@@ -133,20 +138,16 @@ function Header() {
             </Dropdown>
           )}
         </Flex>
-
-        {/* <Text size="sm" weight="bold">
-          v{GestaltPackageJson.version}
-        </Text> */}
       </Box>
 
       {/* Spacer element */}
       <Box flex="grow" />
 
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
-        <DocSearch />
+        <DocSearch popoverZIndex={POPOVER_ZINDEX} />
 
         {/* Medium & larger-screen buttons/links */}
-        <HeaderMenu isHeader />
+        <HeaderMenu isHeader popoverZIndex={POPOVER_ZINDEX} />
 
         {/* Small-screen menu button */}
         <Box display="flex" mdDisplay="none" alignItems="center">
