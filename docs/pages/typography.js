@@ -5,6 +5,7 @@ import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import A11Y from '../graphics/accessibility.svg';
+import Markdown from '../components/Markdown.js';
 import ColorEase from '../graphics/color-examples/colorEase.svg';
 import Consistency from '../graphics/color-examples/consistency.svg';
 import DefaultAlignment from '../graphics/typography/defaultAlignment.svg';
@@ -263,76 +264,52 @@ We have numerous React components that use typography as the primary element.
       <MainSection name="Spacing">
         <MainSection.Subsection
           title="Line height"
-          description="Line-height refers to the space between lines of text. We use default settings across all platforms."
+          description="Proper line spacing line height (or leading) is important for readability. If lines of text get too close together, it can be hard to read them; if they are too far apart it can make it difficult to sense a clear hierarchy and group related text blocks. Given that we use system fonts, we rely on percentages on web and system defaults on mobile to ensure blocks are text are still readable for internationalization and dynamic sizing."
         />
-        <MainSection.Subsection>
-          <Heading size="300">Web</Heading>
-          <Text>
-            We currently use browser defaults on web UIs so that lines of text are readable in all
+        <MainSection.Subsection
+          title="Web"
+          description="We currently use browser defaults on web UIs so that lines of text are readable in all
             languages and scripts. For example, scripts like Hindi have larger ascenders and
             descenders than Latin scripts. Setting a fixed line height can make scripts like Hindi
-            hard to read.
-          </Text>
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            description="Latin script in Chrome with line-height set to “normal”, which is about 120% of font size"
-            type="do"
-            defaultCode={`
-            <Flex direction="column" gap={2}>
-            <Label htmlFor={"solo-color"}><Text>Audience 1</Text></Label>
-            <Flex alignItems="center" gap={2}>
-              <Box rounding="circle" color="infoBase" width={12} height={12}/>
-              <SelectList
-                id={"solo-color"}
-                onChange={() => {}}
-                options={[
-                  {label: 'Your total audience', value: '5'},
-                  {label: 'Active in the last week', value: '7'},
-                  {label: 'Active in the last month', value: '30'},
-                ]}
-              />
+            hard to read."
+        >
+          <Box maxWidth={572}>
+            <Heading size="300" accessibilityLevel={4}>
+              Web
+            </Heading>
+            <Markdown
+              text={`
+We currently use browser defaults on web UIs so that lines of text are readable in all languages and scripts. For example, scripts like Hindi have larger ascenders and descenders than Latin scripts. Setting a fixed line height can make scripts like Hindi hard to read.
+            `}
+            />
+          </Box>
+          <Flex gap={4}>
+            <Flex direction="column">
+              <Consistency />
+              <Text size="100">
+                Latin script in Chrome with line-height set to “normal”, which is about 120% of font
+                size.
+              </Text>
+            </Flex>
+            <Flex direction="column">
+              <Consistency />
+              <Text size="100">
+                Myanmar script in Chrome with line-heigh set to normal, which is about 200% of font
+                size.
+              </Text>
             </Flex>
           </Flex>
-`}
-          />
+        </MainSection.Subsection>
 
-          <MainSection.Card
-            cardSize="md"
-            description="Myanmar script in Chrome with line-heigh set to normal, which is about 200% of font size"
-            type="do"
-            defaultCode={`
-            <Flex direction="column" gap={2}>
-            <Label htmlFor={"solo-color"}><Text>Audience 1</Text></Label>
-            <Flex alignItems="center" gap={2}>
-              <Box rounding="circle" color="infoBase" width={12} height={12}/>
-              <SelectList
-                id={"solo-color"}
-                onChange={() => {}}
-                options={[
-                  {label: 'Your total audience', value: '5'},
-                  {label: 'Active in the last week', value: '7'},
-                  {label: 'Active in the last month', value: '30'},
-                ]}
-              />
-            </Flex>
-          </Flex>
-`}
-          />
-        </MainSection.Subsection>
         <MainSection.Subsection>
-          <Heading size="300">iOS</Heading>
-          <Text>
-            iOS Leading is automatically determined by a font’s size. Below is a breakdown based on
-            Gestalt’s current font sizes. For more info, refer to Apple’s{' '}
-            <Link
-              inline
-              href="https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/"
-            >
-              Human Interface Guidelines
-            </Link>
-          </Text>
+          <Heading size="300" accessibilityLevel={4}>
+            iOS
+          </Heading>
+          <Markdown
+            text={`
+iOS Leading is automatically determined by a font’s size. Below is a breakdown based on Gestalt’s current font sizes. For more info, refer to Apple’s [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
+            `}
+          />
           <Table accessibilityLabel="Font weight treatements">
             <Table.Header>
               <Table.Row>
@@ -393,22 +370,20 @@ We have numerous React components that use typography as the primary element.
           </Table>
         </MainSection.Subsection>
         <MainSection.Subsection>
-          <Heading size="300">Android</Heading>
-          <Text>
-            Line height is automatically determined by a font’s size. For more info, refer to{' '}
-            <Link
-              inline
-              href="https://material.io/design/typography/the-type-system.html#type-scale"
-            >
-              Material Design
-            </Link>
-          </Text>
+          <Heading size="300" accessibilityLevel={4}>
+            Android
+          </Heading>
+          <Markdown
+            text={`
+Line height is automatically determined by a font’s size. For more info, refer to [Material Design](https://material.io/design/typography/the-type-system.html#type-scale).
+`}
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Paragraph spacing"
           description="Spacing after a paragraph in body copy should be 75% of the body copy font size."
         >
-          TBD
+          <Consistency />
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Character spacing"
@@ -417,26 +392,55 @@ We have numerous React components that use typography as the primary element.
       </MainSection>
       <MainSection name="Alignment">
         <MainSection.Subsection title="Default">
-          <Flex>
+          <Flex gap={4}>
             <Flex.Item>
               <DefaultAlignment />
             </Flex.Item>
-            <Text>
-              <ul>
-                <li>
-                  Users tend to read in “F” patterns, so placing text in a similar pattern helps
-                  with users absorbing all the information they need for a good experience
-                </li>
-                <li>
-                  Since the starting edge of centered text moves around, it’s harder for users to
-                  read; this can be especially difficult for people with dyslexia
-                  (https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
-                </li>
-              </ul>
-            </Text>
+            <Box>
+              <Heading size="300">Start-aligned</Heading>
+              <Text>
+                Our default alignment is start-aligned. There are a couple of reasons to default to
+                start-aligned text:
+              </Text>
+              <Text>
+                <ul>
+                  <li>
+                    Users tend to read in “F” patterns, so placing text in a similar pattern helps
+                    with users absorbing all the information they need for a good experience
+                  </li>
+                  <li>
+                    Since the starting edge of centered text moves around, it’s harder for users to
+                    read; this can be especially difficult for people with dyslexia
+                    (https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
+                  </li>
+                </ul>
+              </Text>
+            </Box>
           </Flex>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Exceptions">TBD</MainSection.Subsection>
+        <MainSection.Subsection title="Exceptions">
+          <Flex gap={4}>
+            <Flex.Item>
+              <DefaultAlignment />
+            </Flex.Item>
+            <Box>
+              <Heading size="300">Centered</Heading>
+              <Text>
+                Use center-aligned text for very short blocks of content, like text inside of
+                buttons or tabs.
+              </Text>
+            </Box>
+          </Flex>
+          <Flex gap={4}>
+            <Flex.Item>
+              <DefaultAlignment />
+            </Flex.Item>
+            <Box>
+              <Heading size="300">End-aligned</Heading>
+              <Text>End-align integers in tables so that they are easy to compare.</Text>
+            </Box>
+          </Flex>
+        </MainSection.Subsection>
       </MainSection>
       <MainSection name="Formatting">
         <MainSection.Subsection
@@ -725,54 +729,24 @@ We have numerous React components that use typography as the primary element.
         </Table>
       </MainSection>
       <MainSection name="Best practices">
+        <Heading size="400" accessibilityLevel={3}>
+          Accessibility
+        </Heading>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use colors to support creating distinction between elements, such as define primary and secondary actions. See [color usage](/color_usage) for reference and appropriate tokens."
+            description="To ensure that all of our customers, including users with low-vision, use a font-size of 14–16px and above for most use cases, especially long-form text. Smaller fonts are ok for less important information, and should be used sparingly."
             defaultCode={`
-            <Flex gap={4}>
-              <IconButton
-                icon="speech"
-                iconColor="darkGray"
-                accessibilityLabel="Comment"
-              />
-              <Button
-                color="gray"
-                text="Visit"
-              />
-              <Button
-                color="red"
-                text="Save"
-              />
-              <IconButton
-                icon="share"
-                iconColor="darkGray"
-                accessibilityLabel="Share"
-              />
-            </Flex>
+            <Text>We are all here together in freedom, for perhaps the last time! I know, dear; I know that you will always be with me to the end.</Text>
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use color as a sole indicator of information. Color-only changes do not work well for those who may be color blind or have low vision; always supply an icon or text label for context."
+            description="Use font sizes below 14px for body copy and UI controls, unless the text is very brief and secondary."
             defaultCode={`
-            <Flex direction="column" gap={2}>
-              <Label htmlFor={"solo-color"}><Text>Audience 1</Text></Label>
-              <Flex alignItems="center" gap={2}>
-                <Box rounding="circle" color="infoBase" width={12} height={12}/>
-                <SelectList
-                  id={"solo-color"}
-                  onChange={() => {}}
-                  options={[
-                    {label: 'Your total audience', value: '5'},
-                    {label: 'Active in the last week', value: '7'},
-                    {label: 'Active in the last month', value: '30'},
-                  ]}
-                />
-              </Flex>
-            </Flex>
+            <Text size="100">We are all here together in freedom, for perhaps the last time! I know, dear; I know that you will always be with me to the end.</Text>
 `}
           />
         </MainSection.Subsection>
@@ -780,84 +754,17 @@ We have numerous React components that use typography as the primary element.
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use colors purposefully as it can convey meaning in multiple ways. Our extended color palette is used for communicating status or enhancing illustrations when needed. See [color usage](/color_usage) for reference."
+            description="For SEO and users with screen readers, follow a logical hierarchy by using headings based on a numerical order, not on font size."
             defaultCode={`
-            <Flex direction="column" gap={3}>
-              <Badge type="info" text="Info"/>
-              <Badge type="success" text="Success" />
-              <Badge type="warning" text="Warning"/>
-              <Badge type="error" text="Error" />
-              <Badge type="neutral" text="Neutral" />
-            </Flex>
+<Box>TBD</Box>
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Repurpose colors. Using colors for their intended meaning supports good comprehension and avoids usability and accessibility issues."
+            description="Use font sizes below 14px for body copy and UI controls, unless the text is very brief and secondary."
             defaultCode={`
-            <Flex>
-              <Flex direction="column" gap={2}>
-                <Flex gap={2}>
-                  <Label htmlFor="dont-01">
-                    <Text weight="bold"> Search privacy</Text>
-                  </Label>
-                  <Badge inline type="error" text="New"/>
-                </Flex>
-                <Text color="subtle">Hide your profile from search engines</Text>
-              </Flex>
-              <Switch
-                id={"dont-01"}
-                onChange={() => {}}
-              />
-            </Flex>
-`}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Use extended colors to emphasize brand moments and reinforce Pinterest's style when appropriate to a specific use case without breaking an actual product UI pattern (e.g., onboarding, marketing announcements). Please reach out to the [Core Brand](https://brand.pinterest.com/) team for guidance."
-            defaultCode={`
-            <Box width={200} height={305}>
-              <Image
-                naturalWidth={"200"}
-                naturalHeight={"350"}
-                src="https://i.ibb.co/7yLs8qG/Brand.png"
-                alt="An example of brand colors used in the Pinterest app."
-              />
-            </Box>
-`}
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Apply alternative colors modifying Gestalt components or UI patterns as it can create inconsistency and cognitive issues."
-            defaultCode={`
-            <Flex gap={2}>
-              <Box
-                dangerouslySetInlineStyle={{
-                  __style: {backgroundColor: 'gold'}
-                }}
-                rounding="pill"
-                padding={3}
-              >
-                  <Text weight="bold">
-                    Button
-                  </Text>
-              </Box>
-              <Box
-                dangerouslySetInlineStyle={{
-                  __style: {backgroundColor: 'green'}
-                }}
-                rounding="circle"
-                padding={3}
-              >
-                <Icon icon="add" color="inverse" accessibilityLabel="Create"/>
-              </Box>
-            </Flex>
+<Box>TBD</Box>
 `}
           />
         </MainSection.Subsection>
@@ -865,29 +772,17 @@ We have numerous React components that use typography as the primary element.
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use the established [typography](/color_usage#Typography-color) and [iconography](/color_usage#Iconography-color) color tokens so users can quickly scan and identify sentiment."
+            description="Stick to our [design tokens](/design_tokens) and use color combinations with a 4.5:1 contrast ratio between foreground and background."
             defaultCode={`
-            <Status
-              type="ok"
-              title="Campaign complete"
-            />
+<Box>TBD</Box>
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors to text and icons. Always refer to [color usage](/color_usage) for the appropriate color pattern. "
+            description="Use text that doesn’t pass 4.5:1 contrast ratio when testing with Figma accessibility plugins."
             defaultCode={`
-            <Flex gap={1} alignItems="center">
-              <Icon icon="eye" accessibilityLabel="views"/>
-              <Text weight="bold">
-                <Box dangerouslySetInlineStyle={{
-                  __style: {color: 'darkmagenta'}
-                }}>
-                  views
-                </Box>
-              </Text>
-            </Flex>
+<Box>TBD</Box>
 `}
           />
         </MainSection.Subsection>
@@ -895,72 +790,128 @@ We have numerous React components that use typography as the primary element.
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use the appropriate [color tokens](/design_tokens) to switch between themes (light and dark mode). It ensures consistency and avoids accessibility issues."
+            description={`
+Use standards that will make it easier to translate to other languages:
+- Since character heights vary from font family to font family, keep line-heights to percentages or system defaults so that text doesn’t get cut off or lines get too-close together.
+- Use system fonts and defaults to ensure broad language support
+- Avoid ALL CAPS for special emphasis, as certain languages, like Arabic, do not support it
+`}
             defaultCode={`
-            <Flex direction="column" gap={8} alignItems="center">
-              <Flex gap={4}>
-                <IconButton icon="speech" accessibilityLabel="Comment" />
-                <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share"/>
-              </Flex>
-              <Flex gap={4}>
-                <Button color="red" text="Primary" />
-                <Button color="gray" text="Secondary" />
-                <Button color="blue" text="Shop" />
-              </Flex>
-              <Flex gap={4}>
-                <SearchField
-                  accessibilityLabel={'Search you Pins'}
-                  id={'color-do-search'}
-                  placeholder="Search your Pins"
-                  onChange={() => {}}
-                />
-              </Flex>
-              <Flex gap={8}>
-                <Text>Default text</Text>
-                <Text color="subtle">Subtle text</Text>
-              </Flex>
-            </Flex>
+<Box>TBD</Box>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Set line height to specific sizes, use fonts that don’t have broad language support, and use ALL CAPS."
+            defaultCode={`
+<Box>TBD</Box>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Align, space and style text so that a user can easily read it and understand what actions to take."
+            defaultCode={`
+<Box>TBD</Box>
 `}
           />
 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will evaluate."
+            description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
             defaultCode={`
-            <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
-              <Box color="white" padding={10}>
-                <Flex direction="column" gap={8} alignItems="center">
-                  <Flex gap={4}>
-                    <IconButton icon="speech" accessibilityLabel="Comment"/>
-                    <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" />
-                  </Flex>
-                  <Flex gap={4}>
-                    <Button color="red" text="Primary" />
-                      <Box color="warningWeak" rounding="pill" padding={3}>
-                        <TapArea color="white">
-                          <Text weight="bold" color="inverse">
-                            Secondary
-                          </Text>
-                        </TapArea>
-                      </Box>
-                    <Button color="blue" text="Shop" />
-                  </Flex>
-                  <Flex gap={4}>
-                    <SearchField
-                      accessibilityLabel={'Search you Pins'}
-                      id={'color-dont-search'}
-                      placeholder="Search your Pins"
-                      onChange={() => {}}
-                    />
-                  </Flex>
-                  <Flex gap={8}>
-                    <Text>Default text</Text>
-                    <Text color="subtle">Subtle text</Text>
-                  </Flex>
-                </Flex>
-              </Box>
-            </ColorSchemeProvider>
+ <Box>TBD</Box>
+`}
+          />
+        </MainSection.Subsection>
+
+        <Heading size="400" accessibilityLevel={3}>
+          Internationalization
+        </Heading>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Align, space and style text so that a user can easily read it and understand what actions to take."
+            defaultCode={`
+<Box>TBD</Box>
+`}
+          />
+
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
+            defaultCode={`
+ <Box>TBD</Box>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Style" columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Align, space and style text so that a user can easily read it and understand what actions to take."
+            defaultCode={`
+<Box>TBD</Box>
+`}
+          />
+
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
+            defaultCode={`
+ <Box>TBD</Box>
+`}
+          />
+        </MainSection.Subsection>
+
+        <Heading size="400" accessibilityLevel={3}>
+          Style
+        </Heading>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Align, space and style text so that a user can easily read it and understand what actions to take."
+            defaultCode={`
+<Box>TBD</Box>
+`}
+          />
+
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
+            defaultCode={`
+ <Box>TBD</Box>
+`}
+          />
+        </MainSection.Subsection>
+        <Heading size="400" accessibilityLevel={3}>
+          Text-wrapping and truncation
+        </Heading>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Wrap text to multiple lines when a user needs to see the full text to understand what is expected. This is likely to happen when translated to languages with longer line-lengths."
+            defaultCode={`
+<Box>TBD</Box>
+`}
+          />
+
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Truncate text in UI controls like buttons and menus where it can make it hard for a user to understand what is expected. On touch surfaces, a user won’t have a tooltip on hover."
+            defaultCode={`
+ <Box>TBD</Box>
 `}
           />
         </MainSection.Subsection>
@@ -968,37 +919,36 @@ We have numerous React components that use typography as the primary element.
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use designated elevation color values and styles on light and dark mode themes. See [elevation guidelines](/elevation) for guidance."
+            description="Truncate text for secondary text that isn’t essential to a user’s comprehension of steps to take. Examples include dynamic data ad IDs in tables, lists of user names, and Pin titles that come from outside sources. Use an ellipses or a link that indicates that there is more content available."
             defaultCode={`
-            <Box width={200} height={305}>
-              <Image
-                fit="contain"
-                naturalWidth={"200"}
-                naturalHeight={"350"}
-                src="https://i.ibb.co/5rQQnDR/screen-sample-01.png"
-                alt="Example showing mobile dark mode on the Pinterest app."
-              />
-            </Box>
+<Box>TBD</Box>
 `}
           />
+
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will assist."
+            description="Truncating paragraph text, as that can be misread and change the original meaning of the text."
             defaultCode={`
-            <Box width={200} height={305}>
-              <Image
-                fit="contain"
-                naturalWidth={"200"}
-                naturalHeight={"350"}
-                src="https://i.ibb.co/FqM70HS/screen-sample-02.png"
-                alt="Example showing an incorrect mobile dark mode on the Pinterest app."
-              />
-            </Box>
+ <Box>TBD</Box>
 `}
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection
+        name="Future updates"
+        description={`
+Our guidelines and components primarily cover user interface use cases for typography. We will improve upon this by adding guidelines and components for long-form text in the future.
+
+Long-form text components and guidelines [Exploration badge]
+
+Components and guidelines for long-form text that will include better line-height  and line-length for headings, paragraph blocks
+
+iOS and Android Figma updates [Exploration badge]
+
+Updates to mobile components that match Apple HIG and Android Material values for line-height.
+      `}
+      />
     </Page>
   );
 }
