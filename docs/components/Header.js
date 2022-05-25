@@ -1,8 +1,20 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useState } from 'react';
-import { Box, Flex, FixedZIndex, Text, IconButton, Sticky, Link } from 'gestalt';
-// $FlowExpectedError[untyped-import]
-import GestaltPackageJson from 'gestalt/package.json';
+import { type Node, useCallback, useEffect, useState, useRef } from 'react';
+import {
+  Box,
+  CompositeZIndex,
+  Dropdown,
+  Flex,
+  FixedZIndex,
+  Label,
+  Switch,
+  Text,
+  IconButton,
+  Sticky,
+  Link,
+} from 'gestalt';
+
+import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import HeaderMenu from './HeaderMenu.js';
@@ -11,13 +23,36 @@ import { useNavigationContext } from './navigationContext.js';
 
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
+  const [open, setOpen] = useState(false);
+
+  const anchorRef = useRef(null);
+
+  const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
+  const DROPDOWN_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
+
+  const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
+
+  const colorSchemeCopy = colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View';
+
+  const onChangeColorScheme = () => {
+    trackButtonClick('Toggle color scheme', colorSchemeCopy);
+    return setColorScheme(colorScheme === 'light' ? 'dark' : 'light');
+  };
+
+  const directionCopy = textDirection === 'rtl' ? 'Left-To-Right View' : 'Right-To-Left View';
+
+  const onTextDirectionChange = () => {
+    trackButtonClick('Toggle page direction', directionCopy);
+    setOpen(false);
+    return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
+  };
 
   return (
     <Box
       paddingY={2}
       paddingX={4}
       mdPaddingX={6}
-      color="lightGray"
+      color="default"
       borderStyle="raisedTopShadow"
       display="flex"
       direction="row"
@@ -43,9 +78,65 @@ function Header() {
             </Box>
           </Link>
         </Text>
-        <Text size="sm" weight="bold">
+
+        <Flex justifyContent="center">
+          <IconButton
+            accessibilityControls="link-dropdown-example"
+            accessibilityExpanded={open}
+            accessibilityHaspopup
+            accessibilityLabel="More Options"
+            icon="filter"
+            iconColor="darkGray"
+            onClick={() => setOpen((prevVal) => !prevVal)}
+            ref={anchorRef}
+            selected={open}
+            size="sm"
+            tooltip={{ 'text': 'Site settings' }}
+          />
+          {open && (
+            <Dropdown
+              anchor={anchorRef.current}
+              id="link-dropdown-example"
+              onDismiss={() => setOpen(false)}
+              zIndex={DROPDOWN_ZINDEX}
+            >
+              <Dropdown.Item
+                onSelect={() => onChangeColorScheme()}
+                option={{ value: 'isDarkMode', label: 'Custom link 1' }}
+              >
+                <Flex alignItems="center" justifyContent="between" flex="grow" width="280px">
+                  <Label htmlFor="darkMode-switch">
+                    <Text weight="bold">Dark mode</Text>
+                  </Label>
+                  <Switch
+                    switched={colorScheme === 'dark'}
+                    onChange={() => onChangeColorScheme()}
+                    id="darkMode-switch"
+                  />
+                </Flex>
+              </Dropdown.Item>
+              <Dropdown.Item
+                onSelect={() => onTextDirectionChange()}
+                option={{ value: 'isRTL', label: 'Custom link 1' }}
+              >
+                <Flex alignItems="center" justifyContent="between" flex="grow" width="280px">
+                  <Label htmlFor="rtl-switch">
+                    <Text weight="bold">Right-to-left</Text>
+                  </Label>
+                  <Switch
+                    switched={textDirection === 'rtl'}
+                    onChange={() => onTextDirectionChange()}
+                    id="rtl-switch"
+                  />
+                </Flex>
+              </Dropdown.Item>
+            </Dropdown>
+          )}
+        </Flex>
+
+        {/* <Text size="sm" weight="bold">
           v{GestaltPackageJson.version}
-        </Text>
+        </Text> */}
       </Box>
 
       {/* Spacer element */}
