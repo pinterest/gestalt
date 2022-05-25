@@ -1,3 +1,9 @@
+## 57.2.1 (May 25, 2022)
+
+### Patch
+
+- Flex: fix examples in Docs (#2134)
+
 ## 57.2.0 (May 25, 2022)
 
 ### Minor
