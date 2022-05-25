@@ -122,6 +122,7 @@ export function FontBox({ token, type }: FontBoxProps): Node {
 export function TokenExample({ token, category }: ExampleProps): Node {
   switch (category) {
     case 'background-color':
+    case 'data-visualization':
       return <ColorBox token={token} />;
     case 'spacing':
       return <SpacingBox token={token} />;

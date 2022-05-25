@@ -40,13 +40,36 @@
       ]
     },
     "js": {
-      "transformGroup": "css",
+      "transformGroup": "js",
       "showFileHeader": true,
       "buildPath": "dist/js/",
       "files": [
         {
           "destination": "tokens.js",
           "format": "customJSArrayFormat",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
+        },
+        {
+          "destination": "tokens_individual.js",
+          "format": "customJSIndividualFormat",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
+        },
+        {
+          "destination": "data-viz-tokens.js",
+          "format": "customJSArrayFormat",
+          "filter": "customDataVizFilter",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
+        },
+        {
+          "destination": "data-viz-tokens_individual.js",
+          "format": "customJSIndividualFormat",
+          "filter": "customDataVizFilter",
           "options": {
             "fileHeader": "flowCustomHeader"
           }
