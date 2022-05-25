@@ -506,7 +506,11 @@ Line height is automatically determined by a font’s size. For more info, refer
                   <Text size="200">Regular</Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Text size="200">TBD</Text>
+                  <Box color="darkGray" rounding={2} padding={2} display="inlineBlock">
+                    <Text color="inverse" size="100">
+                      This is text in a tooltip
+                    </Text>
+                  </Box>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
@@ -523,7 +527,14 @@ Line height is automatically determined by a font’s size. For more info, refer
                   <Text size="200">Medium</Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Text size="200">TBD</Text>
+                  <Box color="darkGray" rounding={2} padding={2}>
+                    <Text color="inverse" size="100" overflow="noWrap">
+                      Figma is
+                    </Text>
+                    <Text weight="bold" color="inverse" size="100" overflow="noWrap">
+                      not a design system
+                    </Text>
+                  </Box>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
@@ -540,7 +551,14 @@ Line height is automatically determined by a font’s size. For more info, refer
                   <Text size="200">Medium</Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Text size="200">TBD</Text>
+                  <Flex gap={8}>
+                    <Text weight="bold">
+                      <Link href="https://pinterest.com">Pinterest</Link>
+                    </Text>
+                    <Text weight="bold">
+                      <Link href="https://gestalt.pinterest.systems">Gestalt</Link>
+                    </Text>
+                  </Flex>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
@@ -557,7 +575,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                   <Text size="200">Medium</Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Text size="200">TBD</Text>
+                  <Heading>Page title</Heading>
                 </Table.Cell>
               </Table.Row>
             </Table.Body>
