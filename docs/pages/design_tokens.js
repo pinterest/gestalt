@@ -39,6 +39,7 @@ const darkValueCategories = [
 
 const headers = ['CSS token name', 'Value', 'Dark mode value', 'Example'];
 
+// Due to funky javascript sorting of keys, this is needed to show numbers 01-12 in order
 const sortedDataTokens = dataVizTokens.sort((a, b) =>
   a.name.localeCompare(b.name, undefined, {
     numeric: true,
