@@ -1,21 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
-// $FlowExpectedError[untyped-import]
-import GestaltPackageJson from 'gestalt/package.json';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
 export default function Footer(): Node {
   return (
-    <Box
-      display="flex"
-      direction="column"
-      color="lightGray"
-      padding={4}
-      mdPadding={6}
-      lgPadding={8}
-      role="contentinfo"
-    >
+    <Box color="lightGray" padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
       <Box
         paddingX={2}
         paddingY={1}
@@ -55,9 +45,6 @@ export default function Footer(): Node {
           </Text>
         </Box>
       </Box>
-      <Flex flex="grow" justifyContent="center">
-        <Text size="sm">Gestalt Web v{GestaltPackageJson.version}</Text>
-      </Flex>
     </Box>
   );
 }
