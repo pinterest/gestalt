@@ -23,7 +23,7 @@ import { useNavigationContext } from './navigationContext.js';
 
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
-  const [open, setOpen] = useState(false);
+  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
 
   const anchorRef = useRef(null);
 
@@ -44,7 +44,7 @@ function Header() {
 
   const onTextDirectionChange = () => {
     trackButtonClick('Toggle page direction', directionCopy);
-    setOpen(false);
+    setSettingsDropdownOpen(false);
     return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
   };
 
@@ -83,61 +83,60 @@ function Header() {
             </Box>
           </Link>
         </Text>
-
-        <Flex justifyContent="center">
+        <Box paddingX={2}>
           <IconButton
-            accessibilityControls="link-dropdown-example"
-            accessibilityExpanded={open}
+            accessibilityControls="site-settings-dropdown"
+            accessibilityExpanded={isSettingsDropdownOpen}
             accessibilityHaspopup
-            accessibilityLabel="More Options"
+            accessibilityLabel="Site settings"
             icon="filter"
             iconColor="darkGray"
-            onClick={() => setOpen((prevVal) => !prevVal)}
+            onClick={() => setSettingsDropdownOpen((prevVal) => !prevVal)}
             ref={anchorRef}
-            selected={open}
+            selected={isSettingsDropdownOpen}
             size="sm"
             tooltip={{ 'text': 'Site settings', 'zIndex': POPOVER_ZINDEX }}
           />
-          {open && (
-            <Dropdown
-              anchor={anchorRef.current}
-              id="link-dropdown-example"
-              onDismiss={() => setOpen(false)}
-              zIndex={POPOVER_ZINDEX}
+        </Box>
+        {isSettingsDropdownOpen && (
+          <Dropdown
+            anchor={anchorRef.current}
+            id="site-settings-dropdown"
+            onDismiss={() => setSettingsDropdownOpen(false)}
+            zIndex={POPOVER_ZINDEX}
+          >
+            <Dropdown.Item
+              onSelect={() => onChangeColorScheme()}
+              option={{ value: 'isDarkMode', label: 'Custom link 1' }}
             >
-              <Dropdown.Item
-                onSelect={() => onChangeColorScheme()}
-                option={{ value: 'isDarkMode', label: 'Custom link 1' }}
-              >
-                <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
-                  <Label htmlFor="darkMode-switch">
-                    <Text weight="bold">Dark mode</Text>
-                  </Label>
-                  <Switch
-                    switched={colorScheme === 'dark'}
-                    onChange={() => onChangeColorScheme()}
-                    id="darkMode-switch"
-                  />
-                </Flex>
-              </Dropdown.Item>
-              <Dropdown.Item
-                onSelect={() => onTextDirectionChange()}
-                option={{ value: 'isRTL', label: 'Custom link 1' }}
-              >
-                <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
-                  <Label htmlFor="rtl-switch">
-                    <Text weight="bold">Right-to-left</Text>
-                  </Label>
-                  <Switch
-                    switched={textDirection === 'rtl'}
-                    onChange={() => onTextDirectionChange()}
-                    id="rtl-switch"
-                  />
-                </Flex>
-              </Dropdown.Item>
-            </Dropdown>
-          )}
-        </Flex>
+              <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+                <Label htmlFor="darkMode-switch">
+                  <Text weight="bold">Dark mode</Text>
+                </Label>
+                <Switch
+                  switched={colorScheme === 'dark'}
+                  onChange={() => onChangeColorScheme()}
+                  id="darkMode-switch"
+                />
+              </Flex>
+            </Dropdown.Item>
+            <Dropdown.Item
+              onSelect={() => onTextDirectionChange()}
+              option={{ value: 'isRTL', label: 'Custom link 1' }}
+            >
+              <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+                <Label htmlFor="rtl-switch">
+                  <Text weight="bold">Right-to-left</Text>
+                </Label>
+                <Switch
+                  switched={textDirection === 'rtl'}
+                  onChange={() => onTextDirectionChange()}
+                  id="rtl-switch"
+                />
+              </Flex>
+            </Dropdown.Item>
+          </Dropdown>
+        )}
       </Box>
 
       {/* Spacer element */}
