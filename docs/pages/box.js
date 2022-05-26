@@ -286,7 +286,7 @@ function MenuButtonExample() {
   </Flex>
   <Flex alignItems="top">
     <Box as="article" column={6} color="pine" width="100%" padding={2} borderStyle="sm">
-      <Heading color="white" size="500">
+      <Heading color="light" size="500">
         Article 1
       </Heading>
       <Text color="light" weight="bold">

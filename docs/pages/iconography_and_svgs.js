@@ -73,7 +73,7 @@ export default function IconPage(): Node {
         description="Use the combobox on the left to search icons by name. The icon list on the right renders the filtered results. You can also use the icon list to visually search for icons. On hover, a tooltip displays the icon name. On click, the icon name will be copied."
       >
         <Flex width="100%">
-          <Box width="50%">
+          <Box width="35%">
             <ComboBox
               accessibilityClearButtonLabel="Clear the current value"
               label="Search icons by name"
@@ -91,19 +91,12 @@ export default function IconPage(): Node {
                 setSuggestedOptions(iconOptions);
               }}
               selectedOption={selected}
-              placeholder="Search icons by name"
+              placeholder="Search"
               onChange={handleOnChange}
               onSelect={handleSelect}
             />
           </Box>
-          <Box
-            borderStyle="shadow"
-            height={400}
-            marginStart={4}
-            overflow="auto"
-            padding={4}
-            width="50%"
-          >
+          <Box borderStyle="shadow" marginStart={4} overflow="auto" padding={4} width="65%">
             <Flex gap={1} wrap>
               {selectedIcon ? (
                 <ClickableIcon iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
