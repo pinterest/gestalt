@@ -415,7 +415,9 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Box>
             </Flex.Item>
             <Box>
-              <Heading size="300">Start-aligned</Heading>
+              <Heading size="300" accessibilityLevel={4}>
+                Start-aligned
+              </Heading>
               <Text>
                 Our default alignment is start-aligned. There are a couple of reasons to default to
                 start-aligned text:
@@ -444,7 +446,9 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Box>
             </Flex.Item>
             <Box>
-              <Heading size="300">Centered</Heading>
+              <Heading size="300" accessibilityLevel={4}>
+                Centered
+              </Heading>
               <Text>
                 Use center-aligned text for very short blocks of content, like text inside of
                 buttons or tabs.
@@ -458,7 +462,9 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Box>
             </Flex.Item>
             <Box>
-              <Heading size="300">End-aligned</Heading>
+              <Heading size="300" accessibilityLevel={4}>
+                End-aligned
+              </Heading>
               <Text>End-align integers in tables so that they are easy to compare.</Text>
             </Box>
           </Flex>
