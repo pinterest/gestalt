@@ -5,7 +5,9 @@ import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import Markdown from '../components/Markdown.js';
-import DefaultAlignment from '../graphics/typography/defaultAlignment.svg';
+import AlignmentStart from '../graphics/typography/alignmentStart.svg';
+import AlignmentCenter from '../graphics/typography/alignmentCenter.svg';
+import AlignmentEnd from '../graphics/typography/alignmentEnd.svg';
 import Speedy from '../graphics/typography/speedy.svg';
 import Inclusive from '../graphics/typography/inclusive.svg';
 import Minimal from '../graphics/typography/minimal.svg';
@@ -13,6 +15,8 @@ import LineLength from '../graphics/typography/lineLength.svg';
 import LineHeightLatin from '../graphics/typography/lineHeightLatin.svg';
 import LineHeightCJK from '../graphics/typography/lineHeightCJK.svg';
 import ParagraphSpacing from '../graphics/typography/paragraphSpacing.svg';
+import HierarchyDo from '../graphics/typography/hierarchyDo.svg';
+import HierarchyDont from '../graphics/typography/hierarchyDont.svg';
 
 type PrincipleCardProps = {|
   color: string,
@@ -406,7 +410,9 @@ Line height is automatically determined by a font’s size. For more info, refer
         <MainSection.Subsection title="Default">
           <Flex gap={4}>
             <Flex.Item>
-              <DefaultAlignment />
+              <Box color="infoWeak">
+                <AlignmentStart />
+              </Box>
             </Flex.Item>
             <Box>
               <Heading size="300">Start-aligned</Heading>
@@ -433,7 +439,9 @@ Line height is automatically determined by a font’s size. For more info, refer
         <MainSection.Subsection title="Exceptions">
           <Flex gap={4}>
             <Flex.Item>
-              <DefaultAlignment />
+              <Box color="infoWeak">
+                <AlignmentCenter />
+              </Box>
             </Flex.Item>
             <Box>
               <Heading size="300">Centered</Heading>
@@ -445,7 +453,9 @@ Line height is automatically determined by a font’s size. For more info, refer
           </Flex>
           <Flex gap={4}>
             <Flex.Item>
-              <DefaultAlignment />
+              <Box color="infoWeak">
+                <AlignmentEnd />
+              </Box>
             </Flex.Item>
             <Box>
               <Heading size="300">End-aligned</Heading>
@@ -785,18 +795,16 @@ Line height is automatically determined by a font’s size. For more info, refer
             cardSize="md"
             type="do"
             description="For SEO and users with screen readers, follow a logical hierarchy by using headings based on a numerical order, not on font size."
-            defaultCode={`
-<Box>TBD</Box>
-`}
-          />
+          >
+            <HierarchyDo />
+          </MainSection.Card>
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use font sizes below 14px for body copy and UI controls, unless the text is very brief and secondary."
-            defaultCode={`
-<Box>TBD</Box>
-`}
-          />
+          >
+            <HierarchyDont />
+          </MainSection.Card>
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -912,7 +920,53 @@ Use standards that will make it easier to translate to other languages:
             type="do"
             description="Truncate text for secondary text that isn’t essential to a user’s comprehension of steps to take. Examples include dynamic data ad IDs in tables, lists of user names, and Pin titles that come from outside sources. Use an ellipses or a link that indicates that there is more content available."
             defaultCode={`
-<Box>TBD</Box>
+<Table accessibilityLabel="Font sizes">
+<Table.Header>
+  <Table.Row>
+    <Table.HeaderCell>
+      <Text size="200" weight="bold">
+        Name
+      </Text>
+    </Table.HeaderCell>
+    <Table.HeaderCell>
+      <Text size="200" weight="bold">
+        Rate
+      </Text>
+    </Table.HeaderCell>
+    <Table.HeaderCell>
+      <Text size="200" weight="bold">
+        Tags
+      </Text>
+    </Table.HeaderCell>
+  </Table.Row>
+</Table.Header>
+<Table.Body>
+  <Table.Row>
+    <Table.Cell>
+      <Text size="200" lineClamp={1}>AD-225-DB-RFUYS-2398</Text>
+    </Table.Cell>
+    <Table.Cell>
+      <Text size="200">100</Text>
+    </Table.Cell>
+    <Table.Cell>
+    <Text size="200" inline overflow="noWrap">lifestyle, gaming</Text>
+    <Text inline weight="bold" size="200" ><Link href="#" underline="always">3 more</Link></Text>
+    </Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>
+      <Text size="200" lineClamp={1}>AD-225-Dd-224-AKD-290</Text>
+    </Table.Cell>
+    <Table.Cell>
+      <Text size="200">5,000</Text>
+    </Table.Cell>
+    <Table.Cell>
+      <Text size="200" inline overflow="noWrap">bargain, gaming</Text>
+      <Text inline weight="bold" size="200"><Link href="#" underline="always">7 more</Link></Text>
+    </Table.Cell>
+  </Table.Row>
+</Table.Body>
+</Table>
 `}
           />
 
@@ -921,7 +975,10 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Truncating paragraph text, as that can be misread and change the original meaning of the text."
             defaultCode={`
- <Box>TBD</Box>
+<Flex direction="column" gap={2} maxWidth={250}>
+  <Heading accessibilityLevel={4} size="400">Cheesy chicken sandwich</Heading>
+  <Text lineClamp={3}>An updated twist to a grilled classic. This is a delicious treat, especially if you are a chicken lover. Make sure to try this out!</Text>
+</Flex>
 `}
           />
         </MainSection.Subsection>
