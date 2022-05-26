@@ -260,6 +260,8 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
 <Flex gap={4} direction="column">
   <Text size="300">Ads & Campaigns <Badge text="New" /></Text>
   <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
+  <Text size="300">Ads & Campaigns <Badge text="New" icon/></Text>
+  <Text size="600">Ads & Campaigns <Badge text="Beta" position="top" icon/></Text>
 </Flex>
 `}
           />
