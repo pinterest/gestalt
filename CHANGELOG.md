@@ -1,3 +1,9 @@
+## 57.2.3 (May 26, 2022)
+
+### Patch
+
+- Docs: Small tweaks (#2137)
+
 ## 57.2.2 (May 25, 2022)
 
 ### Patch
