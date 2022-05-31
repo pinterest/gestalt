@@ -289,24 +289,28 @@ We currently use browser defaults on web UIs so that lines of text are readable 
             `}
             />
           </Box>
-          <Flex gap={4} width={504} wrap>
-            <Flex.Item flex="shrink">
-              <Box color="infoWeak">
-                <LineHeightLatin />
-              </Box>
-              <Text size="100">
-                Latin script in Chrome with line-height set to “normal”, which is about 120% of font
-                size.
-              </Text>
+          <Flex gap={4} width="100%" wrap>
+            <Flex.Item flex="shrink" flexBasis={244}>
+              <Flex direction="column" gap={2}>
+                <Box color="infoWeak">
+                  <LineHeightLatin />
+                </Box>
+                <Text size="100">
+                  Latin script in Chrome with line-height set to “normal”, which is about 120% of
+                  font size.
+                </Text>
+              </Flex>
             </Flex.Item>
-            <Flex.Item flex="shrink">
-              <Box color="infoWeak">
-                <LineHeightCJK />
-              </Box>
-              <Text size="100">
-                Myanmar script in Chrome with line-heigh set to normal, which is about 200% of font
-                size.
-              </Text>
+            <Flex.Item flex="shrink" flexBasis={244}>
+              <Flex direction="column" gap={2}>
+                <Box color="infoWeak">
+                  <LineHeightCJK />
+                </Box>
+                <Text size="100">
+                  Myanmar script in Chrome with line-heigh set to normal, which is about 200% of
+                  font size.
+                </Text>
+              </Flex>
             </Flex.Item>
           </Flex>
         </MainSection.Subsection>
@@ -405,8 +409,8 @@ Line height is automatically determined by a font’s size. For more info, refer
       <MainSection name="Alignment">
         <MainSection.Subsection title="Default">
           <Flex gap={4} wrap>
-            <Flex.Item>
-              <Box color="infoWeak">
+            <Flex.Item flex="shrink" flexBasis="244">
+              <Box color="infoWeak" marginBottom={4}>
                 <AlignmentStart />
               </Box>
             </Flex.Item>
@@ -429,8 +433,8 @@ Line height is automatically determined by a font’s size. For more info, refer
         </MainSection.Subsection>
         <MainSection.Subsection title="Exceptions">
           <Flex gap={4} wrap>
-            <Flex.Item>
-              <Box color="infoWeak">
+            <Flex.Item flex="shrink" flexBasis="244">
+              <Box color="infoWeak" marginBottom={4}>
                 <AlignmentCenter />
               </Box>
             </Flex.Item>
@@ -444,9 +448,9 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Text>
             </Box>
           </Flex>
-          <Flex gap={4}>
-            <Flex.Item>
-              <Box color="infoWeak">
+          <Flex gap={4} wrap>
+            <Flex.Item flex="shrink" flexBasis="244">
+              <Box color="infoWeak" marginBottom={4}>
                 <AlignmentEnd />
               </Box>
             </Flex.Item>
