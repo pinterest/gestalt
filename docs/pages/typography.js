@@ -794,7 +794,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use font sizes below 14px for body copy and UI controls, unless the text is very brief and secondary."
+            description="Use headings in an illogical order since this will confuse screen readers. For example, don’t start a section with an H2 or H3, and place an H1 further down in the hierarchy."
           >
             <HierarchyDont />
           </MainSection.Card>
@@ -831,7 +831,7 @@ Use standards that will make it easier to translate to other languages:
 - Avoid ALL CAPS for special emphasis, as certain languages, like Arabic, do not support it
 `}
             defaultCode={`
-<Text>TBD</Text>
+<Text align="forceRight">نحن جميعًا هنا معًا في حرية . ربما للمرة الأخيرة! انا اعرف يا عزيزي؛ أعلم أنك ستكون دائمًا معي حتى النهاية.</Text>
 `}
           />
           <MainSection.Card
@@ -839,7 +839,7 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Set line height to specific sizes, use fonts that don’t have broad language support, and use ALL CAPS."
             defaultCode={`
-<Text>TBD</Text>
+<Text align="forceRight">نحن جميعًا هنا معًا في حرية ، ربما للمرة الأخيرة! انا اعرف يا عزيزي؛ أعلم أنك ستكون دائمًا معي حتى النهاية□□□□□□□□□□.</Text>
 `}
           />
         </MainSection.Subsection>
