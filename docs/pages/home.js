@@ -23,7 +23,7 @@ export default function HomePage(): Node {
             <Box display="flex" alignItems="center" justifyContent="between">
               <Flex gap={6} direction="column">
                 <Heading>Gestalt is Pinterest&rsquo;s design system</Heading>
-                <Text size="lg">
+                <Text size="300">
                   We’re here to help you build experiences that inspire people to create the life
                   they love
                 </Text>
