@@ -985,12 +985,10 @@ Use standards that will make it easier to translate to other languages:
         description={`
 Our guidelines and components primarily cover user interface use cases for typography. We will improve upon this by adding guidelines and components for long-form text in the future.
 
-Long-form text components and guidelines [Exploration badge]
-
+**Long-form text components and guidelines**
 Components and guidelines for long-form text that will include better line-height  and line-length for headings, paragraph blocks
 
-iOS and Android Figma updates [Exploration badge]
-
+**iOS and Android Figma updates**
 Updates to mobile components that match Apple HIG and Android Material values for line-height.
       `}
       />
