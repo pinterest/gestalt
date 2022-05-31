@@ -276,13 +276,7 @@ We have numerous React components that use typography as the primary element.
           title="Line height"
           description="Proper line spacing line height (or leading) is important for readability. If lines of text get too close together, it can be hard to read them; if they are too far apart it can make it difficult to sense a clear hierarchy and group related text blocks. Given that we use system fonts, we rely on percentages on web and system defaults on mobile to ensure blocks are text are still readable for internationalization and dynamic sizing."
         />
-        <MainSection.Subsection
-          title="Web"
-          description="We currently use browser defaults on web UIs so that lines of text are readable in all
-            languages and scripts. For example, scripts like Hindi have larger ascenders and
-            descenders than Latin scripts. Setting a fixed line height can make scripts like Hindi
-            hard to read."
-        >
+        <MainSection.Subsection>
           <Box maxWidth={572}>
             <Heading size="300" accessibilityLevel={4}>
               Web
@@ -293,7 +287,7 @@ We currently use browser defaults on web UIs so that lines of text are readable 
             `}
             />
           </Box>
-          <Flex gap={4} width={504}>
+          <Flex gap={4} width={504} wrap>
             <Flex.Item flex="shrink">
               <Box color="infoWeak">
                 <LineHeightLatin />
@@ -408,7 +402,7 @@ Line height is automatically determined by a font’s size. For more info, refer
       </MainSection>
       <MainSection name="Alignment">
         <MainSection.Subsection title="Default">
-          <Flex gap={4}>
+          <Flex gap={4} wrap>
             <Flex.Item>
               <Box color="infoWeak">
                 <AlignmentStart />
@@ -418,28 +412,21 @@ Line height is automatically determined by a font’s size. For more info, refer
               <Heading size="300" accessibilityLevel={4}>
                 Start-aligned
               </Heading>
-              <Text>
-                Our default alignment is start-aligned. There are a couple of reasons to default to
-                start-aligned text:
-              </Text>
-              <Text>
-                <ul>
-                  <li>
-                    Users tend to read in “F” patterns, so placing text in a similar pattern helps
-                    with users absorbing all the information they need for a good experience
-                  </li>
-                  <li>
-                    Since the starting edge of centered text moves around, it’s harder for users to
-                    read; this can be especially difficult for people with dyslexia
-                    (https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
-                  </li>
-                </ul>
-              </Text>
+              <Markdown
+                text={`
+              Our default alignment is start-aligned. There are a couple of reasons to default to
+              start-aligned text:
+              - Users tend to read in “F” patterns, so placing text in a similar pattern helps
+              with users absorbing all the information they need for a good experience
+              - Since the starting edge of centered text moves around, it’s harder for users to
+              read; this can be especially difficult for [people with dyslexia](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide)
+              `}
+              />
             </Box>
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection title="Exceptions">
-          <Flex gap={4}>
+          <Flex gap={4} wrap>
             <Flex.Item>
               <Box color="infoWeak">
                 <AlignmentCenter />
@@ -473,9 +460,7 @@ Line height is automatically determined by a font’s size. For more info, refer
       <MainSection name="Formatting">
         <MainSection.Subsection
           title="Font weight"
-          description="In Pinner surfaces, the main focus is a user’s visual content. On business surfaces, visuals are supported by denser text content and data visualization. Therefore, typographic weight shouldn’t be so heavy that it causes visual noise, nor should it be too light to read. Use the following guidelines for choosing font weight:
-
-"
+          description="In Pinner surfaces, the main focus is a user’s visual content. On business surfaces, visuals are supported by denser text content and data visualization. Therefore, typographic weight shouldn’t be so heavy that it causes visual noise, nor should it be too light to read. Use the following guidelines for choosing font weight:"
         >
           <Table accessibilityLabel="Font weight treatements">
             <Table.Header>
@@ -591,7 +576,9 @@ Line height is automatically determined by a font’s size. For more info, refer
                   <Text size="200">Medium</Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Heading>Page title</Heading>
+                  <Text size="600" weight="bold">
+                    Page title
+                  </Text>
                 </Table.Cell>
               </Table.Row>
             </Table.Body>
