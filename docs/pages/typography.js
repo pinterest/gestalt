@@ -17,6 +17,8 @@ import LineHeightCJK from '../graphics/typography/lineHeightCJK.svg';
 import ParagraphSpacing from '../graphics/typography/paragraphSpacing.svg';
 import HierarchyDo from '../graphics/typography/hierarchyDo.svg';
 import HierarchyDont from '../graphics/typography/hierarchyDont.svg';
+import ContrastLow from '../graphics/typography/contrastLow.svg';
+import ContrastHigh from '../graphics/typography/contrastHigh.svg';
 
 type PrincipleCardProps = {|
   color: string,
@@ -590,7 +592,7 @@ Line height is automatically determined by a font’s size. For more info, refer
 
 "
         >
-          <Box color="infoWeak" paddingX={6} paddingY={8}>
+          <Box color="infoWeak" paddingX={6} paddingY={8} rounding={2}>
             <Text color="dark">
               This is a paragraph with an{' '}
               <Link href="https://gestalt.pinterest.systems" underline="always" inline>
@@ -804,18 +806,16 @@ Line height is automatically determined by a font’s size. For more info, refer
             cardSize="md"
             type="do"
             description="Stick to our [design tokens](/design_tokens) and use color combinations with a 4.5:1 contrast ratio between foreground and background."
-            defaultCode={`
-<Box rounding={2} padding={2} color="infoWeak"><Text>This has enough contrast</Text></Box>
-`}
-          />
+          >
+            <ContrastHigh />
+          </MainSection.Card>
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use text that doesn’t pass 4.5:1 contrast ratio when testing with Figma accessibility plugins."
-            defaultCode={`
-<Box rounding={2} padding={2} color="infoWeak"><Text color="inverse">This does not have enough contrast</Text></Box>
-`}
-          />
+          >
+            <ContrastLow />
+          </MainSection.Card>
         </MainSection.Subsection>
         <Heading size="400" accessibilityLevel={3}>
           Localization
