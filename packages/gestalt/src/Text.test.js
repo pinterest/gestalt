@@ -22,11 +22,6 @@ test('Text size 100 adds the smallest size class', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Deprecated Text size sm adds the small size class', () => {
-  const tree = create(<Text size="sm" />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
 test('Text lineClamp should add a title when the children are text only', () => {
   const tree = create(
     <Text lineClamp={1}>Shall I compare thee to a summer&#39;s day - William Shakespeare</Text>,

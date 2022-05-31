@@ -18,16 +18,10 @@ const defaultHeadingLevels = {
   '400': 3,
   '500': 2,
   '600': 1,
-  'sm': 3,
-  'md': 2,
-  'lg': 1,
 };
 
 // Corresponds to the font-size design tokens
 const SIZE_SCALE = {
-  sm: 400,
-  md: 500,
-  lg: 600,
   '100': 100,
   '200': 200,
   '300': 300,
@@ -38,7 +32,7 @@ const SIZE_SCALE = {
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
 type Overflow = 'normal' | 'breakWord';
-type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
   /**

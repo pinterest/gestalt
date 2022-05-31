@@ -12,9 +12,6 @@ function isNotNullish(val): boolean {
 }
 
 const SIZE_SCALE = {
-  sm: 100,
-  md: 200,
-  lg: 300,
   '100': 100,
   '200': 200,
   '300': 300,
@@ -24,7 +21,7 @@ const SIZE_SCALE = {
 };
 
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
-type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
   /**

@@ -40,7 +40,7 @@ function IllustrationCard({ image, description, isNew, title, color, href }: Pro
               justifyContent="start"
             >
               <Flex direction="row" alignItems="baseline" gap={2}>
-                <Heading accessibilityLevel={3} size="sm">
+                <Heading accessibilityLevel={3} size="400">
                   {title}
                 </Heading>
                 {isNew && <Badge text="New" />}

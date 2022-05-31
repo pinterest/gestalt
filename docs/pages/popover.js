@@ -1003,7 +1003,7 @@ function ScrollBoundaryContainerExample() {
     return (
       <React.Fragment>
           <Flex direction="column" gap={2}>
-            <Text size="sm">Board</Text>
+            <Text size="100">Board</Text>
             <Button
               accessibilityHaspopup={true}
               accessibilityExpanded={openPopover}
