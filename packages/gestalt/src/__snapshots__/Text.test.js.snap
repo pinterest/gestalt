@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Deprecated Text size sm adds the small size class 1`] = `
-<div
-  className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
-/>
-`;
-
 exports[`Text error adds the error color class 1`] = `
 <div
   className="Text fontSize300 errorText alignStart breakWord fontWeightNormal"
