@@ -414,21 +414,18 @@ Line height is automatically determined by a font’s size. For more info, refer
                 <AlignmentStart />
               </Box>
             </Flex.Item>
-            <Box>
+            <Flex direction="column" gap={2} maxWidth="420px">
               <Heading size="300" accessibilityLevel={4}>
                 Start-aligned
               </Heading>
               <Markdown
                 text={`
-              Our default alignment is start-aligned. There are a couple of reasons to default to
-              start-aligned text:
-              - Users tend to read in “F” patterns, so placing text in a similar pattern helps
-              with users absorbing all the information they need for a good experience
-              - Since the starting edge of centered text moves around, it’s harder for users to
-              read; this can be especially difficult for [people with dyslexia](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide)
+              Our default alignment is start-aligned. There are a couple of reasons to default to start-aligned text:
+              - Users tend to read in “F” patterns, so placing text in a similar pattern helps with users absorbing all the information they need for a good experience
+              - Since the starting edge of centered text moves around, it’s harder for users to read; this can be especially difficult for [people with dyslexia](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide)
               `}
               />
-            </Box>
+            </Flex>
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection title="Exceptions">
@@ -438,15 +435,12 @@ Line height is automatically determined by a font’s size. For more info, refer
                 <AlignmentCenter />
               </Box>
             </Flex.Item>
-            <Box>
+            <Flex direction="column" gap={2} maxWidth="420px">
               <Heading size="300" accessibilityLevel={4}>
                 Centered
               </Heading>
-              <Text>
-                Use center-aligned text for very short blocks of content, like text inside of
-                buttons or tabs.
-              </Text>
-            </Box>
+              <Markdown text="Use center-aligned text for very short blocks of content, like text inside of buttons or tabs." />
+            </Flex>
           </Flex>
           <Flex gap={4} wrap>
             <Flex.Item flex="shrink" flexBasis="244">
@@ -454,12 +448,12 @@ Line height is automatically determined by a font’s size. For more info, refer
                 <AlignmentEnd />
               </Box>
             </Flex.Item>
-            <Box>
+            <Flex direction="column" gap={2} maxWidth="420px">
               <Heading size="300" accessibilityLevel={4}>
                 End-aligned
               </Heading>
-              <Text>End-align integers in tables so that they are easy to compare.</Text>
-            </Box>
+              <Markdown text="End-align integers in tables so that they are easy to compare." />
+            </Flex>
           </Flex>
         </MainSection.Subsection>
       </MainSection>
@@ -818,7 +812,7 @@ Use standards that will make it easier to translate to other languages:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Set line height to specific sizes, use fonts that don’t have broad language support, and use ALL CAPS."
+            description="Set line height to specific sizes, use fonts that don’t have broad language support, or use ALL CAPS."
             defaultCode={`
 <Text align="forceRight">نحن جميعًا هنا معًا في حرية ، ربما للمرة الأخيرة! انا اعرف يا عزيزي؛ أعلم أنك ستكون دائمًا معي حتى النهاية□□□□□□□□□□.</Text>
 `}
