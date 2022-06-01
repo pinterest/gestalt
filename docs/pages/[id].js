@@ -1,3 +1,11 @@
+/*
+pages/[id].js renders a dynamic gestalt docs page with a with a page that isn't defined .
+
+The getStaticPaths() will look at the files in the ./markdown folder and try to render a page if it exists, or returns a 404.
+
+We do this so we don't have to define each page, and can just define the pages in the markdown folder.
+*/
+
 // @flow strict
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -51,7 +59,7 @@ export async function getStaticPaths(): Promise<{|
   paths: {| params: {| id: string |} |}[],
   fallback: boolean,
 |}> {
-  // get the paths that exist
+  // get all the paths that exist within ./markdown folder
   const paths = getAllMarkdownPosts();
   return {
     paths: paths.map((name) => ({

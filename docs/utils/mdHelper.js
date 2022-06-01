@@ -3,14 +3,21 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export function getDocByRoute(
+export function getDocByRoute(route: string): {|
+  content?: string,
+  meta: { [key: string]: string },
   route: string,
-): {| content?: string, meta: { [key: string]: string }, route: string, isMDX: boolean |} {
+  isMDX: boolean,
+|} {
   const docsDirectory = path.join(process.cwd(), 'markdown');
   const fullPath = path.join(docsDirectory, `${route}.md`);
 
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+    // matter is the library used to parse the frontmatter from the md files
+    // it breaks the data into { data: {title:'foo'}, content: '<HTML Markdown>' }
+
     const { data, content } = matter(fileContents);
 
     return { route, meta: data, content, isMDX: true };
