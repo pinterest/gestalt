@@ -26,6 +26,7 @@ class GestaltDocument extends Document {
     return (
       <Html lang="en" dir={dir}>
         <Head>
+          <meta name="p:domain_verify" content="752e3976762ef39258186e60a40bbe5a" />
           {/* eslint-disable-next-line @next/next/no-sync-scripts */}
           <script
             type="text/javascript"
