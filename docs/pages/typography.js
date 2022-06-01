@@ -268,7 +268,7 @@ We have numerous React components that use typography as the primary element.
           title="Line length"
           description="For long-form, multi-line paragraphs set at our default font size, use a maximum width of 664 to allow for a max of about 90 characters. Otherwise, it can get hard for users to scan and read text."
         >
-          <Box width="100%" color="infoWeak">
+          <Box width="100%" color="infoWeak" overflow="hidden">
             <LineLength />
           </Box>
         </MainSection.Subsection>
