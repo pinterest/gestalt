@@ -82,7 +82,7 @@ export default function TypographyPage(): Node {
               heading="Inclusive"
               text={
                 <Text>
-                  We stick to standard line-spacing defaults or percentagesto ensure text can be
+                  We stick to standard line-spacing defaults or percentages to ensure text can be
                   read regardless of a user’s preferred language or font size.
                 </Text>
               }
@@ -397,7 +397,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           title="Paragraph spacing"
           description="Spacing after a paragraph in body copy should be 75% of the body copy font size."
         >
-          <Box color="infoWeak">
+          <Box color="infoWeak" overflow="hidden">
             <ParagraphSpacing />
           </Box>
         </MainSection.Subsection>
@@ -596,7 +596,7 @@ Line height is automatically determined by a font’s size. For more info, refer
 
 "
         >
-          <Box color="infoWeak" paddingX={6} paddingY={8} rounding={2}>
+          <Box color="infoWeak" paddingX={6} paddingY={8}>
             <Text color="dark">
               This is a paragraph with an{' '}
               <Link href="https://gestalt.pinterest.systems" underline="always" inline>
@@ -631,11 +631,6 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Table.HeaderCell>
               <Table.HeaderCell>
                 <Text size="200" weight="bold">
-                  Line spacing
-                </Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
-                <Text size="200" weight="bold">
                   Context
                 </Text>
               </Table.HeaderCell>
@@ -655,9 +650,6 @@ Line height is automatically determined by a font’s size. For more info, refer
                 <Text size="200">Regular</Text>
               </Table.Cell>
               <Table.Cell>
-                <Text size="200">150%</Text>
-              </Table.Cell>
-              <Table.Cell>
                 <Text size="200">Form fields, metadata, secondary info</Text>
               </Table.Cell>
             </Table.Row>
@@ -672,9 +664,6 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Table.Cell>
               <Table.Cell>
                 <Text size="200">Regular</Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text size="200">150%</Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200">
@@ -695,9 +684,6 @@ Line height is automatically determined by a font’s size. For more info, refer
                 <Text size="200">Regular</Text>
               </Table.Cell>
               <Table.Cell>
-                <Text size="200">150%</Text>
-              </Table.Cell>
-              <Table.Cell>
                 <Text size="200">Default body copy for multi-line, paragraph text</Text>
               </Table.Cell>
             </Table.Row>
@@ -714,9 +700,6 @@ Line height is automatically determined by a font’s size. For more info, refer
                 <Text size="200" weight="bold">
                   Bold
                 </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>125%</Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200">Small headings, usually an H3</Text>
@@ -737,9 +720,6 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>125%</Text>
-              </Table.Cell>
-              <Table.Cell>
                 <Text>PageHeaders, medium-headlines</Text>
               </Table.Cell>
             </Table.Row>
@@ -756,9 +736,6 @@ Line height is automatically determined by a font’s size. For more info, refer
                 <Text size="200" weight="bold">
                   Bold
                 </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>125%</Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200">Large headlines, usually an H1</Text>
@@ -879,12 +856,12 @@ Use standards that will make it easier to translate to other languages:
             defaultCode={`
 <Flex direction="column" gap={2} alignItems="center" >
   <Heading align="center" accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
-  <Text>See your account settings</Text>
-  <Text>Create new Pins for you</Text>
-  <Text>Send messages on behalf of you</Text>
-  <Text>Follow things for you</Text>
-  <Text> See your secret Pins</Text>
-  <Text>See your secret boards</Text>
+  <Text color="subtle">See your account settings</Text>
+  <Text color="subtle">Create new Pins for you</Text>
+  <Text color="subtle">Send messages on behalf of you</Text>
+  <Text color="subtle">Follow things for you</Text>
+  <Text color="subtle"> See your secret Pins</Text>
+  <Text color="subtle">See your secret boards</Text>
 </Flex>
 `}
           />
