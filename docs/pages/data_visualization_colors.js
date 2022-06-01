@@ -45,7 +45,7 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
 
 export default function ColorPage(): Node {
   return (
-    <Page title="Data visualization color palette">
+    <Page title="Data visualization Color Palette">
       <PageHeader
         name="Data visualization color palette"
         description={`The data visualization color palette is used to represent discrete categories of data. This palette utilizes the Gestalt color palette and is optimized for accessibility in data visualizations. The palette is comprised of a 12-color categorical palette and semantic colors.  `}
