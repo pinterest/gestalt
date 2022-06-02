@@ -11,7 +11,7 @@
     },
     {
       "task": "Form component",
-      "deadline": "Quarter 2",
+      "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Web",
       "description": "Addition of a component to encapuslate and structure form elements in a layout.",
@@ -44,14 +44,14 @@
     {
       "task": "Link component improvements",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Web",
       "description": "Update Link component to support external indicator and more accessible styling.",
       "link": ""
     },
     {
       "task": "InfoButton integration in input components",
-      "deadline": "Quarter 2",
+      "deadline": "",
       "status": "unstarted",
       "platform": "Web",
       "description": "Providing the ability in form components to add an InfoButton to provide contextual help.",
@@ -59,7 +59,7 @@
     },
     {
       "task": "Gestalt illustration library",
-      "deadline": "Quarter 2",
+      "deadline": "Quarter 3",
       "status": "inProgress",
       "platform": "Android/iOS/Web",
       "description": "Creation of a baseline set of illustrations that cover high-frequency product states (e.g., Error, Success, Empty).",
@@ -156,7 +156,7 @@
     {
       "task": "RadioGroup component",
       "deadline": "",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Create new component to create accessible Radio button groups in forms, deprecate singular RadioButton.",
       "link": ""
@@ -308,7 +308,7 @@
     {
       "task": "Link component design guidelines",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Link web documentation.",
       "link": ""
@@ -339,7 +339,7 @@
     },
     {
       "task": "Popover component design guidelines",
-      "deadline": "Quarter 2",
+      "deadline": "Quarter 3",
       "status": "unstarted",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Popover mobile documentation.",
@@ -396,7 +396,7 @@
     {
       "task": "Icon component design guidelines",
       "deadline": "Quarter 3",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Icon mobile documentation.",
       "link": ""
@@ -420,7 +420,7 @@
     {
       "task": "RadioGroup component design guidelines",
       "deadline": "Quarter 3",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to RadioGroup web documentation.",
       "link": ""
@@ -428,7 +428,7 @@
     {
       "task": "Switch component design guidelines",
       "deadline": "Quarter 3",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Switch web documentation.",
       "link": ""
@@ -443,7 +443,7 @@
     },
     {
       "task": "ButtonGroup component design guidelines",
-      "deadline": "Quarter 4",
+      "deadline": "",
       "status": "unstarted",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to ButtonGroup web documentation.",
@@ -460,7 +460,7 @@
     {
       "task": "Iconography pattern guidelines",
       "deadline": "Quarter 4",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "",
       "description": "Publish guidelines on appropriate usage of iconography with Gestalt.",
       "link": ""
