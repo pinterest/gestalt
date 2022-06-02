@@ -5,7 +5,6 @@ import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
-
 // $FlowExpectedError[untyped-import]
 import blogPosts from './BlogPosts.json';
 
@@ -17,12 +16,20 @@ type PostProps = {|
   content: string,
 |};
 function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostProps): Node {
+  const POST_WIDTH = '600px';
   return (
-    <Flex direction="column" gap={3}>
+    <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={1}>
+        <Heading size="400">{title}</Heading>
+        <Flex gap={2}>
+          {audience.includes('Design') && <Badge type="info" text="Design" />}
+          {audience.includes('Engineering') && <Badge type="success" text="Engineering" />}
+        </Flex>
+      </Flex>
       {imageSrc && (
         <Box
           height="252px"
-          maxWidth="420px"
+          maxWidth={POST_WIDTH}
           display="none"
           mdDisplay="block"
           marginBottom={4}
@@ -41,14 +48,7 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
           </Mask>
         </Box>
       )}
-      <Flex direction="column" gap={2} maxWidth="600px">
-        <Flex direction="column" gap={1}>
-          <Heading size="400">{title}</Heading>
-          <Flex gap={2}>
-            {audience.includes('Design') && <Badge type="info" text="Design" />}
-            {audience.includes('Engineering') && <Badge type="success" text="Engineering" />}
-          </Flex>
-        </Flex>
+      <Flex maxWidth={POST_WIDTH}>
         <Markdown text={content} />
       </Flex>
     </Flex>

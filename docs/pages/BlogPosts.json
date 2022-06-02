@@ -9,7 +9,7 @@
           "audience": ["Engineering", "Design"],
           "imageSrc": "https://slack-imgs.com/?c=1&o1=wi1200.he674.si.ro&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fa6%2F10%2F67%2Fa61067eea24034113e7e3cfe96823dbe.png",
           "imageAltText": "Full color palette for data viz",
-          "content": "The team is super excited to share that we shipped [data visualization tokens](/data_visualization_tokens) to Gestalt this week! This is due to the incredible work of @mengqiuhu and @tsimpson with their proposed color palette. We’re hoping to build upon this work to develop dataviz components and guidelines in future sprints, so stay tuned!"
+          "content": "The team is super excited to share that we shipped [data visualization tokens](/data_visualization_colors) to Gestalt this week! This is due to the incredible work of @mengqiuhu and @tsimpson with their proposed color palette. We’re hoping to build upon this work to develop dataviz components and guidelines in future sprints, so stay tuned!"
         },
         {
           "title": "New RadioButton Component",
