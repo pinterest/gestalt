@@ -11,6 +11,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <Page title="RadioButton">
       <PageHeader
         name="RadioButton"
+        badge="deprecated"
         description="Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
         slimBanner={
           <SlimBanner

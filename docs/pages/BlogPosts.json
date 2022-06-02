@@ -1,0 +1,32 @@
+{
+  "year": "2022",
+  "digests": [
+    {
+      "week": "5/26",
+      "posts": [
+        {
+          "title": "Data visualization tokens added to Gestalt",
+          "audience": ["Engineering", "Design"],
+          "imageSrc": "https://slack-imgs.com/?c=1&o1=wi1200.he674.si.ro&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fa6%2F10%2F67%2Fa61067eea24034113e7e3cfe96823dbe.png",
+          "imageAltText": "Full color palette for data viz",
+          "content": "The team is super excited to share that we shipped [data visualization tokens](/data_visualization_colors) to Gestalt this week! This is due to the incredible work of @mengqiuhu and @tsimpson with their proposed color palette. We’re hoping to build upon this work to develop dataviz components and guidelines in future sprints, so stay tuned!"
+        },
+        {
+          "title": "New RadioButton Component",
+          "audience": ["Engineering"],
+          "imageSrc": "https://slack-imgs.com/?c=1&o1=wi1200.he674.si.ro&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fa7%2F68%2F23%2Fa7682371976aaa31d270d0dc36ee04be.png",
+          "imageAltText": "RadioGroup depiction",
+          "content": "We recently shipped a new [RadioGroup component](/radiogroup) which will make building forms easier and faster. The big change is that this component allows you to create a group of radio buttons as opposed to having to create each one independently. This may not have a ton of impact on your day-to-day, but we’re sharing it with you so that you remind your XFN buddies in case they aren’t aware. On that note, we’ve also deprecated our [RadioButton component](/radiobutton) in favor of RadioGroup."
+        },
+
+        {
+          "title": "Gestalt Open Forum — Iconography workshop!",
+          "audience": ["Design"],
+          "imageSrc": "https://slack-imgs.com/?c=1&o1=wi1200.he674.si.ro&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F3b%2F27%2F0c%2F3b270c8baf1cfd8a023e57ded5b03473.png",
+          "imageAltText": "",
+          "content": "We know you care a lot about icons, and it’s a hot topic and priority for Gestalt! So we’re planning an icon “workshop” that will happen during our next Gestalt Open Forum meeting (June 16th), facilitated by @sandreae. Please join us and help us evolve our iconography guidelines — we need your input!"
+        }
+      ]
+    }
+  ]
+}

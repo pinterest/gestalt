@@ -1,62 +1,116 @@
 // @flow strict
-import { type Node } from 'react';
-import { Box, Flex, Link, Text } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Badge, Box, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
+import MainSection from '../components/MainSection.js';
+// $FlowExpectedError[untyped-import]
+import blogPosts from './BlogPosts.json';
 
-const npmPackages = [
-  'gestalt',
-  'gestalt-datepicker',
-  'gestalt-design-tokens',
-  'eslint-plugin-gestalt',
-];
-
-export default function Changelog({ changelog }: {| changelog: string |}): Node {
+type PostProps = {|
+  imageSrc?: string,
+  imageAltText?: string,
+  title: string,
+  audience: Array<string>,
+  content: string,
+|};
+function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostProps): Node {
+  const POST_WIDTH = '600px';
   return (
-    <Page title="Changelog">
-      <Box>
-        <PageHeader name="What's new 🎉" showSourceLink={false} />
-        <Flex alignItems="start" direction="column" gap={4}>
-          <Flex gap={4} wrap>
-            {npmPackages.map((packageName) => (
-              <Link
-                key={packageName}
-                inline
-                target="blank"
-                href={`https://npmjs.org/package/${packageName}`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://img.shields.io/npm/v/${packageName}.svg?label=${packageName}`}
-                  alt={`${packageName} NPM package version badge`}
-                />
-              </Link>
-            ))}
-          </Flex>
-          <Text>
-            Gestalt is a set of React UI components that enforces Pinterest’s design language. We
-            use it to streamline communication between designers and developers by enforcing a bunch
-            of fundamental UI components. This common set of components helps raise the bar for UX
-            &amp; accessibility across Pinterest.
-          </Text>
-          <Text>
-            Find information below on all new and updated components by version number, as well as
-            available codemods to help upgrade between versions.
-          </Text>
+    <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={1}>
+        <Heading size="400">{title}</Heading>
+        <Flex gap={2}>
+          {audience.includes('Design') && <Badge type="info" text="Design" />}
+          {audience.includes('Engineering') && <Badge type="success" text="Engineering" />}
         </Flex>
-
-        <Markdown text={changelog} type="changelog" />
-      </Box>
-    </Page>
+      </Flex>
+      {imageSrc && (
+        <Box
+          height="252px"
+          maxWidth={POST_WIDTH}
+          display="none"
+          mdDisplay="block"
+          marginBottom={4}
+          lgMarginBottom={0}
+          borderStyle="sm"
+          rounding={2}
+        >
+          <Mask rounding={2} height="250px">
+            <Image
+              src={imageSrc}
+              alt={imageAltText || ''}
+              naturalHeight={674}
+              naturalWidth={1200}
+              fit="cover"
+            />
+          </Mask>
+        </Box>
+      )}
+      <Flex maxWidth={POST_WIDTH}>
+        <Markdown text={content} />
+      </Flex>
+    </Flex>
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| changelog: string |} |}> {
-  const result = await fetch(
-    'https://raw.githubusercontent.com/pinterest/gestalt/master/CHANGELOG.md',
+export default function Blog(): Node {
+  const [filter, setFilter] = useState('All');
+  return (
+    <Page title="What's New Blog">
+      <PageHeader
+        name="What's New"
+        description={`
+    Follow along to learn about documentation updates, new components, events, and more!
+    To get the full details for each version, view the [changelog in GitHub](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md).
+    `}
+        showSourceLink={false}
+      />
+      <RadioGroup id="filter" legend="Filter posts by" direction="row">
+        <RadioGroup.RadioButton
+          size="sm"
+          id="all"
+          value="All"
+          label="All"
+          checked={filter === 'All'}
+          onChange={() => {
+            setFilter('All');
+          }}
+        />
+        <RadioGroup.RadioButton
+          id="design"
+          value="Design"
+          label="Design updates"
+          checked={filter === 'Design'}
+          onChange={() => {
+            setFilter('Design');
+          }}
+          size="sm"
+        />
+        <RadioGroup.RadioButton
+          id="eng"
+          value="Engineering"
+          label="Engineering updates"
+          checked={filter === 'Engineering'}
+          onChange={() => {
+            setFilter('Engineering');
+          }}
+          size="sm"
+        />
+      </RadioGroup>
+      {blogPosts.digests.map((digest, idx) => (
+        <MainSection key={`digest-${idx}`} name={`Week of ${digest.week}`}>
+          <Flex direction="column" gap={12}>
+            {digest.posts.map(
+              (post, index) =>
+                (filter === 'All' || post.audience.includes(filter)) && (
+                  <PostLayout key={`post-${index}`} {...post} />
+                ),
+            )}
+          </Flex>
+        </MainSection>
+      ))}
+    </Page>
   );
-  return {
-    props: { changelog: await result.text() },
-  };
 }
