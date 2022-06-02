@@ -1,3 +1,9 @@
+## 57.2.6 (Jun 2, 2022)
+
+### Patch
+
+- Internal: Add Pinterest metadata tag to connect Gestalt Pinterest account w/ Gestalt site (#2139)
+
 ## 57.2.5 (Jun 2, 2022)
 
 ### Patch
