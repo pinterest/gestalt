@@ -136,9 +136,7 @@ type Props = {|
  * DatePicker is distributed in its own package and must be installed separately.
  *
  * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.mjs-snapshots/DatePicker-closed-chromium-darwin.png)
- * ![DatePicker open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-open.spec.mjs-snapshots/DatePicker-open-chromium-darwin.png)
  * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed-dark.spec.mjs-snapshots/DatePicker-closed-dark-chromium-darwin.png)
- * ![DatePicker open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-open-dark.spec.mjs-snapshots/DatePicker-open-dark-chromium-darwin.png)
  */
 const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,

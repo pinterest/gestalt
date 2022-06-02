@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Image, Flex, Heading, Link, Text } from 'gestalt';
+import { Flex, Heading, Link, Text } from 'gestalt';
 import Card from '../components/Card.js';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
@@ -213,23 +213,26 @@ git checkout -b <feature-branch> upstream/master
               />
             </li>
             <li>
-              <Text>Time to make changes to Gestalt!</Text>
-              <ul>
-                <li>
-                  <Text>
-                    If you are introducing a new component, run the scaffolding command to generate
-                    the necessary files. Replace &lsquo;ComponentName&lsquo; with the name of your
-                    component.
-                    <Markdown
-                      text="
+              <Text inline>Time to make changes to Gestalt! </Text>
+              <Text inline>
+                If you are introducing a new component, run the scaffolding command to generate the
+                necessary files. Replace &lsquo;ComponentName&lsquo; with the name of your
+                component.
+                <Markdown
+                  text="
 ~~~bash
 yarn generate ComponentName
 ~~~"
-                    />
-                  </Text>
-                </li>
+                />
+              </Text>
+            </li>
+            <li>
+              <Text inline>
+                Any subsequent component changes might require the following actions.
+              </Text>
+              <ul>
                 <li>
-                  <Text>Run tests &amp; update snapshots.</Text>
+                  <Text>Run unit tests</Text>
                   <Markdown
                     text="
 ~~~bash
@@ -266,6 +269,9 @@ yarn playwright:test accessibility/
                   <Markdown
                     text="
 ~~~bash
+# Start the documentation server (required for updating macOS snapshots)
+yarn start
+#
 # Update macOS snapshots
 yarn playwright:test visual-test/ --update-snapshots
 ~~~"
@@ -275,45 +281,11 @@ yarn playwright:test visual-test/ --update-snapshots
 ~~~bash
 # Build the docker container (only need to do this once)
 yarn docker:build
-
+#
 # Update the linux snapshots
 yarn docker:run
 ~~~"
                   />
-                  <Flex wrap justifyContent="center">
-                    <Box as="figure" width={400}>
-                      <Image
-                        alt=""
-                        color="white"
-                        naturalHeight={262}
-                        naturalWidth={400}
-                        src="https://i.ibb.co/FY1pp4Y/Screen-Shot-2022-03-09-at-4-49-21-PM.png"
-                      />
-                      <Text size="100" align="center">
-                        <Box as="figcaption" marginTop={3}>
-                          Each failing snapshot test will display an error message. Click on
-                          &quot;Compare Snapshot&quot;. It will open a separate interface displaying
-                          the expected and the received snapshots side by side for your comparison.
-                        </Box>
-                      </Text>
-                    </Box>
-                    <Box as="figure" width={400}>
-                      <Image
-                        alt=""
-                        color="white"
-                        naturalHeight={176}
-                        naturalWidth={400}
-                        src="https://i.ibb.co/7NyhPRD/Screen-Shot-2022-03-09-at-4-49-40-PM.png"
-                      />
-                      <Text size="100" align="center">
-                        <Box as="figcaption" marginTop={3}>
-                          On this new interface displaying the expected and the received snapshots,
-                          click on the &quot;Update snapshot&quot; button to reconcile the changes.
-                          Only update if the changes are expected, otherwise revisit the code.
-                        </Box>
-                      </Text>
-                    </Box>
-                  </Flex>
                 </li>
                 <li>
                   <Text>Update CSS flow types.</Text>
