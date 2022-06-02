@@ -1,3 +1,9 @@
+## 57.2.7 (Jun 2, 2022)
+
+### Patch
+
+- Docs: Revamp What's New page into our blog (#2145)
+
 ## 57.2.6 (Jun 2, 2022)
 
 ### Patch
