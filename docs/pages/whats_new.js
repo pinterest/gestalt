@@ -42,7 +42,7 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
         </Box>
       )}
       <Flex direction="column" gap={2} maxWidth="600px">
-        <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={1}>
           <Heading size="400">{title}</Heading>
           <Flex gap={2}>
             {audience.includes('Design') && <Badge type="info" text="Design" />}
@@ -62,7 +62,8 @@ export default function Blog(): Node {
       <PageHeader
         name="What's New"
         description={`
-    Follow along to learn about documentation updates, new components, events, and more! Have questions? Feel free to reach out to #gestalt-design in Slack. To get the full play-by-play for each version, view the [changelog in GitHub](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md).
+    Follow along to learn about documentation updates, new components, events, and more!
+    To get the full details for each version, view the [changelog in GitHub](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md).
     `}
         showSourceLink={false}
       />
