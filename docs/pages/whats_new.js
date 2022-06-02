@@ -10,8 +10,8 @@ import MainSection from '../components/MainSection.js';
 import blogPosts from './BlogPosts.json';
 
 type PostProps = {|
-  imageSrc: string,
-  imageAltText: string,
+  imageSrc?: string,
+  imageAltText?: string,
   title: string,
   audience: Array<string>,
   content: string,
@@ -33,7 +33,7 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
           <Mask rounding={2} height="250px">
             <Image
               src={imageSrc}
-              alt={imageAltText}
+              alt={imageAltText || ''}
               naturalHeight={674}
               naturalWidth={1200}
               fit="cover"
