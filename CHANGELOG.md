@@ -1,3 +1,9 @@
+## 57.2.4 (Jun 2, 2022)
+
+### Patch
+
+- Development, Internal: updated Development guidelines and Playwright visual comparisons (#2144)
+
 ## 57.2.3 (May 26, 2022)
 
 ### Patch
