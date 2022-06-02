@@ -52,13 +52,14 @@ export default function PageHeader({
     },
     deprecated: {
       text: 'Deprecated',
-      tooltipText: `This component is deprecated and will be removed soons`,
+      tooltipText: `This component is deprecated and will be removed soon`,
+      type: 'error',
     },
   };
 
   return (
     <Box
-      marginBottom={defaultCode ? 0 : 12}
+      marginBottom={defaultCode ? 0 : 2}
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',
@@ -72,7 +73,11 @@ export default function PageHeader({
               {name}{' '}
               {badge ? (
                 <Tooltip inline text={badgeMap[badge].tooltipText}>
-                  <Badge text={badgeMap[badge].text} position="top" />
+                  <Badge
+                    text={badgeMap[badge].text}
+                    position="top"
+                    type={badgeMap[badge].type || 'info'}
+                  />
                 </Tooltip>
               ) : null}
             </Heading>
