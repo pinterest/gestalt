@@ -1,3 +1,9 @@
+## 57.2.5 (Jun 2, 2022)
+
+### Patch
+
+- Docs: Updated roadmap for May 2022 (#2140)
+
 ## 57.2.4 (Jun 2, 2022)
 
 ### Patch
