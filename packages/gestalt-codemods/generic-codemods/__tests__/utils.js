@@ -44,7 +44,7 @@ export default function buildCustomApplyTransform({
     const inputPath = path.join(fixtureDir, `${test}.input.js`);
     const source = fs.readFileSync(inputPath, 'utf8');
     // $FlowFixMe[unsupported-syntax]
-    const module = require(path.join(dirName, '..', transformName));
+    const module = require(path.join(dirName, '..', transformName)); // eslint-disable-line @next/next/no-assign-module-variable
 
     applyTransform(
       module,
