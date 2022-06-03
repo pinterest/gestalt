@@ -1,3 +1,9 @@
+## 58.0.1 (Jun 3, 2022)
+
+### Patch
+
+- Docs: Weekly update for 6/3/2022 (#2146)
+
 ## 58.0.0 (Jun 3, 2022)
 
 ### Major
