@@ -14,7 +14,7 @@
         {
           "title": "Major update to the Figma Pin component",
           "audience": ["Design"],
-          "imageSrc": "https://i.pinimg.com/originals/97/9b/1c/979b1c66ad66c746dc436e4df3a6566b.png",
+          "imageSrc": "https://i.pinimg.com/originals/6d/61/97/6d6197ec1419a04f5b640373804e564a.png",
           "imageAltText": "Anatomy of Figma Pin component",
           "content": "The Gestalt team has been busy iterating on a new rev of the [Figma Pin component]() with a strong focus on simplifying the experience of using it in designs. This new component leverages all the new fancy bells and whistles Figma recently released, which _drastically_ reduced the number of variants for this component. We also added some a built-in introduction to the component and guides on common use-cases. We think it's going to be _big_ improvement.\n\nHowever, big improvements sometimes lead to (dun dun dunnn) breaking changes. This Pin is so different that we needed to essentially build it from scratch as a new component. Don't fret though, we've kept our previous version of the Pin component in our library for backward compatibility. That component will be sunset on September 30, 2022."
         },
@@ -28,7 +28,7 @@
         {
           "title": "Gestalt is on Pinterest!",
           "audience": ["Engineering", "Design"],
-          "imageSrc": "https://i.pinimg.com/originals/6d/61/97/6d6197ec1419a04f5b640373804e564a.png",
+          "imageSrc": "https://i.pinimg.com/originals/45/27/2e/45272ec1ebbc50fa85870730b2600666.png",
           "imageAltText": "Screenshot of Gestalt Pinterest account",
           "content": "Given Gestalt is built for Pinterest, it only seemed right to be on... Pinterest. So if you're feeling inspired to be inspired, check out our [Gestalt Pinterest account](https://www.pinterest.com/pinterestgestalt/). We pin all sorts of cool things (mostly about design systems, because well, duh). We have some cool stuff up our sleeve for this account, so stay tuned."
         }
