@@ -28,7 +28,7 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
       </Flex>
       {imageSrc && (
         <Box
-          height="252px"
+          height="340px"
           maxWidth={POST_WIDTH}
           display="none"
           mdDisplay="block"
@@ -37,12 +37,12 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
           borderStyle="sm"
           rounding={2}
         >
-          <Mask rounding={2} height="250px">
+          <Mask rounding={2} height="338px">
             <Image
               src={imageSrc}
               alt={imageAltText || ''}
-              naturalHeight={674}
-              naturalWidth={1200}
+              naturalHeight={900}
+              naturalWidth={1600}
               fit="cover"
             />
           </Mask>
