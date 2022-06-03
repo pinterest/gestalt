@@ -12,11 +12,11 @@
           "content": "To keep the momentum going on our release of guidelines in 2022, we just published the first iteration of our [Typography guidelines](https://gestalt.pinterest.systems/typography). This is intended to serve as the foundation for much more detail and updates in the future. We look forward to sharing many more typography-related updates in the near future."
         },
         {
-          "title": "Major update to the Figma Pin component",
+          "title": "Major update to our Figma Pin and Masonry components",
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/6d/61/97/6d6197ec1419a04f5b640373804e564a.png",
           "imageAltText": "Anatomy of Figma Pin component",
-          "content": "The Gestalt team has been busy iterating on a new rev of the [Figma Pin component]() with a strong focus on simplifying the experience of using it in designs. This new component leverages all the new fancy bells and whistles Figma recently released, which _drastically_ reduced the number of variants for this component. We also added some a built-in introduction to the component and guides on common use-cases. We think it's going to be _big_ improvement.\n\nHowever, big improvements sometimes lead to (dun dun dunnn) breaking changes. This Pin is so different that we needed to essentially build it from scratch as a new component. Don't fret though, we've kept our previous version of the Pin component in our library for backward compatibility. That component will be sunset on September 30, 2022."
+          "content": "The Gestalt team has been busy iterating on a new revs of the [Pin component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13366%3A51700) and [Masonry component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13386%3A67271) in our Figma iOS library. Our focus for this iteration was to drastically simplify the experience of using it in designs. This new component leverages all the new fancy bells and whistles Figma recently released, which _drastically_ reduced the number of variants for this component. We also added some a built-in introduction to the component and guides on common use-cases. We think it's going to be _big_ improvement.\n\nHowever, big improvements sometimes lead to (dun dun dunnn) breaking changes. This Pin is so different that we needed to essentially build it from scratch as a new component. Don't fret though, we've kept our previous version of the Pin component in our library for backward compatibility. That component will be sunset on September 30, 2022."
         },
         {
           "title": "An Updated What's New page",
