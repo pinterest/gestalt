@@ -1,3 +1,9 @@
+## 58.0.0 (Jun 3, 2022)
+
+### Major
+
+- Text, Heading: Deprecate non-token-based size options (#2138)
+
 ## 57.2.8 (Jun 2, 2022)
 
 ### Patch
