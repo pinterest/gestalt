@@ -7,11 +7,6 @@ test('Heading large', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Deprecated Heading large', () => {
-  const tree = create(<Heading size="lg" />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
 test('Heading small with level 3', () => {
   const tree = create(<Heading size="400" accessibilityLevel={3} />).toJSON();
   expect(tree).toMatchSnapshot();

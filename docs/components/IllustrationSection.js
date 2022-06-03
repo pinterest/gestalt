@@ -22,7 +22,7 @@ function IllustrationSection({
     <IllustrationContainer justifyContent="start">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">
         {title && (
-          <Heading accessibilityLevel={2} size="md">
+          <Heading accessibilityLevel={2} size="500">
             {title}
           </Heading>
         )}

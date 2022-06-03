@@ -11,20 +11,8 @@ function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
 }
 
-const SIZE_SCALE = {
-  sm: 100,
-  md: 200,
-  lg: 300,
-  '100': 100,
-  '200': 200,
-  '300': 300,
-  '400': 400,
-  '500': 500,
-  '600': 600,
-};
-
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
-type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
   /**
@@ -67,7 +55,7 @@ type Props = {|
    */
   overflow?: Overflow,
   /**
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size). The "sm", "md", and "lg" values will soon be deprecated.
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).
    *
    * Link: https://gestalt.pinterest.systems/text#size
    */
@@ -116,7 +104,7 @@ export default function Text({
 
   const cs = cx(
     styles.Text,
-    typography[`fontSize${SIZE_SCALE[size]}`],
+    typography[`fontSize${size}`],
     color && colorClass,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,

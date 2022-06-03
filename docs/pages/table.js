@@ -715,7 +715,7 @@ function Example() {
       <Table.Row>
         <Table.Cell>
           <Text color="default">{name}</Text>
-          <Text color="subtle" size="sm" lineClamp={lineClamp}>{subtext}</Text>
+          <Text color="subtle" size="100" lineClamp={lineClamp}>{subtext}</Text>
         </Table.Cell>
         <Table.Cell>
           <Text align="end">{total}</Text>

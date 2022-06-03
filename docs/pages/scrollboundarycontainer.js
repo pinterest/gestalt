@@ -452,7 +452,7 @@ function ScrollBoundaryContainerExample() {
                 >
                   <Heading
                     accessibilityLevel={2}
-                    size="sm"
+                    size="400"
                   >
                     Billing Address
                   </Heading>
