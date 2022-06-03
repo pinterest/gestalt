@@ -1,3 +1,9 @@
+## 58.0.2 (Jun 3, 2022)
+
+### Patch
+
+- Internal: upgrade Next (patch) and related packages (#2143)
+
 ## 58.0.1 (Jun 3, 2022)
 
 ### Patch
