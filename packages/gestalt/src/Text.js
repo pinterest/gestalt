@@ -11,15 +11,6 @@ function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
 }
 
-const SIZE_SCALE = {
-  '100': 100,
-  '200': 200,
-  '300': 300,
-  '400': 400,
-  '500': 500,
-  '600': 600,
-};
-
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
@@ -113,7 +104,7 @@ export default function Text({
 
   const cs = cx(
     styles.Text,
-    typography[`fontSize${SIZE_SCALE[size]}`],
+    typography[`fontSize${size}`],
     color && colorClass,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,

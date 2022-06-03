@@ -20,16 +20,6 @@ const defaultHeadingLevels = {
   '600': 1,
 };
 
-// Corresponds to the font-size design tokens
-const SIZE_SCALE = {
-  '100': 100,
-  '200': 200,
-  '300': 300,
-  '400': 400,
-  '500': 500,
-  '600': 600,
-};
-
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
 type Overflow = 'normal' | 'breakWord';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
@@ -105,7 +95,7 @@ export default function Heading({
 
   const cs = cx(
     headingStyle,
-    typography[`fontSize${SIZE_SCALE[size]}`],
+    typography[`fontSize${size}`],
     color && semanticColors.includes(color) && colors[`${color}Text`],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
