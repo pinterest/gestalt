@@ -2,7 +2,7 @@
   "year": "2022",
   "digests": [
     {
-      "week": "6/3",
+      "week": "06/03",
       "posts": [
         {
           "title": "New Typography guidelines",
@@ -12,18 +12,18 @@
           "content": "To keep the momentum going on our release of guidelines in 2022, we just published the first iteration of our [Typography guidelines](https://gestalt.pinterest.systems/typography). This is intended to serve as the foundation for much more detail and updates in the future. We look forward to sharing many more typography-related updates in the near future."
         },
         {
-          "title": "Major update to our Figma Pin and Masonry components",
+          "title": "Major updates to our Pin and Masonry Figma components",
           "audience": ["Design"],
-          "imageSrc": "https://i.pinimg.com/originals/6d/61/97/6d6197ec1419a04f5b640373804e564a.png",
+          "imageSrc": "https://i.pinimg.com/originals/9c/07/1e/9c071edc9ac15787bae57860a4854db8.png",
           "imageAltText": "Anatomy of Figma Pin component",
-          "content": "The Gestalt team has been busy iterating on a new revs of the [Pin component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13366%3A51700) and [Masonry component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13386%3A67271) in our Figma iOS library. Our focus for this iteration was to drastically simplify the experience of using it in designs. This new component leverages all the new fancy bells and whistles Figma recently released, which _drastically_ reduced the number of variants for this component. We also added some a built-in introduction to the component and guides on common use-cases. We think it's going to be _big_ improvement.\n\nHowever, big improvements sometimes lead to (dun dun dunnn) breaking changes. This Pin is so different that we needed to essentially build it from scratch as a new component. Don't fret though, we've kept our previous version of the Pin component in our library for backward compatibility. That component will be sunset on September 30, 2022."
+          "content": "The Gestalt team has been busy iterating on a new revs of the [Pin component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13346%3A55393) and [Masonry component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13386%3A67271) in our Figma iOS library. Our focus for this iteration was to drastically simplify the experience of using it in designs. This new component leverages all the new fancy bells and whistles Figma recently released, which _drastically_ reduced the number of variants for this component. We also added a [built-in introduction to the component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13366%3A51700) and guides on common use-cases. We think it's going to be _big_ improvement.\n\nHowever, big improvements sometimes lead to (dun dun dunnn) breaking changes. This Pin is so different that we needed to essentially build it from scratch as a new component. Don't fret though, we've kept our previous version of the Pin component in our library for backward compatibility. That component will be sunset on September 30, 2022."
         },
         {
           "title": "An Updated What's New page",
           "audience": ["Engineering", "Design"],
           "imageSrc": "https://i.pinimg.com/originals/a7/38/95/a73895ed57aa346c8c5d52d10e41a9a5.png",
           "imageAltText": "Screenshot of updated What's new page",
-          "content": "In an effort to make our Gestalt docs _the_ single source of truth, it's now [the home for our weekly updates](https://gestalt.pinterest.systems/whats_new). We know it's hard to keep track of everything we ship, so we want to provide an easily accessible and digestible synopsis of all the new goodies our team cooks up.\n\nAnd for all you fans of our Changelog, never fear &mdash; it's not gone, it's just in a happier place now. You can view our [new changelog](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md) on Gestalt Web Github repo."
+          "content": "In an effort to make our Gestalt docs _the_ single source of truth, it's now [the home for our weekly updates](https://gestalt.pinterest.systems/whats_new). We know it's hard to keep track of everything we ship, so we want to provide an easily accessible and digestible synopsis of all the new goodies our team cooks up.\n\nAnd for all you fans of our Changelog, never fear &mdash; it's not gone, it's just in a happier place now. You can view our [full changelog](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md) on Gestalt Web Github repo."
         },
         {
           "title": "Gestalt is on Pinterest!",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "week": "5/26",
+      "week": "05/26",
       "posts": [
         {
           "title": "Data visualization tokens added to Gestalt",
