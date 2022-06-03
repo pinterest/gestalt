@@ -20,13 +20,14 @@ import HierarchyDont from '../graphics/typography/hierarchyDont.svg';
 import ContrastLow from '../graphics/typography/contrastLow.svg';
 import ContrastHigh from '../graphics/typography/contrastHigh.svg';
 
-type PrincipleCardProps = {|
+type PrincipleItemProps = {|
   color: string,
+  heading: string,
   image?: Node,
   text: string | Node,
-  heading: string,
 |};
-function PrincipleLayout({ color, image, text, heading }: PrincipleCardProps): Node {
+
+function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Node {
   return (
     <Flex direction="column" gap={4}>
       <Box
@@ -60,10 +61,11 @@ export default function TypographyPage(): Node {
     `}
         showSourceLink={false}
       />
+
       <MainSection name="Principles">
         <Flex gap={12} alignContent="between" wrap>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
-            <PrincipleLayout
+          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+            <PrincipleItem
               color="teal-spabattical-100"
               image={<Speedy />}
               heading="Speedy"
@@ -75,8 +77,8 @@ export default function TypographyPage(): Node {
               }
             />
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
-            <PrincipleLayout
+          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+            <PrincipleItem
               color="pink-flaminglow-100"
               image={<Inclusive />}
               heading="Inclusive"
@@ -88,14 +90,14 @@ export default function TypographyPage(): Node {
               }
             />
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
-            <PrincipleLayout
+          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+            <PrincipleItem
               color="orange-firetini-100"
               image={<Minimal />}
               heading="Minimal"
               text={
                 <Text>
-                  Gestalt uses a limited amount of weights and sizes to keep our interfaces focused
+                  Gestalt uses a limited number of weights and sizes to keep our interfaces focused
                   on our customers’ rich content.
                 </Text>
               }
@@ -103,16 +105,18 @@ export default function TypographyPage(): Node {
           </Flex.Item>
         </Flex>
       </MainSection>
+
       <MainSection
         name="Typography components"
         description={`
-We have numerous React components that use typography as the primary element.
+We have several React components that use typography as the primary element.
 
-- [Text](/text): Used for all text on a surface
-- [Heading](/heading): Allows you to show headings on a surface
-- [Link](/link): For both in-line and stand-alone
+- [Text](/text): Used for all text on a surface.
+- [Heading](/heading): Used for [semantic headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) on a surface.
+- [Link](/link): For both inline and standalone hyperlinks.
 `}
       />
+
       <MainSection name="Font families">
         <MainSection.Subsection
           title="Product"
@@ -120,143 +124,84 @@ We have numerous React components that use typography as the primary element.
         />
         <MainSection.Subsection
           title="Brand"
-          description="Pinterest Sans can be used occasionally for branded graphics in our products, but never for UI. For more info, consult our [brand guidelines](https://brand.pinterest.com/typography)."
+          description="Our custom typeface, Pinterest Sans, can be used occasionally for branded graphics in our products, but never for UI. For more info, consult our [brand guidelines](https://brand.pinterest.com/typography)."
         />
       </MainSection>
+
       <MainSection name="Scale">
         <MainSection.Subsection
           title="Font sizes"
-          description="In order to keep our content hierarchy clean and simple, we have a limited amount of font sizes. These should cover all current use cases for minimal product UI, where our customers’ content is the primary focus of a surface or page."
+          description="In order to keep our content hierarchy clean and simple, we have a limited number of font sizes. These should cover all current use cases for minimal product UI, where our customers’ content is the primary focus of a surface or page."
         >
           <Table accessibilityLabel="Font sizes">
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Size
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Web value
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    iOS value
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Android value
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Example
-                  </Text>
-                </Table.HeaderCell>
+                {['Size', 'Web value', 'iOS value', 'Android value', 'Example'].map((item) => (
+                  <Table.HeaderCell key={item}>
+                    <Text size="200" weight="bold">
+                      {item}
+                    </Text>
+                  </Table.HeaderCell>
+                ))}
               </Table.Row>
             </Table.Header>
             <Table.Body>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">100</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">12px</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">12pt</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">12sp</Text>
-                </Table.Cell>
+                {['100', '12px', '12pt', '12sp'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Text size="100">Gestalt</Text>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">200</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">14px</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">14pt</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">14sp</Text>
-                </Table.Cell>
+                {['200', '14px', '14pt', '14sp'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Text size="200">means</Text>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">300</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">16px</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">16pt</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">16sp</Text>
-                </Table.Cell>
+                {['300', '16px', '16pt', '16sp'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Text size="300">whole</Text>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">400</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">20px</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">20pt</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">20sp</Text>
-                </Table.Cell>
+                {['400', '20px', '20pt', '20sp'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Text size="400">and so</Text>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">500</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">28px</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">28pt</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">28sp</Text>
-                </Table.Cell>
+                {['500', '28px', '28pt', '28sp'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Text size="500">are</Text>
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">600</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">28px</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">28pt</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">28sp</Text>
-                </Table.Cell>
+                {['600', '28px', '28pt', '28sp'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Text size="600">you</Text>
                 </Table.Cell>
@@ -264,6 +209,7 @@ We have numerous React components that use typography as the primary element.
             </Table.Body>
           </Table>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Line length"
           description="For long-form, multi-line paragraphs set at our default font size, use a maximum width of 664 to allow for a max of about 90 characters. Otherwise, it can get hard for users to scan and read text."
@@ -273,6 +219,7 @@ We have numerous React components that use typography as the primary element.
           </Box>
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Spacing">
         <MainSection.Subsection
           title="Line height"
@@ -285,7 +232,7 @@ We have numerous React components that use typography as the primary element.
             </Heading>
             <Markdown
               text={`
-We currently use browser defaults on web UIs so that lines of text are readable in all languages and scripts. For example, scripts like Hindi have larger ascenders and descenders than Latin scripts. Setting a fixed line height can make scripts like Hindi hard to read.
+We use browser defaults on web UIs so that lines of text are readable in all languages and scripts. For example, scripts like Hindi have larger ascenders and descenders than Latin scripts. Setting a fixed line height can make scripts like Hindi hard to read.
             `}
             />
           </Box>
@@ -307,7 +254,7 @@ We currently use browser defaults on web UIs so that lines of text are readable 
                   <LineHeightCJK />
                 </Box>
                 <Text size="100">
-                  Myanmar script in Chrome with line-heigh set to normal, which is about 200% of
+                  Myanmar script in Chrome with line-height set to “normal”, which is about 200% of
                   font size.
                 </Text>
               </Flex>
@@ -321,68 +268,41 @@ We currently use browser defaults on web UIs so that lines of text are readable 
           </Heading>
           <Markdown
             text={`
-iOS Leading is automatically determined by a font’s size. Below is a breakdown based on Gestalt’s current font sizes. For more info, refer to Apple’s [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
+iOS leading is automatically determined by a font’s size. Below is a breakdown based on Gestalt’s current font sizes. For more info, refer to Apple’s [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
             `}
           />
           <Table accessibilityLabel="Font weight treatements">
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Font size (pt)
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Leading
-                  </Text>
-                </Table.HeaderCell>
+                {['Font size (pt)', 'Leading'].map((item) => (
+                  <Table.HeaderCell key={item}>
+                    <Text size="200" weight="bold">
+                      {item}
+                    </Text>
+                  </Table.HeaderCell>
+                ))}
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              <Table.Row>
-                <Table.Cell>
-                  <Text size="200">12</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">16</Text>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text size="200">16</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">21</Text>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text size="200">20</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">25</Text>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text size="200">28</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">34</Text>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text size="200">36</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">43</Text>
-                </Table.Cell>
-              </Table.Row>
+              {[
+                [12, 16],
+                [16, 21],
+                [20, 25],
+                [28, 34],
+                [36, 43],
+              ].map((rowData) => (
+                <Table.Row key={rowData.join()}>
+                  {rowData.map((item) => (
+                    <Table.Cell key={item}>
+                      <Text size="200">{item}</Text>
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+              ))}
             </Table.Body>
           </Table>
         </MainSection.Subsection>
+
         <MainSection.Subsection>
           <Heading size="300" accessibilityLevel={4}>
             Android
@@ -393,6 +313,7 @@ Line height is automatically determined by a font’s size. For more info, refer
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Paragraph spacing"
           description="Spacing after a paragraph in body copy should be 75% of the body copy font size."
@@ -401,41 +322,44 @@ Line height is automatically determined by a font’s size. For more info, refer
             <ParagraphSpacing />
           </Box>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Character spacing"
           description="Character spacing is set to system defaults across all devices and platforms"
         />
       </MainSection>
+
       <MainSection name="Alignment">
         <MainSection.Subsection title="Default">
           <Flex gap={4} wrap>
-            <Flex.Item flex="shrink" flexBasis="244">
+            <Flex.Item flex="shrink" flexBasis={244}>
               <Box color="infoWeak" marginBottom={4}>
                 <AlignmentStart />
               </Box>
             </Flex.Item>
-            <Flex direction="column" gap={2} maxWidth="420px">
+            <Flex direction="column" gap={2} maxWidth={420}>
               <Heading size="300" accessibilityLevel={4}>
                 Start-aligned
               </Heading>
               <Markdown
                 text={`
               Our default alignment is start-aligned. There are a couple of reasons to default to start-aligned text:
-              - Users tend to read in “F” patterns, so placing text in a similar pattern helps with users absorbing all the information they need for a good experience
-              - Since the starting edge of centered text moves around, it’s harder for users to read; this can be especially difficult for [people with dyslexia](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide)
+              - Users tend to read in “F” patterns, so placing text in a similar pattern helps with users absorbing all the information they need for a good experience.
+              - Since the starting edge of centered text moves around, it’s harder for users to read; this can be especially difficult for [people with dyslexia](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
               `}
               />
             </Flex>
           </Flex>
         </MainSection.Subsection>
+
         <MainSection.Subsection title="Exceptions">
           <Flex gap={4} wrap>
-            <Flex.Item flex="shrink" flexBasis="244">
+            <Flex.Item flex="shrink" flexBasis={244}>
               <Box color="infoWeak" marginBottom={4}>
                 <AlignmentCenter />
               </Box>
             </Flex.Item>
-            <Flex direction="column" gap={2} maxWidth="420px">
+            <Flex direction="column" gap={2} maxWidth={420}>
               <Heading size="300" accessibilityLevel={4}>
                 Centered
               </Heading>
@@ -443,12 +367,12 @@ Line height is automatically determined by a font’s size. For more info, refer
             </Flex>
           </Flex>
           <Flex gap={4} wrap>
-            <Flex.Item flex="shrink" flexBasis="244">
+            <Flex.Item flex="shrink" flexBasis={244}>
               <Box color="infoWeak" marginBottom={4}>
                 <AlignmentEnd />
               </Box>
             </Flex.Item>
-            <Flex direction="column" gap={2} maxWidth="420px">
+            <Flex direction="column" gap={2} maxWidth={420}>
               <Heading size="300" accessibilityLevel={4}>
                 End-aligned
               </Heading>
@@ -457,55 +381,33 @@ Line height is automatically determined by a font’s size. For more info, refer
           </Flex>
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Formatting">
         <MainSection.Subsection
           title="Font weight"
-          description="In Pinner surfaces, the main focus is a user’s visual content. On business surfaces, visuals are supported by denser text content and data visualization. Therefore, typographic weight shouldn’t be so heavy that it causes visual noise, nor should it be too light to read. Use the following guidelines for choosing font weight:"
+          description="On Pinner surfaces, the main focus is a user’s visual content. On business surfaces, visuals are supported by denser text content and data visualization. Therefore, typographic weight shouldn’t be so heavy that it causes visual noise, nor should it be too light to read. Use the following guidelines for choosing font weight:"
         >
           <Table accessibilityLabel="Font weight treatements">
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Use case
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Web weight
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    iOS weight
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Android weight
-                  </Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text size="200" weight="bold">
-                    Example
-                  </Text>
-                </Table.HeaderCell>
+                {['Use case', 'Web weight', 'iOS weight', 'Android weight', 'Example'].map(
+                  (item) => (
+                    <Table.HeaderCell key={item}>
+                      <Text size="200" weight="bold">
+                        {item}
+                      </Text>
+                    </Table.HeaderCell>
+                  ),
+                )}
               </Table.Row>
             </Table.Header>
             <Table.Body>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">Body copy</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Regular</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Regular</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Regular</Text>
-                </Table.Cell>
+                {['Body copy', 'Regular', 'Regular', 'Regular'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Box color="darkGray" rounding={2} padding={2} display="inlineBlock">
                     <Text color="inverse" size="100">
@@ -515,18 +417,11 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">Emphasis for in-line text</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Bold</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Semibold</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Medium</Text>
-                </Table.Cell>
+                {['Emphasis for inline text', 'Bold', 'Semibold', 'Medium'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Box color="darkGray" rounding={2} padding={2} display="inlineBlock">
                     <Text color="inverse" size="100" overflow="noWrap" inline>
@@ -539,18 +434,11 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">Stand-alone links</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Bold</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Semibold</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Medium</Text>
-                </Table.Cell>
+                {['Standalone links', 'Bold', 'Semibold', 'Medium'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Flex gap={8}>
                     <Text weight="bold">
@@ -563,18 +451,11 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>
-                  <Text size="200">Headlines</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Bold</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Semibold</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">Medium</Text>
-                </Table.Cell>
+                {['Headlines', 'Bold', 'Semibold', 'Medium'].map((item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ))}
                 <Table.Cell>
                   <Text size="600" weight="bold">
                     Page title
@@ -584,15 +465,14 @@ Line height is automatically determined by a font’s size. For more info, refer
             </Table.Body>
           </Table>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Text decoration"
-          description="Underline links when shown in-line, inside of a text block or line of text.
-
-"
+          description="Underline links when shown inline, inside of a text block or line of text."
         >
           <Box color="infoWeak" paddingX={6} paddingY={8}>
             <Text color="dark">
-              This is a paragraph with an{' '}
+              This is a paragraph with a{' '}
               <Link href="https://gestalt.pinterest.systems" underline="always" inline>
                 link
               </Link>{' '}
@@ -601,33 +481,21 @@ Line height is automatically determined by a font’s size. For more info, refer
           </Box>
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection
         name="Hierarchy"
-        description="Font size and weight, along with line-height, spacing, and width allow us to create a scannable and readable hierarchy that guides a user through a product experience."
+        description="Font size and weight, along with line height, spacing, and width allow us to create a scannable and readable hierarchy that guides a user through a product experience."
       >
         <Table accessibilityLabel="Typgraphic hierarchy">
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>
-                <Text size="200" weight="bold">
-                  Role
-                </Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
-                <Text size="200" weight="bold">
-                  Size
-                </Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
-                <Text size="200" weight="bold">
-                  Weight
-                </Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
-                <Text size="200" weight="bold">
-                  Context
-                </Text>
-              </Table.HeaderCell>
+              {['Role', 'Size', 'Weight', 'Context'].map((item) => (
+                <Table.HeaderCell key={item}>
+                  <Text size="200" weight="bold">
+                    {item}
+                  </Text>
+                </Table.HeaderCell>
+              ))}
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -637,15 +505,11 @@ Line height is automatically determined by a font’s size. For more info, refer
                   Help text
                 </Text>
               </Table.Cell>
-              <Table.Cell>
-                <Text size="200">100</Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text size="200">Regular</Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text size="200">Form fields, metadata, secondary info</Text>
-              </Table.Cell>
+              {['100', 'Regular', 'Form fields, metadata, secondary info'].map((item) => (
+                <Table.Cell key={item}>
+                  <Text size="200">{item}</Text>
+                </Table.Cell>
+              ))}
             </Table.Row>
             <Table.Row>
               <Table.Cell>
@@ -653,17 +517,15 @@ Line height is automatically determined by a font’s size. For more info, refer
                   Body, dense
                 </Text>
               </Table.Cell>
-              <Table.Cell>
-                <Text size="200">200</Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text size="200">Regular</Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text size="200">
-                  Tables, internal tools, and body copy for dense business interfaces
-                </Text>
-              </Table.Cell>
+              {[
+                '200',
+                'Regular',
+                'Tables, internal tools, and body copy for dense business interfaces',
+              ].map((item) => (
+                <Table.Cell key={item}>
+                  <Text size="200">{item}</Text>
+                </Table.Cell>
+              ))}
             </Table.Row>
             <Table.Row>
               <Table.Cell>
@@ -671,15 +533,13 @@ Line height is automatically determined by a font’s size. For more info, refer
                   Body, default
                 </Text>
               </Table.Cell>
-              <Table.Cell>
-                <Text size="200">300</Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text size="200">Regular</Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text size="200">Default body copy for multi-line, paragraph text</Text>
-              </Table.Cell>
+              {['300', 'Regular', 'Default body copy for multi-line, paragraph text'].map(
+                (item) => (
+                  <Table.Cell key={item}>
+                    <Text size="200">{item}</Text>
+                  </Table.Cell>
+                ),
+              )}
             </Table.Row>
             <Table.Row>
               <Table.Cell>
@@ -688,7 +548,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>400</Text>
+                <Text size="200">400</Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200" weight="bold">
@@ -706,7 +566,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>500</Text>
+                <Text size="200">500</Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200" weight="bold">
@@ -714,7 +574,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>PageHeaders, medium-headlines</Text>
+                <Text size="200">PageHeaders, medium-headlines</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -724,7 +584,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>600</Text>
+                <Text size="200">600</Text>
               </Table.Cell>
               <Table.Cell>
                 <Text size="200" weight="bold">
@@ -738,6 +598,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           </Table.Body>
         </Table>
       </MainSection>
+
       <MainSection name="Best practices">
         <Heading size="400" accessibilityLevel={3}>
           Accessibility
@@ -746,7 +607,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="To ensure that all of our customers, including users with low-vision, use a font-size of 14–16px and above for most use cases, especially long-form text. Smaller fonts are ok for less important information, and should be used sparingly."
+            description="Use a font size of 14–16px and above for most use cases, especially long-form text. Smaller fonts are ok for less important information, but should be used sparingly. This ensures that content is accessible to all of our customers, including users with low vision."
             defaultCode={`
             <Text>We are all here together in freedom, for perhaps the last time! I know, dear; I know that you will always be with me to the end.</Text>
 `}
@@ -760,22 +621,24 @@ Line height is automatically determined by a font’s size. For more info, refer
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="For SEO and users with screen readers, follow a logical hierarchy by using headings based on a numerical order, not on font size."
+            description="Follow a logical hierarchy by using headings based on a numerical order, not on font size. This makes our content more accessibile for SEO and screen readers."
           >
             <HierarchyDo />
           </MainSection.Card>
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use headings in an illogical order since this will confuse screen readers. For example, don’t start a section with an H2 or H3, and place an H1 further down in the hierarchy."
+            description="Use headings in an illogical order, since this will confuse screen readers. For example, don’t start a section with an H2 or H3, and place an H1 further down in the hierarchy."
           >
             <HierarchyDont />
           </MainSection.Card>
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
@@ -792,6 +655,7 @@ Line height is automatically determined by a font’s size. For more info, refer
             <ContrastLow />
           </MainSection.Card>
         </MainSection.Subsection>
+
         <Heading size="400" accessibilityLevel={3}>
           Localization
         </Heading>
@@ -801,9 +665,9 @@ Line height is automatically determined by a font’s size. For more info, refer
             type="do"
             description={`
 Use standards that will make it easier to translate to other languages:
-- Since character heights vary from font family to font family, keep line-heights to percentages or system defaults so that text doesn’t get cut off or lines get too-close together.
-- Use system fonts and defaults to ensure broad language support
-- Avoid ALL CAPS for special emphasis, as certain languages, like Arabic, do not support it
+- Since character heights vary between font families, keep line heights to percentages or system defaults so that text isn’t cut off and lines aren’t too close together.
+- Use system fonts and defaults to ensure broad language support.
+- Avoid ALL CAPS for special emphasis. Certain languages, such as Arabic, do not support it.
 `}
             defaultCode={`
 <Text align="forceRight">نحن جميعًا هنا معًا في حرية . ربما للمرة الأخيرة! انا اعرف يا عزيزي؛ أعلم أنك ستكون دائمًا معي حتى النهاية.</Text>
@@ -818,6 +682,7 @@ Use standards that will make it easier to translate to other languages:
 `}
           />
         </MainSection.Subsection>
+
         <Heading size="400" accessibilityLevel={3}>
           Style
         </Heading>
@@ -860,14 +725,15 @@ Use standards that will make it easier to translate to other languages:
 `}
           />
         </MainSection.Subsection>
+
         <Heading size="400" accessibilityLevel={3}>
-          Text-wrapping and truncation
+          Text wrapping and truncation
         </Heading>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Wrap text to multiple lines when a user needs to see the full text to understand what is expected. This is likely to happen when translated to languages with longer line-lengths."
+            description="Wrap text to multiple lines when a user needs to see the full text to understand what is expected. This is likely to happen when translated to languages with longer line lengths."
             defaultCode={`
 <Box width={150}><Button color="red" text="Go to the latest updates" /></Box>
 `}
@@ -882,30 +748,23 @@ Use standards that will make it easier to translate to other languages:
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Truncate text for secondary text that isn’t essential to a user’s comprehension of steps to take. Examples include dynamic data ad IDs in tables, lists of user names, and Pin titles that come from outside sources. Use an ellipses or a link that indicates that there is more content available."
+            description="Truncate for secondary text that isn’t essential to a user’s comprehension of steps to take. Examples include dynamic data ad IDs in tables, lists of user names, and Pin titles that come from outside sources. Use an ellipsis or a link that indicates there is more content available."
             defaultCode={`
 <Table accessibilityLabel="Font sizes">
 <Table.Header>
   <Table.Row>
-    <Table.HeaderCell>
-      <Text size="200" weight="bold">
-        Name
-      </Text>
-    </Table.HeaderCell>
-    <Table.HeaderCell>
-      <Text size="200" weight="bold">
-        Rate
-      </Text>
-    </Table.HeaderCell>
-    <Table.HeaderCell>
-      <Text size="200" weight="bold">
-        Tags
-      </Text>
-    </Table.HeaderCell>
+    {['Name', 'Rate', 'Tags'].map((item) => (
+      <Table.HeaderCell key={item}>
+        <Text size="200" weight="bold">
+          {item}
+        </Text>
+      </Table.HeaderCell>
+    ))}
   </Table.Row>
 </Table.Header>
 <Table.Body>
@@ -941,7 +800,7 @@ Use standards that will make it easier to translate to other languages:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Truncating paragraph text, as that can be misread and change the original meaning of the text."
+            description="Truncate paragraph text, which can be misread and change the original meaning of the text."
             defaultCode={`
 <Flex direction="column" gap={2} maxWidth={250}>
   <Heading accessibilityLevel={4} size="400">Cheesy chicken sandwich</Heading>
@@ -951,16 +810,17 @@ Use standards that will make it easier to translate to other languages:
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection
         name="Future updates"
         description={`
 Our guidelines and components primarily cover user interface use cases for typography. We will improve upon this by adding guidelines and components for long-form text in the future.
 
 **Long-form text components and guidelines**
-Components and guidelines for long-form text that will include better line-height  and line-length for headings, paragraph blocks
+Components and guidelines for long-form text that will include better line height and line length for headings and paragraph blocks.
 
 **iOS and Android Figma updates**
-Updates to mobile components that match Apple HIG and Android Material values for line-height.
+Updates to mobile components that match Apple HIG and Android Material values for line height.
       `}
       />
     </Page>
