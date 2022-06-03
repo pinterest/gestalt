@@ -8,7 +8,8 @@ import PageHeader from '../components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
 import blogPosts from './BlogPosts.json';
 
-const POST_WIDTH = '600px';
+const POST_WIDTH_PX = 600;
+const POST_IMAGE_HEIGHT_PX = 340;
 
 type PostProps = {|
   audience: Array<string>,
@@ -31,8 +32,8 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
 
       {imageSrc && (
         <Box
-          height="340px"
-          maxWidth={POST_WIDTH}
+          height={POST_IMAGE_HEIGHT_PX}
+          maxWidth={POST_WIDTH_PX}
           display="none"
           mdDisplay="block"
           marginBottom={4}
@@ -40,7 +41,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
           borderStyle="sm"
           rounding={2}
         >
-          <Mask rounding={2} height="338px">
+          <Mask rounding={2} height={POST_IMAGE_HEIGHT_PX - 2}>
             <Image
               src={imageSrc}
               alt={imageAltText ?? ''}
@@ -51,7 +52,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
           </Mask>
         </Box>
       )}
-      <Flex maxWidth={POST_WIDTH}>
+      <Flex maxWidth={POST_WIDTH_PX}>
         <Markdown text={content} />
       </Flex>
     </Flex>
