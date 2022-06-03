@@ -22,7 +22,6 @@ function PaletteGenerator({ count }: ColorCardProps): Node {
     return (
       <Box marginBottom={1} key={`color-${idx}`}>
         <ColorTile
-          key={`${idx}`}
           textColor={tokenStep === 1 || tokenStep === 2 ? 'dark' : 'inverse'}
           description={`Data Visualization 0${tokenStep}`}
           fullTokenName={`color-data-visualization-0${tokenStep}`}
@@ -198,6 +197,7 @@ export default function ColorPage(): Node {
                 description="Data Visualization 08"
                 fullTokenName="color-data-visualization-08"
               />
+              {/* Margin bottom used for spacing when these columns wrap */}
               <Box marginBottom={6}>
                 <ColorTile
                   textColor="inverse"
