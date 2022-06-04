@@ -1,22 +1,25 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import { Badge, Box, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
-import Markdown from '../components/Markdown.js';
-import PageHeader from '../components/PageHeader.js';
-import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
+import Markdown from '../components/Markdown.js';
+import Page from '../components/Page.js';
+import PageHeader from '../components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
 import blogPosts from './BlogPosts.json';
 
+const POST_WIDTH_PX = 600;
+const POST_IMAGE_HEIGHT_PX = 340;
+
 type PostProps = {|
-  imageSrc?: string,
-  imageAltText?: string,
-  title: string,
   audience: Array<string>,
   content: string,
+  imageAltText?: string,
+  imageSrc?: string,
+  title: string,
 |};
-function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostProps): Node {
-  const POST_WIDTH = '600px';
+
+function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostProps): Node {
   return (
     <Flex direction="column" gap={4}>
       <Flex direction="column" gap={1}>
@@ -26,10 +29,11 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
           {audience.includes('Engineering') && <Badge type="success" text="Engineering" />}
         </Flex>
       </Flex>
+
       {imageSrc && (
         <Box
-          height="340px"
-          maxWidth={POST_WIDTH}
+          height={POST_IMAGE_HEIGHT_PX}
+          maxWidth={POST_WIDTH_PX}
           display="none"
           mdDisplay="block"
           marginBottom={4}
@@ -37,10 +41,10 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
           borderStyle="sm"
           rounding={2}
         >
-          <Mask rounding={2} height="338px">
+          <Mask rounding={2} height={POST_IMAGE_HEIGHT_PX - 2}>
             <Image
               src={imageSrc}
-              alt={imageAltText || ''}
+              alt={imageAltText ?? ''}
               naturalHeight={900}
               naturalWidth={1600}
               fit="cover"
@@ -48,7 +52,7 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
           </Mask>
         </Box>
       )}
-      <Flex maxWidth={POST_WIDTH}>
+      <Flex maxWidth={POST_WIDTH_PX}>
         <Markdown text={content} />
       </Flex>
     </Flex>
@@ -56,7 +60,8 @@ function PostLayout({ imageSrc, imageAltText, title, audience, content }: PostPr
 }
 
 export default function Blog(): Node {
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState<'All' | 'Design' | 'Engineering'>('All');
+
   return (
     <Page title="What's New Blog">
       <PageHeader
@@ -67,45 +72,43 @@ export default function Blog(): Node {
     `}
         showSourceLink={false}
       />
+
       <RadioGroup id="filter" legend="Filter posts by" direction="row">
-        <RadioGroup.RadioButton
-          size="sm"
-          id="all"
-          value="All"
-          label="All"
-          checked={filter === 'All'}
-          onChange={() => {
-            setFilter('All');
-          }}
-        />
-        <RadioGroup.RadioButton
-          id="design"
-          value="Design"
-          label="Design updates"
-          checked={filter === 'Design'}
-          onChange={() => {
-            setFilter('Design');
-          }}
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          id="eng"
-          value="Engineering"
-          label="Engineering updates"
-          checked={filter === 'Engineering'}
-          onChange={() => {
-            setFilter('Engineering');
-          }}
-          size="sm"
-        />
+        {[
+          {
+            label: 'All',
+            value: 'All',
+          },
+          {
+            label: 'Design updates',
+            value: 'Design',
+          },
+          {
+            label: 'Engineering updates',
+            value: 'Engineering',
+          },
+        ].map(({ label, value }) => (
+          <RadioGroup.RadioButton
+            checked={filter === value}
+            id={label}
+            key={value}
+            label={label}
+            onChange={() => {
+              setFilter(value);
+            }}
+            size="sm"
+            value={value}
+          />
+        ))}
       </RadioGroup>
-      {blogPosts.digests.map((digest, idx) => (
-        <MainSection key={`digest-${idx}`} name={`Week of ${digest.week}`}>
+
+      {blogPosts.digests.map((digest) => (
+        <MainSection key={`digest-${digest.week}`} name={`Week of ${digest.week}`}>
           <Flex direction="column" gap={12}>
             {digest.posts.map(
-              (post, index) =>
+              (post) =>
                 (filter === 'All' || post.audience.includes(filter)) && (
-                  <PostLayout key={`post-${index}`} {...post} />
+                  <PostLayout key={`post-${post.title}`} {...post} />
                 ),
             )}
           </Flex>
