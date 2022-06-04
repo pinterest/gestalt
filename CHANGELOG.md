@@ -1,3 +1,9 @@
+## 58.0.3 (Jun 4, 2022)
+
+### Patch
+
+- Docs: minor nits on Whats New page (#2149)
+
 ## 58.0.2 (Jun 3, 2022)
 
 ### Patch
