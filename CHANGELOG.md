@@ -1,3 +1,9 @@
+## 58.0.4 (Jun 6, 2022)
+
+### Patch
+
+- Data Visualization: Add usage guidelines with examples (#2148)
+
 ## 58.0.3 (Jun 4, 2022)
 
 ### Patch
