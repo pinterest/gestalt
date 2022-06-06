@@ -31,9 +31,11 @@ function ColorTile({ description, fullTokenName, number = 400, textColor }: Prop
       paddingX={2}
       borderStyle={borderNeeded ? 'lg' : 'none'}
     >
-      <Text weight="bold" color={newTextColor}>
-        {description}
-      </Text>
+      <Box marginEnd={3}>
+        <Text weight="bold" color={newTextColor}>
+          {description}
+        </Text>
+      </Box>
       <Text color={newTextColor}>
         {colorSchemeName === 'darkMode' && darkModeTokens[fullTokenName]
           ? darkModeTokens[fullTokenName]?.toUpperCase()
