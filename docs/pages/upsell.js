@@ -32,6 +32,12 @@ export default function DocsPage({
           label: 'Send invite',
           target: 'blank',
         }}
+        secondaryAction={{
+          accessibilityLabel: 'Learn more: Verified Merchant Program',
+          href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+          label: 'Learn more',
+          target: 'blank',
+        }}
         title="Give $30, get $60 in ads credit"
       />;
     `}
@@ -95,6 +101,12 @@ export default function DocsPage({
     accessibilityLabel: "Send ads invite",
     href: 'https://pinterest.com',
     label: 'Send invite',
+    target: 'blank',
+  }}
+  secondaryAction={{
+    accessibilityLabel: 'Learn more: Ads credit',
+    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+    label: 'Learn more',
     target: 'blank',
   }}
   title="Give $30, get $60 in ads credit"
@@ -163,6 +175,12 @@ export default function DocsPage({
     }}
     message="Install the Pinterest tag to track your website traffic, conversions and more."
     primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag now' }}
+    secondaryAction={{
+      accessibilityLabel: 'Learn more: Pinterest tag',
+      href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+      label: 'Learn more',
+      target: 'blank',
+    }}
     title="Measure ad performance"
   />
 
@@ -321,6 +339,12 @@ export default function DocsPage({
     href: 'https://pinterest.com',
     label: 'Send invite',
     accessibilityLabel: 'Invite friend to use ads',
+    target: 'blank',
+  }}
+  secondaryAction={{
+    accessibilityLabel: 'Learn more: Verified Merchant Program',
+    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+    label: 'Learn more',
     target: 'blank',
   }}
   title="Give $30, get $60 in ads credit"
@@ -599,6 +623,8 @@ function FormExample(props) {
           onChange={({ value }) => setValue(value)}
           placeholder="Name"
           value={value}
+          label="Full name"
+          labelDisplay="hidden"
         />
       </Upsell.Form>
     </Upsell>
@@ -657,6 +683,8 @@ function Example(props) {
               id="name"
               onChange={({ value }) => setNameValue(value)}
               placeholder="Name"
+              label="Full name"
+              labelDisplay="hidden"
               value={nameValue}
             />
           </Box>
@@ -667,6 +695,8 @@ function Example(props) {
               onChange={({ value }) => setEmailValue(value)}
               placeholder="Email"
               type="email"
+              label="Email address"
+              labelDisplay="hidden"
               value={emailValue}
             />
           </Box>
