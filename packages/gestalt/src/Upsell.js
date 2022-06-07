@@ -176,7 +176,7 @@ export default function Upsell({
       position="relative"
       rounding={4}
     >
-      <Box smDisplay="flex" smMarginTop={-3} smMarginBottom={-3} width="100%" wrap>
+      <Box smDisplay="flex" smMarginTop={-3} smMarginBottom={-3} width="100%">
         <Box
           alignItems="center"
           direction="column"
@@ -218,26 +218,33 @@ export default function Upsell({
               {title && (
                 <Box marginBottom={2}>
                   <Text
+                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
                     size="400"
                     weight="bold"
-                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
                   >
                     {title}
                   </Text>
                 </Box>
               )}
-              <Text align={messageTextAlignment}>{message}</Text>
+              <Text align={messageTextAlignment} inline>
+                {message}
+              </Text>
               {legalText && legalTextButtonText && (
                 <Fragment>
-                  <TapArea onTap={() => setShowLegalText((currState) => !currState)}>
-                    <Text align={messageTextAlignment} weight="bold">
-                      {legalTextButtonText}
-                    </Text>
-                  </TapArea>
+                  {' '}
+                  <Box display="inlineBlock">
+                    <TapArea onTap={() => setShowLegalText((currState) => !currState)}>
+                      <Text align={messageTextAlignment} inline weight="bold">
+                        {legalTextButtonText}
+                      </Text>
+                    </TapArea>
+                  </Box>
                   {showLegalText && (
-                    <Text align={messageTextAlignment} size="100">
-                      {legalText}
-                    </Text>
+                    <Box marginTop={4}>
+                      <Text align={messageTextAlignment} size="100">
+                        {legalText}
+                      </Text>
+                    </Box>
                   )}
                 </Fragment>
               )}
@@ -258,7 +265,7 @@ export default function Upsell({
           </Box>
         </Box>
         {!children && hasActions && (
-          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3} flex="none">
             {secondaryAction && responsiveMinWidth !== 'xs' && (
               <UpsellAction type="secondary" data={secondaryAction} />
             )}

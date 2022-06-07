@@ -25,11 +25,19 @@ export default function DocsPage({
         imageData={{
           component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
         }}
+        legalText="Wow look at all this legalese. Man the lawyers make a lot of money writing this stuff. Does anyone ever even read it?"
+        legalTextButtonText="See bloodsucking lawyer terms"
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{
           accessibilityLabel: "Send ads invite",
           href: 'https://pinterest.com',
           label: 'Send invite',
+          target: 'blank',
+        }}
+        secondaryAction={{
+          accessibilityLabel: "Send ads invite",
+          href: 'https://pinterest.com',
+          label: 'Send secondary invite',
           target: 'blank',
         }}
         title="Give $30, get $60 in ads credit"
