@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { Fragment, type Element, type Node, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -7,6 +7,7 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
+import TapArea from './TapArea.js';
 import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
@@ -77,6 +78,14 @@ type Props = {|
     width?: number,
   |},
   /**
+   * Additional text shown after the user clicks `legalTextButton`. Used for legal disclaimers, terms & conditions, and similar uses.
+   */
+  legalText?: string,
+  /**
+   * Optional interactive text that will show the `legalText` on click.
+   */
+  legalTextButtonText?: string,
+  /**
    * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.
    */
   message: string,
@@ -139,6 +148,8 @@ export default function Upsell({
   children,
   dismissButton,
   imageData,
+  legalText,
+  legalTextButtonText,
   message,
   primaryAction,
   secondaryAction,
@@ -147,6 +158,10 @@ export default function Upsell({
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
   const hasActions = Boolean(primaryAction || secondaryAction);
+
+  const [showLegalText, setShowLegalText] = useState(false);
+
+  const messageTextAlignment = responsiveMinWidth === 'xs' ? 'center' : undefined;
 
   return (
     <Box
@@ -211,7 +226,21 @@ export default function Upsell({
                   </Text>
                 </Box>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
+              <Text align={messageTextAlignment}>{message}</Text>
+              {legalText && legalTextButtonText && (
+                <Fragment>
+                  <TapArea onTap={() => setShowLegalText((currState) => !currState)}>
+                    <Text align={messageTextAlignment} weight="bold">
+                      {legalTextButtonText}
+                    </Text>
+                  </TapArea>
+                  {showLegalText && (
+                    <Text align={messageTextAlignment} size="100">
+                      {legalText}
+                    </Text>
+                  )}
+                </Fragment>
+              )}
             </Box>
             {children && (
               <Box

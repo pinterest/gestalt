@@ -12,7 +12,7 @@ export default function DocsPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="Upsell">
+    <Page title={generatedDocGen?.Upsell?.displayName}>
       <PageHeader
         name={generatedDocGen?.Upsell?.displayName}
         description={generatedDocGen?.Upsell?.description}
