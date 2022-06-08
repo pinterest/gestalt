@@ -139,7 +139,7 @@ export default function ColorPage(): Node {
       <MainSection
         name="Pairings to avoid"
         description={`
-        Although we recommend using colors following the order in the palette, we understand there might be edge cases when we need to pair colors in a different way. In this case, avoid using the pairings below as neighboring colors. These pairings are hard to tell apart when used
+        Although we recommend using colors following the order in the palette, we understand there might be edge cases when we need to pair colors in a different way. In this case, avoid using the pairings below as neighboring colors. These pairings are hard to tell apart when used:
 
         - for lines or small points under normal vision
         - for large areas under red-green or yellow-blue color blindness`}
