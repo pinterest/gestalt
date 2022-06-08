@@ -1,3 +1,9 @@
+## 58.1.0 (Jun 8, 2022)
+
+### Minor
+
+- Icon: Added music-on and music-off icons (#2152)
+
 ## 58.0.6 (Jun 8, 2022)
 
 ### Patch
