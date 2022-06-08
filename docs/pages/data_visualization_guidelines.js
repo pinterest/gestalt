@@ -138,7 +138,11 @@ export default function ColorPage(): Node {
       </MainSection>
       <MainSection
         name="Pairings to avoid"
-        description="Although we recommend using colors following the order in the palette, we understand there might be edge cases when we need to pair colors in a different way. The color pairings below are hard to tell apart either in lines or small points under normal vision, or in large areas under red-green or yellow-blue color blindness. Always avoid using these pairings as neighboring colors."
+        description={`
+        Although we recommend using colors following the order in the palette, we understand there might be edge cases when we need to pair colors in a different way. In this case, avoid using the pairings below as neighboring colors. These pairings are hard to tell apart when used:
+
+        - for lines or small points under normal vision
+        - for large areas under red-green or yellow-blue color blindness`}
       >
         <Flex gap={6} wrap>
           <Flex direction="column" gap={6}>
