@@ -1,3 +1,9 @@
+## 58.0.6 (Jun 8, 2022)
+
+### Patch
+
+- Design Tokens: Update android output files (#2110)
+
 ## 58.0.5 (Jun 8, 2022)
 
 ### Patch
