@@ -108,6 +108,8 @@ import menu from './menu.svg';
 import minimize from './minimize.svg';
 import move from './move.svg';
 import mute from './mute.svg';
+import musicOff from './music-off.svg';
+import musicOn from './music-on.svg';
 import dragDrop from './drag-drop.svg';
 import overlayText from './overlay-text.svg';
 import pause from './pause.svg';
@@ -285,6 +287,8 @@ const icons = Object.freeze({
   minimize,
   move,
   mute,
+  'music-off': musicOff,
+  'music-on': musicOn,
   'overlay-text': overlayText,
   pause,
   people,
