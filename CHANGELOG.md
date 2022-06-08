@@ -1,3 +1,9 @@
+## 58.0.5 (Jun 8, 2022)
+
+### Patch
+
+- Upsell: Update doc examples (#2151)
+
 ## 58.0.4 (Jun 6, 2022)
 
 ### Patch
