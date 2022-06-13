@@ -329,29 +329,35 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="lg"
             defaultCode={`
 <Flex maxWidth={240} direction="column" gap={8}>
-  <Box color="secondary" padding={2} rounding={2}>
+  <Flex direction="column" gap={2}>
     <Text>breakWord (default):</Text>
-    <Heading size="400" overflow="breakWord" >
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Heading>
-  </Box>
+    <Box color="secondary" padding={2} rounding={2}>
+      <Heading size="400" overflow="breakWord">
+        This is a long and Supercalifragilisticexpialidocious sentence.
+        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+      </Heading>
+    </Box>
+  </Flex>
 
-  <Box color="secondary" padding={2} rounding={2}>
+  <Flex direction="column" gap={2}>
     <Text>normal:</Text>
-    <Heading size="400" overflow="normal">
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Heading>
-  </Box>
+    <Box color="secondary" padding={2} rounding={2}>
+      <Heading size="400" overflow="normal">
+        This is a long and Supercalifragilisticexpialidocious sentence.
+        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+      </Heading>
+    </Box>
+  </Flex>
 
-  <Box color="secondary" padding={2} rounding={2}>
-    <Text>lineClamp:</Text>
-    <Heading size="400" lineClamp={2}>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Heading>
-  </Box>
+  <Flex direction="column" gap={2}>
+  <Text>lineClamp:</Text>
+    <Box color="secondary" padding={2} rounding={2}>
+      <Heading size="400" lineClamp={2}>
+        This is a long and Supercalifragilisticexpialidocious sentence.
+        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+      </Heading>
+    </Box>
+  </Flex>
 </Flex>
 `}
           />
