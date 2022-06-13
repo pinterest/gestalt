@@ -406,7 +406,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description={`
-- Keep text labels short and clear
+- Keep headings short and clear
 - Use **Sentence case** for headings per our Pinterest writing standards to keep the tone conversational and make headings easier to scan`}
           />
           <MainSection.Card
