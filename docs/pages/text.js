@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
@@ -105,7 +106,19 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
           />
         </MainSection.Subsection>
+        <SlimBanner
+          type="info"
+          iconAccessibilityLabel="Info"
+          message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
+          helperLink={{
+            text: 'View Typography guidelines',
+            accessibilityLabel: 'View Typography guidelines',
+            href: '/typography',
+            onClick: () => {},
+          }}
+        />
       </MainSection>
+
       <MainSection name="Accessibility">
         <MainSection.Subsection
           title="Accessible sizing"
