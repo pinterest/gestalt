@@ -11,7 +11,11 @@ import Page from '../components/Page.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Heading">
-      <PageHeader name="Heading" description={generatedDocGen?.description} />
+      <PageHeader
+        name="Heading"
+        description={generatedDocGen?.description}
+        defaultCode="<Heading accessibilityLevel={2}>An H1 Heading</Heading>"
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
