@@ -1,3 +1,9 @@
+## 58.1.1 (Jun 14, 2022)
+
+### Patch
+
+- Docs: Heading component design guidelines (#2153)
+
 ## 58.1.0 (Jun 8, 2022)
 
 ### Minor
