@@ -47,11 +47,11 @@ type Props = {|
   /**
    * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.
    *
-   * Link: https://gestalt.pinterest.systems/text#overflow
+   * Link: https://gestalt.pinterest.systems/text#Overflow-and-truncation
    */
   lineClamp?: number,
   /**
-   * Link: https://gestalt.pinterest.systems/text#overflow
+   * Link: https://gestalt.pinterest.systems/text#Overflow-and-truncation
    */
   overflow?: Overflow,
   /**
@@ -75,7 +75,7 @@ type Props = {|
 |};
 
 /**
- * The [Text](https://gestalt.pinterest.systems/text) component should be used for all text on the page.
+ * The [Text](https://gestalt.pinterest.systems/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text..
  *
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.mjs-snapshots/Text-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.mjs-snapshots/Text-dark-chromium-darwin.png)
