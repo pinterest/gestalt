@@ -218,11 +218,11 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Size"
+          title="Accessible sizing"
           description="A minimum text size of 16 px (12pt) is recommended for readability. Headings can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability."
         />
         <MainSection.Subsection
-          title="Color"
+          title="Accessible color"
           description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/color_usage#Standard-text-colors). See our [accessibility](/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
         />
       </MainSection>
