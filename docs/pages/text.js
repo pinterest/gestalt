@@ -46,7 +46,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Emphasize text inside of paragraphs by underlining it; this can be confused with a [link](/link)."
+            description="Emphasize text inside of paragraphs by underlining it; this can be confused with [Link](/link)."
             defaultCode={`
  <Text>For campaign optimization and delivery, <Text underline inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
 `}
@@ -153,7 +153,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Alignment"
-          description="Use this to adjust the positioning of text within wrapper elements."
+          description="Use `align` to adjust the positioning of text within wrapper elements."
         >
           <MainSection.Card
             defaultCode={`
@@ -449,7 +449,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Subsection
             description={`
       **[Link](/link)**
-      Used as a text-only navigational element. Links usually appear within or directly following a paragraph or sentence. .
+      Used as a text-only navigational element. Links usually appear within or directly following a paragraph or sentence.
     `}
           />
         </MainSection>
