@@ -30,7 +30,7 @@ type Props = {|
    */
   accessibilityLevel?: AccessibilityLevel,
   /**
-   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [Align example](https://gestalt.pinterest.systems#align) for more details.
+   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [Alignment example](https://gestalt.pinterest.systems/heading#Alignment) for more details.
    */
   align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   /**
@@ -38,7 +38,7 @@ type Props = {|
    */
   children?: Node,
   /**
-   * The color of the text. See [Colors example](https://gestalt.pinterest.systems#colors) for more details.
+   * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/design_tokens#Text-color) for more details.
    */
   color?:
     | 'default'
@@ -55,22 +55,22 @@ type Props = {|
    */
   id?: string,
   /**
-   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See [Truncation example](https://gestalt.pinterest.systems#overflowTruncation) for more details.
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See [Truncation example](https://gestalt.pinterest.systems/heading#Overflow-and-truncation) for more details.
    */
   lineClamp?: number,
   /**
-   * How truncation is handled when text overflows the line. See [Truncation example](https://gestalt.pinterest.systems#overflowTruncation) for more details.
+   * How truncation is handled when text overflows the line. See [Truncation example](https://gestalt.pinterest.systems/heading#Overflow-and-truncation) for more details.
    */
   overflow?: Overflow,
   /**
-   * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems#sizes) for more details.
+   * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems/heading#Size) for more details.
    * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).
    */
   size?: Size,
 |};
 
 /**
- * [Heading](https://gestalt.pinterest.systems/heading) allows you to show headings on the page & has a bigger line height than regular text.
+ * [Heading](https://gestalt.pinterest.systems/heading) allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.
  *
  * ![Heading light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading.spec.mjs-snapshots/Heading-chromium-darwin.png)
  * ![Heading dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading-dark.spec.mjs-snapshots/Heading-dark-chromium-darwin.png)
