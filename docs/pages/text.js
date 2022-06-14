@@ -9,7 +9,11 @@ import MainSection from '../components/MainSection.js';
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        defaultCode={`<Flex direction="column" gap={4}><Text size="500">This simple description uses the Text component.</Text><Badge text="Badge also uses it" /></Flex>`}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
