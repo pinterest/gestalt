@@ -1,3 +1,9 @@
+## 58.1.2 (Jun 14, 2022)
+
+### Patch
+
+- Docs: Text design guidelines (#2154)
+
 ## 58.1.1 (Jun 14, 2022)
 
 ### Patch
