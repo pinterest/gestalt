@@ -20,7 +20,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             type="do"
             description={`
-- When you need to use a semantic H1–H6 heading to create a clear typographic hierarchy and page structure.
+- When you need to use a semantic H1–H6 heading to create a clear typographic hierarchy and page structure
 `}
           />
           <MainSection.Card
