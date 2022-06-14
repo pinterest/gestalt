@@ -40,7 +40,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Emphasize text inside of paragraphs by using a bold weight."
             defaultCode={`
-
+<Text>For campaign optimization and delivery, <Text weight="bold" inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
 `}
           />
           <MainSection.Card
@@ -48,7 +48,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Emphasize text inside of paragraphs by underlining it; this can be confused with a [link](/link)."
             defaultCode={`
-
+ <Text>For campaign optimization and delivery, <Text underline inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
 `}
           />
         </MainSection.Subsection>
@@ -58,7 +58,10 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use size to emphasize things like numbers that don’t define a page structure."
             defaultCode={`
-
+<Flex direction="column">
+  <Text size={200}>Impressions</Text>
+  <Text size={500} weight="bold">1.25M</Text>
+</Flex>
 `}
           />
           <MainSection.Card
@@ -66,7 +69,10 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/heading) instead."
             defaultCode={`
-
+<Flex direction="column" gap={2}>
+  <Text size={300} weight="bold">Impressions</Text>
+  <Text size={100}>1,250,000</Text>
+</Flex>
 `}
           />
         </MainSection.Subsection>
@@ -76,7 +82,10 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use a minimal amount of sizes and styles to keep the UI clean and readable."
             defaultCode={`
-
+<Flex direction="column" gap={4}>
+  <Text>Pinterest is building a positive online space for creators. That’s why we made the <Text weight="bold" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
+  <Text>Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text italic inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
+</Flex>
 `}
           />
           <MainSection.Card
@@ -84,7 +93,10 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Mix styles and alignment, as this can be hard to read and follow."
             defaultCode={`
-
+<Flex direction="column" gap={4}>
+  <Text size={100}>Pinterest is building a positive online space for creators. That’s why we made the <Text size={100} color="success" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
+  <Text weight="bold" align="center">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text weight="bold" italic color="warning" inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
+</Flex>
 `}
           />
         </MainSection.Subsection>
@@ -94,7 +106,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Start-align paragraph text."
             defaultCode={`
-
+<Text>Our mission is to bring everyone the inspiration to create a life they love. To do that, we show you personalized content and ads we think you’ll be interested in based on information we collect from you and third parties. We only use that information where we have a proper legal basis for doing so.</Text>
 `}
           />
           <MainSection.Card
@@ -102,7 +114,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Center-align paragraph text. This is hard to read, especially for users with dyslexia."
             defaultCode={`
-
+<Text align="center">Our mission is to bring everyone the inspiration to create a life they love. To do that, we show you personalized content and ads we think you’ll be interested in based on information we collect from you and third parties. We only use that information where we have a proper legal basis for doing so.</Text>
 `}
           />
         </MainSection.Subsection>
