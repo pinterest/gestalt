@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import Example from '../components/Example.js';
+import { SlimBanner } from 'gestalt';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
@@ -10,23 +10,164 @@ import MainSection from '../components/MainSection.js';
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        defaultCode={`<Flex direction="column" gap={4}><Text size="500">This simple description uses the Text component.</Text><Badge text="Badge also uses it" /></Flex>`}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            type="do"
+            description={`
+- Any time that text is needed in the UI as a label, paragraph or number display
+`}
+          />
+          <MainSection.Card
+            type="don't"
+            description={`
+- When you need to use a semantic H1–H6 heading to create a clear typographic hierarchy and page structure. Use [Heading](/heading) instead.
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Emphasize text inside of paragraphs by using a bold weight."
+            defaultCode={`
+<Text>For campaign optimization and delivery, <Text weight="bold" inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Emphasize text inside of paragraphs by underlining it; this can be confused with [Link](/link)."
+            defaultCode={`
+ <Text>For campaign optimization and delivery, <Text underline inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use size to emphasize things like numbers that don’t define a page structure."
+            defaultCode={`
+<Flex direction="column">
+  <Text size={200}>Impressions</Text>
+  <Text size={500} weight="bold">1.25M</Text>
+</Flex>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/heading) instead."
+            defaultCode={`
+<Flex direction="column" gap={2}>
+  <Text size={300} weight="bold">Impressions</Text>
+  <Text size={100}>1,250,000</Text>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use a minimal amount of sizes and styles to keep the UI clean and readable."
+            defaultCode={`
+<Flex direction="column" gap={4}>
+  <Text>Pinterest is building a positive online space for creators. That’s why we made the <Text weight="bold" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
+  <Text>Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text italic inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
+</Flex>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Mix styles and alignment, as this can be hard to read and follow."
+            defaultCode={`
+<Flex direction="column" gap={4}>
+  <Text size={100}>Pinterest is building a positive online space for creators. That’s why we made the <Text size={100} color="success" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
+  <Text weight="bold" align="center">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text weight="bold" italic color="warning" inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Start-align paragraph text."
+            defaultCode={`
+<Text>Our mission is to bring everyone the inspiration to create a life they love. To do that, we show you personalized content and ads we think you’ll be interested in based on information we collect from you and third parties. We only use that information where we have a proper legal basis for doing so.</Text>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Center-align paragraph text. This is hard to read, especially for users with dyslexia."
+            defaultCode={`
+<Text align="center">Our mission is to bring everyone the inspiration to create a life they love. To do that, we show you personalized content and ads we think you’ll be interested in based on information we collect from you and third parties. We only use that information where we have a proper legal basis for doing so.</Text>
+`}
+          />
+        </MainSection.Subsection>
+        <SlimBanner
+          type="info"
+          iconAccessibilityLabel="Info"
+          message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
+          helperLink={{
+            text: 'View Typography guidelines',
+            accessibilityLabel: 'View Typography guidelines',
+            href: '/typography',
+            onClick: () => {},
+          }}
+        />
+      </MainSection>
 
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          title="Accessible sizing"
+          description="A minimum text size of 16 px (12pt) is recommended for readability. Some short text labels, or secondary text can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability."
+        />
+        <MainSection.Subsection
+          title="Accessible color"
+          description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/color_usage#Standard-text-colors). See our [accessibility](/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
+        />
+      </MainSection>
+      <MainSection
+        name="Localization"
+        description="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders."
+      >
+        <MainSection.Subsection
+          title="Text-wrapping and hyphenation"
+          description="Hyphenation on iOS is turned off by default to avoid incorrect word breaks when strings of text wrap to the next line. This is especially helpful for international languages where an incorrect word break can greatly change the meaning of a word or sentence."
+        />
+      </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Alignment"
-          description="Use this to adjust the positioning of text within wrapper elements."
+          description="Use `align` to adjust the positioning of text within wrapper elements."
         >
           <MainSection.Card
             defaultCode={`
-<Flex direction="column" gap={2} width="100%">
+<Flex direction="column" gap={4} width={200}>
   <Text align="start">Start (default)</Text>
+  <Divider />
   <Text align="end">End</Text>
+  <Divider />
   <Text align="center">Center</Text>
+  <Divider />
   <Text align="justify">Justify</Text>
+  <Divider />
   <Text align="forceLeft">Force left</Text>
+  <Divider />
   <Text align="forceRight">Force right</Text>
 </Flex>
 `}
@@ -84,41 +225,43 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Overflow"
+          title="Overflow & truncation"
           description="Gestalt provides utility options to deal with text overflow."
         >
-          <Example
-            name="overflow"
-            showHeading={false}
+          <MainSection.Card
+            cardSize="lg"
             defaultCode={`
-<Box borderStyle="sm" maxWidth={200} padding={1}>
-  <Flex gap={2} direction="column">
-
-    <Text weight="bold">breakWord (default):</Text>
-    <Text>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Text>
-
-    <Text weight="bold">normal:</Text>
-    <Text overflow="normal">
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Text>
-
-    <Text weight="bold">noWrap:</Text>
-    <Text overflow="noWrap">
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Text>
-
-    <Text weight="bold">lineClamp:</Text>
-    <Text lineClamp={2}>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Text>
+<Flex maxWidth={200} direction="column" gap={8}>
+  <Flex direction="column" gap={2}>
+    <Text>breakWord (default):</Text>
+    <Box color="secondary" padding={2} rounding={2}>
+      <Text>
+        This is a long and Supercalifragilisticexpialidocious sentence.
+        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+      </Text>
+    </Box>
   </Flex>
-</Box>
+
+  <Flex direction="column" gap={2}>
+    <Text>normal:</Text>
+    <Box color="secondary" padding={2} rounding={2}>
+      <Text overflow="normal">
+        This is a long and Supercalifragilisticexpialidocious sentence.
+        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+      </Text>
+    </Box>
+  </Flex>
+
+  <Flex direction="column" gap={2}>
+  <Text>lineClamp:</Text>
+    <Box color="secondary" padding={2} rounding={2}>
+      <Text lineClamp={2}>
+        This is a long and Supercalifragilisticexpialidocious sentence.
+        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+      </Text>
+    </Box>
+  </Flex>
+</Flex>
         `}
           />
         </MainSection.Subsection>
@@ -262,6 +405,54 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
           />
         </MainSection.Subsection>
+        <MainSection name="Writing">
+          <MainSection.Subsection columns={2}>
+            <MainSection.Card
+              cardSize="md"
+              type="do"
+              description={`
+- Keep text in UI components short and clear
+- Use **Sentence case** for UI labels
+`}
+            />
+            <MainSection.Card
+              cardSize="md"
+              type="don't"
+              description={`
+- Use long text labels that could end up truncating or causing space issues when translating to other languages
+- Use **Title Case** or **ALL CAPS** in UI labels
+- Use ALL CAPS for paragaph text unless referring to a product or other entity that uses that style
+`}
+            />
+          </MainSection.Subsection>
+        </MainSection>
+
+        <MainSection name="Related">
+          <MainSection.Subsection
+            description={`
+      **[Heading](/heading)**
+      Heading allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.
+`}
+          />
+          <MainSection.Subsection
+            description={`
+      **[Typography guidelines](/typography)**
+      A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
+`}
+          />
+          <MainSection.Subsection
+            description={`
+      **[Design tokens](/design_tokens)**
+      Values for text sizes, weights, families and colors.
+    `}
+          />
+          <MainSection.Subsection
+            description={`
+      **[Link](/link)**
+      Used as a text-only navigational element. Links usually appear within or directly following a paragraph or sentence.
+    `}
+          />
+        </MainSection>
       </MainSection>
     </Page>
   );
