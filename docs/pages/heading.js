@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Table } from 'gestalt';
+import { Text, Table, SlimBanner } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
@@ -155,6 +155,17 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 </Flex>`}
           />
         </MainSection.Subsection>
+        <SlimBanner
+          type="info"
+          iconAccessibilityLabel="Info"
+          message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
+          helperLink={{
+            text: 'View Typography guidelines',
+            accessibilityLabel: 'View Typography guidelines',
+            href: '/typography',
+            onClick: () => {},
+          }}
+        />
       </MainSection>
       <MainSection name="Accessibility">
         <MainSection.Subsection title="Logical order">
