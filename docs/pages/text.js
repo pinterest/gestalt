@@ -13,7 +13,92 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card type="do" description="" />
+          <MainSection.Card type="don't" description="" />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description=""
+            defaultCode={`
 
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description=""
+            defaultCode={`
+
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description=""
+            defaultCode={`
+
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description=""
+            defaultCode={`
+
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description=""
+            defaultCode={`
+
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description=""
+            defaultCode={`
+
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description=""
+            defaultCode={`
+
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description=""
+            defaultCode={`
+
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Accessibility">
+        <MainSection.Subsection description="" />
+      </MainSection>
+      <MainSection name="Localization">
+        <MainSection.Subsection description="" />
+      </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Alignment"
@@ -262,6 +347,54 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
           />
         </MainSection.Subsection>
+        <MainSection name="Writing">
+          <MainSection.Subsection columns={2}>
+            <MainSection.Card
+              cardSize="md"
+              type="do"
+              description={`
+- Keep text in UI components short and clear
+- Use **Sentence case** for UI labels
+`}
+            />
+            <MainSection.Card
+              cardSize="md"
+              type="don't"
+              description={`
+- Use long text labels that could end up truncating or causing space issues when translating to other languages
+- Use **Title Case** or **ALL CAPS** in UI labels
+- Use ALL CAPS for paragaph text unless referring to a product or other entity that uses that style
+`}
+            />
+          </MainSection.Subsection>
+        </MainSection>
+
+        <MainSection name="Related">
+          <MainSection.Subsection
+            description={`
+      **[Heading](/heading)**
+      Heading allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.
+`}
+          />
+          <MainSection.Subsection
+            description={`
+      **[Typography guidelines](/typography)**
+      A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
+`}
+          />
+          <MainSection.Subsection
+            description={`
+      **[Design tokens](/design_tokens)**
+      Values for text sizes, weights, families and colors.
+    `}
+          />
+          <MainSection.Subsection
+            description={`
+      **[Link](/link)**
+      Used as a text-only navigational element. Links usually appear within or directly following a paragraph or sentence. .
+    `}
+          />
+        </MainSection>
       </MainSection>
     </Page>
   );
