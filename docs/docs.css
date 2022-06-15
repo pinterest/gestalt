@@ -60,7 +60,7 @@ li {
   display: block;
 }
 
-.Markdown .language-jsx, .Markdown .language-bash {
+.Markdown code.language-jsx, .Markdown code.language-bash, .Markdown pre.language-bash code {
   background-color: var(--g-colorGray0);
 }
 
@@ -77,14 +77,13 @@ li {
   padding-inline-start: 20px;
 }
 
-.Markdown ul ~ pre {
+.Markdown ul + pre {
   margin-left: 40px;
 }
 
 .Markdown ul ~ .md-hint {
   margin-left: 40px;
 }
-
 
 
 html[dir="rtl"] .Markdown ul + pre {

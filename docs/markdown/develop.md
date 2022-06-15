@@ -26,7 +26,7 @@ git clone git@github.com:<YOUR_USERNAME>/gestalt.git
 - Use the correct Node.js version to setup the environment locally
 
 ``` bash
-git clone git@github.com:<YOUR_USERNAME>/gestalt.git
+cd gestalt && nvm use
 ```
 
 <Hint>If the node version isn't available, you will need to [install](#) it.</Hint>
@@ -101,11 +101,12 @@ yarn generate ComponentName
   ```bash
   yarn jest -u
   ```
-  - Run Playwright accessibility integration tests. If any documentation examples are expected to fail accessibility testing, wrap the example in a container with `data-skip-accessibility-check`.
+  - Run **Playwright accessibility integration tests**. If any documentation examples are expected to fail accessibility testing, wrap the example in a container with `data-skip-accessibility-check`.
   ```bash
   yarn playwright:test accessibility/
   ```
-  - Run Playwright visual diff snapshot tests. If any component changes are expected to visually modify your component, you must update the snapshot tests. In order to update the Linux snapshots in the tests, you must build a docker file and then run docker.
+  - Run **Playwright visual diff snapshot tests**. If any component changes are expected to visually modify your component, you must update the snapshot tests
+
   ```bash
   # Start the documentation server (required for updating macOS snapshots)
   yarn start
@@ -113,6 +114,9 @@ yarn generate ComponentName
   # Update macOS snapshots
   yarn playwright:test visual-test/ --update-snapshots
   ```
+
+  - In order to update the Linux snapshots in the tests, you must build a docker file and then run docker.
+
   ```bash
   # Build the docker container (only need to do this once)
   yarn docker:build
@@ -121,3 +125,73 @@ yarn generate ComponentName
   yarn docker:run
   ```
 
+  - Update CSS flow types
+  ```bash
+  yarn run flow-generate:css
+  ```
+  - If you are introducing breaking changes, create a codemod to help users migrate between versions.
+  ```bash
+  yarn run flow-generate:css
+  ```
+- Commit the changes to your branch. Follow naming conventions for the PR `<Component>: <Commit Change Description>`
+- Follow these steps again for any additional updates to your branch. When you are done, push your branch up.
+```bash
+git add .
+git commit -am "Component: Commit Change Description"
+git push -f origin HEAD
+```  
+
+- Go to [https://github.com/pinterest/gestalt](https://github.com/pinterest/gestalt). A new banner will be displayed, click on 'Compare & Create Pull Request'.
+
+- Add useful summary and screenshots. We provide a template for the summary to make sure you include all necessary information.
+
+- Click on `Create Draft Pull Request` to create your PR. Once you are done committing changes to it, and all the CI tests have passed, click the "Ready for Review" button. (Keeping the PR as a draft until it is ready for review reduces the number of unneeded notifications for maintainers.) If you are a Pinterest employee, please let us know on Slack (#gestalt-web) that your PR is ready for review.
+
+- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Check out our [versioning guidelines](https://gestalt.pinterest.systems/development#versioning) for more info.
+
+- After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
+
+## Guidelines
+
+### Scope of work
+
+When pushing new changes to GitHub, your PR title should be aligned with the scope of your work. If your goal was to change the default color of a component, keep the scope of changes to that specific task and word the title to exactly reflect those changes.
+
+### Versioning
+
+Our versioning guidelines follow those outlined at [semver.org](https://semver.org): 
+- Patch: internal fixes, documentation changes, or package upgrades (anything that consumers of Gestalt don't need to worry about)
+- Minor: any new functionality or properties for a component, or net-new components
+- Major: any breaking change, whether it be in a specific component or the library itself (will most likely include a 
+[codemod](https://gestalt.pinterest.systems/development#codemods))
+
+### Codemods
+
+When a release will cause breaking changes (in usage or in typing) we provide a codemod to ease the upgrade process. Codemods are organized by release number in /packages/gestalt-codemods. The name of the folder should reflect the resulting version number of your PR.
+
+Check out our [codemod README](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) for a walkthrough of the development process.
+
+Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used.
+ 
+Example usage for a codebase using Flow:
+
+```bash
+yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
+```
+
+For a dry run to see what the changes will be, add the -d (dry run) and -p (print output) flags (pipe stdout to a file for easier inspection if you like).
+
+### Changes not allowed
+Do not use the following CSS style properties:
+
+- `line-height`: Property in CSS that controls the space between lines of text. Not defining a line-height allows the browser to determine line-height based on language which prevents localization issues.
+
+- `height/width`: Height & width are CSS properties that can be used for determining the size of static assets such as an icon size. However, components that contain text data should not fix the height & width of the component to prevent incorrect styling under different cases such as localization, longer texts, etc. Consider other alternatives such as padding to define different component sizes.
+
+Avoid:
+
+- Boolean props: For example, instead of `isRTL: boolean` or `isStart: boolean` or `isEnd: boolean`, use more declarative props such as `layoutDirection: rtl | ltr` or `role: startInput | endInput`.
+
+### RFCs
+
+Find the RFCs (request for comments) process and repository [here](https://github.com/pinterest/gestalt/tree/master/rfcs).

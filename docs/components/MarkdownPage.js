@@ -39,6 +39,25 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         {props.children.props.children}
       </Highlighter>
     ),
+    figure: (props: {| src: string, caption?: string |}) => (
+      <Flex wrap justifyContent="center">
+        <Box as="figure" width={400}>
+          <Image
+            src={props.src}
+            alt="image"
+            width="100%"
+            height="100%"
+            layout="responsive"
+            objectFit="contain"
+          />
+          <Text size="100" align="center">
+            <Box as="figcaption" marginTop={3}>
+              {props.caption || ''}
+            </Box>
+          </Text>
+        </Box>
+      </Flex>
+    ),
     h2: (props) => (
       <Box marginTop={12} marginBottom={0}>
         <MainSection name={props.children} />
