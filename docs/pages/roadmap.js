@@ -13,7 +13,7 @@ const future = roadmapData.tasks.filter((x) => x.status === 'unstarted');
 
 const complete = roadmapData.tasks.filter((x) => x.status === 'ok');
 
-export const LockIcon = function LockIcon({ size }: {| size: 12 | 16 |}) {
+export const LockIcon = function LockIcon({ size }: {| size: 12 | 16 |}): Node {
   return (
     <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="" inline>
       <TapArea rounding="circle" fullWidth={false}>
