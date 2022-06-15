@@ -15,7 +15,7 @@
 }
 
 .Border {
-  composes: borderColorLightGray from "./Borders.css";
+  composes: borderColorDarkGray from "./Borders.css";
 }
 
 .BorderCheckedSm {
@@ -26,8 +26,8 @@
   border-width: var(--g-border-md);
 }
 
-.BorderDarkGray {
-  composes: borderColorDarkGray from "./Borders.css";
+.BorderSelected {
+  composes: borderColorSelected from "./Borders.css";
 }
 
 .BorderDisabled {

@@ -4,7 +4,8 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
 import typography from './Typography.css';
-import { literalColors } from './textTypes.js';
+import { semanticColors } from './textTypes.js';
+import useInExperiment from './useInExperiment.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -17,27 +18,11 @@ const defaultHeadingLevels = {
   '400': 3,
   '500': 2,
   '600': 1,
-  'sm': 3,
-  'md': 2,
-  'lg': 1,
-};
-
-// Corresponds to the font-size design tokens
-const SIZE_SCALE = {
-  sm: 400,
-  md: 500,
-  lg: 600,
-  '100': 100,
-  '200': 200,
-  '300': 300,
-  '400': 400,
-  '500': 500,
-  '600': 600,
 };
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
 type Overflow = 'normal' | 'breakWord';
-type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
   /**
@@ -45,7 +30,7 @@ type Props = {|
    */
   accessibilityLevel?: AccessibilityLevel,
   /**
-   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [Align example](https://gestalt.pinterest.systems#align) for more details.
+   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [Alignment example](https://gestalt.pinterest.systems/heading#Alignment) for more details.
    */
   align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   /**
@@ -53,66 +38,65 @@ type Props = {|
    */
   children?: Node,
   /**
-   * The color of the text. See [Colors example](https://gestalt.pinterest.systems#colors) for more details.
+   * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/design_tokens#Text-color) for more details.
    */
   color?:
-    | 'blue'
-    | 'darkGray'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
-    | 'watermelon'
-    | 'white',
+    | 'default'
+    | 'subtle'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'shopping'
+    | 'inverse'
+    | 'light'
+    | 'dark',
   /**
    * A unique identifier for the element.
    */
   id?: string,
   /**
-   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See [Truncation example](https://gestalt.pinterest.systems#overflowTruncation) for more details.
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See [Truncation example](https://gestalt.pinterest.systems/heading#Overflow-and-truncation) for more details.
    */
   lineClamp?: number,
   /**
-   * How truncation is handled when text overflows the line. See [Truncation example](https://gestalt.pinterest.systems#overflowTruncation) for more details.
+   * How truncation is handled when text overflows the line. See [Truncation example](https://gestalt.pinterest.systems/heading#Overflow-and-truncation) for more details.
    */
   overflow?: Overflow,
   /**
-   * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems#sizes) for more details.
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).  The "sm", "md", and "lg" values will soon be deprecated.
+   * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems/heading#Size) for more details.
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).
    */
   size?: Size,
 |};
 
 /**
- * [Heading](https://gestalt.pinterest.systems/heading) allows you to show headings on the page & has a bigger line height than regular text.
+ * [Heading](https://gestalt.pinterest.systems/heading) allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.
  *
- * ![Heading light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Heading%20%230.png)
- * ![Heading dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Heading-dark%20%230.png)
+ * ![Heading light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading.spec.mjs-snapshots/Heading-chromium-darwin.png)
+ * ![Heading dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading-dark.spec.mjs-snapshots/Heading-dark-chromium-darwin.png)
  *
  */
 export default function Heading({
   accessibilityLevel,
   align = 'start',
   children,
-  color = 'darkGray',
+  color = 'default',
   lineClamp,
   id,
   overflow = 'breakWord',
   size = '600',
 }: Props): Node {
+  const inSemiBoldExp = useInExperiment({
+    webExperimentName: 'web_gestalt_semibold_weight',
+    mwebExperimentName: 'mweb_gestalt_semibold_weight',
+  });
+
+  const headingStyle = inSemiBoldExp ? styles.HeadingSemiBold : styles.Heading;
+
   const cs = cx(
-    styles.Heading,
-    typography[`fontSize${SIZE_SCALE[size]}`],
-    color && literalColors.includes(color) && colors[color],
+    headingStyle,
+    typography[`fontSize${size}`],
+    color && semanticColors.includes(color) && colors[`${color}Text`],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,

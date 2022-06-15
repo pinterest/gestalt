@@ -20,7 +20,16 @@ npm i gestalt --save
 or
 ~~~jsx
 yarn add gestalt
-~~~"
+~~~
+To install the DatePicker package:
+~~~jsx
+npm i gestalt-datepicker --save
+~~~
+or
+~~~jsx
+yarn add gestalt-datepicker
+~~~
+"
           />
         </Flex>
       </Card>
@@ -37,6 +46,15 @@ import 'gestalt/dist/gestalt.css';
 ~~~
 "
           />
+          <Markdown
+            text="
+~~~jsx
+import DatePicker from 'gestalt-datepicker';
+import 'gestalt-datepicker/dist/gestalt-datepicker.css';
+~~~
+"
+          />
+
           <Text>
             That syntax is Webpack specific (and will work with Create React App), but you can use
             Gestalt anywhere that supports ES6 module bundling and global CSS.

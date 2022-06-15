@@ -38,6 +38,9 @@ type Props = {|
 
 /**
  * [Table](https://gestalt.pinterest.systems/table) is a set of structured data that is easy for a user to scan, examine, and compare. Table data is displayed in a grid format and can be used to structure both interactive and static data.
+ *
+ * ![Table light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Table.spec.mjs-snapshots/Table-chromium-darwin.png)
+ *
  */
 export default function Table({
   accessibilityLabel,

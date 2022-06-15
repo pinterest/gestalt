@@ -20,12 +20,15 @@ describe('Video loading', () => {
   it('Does not load when string src does not change', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -35,6 +38,8 @@ describe('Video loading', () => {
   it('Does not load when array src does not change', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -46,6 +51,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -55,12 +61,15 @@ describe('Video loading', () => {
   it('Loads when string src changes to new string src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/bunny/movie.mp4" />);
@@ -70,12 +79,15 @@ describe('Video loading', () => {
   it('Loads when string src changes to new array src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -95,6 +107,8 @@ describe('Video loading', () => {
   it('Loads when array src changes to new string src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -106,6 +120,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />);
@@ -115,6 +130,8 @@ describe('Video loading', () => {
   it('Loads when array src changes to new array src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -126,6 +143,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -145,6 +163,8 @@ describe('Video loading', () => {
   it('Loads when array src changes to new length array src', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -156,6 +176,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -179,6 +200,8 @@ describe('Video loading', () => {
   it('DisableRemotePlayback is set on <video />', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -191,12 +214,15 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('video').attributes.disableremoteplayback).toBeDefined();
   });
 
   it('DisableRemotePlayback is not set on <video />', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       src: [
@@ -209,12 +235,15 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('video').attributes.disableremoteplayback).toBeUndefined();
   });
 
   it('Progress bar label is set', () => {
     const props = {
       ...A11Y_LABELS,
+      onPlay: () => {},
+      onPlayError: () => {},
       aspectRatio: 1,
       captions: 'https://media.w3.org/2010/05/sintel/captions.vtt',
       controls: true,
@@ -227,6 +256,7 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByLabelText(container, 'Progress bar')).toBeDefined();
   });
 });

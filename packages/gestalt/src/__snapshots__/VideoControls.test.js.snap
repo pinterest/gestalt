@@ -29,7 +29,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -131,7 +131,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -161,7 +161,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -205,7 +205,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -226,7 +226,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -307,7 +307,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -337,7 +337,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -381,7 +381,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -402,7 +402,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -483,7 +483,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -513,7 +513,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -557,7 +557,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -578,7 +578,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -659,7 +659,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -689,7 +689,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -733,7 +733,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -754,7 +754,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:07
     </div>
@@ -835,7 +835,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:07
     </div>
@@ -865,7 +865,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"

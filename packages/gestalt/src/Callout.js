@@ -6,8 +6,8 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import styles from './Callout.css';
+import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { type ActionDataType } from './commonTypes.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -78,24 +78,6 @@ type Props = {|
   title?: string,
 |};
 
-const CALLOUT_TYPE_ATTRIBUTES = {
-  info: {
-    icon: 'info-circle',
-    color: 'blue',
-    backgroundColor: '#EBF4FE',
-  },
-  warning: {
-    icon: 'workflow-status-warning',
-    color: 'orange',
-    backgroundColor: '#FDF5EC',
-  },
-  error: {
-    icon: 'workflow-status-problem',
-    color: 'red',
-    backgroundColor: '#FDEBEE',
-  },
-};
-
 function CalloutAction({
   data,
   stacked,
@@ -105,12 +87,7 @@ function CalloutAction({
   stacked?: boolean,
   type: string,
 |}): Node {
-  const { name: colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-  let color = type === 'primary' ? 'white' : 'transparent';
-  if (isDarkMode && type === 'secondary') {
-    color = 'transparentWhiteText';
-  }
+  const color = type === 'primary' ? 'white' : 'transparent';
   const { accessibilityLabel, disabled, label, onClick, href, rel, target } = data;
 
   return (
@@ -157,9 +134,8 @@ function CalloutAction({
 /**
  * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
  *
- * ⚠️ Please note: Callout is not currently optimized for dark mode.
- *
- * ![Callout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Callout%20%230.png)
+ * ![Callout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Callout.spec.mjs-snapshots/Callout-chromium-darwin.png)
+ * ![Callout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Callout-dark.spec.mjs-snapshots/Callout-dark-chromium-darwin.png)
  *
  */
 export default function Callout({
@@ -171,19 +147,11 @@ export default function Callout({
   type,
   title,
 }: Props): Node {
-  // Currently there is not a dark mode spec for this component. This is to ensure
-  // that all text is readable.
-  const { name } = useColorScheme();
-  const isDarkMode = name === 'darkMode';
   const responsiveMinWidth = useResponsiveMinWidth();
 
   return (
     <Box
-      dangerouslySetInlineStyle={{
-        __style: {
-          backgroundColor: CALLOUT_TYPE_ATTRIBUTES[type].backgroundColor,
-        },
-      }}
+      color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
       display="flex"
       direction="column"
       smDirection="row"
@@ -206,8 +174,8 @@ export default function Callout({
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel}
-              color={CALLOUT_TYPE_ATTRIBUTES[type].color}
-              icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
+              color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
+              icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
               size={32}
             />
           </Box>
@@ -226,15 +194,12 @@ export default function Callout({
                     size="400"
                     weight="bold"
                     align={responsiveMinWidth === 'xs' ? 'center' : undefined}
-                    color="dark"
                   >
                     {title}
                   </Text>
                 </Box>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined} color="dark">
-                {message}
-              </Text>
+              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
             </Box>
           </Box>
         </Box>
@@ -256,7 +221,7 @@ export default function Callout({
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel}
             icon="cancel"
-            iconColor={isDarkMode ? 'white' : 'darkGray'}
+            iconColor="darkGray"
             onClick={dismissButton.onDismiss}
             padding={4}
             size="sm"

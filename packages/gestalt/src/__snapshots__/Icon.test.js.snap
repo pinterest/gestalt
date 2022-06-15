@@ -4,7 +4,7 @@ exports[`Icon flipped if its in the flip on rtl list 1`] = `
 <svg
   aria-hidden={null}
   aria-label="send"
-  className="rtlSupport icon gray iconBlock"
+  className="rtlSupport icon subtleIcon iconBlock"
   height={16}
   role="img"
   viewBox="0 0 24 24"
@@ -20,7 +20,7 @@ exports[`Icon has correct aria-hidden property applied when accessibilityLabel i
 <svg
   aria-hidden={true}
   aria-label=""
-  className="icon gray iconBlock"
+  className="icon subtleIcon iconBlock"
   height={16}
   role="img"
   viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ exports[`Icon renders 1`] = `
 <svg
   aria-hidden={null}
   aria-label="Add"
-  className="icon gray iconBlock"
+  className="icon subtleIcon iconBlock"
   height={16}
   role="img"
   viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ exports[`Icon uses the dangerouslySetSvgPath prop when icon path is not specifie
 <svg
   aria-hidden={null}
   aria-label="Line"
-  className="icon gray iconBlock"
+  className="icon subtleIcon iconBlock"
   height={16}
   role="img"
   viewBox="0 0 24 24"

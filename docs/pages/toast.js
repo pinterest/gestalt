@@ -22,7 +22,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <React.Fragment>
       Saved to{' '}
       <Text inline weight="bold">
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
           Home decor
         </Link>
       </Text>
@@ -101,7 +101,7 @@ function ToastExample() {
                 <React.Fragment>
                   Saved to{' '}
                   <Text inline weight="bold">
-                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
                       Home decor
                     </Link>
                   </Text>
@@ -145,7 +145,7 @@ function ToastExample() {
       <React.Fragment>
         Saved to{' '}
         <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
             Home decor
           </Link>
         </Text>
@@ -179,7 +179,7 @@ function ToastExample() {
       <React.Fragment>
         Saved to{' '}
         <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
             Home decor
           </Link>
         </Text>
@@ -209,7 +209,7 @@ function ToastExample() {
       <React.Fragment>
         Saved to{' '}
         <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
             Home decor
           </Link>
         </Text>
@@ -242,6 +242,7 @@ function ToastExample() {
                 inline
                 target="blank"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                underline="hover"
               >
                 Home decor
               </Link>
@@ -290,6 +291,7 @@ function ToastExample() {
                     inline
                     target="blank"
                     href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                    underline="hover"
                   >
                     Home decor
                   </Link>

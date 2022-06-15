@@ -4,26 +4,15 @@ import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
-import { allowedColors, semanticColors } from './textTypes.js';
+import { semanticColors } from './textTypes.js';
+import useInExperiment from './useInExperiment.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
 }
 
-const SIZE_SCALE = {
-  sm: 100,
-  md: 200,
-  lg: 300,
-  '100': 100,
-  '200': 200,
-  '300': 300,
-  '400': 400,
-  '500': 500,
-  '600': 600,
-};
-
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
-type Size = '100' | '200' | '300' | '400' | '500' | '600' | 'sm' | 'md' | 'lg';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
   /**
@@ -37,29 +26,13 @@ type Props = {|
    * Link: https://gestalt.pinterest.systems/text#color
    */
   color?:
-    | 'blue'
-    | 'darkGray'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
-    | 'watermelon'
-    | 'white'
     | 'default'
     | 'subtle'
     | 'success'
     | 'error'
     | 'warning'
     | 'shopping'
+    | 'link'
     | 'inverse'
     | 'light'
     | 'dark',
@@ -74,15 +47,15 @@ type Props = {|
   /**
    * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.
    *
-   * Link: https://gestalt.pinterest.systems/text#overflow
+   * Link: https://gestalt.pinterest.systems/text#Overflow-and-truncation
    */
   lineClamp?: number,
   /**
-   * Link: https://gestalt.pinterest.systems/text#overflow
+   * Link: https://gestalt.pinterest.systems/text#Overflow-and-truncation
    */
   overflow?: Overflow,
   /**
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size). The "sm", "md", and "lg" values will soon be deprecated.
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).
    *
    * Link: https://gestalt.pinterest.systems/text#size
    */
@@ -102,15 +75,15 @@ type Props = {|
 |};
 
 /**
- * The [Text](https://gestalt.pinterest.systems/text) component should be used for all text on the page.
+ * The [Text](https://gestalt.pinterest.systems/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
  *
- * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Text%20%230.png)
- * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Text-dark%20%230.png)
+ * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.mjs-snapshots/Text-chromium-darwin.png)
+ * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.mjs-snapshots/Text-dark-chromium-darwin.png)
  */
 export default function Text({
   align = 'start',
   children,
-  color = 'darkGray',
+  color = 'default',
   inline = false,
   italic = false,
   lineClamp,
@@ -120,23 +93,18 @@ export default function Text({
   underline = false,
   weight = 'normal',
 }: Props): Node {
-  let colorClass = null;
-  const colorName = semanticColors.includes(color) ? `${color}Text` : color;
-  if (
-    allowedColors.includes(color) &&
-    colorName !== 'dark' &&
-    colorName !== 'error' &&
-    colorName !== 'light' &&
-    colorName !== 'subtle' &&
-    colorName !== 'success' &&
-    colorName !== 'warning'
-  ) {
-    colorClass = colors[colorName];
-  }
+  const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
+
+  const inSemiBoldExp = useInExperiment({
+    webExperimentName: 'web_gestalt_semibold_weight',
+    mwebExperimentName: 'mweb_gestalt_semibold_weight',
+  });
+
+  const fontWeightStyle = inSemiBoldExp ? typography.fontWeightSemiBold : typography.fontWeightBold;
 
   const cs = cx(
     styles.Text,
-    typography[`fontSize${SIZE_SCALE[size]}`],
+    typography[`fontSize${size}`],
     color && colorClass,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
@@ -148,7 +116,7 @@ export default function Text({
     overflow === 'noWrap' && typography.noWrap,
     italic && typography.fontStyleItalic,
     underline && typography.underline,
-    weight === 'bold' && typography.fontWeightBold,
+    weight === 'bold' && fontWeightStyle,
     weight === 'normal' && typography.fontWeightNormal,
     isNotNullish(lineClamp) && typography.lineClamp,
   );

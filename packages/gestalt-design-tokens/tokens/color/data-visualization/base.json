@@ -1,0 +1,66 @@
+{
+  "color": {
+    "data-visualization": {
+      "01": {
+        "value": "{color.teal.spabattical.450.value}",
+        "darkValue": "{color.teal.spabattical.300.value}",
+        "comment": "First option for data visualization colors"
+      },
+      "02": {
+        "value": "{color.yellow.caramellow.450.value}",
+        "darkValue": "{color.yellow.caramellow.300.value}",
+        "comment": "Second option for data visualization colors"
+      },
+      "03": {
+        "value": "{color.purple.mysticool.600.value}",
+        "darkValue": "{color.purple.mysticool.400.value}",
+        "comment": "Third option for data visualization colors"
+      },
+      "04": {
+        "value": "{color.pink.flaminglow.500.value}",
+        "darkValue": "{color.pink.flaminglow.300.value}",
+        "comment": "Fourth option for data visualization colors"
+      },
+      "05": {
+        "value": "{color.blue.skycicle.800.value}",
+        "darkValue": "{color.blue.skycicle.450.value}",
+        "comment": "Fifth option for data visualization colors"
+      },
+      "06": {
+        "value": "{color.orange.firetini.700.value}",
+        "darkValue": "{color.orange.firetini.400.value}",
+        "comment": "Sixth option for data visualization colors"
+      },
+      "07": {
+        "value": "{color.blue.skycicle.500.value}",
+        "darkValue": "{color.blue.skycicle.200.value}",
+        "comment": "Seventh option for data visualization colors"
+      },
+      "08": {
+        "value": "{color.orange.firetini.500.value}",
+        "darkValue": "{color.orange.firetini.200.value}",
+        "comment": "Eighth option for data visualization colors"
+      },
+      "09": {
+        "value": "{color.teal.spabattical.700.value}",
+        "darkValue": "{color.teal.spabattical.450.value}",
+        "comment": "Ninth option for data visualization colors"
+      },
+      "10": {
+        "value": "{color.purple.mysticool.400.value}",
+        "darkValue": "{color.purple.mysticool.200.value}",
+        "comment": "Tenth option for data visualization colors"
+      },
+      "11": {
+        "value": "{color.green.matchacado.500.value}",
+        "darkValue": "{color.green.matchacado.300.value}",
+        "comment": "Eleventh option for data visualization colors"
+      },
+      "12": {
+        "value": "{color.pink.flaminglow.900.value}",
+        "darkValue": "{color.pink.flaminglow.500.value}",
+        "comment": "Twelfth option for data visualization colors"
+      }
+    }
+  }
+}

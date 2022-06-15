@@ -16,6 +16,7 @@ exports[`TextField TextField normal 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -40,6 +41,30 @@ exports[`TextField TextField with autocomplete 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with disabled 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base disabled normal medium truncate"
+      disabled={true}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -62,6 +87,7 @@ exports[`TextField TextField with error 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -69,7 +95,7 @@ exports[`TextField TextField with error 1`] = `
     className="box marginTop2"
   >
     <div
-      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -98,6 +124,7 @@ exports[`TextField TextField with hasError 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -121,6 +148,30 @@ exports[`TextField TextField with name 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with readOnly 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={true}
       type="text"
     />
   </div>
@@ -164,7 +215,7 @@ exports[`TextField TextField with tags 1`] = `
               title="a@pinterest.com"
             >
               <span
-                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
               >
                 a@pinterest.com
               </span>
@@ -180,7 +231,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -224,7 +275,7 @@ exports[`TextField TextField with tags 1`] = `
               title="b@pinterest.com"
             >
               <span
-                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
               >
                 b@pinterest.com
               </span>
@@ -240,7 +291,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -284,7 +335,7 @@ exports[`TextField TextField with tags 1`] = `
               title="c@pinterest.com"
             >
               <span
-                className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
               >
                 c@pinterest.com
               </span>
@@ -300,7 +351,7 @@ exports[`TextField TextField with tags 1`] = `
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -339,6 +390,7 @@ exports[`TextField TextField with tags 1`] = `
           onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
+          readOnly={false}
           type="text"
         />
       </div>

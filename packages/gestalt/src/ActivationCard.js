@@ -11,9 +11,9 @@ import styles from './ActivationCard.css';
 
 const STATUS_ICONS = {
   notStarted: undefined,
-  pending: { symbol: 'clock', color: 'gray' },
-  needsAttention: { symbol: 'workflow-status-problem', color: 'red' },
-  complete: { symbol: 'check-circle', color: 'green' },
+  pending: { symbol: 'clock', color: 'subtle' },
+  needsAttention: { symbol: 'workflow-status-problem', color: 'error' },
+  complete: { symbol: 'check-circle', color: 'success' },
 };
 
 type LinkData = {|
@@ -125,7 +125,7 @@ function CompletedCard({ dismissButton, message, status, statusMessage, title }:
           </Box>
           {message && (
             <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-              <Text color="gray" size="200">
+              <Text color="subtle" size="200">
                 {message}
               </Text>
             </Box>
@@ -173,7 +173,7 @@ function UncompletedCard({
           </Box>
         )}
         <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
-          <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="200">
+          <Text color={isStarted ? 'default' : 'subtle'} weight="bold" size="200">
             {statusMessage}
           </Text>
         </Box>
@@ -185,7 +185,7 @@ function UncompletedCard({
       </Box>
       {message && (
         <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-          <Text color="gray" size="200">
+          <Text color="subtle" size="200">
             {message}
           </Text>
         </Box>
@@ -214,8 +214,8 @@ function UncompletedCard({
 /**
  * [ActivationCards](https://gestalt.pinterest.systems/activationcard) are used in groups to communicate a user’s stage in a series of steps toward an overall action.
  *
- * ![ActivationCard light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ActivationCard%20%230.png)
- * ![ActivationCard dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/ActivationCard-dark%20%230.png)
+ * ![ActivationCard light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard.spec.mjs-snapshots/ActivationCard-chromium-darwin.png)
+ * ![ActivationCard dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard-dark.spec.mjs-snapshots/ActivationCard-dark-chromium-darwin.png)
  *
  */
 export default function ActivationCard({
@@ -233,6 +233,7 @@ export default function ActivationCard({
       display="flex"
       flex="grow"
       borderStyle="shadow"
+      color="elevationFloating"
       rounding={4}
       padding={6}
       maxWidth={400}

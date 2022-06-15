@@ -17,6 +17,7 @@ describe('<Tabs />', () => {
       />,
     );
 
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('News').click();
     expect(mockOnChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -24,6 +25,7 @@ describe('<Tabs />', () => {
       }),
     );
 
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('You').click();
     expect(mockOnChange).toHaveBeenCalledWith(
       expect.objectContaining({

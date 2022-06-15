@@ -132,7 +132,7 @@ The generic codemods available are:
 - [renameComponent](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/renameComponent.js) to rename Gestalt components.
 - [modifyProp](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/modifyProp.js) to modify (rename or remove) Gestalt component props.
 - [modifyPropValue](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/modifyPropValue.js) to modify (rename, add, or remove) prop-value combinations in Gestalt component.
-- [detectManualReplacement](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/throwErrorMessage.js) to throw error messages upon detection of components, props, and prop-value combinations in Gestalt components.
+- [detectManualReplacement](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/detectManualReplacement.js) to throw error messages upon detection of components, props, and prop-value combinations in Gestalt components.
 
 To learn more about developing generic codemods, read this [page](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods#readme).
 `}
@@ -282,7 +282,6 @@ To learn more about developing generic codemods, read this [page](https://github
                     inline
                     onClick={() => trackButtonClick('Gestalt Usage Visualizer')}
                     target="blank"
-                    hoverStyle="underline"
                     // eslint-disable-next-line no-script-url, no-template-curly-in-string
                     href="javascript:(function(){[...document.querySelectorAll('[style]'),...document.querySelectorAll('[class]')].filter(el=>[...el.classList].some(classname=>classname.length>3)||el.classList=='').forEach(el=>{el.setAttribute('style',`${el.getAttribute('style')||''};border:solid 1px#ff0000;`)})})();"
                   >

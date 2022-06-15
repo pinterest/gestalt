@@ -1,18 +1,20 @@
 // @flow strict
 import { type Node } from 'react';
-import { Badge, Box, ColorSchemeProvider } from 'gestalt';
+import { Badge, Box, ColorSchemeProvider, Flex } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box display="inlineBlock" padding={1}>
-        <Badge text="Try it out!" />
-        <Badge text="Try it out!" type="success" />
-        <Badge text="Try it out!" type="error" />
-        <Badge text="Try it out!" type="warning" />
-        <Badge text="Try it out!" type="neutral" />
-        <Badge text="Try it out!" type="lightWash" />
-        <Badge text="Try it out!" type="darkWash" />
+      <Box color="white" padding={1}>
+        <Flex gap={1} wrap width={400}>
+          <Badge text="Info badge" />
+          <Badge text="Success badge" type="success" />
+          <Badge text="Error badge" type="error" />
+          <Badge text="Warning badge" type="warning" />
+          <Badge text="Neutral badge" type="neutral" />
+          <Badge text="LightWash badge" type="lightWash" />
+          <Badge text="DarkWash badge" type="darkWash" />
+        </Flex>
       </Box>
     </ColorSchemeProvider>
   );

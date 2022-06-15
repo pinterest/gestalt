@@ -34,6 +34,7 @@ exports[`UpsellForm renders 1`] = `
               onFocus={[Function]}
               onKeyDown={[Function]}
               placeholder="Name"
+              readOnly={false}
               type="text"
             />
           </div>
@@ -59,7 +60,7 @@ exports[`UpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Text fontSize300 white alignCenter fontWeightBold"
+          className="Text fontSize300 inverseText alignCenter fontWeightBold"
         >
           Submit
         </div>

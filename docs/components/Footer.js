@@ -10,9 +10,9 @@ export default function Footer(): Node {
         <Box column={12} mdColumn={3} padding={2}>
           <Flex alignItems="center" gap={2}>
             <Box aria-hidden>
-              <Icon icon="pinterest" color="red" size={24} accessibilityLabel="" />
+              <Icon icon="pinterest" color="brandPrimary" size={24} accessibilityLabel="" />
             </Box>
-            <Text color="darkGray" weight="bold">
+            <Text color="default" weight="bold">
               <Link
                 accessibilityLabel="Visit Pinterest.com"
                 href="https://www.pinterest.com"

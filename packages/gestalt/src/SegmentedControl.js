@@ -59,7 +59,7 @@ function SegmentedControlItem({
       style={{ width }}
     >
       {typeof item === 'string' ? (
-        <Text color="darkGray" align="center" size="200" weight="bold">
+        <Text color="default" align="center" size="200" weight="bold">
           {item}
         </Text>
       ) : (

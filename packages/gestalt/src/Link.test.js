@@ -8,11 +8,33 @@ it('default', () =>
 it('regular', () =>
   expect(renderer.create(<Link href="https://example.com">Link</Link>).toJSON()).toMatchSnapshot());
 
-it('inline', () =>
+it('inline and auto underline', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" inline>
+        <Link href="https://example.com" inline underline="auto">
+          Link
+        </Link>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
+it('inline and overriden underline="none"', () =>
+  expect(
+    renderer
+      .create(
+        <Link href="https://example.com" inline underline="none">
+          Link
+        </Link>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
+it('inline and overriden underline="hover"', () =>
+  expect(
+    renderer
+      .create(
+        <Link href="https://example.com" inline underline="hover">
           Link
         </Link>,
       )
@@ -52,18 +74,18 @@ it('target blank', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('with nofollow', () =>
+it('external link with nofollow', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" rel="nofollow">
+        <Link href="https://example.com" rel="nofollow" externalLinkIcon="default">
           Link
         </Link>,
       )
       .toJSON(),
   ).toMatchSnapshot());
 
-it('with onTap', () =>
+it('with onClick', () =>
   expect(
     renderer
       .create(
@@ -74,22 +96,11 @@ it('with onTap', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('with custom rounding, hoverStyle, and tapStyle', () =>
+it('with custom rounding, and tapStyle', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" rounding="pill" hoverStyle="none" tapStyle="compress">
-          Link
-        </Link>,
-      )
-      .toJSON(),
-  ).toMatchSnapshot());
-
-it('with accessibilitySelected and role', () =>
-  expect(
-    renderer
-      .create(
-        <Link href="https://example.com" accessibilitySelected role="tab">
+        <Link href="https://example.com" rounding="pill" tapStyle="compress">
           Link
         </Link>,
       )

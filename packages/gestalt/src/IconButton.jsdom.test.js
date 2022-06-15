@@ -9,6 +9,7 @@ describe('IconButton', () => {
     const { getByRole } = render(
       <IconButton accessibilityLabel="test" icon="add" onClick={mockOnClick} />,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByRole('button').click();
     expect(mockOnClick).toHaveBeenCalled();
   });

@@ -1,3 +1,623 @@
+## 58.1.2 (Jun 14, 2022)
+
+### Patch
+
+- Docs: Text design guidelines (#2154)
+
+## 58.1.1 (Jun 14, 2022)
+
+### Patch
+
+- Docs: Heading component design guidelines (#2153)
+
+## 58.1.0 (Jun 8, 2022)
+
+### Minor
+
+- Icon: Added music-on and music-off icons (#2152)
+
+## 58.0.6 (Jun 8, 2022)
+
+### Patch
+
+- Design Tokens: Update android output files (#2110)
+
+## 58.0.5 (Jun 8, 2022)
+
+### Patch
+
+- Upsell: Update doc examples (#2151)
+
+## 58.0.4 (Jun 6, 2022)
+
+### Patch
+
+- Data Visualization: Add usage guidelines with examples (#2148)
+
+## 58.0.3 (Jun 4, 2022)
+
+### Patch
+
+- Docs: minor nits on Whats New page (#2149)
+
+## 58.0.2 (Jun 3, 2022)
+
+### Patch
+
+- Internal: upgrade Next (patch) and related packages (#2143)
+
+## 58.0.1 (Jun 3, 2022)
+
+### Patch
+
+- Docs: Weekly update for 6/3/2022 (#2146)
+
+## 58.0.0 (Jun 3, 2022)
+
+### Major
+
+- Text, Heading: Deprecate non-token-based size options (#2138)
+
+## 57.2.8 (Jun 2, 2022)
+
+### Patch
+
+- Typography: new Typography guidelines in the Docs (#2132)
+
+## 57.2.7 (Jun 2, 2022)
+
+### Patch
+
+- Docs: Revamp What's New page into our blog (#2145)
+
+## 57.2.6 (Jun 2, 2022)
+
+### Patch
+
+- Internal: Add Pinterest metadata tag to connect Gestalt Pinterest account w/ Gestalt site (#2139)
+
+## 57.2.5 (Jun 2, 2022)
+
+### Patch
+
+- Docs: Updated roadmap for May 2022 (#2140)
+
+## 57.2.4 (Jun 2, 2022)
+
+### Patch
+
+- Development, Internal: updated Development guidelines and Playwright visual comparisons (#2144)
+
+## 57.2.3 (May 26, 2022)
+
+### Patch
+
+- Docs: Small tweaks (#2137)
+
+## 57.2.2 (May 25, 2022)
+
+### Patch
+
+- Site: Move site settings into header dropdown menu (#2135)
+
+## 57.2.1 (May 25, 2022)
+
+### Patch
+
+- Flex: fix examples in Docs (#2134)
+
+## 57.2.0 (May 25, 2022)
+
+### Minor
+
+- Data Visualization: Add design tokens and color palette page (#2133)
+
+## 57.1.0 (May 24, 2022)
+
+### Minor
+
+- Video: Add startTime prop to explicitly set start time on video node (#2129)
+
+## 57.0.0 (May 24, 2022)
+
+### Major
+
+- AvatarPair: component deprecation (#2130)
+
+## 56.3.1 (May 23, 2022)
+
+### Patch
+
+- Development, Installation: added Docker & Datepicker installation guidelines (#2131)
+
+## 56.3.0 (May 23, 2022)
+
+### Minor
+
+- Internal: Use Playwright instead of Cypress (#2125)
+
+## 56.2.2 (May 20, 2022)
+
+### Patch
+
+- Internal: upgrade Flow to 0.178.1 (#2127)
+
+## 56.2.1 (May 20, 2022)
+
+### Patch
+
+- Docs: adding slimBanner prop into Docs' PageHeader to display information related to the component (#2126)
+
+## 56.2.0 (May 20, 2022)
+
+### Minor
+
+- Dark mode: Add support for Callout, Upsell, and SlimBanner (#2128)
+
+## 56.1.1 (May 20, 2022)
+
+### Patch
+
+- Docs: Unified Switch docs (#2122)
+
+## 56.1.0 (May 20, 2022)
+
+### Minor
+
+- RadioGroup: New component to ensure accessible radio button groups (#2123)
+
+## 56.0.1 (May 18, 2022)
+
+### Patch
+
+- DatePicker: Add note about installing as a separate package (#2124)
+
+## 56.0.0 (May 17, 2022)
+
+### Major
+
+- Internal: upgrade to React 18 (#2104)
+
+## 55.2.2 (May 16, 2022)
+
+### Patch
+
+- Eslint: Loosen Button iconEnd restrictions (#2121)
+
+## 55.2.1 (May 16, 2022)
+
+### Patch
+
+- Module: Update for dark mode support (#2120)
+
+## 55.2.0 (May 13, 2022)
+
+### Minor
+
+- SlimBanner, Callout: new SlimBanner component, fix darkMode Callout (#2108)
+
+## 55.1.2 (May 13, 2022)
+
+### Patch
+
+- Icons: Update heart-outline svg (#2118)
+
+## 55.1.1 (May 12, 2022)
+
+### Patch
+
+- Datapoint: add prop to set z-index on integrated tooltip (#2115)
+
+## 55.1.0 (May 12, 2022)
+
+### Minor
+
+- ComboBox: add `zIndex` prop (#2117)
+
+## 55.0.0 (May 12, 2022)
+
+### Major
+
+- Eslint plugin: Remove excludeTests & excludePaths (#2116)
+
+## 54.3.0 (May 11, 2022)
+
+### Minor
+
+- TextField: add bday to autocomplete (#2113)
+
+## 54.2.3 (May 10, 2022)
+
+### Patch
+
+- Docs: Update Open Forum details (#2112)
+
+## 54.2.2 (May 10, 2022)
+
+### Patch
+
+- Badge, Link: updated snapshots (#2111)
+
+## 54.2.1 (May 10, 2022)
+
+### Patch
+
+- Tooltip: minor refactor (#2105)
+
+## 54.2.0 (May 9, 2022)
+
+### Minor
+
+- Icon: Add info color option (#2109)
+
+## 54.1.0 (May 4, 2022)
+
+### Minor
+
+- Icon: update gmail icon design (#2103)
+
+## 54.0.0 (May 4, 2022)
+
+### Major
+
+- Link: remove `role` and `accessibilitySelected` props (#2102)
+
+## 53.4.3 (May 4, 2022)
+
+### Patch
+
+- Tabs: quick prop-table update (#2101)
+
+## 53.4.2 (May 3, 2022)
+
+### Patch
+
+- Avatar: Add data test id for testing (#2100)
+
+## 53.4.1 (May 2, 2022)
+
+### Patch
+
+- Internal: upgrade Jest to v28 (#2098)
+
+## 53.4.0 (May 2, 2022)
+
+### Minor
+
+- DatePicker: add name prop (#2097)
+
+## 53.3.0 (May 2, 2022)
+
+### Minor
+
+- Link: design changes (part II externalLinkIcon) (#2092)
+
+## 53.2.0 (May 2, 2022)
+
+### Minor
+
+- Box, Column, Container, Flex, Table: add visual diff testing and screenshot to description in VSCode (Flow extension) (#2096)
+
+## 53.1.1 (Apr 28, 2022)
+
+### Patch
+
+- Tooling: url fix (#2095)
+
+## 53.1.0 (Apr 28, 2022)
+
+### Minor
+
+- Checkbox: Added labelDisplay prop (#2090)
+
+## 53.0.0 (Apr 28, 2022)
+
+### Major
+
+- Icon: Deprecate old literal colors (#2087)
+
+## 52.2.2 (Apr 28, 2022)
+
+### Patch
+
+- Updated roadmap for April (#2093)
+
+## 52.2.1 (Apr 28, 2022)
+
+### Patch
+
+- Docs: Typo fixes and link shortening (#2094)
+
+## 52.2.0 (Apr 27, 2022)
+
+### Minor
+
+- Masonry: Fix hydration for server rendered flexible grids (#2084)
+
+## 52.1.2 (Apr 27, 2022)
+
+### Patch
+
+- TextArea: design guidelines (#2088)
+
+## 52.1.1 (Apr 27, 2022)
+
+### Patch
+
+- Added default value to labelDisplay prop in TextArea component (#2089)
+
+## 52.1.0 (Apr 26, 2022)
+
+### Minor
+
+- TextField & TextArea: Added labelDisplay prop (#2083)
+
+## 52.0.1 (Apr 26, 2022)
+
+### Patch
+
+- Video: fix on Flow type (#2086)
+
+## 52.0.0 (Apr 25, 2022)
+
+### Major
+
+- Video: handle HTMLMediaElement.play() Promise rejection and autoplay blocking, and API improvements (#2063)
+
+## 51.0.0 (Apr 25, 2022)
+
+### Major
+
+- Link: design changes (part I inline/underline) (#2073)
+
+## 50.3.0 (Apr 22, 2022)
+
+### Minor
+
+- Icon: Add brandPrimary color option (#2081)
+
+## 50.2.1 (Apr 22, 2022)
+
+### Patch
+
+- ActivationCard: Apply new elevation token for dark mode (#2077)
+
+## 50.2.0 (Apr 22, 2022)
+
+### Minor
+
+- Font weight: implement experiment to change font weight from bold to semibold (#2047)
+
+## 50.1.4 (Apr 20, 2022)
+
+### Patch
+
+- Docs: Update palette info (#2079)
+
+## 50.1.3 (Apr 20, 2022)
+
+### Patch
+
+- Docs: Tooltip / IconButton usage guidance (#2074)
+
+## 50.1.2 (Apr 20, 2022)
+
+### Patch
+
+- Datepicker: fix useEffect side effect (#2076)
+
+## 50.1.1 (Apr 20, 2022)
+
+### Patch
+
+- Internal: upgrade testing-library/hooks to 8.0.0 (#2078)
+
+## 50.1.0 (Apr 18, 2022)
+
+### Minor
+
+- Icon: Add support for new semantic colors (#2072)
+
+## 50.0.9 (Apr 15, 2022)
+
+### Patch
+
+- Checkbox: Updated Docs (v.1) (#2067)
+
+## 50.0.8 (Apr 14, 2022)
+
+### Patch
+
+- Docs: Add color examples page (#2068)
+
+## 50.0.7 (Apr 14, 2022)
+
+### Patch
+
+- Button: prop table fixes (#2070)
+
+## 50.0.6 (Apr 14, 2022)
+
+### Patch
+
+- Internal: Bump peer dependencies to support React 18 (#2069)
+
+## 50.0.5 (Apr 13, 2022)
+
+### Patch
+
+- PageHeader: Best practice update (#2066)
+
+## 50.0.4 (Apr 13, 2022)
+
+### Patch
+
+- Bump async from 3.2.0 to 3.2.3 (#2065)
+
+## 50.0.3 (Apr 13, 2022)
+
+### Patch
+
+- Datepicker: fix controlled state [bug] (#2064)
+
+## 50.0.2 (Apr 12, 2022)
+
+### Patch
+
+- PageHeader: New Docs (#2048)
+
+## 50.0.1 (Apr 11, 2022)
+
+### Patch
+
+- Internal: add eslint-plugin-testing-library (#2062)
+
+## 50.0.0 (Apr 11, 2022)
+
+### Major
+
+- Heading: Deprecate old color options, add new semantic colors (#2058)
+
+## 49.0.1 (Apr 11, 2022)
+
+### Patch
+
+- Bump moment from 2.28.0 to 2.29.2 (#2061)
+
+## 49.0.0 (Apr 8, 2022)
+
+### Major
+
+- PageHeader: PageHeader redesign v.2 (Part I: core changes) (#1996)
+
+## 48.0.12 (Apr 8, 2022)
+
+### Patch
+
+- Button: Fix layout in docs (#2060)
+
+## 48.0.11 (Apr 8, 2022)
+
+### Patch
+
+- Pog, Toast, Tooltip, Upsell, Video: add visual diff testing and screenshot to description in VSCode (Flow extension) (#2057)
+
+## 48.0.10 (Apr 7, 2022)
+
+### Patch
+
+- Image: update Docs to fix heading issues and other visual improvements (a11y bug) (#2056)
+
+## 48.0.9 (Apr 7, 2022)
+
+### Patch
+
+- ScrollBoundaryContainer: rename ScrollBoundaryContainer files to correctly autogenerate docs (bug) (#2055)
+
+## 48.0.8 (Apr 7, 2022)
+
+### Patch
+
+- Avatar: adjustments in Avatar docs (#2054)
+
+## 48.0.7 (Apr 7, 2022)
+
+### Patch
+
+- Popover: remove unused caret stroke style (#2052)
+
+## 48.0.6 (Apr 7, 2022)
+
+### Patch
+
+- Updated README's language to reflect Gestalt's shift towards a designs system (#2053)
+
+## 48.0.5 (Apr 6, 2022)
+
+### Patch
+
+- Roadmap: updates for March (#2035)
+
+## 48.0.4 (Apr 6, 2022)
+
+### Patch
+
+- Internal: Fix flow issue without .map() in Iconography and SVGs docs (#2046)
+
+## 48.0.3 (Apr 6, 2022)
+
+### Patch
+
+- Internal: upgrade Flow to 0.175.1 (#2051)
+
+## 48.0.2 (Apr 6, 2022)
+
+### Patch
+
+- TextField: use device type in exp checks (#2050)
+
+## 48.0.1 (Apr 6, 2022)
+
+### Patch
+
+- Text: Fix type issue (#2049)
+
+## 48.0.0 (Apr 6, 2022)
+
+### Major
+
+- Text: Deprecate old colors (#2028)
+
+## 47.2.0 (Apr 6, 2022)
+
+### Minor
+
+- Box: Add new raised shadow options to borderStyle (#2044)
+
+## 47.1.8 (Apr 5, 2022)
+
+### Patch
+
+- Box: Create elevation section (#2037)
+
+## 47.1.7 (Apr 4, 2022)
+
+### Patch
+
+- Internal: increase Cypress timeout threshold (#2041)
+
+## 47.1.6 (Apr 4, 2022)
+
+### Patch
+
+- TextField: fix stale type value when passed dynamically (#2039)
+- TextArea, TextField: Add support for readOnly fields (#2031)
+- Borders: Update border color for multiple components (#2023)
+
+## 47.1.5 (Apr 2, 2022)
+
+### Patch
+
+- Icon: add back to sidebar index (#2038)
+
+## 47.1.4 (Apr 1, 2022)
+
+### Patch
+
+- I18nProvider: provide default strings, downgrade throwing errors to console (#2036)
+
+## 47.1.3 (Mar 31, 2022)
+
+### Patch
+
+- Internal: upgrade Prettier to 2.6.1 (#2033)
+
+## 47.1.2 (Mar 31, 2022)
+
+### Patch
+
+- Internal: remove deprecated Prettier option (#2032)
+
 ## 47.1.1 (Mar 31, 2022)
 
 ### Patch

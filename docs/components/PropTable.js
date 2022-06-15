@@ -28,7 +28,7 @@ function Description(lines: Array<string>): Node {
   return (
     <Flex alignItems="start" direction="column" gap={2}>
       {lines.map((line, idx) => (
-        <Markdown key={idx} text={line} textColor="gray" />
+        <Markdown key={idx} text={line} textColor="subtle" />
       ))}
     </Flex>
   );
@@ -51,13 +51,13 @@ function Td({
   children,
   colspan = 1,
   shrink = false,
-  color = 'darkGray',
+  color = 'default',
 }: {|
   border?: boolean,
   children?: Node,
   colspan?: number,
   shrink?: boolean,
-  color?: 'darkGray' | 'gray',
+  color?: 'default' | 'subtle',
 |}) {
   return (
     <td
@@ -227,7 +227,7 @@ export default function PropTable({
                         </Td>
                         <Td
                           shrink
-                          color={defaultValue != null ? 'darkGray' : 'gray'}
+                          color={defaultValue != null ? 'default' : 'subtle'}
                           border={!propNameHasSecondRow}
                         >
                           {defaultValue != null ? (
@@ -253,13 +253,13 @@ export default function PropTable({
                               </Box>
                             )}
                           </Td>
-                          <Td colspan={1} color="darkGray">
+                          <Td colspan={1} color="default">
                             {description && (
                               <Box marginTop={6}>
                                 {Array.isArray(description) ? (
                                   Description(description)
                                 ) : (
-                                  <Markdown text={description} textColor="darkGray" />
+                                  <Markdown text={description} textColor="default" />
                                 )}
                               </Box>
                             )}
@@ -274,7 +274,7 @@ export default function PropTable({
                 )
               ) : (
                 <tr>
-                  <Td colspan={3} color="gray">
+                  <Td colspan={3} color="subtle">
                     No properties
                   </Td>
                 </tr>

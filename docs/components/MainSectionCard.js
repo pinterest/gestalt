@@ -64,7 +64,7 @@ function MainSectionCard({
       <Box
         alignItems="center"
         borderStyle="sm"
-        color={shaded ? 'lightGray' : 'white'}
+        color={shaded ? 'tertiary' : 'default'}
         display="flex"
         height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
         justifyContent="center"
@@ -116,7 +116,7 @@ function MainSectionCard({
           {shouldShowCode && !iframeContent && <ExampleCode code={code} name={cardTitle || ''} />}
 
           <Box paddingX={2}>
-            <Text color="watermelon">
+            <Text color="error">
               <LiveError />
             </Text>
           </Box>

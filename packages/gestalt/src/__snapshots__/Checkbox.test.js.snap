@@ -32,20 +32,24 @@ exports[`Checkbox 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -78,12 +82,12 @@ exports[`Checkbox checked 1`] = `
           type="checkbox"
         />
         <div
-          className="darkGrayBg borderDarkGray borderRadiusMd sizeMd check"
+          className="darkGrayBg borderSelected borderRadiusMd sizeMd check"
         >
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon white iconBlock"
+            className="icon inverseIcon iconBlock"
             height={12}
             role="img"
             viewBox="0 0 24 24"
@@ -96,20 +100,24 @@ exports[`Checkbox checked 1`] = `
         </div>
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -147,7 +155,7 @@ exports[`Checkbox disabled & checked 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon white iconBlock"
+            className="icon inverseIcon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -160,20 +168,24 @@ exports[`Checkbox disabled & checked 1`] = `
         </div>
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -210,20 +222,24 @@ exports[`Checkbox disabled 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -256,12 +272,12 @@ exports[`Checkbox indeterminate 1`] = `
           type="checkbox"
         />
         <div
-          className="darkGrayBg borderDarkGray borderRadiusMd sizeMd check"
+          className="darkGrayBg borderSelected borderRadiusMd sizeMd check"
         >
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon white iconBlock"
+            className="icon inverseIcon iconBlock"
             height={12}
             role="img"
             viewBox="0 0 24 24"
@@ -274,20 +290,24 @@ exports[`Checkbox indeterminate 1`] = `
         </div>
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -324,20 +344,24 @@ exports[`Checkbox small 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -401,20 +425,24 @@ exports[`Checkbox with an image 1`] = `
         </div>
       </div>
     </div>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;
@@ -451,32 +479,36 @@ exports[`Checkbox with error 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+          className="box paddingX1"
         >
-          Name
+          <div
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
   <div
     className="box marginTop2"
   >
     <div
-      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
     >
       <div
         className="box marginTop2"
       >
         <div
-          className="Text fontSize100 red alignStart breakWord fontWeightNormal"
+          className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
         >
           <span
             className="formErrorMessage"
@@ -523,35 +555,39 @@ exports[`Checkbox with subtext 1`] = `
         />
       </div>
     </label>
-    <label
-      className="label"
-      htmlFor="id"
+    <div
+      className="box xsDisplayBlock"
     >
-      <div
-        className="box paddingX1"
+      <label
+        className="label"
+        htmlFor="id"
       >
         <div
-          className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
-        >
-          Name
-        </div>
-        <div
-          className="box paddingY1"
+          className="box paddingX1"
         >
           <div
-            className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
+          <div
+            className="box paddingY1"
           >
             <div
-              className="box xsDisplayVisuallyHidden"
+              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
             >
-              :
+              <div
+                className="box xsDisplayVisuallyHidden"
+              >
+                :
+              </div>
+               
+              Additional Info
             </div>
-             
-            Additional Info
           </div>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
   </div>
 </div>
 `;

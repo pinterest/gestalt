@@ -100,7 +100,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text color="darkGray" inline lineClamp={1} weight={textWeight}>
+              <Text color="default" inline lineClamp={1} weight={textWeight}>
                 {option?.label}
               </Text>
               {badge && (
@@ -114,7 +114,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
           )}
         </Flex>
         {option.subtext && (
-          <Text size="200" color="gray">
+          <Text size="200" color="subtle">
             {option.subtext}
           </Text>
         )}
@@ -126,7 +126,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
         justifyContent="center"
       >
         {isSelectedItem && !isExternal ? (
-          <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
+          <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
         ) : (
           <Box width={12} />
         )}
@@ -141,7 +141,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
           marginStart={2}
         >
           {/* TODO: this label needs to be translated */}
-          <Icon accessibilityLabel=", External" color="darkGray" icon="arrow-up-right" size={12} />
+          <Icon accessibilityLabel=", External" color="default" icon="arrow-up-right" size={12} />
         </Box>
       )}
     </Flex>
@@ -175,7 +175,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       >
         {href ? (
           <Link
-            hoverStyle="none"
+            underline="none"
             href={href}
             onClick={onClick}
             target={isExternal ? 'blank' : 'self'}

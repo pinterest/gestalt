@@ -3,3 +3,9 @@
   margin-bottom: 0;
   margin-top: 0;
 }
+
+.HeadingSemiBold {
+  composes: antialiased sansSerif fontWeightSemiBold from "./Typography.css";
+  margin-bottom: 0;
+  margin-top: 0;
+}

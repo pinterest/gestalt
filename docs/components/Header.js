@@ -1,8 +1,20 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useState } from 'react';
-import { Box, Flex, FixedZIndex, Text, IconButton, Sticky, Link } from 'gestalt';
-// $FlowExpectedError[untyped-import]
-import GestaltPackageJson from 'gestalt/package.json';
+import { type Node, useCallback, useEffect, useState, useRef } from 'react';
+import {
+  Box,
+  CompositeZIndex,
+  Dropdown,
+  Flex,
+  FixedZIndex,
+  Label,
+  Switch,
+  Text,
+  IconButton,
+  Sticky,
+  Link,
+} from 'gestalt';
+
+import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import HeaderMenu from './HeaderMenu.js';
@@ -11,13 +23,38 @@ import { useNavigationContext } from './navigationContext.js';
 
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
+  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+
+  const anchorRef = useRef(null);
+
+  const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
+  // Z-index to use for any popovers on the Header
+  const POPOVER_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
+
+  const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
+
+  const colorSchemeCopy = colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View';
+
+  const onChangeColorScheme = () => {
+    trackButtonClick('Toggle color scheme', colorSchemeCopy);
+    return setColorScheme(colorScheme === 'light' ? 'dark' : 'light');
+  };
+
+  const directionCopy = textDirection === 'rtl' ? 'Left-To-Right View' : 'Right-To-Left View';
+
+  const onTextDirectionChange = () => {
+    trackButtonClick('Toggle page direction', directionCopy);
+    setSettingsDropdownOpen(false);
+    return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
+  };
 
   return (
     <Box
       paddingY={2}
       paddingX={4}
       mdPaddingX={6}
-      color="lightGray"
+      color="default"
+      borderStyle="raisedTopShadow"
       display="flex"
       direction="row"
       alignItems="center"
@@ -25,7 +62,7 @@ function Header() {
     >
       <Box marginStart={-2} marginEnd={2} display="flex" alignItems="center">
         {/* <Text> is out here to get proper underline styles on link */}
-        <Text color="darkGray" weight="bold">
+        <Text color="default" weight="bold">
           <Link
             accessibilityLabel="Gestalt home"
             href="/"
@@ -35,26 +72,84 @@ function Header() {
               <Flex alignItems="center" gap={2}>
                 <GestaltLogo height={40} width={40} />
                 {/* slight tweak to vertically center to logo */}
-                <Box dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}>
+                <Box
+                  display="none"
+                  mdDisplay="block"
+                  dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}
+                >
                   Gestalt Design System
                 </Box>
               </Flex>
             </Box>
           </Link>
         </Text>
-        <Text size="sm" weight="bold">
-          v{GestaltPackageJson.version}
-        </Text>
+        <Box paddingX={2}>
+          <IconButton
+            accessibilityControls="site-settings-dropdown"
+            accessibilityExpanded={isSettingsDropdownOpen}
+            accessibilityHaspopup
+            accessibilityLabel="Site settings"
+            icon="filter"
+            iconColor="darkGray"
+            onClick={() => setSettingsDropdownOpen((prevVal) => !prevVal)}
+            ref={anchorRef}
+            selected={isSettingsDropdownOpen}
+            size="sm"
+            tooltip={{ 'text': 'Site settings', 'zIndex': POPOVER_ZINDEX }}
+          />
+        </Box>
+        {isSettingsDropdownOpen && (
+          <Dropdown
+            anchor={anchorRef.current}
+            id="site-settings-dropdown"
+            onDismiss={() => setSettingsDropdownOpen(false)}
+            zIndex={POPOVER_ZINDEX}
+            isWithinFixedContainer
+          >
+            <Dropdown.Item
+              onSelect={() => onChangeColorScheme()}
+              option={{ value: 'isDarkMode', label: 'Custom link 1' }}
+            >
+              <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+                <Label htmlFor="darkMode-switch">
+                  <Text weight="bold">Dark mode</Text>
+                </Label>
+                <Switch
+                  switched={colorScheme === 'dark'}
+                  onChange={() => onChangeColorScheme()}
+                  id="darkMode-switch"
+                />
+              </Flex>
+            </Dropdown.Item>
+            <Dropdown.Item
+              onSelect={() => onTextDirectionChange()}
+              option={{ value: 'isRTL', label: 'Custom link 1' }}
+            >
+              <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+                <Label htmlFor="rtl-switch">
+                  <Text weight="bold">Right-to-left</Text>
+                </Label>
+                <Switch
+                  switched={textDirection === 'rtl'}
+                  onChange={() => onTextDirectionChange()}
+                  id="rtl-switch"
+                />
+              </Flex>
+            </Dropdown.Item>
+          </Dropdown>
+        )}
       </Box>
 
       {/* Spacer element */}
       <Box flex="grow" />
 
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
-        <DocSearch />
+        <Box paddingX={2}>
+          <DocSearch popoverZIndex={POPOVER_ZINDEX} />
+        </Box>
 
         {/* Medium & larger-screen buttons/links */}
-        <HeaderMenu isHeader />
+        <HeaderMenu isHeader popoverZIndex={POPOVER_ZINDEX} />
 
         {/* Small-screen menu button */}
         <Box display="flex" mdDisplay="none" alignItems="center">

@@ -1,12 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
+import Badge from './Badge.js';
 import DatapointTrend from './DatapointTrend.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
-import Badge from './Badge.js';
+import { type Indexable } from './zIndex.js';
 
 type TrendObject = {|
   accessibilityLabel: string,
@@ -20,6 +21,10 @@ type BadgeObject = {|
 
 type Props = {|
   /**
+   * Adds a badge to the title. Currently a beta feature, expect changes.
+   */
+  badge?: BadgeObject,
+  /**
    * Used to set the size of the datapoint. See the [size](https://gestalt.pinterest.systems#Size) variant to learn more.
    */
   size?: 'md' | 'lg',
@@ -32,9 +37,9 @@ type Props = {|
    */
   tooltipText?: string,
   /**
-   * Adds a badge to the title. Currently a beta feature, expect changes.
+   * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/zindex_classes) to learn more.
    */
-  badge?: BadgeObject,
+  tooltipZIndex?: Indexable,
   /**
    * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems#Trend) variant to learn more.
    */
@@ -52,10 +57,8 @@ type Props = {|
 /**
  * [Datapoint](https://gestalt.pinterest.systems/datapoint) displays at-a-glance data for a user to quickly view key metrics.
  *
- * ⚠️ Please note: Datapoint is not currently supported in dark mode.
- *
- * ![Datapoint light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Datapoint%20%230.png)
- * ![Datapoint dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Datapoint-dark%20%230.png)
+ * ![Datapoint light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Datapoint.spec.mjs-snapshots/Datapoint-chromium-darwin.png)
+ * ![Datapoint dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Datapoint-dark.spec.mjs-snapshots/Datapoint-dark-chromium-darwin.png)
  *
  */
 export default function Datapoint({
@@ -63,6 +66,7 @@ export default function Datapoint({
   size = 'md',
   title,
   tooltipText,
+  tooltipZIndex,
   trend,
   trendSentiment = 'auto',
   value,
@@ -72,11 +76,16 @@ export default function Datapoint({
       <Flex gap={1} alignItems="center" minHeight={24}>
         <Text size="200">{title}</Text>
         {tooltipText && (
-          <Tooltip accessibilityLabel="" text={tooltipText} idealDirection="up">
+          <Tooltip
+            accessibilityLabel=""
+            idealDirection="up"
+            text={tooltipText}
+            zIndex={tooltipZIndex}
+          >
             {/* Interactive elements require an a11yLabel on them or their children.
             That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
             <TapArea accessibilityLabel={tooltipText} rounding="circle" tapStyle="none">
-              <Icon accessibilityLabel="" size={16} icon="info-circle" color="gray" />
+              <Icon accessibilityLabel="" size={16} icon="info-circle" color="subtle" />
             </TapArea>
           </Tooltip>
         )}

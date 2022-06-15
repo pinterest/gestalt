@@ -105,8 +105,8 @@ type Props = {|
 /**
  * [NumberField](https://gestalt.pinterest.systems/numberfield) allows for numerical input.
  *
- * ![NumberField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/NumberField%20%230.png)
- * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/NumberField-dark%20%230.png)
+ * ![NumberField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField.spec.mjs-snapshots/NumberField-chromium-darwin.png)
+ * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField-dark.spec.mjs-snapshots/NumberField-dark-chromium-darwin.png)
  *
  */
 const NumberFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<

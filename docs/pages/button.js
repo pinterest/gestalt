@@ -26,7 +26,6 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'accessibilityLabel',
             type: 'string',
             required: false,
-            defaultValue: null,
             description: [
               'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/accessibility) to learn more.',
             ],
@@ -35,7 +34,6 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'accessibilityControls',
             type: 'string',
             required: false,
-            defaultValue: null,
             description: [
               'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/accessibility) to learn more.',
             ],
@@ -44,7 +42,6 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'accessibilityExpanded',
             type: 'boolean',
             required: false,
-            defaultValue: null,
             description: [
               'Needed if Button controls the visibility of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/accessibility) to learn more.',
             ],
@@ -53,7 +50,6 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'accessibilityHaspopup',
             type: 'boolean',
             required: false,
-            defaultValue: null,
             description: [
               'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/accessibility) to learn more.',
             ],
@@ -69,7 +65,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'disabled',
             type: 'boolean',
             required: false,
-            defaultValue: null,
+            defaultValue: false,
             description: [
               'Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.',
             ],
@@ -78,7 +74,6 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'iconEnd',
             type: '$Keys<typeof icons>',
             required: false,
-            defaultValue: false,
             description: ['An icon displayed after the text to help clarify the usage of Button.'],
           },
           {
@@ -94,7 +89,6 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'onClick',
             type: '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
             required: false,
-            defaultValue: null,
             description: [
               'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
               'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
@@ -111,7 +105,6 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'text',
             type: 'string',
             required: true,
-            defaultValue: null,
             description: [
               'Text to render inside the Button to convey the function and purpose of the Button.',
             ],
@@ -134,14 +127,12 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'href',
             type: 'string',
             required: false,
-            defaultValue: null,
             description: ['Specifies a link URL. Required with `role="link"` Buttons.'],
           },
           {
             name: 'ref',
             type: `React.Ref<'button'> | React.Ref<'a'>`,
             required: false,
-            defaultValue: null,
             description: ['A React ref to forward to the underlying element.'],
           },
           {
@@ -236,7 +227,8 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
 </Flex>
 `}
           />
-
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -259,6 +251,8 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
 </Flex>
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -275,6 +269,8 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           <Button text="Create new Pinterest account" size="lg" color="red" iconEnd='person-add' />
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -290,6 +286,18 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
         iconColor="gray"
         size="lg"
       />
+    </Tooltip>
+  </Flex>
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
+            defaultCode={`
+  <Flex gap={1}>
+    <Tooltip text="You need to fill in a username to create an account">
+      <Button text="Create account" disabled size="lg" color="red" />
     </Tooltip>
   </Flex>
 `}
@@ -430,7 +438,7 @@ function WhiteButtonExample() {
           >
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={4}>
-                <Text color="white" align="center">
+                <Text color="light" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Button
@@ -483,7 +491,7 @@ function SemiTransparentWhiteButtonExample() {
           >
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={4}>
-                <Text color="white" align="center">
+                <Text color="light" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Flex alignItems="stretch" direction="column" gap={2}>

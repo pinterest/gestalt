@@ -32,7 +32,7 @@ import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
-import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
+import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import { FixedZIndex } from './zIndex.js';
 
 type Size = 'sm' | 'md' | 'lg';
@@ -134,7 +134,6 @@ function Sheet(props: SheetProps): Node {
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
   const { animationState: animationStateFromHook, onAnimationEnd: onAnimationEndFromHook } =
     useAnimation();
-  const containerRef = useRef<?HTMLDivElement>(null);
   const contentRef = useRef<?HTMLElement>(null);
 
   // Handle onDismiss triggering from ESC keyup event
@@ -187,7 +186,7 @@ function Sheet(props: SheetProps): Node {
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div className={sheetStyles.container} ref={containerRef}>
+        <div className={sheetStyles.container}>
           <Backdrop
             animationState={animationStateFromHook}
             closeOnOutsideClick={closeOnOutsideClick}

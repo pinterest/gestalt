@@ -2,7 +2,7 @@
 
 exports[`<Upsell /> Basic Upsell 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -27,7 +27,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
           }
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -40,7 +40,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
 
 exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -73,7 +73,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -100,13 +100,13 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -152,6 +152,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                         onFocus={[Function]}
                         onKeyDown={[Function]}
                         placeholder="Name"
+                        readOnly={false}
                         type="text"
                       />
                     </div>
@@ -177,7 +178,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                   type="submit"
                 >
                   <div
-                    className="Text fontSize300 white alignCenter fontWeightBold"
+                    className="Text fontSize300 inverseText alignCenter fontWeightBold"
                   >
                     Submit
                   </div>
@@ -224,7 +225,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -243,7 +244,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -276,7 +277,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -303,13 +304,13 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -324,7 +325,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -344,7 +345,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           target={null}
         >
           <div
-            className="Text fontSize300 white alignCenter fontWeightBold"
+            className="Text fontSize300 inverseText alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -387,7 +388,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -406,7 +407,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -434,13 +435,13 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -455,7 +456,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -475,7 +476,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 white alignCenter fontWeightBold"
+            className="Text fontSize300 inverseText alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -518,7 +519,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -537,7 +538,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -565,13 +566,13 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -586,7 +587,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       >
         <a
           aria-label="Learn more: upsell messages"
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -606,7 +607,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightBold"
           >
             Learn more
           </div>
@@ -617,7 +618,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -637,7 +638,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 white alignCenter fontWeightBold"
+            className="Text fontSize300 inverseText alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -650,7 +651,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -678,13 +679,13 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -699,7 +700,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -719,7 +720,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 white alignCenter fontWeightBold"
+            className="Text fontSize300 inverseText alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -732,7 +733,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -760,13 +761,13 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -798,7 +799,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
             className="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 white alignCenter fontWeightBold"
+              className="Text fontSize300 inverseText alignCenter fontWeightBold"
             >
               Visit Pinterest
             </div>
@@ -812,7 +813,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 
 exports[`<Upsell /> message + title 1`] = `
 <div
-  className="box paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -840,13 +841,13 @@ exports[`<Upsell /> message + title 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkGray alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>

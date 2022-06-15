@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SlimBanner renders an icon with accessibility label 1`] = `
+<div
+  className="box errorWeak paddingX4 paddingY0 paddingY4 rounding4"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="accessibility label with error"
+        className="icon errorIcon iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box"
+        style={
+          Object {
+            "marginTop": "-1px",
+          }
+        }
+      >
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          test
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SlimBanner renders helper link 1`] = `
+<div
+  className="box paddingX4 paddingY0 paddingY4 rounding4 secondary"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box"
+      >
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          test
+           
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            <a
+              aria-label="Learn more Pinterest.com"
+              className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+              href="http://www.pinterest.com"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Learn more
+            </a>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SlimBanner renders neutral type with message 1`] = `
+<div
+  className="box paddingX4 paddingY0 paddingY4 rounding4 secondary"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box"
+      >
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          test
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
+<div
+  className="box paddingX0 paddingY0 paddingY1 rounding4"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap2 xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="accessibility label with error"
+        className="icon errorIcon iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box"
+        style={
+          Object {
+            "marginTop": "-1px",
+          }
+        }
+      >
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          test
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

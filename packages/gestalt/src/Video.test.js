@@ -18,6 +18,8 @@ test('Video with source', () => {
       {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+      onPlay={() => {}}
+      onPlayError={() => {}}
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     />,
   ).toJSON();
@@ -30,6 +32,8 @@ test('Video with multiple sources', () => {
       {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+      onPlay={() => {}}
+      onPlayError={() => {}}
       src={[
         {
           type: 'video/mp4',
@@ -53,6 +57,8 @@ test('Video with media attributes', () => {
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       loop
       volume={0}
+      onPlay={() => {}}
+      onPlayError={() => {}}
       preload="metadata"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     />,
@@ -70,12 +76,14 @@ test('Video with callbacks', () => {
       onEnded={() => {}}
       onFullscreenChange={() => {}}
       onLoadedChange={() => {}}
-      onPause={() => {}}
-      onPlay={() => {}}
+      onControlsPause={() => {}}
+      onControlsPlay={() => {}}
       onReady={() => {}}
       onSeek={() => {}}
       onTimeChange={() => {}}
       onVolumeChange={() => {}}
+      onPlay={() => {}}
+      onPlayError={() => {}}
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     />,
   ).toJSON();
@@ -90,6 +98,8 @@ test('Video with children', () => {
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
       controls
+      onPlay={() => {}}
+      onPlayError={() => {}}
     >
       <div>overlay</div>
     </Video>,
@@ -105,6 +115,8 @@ test('Video with crossOrigin', () => {
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      onPlay={() => {}}
+      onPlayError={() => {}}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
@@ -118,6 +130,23 @@ test('Video with objectFit', () => {
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      onPlay={() => {}}
+      onPlayError={() => {}}
+    />,
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Video with startTime', () => {
+  const tree = create(
+    <Video
+      {...A11Y_LABELS}
+      startTime={3}
+      aspectRatio={1}
+      captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      onPlay={() => {}}
+      onPlayError={() => {}}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();

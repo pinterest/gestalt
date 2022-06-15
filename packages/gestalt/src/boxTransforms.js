@@ -137,7 +137,8 @@ const borderStyle: Functor<BorderStyle> = (value) => {
       sm: borders.sizeSm,
       lg: borders.sizeLg,
       shadow: borders.shadow,
-      // default: none
+      raisedTopShadow: borders.raisedTop,
+      raisedBottomShadow: borders.raisedBottom,
     })(value),
     ...borderProps,
   ]);

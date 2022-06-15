@@ -2,7 +2,7 @@
 
 exports[`default 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -21,9 +21,90 @@ exports[`default 1`] = `
 </a>
 `;
 
-exports[`inline 1`] = `
+exports[`external link with nofollow 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 inlineBlock hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="nofollow"
+  target={null}
+>
+  Link
+  <div
+    aria-hidden={true}
+    className="box marginStart1 xsDisplayInlineBlock"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon defaultIcon"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</a>
+`;
+
+exports[`inline and auto underline 1`] = `
+<a
+  className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  target={null}
+>
+  Link
+</a>
+`;
+
+exports[`inline and overriden underline="hover" 1`] = `
+<a
+  className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  target={null}
+>
+  Link
+</a>
+`;
+
+exports[`inline and overriden underline="none" 1`] = `
+<a
+  className="link hideOutline tapTransition rounding0 inlineBlock noUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -44,7 +125,7 @@ exports[`inline 1`] = `
 
 exports[`regular 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -65,7 +146,7 @@ exports[`regular 1`] = `
 
 exports[`target blank 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -86,7 +167,7 @@ exports[`target blank 1`] = `
 
 exports[`target null 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -107,7 +188,7 @@ exports[`target null 1`] = `
 
 exports[`target self 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -126,32 +207,9 @@ exports[`target self 1`] = `
 </a>
 `;
 
-exports[`with accessibilitySelected and role 1`] = `
+exports[`with custom rounding, and tapStyle 1`] = `
 <a
-  aria-selected={true}
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-  href="https://example.com"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  rel=""
-  role="tab"
-  target={null}
->
-  Link
-</a>
-`;
-
-exports[`with custom rounding, hoverStyle, and tapStyle 1`] = `
-<a
-  className="link hideOutline tapTransition pill block accessibilityOutline"
+  className="link hideOutline tapTransition pill block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -170,30 +228,9 @@ exports[`with custom rounding, hoverStyle, and tapStyle 1`] = `
 </a>
 `;
 
-exports[`with nofollow 1`] = `
+exports[`with onClick 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-  href="https://example.com"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  rel="nofollow"
-  target={null}
->
-  Link
-</a>
-`;
-
-exports[`with onTap 1`] = `
-<a
-  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}

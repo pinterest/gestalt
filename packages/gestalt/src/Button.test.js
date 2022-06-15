@@ -19,19 +19,20 @@ describe('<Button />', () => {
 
   test('iconEnd', () => {
     const instance = create(<Button color="white" iconEnd="arrow-down" text="Menu" />).root;
+    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
   test('Custom white text color on transparent background', () => {
     const instance = create(<Button color="transparentWhiteText" text="Hello World" />).root;
     expect(instance.findAll((element) => element.type === 'div')[1].props.className).toContain(
-      'white',
+      'inverseText',
     );
   });
 
   test('Default darkGray text color on transparent background', () => {
     const instance = create(<Button color="transparent" text="Hello World" />).root;
     expect(instance.findAll((element) => element.type === 'div')[1].props.className).toContain(
-      'darkGray',
+      'defaultText',
     );
   });
 

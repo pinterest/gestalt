@@ -12,11 +12,53 @@ import classnames from 'classnames';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
+import textStyles from './Typography.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName from './getRoundingClassName.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import layoutStyles from './Layout.css';
+import Icon from './Icon.js';
+import Box from './Box.js';
+import Text from './Text.js';
+
+const externalLinkIconMap = {
+  '100': 12,
+  '200': 14,
+  '300': 16,
+  '400': 20,
+  '500': 28,
+  '600': 36,
+  'sm': 12,
+  'md': 14,
+  'lg': 16,
+};
+
+type ExternalLinkIcon =
+  | 'none'
+  | 'default'
+  | {|
+      color: $ElementType<React$ElementConfig<typeof Icon>, 'color'>,
+      size: $ElementType<React$ElementConfig<typeof Text>, 'size'>,
+    |};
+
+function ExternalIcon({ externalLinkIcon }: {| externalLinkIcon: ExternalLinkIcon |}): Node {
+  return externalLinkIcon === 'none' ? null : (
+    <Box aria-hidden display="inlineBlock" marginStart={1}>
+      <Icon
+        inline
+        icon="visit"
+        accessibilityLabel=""
+        size={
+          externalLinkIcon === 'default'
+            ? externalLinkIconMap['300']
+            : externalLinkIconMap[externalLinkIcon?.size ?? '300']
+        }
+        color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
+      />
+    </Box>
+  );
+}
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
@@ -26,17 +68,13 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * Use `accessibilitySelected` and `role` when using it as a tab. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
-   */
-  accessibilitySelected?: boolean,
-  /**
-   * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Link and Text](https://gestalt.pinterest.systems/link#Link-and-Text) variant for more information.
+   * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/link#Link-and-Text) to learn more.
    */
   children?: Node,
   /**
-   * When `underline` is supplied, Link's text is underlined on hover. See the [tapStyle and hoverStyle](https://gestalt.pinterest.systems/link#tapStyle-and-hoverStyle) variant for more information.
+   * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
    */
-  hoverStyle?: 'none' | 'underline',
+  externalLinkIcon?: ExternalLinkIcon,
   /**
    * The URL that the hyperlink points to.
    */
@@ -46,7 +84,7 @@ type Props = {|
    */
   id?: string,
   /**
-   * Properly positions Link relative to an inline element, such as [Text](https://gestalt.pinterest.systems/text), using the inline property.
+   * Properly positions Link relative to an inline element, such as [Text](https://gestalt.pinterest.systems/text), using the inline property. See the [underline variant](https://gestalt.pinterest.systems/link#Underline) to learn more.
    */
   inline?: boolean,
   /**
@@ -69,19 +107,15 @@ type Props = {|
    */
   ref?: Ref<'a'>,
   /**
-   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them.
+   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
    */
   rel?: 'none' | 'nofollow',
-  /**
-   * When supplied, Link acts a tab. See the [Accessible Tab Link](https://gestalt.pinterest.systems/link#Accessible-Tab-Link) for more information.
-   */
-  role?: 'tab',
   /**
    * Sets a border radius for Link. Select a rounding option that aligns with its children.
    */
   rounding?: Rounding,
   /**
-   * When `compress` is supplied, Link is visually compressed on click. See the [tapStyle and hoverStyle](https://gestalt.pinterest.systems/link#tapStyle-and-hoverStyle) variant for more information.
+   * When `compress` is supplied, Link is visually compressed on click.
    */
   tapStyle?: 'none' | 'compress',
   /**
@@ -89,15 +123,21 @@ type Props = {|
 - 'null' opens the anchor in the same window.
 - 'blank' opens the anchor in a new window.
 - 'self' opens an anchor in the same frame.
+
+See the [target variant](https://gestalt.pinterest.systems/link#Target) to learn more.
    */
   target?: null | 'self' | 'blank',
+  /**
+   * When `underline` is supplied, we override the underline style internally managed by the component. See the [underline variant](https://gestalt.pinterest.systems/link#Underline) to learn more.
+   */
+  underline?: 'auto' | 'none' | 'always' | 'hover',
 |};
 
 /**
- * The [Link](https://gestalt.pinterest.systems/link) component allows you to show links on the page and open them in a new window.
+ * [Link](https://gestalt.pinterest.systems/link) is mainly used as navigational element and usually appear within or directly following a paragraph or sentence.
  *
- * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Link%20%230.png)
- * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Link-dark%20%230.png)
+ * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link.spec.mjs-snapshots/Link-chromium-darwin.png)
+ * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link-dark.spec.mjs-snapshots/Link-dark-chromium-darwin.png)
  *
  */
 const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
@@ -106,8 +146,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 >(function Link(
   {
     accessibilityLabel,
-    accessibilitySelected,
     children,
+    externalLinkIcon = 'none',
     href,
     id,
     inline = false,
@@ -115,9 +155,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     onClick,
     onFocus,
     rel = 'none',
-    role,
     rounding = 0,
-    hoverStyle = 'underline',
+    underline = 'auto',
     tapStyle = 'none',
     target = null,
   }: Props,
@@ -144,6 +183,12 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 
   const { isFocusVisible } = useFocusVisible();
 
+  let underlineStyle = inline ? 'always' : 'hover';
+
+  if (underline && underline !== 'auto') {
+    underlineStyle = underline;
+  }
+
   const className = classnames(
     styles.link,
     focusStyles.hideOutline,
@@ -152,7 +197,10 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     {
       [layoutStyles.inlineBlock]: inline,
       [layoutStyles.block]: !inline,
-      [styles.hoverUnderline]: hoverStyle === 'underline',
+      [textStyles.underline]: underlineStyle === 'always',
+      [styles.hoverNoUnderline]: underlineStyle === 'always',
+      [textStyles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.hoverUnderline]: underlineStyle === 'hover',
       [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
@@ -174,7 +222,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   return (
     <a
       aria-label={accessibilityLabel}
-      aria-selected={accessibilitySelected}
       className={className}
       href={href}
       id={id}
@@ -218,10 +265,10 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
-      role={role}
       target={target ? `_${target}` : null}
     >
       {children}
+      <ExternalIcon externalLinkIcon={externalLinkIcon} />
     </a>
   );
 });

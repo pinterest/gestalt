@@ -8,7 +8,7 @@ exports[`Fieldset renders 1`] = `
     className="label formLabel paddingX0"
   >
     <div
-      className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -44,20 +44,24 @@ exports[`Fieldset renders 1`] = `
           />
         </div>
       </label>
-      <label
-        className="label"
-        htmlFor="Schnauzer"
+      <div
+        className="box xsDisplayBlock"
       >
-        <div
-          className="box paddingX1"
+        <label
+          className="label"
+          htmlFor="Schnauzer"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="box paddingX1"
           >
-            Schnauzer
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              Schnauzer
+            </div>
           </div>
-        </div>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
   <div
@@ -91,20 +95,24 @@ exports[`Fieldset renders 1`] = `
           />
         </div>
       </label>
-      <label
-        className="label"
-        htmlFor="Aussie"
+      <div
+        className="box xsDisplayBlock"
       >
-        <div
-          className="box paddingX1"
+        <label
+          className="label"
+          htmlFor="Aussie"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="box paddingX1"
           >
-            Aussie
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              Aussie
+            </div>
           </div>
-        </div>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
 </fieldset>
@@ -118,7 +126,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -154,20 +162,24 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           />
         </div>
       </label>
-      <label
-        className="label"
-        htmlFor="Schnauzer"
+      <div
+        className="box xsDisplayBlock"
       >
-        <div
-          className="box paddingX1"
+        <label
+          className="label"
+          htmlFor="Schnauzer"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="box paddingX1"
           >
-            Schnauzer
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              Schnauzer
+            </div>
           </div>
-        </div>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
   <div
@@ -201,20 +213,24 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           />
         </div>
       </label>
-      <label
-        className="label"
-        htmlFor="Aussie"
+      <div
+        className="box xsDisplayBlock"
       >
-        <div
-          className="box paddingX1"
+        <label
+          className="label"
+          htmlFor="Aussie"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="box paddingX1"
           >
-            Aussie
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              Aussie
+            </div>
           </div>
-        </div>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
 </fieldset>
@@ -228,7 +244,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 darkGray alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -264,20 +280,24 @@ exports[`Fieldset renders with errorMessage 1`] = `
           />
         </div>
       </label>
-      <label
-        className="label"
-        htmlFor="Schnauzer"
+      <div
+        className="box xsDisplayBlock"
       >
-        <div
-          className="box paddingX1"
+        <label
+          className="label"
+          htmlFor="Schnauzer"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="box paddingX1"
           >
-            Schnauzer
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              Schnauzer
+            </div>
           </div>
-        </div>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
   <div
@@ -311,27 +331,31 @@ exports[`Fieldset renders with errorMessage 1`] = `
           />
         </div>
       </label>
-      <label
-        className="label"
-        htmlFor="Aussie"
+      <div
+        className="box xsDisplayBlock"
       >
-        <div
-          className="box paddingX1"
+        <label
+          className="label"
+          htmlFor="Aussie"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal"
+            className="box paddingX1"
           >
-            Aussie
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              Aussie
+            </div>
           </div>
-        </div>
-      </label>
+        </label>
+      </div>
     </div>
   </div>
   <div
     className="box marginTop2"
   >
     <div
-      className="Text fontSize100 red alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
     >
       <span
         className="formErrorMessage"

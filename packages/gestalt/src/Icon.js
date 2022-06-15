@@ -6,23 +6,17 @@ import icons from './icons/index.js';
 import colors from './Colors.css';
 
 export type IconColor =
-  | 'blue'
-  | 'darkGray'
-  | 'eggplant'
-  | 'gray'
-  | 'green'
-  | 'lightGray'
-  | 'maroon'
-  | 'midnight'
-  | 'navy'
-  | 'olive'
-  | 'orange'
-  | 'orchid'
-  | 'pine'
-  | 'purple'
-  | 'red'
-  | 'watermelon'
-  | 'white';
+  | 'default'
+  | 'subtle'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'inverse'
+  | 'shopping'
+  | 'brandPrimary'
+  | 'light'
+  | 'dark';
 
 type Props = {|
   /**
@@ -32,9 +26,9 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
-   * These are all the colors available to apply to the Icon; however, we advise only using primary colors within the product to ensure consistency and accessible color contrast.
+   * These are all the colors available to apply to the Icon. However, the literal options ("blue" , "darkGray" , "eggplant" , "gray" , "green" , "lightGray" , "maroon" , "midnight" , "navy" , "olive" , "orange" , "orchid" , "pine" , "purple" , "red" , "watermelon" and "white") will be deprecated soon. Avoid using them in any new implementations.
    *
-   * See the [primary-color combinations](https://gestalt.pinterest.systems/icon#Primary-color-combinations) variant to learn more.
+   * See the [color variant](https://gestalt.pinterest.systems/icon#Colors) to learn more.
    */
   color?: IconColor,
   /**
@@ -92,22 +86,24 @@ const flipOnRtlIconNames = [
  *
  * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/iconography_and_svgs) to explore the full icon library.
  *
- * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon-list%20%230.png)
- * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Icon-list-dark%20%230.png)
+ * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list.spec.mjs-snapshots/Icon-list-chromium-darwin.png)
+ * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list-dark.spec.mjs-snapshots/Icon-list-dark-chromium-darwin.png)
  *
  */
 export default function Icon({
   accessibilityLabel,
-  color = 'gray',
+  color = 'subtle',
   dangerouslySetSvgPath,
   icon,
   inline = false,
   size = 16,
 }: Props): Node {
+  const colorClass = colors[`${color}Icon`] && colors[`${color}Icon`];
+
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles.icon,
-    colors[color],
+    colorClass,
     { [styles.iconBlock]: !inline },
   );
 

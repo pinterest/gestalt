@@ -66,7 +66,7 @@ function Count({ count }: {| count: number |}) {
           __style: { padding: '0 0 1px 1px' },
         }}
       >
-        <Text align="center" color="white" size="100" weight="bold">
+        <Text align="center" color="light" size="100" weight="bold">
           {displayCount}
         </Text>
       </Box>
@@ -160,7 +160,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
             userSelect="none"
           >
             <Flex alignItems="center" gap={2} justifyContent="center">
-              <Text color="darkGray" overflow="noWrap" weight="bold">
+              <Text color="default" overflow="noWrap" weight="bold">
                 {text}
               </Text>
 
@@ -200,7 +200,7 @@ type Props = {|
    */
   bgColor?: BgColor,
   /**
-   * If your app uses a tool such as `react-router` to navigate between pages, be sure to use `onChange` to navigate instead of getting a full page refresh with `href`.
+   * If your app requires client navigation, be sure to use [OnLinkNavigationProvider](`https://gestalt.pinterest.systems/onlinknavigationprovider`) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
    */
   onChange: OnChangeHandler,
   /**

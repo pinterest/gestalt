@@ -2,23 +2,18 @@
 
 exports[`PageHeader renders 1`] = `
 <div
-  className="box paddingX8 whiteBg"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
+  className="pageHeader"
 >
   <div
-    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    className="box paddingX8 paddingY4 whiteBg"
     style={
       Object {
-        "maxWidth": "100%",
+        "width": "100%",
       }
     }
   >
     <div
-      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -26,24 +21,100 @@ exports[`PageHeader renders 1`] = `
       }
     >
       <div
-        className="box marginBottom2 marginEnd4 marginTop2"
+        className="Flex rowGap0 flexGrow xsDirectionRow"
         style={
           Object {
-            "minWidth": 0,
+            "maxWidth": "100%",
           }
         }
       >
-        <h1
-          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+        <div
+          className="FlexItem flexGrow selfCenter"
           style={
             Object {
-              "WebkitLineClamp": 1,
+              "minWidth": 0,
             }
           }
-          title="Settings"
         >
-          Settings
-        </h1>
+          <div
+            className="box marginEnd6"
+          >
+            <div
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex columnGap1 xsDirectionColumn"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                    >
+                      <div
+                        className="box smDisplayNone xsDisplayBlock"
+                      >
+                        <h1
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box smDisplayBlock xsDisplayNone"
+                      >
+                        <h1
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                      >
+                        <div
+                          className="Flex rowGap3 xsDirectionRow"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem flexNone"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -52,23 +123,18 @@ exports[`PageHeader renders 1`] = `
 
 exports[`PageHeader renders primary action 1`] = `
 <div
-  className="box paddingX8 whiteBg"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
+  className="pageHeader"
 >
   <div
-    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    className="box paddingX8 paddingY4 whiteBg"
     style={
       Object {
-        "maxWidth": "100%",
+        "width": "100%",
       }
     }
   >
     <div
-      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -76,63 +142,200 @@ exports[`PageHeader renders primary action 1`] = `
       }
     >
       <div
-        className="box marginBottom2 marginEnd4 marginTop2"
+        className="Flex rowGap0 flexGrow xsDirectionRow"
         style={
           Object {
-            "minWidth": 0,
+            "maxWidth": "100%",
           }
         }
       >
-        <h1
-          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+        <div
+          className="FlexItem flexGrow selfCenter"
           style={
             Object {
-              "WebkitLineClamp": 1,
+              "minWidth": 0,
             }
           }
-          title="Settings"
-        >
-          Settings
-        </h1>
-      </div>
-      <div
-        className="Flex rowGap2 flexNone itemsCenter xsDirectionRow"
-      >
-        <div
-          className="FlexItem"
         >
           <div
-            className="box itemsCenter marginBottom4 marginTop4 xsDisplayFlex"
+            className="box marginEnd6"
+          >
+            <div
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex columnGap1 xsDirectionColumn"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                    >
+                      <div
+                        className="box smDisplayNone xsDisplayBlock"
+                      >
+                        <h1
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box smDisplayBlock xsDisplayNone"
+                      >
+                        <h1
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                      >
+                        <div
+                          className="Flex rowGap3 xsDirectionRow"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem flexNone"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
-                "height": "48px",
+                "height": "100%",
               }
             }
           >
-            <button
-              className="button hideOutline inline accessibilityOutline parentButton"
-              disabled={false}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
+            <div
+              className="FlexItem"
             >
               <div
-                className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                className="box mdDisplayBlock xsDisplayNone"
               >
                 <div
-                  className="Text fontSize300 white alignCenter fontWeightBold"
+                  className="Flex rowGap2 xsDirectionRow"
                 >
-                  Create
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    >
+                      <button
+                        className="button hideOutline inline accessibilityOutline parentButton"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <div
+                          className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                        >
+                          <div
+                            className="Text fontSize300 inverseText alignCenter fontWeightBold"
+                          >
+                            Create
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </button>
+              <div
+                className="box mdDisplayNone xsDisplayBlock"
+              >
+                <button
+                  aria-controls="pageheader-dropdown"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="test"
+                  className="parentButton"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchCancel={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
+                >
+                  <div
+                    className="button tapTransition enabled"
+                  >
+                    <div
+                      className="pog transparent"
+                      style={
+                        Object {
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="icon defaultIcon iconBlock"
+                        height={20}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={20}
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -143,23 +346,18 @@ exports[`PageHeader renders primary action 1`] = `
 
 exports[`PageHeader renders secondary action 1`] = `
 <div
-  className="box paddingX8 whiteBg"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
+  className="pageHeader"
 >
   <div
-    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    className="box paddingX8 paddingY4 whiteBg"
     style={
       Object {
-        "maxWidth": "100%",
+        "width": "100%",
       }
     }
   >
     <div
-      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -167,85 +365,231 @@ exports[`PageHeader renders secondary action 1`] = `
       }
     >
       <div
-        className="box marginBottom2 marginEnd4 marginTop2"
+        className="Flex rowGap0 flexGrow xsDirectionRow"
         style={
           Object {
-            "minWidth": 0,
+            "maxWidth": "100%",
           }
         }
       >
-        <h1
-          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+        <div
+          className="FlexItem flexGrow selfCenter"
           style={
             Object {
-              "WebkitLineClamp": 1,
+              "minWidth": 0,
             }
           }
-          title="Settings"
-        >
-          Settings
-        </h1>
-      </div>
-      <div
-        className="Flex rowGap2 flexNone itemsCenter xsDirectionRow"
-      >
-        <div
-          className="FlexItem"
-        >
-          <a
-            className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-            href="www.pinterest.com"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            target={null}
-          >
-            Help center
-          </a>
-        </div>
-        <div
-          className="FlexItem"
         >
           <div
-            className="box itemsCenter marginBottom4 marginTop4 xsDisplayFlex"
+            className="box marginEnd6"
+          >
+            <div
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex columnGap1 xsDirectionColumn"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                    >
+                      <div
+                        className="box smDisplayNone xsDisplayBlock"
+                      >
+                        <h1
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box smDisplayBlock xsDisplayNone"
+                      >
+                        <h1
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                      >
+                        <div
+                          className="Flex rowGap3 xsDirectionRow"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem flexNone"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
-                "height": "48px",
+                "height": "100%",
               }
             }
           >
-            <button
-              className="button hideOutline inline accessibilityOutline parentButton"
-              disabled={false}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
+            <div
+              className="FlexItem"
             >
               <div
-                className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                className="box mdDisplayBlock xsDisplayNone"
               >
                 <div
-                  className="Text fontSize300 white alignCenter fontWeightBold"
+                  className="Flex rowGap2 xsDirectionRow"
                 >
-                  Create
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    >
+                      <a
+                        className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+                        href="www.pinterest.com"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyPress={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        rel=""
+                        target={null}
+                      >
+                        Help center
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box itemsCenter xsDisplayFlex"
+                      style={
+                        Object {
+                          "height": 48,
+                        }
+                      }
+                    >
+                      <button
+                        className="button hideOutline inline accessibilityOutline parentButton"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <div
+                          className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                        >
+                          <div
+                            className="Text fontSize300 inverseText alignCenter fontWeightBold"
+                          >
+                            Create
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </button>
+              <div
+                className="box mdDisplayNone xsDisplayBlock"
+              >
+                <button
+                  aria-controls="pageheader-dropdown"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="test"
+                  className="parentButton"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchCancel={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
+                >
+                  <div
+                    className="button tapTransition enabled"
+                  >
+                    <div
+                      className="pog transparent"
+                      style={
+                        Object {
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="icon defaultIcon iconBlock"
+                        height={20}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={20}
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -256,23 +600,18 @@ exports[`PageHeader renders secondary action 1`] = `
 
 exports[`PageHeader renders subtext 1`] = `
 <div
-  className="box paddingX8 whiteBg"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
+  className="pageHeader"
 >
   <div
-    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    className="box paddingX8 paddingY4 whiteBg"
     style={
       Object {
-        "maxWidth": "100%",
+        "width": "100%",
       }
     }
   >
     <div
-      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -280,38 +619,112 @@ exports[`PageHeader renders subtext 1`] = `
       }
     >
       <div
-        className="box marginBottom2 marginEnd4 marginTop2"
+        className="Flex rowGap0 flexGrow xsDirectionRow"
         style={
           Object {
-            "minWidth": 0,
+            "maxWidth": "100%",
           }
         }
       >
-        <h1
-          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+        <div
+          className="FlexItem flexGrow selfCenter"
           style={
             Object {
-              "WebkitLineClamp": 1,
+              "minWidth": 0,
             }
           }
-          title="Settings"
-        >
-          Settings
-        </h1>
-        <div
-          className="box marginTop2"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            className="box marginEnd6"
+          >
+            <div
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex columnGap1 xsDirectionColumn"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                    >
+                      <div
+                        className="box smDisplayNone xsDisplayBlock"
+                      >
+                        <h1
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box smDisplayBlock xsDisplayNone"
+                      >
+                        <h1
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                      >
+                        <div
+                          className="Flex rowGap3 xsDirectionRow"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box smDisplayBlock xsDisplayNone"
+                    >
+                      <span
+                        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                      >
+                        5 followers
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem flexNone"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
-                "WebkitLineClamp": 1,
+                "height": "100%",
               }
             }
-            title="5 followers"
-          >
-            5 followers
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -321,62 +734,131 @@ exports[`PageHeader renders subtext 1`] = `
 
 exports[`PageHeader renders within a max width 1`] = `
 <div
-  className="box paddingX8 whiteBg"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
+  className="pageHeader"
 >
   <div
-    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    className="box paddingX8 paddingY4 whiteBg"
     style={
       Object {
-        "maxWidth": "100%",
+        "width": "100%",
       }
     }
   >
     <div
-      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
-          "maxWidth": "60%",
+          "maxWidth": "100%",
         }
       }
     >
       <div
-        className="box marginBottom2 marginEnd4 marginTop2"
+        className="Flex rowGap0 flexGrow xsDirectionRow"
         style={
           Object {
-            "minWidth": 0,
+            "maxWidth": "60%",
           }
         }
       >
-        <h1
-          className="Heading fontSize500 darkGray alignStart breakWord lineClamp"
+        <div
+          className="FlexItem flexGrow selfCenter"
           style={
             Object {
-              "WebkitLineClamp": 1,
+              "minWidth": 0,
             }
           }
-          title="Settings"
-        >
-          Settings
-        </h1>
-        <div
-          className="box marginTop2"
         >
           <div
-            className="Text fontSize300 darkGray alignStart breakWord fontWeightNormal lineClamp"
+            className="box marginEnd6"
+          >
+            <div
+              className="Flex rowGap4 itemsCenter xsDirectionRow"
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex columnGap1 xsDirectionColumn"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                    >
+                      <div
+                        className="box smDisplayNone xsDisplayBlock"
+                      >
+                        <h1
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box smDisplayBlock xsDisplayNone"
+                      >
+                        <h1
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                      >
+                        <div
+                          className="Flex rowGap3 xsDirectionRow"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="box smDisplayBlock xsDisplayNone"
+                    >
+                      <span
+                        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                      >
+                        5 followers
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem flexNone"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap8 itemsCenter xsDirectionRow"
             style={
               Object {
-                "WebkitLineClamp": 1,
+                "height": "100%",
               }
             }
-            title="5 followers"
-          >
-            5 followers
-          </div>
+          />
         </div>
       </div>
     </div>

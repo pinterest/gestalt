@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
+import useInExperiment from './useInExperiment.js';
 
 type Position = 'middle' | 'top';
 
@@ -33,8 +34,8 @@ type Props = {|
 /**
  * [Badge](https://gestalt.pinterest.systems/badge) is a label that indicates status or importance. Badges should provide quick recognition.
  *
- * ![Badge light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Badge%20%230.png)
- * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Badge-dark%20%230.png)
+ * ![Badge light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge.spec.mjs-snapshots/Badge-chromium-darwin.png)
+ * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.mjs-snapshots/Badge-dark-chromium-darwin.png)
  *
  */
 export default function Badge({ position = 'middle', text, type = 'info' }: Props): Node {
@@ -48,7 +49,14 @@ export default function Badge({ position = 'middle', text, type = 'info' }: Prop
     'lightWash': 'washLight',
   };
 
-  const cs = cx(styles.Badge, styles[position], colors[TYPE_COLOR_MAP[type]], {
+  const inSemiBoldExp = useInExperiment({
+    webExperimentName: 'web_gestalt_semibold_weight',
+    mwebExperimentName: 'mweb_gestalt_semibold_weight',
+  });
+
+  const badgeStyle = inSemiBoldExp ? styles.BadgeSemiBold : styles.Badge;
+
+  const cs = cx(badgeStyle, styles[position], colors[TYPE_COLOR_MAP[type]], {
     [styles.darkWash]: type === 'darkWash',
     [styles.lightWash]: type === 'lightWash',
   });

@@ -27,6 +27,7 @@ describe('Dropdown.Link', () => {
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(screen.getByText('Item 4').closest('a')).toHaveAttribute(
       'href',
       'https://www.pinterest.com',
@@ -44,6 +45,7 @@ describe('Dropdown.Link', () => {
       />,
     );
     expect(screen.getByRole('img', { name: /, External/i })).toBeInTheDocument();
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
   });
 });

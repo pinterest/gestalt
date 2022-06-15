@@ -1,20 +1,21 @@
 // @flow strict
-import { forwardRef, type Element, type Node, useState } from 'react';
+import { forwardRef, type Element, type Node, useEffect, useState } from 'react';
 import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import { useExperimentContext } from './contexts/ExperimentProvider.js';
 import { useI18nContext } from './contexts/I18nProvider.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 type Props = {|
   /**
-   * Indicate if autocomplete should be available on the input, and the type of autocomplete.
+   * Indicate if autocomplete should be available on the input, and the type of autocomplete. Autocomplete values are implemented upon request. [Reach out to the Gestalt team](/how_to_work_with_us#Slack-channels) if you need [additional autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) to be supported.
    */
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
+  autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   /**
-   * Indicate if the input is disabled.
+   * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/textfield#Disabled) for more details.
    */
   disabled?: boolean,
   /**
@@ -37,6 +38,10 @@ type Props = {|
    * The label for the input. Be sure to localize the text.
    */
   label?: string,
+  /**
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
+   */
+  labelDisplay?: 'visible' | 'hidden',
   /**
    * A unique name for the input.
    */
@@ -74,6 +79,10 @@ type Props = {|
    */
   placeholder?: string,
   /**
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textfield#Read-only) for more details.
+   */
+  readOnly?: boolean,
+  /**
    * Ref that is forwarded to the underlying input element.
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
@@ -98,8 +107,8 @@ type Props = {|
 /**
  * [TextField](https://gestalt.pinterest.systems/textfield) allows for multiple types of text input.
  *
- * ![TextField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/TextField%20%230.png)
- * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/TextField-dark%20%230.png)
+ * ![TextField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField.spec.mjs-snapshots/TextField-chromium-darwin.png)
+ * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField-dark.spec.mjs-snapshots/TextField-dark-chromium-darwin.png)
  *
  */
 const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
@@ -114,12 +123,14 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     helperText,
     id,
     label,
+    labelDisplay = 'visible',
     name,
     onBlur,
     onChange,
     onFocus,
     onKeyDown,
     placeholder,
+    readOnly = false,
     size = 'md',
     tags,
     type: typeProp = 'text',
@@ -127,10 +138,16 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   }: Props,
   ref,
 ): Node {
+  const deviceType = useDeviceType();
+
   /**
    * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
    */
   const [type, setType] = useState<Type>(typeProp);
+
+  useEffect(() => {
+    setType(typeProp);
+  }, [typeProp]);
 
   const isPasswordField = typeProp === 'password';
   const isCurrentlyPasswordType = type === 'password';
@@ -141,7 +158,15 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const { anyEnabled: inMwebShowPasswordExp } = useExperimentContext(
     'mweb_unauth_show_password_button',
   );
-  const inShowPasswordExp = inWebShowPasswordExp || inMwebShowPasswordExp;
+  let inShowPasswordExp = false;
+
+  if (deviceType) {
+    if (deviceType === 'desktop') {
+      inShowPasswordExp = inWebShowPasswordExp;
+    } else {
+      inShowPasswordExp = inMwebShowPasswordExp;
+    }
+  }
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
     useI18nContext('TextField');
 
@@ -177,6 +202,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       iconButton={iconButton}
       id={id}
       label={label}
+      labelDisplay={labelDisplay}
       name={name}
       onBlur={onBlur}
       onChange={onChange}
@@ -184,6 +210,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       onKeyDown={onKeyDown}
       placeholder={placeholder}
       size={size}
+      readOnly={readOnly}
       ref={ref}
       tags={tags}
       type={type}

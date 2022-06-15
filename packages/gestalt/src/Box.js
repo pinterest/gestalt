@@ -125,7 +125,7 @@ type Props = {
    * Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the [borders](https://gestalt.pinterest.systems/box#Borders) variant for more details.
    * Default: 'none'
    */
-  borderStyle?: 'sm' | 'lg' | 'shadow' | 'none',
+  borderStyle?: 'sm' | 'lg' | 'shadow' | 'raisedTopShadow' | 'raisedBottomShadow' | 'none',
   /**
    * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.pinterest.systems/box#Absolute-positioning) variant for more info.
    * Default: false
@@ -549,6 +549,10 @@ type OutputType = Element<As>;
 
 /**
  * [Box](https://gestalt.pinterest.systems/box) is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content.
+ *
+ * ![Box light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Box.spec.mjs-snapshots/Box-chromium-darwin.png)
+ * ![Box dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Box-dark.spec.mjs-snapshots/Box-dark-chromium-darwin.png)
+ *
  */
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }: Props, ref): OutputType {

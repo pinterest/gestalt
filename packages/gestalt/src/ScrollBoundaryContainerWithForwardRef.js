@@ -7,7 +7,7 @@ import {
   useRef,
   useImperativeHandle,
 } from 'react';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import Box from './Box.js';
 import { type Dimension, type Padding } from './boxTypes.js';
 

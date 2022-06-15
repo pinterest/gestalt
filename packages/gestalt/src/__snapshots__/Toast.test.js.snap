@@ -27,7 +27,7 @@ exports[`<Toast /> Error Toast 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>
@@ -82,31 +82,35 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
         >
           <span
-            className="textColorOverrideWhite"
+            className="textColorOverrideLight"
           >
             Saved to
              
-            <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-              href="https://www.pinterest.com/search/pins/?q=home%20decor"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-              target={null}
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
             >
-              Home decor
-            </a>
+              <a
+                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Home decor
+              </a>
+            </span>
           </span>
         </div>
       </div>
@@ -131,7 +135,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 darkGray alignCenter fontWeightBold"
+              className="Text fontSize300 defaultText alignCenter fontWeightBold"
             >
               Undo
             </div>
@@ -188,31 +192,35 @@ exports[`<Toast /> Text + Image 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
         >
           <span
-            className="textColorOverrideWhite"
+            className="textColorOverrideLight"
           >
             Saved to
              
-            <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
-              href="https://www.pinterest.com/search/pins/?q=home%20decor"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-              target={null}
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
             >
-              Home decor
-            </a>
+              <a
+                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Home decor
+              </a>
+            </span>
           </span>
         </div>
       </div>
@@ -248,7 +256,7 @@ exports[`<Toast /> Text Only 1`] = `
         }
       >
         <div
-          className="Text fontSize300 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>

@@ -2,7 +2,6 @@
 import ActivationCard from '../graphics/general/ActivationCard.svg';
 import Avatar from '../graphics/general/Avatar.svg';
 import AvatarGroup from '../graphics/general/AvatarGroup.svg';
-import AvatarPair from '../graphics/general/AvatarPair.svg';
 import Badge from '../graphics/general/Badge.svg';
 import Button from '../graphics/general/Button.svg';
 import ButtonGroup from '../graphics/general/ButtonGroup.svg';
@@ -28,7 +27,6 @@ import NumberField from '../graphics/general/NumberField.svg';
 import PageHeader from '../graphics/general/PageHeader.svg';
 import Popover from '../graphics/general/Popover.svg';
 import Pulsar from '../graphics/general/Pulsar.svg';
-import RadioButton from '../graphics/general/RadioButton.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
@@ -67,12 +65,6 @@ const GENERAL: ListItemType = [
     name: 'AvatarGroup',
     description:
       'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
-    category: 'Avatars',
-  },
-  {
-    svg: <AvatarPair />,
-    name: 'AvatarPair',
-    description: 'AvatarPair is used to display two avatars in an overlapping grouping.',
     category: 'Avatars',
   },
   {
@@ -237,9 +229,9 @@ const GENERAL: ListItemType = [
     category: 'Loading',
   },
   {
-    svg: <RadioButton />,
-    name: 'RadioButton',
-    description: 'se RadioButtons when you have a few options that a user can choose from.',
+    svg: <Fieldset />,
+    name: 'RadioGroup',
+    description: 'Use RadioGroup when you have a few options that a user can choose from.',
     category: 'Controls',
   },
   {
@@ -274,6 +266,13 @@ const GENERAL: ListItemType = [
     description:
       "Spinner helps indicate that a surface's content or portion of content is currently loading.",
     category: 'Loading',
+  },
+
+  {
+    svg: <Callout />,
+    name: 'SlimBanner',
+    description: 'SlimBanner conveys brief information related to a specific section of a page.',
+    category: 'Messaging',
   },
   {
     svg: <Status />,

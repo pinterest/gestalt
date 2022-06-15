@@ -65,8 +65,8 @@ type Props = {|
 /**
  * [SelectList](https://gestalt.pinterest.systems/selectlist) displays a list of actions or options using the browser’s native select.
  *
- * ![SelectList light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SelectList%20%230.png)
- * ![SelectList dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/SelectList-dark%20%230.png)
+ * ![SelectList light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SelectList.spec.mjs-snapshots/SelectList-chromium-darwin.png)
+ * ![SelectList dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SelectList-dark.spec.mjs-snapshots/SelectList-dark-chromium-darwin.png)
  *
  */
 export default function SelectList({
@@ -134,7 +134,7 @@ export default function SelectList({
           <Icon
             icon="arrow-down"
             size={12}
-            color={disabled ? 'gray' : 'darkGray'}
+            color={disabled ? 'subtle' : 'default'}
             accessibilityLabel=""
           />
         </Box>

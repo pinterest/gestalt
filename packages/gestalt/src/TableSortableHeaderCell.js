@@ -107,7 +107,7 @@ export default function TableSortableHeaderCell({
                 icon={
                   status === 'active' && sortOrder === 'asc' ? 'sort-ascending' : 'sort-descending'
                 }
-                color={status === 'active' ? 'darkGray' : 'gray'}
+                color={status === 'active' ? 'default' : 'subtle'}
               />
             </Box>
           </Box>

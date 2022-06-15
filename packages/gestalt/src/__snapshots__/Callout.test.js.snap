@@ -2,12 +2,7 @@
 
 exports[`<Callout /> Error Callout 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#FDEBEE",
-    }
-  }
+  className="box errorWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -26,7 +21,7 @@ exports[`<Callout /> Error Callout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="error"
-          className="icon red iconBlock"
+          className="icon errorIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -49,7 +44,7 @@ exports[`<Callout /> Error Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever error callout message here
           </div>
@@ -62,12 +57,7 @@ exports[`<Callout /> Error Callout 1`] = `
 
 exports[`<Callout /> Info Callout 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -86,7 +76,7 @@ exports[`<Callout /> Info Callout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -109,7 +99,7 @@ exports[`<Callout /> Info Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -122,12 +112,7 @@ exports[`<Callout /> Info Callout 1`] = `
 
 exports[`<Callout /> Warning Callout 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#FDF5EC",
-    }
-  }
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 warningWeak xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -146,7 +131,7 @@ exports[`<Callout /> Warning Callout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="warning"
-          className="icon orange iconBlock"
+          className="icon warningIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -169,7 +154,7 @@ exports[`<Callout /> Warning Callout 1`] = `
           className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever warning callout message here
           </div>
@@ -182,12 +167,7 @@ exports[`<Callout /> Warning Callout 1`] = `
 
 exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -206,7 +186,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -232,13 +212,13 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -253,7 +233,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -273,7 +253,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -316,7 +296,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -335,12 +315,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
 
 exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -359,7 +334,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -385,13 +360,13 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -406,7 +381,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
       >
         <a
           aria-label="Learn more: callout messages"
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg transparent"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg transparent"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -426,7 +401,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightBold"
           >
             Learn more
           </div>
@@ -437,7 +412,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -457,7 +432,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -470,12 +445,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
 
 exports[`<Callout /> message + title + primaryAction with href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -494,7 +464,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -520,13 +490,13 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -541,7 +511,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -561,7 +531,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 darkGray alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -574,12 +544,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
 
 exports[`<Callout /> message + title + primaryAction without href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -598,7 +563,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -624,13 +589,13 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>
@@ -662,7 +627,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
             className="button hideOutline block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 darkGray alignCenter fontWeightBold"
+              className="Text fontSize300 defaultText alignCenter fontWeightBold"
             >
               Visit Pinterest
             </div>
@@ -676,12 +641,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
 
 exports[`<Callout /> message + title 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -700,7 +660,7 @@ exports[`<Callout /> message + title 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon blue iconBlock"
+          className="icon infoIcon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -726,13 +686,13 @@ exports[`<Callout /> message + title 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 darkText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 darkText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever info callout message here
           </div>

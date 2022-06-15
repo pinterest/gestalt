@@ -45,7 +45,7 @@ We love to see more iteration from the product designer asking for the component
         />
       </MainSection>
 
-      <MainSection name="Contribuiting to Gestalt">
+      <MainSection name="Contributing to Gestalt">
         <MainSection.Subsection
           title="Making a design contribution"
           description={`
@@ -54,8 +54,8 @@ We love the help and contributions of other designers across Pinterest, and we a
     [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an Office Hours slot! Explain project goals and show multiple options explored with and without Gestalt components. It does not need to be a polished presentation but should have enough detail to help us understand the request and why it is needed.
 2. **Create a Branch in our design library**
     Create a Branch file in our main library adding your design updates and component addition. Don't worry, our design team will support you with that. See [Branching in Figma](https://www.figma.com/best-practices/branching-in-figma/) for more details and self-education.
-3. **Present your work in a Design System Crit**
-Our design team will schedule a meeting to present your work to other designers and engineers and collect feedback.
+3. **Present your work in the Gestalt open forum meeting**
+Our design team will coordinate a time with you to present your work to other designers and engineers and collect feedback.
 4. **Send your Branch to review**
 After your Branch is ready, add a Gestalt reviewer (designer) to your Branch. Our design team will approve and merge your updates when prepared to implement them in our web docs. We will follow up with you!
 `}
@@ -123,13 +123,13 @@ Our meetings, events, and timelines can be found on the [Gestalt Event Calendar]
       Primarily designers, though engineers are welcome if there are technical concerns as well.
     - _Cadence_
       Twice a week on Tuesdays and Thursdays. Please [sign up](https://pinch.pinadmin.com/gestaltSignUp) for a half-hour slot with your discussion topic.
-2.  **Component Crit**
+2.  **Gestalt Open Forum**
     - _Purpose_
-      For systems designers seeking feedback from the larger design org on systems-related designs.
+      For systems designers seeking feedback from the larger design org and everything else design system related.
     - _Audience_
-      Pinterest designers and Gestalt engineers. The agenda for the Crit can be found in the recurring calendar invite. Please continue to bring component work to Office Hours.
+      Pinterest designers and Gestalt engineers. The agenda for the open forum can be found in the recurring calendar invite. Please continue to bring component work to Office Hours.
     - _Cadence_
-      Every other Friday. Please sign up through the link in the calendar invite.
+      Every third Thursday of the month. Please sign up through the link in the calendar invite.
 `}
         />
       </MainSection>

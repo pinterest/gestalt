@@ -14,6 +14,7 @@ describe('Checkbox', () => {
         <Checkbox size="sm" id="testcheckbox" onChange={mockOnChange} onClick={mockOnClick} />
       </form>,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByLabelText('Label').click();
     expect(mockOnClick).toHaveBeenCalled();
     expect(mockOnChange).toHaveBeenCalled();
@@ -37,6 +38,7 @@ describe('Checkbox', () => {
     const { container } = render(
       <Checkbox indeterminate id="testcheckbox" onChange={mockOnChange} />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');
     expect(input?.indeterminate).toBe(true);
   });

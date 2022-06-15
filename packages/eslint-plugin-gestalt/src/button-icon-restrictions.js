@@ -4,8 +4,6 @@
  * Gestalt is more permissive than PDS recommends in adding icons to Buttons.
  * Buttons using iconEnd must use:
  * - icon "arrow-down"
- * - color "white"
- * - size "lg"
  */
 
 // @flow strict
@@ -73,18 +71,9 @@ const rule: ESLintRule = {
           return;
         }
 
-        const colorAttribute = getAttribute(node, 'color');
-        const isCorrectColor = getValue(colorAttribute) === 'white';
-
-        const sizeAttribute = getAttribute(node, 'size');
-        const isCorrectSize = getValue(sizeAttribute) === 'lg';
-
         // Not using correct props
-        if (!isCorrectColor || !isCorrectIcon || !isCorrectSize) {
-          context.report(
-            node,
-            'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
-          );
+        if (!isCorrectIcon) {
+          context.report(node, 'Buttons using iconEnd must use "arrow-down"');
         }
       },
     };

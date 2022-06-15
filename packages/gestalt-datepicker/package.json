@@ -1,6 +1,6 @@
 {
   "name": "gestalt-datepicker",
-  "version": "47.1.1",
+  "version": "58.1.2",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "A React UI datepicker component which enforces Pinterest’s design language",
@@ -18,8 +18,8 @@
   },
   "peerDependencies": {
     "gestalt": ">0.0.0",
-    "react": "^16.13.1 || 17.x",
-    "react-dom": "^16.13.1 || 17.x"
+    "react": "^16.13.1 || ^17.0 || ^18.0",
+    "react-dom": "^16.13.1 || ^17.0 || ^18.0"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",

@@ -40,6 +40,10 @@ type Props = {|
  * [Toasts](https://gestalt.pinterest.systems/toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
  *
  * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
+ *
+ * ⚠️ Please note: Toast is not currently supported in dark mode.
+ *
+ * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
   button,
@@ -56,16 +60,16 @@ export default function Toast({
   const isMobileWidth = responsiveMinWidth === 'xs';
 
   let containerColor = isDarkMode ? 'white' : 'darkGray';
-  let textColor = isDarkMode ? 'darkGray' : 'white';
+  let textColor = isDarkMode ? 'dark' : 'light';
   let textElement = text;
 
   // If `text` is a Node, we need to override any text colors within to ensure they all match
   if (typeof text !== 'string') {
     let textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDarkGray
-      : styles.textColorOverrideWhite;
+      ? styles.textColorOverrideDark
+      : styles.textColorOverrideLight;
     if (isErrorVariant) {
-      textColorOverrideStyles = styles.textColorOverrideWhite;
+      textColorOverrideStyles = styles.textColorOverrideLight;
     }
 
     textElement = <span className={textColorOverrideStyles}>{text}</span>;
@@ -74,7 +78,7 @@ export default function Toast({
   // Error variant does not currently support dark mode
   if (isErrorVariant) {
     containerColor = 'red';
-    textColor = 'white';
+    textColor = 'light';
   }
 
   const hasImage = thumbnail != null;

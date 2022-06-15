@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Image, Flex, Heading, Link, Text } from 'gestalt';
+import { Flex, Heading, Link, Text } from 'gestalt';
 import Card from '../components/Card.js';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
@@ -41,6 +41,16 @@ export default function ContainerPage(): Node {
                 <Link href="https://classic.yarnpkg.com/en/docs/install" target="blank">
                   Install yarn
                 </Link>
+              </Text>
+            </li>
+            <li>
+              <Text weight="bold" inline>
+                <Link inline href="https://docs.docker.com/get-docker/" target="blank">
+                  Install Docker desktop.
+                </Link>{' '}
+                <Text inline>
+                  You can also run the following command: <code>brew install --cask docker</code>
+                </Text>
               </Text>
             </li>
           </ul>
@@ -203,23 +213,26 @@ git checkout -b <feature-branch> upstream/master
               />
             </li>
             <li>
-              <Text>Time to make changes to Gestalt!</Text>
-              <ul>
-                <li>
-                  <Text>
-                    If you are introducing a new component, run the scaffolding command to generate
-                    the necessary files. Replace &lsquo;ComponentName&lsquo; with the name of your
-                    component.
-                    <Markdown
-                      text="
+              <Text inline>Time to make changes to Gestalt! </Text>
+              <Text inline>
+                If you are introducing a new component, run the scaffolding command to generate the
+                necessary files. Replace &lsquo;ComponentName&lsquo; with the name of your
+                component.
+                <Markdown
+                  text="
 ~~~bash
 yarn generate ComponentName
 ~~~"
-                    />
-                  </Text>
-                </li>
+                />
+              </Text>
+            </li>
+            <li>
+              <Text inline>
+                Any subsequent component changes might require the following actions.
+              </Text>
+              <ul>
                 <li>
-                  <Text>Run tests &amp; update snapshots.</Text>
+                  <Text>Run unit tests</Text>
                   <Markdown
                     text="
 ~~~bash
@@ -230,79 +243,49 @@ yarn jest -u
                 <li>
                   <Text>
                     Run{' '}
-                    <Link href="https://github.com/component-driven/cypress-axe" inline>
-                      <Text weight="bold">Cypress accessibility integration tests</Text>
+                    <Link href="https://www.npmjs.com/package/@axe-core/playwright" inline>
+                      <Text weight="bold">Playwright accessibility integration tests</Text>
                     </Link>
                     . If any documentation examples are expected to fail accessibility testing, wrap
-                    the example in a container with{' '}
-                    <code>className=&quot;cypress-a11y-skip&quot;</code>.
+                    the example in a container with <code>data-skip-accessibility-check</code>.
                   </Text>
                   <Markdown
                     text="
 ~~~bash
-yarn cypress open
+yarn playwright:test accessibility/
 ~~~"
                   />
                 </li>
                 <li>
                   <Text>
                     Run{' '}
-                    <Link href="https://github.com/meinaart/cypress-plugin-snapshots" inline>
-                      <Text weight="bold">Cypress visual diff snapshot tests</Text>
+                    <Link href="https://playwright.dev/docs/test-snapshots" inline>
+                      <Text weight="bold">Playwright visual diff snapshot tests</Text>
                     </Link>
                     . If any component changes are expected to visually modify your component, you
-                    must update the snapshot tests. In order to run the tests, you must start the
-                    documentation server in one terminal and the Cypress testing interface in
-                    another.
+                    must update the snapshot tests. In order to update the Linux snapshots in the
+                    tests, you must build a docker file and then run docker.
                   </Text>
                   <Markdown
                     text="
 ~~~bash
-// Terminal tab #1
+# Start the documentation server (required for updating macOS snapshots)
 yarn start
+#
+# Update macOS snapshots
+yarn playwright:test visual-test/ --update-snapshots
 ~~~"
                   />
                   <Markdown
                     text="
 ~~~bash
-// Terminal tab #2
-yarn cypress open
+# Build the docker container (only need to do this once)
+yarn docker:build
+#
+# Update the linux snapshots
+yarn docker:run
 ~~~"
                   />
-                  <Flex wrap justifyContent="center">
-                    <Box as="figure" width={400}>
-                      <Image
-                        alt=""
-                        color="white"
-                        naturalHeight={262}
-                        naturalWidth={400}
-                        src="https://i.ibb.co/FY1pp4Y/Screen-Shot-2022-03-09-at-4-49-21-PM.png"
-                      />
-                      <Text size="100" align="center">
-                        <Box as="figcaption" marginTop={3}>
-                          Each failing snapshot test will display an error message. Click on
-                          &quot;Compare Snapshot&quot;. It will open a separate interface displaying
-                          the expected and the received snapshots side by side for your comparison.
-                        </Box>
-                      </Text>
-                    </Box>
-                    <Box as="figure" width={400}>
-                      <Image
-                        alt=""
-                        color="white"
-                        naturalHeight={176}
-                        naturalWidth={400}
-                        src="https://i.ibb.co/7NyhPRD/Screen-Shot-2022-03-09-at-4-49-40-PM.png"
-                      />
-                      <Text size="100" align="center">
-                        <Box as="figcaption" marginTop={3}>
-                          On this new interface displaying the expected and the received snapshots,
-                          click on the &quot;Update snapshot&quot; button to reconcile the changes.
-                          Only update if the changes are expected, otherwise revisit the code.
-                        </Box>
-                      </Text>
-                    </Box>
-                  </Flex>
                 </li>
                 <li>
                   <Text>Update CSS flow types.</Text>

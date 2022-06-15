@@ -23,7 +23,7 @@ type Props = {|
   // OPTIONAL
   accessibilityControls?: string,
   accessibilityActiveDescendant?: string,
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
+  autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
   errorMessage?: Node,
   hasError?: boolean,
@@ -51,6 +51,7 @@ type Props = {|
     value: string,
   |}) => void,
   placeholder?: string,
+  readOnly?: boolean,
   size?: 'md' | 'lg',
   step?: number,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
@@ -81,6 +82,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
       onFocus,
       onKeyDown,
       placeholder,
+      readOnly,
       size = 'md',
       step,
       tags,
@@ -163,6 +165,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
         // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
         pattern={type === 'number' ? '\\d*' : undefined}
         placeholder={placeholder}
+        readOnly={readOnly}
         step={type === 'number' ? step : undefined}
         {...(tags ? {} : { ref: innerRef })}
         type={type}

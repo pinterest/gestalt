@@ -1,18 +1,15 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Link as GestaltLink, Text, Tooltip } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import DarkModeButton from './buttons/DarkModeButton.js';
-import LTRButton from './buttons/LTRButton.js';
+import { Box, CompositeZIndex, Link as GestaltLink, Text, Tooltip } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
-export default function HeaderMenu({ isHeader }: {| isHeader?: boolean |}): Node {
-  const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
-
-  const onChangeColorScheme = () => setColorScheme(colorScheme === 'light' ? 'dark' : 'light');
-
-  const onTextDirectionChange = () => setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
-
+export default function HeaderMenu({
+  isHeader,
+  popoverZIndex,
+}: {|
+  isHeader?: boolean,
+  popoverZIndex?: CompositeZIndex,
+|}): Node {
   return (
     <Box
       alignItems="center"
@@ -20,10 +17,11 @@ export default function HeaderMenu({ isHeader }: {| isHeader?: boolean |}): Node
       mdDisplay={isHeader ? 'flex' : 'none'}
       justifyContent={isHeader ? undefined : 'center'}
     >
-      <LTRButton onClick={() => onTextDirectionChange()} textDirection={textDirection} />
-      <DarkModeButton colorScheme={colorScheme} onClick={() => onChangeColorScheme()} />
-
-      <Tooltip inline text="Opens CodeSandbox ready to start coding with Gestalt">
+      <Tooltip
+        inline
+        text="Opens CodeSandbox ready to start coding with Gestalt"
+        zIndex={popoverZIndex}
+      >
         <Text>
           <GestaltLink
             href="https://codesandbox.io/s/k5plvp9v8v"
@@ -35,7 +33,7 @@ export default function HeaderMenu({ isHeader }: {| isHeader?: boolean |}): Node
         </Text>
       </Tooltip>
 
-      <Tooltip inline text="Check out the source code on GitHub">
+      <Tooltip inline text="View source code" zIndex={popoverZIndex}>
         <Text>
           <GestaltLink
             href="https://github.com/pinterest/gestalt"

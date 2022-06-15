@@ -15,11 +15,11 @@ const INPUT_PADDING_WITH_TAGS = 20;
 
 type Props = {|
   /**
-   * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/textArea#disabledExample) for more details.
+   * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/textarea#Disabled) for more details.
    */
   disabled?: boolean,
   /**
-   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/textArea#errorMessageExample) for more details.
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/textarea#Error-message) for more details.
    */
   errorMessage?: Node,
   /**
@@ -27,7 +27,7 @@ type Props = {|
    */
   hasError?: boolean,
   /**
-   * More information about how to complete the form field. See the [helper text example](https://gestalt.pinterest.systems/textArea#helperText) for more details.
+   * More information about how to complete the form field. See the [helper text example](https://gestalt.pinterest.systems/textarea#Helper-text) for more details.
    */
   helperText?: string,
   /**
@@ -38,6 +38,10 @@ type Props = {|
    * The label for the input. Be sure to localize the text.
    */
   label?: string,
+  /**
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
+   */
+  labelDisplay?: 'visible' | 'hidden',
   /**
    * A unique name for the input.
    */
@@ -75,7 +79,11 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/textArea#refExample) for more details.
+   * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textarea#Read-only) for more details.
+   */
+  readOnly?: boolean,
+  /**
+   * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/textarea#With-a-ref) for more details.
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
@@ -83,7 +91,7 @@ type Props = {|
    */
   rows?: number,
   /**
-   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/textArea#tagsExample) for more details.
+   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/textarea#With-tags) for more details.
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   /**
@@ -93,10 +101,10 @@ type Props = {|
 |};
 
 /**
- * [TextArea](https://gestalt.pinterest.systems/textArea) allows for multi-line input.
+ * [TextArea](https://gestalt.pinterest.systems/textarea) allows for multi-line input.
  *
- * ![TextArea light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/TextArea%20%230.png)
- * ![TextArea dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/TextArea-dark%20%230.png)
+ * ![TextArea light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea.spec.mjs-snapshots/TextArea-chromium-darwin.png)
+ * ![TextArea dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea-dark.spec.mjs-snapshots/TextArea-dark-chromium-darwin.png)
  *
  */
 const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
@@ -110,12 +118,14 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
     helperText,
     id,
     label,
+    labelDisplay = 'visible',
     name,
     onBlur,
     onChange,
     onFocus,
     onKeyDown,
     placeholder,
+    readOnly = false,
     rows = 3,
     tags,
     value,
@@ -176,6 +186,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}
       placeholder={placeholder}
+      readOnly={readOnly}
       ref={ref}
       rows={tags ? undefined : rows}
       value={value}
@@ -188,7 +199,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
 
   return (
     <span>
-      {label && <FormLabel id={id} label={label} />}
+      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       {tags ? (
         <div className={classes} style={tagsWrapperStyle}>
           {tags.map((tag, tagIndex) => (

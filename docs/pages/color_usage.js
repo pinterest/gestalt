@@ -49,7 +49,7 @@ export default function ColorUsagePage(): Node {
         description={`
         When designing a product interface, you can choose between any color swatch available in our [design tokens documentation](/design_tokens). The color tokens represent the values used within Gestalt to construct layouts and components.
 
-        Colors available in our extended palette and not listed on Gestalt Colors & Styles Figma library are reserved for larger brand moments, and they should not be applied to components.
+        Colors available in our extended palette and not listed on the Gestalt Foundations library are reserved for larger brand moments, and they should not be applied to components.
 
         By limiting the range of colors, the areas that receive color gain more attention, such as text, images, and components. Pinterest content is multicolored, and having a limited range of colors is a great way to keep consistency, making our product more visible and engaging.
 
@@ -180,22 +180,22 @@ export default function ColorUsagePage(): Node {
             <ColorTile
               description="Info weak"
               fullTokenName="color-background-info-weak"
-              textColor="dark"
+              textColor="default"
             />
             <ColorTile
               description="Success weak"
               fullTokenName="color-background-success-weak"
-              textColor="dark"
+              textColor="default"
             />
             <ColorTile
               description="Warning weak"
               fullTokenName="color-background-warning-weak"
-              textColor="dark"
+              textColor="default"
             />
             <ColorTile
               description="Error weak"
               fullTokenName="color-background-error-weak"
-              textColor="dark"
+              textColor="default"
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>

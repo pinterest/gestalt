@@ -20,11 +20,10 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
       <Flex gap={4} alignItems="center" flex="grow">
         <Icon
           icon="pinterest"
-          color="red"
+          color="brandPrimary"
           size={20}
           accessibilityLabel="Pinterest"
         />
-
         <Flex.Item flex="grow">
           <SearchField
             accessibilityLabel="Search all of Pinterest"
@@ -35,13 +34,11 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             value={value}
           />
         </Flex.Item>
-
         <IconButton
           accessibilityLabel="Notifications"
           icon="speech-ellipsis"
           size="md"
         />
-
         <IconButton accessibilityLabel="Profile" icon="person" size="md" />
       </Flex>
     );
@@ -183,16 +180,14 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             defaultCode={`
   function SearchFieldExample() {
     const [value, setValue] = React.useState('');
-
     return (
       <Flex alignItems="center" flex="grow" gap={4}>
         <Icon
           accessibilityLabel="Pinterest"
-          color="red"
+          color="brandPrimary"
           icon="pinterest"
           size={20}
         />
-
         <Flex.Item flex="grow">
           <SearchField
             accessibilityLabel="Search all of Pinterest"
@@ -203,13 +198,11 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             value={value}
           />
         </Flex.Item>
-
         <IconButton
           accessibilityLabel="Notifications"
           icon="speech-ellipsis"
           size="md"
         />
-
         <IconButton accessibilityLabel="Profile" icon="person" size="md" />
       </Flex>
     );
@@ -232,16 +225,14 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             defaultCode={`
   function SearchFieldExample() {
     const [value, setValue] = React.useState('');
-
     return (
       <Flex alignItems="center" flex="grow" gap={4}>
         <Icon
           accessibilityLabel="Pinterest"
-          color="red"
+          color="brandPrimary"
           icon="pinterest"
           size={20}
         />
-
         <Flex.Item flex="grow">
           <SearchField
             accessibilityLabel="सभी Pinterest खोजें"
@@ -252,13 +243,11 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             value={value}
           />
         </Flex.Item>
-
         <IconButton
           accessibilityLabel="सूचनाएं"
           icon="speech-ellipsis"
           size="md"
         />
-
         <IconButton accessibilityLabel="प्रोफ़ाइल" icon="person" size="md" />
       </Flex>
     );
@@ -278,7 +267,6 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             defaultCode={`
 function SearchFieldExample() {
   const [value, setValue] = React.useState('');
-
   return (
     <Flex alignItems="center" flex="grow">
       <Flex.Item flex="grow">
@@ -309,7 +297,6 @@ function SearchFieldExample() {
 function SearchFieldExample() {
   const [value, setValue] = React.useState('');
   const [lgValue, setLgValue] = React.useState('');
-
   return (
     <Flex alignItems="center" gap={12}>
       <Flex direction="column" flex="grow" gap={4}>
@@ -324,7 +311,6 @@ function SearchFieldExample() {
           value={value}
         />
       </Flex>
-
       <Flex direction="column" flex="grow" gap={4}>
         <Text>Large (lg)</Text>
         <SearchField
@@ -354,7 +340,6 @@ function SearchFieldExample() {
             defaultCode={`
 function SearchFieldExample() {
   const [value, setValue] = React.useState('pepper#$%');
-
   return (
     <Flex alignItems="center" flex="grow">
       <Flex.Item flex="grow">
@@ -382,10 +367,8 @@ function SearchFieldExample() {
           description={`
 **[ComboBox](/combobox)**
 ComboBox allows users to filter a list when selecting an option. Choose ComboBox when the user is selecting from a finite list of options.
-
 **[TextField](/textfield)**
 TextField provides an affordance to input small to medium length text. Unless the text is used to search for or filter through content, choose TextField for shorter text input.
-
 **[TextArea](/textarea)**
 TextArea allows for multiline text input, suitable for longer length text. Unless the text is used to search for or filter through content, choose TextArea for longer text input.
       `}

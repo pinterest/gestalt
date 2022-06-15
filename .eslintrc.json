@@ -1,12 +1,11 @@
 {
   "extends": [
     "airbnb",
-    "plugin:cypress/recommended",
+    "plugin:@next/next/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:flowtype/recommended",
     "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:@next/next/recommended",
     "plugin:react/recommended",
     "prettier"
   ],
@@ -18,11 +17,12 @@
   "plugins": [
     "eslint-comments",
     "flowtype",
+    "import",
     "jest",
     "jsx-a11y",
     "react",
     "react-hooks",
-    "import"
+    "testing-library"
   ],
   "settings": {
     "next": {
@@ -107,6 +107,7 @@
       "env": {
         "jest": true
       },
+      "extends": ["plugin:testing-library/react"],
       "globals": {
         "page": true,
         "browser": true
@@ -119,13 +120,21 @@
       }
     },
     {
-      "files": [
-        "cypress/**/*.js",
-        "scripts/templates/accessibility_ComponentName_spec.js"
-      ],
+      "files": ["playwright/**/*.mjs", "scripts/templates/*.spec.mjs"],
+      "extends": ["plugin:playwright/playwright-test"],
       "rules": {
+        "playwright/missing-playwright-await": "error",
+        "playwright/no-element-handle": "error",
+        "playwright/no-eval": "error",
+        "playwright/no-focused-test": "error",
+        "playwright/no-force-option": "error",
+        "playwright/no-page-pause": "error",
+        "playwright/no-skipped-test": "off", // Can be turned on when what's new is removed
+        "playwright/no-wait-for-timeout": "error",
+        "flowtype/require-valid-file-annotation": "off",
         "jest/expect-expect": "off",
-        "flowtype/require-valid-file-annotation": "off"
+        "jest/no-done-callback": "off",
+        "jest/valid-expect": "off"
       }
     }
   ]

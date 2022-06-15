@@ -21,6 +21,13 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
   xl: 24,
 };
 
+const OLD_TO_NEW_COLOR_MAP = {
+  'white': 'inverse',
+  'gray': 'subtle',
+  'darkGray': 'default',
+  'red': 'error',
+};
+
 const defaultIconButtonIconColors = {
   darkGray: 'white',
   gray: 'white',
@@ -89,7 +96,11 @@ type Props = {|
 /**
  * [Pog](https://gestalt.pinterest.systems/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/pog/iconbutton).
  *
- *This abstraction to allow for links that look like IconButton.
+ * This is an abstraction to allow for links that look like IconButton.
+ *
+ * ![Pog light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog.spec.mjs-snapshots/Pog-chromium-darwin.png)
+ * ![Pog dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog-dark.spec.mjs-snapshots/Pog-dark-chromium-darwin.png)
+ *
  */
 export default function Pog({
   accessibilityLabel = '',
@@ -128,7 +139,7 @@ export default function Pog({
     <div className={classes} style={inlineStyle}>
       <Icon
         accessibilityLabel={accessibilityLabel || ''}
-        color={color}
+        color={OLD_TO_NEW_COLOR_MAP[color]}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}
         size={iconSizeInPx}

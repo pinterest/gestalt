@@ -97,6 +97,9 @@ const allowedProps = [
  * [Flex](https://gestalt.pinterest.systems/flex) is a layout component with a very limited subset of the props available to [Box](https://gestalt.pinterest.systems/box) and a special prop of its own.
 
  * Use this component for flexbox layouts, especially when even spacing between elements is desired (see the `gap` prop!).
+ *
+ * ![Flex light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Flex.spec.mjs-snapshots/Flex-chromium-darwin.png)
+ *
  */
 export default function Flex({
   alignItems,

@@ -88,6 +88,10 @@ type Props = {|
    */
   minDate?: Date,
   /**
+   * A unique name for the input.
+   */
+  name?: string,
+  /**
    * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
    */
   nextRef?: {| current: ?HTMLInputElement |},
@@ -129,11 +133,10 @@ type Props = {|
  */
 /**
  * [DatePicker](https://gestalt.pinterest.systems/datepicker) is used when the user has to select a date or date range.
+ * DatePicker is distributed in its own package and must be installed separately.
  *
- * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-closed%20%230.png)
- * ![DatePicker open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-open%20%230.png)
- * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-closed-dark%20%230.png)
- * ![DatePicker open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/DatePicker-open-dark%20%230.png)
+ * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.mjs-snapshots/DatePicker-closed-chromium-darwin.png)
+ * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed-dark.spec.mjs-snapshots/DatePicker-closed-dark-chromium-darwin.png)
  */
 const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
@@ -151,6 +154,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
     localeData,
     maxDate,
     minDate,
+    name,
     nextRef,
     onChange,
     placeholder,
@@ -164,13 +168,18 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
   const innerRef = useRef(null);
   useImperativeHandle(ref, () => innerRef.current);
 
+  const [selected, setSelected] = useState<?Date>(dateValue);
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
   // in the month and we need to keep the popover pointed at the input correctly
-  const [selected, setSelected] = useState<?Date>(dateValue);
   const [, setMonth] = useState<?number>();
   const [format, setFormat] = useState<?string>();
   const [updatedLocale, setUpdatedLocale] = useState<?string>();
   const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
+
+  // TO DO: Ideally this component should be fully controlled using value + onChange, where selected/setSelected are unnecessary.
+  useEffect(() => {
+    setSelected(dateValue);
+  }, [dateValue]);
 
   useEffect(() => {
     if (rangeSelector) {
@@ -215,7 +224,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       )}
       <ReactDatePicker
         calendarClassName={classnames(styles['react-datepicker'])}
-        customInput={<DatePickerTextField id={id} />}
+        customInput={<DatePickerTextField name={name} id={id} />}
         dateFormat={format}
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
@@ -228,7 +237,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
         maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
         minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
         nextMonthButtonLabel={
-          <Icon accessibilityLabel="" color="darkGray" icon="arrow-forward" size={16} />
+          <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
         }
         onChange={(value: Date, event: SyntheticInputEvent<HTMLInputElement>) => {
           setSelected(value);
@@ -244,7 +253,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
         )}
         popperPlacement={popperPlacement[idealDirection]}
         previousMonthButtonLabel={
-          <Icon accessibilityLabel="" color="darkGray" icon="arrow-back" size={16} />
+          <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
         }
         ref={(refElement) => {
           if (!innerRef || !refElement) {
@@ -264,7 +273,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       />
       {(!!errorMessage || !!helperText) && (
         <Box marginTop={2}>
-          <Text color={errorMessage ? 'red' : 'gray'} size="100">
+          <Text color={errorMessage ? 'error' : 'subtle'} size="100">
             {errorMessage || helperText}
           </Text>
         </Box>

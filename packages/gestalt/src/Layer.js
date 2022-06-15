@@ -3,7 +3,7 @@ import { type Portal, type Node, useRef, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { type Indexable } from './zIndex.js';
 import styles from './Layer.css';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import { getContainerNode } from './utils/positioningUtils.js';
 
 type Props = {|
@@ -50,14 +50,19 @@ export default function Layer({ children, zIndex: zIndexIndexable }: Props): Por
     }
 
     if (portalContainer.current) {
+      // For some reason Flow won't believe the above truthy check
+      // $FlowFixMe[incompatible-use]
       portalContainer.current.style.zIndex = zIndex === undefined ? '' : zIndex.toString();
+      // $FlowFixMe[incompatible-use]
       portalContainer.current.className = zIndex === undefined ? '' : styles.layer;
 
       if (containerNode) {
         // If containerNode is found, append the portal to it
+        // $FlowFixMe[incompatible-call]
         containerNode.appendChild(portalContainer.current);
       } else if (typeof document !== 'undefined' && document.body) {
         // If not, append the portal to document.body
+        // $FlowFixMe[incompatible-call]
         document.body.appendChild(portalContainer.current);
       }
     }

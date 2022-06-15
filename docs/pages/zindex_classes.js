@@ -321,14 +321,14 @@ function ScrollBoundaryContainerExample() {
 
     const List = ({ title }) => (
       <Flex direction="column" gap={4}>
-        <Text color="darkGray" size="100">
+        <Text color="default" size="100">
           { title }
         </Text>
         <Flex direction="column" gap={4}>
           {[
-            ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thubnail image: a white dress with red flowers'],
-            ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thubnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-            ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thubnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
+            ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
+            ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
+            ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
           ].map((data, index) => (
               <TapArea
                 key={index}
@@ -350,7 +350,7 @@ function ScrollBoundaryContainerExample() {
                       />
                     </Mask>
                   </Box>
-                  <Text align="center" color="darkGray" weight="bold">
+                  <Text align="center" color="default" weight="bold">
                     {data[1]}
                   </Text>
                 </Flex>
@@ -384,7 +384,7 @@ function ScrollBoundaryContainerExample() {
               <Box width={360}>
                 <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
                   <Flex direction="column" gap={6}>
-                    <Text align="center" color="darkGray" weight="bold">
+                    <Text align="center" color="default" weight="bold">
                       Save to board
                     </Text>
                     <SearchBoardField/>

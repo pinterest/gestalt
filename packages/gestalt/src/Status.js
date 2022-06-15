@@ -8,31 +8,31 @@ import Text from './Text.js';
 const ICON_COLOR_MAP = {
   canceled: {
     icon: 'workflow-status-canceled',
-    color: 'gray',
+    color: 'subtle',
   },
   halted: {
     icon: 'workflow-status-halted',
-    color: 'darkGray',
+    color: 'default',
   },
   inProgress: {
     icon: 'workflow-status-in-progress',
-    color: 'green',
+    color: 'success',
   },
   ok: {
     icon: 'workflow-status-ok',
-    color: 'green',
+    color: 'success',
   },
   problem: {
     icon: 'workflow-status-problem',
-    color: 'red',
+    color: 'error',
   },
   unstarted: {
     icon: 'workflow-status-unstarted',
-    color: 'darkGray',
+    color: 'default',
   },
   warning: {
     icon: 'workflow-status-warning',
-    color: 'orange',
+    color: 'warning',
   },
 };
 
@@ -60,8 +60,8 @@ type Props = {|
 /**
  * [Status](https://gestalt.pinterest.systems/status) is a graphic indicator of an element’s state.
  *
- * ![Status light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Status%20%230.png)
- * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/cypress/integration/visual-test/__image_snapshots__/Status-dark%20%230.png)
+ * ![Status light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status.spec.mjs-snapshots/Status-chromium-darwin.png)
+ * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.mjs-snapshots/Status-dark-chromium-darwin.png)
  *
  */
 export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
@@ -76,7 +76,7 @@ export default function Status({ accessibilityLabel, subtext, title, type }: Pro
 
       {subtext && title && (
         <Box marginStart={6}>
-          <Text color="gray" size="200">
+          <Text color="subtle" size="200">
             {subtext}
           </Text>
         </Box>

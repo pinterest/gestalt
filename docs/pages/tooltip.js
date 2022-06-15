@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
@@ -12,6 +13,19 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name="Tooltip"
         description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBanner
+            type="info"
+            iconAccessibilityLabel="Info"
+            message="Planning to use Tooltip with IconButton? Instead, use"
+            helperLink={{
+              text: "IconButton's built-in tooltip.",
+              accessibilityLabel: 'View IconButton Docs, with Tooltip section',
+              href: '/iconbutton#With-Tooltip',
+              onClick: () => {},
+            }}
+          />
+        }
         defaultCode={`
       <Flex>
         <Tooltip text="Align left" accessibilityLabel="">
@@ -63,6 +77,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
+          - Using a separate Tooltip instance with IconButton. Use [IconButton's built-in tooltip](https://gestalt.pinterest.systems/iconbutton#With-Tooltip) instead.
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
           - Offering context at the surface-level scope. Consider a [Callout](/callout) instead.
         `}
@@ -180,7 +195,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Tooltip
   link={
-    <Text color="white" size="100" weight="bold">
+    <Text color="inverse" size="100" weight="bold">
       <Link
         href="https://help.pinterest.com/en/business/article/get-a-business-account"
         target="blank"
@@ -386,7 +401,7 @@ function SectionsIconButtonDropdownExample() {
     <Tooltip
       text="Use your Pin to expand your targeting."
       link={
-        <Text color="white" size="100" weight="bold">
+        <Text color="inverse" size="100" weight="bold">
           <Link
             href="https://help.pinterest.com/en/business/article/expanded-targeting"
             target="blank"
@@ -662,7 +677,7 @@ function ScrollBoundaryContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="darkGray"
+                color="default"
               />
             </Tooltip>
           </Flex>
@@ -722,7 +737,7 @@ function ScrollBoundaryContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="darkGray"
+                color="default"
               />
             </Tooltip>
           </Flex>

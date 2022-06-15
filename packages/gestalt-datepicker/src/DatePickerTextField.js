@@ -10,6 +10,7 @@ import styles from './DatePicker.css';
 type InjectedProps = {|
   disabled?: boolean,
   id: string,
+  name?: string,
   onBlur?: (event: SyntheticFocusEvent<HTMLInputElement>) => void,
   onChange?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   onClick?: () => void,
@@ -31,6 +32,7 @@ function DatePickerTextField(props: Props) {
     disabled,
     forwardedRef,
     id,
+    name,
     onChange,
     onClick,
     onBlur,
@@ -57,6 +59,7 @@ function DatePickerTextField(props: Props) {
                 onClick();
               }
             }}
+            name={name}
             onChange={(data) => onChange && onChange(data.event)}
             onKeyDown={(data) => onKeyDown && onKeyDown(data.event)}
             placeholder={placeholder}
@@ -67,7 +70,7 @@ function DatePickerTextField(props: Props) {
         </Box>
         <div className={classnames(styles.calendarIcon)}>
           <Box position="relative" marginEnd={4}>
-            <Icon accessibilityLabel="" color="darkGray" icon="calendar" />
+            <Icon accessibilityLabel="" color="default" icon="calendar" />
           </Box>
         </div>
       </Box>

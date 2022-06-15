@@ -127,7 +127,7 @@ function Example() {
             boxShadow: isFocusVisible && focusedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
-          <Text>Button 1</Text>
+          <Text color="dark">Button 1</Text>
         </button>
       </Flex>
       <Flex alignItems="center" direction="column" gap={4}>
@@ -140,7 +140,7 @@ function Example() {
             boxShadow: focusedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
           }}
         >
-          <Text>Button 2</Text>
+          <Text color="dark">Button 2</Text>
         </button>
       </Flex>
     </Flex>
@@ -191,7 +191,7 @@ function Example() {
                 }
               >
                 <Box color="red" display="inlineBlock" padding={4}>
-                  <Text color="white">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion not activated'}</Text>
+                  <Text color="inverse">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion not activated'}</Text>
                 </Box>
               </div>
             </React.Fragment>
@@ -207,7 +207,7 @@ function Example() {
         **[Web Accessibility Wiki](https://w.pinadmin.com/display/WT/Accessibility)**
         Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests).
 
-        **[Product Accessibility Working Group](https://paper.dropbox.com/doc/Product-Accessibility-Working-Group--BO3YB5RlBqMR_dd4mPlH47TQAg-3yV0JaSZlrnj5escjkAex)**
+        **[Product Accessibility Working Group](http://pinch.pinadmin.com/productAccessibilityWorkingGroup)**
         Details about the accessibility working group, including success metrics and project statuses.
 
         **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**

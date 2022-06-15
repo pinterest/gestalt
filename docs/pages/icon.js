@@ -16,8 +16,8 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
         description={generatedDocGen?.description}
         defaultCode={`
           <Flex gap={1}>
-              <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
-            <Text align="center" color="darkGray" weight="bold">
+              <Icon icon="pin" accessibilityLabel="Pin" color="default" />
+            <Text align="center" color="default" weight="bold">
               Pinterest
             </Text>
           </Flex>`}
@@ -54,7 +54,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Use icons intentionally, ensuring the Icon choice is easily recognizable and makes sense in the context. "
             defaultCode={`
   <Flex gap={1}>
-    <Icon icon="eye" accessibilityLabel="Number of views" color="darkGray" />
+    <Icon icon="eye" accessibilityLabel="Number of views" color="default" />
     <Text weight="bold" size="300">4</Text>
   </Flex>`}
           />
@@ -64,7 +64,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Repurpose icons. Using icons for their intended meaning supports good comprehension."
             defaultCode={`
   <Flex gap={2}>
-    <Icon icon="sound" accessibilityLabel="" color="darkGray" />
+    <Icon icon="sound" accessibilityLabel="" color="default" />
     <Text size="300" weight="bold">24 monthly views</Text>
   </Flex>`}
           />
@@ -76,7 +76,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Pair text and icons when possible to provide better clarity."
             defaultCode={`
 <Flex gap={1}>
-  <Icon icon="tag" accessibilityLabel="" color="darkGray" />
+  <Icon icon="tag" accessibilityLabel="" color="default" />
   <Text size="300" weight="bold">
     Shopping spotlight
   </Text>
@@ -89,7 +89,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Tooltip text="Share pin" accessibilityLabel="">
   <TapArea>
-    <Icon icon="share" accessibilityLabel="Share Pin" color="darkGray" />
+    <Icon icon="share" accessibilityLabel="Share Pin" color="default" />
   </TapArea>
 </Tooltip>`}
           />
@@ -114,7 +114,7 @@ If an icon has a visible label that describes what the icon represents, \`access
             cardSize="md"
             defaultCode={`
 <Flex gap={1}>
-  <Icon icon="eye" accessibilityLabel="Number of views" color="darkGray" />
+  <Icon icon="eye" accessibilityLabel="Number of views" color="default" />
   <Text weight="bold" size="300">4</Text>
 </Flex>`}
           />
@@ -122,7 +122,7 @@ If an icon has a visible label that describes what the icon represents, \`access
             cardSize="md"
             defaultCode={`
 <Flex gap={1}>
-  <Icon icon="tag" accessibilityLabel="" color="darkGray" />
+  <Icon icon="tag" accessibilityLabel="" color="default" />
   <Text align="center" weight="bold">
     Shopping spotlight
   </Text>
@@ -136,9 +136,27 @@ If an icon has a visible label that describes what the icon represents, \`access
       </MainSection>
       <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
       <MainSection name="Variants">
-        <MainSection.Subsection title="Primary-color combinations">
-          <CombinationNew color={['gray', 'darkGray', 'red']}>
-            {({ color }) => <Icon icon="heart" accessibilityLabel="" color={color} />}
+        <MainSection.Subsection
+          title="Colors"
+          description={`
+        Icons can be created using the following color options. \`brandPrimary\` should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](/design_tokens#Text-color) for more info.`}
+        >
+          <CombinationNew
+            color={[
+              'default',
+              'subtle',
+              'success',
+              'error',
+              'warning',
+              'info',
+              'inverse',
+              'shopping',
+              'brandPrimary',
+              'light',
+              'dark',
+            ]}
+          >
+            {({ color }) => <Icon icon="heart" accessibilityLabel="" color={color} size={24} />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection

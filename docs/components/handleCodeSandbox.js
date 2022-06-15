@@ -78,9 +78,12 @@ const handleCodeSandbox = async ({ code, title }: {| code: string, title: string
       },
       'index.js': {
         content: `import React from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import Example from "./example";
-render(<Example />, document.querySelector("#root"));`,
+
+const container = document.querySelector("#root");
+const root = createRoot(container);
+root.render(<Example />);`,
       },
       'example.js': {
         content: `import React from "react";

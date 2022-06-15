@@ -162,7 +162,7 @@ html[dir="rtl"] .Markdown ul + pre {
 .searchbox__input {
   appearance: none;
   background: var(--g-colorGray0);
-  border: var(--g-border-width) solid var(--g-colorGray150);
+  border: var(--g-border-width) solid var(--color-border-container);
   border-radius: 999px;
   box-sizing: border-box;
   caret-color: var(--g-colorGray300);

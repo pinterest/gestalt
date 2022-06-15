@@ -5,29 +5,24 @@ exports[`Popover does not render when the anchor is null 1`] = `null`;
 exports[`Popover renders 1`] = `
 <div>
   <div
-    className="container"
+    className="container rounding4 contents maxDimensions minDimensions"
     style={
       Object {
         "left": -10,
-        "stroke": "#efefef",
         "top": 8,
         "visibility": "visible",
       }
     }
+    tabIndex={-1}
   >
     <div
-      className="rounding4 contents maxDimensions minDimensions"
-      tabIndex={-1}
-    >
-      <div
-        className="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
-        style={
-          Object {
-            "maxWidth": 230,
-          }
+      className="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+      style={
+        Object {
+          "maxWidth": 230,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;
@@ -35,29 +30,24 @@ exports[`Popover renders 1`] = `
 exports[`Popover renders as blue 1`] = `
 <div>
   <div
-    className="container"
+    className="container rounding4 contents maxDimensions minDimensions"
     style={
       Object {
         "left": -10,
-        "stroke": null,
         "top": 8,
         "visibility": "visible",
       }
     }
+    tabIndex={-1}
   >
     <div
-      className="rounding4 contents maxDimensions minDimensions"
-      tabIndex={-1}
-    >
-      <div
-        className="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
-        style={
-          Object {
-            "maxWidth": 230,
-          }
+      className="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+      style={
+        Object {
+          "maxWidth": 230,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;
@@ -65,29 +55,24 @@ exports[`Popover renders as blue 1`] = `
 exports[`Popover renders as error 1`] = `
 <div>
   <div
-    className="container"
+    className="container rounding4 contents maxDimensions minDimensions"
     style={
       Object {
         "left": -10,
-        "stroke": null,
         "top": 8,
         "visibility": "visible",
       }
     }
+    tabIndex={-1}
   >
     <div
-      className="rounding4 contents maxDimensions minDimensions"
-      tabIndex={-1}
-    >
-      <div
-        className="border redBg red rounding4 innerContents maxDimensions minDimensions"
-        style={
-          Object {
-            "maxWidth": 230,
-          }
+      className="border redBg red rounding4 innerContents maxDimensions minDimensions"
+      style={
+        Object {
+          "maxWidth": 230,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;

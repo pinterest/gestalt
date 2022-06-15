@@ -2,7 +2,7 @@
 import { createRef } from 'react';
 import { render } from '@testing-library/react';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import Box from './Box.js';
 
 describe('ScrollBoundaryContainer', () => {
@@ -15,6 +15,7 @@ describe('ScrollBoundaryContainer', () => {
       </ScrollBoundaryContainer>,
     );
 
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     expect(getByTestId('childrenId')).toBeTruthy();
   });
 

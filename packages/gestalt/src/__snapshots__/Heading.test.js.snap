@@ -1,26 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Deprecated Heading large 1`] = `
-<h1
-  className="Heading fontSize600 darkGray alignStart breakWord"
-/>
-`;
-
 exports[`Heading default overflow 1`] = `
 <h3
-  className="Heading fontSize400 darkGray alignStart breakWord"
+  className="Heading fontSize400 defaultText alignStart breakWord"
 />
 `;
 
 exports[`Heading large 1`] = `
 <h1
-  className="Heading fontSize600 darkGray alignStart breakWord"
+  className="Heading fontSize600 defaultText alignStart breakWord"
 />
 `;
 
 exports[`Heading lineClamp adds a title when the children are text only 1`] = `
 <h1
-  className="Heading fontSize600 darkGray alignStart breakWord lineClamp"
+  className="Heading fontSize600 defaultText alignStart breakWord lineClamp"
   style={
     Object {
       "WebkitLineClamp": 1,
@@ -34,7 +28,7 @@ exports[`Heading lineClamp adds a title when the children are text only 1`] = `
 
 exports[`Heading lineClamp does not add a title when the children are objects 1`] = `
 <h1
-  className="Heading fontSize600 darkGray alignStart breakWord lineClamp"
+  className="Heading fontSize600 defaultText alignStart breakWord lineClamp"
 >
   <div>
     Breakup reading:
@@ -45,25 +39,25 @@ exports[`Heading lineClamp does not add a title when the children are objects 1`
 
 exports[`Heading overflow normal 1`] = `
 <h3
-  className="Heading fontSize400 darkGray alignStart"
+  className="Heading fontSize400 defaultText alignStart"
 />
 `;
 
 exports[`Heading small with id 1`] = `
 <h3
-  className="Heading fontSize400 darkGray alignStart breakWord"
+  className="Heading fontSize400 defaultText alignStart breakWord"
   id="account-basics"
 />
 `;
 
 exports[`Heading small with level 3 1`] = `
 <h3
-  className="Heading fontSize400 darkGray alignStart breakWord"
+  className="Heading fontSize400 defaultText alignStart breakWord"
 />
 `;
 
 exports[`Heading small with level none 1`] = `
 <div
-  className="Heading fontSize400 darkGray alignStart breakWord"
+  className="Heading fontSize400 defaultText alignStart breakWord"
 />
 `;

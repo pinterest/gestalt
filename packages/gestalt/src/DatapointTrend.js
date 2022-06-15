@@ -5,9 +5,9 @@ import Flex from './Flex.js';
 import Icon from './Icon.js';
 
 const TREND_COLOR_MAP = {
-  good: 'pine',
-  bad: 'red',
-  neutral: 'darkGray',
+  good: 'success',
+  bad: 'error',
+  neutral: 'default',
 };
 
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
@@ -15,9 +15,9 @@ type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 function getValueColor({ sentiment, value }) {
   if (sentiment === 'auto') {
     if (value === 0) {
-      return 'darkGray';
+      return 'default';
     }
-    return value > 0 ? 'pine' : 'red';
+    return value > 0 ? 'success' : 'error';
   }
   return TREND_COLOR_MAP[sentiment];
 }

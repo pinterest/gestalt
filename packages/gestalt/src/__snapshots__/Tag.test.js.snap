@@ -27,7 +27,7 @@ exports[`Tag clips long strings 1`] = `
       title="The quick brown fox jumps over the lazy dog"
     >
       <span
-        className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
       >
         The quick brown fox jumps over the lazy dog
       </span>
@@ -43,7 +43,7 @@ exports[`Tag clips long strings 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Remove long example tag"
-          className="icon darkGray iconBlock"
+          className="icon defaultIcon iconBlock"
           height={8}
           role="img"
           viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ exports[`Tag renders 1`] = `
       title="New"
     >
       <span
-        className="Text fontSize200 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
       >
         New
       </span>
@@ -102,7 +102,7 @@ exports[`Tag renders 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Remove New tag"
-          className="icon darkGray iconBlock"
+          className="icon defaultIcon iconBlock"
           height={8}
           role="img"
           viewBox="0 0 24 24"
@@ -146,7 +146,7 @@ exports[`Tag renders a disabled tag 1`] = `
       title="New"
     >
       <span
-        className="Text fontSize200 gray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
       >
         New
       </span>
@@ -183,7 +183,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Something went wrong"
-        className="icon white iconBlock"
+        className="icon inverseIcon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -199,7 +199,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       title="New"
     >
       <span
-        className="Text fontSize200 white alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal"
       >
         New
       </span>
@@ -215,7 +215,7 @@ exports[`Tag renders a tag with an error state 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Remove New tag"
-          className="icon white iconBlock"
+          className="icon inverseIcon iconBlock"
           height={8}
           role="img"
           viewBox="0 0 24 24"

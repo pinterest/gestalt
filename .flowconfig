@@ -1,10 +1,8 @@
 [version]
-0.171.0
+0.178.1
 
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
-<PROJECT_ROOT>/cypress
-<PROJECT_ROOT>/node_modules/cypress/
 <PROJECT_ROOT>/scripts/templates/
 
 [options]

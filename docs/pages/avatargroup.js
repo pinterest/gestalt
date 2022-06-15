@@ -47,14 +47,6 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
             - In cases where an affordance for adding collaborators is needed.
           `}
           />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            title="When not to use"
-            description={`
-            - Displaying a group of people, companies and/or brands in a square format. Use [AvatarPair](/avatarpair) instead.
-          `}
-          />
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Best Practices">
@@ -240,7 +232,7 @@ function Example() {
               width={360}
             >
               <Flex direction="column" gap={6}>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   Invite collaborators
                 </Text>
                 <SearchCollaboratorsField />
@@ -498,7 +490,7 @@ const List = () => (
               width={360}
             >
               <Flex direction="column" gap={6}>
-                <Text align="center" color="darkGray" weight="bold">
+                <Text align="center" color="default" weight="bold">
                   Collaborators
                 </Text>
                 <List />
@@ -552,9 +544,6 @@ function LinkExample() {
           description={`
         **[Avatar](/avatar)**
         Avatar is the ideal component in cases where only one person or brand needs to be displayed.
-
-        **[AvatarPair](/avatarpair)**
-        AvatarPair is the ideal solution when you wish to communicate a group of people/brands (ideally two) laid out in a square format.
       `}
         />
       </MainSection>

@@ -10,7 +10,7 @@ import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
-import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
+import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import modalStyles from './Modal.css';
 
 type Props = {|

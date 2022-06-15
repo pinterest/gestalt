@@ -13,7 +13,37 @@ export default function DocsPage({
 |}): Node {
   return (
     <Page title="Module">
-      <PageHeader name="Module" description={generatedDocGen.Module?.description} />
+      <PageHeader
+        name="Module"
+        description={generatedDocGen.Module?.description}
+        defaultCode={`
+      function ModuleExample() {
+        return (
+          <Flex direction="column" width="100%" justifyContent="between" gap={2}>
+            <Module
+              icon="lock"
+              iconAccessibilityLabel="Module Locked - check permission settings"
+              id="ModuleExample - header"
+              title="Title"
+              >
+              <Text size="200">This is example content.</Text>
+            </Module>
+            <Module.Expandable
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            id="ModuleExample - header expandable"
+            items={[
+              {
+                children: <Text size="200">Content here</Text>,
+                summary: ['summary'],
+                title: 'Title',
+              }]}>
+          </Module.Expandable>
+          </Flex>
+        );
+      }
+      `}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Module} />
 

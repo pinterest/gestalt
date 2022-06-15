@@ -48,6 +48,10 @@
   font-weight: var(--font-weight-normal);
 }
 
+.fontWeightSemiBold {
+  font-weight: var(--font-weight-semibold);
+}
+
 .fontWeightBold {
   font-weight: var(--font-weight-bold);
 }

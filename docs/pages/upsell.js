@@ -23,13 +23,19 @@ export default function DocsPage({
           onDismiss: () => {},
         }}
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+          component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
         }}
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{
           accessibilityLabel: "Send ads invite",
           href: 'https://pinterest.com',
           label: 'Send invite',
+          target: 'blank',
+        }}
+        secondaryAction={{
+          accessibilityLabel: 'Learn more: Verified Merchant Program',
+          href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+          label: 'Learn more',
           target: 'blank',
         }}
         title="Give $30, get $60 in ads credit"
@@ -88,13 +94,19 @@ export default function DocsPage({
     onDismiss: () => {},
   }}
   imageData={{
-    component: <Icon accessibilityLabel="" color="darkGray" icon="pinterest" size={32} />,
+    component: <Icon accessibilityLabel="" color="default" icon="pinterest" size={32} />,
   }}
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
   primaryAction={{
     accessibilityLabel: "Send ads invite",
     href: 'https://pinterest.com',
     label: 'Send invite',
+    target: 'blank',
+  }}
+  secondaryAction={{
+    accessibilityLabel: 'Learn more: Ads credit',
+    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+    label: 'Learn more',
     target: 'blank',
   }}
   title="Give $30, get $60 in ads credit"
@@ -110,7 +122,7 @@ export default function DocsPage({
             defaultCode={`
 <Box>
   <Box alignItems="center" display="flex" marginBottom={4}>
-    <Icon accessibilityLabel="" color="red" icon="pinterest" size={32} />
+    <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" size={32} />
     <ButtonGroup>
       <Button color="transparent" iconEnd="arrow-down" text="Business" />
       <Button color="transparent" iconEnd="arrow-down" text="Create" />
@@ -128,7 +140,7 @@ export default function DocsPage({
         onDismiss: () => {},
       }}
       imageData={{
-        component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+        component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
       }}
       message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
       primaryAction={{
@@ -159,17 +171,23 @@ export default function DocsPage({
       onDismiss: () => {},
     }}
     imageData={{
-      component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32} />,
+      component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
     }}
     message="Install the Pinterest tag to track your website traffic, conversions and more."
     primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag now' }}
+    secondaryAction={{
+      accessibilityLabel: 'Learn more: Pinterest tag',
+      href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+      label: 'Learn more',
+      target: 'blank',
+    }}
     title="Measure ad performance"
   />
 
   <Text>Follow-up Upsell:</Text>
   <Upsell
     imageData={{
-      component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
+      component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
     }}
     message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
     primaryAction={{ label: 'Claim now', accessibilityLabel: "Claim ads credit" }}
@@ -192,7 +210,7 @@ export default function DocsPage({
     onDismiss: () => {},
   }}
   imageData={{
-    component: <Icon icon="workflow-status-warning" accessibilityLabel="Warning" color="darkGray" size={32} />,
+    component: <Icon icon="workflow-status-warning" accessibilityLabel="Warning" color="default" size={32} />,
   }}
   message="There was a problem connecting your account."
   primaryAction={{ label: 'Try again', accessibilityLabel: 'Try linking account again' }}
@@ -210,7 +228,7 @@ export default function DocsPage({
             defaultCode={`
 <Box>
   <Box alignItems="center" display="flex" marginBottom={4}>
-    <Icon accessibilityLabel="" color="red" icon="pinterest" size={32} />
+    <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" size={32} />
     <ButtonGroup>
       <Button color="transparent" iconEnd="arrow-down" text="Business" />
       <Button color="transparent" iconEnd="arrow-down" text="Create" />
@@ -225,7 +243,7 @@ export default function DocsPage({
     <Flex direction="column" gap={2}>
       <Upsell
         imageData={{
-          component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
+          component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
         }}
         message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
         primaryAction={{ label: 'Claim now', accessibilityLabel: 'Claim ads credit now' }}
@@ -237,7 +255,7 @@ export default function DocsPage({
           onDismiss: () => {},
         }}
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+          component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
         }}
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{
@@ -268,7 +286,7 @@ export default function DocsPage({
       onDismiss: () => {},
     }}
     imageData={{
-      component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32} />,
+      component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
     }}
     message="Install the Pinterest tag to track your website traffic, conversions and more."
     primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
@@ -280,7 +298,7 @@ export default function DocsPage({
       onDismiss: () => {},
     }}
     imageData={{
-      component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32} />,
+      component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
     }}
     message="Install the Pinterest tag to track your website traffic, conversions and more."
     primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
@@ -314,13 +332,19 @@ export default function DocsPage({
     onDismiss: () => {},
   }}
   imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+    component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
   }}
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
   primaryAction={{
     href: 'https://pinterest.com',
     label: 'Send invite',
     accessibilityLabel: 'Invite friend to use ads',
+    target: 'blank',
+  }}
+  secondaryAction={{
+    accessibilityLabel: 'Learn more: Verified Merchant Program',
+    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+    label: 'Learn more',
     target: 'blank',
   }}
   title="Give $30, get $60 in ads credit"
@@ -340,7 +364,7 @@ export default function DocsPage({
             defaultCode={`
 <Upsell
   imageData={{
-    component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
+    component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
   }}
   message="Verfolgen Sie die Anzeigenkonvertierung - Umsatz, Traffic und mehr - mit dem Pinterest Tag"
   primaryAction={{
@@ -387,7 +411,7 @@ export default function DocsPage({
     onDismiss: () => {},
   }}
   imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+    component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
   }}
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
   primaryAction={{
@@ -584,7 +608,7 @@ function FormExample(props) {
         onDismiss: ()=>{},
       }}
       imageData={{
-        component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+        component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32}/>
       }}
       message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
       title="Give $30, get $60 in ads credit"
@@ -599,6 +623,8 @@ function FormExample(props) {
           onChange={({ value }) => setValue(value)}
           placeholder="Name"
           value={value}
+          label="Full name"
+          labelDisplay="hidden"
         />
       </Upsell.Form>
     </Upsell>
@@ -657,6 +683,8 @@ function Example(props) {
               id="name"
               onChange={({ value }) => setNameValue(value)}
               placeholder="Name"
+              label="Full name"
+              labelDisplay="hidden"
               value={nameValue}
             />
           </Box>
@@ -667,6 +695,8 @@ function Example(props) {
               onChange={({ value }) => setEmailValue(value)}
               placeholder="Email"
               type="email"
+              label="Email address"
+              labelDisplay="hidden"
               value={emailValue}
             />
           </Box>

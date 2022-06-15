@@ -3,7 +3,7 @@ import { type Node as ReactNode, Component } from 'react';
 import { ESCAPE } from './keyCodes.js';
 import Contents, { type Role } from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import { type ClientRect, type Coordinates } from './utils/positioningTypes.js';
 import { getTriggerRect } from './utils/positioningUtils.js';
 

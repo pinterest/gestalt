@@ -148,7 +148,7 @@ function Example(props) {
   const [value, setValue] = React.useState('');
 
   return (
-    <div className="cypress-skip-a11y">
+    <div className="skip-accessibility-check">
       <Box padding={2} color="white">
         <TextField
           autoComplete="username"
@@ -399,42 +399,62 @@ function Example(props) {
         />
         <MainSection.Subsection
           title="Labels"
-          description="Ensure the labels are precise and concise. Labels should only describe the text field they are associated with, and they must be visible."
-        />
+          description={`
+      TextField comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct TextField.
+
+      If TextField is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+<Flex gap={6}>
+  <TextField
+    id="textfieldexampleA11yVisible"
+    onChange={() => {}}
+    label='First name'
+    size='lg'
+  />
+  <Flex gap={2} direction="column">
+    <Text weight="bold" size="300">First name</Text>
+    <TextField
+      id="textfieldexampleA11yHiddenLabel"
+      onChange={() => {}}
+      label='First name'
+      labelDisplay="hidden"
+      size='lg'
+    />
+  </Flex>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
           title="Validation"
           description={`
     When providing a validation message, make sure the instructions are clear and help users complete the field. For example, "Passwords must contain at least 20 characters". In addition, use the helper text to provide instructions to help users understand how to complete the text field or to indicate any needed input, allowed formats, timing limitations, or other pertinent information.
-    These practices give screen readers and users of assistive technologies more information about the form, helping them to fill it out.
+
+    These practices give users of assistive technologies more information about the form, helping them to fill it out.
     `}
         />
         <MainSection.Subsection
           title="Keyboard navigation"
           description={`
     TextField has conventional keyboard support.
-    - Users relying on the keyboard expect to move focus to each TextField by using the tab key or shift+tab when moving backwards
-    - Setting \`disabled\` will prevent TextField from receiving keyboard focus or input
+    - Users relying on the keyboard expect to move focus to each TextField by using the tab key or shift+tab when moving backwards.
+    - Setting \`disabled\` will prevent TextField from receiving keyboard focus or input.
     `}
         />
         <MainSection.Subsection
           title="Autofocus"
           description={`
-    TextField intentionally lacks support for autofocus. Generally speaking,
-    autofocus interrupts normal page flow for screen readers making it an
-    anti-pattern for accessibility.
+    TextField intentionally lacks support for autofocus. Generally speaking, autofocus interrupts normal page flow for screen readers making it an anti-pattern for accessibility.
   `}
         />
         <MainSection.Subsection
           title="onSubmit"
           description={`
-    TextField is commonly used as an input in forms alongside submit buttons.
-    In these cases, users expect that pressing Enter or Return with the input
-    focused will submit the form.
+    TextField is commonly used as an input in forms alongside submit buttons. In these cases, users expect that pressing Enter or Return with the input focused will submit the form.
 
-    Out of the box, TextField doesn't expose an \`onSubmit\` handler or
-    individual key event handlers due to the complexities of handling these
-    properly. Instead, developers are encouraged to wrap TextField
-    in a \`<form>\` and attach an \`onSubmit\` handler to that \`<form>\`.
+    Out of the box, TextField doesn't expose an \`onSubmit\` handler or individual key event handlers due to the complexities of handling these properly. Instead, developers are encouraged to wrap TextField in a \`<form>\` with an \`onSubmit\` handler..
   `}
         />
       </MainSection>
@@ -445,32 +465,6 @@ function Example(props) {
       />
 
       <MainSection name="Variants">
-        <MainSection.Subsection
-          title="Disabled"
-          description="Disabled TextFields cannot be interacted with using the mouse or keyboard."
-        >
-          <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <TextField
-      disabled
-      id="variants-disabled"
-      label="Disabled"
-      onChange={({ value }) => {
-        setValue(value);
-      }}
-      placeholder="Name"
-      value={value}
-    />
-  );
-}
-`}
-          />
-        </MainSection.Subsection>
-
         <MainSection.Subsection
           title="Helper text"
           description={`
@@ -501,7 +495,78 @@ function Example(props) {
 `}
           />
         </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Label visibility"
+          description={`In some cases, the label for a TextField is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure TextField is properly labeled for screen readers while using a different element to represent the label visually.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex gap={2} direction="column">
+  <Text weight="bold" size="300">First name</Text>
+  <TextField
+    id="textfieldexampleHiddenLabel"
+    onChange={() => {}}
+    label='First name'
+    labelDisplay="hidden"
+    size='lg'
+  />
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
 
+        <MainSection.Subsection
+          title="Read-only"
+          description="Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit."
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('****maz@pinterest.com');
+
+  return (
+    <TextField
+      id="variants-readonly"
+      label="Email address"
+      onChange={({ value }) => {
+        setValue(value);
+      }}
+      placeholder="Name"
+      value={value}
+      readOnly
+    />
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Disabled"
+          description="`disabled` TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use `readOnly` instead)."
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <TextField
+      disabled
+      id="variants-disabled"
+      label="New password"
+      onChange={({ value }) => {
+        setValue(value);
+      }}
+      placeholder="6-18 characters"
+      value={value}
+    />
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
           title="Error message"
           description={`
