@@ -28,8 +28,6 @@ const buildSourceLinkUrl = (componentName) =>
     '/',
   );
 
-
-
 export default function PageHeader({
   badge,
   defaultCode,

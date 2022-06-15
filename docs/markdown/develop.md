@@ -1,12 +1,11 @@
 ---
 title: Development
-description: 
 component: true
 ---
 
 ## Set up your laptop
 
-- Install a code editor - we recommended [VS Code](#)
+- Install a code editor - we recommended **[VS Code](https://code.visualstudio.com/download)**
 - **Install nvm**
 - **Install node**
 - **Install yarn**
@@ -29,7 +28,7 @@ git clone git@github.com:<YOUR_USERNAME>/gestalt.git
 cd gestalt && nvm use
 ```
 
-<Hint>If the node version isn't available, you will need to [install](#) it.</Hint>
+<Hint>If the node version isn't available, you will need to [install](https://github.com/nvm-sh/nvm#usage) it.</Hint>
 
 
 
@@ -55,7 +54,7 @@ git remote -v
 // upstream    git@github.com:pinterest/gestalt.git (push)
 ```
 
-### Set up Visual Studio Code
+## Set up Visual Studio Code
 
 - Open the new `/gestalt` folder with VS Code.
 - Install the suggested VS Code extensions including vs code-stylelint to lint CSS files.
@@ -159,7 +158,7 @@ When pushing new changes to GitHub, your PR title should be aligned with the sco
 
 ### Versioning
 
-Our versioning guidelines follow those outlined at [semver.org](https://semver.org): 
+Our versioning guidelines follow those outlined at **[semver.org](https://semver.org)**: 
 - Patch: internal fixes, documentation changes, or package upgrades (anything that consumers of Gestalt don't need to worry about)
 - Minor: any new functionality or properties for a component, or net-new components
 - Major: any breaking change, whether it be in a specific component or the library itself (will most likely include a 

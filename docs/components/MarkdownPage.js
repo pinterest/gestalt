@@ -156,7 +156,10 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           showSourceLink={meta.component || false}
         />
         <Text>
-          <article className="Markdown" style={{ maxWidth }}>
+          <article
+            className="Markdown"
+            style={{ maxWidth, marginTop: meta.description ? '0px' : '-32px' }}
+          >
             {children}
           </article>
         </Text>
