@@ -9,6 +9,9 @@ We do this so we don't have to define each page, and can just define the pages i
 // @flow strict
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import remarkBreaks from 'remark-breaks';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
 import { type Node } from 'react';
 
 import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
@@ -44,7 +47,9 @@ export async function getStaticProps(context: {| params: {| id: string |} |}): P
 |}> {
   const { id } = context.params;
   const { meta, content } = getDocByRoute(id);
-  const mdxSource = await serialize(content);
+  const mdxSource = await serialize(content, {
+    mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks, rehypeHighlight], format: 'mdx' },
+  });
 
   return {
     props: {

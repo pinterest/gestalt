@@ -15,7 +15,7 @@ We ask that any ideas that change the functionality of an existing Gestalt compo
 1. **Present work early in our [partnership meetings](#Meetings-and-events)** \
    What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! Seeing early mocks, wireframes, or even product roadmaps and learning where your project may be going helps inform our team OKRs. The earlier we see the work, the better we're able to plan and the higher the likelihood we'll be able to help. Please [sign up](https://pinch.pinadmin.com/gestaltSignUp) for an Office Hours slot with your discussion topic.
 
-2. **Iterate on solutions** \
+2. **Iterate on solutions** 
    We love to see more iteration from the product designer asking for the component if they have the time, ensuring all edge cases have been considered. If not, the component will follow our prioritization process.
 
 3. **Prioritization by the Gestalt team** \

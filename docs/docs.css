@@ -77,9 +77,15 @@ li {
   padding-inline-start: 20px;
 }
 
-.Markdown ul + pre {
+.Markdown ul ~ pre {
   margin-left: 40px;
 }
+
+.Markdown ul ~ .md-hint {
+  margin-left: 40px;
+}
+
+
 
 html[dir="rtl"] .Markdown ul + pre {
   margin-right: 40px;

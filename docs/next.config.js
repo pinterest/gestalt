@@ -14,6 +14,9 @@ module.exports = {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
   },
+  images: {
+    domains: ['paper-attachments.dropbox.com', 'ibb.co'],
+  },
   webpack: (config /*: WebpackConfig */, { dev } /*: {| dev: boolean |} */) /*: WebpackConfig */ =>
     // These modules resolve by default in the server-side functions.
     ({

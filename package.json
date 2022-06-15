@@ -6,7 +6,10 @@
   ],
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "rehype-highlight": "^5.0.2",
+    "remark-breaks": "^3.0.2",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@actions/core": "^1.2.6",
