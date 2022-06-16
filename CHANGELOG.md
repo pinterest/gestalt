@@ -1,3 +1,9 @@
+## 58.1.3 (Jun 16, 2022)
+
+### Patch
+
+- Internal: upgrade husky to 8.0.1 (#2157)
+
 ## 58.1.2 (Jun 14, 2022)
 
 ### Patch
