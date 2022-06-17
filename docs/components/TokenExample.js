@@ -35,10 +35,18 @@ export function ColorBox({ token }: BaseProps): Node {
 }
 
 export function SpacingBox({ token }: BaseProps): Node {
-  return <Box color="eggplant" width={`${token.value}`} height={`${token.value}`} />;
+  const absoluteDimension = token.value.replace(/^-/, '');
+  return <Box color="eggplant" width={absoluteDimension} height={absoluteDimension} />;
 }
 
 export function TextColorBox({ token }: BaseProps): Node {
+  let backgroundColor;
+  if (token.name.includes('inverse') || token.name.includes('light')) {
+    backgroundColor = 'darkGray';
+  } else if (token.name.includes('dark')) {
+    backgroundColor = 'white';
+  }
+
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -50,7 +58,7 @@ export function TextColorBox({ token }: BaseProps): Node {
       alignItems="center"
       justifyContent="between"
       paddingX={2}
-      color={token.name.includes('inverse') ? 'darkGray' : undefined}
+      color={backgroundColor}
     >
       Gestalt
     </Box>
