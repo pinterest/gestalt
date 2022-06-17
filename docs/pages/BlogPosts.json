@@ -37,7 +37,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/3a/1e/76/3a1e76e2f6e1e3f3fbe598cb3d4dca5b.png",
           "imageAltText": "Screenshot of Handoff kit's screen/device templates",
-          "content": "We made nice update to our [Figma Handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) with the addition of screen/device templates. This should give designers a faster starting point for designing their features. We have templates for web, mobile web, handset and tablet (for iOS and Android)."
+          "content": "We made nice update to our [Figma Handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) with the addition of [screen/device templates](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/?node-id=246%3A3533). This should give designers a faster starting point for designing their features. We have templates for web, mobile web, handset and tablet (for iOS and Android)."
         }
       ]
     },
