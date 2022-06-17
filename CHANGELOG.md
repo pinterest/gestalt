@@ -1,3 +1,9 @@
+## 58.1.4 (Jun 17, 2022)
+
+### Patch
+
+- Docs: minor tweaks to Design Tokens page (#2158)
+
 ## 58.1.3 (Jun 16, 2022)
 
 ### Patch
