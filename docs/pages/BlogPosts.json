@@ -2,6 +2,58 @@
   "year": "2022",
   "digests": [
     {
+      "week": "June 17, 2022",
+      "posts": [
+        {
+          "title": "Dark mode Figma variants, Phase 1",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/90/d6/86/90d6869063bd80e56fe0820eebf10aca.png",
+          "imageAltText": "A dark mode variant of Popover",
+          "content": "This has been a long time coming, but we've shipped our first phase of dark mode variants in our Gestalt Figma libraries! This first phase has focused on core components for our [Gestalt for iOS library](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS) (e.g., Button, Avatar, Popover, etc.). Our next phase will be to offer dark mode for more complex components like Pin, Board, and other reps. We look forward to sharing many more updates _soon_."
+        },
+        {
+          "title": "Data visualization guidelines",
+          "audience": ["Engineering", "Design"],
+          "imageSrc": "https://i.pinimg.com/originals/68/b7/29/68b7290ff502f95904a959a0a5239372.png",
+          "imageAltText": "Screenshot of Gestalt's data visualization guidelines",
+          "content": "We recently shipped our [data visualization color palette](https://gestalt.pinterest.systems/data_visualization_colors) which was our building block to deliver [data visualization guidelines](https://gestalt.pinterest.systems/data_visualization_guidelines). This is a major milestone for us and unlocks our ability to provide even more in this space later this year."
+        },
+        {
+          "title": "Design guidelines for Text and Heading components",
+          "audience": ["Engineering", "Design"],
+          "imageSrc": "https://i.pinimg.com/originals/51/b1/29/51b129c9260e824d1e87e328080dea2f.png",
+          "imageAltText": "Screenshots of Gestalt's Text and Heading documentation",
+          "content": "We added [typography guidelines](https://gestalt.pinterest.systems/typography) a couple weeks ago and now we're coming in hot with design guidelines for [Text](https://gestalt.pinterest.systems/text) and [Heading](https://gestalt.pinterest.systems/heading). Our goal for these updates is to develop a strong foundation of typographic guidance that we can build upon in future releases."
+        },
+        {
+          "title": "Gestalt Learning released",
+          "audience": ["Engineering", "Design"],
+          "imageSrc": "https://i.pinimg.com/originals/13/65/cd/1365cddf722bf00aa21a21e88c1eba36.png",
+          "imageAltText": "Screenshots of Gestalt Learning",
+          "content": "We know that getting up to speed with Gestalt can take some work and we're constantly working to improve the onboarding process. That's why we released [Gestalt Learning](http://pinch/gestaltLearning) to offer a self-service learning path for important Gestalt topics. We have thoughts for additional content, but we'd love to hear your ideas! So, please reach out and give us your requests. \n\n**Note:** This resource is available to Pinterest employees only."
+        },
+        {
+          "title": "Handoff kit screen/device templates added",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/3a/1e/76/3a1e76e2f6e1e3f3fbe598cb3d4dca5b.png",
+          "imageAltText": "Screenshot of Handoff kit's screen/device templates",
+          "content": "We made nice update to our [Figma Handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) with the addition of [screen/device templates](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/?node-id=246%3A3533). This should give designers a faster starting point for designing their features. We have templates for web, mobile web, handset and tablet (for iOS and Android)."
+        }
+      ]
+    },
+    {
+      "week": "June 10, 2022",
+      "posts": [
+        {
+          "title": "No updates this week due to KnitCon",
+          "audience": ["Engineering", "Design"],
+          "imageSrc": "https://i.pinimg.com/originals/a2/a9/ff/a2a9ff88dfc6b773e4d7e0c1af74304d.png",
+          "imageAltText": "KnitCon logo",
+          "content": "The Gestalt team is busy knitting, so there are no updates for this week. We hope you all enjoy KnitCon!"
+        }
+      ]
+    },
+    {
       "week": "June 3, 2022",
       "posts": [
         {
