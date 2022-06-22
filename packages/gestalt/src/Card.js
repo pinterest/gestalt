@@ -4,6 +4,10 @@ import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Card.css';
 
+function isNil(val) {
+  return val === undefined || val === null;
+}
+
 type Props = {|
   /**
    * Used to force the "active" hover state visually.
@@ -44,8 +48,7 @@ export default function Card({ active, children, image, onMouseEnter, onMouseLea
   };
 
   const classes = classnames(styles.card, {
-    // JS equality rules == null checks for `null` or `undefined` and leaves out `false`.
-    [styles.hover]: active || (active == null && hovered),
+    [styles.hover]: isNil(active) ? hovered : active,
   });
 
   return (
