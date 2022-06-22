@@ -1,3 +1,9 @@
+## 58.1.7 (Jun 22, 2022)
+
+### Patch
+
+- Card: fix `active` logic to support `false` (#2161)
+
 ## 58.1.6 (Jun 17, 2022)
 
 ### Patch
