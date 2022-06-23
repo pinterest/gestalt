@@ -3,6 +3,55 @@ import { type Node } from 'react';
 import { Box, Flex, Icon, Link, Heading, Text } from 'gestalt';
 import FigmaLogo from '../graphics/home-page/figma-logo.svg';
 import SlackLogo from '../graphics/home-page/slack-logo.svg';
+import InternalOnlyIconButton from './InternalOnlyIconButton.js';
+
+const figmaLibraries = [
+  {
+    title: 'Web',
+    url: 'https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web',
+    a11yLabel: 'Figma Web Library',
+  },
+  {
+    title: 'iOS',
+    url: 'https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS',
+    a11yLabel: 'Figma iOS Library',
+  },
+  {
+    title: 'Android',
+    url: 'https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android',
+    a11yLabel: 'Figma Android Library',
+  },
+];
+
+const figmaPlugins = [
+  {
+    title: 'Color',
+    url: 'https://www.figma.com/community/plugin/1019681360638128106/Pinterest-Brand-color-palettes',
+    a11yLabel: 'Brand Color Figma Plugin',
+  },
+  {
+    title: 'Docs',
+    url: 'https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta)',
+    a11yLabel: 'Gestalt Docs Figma Plugin',
+  },
+];
+
+const slackChannels = [
+  {
+    title: 'Design',
+    url: 'http://pinch.pinadmin.com/gestalt-design-slack',
+    a11yLabel: 'Design Slack channel',
+  },
+  {
+    title: 'Engineering',
+    url: 'http://pinch.pinadmin.com/gestalt-design-slack',
+    a11yLabel: 'Web engineering Slack channel',
+  },
+];
+const engResources = [
+  { title: 'Web repository', url: 'https://github.com/pinterest/gestalt/pull/2162' },
+  { title: 'Code sandbox', url: 'https://codesandbox.io/s/k5plvp9v8v' },
+];
 
 type LinkListProps = {|
   items: Array<{|
@@ -16,8 +65,16 @@ type LinkListProps = {|
 |};
 function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): Node {
   return (
-    <Flex alignItems="start" gap={2}>
-      <Box width="32px" display="flex">
+    <Box
+      display="flex"
+      alignSelf="start"
+      marginTop={3}
+      marginBottom={3}
+      lgMarginTop={0}
+      lgMarginBottom={0}
+      alignItems="start"
+    >
+      <Box width="32px" display="flex" marginEnd={2}>
         {
           {
             'figma': <FigmaLogo />,
@@ -29,14 +86,14 @@ function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): N
 
       <Flex direction="column" gap={2}>
         <Flex alignItems="center" gap={1}>
-          <Heading size="300" accessibilityLevel={3}>
+          <Heading size="400" accessibilityLevel={3}>
             {heading}
           </Heading>
-          {isInternal && <Icon accessibilityLabel="Internal only" icon="lock" size="14" />}
+          {isInternal && <InternalOnlyIconButton size="sm" />}
         </Flex>
         <Flex direction="column" gap={1}>
-          {items.map((item, idx) => (
-            <Text key={`${item.title}-${idx}`}>
+          {items.map((item) => (
+            <Text key={item.title}>
               <Link inline href={item.url} accessibilityLabel={item.a11yLabel}>
                 {item.title}
               </Link>
@@ -44,59 +101,11 @@ function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): N
           ))}
         </Flex>
       </Flex>
-    </Flex>
+    </Box>
   );
 }
 
 export default function ResourcesFooter(): Node {
-  const figmaLibraries = [
-    {
-      title: 'Web',
-      url: 'https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web',
-      a11yLabel: 'Figma Web Library',
-    },
-    {
-      title: 'iOS',
-      url: 'https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS',
-      a11yLabel: 'Figma iOS Library',
-    },
-    {
-      title: 'Android',
-      url: 'https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android',
-      a11yLabel: 'Figma Android Library',
-    },
-  ];
-
-  const figmaPlugins = [
-    {
-      title: 'Color',
-      url: 'https://www.figma.com/community/plugin/1019681360638128106/Pinterest-Brand-color-palettes',
-      a11yLabel: 'Brand Color Figma Plugin',
-    },
-    {
-      title: 'Docs',
-      url: 'https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta)',
-      a11yLabel: 'Gestalt Docs Figma Plugin',
-    },
-  ];
-
-  const slackChannels = [
-    {
-      title: 'Design',
-      url: 'http://pinch.pinadmin.com/gestalt-design-slack',
-      a11yLabel: 'Design Slack channel',
-    },
-    {
-      title: 'Engineering',
-      url: 'http://pinch.pinadmin.com/gestalt-design-slack',
-      a11yLabel: 'Web engineering Slack channel',
-    },
-  ];
-  const engResources = [
-    { title: 'Web repository', url: 'https://github.com/pinterest/gestalt/pull/2162' },
-    { title: 'Code sandbox', url: 'https://codesandbox.io/s/k5plvp9v8v' },
-  ];
-
   return (
     <Box
       padding={8}

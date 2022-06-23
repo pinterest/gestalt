@@ -1,25 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Icon, Link, Image, Text, Table, TapArea, Tooltip } from 'gestalt';
+import { Box, Button, Flex, Icon, Link, Image, Text, Table } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import { MAX_WIDTH } from '../components/MainSectionSubsection.js';
 import trackButtonClick from '../components/buttons/trackButtonClick.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
-
-function LockIcon({ size }: {| size: 12 | 14 |}) {
-  return (
-    <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
-      <TapArea rounding="circle">
-        <Icon
-          accessibilityLabel="Access is restricted to Pinterest employees"
-          icon="lock"
-          size={size}
-        />{' '}
-      </TapArea>
-    </Tooltip>
-  );
-}
+import InternalOnlyIconButton from '../components/InternalOnlyIconButton.js';
 
 function ListElement({ text, href }: {| text: string, href: string |}) {
   return (
@@ -31,15 +18,13 @@ function ListElement({ text, href }: {| text: string, href: string |}) {
           inline
           href={href}
           onClick={() => trackButtonClick(text)}
+          externalLinkIcon="default"
         >
           <Text underline inline>
             {text}
           </Text>
         </Link>
-        <Box aria-hidden>
-          <Icon accessibilityLabel="" icon="visit" size={14} />
-        </Box>
-        {href.startsWith('http://go') ? <LockIcon size={14} /> : null}
+        {href.startsWith('http://go') ? <InternalOnlyIconButton size="sm" /> : null}
       </Flex>
     </li>
   );
@@ -66,7 +51,7 @@ function TableEntry({
           <Box aria-hidden>
             <Icon accessibilityLabel="" icon="visit" size={12} />
           </Box>
-          <LockIcon size={12} />
+          <InternalOnlyIconButton />
         </Flex>
       </Table.Cell>
       <Table.Cell>

@@ -1,31 +1,18 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Icon, Text, TapArea, Tooltip, Link } from 'gestalt';
+import { Box, Flex, Text, Link } from 'gestalt';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
 import roadmapData from './RoadmapData.json';
+import InternalOnlyIconButton from '../components/InternalOnlyIconButton.js';
 
 const inProgress = roadmapData.tasks.filter((x) => x.status === 'inProgress');
 
 const future = roadmapData.tasks.filter((x) => x.status === 'unstarted');
 
 const complete = roadmapData.tasks.filter((x) => x.status === 'ok');
-
-const LockIcon = function LockIcon({ size }: {| size: 12 | 16 |}) {
-  return (
-    <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="" inline>
-      <TapArea rounding="circle" fullWidth={false}>
-        <Icon
-          accessibilityLabel="Access is restricted to Pinterest employees"
-          icon="lock"
-          size={size}
-        />{' '}
-      </TapArea>
-    </Tooltip>
-  );
-};
 
 function Task({
   text,
@@ -101,7 +88,7 @@ export default function RoadmapPage(): Node {
               href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog"
               inline
             >
-              Visit our internal roadmap <LockIcon size={16} />
+              Visit our internal roadmap <InternalOnlyIconButton />
             </Link>
           </Text>
         </Flex>

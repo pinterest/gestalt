@@ -3,15 +3,19 @@ import { type Node } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
-export default function Footer(): Node {
-  const links = [
-    { title: "What's new", url: 'https://gestalt.pinterest.systems/home' },
-    { title: 'About us', url: 'https://gestalt.pinterest.systems/about_us' },
-    { title: 'Careers', url: 'https://www.pinterestcareers.com/', external: true },
-    { title: 'Code sandbox', url: 'https://codesandbox.io/s/k5plvp9v8v', external: true },
-    { title: 'Github', url: 'https://github.com/pinterest/gestalt', external: true },
-  ];
+const links = [
+  { title: "What's new", url: 'https://gestalt.pinterest.systems/whats_new' },
+  { title: 'About us', url: 'https://gestalt.pinterest.systems/about_us' },
+  {
+    title: 'Careers',
+    url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
+    external: true,
+  },
+  { title: 'Code sandbox', url: 'https://codesandbox.io/s/k5plvp9v8v', external: true },
+  { title: 'GitHub', url: 'https://github.com/pinterest/gestalt', external: true },
+];
 
+export default function Footer(): Node {
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -49,8 +53,8 @@ export default function Footer(): Node {
           justifyContent="center"
           wrap
         >
-          {links.map((link, idx) => (
-            <Box marginBottom={2} mdMarginBottom={0} mdMarginEnd={4} key={idx}>
+          {links.map((link) => (
+            <Box marginBottom={2} lgMarginBottom={0} smMarginEnd={4} key={link.title}>
               <Text inline weight="bold">
                 <Link
                   href={link.url}
