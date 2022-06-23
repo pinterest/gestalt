@@ -1,3 +1,9 @@
+## 58.1.11 (Jun 23, 2022)
+
+### Patch
+
+- Docs: Tweaks to 6-24 update (#2165)
+
 ## 58.1.10 (Jun 23, 2022)
 
 ### Patch
