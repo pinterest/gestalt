@@ -381,7 +381,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Alignment"
-          description={`Use \`align\` to adjust the positioning of text within wrapper elements`}
+          description={`Use \`align\` to adjust the positioning of text within container elements`}
         >
           <MainSection.Card
             cardSize="lg"
