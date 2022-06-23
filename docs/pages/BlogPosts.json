@@ -2,6 +2,32 @@
   "year": "2022",
   "digests": [
     {
+      "week": "June 24, 2022",
+      "posts": [
+        {
+          "title": "Figma mobile web Bar component",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/2d/d9/88/2dd988cf72ca8eac19102ecd80e0e190.png",
+          "imageAltText": "Screenshot of Figma Bar component",
+          "content": "We're working to grow out our Gestalt Figma web library to include more mobile web use cases. A first step towards that goal is the creation of a [mobile web Bar component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=16483%3A28229). This componnt is our first iteration, so please send us your feedback on ways to improve it."
+        },
+        {
+          "title": "Iconography open forum next steps",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/a3/11/75/a31175baabf4be7d4cc0519034096f11.png",
+          "imageAltText": "Iconography open forum next steps",
+          "content": "We wanted to thank everyone who participated in the iconography open forum session and give you a peak into what we'll be doing next. We're going to be using your feedback to publish a baseline set of iconography guidelines in our documentation which we plan to begin work on next sprint. We also are going to use your feedback to develop refinements to our [Iconography & SVGs page](https://gestalt.pinterest.systems/iconography_and_svgs). Once again, thank you so much for you support. We look forward to sharing updates _soon_."
+        },
+        {
+          "title": "Gestalt tutorials on Pinterest",
+          "audience": ["Engineering", "Design"],
+          "imageSrc": "https://i.pinimg.com/originals/34/79/0c/34790c6b2a0021edce86a64d3a8a4e57.png",
+          "imageAltText": "Idea pin of a Figma tutorial",
+          "content": "Last but not least, we created our first Idea Pin tutorial on [how to create a resizable progress bar component in Figma](https://www.pinterest.com/pin/1092404453337977467/). This is our first toe-dip into Gestalt tutorials and we're excited to create all sorts of helpful tips and tricks for both designers and engineers. So, if you're interested in more tutorials, make sure to follow our [Tutorials board](https://www.pinterest.com/pinterestgestalt/tutorials/) and give us feedback on what tips you'd like to see."
+        }
+      ]
+    },
+    {
       "week": "June 17, 2022",
       "posts": [
         {
