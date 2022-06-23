@@ -12,7 +12,7 @@ type Props = {|
 
 export default function App({ children }: Props): Node {
   const router = useRouter();
-  const [isHomePage, setIsHomePage] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(router?.route === '/home');
 
   // $FlowIssue[prop-missing]
   const isLeftClickEvent = (event) => event.button === 0; // ignore everything but left clicks

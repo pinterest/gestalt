@@ -64,6 +64,19 @@ type LinkListProps = {|
   icon: 'figma' | 'slack' | 'eng',
 |};
 function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): Node {
+  function getIcon(iconType: string): Node {
+    switch (iconType) {
+      case 'eng':
+        return <Icon icon="code" size="32" accessibilityLabel="Engineering" color="default" />;
+      case 'figma':
+        return <FigmaLogo />;
+      case 'slack':
+        return <SlackLogo />;
+      default:
+        return null;
+    }
+  }
+
   return (
     <Box
       display="flex"
@@ -75,13 +88,7 @@ function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): N
       alignItems="start"
     >
       <Box width="32px" display="flex" marginEnd={2}>
-        {
-          {
-            'figma': <FigmaLogo />,
-            'slack': <SlackLogo />,
-            'eng': <Icon icon="code" size="32" accessibilityLabel="Engineering" color="default" />,
-          }[icon]
-        }
+        {getIcon(icon)}
       </Box>
 
       <Flex direction="column" gap={2}>
