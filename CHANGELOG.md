@@ -1,3 +1,9 @@
+## 58.1.12 (Jun 23, 2022)
+
+### Patch
+
+- Docs: Add new Resource footers (#2163)
+
 ## 58.1.11 (Jun 23, 2022)
 
 ### Patch
