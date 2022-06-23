@@ -4,7 +4,7 @@ import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
-import A11Y from '../graphics/accessibility.svg';
+import A11Y from '../graphics/home-page/accessibility.svg';
 import ColorEase from '../graphics/color-examples/colorEase.svg';
 import Consistency from '../graphics/color-examples/consistency.svg';
 
