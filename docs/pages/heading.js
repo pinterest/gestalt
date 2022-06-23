@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Table, SlimBanner } from 'gestalt';
+import { Box, Text, Table, SlimBanner } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Markdown from '../components/Markdown.js';
 import PageHeader from '../components/PageHeader.js';
@@ -170,64 +170,66 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection name="Accessibility">
         <MainSection.Subsection title="Logical order">
           <Markdown text="Users will find a logical heading order and structure very helpful, especially if they have difficulty with reading and language, or if they use assistive devices such as a screen reader. A clear structure will help a screen reader user navigate the app without getting confused. Our headings default to a heading level based on size. For example:" />
+          <Box maxWidth={360}>
+            <Table accessibilityLabel="Heading order">
+              <Table.Header>
+                <Table.Row>
+                  {['Level', 'Size'].map((item) => (
+                    <Table.HeaderCell key={item}>
+                      <Text size="200" weight="bold">
+                        {item}
+                      </Text>
+                    </Table.HeaderCell>
+                  ))}
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  {['H1', '600'].map((item) => (
+                    <Table.Cell key={item}>
+                      <Text size="200">{item}</Text>
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+                <Table.Row>
+                  {['H2', '500'].map((item) => (
+                    <Table.Cell key={item}>
+                      <Text size="200">{item}</Text>
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+                <Table.Row>
+                  {['H3', '400'].map((item) => (
+                    <Table.Cell key={item}>
+                      <Text size="200">{item}</Text>
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+                <Table.Row>
+                  {['H4', '300'].map((item) => (
+                    <Table.Cell key={item}>
+                      <Text size="200">{item}</Text>
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+                <Table.Row>
+                  {['H5', '200'].map((item) => (
+                    <Table.Cell key={item}>
+                      <Text size="200">{item}</Text>
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+                <Table.Row>
+                  {['H6', '100'].map((item) => (
+                    <Table.Cell key={item}>
+                      <Text size="200">{item}</Text>
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+              </Table.Body>
+            </Table>
+          </Box>
 
-          <Table accessibilityLabel="Heading order">
-            <Table.Header>
-              <Table.Row>
-                {['Level', 'Size'].map((item) => (
-                  <Table.HeaderCell key={item}>
-                    <Text size="200" weight="bold">
-                      {item}
-                    </Text>
-                  </Table.HeaderCell>
-                ))}
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              <Table.Row>
-                {['H1', '600'].map((item) => (
-                  <Table.Cell key={item}>
-                    <Text size="200">{item}</Text>
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-              <Table.Row>
-                {['H2', '500'].map((item) => (
-                  <Table.Cell key={item}>
-                    <Text size="200">{item}</Text>
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-              <Table.Row>
-                {['H3', '400'].map((item) => (
-                  <Table.Cell key={item}>
-                    <Text size="200">{item}</Text>
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-              <Table.Row>
-                {['H4', '300'].map((item) => (
-                  <Table.Cell key={item}>
-                    <Text size="200">{item}</Text>
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-              <Table.Row>
-                {['H5', '200'].map((item) => (
-                  <Table.Cell key={item}>
-                    <Text size="200">{item}</Text>
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-              <Table.Row>
-                {['H6', '100'].map((item) => (
-                  <Table.Cell key={item}>
-                    <Text size="200">{item}</Text>
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            </Table.Body>
-          </Table>
           <Markdown
             text={`In some cases, you may need to start a section with a smaller heading size, but keep an H2 structure. An example is a section heading for a card or sidebar. Use the \`accessibilityLevel\` prop to override the default heading level and set the appropriate level.`}
           />
@@ -377,7 +379,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="Alignment">
+        <MainSection.Subsection
+          title="Alignment"
+          description={`Use \`align\` to adjust the positioning of text within container elements`}
+        >
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
@@ -399,9 +404,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Accessibility level"
-          description="For accessibility purposes, we allow you to override the heading level.
+          description={`
+For accessibility purposes, we allow you to override the heading level.
 
-        We should have one level 1 per page &amp; levels should be appropriately nested. E.g. level 1 followed by level 2 &amp; level 2 followed by level 2 or level 3. We also allow headings without an accessibility level."
+For certain specific situations, it is possible to use Heading without an accessibility level; however, we recommend against using this if possible.`}
         >
           <MainSection.Card
             cardSize="lg"
