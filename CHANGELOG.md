@@ -1,3 +1,9 @@
+## 58.1.8 (Jun 23, 2022)
+
+### Patch
+
+- Link: Update a11y examples (#2162)
+
 ## 58.1.7 (Jun 22, 2022)
 
 ### Patch
