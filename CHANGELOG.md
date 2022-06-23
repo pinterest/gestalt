@@ -1,3 +1,9 @@
+## 58.1.10 (Jun 23, 2022)
+
+### Patch
+
+- Docs: Heading improvements (#2155)
+
 ## 58.1.9 (Jun 23, 2022)
 
 ### Patch
