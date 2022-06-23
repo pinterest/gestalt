@@ -11,6 +11,7 @@ export default function Footer(): Node {
     { title: 'Code sandbox', url: 'https://codesandbox.io/s/k5plvp9v8v', external: true },
     { title: 'Github', url: 'https://github.com/pinterest/gestalt', external: true },
   ];
+
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -19,23 +20,21 @@ export default function Footer(): Node {
         },
       }}
       padding={4}
-      mdPadding={6}
-      lgPadding={8}
       role="contentinfo"
     >
-      <Box paddingX={2} paddingY={1} display="flex" direction="column" mdDirection="row">
+      <Flex direction="row" alignItems="center" wrap>
         <Box column={12} mdColumn={3} padding={2}>
           <Flex alignItems="center" gap={2}>
             <Box aria-hidden>
               <Icon icon="pinterest" color="default" size={24} accessibilityLabel="" />
             </Box>
-            <Text color="default" size="100">
+            <Text size="100">
               <Link
                 accessibilityLabel="Visit Pinterest.com"
                 href="https://www.pinterest.com"
                 onClick={() => trackButtonClick('Pinterest copyright')}
               >
-                &copy; 2022 Pinterest
+                &copy; {new Date().getFullYear()} Pinterest
               </Link>
             </Text>
           </Flex>
@@ -46,11 +45,12 @@ export default function Footer(): Node {
           padding={2}
           display="inlineBlock"
           mdDisplay="flex"
+          alignItems="center"
           justifyContent="center"
           wrap
         >
           {links.map((link, idx) => (
-            <Box marginBottom={2} marginEnd={4} key={idx}>
+            <Box marginBottom={2} mdMarginBottom={0} mdMarginEnd={4} key={idx}>
               <Text inline weight="bold">
                 <Link
                   href={link.url}
@@ -77,7 +77,7 @@ export default function Footer(): Node {
             </Link>
           </Text>
         </Box>
-      </Box>
+      </Flex>
     </Box>
   );
 }

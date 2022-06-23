@@ -29,7 +29,6 @@ export default function App({ children }: Props): Node {
       event.preventDefault();
       router.push(href);
     };
-    setIsHomePage(window.location.pathname === '/home');
 
     return onNavigationClick;
   };
@@ -43,8 +42,8 @@ export default function App({ children }: Props): Node {
       window.gtag('config', 'UA-12967896-44', {
         page_path: window.location.pathname + window.location.search + window.location.hash,
       });
+      setIsHomePage(window?.location?.pathname === '/home');
     };
-    setIsHomePage(window.location.pathname === '/home');
 
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
