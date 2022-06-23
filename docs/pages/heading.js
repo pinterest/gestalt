@@ -381,7 +381,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Alignment"
-          description="Use `align` to adjust the positioning of text within wrapper elements."
+          description={`Use \`align\` to adjust the positioning of text within wrapper elements`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -407,7 +407,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`
 For accessibility purposes, we allow you to override the heading level.
 
-We should have one level 1 per page &amp; levels should be appropriately nested. E.g. level 1 followed by level 2 &amp; level 2 followed by level 2 or level 3. We also allow headings without an accessibility level. We recommend against using \`accessibilityLevel="none"\`.`}
+For certain specific situations, it is possible to use Heading without an accessibility level; however, we recommend against using this if possible.`}
         >
           <MainSection.Card
             cardSize="lg"
