@@ -301,34 +301,14 @@ Avoid using Link to perform actions other than navigation or accessing external 
       `}
       >
         <MainSection.Subsection
+          columns={2}
           title="Accessible content"
           description={`
-Sometimes we don't have space to be more verbose and the Link content can't provide enough context. In those cases, use the \`accessibilityLabel\` prop. \`accessibilityLabel\` adds an aria-label attribute to the link, which assistive technologies like screen readers can access. Typically, the label text replaces the visible text on the Link for users who use assistive technology. As shown in the second example, we don't recommend doing just "Learn more" or "See details" but, if needed, we can override it to be "Learn more about personalization and data" or "See rate limit details for trial package".
+Sometimes we don't have space to be more verbose and the Link content can't provide enough context. In those cases, use the \`accessibilityLabel\` prop. \`accessibilityLabel\` adds an aria-label attribute to the link, which assistive technologies like screen readers can access. Typically, the label text replaces the visible text on the Link for users who use assistive technology. While we don't recommend using "Learn more" or "See details" for Link text, it can be used as long as it is supplemented with a more descriptive \`accessibilityLabel\`, like "Learn more about personalization and data" or "See rate limit details for trial package".
 
-Accessible content is critical if we consider that assistive technology also presents links in isolation from their contexts. For example, screen reader rotors list all the links present in a page. If all listed links are repetitions of the same generic phrases, therefore, the page is not accessible.
+Accessible content is critical if we consider that assistive technology also presents links in isolation from their contexts. For example, screen reader rotors list all the links present in a page. If all listed links are repetitions of the same generic phrases, the content is not accessible.
       `}
         >
-          <MainSection.Card
-            defaultCode={`
-<Box>
-  <Text size="500">Bad ❌</Text>
-  <Box paddingY={4}>
-    <Text size="500">Good ✅</Text>
-    <Text>
-      Visit{' '}
-      <Text inline>
-        <Link inline href="https://pinterest.com">
-          Pinterest.com
-        </Link>
-      </Text>{' '}
-      for more information.
-    </Text>
-  </Box>
-</Box>
-`}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
             defaultCode={`
 <Flex direction="column" gap={4}>
