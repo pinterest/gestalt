@@ -4,14 +4,16 @@ import { Box, Divider } from 'gestalt';
 import Header from './Header.js';
 import Navigation, { MIN_NAV_WIDTH_PX } from './Navigation.js';
 import Footer from './Footer.js';
+import ResourcesFooter from './ResourcesFooter.js';
 
 const CONTENT_MAX_WIDTH_PX = 1544;
 
 type Props = {|
   children?: Node,
+  showResources?: boolean,
 |};
 
-export default function AppLayout({ children }: Props): Node {
+export default function AppLayout({ children, showResources }: Props): Node {
   return (
     <Box minHeight="100vh" color="white">
       <Header />
@@ -37,6 +39,8 @@ export default function AppLayout({ children }: Props): Node {
               {children}
             </Box>
           </Box>
+
+          {showResources && <ResourcesFooter />}
 
           <Divider />
 

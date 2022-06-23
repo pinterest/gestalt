@@ -19,7 +19,7 @@ function IllustrationSection({
   min = MIN_SVG_ILLUSTRATION_WIDTH,
 }: Props): Node {
   return (
-    <IllustrationContainer justifyContent="start">
+    <IllustrationContainer justifyContent="center">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">
         {title && (
           <Heading accessibilityLevel={2} size="500">
