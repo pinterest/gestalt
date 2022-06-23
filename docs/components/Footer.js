@@ -24,7 +24,6 @@ export default function Footer(): Node {
         },
       }}
       padding={4}
-      role="contentinfo"
     >
       <Flex direction="row" alignItems="center" wrap>
         <Box column={12} mdColumn={3} padding={2}>
@@ -75,8 +74,12 @@ export default function Footer(): Node {
           mdDisplay="flex"
           justifyContent="end"
         >
-          <Text inline>
-            <Link href="https://www.netlify.com/" target="blank" externalLinkIcon="default">
+          <Text inline size="100">
+            <Link
+              href="https://www.netlify.com/"
+              target="blank"
+              externalLinkIcon={{ color: 'default', size: '100' }}
+            >
               This site is powered by Netlify
             </Link>
           </Text>

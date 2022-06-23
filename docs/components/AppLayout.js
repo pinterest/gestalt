@@ -39,12 +39,13 @@ export default function AppLayout({ children, showResources }: Props): Node {
               {children}
             </Box>
           </Box>
+          <Box role="contentinfo">
+            {showResources && <ResourcesFooter />}
 
-          {showResources && <ResourcesFooter />}
+            <Divider />
 
-          <Divider />
-
-          <Footer />
+            <Footer />
+          </Box>
         </Box>
       </Box>
     </Box>
