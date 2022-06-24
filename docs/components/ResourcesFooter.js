@@ -114,17 +114,7 @@ function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): N
 
 export default function ResourcesFooter(): Node {
   return (
-    <Box
-      padding={8}
-      display="none"
-      mdDisplay="flex"
-      justifyContent="center"
-      dangerouslySetInlineStyle={{
-        __style: {
-          backgroundColor: 'var(--color-orange-firetini-0)',
-        },
-      }}
-    >
+    <Box padding={8} display="none" mdDisplay="flex" justifyContent="center">
       <Box paddingX={6} maxWidth={1200} display="flex" flex="grow" justifyContent="start">
         <Flex direction="column" gap={4} flex="grow">
           <Heading size="500">Resources</Heading>

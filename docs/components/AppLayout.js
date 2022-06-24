@@ -10,10 +10,13 @@ const CONTENT_MAX_WIDTH_PX = 1544;
 
 type Props = {|
   children?: Node,
+  colorScheme?: 'light' | 'dark',
   showResources?: boolean,
 |};
 
-export default function AppLayout({ children, showResources }: Props): Node {
+export default function AppLayout({ children, colorScheme, showResources }: Props): Node {
+  const footerColor =
+    colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
   return (
     <Box minHeight="100vh" color="white">
       <Header />
@@ -39,11 +42,16 @@ export default function AppLayout({ children, showResources }: Props): Node {
               {children}
             </Box>
           </Box>
-          <Box role="contentinfo">
+          <Box
+            role="contentinfo"
+            dangerouslySetInlineStyle={{
+              __style: {
+                backgroundColor: footerColor,
+              },
+            }}
+          >
             {showResources && <ResourcesFooter />}
-
             <Divider />
-
             <Footer />
           </Box>
         </Box>

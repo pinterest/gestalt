@@ -17,14 +17,7 @@ const links = [
 
 export default function Footer(): Node {
   return (
-    <Box
-      dangerouslySetInlineStyle={{
-        __style: {
-          backgroundColor: 'var(--color-orange-firetini-0)',
-        },
-      }}
-      padding={4}
-    >
+    <Box padding={4}>
       <Flex direction="row" alignItems="center" wrap>
         <Box column={12} mdColumn={3} padding={2}>
           <Flex alignItems="center" gap={2}>
