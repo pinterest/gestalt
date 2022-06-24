@@ -1,3 +1,9 @@
+## 58.1.13 (Jun 24, 2022)
+
+### Patch
+
+- Docs: Fix Footer in dark mode (#2166)
+
 ## 58.1.12 (Jun 23, 2022)
 
 ### Patch
