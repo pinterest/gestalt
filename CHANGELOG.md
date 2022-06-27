@@ -1,3 +1,9 @@
+## 58.1.14 (Jun 27, 2022)
+
+### Patch
+
+- Docs: Cleanup layout and shaded color examples (#2080)
+
 ## 58.1.13 (Jun 24, 2022)
 
 ### Patch
