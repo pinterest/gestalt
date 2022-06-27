@@ -66,6 +66,8 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 <Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             // This example should also display a localized trend value, but given trend accepts only a number,
             // the value cannot be localized. Once the API is changed, we should add a localized trend to this example.
@@ -85,6 +87,8 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"

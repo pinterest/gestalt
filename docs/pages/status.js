@@ -61,6 +61,8 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
 <Icon icon="workflow-status-problem" size="24" accessibilityLabel="This item has an error" />
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -84,6 +86,8 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
 
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
