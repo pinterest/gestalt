@@ -1,3 +1,9 @@
+## 58.1.15 (Jun 27, 2022)
+
+### Patch
+
+- ComboBox: Fix spacing with Tags (#2168)
+
 ## 58.1.14 (Jun 27, 2022)
 
 ### Patch
