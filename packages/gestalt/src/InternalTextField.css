@@ -15,7 +15,7 @@
   composes: Text from "./Text.css";
   composes: fontSize300 from "./Typography.css";
   margin-bottom: var(--space-100);
-  padding: var(--space-100) var(--space-200);
+  padding: var(--space-100) var(--space-0);
 }
 
 .unstyledTextField {
