@@ -4,8 +4,6 @@ import { Box, Flex, Icon, Link, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
 const links = [
-  { title: "What's new", url: 'https://gestalt.pinterest.systems/whats_new' },
-  { title: 'About us', url: 'https://gestalt.pinterest.systems/about_us' },
   {
     title: 'Careers',
     url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
@@ -47,10 +45,11 @@ export default function Footer(): Node {
         >
           {links.map((link) => (
             <Box marginBottom={2} lgMarginBottom={0} smMarginEnd={4} key={link.title}>
-              <Text inline weight="bold">
+              <Text inline>
                 <Link
                   href={link.url}
                   target="blank"
+                  onClick={() => trackButtonClick(link.title)}
                   externalLinkIcon={link.external ? 'default' : 'none'}
                 >
                   {link.title}

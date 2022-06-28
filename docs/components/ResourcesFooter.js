@@ -1,8 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Icon, Link, Heading, Text } from 'gestalt';
-import FigmaLogo from '../graphics/home-page/figma-logo.svg';
-import SlackLogo from '../graphics/home-page/slack-logo.svg';
+import { Box, Flex, Link, Heading, Text } from 'gestalt';
+
 import InternalOnlyIconButton from './InternalOnlyIconButton.js';
 
 const figmaLibraries = [
@@ -61,22 +60,8 @@ type LinkListProps = {|
   |}>,
   heading: string,
   isInternal?: boolean,
-  icon: 'figma' | 'slack' | 'eng',
 |};
-function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): Node {
-  function getIcon(iconType: string): Node {
-    switch (iconType) {
-      case 'eng':
-        return <Icon icon="code" size="32" accessibilityLabel="Engineering" color="default" />;
-      case 'figma':
-        return <FigmaLogo />;
-      case 'slack':
-        return <SlackLogo />;
-      default:
-        return null;
-    }
-  }
-
+function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
   return (
     <Box
       display="flex"
@@ -87,10 +72,6 @@ function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): N
       lgMarginBottom={0}
       alignItems="start"
     >
-      <Box width="32px" display="flex" marginEnd={2}>
-        {getIcon(icon)}
-      </Box>
-
       <Flex direction="column" gap={2}>
         <Flex alignItems="center" gap={1}>
           <Heading size="400" accessibilityLevel={3}>
@@ -101,7 +82,7 @@ function LinkList({ items, heading, icon, isInternal = true }: LinkListProps): N
         <Flex direction="column" gap={1}>
           {items.map((item) => (
             <Text key={item.title}>
-              <Link inline href={item.url} accessibilityLabel={item.a11yLabel}>
+              <Link href={item.url} accessibilityLabel={item.a11yLabel}>
                 {item.title}
               </Link>
             </Text>
@@ -119,13 +100,13 @@ export default function ResourcesFooter(): Node {
         <Flex direction="column" gap={4} flex="grow">
           <Heading size="500">Resources</Heading>
           <Flex justifyContent="between" gap={4} wrap>
-            <LinkList heading="Figma libraries" icon="figma" items={figmaLibraries} />
+            <LinkList heading="Figma libraries" items={figmaLibraries} />
 
-            <LinkList heading="Figma plugins" icon="figma" items={figmaPlugins} />
+            <LinkList heading="Figma plugins" items={figmaPlugins} />
 
-            <LinkList heading="Slack channels" icon="slack" items={slackChannels} />
+            <LinkList heading="Slack channels" items={slackChannels} />
 
-            <LinkList heading="Engineering" isInternal={false} icon="eng" items={engResources} />
+            <LinkList heading="Engineering" isInternal={false} items={engResources} />
           </Flex>
         </Flex>
       </Box>

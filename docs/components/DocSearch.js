@@ -68,8 +68,8 @@ export default function DocSearch({ popoverZIndex }: {| popoverZIndex?: Composit
             id="algolia-doc-search"
             className="searchbox__input"
             type="search"
-            placeholder="Search the docs"
-            aria-label="Search docs"
+            placeholder="Search Gestalt"
+            aria-label="Search Gestalt docs"
           />
         </div>
       </form>

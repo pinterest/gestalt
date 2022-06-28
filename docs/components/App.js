@@ -59,7 +59,7 @@ export default function App({ children }: Props): Node {
           <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
             <OnLinkNavigationProvider onNavigation={useOnNavigation}>
               <NavigationContextProvider>
-                <AppLayout showResources={isHomePage} colorScheme={colorScheme}>
+                <AppLayout isHomePage={isHomePage} colorScheme={colorScheme}>
                   {children}
                 </AppLayout>
               </NavigationContextProvider>

@@ -17,7 +17,6 @@ import {
 import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
-import HeaderMenu from './HeaderMenu.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
 
@@ -147,9 +146,6 @@ function Header() {
         <Box paddingX={2}>
           <DocSearch popoverZIndex={POPOVER_ZINDEX} />
         </Box>
-
-        {/* Medium & larger-screen buttons/links */}
-        <HeaderMenu isHeader popoverZIndex={POPOVER_ZINDEX} />
 
         {/* Small-screen menu button */}
         <Box display="flex" mdDisplay="none" alignItems="center">
