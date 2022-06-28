@@ -443,6 +443,8 @@ function Example() {
           title="Colors"
           description={`
           The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case. For full details on how to use our colors, visit our [Color usage page](/color_usage).
+          
+          Colors should be used semantically whenever possible (i.e. using "errorBase" for error scenarios). If a color is needed for a branded moment in product, Box color can be set using our [color palette design tokens](/color_palette), but it is [considered a hack](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) and should be avoided.
 
           _⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon._
         `}

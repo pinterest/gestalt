@@ -18,15 +18,60 @@ export type Token = {|
 |};
 
 const tokenCategories = [
-  { name: 'Spacing', category: 'spacing', id: 'space' },
-  { name: 'Background color', category: 'background-color', id: 'background' },
-  { name: 'Text color', category: 'text-color', id: 'color-text' },
-  { name: 'Font size', category: 'font-size', id: 'font-size' },
-  { name: 'Font weight', category: 'font-weight', id: 'font-weight' },
-  { name: 'Font family', category: 'font-family', id: 'font-family' },
-  { name: 'Border color', category: 'color-border', id: 'color-border' },
-  { name: 'Elevation', category: 'elevation', id: 'elevation' },
-  { name: 'Data visualization', category: 'data-visualization', id: 'data-visualization' },
+  {
+    name: 'Spacing',
+    category: 'spacing',
+    id: 'space',
+    infoPage: { name: 'Box', id: 'box#Responsive-padding' },
+  },
+  {
+    name: 'Background color',
+    category: 'background-color',
+    id: 'background',
+    infoPage: { name: 'Box', id: 'box#Colors' },
+  },
+  {
+    name: 'Text color',
+    category: 'text-color',
+    id: 'color-text',
+    infoPage: { name: 'Text', id: 'text#Colors' },
+  },
+  {
+    name: 'Font size',
+    category: 'font-size',
+    id: 'font-size',
+    infoPage: { name: 'Text', id: 'text#Sizes' },
+  },
+  {
+    name: 'Font weight',
+    category: 'font-weight',
+    id: 'font-weight',
+    infoPage: { name: 'Text', id: 'text#Styles' },
+  },
+  {
+    name: 'Font family',
+    category: 'font-family',
+    id: 'font-family',
+    infoPage: { name: 'Typography', id: 'typography' },
+  },
+  {
+    name: 'Border color',
+    category: 'color-border',
+    id: 'color-border',
+    infoPage: { name: 'Box', id: 'box#Borders' },
+  },
+  {
+    name: 'Elevation',
+    category: 'elevation',
+    id: 'elevation',
+    infoPage: { name: 'Box', id: 'box#Elevation' },
+  },
+  {
+    name: 'Data visualization',
+    category: 'data-visualization',
+    id: 'data-visualization',
+    infoPage: { name: 'Data Visualization Guidelines', id: 'data_visualization_colors' },
+  },
 ];
 
 const darkValueCategories = [
@@ -77,7 +122,11 @@ export default function DesignTokensPage(): Node {
         {tokenCategories.map((category) => {
           const tokensToUse = category.name === 'Data visualization' ? sortedDataTokens : tokens;
           return (
-            <MainSection.Subsection key={`table${category.name}`} title={category.name}>
+            <MainSection.Subsection
+              key={`table${category.name}`}
+              title={category.name}
+              description={`Visit the [${category?.infoPage?.name} page](/${category?.infoPage?.id}) for guidelines and implementation details.`}
+            >
               <Table accessibilityLabel={`${category.name} Values`}>
                 {tableHeaders(category.name)}
                 <Table.Body>

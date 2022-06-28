@@ -15,7 +15,9 @@ function ColorPalette({ name, tokenId }: Props): Node {
   const colorId = `${tokenId}-${name.toLowerCase()}`;
   return (
     <Box marginTop={8} marginBottom={8}>
-      <Text weight="bold">{name}</Text>
+      <Text weight="bold">
+        {name} ({tokenId})
+      </Text>
       <Box marginTop={2}>
         {tokenNumbers.map((number) => {
           const textColor = number > 400 ? 'light' : 'dark';
