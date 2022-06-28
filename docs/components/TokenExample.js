@@ -35,8 +35,27 @@ export function ColorBox({ token }: BaseProps): Node {
 }
 
 export function SpacingBox({ token }: BaseProps): Node {
-  const absoluteDimension = token.value.replace(/^-/, '');
-  return <Box color="eggplant" width={absoluteDimension} height={absoluteDimension} />;
+  if (token.value.includes('-')) {
+    const absoluteDimension = token.value.replace(/^-/, '');
+    const marginLeftDimension = `calc(64px + ${token.value})`;
+    return (
+      <Box
+        dangerouslySetInlineStyle={{ __style: { marginLeft: marginLeftDimension } }}
+        borderStyle="lg"
+        width={absoluteDimension}
+        height={absoluteDimension}
+      />
+    );
+  }
+
+  return (
+    <Box
+      dangerouslySetInlineStyle={{ __style: { marginLeft: '64px' } }}
+      color="brand"
+      width={token.value}
+      height={token.value}
+    />
+  );
 }
 
 export function TextColorBox({ token }: BaseProps): Node {
