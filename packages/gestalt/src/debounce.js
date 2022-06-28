@@ -1,20 +1,24 @@
+// @flow strict
+
 /**
  * debounce prevents a particular function from being called until after a given
  * cooldown period (default 100ms). Every time the function is called, it resets
  * the cooldown.
  */
 
-// @flow strict
-export default function debounce(
-  // $FlowFixMe[unclear-type]
-  fn: (...args: *) => void,
-  threshhold: number = 100,
-  // $FlowFixMe[signature-verification-failure]
-) {
-  let deferTimer: TimeoutID | null = null;
+type Arguments = $ReadOnlyArray<Event | string | number | boolean | null>;
+export type DebounceReturn = {|
+  (...args: Arguments): void,
+  clearTimeout: () => void,
+|};
 
-  // $FlowFixMe[unclear-type]
-  const debounced = (...args: *) => {
+export default function debounce(
+  fn: (...args: Arguments) => void,
+  threshhold: number = 100,
+): DebounceReturn {
+  let deferTimer: ?TimeoutID = null;
+
+  const debounced = (...args: Arguments) => {
     if (deferTimer) {
       clearTimeout(deferTimer);
     }

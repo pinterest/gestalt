@@ -1,10 +1,10 @@
 // @flow strict
 import { type ComponentType, type Node, Component as ReactComponent } from 'react';
-import debounce from './debounce.js';
+import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
-import throttle from './throttle.js';
+import throttle, { type ThrottleReturn } from './throttle.js';
 import { type Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
@@ -127,8 +127,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
-  // $FlowFixMe[signature-verification-failure]
-  handleResize = debounce(() => {
+  handleResize: DebounceReturn = debounce(() => {
     if (this.gridWrapper) {
       this.setState({ width: this.gridWrapper.clientWidth });
     }
@@ -136,8 +135,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   // Using throttle here to schedule the handler async, outside of the event
   // loop that produced the event.
-  // $FlowFixMe[signature-verification-failure]
-  updateScrollPosition = throttle(() => {
+  updateScrollPosition: ThrottleReturn = throttle(() => {
     if (!this.scrollContainer) {
       return;
     }
@@ -152,8 +150,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     });
   });
 
-  // $FlowFixMe[signature-verification-failure]
-  measureContainerAsync = debounce(() => {
+  measureContainerAsync: DebounceReturn = debounce(() => {
     this.measureContainer();
   }, 0);
 
