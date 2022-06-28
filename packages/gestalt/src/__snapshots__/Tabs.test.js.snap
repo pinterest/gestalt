@@ -44,7 +44,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -114,7 +114,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -172,7 +172,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -256,7 +256,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -328,7 +328,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -398,7 +398,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>

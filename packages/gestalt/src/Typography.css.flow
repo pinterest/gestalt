@@ -17,7 +17,6 @@ declare module.exports: {|
   +'fontSize600': string,
   +'fontStyleItalic': string,
   +'fontStyleRegular': string,
-  +'fontWeightBold': string,
   +'fontWeightNormal': string,
   +'fontWeightSemiBold': string,
   +'lineClamp': string,

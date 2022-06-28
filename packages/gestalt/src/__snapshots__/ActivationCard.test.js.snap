@@ -40,7 +40,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightBold"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -50,7 +50,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>
@@ -90,7 +90,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
       className="box marginTop1 selfCenter"
     >
       <div
-        className="Text fontSize200 subtleText alignStart breakWord fontWeightBold"
+        className="Text fontSize200 subtleText alignStart breakWord fontWeightSemiBold"
       >
         Not started
       </div>
@@ -100,7 +100,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
     >
       Claim your website
     </div>
@@ -157,7 +157,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightBold"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
       >
         Pending
       </div>
@@ -167,7 +167,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
     >
       Claiming your website
     </div>
@@ -226,7 +226,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
         className="box"
       >
         <div
-          className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+          className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
         >
           Nice work
         </div>
@@ -285,7 +285,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightBold"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -295,7 +295,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>
@@ -337,7 +337,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         target={null}
       >
         <div
-          className="Text fontSize300 defaultText alignCenter fontWeightBold"
+          className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
         >
           Learn more
         </div>
@@ -436,7 +436,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightBold"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -446,7 +446,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>
@@ -488,7 +488,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
         target={null}
       >
         <div
-          className="Text fontSize300 defaultText alignCenter fontWeightBold"
+          className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
         >
           Learn more
         </div>
@@ -538,7 +538,7 @@ exports[`<ActivationCard /> message + title 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightBold"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -548,7 +548,7 @@ exports[`<ActivationCard /> message + title 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>

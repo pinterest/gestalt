@@ -212,7 +212,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
@@ -253,7 +253,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
           >
             Visit Pinterest
           </div>
@@ -360,7 +360,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
@@ -401,7 +401,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
           >
             Learn more
           </div>
@@ -432,7 +432,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
           >
             Visit Pinterest
           </div>
@@ -490,7 +490,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
@@ -531,7 +531,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightBold"
+            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
           >
             Visit Pinterest
           </div>
@@ -589,7 +589,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
@@ -627,7 +627,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
             className="button hideOutline block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 defaultText alignCenter fontWeightBold"
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
             >
               Visit Pinterest
             </div>
@@ -686,7 +686,7 @@ exports[`<Callout /> message + title 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>

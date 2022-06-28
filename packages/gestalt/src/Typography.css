@@ -52,10 +52,6 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.fontWeightBold {
-  font-weight: var(--font-weight-bold);
-}
-
 /* emphasis */
 
 .fontStyleRegular {
