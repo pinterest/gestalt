@@ -1,3 +1,9 @@
+## 58.1.19 (Jun 28, 2022)
+
+### Patch
+
+- Docs: Updates to Resources and Footer (#2172)
+
 ## 58.1.18 (Jun 28, 2022)
 
 ### Patch
