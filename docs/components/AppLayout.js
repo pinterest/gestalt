@@ -11,10 +11,10 @@ const CONTENT_MAX_WIDTH_PX = 1544;
 type Props = {|
   children?: Node,
   colorScheme?: 'light' | 'dark',
-  showResources?: boolean,
+  isHomePage?: boolean,
 |};
 
-export default function AppLayout({ children, colorScheme, showResources }: Props): Node {
+export default function AppLayout({ children, colorScheme, isHomePage }: Props): Node {
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
   return (
@@ -44,13 +44,14 @@ export default function AppLayout({ children, colorScheme, showResources }: Prop
           </Box>
           <Box
             role="contentinfo"
+            color={!isHomePage ? 'default' : undefined}
             dangerouslySetInlineStyle={{
               __style: {
-                backgroundColor: footerColor,
+                backgroundColor: isHomePage ? footerColor : undefined,
               },
             }}
           >
-            {showResources && <ResourcesFooter />}
+            {isHomePage && <ResourcesFooter />}
             <Divider />
             <Footer />
           </Box>
