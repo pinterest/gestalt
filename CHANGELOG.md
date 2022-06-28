@@ -1,3 +1,9 @@
+## 58.1.18 (Jun 28, 2022)
+
+### Patch
+
+- Design Tokens: Add cross-linking to various pages (#2169)
+
 ## 58.1.17 (Jun 28, 2022)
 
 ### Patch
