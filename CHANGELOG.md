@@ -1,3 +1,9 @@
+## 58.1.17 (Jun 28, 2022)
+
+### Patch
+
+- Internal: flow type debounce and throttle methods (#2170)
+
 ## 58.1.16 (Jun 28, 2022)
 
 ### Patch
