@@ -69,7 +69,7 @@ export default function DocSearch({ popoverZIndex }: {| popoverZIndex?: Composit
             className="searchbox__input"
             type="search"
             placeholder="Search Gestalt"
-            aria-label="Search docs"
+            aria-label="Search Gestalt docs"
           />
         </div>
       </form>
