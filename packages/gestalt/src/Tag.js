@@ -9,7 +9,6 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import touchableStyles from './Touchable.css';
-import typographyStyles from './Typography.css';
 import styles from './Tag.css';
 
 type Props = {|
@@ -96,8 +95,8 @@ export default function Tag(props: Props): Node {
             />
           )}
         </Box>
-        <div className={typographyStyles.truncate} title={text}>
-          <Text color={fgColor} inline size="200">
+        <div title={text}>
+          <Text color={fgColor} inline lineClamp={1} size="200">
             {text}
           </Text>
         </div>
