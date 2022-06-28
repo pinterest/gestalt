@@ -3,7 +3,7 @@ import { type Node, PureComponent } from 'react';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './ScrollContainer.js';
 import { getElementHeight, getScrollHeight, getScrollPos } from './scrollUtils.js';
-import throttle from './throttle.js';
+import throttle, { type ThrottleReturn } from './throttle.js';
 
 type Props = {|
   /**
@@ -26,8 +26,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
   /**
    * Fetches additional items if needed.
    */
-  // $FlowFixMe[signature-verification-failure]
-  updatePosition = throttle(() => {
+  updatePosition: ThrottleReturn = throttle(() => {
     this.setState(this.getScrollState());
   });
 
