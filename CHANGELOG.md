@@ -1,3 +1,9 @@
+## 58.1.16 (Jun 28, 2022)
+
+### Patch
+
+- Dropdown: cleanup dead code (#2167)
+
 ## 58.1.15 (Jun 27, 2022)
 
 ### Patch
