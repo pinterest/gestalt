@@ -23,11 +23,16 @@ exports[`Tag clips long strings 1`] = `
       className="box marginEnd2 marginStart0"
     />
     <div
-      className="truncate"
       title="The quick brown fox jumps over the lazy dog"
     >
       <span
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="The quick brown fox jumps over the lazy dog"
       >
         The quick brown fox jumps over the lazy dog
       </span>
@@ -82,11 +87,16 @@ exports[`Tag renders 1`] = `
       className="box marginEnd2 marginStart0"
     />
     <div
-      className="truncate"
       title="New"
     >
       <span
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
       >
         New
       </span>
@@ -142,11 +152,16 @@ exports[`Tag renders a disabled tag 1`] = `
       className="box marginEnd2 marginStart0"
     />
     <div
-      className="truncate"
       title="New"
     >
       <span
-        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
       >
         New
       </span>
@@ -195,11 +210,16 @@ exports[`Tag renders a tag with an error state 1`] = `
       </svg>
     </div>
     <div
-      className="truncate"
       title="New"
     >
       <span
-        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
       >
         New
       </span>

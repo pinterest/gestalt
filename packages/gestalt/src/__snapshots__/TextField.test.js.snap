@@ -211,11 +211,16 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginEnd2 marginStart0"
             />
             <div
-              className="truncate"
               title="a@pinterest.com"
             >
               <span
-                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                style={
+                  Object {
+                    "WebkitLineClamp": 1,
+                  }
+                }
+                title="a@pinterest.com"
               >
                 a@pinterest.com
               </span>
@@ -271,11 +276,16 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginEnd2 marginStart0"
             />
             <div
-              className="truncate"
               title="b@pinterest.com"
             >
               <span
-                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                style={
+                  Object {
+                    "WebkitLineClamp": 1,
+                  }
+                }
+                title="b@pinterest.com"
               >
                 b@pinterest.com
               </span>
@@ -331,11 +341,16 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginEnd2 marginStart0"
             />
             <div
-              className="truncate"
               title="c@pinterest.com"
             >
               <span
-                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                style={
+                  Object {
+                    "WebkitLineClamp": 1,
+                  }
+                }
+                title="c@pinterest.com"
               >
                 c@pinterest.com
               </span>
