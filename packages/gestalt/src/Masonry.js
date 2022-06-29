@@ -43,10 +43,6 @@ type Props<T> = {|
     isMeasuring: boolean,
   |}>,
   /**
-   * Item width will grow to fill column space and shrink to fit if below min columns.
-   */
-  flexible?: boolean,
-  /**
    * The amount of vertical and horizontal space between each item, specified in pixels.
    */
   gutterWidth?: number,
@@ -439,7 +435,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     const {
       columnWidth,
       comp: Component,
-      flexible,
       gutterWidth: gutter,
       items,
       layout,
@@ -450,10 +445,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     let getPositions;
 
-    if (
-      (flexible || layout === 'flexible' || layout === 'serverRenderedFlexible') &&
-      width !== null
-    ) {
+    if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
         gutter,
         cache: measurementStore,
@@ -503,7 +495,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
               key={i}
               ref={(el) => {
                 // purposely not checking for layout === 'serverRenderedFlexible' here
-                if (el && !(flexible || layout === 'flexible')) {
+                if (el && layout !== 'flexible') {
                   // if we're hydrating from the server, we should only measure items on the initial render pass
                   // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
                   // that the caller has added the proper CSS to ensure the layout is correct during server render
@@ -517,7 +509,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 transform: 'translateX(0px) translateY(0px)',
                 WebkitTransform: 'translateX(0px) translateY(0px)',
                 width:
-                  flexible || layout === 'flexible' || layout === 'serverRenderedFlexible'
+                  layout === 'flexible' || layout === 'serverRenderedFlexible'
                     ? undefined
                     : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
               }}
