@@ -1,3 +1,9 @@
+## 58.3.2 (Jun 30, 2022)
+
+### Patch
+
+- Docs: Updating Typography guidelines (#2181)
+
 ## 58.3.1 (Jun 30, 2022)
 
 ### Patch
