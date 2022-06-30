@@ -1,3 +1,9 @@
+## 58.1.20 (Jun 30, 2022)
+
+### Patch
+
+- Docs: fix some OnLinkNavigationProvider links (#2176)
+
 ## 58.1.19 (Jun 28, 2022)
 
 ### Patch
