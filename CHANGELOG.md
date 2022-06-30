@@ -1,3 +1,9 @@
+## 58.1.21 (Jun 30, 2022)
+
+### Patch
+
+- PageHeader: Make onClick for helperLink optional (#2174)
+
 ## 58.1.20 (Jun 30, 2022)
 
 ### Patch
