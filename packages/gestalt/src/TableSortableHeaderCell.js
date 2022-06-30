@@ -88,7 +88,10 @@ export default function TableSortableHeaderCell({
       <Box display="inlineBlock">
         <TapArea
           fullWidth={false}
-          onTap={onSortChange}
+          onTap={({ event, dangerouslyDisableOnNavigation }) => {
+            setFocused(false);
+            onSortChange({ event, dangerouslyDisableOnNavigation });
+          }}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           onFocus={() => setFocused(true)}

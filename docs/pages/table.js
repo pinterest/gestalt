@@ -20,67 +20,41 @@ export default function TablePage({
         name={generatedDocGen.Table?.displayName}
         description={generatedDocGen.Table?.description}
         defaultCode={`
-<Table accessibilityLabel="Basic Table">
-  <Table.Header>
-    <Table.Row>
-      <Table.HeaderCell>
-        <Text weight="bold">Name</Text>
-      </Table.HeaderCell>
-      <Table.HeaderCell>
-        <Text weight="bold">House</Text>
-      </Table.HeaderCell>
-      <Table.HeaderCell>
-        <Text weight="bold">Birthday</Text>
-      </Table.HeaderCell>
-    </Table.Row>
-  </Table.Header>
-  <Table.Body>
-    <Table.Row>
-      <Table.Cell>
-        <Text>Luna Lovegood</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>Ravenclaw</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>June 25, 1993</Text>
-      </Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <Text>Draco Malfoy</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>Slytherin</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>December 3, 1992</Text>
-      </Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <Text>Hermione Granger</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>Gryffindor</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>September 19, 1979</Text>
-      </Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <Text>Neville Longbottom</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>Gryffindor</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>July 30, 1980</Text>
-      </Table.Cell>
-    </Table.Row>
-  </Table.Body>
-</Table>
+        function SortableHeaderExample() {
+          const [sortOrder, setSortOrder] = React.useState("desc");
+          const [sortCol, setSortCol] = React.useState("keywords");
+
+          const onSortChange = (col) => {
+            if (sortCol === col) {
+              setSortCol("keywords");
+            } else {
+              setSortCol(col);
+            }
+          };
+
+          return (
+            <Table accessibilityLabel="Sortable header cells">
+              <Table.Header>
+                <Table.Row>
+                  <Table.SortableHeaderCell
+                    onSortChange={() => onSortChange("keywords")}
+                    sortOrder={sortOrder}
+                    status={sortCol === "keywords" ? "active" : "inactive"}
+                  >
+                    <Text weight="bold">Keywords</Text>
+                  </Table.SortableHeaderCell>
+                  <Table.SortableHeaderCell
+                    onSortChange={() => onSortChange("weekly")}
+                    sortOrder={sortOrder}
+                    status={sortCol === "weekly" ? "active" : "inactive"}
+                  >
+                    <Text weight="bold">Weekly Change</Text>
+                  </Table.SortableHeaderCell>
+                </Table.Row>
+              </Table.Header>
+            </Table>
+          );
+        }
 `}
       />
 
