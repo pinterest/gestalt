@@ -1,3 +1,9 @@
+## 58.3.1 (Jun 30, 2022)
+
+### Patch
+
+- Component status: quick link fix (#2180)
+
 ## 58.3.0 (Jun 30, 2022)
 
 ### Minor
