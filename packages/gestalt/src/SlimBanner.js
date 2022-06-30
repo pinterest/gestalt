@@ -29,7 +29,7 @@ function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
 type HelperLinkType = {|
   accessibilityLabel: string,
   href: string,
-  onClick: ({|
+  onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,

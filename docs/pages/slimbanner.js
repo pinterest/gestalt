@@ -18,14 +18,14 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
         defaultCode={`
 <SlimBanner
   dismissButton={{
-    accessibilityLabel: 'Dismiss',
+    accessibilityLabel: 'Dismiss banner',
     onDismiss: () => {},
   }}
   iconAccessibilityLabel="Information"
   message="Idea Pins are now available across platforms."
   primaryAction={{
-    accessibilityLabel: 'Apply',
-    label: 'Apply',
+    accessibilityLabel: 'Apply for access',
+    label: 'Apply for access',
     onClick: () => {},
   }}
   type="info"
@@ -502,7 +502,7 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
   message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
   iconAccessibilityLabel="Information"
   dismissButton={{
-    accessibilityLabel: 'Dismiss',
+    accessibilityLabel: 'Dismiss banner',
     onClick: () => {},
   }}
 />
