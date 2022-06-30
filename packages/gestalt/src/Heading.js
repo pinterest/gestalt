@@ -5,7 +5,6 @@ import colors from './Colors.css';
 import styles from './Heading.css';
 import typography from './Typography.css';
 import { semanticColors } from './textTypes.js';
-import useInExperiment from './useInExperiment.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
@@ -86,15 +85,8 @@ export default function Heading({
   overflow = 'breakWord',
   size = '600',
 }: Props): Node {
-  const inSemiBoldExp = useInExperiment({
-    webExperimentName: 'web_gestalt_semibold_weight',
-    mwebExperimentName: 'mweb_gestalt_semibold_weight',
-  });
-
-  const headingStyle = inSemiBoldExp ? styles.HeadingSemiBold : styles.Heading;
-
   const cs = cx(
-    headingStyle,
+    styles.Heading,
     typography[`fontSize${size}`],
     color && semanticColors.includes(color) && colors[`${color}Text`],
     align === 'center' && typography.alignCenter,

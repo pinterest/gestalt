@@ -35,7 +35,7 @@ exports[`Avatar renders an outline 1`] = `
           Jenny
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -83,7 +83,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
           💩 astral
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -490,7 +490,7 @@ exports[`Avatar renders the verified icon 1`] = `
           Jammy
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -572,7 +572,7 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"

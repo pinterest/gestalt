@@ -56,7 +56,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -171,7 +171,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -308,7 +308,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 errorText alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -427,7 +427,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -576,7 +576,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -673,7 +673,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 defaultText alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,
@@ -810,7 +810,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 errorText alignStart breakWord fontWeightBold lineClamp"
+                      className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 1,

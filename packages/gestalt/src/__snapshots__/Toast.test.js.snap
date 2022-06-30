@@ -90,7 +90,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             Saved to
              
             <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
               <a
                 className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
@@ -135,7 +135,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 defaultText alignCenter fontWeightBold"
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
             >
               Undo
             </div>
@@ -200,7 +200,7 @@ exports[`<Toast /> Text + Image 1`] = `
             Saved to
              
             <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
               <a
                 className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"

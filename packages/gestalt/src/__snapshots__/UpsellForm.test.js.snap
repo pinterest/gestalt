@@ -60,7 +60,7 @@ exports[`UpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Text fontSize300 inverseText alignCenter fontWeightBold"
+          className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
         >
           Submit
         </div>
