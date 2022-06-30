@@ -171,6 +171,9 @@ export default function SlimBanner({
   const isDefault = type === 'neutral';
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
 
+  // Buttons not allowed on compact SlimBanners
+  const shouldShowButtons = !isBare && (primaryAction || dismissButton);
+
   return (
     <Box
       alignItems="center"
@@ -183,12 +186,14 @@ export default function SlimBanner({
     >
       <Flex alignItems="center" gap={isBare ? 2 : 4} width="100%">
         {!isDefault && iconAccessibilityLabel && (
-          <Icon
-            accessibilityLabel={iconAccessibilityLabel}
-            color={iconColor}
-            icon={icon}
-            size={16}
-          />
+          <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
+            <Icon
+              accessibilityLabel={iconAccessibilityLabel}
+              color={iconColor}
+              icon={icon}
+              size={16}
+            />
+          </Flex.Item>
         )}
 
         <Flex.Item flex="grow">
@@ -205,7 +210,7 @@ export default function SlimBanner({
           </Box>
         </Flex.Item>
 
-        {!isBare && (primaryAction || dismissButton) && (
+        {shouldShowButtons && (
           <Flex.Item flex="none">
             <Flex alignItems="center" gap={4}>
               {primaryAction && (
