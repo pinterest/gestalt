@@ -61,7 +61,7 @@ type Props = {|
     text: string,
     accessibilityLabel: string,
     href: string,
-    onClick: ({|
+    onClick?: ({|
       event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
       dangerouslyDisableOnNavigation: () => void,
     |}) => void,
