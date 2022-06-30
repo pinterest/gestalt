@@ -9,7 +9,11 @@ const links = [
     url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
     external: true,
   },
-  { title: 'Code sandbox', url: 'https://codesandbox.io/s/k5plvp9v8v', external: true },
+  {
+    title: 'Code sandbox',
+    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
+    external: true,
+  },
   { title: 'GitHub', url: 'https://github.com/pinterest/gestalt', external: true },
 ];
 

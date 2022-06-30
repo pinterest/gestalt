@@ -49,7 +49,7 @@ const slackChannels = [
 ];
 const engResources = [
   { title: 'Web repository', url: 'https://github.com/pinterest/gestalt/pull/2162' },
-  { title: 'Code sandbox', url: 'https://codesandbox.io/s/k5plvp9v8v' },
+  { title: 'Code sandbox', url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js' },
 ];
 
 type LinkListProps = {|
