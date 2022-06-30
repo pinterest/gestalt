@@ -57,6 +57,14 @@ const GENERAL_COMPONENT_CATEGORY_MAP = COMPONENT_DATA.generalComponents.reduce(
 
 type Status = 'notAvailable' | 'partial' | 'planned' | 'ready';
 
+export type AccessibleStatus = {|
+  summary: ?Status,
+  a11yVisual: ?Status,
+  a11yScreenreader: ?Status,
+  a11yNavigation: ?Status,
+  a11yComprehension: ?Status,
+|};
+
 export type ListItemType = Array<{|
   category: string,
   description: string,
@@ -64,13 +72,7 @@ export type ListItemType = Array<{|
   name: string,
   path?: string,
   status?: {|
-    accessible: {|
-      summary: ?Status,
-      a11yVisual: ?Status,
-      a11yScreenreader: ?Status,
-      a11yNavigation: ?Status,
-      a11yComprehension: ?Status,
-    |},
+    accessible: AccessibleStatus,
     android: Status,
     badge: null | 'New' | 'Pilot',
     deprecated?: boolean,

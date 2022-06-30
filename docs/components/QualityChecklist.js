@@ -18,7 +18,7 @@ export default function QualityChecklist({ component }: Props): Node {
   ].find((cmpName) => cmpName.name === component);
 
   return (
-    <MainSection name="Component Quality Checklist">
+    <MainSection name="Component quality checklist">
       {componentData?.status?.deprecated ? (
         <SlimBanner
           iconAccessibilityLabel="Deprecated component"
@@ -26,7 +26,7 @@ export default function QualityChecklist({ component }: Props): Node {
           type="warningBare"
         />
       ) : (
-        <Table accessibilityLabel="Component Quality Checklist">
+        <Table accessibilityLabel="Component quality checklist">
           <colgroup>
             <col style={{ width: '20%' }} />
             <col style={{ width: '20%' }} />
@@ -54,7 +54,7 @@ export default function QualityChecklist({ component }: Props): Node {
                   <Table.Cell>
                     <StatusData
                       text={STATUS_DESCRIPTION[componentStatus].title}
-                      type={componentStatus}
+                      status={componentStatus}
                     />
                   </Table.Cell>
                   <Table.Cell>

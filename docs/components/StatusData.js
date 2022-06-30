@@ -4,27 +4,26 @@ import { Flex, Status, Text, Icon, Link } from 'gestalt';
 import { STATUS_EQUIVALENCY_MAP, STATUS_DESCRIPTION } from './COMPONENT_STATUS_MESSAGING.js';
 
 export default function StatusData({
-  type,
+  status,
   text,
   href,
 }: {|
-  type: 'ready' | 'notAvailable' | 'partial' | 'planned' | 'deprecated',
+  status: 'ready' | 'notAvailable' | 'partial' | 'planned' | 'deprecated',
   text?: string,
   href?: string,
 |}): Node {
-  let label = STATUS_DESCRIPTION[type].title;
-  if (text) {
-    label = text;
-  }
+  const label = text || STATUS_DESCRIPTION[status].title;
 
-  return type ? (
+  if (!status) return null;
+
+  return (
     <Flex gap={2} alignItems="center">
-      {STATUS_EQUIVALENCY_MAP[type] === 'notAvailable' ? (
+      {STATUS_EQUIVALENCY_MAP[status] === 'notAvailable' ? (
         <Icon accessibilityLabel="Not available" icon="dash" />
       ) : (
         <Status
           accessibilityLabel={`This component is ${label}`}
-          type={STATUS_EQUIVALENCY_MAP[type]}
+          type={STATUS_EQUIVALENCY_MAP[status]}
           title={href ? '' : label}
         />
       )}
@@ -36,5 +35,5 @@ export default function StatusData({
         </Text>
       ) : null}
     </Flex>
-  ) : null;
+  );
 }

@@ -8,7 +8,7 @@ import StatusData from '../components/StatusData.js';
 import { STATUS_DESCRIPTION } from '../components/COMPONENT_STATUS_MESSAGING.js';
 
 function DeprecatedStatus() {
-  return <StatusData text="Deprecated" type="deprecated" />;
+  return <StatusData text="Deprecated" status="deprecated" />;
 }
 
 export default function ComponentStatus(): Node {
@@ -53,7 +53,7 @@ export default function ComponentStatus(): Node {
                 (typeStatus, index) => (
                   <Table.Row key={index}>
                     <Table.Cell>
-                      <StatusData type={typeStatus} />
+                      <StatusData status={typeStatus} />
                     </Table.Cell>
                     <Table.Cell>
                       <Text>{STATUS_DESCRIPTION[typeStatus].description}</Text>
@@ -141,7 +141,7 @@ export default function ComponentStatus(): Node {
                       </Table.Cell>
                     ) : (
                       <Table.Cell key={item.name + idx}>
-                        <StatusData type={status || 'notAvailable'} />
+                        <StatusData status={status || 'notAvailable'} />
                       </Table.Cell>
                     ),
                   )}

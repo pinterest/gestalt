@@ -50,10 +50,10 @@ export const COMPONENT_STATUS_MESSAGING = Object.freeze({
   responsive: {
     shortTitle: 'Web',
     title: 'Responsive Web',
-    ready: 'Component is available in code for web and mWeb.',
+    ready: 'Component is available in code for web and mobile web.',
     partial: '',
-    notAvailable: 'Component is not currently available in code for web and mWeb.',
-    planned: 'Component is slotted to be built for web and mWeb.',
+    notAvailable: 'Component is not currently available in code for web and mobile web.',
+    planned: 'Component is slotted to be built for web and mobile web.',
   },
   documentation: {
     title: 'Documentation',

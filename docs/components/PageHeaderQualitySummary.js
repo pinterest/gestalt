@@ -16,13 +16,19 @@ export default function PageHeaderQualitySumary({ name }: Props): Node {
     ...COMPONENT_DATA.utilityComponents,
   ].find((cmpName) => cmpName.name === name);
 
-  return componentStatusData?.status?.deprecated ? (
-    <SlimBanner
-      iconAccessibilityLabel="Deprecated component"
-      message="Deprecated: This component is no longer supported by Gestalt. "
-      type="warning"
-    />
-  ) : (
+  const isDeprecated = componentStatusData?.status?.deprecated;
+
+  if (isDeprecated) {
+    return (
+      <SlimBanner
+        iconAccessibilityLabel="Deprecated component"
+        message="Deprecated: This component is no longer supported by Gestalt. "
+        type="warning"
+      />
+    );
+  }
+
+  return (
     <Box marginStart={-4}>
       <Flex wrap>
         {['figma', 'responsive', 'iOS', 'android', 'accessible'].map((item, index) => (
@@ -37,7 +43,7 @@ export default function PageHeaderQualitySumary({ name }: Props): Node {
                 </Text>
                 <StatusData
                   key={item}
-                  type={
+                  status={
                     (item === 'accessible'
                       ? componentStatusData?.status?.[item].summary || 'notAvailable'
                       : componentStatusData?.status?.[item]) ?? 'notAvailable'

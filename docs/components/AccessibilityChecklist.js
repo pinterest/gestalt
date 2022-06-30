@@ -7,6 +7,7 @@ import {
   STATUS_DESCRIPTION,
   COMPONENT_A11Y_STATUS_MESSAGING,
 } from './COMPONENT_STATUS_MESSAGING.js';
+import { type AccessibleStatus } from '../pages/component_overview.js';
 
 export const STATUS_ICON_EQUIVALENCY_MAP = Object.freeze({
   'ready': 'workflow-status-ok',
@@ -19,12 +20,63 @@ type Props = {|
   component: string,
 |};
 
+function QualityTable({ accessibilityData }: {| accessibilityData?: AccessibleStatus |}) {
+  return (
+    <Table accessibilityLabel="Component Quality Checklist">
+      <colgroup>
+        <col style={{ width: '20%' }} />
+        <col style={{ width: '20%' }} />
+        <col style={{ width: '60%' }} />
+      </colgroup>
+      <Box display="visuallyHidden">
+        <Table.Header>
+          <Table.Row>
+            {['Quality item', 'Status', 'Status description'].map((header) => (
+              <Table.HeaderCell key={header.replace(' ', '_')}>
+                <Text weight="bold">{header}</Text>
+              </Table.HeaderCell>
+            ))}
+          </Table.Row>
+        </Table.Header>
+      </Box>
+      <Table.Body>
+        {['a11yVisual', 'a11yScreenreader', 'a11yNavigation', 'a11yComprehension'].map(
+          (item, index) => {
+            const componentStatus = accessibilityData?.[item] ?? 'notAvailable';
+
+            return (
+              <Table.Row key={index}>
+                <Table.Cell>
+                  <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item].title}</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <StatusData
+                    text={STATUS_DESCRIPTION[componentStatus].title}
+                    status={componentStatus}
+                  />
+                </Table.Cell>
+                <Table.Cell>
+                  <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item][componentStatus]}</Text>
+                </Table.Cell>
+              </Table.Row>
+            );
+          },
+        )}
+      </Table.Body>
+    </Table>
+  );
+}
+
 export default function QualityChecklist({ component }: Props): Node {
   const componentData = [
     ...COMPONENT_DATA.buildingBlockComponents,
     ...COMPONENT_DATA.generalComponents,
     ...COMPONENT_DATA.utilityComponents,
   ].find((cmpName) => cmpName.name === component);
+
+  const a11ySummary = componentData?.status?.accessible?.summary;
+
+  const a11ySummaryNotAvailable = a11ySummary === 'notAvailable';
 
   return (
     <Module.Expandable
@@ -33,66 +85,19 @@ export default function QualityChecklist({ component }: Props): Node {
       id="accessibility-module"
       items={[
         {
-          children:
-            componentData?.status?.accessible?.summary === 'notAvailable' ? (
-              <Text>
-                Accessibility information is not available for this component. If you have any
-                questions, please reach out to the Gestalt team for more information.
-              </Text>
-            ) : (
-              <Table accessibilityLabel="Component Quality Checklist">
-                <colgroup>
-                  <col style={{ width: '20%' }} />
-                  <col style={{ width: '20%' }} />
-                  <col style={{ width: '60%' }} />
-                </colgroup>
-                <Box display="visuallyHidden">
-                  <Table.Header>
-                    <Table.Row>
-                      {['Quality item', 'Status', 'Status descripyion'].map((header) => (
-                        <Table.HeaderCell key={header.replace(' ', '_')}>
-                          <Text weight="bold">{header}</Text>
-                        </Table.HeaderCell>
-                      ))}
-                    </Table.Row>
-                  </Table.Header>
-                </Box>
-                <Table.Body>
-                  {['a11yVisual', 'a11yScreenreader', 'a11yNavigation', 'a11yComprehension'].map(
-                    (item, index) => {
-                      const componentStatus =
-                        componentData?.status?.accessible?.[item] ?? 'notAvailable';
-
-                      return (
-                        <Table.Row key={index}>
-                          <Table.Cell>
-                            <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item].title}</Text>
-                          </Table.Cell>
-                          <Table.Cell>
-                            <StatusData
-                              text={STATUS_DESCRIPTION[componentStatus].title}
-                              type={componentStatus}
-                            />
-                          </Table.Cell>
-                          <Table.Cell>
-                            <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item][componentStatus]}</Text>
-                          </Table.Cell>
-                        </Table.Row>
-                      );
-                    },
-                  )}
-                </Table.Body>
-              </Table>
-            ),
-          icon: STATUS_ICON_EQUIVALENCY_MAP[
-            componentData?.status?.accessible?.summary ?? 'notAvailable'
-          ],
+          children: a11ySummaryNotAvailable ? (
+            <Text>
+              Accessibility information is not available for this component. If you have any
+              questions, please reach out to the Gestalt team for more information.
+            </Text>
+          ) : (
+            <QualityTable accessibilityData={componentData?.status?.accessible} />
+          ),
+          icon: STATUS_ICON_EQUIVALENCY_MAP[a11ySummary ?? 'notAvailable'],
           iconAccessibilityLabel: 'title icon',
-          title:
-            componentData?.status?.accessible?.summary === 'notAvailable'
-              ? 'Accessibility not available'
-              : STATUS_DESCRIPTION[componentData?.status?.accessible.summary || 'notAvailable']
-                  .title,
+          title: a11ySummaryNotAvailable
+            ? 'Accessibility not available'
+            : STATUS_DESCRIPTION[a11ySummary || 'notAvailable'].title,
         },
       ]}
     />
