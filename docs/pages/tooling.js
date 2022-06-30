@@ -124,7 +124,7 @@ To learn more about developing generic codemods, read this [page](https://github
         />
         <MainSection.Subsection
           title="Playground sandbox"
-          description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/k5plvp9v8v) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
+          description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
         >
           <Flex maxWidth={MAX_WIDTH} justifyContent="center">
             <Button
@@ -133,7 +133,7 @@ To learn more about developing generic codemods, read this [page](https://github
               role="link"
               onClick={() => trackButtonClick('Playground sandbox')}
               text="Create a sandbox snippet"
-              href="https://codesandbox.io/s/k5plvp9v8v"
+              href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js"
             />
           </Flex>
         </MainSection.Subsection>
