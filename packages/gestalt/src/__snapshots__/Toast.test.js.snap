@@ -50,7 +50,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -160,7 +160,7 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -242,7 +242,7 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
