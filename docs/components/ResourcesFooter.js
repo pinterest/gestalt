@@ -43,7 +43,7 @@ const slackChannels = [
   },
   {
     title: 'Engineering',
-    url: 'http://pinch.pinadmin.com/gestalt-design-slack',
+    url: 'http://pinch.pinadmin.com/gestalt-web-slack',
     a11yLabel: 'Web engineering Slack channel',
   },
 ];
