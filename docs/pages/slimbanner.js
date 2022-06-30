@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -276,12 +279,12 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. They should also be localized.`}
           title="Labels"
+          description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. They should also be localized.`}
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -460,6 +463,8 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

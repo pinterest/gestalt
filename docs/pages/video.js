@@ -5,6 +5,8 @@ import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -33,7 +35,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Captions"
           description={`Warning: Captions aren't currently supported.
@@ -88,7 +90,7 @@ If the video contain captions, it also requires \`accessibilityHideCaptionsLabel
 .
 `}
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -358,6 +360,7 @@ function Example () {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

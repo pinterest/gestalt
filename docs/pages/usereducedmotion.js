@@ -3,6 +3,8 @@ import { type Node } from 'react';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage(): Node {
   return (
@@ -22,7 +24,11 @@ export default function DocsPage(): Node {
       <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
     </ul>
     `}
+        type="utils"
       />
+
+      <AccessibilitySection name="useReducedMotion" />
+
       <MainSection name="Examples">
         <MainSection.Subsection
           description={
@@ -70,6 +76,7 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component="useReducedMotion" />
     </Page>
   );
 }

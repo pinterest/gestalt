@@ -6,6 +6,8 @@ import docgen, { type DocGen } from '../components/docgen.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function ActivationCardPage({
   generatedDocGen,
@@ -17,6 +19,8 @@ export default function ActivationCardPage({
       <PageHeader name="ActivationCard" description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -104,6 +108,8 @@ export default function ActivationCardPage({
 </Flex>
   `}
       />
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

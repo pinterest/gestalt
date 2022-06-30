@@ -1,9 +1,10 @@
 // @flow strict
 import { type Node, type Element } from 'react';
-import { Badge, Box, Flex, Heading, Text, Tooltip, SlimBanner } from 'gestalt';
+import { Badge, Box, Flex, Heading, Text, Tooltip, SlimBanner, Link } from 'gestalt';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
+import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 
 const buildSourceLinkPath = (componentName) => {
   const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
@@ -23,8 +24,8 @@ type Props = {|
   folderName?: string, // only use if name !== file name and the link should point to a directory
   name: string,
   shadedCodeExample?: boolean,
-  showSourceLink?: boolean,
   slimBanner?: Element<typeof SlimBanner> | null,
+  type?: 'guidelines' | 'component' | 'utils',
 |};
 
 export default function PageHeader({
@@ -35,8 +36,8 @@ export default function PageHeader({
   folderName,
   name,
   shadedCodeExample,
-  showSourceLink = true,
   slimBanner = null,
+  type = 'component',
 }: Props): Node {
   const sourcePathName = folderName ?? fileName ?? name;
   let sourceLink = buildSourceLinkUrl(sourcePathName);
@@ -82,29 +83,31 @@ export default function PageHeader({
               ) : null}
             </Heading>
 
-            {showSourceLink && (
-              <a
+            {type === 'component' && (
+              <Link
                 href={sourceLink}
                 onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
                 target="blank"
               >
                 <Text underline>View source on GitHub</Text>
-              </a>
+              </Link>
             )}
           </Flex>
 
-          {description && <Markdown text={description} />}
-          {slimBanner}
+          <Flex direction="column" gap={6}>
+            {description && <Markdown text={description} />}
+            {slimBanner}
+            {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
+            {defaultCode && (
+              <MainSection.Card
+                cardSize="lg"
+                showCode={false}
+                defaultCode={defaultCode}
+                shaded={shadedCodeExample}
+              />
+            )}
+          </Flex>
         </Flex>
-
-        {defaultCode && (
-          <MainSection.Card
-            cardSize="lg"
-            showCode={false}
-            defaultCode={defaultCode}
-            shaded={shadedCodeExample}
-          />
-        )}
       </Flex>
     </Box>
   );

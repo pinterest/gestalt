@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -484,7 +487,7 @@ function Example() {
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`Checkboxes should have labels that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the \`label\` prop. If that’s not possible, make sure your standalone Label has an \`htmlFor\` prop that matches the \`id\` of the checkbox. Test that a checkbox and label are properly connected by clicking or tapping on the label and confirming that it activates the checkbox next to it.
@@ -568,7 +571,7 @@ function CheckboxExample() {
 `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -862,6 +865,8 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

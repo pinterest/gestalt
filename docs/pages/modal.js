@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -117,7 +120,7 @@ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-ori
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -284,7 +287,7 @@ function DialogExample(props) {
         `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`heading\`, \`subheading\` and \`accessibilityModalLabel\` props, as well as any other text elements within Modal. Note that localization can lengthen text by 20 to 30 percent.`}
@@ -579,6 +582,8 @@ function PreventCloseExample(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

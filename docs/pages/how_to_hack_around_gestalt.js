@@ -10,7 +10,7 @@ export default function DocsPage(): Node {
       <PageHeader
         name="How to hack around Gestalt"
         description="Guidelines for customizing Gestalt components."
-        showSourceLink={false}
+        type="guidelines"
       />
 
       <MainSection name="Disclaimer">

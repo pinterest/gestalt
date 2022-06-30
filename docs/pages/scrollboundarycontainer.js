@@ -5,6 +5,8 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function ScrollBoundaryContainerPage({
   generatedDocGen,
@@ -14,7 +16,11 @@ export default function ScrollBoundaryContainerPage({
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Height"
@@ -583,6 +589,9 @@ function ScrollBoundaryContainerExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

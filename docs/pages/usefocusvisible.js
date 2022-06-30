@@ -3,6 +3,8 @@ import { type Node } from 'react';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage(): Node {
   return (
@@ -18,7 +20,10 @@ export default function DocsPage(): Node {
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
     </ul>
     `}
+        type="utils"
       />
+      <AccessibilitySection name="useFocusVisible" />
+
       <MainSection name="Examples">
         <MainSection.Subsection title="Buttons">
           <MainSection.Card
@@ -63,6 +68,7 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component="useFocusVisible" />
     </Page>
   );
 }

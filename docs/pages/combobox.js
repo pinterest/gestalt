@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -92,7 +95,7 @@ function ComboBoxExample(props) {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -188,7 +191,7 @@ function ComboBoxExample(props) {
   `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`helperText\`, \`errorMessage\`, \`noResultText\`, \`label\`, \`placeholder\`,  and \`accessibilityClearButtonLabel\` props. \`options\` and \`value\` should be localized for those cases that can be translated. Note that localization can lengthen text by 20 to 30 percent.`}
@@ -727,6 +730,8 @@ function ComboBoxExample(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

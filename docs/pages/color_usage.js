@@ -42,7 +42,7 @@ export default function ColorUsagePage(): Node {
     - Additional UI elements, including colors for shopping, messages, typography, and iconography
     - Accessibility and inclusive design
     `}
-        showSourceLink={false}
+        type="guidelines"
       />
       <MainSection
         name="Applying color to UI"

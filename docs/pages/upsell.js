@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -12,7 +15,7 @@ export default function DocsPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="Upsell">
+    <Page title={generatedDocGen?.Upsell?.displayName}>
       <PageHeader
         name={generatedDocGen?.Upsell?.displayName}
         description={generatedDocGen?.Upsell?.description}
@@ -310,7 +313,7 @@ export default function DocsPage({
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen.Upsell?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -352,7 +355,7 @@ export default function DocsPage({
         `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -709,6 +712,8 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.Upsell?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

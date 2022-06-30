@@ -44,9 +44,8 @@ export default function ColorExamplesPage(): Node {
     <Page title="Color examples">
       <PageHeader
         name="Color examples"
-        description={`Color principles and best practices examples of applying color to product UI.
-    `}
-        showSourceLink={false}
+        description="Color principles and best practices examples of applying color to product UI."
+        type="guidelines"
       />
       <MainSection name="Color principles">
         <Flex gap={12} alignContent="between" wrap>

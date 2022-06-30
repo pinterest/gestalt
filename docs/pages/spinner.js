@@ -6,6 +6,8 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -32,7 +34,6 @@ function SpinnerExample() {
 }
 `}
       />
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
@@ -55,14 +56,17 @@ function SpinnerExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        description={`
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          description={`
     Spinners indicate when a user has to wait for something else to occur. They delay showing for 300ms to improve perceived performance.
 
     The label on a spinner is for accessibility. You should pick labels that relate to the specific part of the product it's being used in ("Loading homefeed" for instance).
   `}
-        name="Example"
-        defaultCode={`
+          name="Example"
+          defaultCode={`
 function SpinnerExample() {
   const [show, setShow] = React.useState(false);
 
@@ -80,7 +84,10 @@ function SpinnerExample() {
   );
 }
 `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

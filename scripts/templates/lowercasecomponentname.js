@@ -7,6 +7,7 @@ import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import CombinationNew from '../components/CombinationNew.js';
+import QualityChecklist from '../components/QualityChecklist.js';
 
 export default function ComponentNamePage({
   generatedDocGen,
@@ -135,6 +136,9 @@ Code for this example goes here
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function TablePage({
   generatedDocGen,
@@ -12,9 +15,9 @@ export default function TablePage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="Table">
+    <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader
-        name="Table"
+        name={generatedDocGen.Table?.displayName}
         description={generatedDocGen.Table?.description}
         defaultCode={`
 <Table accessibilityLabel="Basic Table">
@@ -1275,7 +1278,7 @@ Note that localization can lengthen text by 20 to 30 percent; follow our guideli
 Wrap important table content instead of truncating. Use truncation only for secondary content, and include a tooltip to show the full text on hover.
 `}
       />
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen.Table?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -1509,7 +1512,7 @@ function Example() {
 `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -2574,6 +2577,9 @@ function Example() {
 `}
         />
       </MainSection.Subsection>
+
+      <QualityChecklist component={generatedDocGen.Table?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

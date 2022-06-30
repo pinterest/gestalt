@@ -7,6 +7,8 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -14,10 +16,15 @@ export default function DocsPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="Flex">
-      <PageHeader name="Flex" description={generatedDocGen?.Flex?.description} />
+    <Page title={generatedDocGen?.Flex?.displayName}>
+      <PageHeader
+        name={generatedDocGen?.Flex?.displayName}
+        description={generatedDocGen?.Flex?.description}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Flex} />
+
+      <AccessibilitySection name={generatedDocGen?.Flex?.displayName} />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -155,6 +162,7 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.Flex.displayName} />
     </Page>
   );
 }

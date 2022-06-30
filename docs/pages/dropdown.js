@@ -6,6 +6,9 @@ import MainSection from '../components/MainSection.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DropdownPage({
   generatedDocGen,
@@ -13,9 +16,9 @@ export default function DropdownPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="Dropdown">
+    <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
-        name="Dropdown"
+        name={generatedDocGen.Dropdown?.displayName}
         description={generatedDocGen.Dropdown?.description}
         badge="pilot"
         defaultCode={`
@@ -463,7 +466,7 @@ function CustomContentDropdownExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen.Dropdown?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
@@ -484,7 +487,7 @@ function CustomContentDropdownExample() {
     * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
           `}
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection name="Localization">
         <MainSection.Subsection
           title="Truncation"
@@ -1049,6 +1052,9 @@ function CustomIconButtonPopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen.Dropdown?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

@@ -6,6 +6,8 @@ import docgen, { type DocGen } from '../components/docgen.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -13,6 +15,8 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
       <PageHeader name="ButtonGroup" description={generatedDocGen.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -62,6 +66,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
 </Box>
 `}
       />
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

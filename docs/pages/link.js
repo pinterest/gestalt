@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -294,11 +297,9 @@ Provide a meaningful descriptive label to the link that clearly indicates the li
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Accessibility"
-        description={`
-Avoid using Link to perform actions other than navigation or accessing external pages. Link should serve a navigation purpose.
-      `}
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description="Avoid using Link to perform actions other than navigation or accessing external pages. Link should serve a navigation purpose."
       >
         <MainSection.Subsection
           columns={2}
@@ -428,12 +429,10 @@ Accessible content is critical if we consider that assistive technology also pre
 `}
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection
           title="Keyboard navigation"
           description="Give Link keyboard focus with the tab key (or shift + tab when tabbing backwards). Activate Link with the enter/return key."
         />
-
         <MainSection.Subsection
           title="External links"
           description={`An external link, also called an outbound link, is a link from Pinterest to a different website.
@@ -444,7 +443,7 @@ When possible, limit one external Link per paragraph, as adding more than two ic
 
 For external Links that aren't in a paragraph or text context, consider [Button](https://gestalt.netlify.app/button#Role) or [IconButton](https://gestalt.netlify.app/iconbutton#Role) with \`role="link"\`.`}
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -665,6 +664,8 @@ The "visit" icon should also match [Text](/text)'s \`size\` and \`color\`. \`ext
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

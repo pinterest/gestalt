@@ -7,6 +7,8 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -14,7 +16,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name="Heading"
         description={generatedDocGen?.description}
-        defaultCode="<Heading accessibilityLevel={2}>An H1 Heading</Heading>"
+        defaultCode="<Heading size={500}>An H2 Heading example</Heading>"
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -167,7 +169,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           }}
         />
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection title="Logical order">
           <Markdown text="Users will find a logical heading order and structure very helpful, especially if they have difficulty with reading and language, or if they use assistive devices such as a screen reader. A clear structure will help a screen reader user navigate the app without getting confused. Our headings default to a heading level based on size. For example:" />
           <Box maxWidth={360}>
@@ -242,7 +244,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="Accessible color"
           description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/color_usage#Standard-text-colors). See our [accessibility](/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection name="Localization">
         <MainSection.Subsection description="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders." />
       </MainSection>
@@ -427,6 +429,9 @@ For certain specific situations, it is possible to use Heading without an access
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

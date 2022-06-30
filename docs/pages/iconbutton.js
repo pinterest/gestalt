@@ -7,6 +7,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -523,7 +526,7 @@ function OrderDropdownExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
@@ -635,7 +638,7 @@ function Example(props) {
 `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
       <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -957,6 +960,7 @@ function IconButtonPopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

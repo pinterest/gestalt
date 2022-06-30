@@ -36,7 +36,7 @@ export default function ColorPage(): Node {
     <Page title="Data visualization guidelines">
       <PageHeader
         name="Data visualization guidelines"
-        showSourceLink={false}
+        type="guidelines"
         description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/data_visualization_colors) can be implemented through our [design tokens](/design_tokens#Data-visualization)."
       />
       <MainSection

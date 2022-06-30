@@ -5,13 +5,21 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="OnLinkNavigationProvider">
-      <PageHeader name="OnLinkNavigationProvider" description={generatedDocGen?.description} />
+      <PageHeader
+        name="OnLinkNavigationProvider"
+        description={generatedDocGen?.description}
+        type="utils"
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -320,6 +328,8 @@ function OnNavigation() {
     `}
         />
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }
