@@ -48,7 +48,7 @@ export default function PageHeaderQualitySumary({ name }: Props): Node {
                       ? componentStatusData?.status?.[item].summary || 'notAvailable'
                       : componentStatusData?.status?.[item]) ?? 'notAvailable'
                   }
-                  href={item === 'accessible' ? '#Accessibility' : '#Component-Quality-Checklist'}
+                  href={item === 'accessible' ? '#Accessibility' : '#Component-quality-checklist'}
                   text={
                     STATUS_DESCRIPTION[
                       item === 'accessible'
