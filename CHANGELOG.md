@@ -1,3 +1,9 @@
+## 58.1.22 (Jun 30, 2022)
+
+### Patch
+
+- Docs: Fix Resource Slack eng link (#2177)
+
 ## 58.1.21 (Jun 30, 2022)
 
 ### Patch
