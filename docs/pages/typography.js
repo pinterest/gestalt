@@ -417,7 +417,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                {['Emphasis for inline text', 'Bold', 'Semibold', 'Medium'].map((item) => (
+                {['Emphasis for inline text', 'Semibold', 'Semibold', 'Medium'].map((item) => (
                   <Table.Cell key={item}>
                     <Text size="200">{item}</Text>
                   </Table.Cell>
@@ -434,7 +434,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                {['Standalone links', 'Bold', 'Semibold', 'Medium'].map((item) => (
+                {['Standalone links', 'Semibold', 'Semibold', 'Medium'].map((item) => (
                   <Table.Cell key={item}>
                     <Text size="200">{item}</Text>
                   </Table.Cell>
@@ -451,7 +451,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                {['Headlines', 'Bold', 'Semibold', 'Medium'].map((item) => (
+                {['Headlines', 'Semibold', 'Semibold', 'Medium'].map((item) => (
                   <Table.Cell key={item}>
                     <Text size="200">{item}</Text>
                   </Table.Cell>
@@ -552,7 +552,7 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Table.Cell>
               <Table.Cell>
                 <Text size="200" weight="bold">
-                  Bold
+                  Semibold
                 </Text>
               </Table.Cell>
               <Table.Cell>
@@ -570,7 +570,7 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Table.Cell>
               <Table.Cell>
                 <Text size="200" weight="bold">
-                  Bold
+                  Semibold
                 </Text>
               </Table.Cell>
               <Table.Cell>
@@ -588,7 +588,7 @@ Line height is automatically determined by a font’s size. For more info, refer
               </Table.Cell>
               <Table.Cell>
                 <Text size="200" weight="bold">
-                  Bold
+                  Semibold
                 </Text>
               </Table.Cell>
               <Table.Cell>
