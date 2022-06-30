@@ -1,3 +1,9 @@
+## 58.3.0 (Jun 30, 2022)
+
+### Minor
+
+- Component status: new page & Quality Checklist on a per component basis (#2114)
+
 ## 58.2.0 (Jun 30, 2022)
 
 ### Minor
