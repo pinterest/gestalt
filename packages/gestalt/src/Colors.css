@@ -126,6 +126,14 @@
   background-color: var(--color-background-wash-light);
 }
 
+.dark {
+  background-color: var(--color-background-dark);
+}
+
+.light {
+  background-color: var(--color-background-light);
+}
+
 .elevationAccent {
   background-color: var(--color-background-elevation-accent);
 }
