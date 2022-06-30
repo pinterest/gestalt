@@ -1,3 +1,9 @@
+## 58.3.3 (Jun 30, 2022)
+
+### Patch
+
+- Docs: updated Gestalt Sandbox (#2182)
+
 ## 58.3.2 (Jun 30, 2022)
 
 ### Patch
