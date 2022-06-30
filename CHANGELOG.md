@@ -1,3 +1,9 @@
+## 58.2.0 (Jun 30, 2022)
+
+### Minor
+
+- Font weight: change font weight from bold to semibold (#2171)
+
 ## 58.1.22 (Jun 30, 2022)
 
 ### Patch
