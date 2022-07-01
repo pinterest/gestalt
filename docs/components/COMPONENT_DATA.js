@@ -972,11 +972,11 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     category: 'Data',
     status: {
       accessible: {
-        summary: 'ready',
-        a11yVisual: 'ready',
-        a11yScreenreader: 'ready',
-        a11yNavigation: 'ready',
-        a11yComprehension: 'ready',
+        summary: 'partial',
+        a11yVisual: 'partial',
+        a11yScreenreader: 'partial',
+        a11yNavigation: 'partial',
+        a11yComprehension: 'partial',
       },
       badge: null,
       android: 'notAvailable',
