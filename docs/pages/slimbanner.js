@@ -17,9 +17,18 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
         description={generatedDocGen?.description}
         defaultCode={`
 <SlimBanner
-  type="info"
-  message="Idea Pins are now available across platforms."
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: () => {},
+  }}
   iconAccessibilityLabel="Information"
+  message="Idea Pins are now available across platforms."
+  primaryAction={{
+    accessibilityLabel: 'Apply for access',
+    label: 'Apply for access',
+    onClick: () => {},
+  }}
+  type="info"
 />
 `}
       />
@@ -281,8 +290,8 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
+          description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. Also, if using \`dismissButton\` or \`primaryAction\`, their respective \`accessibilityLabel\`s must be used. All labels should be localized.`}
           title="Labels"
-          description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. They should also be localized.`}
         />
       </AccessibilitySection>
 
@@ -437,6 +446,65 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
       href: 'http://www.pinterest.com',
       onClick: () => {},
     }}
+/>
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Primary action"
+          description={`
+          SlimBanners can have a primary action. This action can be a [Link](/link), by specifying the \`href\` property, or a [Button](/button), when no \`href\` is supplied.
+
+        SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+
+        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/modal) with an application flow. Be sure to localize the labels of the actions.
+
+        If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
+
+        Note that actions are not available on compact ("___Bare" type) SlimBanners.
+          `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<SlimBanner
+  type="info"
+  message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
+  iconAccessibilityLabel="Information"
+  primaryAction={{
+    accessibilityLabel: 'Learn more about campaign budget optimization',
+    label: 'Learn more',
+    onClick: () => {},
+  }}
+/>
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Dismissible"
+          description={`
+          \`dismissButton\` can be used when SlimBanner doesn't indicate a persistent state. This will most commonly be used in \`type="info"\` SlimBanners.
+
+        Don't use dismiss buttons in the following cases:
+        - There is a persistent account or page status that the user must address.
+        - The user must access SlimBanner's information again in order to perform a task.
+
+        Note that compact ("___Bare" type) SlimBanners are not dismissable.
+          `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<SlimBanner
+  type="info"
+  message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
+  iconAccessibilityLabel="Information"
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onClick: () => {},
+  }}
 />
 `}
           />
