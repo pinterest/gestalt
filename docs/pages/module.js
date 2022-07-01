@@ -16,7 +16,7 @@ export default function DocsPage({
   return (
     <Page title={generatedDocGen.Module?.description}>
       <PageHeader
-        name={generatedDocGen.Module?.description}
+        name={generatedDocGen.Module?.displayName}
         description={generatedDocGen.Module?.description}
         defaultCode={`
       function ModuleExample() {
