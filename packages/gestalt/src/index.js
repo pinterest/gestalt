@@ -34,8 +34,6 @@ import Letterbox from './Letterbox.js';
 import Link from './Link.js';
 import Mask from './Mask.js';
 import Masonry from './Masonry.js';
-import MasonryDefaultLayout from './layouts/MasonryLayout.js';
-import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
 import Modal from './Modal.js';
 import Module from './Module.js';
 import NumberField from './NumberField.js';
@@ -109,8 +107,6 @@ export {
   Link,
   Mask,
   Masonry,
-  MasonryDefaultLayout,
-  MasonryUniformRowLayout,
   Modal,
   Module,
   NumberField,

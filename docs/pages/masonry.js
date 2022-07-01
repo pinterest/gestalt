@@ -244,18 +244,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Masonry' });
 
-  generatedDocGen.props.layout = {
-    ...generatedDocGen.props.layout,
-    defaultValue: {
-      value: 'MasonryDefaultLayout',
-      computed: false,
-    },
-    flowType: {
-      name: 'string',
-      raw: 'MasonryDefaultLayout | MasonryUniformRowLayout',
-    },
-  };
-
   generatedDocGen.props.loadItems = {
     ...generatedDocGen.props.loadItems,
     defaultValue: null,
