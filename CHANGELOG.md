@@ -1,3 +1,9 @@
+## 58.4.1 (Jul 1, 2022)
+
+### Patch
+
+- Table: update sortable header cell behavior (#2183)
+
 ## 58.4.0 (Jul 1, 2022)
 
 ### Minor
