@@ -1,3 +1,9 @@
+## 58.4.0 (Jul 1, 2022)
+
+### Minor
+
+- Slim banner upgrades (#2179)
+
 ## 58.3.3 (Jun 30, 2022)
 
 ### Patch
