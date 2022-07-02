@@ -2,6 +2,52 @@
   "year": "2022",
   "digests": [
     {
+      "week": "July 01, 2022",
+      "posts": [
+        {
+          "title": "Semibold or bust!",
+          "audience": ["Engineering", "Design"],
+          "imageSrc": "https://i.pinimg.com/originals/d6/1f/09/d61f096cc84951d4a3193c4a2cb86be9.png",
+          "imageAltText": "",
+          "content": "In order to get Pinterest one step closer to a more unified visual experience, we've update bold fonts on web to be semibold, meaning our native mobile and web experiences are now aesthetically closer. We've updated our Gestalt for web Figma library with the new treatments so if you're using our type styles, just accept the latest library update and you should be good to go. See PJ's [post in Slack](https://pinterest.slack.com/archives/C0HUV5J93/p1656616134835949) for full details."
+        },
+        {
+          "title": "Component status and quality checklist added to the docs",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/2f/ef/53/2fef53712342ac54843d39b4a9c9d342.png",
+          "imageAltText": "",
+          "content": "Ever wondered if a component on the docs is available in Figma? Curious if Toast is fully accessible? Fear not, the answer is now readily available on every component page via the status overview and quality checklist. The overview at the top of the page gives you quick details about Figma availability, Platform readiness and Accessibility status. You can then drill into any of these statuses for further details. We hope this helps answer questions around availability and usability, and we'd love your feedback, so check it out!"
+        },
+        {
+          "title": "Dark mode for Figma iOS",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/9e/69/fa/9e69fa2b14404e909c3dea77fe55abd3.png",
+          "imageAltText": "Screenshot of iOS Modal component",
+          "content": "We simplified our light mode components with Figma’s new boolean visibility and text property variants. We then made their dark mode equivalents and sticker sheets for the most used components. The remaining components will be updated for dark mode after Android components have similar coverage as compared to iOS."
+        },
+        {
+          "title": "Figma placeholders for Sheet and Modal components",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/5b/44/3f/5b443f09a5ac2bb3feb160d6de033ef0.png",
+          "imageAltText": "Screenshot of Modal and Sheet components",
+          "content": "Who loves a good placeholder component? We do! Placeholder components will enable you to more easily utilize our container-esque components, like Modal and Sheet. And now, besides our [Web Modal component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A29633), the placeholder is also available to test in our [Sheet component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17902), and [Module component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=4068%3A7200). Check it out! We would love to hear your feedback."
+        },
+        {
+          "title": "Figma IconButton on iOS and Web",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/67/15/d9/6715d987117cef8c84b97a2ab9160aba.png",
+          "imageAltText": "",
+          "content": "Thanks to our design friends, we realized the interior icon size for IconButton wasn't always using a multiple of 4. We've corrected this sizing issue and updated the component in the respective libraries. Thanks for the feedback, and please keep it coming!"
+        },
+        {
+          "title": "Figma library deprecation",
+          "audience": ["Design"],
+          "imageAltText": "",
+          "content": "The day finally came, and the following Gestalt Figma libraries have now been taken offline: _04. Gestalt Icons_, _06. Platform Extras_, _PDS 3.0 Styles: Light Mode_, and _WIP 02. Mobile Library WIP_. If you have a file that depends on any of these libraries, you will need to migrate the components/styles over to the corresponding active file. See PJ's post in Slack for the [conversion details](https://pinterest.slack.com/archives/C0HUV5J93/p1656621459570089)."
+        }
+      ]
+    },
+    {
       "week": "June 24, 2022",
       "posts": [
         {
@@ -9,7 +55,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/2d/d9/88/2dd988cf72ca8eac19102ecd80e0e190.png",
           "imageAltText": "Screenshot of Figma Bar component",
-          "content": "We're working to grow out our Gestalt Figma web library to include more mobile web use cases. A first step towards that goal is the creation of a [mobile web Bar component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=16483%3A28229). This componnt is our first iteration, so please send us your feedback on ways to improve it."
+          "content": "We're working to grow out our Gestalt Figma web library to include more mobile web use cases. A first step towards that goal is the creation of a [mobile web Bar component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=16483%3A28229). This component is our first iteration, so please send us your feedback on ways to improve it."
         },
         {
           "title": "Iconography open forum next steps",
