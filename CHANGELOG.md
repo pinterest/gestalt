@@ -1,3 +1,9 @@
+## 58.4.2 (Jul 2, 2022)
+
+### Patch
+
+- Docs: Blog update for 7/01 (#2186)
+
 ## 58.4.1 (Jul 1, 2022)
 
 ### Patch
