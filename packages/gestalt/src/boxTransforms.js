@@ -184,6 +184,8 @@ const color: Functor<Color> = mapping({
   elevationAccent: colors.elevationAccent,
   elevationFloating: colors.elevationFloating,
   elevationRaised: colors.elevationRaised,
+  dark: colors.dark,
+  light: colors.light,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);

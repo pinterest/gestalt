@@ -57,7 +57,7 @@ export default function Toast({
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
-  let containerColor = isDarkMode ? 'white' : 'darkGray';
+  let containerColor = isDarkMode ? 'light' : 'dark';
   let textColor = isDarkMode ? 'dark' : 'light';
   let textElement = text;
 

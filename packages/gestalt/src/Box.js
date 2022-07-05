@@ -176,7 +176,9 @@ type Props = {
     | 'education'
     | 'elevationAccent'
     | 'elevationFloating'
-    | 'elevationRaised',
+    | 'elevationRaised'
+    | 'dark'
+    | 'light',
   /**
    * See the [column layout](https://gestalt.pinterest.systems/box#Column-layout) variant for more info.
    *

@@ -254,6 +254,14 @@
           "comment": "Background color to supply a light wash over an item"
         }
       },
+      "dark": {
+        "value": "{color.black.cosmicore.900.value}",
+        "comment": "Background color that will always be dark, no matter the color scheme"
+      },
+      "light": {
+        "value": "{color.white.mochimalist.0.value}",
+        "comment": "Background color that will always be light, no matter the color scheme"
+      },
       "elevation": {
         "accent": {
           "value": "{color.gray.roboflow.100.value}",
