@@ -1,3 +1,9 @@
+## 58.4.4 (Jul 5, 2022)
+
+### Patch
+
+- Toast: Update styling to ensure proper background color (#2178)
+
 ## 58.4.3 (Jul 5, 2022)
 
 ### Patch
