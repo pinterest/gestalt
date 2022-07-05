@@ -30,36 +30,36 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         }
         defaultCode={`
-      <Flex>
-        <Tooltip text="Align left" accessibilityLabel="">
-          <IconButton
-            accessibilityLabel="Align left"
-            bgColor="white"
-            icon="text-align-left"
-            iconColor="darkGray"
-            size="lg"
-          />
-        </Tooltip>
-        <Tooltip text="Align center" accessibilityLabel="">
-          <IconButton
-            accessibilityLabel="Align center"
-            bgColor="white"
-            icon="text-align-center"
-            iconColor="darkGray"
-            size="lg"
-          />
-        </Tooltip>
-        <Tooltip text="Align right" accessibilityLabel="">
-          <IconButton
-            accessibilityLabel="Align right"
-            bgColor="white"
-            icon="text-align-right"
-            iconColor="darkGray"
-            size="lg"
-          />
-        </Tooltip>
-      </Flex>
-    `}
+<Flex>
+  <Tooltip text="Align left" accessibilityLabel="">
+    <IconButton
+      accessibilityLabel="Align left"
+      bgColor="white"
+      icon="text-align-left"
+      iconColor="darkGray"
+      size="lg"
+    />
+  </Tooltip>
+  <Tooltip text="Align center" accessibilityLabel="">
+    <IconButton
+      accessibilityLabel="Align center"
+      bgColor="white"
+      icon="text-align-center"
+      iconColor="darkGray"
+      size="lg"
+    />
+  </Tooltip>
+  <Tooltip text="Align right" accessibilityLabel="">
+    <IconButton
+      accessibilityLabel="Align right"
+      bgColor="white"
+      icon="text-align-right"
+      iconColor="darkGray"
+      size="lg"
+    />
+  </Tooltip>
+</Flex>
+        `}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

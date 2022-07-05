@@ -16,12 +16,13 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
         name="Modal"
         description={generatedDocGen?.description}
         defaultCode={`
-<iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
-style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-title="Modal Main Example"
-sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-    `}
+          <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
+          style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+          title="Modal Main Example"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+          ></iframe>
+        `}
+        showCode={false}
       />
       <GeneratedPropTable
         generatedDocGen={generatedDocGen}

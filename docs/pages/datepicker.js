@@ -87,17 +87,17 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         name="DatePicker"
         description={generatedDocGen?.description}
         defaultCode={`
-      function DatePickerExample() {
-        const handleChange = (value) => value;
+function DatePickerExample() {
+  const handleChange = (value) => value;
 
-        return (
-          <DatePicker
-            id="example-page-header"
-            label="Select a date"
-            onChange={({ value }) => handleChange(value)}
-          />
-        )
-      }
+  return (
+    <DatePicker
+      id="example-page-header"
+      label="Select a date"
+      onChange={({ value }) => handleChange(value)}
+    />
+  )
+}
     `}
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

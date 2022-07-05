@@ -16,20 +16,20 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         name="SelectList"
         description={generatedDocGen?.description}
         defaultCode={`
-      <SelectList
-        id="selectlistexample1"
-        onChange={() => {}}
-        options={[
-          {label:'Algeria', value: 'algeria'},
-          {label:'Belgium', value: 'belgium'},
-          {label:'Canada', value: 'canada'},
-          {label:'Denmark', value: 'denmark'},
-          {label:'Egypt', value: 'egypt'},
-          {label:'France', value: 'france'},
-        ]}
-        size='lg'
-        label='Country'
-      />
+<SelectList
+  id="selectlistexample1"
+  onChange={() => {}}
+  options={[
+    {label:'Algeria', value: 'algeria'},
+    {label:'Belgium', value: 'belgium'},
+    {label:'Canada', value: 'canada'},
+    {label:'Denmark', value: 'denmark'},
+    {label:'Egypt', value: 'egypt'},
+    {label:'France', value: 'france'},
+  ]}
+  size='lg'
+  label='Country'
+/>
     `}
       />
 

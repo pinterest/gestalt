@@ -23,6 +23,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
     ></iframe>
 `}
+        showCode={false}
       />
       <PropTable
         props={[

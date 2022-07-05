@@ -17,9 +17,9 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
-      <Flex>
-        <Button color='red' size='lg' text='Save' />
-      </Flex>
+<Flex>
+  <Button color='red' size='lg' text='Save' />
+</Flex>
     `}
       />
       <PropTable

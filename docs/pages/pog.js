@@ -16,10 +16,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Pog"
         description={generatedDocGen?.description}
         defaultCode={`
-<Pog
-  icon="heart"
-  iconColor="red"
-/>
+<Pog icon="heart" iconColor="red"/>
 `}
       />
 

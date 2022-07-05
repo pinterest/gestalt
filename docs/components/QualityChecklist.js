@@ -35,7 +35,7 @@ export default function QualityChecklist({ component }: Props): Node {
           <Box display="visuallyHidden">
             <Table.Header>
               <Table.Row>
-                {['Quality item', 'Status', 'Status descripyion'].map((header) => (
+                {['Quality item', 'Status', 'Status description'].map((header) => (
                   <Table.HeaderCell key={header.replace(' ', '_')}>
                     <Text weight="bold">{header}</Text>
                   </Table.HeaderCell>

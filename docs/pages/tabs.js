@@ -17,22 +17,22 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Tabs"
         description={generatedDocGen?.description}
         defaultCode={`
-    function DefaultExample() {
-      const [activeIndex, setActiveIndex] = React.useState(0);
+function DefaultExample() {
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
-      return (
-        <Tabs
-          activeTabIndex={activeIndex}
-          onChange={({ activeTabIndex }) => { setActiveIndex(activeTabIndex); }}
-          tabs={[
-            { href: "#", text: "Explore", indicator: "dot" },
-            { href: "#", text: "Shop" },
-            { href: "#", text: "Profiles" },
-          ]}
-          wrap
-        />
-      );
-    }
+  return (
+    <Tabs
+      activeTabIndex={activeIndex}
+      onChange={({ activeTabIndex }) => { setActiveIndex(activeTabIndex); }}
+      tabs={[
+        { href: "#", text: "Explore", indicator: "dot" },
+        { href: "#", text: "Shop" },
+        { href: "#", text: "Profiles" },
+      ]}
+      wrap
+    />
+  );
+}
     `}
       />
 

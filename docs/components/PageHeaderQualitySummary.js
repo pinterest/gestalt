@@ -33,7 +33,7 @@ export default function PageHeaderQualitySumary({ name }: Props): Node {
       <Flex wrap>
         {['figma', 'responsive', 'iOS', 'android', 'accessible'].map((item, index) => (
           <Flex key={`summary-${index}`}>
-            <Box paddingX={4}>
+            <Box paddingX={4} marginBottom={2}>
               <Flex gap={2}>
                 <Text size="200" weight="bold">
                   {`${
