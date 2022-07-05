@@ -1,3 +1,9 @@
+## 58.4.3 (Jul 5, 2022)
+
+### Patch
+
+- Table: fix sortable header cell args bug (#2188)
+
 ## 58.4.2 (Jul 2, 2022)
 
 ### Patch
