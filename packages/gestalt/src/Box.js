@@ -166,6 +166,8 @@ type Props = {
     | 'warningWeak'
     | 'successBase'
     | 'successWeak'
+    | 'recommendationBase'
+    | 'recommendationWeak'
     | 'shopping'
     | 'primary'
     | 'secondary'

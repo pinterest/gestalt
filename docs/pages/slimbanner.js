@@ -120,7 +120,7 @@ Use for messages generated as an immediate response to user interaction. Instead
         readOnly
       />
       <SelectList
-        id="seliectList"
+        id="selectList"
         onChange={() => {}}
         options={[
           {label: 'Lead', value: 'lead'},
@@ -153,7 +153,7 @@ Use for messages generated as an immediate response to user interaction. Instead
       </Fieldset>
       <Divider />
       <Checkbox
-        id="checkboc"
+        id="checkbox"
         label="I'll set the optimization & delivery by ad group instead"
         name="error"
         onChange={() => {}}
@@ -328,6 +328,20 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          description="Recommendation SlimBanners XXXX."
+          title="Recommendation"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex direction="column" gap={5} width="100%">
+<SlimBanner type="recommendation" iconAccessibilityLabel="Recommendation" message="Idea Pins are now available across platforms."/>
+<SlimBanner type="recommendationBare" iconAccessibilityLabel="Recommendation" message="Idea Pins are now available across platforms."/>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
           description="Success SlimBanners communicate confirmation regarding an action within a larger flow."
           title="Success"
         >
@@ -491,7 +505,7 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
         - There is a persistent account or page status that the user must address.
         - The user must access SlimBanner's information again in order to perform a task.
 
-        Note that compact ("___Bare" type) SlimBanners are not dismissable.
+        Note that compact ("___Bare" type) SlimBanners are not dismissible.
           `}
         >
           <MainSection.Card
@@ -547,7 +561,7 @@ Callouts are used at the top-most level of a page to communicate highest-priorit
 Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsells and SlimBanners, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
 
 **[Tooltip](/Tooltip)**
-Tooltip provides helpful information regarding an interactive UI element, typically an Iconbutton. It is displayed on hover of a UI element, and disappears on mouse out.
+Tooltip provides helpful information regarding an interactive UI element, typically an IconButton. It is displayed on hover of a UI element, and disappears on mouse out.
     `}
         />
       </MainSection>

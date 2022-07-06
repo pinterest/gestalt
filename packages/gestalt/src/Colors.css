@@ -86,6 +86,14 @@
   background-color: var(--color-background-success-weak);
 }
 
+.recommendationBase {
+  background-color: var(--color-background-recommendation-base);
+}
+
+.recommendationWeak {
+  background-color: var(--color-background-recommendation-weak);
+}
+
 .shopping {
   background-color: var(--color-background-shopping);
 }

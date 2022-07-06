@@ -28,4 +28,10 @@ export default Object.freeze({
     color: 'errorBase',
     backgroundColor: 'errorWeak',
   },
+  recommendation: {
+    icon: 'sparkle',
+    iconColor: 'recommendation',
+    color: 'recommendationBase',
+    backgroundColor: 'recommendationWeak',
+  },
 });
