@@ -335,8 +335,8 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
             cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={5} width="100%">
-<SlimBanner type="recommendation" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
-<SlimBanner type="recommendationBare" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
+  <SlimBanner type="recommendation" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
+  <SlimBanner type="recommendationBare" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
 </Flex>
 `}
           />
