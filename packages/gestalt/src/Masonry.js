@@ -8,25 +8,13 @@ import throttle, { type ThrottleReturn } from './throttle.js';
 import { type Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
-import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
 import defaultLayout from './defaultLayout.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
-import LegacyMasonryLayout from './layouts/MasonryLayout.js';
-import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
 
 type Position = {| top: number, left: number, width: number, height: number |};
 
-type Layout =
-  | typeof DefaultLayoutSymbol
-  | typeof UniformRowLayoutSymbol
-  | LegacyMasonryLayout
-  | LegacyUniformRowLayout
-  | 'basic'
-  | 'basicCentered'
-  | 'flexible'
-  | 'serverRenderedFlexible'
-  | 'uniformRow';
+type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
 type Props<T> = {|
   /**
@@ -51,7 +39,11 @@ type Props<T> = {|
    */
   items: $ReadOnlyArray<T>,
   /**
-   * MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.
+   * `basic`: Left aligned masonry layout.
+   * `basicCentered`: Center aligned masonry layout.
+   * `flexible`: Item width grows to fill column space and shrinks to fit if below min columns.
+   * `serverRenderedFlexible`: Item width grows to fill column space and shrinks to fit if below min columns. Main differerence with `flexible` is that we do not store the initial measurement. More context in [#2084](https://github.com/pinterest/gestalt/pull/2084)
+   * `uniformRow`: Items are laid out in a single row, with all items having the same height.
    */
   layout?: Layout,
   /**
@@ -453,11 +445,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         idealColumnWidth: columnWidth,
         width,
       });
-    } else if (
-      layout === UniformRowLayoutSymbol ||
-      layout instanceof LegacyUniformRowLayout ||
-      layout === 'uniformRow'
-    ) {
+    } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
         cache: measurementStore,
         columnWidth,
