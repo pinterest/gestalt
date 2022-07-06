@@ -23,20 +23,44 @@ type Props = {|
   code: string,
   name: string,
   readOnly?: boolean,
+  hideCodePreview?: boolean,
 |};
 
-export default function ExampleCode({ code, readOnly, name }: Props): Node {
-  const [expanded, setExpanded] = useState(true);
-  const [showExpandButton, setShowExpandButton] = useState(false);
+export default function ExampleCode({
+  code,
+  hideCodePreview = false,
+  readOnly,
+  name,
+}: Props): Node {
+  const [expanded, setExpanded] = useState(false);
+  const [showExpandButton, setShowExpandButton] = useState(hideCodePreview);
+  const [maxHeight, setMaxHeight] = useState('500px');
   const codeExampleRef = useRef(null);
+  const codeBoxMinHeight = hideCodePreview ? undefined : '152px';
+  let containerBoxMaxHeight;
+
+  // If an example is expanded, maxHeight should be the full code's height
+  // If !expanded, code blocks that hide the preview should have no min height
+  // All others have small min height
+  if (expanded) {
+    containerBoxMaxHeight = maxHeight;
+  } else if (hideCodePreview) {
+    containerBoxMaxHeight = '0';
+  } else {
+    containerBoxMaxHeight = CODE_EXAMPLE_HEIGHT;
+  }
 
   useEffect(() => {
-    const height = codeExampleRef?.current?.clientHeight ?? 0;
-    if (height - 80 > CODE_EXAMPLE_HEIGHT) {
+    const height = codeExampleRef?.current?.clientHeight;
+
+    // Save the height so we know how far to animate to
+    setMaxHeight(`${height}px`);
+
+    if (height > CODE_EXAMPLE_HEIGHT) {
       setExpanded(false);
       setShowExpandButton(true);
     }
-  }, [code]);
+  }, [code, hideCodePreview]);
 
   return (
     <Box marginTop={2}>
@@ -74,12 +98,13 @@ export default function ExampleCode({ code, readOnly, name }: Props): Node {
         </Flex>
         <Flex direction="column" width="100%">
           <Box
-            borderStyle="sm"
             display="flex"
             overflow="hidden"
-            maxHeight={!expanded ? CODE_EXAMPLE_HEIGHT : undefined}
+            maxHeight={containerBoxMaxHeight}
+            dangerouslySetInlineStyle={{
+              __style: { transition: 'max-height 0.4s' },
+            }}
             position="relative"
-            ref={codeExampleRef}
             rounding={2}
           >
             <Box
@@ -87,8 +112,12 @@ export default function ExampleCode({ code, readOnly, name }: Props): Node {
               onFocus={() => {
                 setExpanded(true);
               }}
+              aria-hidden={!expanded}
             >
-              <div className={!expanded ? 'LiveEditor__textarea__notExpanded' : undefined}>
+              <div
+                className={!expanded ? 'LiveEditor__textarea__notExpanded' : undefined}
+                ref={codeExampleRef}
+              >
                 {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                 <label>
@@ -97,7 +126,7 @@ export default function ExampleCode({ code, readOnly, name }: Props): Node {
                     className="live-editor-pane"
                     padding={16}
                     style={{
-                      minHeight: '152px',
+                      minHeight: codeBoxMinHeight,
                     }}
                   />
                 </label>

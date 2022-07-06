@@ -106,6 +106,7 @@ export default function PageHeader({
                 defaultCode={defaultCode}
                 shaded={shadedCodeExample}
                 showCode={showCode}
+                hideCodePreview
               />
             )}
           </Flex>

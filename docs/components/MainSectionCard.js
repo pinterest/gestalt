@@ -16,6 +16,7 @@ type Props = {|
   children?: Node,
   defaultCode?: string,
   description?: string,
+  hideCodePreview?: boolean,
   iframeContent?: string,
   shadeColor?: 'tertiary' | 'darkWash' | 'lightWash' | 'default',
   shaded?: boolean,
@@ -46,6 +47,7 @@ function MainSectionCard({
   defaultCode,
   description,
   iframeContent,
+  hideCodePreview = false,
   shaded = false,
   shadeColor,
   showCode = true,
@@ -124,7 +126,9 @@ function MainSectionCard({
             <LivePreview style={{ display: 'contents' }} />
           </PreviewCard>
           {/* If it uses an iframe, show the original code (below), instead of the iframe code */}
-          {shouldShowCode && !iframeContent && <ExampleCode code={code} name={cardTitle || ''} />}
+          {shouldShowCode && !iframeContent && (
+            <ExampleCode hideCodePreview={hideCodePreview} code={code} name={cardTitle || ''} />
+          )}
 
           <Box paddingX={2}>
             <Text color="error">
