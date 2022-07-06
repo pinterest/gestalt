@@ -85,20 +85,20 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
             defaultCode={`
 <Box column={12}>
   <Box column={12}>
-    <Box color="midnight" height={50} width="100%">
+    <Box color="infoBase" height={50} width="100%">
       <Text color="light" weight="bold">Header</Text>
     </Box>
     <Box column={6} display="inlineBlock">
-      <Box color="maroon" height={50} width="100%">
+      <Box color="successBase" height={50} width="100%">
         <Text color="light" weight="bold">Body 50% Content</Text>
       </Box>
     </Box>
     <Box column={6} display="inlineBlock">
-      <Box color="eggplant" height={50} width="100%">
+      <Box color="warningBase" height={50} width="100%">
         <Text color="light" weight="bold">Body 50% Content</Text>
       </Box>
     </Box>
-    <Box color="midnight" height={50} width="100%">
+    <Box color="infoBase" height={50} width="100%">
       <Text color="light" weight="bold">Footer</Text>
     </Box>
   </Box>
@@ -117,7 +117,7 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
 <Box
   className="This class name will not appear"
   style={{backgroundColor: "orange"}}
-  color="midnight"
+  color="infoBase"
   column={12}
   height={100}
   padding={4}
@@ -125,7 +125,7 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
   <Box
     onClick={() => {console.log("This won't get logged.");}}
     paddingX={1}
-    color="maroon"
+    color="successBase"
     height={50}
   >
     <Text color="light" weight="bold">Adding onClick here will do nothing</Text>
@@ -144,12 +144,12 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
 <Box>
   <Box marginTop={4} color="blue" width={200} height={50}>
     <Box
-      color="green"
+      color="successBase"
       height={50}
       marginTop={2}
     >
       <Box
-        color="midnight"
+        color="infoBase"
         height={50}
         marginTop={3}
       >
@@ -159,14 +159,14 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
       </Box>
     </Box>
   </Box>
-  <Box marginTop={4} paddingY={1} color="blue" width={200} height={100}>
+  <Box marginTop={4} paddingY={1} color="infoBase" width={200} height={100}>
     <Box
-      color="green"
+      color="successBase"
       height={100}
       paddingY={2}
     >
       <Box
-        color="midnight"
+        color="infoBase"
         height={100}
         padding={2}
       >
@@ -191,10 +191,10 @@ function MenuButtonExample() {
   return (
     <Box paddingY={2}>
       <Box
-        color="midnight"
+        color="infoBase"
         height={firstBoxHeight}
         padding={2}
-        marginBottom={1}
+        marginBottom={1}wsz
       >
         <Text color="light" weight="bold">
           This uses a proper, Gestalt colored Box
@@ -206,7 +206,7 @@ function MenuButtonExample() {
         This could be using Box, but isn't.
       </div>
       <Box
-        color="eggplant"
+        color="warningBase"
         dangerouslySetInlineStyle={{
           __style: {
             paddingBottom: '${50 + 25}px',
@@ -267,7 +267,7 @@ function MenuButtonExample() {
       as="nav"
       title="as prop example nav"
       column={6}
-      color="maroon"
+      color="successBase"
       width="100%"
       padding={2}
       borderStyle="sm"
@@ -277,7 +277,7 @@ function MenuButtonExample() {
       </Text>
     </Box>
     <Box column={6} display="inlineBlock" borderStyle="sm">
-      <Box color="midnight" width="100%" padding={2}>
+      <Box color="infoBase" width="100%" padding={2}>
         <Text color="light" weight="bold">
           HTML output:
         </Text>
@@ -288,7 +288,7 @@ function MenuButtonExample() {
     </Box>
   </Flex>
   <Flex alignItems="top">
-    <Box as="article" column={6} color="pine" width="100%" padding={2} borderStyle="sm">
+    <Box as="article" column={6} color="successBase" width="100%" padding={2} borderStyle="sm">
       <Heading color="light" size="500">
         Article 1
       </Heading>
@@ -297,7 +297,7 @@ function MenuButtonExample() {
       </Text>
     </Box>
     <Box column={6} display="inlineBlock" borderStyle="sm">
-      <Box color="midnight" width="100%" padding={2}>
+      <Box color="infoBase" width="100%" padding={2}>
         <Text color="light" weight="bold">
           HTML output:
         </Text>
@@ -331,26 +331,26 @@ function MenuButtonExample() {
             cardSize="lg"
             defaultCode={`
 <Box column={12}>
-  <Box role="feed" color="midnight" width="100%" padding={2}>
+  <Box role="feed" color="infoBase" width="100%" padding={2}>
     <Text color="light" weight="bold">
       Container: role="feed"
     </Text>
     <Box column={8} display="inlineBlock">
-      <Box role="article" title="Article 1" color="maroon" height={50} width="100%" padding={2}>
+      <Box role="article" title="Article 1" color="successBase" height={50} width="100%" padding={2}>
         <Text color="light" weight="bold">
           Content: role="article"
         </Text>
       </Box>
     </Box>
     <Box column={4} display="inlineBlock">
-      <Box role="form" color="eggplant" height={50} width="100%" padding={2}>
+      <Box role="form" color="warningBase" height={50} width="100%" padding={2}>
         <Text color="light" weight="bold">
           Contact Form: role="form"
         </Text>
       </Box>
     </Box>
   </Box>
-  <Box role="navigation" title="Site Map" color="pine" height={50} width="100%" padding={2}>
+  <Box role="navigation" title="Site Map" color="successBase" height={50} width="100%" padding={2}>
     <Text color="light" weight="bold">
       Site Map: role="navigation"
     </Text>
@@ -448,8 +448,6 @@ function Example() {
           The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case. For full details on how to use our colors, visit our [Color usage page](/color_usage).
 
           Colors should be used semantically whenever possible (i.e. using "errorBase" for error scenarios). If a color is needed for a branded moment in product, Box color can be set using our [color palette design tokens](/color_palette), but it is [considered a hack](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) and should be avoided.
-
-          _⚠️ Note that the previous options ('red', 'white', 'lightGray', 'gray', 'darkGray', 'green', 'pine', 'olive', 'blue', 'navy', 'midnight', 'purple', 'orchid', 'eggplant', 'maroon', 'watermelon', 'orange') are still valid but will be deprecated soon._
         `}
         >
           <CombinationNew
@@ -548,7 +546,7 @@ function Example() {
         >
           <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
             {/* eslint-disable-next-line react/prop-types */}
-            {(props) => <Box height={100} color="midnight" column={props.column} />}
+            {(props) => <Box height={100} color="infoBase" column={props.column} />}
           </CombinationNew>
         </MainSection.Subsection>
 
@@ -564,16 +562,16 @@ function Example() {
             cardSize="lg"
             defaultCode={`
 <Box borderStyle="lg" column={12}>
-  <Box width="25%" minHeight={25} maxHeight={100} overflow="hidden" padding={2} borderStyle="sm" color="eggplant">
+  <Box width="25%" minHeight={25} maxHeight={100} overflow="hidden" padding={2} borderStyle="sm" color="warningBase">
     <Text color="light"> Add or remove text in the editor to see the min and max heights take affect.</Text>
   </Box>
-  <Box width="50%" height={100} padding={2} borderStyle="sm" color="maroon">
+  <Box width="50%" height={100} padding={2} borderStyle="sm" color="successBase">
     <Text color="light">Width and Height can be specified with numbers for "px" values or percentages</Text>
   </Box>
-  <Box width="75%" minWidth={100} maxWidth={500} padding={2} borderStyle="sm" color="eggplant">
+  <Box width="75%" minWidth={100} maxWidth={500} padding={2} borderStyle="sm" color="warningBase">
     <Text color="light">Change the screen width to see the min and max widths take affect </Text>
   </Box>
-  <Box fit padding={2} borderStyle="sm" color="maroon">
+  <Box fit padding={2} borderStyle="sm" color="successBase">
     <Text color="light">"fit" sets width to 100% </Text>
   </Box>
 </Box>
@@ -603,7 +601,7 @@ function BoxPopoverExample() {
             maxHeight={100}
             padding={2}
             borderStyle="sm"
-            color="eggplant"
+            color="warningBase"
           >
             <Text color="light">{longText}</Text>
           </Box>
@@ -616,7 +614,7 @@ function BoxPopoverExample() {
             maxHeight={100}
             padding={2}
             borderStyle="sm"
-            color="maroon"
+            color="successBase"
             tabIndex={0}
           >
             <Text color="light">{longText}</Text>
@@ -630,7 +628,7 @@ function BoxPopoverExample() {
             maxHeight={100}
             padding={2}
             borderStyle="sm"
-            color="purple"
+            color="warningBase"
           >
             <Text>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo.
@@ -647,9 +645,9 @@ function BoxPopoverExample() {
             maxHeight={100}
             padding={2}
             borderStyle="sm"
-            color="eggplant"
+            color="warningBase"
           >
-            <Box width={350} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
+            <Box width={350} padding={2} borderStyle="sm" color="successBase" tabIndex={0}>
               <Text color="light">{longText}</Text>
             </Box>
           </Box>
@@ -662,9 +660,9 @@ function BoxPopoverExample() {
             maxHeight={100}
             padding={2}
             borderStyle="sm"
-            color="maroon"
+            color="successBase"
           >
-            <Box width={350} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
+            <Box width={350} padding={2} borderStyle="sm" color="warningBase" tabIndex={0}>
               <Text color="light">{longText}</Text>
             </Box>
           </Box>
@@ -677,9 +675,9 @@ function BoxPopoverExample() {
             maxHeight={100}
             padding={2}
             borderStyle="sm"
-            color="maroon"
+            color="successBase"
           >
-            <Box width={350} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
+            <Box width={350} padding={2} borderStyle="sm" color="warningBase" tabIndex={0}>
               <Text color="light">{longText}</Text>
             </Box>
           </Box>
@@ -702,13 +700,13 @@ function BoxPopoverExample() {
             defaultCode={`
 <Flex gap={3}>
   <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="darkWash">
-    <Box width={40} height={40} color="maroon" />
+    <Box width={40} height={40} color="successBase" />
   </Box>
   <Box paddingX={0} smPaddingX={1} mdPaddingX={2} lgPaddingX={3} color="darkWash">
-    <Box width={40} height={40} color="midnight" />
+    <Box width={40} height={40} color="infoBase" />
   </Box>
   <Box paddingY={0} smPaddingY={1} mdPaddingY={2} lgPaddingY={3} color="darkWash">
-    <Box width={40} height={40} color="eggplant" />
+    <Box width={40} height={40} color="warningBase" />
   </Box>
 </Flex>
 `}
@@ -726,9 +724,9 @@ function BoxPopoverExample() {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Box color="midnight" marginStart={12} marginEnd={12} column={12}>
-  <Box borderStyle="sm" color="maroon" margin="auto" column={5} height={100}/>
-  <Box borderStyle="sm" color="eggplant" marginStart="auto" column={3} height={100}/>
+<Box color="infoBase" marginStart={12} marginEnd={12} column={12}>
+  <Box borderStyle="sm" color="successBase" margin="auto" column={5} height={100}/>
+  <Box borderStyle="sm" color="warningBase" marginStart="auto" column={3} height={100}/>
 </Box>
 `}
           />
@@ -745,19 +743,19 @@ function BoxPopoverExample() {
             cardSize="lg"
             defaultCode={`
 <Box height={100}>
-  <Box position="absolute" top left padding={2} color="midnight">
+  <Box position="absolute" top left padding={2} color="infoBase">
     <Text color="light">Top Left</Text>
   </Box>
-  <Box position="absolute" top right padding={2} color="midnight">
+  <Box position="absolute" top right padding={2} color="infoBase">
     <Text color="light">Top Right</Text>
   </Box>
-  <Box position="absolute" bottom left padding={2} color="midnight">
+  <Box position="absolute" bottom left padding={2} color="infoBase">
     <Text color="light">Bottom Left</Text>
   </Box>
-  <Box position="absolute" bottom right padding={2} color="midnight">
+  <Box position="absolute" bottom right padding={2} color="infoBase">
     <Text color="light">Bottom Right</Text>
   </Box>
-  <Box color="maroon" width={400} height="100%"/>
+  <Box color="successBase" width={400} height="100%"/>
 </Box>
 `}
           />
@@ -827,15 +825,15 @@ function Example() {
       tabIndex={0}
     >
       <Sticky top={0} zIndex={HEADER_ZINDEX}>
-        <Box color="maroon" width="80%" height={60} padding={2}>
+        <Box color="successBase" width="80%" height={60} padding={2}>
           <Text color="light">This is sticky and won't move when scrolling</Text>
         </Box>
       </Sticky>
-      <Box color="midnight" width="50%" height={100} zIndex={zIndex} position="relative" padding={2}>
-        <Text color="light">This will float above the maroon Box when scrolling</Text>
+      <Box color="infoBase" width="50%" height={100} zIndex={zIndex} position="relative" padding={2}>
+        <Text color="light">This will float above the successBase Box when scrolling</Text>
       </Box>
-      <Box color="pine" width="30%" height={120} padding={2}>
-        <Text color="light">This will go behind the maroon Box</Text>
+      <Box color="successBase" width="30%" height={120} padding={2}>
+        <Text color="light">This will go behind the successBase Box</Text>
       </Box>
     </Box>
 )}
