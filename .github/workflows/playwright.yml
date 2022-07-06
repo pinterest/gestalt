@@ -22,7 +22,7 @@ jobs:
       - name: Run build
         run: yarn build
       - name: Run your tests
-        run: yarn run playwright:test --workers 2
+        run: yarn run playwright:test playwright/accessibility/ --workers 2
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v2

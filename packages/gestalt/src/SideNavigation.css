@@ -1,3 +1,9 @@
-.customClass {
-  background: rgb(0 0 0 / 0.061);
+.ulItem {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.liItem {
+  margin-bottom: 0;
+  margin-top: 0;
 }
