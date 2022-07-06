@@ -1,3 +1,9 @@
+## 60.0.0 (Jul 6, 2022)
+
+### Major
+
+- Masonry: remove deprecated layouts (#2184)
+
 ## 59.0.0 (Jul 6, 2022)
 
 ### Major
