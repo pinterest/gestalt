@@ -1,3 +1,9 @@
+## 59.0.0 (Jul 6, 2022)
+
+### Major
+
+- Masonry: remove flexible prop (#2175)
+
 ## 58.4.4 (Jul 5, 2022)
 
 ### Patch
