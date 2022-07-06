@@ -222,6 +222,10 @@
   color: var(--color-text-icon-success);
 }
 
+.recommendationIcon {
+  color: var(--color-text-icon-recommendation);
+}
+
 .shoppingIcon {
   color: var(--color-text-icon-shopping);
 }

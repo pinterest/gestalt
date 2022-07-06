@@ -80,6 +80,11 @@
           "darkValue": "{color.blue.skycicle.300.value}",
           "comment": "Icon color to use for information"
         },
+        "recommendation": {
+          "value": "{color.purple.mysticool.500.value}",
+          "darkValue": "{color.purple.mysticool.300.value}",
+          "comment": "Icon color to use for recommendations"
+        },
         "inverse": {
           "value": "{color.white.mochimalist.0.value}",
           "darkValue": "{color.black.cosmicore.900.value}",

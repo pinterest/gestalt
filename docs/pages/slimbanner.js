@@ -328,15 +328,15 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Recommendation SlimBanners XXXX."
+          description="Recommendation SlimBanners inform people of quick things they can do to improve their experience."
           title="Recommendation"
         >
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={5} width="100%">
-<SlimBanner type="recommendation" iconAccessibilityLabel="Recommendation" message="Idea Pins are now available across platforms."/>
-<SlimBanner type="recommendationBare" iconAccessibilityLabel="Recommendation" message="Idea Pins are now available across platforms."/>
+<SlimBanner type="recommendation" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
+<SlimBanner type="recommendationBare" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
 </Flex>
 `}
           />
@@ -424,14 +424,14 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="For dense interfaces and placement inline, next to blocks of text, set SlimBanner to its compact type: “infoBare”, “successBare”, “warningBare”, “errorBare”."
+          description="For dense interfaces and placement inline, next to blocks of text, set SlimBanner to its compact type: “infoBare”, “successBare”, “warningBare”, “errorBare”, “recommendationBare“."
           title="Compact"
         >
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={5} width="100%">
-  {['infoBare', 'successBare', 'warningBare', 'errorBare'].map(type => (
+  {['infoBare', 'successBare', 'warningBare', 'errorBare', 'recommendationBare'].map(type => (
     <SlimBanner
       key={type}
       type={type}
