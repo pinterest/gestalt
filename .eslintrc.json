@@ -111,6 +111,12 @@
       "globals": {
         "page": true,
         "browser": true
+      },
+      "rules": {
+        "jest/expect-expect": [
+          "error",
+          { "assertFunctionNames": ["expect", "runInlineTest"] }
+        ]
       }
     },
     {
