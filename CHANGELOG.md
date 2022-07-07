@@ -1,3 +1,9 @@
+## 60.0.2 (Jul 7, 2022)
+
+### Patch
+
+- Internal: upgrade Next.js to 12.2.0 (#2191)
+
 ## 60.0.1 (Jul 7, 2022)
 
 ### Patch
