@@ -18,7 +18,7 @@ type OnChangeHandler = ({|
 function Dot() {
   return (
     <Box
-      color="red"
+      color="brand"
       dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
       height={6}
       rounding="circle"
@@ -32,7 +32,7 @@ const UNDERLINE_HEIGHT = 3;
 function Underline() {
   return (
     <Box
-      color="darkGray"
+      color="selected"
       dangerouslySetInlineStyle={{
         __style: {
           borderRadius: 1.5,
@@ -51,7 +51,7 @@ function Count({ count }: {| count: number |}) {
 
   return (
     <Box
-      color="red"
+      color="brand"
       dangerouslySetInlineStyle={{
         __style: {
           padding: `0 ${displayCount.length > 1 ? 3 : 0}px`,
@@ -94,9 +94,9 @@ const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 2;
 const colors = {
   default: {
-    base: 'white',
+    base: 'default',
     pressed: 'lightWash',
-    hover: 'lightGray',
+    hover: 'secondary',
   },
   transparent: {
     base: 'transparent',

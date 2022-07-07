@@ -51,7 +51,6 @@ exports[`Video with callbacks 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -63,8 +62,6 @@ exports[`Video with callbacks 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -184,7 +181,6 @@ exports[`Video with children 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -196,8 +192,6 @@ exports[`Video with children 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -387,7 +381,7 @@ exports[`Video with children 1`] = `
             tabIndex="-1"
           >
             <div
-              className="absolute box left0 right0 rounding2"
+              className="absolute box left0 right0 rounding2 secondary"
               style={
                 Object {
                   "height": 4,
@@ -395,7 +389,7 @@ exports[`Video with children 1`] = `
               }
             >
               <div
-                className="box rounding2"
+                className="box default rounding2"
                 style={
                   Object {
                     "height": "100%",
@@ -414,7 +408,7 @@ exports[`Video with children 1`] = `
               }
             >
               <div
-                className="box circle marginStartN2"
+                className="box circle default marginStartN2"
                 style={
                   Object {
                     "height": 16,
@@ -534,7 +528,6 @@ exports[`Video with crossOrigin 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -546,8 +539,6 @@ exports[`Video with crossOrigin 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -668,7 +659,6 @@ exports[`Video with media attributes 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -680,8 +670,6 @@ exports[`Video with media attributes 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -802,7 +790,6 @@ exports[`Video with multiple sources 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -814,8 +801,6 @@ exports[`Video with multiple sources 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -942,7 +927,6 @@ exports[`Video with objectFit 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -954,8 +938,6 @@ exports[`Video with objectFit 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -1080,7 +1062,6 @@ exports[`Video with source 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -1092,8 +1073,6 @@ exports[`Video with source 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -1213,7 +1192,6 @@ exports[`Video with startTime 1`] = `
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
   --color-text-icon-inverse: #ffffff;
   --color-text-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
@@ -1225,8 +1203,6 @@ exports[`Video with startTime 1`] = `
   --color-background-warning-weak: #ffe4c1;
   --color-background-success-base: #008753;
   --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;

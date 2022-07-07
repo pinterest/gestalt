@@ -4,7 +4,7 @@ import { Flex, RadioButton, Box } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (
-    <Box color="white" display="inlineBlock" padding={1}>
+    <Box color="default" display="inlineBlock" padding={1}>
       <Flex direction="column" gap={2}>
         <RadioButton
           checked

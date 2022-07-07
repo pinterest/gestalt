@@ -5,7 +5,7 @@ import { ColorSchemeProvider, Toast, Button, Image, Box } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white">
+      <Box color="default">
         <Toast
           button={<Button key="button-key" text="Undo" size="lg" />}
           text="Home decor"

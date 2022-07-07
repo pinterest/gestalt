@@ -114,7 +114,7 @@ export default function SelectList({
     <Box>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       <Box
-        color={disabled ? 'lightGray' : 'white'}
+        color={disabled ? 'secondary' : 'default'}
         display="flex"
         position="relative"
         rounding={4}

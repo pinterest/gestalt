@@ -4,7 +4,7 @@ import { Text, Link, Box, Flex } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (
-    <Box color="white" display="inlineBlock" padding={4}>
+    <Box color="default" display="inlineBlock" padding={4}>
       <Flex direction="column" gap={2}>
         <Text inline>
           Visit our{' '}

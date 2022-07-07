@@ -5,7 +5,7 @@ import { Box, Flex, Label, Text, Switch, ColorSchemeProvider } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" display="inlineBlock" padding={1}>
+      <Box color="default" display="inlineBlock" padding={1}>
         <Flex gap={2}>
           <Box paddingY={1}>
             <Label htmlFor="switchExample">

@@ -8,7 +8,7 @@ export default function Snapshot(): Node {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="white" padding={4} width={300} height={250}>
+      <Box color="default" padding={4} width={300} height={250}>
         <Flex justifyContent="center">
           <IconButton
             accessibilityControls="link-dropdown-example"

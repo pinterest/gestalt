@@ -5,7 +5,7 @@ import { Box, ColorSchemeProvider, Fieldset, Flex, Checkbox } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" padding={4}>
+      <Box color="default" padding={4}>
         <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message">
           <Flex direction="column" gap={2}>
             <Checkbox

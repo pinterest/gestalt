@@ -164,7 +164,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       tabIndex={-1}
     >
       <Box
-        color={index === hoveredItemIndex ? 'lightGray' : 'transparent'}
+        color={index === hoveredItemIndex ? 'secondary' : 'transparent'}
         direction="column"
         display="flex"
         padding={2}

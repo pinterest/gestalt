@@ -4,7 +4,7 @@ import { NumberField, Box } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (
-    <Box color="white" display="inlineBlock" padding={1}>
+    <Box color="default" display="inlineBlock" padding={1}>
       <NumberField
         id="variant-helperText"
         helperText="Round up to the nearest whole number"

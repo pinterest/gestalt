@@ -4,7 +4,7 @@ import { SearchField, Box } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (
-    <Box color="white" display="inlineBlock" padding={1}>
+    <Box color="default" display="inlineBlock" padding={1}>
       <SearchField
         accessibilityLabel=""
         accessibilityClearButtonLabel="Clear search field"

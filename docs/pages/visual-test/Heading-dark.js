@@ -5,7 +5,7 @@ import { Box, ColorSchemeProvider, Heading } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" display="inlineBlock">
+      <Box color="default" display="inlineBlock">
         <Box padding={1}>
           <Heading size="100">Heading size 100</Heading>
         </Box>

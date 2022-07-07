@@ -191,7 +191,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box rounding2 xsDisplayInlineBlock"
+          className="box rounding2 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -224,7 +224,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginStart1"
             >
               <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                className="button secondary hideOutline tapTransition accessibilityOutline"
                 onClick={[Function]}
                 type="button"
               >
@@ -251,7 +251,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box rounding2 xsDisplayInlineBlock"
+          className="box rounding2 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -284,7 +284,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginStart1"
             >
               <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                className="button secondary hideOutline tapTransition accessibilityOutline"
                 onClick={[Function]}
                 type="button"
               >
@@ -311,7 +311,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box rounding2 xsDisplayInlineBlock"
+          className="box rounding2 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -344,7 +344,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginStart1"
             >
               <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                className="button secondary hideOutline tapTransition accessibilityOutline"
                 onClick={[Function]}
                 type="button"
               >

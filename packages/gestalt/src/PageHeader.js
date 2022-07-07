@@ -132,7 +132,7 @@ export default function PageHeader({
 
   return (
     <div className={borderStyle === 'sm' ? styles.pageHeaderBorderBottom : styles.pageHeader}>
-      <Box color="white" paddingX={8} paddingY={4} width="100%">
+      <Box color="default" paddingX={8} paddingY={4} width="100%">
         <Flex flex="grow" justifyContent="center" maxWidth="100%">
           <Flex flex="grow" maxWidth={maxWidth}>
             <Flex.Item minWidth={0} flex="grow" alignSelf="center">
