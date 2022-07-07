@@ -16,21 +16,21 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
-      function Example(props) {
-        const [value, setValue] = React.useState('')
-        return (
-          <Box width="100%">
-            <TextArea
-              id="headerExample"
-              onChange={({value}) => setValue(value)}
-              placeholder="Write something about yourself..."
-              label="About me"
-              value={value}
-            />
-          </Box>
-        );
-      }
-          `}
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box width="100%">
+      <TextArea
+        id="headerExample"
+        onChange={({value}) => setValue(value)}
+        placeholder="Write something about yourself..."
+        label="About me"
+        value={value}
+      />
+    </Box>
+  );
+}
+        `}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

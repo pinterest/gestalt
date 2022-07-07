@@ -39,7 +39,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     />
   }
 />
-              `}
+        `}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

@@ -12,7 +12,16 @@ import AccessibilitySection from '../components/AccessibilitySection.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        defaultCode={`
+<Text inline>
+  Find tips and best practices on the
+  <Link href="https://business.pinterest.com/" inline> Pinterest Business Site </Link>
+</Text>
+        `}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={['disabled']} />
 

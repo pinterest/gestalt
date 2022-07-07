@@ -18,24 +18,24 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
         name="AvatarGroup"
         description={generatedDocGen?.description}
         defaultCode={`
-  <Box width={300} height={125}>
-    <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
-      collaborators={[
+<Box width={300} height={125}>
+  <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
+    collaborators={[
+      {
+        name: 'Keerthi',
+        src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+      },
+      {
+        name: 'Alberto',
+        src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+      },
         {
-          name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-        },
-        {
-          name: 'Alberto',
-          src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-        },
-          {
-          name: 'Shanice',
-          src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-        },
-      ]}
-    />
-  </Box>
+        name: 'Shanice',
+        src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+      },
+    ]}
+  />
+</Box>
   `}
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

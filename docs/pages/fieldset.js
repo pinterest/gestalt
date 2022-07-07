@@ -17,49 +17,49 @@ export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: Do
         badge="pilot"
         description={generatedDocGen?.description}
         defaultCode={`
-      function RadioButtonExample() {
-        const [favorite, setFavorite] = React.useState(undefined);
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState(undefined);
 
-        return (
-          <Fieldset legend="What is your favorite pet?">
-            <Flex direction="column" gap={2}>
-              <RadioButton
-                checked={favorite === 'dogs'}
-                id="favoriteDog"
-                label="Dogs"
-                name="favorite"
-                onChange={() => setFavorite( 'dogs' )}
-                value="dogs"
-              />
-              <RadioButton
-                checked={favorite === 'cats'}
-                id="favoriteCat"
-                label="Cats"
-                name="favorite"
-                onChange={() => setFavorite( 'cats' )}
-                value="cats"
-              />
-              <RadioButton
-                checked={favorite === 'plants'}
-                id="favoritePlants"
-                label="Plants"
-                name="favorite"
-                onChange={() => setFavorite( 'plants' )}
-                value="plants"
-              />
-              <RadioButton
-                checked={favorite === 'peeves'}
-                id="favoritePeeves"
-                label="Peeves"
-                name="favorite"
-                onChange={() => setFavorite( 'peeves' )}
-                value="peeves"
-              />
-            </Flex>
-          </Fieldset>
+  return (
+    <Fieldset legend="What is your favorite pet?">
+      <Flex direction="column" gap={2}>
+        <RadioButton
+          checked={favorite === 'dogs'}
+          id="favoriteDog"
+          label="Dogs"
+          name="favorite"
+          onChange={() => setFavorite( 'dogs' )}
+          value="dogs"
+        />
+        <RadioButton
+          checked={favorite === 'cats'}
+          id="favoriteCat"
+          label="Cats"
+          name="favorite"
+          onChange={() => setFavorite( 'cats' )}
+          value="cats"
+        />
+        <RadioButton
+          checked={favorite === 'plants'}
+          id="favoritePlants"
+          label="Plants"
+          name="favorite"
+          onChange={() => setFavorite( 'plants' )}
+          value="plants"
+        />
+        <RadioButton
+          checked={favorite === 'peeves'}
+          id="favoritePeeves"
+          label="Peeves"
+          name="favorite"
+          onChange={() => setFavorite( 'peeves' )}
+          value="peeves"
+        />
+      </Flex>
+    </Fieldset>
 
-        );
-      }
+  );
+}
 `}
       />
 

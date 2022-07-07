@@ -15,24 +15,24 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Switch"
         description={generatedDocGen?.description}
         defaultCode={`
-      function SwitchExample() {
-        const [switched, setSwitched] = React.useState(false);
+function SwitchExample() {
+  const [switched, setSwitched] = React.useState(false);
 
-        return (
-          <Box display="flex" alignItems="center">
-            <Box paddingX={2}>
-              <Label htmlFor="introExample">
-                <Text>Airplane mode</Text>
-              </Label>
-            </Box>
-            <Switch
-              onChange={() => setSwitched(!switched)}
-              id="introExample"
-              switched={switched}
-            />
-          </Box>
-        );
-      }
+  return (
+    <Box display="flex" alignItems="center">
+      <Box paddingX={2}>
+        <Label htmlFor="introExample">
+          <Text>Airplane mode</Text>
+        </Label>
+      </Box>
+      <Switch
+        onChange={() => setSwitched(!switched)}
+        id="introExample"
+        switched={switched}
+      />
+    </Box>
+  );
+}
       `}
       />
 

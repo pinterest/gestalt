@@ -16,24 +16,24 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Pulsar"
         description={generatedDocGen?.description}
         defaultCode={`
-  function PulsarExample() {
-    const [isPulsing, setIsPulsing] = React.useState(true);
+function PulsarExample() {
+  const [isPulsing, setIsPulsing] = React.useState(true);
 
-    const text = isPulsing ? 'Click to pause' : 'Click to show';
+  const text = isPulsing ? 'Click to pause' : 'Click to show';
 
-    return (
-      <Box display="flex" direction="column">
-        <Box marginBottom={4}>
-          <Button
-            text={text}
-            onClick={() => setIsPulsing(!isPulsing)}
-            size="md"
-          />
-        </Box>
-        <Pulsar paused={!isPulsing} />
+  return (
+    <Box display="flex" direction="column">
+      <Box marginBottom={4}>
+        <Button
+          text={text}
+          onClick={() => setIsPulsing(!isPulsing)}
+          size="md"
+        />
       </Box>
-    );
-  }
+      <Pulsar paused={!isPulsing} />
+    </Box>
+  );
+}
 `}
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

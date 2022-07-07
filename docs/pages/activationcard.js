@@ -16,7 +16,27 @@ export default function ActivationCardPage({
 |}): Node {
   return (
     <Page title="ActivationCard">
-      <PageHeader name="ActivationCard" description={generatedDocGen?.description} />
+      <PageHeader
+        name="ActivationCard"
+        description={generatedDocGen?.description}
+        defaultCode={`
+<ActivationCard
+  dismissButton={{
+    accessibilityLabel: 'Dismiss card',
+    onDismiss: ()=>{},
+  }}
+  link={{
+    href: "https://pinterest.com",
+    label:"Learn more",
+    accessibilityLabel: "Learn more: website claim status"
+  }}
+  message="We will notify you via email as soon as your site has been successfully claimed."
+  status="pending"
+  statusMessage="Pending"
+  title="Claim your website"
+/>
+  `}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

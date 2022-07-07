@@ -16,28 +16,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Callout"
         description={generatedDocGen?.description}
         defaultCode={`
-    <Callout
-      dismissButton={{
-        accessibilityLabel: 'Dismiss this banner',
-        onDismiss: () => {},
-      }}
-      iconAccessibilityLabel="Info"
-      message="Apply to the Verified Merchant Program"
-      primaryAction={{
-        accessibilityLabel: "Get started: Verified Merchant Program",
-        href: "https://pinterest.com",
-        label: "Get started",
-        target: "blank",
-      }}
-      secondaryAction={{
-        accessibilityLabel: "Learn more: Verified Merchant Program",
-        href: "https://pinterest.com",
-        label: "Learn more",
-        target: "blank",
-      }}
-      title="Your business account was created!"
-      type="info"
-    />
+<Callout
+  dismissButton={{
+    accessibilityLabel: 'Dismiss this banner',
+    onDismiss: () => {},
+  }}
+  iconAccessibilityLabel="Info"
+  message="Apply to the Verified Merchant Program"
+  primaryAction={{
+    accessibilityLabel: "Get started: Verified Merchant Program",
+    href: "https://pinterest.com",
+    label: "Get started",
+    target: "blank",
+  }}
+  secondaryAction={{
+    accessibilityLabel: "Learn more: Verified Merchant Program",
+    href: "https://pinterest.com",
+    label: "Learn more",
+    target: "blank",
+  }}
+  title="Your business account was created!"
+  type="info"
+/>
     `}
       />
 

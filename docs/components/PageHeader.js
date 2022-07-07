@@ -22,6 +22,7 @@ type Props = {|
   description?: string,
   fileName?: string, // only use if name !== file name
   folderName?: string, // only use if name !== file name and the link should point to a directory
+  showCode?: boolean,
   name: string,
   shadedCodeExample?: boolean,
   slimBanner?: Element<typeof SlimBanner> | null,
@@ -34,6 +35,7 @@ export default function PageHeader({
   description = '',
   fileName,
   folderName,
+  showCode = true,
   name,
   shadedCodeExample,
   slimBanner = null,
@@ -101,9 +103,10 @@ export default function PageHeader({
             {defaultCode && (
               <MainSection.Card
                 cardSize="lg"
-                showCode={false}
                 defaultCode={defaultCode}
                 shaded={shadedCodeExample}
+                showCode={showCode}
+                hideCodePreview
               />
             )}
           </Flex>
