@@ -17,7 +17,7 @@ export default function Snapshot(): Node {
           'successBare',
           'warningBare',
           'infoBare',
-          'recommendationBare'
+          'recommendationBare',
         ].map((type) => (
           <SlimBanner
             key={type}
