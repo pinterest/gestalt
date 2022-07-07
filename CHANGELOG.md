@@ -1,3 +1,9 @@
+## 60.0.1 (Jul 7, 2022)
+
+### Patch
+
+- Docs: Show code for top example and Do's in Best Practices (#2189)
+
 ## 60.0.0 (Jul 6, 2022)
 
 ### Major
