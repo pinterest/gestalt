@@ -51,7 +51,7 @@ export default function ExampleCode({
   }
 
   useEffect(() => {
-    const height = codeExampleRef?.current?.clientHeight;
+    const height = codeExampleRef?.current?.clientHeight ?? 0;
 
     // Save the height so we know how far to animate to
     setMaxHeight(`${height}px`);
@@ -112,11 +112,11 @@ export default function ExampleCode({
               onFocus={() => {
                 setExpanded(true);
               }}
-              aria-hidden={!expanded}
             >
               <div
                 className={!expanded ? 'LiveEditor__textarea__notExpanded' : undefined}
                 ref={codeExampleRef}
+                aria-hidden={!expanded}
               >
                 {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
