@@ -319,7 +319,7 @@ export default function ColorExamplesPage(): Node {
             description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will evaluate."
             defaultCode={`
             <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
-              <Box color="white" padding={10}>
+              <Box color="default" padding={10}>
                 <Flex direction="column" gap={8} alignItems="center">
                   <Flex gap={4}>
                     <IconButton icon="speech" accessibilityLabel="Comment"/>
