@@ -198,7 +198,7 @@ export default function SlimBanner({
           </Flex.Item>
         )}
 
-        <Flex.Item flex="grow" minWidth={0}>
+        <Flex.Item flex="grow">
           <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
             <Text inline>
               {message}
