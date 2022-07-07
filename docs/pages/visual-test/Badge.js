@@ -4,7 +4,7 @@ import { Badge, Box, Flex } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
-    <Box color="white" padding={1}>
+    <Box color="default" padding={1}>
       <Flex gap={1} wrap width={400}>
         <Badge text="Info badge" />
         <Badge text="Success badge" type="success" />

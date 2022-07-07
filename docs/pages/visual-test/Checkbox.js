@@ -4,7 +4,7 @@ import { Flex, Checkbox, Box } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
-    <Box color="white" display="inlineBlock" padding={1}>
+    <Box color="default" display="inlineBlock" padding={1}>
       <Flex direction="column" gap={2}>
         <Checkbox
           checked

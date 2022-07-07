@@ -73,7 +73,7 @@ export default function Navigation(): Node {
         </Fragment>
       )}
 
-      <Box display="none" mdDisplay="block" color="white">
+      <Box display="none" mdDisplay="block" color="default">
         <Box
           padding={4}
           position="fixed"

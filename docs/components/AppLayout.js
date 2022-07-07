@@ -18,7 +18,7 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
   return (
-    <Box minHeight="100vh" color="white">
+    <Box minHeight="100vh" color="default">
       <Header />
 
       <Box mdDisplay="flex">

@@ -4,7 +4,7 @@ import { Text, Box, Flex, Column } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
-    <Box color="white" display="inlineBlock" padding={1} width={400}>
+    <Box color="default" display="inlineBlock" padding={1} width={400}>
       <Flex direction="column">
         <Column span={4}>
           <Box color="infoWeak" padding={4} margin={1}>

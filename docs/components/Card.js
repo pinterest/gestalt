@@ -79,7 +79,7 @@ export default function Card({
       )}
 
       <Box marginStart={-2} marginEnd={-2} display="flex" direction={stacked ? 'column' : 'row'}>
-        <Box paddingX={2} column={12} color="white">
+        <Box paddingX={2} column={12} color="default">
           {description && (
             <Box marginBottom={8} maxWidth={572}>
               <Markdown text={description} />

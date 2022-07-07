@@ -409,7 +409,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                   </Table.Cell>
                 ))}
                 <Table.Cell>
-                  <Box color="darkGray" rounding={2} padding={2} display="inlineBlock">
+                  <Box color="selected" rounding={2} padding={2} display="inlineBlock">
                     <Text color="inverse" size="100">
                       This is text in a tooltip
                     </Text>
@@ -423,7 +423,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                   </Table.Cell>
                 ))}
                 <Table.Cell>
-                  <Box color="darkGray" rounding={2} padding={2} display="inlineBlock">
+                  <Box color="selected" rounding={2} padding={2} display="inlineBlock">
                     <Text color="inverse" size="100" overflow="noWrap" inline>
                       Figma is{' '}
                       <Text weight="bold" color="inverse" size="100" overflow="noWrap" inline>

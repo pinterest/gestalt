@@ -302,7 +302,7 @@ function TapAreaExample() {
         onTap={() => setTouches(touches + 1)}
         rounding={2}
       >
-        <Box color="darkGray" rounding={4} borderStyle="sm">
+        <Box color="selected" rounding={4} borderStyle="sm">
           <Mask rounding={2}>
             <Image
               alt="Antelope Canyon"
@@ -439,7 +439,7 @@ function Example() {
 <Box color="olive" display="flex" width={500} height={250}>
   <Box borderStyle="sm" margin={3} column={6}>
     <TapArea fullHeight>
-      <Box height="100%" color="lightGray">
+      <Box height="100%" color="secondary">
         <Text align="center">
           Full parent height
         </Text>
@@ -448,7 +448,7 @@ function Example() {
   </Box>
   <Box borderStyle="sm" margin={3} column={6}>
     <TapArea>
-      <Box height="100%" color="lightGray">
+      <Box height="100%" color="secondary">
         <Text align="center">
           Child height only
         </Text>
@@ -464,13 +464,13 @@ function Example() {
           id="inlineUsage"
           description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
           defaultCode={`
-<Box color="eggplant" height={250} padding={3} width={500}>
+<Box color="warningBase" height={250} padding={3} width={500}>
   <Flex direction="column" gap={6}>
     <Flex.Item>
       <Text color="inverse" inline>Other content</Text>
       <Box borderStyle="sm" margin={3} column={6}>
         <TapArea>
-          <Box height="100%" color="lightGray">
+          <Box height="100%" color="secondary">
             <Text align="center">
               Default behavior (block)
             </Text>
@@ -483,7 +483,7 @@ function Example() {
       <Text color="inverse" inline>Other content</Text>
       <Box borderStyle="sm" display="inlineBlock" margin={3} column={6}>
         <TapArea>
-          <Box height="100%" color="lightGray">
+          <Box height="100%" color="secondary">
             <Text align="center">
               Inline behavior
             </Text>
@@ -512,7 +512,7 @@ function Example() {
         >
           {(props, i) => (
             <TapArea id={`example-${i}`} {...props}>
-              <Box borderStyle="lg" padding={3} color="white">
+              <Box borderStyle="lg" padding={3} color="default">
                 {/* eslint-disable-next-line react/prop-types */}
                 <Text>{props.mouseCursor}</Text>
               </Box>
@@ -528,7 +528,7 @@ function Example() {
           {(props, i) => (
             <TapArea id={`example-${i}`} {...props}>
               <Box
-                color="white"
+                color="default"
                 borderStyle="lg"
                 // eslint-disable-next-line react/prop-types
                 width={props.rounding === 'pill' ? 120 : 70}

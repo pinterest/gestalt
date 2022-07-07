@@ -436,7 +436,7 @@ function Example() {
                 width={60}
                 height={60}
                 rounding="circle"
-                color="white"
+                color="default"
                 borderStyle={borderStyle}
               />
             )}
@@ -522,7 +522,7 @@ function Example() {
           <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
             {(props) => (
               <Box
-                color="gray"
+                color="tertiary"
                 width={props.rounding === 'pill' ? 120 : 70} // eslint-disable-line react/prop-types
                 height={70}
                 rounding={props.rounding} // eslint-disable-line react/prop-types
@@ -534,7 +534,7 @@ function Example() {
         <MainSection.Subsection description="" title="Opacity">
           <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
             {/* eslint-disable-next-line react/prop-types */}
-            {(props) => <Box color="darkGray" width={60} height={60} opacity={props.opacity} />}
+            {(props) => <Box color="selected" width={60} height={60} opacity={props.opacity} />}
           </CombinationNew>
         </MainSection.Subsection>
 
