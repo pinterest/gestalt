@@ -116,7 +116,6 @@ export default function ExampleCode({
               <div
                 className={!expanded ? 'LiveEditor__textarea__notExpanded' : undefined}
                 ref={codeExampleRef}
-                aria-hidden={!expanded}
               >
                 {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
