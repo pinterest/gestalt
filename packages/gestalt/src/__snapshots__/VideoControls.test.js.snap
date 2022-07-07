@@ -82,7 +82,7 @@ exports[`VideoControls for double digit minutes 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -90,7 +90,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box rounding2"
             style={
               Object {
                 "height": "100%",
@@ -109,7 +109,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -258,7 +258,7 @@ exports[`VideoControls for double digit seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -266,7 +266,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box rounding2"
             style={
               Object {
                 "height": "100%",
@@ -285,7 +285,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -434,7 +434,7 @@ exports[`VideoControls for single digit minutes 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -442,7 +442,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box rounding2"
             style={
               Object {
                 "height": "100%",
@@ -461,7 +461,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -610,7 +610,7 @@ exports[`VideoControls for single digit seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -618,7 +618,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box rounding2"
             style={
               Object {
                 "height": "100%",
@@ -637,7 +637,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -786,7 +786,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -794,7 +794,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box rounding2"
             style={
               Object {
                 "height": "100%",
@@ -813,7 +813,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle marginStartN2"
             style={
               Object {
                 "height": 16,

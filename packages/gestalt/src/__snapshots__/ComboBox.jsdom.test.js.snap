@@ -117,7 +117,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -166,7 +166,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -215,7 +215,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -264,7 +264,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -313,7 +313,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -362,7 +362,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -411,7 +411,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -460,7 +460,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
@@ -509,7 +509,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div

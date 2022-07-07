@@ -191,7 +191,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+          className="box rounding2 xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -251,7 +251,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+          className="box rounding2 xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -311,7 +311,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+          className="box rounding2 xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,

@@ -3,7 +3,7 @@
 exports[`Tag clips long strings 1`] = `
 <div
   aria-disabled={false}
-  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -62,7 +62,7 @@ exports[`Tag clips long strings 1`] = `
 exports[`Tag renders 1`] = `
 <div
   aria-disabled={false}
-  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -121,7 +121,7 @@ exports[`Tag renders 1`] = `
 exports[`Tag renders a disabled tag 1`] = `
 <div
   aria-disabled={true}
-  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "border": "solid 1px #767676",
@@ -161,7 +161,7 @@ exports[`Tag renders a disabled tag 1`] = `
 exports[`Tag renders a tag with an error state 1`] = `
 <div
   aria-disabled={false}
-  className="box redBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,

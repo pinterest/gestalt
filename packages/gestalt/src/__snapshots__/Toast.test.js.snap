@@ -13,7 +13,7 @@ exports[`<Toast /> Error Toast 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill redBg shadow"
+    className="box fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
