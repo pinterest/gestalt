@@ -1,3 +1,9 @@
+## 60.1.0 (Jul 7, 2022)
+
+### Minor
+
+- SlimBanner: New Recommendation variant (#2190)
+
 ## 60.0.2 (Jul 7, 2022)
 
 ### Patch
