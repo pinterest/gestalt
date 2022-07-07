@@ -152,6 +152,7 @@ If an icon has a visible label that describes what the icon represents, \`access
               'error',
               'warning',
               'info',
+              'recommendation',
               'inverse',
               'shopping',
               'brandPrimary',

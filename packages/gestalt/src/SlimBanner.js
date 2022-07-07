@@ -146,10 +146,12 @@ type Props = {|
     | 'info'
     | 'warning'
     | 'success'
+    | 'recommendation'
     | 'errorBare'
     | 'infoBare'
     | 'warningBare'
-    | 'successBare',
+    | 'successBare'
+    | 'recommendationBare',
 |};
 
 /**
@@ -184,7 +186,7 @@ export default function SlimBanner({
       rounding={4}
       width="100%"
     >
-      <Flex alignItems="center" gap={isBare ? 2 : 4} width="100%">
+      <Flex alignItems="center" gap={isBare ? 2 : 4} flex="grow">
         {!isDefault && iconAccessibilityLabel && (
           <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
             <Icon

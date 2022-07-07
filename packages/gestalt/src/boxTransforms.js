@@ -173,6 +173,8 @@ const color: Functor<Color> = mapping({
   warningWeak: colors.warningWeak,
   successBase: colors.successBase,
   successWeak: colors.successWeak,
+  recommendationBase: colors.recommendationBase,
+  recommendationWeak: colors.recommendationWeak,
   shopping: colors.shopping,
   primary: colors.primary,
   secondary: colors.secondary,
