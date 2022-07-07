@@ -4,14 +4,15 @@ import {
   Box,
   CompositeZIndex,
   Dropdown,
-  Flex,
   FixedZIndex,
-  Label,
-  Switch,
-  Text,
+  Flex,
   IconButton,
-  Sticky,
+  Label,
   Link,
+  Sticky,
+  Switch,
+  Tabs,
+  Text,
 } from 'gestalt';
 
 import { useAppContext } from './appContext.js';
@@ -23,6 +24,7 @@ import { useNavigationContext } from './navigationContext.js';
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
   const anchorRef = useRef(null);
 
@@ -60,6 +62,19 @@ function Header() {
       role="banner"
     >
       <Box marginStart={-2} marginEnd={2} display="flex" alignItems="center">
+        {/* Small-screen menu button */}
+        <Box display="flex" mdDisplay="none" alignItems="center">
+          <IconButton
+            size="md"
+            accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
+            iconColor="darkGray"
+            icon="menu"
+            onClick={() => {
+              window.scrollTo(0, 0);
+              setIsSidebarOpen(!isSidebarOpen);
+            }}
+          />
+        </Box>
         {/* <Text> is out here to get proper underline styles on link */}
         <Text color="default" weight="bold">
           <Link
@@ -140,25 +155,28 @@ function Header() {
       </Box>
 
       {/* Spacer element */}
-      <Box flex="grow" />
+      <Box display="none" mdDisplay="block" flex="grow">
+        <Flex justifyContent="center">
+          <Tabs
+            activeTabIndex={activeTab}
+            onChange={({ activeTabIndex }) => {
+              setActiveTab(activeTabIndex);
+            }}
+            tabs={[
+              { href: 'https://gestalt.pinterest.systems/about_us', text: 'Get started' },
+              { href: 'https://gestalt.pinterest.systems/component_overview', text: 'Components' },
+              { href: 'https://gestalt.pinterest.systems/accessibility', text: 'Foundations' },
+              { href: '#', text: 'Design patterns' },
+              { href: 'https://gestalt.pinterest.systems/roadmap', text: 'Roadmap' },
+            ]}
+            wrap
+          />
+        </Flex>
+      </Box>
 
       <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
         <Box paddingX={2}>
           <DocSearch popoverZIndex={POPOVER_ZINDEX} />
-        </Box>
-
-        {/* Small-screen menu button */}
-        <Box display="flex" mdDisplay="none" alignItems="center">
-          <IconButton
-            size="md"
-            accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
-            iconColor="darkGray"
-            icon="menu"
-            onClick={() => {
-              window.scrollTo(0, 0);
-              setIsSidebarOpen(!isSidebarOpen);
-            }}
-          />
         </Box>
       </Box>
     </Box>
