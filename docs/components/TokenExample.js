@@ -61,9 +61,9 @@ export function SpacingBox({ token }: BaseProps): Node {
 export function TextColorBox({ token }: BaseProps): Node {
   let backgroundColor;
   if (token.name.includes('inverse') || token.name.includes('light')) {
-    backgroundColor = 'darkGray';
+    backgroundColor = 'selected';
   } else if (token.name.includes('dark')) {
-    backgroundColor = 'white';
+    backgroundColor = 'default';
   }
 
   return (

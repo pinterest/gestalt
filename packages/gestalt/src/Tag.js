@@ -48,7 +48,7 @@ export default function Tag(props: Props): Node {
   } = props;
   const { colorGray200 } = useColorScheme();
 
-  const bgColor = errorMessage ? 'red' : 'lightGray';
+  const bgColor = errorMessage ? 'errorBase' : 'secondary';
   let fgColor = 'default';
   if (errorMessage) {
     fgColor = 'inverse';

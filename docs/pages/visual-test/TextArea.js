@@ -4,7 +4,7 @@ import { TextArea, Box } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (
-    <Box color="white" display="inlineBlock" padding={1} width={300}>
+    <Box color="default" display="inlineBlock" padding={1} width={300}>
       <TextArea
         id="aboutmemore"
         onChange={() => {}}

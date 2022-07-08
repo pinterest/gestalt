@@ -61,7 +61,7 @@ export default function Snapshot(): Node {
                   src={image.src}
                 />
               ) : (
-                <Box color="lightGray" height={height} width={width} />
+                <Box color="secondary" height={height} width={width} />
               )}
             </Mask>
           );

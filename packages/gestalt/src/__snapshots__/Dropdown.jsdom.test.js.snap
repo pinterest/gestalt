@@ -29,7 +29,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box lightGrayBg paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 secondary xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 xsDirectionRow"

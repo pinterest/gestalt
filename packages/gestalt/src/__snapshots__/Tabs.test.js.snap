@@ -35,7 +35,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -60,7 +60,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
               }
             >
               <div
-                className="box darkGrayBg"
+                className="box selected"
                 style={
                   Object {
                     "borderRadius": 1.5,
@@ -105,7 +105,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -163,7 +163,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -181,7 +181,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle redBg"
+                  className="box brand circle"
                   style={
                     Object {
                       "height": 6,
@@ -202,7 +202,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
               }
             >
               <div
-                className="box darkGrayBg"
+                className="box selected"
                 style={
                   Object {
                     "borderRadius": 1.5,
@@ -247,7 +247,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -265,7 +265,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle redBg"
+                  className="box brand circle"
                   style={
                     Object {
                       "height": 6,
@@ -319,7 +319,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
@@ -344,7 +344,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
               }
             >
               <div
-                className="box darkGrayBg"
+                className="box selected"
                 style={
                   Object {
                     "borderRadius": 1.5,
@@ -389,7 +389,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
               className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"

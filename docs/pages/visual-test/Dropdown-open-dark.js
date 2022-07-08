@@ -7,7 +7,7 @@ export default function Snapshot(): Node {
   const anchorRef = useRef(null);
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" padding={4} width={300} height={250}>
+      <Box color="default" padding={4} width={300} height={250}>
         <Flex justifyContent="center">
           <IconButton
             accessibilityControls="link-dropdown-example"

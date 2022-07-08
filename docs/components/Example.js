@@ -47,7 +47,7 @@ function Example({
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box display="flex" direction="column" marginStart={-2} marginEnd={-2} marginBottom={6}>
           <Box padding={2} height="100%">
-            <Box position="relative" padding={4} borderStyle="sm" rounding={2} color="white">
+            <Box position="relative" padding={4} borderStyle="sm" rounding={2} color="default">
               <LivePreview className={skipContrastCheck ? 'skip-accessibility-check' : undefined} />
             </Box>
           </Box>

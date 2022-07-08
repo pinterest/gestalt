@@ -5,7 +5,7 @@ import { Box, RadioGroup, ColorSchemeProvider } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="white" display="inlineBlock" padding={1}>
+      <Box color="default" display="inlineBlock" padding={1}>
         <RadioGroup legend="Favorite pet" id="testing-example">
           <RadioGroup.RadioButton
             id="choice-1"

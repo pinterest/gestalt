@@ -75,7 +75,7 @@ export default function Toast({
 
   // Error variant does not currently support dark mode
   if (isErrorVariant) {
-    containerColor = 'red';
+    containerColor = 'errorBase';
     textColor = 'light';
   }
 

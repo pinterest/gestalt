@@ -107,7 +107,7 @@ function MainSectionCard({
         </Box>
       )}
       {description && (
-        <Box maxWidth={572} marginTop={2} color="white">
+        <Box maxWidth={572} marginTop={2} color="default">
           <Markdown text={description} />
         </Box>
       )}

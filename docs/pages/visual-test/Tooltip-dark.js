@@ -5,7 +5,7 @@ import { ColorSchemeProvider, Tooltip, IconButton, Box } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" padding={4} width={150}>
+      <Box color="default" padding={4} width={150}>
         <Tooltip idealDirection="right" inline text="Share" accessibilityLabel="">
           <IconButton
             accessibilityLabel="Share this Pin"

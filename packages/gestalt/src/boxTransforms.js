@@ -144,23 +144,6 @@ const borderStyle: Functor<BorderStyle> = (value) => {
   ]);
 };
 const color: Functor<Color> = mapping({
-  blue: colors.blueBg,
-  darkGray: colors.darkGrayBg,
-  pine: colors.pineBg,
-  gray: colors.grayBg,
-  red: colors.redBg,
-  olive: colors.oliveBg,
-  lightGray: colors.lightGrayBg,
-  white: colors.whiteBg,
-  orange: colors.orangeBg,
-  green: colors.greenBg,
-  navy: colors.navyBg,
-  midnight: colors.midnightBg,
-  purple: colors.purpleBg,
-  orchid: colors.orchidBg,
-  eggplant: colors.eggplantBg,
-  maroon: colors.maroonBg,
-  watermelon: colors.watermelonBg,
   lightWash: colors.lightWashBg,
   darkWash: colors.darkWashBg,
   transparentDarkGray: colors.transparentDarkGrayBg,

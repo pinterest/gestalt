@@ -5,7 +5,7 @@ import { Upsell, Box, ColorSchemeProvider, Icon } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" padding={5}>
+      <Box color="default" padding={5}>
         <Upsell
           dismissButton={{
             accessibilityLabel: 'Dismiss banner',

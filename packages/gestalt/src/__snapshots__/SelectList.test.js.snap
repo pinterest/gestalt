@@ -5,7 +5,7 @@ exports[`SelectList SelectList normal 1`] = `
   className="box"
 >
   <div
-    className="box relative rounding4 whiteBg xsDisplayFlex"
+    className="box default relative rounding4 xsDisplayFlex"
     style={
       Object {
         "width": "100%",
@@ -84,7 +84,7 @@ exports[`SelectList SelectList with a hidden label 1`] = `
     </div>
   </label>
   <div
-    className="box relative rounding4 whiteBg xsDisplayFlex"
+    className="box default relative rounding4 xsDisplayFlex"
     style={
       Object {
         "width": "100%",
