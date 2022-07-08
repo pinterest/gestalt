@@ -24,6 +24,8 @@ import { useNavigationContext } from './navigationContext.js';
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+  const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
+
   const [activeTab, setActiveTab] = useState(0);
 
   const anchorRef = useRef(null);
@@ -63,7 +65,11 @@ function Header() {
     >
       <Box marginStart={-2} marginEnd={2} display="flex" alignItems="center">
         {/* Small-screen menu button */}
-        <Box display="flex" mdDisplay="none" alignItems="center">
+        <Box
+          display={isMobileSearchExpandedOpen ? 'none' : 'flex'}
+          mdDisplay="none"
+          alignItems="center"
+        >
           <IconButton
             size="md"
             accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
@@ -75,29 +81,33 @@ function Header() {
             }}
           />
         </Box>
-        {/* <Text> is out here to get proper underline styles on link */}
-        <Text color="default" weight="bold">
-          <Link
-            accessibilityLabel="Gestalt home"
-            href="/"
-            onClick={() => trackButtonClick('Gestalt logo')}
-          >
-            <Box paddingX={2}>
-              <Flex alignItems="center" gap={2}>
-                <GestaltLogo height={40} width={40} />
-                {/* slight tweak to vertically center to logo */}
-                <Box
-                  display="none"
-                  mdDisplay="block"
-                  dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}
-                >
-                  Gestalt Design System
-                </Box>
-              </Flex>
-            </Box>
-          </Link>
-        </Text>
-        <Box paddingX={2}>
+        <Box display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
+          {/* <Text> is out here to get proper underline styles on link */}
+          <Text color="default" weight="bold">
+            <Link
+              accessibilityLabel="Gestalt home"
+              href="/"
+              onClick={() => trackButtonClick('Gestalt logo')}
+            >
+              <Box paddingX={2}>
+                <Flex alignItems="center" gap={2}>
+                  <GestaltLogo height={40} width={40} />
+                  {/* slight tweak to vertically center to logo */}
+                  <Box
+                    display="none"
+                    mdDisplay="block"
+                    dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}
+                  >
+                    Gestalt Design System
+                  </Box>
+                </Flex>
+              </Box>
+            </Link>
+          </Text>
+        </Box>
+      </Box>
+      <Flex alignItems="center" justifyContent="end" flex="grow">
+        <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
           <IconButton
             accessibilityControls="site-settings-dropdown"
             accessibilityExpanded={isSettingsDropdownOpen}
@@ -152,33 +162,56 @@ function Header() {
             </Dropdown.Item>
           </Dropdown>
         )}
-      </Box>
 
-      {/* Spacer element */}
-      <Box display="none" mdDisplay="block" flex="grow">
-        <Flex justifyContent="center">
-          <Tabs
-            activeTabIndex={activeTab}
-            onChange={({ activeTabIndex }) => {
-              setActiveTab(activeTabIndex);
-            }}
-            tabs={[
-              { href: 'https://gestalt.pinterest.systems/about_us', text: 'Get started' },
-              { href: 'https://gestalt.pinterest.systems/component_overview', text: 'Components' },
-              { href: 'https://gestalt.pinterest.systems/accessibility', text: 'Foundations' },
-              { href: '#', text: 'Design patterns' },
-              { href: 'https://gestalt.pinterest.systems/roadmap', text: 'Roadmap' },
-            ]}
-            wrap
-          />
-        </Flex>
-      </Box>
-
-      <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
-        <Box paddingX={2}>
-          <DocSearch popoverZIndex={POPOVER_ZINDEX} />
+        <Box display="none" mdDisplay="block" flex="grow">
+          <Flex justifyContent="center">
+            <Tabs
+              activeTabIndex={activeTab}
+              onChange={({ activeTabIndex }) => {
+                setActiveTab(activeTabIndex);
+              }}
+              tabs={[
+                { href: '/about_us', text: 'Get started' },
+                {
+                  href: '/component_overview',
+                  text: 'Components',
+                },
+                { href: '/accessibility', text: 'Foundations' },
+                { href: '/roadmap', text: 'Roadmap' },
+              ]}
+              wrap
+            />
+          </Flex>
         </Box>
-      </Box>
+
+        <Box
+          alignItems="center"
+          display={isMobileSearchExpandedOpen ? 'flex' : 'none'}
+          mdDisplay="flex"
+          flex="shrink"
+          marginStart={2}
+          mdMarginStart={0}
+        >
+          <Box paddingX={2}>
+            <DocSearch popoverZIndex={POPOVER_ZINDEX} />
+          </Box>
+        </Box>
+        <Box display="block" mdDisplay="none" marginStart={2}>
+          <IconButton
+            accessibilityControls="site-settings-dropdown"
+            accessibilityExpanded={isSettingsDropdownOpen}
+            accessibilityHaspopup
+            accessibilityLabel="Search Gestalt"
+            icon={isMobileSearchExpandedOpen ? 'cancel' : 'search'}
+            iconColor="darkGray"
+            onClick={() => setMobileSearchExpanded((prevVal) => !prevVal)}
+            ref={anchorRef}
+            selected={isSettingsDropdownOpen}
+            size="sm"
+            tooltip={{ 'text': 'Search Gestalt', 'zIndex': POPOVER_ZINDEX }}
+          />
+        </Box>
+      </Flex>
     </Box>
   );
 }
