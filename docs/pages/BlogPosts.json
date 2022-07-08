@@ -21,9 +21,9 @@
         {
           "title": "Say goodbye to food coloring 🍉",
           "audience": ["Design", "Engineering"],
-          "imageSrc": "https://i.pinimg.com/originals/72/b1/55/72b155f5a2f792e3d22e951378bc5e96.png",
+          "imageSrc": "https://i.pinimg.com/originals/fe/40/a6/fe40a60cd15b7af081a5c98f01b6c694.png",
           "imageAltText": "",
-          "content": "In the spirit of consistent, accessible visuals across Pinterest, and greater support for dark mode, we've officially deprecated the old, literal colors on Box in favor of our semantic, design-token-based options. This means watermelon is out and primary is in! Check out the [Box documentation](https://gestalt.pinterest.systems/box#Colors) to see all the options, and feel free to reach out if you think a color is missing."
+          "content": "In the spirit of consistent, accessible visuals across Pinterest, and better support for dark mode, we've officially deprecated the old, literal colors on Box in favor of our semantic, design-token-based options. This means watermelon is out and primary is in! Check out the [Box documentation](https://gestalt.pinterest.systems/box#Colors) to see all the options, and feel free to reach out if you think a color is missing."
         },
         {
           "title": "More ways to view code in our docs",
