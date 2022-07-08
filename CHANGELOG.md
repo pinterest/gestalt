@@ -1,3 +1,9 @@
+## 61.0.0 (Jul 8, 2022)
+
+### Major
+
+- Box: Remove deprecated color options (#2187)
+
 ## 60.1.0 (Jul 7, 2022)
 
 ### Minor
