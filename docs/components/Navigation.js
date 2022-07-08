@@ -1,9 +1,7 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
-import { Box, Divider } from 'gestalt';
-import HeaderMenu from './HeaderMenu.js';
-import SidebarSection from './SidebarSection.js';
-import SidebarSectionLink from './SidebarSectionLink.js';
+import { type Node } from 'react';
+import { Box, SideNavigation } from 'gestalt';
+import { useRouter } from 'next/router';
 import sidebarIndex from './sidebarIndex.js';
 import { useNavigationContext } from './navigationContext.js';
 import SidebarCategorizationButton from './buttons/SidebarCategorizationButton.js';
@@ -21,80 +19,78 @@ function getAlphabetizedComponents() {
   );
 }
 
-function NavList({ sidebarOrganisedBy }: {| sidebarOrganisedBy: string |}) {
+function DocsSideNavigation(): Node {
+  const { sidebarOrganisedBy, setSidebarOrganizedBy } = useNavigationContext();
+  const router = useRouter();
+
   return (
-    <Fragment key={sidebarOrganisedBy}>
-      {sidebarOrganisedBy === 'categorized' ? (
-        sidebarIndex.map((section) => (
-          <SidebarSection section={section} key={`${sidebarOrganisedBy}-${section.sectionName}`} />
-        ))
-      ) : (
-        <Box marginTop={4}>
-          {getAlphabetizedComponents().map((componentName, i) => (
-            <SidebarSectionLink componentName={componentName} key={`${sidebarOrganisedBy}-${i}`} />
-          ))}
-        </Box>
-      )}
-    </Fragment>
+    <SideNavigation
+      accessibilityLabel="Side navigation"
+      header={
+        <SidebarCategorizationButton
+          onClick={() =>
+            setSidebarOrganizedBy(
+              sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
+            )
+          }
+          sidebarOrganisedBy={sidebarOrganisedBy}
+        />
+      }
+    >
+      {sidebarOrganisedBy === 'categorized'
+        ? sidebarIndex.map((section, idx) => (
+            <SideNavigation.Section
+              key={`${section.sectionName}--${idx}`}
+              label={section.sectionName}
+            >
+              {section.pages.map((componentName, i) => {
+                const href = `/${componentName.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`;
+                return (
+                  <SideNavigation.Item
+                    active={router.asPath === href ? 'page' : undefined}
+                    item={{ label: componentName, value: componentName }}
+                    onSelect={() => {}}
+                    key={`${componentName}--${i}`}
+                    href={href}
+                  />
+                );
+              })}
+            </SideNavigation.Section>
+          ))
+        : getAlphabetizedComponents().map((componentName, i) => {
+            const href = `/${componentName.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`;
+
+            return (
+              <SideNavigation.Item
+                active={router.asPath === href ? 'page' : undefined}
+                item={{ label: componentName, value: componentName }}
+                onSelect={() => {}}
+                key={`${sidebarOrganisedBy}-${i}`}
+                href={href}
+              />
+            );
+          })}
+    </SideNavigation>
   );
 }
 
 export default function Navigation(): Node {
-  const { sidebarOrganisedBy, isSidebarOpen, setSidebarOrganizedBy } = useNavigationContext();
+  const { isSidebarOpen } = useNavigationContext();
 
-  return (
-    <Box aria-label="main" role="navigation">
-      {isSidebarOpen && (
-        <Fragment>
-          <HeaderMenu />
-
-          <Box
-            height={350}
-            overflow="scroll"
-            display="block"
-            mdDisplay="none"
-            paddingY={2}
-            paddingX={4}
-          >
-            <Divider />
-            <Box paddingX={2} paddingY={3}>
-              <SidebarCategorizationButton
-                onClick={() =>
-                  setSidebarOrganizedBy(
-                    sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
-                  )
-                }
-                sidebarOrganisedBy={sidebarOrganisedBy}
-              />
-            </Box>
-            <Divider />
-            <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
-          </Box>
-        </Fragment>
-      )}
-
-      <Box display="none" mdDisplay="block" color="default">
-        <Box
-          padding={4}
-          position="fixed"
-          overflow="auto"
-          maxHeight="calc(100% - 60px)"
-          minWidth={MIN_NAV_WIDTH_PX}
-        >
-          <Box marginBottom={4} paddingX={2}>
-            <SidebarCategorizationButton
-              onClick={() =>
-                setSidebarOrganizedBy(
-                  sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
-                )
-              }
-              sidebarOrganisedBy={sidebarOrganisedBy}
-            />
-          </Box>
-          <Divider />
-          <NavList sidebarOrganisedBy={sidebarOrganisedBy} />
-        </Box>
-      </Box>
+  return isSidebarOpen ? (
+    <Box height={350} overflow="scroll" display="block" mdDisplay="none" paddingY={2} paddingX={4}>
+      <DocsSideNavigation />
+    </Box>
+  ) : (
+    <Box
+      display="none"
+      mdDisplay="block"
+      position="fixed"
+      overflow="auto"
+      maxHeight="calc(100% - 60px)"
+      minWidth={MIN_NAV_WIDTH_PX}
+    >
+      <DocsSideNavigation />
     </Box>
   );
 }
