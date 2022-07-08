@@ -2,7 +2,6 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-/* eslint-disable @next/next/no-assign-module-variable */
 import { applyTransform } from 'jscodeshift/dist/testUtils.js';
 import fs from 'fs';
 import path from 'path';
