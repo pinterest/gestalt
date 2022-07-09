@@ -2,6 +2,39 @@
   "year": "2022",
   "digests": [
     {
+      "week": "July 08, 2022",
+      "posts": [
+        {
+          "title": "Take action with SlimBanner",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/92/12/aa/9212aad3a49fee3e29902d2052d90914.png",
+          "imageAltText": "Examples of Recommendation SlimBanner",
+          "content": "SlimBanner now supports a [primary action](https://gestalt.pinterest.systems/slimbanner#Primary-action)! We've also added the ability to dismiss these banners with the `dismissButton` [prop](https://gestalt.pinterest.systems/slimbanner#Dismissible). And if that wasn't enough for one update, we've introduced a [new style called Recommendation](https://gestalt.pinterest.systems/slimbanner#Recommendation) that can be used to inform people of quick things they can do to improve their experience."
+        },
+        {
+          "title": "Figma cleanup week",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/bd/76/c6/bd76c67a16eb326b99316a6d2d8688af.png",
+          "imageAltText": "Screenshot showcasing out figma libraries",
+          "content": "We did a little cleanup and reorganization in our Figma folders to help you scan all the supportive files and libraries you need more efficiently. We archived outdated and deprecated resources to avoid confusion with their usage, and moved some files around to reinforce a semantic structure. All the must-have folders and files, such as libraries, helpful resources, product surfaces, and experimental resources are under [Gestalt](https://www.figma.com/files/757008090659779062/team/626524232805730321/Gestalt?fuid=982037494021279625). And if you are curious about what the team is baking, feel free to check out our [Design Systems Figma collection](https://www.figma.com/files/757008090659779062/team/758073086094656143/Design-Systems?fuid=982037494021279625). Feel free to reach out if you have any questions about it!"
+        },
+        {
+          "title": "Say goodbye to food coloring 🍉",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/fe/40/a6/fe40a60cd15b7af081a5c98f01b6c694.png",
+          "imageAltText": "",
+          "content": "In the spirit of consistent, accessible visuals across Pinterest, and better support for dark mode, we've officially deprecated the old, literal colors on Box in favor of our semantic, design-token-based options. This means watermelon is out and primary is in! Check out the [Box documentation](https://gestalt.pinterest.systems/box#Colors) to see all the options, and feel free to reach out if you think a color is missing."
+        },
+        {
+          "title": "More ways to view code in our docs",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/5b/7c/e9/5b7ce9ad92e7b2b7d85587ab7254463a.png",
+          "imageAltText": "Screenshot of docs site showing code under the page header",
+          "content": "We made an update to view the code behind our top-most example on each page. Simply use the expand code button to see the code behind our main page header example. We've also added the ability to view the code behind our Best Practice Do's in a code sandbox (with a future update coming to make it visible on the page itself). Both of these requests came from feedback in our Eng survey, so a huge thank you to everyone who filled it out, and a reminder that we love feedback _anytime_, not just during survey season!"
+        }
+      ]
+    },
+    {
       "week": "July 01, 2022",
       "posts": [
         {
