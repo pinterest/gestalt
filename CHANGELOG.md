@@ -1,3 +1,9 @@
+## 61.0.1 (Jul 9, 2022)
+
+### Patch
+
+- Docs: Blog posts for week of 07/08 (#2193)
+
 ## 61.0.0 (Jul 8, 2022)
 
 ### Major
