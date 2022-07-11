@@ -1,3 +1,9 @@
+## 61.1.0 (Jul 11, 2022)
+
+### Minor
+
+- Docs: New header navigation (#2194)
+
 ## 61.0.1 (Jul 9, 2022)
 
 ### Patch
