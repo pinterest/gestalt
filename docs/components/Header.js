@@ -192,7 +192,6 @@ function Header() {
                 { href: '/accessibility', text: 'Foundations' },
                 { href: '/roadmap', text: 'Roadmap' },
               ]}
-              wrap
             />
           </Flex>
         </Box>
