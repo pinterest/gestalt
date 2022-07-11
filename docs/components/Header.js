@@ -26,7 +26,7 @@ function Header() {
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
 
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(-1);
 
   const anchorRef = useRef(null);
 
@@ -51,6 +51,13 @@ function Header() {
     return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
   };
 
+  useEffect(() => {
+    const algoliaSearchInput = document.querySelector('#algolia-doc-search');
+    if (algoliaSearchInput && isMobileSearchExpandedOpen) {
+      algoliaSearchInput.focus();
+    }
+  }, [isMobileSearchExpandedOpen]);
+
   return (
     <Box
       paddingY={2}
@@ -63,7 +70,7 @@ function Header() {
       alignItems="center"
       role="banner"
     >
-      <Box marginStart={-2} marginEnd={2} display="flex" alignItems="center">
+      <Box marginStart={-2} display="flex" alignItems="center">
         {/* Small-screen menu button */}
         <Box
           display={isMobileSearchExpandedOpen ? 'none' : 'flex'}
@@ -90,15 +97,22 @@ function Header() {
               onClick={() => trackButtonClick('Gestalt logo')}
             >
               <Box paddingX={2}>
-                <Flex alignItems="center" gap={2}>
+                <Flex alignItems="center">
                   <GestaltLogo height={40} width={40} />
                   {/* slight tweak to vertically center to logo */}
                   <Box
                     display="none"
-                    mdDisplay="block"
-                    dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}
+                    lgDisplay="block"
+                    paddingX={1}
+                    dangerouslySetInlineStyle={{
+                      __style: {
+                        marginBottom: '1px',
+                        fontSize: '20px',
+                        color: 'var(--color-green-matchacado-700)',
+                      },
+                    }}
                   >
-                    Gestalt Design System
+                    Gestalt
                   </Box>
                 </Flex>
               </Box>
@@ -192,23 +206,27 @@ function Header() {
           marginStart={2}
           mdMarginStart={0}
         >
-          <Box paddingX={2}>
+          <Box flex="grow" paddingX={2}>
             <DocSearch popoverZIndex={POPOVER_ZINDEX} />
           </Box>
         </Box>
         <Box display="block" mdDisplay="none" marginStart={2}>
           <IconButton
             accessibilityControls="site-settings-dropdown"
-            accessibilityExpanded={isSettingsDropdownOpen}
+            accessibilityExpanded={isMobileSearchExpandedOpen}
             accessibilityHaspopup
             accessibilityLabel="Search Gestalt"
             icon={isMobileSearchExpandedOpen ? 'cancel' : 'search'}
             iconColor="darkGray"
-            onClick={() => setMobileSearchExpanded((prevVal) => !prevVal)}
+            onClick={() => {
+              setMobileSearchExpanded((prevVal) => !prevVal);
+            }}
             ref={anchorRef}
-            selected={isSettingsDropdownOpen}
             size="sm"
-            tooltip={{ 'text': 'Search Gestalt', 'zIndex': POPOVER_ZINDEX }}
+            tooltip={{
+              'text': isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
+              'zIndex': POPOVER_ZINDEX,
+            }}
           />
         </Box>
       </Flex>
