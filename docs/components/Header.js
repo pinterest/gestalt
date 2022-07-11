@@ -62,7 +62,6 @@ function Header() {
     <Box
       paddingY={2}
       paddingX={4}
-      mdPaddingX={6}
       color="default"
       borderStyle="raisedTopShadow"
       display="flex"
@@ -201,7 +200,7 @@ function Header() {
         <Box
           alignItems="center"
           display={isMobileSearchExpandedOpen ? 'flex' : 'none'}
-          mdDisplay="flex"
+          lgDisplay="flex"
           flex="shrink"
           marginStart={2}
           mdMarginStart={0}
@@ -210,7 +209,7 @@ function Header() {
             <DocSearch popoverZIndex={POPOVER_ZINDEX} />
           </Box>
         </Box>
-        <Box display="block" mdDisplay="none" marginStart={2}>
+        <Box display="block" lgDisplay="none" marginStart={2}>
           <IconButton
             accessibilityControls="site-settings-dropdown"
             accessibilityExpanded={isMobileSearchExpandedOpen}
