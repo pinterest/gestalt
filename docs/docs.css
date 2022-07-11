@@ -133,8 +133,7 @@ html[dir="rtl"] .Markdown ul + pre {
   box-sizing: border-box;
   display: inline-block;
   font-family: var(--font-family-default-latin);
-  height: 32px;
-  max-width: 200px;
+  height: 40px;
   min-width: 100px;
   position: relative;
   visibility: visible;
@@ -166,7 +165,7 @@ html[dir="rtl"] .Markdown ul + pre {
   font-family: var(--font-family-default-latin);
   font-size: 16px;
   height: 100%;
-  padding: 0 32px 0 26px;
+  padding: 0 32px 0 40px;
   vertical-align: middle;
   white-space: normal;
   width: 100%;
@@ -311,6 +310,10 @@ html[dir="rtl"] .Markdown ul + pre {
 @media all and (min-width: 768px) {
   .algolia-autocomplete .ds-dropdown-menu {
     min-width: 500px;
+  }
+
+  .searchbox {
+    max-width: 250px;
   }
 }
 

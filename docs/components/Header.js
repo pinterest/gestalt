@@ -4,14 +4,15 @@ import {
   Box,
   CompositeZIndex,
   Dropdown,
-  Flex,
   FixedZIndex,
-  Label,
-  Switch,
-  Text,
+  Flex,
   IconButton,
-  Sticky,
+  Label,
   Link,
+  Sticky,
+  Switch,
+  Tabs,
+  Text,
 } from 'gestalt';
 
 import { useAppContext } from './appContext.js';
@@ -23,6 +24,9 @@ import { useNavigationContext } from './navigationContext.js';
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+  const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
+
+  const [activeTab, setActiveTab] = useState(-1);
 
   const anchorRef = useRef(null);
 
@@ -47,11 +51,17 @@ function Header() {
     return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
   };
 
+  useEffect(() => {
+    const algoliaSearchInput = document.querySelector('#algolia-doc-search');
+    if (algoliaSearchInput && isMobileSearchExpandedOpen) {
+      algoliaSearchInput.focus();
+    }
+  }, [isMobileSearchExpandedOpen]);
+
   return (
     <Box
       paddingY={2}
       paddingX={4}
-      mdPaddingX={6}
       color="default"
       borderStyle="raisedTopShadow"
       display="flex"
@@ -59,30 +69,58 @@ function Header() {
       alignItems="center"
       role="banner"
     >
-      <Box marginStart={-2} marginEnd={2} display="flex" alignItems="center">
-        {/* <Text> is out here to get proper underline styles on link */}
-        <Text color="default" weight="bold">
-          <Link
-            accessibilityLabel="Gestalt home"
-            href="/"
-            onClick={() => trackButtonClick('Gestalt logo')}
-          >
-            <Box paddingX={2}>
-              <Flex alignItems="center" gap={2}>
-                <GestaltLogo height={40} width={40} />
-                {/* slight tweak to vertically center to logo */}
-                <Box
-                  display="none"
-                  mdDisplay="block"
-                  dangerouslySetInlineStyle={{ __style: { marginBottom: '1px' } }}
-                >
-                  Gestalt Design System
-                </Box>
-              </Flex>
-            </Box>
-          </Link>
-        </Text>
-        <Box paddingX={2}>
+      <Box marginStart={-2} display="flex" alignItems="center">
+        {/* Small-screen menu button */}
+        <Box
+          display={isMobileSearchExpandedOpen ? 'none' : 'flex'}
+          mdDisplay="none"
+          alignItems="center"
+        >
+          <IconButton
+            size="md"
+            accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
+            iconColor="darkGray"
+            icon="menu"
+            onClick={() => {
+              window.scrollTo(0, 0);
+              setIsSidebarOpen(!isSidebarOpen);
+            }}
+          />
+        </Box>
+        <Box display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
+          {/* <Text> is out here to get proper underline styles on link */}
+          <Text color="default" weight="bold">
+            <Link
+              accessibilityLabel="Gestalt home"
+              href="/"
+              onClick={() => trackButtonClick('Gestalt logo')}
+            >
+              <Box paddingX={2}>
+                <Flex alignItems="center">
+                  <GestaltLogo height={40} width={40} />
+                  {/* slight tweak to vertically center to logo */}
+                  <Box
+                    display="none"
+                    lgDisplay="block"
+                    paddingX={1}
+                    dangerouslySetInlineStyle={{
+                      __style: {
+                        marginBottom: '1px',
+                        fontSize: '20px',
+                        color: 'var(--color-green-matchacado-700)',
+                      },
+                    }}
+                  >
+                    Gestalt
+                  </Box>
+                </Flex>
+              </Box>
+            </Link>
+          </Text>
+        </Box>
+      </Box>
+      <Flex alignItems="center" justifyContent="end" flex="grow">
+        <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
           <IconButton
             accessibilityControls="site-settings-dropdown"
             accessibilityExpanded={isSettingsDropdownOpen}
@@ -137,30 +175,59 @@ function Header() {
             </Dropdown.Item>
           </Dropdown>
         )}
-      </Box>
 
-      {/* Spacer element */}
-      <Box flex="grow" />
-
-      <Box alignItems="center" display="flex" flex="shrink" marginStart={2} mdMarginStart={0}>
-        <Box paddingX={2}>
-          <DocSearch popoverZIndex={POPOVER_ZINDEX} />
+        <Box display="none" mdDisplay="block" flex="grow">
+          <Flex justifyContent="center">
+            <Tabs
+              activeTabIndex={activeTab}
+              onChange={({ activeTabIndex }) => {
+                setActiveTab(activeTabIndex);
+              }}
+              tabs={[
+                { href: '/about_us', text: 'Get started' },
+                {
+                  href: '/component_overview',
+                  text: 'Components',
+                },
+                { href: '/accessibility', text: 'Foundations' },
+                { href: '/roadmap', text: 'Roadmap' },
+              ]}
+            />
+          </Flex>
         </Box>
 
-        {/* Small-screen menu button */}
-        <Box display="flex" mdDisplay="none" alignItems="center">
+        <Box
+          alignItems="center"
+          display={isMobileSearchExpandedOpen ? 'flex' : 'none'}
+          lgDisplay="flex"
+          flex="shrink"
+          marginStart={2}
+          mdMarginStart={0}
+        >
+          <Box flex="grow" paddingX={2}>
+            <DocSearch popoverZIndex={POPOVER_ZINDEX} />
+          </Box>
+        </Box>
+        <Box display="block" lgDisplay="none" marginStart={2}>
           <IconButton
-            size="md"
-            accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
+            accessibilityControls="site-settings-dropdown"
+            accessibilityExpanded={isMobileSearchExpandedOpen}
+            accessibilityHaspopup
+            accessibilityLabel="Search Gestalt"
+            icon={isMobileSearchExpandedOpen ? 'cancel' : 'search'}
             iconColor="darkGray"
-            icon="menu"
             onClick={() => {
-              window.scrollTo(0, 0);
-              setIsSidebarOpen(!isSidebarOpen);
+              setMobileSearchExpanded((prevVal) => !prevVal);
+            }}
+            ref={anchorRef}
+            size="sm"
+            tooltip={{
+              'text': isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
+              'zIndex': POPOVER_ZINDEX,
             }}
           />
         </Box>
-      </Box>
+      </Flex>
     </Box>
   );
 }

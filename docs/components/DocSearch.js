@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect } from 'react';
-import { CompositeZIndex, Tooltip } from 'gestalt';
+import { Box, CompositeZIndex, Icon, Tooltip } from 'gestalt';
 
 function filterKeyboardEvent(event: KeyboardEvent) {
   const target = event.target || event.srcElement;
@@ -71,6 +71,9 @@ export default function DocSearch({ popoverZIndex }: {| popoverZIndex?: Composit
             placeholder="Search Gestalt"
             aria-label="Search Gestalt docs"
           />
+          <Box position="absolute" top left marginTop={3} marginStart={4}>
+            <Icon icon="search" accessibilityLabel="" size="16" color="default" />
+          </Box>
         </div>
       </form>
     </Tooltip>
