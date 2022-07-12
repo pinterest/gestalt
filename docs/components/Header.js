@@ -107,7 +107,6 @@ function Header() {
                       __style: {
                         marginBottom: '1px',
                         fontSize: '20px',
-                        color: 'var(--color-green-matchacado-700)',
                       },
                     }}
                   >
