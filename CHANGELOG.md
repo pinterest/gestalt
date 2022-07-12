@@ -1,3 +1,9 @@
+## 61.3.1 (Jul 12, 2022)
+
+### Patch
+
+- Roadmap updates for July (#2201)
+
 ## 61.3.0 (Jul 12, 2022)
 
 ### Minor
