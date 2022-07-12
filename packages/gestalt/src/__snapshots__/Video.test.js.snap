@@ -10,126 +10,33 @@ exports[`Video with callbacks 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
-      }
-    }
-  />
-  <div
-    className="__gestaltThemeVideo"
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <video
-      className="video"
-      disableRemotePlayback={false}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="auto"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    >
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
-  </div>
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
 </div>
 `;
 
@@ -143,340 +50,256 @@ exports[`Video with children 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
-      }
-    }
-  />
-  <div
-    className="__gestaltThemeVideo"
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <video
-      className="video"
-      disableRemotePlayback={false}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="auto"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    >
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
+  <div
+    className="absolute bottom0 box left0 overflowHidden right0 top0"
+  >
+    <div>
+      overlay
+    </div>
+  </div>
+  <div
+    className="controls"
+  >
     <div
-      className="absolute bottom0 box left0 overflowHidden right0 top0"
+      className="box paddingX2 paddingY2"
     >
-      <div>
-        overlay
+      <div
+        aria-disabled={false}
+        className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Play"
+          className="icon lightIcon iconBlock"
+          height={20}
+          role="img"
+          viewBox="0 0 24 24"
+          width={20}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
     </div>
     <div
-      className="controls"
+      className="box paddingX2 paddingY2"
     >
       <div
-        className="box paddingX2 paddingY2"
+        aria-disabled={false}
+        className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
-        <div
-          aria-disabled={false}
-          className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyPress={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex={0}
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon lightIcon iconBlock"
+          height={20}
+          role="img"
+          viewBox="0 0 24 24"
+          width={20}
         >
-          <svg
-            aria-hidden={null}
-            aria-label="Play"
-            className="icon lightIcon iconBlock"
-            height={20}
-            role="img"
-            viewBox="0 0 24 24"
-            width={20}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+        <div
+          className="absolute box light marginTop1 rounding4"
+          style={
+            Object {
+              "height": 2,
+              "width": 20,
+            }
+          }
+        />
       </div>
+    </div>
+    <div
+      className="box paddingX2 paddingY2"
+      style={
+        Object {
+          "width": 50,
+        }
+      }
+    >
       <div
-        className="box paddingX2 paddingY2"
+        className="Text fontSize100 lightText alignEnd fontWeightNormal"
       >
-        <div
-          aria-disabled={false}
-          className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyPress={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex={0}
-        >
-          <svg
-            aria-hidden={true}
-            aria-label=""
-            className="rtlSupport icon lightIcon iconBlock"
-            height={20}
-            role="img"
-            viewBox="0 0 24 24"
-            width={20}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+        00:00
       </div>
+    </div>
+    <div
+      className="box flexGrow paddingX2 paddingY2"
+    >
       <div
-        className="box paddingX2 paddingY2"
+        className="box flexGrow itemsCenter relative xsDisplayFlex"
         style={
           Object {
-            "width": 50,
+            "height": 16,
           }
         }
       >
         <div
-          className="Text fontSize100 lightText alignEnd fontWeightNormal"
-        >
-          00:00
-        </div>
-      </div>
-      <div
-        className="box flexGrow paddingX2 paddingY2"
-      >
-        <div
-          className="box flexGrow itemsCenter relative xsDisplayFlex"
-          style={
-            Object {
-              "height": 16,
-            }
-          }
+          aria-label="Progress bar"
+          aria-valuemax={0}
+          aria-valuemin="0"
+          aria-valuenow={0}
+          className="playhead"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseMove={[Function]}
+          onMouseUp={[Function]}
+          role="progressbar"
+          tabIndex="-1"
         >
           <div
-            aria-label="Progress bar"
-            aria-valuemax={0}
-            aria-valuemin="0"
-            aria-valuenow={0}
-            className="playhead"
-            onClick={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseMove={[Function]}
-            onMouseUp={[Function]}
-            role="progressbar"
-            tabIndex="-1"
+            className="absolute box left0 right0 rounding2 secondary"
+            style={
+              Object {
+                "height": 4,
+              }
+            }
           >
             <div
-              className="absolute box left0 right0 rounding2 secondary"
+              className="box light rounding2"
               style={
                 Object {
-                  "height": 4,
+                  "height": "100%",
+                  "width": "NaN%",
                 }
               }
-            >
-              <div
-                className="box default rounding2"
-                style={
-                  Object {
-                    "height": "100%",
-                    "width": "NaN%",
-                  }
-                }
-              />
-            </div>
+            />
+          </div>
+          <div
+            className="absolute box rounding2"
+            style={
+              Object {
+                "height": 4,
+                "left": "NaN%",
+              }
+            }
+          >
             <div
-              className="absolute box rounding2"
+              className="box circle light marginStartN2"
               style={
                 Object {
-                  "height": 4,
-                  "left": "NaN%",
+                  "height": 16,
+                  "marginTop": -6,
+                  "width": 16,
                 }
               }
-            >
-              <div
-                className="box circle default marginStartN2"
-                style={
-                  Object {
-                    "height": 16,
-                    "marginTop": -6,
-                    "width": 16,
-                  }
-                }
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
-      <div
-        className="box paddingX2 paddingY2"
-        style={
-          Object {
-            "width": 50,
-          }
+    </div>
+    <div
+      className="box paddingX2 paddingY2"
+      style={
+        Object {
+          "width": 50,
         }
-      >
-        <div
-          className="Text fontSize100 lightText alignEnd fontWeightNormal"
-        >
-          00:00
-        </div>
-      </div>
+      }
+    >
       <div
-        className="box paddingX2 paddingY2"
+        className="Text fontSize100 lightText alignEnd fontWeightNormal"
       >
-        <div
-          aria-disabled={false}
-          className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyPress={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex={0}
+        00:00
+      </div>
+    </div>
+    <div
+      className="box paddingX2 paddingY2"
+    >
+      <div
+        aria-disabled={false}
+        className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Unmute"
+          className="icon lightIcon iconBlock"
+          height={20}
+          role="img"
+          viewBox="0 0 24 24"
+          width={20}
         >
-          <svg
-            aria-hidden={null}
-            aria-label="Unmute"
-            className="icon lightIcon iconBlock"
-            height={20}
-            role="img"
-            viewBox="0 0 24 24"
-            width={20}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
     </div>
   </div>
@@ -493,127 +316,33 @@ exports[`Video with crossOrigin 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
-      }
-    }
-  />
-  <div
-    className="__gestaltThemeVideo"
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <video
-      className="video"
-      crossOrigin="anonymous"
-      disableRemotePlayback={false}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="auto"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    >
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
-  </div>
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
 </div>
 `;
 
@@ -627,127 +356,34 @@ exports[`Video with media attributes 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
-      }
-    }
-  />
-  <div
-    className="__gestaltThemeVideo"
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    loop={true}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="metadata"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <video
-      className="video"
-      disableRemotePlayback={false}
-      loop={true}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="metadata"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    >
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
-  </div>
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
 </div>
 `;
 
@@ -761,133 +397,40 @@ exports[`Video with multiple sources 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
-      }
-    }
-  />
-  <div
-    className="__gestaltThemeVideo"
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="auto"
   >
-    <video
-      className="video"
-      disableRemotePlayback={false}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="auto"
-    >
-      <source
-        src="https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
-        type="video/mp4"
-      />
-      <source
-        src="https://archive.org/download/ElephantsDream/ed_hd.ogv"
-        type="video/ogg"
-      />
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
-  </div>
+    <source
+      src="https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
+      type="video/mp4"
+    />
+    <source
+      src="https://archive.org/download/ElephantsDream/ed_hd.ogv"
+      type="video/ogg"
+    />
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
 </div>
 `;
 
@@ -901,131 +444,38 @@ exports[`Video with objectFit 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    style={
       Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
+        "objectFit": "contain",
       }
     }
-  />
-  <div
-    className="__gestaltThemeVideo"
   >
-    <video
-      className="video"
-      disableRemotePlayback={false}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="auto"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      style={
-        Object {
-          "objectFit": "contain",
-        }
-      }
-    >
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
-  </div>
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
 </div>
 `;
 
@@ -1039,126 +489,33 @@ exports[`Video with source 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
-      }
-    }
-  />
-  <div
-    className="__gestaltThemeVideo"
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <video
-      className="video"
-      disableRemotePlayback={false}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="auto"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    >
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
-  </div>
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
 </div>
 `;
 
@@ -1172,125 +529,32 @@ exports[`Video with startTime 1`] = `
     }
   }
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": ".__gestaltThemeVideo {
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
-  --g-colorRed100Active: #a3081a;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorGray0: #fff;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200: #767676;
-  --g-colorGray200Active: #828282;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
-  --color-text-default: #111111;
-  --color-text-subtle: #767676;
-  --color-text-success: #005f3e;
-  --color-text-error: #cc0000;
-  --color-text-warning: #bd5b00;
-  --color-text-inverse: #ffffff;
-  --color-text-shopping: #0074e8;
-  --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
-  --color-background-default: #ffffff;
-  --color-background-info-base: #0074e8;
-  --color-background-info-weak: #d7edff;
-  --color-background-error-base: #cc0000;
-  --color-background-error-weak: #ffe0e0;
-  --color-background-warning-base: #bd5b00;
-  --color-background-warning-weak: #ffe4c1;
-  --color-background-success-base: #008753;
-  --color-background-success-weak: #c3f9c2;
-  --color-background-recommendation-base: #812ae7;
-  --color-background-recommendation-weak: #e9e4ff;
-  --color-background-shopping: #0074e8;
-  --color-background-secondary-base: #e9e9e9;
-  --color-background-tertiary-base: #767676;
-  --color-background-selected-base: #111111;
-  --color-background-inverse-base: #111111;
-  --color-background-education: #0074e8;
-  --color-background-elevation-accent: #f1f1f1;
-  --color-background-elevation-floating: rgba(0, 0, 0, 0);
-  --color-background-elevation-raised: rgba(0, 0, 0, 0);
-  --color-border-container: #cdcdcd;
-  --color-border-default: #767676;
-  --color-border-error: #cc0000;
-  --color-data-visualization-10: #9e68ff;
-  --color-data-visualization-11: #008753;
-  --color-data-visualization-12: #630233;
-  --color-data-visualization-primary: #003c96;
-  --color-data-visualization-success-graph: #008753;
-  --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error: #cc0000;
-  --color-data-visualization-01: #009990;
-  --color-data-visualization-02: #d86800;
-  --color-data-visualization-03: #6b16ca;
-  --color-data-visualization-04: #de2c62;
-  --color-data-visualization-05: #003c96;
-  --color-data-visualization-06: #a42700;
-  --color-data-visualization-07: #0074e8;
-  --color-data-visualization-08: #de3700;
-  --color-data-visualization-09: #005c62;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
- }",
-      }
-    }
-  />
-  <div
-    className="__gestaltThemeVideo"
+  <video
+    className="video"
+    crossOrigin="anonymous"
+    disableRemotePlayback={false}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onEnded={[Function]}
+    onError={[Function]}
+    onLoadStart={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onPlaying={[Function]}
+    onProgress={[Function]}
+    onSeeked={[Function]}
+    onSeeking={[Function]}
+    onStalled={[Function]}
+    onTimeUpdate={[Function]}
+    onWaiting={[Function]}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <video
-      className="video"
-      disableRemotePlayback={false}
-      muted={true}
-      onCanPlay={[Function]}
-      onDurationChange={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onLoadStart={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onPlaying={[Function]}
-      onProgress={[Function]}
-      onSeeked={[Function]}
-      onSeeking={[Function]}
-      onStalled={[Function]}
-      onTimeUpdate={[Function]}
-      onWaiting={[Function]}
-      preload="auto"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    >
-      <track
-        kind="captions"
-        src="https://media.w3.org/2010/05/sintel/captions.vtt"
-      />
-    </video>
-  </div>
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
 </div>
 `;

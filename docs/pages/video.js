@@ -38,9 +38,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Captions"
-          description={`Warning: Captions aren't currently supported.
-
-Captions are intended for deaf and hard-of-hearing audiences. Captions are usually in the same language as the audio. Please, reade the [differences between captions and subtitles](https://web.archive.org/web/20160117160743/http://screenfont.ca/learn/).
+          description={`Captions are intended for deaf and hard-of-hearing audiences. Captions are usually in the same language as the audio. Please, read the [differences between captions and subtitles](https://web.archive.org/web/20160117160743/http://screenfont.ca/learn/).
 
 Read more about [adding captions to video](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video#html5_and_video_captions).
 
@@ -87,7 +85,6 @@ function Example () {
           description={`Video requires several accessibility labels for each video control: \`accessibilityMaximizeLabel\`, \`accessibilityMinimizeLabel\`, \`accessibilityMuteLabel\`, \`accessibilityPauseLabel\`, \`accessibilityPlayLabel\`, \`accessibilityProgressBarLabel\` and \`accessibilityUnmuteLabel\`.
 
 If the video contain captions, it also requires \`accessibilityHideCaptionsLabel\` and \`accessibilityShowCaptionsLabel\`.
-.
 `}
         />
       </AccessibilitySection>
@@ -192,7 +189,7 @@ function Example() {
               alignItems="center"
               dangerouslySetInlineStyle={{ __style: { backgroundColor: 'rgba(0, 0, 0, 0.3)' } }}
             >
-              <IconButton accessibilityLabel="Love" bgColor="white" icon="play" size="lg" />
+              <IconButton accessibilityLabel="Play video" bgColor="white" icon="play" size="lg" />
             </Box>
           ) : null}
         </Video>
@@ -232,7 +229,7 @@ function Example() {
       alignItems="center"
       dangerouslySetInlineStyle={{__style:{backgroundColor:'rgba(0, 0, 0, 0.3)'}}}>
         <IconButton
-          accessibilityLabel="Love"
+          accessibilityLabel="Delete video"
           bgColor="white"
           icon="trash-can"
           size="lg" />
@@ -329,7 +326,7 @@ function Example () {
   const [playing, setPlaying] = React.useState(false);
 
   return (
-    <Box width={300}>
+    <Box width={500}>
       <Video
         accessibilityMaximizeLabel="Maximize"
         accessibilityMinimizeLabel="Minimize"

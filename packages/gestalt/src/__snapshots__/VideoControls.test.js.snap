@@ -90,7 +90,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           }
         >
           <div
-            className="box default rounding2"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -109,7 +109,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           }
         >
           <div
-            className="box circle default marginStartN2"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -266,7 +266,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           }
         >
           <div
-            className="box default rounding2"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -285,7 +285,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           }
         >
           <div
-            className="box circle default marginStartN2"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -442,7 +442,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           }
         >
           <div
-            className="box default rounding2"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -461,7 +461,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           }
         >
           <div
-            className="box circle default marginStartN2"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -618,7 +618,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           }
         >
           <div
-            className="box default rounding2"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -637,7 +637,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           }
         >
           <div
-            className="box circle default marginStartN2"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -794,7 +794,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           }
         >
           <div
-            className="box default rounding2"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -813,7 +813,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           }
         >
           <div
-            className="box circle default marginStartN2"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,

@@ -2,7 +2,6 @@
 import { PureComponent, type Node } from 'react';
 import classnames from 'classnames';
 import VideoControls from './VideoControls.js';
-import ColorSchemeProvider from './contexts/ColorSchemeProvider.js';
 import styles from './Video.css';
 import colors from './Colors.css';
 import Box from './Box.js';
@@ -700,7 +699,16 @@ export default class Video extends PureComponent<Props, State> {
     } = this.props;
     const { currentTime, duration, fullscreen, captionsButton } = this.state;
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
-
+    let crossOriginPolicy = crossOrigin || undefined;
+    if (captions && crossOriginPolicy !== 'anonymous') {
+      if (crossOriginPolicy === undefined) {
+        crossOriginPolicy = 'anonymous';
+      } else {
+        throw new Error(
+          `"The crossOrigin policy must be set to 'anonymous' for captions to work."`,
+        );
+      }
+    }
     const playerClasses = classnames(styles.player, {
       [colors.blackBg]: backgroundColor === 'black',
       [colors.transparentBg]: backgroundColor === 'transparent',
@@ -711,75 +719,73 @@ export default class Video extends PureComponent<Props, State> {
         className={playerClasses}
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
-        <ColorSchemeProvider id="Video" colorScheme="light">
-          <video
-            autoPlay={autoplay}
-            className={styles.video}
-            {...((crossOrigin ? { crossOrigin } : { ...null }): {|
-              crossOrigin?: CrossOrigin,
-            |})}
-            disableRemotePlayback={disableRemotePlayback}
-            loop={loop}
-            muted={volume === 0}
-            {...(objectFit ? { style: { objectFit } } : null)}
-            onCanPlay={this.handleCanPlay}
-            onDurationChange={this.handleDurationChange}
-            onEnded={this.handleEnded}
-            onError={this.handleError}
-            onLoadStart={this.handleLoadStart}
-            onPlay={this.handlePlay}
-            onPause={this.handlePause}
-            onPlaying={this.handlePlaying}
-            onProgress={this.handleProgress}
-            onSeeked={this.handleSeek}
-            onSeeking={this.handleSeeking}
-            onStalled={this.handleStalled}
-            onTimeUpdate={this.handleTimeUpdate}
-            onWaiting={this.handleWaiting}
-            playsInline={playsInline}
-            poster={poster}
-            preload={preload}
-            src={typeof src === 'string' ? src : undefined}
-            ref={this.setVideoRef}
-          >
-            {Array.isArray(src) &&
-              src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
-            <track kind="captions" src={captions} />
-          </video>
-          {Boolean(children) && (
-            <Box position="absolute" top left bottom right overflow="hidden">
-              {children}
-            </Box>
-          )}
-          {/* Need to use full path for these props so Flow can infer correct subtype */}
-          {this.props.controls && (
-            <VideoControls
-              accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
-              accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
-              accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
-              accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
-              accessibilityMuteLabel={this.props.accessibilityMuteLabel}
-              accessibilityPauseLabel={this.props.accessibilityPauseLabel}
-              accessibilityPlayLabel={this.props.accessibilityPlayLabel}
-              accessibilityProgressBarLabel={this.props.accessibilityProgressBarLabel}
-              accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
-              captionsButton={captionsButton}
-              currentTime={currentTime}
-              duration={duration}
-              fullscreen={fullscreen}
-              onCaptionsChange={this.toggleCaptions}
-              onPlay={this.handleControlsPlay}
-              onPlayheadDown={this.handlePlayheadDown}
-              onPlayheadUp={this.handlePlayheadUp}
-              onPause={this.handleControlsPause}
-              onFullscreenChange={this.toggleFullscreen}
-              onVolumeChange={this.handleVolumeChange}
-              playing={playing}
-              seek={this.seek}
-              volume={volume}
-            />
-          )}
-        </ColorSchemeProvider>
+        <video
+          autoPlay={autoplay}
+          className={styles.video}
+          {...({ crossOrigin: crossOriginPolicy }: {|
+            crossOrigin?: CrossOrigin,
+          |})}
+          disableRemotePlayback={disableRemotePlayback}
+          loop={loop}
+          muted={volume === 0}
+          {...(objectFit ? { style: { objectFit } } : null)}
+          onCanPlay={this.handleCanPlay}
+          onDurationChange={this.handleDurationChange}
+          onEnded={this.handleEnded}
+          onError={this.handleError}
+          onLoadStart={this.handleLoadStart}
+          onPlay={this.handlePlay}
+          onPause={this.handlePause}
+          onPlaying={this.handlePlaying}
+          onProgress={this.handleProgress}
+          onSeeked={this.handleSeek}
+          onSeeking={this.handleSeeking}
+          onStalled={this.handleStalled}
+          onTimeUpdate={this.handleTimeUpdate}
+          onWaiting={this.handleWaiting}
+          playsInline={playsInline}
+          poster={poster}
+          preload={preload}
+          src={typeof src === 'string' ? src : undefined}
+          ref={this.setVideoRef}
+        >
+          {Array.isArray(src) &&
+            src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
+          <track kind="captions" src={captions} />
+        </video>
+        {Boolean(children) && (
+          <Box position="absolute" top left bottom right overflow="hidden">
+            {children}
+          </Box>
+        )}
+        {/* Need to use full path for these props so Flow can infer correct subtype */}
+        {this.props.controls && (
+          <VideoControls
+            accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
+            accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
+            accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
+            accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
+            accessibilityMuteLabel={this.props.accessibilityMuteLabel}
+            accessibilityPauseLabel={this.props.accessibilityPauseLabel}
+            accessibilityPlayLabel={this.props.accessibilityPlayLabel}
+            accessibilityProgressBarLabel={this.props.accessibilityProgressBarLabel}
+            accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
+            captionsButton={captionsButton}
+            currentTime={currentTime}
+            duration={duration}
+            fullscreen={fullscreen}
+            onCaptionsChange={this.toggleCaptions}
+            onPlay={this.handleControlsPlay}
+            onPlayheadDown={this.handlePlayheadDown}
+            onPlayheadUp={this.handlePlayheadUp}
+            onPause={this.handleControlsPause}
+            onFullscreenChange={this.toggleFullscreen}
+            onVolumeChange={this.handleVolumeChange}
+            playing={playing}
+            seek={this.seek}
+            volume={volume}
+          />
+        )}
       </div>
     );
   }

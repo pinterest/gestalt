@@ -80,6 +80,7 @@ const flipOnRtlIconNames = [
   'speech-ellipsis',
   'switch-account',
   'text-size',
+  'visit',
 ];
 
 /**
