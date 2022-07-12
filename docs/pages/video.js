@@ -65,7 +65,6 @@ function Example () {
         accessibilityUnmuteLabel="Unmute"
         accessibilityHideCaptionsLabel="Hide captions"
         accessibilityShowCaptionsLabel="Show captions"
-        crossOrigin="anonymous"
         aspectRatio={1024 / 435}
         captions="https://iandevlin.github.io/mdn/video-player-with-captions/subtitles/vtt/sintel-en.vtt"
         controls

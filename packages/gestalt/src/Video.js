@@ -700,7 +700,14 @@ export default class Video extends PureComponent<Props, State> {
     } = this.props;
     const { currentTime, duration, fullscreen, captionsButton } = this.state;
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
-
+    let crossOriginPolicy = crossOrigin || undefined;
+    if (captions) {
+      if (!crossOriginPolicy) {
+        crossOriginPolicy = 'anonymous';
+      } else {
+        console.warn("The crossOrigin policy must be set to 'anonymous' for captions to work.");
+      }
+    }
     const playerClasses = classnames(styles.player, {
       [colors.blackBg]: backgroundColor === 'black',
       [colors.transparentBg]: backgroundColor === 'transparent',
@@ -715,7 +722,7 @@ export default class Video extends PureComponent<Props, State> {
           <video
             autoPlay={autoplay}
             className={styles.video}
-            {...((crossOrigin ? { crossOrigin } : { ...null }): {|
+            {...({ crossOrigin: crossOriginPolicy }: {|
               crossOrigin?: CrossOrigin,
             |})}
             disableRemotePlayback={disableRemotePlayback}

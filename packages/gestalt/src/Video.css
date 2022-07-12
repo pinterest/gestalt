@@ -5,6 +5,10 @@
   height: 100%;
 }
 
+::cue {
+  ruby-position: over;
+}
+
 .player {
   composes: relative from "./Layout.css";
   composes: xsCol12 from "./Column.css";
@@ -19,6 +23,7 @@
 }
 
 .controls {
+  display: none;
   composes: absolute from "./Layout.css";
   composes: flex from "./Layout.css";
   composes: itemsCenter from "./Layout.css";
