@@ -46,7 +46,7 @@ exports[`external link with nofollow 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="icon defaultIcon"
+      className="rtlSupport icon defaultIcon"
       height={16}
       role="img"
       viewBox="0 0 24 24"
