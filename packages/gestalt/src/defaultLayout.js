@@ -42,8 +42,7 @@ const defaultLayout =
     minCols?: number,
     rawItemCount: number,
     width?: ?number,
-    // $FlowFixMe[unclear-type]
-  |}): ((items: $ReadOnlyArray<*>) => $ReadOnlyArray<Position>) =>
+  |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
   (items): $ReadOnlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));
