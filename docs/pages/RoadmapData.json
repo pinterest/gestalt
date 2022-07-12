@@ -316,7 +316,7 @@
     {
       "task": "Heading component design guidelines",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Heading web documentation.",
       "link": ""
@@ -324,7 +324,7 @@
     {
       "task": "Text component design guidelines",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Text web documentation.",
       "link": ""
@@ -364,7 +364,7 @@
     {
       "task": "Typographic visual guidelines",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "",
       "description": "Publish guidelines and best practices for typographic treatment within Gestalt.",
       "link": ""
@@ -372,7 +372,7 @@
     {
       "task": "Component scorecard",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "",
       "description": "Provide detailed info on the status and health of each component in the Gestalt docs.",
       "link": ""
