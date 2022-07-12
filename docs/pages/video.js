@@ -38,9 +38,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Captions"
-          description={`Warning: Captions aren't currently supported.
-
-Captions are intended for deaf and hard-of-hearing audiences. Captions are usually in the same language as the audio. Please, read the [differences between captions and subtitles](https://web.archive.org/web/20160117160743/http://screenfont.ca/learn/).
+          description={`Captions are intended for deaf and hard-of-hearing audiences. Captions are usually in the same language as the audio. Please, read the [differences between captions and subtitles](https://web.archive.org/web/20160117160743/http://screenfont.ca/learn/).
 
 Read more about [adding captions to video](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video#html5_and_video_captions).
 
