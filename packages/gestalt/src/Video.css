@@ -5,10 +5,6 @@
   height: 100%;
 }
 
-.video::cue {
-  margin-bottom: 30px;
-}
-
 .player {
   composes: relative from "./Layout.css";
   composes: xsCol12 from "./Column.css";
