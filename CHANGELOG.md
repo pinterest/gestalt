@@ -1,3 +1,9 @@
+## 61.2.2 (Jul 12, 2022)
+
+### Patch
+
+- Masonry: Fix internal only flow issues (#2197)
+
 ## 61.2.1 (Jul 12, 2022)
 
 ### Patch
