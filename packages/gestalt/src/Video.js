@@ -700,8 +700,8 @@ export default class Video extends PureComponent<Props, State> {
     const { currentTime, duration, fullscreen, captionsButton } = this.state;
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
     let crossOriginPolicy = crossOrigin || undefined;
-    if (captions) {
-      if (!crossOriginPolicy) {
+    if (captions && crossOriginPolicy !== 'anonymous') {
+      if (crossOriginPolicy === undefined) {
         crossOriginPolicy = 'anonymous';
       } else {
         throw new Error(
