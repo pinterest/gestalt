@@ -1,3 +1,9 @@
+## 61.2.1 (Jul 12, 2022)
+
+### Patch
+
+- Docs: Header tweak (#2196)
+
 ## 61.2.0 (Jul 12, 2022)
 
 ### Minor
