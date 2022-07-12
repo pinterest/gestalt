@@ -1,3 +1,9 @@
+## 61.2.0 (Jul 12, 2022)
+
+### Minor
+
+- SideNavigation: new component (V1) (#2185)
+
 ## 61.1.0 (Jul 11, 2022)
 
 ### Minor
