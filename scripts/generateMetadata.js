@@ -29,7 +29,6 @@ async function docgen(filePath) {
   // Not all files have data to parse
   try {
     const parsed = reactDocs.parse(contents);
-
     if (parsed.description) {
       parsed.description = parsed.description
         // Remove the first markdown link from the description so we don't link to the page itself
@@ -67,7 +66,6 @@ const getFilesFromDirectory = (directoryPath) => {
   // Specific files that need to be added outside gestalt/src folder.
   // When adding a new folder/file also add to dev-metadata command in package.json
   const extraFiles = ['/packages/gestalt-datepicker/src/DatePicker.js'];
-
   const files = [...getFilesFromDirectory('/packages/gestalt/src/'), ...extraFiles];
 
   const parsedDataArray = await Promise.all(

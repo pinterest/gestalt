@@ -50,6 +50,7 @@ import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
 import Sheet from './Sheet.js';
+import SideNavigation from './SideNavigation.js';
 import SlimBanner from './SlimBanner.js';
 import Spinner from './Spinner.js';
 import Status from './Status.js';
@@ -123,6 +124,7 @@ export {
   SegmentedControl,
   SelectList,
   Sheet,
+  SideNavigation,
   SlimBanner,
   Spinner,
   Status,

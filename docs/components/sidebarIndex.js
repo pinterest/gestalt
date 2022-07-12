@@ -122,7 +122,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Navigation',
-    pages: ['PageHeader', 'SegmentedControl', 'Tabs'],
+    pages: ['PageHeader', 'SegmentedControl', 'SideNavigation', 'Tabs'],
   },
   {
     sectionName: 'Pins & Imagery',
