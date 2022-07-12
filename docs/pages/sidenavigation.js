@@ -23,7 +23,7 @@ export default function SideNavigationPage({
 <SideNavigation accessibilityLabel="Main example">
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="bell"
     item={{ label: 'Notifications', value: 'notifications' }}
     counter={{ number: '20', accessibilityLabel: 'You have 20 notifications in your inbox' }}
@@ -31,7 +31,7 @@ export default function SideNavigationPage({
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="speech"
     item={{ label: 'Messages', value: 'messages' }}
     counter={{ number: '10', accessibilityLabel: 'You have 10 messages in your inbox' }}
@@ -39,19 +39,19 @@ export default function SideNavigationPage({
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="cog"
     item={{ label: 'Settings', value: 'settings' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="lock"
     item={{ label: 'Business Access', value: 'business' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="add-layout"
     item={{ label: 'Tune your home feed', value: 'tune_homefeed' }}
     badge={{ text: 'New', type: 'info' }}
@@ -130,7 +130,7 @@ function Example() {
 <SideNavigation accessibilityLabel="Localization example">
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="bell"
     item={{ label: 'Benachrichtigungen', value: 'benachrichtigungen' }}
     counter={{ number: '20', accessibilityLabel: 'Sie haben 20 Benachrichtigungen' }}
@@ -138,7 +138,7 @@ function Example() {
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="speech"
     item={{ label: 'Mitteilungen', value: 'notifications' }}
     counter={{ number: '10', accessibilityLabel: 'Sie haben 10 Nachrichten' }}
@@ -146,19 +146,19 @@ function Example() {
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="cog"
     item={{ label: 'Einstellungen', value: 'messages' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="lock"
     item={{ label: 'Geschäftszugriff', value: 'settings' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="add-layout"
     item={{ label: 'Optimieren Sie Ihren Home-Feed', value: 'tune_homefeed' }}
     badge={{ text: 'New', type: 'info' }}
@@ -482,33 +482,33 @@ function Example() {
 <SideNavigation accessibilityLabel="Icons example">
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="bell"
     item={{ label: 'Notifications', value: 'notifications' }}
     counter={{ number: '20', accessibilityLabel: 'You have 20 notifications' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="speech"
     item={{ label: 'Messages', value: 'messages' }}
     counter={{ number: '10', accessibilityLabel: 'You have 10 messages' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="cog"
     item={{ label: 'Settings', value: 'settings' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="lock"
     item={{ label: 'Business Access', value: 'business' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon="add-layout"
     item={{ label: 'Tune your home feed', value: 'tune_homefeed' }}
   />
@@ -521,14 +521,14 @@ function Example() {
 <SideNavigation accessibilityLabel="Custom icons example">
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon={{ __path: 'M14 17.5c0 1.378-1.122 2.5-2.5 2.5A2.503 2.503 0 0 1 9 17.5V17h5v.5zm8.947-1.87L18.701 2.712a1.022 1.022 0 0 0-1.566-.521l-15.7 11.24c-.37.264-.525.744-.382 1.179l.551 1.678c.14.425.532.712.974.712H7v.5a4.5 4.5 0 0 0 9 0V17h5.973c.7 0 1.195-.696.974-1.37z'}}
     item={{ label: 'Notifications', value: 'notifications' }}
     counter={{ number: '20', accessibilityLabel: 'You have 20 notifications' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon={{ __path: 'M0 6a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4zm3.52-.88 7.53 6.16a1.5 1.5 0 0 0 1.9 0l7.53-6.16A1 1 0 0 0 20 5H4a1 1 0 0 0-.48.12zM3 8.57V18a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8.57l-6.15 5.04a4.5 4.5 0 0 1-5.7 0z'}}
     item={{ label: 'Messages', value: 'messages' }}
     counter={{ number: '10', accessibilityLabel: 'You have 10 messages' }}
@@ -536,19 +536,19 @@ function Example() {
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon={{ __path: 'm2.337 19.942 5.671-1.977L19.265 6.706c.981-.98.981-2.57 0-3.55l-1.42-1.421a2.51 2.51 0 0 0-3.55 0L3.036 12.992l-1.978 5.671a1.005 1.005 0 0 0 1.279 1.279M23 22c0 .55-.45 1-1 1H2c-.55 0-1-.45-1-1s.45-1 1-1h20c.55 0 1 .45 1 1'}}
     item={{ label: 'Settings', value: 'settings' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
     item={{ label: 'Business Access', value: 'business' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     icon={{ __path: 'M5 1h5.75v22H5c-2.2 0-4-1.8-4-4V5c0-2.2 1.8-4 4-4zm18 4v5.75h-9.75V1H19c2.2 0 4 1.8 4 4zm-9.75 8.25H23V19c0 2.2-1.8 4-4 4h-5.75z'}}
     item={{ label: 'Tune your home feed', value: 'tune_homefeed' }}
   />
@@ -562,31 +562,31 @@ function Example() {
 <SideNavigation accessibilityLabel="Notification example">
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Notifications', value: 'notifications' }}
     counter={{ number: '20', accessibilityLabel: 'You have 20 notifications in your inbox' }}
     notificationAccessibilityLabel="New notifications"
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Messages', value: 'messages' }}
     counter={{ number: '10', accessibilityLabel: 'You have 10 messages in your inbox' }}
     notificationAccessibilityLabel="New messages"
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Settings', value: 'settings' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Business Access', value: 'business' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Tune your home feed', value: 'tune_homefeed' }}
   />
 </SideNavigation>`}
@@ -599,23 +599,89 @@ function Example() {
 <SideNavigation accessibilityLabel="Counters example">
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Under review', value: 'review' }}
     counter={{ number: '20', accessibilityLabel: 'You have 20 Idea Pins under review' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Drafts', value: 'draft' }}
     counter={{ number: '5', accessibilityLabel: 'You have 5 Idea Pins drafts' }}
   />
   <SideNavigation.Item
     href="#"
-    onSelect={({ event }) => event.preventDefault}
+    onSelect={({ event }) => event.preventDefault()}
     item={{ label: 'Published', value: 'published' }}
     counter={{ number: '200', accessibilityLabel: 'You have published 200 Idea Pins' }}
   />
 </SideNavigation>`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Nested items">
+          <MainSection.Card
+            shaded
+            defaultCode={`
+<Box height={300} overflow="scroll">
+  <SideNavigation accessibilityLabel="Nested items example">
+    <SideNavigation.Item
+      href="#"
+      onSelect={({ event }) => event.preventDefault()}
+      item={{ label: 'Reporting', value: 'reporting' }}
+      icon="ads-stats"
+    />
+    <SideNavigation.Item
+      href="#"
+      onSelect={({ event }) => event.preventDefault()}
+      item={{ label: 'Conversions', value: 'conversions' }}
+      icon="replace"
+    />
+    <SideNavigation.Section label="Audiences">
+      <SideNavigation.Item
+        href="#"
+        onSelect={({ event }) => event.preventDefault()}
+        item={{ label: 'Thanksgiving', value: 'thanksgiving' }}
+        icon="people"
+      />
+      <SideNavigation.ExpandableItem
+        onSelect={({ event }) => event.preventDefault()}
+        item={{ label: 'Christmas', value: 'christmas' }}
+        icon="people"
+      >
+        <SideNavigation.ExpandableNestedItem
+          onSelect={({ event }) => event.preventDefault()}
+          item={{ label: 'Classic Christmas', value: 'classic' }}
+        >
+          <SideNavigation.NestedItem
+            href="#"
+            onSelect={({ event }) => event.preventDefault()}
+            item={{ label: 'West Coast', value: 'classic-west-coast' }}
+          />
+          <SideNavigation.NestedItem
+            href="#"
+            onSelect={({ event }) => event.preventDefault()}
+            item={{ label: 'East Coast', value: 'classic-east-coast' }}
+        />
+        </SideNavigation.ExpandableNestedItem>
+        <SideNavigation.ExpandableNestedItem
+          onSelect={({ event }) => event.preventDefault()}
+          item={{ label: 'Alternative Christmas', value: 'alternative' }}
+        >
+          <SideNavigation.NestedItem
+            href="#"
+            onSelect={({ event }) => event.preventDefault()}
+            item={{ label: 'West Coast', value: 'alternative-west-coast' }}
+          />
+          <SideNavigation.NestedItem
+            href="#"
+            onSelect={({ event }) => event.preventDefault()}
+            item={{ label: 'East Coast', value: 'alternative-east-coast' }}
+        />
+        </SideNavigation.ExpandableNestedItem>
+      </SideNavigation.ExpandableItem>
+    </SideNavigation.Section>
+  </SideNavigation>
+</Box>`}
           />
         </MainSection.Subsection>
       </MainSection>

@@ -42,8 +42,8 @@ export default function HomePage(): Node {
               </Box>
             </Box>
           </IllustrationSection>
-          {/* Getting Started */}
-          <IllustrationSection title="Getting started">
+          {/* Get started */}
+          <IllustrationSection title="Get started">
             <IllustrationCard
               title="Design"
               href="/design"

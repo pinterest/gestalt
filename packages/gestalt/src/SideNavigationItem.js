@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { useState, useId, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import TapArea from './TapArea.js';
@@ -9,6 +9,14 @@ import Flex from './Flex.js';
 import Text from './Text.js';
 import Box from './Box.js';
 import icons from './icons/index.js';
+import { useNesting } from './contexts/NestingProvider.js';
+import { useSideNavigation } from './contexts/SideNavigationProvider.js';
+
+export const NESTING_MARGIN_START_MAP = {
+  '0': '16px',
+  '1': '48px',
+  '2': '68px',
+};
 
 type Props = {|
   /**
@@ -71,6 +79,11 @@ export default function SideNavigationItem({
   notificationAccessibilityLabel,
   onSelect,
 }: Props): Node {
+  const { nestedLevel } = useNesting();
+  const { setSelectedItemId } = useSideNavigation();
+
+  const itemId = useId();
+
   const [hovered, setHovered] = useState(false);
 
   let itemColor = active ? 'selected' : undefined;
@@ -93,16 +106,24 @@ export default function SideNavigationItem({
         role="link"
         rounding={2}
         tapStyle="compress"
-        onTap={({ event }) => onSelect?.({ event, item })}
+        onTap={({ event }) => {
+          setSelectedItemId(itemId);
+          onSelect?.({ event, item });
+        }}
       >
         <Box
           color={itemColor}
-          paddingX={4}
           paddingY={2}
           minHeight={44}
           rounding={2}
           display="flex"
           alignItems="center"
+          dangerouslySetInlineStyle={{
+            __style: {
+              paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
+              paddingInlineEnd: '16px',
+            },
+          }}
         >
           <Flex gap={2} height="100%" width="100%">
             {icon ? (
@@ -151,7 +172,7 @@ export default function SideNavigationItem({
                 {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
                 <Box aria-label={counter.accessibilityLabel} role="status" marginEnd={-2}>
                   <Text align="end" color={textColor}>
-                    {counter.number}{' '}
+                    {counter.number}
                   </Text>
                 </Box>
               </Flex.Item>
