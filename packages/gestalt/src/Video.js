@@ -704,8 +704,9 @@ export default class Video extends PureComponent<Props, State> {
       if (!crossOriginPolicy) {
         crossOriginPolicy = 'anonymous';
       } else {
-        // eslint-disable-next-line no-console
-        console.error("The crossOrigin policy must be set to 'anonymous' for captions to work.");
+        throw new Error(
+          `"The crossOrigin policy must be set to 'anonymous' for captions to work."`,
+        );
       }
     }
     const playerClasses = classnames(styles.player, {
