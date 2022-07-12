@@ -85,6 +85,8 @@ export default function SideNavigation({
   return (
     <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
       <Box
+        as="nav"
+        aria-label={accessibilityLabel}
         minWidth={280}
         width={280}
         padding={2}
@@ -99,9 +101,7 @@ export default function SideNavigation({
             </Flex>
           ) : null}
 
-          <Box as="nav" aria-label={accessibilityLabel}>
-            <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-          </Box>
+          <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
 
           {footer ? (
             <Flex direction="column" gap={4}>
