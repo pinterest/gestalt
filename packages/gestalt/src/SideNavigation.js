@@ -8,6 +8,7 @@ import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationItem from './SideNavigationItem.js';
+import getChildrenToArray from './getChildrenToArray.js';
 
 type Props = {|
   /**
@@ -49,38 +50,7 @@ export default function SideNavigation({
 }: Props): Node {
   let hasFirstNavigationItem = false;
 
-  const navigationChildren = [];
-
-  // TO BE CLEANED UP
-
-  Children.toArray(children).forEach((child) => {
-    if (child.type.displayName === 'SideNavigation.Section') {
-      if (!hasFirstNavigationItem) {
-        hasFirstNavigationItem = true;
-        navigationChildren.push(child);
-      } else {
-        navigationChildren.push(cloneElement(child, { _hasMarginTop: true }));
-      }
-    } else if (child.type.displayName === 'SideNavigation.Item') {
-      if (!hasFirstNavigationItem) {
-        hasFirstNavigationItem = true;
-      }
-      navigationChildren.push(child);
-    } else if (!child?.type?.displayName?.startsWith('SideNavigation')) {
-      Children.toArray(child.props.children).forEach((subchild) => {
-        if (subchild.type.displayName === 'SideNavigation.Section') {
-          if (!hasFirstNavigationItem) {
-            hasFirstNavigationItem = true;
-            navigationChildren.push(subchild);
-          } else {
-            navigationChildren.push(cloneElement(subchild, { _hasMarginTop: true }));
-          }
-        } else {
-          navigationChildren.push(subchild);
-        }
-      });
-    }
-  });
+  const navigationChildren = getChildrenToArray({ children });
 
   return (
     <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
