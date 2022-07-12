@@ -33,7 +33,7 @@ exports[`VideoPlayhead 1`] = `
       }
     >
       <div
-        className="box default rounding2"
+        className="box light rounding2"
         style={
           Object {
             "height": "100%",
@@ -52,7 +52,7 @@ exports[`VideoPlayhead 1`] = `
       }
     >
       <div
-        className="box circle default marginStartN2"
+        className="box circle light marginStartN2"
         style={
           Object {
             "height": 16,
