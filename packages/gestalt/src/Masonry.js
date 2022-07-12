@@ -518,9 +518,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, minCols);
 
-      // $FlowFixMe[incompatible-call]
       const positions = getPositions(itemsToRender);
-      // $FlowFixMe[incompatible-call]
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
