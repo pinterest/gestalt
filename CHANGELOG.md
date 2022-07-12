@@ -1,3 +1,9 @@
+## 61.3.2 (Jul 12, 2022)
+
+### Patch
+
+- Video: Updated support for captions (#2195)
+
 ## 61.3.1 (Jul 12, 2022)
 
 ### Patch
