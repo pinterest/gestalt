@@ -1,3 +1,9 @@
+## 61.3.0 (Jul 12, 2022)
+
+### Minor
+
+- Docs: Implement SideNavigation (#2198)
+
 ## 61.2.2 (Jul 12, 2022)
 
 ### Patch
