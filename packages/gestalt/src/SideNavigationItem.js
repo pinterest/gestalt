@@ -49,21 +49,18 @@ type Props = {|
   /**
    * Callback when the user selects an item using the mouse or keyboard.
    */
-  onSelect: ({|
+  onClick?: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>
       | SyntheticMouseEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    item: {|
-      label: string,
-      value: string,
-    |},
+    dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   /**
-   * Object detailing the label and value for this item.
+   * Label for the item.
    */
-  item: {| label: string, value: string |},
+  label: string,
 |};
 
 /**
@@ -72,12 +69,12 @@ type Props = {|
 export default function SideNavigationItem({
   active,
   href,
-  item,
   badge,
   counter,
   icon,
+  label,
   notificationAccessibilityLabel,
-  onSelect,
+  onClick,
 }: Props): Node {
   const { nestedLevel } = useNesting();
   const { setSelectedItemId } = useSideNavigation();
@@ -106,9 +103,9 @@ export default function SideNavigationItem({
         role="link"
         rounding={2}
         tapStyle="compress"
-        onTap={({ event }) => {
+        onTap={({ event, dangerouslyDisableOnNavigation }) => {
           setSelectedItemId(itemId);
-          onSelect?.({ event, item });
+          onClick?.({ event, dangerouslyDisableOnNavigation });
         }}
       >
         <Box
@@ -144,7 +141,7 @@ export default function SideNavigationItem({
             ) : null}
             <Flex.Item alignSelf="center" flex="grow">
               <Text inline color={textColor}>
-                {item.label}
+                {label}
                 {(badge || notificationAccessibilityLabel) && (
                   <Box marginStart={1} display="inlineBlock" height="100%">
                     {/* Adds a pause for screen reader users between the text content */}

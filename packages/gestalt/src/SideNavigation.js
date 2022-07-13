@@ -8,9 +8,9 @@ import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationItem from './SideNavigationItem.js';
-import SideNavigationExpandableItem from './SideNavigationExpandableItem.js';
+import SideNavigationGroup from './SideNavigationGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
-import SideNavigationExpandableNestedItem from './SideNavigationExpandableNestedItem.js';
+import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
 import useGetChildrenToArray from './useGetChildrenToArray.js';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
 
@@ -94,5 +94,5 @@ SideNavigation.Section = SideNavigationSection;
 SideNavigation.Item = SideNavigationItem;
 SideNavigation.NestedItem = SideNavigationNestedItem;
 
-SideNavigation.ExpandableItem = SideNavigationExpandableItem;
-SideNavigation.ExpandableNestedItem = SideNavigationExpandableNestedItem;
+SideNavigation.Group = SideNavigationGroup;
+SideNavigation.NestedGroup = SideNavigationNestedGroup;

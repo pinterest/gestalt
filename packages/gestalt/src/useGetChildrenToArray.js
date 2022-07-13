@@ -2,8 +2,8 @@
 import { cloneElement, Children, type Node } from 'react';
 
 const ALLOWED_CHILDREN_MAP = {
-  'main': ['SideNavigation.Section', 'SideNavigation.Item', 'SideNavigation.ExpandableItem'],
-  'nested': ['SideNavigation.NestedItem', 'SideNavigation.ExpandableNestedItem'],
+  'main': ['SideNavigation.Section', 'SideNavigation.Item', 'SideNavigation.Group'],
+  'nested': ['SideNavigation.NestedItem', 'SideNavigation.NestedGroup'],
 };
 
 const useGetChildrenToArray = ({
@@ -46,10 +46,9 @@ const useGetChildrenToArray = ({
       } else if (!child?.type?.displayName?.startsWith('SideNavigation')) {
         recursionLevel += 1;
         if (recursionLevel < 2) {
-          return getChildren({ nodeChildren: child.props.children });
+          getChildren({ nodeChildren: child.props.children });
         }
       }
-      return;
     });
 
   getChildren({ nodeChildren: children });

@@ -12,30 +12,27 @@ type Props = {|
    */
   href: string,
   /**
-   * Object detailing the label and value for this item.
+   * Label for the item.
    */
-  item: {| label: string, value: string |},
+  label: string,
   /**
    * Callback when the user selects an item using the mouse or keyboard.
    */
-  onSelect: ({|
+  onClick?: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>
       | SyntheticMouseEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    item: {|
-      label: string,
-      value: string,
-    |},
+    dangerouslyDisableOnNavigation: () => void,
   |}) => void,
 |};
 
 /**
  * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.NestedItem)
  */
-export default function SideNavigationNestedItem({ active, href, item, onSelect }: Props): Node {
-  return <SideNavigationItem active={active} href={href} item={item} onSelect={onSelect} />;
+export default function SideNavigationNestedItem({ active, href, label, onClick }: Props): Node {
+  return <SideNavigationItem active={active} href={href} label={label} onClick={onClick} />;
 }
 
 SideNavigationNestedItem.displayName = 'SideNavigation.NestedItem';

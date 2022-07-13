@@ -51,8 +51,8 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
                 return (
                   <SideNavigation.Item
                     active={router.asPath === href ? 'page' : undefined}
-                    item={{ label: componentName, value: componentName }}
-                    onSelect={() => {}}
+                    label={componentName}
+                    onClick={() => {}}
                     key={`${componentName}--${i}`}
                     href={href}
                   />
@@ -66,8 +66,7 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
             return (
               <SideNavigation.Item
                 active={router.asPath === href ? 'page' : undefined}
-                item={{ label: componentName, value: componentName }}
-                onSelect={() => {}}
+                label={componentName}
                 key={`${sidebarOrganisedBy}-${i}`}
                 href={href}
               />
