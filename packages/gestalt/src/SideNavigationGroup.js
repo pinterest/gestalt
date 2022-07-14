@@ -10,7 +10,7 @@ import Text from './Text.js';
 import Box from './Box.js';
 import icons from './icons/index.js';
 import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
-import { NESTING_MARGIN_START_MAP } from './SideNavigationItem.js';
+import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
 import useGetChildrenToArray from './useGetChildrenToArray.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 

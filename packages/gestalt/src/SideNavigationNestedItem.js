@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import SideNavigationItem from './SideNavigationItem.js';
+import SideNavigationTopItem from './SideNavigationTopItem.js';
 
 type Props = {|
   /**
@@ -32,7 +32,7 @@ type Props = {|
  * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.NestedItem)
  */
 export default function SideNavigationNestedItem({ active, href, label, onClick }: Props): Node {
-  return <SideNavigationItem active={active} href={href} label={label} onClick={onClick} />;
+  return <SideNavigationTopItem active={active} href={href} label={label} onClick={onClick} />;
 }
 
 SideNavigationNestedItem.displayName = 'SideNavigation.NestedItem';

@@ -7,7 +7,7 @@ import Divider from './Divider.js';
 import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
 import SideNavigationSection from './SideNavigationSection.js';
-import SideNavigationItem from './SideNavigationItem.js';
+import SideNavigationTopItem from './SideNavigationTopItem.js';
 import SideNavigationGroup from './SideNavigationGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
@@ -91,7 +91,7 @@ export default function SideNavigation({
 
 SideNavigation.Section = SideNavigationSection;
 
-SideNavigation.Item = SideNavigationItem;
+SideNavigation.TopItem = SideNavigationTopItem;
 SideNavigation.NestedItem = SideNavigationNestedItem;
 
 SideNavigation.Group = SideNavigationGroup;

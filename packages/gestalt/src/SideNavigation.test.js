@@ -7,7 +7,7 @@ describe('SideNavigation', () => {
   it('renders basic Item', () => {
     const tree = create(
       <SideNavigation accessibilityLabel="label">
-        <SideNavigation.Item href="#" label="test" />
+        <SideNavigation.TopItem href="#" label="test" />
       </SideNavigation>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe('SideNavigation', () => {
     const tree = create(
       <SideNavigation accessibilityLabel="label">
         <SideNavigation.Section label="section">
-          <SideNavigation.Item href="#" label="test" />
+          <SideNavigation.TopItem href="#" label="test" />
         </SideNavigation.Section>
       </SideNavigation>,
     ).toJSON();
@@ -28,14 +28,14 @@ describe('SideNavigation', () => {
     const tree = create(
       <SideNavigation showBorder accessibilityLabel="label">
         <SideNavigation.Section label="section">
-          <SideNavigation.Item
+          <SideNavigation.TopItem
             href="#"
             icon="bell"
             label="test"
             badge={{ text: 'New', type: 'info' }}
             counter={{ number: '20', accessibilityLabel: 'You have 20 notifications' }}
           />
-          <SideNavigation.Item
+          <SideNavigation.TopItem
             href="#"
             icon="bell"
             label="test"
@@ -55,7 +55,7 @@ describe('SideNavigation', () => {
         header={<Box height={100} width="100%" color="default" />}
         footer={<Box height={100} width="100%" color="default" />}
       >
-        <SideNavigation.Item href="#" label="test" />
+        <SideNavigation.TopItem href="#" label="test" />
       </SideNavigation>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -64,20 +64,20 @@ describe('SideNavigation', () => {
   it('renders nested directory', () => {
     const tree = create(
       <SideNavigation accessibilityLabel="Nested items example">
-        <SideNavigation.Item
+        <SideNavigation.TopItem
           href="#"
           onClick={({ event }) => event.preventDefault()}
           label="Reporting"
           icon="ads-stats"
         />
-        <SideNavigation.Item
+        <SideNavigation.TopItem
           href="#"
           onClick={({ event }) => event.preventDefault()}
           label="Conversions"
           icon="replace"
         />
         <SideNavigation.Section label="Audiences">
-          <SideNavigation.Item
+          <SideNavigation.TopItem
             href="#"
             onClick={({ event }) => event.preventDefault()}
             label="Thanksgiving"

@@ -64,9 +64,9 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation.Item](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Item) for navigation, when the SideNavigation item navigates to a new page or sectoin.
+ * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.TopItem) for navigation, when the SideNavigation.TopItem navigates to a new page or sectoin.
  */
-export default function SideNavigationItem({
+export default function SideNavigationTopItem({
   active,
   href,
   badge,
@@ -181,4 +181,4 @@ export default function SideNavigationItem({
   );
 }
 
-SideNavigationItem.displayName = 'SideNavigation.Item';
+SideNavigationTopItem.displayName = 'SideNavigation.TopItem';

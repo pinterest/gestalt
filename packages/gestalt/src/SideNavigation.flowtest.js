@@ -3,7 +3,7 @@ import SideNavigation from './SideNavigation.js';
 
 const Valid = (
   <SideNavigation accessibilityLabel="label">
-    <SideNavigation.Item href="#" label="test" />
+    <SideNavigation.TopItem href="#" label="test" />
   </SideNavigation>
 );
 
