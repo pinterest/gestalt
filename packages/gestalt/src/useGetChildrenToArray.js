@@ -13,7 +13,7 @@ const useGetChildrenToArray = ({
   children: Node,
   filterLevel: 'main' | 'nested',
 |}): $ReadOnlyArray<Node> => {
-  let hasFirstNavigationItem = false;
+  let foundFirstNavigationItem = false;
 
   const navigationChildren = [];
 
@@ -32,15 +32,15 @@ const useGetChildrenToArray = ({
 
       // Get and return valid children
       if (filterLevel === 'main' && child.type.displayName === 'SideNavigation.Section') {
-        if (!hasFirstNavigationItem) {
-          hasFirstNavigationItem = true;
+        if (!foundFirstNavigationItem) {
+          foundFirstNavigationItem = true;
           navigationChildren.push(child);
         } else {
           navigationChildren.push(cloneElement(child, { _hasMarginTop: true }));
         }
       } else if (ALLOWED_CHILDREN_MAP[filterLevel].includes(child.type.displayName)) {
-        if (!hasFirstNavigationItem) {
-          hasFirstNavigationItem = true;
+        if (!foundFirstNavigationItem) {
+          foundFirstNavigationItem = true;
         }
         navigationChildren.push(child);
       } else if (!child?.type?.displayName?.startsWith('SideNavigation')) {

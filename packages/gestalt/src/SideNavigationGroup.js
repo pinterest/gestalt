@@ -199,6 +199,8 @@ export default function SideNavigationGroup({
       <NestingProvider>
         {display === 'expandable' ? (
           <TapArea
+            accessibilityControls={display === 'expandable' ? itemId : undefined}
+            accessibilityExpanded={display === 'expandable' ? expanded : undefined}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onFocus={() => setHovered(true)}
@@ -241,9 +243,11 @@ export default function SideNavigationGroup({
             display={display}
           />
         )}
-        <ul className={classnames(styles.ulItem)}>
-          {expanded || display === 'static' ? navigationChildren : null}
-        </ul>
+        {expanded || display === 'static' ? (
+          <ul id={itemId} className={classnames(styles.ulItem)}>
+            {navigationChildren}
+          </ul>
+        ) : null}
       </NestingProvider>
     </li>
   );
