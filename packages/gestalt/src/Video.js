@@ -67,7 +67,7 @@ type Props = {|
    */
   backgroundColor: BackgroundColor,
   /**
-   * The URL of the captions track for the video (.vtt file). Warning: Captions aren't currently supported. See the [accessibility section](https://gestalt.pinterest.systems/video#Captions) to learn more.
+   * The URL of the captions track for the video (.vtt file). See the [accessibility section](https://gestalt.pinterest.systems/video#Captions) to learn more.
    */
   captions?: string,
   /**
