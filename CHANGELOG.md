@@ -1,3 +1,9 @@
+## 62.0.3 (Jul 15, 2022)
+
+### Patch
+
+- Revert "7/15 what's new update" (#2204)
+
 ## 62.0.2 (Jul 15, 2022)
 
 ### Patch
