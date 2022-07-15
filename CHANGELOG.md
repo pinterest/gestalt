@@ -1,3 +1,9 @@
+## 62.0.0 (Jul 15, 2022)
+
+### Major
+
+- SideNavigation: V2 (#2200)
+
 ## 61.3.2 (Jul 12, 2022)
 
 ### Patch
