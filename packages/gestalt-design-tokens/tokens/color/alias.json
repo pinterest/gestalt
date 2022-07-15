@@ -169,12 +169,12 @@
         "base": {
           "value": "{color.purple.mysticool.500.value}",
           "darkValue": "{color.purple.mysticool.300.value}",
-          "comment": "Background color to indicate success"
+          "comment": "Background color to indicate recommendations"
         },
         "weak": {
           "value": "{color.purple.mysticool.100.value}",
           "darkValue": "{color.purple.mysticool.700.value}",
-          "comment": "Weak background color to indicate success, can be used behind text"
+          "comment": "Weak background color to indicate recommendations, can be used behind text"
         }
       },
       "shopping": {
