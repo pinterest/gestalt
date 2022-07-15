@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { useState, useId, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import TapArea from './TapArea.js';
@@ -9,6 +9,14 @@ import Flex from './Flex.js';
 import Text from './Text.js';
 import Box from './Box.js';
 import icons from './icons/index.js';
+import { useNesting } from './contexts/NestingProvider.js';
+import { useSideNavigation } from './contexts/SideNavigationProvider.js';
+
+export const NESTING_MARGIN_START_MAP = {
+  '0': '16px',
+  '1': '48px',
+  '2': '68px',
+};
 
 type Props = {|
   /**
@@ -41,36 +49,38 @@ type Props = {|
   /**
    * Callback when the user selects an item using the mouse or keyboard.
    */
-  onSelect: ({|
+  onClick?: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>
       | SyntheticMouseEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    item: {|
-      label: string,
-      value: string,
-    |},
+    dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   /**
-   * Object detailing the label and value for this item.
+   * Label for the item.
    */
-  item: {| label: string, value: string |},
+  label: string,
 |};
 
 /**
- * Use [SideNavigation.Item](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Item) for navigation, when the SideNavigation item navigates to a new page or sectoin.
+ * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.TopItem) for navigation, when the SideNavigation.TopItem navigates to a new page or sectoin.
  */
-export default function SideNavigationItem({
+export default function SideNavigationTopItem({
   active,
   href,
-  item,
   badge,
   counter,
   icon,
+  label,
   notificationAccessibilityLabel,
-  onSelect,
+  onClick,
 }: Props): Node {
+  const { nestedLevel } = useNesting();
+  const { setSelectedItemId } = useSideNavigation();
+
+  const itemId = useId();
+
   const [hovered, setHovered] = useState(false);
 
   let itemColor = active ? 'selected' : undefined;
@@ -93,16 +103,24 @@ export default function SideNavigationItem({
         role="link"
         rounding={2}
         tapStyle="compress"
-        onTap={({ event }) => onSelect?.({ event, item })}
+        onTap={({ event, dangerouslyDisableOnNavigation }) => {
+          setSelectedItemId(itemId);
+          onClick?.({ event, dangerouslyDisableOnNavigation });
+        }}
       >
         <Box
           color={itemColor}
-          paddingX={4}
           paddingY={2}
           minHeight={44}
           rounding={2}
           display="flex"
           alignItems="center"
+          dangerouslySetInlineStyle={{
+            __style: {
+              paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
+              paddingInlineEnd: '16px',
+            },
+          }}
         >
           <Flex gap={2} height="100%" width="100%">
             {icon ? (
@@ -123,7 +141,7 @@ export default function SideNavigationItem({
             ) : null}
             <Flex.Item alignSelf="center" flex="grow">
               <Text inline color={textColor}>
-                {item.label}
+                {label}
                 {(badge || notificationAccessibilityLabel) && (
                   <Box marginStart={1} display="inlineBlock" height="100%">
                     {/* Adds a pause for screen reader users between the text content */}
@@ -151,7 +169,7 @@ export default function SideNavigationItem({
                 {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
                 <Box aria-label={counter.accessibilityLabel} role="status" marginEnd={-2}>
                   <Text align="end" color={textColor}>
-                    {counter.number}{' '}
+                    {counter.number}
                   </Text>
                 </Box>
               </Flex.Item>
@@ -163,4 +181,4 @@ export default function SideNavigationItem({
   );
 }
 
-SideNavigationItem.displayName = 'SideNavigation.Item';
+SideNavigationTopItem.displayName = 'SideNavigation.TopItem';

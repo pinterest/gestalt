@@ -1,5 +1,5 @@
 // @flow strict
-import { cloneElement, Children, type Node } from 'react';
+import { type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Flex from './Flex.js';
@@ -7,7 +7,12 @@ import Divider from './Divider.js';
 import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
 import SideNavigationSection from './SideNavigationSection.js';
-import SideNavigationItem from './SideNavigationItem.js';
+import SideNavigationTopItem from './SideNavigationTopItem.js';
+import SideNavigationGroup from './SideNavigationGroup.js';
+import SideNavigationNestedItem from './SideNavigationNestedItem.js';
+import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
+import useGetChildrenToArray from './useGetChildrenToArray.js';
+import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
 
 type Props = {|
   /**
@@ -47,73 +52,47 @@ export default function SideNavigation({
   header,
   showBorder,
 }: Props): Node {
-  let hasFirstNavigationItem = false;
-
-  const navigationChildren = [];
-
-  // TO BE CLEANED UP
-
-  Children.toArray(children).forEach((child) => {
-    if (child.type.displayName === 'SideNavigation.Section') {
-      if (!hasFirstNavigationItem) {
-        hasFirstNavigationItem = true;
-        navigationChildren.push(child);
-      } else {
-        navigationChildren.push(cloneElement(child, { _hasMarginTop: true }));
-      }
-    } else if (child.type.displayName === 'SideNavigation.Item') {
-      if (!hasFirstNavigationItem) {
-        hasFirstNavigationItem = true;
-      }
-      navigationChildren.push(child);
-    } else if (!child?.type?.displayName?.startsWith('SideNavigation')) {
-      Children.toArray(child.props.children).forEach((subchild) => {
-        if (subchild.type.displayName === 'SideNavigation.Section') {
-          if (!hasFirstNavigationItem) {
-            hasFirstNavigationItem = true;
-            navigationChildren.push(subchild);
-          } else {
-            navigationChildren.push(cloneElement(subchild, { _hasMarginTop: true }));
-          }
-        } else {
-          navigationChildren.push(subchild);
-        }
-      });
-    }
-  });
+  const navigationChildren = useGetChildrenToArray({ children, filterLevel: 'main' });
 
   return (
-    <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
-      <Box
-        as="nav"
-        aria-label={accessibilityLabel}
-        minWidth={280}
-        width={280}
-        padding={2}
-        color="default"
-        dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
-      >
-        <Flex direction="column" gap={4}>
-          {header ? (
-            <Flex direction="column" gap={4}>
-              <Box paddingX={4}>{header}</Box>
-              <Divider />
-            </Flex>
-          ) : null}
+    <SideNavigationProvider>
+      <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
+        <Box
+          as="nav"
+          aria-label={accessibilityLabel}
+          minWidth={280}
+          width={280}
+          padding={2}
+          color="default"
+          dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
+        >
+          <Flex direction="column" gap={4}>
+            {header ? (
+              <Flex direction="column" gap={4}>
+                <Box paddingX={4}>{header}</Box>
+                <Divider />
+              </Flex>
+            ) : null}
 
-          <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+            <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
 
-          {footer ? (
-            <Flex direction="column" gap={4}>
-              <Divider />
-              <Box paddingX={4}>{footer}</Box>
-            </Flex>
-          ) : null}
-        </Flex>
-      </Box>
-    </div>
+            {footer ? (
+              <Flex direction="column" gap={4}>
+                <Divider />
+                <Box paddingX={4}>{footer}</Box>
+              </Flex>
+            ) : null}
+          </Flex>
+        </Box>
+      </div>
+    </SideNavigationProvider>
   );
 }
 
-SideNavigation.Item = SideNavigationItem;
 SideNavigation.Section = SideNavigationSection;
+
+SideNavigation.TopItem = SideNavigationTopItem;
+SideNavigation.NestedItem = SideNavigationNestedItem;
+
+SideNavigation.Group = SideNavigationGroup;
+SideNavigation.NestedGroup = SideNavigationNestedGroup;

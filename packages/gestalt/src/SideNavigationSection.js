@@ -8,7 +8,7 @@ import Text from './Text.js';
 
 type Props = {|
   /**
-   * Any [SideNavigation.Item](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Item) to be rendered
+   * Any [SideNavigation.TopItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.TopItem) to be rendered
    */
   children: Node,
   /**

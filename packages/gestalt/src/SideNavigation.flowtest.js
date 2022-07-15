@@ -3,7 +3,7 @@ import SideNavigation from './SideNavigation.js';
 
 const Valid = (
   <SideNavigation accessibilityLabel="label">
-    <SideNavigation.Item onSelect={() => {}} href="#" item={{ label: 'test', value: 'test' }} />
+    <SideNavigation.TopItem href="#" label="test" />
   </SideNavigation>
 );
 

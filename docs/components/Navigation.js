@@ -49,10 +49,10 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
               {section.pages.map((componentName, i) => {
                 const href = `/${componentName.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`;
                 return (
-                  <SideNavigation.Item
-                    active={router.asPath === href ? 'page' : undefined}
-                    item={{ label: componentName, value: componentName }}
-                    onSelect={() => {}}
+                  <SideNavigation.TopItem
+                    active={router.pathname === href ? 'page' : undefined}
+                    label={componentName}
+                    onClick={() => {}}
                     key={`${componentName}--${i}`}
                     href={href}
                   />
@@ -64,10 +64,9 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
             const href = `/${componentName.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`;
 
             return (
-              <SideNavigation.Item
-                active={router.asPath === href ? 'page' : undefined}
-                item={{ label: componentName, value: componentName }}
-                onSelect={() => {}}
+              <SideNavigation.TopItem
+                active={router.pathname === href ? 'page' : undefined}
+                label={componentName}
                 key={`${sidebarOrganisedBy}-${i}`}
                 href={href}
               />
