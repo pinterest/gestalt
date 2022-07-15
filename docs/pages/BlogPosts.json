@@ -2,6 +2,46 @@
   "year": "2022",
   "digests": [
     {
+      "week": "July 15, 2022",
+      "posts": [
+        {
+          "title": "Makeathon props!",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/4a/0a/c4/4a0ac42748a1802987e2641b60839a4c.png",
+          "imageAltText": "Makeathon logo",
+          "content": "A big congrats to all the fine folks who contributed to Makeathon this year! It was fabulous (and dare we say inspiring) to see Gestalt power so many projects. Great job, all. It was a pleasure supporting your amazing work!"
+        },
+        {
+          "title": "Gestalt Figma Android library pre-release",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/75/3f/3d/753f3d9a102f84262cca6e9ce5b6278d.png",
+          "imageAltText": "A picture that shows Gestalt plus Figma plus Android equaling a heart",
+          "content": "You've been asking for it, we've been working on it and it's _almost here_. That's right, a full overhaul to our Gestalt Figma Android library. It's not ready quite yet, but you can see a preview of what we're cooking up in [this branch](https://www.figma.com/file/DkU8imdrmBUZUkS7fL8JPd/DP-Gestalt-4392-Port-Figma-iOS-library-to-Android?node-id=3686%3A21528). We cannot wait to get this out the door and in your hands!"
+        },
+        {
+          "title": "Video caption support",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/ac/33/84/ac33841d337bbd27fc06598c1ab52703.png",
+          "imageAltText": "A screenshot of the Figma iOS Modal component",
+          "content": "Chalk this up as another big win for accessibility; [Video](https://gestalt.pinterest.systems/video) now has support for captions. Learn more about this new capability in our [Video captions documentation](https://gestalt.pinterest.systems/video#Captions)."
+        },
+        {
+          "title": "Figma iOS Modal improvements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/6d/8f/3b/6d8f3be52d865d64b3b06a27113ce1d0.png",
+          "imageAltText": "A screenshot of the Figma iOS Modal component",
+          "content": "We made a sizable update to our [iOS Modal component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5860%3A8641) to both reduce the number of variants while making it far easier to place content within it. A large focus for us is to make our components significantly simpler to use, so expect more of these updates throughout 2022."
+        },
+        {
+          "title": "Gestalt July Open Forum canceled",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/2c/e7/b9/2ce7b96e65021c907ca75c303a04f93e.png",
+          "imageAltText": "",
+          "content": "July has been a bit of a whirlwind and so we're going to cancel our Open Forum for this month. We look forward to seeing you all at next months Open Forum!"
+        }
+      ]
+    },
+    {
       "week": "July 08, 2022",
       "posts": [
         {
