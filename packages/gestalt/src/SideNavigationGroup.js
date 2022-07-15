@@ -187,11 +187,7 @@ export default function SideNavigationGroup({
     filterLevel: 'nested',
   });
 
-  let itemColor;
-
-  if (hovered && !expanded) {
-    itemColor = 'secondary';
-  }
+  const itemColor = hovered ? 'secondary' : undefined;
 
   const paddingStyle = {
     paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
