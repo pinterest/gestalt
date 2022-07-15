@@ -90,7 +90,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
-            description="Use bold font-weight in link elements such as lists, profile and board names, and any link element that an underline style doesn't apply."
+            description="Use bold font-weight in link elements such as lists, profile and board names, and any link element that an underline style isn't necessary to convey interactivity. For example, the user easily recognizes the bold element as a link since it is a typical treatment across our surfaces."
             defaultCode={`
 <Flex gap={2} alignItems="center">
   <Box aria-hidden>
@@ -115,7 +115,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
           <MainSection.Card
             type="don't"
-            description="Display an underline on Links that aren't within a paragraph context, such as lists, feed elements, profile and board names."
+            description="Display an underline on Links that aren't within a paragraph context, for example, lists or table links, as it could create cognitive load. Please note: If these elements are nested inside message components, consider displaying an underline, as it reinforces interactivity."
             defaultCode={`
 <Flex gap={4} width="100%" wrap width={300}>
   {[
@@ -249,7 +249,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             type="do"
             description={`
-Use the "visit" icon to represent an external Link/domain in a text context. The icon should match the text size and color.`}
+Use the "visit" icon to represent an external link/domain. The icon should match the text size.
+
+Please note: Disclaimers and links taking users to Pinterest subsites don't need to display an external link icon.`}
             defaultCode={`
 <Text inline>
   To receive push notifications instead of texts,
@@ -444,13 +446,14 @@ Accessible content is critical if we consider that assistive technology also pre
         />
         <MainSection.Subsection
           title="External links"
-          description={`An external link, also called an outbound link, is a link from Pinterest to a different website.
+          description={`
+When rendering an external link, add text for screen readers that this Link will go to a different destination. Users should be informed that they will be moving out of a domain and which domain they are moving to. This is particularly relevant for those with cognitive impairments or people relying on assistive technology.
 
-When rendering an external Link, add text for screen readers to announce that Link will go to a different destination. Users should be informed that they will be moving out of a domain and which domain they are moving to. This is particularly relevant for those with cognitive impairments or people relying on assistive technology.
+We recommend adding an external Link to inline content. However, use max of two external Links per paragraph when possible, as adding more than two icons in the same block of text can clutter the design and create readability issues.
 
-When possible, limit one external Link per paragraph, as adding more than two icons in the same block of text can clutter the design and create readability issues.
+Also, consider adding external Links to elements where the "visit" icon will support the user's comprehension, letting them know they are leaving Pinterest content and going to an external domain. For example, links inside a footer element.
 
-For external Links that aren't in a paragraph or text context, consider [Button](https://gestalt.netlify.app/button#Role) or [IconButton](https://gestalt.netlify.app/iconbutton#Role) with \`role="link"\`.`}
+For external links that an external Gestalt Link doesn't apply, check out [Button link role](https://gestalt.netlify.app/button#Role) or [IconButton link role](https://gestalt.netlify.app/iconbutton#Role).`}
         />
       </AccessibilitySection>
 
