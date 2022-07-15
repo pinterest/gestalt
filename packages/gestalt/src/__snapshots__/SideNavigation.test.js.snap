@@ -912,7 +912,9 @@ exports[`SideNavigation renders nested directory 1`] = `
                 className="liItem"
               >
                 <div
+                  aria-controls=":r8:"
                   aria-disabled={false}
+                  aria-expanded={false}
                   className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -1006,9 +1008,6 @@ exports[`SideNavigation renders nested directory 1`] = `
                     </div>
                   </div>
                 </div>
-                <ul
-                  className="ulItem"
-                />
               </li>
               <li
                 className="liItem"
@@ -1067,6 +1066,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                 </div>
                 <ul
                   className="ulItem"
+                  id=":r9:"
                 >
                   <li
                     className="liItem"
