@@ -1,3 +1,9 @@
+## 62.0.1 (Jul 15, 2022)
+
+### Patch
+
+- Link: design guidance copy updates (#2202)
+
 ## 62.0.0 (Jul 15, 2022)
 
 ### Major
