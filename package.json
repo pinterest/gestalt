@@ -117,8 +117,6 @@
     "flow-generate:css": "(css-modules-flow-types packages/gestalt/src/ >/dev/null) && (css-modules-flow-types packages/gestalt-datepicker/src/ >/dev/null)",
     "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
     "generate": "./scripts/generateComponent.js",
-    "greenkeeper-lockfile-update": "greenkeeper-lockfile-update",
-    "greenkeeper-lockfile-upload": "greenkeeper-lockfile-upload",
     "lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
     "lint:js": "eslint --max-warnings 0 .",
     "playwright:test": "npx playwright test playwright/accessibility/ --config=playwright/playwright.config.js",
