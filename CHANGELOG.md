@@ -1,3 +1,9 @@
+## 62.0.6 (Jul 18, 2022)
+
+### Patch
+
+- Internal: remove unused greenkeeper files & references (#2207)
+
 ## 62.0.5 (Jul 15, 2022)
 
 ### Patch
