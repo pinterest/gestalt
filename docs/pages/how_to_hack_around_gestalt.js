@@ -10,7 +10,7 @@ export default function DocsPage(): Node {
       <PageHeader
         name="How to hack around Gestalt"
         description="Guidelines for customizing Gestalt components."
-        showSourceLink={false}
+        type="guidelines"
       />
 
       <MainSection name="Disclaimer">
@@ -73,7 +73,7 @@ Custom components can also be made from scratch, using native DOM elements and C
 - Doesn't support pseudo-classes, pseudo-elements, or animations
 - Overridden styles will not respond to dark mode or RTL
 
-**Alternative:** When possible, stick to the styles available on Gestalt components natively. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
+**Alternative:** When possible, stick to the styles available on Gestalt components natively. If you need to use a custom style, try to use the corresponding [design token](/design_tokens) instead of a hard-coded value. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
 `}
         >
           <MainSection.Card
@@ -82,7 +82,7 @@ Custom components can also be made from scratch, using native DOM elements and C
 <Box
   dangerouslySetInlineStyle={{
     __style: {
-      backgroundColor: 'rebeccapurple',
+      backgroundColor: 'var(--color-pink-flaminglow-400)',
     },
   }}
   height={100}

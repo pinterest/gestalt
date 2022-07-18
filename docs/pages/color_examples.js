@@ -4,7 +4,7 @@ import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
-import A11Y from '../graphics/accessibility.svg';
+import A11Y from '../graphics/home-page/accessibility.svg';
 import ColorEase from '../graphics/color-examples/colorEase.svg';
 import Consistency from '../graphics/color-examples/consistency.svg';
 
@@ -44,9 +44,8 @@ export default function ColorExamplesPage(): Node {
     <Page title="Color examples">
       <PageHeader
         name="Color examples"
-        description={`Color principles and best practices examples of applying color to product UI.
-    `}
-        showSourceLink={false}
+        description="Color principles and best practices examples of applying color to product UI."
+        type="guidelines"
       />
       <MainSection name="Color principles">
         <Flex gap={12} alignContent="between" wrap>
@@ -320,7 +319,7 @@ export default function ColorExamplesPage(): Node {
             description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will evaluate."
             defaultCode={`
             <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
-              <Box color="white" padding={10}>
+              <Box color="default" padding={10}>
                 <Flex direction="column" gap={8} alignItems="center">
                   <Flex gap={4}>
                     <IconButton icon="speech" accessibilityLabel="Comment"/>

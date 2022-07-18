@@ -34,7 +34,11 @@ function PaletteGenerator({ count }: ColorCardProps): Node {
 export default function ColorPage(): Node {
   return (
     <Page title="Data visualization guidelines">
-      <PageHeader name="Data visualization guidelines" showSourceLink={false} />
+      <PageHeader
+        name="Data visualization guidelines"
+        type="guidelines"
+        description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/data_visualization_colors) can be implemented through our [design tokens](/design_tokens#Data-visualization)."
+      />
       <MainSection
         name="Primary color"
         description="We use `$color-data-visualization-primary` as the main color for data visualization, which is used for showing total value or whenever only 1 color is needed in a visualization."

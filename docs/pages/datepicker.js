@@ -42,6 +42,8 @@ import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 const localeMap = {
   'ar-SA': { localeData: arSA, lang: ' Arabic (Saudi Arabia)' },
@@ -85,20 +87,21 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         name="DatePicker"
         description={generatedDocGen?.description}
         defaultCode={`
-      function DatePickerExample() {
-        const handleChange = (value) => value;
+function DatePickerExample() {
+  const handleChange = (value) => value;
 
-        return (
-          <DatePicker
-            id="example-page-header"
-            label="Select a date"
-            onChange={({ value }) => handleChange(value)}
-          />
-        )
-      }
+  return (
+    <DatePicker
+      id="example-page-header"
+      label="Select a date"
+      onChange={({ value }) => handleChange(value)}
+    />
+  )
+}
     `}
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -120,12 +123,16 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        description="
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          description="
     Use DatePicker to select date inputs.
   "
-        name="Example: Basic Date Picker"
-        defaultCode={`
+          name="Example: Basic Date Picker"
+          defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -138,14 +145,14 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Example
-        description="
+        />
+        <Example
+          description="
     Provide pre-selected date values to DatePicker.
   "
-        id="preselectedValue"
-        name="Example: Preselected Date"
-        defaultCode={`
+          id="preselectedValue"
+          name="Example: Preselected Date"
+          defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -159,14 +166,14 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Example
-        id="rangePicker"
-        description="
+        />
+        <Example
+          id="rangePicker"
+          description="
     Use DatePicker to select date range inputs.
   "
-        name="Example: Date Range Picker"
-        defaultCode={`
+          name="Example: Date Range Picker"
+          defaultCode={`
 function DatePickerRangeExample() {
   const [startDate, setStartDate] = React.useState(undefined);
   const [endDate, setEndDate] = React.useState(undefined);
@@ -203,11 +210,11 @@ function DatePickerRangeExample() {
   );
 }
 `}
-      />
-      <Example
-        id="disabled"
-        name="Example: Disabled"
-        defaultCode={`
+        />
+        <Example
+          id="disabled"
+          name="Example: Disabled"
+          defaultCode={`
 function DatePickerExample() {
   const [date, setDate] = React.useState(new Date());
 
@@ -222,14 +229,14 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Example
-        id="maxMinDates"
-        description="
+        />
+        <Example
+          id="maxMinDates"
+          description="
     Disable dates outside of a min and max date range.
   "
-        name="Example: Delimited selection period"
-        defaultCode={`
+          name="Example: Delimited selection period"
+          defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -244,14 +251,14 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Example
-        id="include"
-        description="
+        />
+        <Example
+          id="include"
+          description="
     Enable an array of dates.
   "
-        name="Example: Enabled dates"
-        defaultCode={`
+          name="Example: Enabled dates"
+          defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -265,14 +272,14 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Example
-        id="exclude"
-        description="
+        />
+        <Example
+          id="exclude"
+          description="
     Disable an array of dates.
   "
-        name="Example: Disabled dates"
-        defaultCode={`
+          name="Example: Disabled dates"
+          defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
 
@@ -287,14 +294,14 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Example
-        id="helperText"
-        description="
+        />
+        <Example
+          id="helperText"
+          description="
     Display a helper message for cases where you want to provide more information about the date field.
   "
-        name="Example: Helper Text"
-        defaultCode={`
+          name="Example: Helper Text"
+          defaultCode={`
 function DatePickerExample() {
   return (
     <DatePicker
@@ -307,14 +314,14 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Example
-        id="errorMessage"
-        description="
+        />
+        <Example
+          id="errorMessage"
+          description="
     Display an error message. Error message overrides the helper text.
   "
-        name="Example: Error Message"
-        defaultCode={`
+          name="Example: Error Message"
+          defaultCode={`
 function DatePickerExample() {
   const [date, setDate] = React.useState(undefined);
 
@@ -329,27 +336,27 @@ function DatePickerExample() {
   )
 }
 `}
-      />
-      <Combination
-        id="idealDirection"
-        name="Example: Ideal Direction"
-        description="Define the preferred direction for the DatePicker popover to open. If that placement doesn't fit, the opposite direction will be used."
-        layout="4column"
-        idealDirection={['down', 'left', 'right', 'up']}
-      >
-        {({ idealDirection }) => (
-          <DatePicker
-            id={`example-idealDirection-${idealDirection}`}
-            label={`Direction ${idealDirection}`}
-            onChange={() => {}}
-            idealDirection={idealDirection}
-          />
-        )}
-      </Combination>
-      <Combination
-        id="localeData"
-        name="Example: Locales"
-        description="
+        />
+        <Combination
+          id="idealDirection"
+          name="Example: Ideal Direction"
+          description="Define the preferred direction for the DatePicker popover to open. If that placement doesn't fit, the opposite direction will be used."
+          layout="4column"
+          idealDirection={['down', 'left', 'right', 'up']}
+        >
+          {({ idealDirection }) => (
+            <DatePicker
+              id={`example-idealDirection-${idealDirection}`}
+              label={`Direction ${idealDirection}`}
+              onChange={() => {}}
+              idealDirection={idealDirection}
+            />
+          )}
+        </Combination>
+        <Combination
+          id="localeData"
+          name="Example: Locales"
+          description="
 Adjust the date format to each date-fns locale (https://date-fns.org/v2.14.0/docs/Locale).
 The following locale examples show the different locale format variants.
 IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
@@ -359,24 +366,27 @@ import { it } from 'date-fns/locale';
 <DatePicker localeData={it}/>
 ~~~
   "
-        layout="4column"
-        localeDataCode={Object.keys(localeMap)}
-      >
-        {({ localeDataCode }) => {
-          // eslint-disable-next-line react-hooks/rules-of-hooks
-          const [date, setDate] = useState(new Date());
+          layout="4column"
+          localeDataCode={Object.keys(localeMap)}
+        >
+          {({ localeDataCode }) => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const [date, setDate] = useState(new Date());
 
-          return (
-            <DatePicker
-              id={`example-${localeDataCode}`}
-              label={localeMap[localeDataCode].lang}
-              onChange={({ value }) => setDate(value)}
-              value={date}
-              localeData={localeMap[localeDataCode].localeData}
-            />
-          );
-        }}
-      </Combination>
+            return (
+              <DatePicker
+                id={`example-${localeDataCode}`}
+                label={localeMap[localeDataCode].lang}
+                onChange={({ value }) => setDate(value)}
+                value={date}
+                localeData={localeMap[localeDataCode].localeData}
+              />
+            );
+          }}
+        </Combination>
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

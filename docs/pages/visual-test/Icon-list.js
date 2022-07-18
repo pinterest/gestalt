@@ -7,7 +7,7 @@ export default function Snapshot(): Node {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box height={375} width={575} color="white">
+      <Box height={375} width={575} color="default">
         <Flex gap={1} wrap>
           {icons.map((name, index) => (
             <Box key={index} padding={2}>

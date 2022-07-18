@@ -1,25 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Icon, Link, Image, Text, Table, TapArea, Tooltip } from 'gestalt';
+import { Box, Button, Flex, Icon, Link, Image, Text, Table } from 'gestalt';
 import MainSection from '../components/MainSection.js';
 import { MAX_WIDTH } from '../components/MainSectionSubsection.js';
 import trackButtonClick from '../components/buttons/trackButtonClick.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
-
-function LockIcon({ size }: {| size: 12 | 14 |}) {
-  return (
-    <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="">
-      <TapArea rounding="circle">
-        <Icon
-          accessibilityLabel="Access is restricted to Pinterest employees"
-          icon="lock"
-          size={size}
-        />{' '}
-      </TapArea>
-    </Tooltip>
-  );
-}
+import InternalOnlyIconButton from '../components/InternalOnlyIconButton.js';
 
 function ListElement({ text, href }: {| text: string, href: string |}) {
   return (
@@ -31,15 +18,13 @@ function ListElement({ text, href }: {| text: string, href: string |}) {
           inline
           href={href}
           onClick={() => trackButtonClick(text)}
+          externalLinkIcon="default"
         >
           <Text underline inline>
             {text}
           </Text>
         </Link>
-        <Box aria-hidden>
-          <Icon accessibilityLabel="" icon="visit" size={14} />
-        </Box>
-        {href.startsWith('http://go') ? <LockIcon size={14} /> : null}
+        {href.startsWith('http://go') ? <InternalOnlyIconButton size="sm" /> : null}
       </Flex>
     </li>
   );
@@ -66,7 +51,7 @@ function TableEntry({
           <Box aria-hidden>
             <Icon accessibilityLabel="" icon="visit" size={12} />
           </Box>
-          <LockIcon size={12} />
+          <InternalOnlyIconButton />
         </Flex>
       </Table.Cell>
       <Table.Cell>
@@ -79,7 +64,7 @@ function TableEntry({
 export default function ToolingPage(): Node {
   return (
     <Page title="Tooling">
-      <PageHeader name="Tooling" showSourceLink={false} />
+      <PageHeader name="Tooling" type="guidelines" />
       <MainSection name="Core design system">
         <MainSection.Subsection />
         <Flex gap={2} maxWidth={MAX_WIDTH} direction="column">
@@ -139,7 +124,7 @@ To learn more about developing generic codemods, read this [page](https://github
         />
         <MainSection.Subsection
           title="Playground sandbox"
-          description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/k5plvp9v8v) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
+          description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
         >
           <Flex maxWidth={MAX_WIDTH} justifyContent="center">
             <Button
@@ -148,7 +133,7 @@ To learn more about developing generic codemods, read this [page](https://github
               role="link"
               onClick={() => trackButtonClick('Playground sandbox')}
               text="Create a sandbox snippet"
-              href="https://codesandbox.io/s/k5plvp9v8v"
+              href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js"
             />
           </Flex>
         </MainSection.Subsection>

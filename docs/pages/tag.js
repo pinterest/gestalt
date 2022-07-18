@@ -5,8 +5,11 @@ import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import docgen, { type DocGen } from '../components/docgen.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Tag">
       <PageHeader
@@ -68,10 +71,14 @@ export default function DocsPage(): Node {
           />
         </MainSection.Subsection>
       </MainSection>
-      <Example
-        description="Default standalone Tag"
-        name="Standalone"
-        defaultCode={`
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          description="Default standalone Tag"
+          name="Standalone"
+          defaultCode={`
 function Example(props) {
   const [showTag, setShowTag] = React.useState(true);
   return showTag ? (
@@ -83,18 +90,18 @@ function Example(props) {
   ) : null;
 }
   `}
-      />
-      <Example
-        description="Disabled standalone Tag"
-        name="Disabled"
-        defaultCode={`
+        />
+        <Example
+          description="Disabled standalone Tag"
+          name="Disabled"
+          defaultCode={`
 <Tag disabled text="New" />
   `}
-      />
-      <Example
-        description="Standalone Tag in an error state"
-        name="Error"
-        defaultCode={`
+        />
+        <Example
+          description="Standalone Tag in an error state"
+          name="Error"
+          defaultCode={`
 function Example(props) {
   const [showTag, setShowTag] = React.useState(true);
   return showTag ? (
@@ -107,11 +114,11 @@ function Example(props) {
   ) : null;
 }
   `}
-      />
-      <Example
-        description="Tags have a max width of 300px, and will clip longer text"
-        name="Max width"
-        defaultCode={`
+        />
+        <Example
+          description="Tags have a max width of 300px, and will clip longer text"
+          name="Max width"
+          defaultCode={`
 function Example(props) {
   const [showTag, setShowTag] = React.useState(true);
   return showTag ? (
@@ -123,7 +130,16 @@ function Example(props) {
   ) : null;
 }
   `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
+}
+
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  return {
+    props: { generatedDocGen: await docgen({ componentName: 'Tag' }) },
+  };
 }

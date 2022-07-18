@@ -15,10 +15,11 @@ export type sidebarIndexType = {|
 // Any new section/page must be added to sidebarIndex to be displayed.
 const sidebarIndex: Array<sidebarIndexType> = [
   {
-    sectionName: 'Getting Started',
+    sectionName: 'Get started',
     pages: [
       'About us',
       'Component overview',
+      'Component status',
       'Design',
       'Development',
       'How to work with us',
@@ -121,7 +122,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Navigation',
-    pages: ['PageHeader', 'SegmentedControl', 'Tabs'],
+    pages: ['PageHeader', 'SegmentedControl', 'SideNavigation', 'Tabs'],
   },
   {
     sectionName: 'Pins & Imagery',

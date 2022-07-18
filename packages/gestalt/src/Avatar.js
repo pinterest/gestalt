@@ -104,7 +104,7 @@ export default function Avatar(props: Props): Node {
             },
           }}
         >
-          <Box color="white" width="100%" height="100%" rounding="circle">
+          <Box color="default" width="100%" height="100%" rounding="circle">
             <Icon color="brandPrimary" icon="check-circle" accessibilityLabel="" size="100%" />
           </Box>
         </Box>

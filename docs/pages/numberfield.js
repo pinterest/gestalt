@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function NumberFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -371,7 +374,7 @@ function Example(props) {
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Comprehension"
           description="Be sure to [provide instructions](https://www.w3.org/WAI/tutorials/forms/instructions/) to help users understand how to complete the form and use individual form controls."
@@ -417,7 +420,7 @@ function Example(props) {
     in a \`<form>\` and attach an \`onSubmit\` handler to that \`<form>\`.
   `}
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -522,7 +525,7 @@ function Example(props) {
   const [value2, setValue2] = React.useState();
 
   return (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={2} width="80%">
       <NumberField
         id="minMaxStepExampleNumberField1"
         label="Stepping in intervals of 5"
@@ -598,6 +601,8 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

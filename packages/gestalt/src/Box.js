@@ -136,27 +136,10 @@ type Props = {
    * Default: 'transparent'
    */
   color?:
-    | 'blue'
-    | 'darkGray'
     | 'darkWash'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
     | 'lightWash'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
     | 'transparent'
     | 'transparentDarkGray'
-    | 'watermelon'
-    | 'white'
     | 'default'
     | 'infoBase'
     | 'infoWeak'
@@ -166,6 +149,8 @@ type Props = {
     | 'warningWeak'
     | 'successBase'
     | 'successWeak'
+    | 'recommendationBase'
+    | 'recommendationWeak'
     | 'shopping'
     | 'primary'
     | 'secondary'
@@ -176,7 +161,9 @@ type Props = {
     | 'education'
     | 'elevationAccent'
     | 'elevationFloating'
-    | 'elevationRaised',
+    | 'elevationRaised'
+    | 'dark'
+    | 'light',
   /**
    * See the [column layout](https://gestalt.pinterest.systems/box#Column-layout) variant for more info.
    *

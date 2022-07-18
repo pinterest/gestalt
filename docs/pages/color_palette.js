@@ -55,7 +55,7 @@ export default function ColorPage(): Node {
 
         For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).
         `}
-        showSourceLink={false}
+        type="guidelines"
       />
       <MainSection
         name="Baseline colors"
@@ -171,6 +171,17 @@ export default function ColorPage(): Node {
           </Flex>
         </MainSection.Subsection>
       </MainSection>
+      <MainSection
+        name="Colors in code"
+        description={`
+       All colors in this palette are available through [design tokens](/https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099) and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
+
+       - JavaScript  \`$color-pink-flaminglow-400\`
+       - CSS  \`var(--color-pink-flaminglow-400)\`
+
+       Using colors that are not available through our [semantic design tokens](/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) can be used.
+      `}
+      />
     </Page>
   );
 }

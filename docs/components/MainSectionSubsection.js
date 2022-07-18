@@ -73,7 +73,7 @@ function MainSectionSubsection({
         )}
 
         {description && (
-          <Box maxWidth={MAX_WIDTH} marginTop={title ? 2 : 0} color="white">
+          <Box maxWidth={MAX_WIDTH} marginTop={title ? 2 : 0} color="default">
             <Markdown text={description} />
           </Box>
         )}

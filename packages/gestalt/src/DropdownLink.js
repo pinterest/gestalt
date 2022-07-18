@@ -79,7 +79,6 @@ export default function DropdownLink({
           key={`${option.value + _index}`}
           onClick={onClick}
           option={option}
-          role="menuitem"
           setHoveredItemIndex={setHoveredItem}
           ref={setOptionRef}
           textWeight="bold"

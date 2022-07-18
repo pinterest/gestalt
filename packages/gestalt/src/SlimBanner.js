@@ -1,26 +1,124 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import Box from './Box.js';
+import Button from './Button.js';
+import Flex from './Flex.js';
 import Icon from './Icon.js';
+import IconButton from './IconButton.js';
 import Link from './Link.js';
 import Text from './Text.js';
-import Flex from './Flex.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
+
+type DismissButtonType = {|
+  accessibilityLabel: string,
+  onDismiss: () => void,
+|};
+
+function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
+  return (
+    <IconButton
+      accessibilityLabel={accessibilityLabel}
+      icon="cancel"
+      iconColor="darkGray"
+      onClick={onDismiss}
+      size="xs"
+    />
+  );
+}
+
+type HelperLinkType = {|
+  accessibilityLabel: string,
+  href: string,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  target?: null | 'self' | 'blank',
+  text: string,
+|};
+
+function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperLinkType) {
+  return (
+    <Text inline>
+      <Link
+        accessibilityLabel={accessibilityLabel}
+        href={href}
+        inline
+        onClick={onClick}
+        target={target}
+      >
+        {text}
+      </Link>
+    </Text>
+  );
+}
+
+type PrimaryActionType = {|
+  accessibilityLabel: string,
+  disabled?: boolean,
+  href?: string,
+  label: string,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
+
+function PrimaryAction({
+  accessibilityLabel,
+  disabled,
+  href,
+  label,
+  onClick,
+  rel,
+  target,
+}: PrimaryActionType) {
+  return href ? (
+    <Button
+      accessibilityLabel={accessibilityLabel}
+      color="white"
+      disabled={disabled}
+      fullWidth
+      href={href}
+      onClick={onClick}
+      rel={rel}
+      role="link"
+      size="sm"
+      target={target}
+      text={label}
+    />
+  ) : (
+    <Button
+      accessibilityLabel={accessibilityLabel}
+      color="white"
+      disabled={disabled}
+      fullWidth
+      onClick={onClick}
+      role="button"
+      size="sm"
+      text={label}
+    />
+  );
+}
 
 type Props = {|
   /**
+   * Adds a dismiss button to SlimBanner. See the [Dismissible variant](https://gestalt.pinterest.systems/slimbanner#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/slimbanner#Accessibility).
+   *
+   * Note that compact ("___Bare" type) SlimBanners are not dismissable.
+   */
+  dismissButton?: DismissButtonType,
+  /**
    * Helper [Link](https://gestalt.pinterest.systems/link) to be placed after the message. See the [helperLink variant](https://gestalt.pinterest.systems/slimbanner#helperLink) to learn more.
    */
-  helperLink?: {|
-    accessibilityLabel: string,
-    href: string,
-    onClick: ({|
-      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-    target?: null | 'self' | 'blank',
-    text: string,
-  |},
+  helperLink?: HelperLinkType,
   /**
    * Label to describe the status icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/slimbanner#Accessibility) for details on proper usage.
    */
@@ -31,6 +129,15 @@ type Props = {|
    */
   message: string,
   /**
+   * Main action for users to take on SlimBanner. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/slimbanner#Accessibility).
+   * See the [Primary action](https://gestalt.pinterest.systems/slimbanner#Primary-action) variant to learn more.
+   *
+   * Note that actions are not available on compact ("___Bare" type) SlimBanners.
+   */
+  primaryAction?: PrimaryActionType,
+  /**
    * The type of SlimBanner. See the [variants](https://gestalt.pinterest.systems/slimbanner#Variants) to learn more.
    */
   type?:
@@ -39,10 +146,12 @@ type Props = {|
     | 'info'
     | 'warning'
     | 'success'
+    | 'recommendation'
     | 'errorBare'
     | 'infoBare'
     | 'warningBare'
-    | 'successBare',
+    | 'successBare'
+    | 'recommendationBare',
 |};
 
 /**
@@ -53,67 +162,69 @@ type Props = {|
  *
  */
 export default function SlimBanner({
+  dismissButton,
   helperLink,
   iconAccessibilityLabel,
   message,
+  primaryAction,
   type = 'neutral',
 }: Props): Node {
-  const isBare = ['errorBare', 'infoBare', 'warningBare', 'successBare'].includes(type);
+  const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
-  const statusMap = {
-    'errorBare': 'error',
-    'infoBare': 'info',
-    'warningBare': 'warning',
-    'successBare': 'success',
-  };
-  const { backgroundColor, iconColor, icon } =
-    MESSAGING_TYPE_ATTRIBUTES[
-      type === 'errorBare' ||
-      type === 'infoBare' ||
-      type === 'warningBare' ||
-      type === 'successBare'
-        ? statusMap[type]
-        : type
-    ];
+  const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
+
+  // Buttons not allowed on compact SlimBanners
+  const shouldShowButtons = !isBare && (primaryAction || dismissButton);
 
   return (
     <Box
+      alignItems="center"
       color={isBare ? 'transparent' : backgroundColor}
+      display="flex"
       padding={isBare ? 0 : 4}
       paddingY={isBare ? 1 : 0}
       rounding={4}
       width="100%"
     >
-      <Flex gap={isBare ? 2 : 4}>
-        {!isDefault && iconAccessibilityLabel ? (
-          <Icon
-            accessibilityLabel={iconAccessibilityLabel}
-            color={iconColor}
-            icon={icon}
-            size={16}
-          />
-        ) : null}
-        <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
-          <Text inline>
-            {message}
-            {helperLink ? (
-              <Fragment>
-                {' '}
-                <Text inline>
-                  <Link
-                    accessibilityLabel={helperLink.accessibilityLabel}
-                    href={helperLink.href}
-                    onClick={helperLink.onClick}
-                    inline
-                    target={helperLink.target}
-                  >
-                    {helperLink.text}
-                  </Link>
-                </Text>
-              </Fragment>
-            ) : null}
-          </Text>
-        </Box>
+      <Flex alignItems="center" gap={isBare ? 2 : 4} flex="grow">
+        {!isDefault && iconAccessibilityLabel && (
+          <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
+            <Icon
+              accessibilityLabel={iconAccessibilityLabel}
+              color={iconColor}
+              icon={icon}
+              size={16}
+            />
+          </Flex.Item>
+        )}
+
+        <Flex.Item flex="grow">
+          <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
+            <Text inline>
+              {message}
+              {helperLink ? (
+                <Fragment>
+                  {' '}
+                  <HelperLink {...helperLink} />
+                </Fragment>
+              ) : null}
+            </Text>
+          </Box>
+        </Flex.Item>
+
+        {shouldShowButtons && (
+          <Flex.Item flex="none">
+            <Flex alignItems="center" gap={4}>
+              {primaryAction && (
+                <Flex.Item flex="none">
+                  <PrimaryAction {...primaryAction} />
+                </Flex.Item>
+              )}
+
+              {dismissButton && <DismissButton {...dismissButton} />}
+            </Flex>
+          </Flex.Item>
+        )}
       </Flex>
     </Box>
   );

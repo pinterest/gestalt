@@ -5,7 +5,7 @@ import { Box, Collage, Mask, Image, ColorSchemeProvider } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" display="inlineBlock" padding={1}>
+      <Box color="default" display="inlineBlock" padding={1}>
         <Collage
           columns={2}
           height={150}
@@ -62,7 +62,7 @@ export default function Snapshot(): Node {
                     src={image.src}
                   />
                 ) : (
-                  <Box color="lightGray" height={height} width={width} />
+                  <Box color="secondary" height={height} width={width} />
                 )}
               </Mask>
             );

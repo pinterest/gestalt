@@ -2,7 +2,7 @@
 
 exports[`SlimBanner renders an icon with accessibility label 1`] = `
 <div
-  className="box errorWeak paddingX4 paddingY0 paddingY4 rounding4"
+  className="box errorWeak itemsCenter paddingX4 paddingY0 paddingY4 rounding4 xsDisplayFlex"
   style={
     Object {
       "width": "100%",
@@ -10,10 +10,10 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 xsDirectionRow"
+    className="Flex rowGap4 flexGrow itemsCenter xsDirectionRow"
   >
     <div
-      className="FlexItem"
+      className="FlexItem selfStart"
     >
       <svg
         aria-hidden={null}
@@ -30,7 +30,7 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
       </svg>
     </div>
     <div
-      className="FlexItem"
+      className="FlexItem flexGrow"
     >
       <div
         className="box"
@@ -53,7 +53,7 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
 
 exports[`SlimBanner renders helper link 1`] = `
 <div
-  className="box paddingX4 paddingY0 paddingY4 rounding4 secondary"
+  className="box itemsCenter paddingX4 paddingY0 paddingY4 rounding4 secondary xsDisplayFlex"
   style={
     Object {
       "width": "100%",
@@ -61,10 +61,10 @@ exports[`SlimBanner renders helper link 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 xsDirectionRow"
+    className="Flex rowGap4 flexGrow itemsCenter xsDirectionRow"
   >
     <div
-      className="FlexItem"
+      className="FlexItem flexGrow"
     >
       <div
         className="box"
@@ -106,7 +106,7 @@ exports[`SlimBanner renders helper link 1`] = `
 
 exports[`SlimBanner renders neutral type with message 1`] = `
 <div
-  className="box paddingX4 paddingY0 paddingY4 rounding4 secondary"
+  className="box itemsCenter paddingX4 paddingY0 paddingY4 rounding4 secondary xsDisplayFlex"
   style={
     Object {
       "width": "100%",
@@ -114,10 +114,10 @@ exports[`SlimBanner renders neutral type with message 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 xsDirectionRow"
+    className="Flex rowGap4 flexGrow itemsCenter xsDirectionRow"
   >
     <div
-      className="FlexItem"
+      className="FlexItem flexGrow"
     >
       <div
         className="box"
@@ -135,7 +135,7 @@ exports[`SlimBanner renders neutral type with message 1`] = `
 
 exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
 <div
-  className="box paddingX0 paddingY0 paddingY1 rounding4"
+  className="box itemsCenter paddingX0 paddingY0 paddingY1 rounding4 xsDisplayFlex"
   style={
     Object {
       "width": "100%",
@@ -143,10 +143,10 @@ exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
   }
 >
   <div
-    className="Flex rowGap2 xsDirectionRow"
+    className="Flex rowGap2 flexGrow itemsCenter xsDirectionRow"
   >
     <div
-      className="FlexItem"
+      className="FlexItem selfStart"
     >
       <svg
         aria-hidden={null}
@@ -163,7 +163,7 @@ exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
       </svg>
     </div>
     <div
-      className="FlexItem"
+      className="FlexItem flexGrow"
     >
       <div
         className="box"

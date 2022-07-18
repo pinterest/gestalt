@@ -4,20 +4,22 @@ import { Button } from 'gestalt';
 import PropTable from '../components/PropTable.js';
 import CombinationNew from '../components/CombinationNew.js';
 import PageHeader from '../components/PageHeader.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 
 export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Button">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Button"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
-      <Flex>
-        <Button color='red' size='lg' text='Save' />
-      </Flex>
+<Flex>
+  <Button color='red' size='lg' text='Save' />
+</Flex>
     `}
       />
       <PropTable
@@ -304,7 +306,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
@@ -318,7 +320,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 - \`accessibilityExpanded\`: informs the screen reader whether the button-anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information. "
@@ -743,6 +745,9 @@ function ButtonPopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

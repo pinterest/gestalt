@@ -4,13 +4,13 @@ import { type Node } from 'react';
 import IllustrationCard from '../components/IllustrationCard.js';
 import IllustrationSection from '../components/IllustrationSection.js';
 import Page from '../components/Page.js';
-import Hero from '../graphics/HeroGraphic.js';
-import Design from '../graphics/design.svg';
-import Development from '../graphics/development.svg';
-import HowToWork from '../graphics/how-to-work-with-us.svg';
-import A11Y from '../graphics/accessibility.svg';
-import Color from '../graphics/color.svg';
-import DesignTokens from '../graphics/design-tokens.svg';
+import Hero from '../graphics/home-page/HeroGraphic.js';
+import Design from '../graphics/home-page/design.svg';
+import Development from '../graphics/home-page/development.svg';
+import HowToWork from '../graphics/home-page/how-to-work-with-us.svg';
+import A11Y from '../graphics/home-page/accessibility.svg';
+import Color from '../graphics/home-page/color.svg';
+import DesignTokens from '../graphics/home-page/design-tokens.svg';
 
 export default function HomePage(): Node {
   return (
@@ -42,8 +42,8 @@ export default function HomePage(): Node {
               </Box>
             </Box>
           </IllustrationSection>
-          {/* Getting Started */}
-          <IllustrationSection title="Getting started">
+          {/* Get started */}
+          <IllustrationSection title="Get started">
             <IllustrationCard
               title="Design"
               href="/design"

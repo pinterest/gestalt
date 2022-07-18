@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { overrideTypes, type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -13,20 +16,20 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         name="SelectList"
         description={generatedDocGen?.description}
         defaultCode={`
-      <SelectList
-        id="selectlistexample1"
-        onChange={() => {}}
-        options={[
-          {label:'Algeria', value: 'algeria'},
-          {label:'Belgium', value: 'belgium'},
-          {label:'Canada', value: 'canada'},
-          {label:'Denmark', value: 'denmark'},
-          {label:'Egypt', value: 'egypt'},
-          {label:'France', value: 'france'},
-        ]}
-        size='lg'
-        label='Country'
-      />
+<SelectList
+  id="selectlistexample1"
+  onChange={() => {}}
+  options={[
+    {label:'Algeria', value: 'algeria'},
+    {label:'Belgium', value: 'belgium'},
+    {label:'Canada', value: 'canada'},
+    {label:'Denmark', value: 'denmark'},
+    {label:'Egypt', value: 'egypt'},
+    {label:'France', value: 'france'},
+  ]}
+  size='lg'
+  label='Country'
+/>
     `}
       />
 
@@ -263,7 +266,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -308,7 +311,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
 `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection name="Variants">
         <MainSection.Subsection title="Size" columns={2}>
@@ -480,6 +483,8 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

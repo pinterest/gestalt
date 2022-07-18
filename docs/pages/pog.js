@@ -2,28 +2,28 @@
 import { type Node } from 'react';
 import { Pog } from 'gestalt';
 import Combination from '../components/Combination.js';
-import Example from '../components/Example.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Pog">
-      <PageHeader name="Pog" description={generatedDocGen?.description} />
+      <PageHeader
+        name="Pog"
+        description={generatedDocGen?.description}
+        defaultCode={`
+<Pog icon="heart" iconColor="red"/>
+`}
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <Example
-        name="Example"
-        defaultCode={`
-<Pog
-  icon="heart"
-  iconColor="red"
-/>
-`}
-      />
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
       <Combination
         id="stateCombinations"
         name="Combinations: State"
@@ -62,6 +62,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       >
         {(props) => <Pog icon="heart" {...props} />}
       </Combination>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

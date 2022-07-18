@@ -6,6 +6,9 @@ import MainSection from '../components/MainSection.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DropdownPage({
   generatedDocGen,
@@ -13,69 +16,70 @@ export default function DropdownPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="Dropdown">
+    <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
-        name="Dropdown"
+        name={generatedDocGen.Dropdown?.displayName}
         description={generatedDocGen.Dropdown?.description}
         badge="pilot"
         defaultCode={`
-      function IntroMenuButtonDropdownExample() {
-        const [open, setOpen] = React.useState(false);
-        const [selected, setSelected] = React.useState(null);
-        const anchorRef = React.useRef(null);
-        const onSelect = ({ item }) => setSelected(item);
+function IntroMenuButtonDropdownExample() {
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState(null);
+  const anchorRef = React.useRef(null);
+  const onSelect = ({ item }) => setSelected(item);
 
-        return (
-          <Flex justifyContent="center">
-            <Button
-              accessibilityControls="demo-dropdown-example"
-              accessibilityExpanded={open}
-              accessibilityHaspopup
-              iconEnd="arrow-down"
-              onClick={() => setOpen((prevVal) => !prevVal)}
-              ref={anchorRef}
-              selected={open}
-              size="lg"
-              text="Menu"
-            />
-            {open && (
-              <Dropdown anchor={anchorRef.current} id="demo-dropdown-example" onDismiss={() => setOpen(false)}>
-                <Dropdown.Item
-                  onSelect={onSelect}
-                  option={{ value: "item 1", label: "Item 1" }}
-                  selected={selected}
-                />
-                <Dropdown.Item
-                  onSelect={onSelect}
-                  option={{ value: "item 2", label: "Item 2 with a really long, detailed, complex name" }}
-                  selected={selected}
-                />
-                <Dropdown.Link
-                  href="https://pinterest.com"
-                  isExternal
-                  option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
-                />
-                <Dropdown.Item
-                  badge={{ text: 'New' }}
-                  onSelect={onSelect}
-                  option={{ value: "item 4", label: "Item 4" }}
-                  selected={selected}
-                />
-                <Dropdown.Link
-                  badge={{ text: 'New' }}
-                  href="https://pinterest.com"
-                  isExternal
-                  option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
-                />
-                <Dropdown.Link
-                  href="/combobox"
-                  option={{ value: "item 6", label: "Item 6 navigates internally" }}
-                />
-              </Dropdown>
-            )}
-          </Flex>
-        );
-      }`}
+  return (
+    <Flex justifyContent="center">
+      <Button
+        accessibilityControls="demo-dropdown-example"
+        accessibilityExpanded={open}
+        accessibilityHaspopup
+        iconEnd="arrow-down"
+        onClick={() => setOpen((prevVal) => !prevVal)}
+        ref={anchorRef}
+        selected={open}
+        size="lg"
+        text="Menu"
+      />
+      {open && (
+        <Dropdown anchor={anchorRef.current} id="demo-dropdown-example" onDismiss={() => setOpen(false)}>
+          <Dropdown.Item
+            onSelect={onSelect}
+            option={{ value: "item 1", label: "Item 1" }}
+            selected={selected}
+          />
+          <Dropdown.Item
+            onSelect={onSelect}
+            option={{ value: "item 2", label: "Item 2 with a really long, detailed, complex name" }}
+            selected={selected}
+          />
+          <Dropdown.Link
+            href="https://pinterest.com"
+            isExternal
+            option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
+          />
+          <Dropdown.Item
+            badge={{ text: 'New' }}
+            onSelect={onSelect}
+            option={{ value: "item 4", label: "Item 4" }}
+            selected={selected}
+          />
+          <Dropdown.Link
+            badge={{ text: 'New' }}
+            href="https://pinterest.com"
+            isExternal
+            option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
+          />
+          <Dropdown.Link
+            href="/combobox"
+            option={{ value: "item 6", label: "Item 6 navigates internally" }}
+          />
+        </Dropdown>
+      )}
+    </Flex>
+  );
+}
+      `}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} />
@@ -463,7 +467,7 @@ function CustomContentDropdownExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen.Dropdown?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
@@ -484,7 +488,7 @@ function CustomContentDropdownExample() {
     * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
           `}
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection name="Localization">
         <MainSection.Subsection
           title="Truncation"
@@ -1049,6 +1053,9 @@ function CustomIconButtonPopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen.Dropdown?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

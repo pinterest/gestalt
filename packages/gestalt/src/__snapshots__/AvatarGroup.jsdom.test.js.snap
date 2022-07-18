@@ -63,7 +63,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
               class=""
             >
               <div
-                class="box circle lightGrayBg relative"
+                class="box circle relative secondary"
                 style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
               >
                 <div
@@ -166,7 +166,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                 class=""
               >
                 <div
-                  class="box circle lightGrayBg relative"
+                  class="box circle relative secondary"
                   style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
                 >
                   <div
@@ -304,7 +304,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               class=""
             >
               <div
-                class="box circle lightGrayBg relative"
+                class="box circle relative secondary"
                 style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
               >
                 <div
@@ -318,7 +318,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <text
-                      class="antialiased sansSerif fontWeightBold "
+                      class="antialiased sansSerif fontWeightSemiBold "
                       dy="0.35em"
                       fill="#111"
                       font-size="40px"
@@ -367,7 +367,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
-                  class="box circle lightGrayBg relative"
+                  class="box circle relative secondary"
                   style="padding-bottom: 100%;"
                 >
                   <div
@@ -384,7 +384,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
                         Keerthi
                       </title>
                       <text
-                        class="antialiased sansSerif fontWeightBold "
+                        class="antialiased sansSerif fontWeightSemiBold "
                         dy="0.35em"
                         fill="#111"
                         font-size="40px"

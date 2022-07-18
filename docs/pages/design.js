@@ -6,10 +6,10 @@ import PageHeader from '../components/PageHeader.js';
 
 export default function DocsPage(): Node {
   return (
-    <Page title="Getting started as a designer">
-      <PageHeader name="Getting started as a designer" description="" showSourceLink={false} />
+    <Page title="Get started as a designer">
+      <PageHeader name="Get started as a designer" description="" type="guidelines" />
 
-      <MainSection name="Getting set up">
+      <MainSection name="Get set up">
         <MainSection.Subsection
           description={`
           The Gestalt system provides Pinterest with a shared language, facilitates collaboration across functions, and establishes design cohesion. The tools below will set you up to access the most up-to-date designs and standards.
@@ -22,7 +22,7 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
           `}
         />
         <MainSection.Subsection
-          title="Connecting to Gestalt in Figma"
+          title="Connect to Gestalt in Figma"
           description={`
 1. You may be able to download Figma directly from the [Figma Website](https://www.figma.com/downloads/). If you do not have the appropriate access you can request access through the [Pinterest Approved Software Collection](http://w.pinadmin.com/display/SOFTWARE/Figma).
 2. Once you have Figma on your computer, you can open the application and select “Log in with SAML SSO.” From there, enter your Pinterest email address and open Figma.

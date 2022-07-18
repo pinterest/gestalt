@@ -7,6 +7,9 @@ import CombinationNew from '../components/CombinationNew.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -15,24 +18,24 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
         name="AvatarGroup"
         description={generatedDocGen?.description}
         defaultCode={`
-  <Box width={300} height={125}>
-    <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
-      collaborators={[
+<Box width={300} height={125}>
+  <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
+    collaborators={[
+      {
+        name: 'Keerthi',
+        src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+      },
+      {
+        name: 'Alberto',
+        src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+      },
         {
-          name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-        },
-        {
-          name: 'Alberto',
-          src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-        },
-          {
-          name: 'Shanice',
-          src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-        },
-      ]}
-    />
-  </Box>
+        name: 'Shanice',
+        src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+      },
+    ]}
+  />
+</Box>
   `}
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -150,7 +153,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
@@ -252,7 +255,7 @@ function Example() {
           description={`If AvatarGroup is acting as a button or link, the Tab key will focus the AvatarGroup.
           Hitting the Enter or Return key opens a dialog or redirects to a new page (depending on the role) and the user can then add or view collaborators.`}
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection name="Localization" description="Be sure to localize  `accessibilityLabel`." />
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -539,6 +542,8 @@ function LinkExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

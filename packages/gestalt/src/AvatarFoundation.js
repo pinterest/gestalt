@@ -8,7 +8,6 @@ import icons from './icons/index.js';
 import styles from './Icon.css';
 import colors from './Colors.css';
 import avatarStyles from './AvatarGroup.css';
-import useInExperiment from './useInExperiment.js';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
@@ -19,7 +18,7 @@ function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps):
 
   return (
     <Box
-      color="lightGray"
+      color="secondary"
       dangerouslySetInlineStyle={{
         __style: {
           // When specifying a padding by percentage, it's always based on the width of the parent container so we get a property that's equal to the width.s
@@ -69,13 +68,6 @@ export default function AvatarFoundation({
 
   const cs = classnames(styles.icon, colors.darkGray);
 
-  const inSemiBoldExp = useInExperiment({
-    webExperimentName: 'web_gestalt_semibold_weight',
-    mwebExperimentName: 'mweb_gestalt_semibold_weight',
-  });
-
-  const fontWeightStyle = inSemiBoldExp ? typography.fontWeightSemiBold : typography.fontWeightBold;
-
   return (
     <ResponsiveFitSizeBox outline={outline}>
       {content === 'text' ? (
@@ -95,7 +87,7 @@ export default function AvatarFoundation({
             className={[
               typography.antialiased,
               typography.sansSerif,
-              fontWeightStyle,
+              typography.fontWeightSemiBold,
               translate && avatarStyles[translate], // if addCollaborator button is present, translateX moves numbers closer to the edge
             ].join(' ')}
           >

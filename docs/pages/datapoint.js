@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -66,6 +69,8 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 <Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             // This example should also display a localized trend value, but given trend accepts only a number,
             // the value cannot be localized. Once the API is changed, we should add a localized trend to this example.
@@ -85,6 +90,8 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 
 `}
           />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
@@ -112,11 +119,10 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Accessibility"
-        description={`Datapoint's trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up). `}
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description={`Datapoint's trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up).`}
       />
-
       <MainSection
         name="Localization"
         description={`
@@ -201,6 +207,8 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

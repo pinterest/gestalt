@@ -8,6 +8,8 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -251,11 +253,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
         ]}
       />
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <Example
-        name="Basic TapArea"
-        id="basic-taparea"
-        defaultCode={`
+      <MainSection name="Variants">
+        <Example
+          name="Basic TapArea"
+          id="basic-taparea"
+          defaultCode={`
 function TapAreaExample() {
   return (
     <Box rounding={4} borderStyle="sm" width={170}>
@@ -279,16 +283,16 @@ function TapAreaExample() {
   );
 }
 `}
-      />
+        />
 
-      <Example
-        id="link_buttons"
-        description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
+        <Example
+          id="link_buttons"
+          description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
 TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
   `}
-        name="TapArea with Link/Button"
-        defaultCode={`
+          name="TapArea with Link/Button"
+          defaultCode={`
 function TapAreaExample() {
   const [touches, setTouches] = React.useState(0);
 
@@ -298,7 +302,7 @@ function TapAreaExample() {
         onTap={() => setTouches(touches + 1)}
         rounding={2}
       >
-        <Box color="darkGray" rounding={4} borderStyle="sm">
+        <Box color="selected" rounding={4} borderStyle="sm">
           <Mask rounding={2}>
             <Image
               alt="Antelope Canyon"
@@ -328,12 +332,12 @@ function TapAreaExample() {
   );
 }
 `}
-      />
+        />
 
-      <Example
-        name="Roles & compress behavior"
-        id="roles"
-        defaultCode={`
+        <Example
+          name="Roles & compress behavior"
+          id="roles"
+          defaultCode={`
 function Example() {
   const [disabled, setDisabled] = React.useState(false);
   const [compressed, setCompressed] = React.useState('compress');
@@ -426,16 +430,16 @@ function Example() {
   );
 }
 `}
-      />
+        />
 
-      <Example
-        name="Height & width"
-        id="fullHeightWidth"
-        defaultCode={`
+        <Example
+          name="Height & width"
+          id="fullHeightWidth"
+          defaultCode={`
 <Box color="olive" display="flex" width={500} height={250}>
   <Box borderStyle="sm" margin={3} column={6}>
     <TapArea fullHeight>
-      <Box height="100%" color="lightGray">
+      <Box height="100%" color="secondary">
         <Text align="center">
           Full parent height
         </Text>
@@ -444,7 +448,7 @@ function Example() {
   </Box>
   <Box borderStyle="sm" margin={3} column={6}>
     <TapArea>
-      <Box height="100%" color="lightGray">
+      <Box height="100%" color="secondary">
         <Text align="center">
           Child height only
         </Text>
@@ -453,20 +457,20 @@ function Example() {
   </Box>
 </Box>
 `}
-      />
+        />
 
-      <Example
-        name="Inline usage"
-        id="inlineUsage"
-        description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
-        defaultCode={`
-<Box color="eggplant" height={250} padding={3} width={500}>
+        <Example
+          name="Inline usage"
+          id="inlineUsage"
+          description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
+          defaultCode={`
+<Box color="warningBase" height={250} padding={3} width={500}>
   <Flex direction="column" gap={6}>
     <Flex.Item>
       <Text color="inverse" inline>Other content</Text>
       <Box borderStyle="sm" margin={3} column={6}>
         <TapArea>
-          <Box height="100%" color="lightGray">
+          <Box height="100%" color="secondary">
             <Text align="center">
               Default behavior (block)
             </Text>
@@ -479,7 +483,7 @@ function Example() {
       <Text color="inverse" inline>Other content</Text>
       <Box borderStyle="sm" display="inlineBlock" margin={3} column={6}>
         <TapArea>
-          <Box height="100%" color="lightGray">
+          <Box height="100%" color="secondary">
             <Text align="center">
               Inline behavior
             </Text>
@@ -490,52 +494,61 @@ function Example() {
   </Flex>
 </Box>
 `}
-      />
+        />
 
-      <Combination
-        id="mouseCursor"
-        name="Mouse cursor"
-        mouseCursor={['copy', 'grab', 'grabbing', 'move', 'noDrop', 'pointer', 'zoomIn', 'zoomOut']}
-      >
-        {(props, i) => (
-          <TapArea id={`example-${i}`} {...props}>
-            <Box borderStyle="lg" padding={3} color="white">
-              {/* eslint-disable-next-line react/prop-types */}
-              <Text>{props.mouseCursor}</Text>
-            </Box>
-          </TapArea>
-        )}
-      </Combination>
+        <Combination
+          id="mouseCursor"
+          name="Mouse cursor"
+          mouseCursor={[
+            'copy',
+            'grab',
+            'grabbing',
+            'move',
+            'noDrop',
+            'pointer',
+            'zoomIn',
+            'zoomOut',
+          ]}
+        >
+          {(props, i) => (
+            <TapArea id={`example-${i}`} {...props}>
+              <Box borderStyle="lg" padding={3} color="default">
+                {/* eslint-disable-next-line react/prop-types */}
+                <Text>{props.mouseCursor}</Text>
+              </Box>
+            </TapArea>
+          )}
+        </Combination>
 
-      <Combination
-        id="rounding"
-        name="Rounding"
-        rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}
-      >
-        {(props, i) => (
-          <TapArea id={`example-${i}`} {...props}>
-            <Box
-              color="white"
-              borderStyle="lg"
-              // eslint-disable-next-line react/prop-types
-              width={props.rounding === 'pill' ? 120 : 70}
-              height={70}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              {...props}
-            >
-              {/* eslint-disable-next-line react/prop-types */}
-              <Text>{props.rounding}</Text>
-            </Box>
-          </TapArea>
-        )}
-      </Combination>
+        <Combination
+          id="rounding"
+          name="Rounding"
+          rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}
+        >
+          {(props, i) => (
+            <TapArea id={`example-${i}`} {...props}>
+              <Box
+                color="default"
+                borderStyle="lg"
+                // eslint-disable-next-line react/prop-types
+                width={props.rounding === 'pill' ? 120 : 70}
+                height={70}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                {...props}
+              >
+                {/* eslint-disable-next-line react/prop-types */}
+                <Text>{props.rounding}</Text>
+              </Box>
+            </TapArea>
+          )}
+        </Combination>
 
-      <Example
-        id="ref"
-        name="Ref"
-        defaultCode={`
+        <Example
+          id="ref"
+          name="Ref"
+          defaultCode={`
 function TapAreaRefExample() {
   const ref = React.useRef();
   const [focus, setFocus] = React.useState(0);
@@ -562,12 +575,12 @@ function TapAreaRefExample() {
     </Flex>
   );
 }`}
-      />
+        />
 
-      <Example
-        name="Accessibility: label, controls, expanded, & popup"
-        id="accessibility"
-        defaultCode={`
+        <Example
+          name="Accessibility: label, controls, expanded, & popup"
+          id="accessibility"
+          defaultCode={`
 function MenuButtonExample() {
   const [selected, setSelected] = React.useState(false);
   const anchorRef = React.useRef();
@@ -632,7 +645,10 @@ function MenuButtonExample() {
   );
 }
 `}
-      />
+        />
+      </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

@@ -5,7 +5,7 @@ exports[`PageHeader renders 1`] = `
   className="pageHeader"
 >
   <div
-    className="box paddingX8 paddingY4 whiteBg"
+    className="box default paddingX8 paddingY4"
     style={
       Object {
         "width": "100%",
@@ -126,7 +126,7 @@ exports[`PageHeader renders primary action 1`] = `
   className="pageHeader"
 >
   <div
-    className="box paddingX8 paddingY4 whiteBg"
+    className="box default paddingX8 paddingY4"
     style={
       Object {
         "width": "100%",
@@ -273,7 +273,7 @@ exports[`PageHeader renders primary action 1`] = `
                           className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
-                            className="Text fontSize300 inverseText alignCenter fontWeightBold"
+                            className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
                           >
                             Create
                           </div>
@@ -349,7 +349,7 @@ exports[`PageHeader renders secondary action 1`] = `
   className="pageHeader"
 >
   <div
-    className="box paddingX8 paddingY4 whiteBg"
+    className="box default paddingX8 paddingY4"
     style={
       Object {
         "width": "100%",
@@ -527,7 +527,7 @@ exports[`PageHeader renders secondary action 1`] = `
                           className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
-                            className="Text fontSize300 inverseText alignCenter fontWeightBold"
+                            className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
                           >
                             Create
                           </div>
@@ -603,7 +603,7 @@ exports[`PageHeader renders subtext 1`] = `
   className="pageHeader"
 >
   <div
-    className="box paddingX8 paddingY4 whiteBg"
+    className="box default paddingX8 paddingY4"
     style={
       Object {
         "width": "100%",
@@ -737,7 +737,7 @@ exports[`PageHeader renders within a max width 1`] = `
   className="pageHeader"
 >
   <div
-    className="box paddingX8 paddingY4 whiteBg"
+    className="box default paddingX8 paddingY4"
     style={
       Object {
         "width": "100%",

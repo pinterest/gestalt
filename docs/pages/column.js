@@ -6,6 +6,8 @@ import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
 
@@ -16,6 +18,8 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
       <Card
         description={`
     Column is a basic layout component to help you size your UI. A full width is composed
@@ -24,6 +28,7 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
   `}
         name="Static columns"
       />
+
       <Example
         name="Example: Basic Column Unit"
         defaultCode={`
@@ -191,6 +196,7 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
 </Box>
 `}
       />
+
       <Example
         description="Column gutters can be created through composition and negative margins."
         name="Example: Gutters"
@@ -227,6 +233,7 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
 </Box>
 `}
       />
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

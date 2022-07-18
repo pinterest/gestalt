@@ -1,0 +1,14 @@
+.ulItem {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.liItem {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.borderExpandableSelected {
+  border: 1px solid var(--color-black-cosmicore-900);
+}
+

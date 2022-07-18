@@ -177,7 +177,8 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   return (
     <a
-      aria-current={accessibilityCurrent}
+      aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
+      aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
       className={className}
       href={disabled ? undefined : href}

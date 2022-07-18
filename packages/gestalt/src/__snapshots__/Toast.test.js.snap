@@ -13,7 +13,7 @@ exports[`<Toast /> Error Toast 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill redBg shadow"
+    className="box errorBase fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -50,7 +50,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -90,7 +90,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             Saved to
              
             <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
               <a
                 className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
@@ -135,7 +135,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 defaultText alignCenter fontWeightBold"
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
             >
               Undo
             </div>
@@ -160,7 +160,7 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"
@@ -200,7 +200,7 @@ exports[`<Toast /> Text + Image 1`] = `
             Saved to
              
             <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightBold"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
               <a
                 className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
@@ -242,7 +242,7 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
       className="Flex rowGap4 itemsCenter xsDirectionRow"

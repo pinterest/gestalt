@@ -14,7 +14,7 @@ export default function NavLink({ children, href }: Props): Node {
   const router = useRouter();
 
   return (
-    <Box color={router.asPath === href ? 'lightGray' : 'transparent'} rounding={2}>
+    <Box color={router.asPath === href ? 'secondary' : 'transparent'} rounding={2}>
       <Text weight="bold">
         <Link href={href} onClick={() => setIsSidebarOpen(false)} rounding={2}>
           {children}

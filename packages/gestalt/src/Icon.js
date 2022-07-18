@@ -12,6 +12,7 @@ export type IconColor =
   | 'error'
   | 'warning'
   | 'info'
+  | 'recommendation'
   | 'inverse'
   | 'shopping'
   | 'brandPrimary'
@@ -79,6 +80,7 @@ const flipOnRtlIconNames = [
   'speech-ellipsis',
   'switch-account',
   'text-size',
+  'visit',
 ];
 
 /**

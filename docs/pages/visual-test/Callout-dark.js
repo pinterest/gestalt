@@ -5,7 +5,7 @@ import { Flex, Callout, Box, ColorSchemeProvider } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" display="inlineBlock" padding={1}>
+      <Box color="default" display="inlineBlock" padding={1}>
         <Flex direction="column" gap={2}>
           <Callout
             dismissButton={{

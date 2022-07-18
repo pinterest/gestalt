@@ -5,7 +5,7 @@ import { ComboBox, Box, Flex, ColorSchemeProvider } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="white" padding={4} width={300} height={200}>
+      <Box color="default" padding={4} width={300} height={200}>
         <Flex justifyContent="center">
           <ComboBox
             accessibilityClearButtonLabel="Clear the current values"

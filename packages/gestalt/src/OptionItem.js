@@ -43,7 +43,6 @@ type Props = {|
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
   option: OptionItemType,
-  role?: 'option' | 'menuitem',
   selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
   setHoveredItemIndex: (number) => void,
   textWeight?: FontWeight,
@@ -65,7 +64,6 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     isExternal,
     onClick,
     option,
-    role,
     selected,
     setHoveredItemIndex,
     textWeight = 'normal',
@@ -149,7 +147,6 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
 
   return (
     <div
-      aria-selected={role === 'option' ? isSelectedItem : null}
       className={className}
       data-test-id={dataTestId}
       id={`${id}-item-${index}`}
@@ -162,12 +159,12 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       }}
       onMouseEnter={() => setHoveredItemIndex(index)}
       ref={index === hoveredItemIndex ? ref : null}
-      role={role}
+      role="menuitem"
       rounding={2}
       tabIndex={-1}
     >
       <Box
-        color={index === hoveredItemIndex ? 'lightGray' : 'transparent'}
+        color={index === hoveredItemIndex ? 'secondary' : 'transparent'}
         direction="column"
         display="flex"
         padding={2}

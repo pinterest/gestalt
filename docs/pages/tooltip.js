@@ -6,6 +6,9 @@ import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -27,36 +30,36 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         }
         defaultCode={`
-      <Flex>
-        <Tooltip text="Align left" accessibilityLabel="">
-          <IconButton
-            accessibilityLabel="Align left"
-            bgColor="white"
-            icon="text-align-left"
-            iconColor="darkGray"
-            size="lg"
-          />
-        </Tooltip>
-        <Tooltip text="Align center" accessibilityLabel="">
-          <IconButton
-            accessibilityLabel="Align center"
-            bgColor="white"
-            icon="text-align-center"
-            iconColor="darkGray"
-            size="lg"
-          />
-        </Tooltip>
-        <Tooltip text="Align right" accessibilityLabel="">
-          <IconButton
-            accessibilityLabel="Align right"
-            bgColor="white"
-            icon="text-align-right"
-            iconColor="darkGray"
-            size="lg"
-          />
-        </Tooltip>
-      </Flex>
-    `}
+<Flex>
+  <Tooltip text="Align left" accessibilityLabel="">
+    <IconButton
+      accessibilityLabel="Align left"
+      bgColor="white"
+      icon="text-align-left"
+      iconColor="darkGray"
+      size="lg"
+    />
+  </Tooltip>
+  <Tooltip text="Align center" accessibilityLabel="">
+    <IconButton
+      accessibilityLabel="Align center"
+      bgColor="white"
+      icon="text-align-center"
+      iconColor="darkGray"
+      size="lg"
+    />
+  </Tooltip>
+  <Tooltip text="Align right" accessibilityLabel="">
+    <IconButton
+      accessibilityLabel="Align right"
+      bgColor="white"
+      icon="text-align-right"
+      iconColor="darkGray"
+      size="lg"
+    />
+  </Tooltip>
+</Flex>
+        `}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -212,7 +215,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -257,7 +260,7 @@ If you need to explain why an item is disabled, consider adding plain [Text](/te
 `}
         />
         <MainSection.Card />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`text\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
@@ -817,6 +820,8 @@ function ScrollBoundaryContainerExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

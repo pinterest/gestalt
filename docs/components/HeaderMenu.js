@@ -24,7 +24,7 @@ export default function HeaderMenu({
       >
         <Text>
           <GestaltLink
-            href="https://codesandbox.io/s/k5plvp9v8v"
+            href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js"
             onClick={() => trackButtonClick('Playground')}
             target="blank"
           >

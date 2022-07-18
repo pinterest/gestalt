@@ -8,13 +8,17 @@ import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
 import Markdown from './Markdown.js';
 import { capitalizeFirstLetter } from './utils.js';
+import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import handleCodeSandbox from './handleCodeSandbox.js';
 
 type Props = {|
   cardSize?: 'sm' | 'md' | 'lg',
   children?: Node,
   defaultCode?: string,
   description?: string,
+  hideCodePreview?: boolean,
   iframeContent?: string,
+  shadeColor?: 'tertiary' | 'darkWash' | 'lightWash' | 'default',
   shaded?: boolean,
   showCode?: boolean,
   title?: string | Array<string>,
@@ -44,7 +48,9 @@ function MainSectionCard({
   defaultCode,
   description,
   iframeContent,
+  hideCodePreview = false,
   shaded = false,
+  shadeColor,
   showCode = true,
   title,
   removeMarginBottom = false,
@@ -59,12 +65,14 @@ function MainSectionCard({
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
   const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
 
+  const cardShadeColor = shaded && !shadeColor ? 'secondary' : shadeColor;
+
   const PreviewCard = useCallback(
     ({ children: cardChildren }: PreviewCardProps) => (
       <Box
         alignItems="center"
         borderStyle="sm"
-        color={shaded ? 'tertiary' : 'default'}
+        color={cardShadeColor}
         display="flex"
         height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
         justifyContent="center"
@@ -75,7 +83,7 @@ function MainSectionCard({
         {cardChildren}
       </Box>
     ),
-    [cardSize, shaded],
+    [cardSize, cardShadeColor],
   );
 
   const TitleAndDescription = (
@@ -87,14 +95,21 @@ function MainSectionCard({
       }}
     >
       {(title || type !== 'info') && (
-        <Box paddingY={1}>
+        <Box paddingY={1} display="flex" justifyContent="between">
           <Text weight="bold" color={TYPE_TO_COLOR[type]}>
             {cardTitle || capitalizeFirstLetter(type)}
           </Text>
+          {type === 'do' && code && (
+            <OpenSandboxButton
+              onClick={() => {
+                handleCodeSandbox({ code, title: cardTitle || '' });
+              }}
+            />
+          )}
         </Box>
       )}
       {description && (
-        <Box maxWidth={572} marginTop={2} color="white">
+        <Box maxWidth={572} marginTop={2} color="default">
           <Markdown text={description} />
         </Box>
       )}
@@ -113,7 +128,9 @@ function MainSectionCard({
             <LivePreview style={{ display: 'contents' }} />
           </PreviewCard>
           {/* If it uses an iframe, show the original code (below), instead of the iframe code */}
-          {shouldShowCode && !iframeContent && <ExampleCode code={code} name={cardTitle || ''} />}
+          {shouldShowCode && !iframeContent && (
+            <ExampleCode hideCodePreview={hideCodePreview} code={code} name={cardTitle || ''} />
+          )}
 
           <Box paddingX={2}>
             <Text color="error">
@@ -122,6 +139,7 @@ function MainSectionCard({
           </Box>
         </LiveProvider>
       )}
+
       {iframeContent && code && (
         <LiveProvider code={code} scope={scope} theme={theme}>
           {shouldShowCode && <ExampleCode readOnly code={code} name={cardTitle || ''} />}

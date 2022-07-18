@@ -36,6 +36,7 @@ import camera from './camera.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
 import canonicalPin from './canonical-pin.svg';
+import captions from './captions.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import circleOutline from './circle-outline.svg';
@@ -214,6 +215,7 @@ const icons = Object.freeze({
   'camera-roll': cameraRoll,
   cancel,
   'canonical-pin': canonicalPin,
+  captions,
   'color-picker': colorPicker,
   check,
   'check-circle': checkCircle,

@@ -127,9 +127,19 @@ function VideoControls({
                   : accessibilityShowCaptionsLabel
               }
               color="light"
-              icon={captionsButton === 'enabled' ? 'speech-ellipsis' : 'speech'}
+              icon="captions"
               size={20}
             />
+            {captionsButton === 'enabled' && (
+              <Box
+                position="absolute"
+                marginTop={1}
+                color="light"
+                width={20}
+                height={2}
+                rounding={4}
+              />
+            )}
           </TapArea>
         </Box>
       )}

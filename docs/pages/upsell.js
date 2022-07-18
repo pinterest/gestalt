@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import { multipledocgen, type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -12,34 +15,34 @@ export default function DocsPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title="Upsell">
+    <Page title={generatedDocGen?.Upsell?.displayName}>
       <PageHeader
         name={generatedDocGen?.Upsell?.displayName}
         description={generatedDocGen?.Upsell?.description}
         defaultCode={`
-      <Upsell
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: () => {},
-        }}
-        imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
-        }}
-        message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-        primaryAction={{
-          accessibilityLabel: "Send ads invite",
-          href: 'https://pinterest.com',
-          label: 'Send invite',
-          target: 'blank',
-        }}
-        secondaryAction={{
-          accessibilityLabel: 'Learn more: Verified Merchant Program',
-          href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
-          label: 'Learn more',
-          target: 'blank',
-        }}
-        title="Give $30, get $60 in ads credit"
-      />;
+<Upsell
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: () => {},
+  }}
+  imageData={{
+    component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
+  }}
+  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+  primaryAction={{
+    accessibilityLabel: "Send ads invite",
+    href: 'https://pinterest.com',
+    label: 'Send invite',
+    target: 'blank',
+  }}
+  secondaryAction={{
+    accessibilityLabel: 'Learn more: Verified Merchant Program',
+    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+    label: 'Learn more',
+    target: 'blank',
+  }}
+  title="Give $30, get $60 in ads credit"
+/>;
     `}
       />
 
@@ -310,7 +313,7 @@ export default function DocsPage({
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen.Upsell?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -352,7 +355,7 @@ export default function DocsPage({
         `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -709,6 +712,8 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.Upsell?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

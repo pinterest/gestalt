@@ -13,7 +13,7 @@ exports[`Avatar renders an outline 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -35,7 +35,7 @@ exports[`Avatar renders an outline 1`] = `
           Jenny
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -61,7 +61,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -83,7 +83,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
           💩 astral
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -154,7 +154,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
     }
   >
     <div
-      className="box circle whiteBg"
+      className="box circle default"
       style={
         Object {
           "height": "100%",
@@ -468,7 +468,7 @@ exports[`Avatar renders the verified icon 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -490,7 +490,7 @@ exports[`Avatar renders the verified icon 1`] = `
           Jammy
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -515,7 +515,7 @@ exports[`Avatar renders the verified icon 1`] = `
     }
   >
     <div
-      className="box circle whiteBg"
+      className="box circle default"
       style={
         Object {
           "height": "100%",
@@ -553,7 +553,7 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -572,7 +572,7 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"

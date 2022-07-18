@@ -5,6 +5,8 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -13,24 +15,24 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Switch"
         description={generatedDocGen?.description}
         defaultCode={`
-      function SwitchExample() {
-        const [switched, setSwitched] = React.useState(false);
+function SwitchExample() {
+  const [switched, setSwitched] = React.useState(false);
 
-        return (
-          <Box display="flex" alignItems="center">
-            <Box paddingX={2}>
-              <Label htmlFor="introExample">
-                <Text>Airplane mode</Text>
-              </Label>
-            </Box>
-            <Switch
-              onChange={() => setSwitched(!switched)}
-              id="introExample"
-              switched={switched}
-            />
-          </Box>
-        );
-      }
+  return (
+    <Box display="flex" alignItems="center">
+      <Box paddingX={2}>
+        <Label htmlFor="introExample">
+          <Text>Airplane mode</Text>
+        </Label>
+      </Box>
+      <Switch
+        onChange={() => setSwitched(!switched)}
+        id="introExample"
+        switched={switched}
+      />
+    </Box>
+  );
+}
       `}
       />
 
@@ -168,8 +170,8 @@ function SwitchExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection
-        name="Accessibility"
+      <AccessibilitySection
+        name={generatedDocGen.displayName}
         description={`Switches should have [Labels](https://github.com/Label) that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect. Make sure Label has an \`htmlFor\` prop that matches the \`id\` on the Switch. Test that the Switch and Label are properly connected by clicking or tapping on the label and confirming that it activates the Switch next to it.`}
       >
         <MainSection.Subsection
@@ -182,7 +184,7 @@ function SwitchExample() {
     - Once focused, the Space key toggles the Switch.
 `}
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -358,6 +360,7 @@ function SwitchExample() {
     `}
         />
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

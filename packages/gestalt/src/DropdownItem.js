@@ -87,7 +87,6 @@ export default function DropdownItem({
           onSelect={onSelect}
           option={option}
           ref={setOptionRef}
-          role="menuitem"
           selected={selected}
           setHoveredItemIndex={setHoveredItem}
           textWeight="bold"

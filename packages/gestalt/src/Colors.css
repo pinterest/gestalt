@@ -86,6 +86,14 @@
   background-color: var(--color-background-success-weak);
 }
 
+.recommendationBase {
+  background-color: var(--color-background-recommendation-base);
+}
+
+.recommendationWeak {
+  background-color: var(--color-background-recommendation-weak);
+}
+
 .shopping {
   background-color: var(--color-background-shopping);
 }
@@ -124,6 +132,14 @@
 
 .washLight {
   background-color: var(--color-background-wash-light);
+}
+
+.dark {
+  background-color: var(--color-background-dark);
+}
+
+.light {
+  background-color: var(--color-background-light);
 }
 
 .elevationAccent {
@@ -204,6 +220,10 @@
 
 .successIcon {
   color: var(--color-text-icon-success);
+}
+
+.recommendationIcon {
+  color: var(--color-text-icon-recommendation);
 }
 
 .shoppingIcon {

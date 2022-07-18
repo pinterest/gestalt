@@ -6,14 +6,15 @@ import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
-
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />\
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
+      <AccessibilitySection name={generatedDocGen?.displayName} />
       <Card
         description={`
 One thing that might be unusual is that the \`width\` and the \`height\` of the component are required, yet the image will scale to the size of its container.
@@ -24,7 +25,6 @@ While the exact dimensions supplied aren't used (only the ratio between them is 
   `}
         name="Dimensions"
       />
-
       <Example
         id="placeholders"
         description={`
@@ -49,7 +49,6 @@ The color you pass into Image will be used to fill the placeholder that shows up
 </Flex>
 `}
       />
-
       <Example
         description="You can overlay content on an Image by passing it children."
         name="Overlay"
@@ -75,7 +74,6 @@ The color you pass into Image will be used to fill the placeholder that shows up
 </Box>
 `}
       />
-
       <Example
         id="fit"
         description={`
@@ -180,7 +178,6 @@ Notes:
 </Flex>
 `}
       />
-
       <Example
         description="
 You can delay loading images that are off-screen with the loading attribute. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading) for more details.
@@ -199,7 +196,6 @@ You can delay loading images that are off-screen with the loading attribute. See
 </Box>
 `}
       />
-
       <Example
         description={`
 Sometimes Images are purely presentational. For example, an Image used above an article title may be used to draw people's attention visually, but doesn't add any additional information or context about the article. In this case, the \`role\` should be set to "presentation" in order to inform screen readers and other assistive technology that this image does not need alternative text or any additional label.
@@ -230,6 +226,7 @@ Sometimes Images are purely presentational. For example, an Image used above an 
 </Box>
 `}
       />
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

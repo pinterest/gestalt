@@ -1,5 +1,5 @@
 // @flow strict
-import { Component, type Node } from 'react';
+import { Component, type Node, type ElementProps } from 'react';
 import { Box, Masonry, Image, Label, Text } from 'gestalt';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import PageHeader from '../components/PageHeader.js';
@@ -7,11 +7,12 @@ import Card from '../components/Card.js';
 import Page from '../components/Page.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import deepCloneReplacingUndefined from '../utils/deepCloneReplacingUndefined.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 type Props = {|
-  flexible?: boolean,
   id?: string,
-  layout?: 'uniformRow',
+  layout?: $ElementType<ElementProps<typeof Masonry>, 'layout'>,
 |};
 
 type Pin = {|
@@ -156,7 +157,6 @@ class ExampleMasonry extends Component<Props, State> {
             <Masonry
               columnWidth={170}
               comp={GridComponent}
-              flexible={this.props.flexible}
               gutterWidth={5}
               items={this.state.pins}
               layout={this.props.layout}
@@ -180,6 +180,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
       <Card
         description={`
     The number of columns in this grid changes responsively based on the width of the parent.
@@ -197,15 +199,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       />
       <Card
         description={`
-    When the \`flexible\` property is set to true, the item width will shrink/grow to fill the container. This is great for responsive designs.
+    When layout is set to \`flexible\`, the item width will shrink/grow to fill the container. This is great for responsive designs.
 
     ~~~jsx
-    <Masonry flexible comp={Item} items={items} minCols={1} />
+    <Masonry layout="flexible" comp={Item} items={items} minCols={1} />
     ~~~
     `}
         name="Flexible item width"
       >
-        <ExampleMasonry flexible id="flexible-width" />
+        <ExampleMasonry layout="flexible" id="flexible-width" />
       </Card>
       <Card
         description={`
@@ -213,7 +215,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     <Masonry comp={Item} items={items} minCols={1} />
-    ~~~
+    ~~~Pcard
   `}
         name="Non-flexible item width"
       >
@@ -232,24 +234,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       >
         <ExampleMasonry layout="uniformRow" id="uniform" />
       </Card>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docgen({ componentName: 'Masonry' });
-
-  generatedDocGen.props.layout = {
-    ...generatedDocGen.props.layout,
-    defaultValue: {
-      value: 'MasonryDefaultLayout',
-      computed: false,
-    },
-    flowType: {
-      name: 'string',
-      raw: 'MasonryDefaultLayout | MasonryUniformRowLayout',
-    },
-  };
 
   generatedDocGen.props.loadItems = {
     ...generatedDocGen.props.loadItems,

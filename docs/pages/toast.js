@@ -8,6 +8,8 @@ import MainSection from '../components/MainSection.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -37,7 +39,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     />
   }
 />
-              `}
+        `}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -66,11 +68,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
-      <Example
-        id="displayExample"
-        name="Example: How to display"
-        description="Toasts should be displayed in the center of the viewport, opposite the main navbar (e.g. at the top of the viewport on mobile, bottom of the viewport on desktop). Though not implemented here, Toasts are meant to be ephemeral and disappear after a few seconds."
-        defaultCode={`
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          id="displayExample"
+          name="Example: How to display"
+          description="Toasts should be displayed in the center of the viewport, opposite the main navbar (e.g. at the top of the viewport on mobile, bottom of the viewport on desktop). Though not implemented here, Toasts are meant to be ephemeral and disappear after a few seconds."
+          defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
 
@@ -122,23 +127,21 @@ function ToastExample() {
     </Box>
   );
 }`}
-      />
-
-      <Example
-        id="textOnlyExample"
-        name="Example: Simple Text"
-        defaultCode={`
+        />
+        <Example
+          id="textOnlyExample"
+          name="Example: Simple Text"
+          defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast text="Section created!" />
 </Flex>
 `}
-      />
-
-      <Example
-        id="complexTextExample"
-        name="Example: Complex Text"
-        description="When passing in your own Text component for `text`, do not specify `color` on Text. Toast will automatically pick the correct text color for the given `variant`."
-        defaultCode={`
+        />
+        <Example
+          id="complexTextExample"
+          name="Example: Complex Text"
+          description="When passing in your own Text component for `text`, do not specify `color` on Text. Toast will automatically pick the correct text color for the given `variant`."
+          defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
     text={
@@ -154,12 +157,11 @@ function ToastExample() {
   />
 </Flex>
 `}
-      />
-
-      <Example
-        id="errorVariantExample"
-        name="Example: Error variant"
-        defaultCode={`
+        />
+        <Example
+          id="errorVariantExample"
+          name="Example: Error variant"
+          defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
     text="Oops! Something went wrong. Please try again later."
@@ -167,12 +169,11 @@ function ToastExample() {
   />
 </Flex>
 `}
-      />
-
-      <Example
-        id="imageTextExample"
-        name="Example: Image + Text"
-        defaultCode={`
+        />
+        <Example
+          id="imageTextExample"
+          name="Example: Image + Text"
+          defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
     text={
@@ -196,12 +197,11 @@ function ToastExample() {
   />
 </Flex>
 `}
-      />
-
-      <Example
-        id="imageTextButtonExample"
-        name="Example: Image + Text + Button"
-        defaultCode={`
+        />
+        <Example
+          id="imageTextButtonExample"
+          name="Example: Image + Text + Button"
+          defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
     button={<Button key="button-key" text="Undo" size="lg" />}
@@ -226,82 +226,83 @@ function ToastExample() {
   />
 </Flex>
 `}
-      />
+        />
+        <Combination
+          id="combinations-overview"
+          layout="12column"
+          name="Combinations: Overview"
+          showValues={false}
+          text={[
+            'Section created!',
+            <Fragment key="saved-text">
+              Saved to{' '}
+              <Text inline weight="bold">
+                <Link
+                  inline
+                  target="blank"
+                  href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                  underline="hover"
+                >
+                  Home decor
+                </Link>
+              </Text>
+            </Fragment>,
+          ]}
+          thumbnail={[
+            null,
+            <Image
+              key="image-key"
+              alt="Modern ceramic vase pin."
+              naturalHeight={564}
+              naturalWidth={564}
+              src="https://i.ibb.co/Lx54BCT/stock1.jpg"
+            />,
+          ]}
+          button={[null, <Button key="button-key" text="Undo" size="lg" />]}
+        >
+          {(props) => <Toast {...props} />}
+        </Combination>
+        <Combination
+          id="combinations-thumbnail"
+          layout="12column"
+          name="Combinations: Thumbnail shapes"
+          showValues={false}
+          thumbnailShape={['circle', 'rectangle', 'square']}
+        >
+          {(props) => (
+            <Toast
+              {...props}
+              thumbnail={
+                <Image
+                  key="image-key"
+                  alt="Blush and sage plant print."
+                  naturalHeight={751}
+                  naturalWidth={564}
+                  src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+                />
+              }
+              text={
+                <Fragment>
+                  Saved to{' '}
+                  <Text inline weight="bold">
+                    <Link
+                      inline
+                      target="blank"
+                      href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                      underline="hover"
+                    >
+                      Home decor
+                    </Link>
+                  </Text>
+                </Fragment>
+              }
+              button={<Button key="button-key" text="Undo" size="lg" />}
+            />
+          )}
+        </Combination>
+      </MainSection>
 
-      <Combination
-        id="combinations-overview"
-        layout="12column"
-        name="Combinations: Overview"
-        showValues={false}
-        text={[
-          'Section created!',
-          <Fragment key="saved-text">
-            Saved to{' '}
-            <Text inline weight="bold">
-              <Link
-                inline
-                target="blank"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                underline="hover"
-              >
-                Home decor
-              </Link>
-            </Text>
-          </Fragment>,
-        ]}
-        thumbnail={[
-          null,
-          <Image
-            key="image-key"
-            alt="Modern ceramic vase pin."
-            naturalHeight={564}
-            naturalWidth={564}
-            src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-          />,
-        ]}
-        button={[null, <Button key="button-key" text="Undo" size="lg" />]}
-      >
-        {(props) => <Toast {...props} />}
-      </Combination>
-
-      <Combination
-        id="combinations-thumbnail"
-        layout="12column"
-        name="Combinations: Thumbnail shapes"
-        showValues={false}
-        thumbnailShape={['circle', 'rectangle', 'square']}
-      >
-        {(props) => (
-          <Toast
-            {...props}
-            thumbnail={
-              <Image
-                key="image-key"
-                alt="Blush and sage plant print."
-                naturalHeight={751}
-                naturalWidth={564}
-                src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-              />
-            }
-            text={
-              <Fragment>
-                Saved to{' '}
-                <Text inline weight="bold">
-                  <Link
-                    inline
-                    target="blank"
-                    href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                    underline="hover"
-                  >
-                    Home decor
-                  </Link>
-                </Text>
-              </Fragment>
-            }
-            button={<Button key="button-key" text="Undo" size="lg" />}
-          />
-        )}
-      </Combination>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

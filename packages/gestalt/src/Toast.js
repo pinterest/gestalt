@@ -41,8 +41,6 @@ type Props = {|
  *
  * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
  *
- * ⚠️ Please note: Toast is not currently supported in dark mode.
- *
  * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
@@ -59,7 +57,7 @@ export default function Toast({
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
-  let containerColor = isDarkMode ? 'white' : 'darkGray';
+  let containerColor = isDarkMode ? 'light' : 'dark';
   let textColor = isDarkMode ? 'dark' : 'light';
   let textElement = text;
 
@@ -77,7 +75,7 @@ export default function Toast({
 
   // Error variant does not currently support dark mode
   if (isErrorVariant) {
-    containerColor = 'red';
+    containerColor = 'errorBase';
     textColor = 'light';
   }
 

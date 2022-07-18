@@ -221,7 +221,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           <button className={styles.clear} onClick={handleClear} type="button">
             <Box
               alignItems="center"
-              color={focused ? 'darkGray' : 'transparent'}
+              color={focused ? 'selected' : 'transparent'}
               display="flex"
               height={clearButtonSize}
               justifyContent="center"

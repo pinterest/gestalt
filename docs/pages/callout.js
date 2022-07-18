@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -13,28 +16,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Callout"
         description={generatedDocGen?.description}
         defaultCode={`
-    <Callout
-      dismissButton={{
-        accessibilityLabel: 'Dismiss this banner',
-        onDismiss: () => {},
-      }}
-      iconAccessibilityLabel="Info"
-      message="Apply to the Verified Merchant Program"
-      primaryAction={{
-        accessibilityLabel: "Get started: Verified Merchant Program",
-        href: "https://pinterest.com",
-        label: "Get started",
-        target: "blank",
-      }}
-      secondaryAction={{
-        accessibilityLabel: "Learn more: Verified Merchant Program",
-        href: "https://pinterest.com",
-        label: "Learn more",
-        target: "blank",
-      }}
-      title="Your business account was created!"
-      type="info"
-    />
+<Callout
+  dismissButton={{
+    accessibilityLabel: 'Dismiss this banner',
+    onDismiss: () => {},
+  }}
+  iconAccessibilityLabel="Info"
+  message="Apply to the Verified Merchant Program"
+  primaryAction={{
+    accessibilityLabel: "Get started: Verified Merchant Program",
+    href: "https://pinterest.com",
+    label: "Get started",
+    target: "blank",
+  }}
+  secondaryAction={{
+    accessibilityLabel: "Learn more: Verified Merchant Program",
+    href: "https://pinterest.com",
+    label: "Learn more",
+    target: "blank",
+  }}
+  title="Your business account was created!"
+  type="info"
+/>
     `}
       />
 
@@ -203,7 +206,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -242,7 +245,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -512,6 +515,8 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection

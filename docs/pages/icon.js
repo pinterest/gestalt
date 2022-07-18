@@ -7,6 +7,9 @@ import MainSection from '../components/MainSection.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import Page from '../components/Page.js';
 import docgen, { overrideTypes, type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -95,8 +98,8 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection
-        name="Accessibility"
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
         description="Icons are a great way to help users who have difficulties with reading, focus attention, and low vision impairments."
       >
         <MainSection.Subsection
@@ -133,7 +136,7 @@ If an icon has a visible label that describes what the icon represents, \`access
           title="Legibility and touch area"
           description="Ensure that icons use a contrast ratio of 4.5:1 between icon color and background color."
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -149,6 +152,7 @@ If an icon has a visible label that describes what the icon represents, \`access
               'error',
               'warning',
               'info',
+              'recommendation',
               'inverse',
               'shopping',
               'brandPrimary',
@@ -228,6 +232,8 @@ Use a descriptive label to describe the Icon
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

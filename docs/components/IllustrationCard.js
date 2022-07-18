@@ -32,7 +32,7 @@ function IllustrationCard({ image, description, isNew, title, color, href }: Pro
               {image}
             </Box>
             <Box
-              color="white"
+              color="default"
               height="40%"
               paddingY={6}
               display="flex"

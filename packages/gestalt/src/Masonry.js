@@ -1,32 +1,20 @@
 // @flow strict
 import { type ComponentType, type Node, Component as ReactComponent } from 'react';
-import debounce from './debounce.js';
+import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
-import throttle from './throttle.js';
+import throttle, { type ThrottleReturn } from './throttle.js';
 import { type Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
-import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
 import defaultLayout from './defaultLayout.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
-import LegacyMasonryLayout from './layouts/MasonryLayout.js';
-import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
 
 type Position = {| top: number, left: number, width: number, height: number |};
 
-type Layout =
-  | typeof DefaultLayoutSymbol
-  | typeof UniformRowLayoutSymbol
-  | LegacyMasonryLayout
-  | LegacyUniformRowLayout
-  | 'basic'
-  | 'basicCentered'
-  | 'flexible'
-  | 'serverRenderedFlexible'
-  | 'uniformRow';
+type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
 type Props<T> = {|
   /**
@@ -43,10 +31,6 @@ type Props<T> = {|
     isMeasuring: boolean,
   |}>,
   /**
-   * Item width will grow to fill column space and shrink to fit if below min columns.
-   */
-  flexible?: boolean,
-  /**
    * The amount of vertical and horizontal space between each item, specified in pixels.
    */
   gutterWidth?: number,
@@ -55,7 +39,11 @@ type Props<T> = {|
    */
   items: $ReadOnlyArray<T>,
   /**
-   * MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.
+   * `basic`: Left aligned masonry layout.
+   * `basicCentered`: Center aligned masonry layout.
+   * `flexible`: Item width grows to fill column space and shrinks to fit if below min columns.
+   * `serverRenderedFlexible`: Item width grows to fill column space and shrinks to fit if below min columns. Main differerence with `flexible` is that we do not store the initial measurement. More context in [#2084](https://github.com/pinterest/gestalt/pull/2084)
+   * `uniformRow`: Items are laid out in a single row, with all items having the same height.
    */
   layout?: Layout,
   /**
@@ -127,8 +115,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
-  // $FlowFixMe[signature-verification-failure]
-  handleResize = debounce(() => {
+  handleResize: DebounceReturn = debounce(() => {
     if (this.gridWrapper) {
       this.setState({ width: this.gridWrapper.clientWidth });
     }
@@ -136,8 +123,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   // Using throttle here to schedule the handler async, outside of the event
   // loop that produced the event.
-  // $FlowFixMe[signature-verification-failure]
-  updateScrollPosition = throttle(() => {
+  updateScrollPosition: ThrottleReturn = throttle(() => {
     if (!this.scrollContainer) {
       return;
     }
@@ -152,8 +138,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     });
   });
 
-  // $FlowFixMe[signature-verification-failure]
-  measureContainerAsync = debounce(() => {
+  measureContainerAsync: DebounceReturn = debounce(() => {
     this.measureContainer();
   }, 0);
 
@@ -442,7 +427,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     const {
       columnWidth,
       comp: Component,
-      flexible,
       gutterWidth: gutter,
       items,
       layout,
@@ -453,10 +437,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     let getPositions;
 
-    if (
-      (flexible || layout === 'flexible' || layout === 'serverRenderedFlexible') &&
-      width !== null
-    ) {
+    if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
         gutter,
         cache: measurementStore,
@@ -464,11 +445,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         idealColumnWidth: columnWidth,
         width,
       });
-    } else if (
-      layout === UniformRowLayoutSymbol ||
-      layout instanceof LegacyUniformRowLayout ||
-      layout === 'uniformRow'
-    ) {
+    } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
         cache: measurementStore,
         columnWidth,
@@ -506,7 +483,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
               key={i}
               ref={(el) => {
                 // purposely not checking for layout === 'serverRenderedFlexible' here
-                if (el && !(flexible || layout === 'flexible')) {
+                if (el && layout !== 'flexible') {
                   // if we're hydrating from the server, we should only measure items on the initial render pass
                   // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
                   // that the caller has added the proper CSS to ensure the layout is correct during server render
@@ -520,7 +497,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 transform: 'translateX(0px) translateY(0px)',
                 WebkitTransform: 'translateX(0px) translateY(0px)',
                 width:
-                  flexible || layout === 'flexible' || layout === 'serverRenderedFlexible'
+                  layout === 'flexible' || layout === 'serverRenderedFlexible'
                     ? undefined
                     : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
               }}
@@ -541,9 +518,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, minCols);
 
-      // $FlowFixMe[incompatible-call]
       const positions = getPositions(itemsToRender);
-      // $FlowFixMe[incompatible-call]
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length

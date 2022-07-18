@@ -144,23 +144,6 @@ const borderStyle: Functor<BorderStyle> = (value) => {
   ]);
 };
 const color: Functor<Color> = mapping({
-  blue: colors.blueBg,
-  darkGray: colors.darkGrayBg,
-  pine: colors.pineBg,
-  gray: colors.grayBg,
-  red: colors.redBg,
-  olive: colors.oliveBg,
-  lightGray: colors.lightGrayBg,
-  white: colors.whiteBg,
-  orange: colors.orangeBg,
-  green: colors.greenBg,
-  navy: colors.navyBg,
-  midnight: colors.midnightBg,
-  purple: colors.purpleBg,
-  orchid: colors.orchidBg,
-  eggplant: colors.eggplantBg,
-  maroon: colors.maroonBg,
-  watermelon: colors.watermelonBg,
   lightWash: colors.lightWashBg,
   darkWash: colors.darkWashBg,
   transparentDarkGray: colors.transparentDarkGrayBg,
@@ -173,6 +156,8 @@ const color: Functor<Color> = mapping({
   warningWeak: colors.warningWeak,
   successBase: colors.successBase,
   successWeak: colors.successWeak,
+  recommendationBase: colors.recommendationBase,
+  recommendationWeak: colors.recommendationWeak,
   shopping: colors.shopping,
   primary: colors.primary,
   secondary: colors.secondary,
@@ -184,6 +169,8 @@ const color: Functor<Color> = mapping({
   elevationAccent: colors.elevationAccent,
   elevationFloating: colors.elevationFloating,
   elevationRaised: colors.elevationRaised,
+  dark: colors.dark,
+  light: colors.light,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);

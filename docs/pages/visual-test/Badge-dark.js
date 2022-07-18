@@ -5,7 +5,7 @@ import { Badge, Box, ColorSchemeProvider, Flex } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" padding={1}>
+      <Box color="default" padding={1}>
         <Flex gap={1} wrap width={400}>
           <Badge text="Info badge" />
           <Badge text="Success badge" type="success" />

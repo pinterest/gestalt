@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../components/docgen.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -14,9 +17,18 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
         description={generatedDocGen?.description}
         defaultCode={`
 <SlimBanner
-  type="info"
-  message="Idea Pins are now available across platforms."
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: () => {},
+  }}
   iconAccessibilityLabel="Information"
+  message="Idea Pins are now available across platforms."
+  primaryAction={{
+    accessibilityLabel: 'Apply for access',
+    label: 'Apply for access',
+    onClick: () => {},
+  }}
+  type="info"
 />
 `}
       />
@@ -108,7 +120,7 @@ Use for messages generated as an immediate response to user interaction. Instead
         readOnly
       />
       <SelectList
-        id="seliectList"
+        id="selectList"
         onChange={() => {}}
         options={[
           {label: 'Lead', value: 'lead'},
@@ -141,7 +153,7 @@ Use for messages generated as an immediate response to user interaction. Instead
       </Fieldset>
       <Divider />
       <Checkbox
-        id="checkboc"
+        id="checkbox"
         label="I'll set the optimization & delivery by ad group instead"
         name="error"
         onChange={() => {}}
@@ -276,12 +288,12 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. They should also be localized.`}
+          description={`\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Info” or “Warning”. Also, if using \`dismissButton\` or \`primaryAction\`, their respective \`accessibilityLabel\`s must be used. All labels should be localized.`}
           title="Labels"
         />
-      </MainSection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -311,6 +323,20 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
 <Flex direction="column" gap={5} width="100%">
   <SlimBanner type="info" iconAccessibilityLabel="Info" message="Idea Pins are now available across platforms."/>
   <SlimBanner type="infoBare" iconAccessibilityLabel="Info" message="Idea Pins are now available across platforms."/>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Recommendation SlimBanners inform people of quick things they can do to improve their experience."
+          title="Recommendation"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex direction="column" gap={5} width="100%">
+  <SlimBanner type="recommendation" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
+  <SlimBanner type="recommendationBare" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
 </Flex>
 `}
           />
@@ -398,14 +424,14 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="For dense interfaces and placement inline, next to blocks of text, set SlimBanner to its compact type: “infoBare”, “successBare”, “warningBare”, “errorBare”."
+          description="For dense interfaces and placement inline, next to blocks of text, set SlimBanner to its compact type: “infoBare”, “successBare”, “warningBare”, “errorBare”, “recommendationBare“."
           title="Compact"
         >
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={5} width="100%">
-  {['infoBare', 'successBare', 'warningBare', 'errorBare'].map(type => (
+  {['infoBare', 'successBare', 'warningBare', 'errorBare', 'recommendationBare'].map(type => (
     <SlimBanner
       key={type}
       type={type}
@@ -438,6 +464,65 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
 `}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Primary action"
+          description={`
+          SlimBanners can have a primary action. This action can be a [Link](/link), by specifying the \`href\` property, or a [Button](/button), when no \`href\` is supplied.
+
+        SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+
+        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/modal) with an application flow. Be sure to localize the labels of the actions.
+
+        If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
+
+        Note that actions are not available on compact ("___Bare" type) SlimBanners.
+          `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<SlimBanner
+  type="info"
+  message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
+  iconAccessibilityLabel="Information"
+  primaryAction={{
+    accessibilityLabel: 'Learn more about campaign budget optimization',
+    label: 'Learn more',
+    onClick: () => {},
+  }}
+/>
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Dismissible"
+          description={`
+          \`dismissButton\` can be used when SlimBanner doesn't indicate a persistent state. This will most commonly be used in \`type="info"\` SlimBanners.
+
+        Don't use dismiss buttons in the following cases:
+        - There is a persistent account or page status that the user must address.
+        - The user must access SlimBanner's information again in order to perform a task.
+
+        Note that compact ("___Bare" type) SlimBanners are not dismissible.
+          `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<SlimBanner
+  type="info"
+  message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
+  iconAccessibilityLabel="Information"
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onClick: () => {},
+  }}
+/>
+`}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Writing">
@@ -461,6 +546,8 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
         </MainSection.Subsection>
       </MainSection>
 
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -474,7 +561,7 @@ Callouts are used at the top-most level of a page to communicate highest-priorit
 Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsells and SlimBanners, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
 
 **[Tooltip](/Tooltip)**
-Tooltip provides helpful information regarding an interactive UI element, typically an Iconbutton. It is displayed on hover of a UI element, and disappears on mouse out.
+Tooltip provides helpful information regarding an interactive UI element, typically an IconButton. It is displayed on hover of a UI element, and disappears on mouse out.
     `}
         />
       </MainSection>

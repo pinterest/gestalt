@@ -5,6 +5,9 @@ import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
 import GeneratedPropTable from '../components/GeneratedPropTable.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -505,7 +508,7 @@ function PopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Keyboard interaction"
           description={`
@@ -648,7 +651,7 @@ function PopoverExample() {
   `}
           />
         </MainSection.Subsection>
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description="Be sure to localize any text elements within Popover. Note that localization can lengthen text by 20 to 30 percent."
@@ -1334,6 +1337,8 @@ function Example() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

@@ -5,14 +5,15 @@ import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+import MainSection from '../components/MainSection.js';
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function CollagePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Collage">
       <PageHeader name="Collage" description={generatedDocGen?.description} />
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <Example
         id="basicExample"
         name="Basic example"
@@ -77,11 +78,14 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
 />
 `}
       />
-      <Example
-        id="columns"
-        name="Different columns"
-        description="2 - 4 columns"
-        defaultCode={`
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Variants">
+        <Example
+          id="columns"
+          name="Different columns"
+          description="2 - 4 columns"
+          defaultCode={`
 <Flex wrap>
   {[2, 3, 4].map((columns) => (
     <Box key={columns} padding={2}>
@@ -161,11 +165,11 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
   ))}
 </Flex>
 `}
-      />
-      <Example
-        id="gutter"
-        name="Gutter"
-        defaultCode={`
+        />
+        <Example
+          id="gutter"
+          name="Gutter"
+          defaultCode={`
 <Box color="gray" width={300} height={300}>
   <Collage
     columns={3}
@@ -228,11 +232,11 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
   />
 </Box>
 `}
-      />
-      <Example
-        id="coverImage"
-        name="Cover image"
-        defaultCode={`
+        />
+        <Example
+          id="coverImage"
+          name="Cover image"
+          defaultCode={`
 <Box color="gray" width={300} height={300}>
   <Collage
     columns={3}
@@ -278,11 +282,11 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
   />
 </Box>
 `}
-      />
-      <Example
-        name="Different columns with cover image"
-        description="2 - 4 columns with cover image"
-        defaultCode={`
+        />
+        <Example
+          name="Different columns with cover image"
+          description="2 - 4 columns with cover image"
+          defaultCode={`
 <Flex wrap>
   {[2, 3, 4].map((columns) => (
     <Box key={columns} padding={2}>
@@ -363,16 +367,16 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
   ))}
 </Flex>
 `}
-      />
-      <Example
-        id="layoutKey"
-        name="Layout key"
-        description="
+        />
+        <Example
+          id="layoutKey"
+          name="Layout key"
+          description="
       You can pick a layout using the layout key (layout key is 0 by default).
       Depending on the number of columns of the collage, there may be multiple layouts available.
       If there are N layouts available, (layoutKey % N) will determine which layout is used.
       "
-        defaultCode={`
+          defaultCode={`
 <Flex wrap>
   {[0, 1, 2, 3].map((layoutKey) => (
     <Box key={layoutKey} padding={2}>
@@ -445,7 +449,9 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
   ))}
 </Flex>
 `}
-      />
+        />
+      </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

@@ -1,3 +1,309 @@
+## 62.0.6 (Jul 18, 2022)
+
+### Patch
+
+- Internal: remove unused greenkeeper files & references (#2207)
+
+## 62.0.5 (Jul 15, 2022)
+
+### Patch
+
+- 7-15 update (#2206)
+
+## 62.0.4 (Jul 15, 2022)
+
+### Patch
+
+- Docs: Fix typos (#2205)
+
+## 62.0.3 (Jul 15, 2022)
+
+### Patch
+
+- Revert "7/15 what's new update" (#2204)
+
+## 62.0.2 (Jul 15, 2022)
+
+### Patch
+
+- SideNavigation: small fixes (#2203)
+
+## 62.0.1 (Jul 15, 2022)
+
+### Patch
+
+- Link: design guidance copy updates (#2202)
+
+## 62.0.0 (Jul 15, 2022)
+
+### Major
+
+- SideNavigation: V2 (#2200)
+
+## 61.3.2 (Jul 12, 2022)
+
+### Patch
+
+- Video: Updated support for captions (#2195)
+
+## 61.3.1 (Jul 12, 2022)
+
+### Patch
+
+- Roadmap updates for July (#2201)
+
+## 61.3.0 (Jul 12, 2022)
+
+### Minor
+
+- Docs: Implement SideNavigation (#2198)
+
+## 61.2.2 (Jul 12, 2022)
+
+### Patch
+
+- Masonry: Fix internal only flow issues (#2197)
+
+## 61.2.1 (Jul 12, 2022)
+
+### Patch
+
+- Docs: Header tweak (#2196)
+
+## 61.2.0 (Jul 12, 2022)
+
+### Minor
+
+- SideNavigation: new component (V1) (#2185)
+
+## 61.1.0 (Jul 11, 2022)
+
+### Minor
+
+- Docs: New header navigation (#2194)
+
+## 61.0.1 (Jul 9, 2022)
+
+### Patch
+
+- Docs: Blog posts for week of 07/08 (#2193)
+
+## 61.0.0 (Jul 8, 2022)
+
+### Major
+
+- Box: Remove deprecated color options (#2187)
+
+## 60.1.0 (Jul 7, 2022)
+
+### Minor
+
+- SlimBanner: New Recommendation variant (#2190)
+
+## 60.0.2 (Jul 7, 2022)
+
+### Patch
+
+- Internal: upgrade Next.js to 12.2.0 (#2191)
+
+## 60.0.1 (Jul 7, 2022)
+
+### Patch
+
+- Docs: Show code for top example and Do's in Best Practices (#2189)
+
+## 60.0.0 (Jul 6, 2022)
+
+### Major
+
+- Masonry: remove deprecated layouts (#2184)
+
+## 59.0.0 (Jul 6, 2022)
+
+### Major
+
+- Masonry: remove flexible prop (#2175)
+
+## 58.4.4 (Jul 5, 2022)
+
+### Patch
+
+- Toast: Update styling to ensure proper background color (#2178)
+
+## 58.4.3 (Jul 5, 2022)
+
+### Patch
+
+- Table: fix sortable header cell args bug (#2188)
+
+## 58.4.2 (Jul 2, 2022)
+
+### Patch
+
+- Docs: Blog update for 7/01 (#2186)
+
+## 58.4.1 (Jul 1, 2022)
+
+### Patch
+
+- Table: update sortable header cell behavior (#2183)
+
+## 58.4.0 (Jul 1, 2022)
+
+### Minor
+
+- Slim banner upgrades (#2179)
+
+## 58.3.3 (Jun 30, 2022)
+
+### Patch
+
+- Docs: updated Gestalt Sandbox (#2182)
+
+## 58.3.2 (Jun 30, 2022)
+
+### Patch
+
+- Docs: Updating Typography guidelines (#2181)
+
+## 58.3.1 (Jun 30, 2022)
+
+### Patch
+
+- Component status: quick link fix (#2180)
+
+## 58.3.0 (Jun 30, 2022)
+
+### Minor
+
+- Component status: new page & Quality Checklist on a per component basis (#2114)
+
+## 58.2.0 (Jun 30, 2022)
+
+### Minor
+
+- Font weight: change font weight from bold to semibold (#2171)
+
+## 58.1.22 (Jun 30, 2022)
+
+### Patch
+
+- Docs: Fix Resource Slack eng link (#2177)
+
+## 58.1.21 (Jun 30, 2022)
+
+### Patch
+
+- PageHeader: Make onClick for helperLink optional (#2174)
+
+## 58.1.20 (Jun 30, 2022)
+
+### Patch
+
+- Docs: fix some OnLinkNavigationProvider links (#2176)
+
+## 58.1.19 (Jun 28, 2022)
+
+### Patch
+
+- Docs: Updates to Resources and Footer (#2172)
+
+## 58.1.18 (Jun 28, 2022)
+
+### Patch
+
+- Design Tokens: Add cross-linking to various pages (#2169)
+
+## 58.1.17 (Jun 28, 2022)
+
+### Patch
+
+- Internal: flow type debounce and throttle methods (#2170)
+
+## 58.1.16 (Jun 28, 2022)
+
+### Patch
+
+- Dropdown: cleanup dead code (#2167)
+
+## 58.1.15 (Jun 27, 2022)
+
+### Patch
+
+- ComboBox: Fix spacing with Tags (#2168)
+
+## 58.1.14 (Jun 27, 2022)
+
+### Patch
+
+- Docs: Cleanup layout and shaded color examples (#2080)
+
+## 58.1.13 (Jun 24, 2022)
+
+### Patch
+
+- Docs: Fix Footer in dark mode (#2166)
+
+## 58.1.12 (Jun 23, 2022)
+
+### Patch
+
+- Docs: Add new Resource footers (#2163)
+
+## 58.1.11 (Jun 23, 2022)
+
+### Patch
+
+- Docs: Tweaks to 6-24 update (#2165)
+
+## 58.1.10 (Jun 23, 2022)
+
+### Patch
+
+- Docs: Heading improvements (#2155)
+
+## 58.1.9 (Jun 23, 2022)
+
+### Patch
+
+- Docs: 6/24 weekly update (#2164)
+
+## 58.1.8 (Jun 23, 2022)
+
+### Patch
+
+- Link: Update a11y examples (#2162)
+
+## 58.1.7 (Jun 22, 2022)
+
+### Patch
+
+- Card: fix `active` logic to support `false` (#2161)
+
+## 58.1.6 (Jun 17, 2022)
+
+### Patch
+
+- Docs: Added weekly update for June 17 (#2160)
+
+## 58.1.5 (Jun 17, 2022)
+
+### Patch
+
+- Bump undici from 5.4.0 to 5.5.1 (#2159)
+
+## 58.1.4 (Jun 17, 2022)
+
+### Patch
+
+- Docs: minor tweaks to Design Tokens page (#2158)
+
+## 58.1.3 (Jun 16, 2022)
+
+### Patch
+
+- Internal: upgrade husky to 8.0.1 (#2157)
+
 ## 58.1.2 (Jun 14, 2022)
 
 ### Patch

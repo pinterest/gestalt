@@ -1,9 +1,10 @@
 // @flow strict
 import { type Node, type Element } from 'react';
-import { Badge, Box, Flex, Heading, Text, Tooltip, SlimBanner } from 'gestalt';
+import { Badge, Box, Flex, Heading, Text, Tooltip, SlimBanner, Link } from 'gestalt';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
+import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 
 type Props = {|
   badge?: 'pilot' | 'deprecated',
@@ -28,6 +29,19 @@ const buildSourceLinkUrl = (componentName) =>
     '/',
   );
 
+type Props = {|
+  badge?: 'pilot' | 'deprecated',
+  defaultCode?: string,
+  description?: string,
+  fileName?: string, // only use if name !== file name
+  folderName?: string, // only use if name !== file name and the link should point to a directory
+  showCode?: boolean,
+  name: string,
+  shadedCodeExample?: boolean,
+  slimBanner?: Element<typeof SlimBanner> | null,
+  type?: 'guidelines' | 'component' | 'utils',
+|};
+
 export default function PageHeader({
   badge,
   defaultCode,
@@ -35,10 +49,11 @@ export default function PageHeader({
   description = '',
   fileName,
   folderName,
+  showCode = true,
   name,
   shadedCodeExample,
-  showSourceLink = true,
   slimBanner = null,
+  type = 'component',
 }: Props): Node {
   const sourcePathName = folderName ?? fileName ?? name;
   let sourceLink = buildSourceLinkUrl(sourcePathName);
@@ -84,29 +99,32 @@ export default function PageHeader({
               ) : null}
             </Heading>
 
-            {showSourceLink && (
-              <a
+            {type === 'component' && (
+              <Link
                 href={sourceLink}
                 onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
                 target="blank"
               >
                 <Text underline>View source on GitHub</Text>
-              </a>
+              </Link>
             )}
           </Flex>
 
-          {description && <Markdown text={description} />}
-          {slimBanner}
+          <Flex direction="column" gap={6}>
+            {description && <Markdown text={description} />}
+            {slimBanner}
+            {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
+            {defaultCode && (
+              <MainSection.Card
+                cardSize="lg"
+                defaultCode={defaultCode}
+                shaded={shadedCodeExample}
+                showCode={showCode}
+                hideCodePreview
+              />
+            )}
+          </Flex>
         </Flex>
-
-        {defaultCode && (
-          <MainSection.Card
-            cardSize="lg"
-            showCode={false}
-            defaultCode={defaultCode}
-            shaded={shadedCodeExample}
-          />
-        )}
       </Flex>
     </Box>
   );

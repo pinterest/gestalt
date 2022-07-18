@@ -1,11 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Icon, Text, TapArea, Tooltip, Link } from 'gestalt';
+import { Box, Flex, Text, Link, Tooltip, Icon } from 'gestalt';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
 import roadmapData from './RoadmapData.json';
+import InternalOnlyIconButton from '../components/InternalOnlyIconButton.js';
+import TapArea from '../../packages/gestalt/src/TapArea';
 
 const inProgress = roadmapData.tasks.filter((x) => x.status === 'inProgress');
 
@@ -89,8 +91,7 @@ export default function RoadmapPage(): Node {
 
   return (
     <Page title={`Gestalt ${roadmapData.year} roadmap`}>
-      <PageHeader name={`Gestalt ${roadmapData.year} roadmap`} showSourceLink={false} />
-
+      <PageHeader name={`Gestalt ${roadmapData.year} roadmap`} type="guidelines" />
       <Flex direction="column" gap={4}>
         <Text>
           {`The following reflects all public-facing work the Gestalt team plans to ship in ${roadmapData.year}.`}
@@ -101,7 +102,7 @@ export default function RoadmapPage(): Node {
               href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog"
               inline
             >
-              Visit our internal roadmap <LockIcon size={16} />
+              Visit our internal roadmap <InternalOnlyIconButton />
             </Link>
           </Text>
         </Flex>

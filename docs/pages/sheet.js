@@ -5,12 +5,15 @@ import PageHeader from '../components/PageHeader.js';
 import MainSection from '../components/MainSection.js';
 import docgen, { type DocGen } from '../components/docgen.js';
 import Page from '../components/Page.js';
+import QualityChecklist from '../components/QualityChecklist.js';
+
+import AccessibilitySection from '../components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Sheet">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Sheet"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
     <iframe src="https://codesandbox.io/embed/magical-christian-2kk1c?fontsize=14&hidenavigation=1&theme=light&view=preview"
@@ -20,6 +23,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
     ></iframe>
 `}
+        showCode={false}
       />
       <PropTable
         props={[
@@ -192,7 +196,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
+      <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -335,7 +339,7 @@ function AccessibilityExample(props) {
 When Sheet opens, focus should be placed on the first interactive element within the Sheet. When Sheet is closed, focus should be placed back on the button that triggered the Sheet.
 `}
         />
-      </MainSection>
+      </AccessibilitySection>
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\` and \`accessibilitySheetLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
@@ -1089,6 +1093,8 @@ function AnimationExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
