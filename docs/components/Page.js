@@ -24,7 +24,7 @@ export default function Page({
   const sections = Children.toArray(children);
 
   const editPageUrl =
-    pageSourceUrl ||
+    pageSourceUrl ??
     `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
 
   useEffect(() => {

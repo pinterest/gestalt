@@ -6,19 +6,6 @@ import MainSection from './MainSection.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 
-type Props = {|
-  badge?: 'pilot' | 'deprecated',
-  defaultCode?: string,
-  description?: string,
-  fileName?: string, // only use if name !== file name
-  folderName?: string, // only use if name !== file name and the link should point to a directory
-  name: string,
-  noMargin?: boolean, // overrides spacing
-  shadedCodeExample?: boolean,
-  showSourceLink?: boolean,
-  slimBanner?: Element<typeof SlimBanner> | null,
-|};
-
 const buildSourceLinkPath = (componentName) => {
   const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
   return `packages/${packageName}/src/${componentName}.js`;
@@ -37,6 +24,7 @@ type Props = {|
   folderName?: string, // only use if name !== file name and the link should point to a directory
   showCode?: boolean,
   name: string,
+  margin?: 'default' | 'none',
   shadedCodeExample?: boolean,
   slimBanner?: Element<typeof SlimBanner> | null,
   type?: 'guidelines' | 'component' | 'utils',
@@ -45,7 +33,7 @@ type Props = {|
 export default function PageHeader({
   badge,
   defaultCode,
-  noMargin,
+  margin = 'default',
   description = '',
   fileName,
   folderName,
@@ -74,9 +62,11 @@ export default function PageHeader({
     },
   };
 
+  const showMargin = margin === 'default';
+
   return (
     <Box
-      marginBottom={defaultCode || noMargin ? 0 : 2}
+      marginBottom={defaultCode || !showMargin ? 0 : 2}
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',

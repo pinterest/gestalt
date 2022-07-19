@@ -12,8 +12,8 @@ import Page from './Page.js';
 import PageHeader from './PageHeader.js';
 import MainSection from './MainSection.js';
 
+import LockIcon from './LockIcon.js';
 import { MAX_WIDTH } from './MainSectionSubsection.js';
-import { LockIcon } from '../pages/roadmap.js';
 
 import 'highlight.js/styles/a11y-light.css';
 import Highlighter from './highlight.js';
@@ -93,14 +93,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
       </div>
     ),
     h3: (props) => (
-      <Box
-        ref={(node) => {
-          // eek, hacky. Getting around the .Markdown > h3 coloring css
-          if (node) {
-            node.classList.add('mdx-header');
-          }
-        }}
-      >
+      <Box>
         <MainSection.Subsection title={props.children} isMDXMode />
       </Box>
     ),
@@ -114,11 +107,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         objectFit="contain"
       />
     ),
-    Card: (props) => {
-      const newProps = { ...props };
-      newProps.description = undefined;
-      return <MainSection.Card {...newProps} />;
-    },
+    Card: (props) => <MainSection.Card {...props} description={undefined} />,
     Code: (props: {| removeMarginBottom: boolean, children: string | null |}) => {
       const newProps = { ...props };
       newProps.children = null;
@@ -127,7 +116,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         <MainSection.Card
           {...newProps}
           defaultCode={props.children || ''}
-          removeMarginBottom={!('removeMarginBottom' in props) ? true : props.removeMarginBottom}
+          removeMarginBottom={newProps.removeMarginBottom}
         />
       );
     },
@@ -152,8 +141,8 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           name={meta.title}
           badge={meta.badge}
           description={meta.description}
-          noMargin
-          showSourceLink={meta.component || false}
+          margin="none"
+          type={meta.component ? 'component' : 'guidelines'}
         />
         <Text>
           <article

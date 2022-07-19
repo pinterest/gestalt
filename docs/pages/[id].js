@@ -45,7 +45,7 @@ export async function getStaticProps(context: {| params: {| id: string |} |}): P
   props: {| meta: { [key: string]: string }, content: {||}, pageSourceUrl: string |},
 |}> {
   const { id } = context.params;
-  const { meta, content } = getDocByRoute(id);
+  const { meta, content } = await getDocByRoute(id);
   const mdxSource = await serialize(content, {
     mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks], format: 'mdx' },
   });
@@ -64,7 +64,7 @@ export async function getStaticPaths(): Promise<{|
   fallback: boolean,
 |}> {
   // get all the paths that exist within ./markdown folder
-  const paths = getAllMarkdownPosts();
+  const paths = await getAllMarkdownPosts();
   return {
     paths: paths.map((name) => ({
       params: {

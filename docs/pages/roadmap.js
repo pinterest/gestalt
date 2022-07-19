@@ -1,33 +1,18 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Text, Link, Tooltip, Icon } from 'gestalt';
+import { Box, Flex, Text, Link } from 'gestalt';
 import Page from '../components/Page.js';
 import MainSection from '../components/MainSection.js';
 import PageHeader from '../components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
 import roadmapData from './RoadmapData.json';
 import InternalOnlyIconButton from '../components/InternalOnlyIconButton.js';
-import TapArea from '../../packages/gestalt/src/TapArea';
 
 const inProgress = roadmapData.tasks.filter((x) => x.status === 'inProgress');
 
 const future = roadmapData.tasks.filter((x) => x.status === 'unstarted');
 
 const complete = roadmapData.tasks.filter((x) => x.status === 'ok');
-
-export const LockIcon = function LockIcon({ size }: {| size: 12 | 16 |}): Node {
-  return (
-    <Tooltip text="Access is restricted to Pinterest employees" accessibilityLabel="" inline>
-      <TapArea rounding="circle" fullWidth={false}>
-        <Icon
-          accessibilityLabel="Access is restricted to Pinterest employees"
-          icon="lock"
-          size={size}
-        />{' '}
-      </TapArea>
-    </Tooltip>
-  );
-};
 
 function Task({
   text,

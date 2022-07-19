@@ -109,9 +109,6 @@ html[dir="rtl"] .Markdown ul + pre {
   scroll-margin-top: 75px;
 }
 
-.Markdown .mdx-header:not() h3 {
-  color: var(--g-colorGray200);
-}
 
 .Markdown .anchor {
   height: 14px;

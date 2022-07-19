@@ -1,16 +1,15 @@
 // @flow strict
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import highlightjs from 'highlight.js';
 import 'highlight.js/styles/a11y-light.css';
 
-export default function Highlighter({
-  children,
-  classNames,
-}: {|
+type Props = {|
   children: string | null,
   classNames: string[],
-|}): React$Element<'pre'> {
+|};
+
+export default function Highlighter({ children, classNames }: Props): React$Element<'pre'> {
   const node = useRef();
 
   useEffect(() => {
