@@ -1,6 +1,6 @@
 ---
 title: Development
-component: true
+component: false
 ---
 
 ## Set up your laptop
