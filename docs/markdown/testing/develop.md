@@ -10,7 +10,7 @@ component: false
 - **Install node**
 - **Install yarn**
 - **[Install Docker desktop](333)** \
-You can also run the following command `brew install docker`
+  You can also run the following command `brew install docker`
 
 ## Set up your Gestalt repository
 
@@ -18,35 +18,33 @@ You can also run the following command `brew install docker`
 
 - Once forked, clone to your local machine using the SSH option
 
-``` bash
+```bash
 git clone git@github.com:<YOUR_USERNAME>/gestalt.git
 ```
 
 - Use the correct Node.js version to setup the environment locally
 
-``` bash
+```bash
 cd gestalt && nvm use
 ```
 
 <Hint>If the node version isn't available, you will need to [install](https://github.com/nvm-sh/nvm#usage) it.</Hint>
 
-
-
 - Install project dependencies. Do not run npm install because it will create a package-lock.json file (and also takes considerably longer).
 
-``` bash
+```bash
 yarn
 ```
 
 - Add pinterest/gestalt as a remote upstream (you'll only need to do this once).
 
-``` bash
+```bash
 git remote add upstream git@github.com:pinterest/gestalt.git
 ```
 
 - Check your remote configuration
 
-``` bash
+```bash
 git remote -v
 // origin    git@github.com:<YOUR_USERNAME>/gestalt.git (fetch)
 // origin    git@github.com:<YOUR_USERNAME>/gestalt.git (push)
@@ -65,45 +63,48 @@ git remote -v
   - Relaunch VS Code
 
 ## Run the Gestalt documentation server
+
 Whenever you make changes to Gestalt, please test them out locally before making a PR.
 
-To start the documentation server, run yarn start, which will automatically open the docs in a new browser tab. 
+To start the documentation server, run yarn start, which will automatically open the docs in a new browser tab.
 
 If for some reason that tab doesn't launch, navigate to <ins>http://localhost:8888</ins>.
 
-
 ## Create a pull request
-
 
 - Rebase your local master branch
 
-``` bash
+```bash
 git fetch upstream
 git rebase upstream/master
 ```
 
-
 - Create an checkout a branch. Replace the text `<feature-branch>` with your branch name
 
-``` bash
+```bash
 git checkout -b <feature-branch> upstream/master
 ```
 
 - Time to make changes to Gestalt! If you are introducing a new component, run the scaffolding command to generate the necessary files. Replace ‘ComponentName‘ with the name of your component.
 
-``` bash
+```bash
 yarn generate ComponentName
 ```
 
 - Any subsequent component changes might require the following actions.
+
   - Run unit tests
+
   ```bash
   yarn jest -u
   ```
+
   - Run **Playwright accessibility integration tests**. If any documentation examples are expected to fail accessibility testing, wrap the example in a container with `data-skip-accessibility-check`.
+
   ```bash
   yarn playwright:test accessibility/
   ```
+
   - Run **Playwright visual diff snapshot tests**. If any component changes are expected to visually modify your component, you must update the snapshot tests
 
   ```bash
@@ -125,20 +126,25 @@ yarn generate ComponentName
   ```
 
   - Update CSS flow types
+
   ```bash
   yarn run flow-generate:css
   ```
+
   - If you are introducing breaking changes, create a codemod to help users migrate between versions.
+
   ```bash
   yarn run flow-generate:css
   ```
+
 - Commit the changes to your branch. Follow naming conventions for the PR `<Component>: <Commit Change Description>`
 - Follow these steps again for any additional updates to your branch. When you are done, push your branch up.
+
 ```bash
 git add .
 git commit -am "Component: Commit Change Description"
 git push -f origin HEAD
-```  
+```
 
 - Go to [https://github.com/pinterest/gestalt](https://github.com/pinterest/gestalt). A new banner will be displayed, click on 'Compare & Create Pull Request'.
 
@@ -158,11 +164,12 @@ When pushing new changes to GitHub, your PR title should be aligned with the sco
 
 ### Versioning
 
-Our versioning guidelines follow those outlined at **[semver.org](https://semver.org)**: 
+Our versioning guidelines follow those outlined at **[semver.org](https://semver.org)**:
+
 - Patch: internal fixes, documentation changes, or package upgrades (anything that consumers of Gestalt don't need to worry about)
 - Minor: any new functionality or properties for a component, or net-new components
-- Major: any breaking change, whether it be in a specific component or the library itself (will most likely include a 
-[codemod](https://gestalt.pinterest.systems/development#codemods))
+- Major: any breaking change, whether it be in a specific component or the library itself (will most likely include a
+  [codemod](https://gestalt.pinterest.systems/development#codemods))
 
 ### Codemods
 
@@ -171,7 +178,7 @@ When a release will cause breaking changes (in usage or in typing) we provide a 
 Check out our [codemod README](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) for a walkthrough of the development process.
 
 Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used.
- 
+
 Example usage for a codebase using Flow:
 
 ```bash
@@ -181,6 +188,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
 For a dry run to see what the changes will be, add the -d (dry run) and -p (print output) flags (pipe stdout to a file for easier inspection if you like).
 
 ### Changes not allowed
+
 Do not use the following CSS style properties:
 
 - `line-height`: Property in CSS that controls the space between lines of text. Not defining a line-height allows the browser to determine line-height based on language which prevents localization issues.
