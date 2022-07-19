@@ -13,6 +13,7 @@ import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
 import useGetChildrenToArray from './useGetChildrenToArray.js';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Props = {|
   /**
@@ -54,6 +55,45 @@ export default function SideNavigation({
   showBorder,
 }: Props): Node {
   const navigationChildren = useGetChildrenToArray({ children, filterLevel: 'main' });
+
+  const deviceType = useDeviceType();
+
+  console.log("MACO", deviceType);
+
+  if (deviceType === 'phone') {
+    return (
+      <SideNavigationProvider>
+        <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
+          <Box
+            as="nav"
+            aria-label={accessibilityLabel}
+            width="100%"
+            padding={2}
+            color="default"
+            dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
+          >
+            <Flex direction="column" gap={4}>
+              {header ? (
+                <Flex direction="column" gap={4}>
+                  <Box paddingX={4}>{header}</Box>
+                  <Divider />
+                </Flex>
+              ) : null}
+
+              <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+
+              {footer ? (
+                <Flex direction="column" gap={4}>
+                  <Divider />
+                  <Box paddingX={4}>{footer}</Box>
+                </Flex>
+              ) : null}
+            </Flex>
+          </Box>
+        </div>
+      </SideNavigationProvider>
+    );
+  }
 
   return (
     <SideNavigationProvider>
