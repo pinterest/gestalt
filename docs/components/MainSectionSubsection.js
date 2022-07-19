@@ -14,7 +14,7 @@ type Props = {|
   columns?: 1 | 2,
   description?: string,
   title?: string,
-  isMDXMode?: boolean,
+  marginBottom?: 'default' | 'compact',
 |};
 
 function MainSectionSubsection({
@@ -23,7 +23,7 @@ function MainSectionSubsection({
   columns = 1,
   description,
   title,
-  isMDXMode,
+  marginBottom = 'default',
 }: Props): Node {
   const slugifiedId = slugify(title || '');
   const arrayChildren = Children.toArray(children);
@@ -31,7 +31,7 @@ function MainSectionSubsection({
   let defaultBottomMargin = title || description ? 8 : 0;
 
   // if we're rendering from MDX, decrease the bottom margin
-  if (isMDXMode) {
+  if (marginBottom === 'compact') {
     defaultBottomMargin = 5;
   }
 

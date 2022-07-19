@@ -23,7 +23,7 @@ type Props = {|
   meta: {|
     title: string,
     badge: 'pilot' | 'deprecated',
-    component?: boolean,
+    fullwidth?: boolean,
     description: string,
   |},
   pageSourceUrl?: string,
@@ -94,7 +94,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     ),
     h3: (props) => (
       <Box>
-        <MainSection.Subsection title={props.children} isMDXMode />
+        <MainSection.Subsection title={props.children} marginBottom="compact" />
       </Box>
     ),
     img: (props: {| src: string |}) => (
@@ -108,31 +108,27 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
       />
     ),
     Card: (props) => <MainSection.Card {...props} description={undefined} />,
-    Code: (props: {| removeMarginBottom: boolean, children: string | null |}) => {
+    Code: (props: {| removeMarginBottom: 'default' | 'none', children: string | null |}) => {
       const newProps = { ...props };
       newProps.children = null;
-      newProps.removeMarginBottom = false;
+      // may not need to this in the future
       return (
-        <MainSection.Card
-          {...newProps}
-          defaultCode={props.children || ''}
-          removeMarginBottom={newProps.removeMarginBottom}
-        />
+        <MainSection.Card {...newProps} defaultCode={props.children || ''} marginBottom="none" />
       );
     },
     Group: (props) => <Box marginBottom={12}>{props.children}</Box>,
     Do: (props: {| title: string |}) => (
-      <MainSection.Card type="do" title={props.title || 'Do'} removeMarginBottom />
+      <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none" />
     ),
     Dont: (props: {| title: string |}) => (
-      <MainSection.Card type="don't" title={props.title || "Don't"} removeMarginBottom />
+      <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none" />
     ),
     TwoCol: (props) => (
       <MainSection.Subsection columns={2}>{props.children}</MainSection.Subsection>
     ),
   };
 
-  const maxWidth = meta.component ? 'none' : `${MAX_WIDTH}px`;
+  const maxWidth = meta.fullwidth ? 'none' : `${MAX_WIDTH}px`;
 
   return (
     <MDXProvider components={components}>
@@ -142,7 +138,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           badge={meta.badge}
           description={meta.description}
           margin="none"
-          type={meta.component ? 'component' : 'guidelines'}
+          type={meta.fullwidth ? 'component' : 'guidelines'}
         />
         <Text>
           <article

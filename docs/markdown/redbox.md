@@ -2,7 +2,7 @@
 title: Redbox
 description: You can use a redbox when you need a beautiful box that's red. Draws attention from users, and bulls. Look closer and you might find a DVD
 badge: pilot
-component: true
+fullwidth: true
 ---
 
 **Note:** You found Redbox. Checkout the source code for this page. It's completely written in [MDX](https://mdxjs.com/).

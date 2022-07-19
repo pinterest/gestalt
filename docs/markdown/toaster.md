@@ -1,7 +1,7 @@
 ---
 title: Toast (in Markdown)
 description: Toasts are brief and small messages that overlay content, but do not block the user’s flow.
-component: true
+fullwidth: true
 ---
 
 <br/>

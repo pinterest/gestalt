@@ -27,7 +27,7 @@ type Props = {|
   meta: {|
     title: string,
     badge: 'pilot' | 'deprecated',
-    component?: boolean,
+    fullwidth?: boolean,
     description: string,
   |},
   pageSourceUrl: string,
