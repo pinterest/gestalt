@@ -25,9 +25,6 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
         <Box minWidth={MIN_NAV_WIDTH_PX}>
           <Navigation />
         </Box>
-
-        <Divider />
-
         <Box width="100%" minWidth={0}>
           <Box
             padding={4}

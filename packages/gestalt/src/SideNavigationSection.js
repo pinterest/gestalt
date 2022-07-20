@@ -22,15 +22,11 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation.Section](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Section) to create hierarchy within a single SideNavigation
+ * Use [SideNavigation.Section](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
  */
 export default function SideNavigationSection({ _hasMarginTop, children, label }: Props): Node {
   return (
-    <li
-      className={
-        _hasMarginTop ? classnames(styles.liItem, boxStyles.marginTop6) : classnames(styles.liItem)
-      }
-    >
+    <li className={classnames(styles.liItem, _hasMarginTop ? boxStyles.marginTop6 : {})}>
       <Box paddingX={4} display="flex" role="presentation" marginBottom={2}>
         <Text size="300" weight="bold" lineClamp={2}>
           {label}
