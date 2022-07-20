@@ -28,16 +28,14 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
       accessibilityLabel="Page navigation"
       showBorder={border}
       header={
-        <nav label="Sidenav sort">
-          <SidebarCategorizationButton
-            onClick={() =>
-              setSidebarOrganizedBy(
-                sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
-              )
-            }
-            sidebarOrganisedBy={sidebarOrganisedBy}
-          />
-        </nav>
+        <SidebarCategorizationButton
+          onClick={() =>
+            setSidebarOrganizedBy(
+              sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
+            )
+          }
+          sidebarOrganisedBy={sidebarOrganisedBy}
+        />
       }
     >
       {sidebarOrganisedBy === 'categorized'

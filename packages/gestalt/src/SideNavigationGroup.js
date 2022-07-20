@@ -122,7 +122,12 @@ function GroupContent({
           <Flex.Item flex="none" alignSelf="center">
             {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
             <Box aria-hidden marginEnd={-2} marginStart={2} tabIndex={-1} rounding="circle">
-              <Icon accessibilityLabel="" icon={expanded ? 'arrow-up' : 'arrow-down'} size={12} />
+              <Icon
+                color="default"
+                accessibilityLabel=""
+                icon={expanded ? 'arrow-up' : 'arrow-down'}
+                size={12}
+              />
             </Box>
           </Flex.Item>
         ) : null}
@@ -163,7 +168,7 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation.Group](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Group).
+ * Use [SideNavigation.Group](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Group) to hold SideNavigation.NestedItem and SideNavigation.NestedGroup at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 export default function SideNavigationGroup({
   children,

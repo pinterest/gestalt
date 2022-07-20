@@ -64,7 +64,7 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.TopItem) for navigation, when the SideNavigation.TopItem navigates to a new page or sectoin.
+ * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 export default function SideNavigationTopItem({
   active,
