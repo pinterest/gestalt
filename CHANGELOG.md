@@ -1,3 +1,9 @@
+## 62.0.8 (Jul 20, 2022)
+
+### Patch
+
+- SideNavigation: implement guidelines (#2209)
+
 ## 62.0.7 (Jul 20, 2022)
 
 ### Patch
