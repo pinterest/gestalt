@@ -317,7 +317,7 @@ export default function SideNavigationPage({
             type="don't"
             description="Omit a PageHeader and make it seem like each SideNav item is a primary, independent page."
             defaultCode={`
-<Box width="100%">
+<Flex width="100%">
   <SideNavigation accessibilityLabel="Incorrect headings example" showBorder>
     <SideNavigation.TopItem
       href="#"
@@ -342,7 +342,7 @@ export default function SideNavigationPage({
   <Box paddingX={4}>
     <Heading accessibilityLevel="none" size={500}>Tag manager</Heading>
   </Box>
-</Box>
+</Flex>
 `}
           />
         </MainSection.Subsection>
