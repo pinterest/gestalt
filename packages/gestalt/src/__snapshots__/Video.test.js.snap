@@ -11,6 +11,7 @@ exports[`Video with callbacks 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
@@ -51,6 +52,7 @@ exports[`Video with children 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
@@ -317,6 +319,7 @@ exports[`Video with crossOrigin 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
@@ -357,6 +360,7 @@ exports[`Video with media attributes 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
@@ -398,6 +402,7 @@ exports[`Video with multiple sources 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
@@ -445,6 +450,7 @@ exports[`Video with objectFit 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
@@ -490,6 +496,7 @@ exports[`Video with source 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
@@ -530,6 +537,7 @@ exports[`Video with startTime 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     crossOrigin="anonymous"
     disableRemotePlayback={false}
