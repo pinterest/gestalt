@@ -346,7 +346,7 @@ export default function DocsPage({
         </MainSection.Subsection>
       </MainSection>
 
-      <AccessibilitySection name={generatedDocGen?.displayName}>
+      <AccessibilitySection name={generatedDocGen?.SelectList?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -648,7 +648,7 @@ function Example(props) {
         </MainSection.Subsection>
       </MainSection>
 
-      <QualityChecklist component={generatedDocGen?.displayName} />
+      <QualityChecklist component={generatedDocGen?.SelectList?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection
