@@ -92,7 +92,7 @@ function SelectList({
     }
   };
 
-  const handleBlur = (event: SyntheticInputEvent<HTMLSelectElement>) => {
+  const handleBlur: (event: SyntheticInputEvent<HTMLSelectElement>) => void = (event) => {
     setFocused(false);
     handleOnChange(event);
   };
