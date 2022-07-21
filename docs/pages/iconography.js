@@ -103,7 +103,7 @@ export default function IconographyPage(): Node {
       </MainSection>
 
       <MainSection
-        name="Typography components"
+        name="Iconography components"
         description={`
 Some of our React components use icons as primary elements to call attention to a particular action or information.
 
@@ -202,7 +202,34 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
               </Flex>
             </Flex>
           </Box>
-          <Markdown text="Check our [Icon page](/icon#Size) to learn about our available sizes and guidance for choosing the right size." />
+          <Markdown
+            text={`
+Icon sizes and guidelines (in px):
+
+**12**
+Used sparingly in tight spaces. When possible, use a text label next to the icon, as it can be hard to see for visually impaired people (this size applies only to Web)
+
+**14**
+Used often following body text content any time an icon is needed (this size applies only to Web)
+
+**16**
+Used often any time an icon is needed. Default icon size
+
+**20**
+Used only when paired with a 16pt text (this size applies only to iOS and Android)
+
+**24**
+Used frequently any time an icon is needed
+
+**32**
+Used occasionally, on more dense UI
+
+**32+**
+Should be used sparingly and only in places where the UI is very dense and a larger icon is required
+
+Generally 16px and 24px icons should be used in mobile interfaces. When icons are interactive, they should use [IconButton](/iconbutton) with its built in 44 x 44px touch targets.
+          `}
+          />
         </MainSection.Subsection>
         <MainSection.Subsection title="Color">
           <Markdown text="Icons can display all of our [color design tokens](/design_tokens) options. However, we advise using colors semantically to avoid usability issues." />
