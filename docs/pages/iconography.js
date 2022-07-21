@@ -114,16 +114,14 @@ Some of our React components use icons as primary elements to call attention to 
       />
 
       <MainSection name="Characteristics">
-        <MainSection.Subsection title="Appearance">
-          <Markdown
-            text={`
-The majority of our icons present a filled style. [Usability studies](https://cdr.lib.unc.edu/concern/masters_papers/6w924g35w) demonstrated that solid icons are typically faster to recognize than outline icons and offer a simpler shape, making the icons more identifiable and providing better scalability. Theretofore, some of our icons have an outlined treatment to give a clear visual concept in certain instances where the filled style doesn't apply.
+        <MainSection.Subsection
+          title="Appearance"
+          description={`The majority of our icons present a filled style. [Usability studies](https://cdr.lib.unc.edu/concern/masters_papers/6w924g35w) demonstrated that solid icons are typically faster to recognize than outline icons and offer a simpler shape, making the icons more identifiable and providing better scalability. Theretofore, some of our icons have an outlined treatment to give a clear visual concept in certain instances where the filled style doesn't apply.
 
 When choosing icons, we recommend sticking to a consistent style as much as possible to avoid usability issues. In addition, displaying two different aesthetics could confuse users regarding behaviors and interactions.
 
-Get in touch with us if an aesthetic change is needed, and we will evaluate the case.
-`}
-          />
+Get in touch with us if an aesthetic change is needed, and we will evaluate the case.`}
+        >
           <Box color="infoWeak" paddingX={8} paddingY={12}>
             <Flex direction="column" gap={8}>
               <Flex gap={8} justifyContent="center">
@@ -164,10 +162,14 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
               </Flex>
             </Flex>
           </Box>
-          <Markdown text="Check out our [Iconography collection](/iconography_and_svgs) to explore all of our available icons." />
+          <Box maxWidth={572}>
+            <Markdown text="Check out our [Iconography collection](/iconography_and_svgs) to explore all of our available icons." />
+          </Box>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Size">
-          <Markdown text="Our icons are pixel-snapped for each singular case. Using a size not available in our size scale can cause the proportions to be off-balance and create an unintentional hierarchy within the Pinner experience. Our icons are purposefully designed to scale proportionally. Icons should fit organically in your design and feel balanced and optical aligned. In addition, we must ensure that your users can use your icons without the need for zooming." />
+        <MainSection.Subsection
+          title="Size"
+          description="Our icons are pixel-snapped for each singular case. Using a size not available in our size scale can cause the proportions to be off-balance and create an unintentional hierarchy within the Pinner experience. Our icons are purposefully designed to scale proportionally. Icons should fit organically in your design and feel balanced and optical aligned. In addition, we must ensure that your users can use your icons without the need for zooming."
+        >
           <Box color="infoWeak" paddingX={8} paddingY={12}>
             <Flex gap={8} justifyContent="center">
               <Flex direction="column" gap={2} alignItems="center" justifyContent="center">
@@ -202,8 +204,9 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
               </Flex>
             </Flex>
           </Box>
-          <Markdown
-            text={`
+          <Box maxWidth={572}>
+            <Markdown
+              text={`
 Icon sizes and guidelines (in px):
 
 **12**
@@ -229,10 +232,13 @@ Should be used sparingly and only in places where the UI is very dense and a lar
 
 Generally 16px and 24px icons should be used in mobile interfaces. When icons are interactive, they should use [IconButton](/iconbutton) with its built in 44 x 44px touch targets.
           `}
-          />
+            />
+          </Box>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Color">
-          <Markdown text="Icons can display all of our [color design tokens](/design_tokens) options. However, we advise using colors semantically to avoid usability issues." />
+        <MainSection.Subsection
+          title="Color"
+          description="Icons can display all of our [color design tokens](/design_tokens) options. However, we advise using colors semantically to avoid usability issues."
+        >
           <Box color="infoWeak" paddingX={8} paddingY={12}>
             <Flex gap={8} justifyContent="center">
               <Flex direction="column" gap={2} alignItems="center">
@@ -252,10 +258,14 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
               </Flex>
             </Flex>
           </Box>
-          <Markdown text="Learn how to use colors by checking our [Iconography color guidelines](/color_usage#Iconography-color)." />
+          <Box maxWidth={572}>
+            <Markdown text="Learn how to use colors by checking our [Iconography color guidelines](/color_usage#Iconography-color)." />
+          </Box>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Platform-specific">
-          <Markdown text="Our icons are used across multiple platforms, so we ensure that our icons are as similar as possible across all these platforms. However, some icons have already established conventions on specific platforms. In these cases, it's beneficial to follow the system's standards. Please note: We provide platform-specific icons (e.g., share, check, back)." />
+        <MainSection.Subsection
+          title="Platform-specific"
+          description={`Our icons are used across multiple platforms, so we ensure that our icons are as similar as possible across all these platforms. However, some icons have already established conventions on specific platforms. In these cases, it's beneficial to follow the system's standards. Please note: We provide platform-specific icons (e.g., share, check, back).`}
+        >
           <Flex gap={4} wrap>
             <Box color="infoWeak" padding={8} width={240}>
               <Flex gap={8} justifyContent="center">
@@ -279,10 +289,14 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
               </Flex>
             </Box>
           </Flex>
-          <Markdown text="Please [get in touch](/how_to_work_with_us#Slack-channels) if you need specific iOS and Android icons guidelines." />
+          <Box maxWidth={572}>
+            <Markdown text="Please [get in touch](/how_to_work_with_us#Slack-channels) if you need specific iOS and Android icons guidelines." />
+          </Box>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Layout">
-          <Markdown text="All Gestalt icons fit a 24px square grid template to create balance with rounded UI elements. We snap to the pixel and when not possible, we use lines and shapes measuring a maximum of 2 decimal points in increments of 0.25px, for example 2px, 2.25px, 2.5px, 2.75px. In addition, we use simple geometry and a minimum line weight of 2.5px to keep consistency across our surfaces. Our icon grid includes a safe area to ensure they feel balanced and align elements optically." />
+        <MainSection.Subsection
+          title="Layout"
+          description="All Gestalt icons fit a 24px square grid template to create balance with rounded UI elements. We snap to the pixel and when not possible, we use lines and shapes measuring a maximum of 2 decimal points in increments of 0.25px, for example 2px, 2.25px, 2.5px, 2.75px. In addition, we use simple geometry and a minimum line weight of 2.5px to keep consistency across our surfaces. Our icon grid includes a safe area to ensure they feel balanced and align elements optically."
+        >
           <Box color="infoWeak" padding={8} width={240}>
             <Flex justifyContent="center">
               <Layout />
@@ -397,14 +411,17 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
       </MainSection>
 
       <MainSection name="Logos as icons">
-        <MainSection.Subsection>
-          <Markdown text="Logos are third-party visual elements we only recommend setting as an icon when it is understandable by a global audience of users and meet our icon's principles and usage guidelines. For example, a payment credit card flag is required as an icon in a payment flow to support comprehension. In this case, aim for an internationally recognized logo in place of a locally recognized logo that may only apply to a specific background or culture." />
+        <MainSection.Subsection
+          description={`Logos are third-party visual elements we only recommend setting as an icon when it is understandable by a global audience of users and meet our icon's principles and usage guidelines. For example, a payment credit card flag is required as an icon in a payment flow to support comprehension. In this case, aim for an internationally recognized logo in place of a locally recognized logo that may only apply to a specific background or culture.`}
+        >
           <Box color="infoWeak" padding={8} width={240}>
             <Flex justifyContent="center">
               <CreditCards />
             </Flex>
           </Box>
-          <Markdown text="If you need a new logo set as an icon, [reach out to us](/how_to_work_with_us#Meetings-and-events), and we will direct you." />
+          <Box maxWidth={572}>
+            <Markdown text="If you need a new logo set as an icon, [reach out to us](/how_to_work_with_us#Meetings-and-events), and we will direct you." />
+          </Box>
         </MainSection.Subsection>
       </MainSection>
       <MainSection
