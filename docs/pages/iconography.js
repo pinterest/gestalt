@@ -122,7 +122,7 @@ When choosing icons, we recommend sticking to a consistent style as much as poss
 
 Get in touch with us if an aesthetic change is needed, and we will evaluate the case.`}
         >
-          <Box color="infoWeak" paddingX={8} paddingY={12}>
+          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
             <Flex direction="column" gap={8}>
               <Flex gap={8} justifyContent="center">
                 <Flex direction="column" gap={2} alignItems="center" width={64}>
@@ -170,7 +170,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
           title="Size"
           description="Our icons are pixel-snapped for each singular case. Using a size not available in our size scale can cause the proportions to be off-balance and create an unintentional hierarchy within the Pinner experience. Our icons are purposefully designed to scale proportionally. Icons should fit organically in your design and feel balanced and optical aligned. In addition, we must ensure that your users can use your icons without the need for zooming."
         >
-          <Box color="infoWeak" paddingX={8} paddingY={12}>
+          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
             <Flex gap={8} justifyContent="center">
               <Flex direction="column" gap={2} alignItems="center" justifyContent="center">
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
@@ -239,7 +239,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           title="Color"
           description="Icons can display all of our [color design tokens](/design_tokens) options. However, we advise using colors semantically to avoid usability issues."
         >
-          <Box color="infoWeak" paddingX={8} paddingY={12}>
+          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
             <Flex gap={8} justifyContent="center">
               <Flex direction="column" gap={2} alignItems="center">
                 <Icon icon="heart" accessibilityLabel="heart" size={24} color="error" />
