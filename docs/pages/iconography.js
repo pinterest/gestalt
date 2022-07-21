@@ -318,7 +318,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             description="A11y: Stick to our [design tokens](/color_usage#Iconography-color) and use color combinations with at least 3:1 contrast ratio between foreground and background."
             defaultCode={`
 <Flex gap={2} alignItems="center">
-<Icon icon="sparkle" color="dark" size={16} />
+<Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
 <Text>Recommendation text</Text>
 </Flex>
 `}
@@ -328,7 +328,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="don't"
             description="Use colors that doesn’t pass 3:1 contrast ratio. Ensure the icon color is compliant with the Web Content Accessibility Guidelines [(WCAG) 2.1 AA standard](/accessibility#Visuals) color contrast ratio."
             defaultCode={`
-<Icon icon="sparkle" color="dark" size={16} />
+<Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
 `}
           />
         </MainSection.Subsection>
@@ -340,7 +340,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             description="Style: Use our icons following the Gestalt design specs."
             defaultCode={`
 <Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-  <Icon icon="shopping-bag" color="dark" size={24} />
+  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="dark" size={24} />
 </Box>
 `}
           />
@@ -350,7 +350,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             description="Modify our icon's design specs. Changing an icon shape can make the icon hard to read for Pinners and feel like a different visual language."
             defaultCode={`
 <Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-  <Icon icon="shopping-bag" color="light" size={24} />
+  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="light" size={24} />
 </Box>
 `}
           />
@@ -360,7 +360,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             cardSize="md"
             type="do"
             defaultCode={`
-<Icon icon="pincode" color="dark" size={32} />
+<Icon icon="pincode" accessibilityLabel="pin code" color="dark" size={32} />
 `}
           />
           <MainSection.Card
