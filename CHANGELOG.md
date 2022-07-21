@@ -1,3 +1,9 @@
+## 62.0.9 (Jul 21, 2022)
+
+### Patch
+
+- SideNavigation: quick fix docs (#2211)
+
 ## 62.0.8 (Jul 20, 2022)
 
 ### Patch
