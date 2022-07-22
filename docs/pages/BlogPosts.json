@@ -2,6 +2,46 @@
   "year": "2022",
   "digests": [
     {
+      "week": "July 22, 2022",
+      "posts": [
+        {
+          "title": "Gestalt for Android Figma library update",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/99/c6/0a/99c60ae0bf2a019f18e34b37e9210de3.png",
+          "imageAltText": "A picture of the Gestalt logo, Figma logo and Android logo",
+          "content": "We're super happy to announce that our big update to the [Gestalt for Android Figma library](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=2769%3A2477) has landed! This library should be at parity with our iOS Figma library, including dark mode variants for each component. We haven't added reference pages yet, but each component should work _exactly_ like its iOS counterpart. So have a look and let us know what you think!"
+        },
+        {
+          "title": "SideNavigation component pre-release",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/9e/cb/ea/9ecbeadb6a8c683b10c1c72cb7b0b591.png",
+          "imageAltText": "A screenshot of the Gestalt SideNavigation component",
+          "content": "In some more exciting news, we shipped a pre-release of our fancy new [SideNavigation component](https://gestalt.pinterest.systems/sidenavigation). This component is still in alpha and not (quite) ready for production, but we wanted to give y'all a sneak peek ahead of time. We also created a [SideNavigation Figma component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=17421%3A31236) that's ready to use today. Again, keep in mind that this component is currently in alpha."
+        },
+        {
+          "title": "Iconography guidelines",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/a1/51/d8/a151d8d23214f098c554f0850302195e.png",
+          "imageAltText": "A screenshot of Gestalt's Iconography guidelines",
+          "content": "The Gestalt team is working to up its icon game and our first big step is publishing an MVP our of [Iconography guidelines](https://gestalt.pinterest.systems/iconography). Keep in mind, this is our _first step_ towards greater clarity around using icons within Gestalt. So please send us your feedback and stay tuned for future updates."
+        },
+        {
+          "title": "Gestalt for iOS Figma library improvements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/56/0b/c9/560bc92a7caeaf4459766362cf5d0534.png",
+          "imageAltText": "",
+          "content": "We made some nice improvements to our iOS library including an overhaul of [Button](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5860%3A8644) to have smarter defaults, more capabilities (like an end icon) and, most importantly, be simpler to use.  We also made some simplifications and quality-of-life improvements to [SearchField](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5860%3A8648). Lastly, we implemented a nice enhancement to hide components in our library that aren't intended for everyday use. This should make the overall component discovery experience much simpler."
+        },
+        {
+          "title": "Gestalt for Web Figma library improvements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/22/c9/ca/22c9ca872312b3d67e8e5bab00b26ce3.png",
+          "imageAltText": "",
+          "content": "Similar to the iOS library, we make enhancements to [Button](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17905) which should closer mimic the API of our [React Button](https://gestalt.pinterest.systems/button). We also made a near-complete overhaul to [Dropdown](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=4526%3A0) to again better mimic its [React counterpart](https://gestalt.pinterest.systems/dropdown). One note on Dropdown - we ran into so Figma limitations which prevented us from implementing text truncation in the Dropdown list components, so you'd need to manually truncate text until we can determine a solution. Lastly, we made updates to the Figma Web library's page strucure/organization to more closely resemble our documentation."
+        }
+      ]
+    },
+    {
       "week": "July 15, 2022",
       "posts": [
         {
