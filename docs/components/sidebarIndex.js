@@ -40,6 +40,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Design tokens',
       'Elevation',
       'Iconography and SVGs',
+      'Iconography',
       'Layouts',
       'Screen sizes',
       'Typography',
