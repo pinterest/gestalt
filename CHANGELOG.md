@@ -1,3 +1,9 @@
+## 62.0.11 (Jul 22, 2022)
+
+### Patch
+
+- Docs: What's new 7-22 update (#2216)
+
 ## 62.0.10 (Jul 22, 2022)
 
 ### Patch
