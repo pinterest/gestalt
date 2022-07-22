@@ -22,7 +22,7 @@ type Props = {|
    */
   alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   /**
-   *
+   * Note that each child will be automatically wrapped in [Flex.Item](https://gestalt.pinterest.systems/flex#Flex.Item) to apply various styles. If specific flex styles are needed on a child, you can manually wrap it in Flex.Item to apply those styles. See [the Applying flex properties to children example](https://gestalt.pinterest.systems/flex#Applying-flex-properties-to-children) to learn more.
    */
   children?: Node,
   /**
