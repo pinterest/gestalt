@@ -6,7 +6,7 @@
       "posts": [
         {
           "title": "Gestalt for Android Figma library update",
-          "audience": ["Design", "Engineering"],
+          "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/99/c6/0a/99c60ae0bf2a019f18e34b37e9210de3.png",
           "imageAltText": "A picture of the Gestalt logo, Figma logo and Android logo",
           "content": "We're super happy to announce that our big update to the [Gestalt for Android Figma library](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=2769%3A2477) has landed! This library should be at parity with our iOS Figma library, including dark mode variants for each component. We haven't added reference pages yet, but each component should work _exactly_ like its iOS counterpart. So have a look and let us know what you think!"
