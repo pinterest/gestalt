@@ -107,7 +107,8 @@ export default function IconographyPage(): Node {
         description={`
 Some of our React components use icons as primary elements to call attention to a particular action or information.
 
-- [IconButton](/icon): Uses icons instead of text to convey available actions on a screen.
+- [Icon](/icon): The symbolic representation of an action or information, providing visual context and improving usability.
+- [IconButton](/iconbutton): Uses icons instead of text to convey available actions on a screen.
 - [Status](/status): A graphic indicator of an element’s state.
 - [Link](/link): External links use the visit icon as an external domain indicator.
 `}
