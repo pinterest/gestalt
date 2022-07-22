@@ -183,13 +183,13 @@ function Header() {
                 setActiveTab(activeTabIndex);
               }}
               tabs={[
-                { href: '/about_us', text: 'Get started' },
+                { href: '/get_started/about_us', text: 'Get started' },
                 {
-                  href: '/component_overview',
+                  href: '/components/web/component_overview',
                   text: 'Components',
                 },
                 { href: '/accessibility', text: 'Foundations' },
-                { href: '/roadmap', text: 'Roadmap' },
+                { href: '/roadmap/overview', text: 'Roadmap' },
               ]}
             />
           </Flex>

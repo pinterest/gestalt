@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import MainSection from '../components/MainSection.js';
-import Page from '../components/Page.js';
-import PageHeader from '../components/PageHeader.js';
+import MainSection from '../../components/MainSection.js';
+import Page from '../../components/Page.js';
+import PageHeader from '../../components/PageHeader.js';
 
 export default function DocsPage(): Node {
   return (

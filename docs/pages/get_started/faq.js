@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
-import Markdown from '../components/Markdown.js';
-import Card from '../components/Card.js';
-import PageHeader from '../components/PageHeader.js';
-import Page from '../components/Page.js';
+import Markdown from '../../components/Markdown.js';
+import Card from '../../components/Card.js';
+import PageHeader from '../../components/PageHeader.js';
+import Page from '../../components/Page.js';
 
 export default function ContainerPage(): Node {
   return (
@@ -22,7 +22,7 @@ export default function ContainerPage(): Node {
             <ul>
               <li>Styled, tested, and accessible components</li>
               <li>Right-to-left, internationalization, and dark-mode support</li>
-              <li>Low maintaince (automatic design and code updates cross-platform)</li>
+              <li>Low maintenance (automatic design and code updates cross-platform)</li>
               <li>Well-documented components and continuous Gestalt team support</li>
             </ul>
           </Text>

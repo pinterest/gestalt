@@ -22,9 +22,12 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
       <Header />
 
       <Box mdDisplay="flex">
-        <Box minWidth={MIN_NAV_WIDTH_PX}>
-          <Navigation />
-        </Box>
+        {!isHomePage && (
+          <Box minWidth={MIN_NAV_WIDTH_PX}>
+            <Navigation />
+          </Box>
+        )}
+
         <Box width="100%" minWidth={0}>
           <Box
             padding={4}

@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Button, Flex, Icon, Link, Image, Text, Table } from 'gestalt';
-import MainSection from '../components/MainSection.js';
-import { MAX_WIDTH } from '../components/MainSectionSubsection.js';
-import trackButtonClick from '../components/buttons/trackButtonClick.js';
-import Page from '../components/Page.js';
-import PageHeader from '../components/PageHeader.js';
-import InternalOnlyIconButton from '../components/InternalOnlyIconButton.js';
+import MainSection from '../../../../components/MainSection.js';
+import { MAX_WIDTH } from '../../../../components/MainSectionSubsection.js';
+import trackButtonClick from '../../../../components/buttons/trackButtonClick.js';
+import Page from '../../../../components/Page.js';
+import PageHeader from '../../../../components/PageHeader.js';
+import InternalOnlyIconButton from '../../../../components/InternalOnlyIconButton.js';
 
 function ListElement({ text, href }: {| text: string, href: string |}) {
   return (
@@ -64,7 +64,7 @@ function TableEntry({
 export default function ToolingPage(): Node {
   return (
     <Page title="Tooling">
-      <PageHeader name="Tooling" type="guidelines" />
+      <PageHeader name="Web tooling" type="guidelines" />
       <MainSection name="Core design system">
         <MainSection.Subsection />
         <Flex gap={2} maxWidth={MAX_WIDTH} direction="column">

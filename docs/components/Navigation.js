@@ -2,74 +2,32 @@
 import { type Node } from 'react';
 import { Box, SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
-import sidebarIndex from './sidebarIndex.js';
+import newSidebarIndex from './newSidebarIndex.js';
+
 import { useNavigationContext } from './navigationContext.js';
-import SidebarCategorizationButton from './buttons/SidebarCategorizationButton.js';
+import useGetSideNavItems from './getSideNavItems.js';
+import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
-function getAlphabetizedComponents() {
-  return Array.from(
-    new Set(
-      sidebarIndex
-        .map((section) => section.pages)
-        .flat()
-        .sort(),
-    ),
-  );
+function convertNamesForURL(name) {
+  return name.replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
 function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
-  const { sidebarOrganisedBy, setSidebarOrganizedBy } = useNavigationContext();
   const router = useRouter();
+  const sectionToRender = newSidebarIndex.find((section) =>
+    router.pathname.includes(convertNamesForURL(section.sectionName)),
+  );
+  const innerSideNavItems = useGetSideNavItems(sectionToRender);
 
   return (
     <SideNavigation
       accessibilityLabel="Page navigation"
       showBorder={border}
-      header={
-        <SidebarCategorizationButton
-          onClick={() =>
-            setSidebarOrganizedBy(
-              sidebarOrganisedBy === 'categorized' ? 'alphabetical' : 'categorized',
-            )
-          }
-          sidebarOrganisedBy={sidebarOrganisedBy}
-        />
-      }
+      header={router.pathname.includes('components') && <SidebarPlatformSwitcher />}
     >
-      {sidebarOrganisedBy === 'categorized'
-        ? sidebarIndex.map((section, idx) => (
-            <SideNavigation.Section
-              key={`${section.sectionName}--${idx}`}
-              label={section.sectionName}
-            >
-              {section.pages.map((componentName, i) => {
-                const href = `/${componentName.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`;
-                return (
-                  <SideNavigation.TopItem
-                    active={router.pathname === href ? 'page' : undefined}
-                    label={componentName}
-                    onClick={() => {}}
-                    key={`${componentName}--${i}`}
-                    href={href}
-                  />
-                );
-              })}
-            </SideNavigation.Section>
-          ))
-        : getAlphabetizedComponents().map((componentName, i) => {
-            const href = `/${componentName.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`;
-
-            return (
-              <SideNavigation.TopItem
-                active={router.pathname === href ? 'page' : undefined}
-                label={componentName}
-                key={`${sidebarOrganisedBy}-${i}`}
-                href={href}
-              />
-            );
-          })}
+      {innerSideNavItems}
     </SideNavigation>
   );
 }
@@ -87,6 +45,7 @@ export default function Navigation(): Node {
       mdDisplay="block"
       position="fixed"
       overflow="auto"
+      minHeight="100%"
       maxHeight="calc(100% - 100px)"
       minWidth={MIN_NAV_WIDTH_PX}
       marginTop={2}
