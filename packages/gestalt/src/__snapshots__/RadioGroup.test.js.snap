@@ -14,7 +14,7 @@ exports[`RadioGroup renders 1`] = `
     </div>
   </legend>
   <div
-    className="Flex columnGap2 xsDirectionColumn"
+    className="Flex rowGap2 columnGap2 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -69,7 +69,7 @@ exports[`RadioGroup renders a hidden legend 1`] = `
     </div>
   </legend>
   <div
-    className="Flex columnGap2 xsDirectionColumn"
+    className="Flex rowGap2 columnGap2 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -124,7 +124,7 @@ exports[`RadioGroup renders an error 1`] = `
     </div>
   </legend>
   <div
-    className="Flex columnGap2 xsDirectionColumn"
+    className="Flex rowGap2 columnGap2 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -193,7 +193,7 @@ exports[`RadioGroup renders in different direction 1`] = `
     </div>
   </legend>
   <div
-    className="Flex rowGap4 xsDirectionRow"
+    className="Flex rowGap4 columnGap4 xsDirectionRow"
   >
     <div
       className="FlexItem"

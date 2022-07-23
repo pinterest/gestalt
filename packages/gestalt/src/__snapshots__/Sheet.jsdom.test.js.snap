@@ -26,7 +26,7 @@ exports[`Sheet should render all props with nodes 1`] = `
             class="shadowContainer"
           >
             <div
-              class="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+              class="Flex rowGap0 columnGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
             >
               <div
                 class="box flexGrow"
@@ -125,7 +125,7 @@ exports[`Sheet should render all props with render props 1`] = `
             class="shadowContainer"
           >
             <div
-              class="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+              class="Flex rowGap0 columnGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
             >
               <div
                 class="box flexGrow"

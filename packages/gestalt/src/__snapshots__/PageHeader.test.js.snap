@@ -13,7 +13,7 @@ exports[`PageHeader renders 1`] = `
     }
   >
     <div
-      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+      className="Flex rowGap0 columnGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -21,7 +21,7 @@ exports[`PageHeader renders 1`] = `
       }
     >
       <div
-        className="Flex rowGap0 flexGrow xsDirectionRow"
+        className="Flex rowGap0 columnGap0 flexGrow xsDirectionRow"
         style={
           Object {
             "maxWidth": "100%",
@@ -40,19 +40,19 @@ exports[`PageHeader renders 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap4 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex columnGap1 xsDirectionColumn"
+                  className="Flex rowGap1 columnGap1 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
                   >
                     <div
-                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                      className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                     >
                       <div
                         className="box smDisplayNone xsDisplayBlock"
@@ -88,7 +88,7 @@ exports[`PageHeader renders 1`] = `
                         className="box marginStart3 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 xsDirectionRow"
+                          className="Flex rowGap3 columnGap3 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -107,7 +107,7 @@ exports[`PageHeader renders 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 columnGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -134,7 +134,7 @@ exports[`PageHeader renders primary action 1`] = `
     }
   >
     <div
-      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+      className="Flex rowGap0 columnGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -142,7 +142,7 @@ exports[`PageHeader renders primary action 1`] = `
       }
     >
       <div
-        className="Flex rowGap0 flexGrow xsDirectionRow"
+        className="Flex rowGap0 columnGap0 flexGrow xsDirectionRow"
         style={
           Object {
             "maxWidth": "100%",
@@ -161,19 +161,19 @@ exports[`PageHeader renders primary action 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap4 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex columnGap1 xsDirectionColumn"
+                  className="Flex rowGap1 columnGap1 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
                   >
                     <div
-                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                      className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                     >
                       <div
                         className="box smDisplayNone xsDisplayBlock"
@@ -209,7 +209,7 @@ exports[`PageHeader renders primary action 1`] = `
                         className="box marginStart3 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 xsDirectionRow"
+                          className="Flex rowGap3 columnGap3 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -228,7 +228,7 @@ exports[`PageHeader renders primary action 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 columnGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -242,7 +242,7 @@ exports[`PageHeader renders primary action 1`] = `
                 className="box mdDisplayBlock xsDisplayNone"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 columnGap2 xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -357,7 +357,7 @@ exports[`PageHeader renders secondary action 1`] = `
     }
   >
     <div
-      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+      className="Flex rowGap0 columnGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -365,7 +365,7 @@ exports[`PageHeader renders secondary action 1`] = `
       }
     >
       <div
-        className="Flex rowGap0 flexGrow xsDirectionRow"
+        className="Flex rowGap0 columnGap0 flexGrow xsDirectionRow"
         style={
           Object {
             "maxWidth": "100%",
@@ -384,19 +384,19 @@ exports[`PageHeader renders secondary action 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap4 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex columnGap1 xsDirectionColumn"
+                  className="Flex rowGap1 columnGap1 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
                   >
                     <div
-                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                      className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                     >
                       <div
                         className="box smDisplayNone xsDisplayBlock"
@@ -432,7 +432,7 @@ exports[`PageHeader renders secondary action 1`] = `
                         className="box marginStart3 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 xsDirectionRow"
+                          className="Flex rowGap3 columnGap3 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -451,7 +451,7 @@ exports[`PageHeader renders secondary action 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 columnGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -465,7 +465,7 @@ exports[`PageHeader renders secondary action 1`] = `
                 className="box mdDisplayBlock xsDisplayNone"
               >
                 <div
-                  className="Flex rowGap2 xsDirectionRow"
+                  className="Flex rowGap2 columnGap2 xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -611,7 +611,7 @@ exports[`PageHeader renders subtext 1`] = `
     }
   >
     <div
-      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+      className="Flex rowGap0 columnGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -619,7 +619,7 @@ exports[`PageHeader renders subtext 1`] = `
       }
     >
       <div
-        className="Flex rowGap0 flexGrow xsDirectionRow"
+        className="Flex rowGap0 columnGap0 flexGrow xsDirectionRow"
         style={
           Object {
             "maxWidth": "100%",
@@ -638,19 +638,19 @@ exports[`PageHeader renders subtext 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap4 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex columnGap1 xsDirectionColumn"
+                  className="Flex rowGap1 columnGap1 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
                   >
                     <div
-                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                      className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                     >
                       <div
                         className="box smDisplayNone xsDisplayBlock"
@@ -686,7 +686,7 @@ exports[`PageHeader renders subtext 1`] = `
                         className="box marginStart3 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 xsDirectionRow"
+                          className="Flex rowGap3 columnGap3 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -718,7 +718,7 @@ exports[`PageHeader renders subtext 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 columnGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",
@@ -745,7 +745,7 @@ exports[`PageHeader renders within a max width 1`] = `
     }
   >
     <div
-      className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+      className="Flex rowGap0 columnGap0 flexGrow justifyCenter xsDirectionRow"
       style={
         Object {
           "maxWidth": "100%",
@@ -753,7 +753,7 @@ exports[`PageHeader renders within a max width 1`] = `
       }
     >
       <div
-        className="Flex rowGap0 flexGrow xsDirectionRow"
+        className="Flex rowGap0 columnGap0 flexGrow xsDirectionRow"
         style={
           Object {
             "maxWidth": "60%",
@@ -772,19 +772,19 @@ exports[`PageHeader renders within a max width 1`] = `
             className="box marginEnd6"
           >
             <div
-              className="Flex rowGap4 itemsCenter xsDirectionRow"
+              className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex columnGap1 xsDirectionColumn"
+                  className="Flex rowGap1 columnGap1 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
                   >
                     <div
-                      className="Flex rowGap0 itemsCenter xsDirectionRow"
+                      className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                     >
                       <div
                         className="box smDisplayNone xsDisplayBlock"
@@ -820,7 +820,7 @@ exports[`PageHeader renders within a max width 1`] = `
                         className="box marginStart3 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 xsDirectionRow"
+                          className="Flex rowGap3 columnGap3 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -852,7 +852,7 @@ exports[`PageHeader renders within a max width 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 itemsCenter xsDirectionRow"
+            className="Flex rowGap8 columnGap8 itemsCenter xsDirectionRow"
             style={
               Object {
                 "height": "100%",

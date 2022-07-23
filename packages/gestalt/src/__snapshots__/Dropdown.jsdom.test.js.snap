@@ -32,16 +32,16 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 class="box paddingX2 paddingY2 rounding2 secondary xsDirectionColumn xsDisplayFlex"
               >
                 <div
-                  class="Flex rowGap0 xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                       >
                         <span
                           class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
@@ -74,16 +74,16 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
               >
                 <div
-                  class="Flex rowGap0 xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                       >
                         <span
                           class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
@@ -122,16 +122,16 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   target="_blank"
                 >
                   <div
-                    class="Flex rowGap0 xsDirectionRow"
+                    class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                         >
                           <span
                             class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
@@ -181,16 +181,16 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
               >
                 <div
-                  class="Flex rowGap0 xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                       >
                         <span
                           class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
@@ -243,16 +243,16 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   target="_blank"
                 >
                   <div
-                    class="Flex rowGap0 xsDirectionRow"
+                    class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                         >
                           <span
                             class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
@@ -322,16 +322,16 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   target="_blank"
                 >
                   <div
-                    class="Flex rowGap0 xsDirectionRow"
+                    class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
                         >
                           <span
                             class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"

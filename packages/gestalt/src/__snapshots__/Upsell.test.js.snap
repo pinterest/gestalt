@@ -128,7 +128,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 flexWrap justifyEnd xsDirectionRow"
+              className="Flex rowGap2 columnGap2 flexWrap justifyEnd xsDirectionRow"
             >
               <div
                 className="FlexItem flexGrow"
