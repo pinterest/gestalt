@@ -2,16 +2,17 @@
 import { type Node } from 'react';
 import { SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
+import { type sidebarIndexType } from './newSidebarIndex.js';
 
 function convertNamesForURL(name) {
   return name.replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
-const useGetSideNavItems = (sectionInfo: Node): $ReadOnlyArray<Node> => {
+const useGetSideNavItems = (sectionInfo: sidebarIndexType): Node => {
   const router = useRouter();
 
   let nestingLevel = 0;
-  const getNavItems = (navItem, previousSectionName) => {
+  const getNavItems = (navItem: sidebarIndexType, previousSectionName: string) => {
     if (nestingLevel === 0) {
       return (
         <SideNavigation.Section key={`${navItem.sectionName}`} label={navItem.sectionName}>
@@ -39,7 +40,7 @@ const useGetSideNavItems = (sectionInfo: Node): $ReadOnlyArray<Node> => {
     if (nestingLevel === 1) {
       return (
         <SideNavigation.Group key={`${navItem.sectionName}`} label={navItem.sectionName}>
-          {navItem.pages.map((nestedPage, j) => {
+          {navItem.pages.map((nestedPage, i) => {
             if (typeof nestedPage === 'string') {
               const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(
                 navItem.sectionName,
@@ -49,7 +50,7 @@ const useGetSideNavItems = (sectionInfo: Node): $ReadOnlyArray<Node> => {
                   active={router.pathname === href ? 'page' : undefined}
                   label={nestedPage}
                   onClick={() => {}}
-                  key={`${nestedPage}--${j}`}
+                  key={`${nestedPage}--${i}`}
                   href={href}
                 />
               );
@@ -63,7 +64,7 @@ const useGetSideNavItems = (sectionInfo: Node): $ReadOnlyArray<Node> => {
     }
     return (
       <SideNavigation.NestedGroup key={`${navItem.sectionName}`} label={navItem.sectionName}>
-        {navItem.pages.map((nestedPage, j) => {
+        {navItem.pages.map((nestedPage, i) => {
           if (typeof nestedPage === 'string') {
             const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(
               navItem.sectionName,
@@ -73,7 +74,7 @@ const useGetSideNavItems = (sectionInfo: Node): $ReadOnlyArray<Node> => {
                 active={router.pathname === href ? 'page' : undefined}
                 label={nestedPage}
                 onClick={() => {}}
-                key={`${nestedPage}--${j}`}
+                key={`${nestedPage}--${i}`}
                 href={href}
               />
             );
@@ -85,7 +86,7 @@ const useGetSideNavItems = (sectionInfo: Node): $ReadOnlyArray<Node> => {
     );
   };
 
-  return getNavItems(sectionInfo, '');
+  return getNavItems((sectionInfo: sidebarIndexType), '');
 };
 
 export default useGetSideNavItems;

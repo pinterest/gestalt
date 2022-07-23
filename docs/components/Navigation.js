@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import newSidebarIndex from './newSidebarIndex.js';
 
 import { useNavigationContext } from './navigationContext.js';
-import useGetSideNavItems from './getSideNavItems.js';
+import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
@@ -16,16 +16,24 @@ function convertNamesForURL(name) {
 
 function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
   const router = useRouter();
-  const sectionToRender = newSidebarIndex.find((section) =>
-    router.pathname.includes(convertNamesForURL(section.sectionName)),
-  );
+  const sectionToRender =
+    newSidebarIndex.find((section) =>
+      router.pathname.includes(convertNamesForURL(section.sectionName)),
+    ) || newSidebarIndex[0];
   const innerSideNavItems = useGetSideNavItems(sectionToRender);
-
+  const { sidebarOrganisedBy, setSidebarOrganizedBy } = useNavigationContext();
   return (
     <SideNavigation
       accessibilityLabel="Page navigation"
       showBorder={border}
-      header={router.pathname.includes('components') && <SidebarPlatformSwitcher />}
+      header={
+        router.pathname.includes('components') && (
+          <SidebarPlatformSwitcher
+            sidebarOrganisedBy={sidebarOrganisedBy}
+            onClick={(platform) => setSidebarOrganizedBy(platform)}
+          />
+        )
+      }
     >
       {innerSideNavItems}
     </SideNavigation>

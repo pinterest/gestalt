@@ -4,10 +4,10 @@ import { type Node } from 'react';
 import { Flex, Table, Text } from 'gestalt';
 import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
 import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens.js';
-import MainSection from '../components/MainSection.js';
-import PageHeader from '../components/PageHeader.js';
-import { TokenExample } from '../components/TokenExample.js';
-import Page from '../components/Page.js';
+import MainSection from '../../components/MainSection.js';
+import PageHeader from '../../components/PageHeader.js';
+import { TokenExample } from '../../components/TokenExample.js';
+import Page from '../../components/Page.js';
 
 export type Token = {|
   name: string,

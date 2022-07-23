@@ -1,9 +1,9 @@
 // @flow strict
 import { useState, type Node, type ElementProps } from 'react';
 import { Box, ComboBox, Flex, Icon, TapArea, Layer, Toast, Tooltip } from 'gestalt';
-import MainSection from '../components/MainSection.js';
-import Page from '../components/Page.js';
-import PageHeader from '../components/PageHeader.js';
+import MainSection from '../../../components/MainSection.js';
+import Page from '../../../components/Page.js';
+import PageHeader from '../../../components/PageHeader.js';
 
 const { icons } = Icon;
 type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;

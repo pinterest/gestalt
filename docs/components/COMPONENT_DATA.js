@@ -67,7 +67,7 @@ import DesignTokens from '../graphics/foundations/design-tokens.svg';
 import IconographySvg from '../graphics/foundations/iconography-svg.svg';
 import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
-import { type ListItemType } from '../pages/component_overview.js';
+import { type ListItemType } from '../pages/components/web/component_overview.js';
 
 const FOUNDATION_GUIDELINES_LIST: ListItemType = [
   {

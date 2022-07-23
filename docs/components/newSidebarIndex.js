@@ -2,7 +2,7 @@
 
 export type sidebarIndexType = {|
   sectionName: string,
-  pages: Array<string>,
+  pages: Array<mixed>,
 |};
 
 // sidebarIndex is the source of truth for the sidebar documentation menu.
@@ -28,7 +28,6 @@ const sidebarIndex: Array<sidebarIndexType> = [
             sectionName: 'Tooling',
             pages: ['Web', 'iOS', 'Android'],
           },
-
           'Hacking Gestalt',
         ],
       },
@@ -88,7 +87,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
           'Letterbox',
           'Link',
           'Mask',
-          'Masonary',
+          'Masonry',
           'Modal',
           'Module',
           'PageHeader',
@@ -141,6 +140,10 @@ const sidebarIndex: Array<sidebarIndexType> = [
       {
         sectionName: 'Color',
         pages: ['Palette', 'Usage', 'Examples'],
+      },
+      {
+        sectionName: 'Data Visualization',
+        pages: ['Palette', 'Usage'],
       },
       {
         sectionName: 'Typography',

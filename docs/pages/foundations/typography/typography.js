@@ -1,24 +1,24 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
-import MainSection from '../components/MainSection.js';
-import PageHeader from '../components/PageHeader.js';
-import Page from '../components/Page.js';
-import Markdown from '../components/Markdown.js';
-import AlignmentStart from '../graphics/typography/alignmentStart.svg';
-import AlignmentCenter from '../graphics/typography/alignmentCenter.svg';
-import AlignmentEnd from '../graphics/typography/alignmentEnd.svg';
-import Speedy from '../graphics/typography/speedy.svg';
-import Inclusive from '../graphics/typography/inclusive.svg';
-import Minimal from '../graphics/typography/minimal.svg';
-import LineLength from '../graphics/typography/lineLength.svg';
-import LineHeightLatin from '../graphics/typography/lineHeightLatin.svg';
-import LineHeightCJK from '../graphics/typography/lineHeightCJK.svg';
-import ParagraphSpacing from '../graphics/typography/paragraphSpacing.svg';
-import HierarchyDo from '../graphics/typography/hierarchyDo.svg';
-import HierarchyDont from '../graphics/typography/hierarchyDont.svg';
-import ContrastLow from '../graphics/typography/contrastLow.svg';
-import ContrastHigh from '../graphics/typography/contrastHigh.svg';
+import MainSection from '../../../components/MainSection.js';
+import PageHeader from '../../../components/PageHeader.js';
+import Page from '../../../components/Page.js';
+import Markdown from '../../../components/Markdown.js';
+import AlignmentStart from '../../../graphics/typography/alignmentStart.svg';
+import AlignmentCenter from '../../../graphics/typography/alignmentCenter.svg';
+import AlignmentEnd from '../../../graphics/typography/alignmentEnd.svg';
+import Speedy from '../../../graphics/typography/speedy.svg';
+import Inclusive from '../../../graphics/typography/inclusive.svg';
+import Minimal from '../../../graphics/typography/minimal.svg';
+import LineLength from '../../../graphics/typography/lineLength.svg';
+import LineHeightLatin from '../../../graphics/typography/lineHeightLatin.svg';
+import LineHeightCJK from '../../../graphics/typography/lineHeightCJK.svg';
+import ParagraphSpacing from '../../../graphics/typography/paragraphSpacing.svg';
+import HierarchyDo from '../../../graphics/typography/hierarchyDo.svg';
+import HierarchyDont from '../../../graphics/typography/hierarchyDont.svg';
+import ContrastLow from '../../../graphics/typography/contrastLow.svg';
+import ContrastHigh from '../../../graphics/typography/contrastHigh.svg';
 
 type PrincipleItemProps = {|
   color: string,

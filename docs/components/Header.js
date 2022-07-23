@@ -188,7 +188,7 @@ function Header() {
                   href: '/components/web/component_overview',
                   text: 'Components',
                 },
-                { href: '/accessibility', text: 'Foundations' },
+                { href: '/foundations/accessibility', text: 'Foundations' },
                 { href: '/roadmap/overview', text: 'Roadmap' },
               ]}
             />

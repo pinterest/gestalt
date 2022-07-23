@@ -1,17 +1,17 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex } from 'gestalt';
-import MainSection from '../components/MainSection.js';
-import PageHeader from '../components/PageHeader.js';
-import ColorTile from '../components/ColorTile.js';
-import Page from '../components/Page.js';
-import DataVizPrimary from '../graphics/color-examples/dataVizPrimary.svg';
-import DataVizSuccessError from '../graphics/color-examples/dataVizSuccessError.svg';
-import DataViz2Colors from '../graphics/color-examples/dataViz2Colors.svg';
-import DataViz3Colors from '../graphics/color-examples/dataViz3Colors.svg';
-import DataViz4Colors from '../graphics/color-examples/dataViz4Colors.svg';
-import DataViz6Colors from '../graphics/color-examples/dataViz6Colors.svg';
-import DataViz8Colors from '../graphics/color-examples/dataViz8Colors.svg';
+import MainSection from '../../../components/MainSection.js';
+import PageHeader from '../../../components/PageHeader.js';
+import ColorTile from '../../../components/ColorTile.js';
+import Page from '../../../components/Page.js';
+import DataVizPrimary from '../../../graphics/color-examples/dataVizPrimary.svg';
+import DataVizSuccessError from '../../../graphics/color-examples/dataVizSuccessError.svg';
+import DataViz2Colors from '../../../graphics/color-examples/dataViz2Colors.svg';
+import DataViz3Colors from '../../../graphics/color-examples/dataViz3Colors.svg';
+import DataViz4Colors from '../../../graphics/color-examples/dataViz4Colors.svg';
+import DataViz6Colors from '../../../graphics/color-examples/dataViz6Colors.svg';
+import DataViz8Colors from '../../../graphics/color-examples/dataViz8Colors.svg';
 
 type ColorCardProps = {|
   count: number,
