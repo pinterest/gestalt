@@ -107,7 +107,8 @@ export default function IconographyPage(): Node {
         description={`
 Some of our React components use icons as primary elements to call attention to a particular action or information.
 
-- [IconButton](/icon): Uses icons instead of text to convey available actions on a screen.
+- [Icon](/icon): The symbolic representation of an action or information, providing visual context and improving usability.
+- [IconButton](/iconbutton): Uses icons instead of text to convey available actions on a screen.
 - [Status](/status): A graphic indicator of an element’s state.
 - [Link](/link): External links use the visit icon as an external domain indicator.
 `}
@@ -312,7 +313,10 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="do"
             description="A11y: Use icons semantically and provide meaningful text whenever it is possible."
             defaultCode={`
-
+<Flex gap={2} alignItems="center">
+  <Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
+  <Text>Recommendation text</Text>
+</Flex>
 `}
           />
           <MainSection.Card
@@ -320,7 +324,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="don't"
             description="Use icons without labels for decoration or visual interest."
             defaultCode={`
-
+<Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
 `}
           />
         </MainSection.Subsection>
@@ -331,10 +335,9 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="do"
             description="A11y: Stick to our [design tokens](/color_usage#Iconography-color) and use color combinations with at least 3:1 contrast ratio between foreground and background."
             defaultCode={`
-<Flex gap={2} alignItems="center">
-<Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
-<Text>Recommendation text</Text>
-</Flex>
+<Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
+  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="dark" size={24} />
+</Box>
 `}
           />
           <MainSection.Card
@@ -342,7 +345,9 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="don't"
             description="Use colors that doesn’t pass 3:1 contrast ratio. Ensure the icon color is compliant with the Web Content Accessibility Guidelines [(WCAG) 2.1 AA standard](/accessibility#Visuals) color contrast ratio."
             defaultCode={`
-<Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
+<Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
+  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="light" size={24} />
+</Box>
 `}
           />
         </MainSection.Subsection>
@@ -352,27 +357,6 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             cardSize="md"
             type="do"
             description="Style: Use our icons following the Gestalt design specs."
-            defaultCode={`
-<Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="dark" size={24} />
-</Box>
-`}
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Modify our icon's design specs. Changing an icon shape can make the icon hard to read for Pinners and feel like a different visual language."
-            defaultCode={`
-<Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="light" size={24} />
-</Box>
-`}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
             defaultCode={`
 <Icon icon="pincode" accessibilityLabel="pin code" color="dark" size={32} />
 `}
@@ -385,7 +369,6 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             <OutlinedPincode />
           </MainSection.Card>
         </MainSection.Subsection>
-
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
