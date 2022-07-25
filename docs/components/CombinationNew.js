@@ -4,7 +4,8 @@ import { type Node } from 'react';
 import MainSectionCard from './MainSectionCard.js';
 
 type Props = {
-  children: (props: { [key: string]: any, ... }, index?: number) => Node, // flowlint-line unclear-type:off
+  // $FlowFixMe[unclear-type]
+  children: (props: { [key: string]: any, ... }, index?: number) => Node,
   hideTitle?: boolean,
   ...
 };

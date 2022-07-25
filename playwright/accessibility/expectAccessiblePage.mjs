@@ -13,6 +13,7 @@ export default async function expectAccessiblePage(
     .exclude('iframe')
     .exclude('.live-editor-pane')
     .exclude('.skip-accessibility-check')
+    .exclude('.sp-layout')
     .analyze();
 
   if (violations.length > 0) {

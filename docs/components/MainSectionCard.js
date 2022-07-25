@@ -17,7 +17,7 @@ type Props = {|
   defaultCode?: string,
   description?: string,
   hideCodePreview?: boolean,
-  iframeContent?: string,
+  sandpackExample?: Node,
   shadeColor?: 'tertiary' | 'darkWash' | 'lightWash' | 'default',
   shaded?: boolean,
   showCode?: boolean,
@@ -47,8 +47,8 @@ function MainSectionCard({
   children,
   defaultCode,
   description,
-  iframeContent,
   hideCodePreview = false,
+  sandpackExample,
   shaded = false,
   shadeColor,
   showCode = true,
@@ -126,12 +126,12 @@ function MainSectionCard({
       {Boolean(children) && <PreviewCard>{children}</PreviewCard>}
 
       {code && (
-        <LiveProvider code={iframeContent || code} scope={scope} theme={theme}>
+        <LiveProvider code={code} scope={scope} theme={theme}>
           <PreviewCard>
             <LivePreview style={{ display: 'contents' }} />
           </PreviewCard>
           {/* If it uses an iframe, show the original code (below), instead of the iframe code */}
-          {shouldShowCode && !iframeContent && (
+          {shouldShowCode && (
             <ExampleCode hideCodePreview={hideCodePreview} code={code} name={cardTitle || ''} />
           )}
 
@@ -143,11 +143,8 @@ function MainSectionCard({
         </LiveProvider>
       )}
 
-      {iframeContent && code && (
-        <LiveProvider code={code} scope={scope} theme={theme}>
-          {shouldShowCode && <ExampleCode readOnly code={code} name={cardTitle || ''} />}
-        </LiveProvider>
-      )}
+      {sandpackExample}
+
       {!showTitleAndDescriptionAboveExample && TitleAndDescription}
     </Box>
   );

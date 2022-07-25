@@ -6,7 +6,7 @@ import Navigation, { MIN_NAV_WIDTH_PX } from './Navigation.js';
 import Footer from './Footer.js';
 import ResourcesFooter from './ResourcesFooter.js';
 
-const CONTENT_MAX_WIDTH_PX = 1544;
+const CONTENT_MAX_WIDTH_PX = 1546;
 
 type Props = {|
   children?: Node,
