@@ -1,3 +1,9 @@
+## 62.1.0 (Jul 25, 2022)
+
+### Minor
+
+- Table.Header: add 'display' prop (#2220)
+
 ## 62.0.11 (Jul 22, 2022)
 
 ### Patch
