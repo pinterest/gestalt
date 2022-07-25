@@ -1,3 +1,9 @@
+## 62.1.2 (Jul 25, 2022)
+
+### Patch
+
+- Docs: Tweaks and fixes to Iconography guidelines (#2215)
+
 ## 62.1.1 (Jul 25, 2022)
 
 ### Patch
