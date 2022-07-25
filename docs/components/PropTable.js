@@ -59,21 +59,16 @@ function Td({
   shrink?: boolean,
   color?: 'default' | 'subtle',
 |}) {
-  let tdStyle = {
-    verticalAlign: 'top',
-    padding: 0,
-  };
-
-  if (border) {
-    tdStyle = { ...tdStyle, borderBottom: '1px solid #ddd' };
-  }
-
-  if (shrink) {
-    tdStyle = { ...tdStyle, width: '1px' };
-  }
-
   return (
-    <td style={tdStyle} colSpan={colspan}>
+    <td
+      style={{
+        borderBottom: border ? '1px solid #ddd' : null,
+        padding: 0,
+        verticalAlign: 'top',
+        width: shrink ? '1px' : null,
+      }}
+      colSpan={colspan}
+    >
       <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
         <Text overflow="normal" color={color}>
           {children}

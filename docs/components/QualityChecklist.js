@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Text, Table, SlimBanner } from 'gestalt';
+import { Text, Table, SlimBanner } from 'gestalt';
 import COMPONENT_DATA from './COMPONENT_DATA.js';
 import MainSection from './MainSection.js';
 import StatusData from './StatusData.js';
@@ -32,17 +32,15 @@ export default function QualityChecklist({ component }: Props): Node {
             <col style={{ width: '20%' }} />
             <col style={{ width: '60%' }} />
           </colgroup>
-          <Box display="visuallyHidden">
-            <Table.Header>
-              <Table.Row>
-                {['Quality item', 'Status', 'Status description'].map((header) => (
-                  <Table.HeaderCell key={header.replace(' ', '_')}>
-                    <Text weight="bold">{header}</Text>
-                  </Table.HeaderCell>
-                ))}
-              </Table.Row>
-            </Table.Header>
-          </Box>
+          <Table.Header display="visuallyHidden">
+            <Table.Row>
+              {['Quality item', 'Status', 'Status description'].map((header) => (
+                <Table.HeaderCell key={header.replace(' ', '_')}>
+                  <Text weight="bold">{header}</Text>
+                </Table.HeaderCell>
+              ))}
+            </Table.Row>
+          </Table.Header>
           <Table.Body>
             {['figma', 'responsive', 'iOS', 'android'].map((item, index) => {
               const componentStatus = componentData?.status?.[item] ?? 'notAvailable';
