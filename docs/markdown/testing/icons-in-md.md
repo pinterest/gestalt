@@ -3,7 +3,6 @@ title: Iconography Guidelines
 description: Where and when to use icons
 ---
 
-
 # This is an initial draft (WIP)
 
 → [See references](https://coda.io/d/Iconography-guidelines-patterns-Draft_dvlenTJHtyS/References_suw6S)
@@ -19,24 +18,17 @@ Icons are simple, modern, friendly, and easily recognizable. Each icon is consol
 Icon shapes are bold and geometric, presenting a consistent look across surfaces. Make sure icons feel balanced, and align elements optically.
 
 **Accessible**
-Icons should present a graphical shape that ensures readability and clearness, even at small sizes. In addition,  icons should be understandable by a global audience of users, regardless of nationality or language.
-
+Icons should present a graphical shape that ensures readability and clearness, even at small sizes. In addition, icons should be understandable by a global audience of users, regardless of nationality or language.
 
 ## Pros/cons of iconography in product
+
 1. [UIE](https://www.uie.com/) conducted two experiments to test how people use icons. First they changed the pictures of icons in a toolbar but kept them in the same location. People quickly adapted to this change. Afterwards, they kept the images but shuffled their location in the toolbar. This change confused the participants and caused problems for them.
-    
 2. [Michael Zuschlag](https://t.umblr.com/redirect?z=http%3A%2F%2Fwww.zuschlogin.com%2F%3Fp%3D47&t=OGVjNWQ3MzAxNDE5NDY2MDY0MmNlMmY2YjI3MDE5YjBmY2JhMjE2MixHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1) says that “icons contrary to intuition, do not necessarily help the user find a menu item better than a text label alone. It’s not worth it.” He also discusses his views on [UX Exchange](https://t.umblr.com/redirect?z=http%3A%2F%2Fux.stackexchange.com%2Fquestions%2F5084%2Fbest-practice-for-navigation-usability&t=ZWNhODhlZDU4NzZlZjEyZjQ1OTc0OWJhNDUwY2M3YjQyZTUyMDBlNyxHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1).
-    
 3. The former icon-only toolbar in Microsoft Outlook had poor usability and changing the icons and their positioning didn’t help much. The introduction of text labels next to the icons immediately fixed the usability issues and people started to use the toolbar. Another test revealed people remember a button’s position instead of the graphic interpretation of the function. —[The Importance Of Labels](https://t.umblr.com/redirect?z=http%3A%2F%2Fblogs.msdn.com%2Fjensenh%2Farchive%2F2005%2F11%2F01%2F487661.aspx&t=OTZiZDM5NTU2YmMwMWUwYzE0YmZjMmJhMjYzNDE5MzM4ZWJjNGM5MixHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1)
-    
 4. A user’s understanding of an icon is based on previous experience. Due to the absence of a standard usage for most icons, text labels are necessary to communicate the meaning and reduce ambiguity. —[Icon Usability](https://t.umblr.com/redirect?z=http%3A%2F%2Fwww.nngroup.com%2Farticles%2Ficon-usability%2F&t=ZmNiNDQ0YWMyYzY5YmQyNTliMDhhOTFmNzYzNjA2NjE4ZGZjYTRlMixHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1)
-    
 5. In the battle of clarity between icons and labels, labels always win. —[Labels always win.](https://t.umblr.com/redirect?z=http%3A%2F%2Fbokardo.com%2Farchives%2Flabels-always-win%2F&t=NjE5ZjI3NDQ5NzVmN2UzZDdiOTM4ODZlMDJmY2MzNDA5YjE2NWY0NyxHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1)
-    
 6. “When in doubt, always remember this: [the best icon is a text label.](https://t.umblr.com/redirect?z=http%3A%2F%2Fthomasbyttebier.be%2Fblog%2Fthe-best-icon-is-a-text-label&t=MDBiOGE4Yjg5NmFkYzJjODUyZGVmMzQ1N2YwNjAwZDRhNDk5OWExOCxHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1)”
-    
 7. [Don Normann](https://t.umblr.com/redirect?z=http%3A%2F%2Fwww.jnd.org%2Fdn.mss%2Fapples_products_are.html&t=ZjhjOTJlMjQwZmQxNzcwMTk1NWUxNTlkMzU0MDViYzQ5ZWRmMGM4MCxHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1) says that “Inscrutable icons litter the face of the [Apple] devices even though the research community has long demonstrated that people cannot remember the meaning of more than a small number of icons. Icon plus label is superior to icon alone or label alone. Who can remember what each icon means? Not me.
-    
 8. In [another study](https://t.umblr.com/redirect?z=http%3A%2F%2Fwww.uie.com%2Fbrainsparks%2F2006%2F02%2F20%2Forbitz-cant-get-a-date%2F&t=NzE4NGYyNDEyMWU3OTJlZmEzMjc3MmNkZjA1MTU0ZjY4NzZhODg3YyxHTlZ6Skd3Tg%3D%3D&b=t%3AfIR3gaVrEcGakJWUzP9Grg&p=https%3A%2F%2Fuxmyths.com%2Fpost%2F715009009%2Fmyth-icons-enhance-usability&m=1), the team of UIE observed that people remember a button’s position instead of the graphic interpretation of the function.
 
 The **benefits of icons** in a graphical user interface (GUI) include:
@@ -57,8 +49,6 @@ Before including any design element, it is critical to ask this primary question
 **“Universal” Icons Are Rare**
 There are a few icons that enjoy mostly universal recognition from users. The icons for home, print, and the [magnifying glass for search](https://www.nngroup.com/articles/magnifying-glass-icon/) are such instances. Outside of these examples, most icons continue to be ambiguous to users due to their association with different meanings across various interfaces. This **absence of a standard hurts the adoption of an icon** over time, as users cannot rely on it having the same functionality every time it is encountered.
 
-
-
 ## When & when not to use icons within the product
 
 **When to use**
@@ -73,7 +63,6 @@ There are a few icons that enjoy mostly universal recognition from users. The ic
 - As a visual reinforcement for associated text, without adding new meaning.
 - To communicate status or health. Use [Status](https://gestalt.netlify.app/status) instead.
 - As an interactive element (e.g., utilizing hover, focus, click/tap). Use [IconButton](https://gestalt.netlify.app/iconbutton) instead.
-
 
 ## Best practices
 
@@ -102,7 +91,6 @@ If you must design new icons, strive to make them easy to recognize and memorize
 - [Test the icons for recognizability](https://www.nngroup.com/articles/icon-testing/): ask people what they expect the icons to stand for.
 - **Test the icons for memorability**: ask a repeat set of users if they can remember the icon’s meaning after being told what it represented a couple weeks earlier.
 
-
 ## Icon sizing
 
 These are the guidelines for icon sizes (in px):
@@ -122,16 +110,11 @@ Should be used sparingly and only in places where the UI is very dense and a lar
 **Touch targets**
 All touch targets for interactive icons need to be 44px or larger. Engineers can add padding to a touch target to meet the 44px requirement.
 
-
-
 ## Icon color
 
 Icons can be created using the following color options. brandPrimary should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](https://gestalt.netlify.app/design_tokens#Text-color) for more info.
 
-
 ![Screen Shot 2022-05-18 at 1.42.18 PM.png](https://codahosted.io/docs/vlenTJHtyS/blobs/bl-bSZTauMmHr/c77129a1c3ece0e8b0ddca9761f701ab7182dd1b97dd1283c8caf291816e9ead43a0fb6741112ce4c49d582f257cd3ef8a327d2ef60f475febe38fc69d67fefe760e9baa738d7bcb19a8812417ede1ed6a70ff0d3da9667d57d79838360ef9b5117c03ce)
-
-
 
 ## Icon themes
 
@@ -143,7 +126,6 @@ Outlined icons present a light and clear visual and should be used only on dense
 Don't mix outlined with filled icons, as it can be hard to scan and creates visual inconsistency.
 
 [Case study for reference](https://www.viget.com/articles/are-hollow-icons-really-harder-to-recognize-a-research-study/)
-
 
 ## Writing
 
@@ -157,7 +139,6 @@ Use a descriptive label to describe the Icon
 
 **Dont**
 Use the words "image" or "icon" in the description label; instead, use words that indicate the purpose of the icon.
-
 
 ## Cross-platform adaptations
 
@@ -175,11 +156,9 @@ Space
 **Active vs inactive icons**
 Add content here
 
-
 ## What icons to use for specific subject matter - things like chevrons vs arrows, etc.
 
 Add content
-
 
 ## When & when not to use labels/tooltips in conjunction with an icon
 
@@ -188,8 +167,7 @@ Add content
 To help overcome the ambiguity that almost all icons face, a **text label must be present alongside an icon** to clarify its meaning in that particular context. (And even if you’re using a standard icon, it’s often safer to include a label, especially if you slightly altered the icon to match your aesthetic preferences or constraints.)
 **Icon labels should be visible at all times**, without any interaction from the user. For navigation icons, labels are particularly critical. Don’t rely on hover to reveal text labels: not only does it increase the [interaction cost](https://www.nngroup.com/articles/interaction-cost-definition/), but it also fails to translate well on touch devices.
 
-The website Usability.gov uses navigation icons for *Methods*, *Templates and Documents*, and *Guidelines* on every page within the site. If I asked each person reading this article to send me an icon that represented *Methods*, I am sure I would receive a wide variety of designs. As we stated as part of our [design guidelines for homepage usability](https://www.nngroup.com/articles/113-design-guidelines-homepage-usability/) years ago, “if you find you need to ponder to come up with an icon for navigation, chances are it’s not going to be easily recognizable or intuitive for users.” While the mobile version of the site recognizes that text labels need to accompany the icons to impart some meaning, the desktop version hides these labels until the curious user decides to hover over them. Fixing these navigational items to the left side of the page in order to remain available to users when they scroll indicates that the organization believes them to be important and useful. However, stripping these icons of text labels renders them completely meaningless and is counterproductive to the goal of providing easy access to content.
-
+The website Usability.gov uses navigation icons for _Methods_, _Templates and Documents_, and _Guidelines_ on every page within the site. If I asked each person reading this article to send me an icon that represented _Methods_, I am sure I would receive a wide variety of designs. As we stated as part of our [design guidelines for homepage usability](https://www.nngroup.com/articles/113-design-guidelines-homepage-usability/) years ago, “if you find you need to ponder to come up with an icon for navigation, chances are it’s not going to be easily recognizable or intuitive for users.” While the mobile version of the site recognizes that text labels need to accompany the icons to impart some meaning, the desktop version hides these labels until the curious user decides to hover over them. Fixing these navigational items to the left side of the page in order to remain available to users when they scroll indicates that the organization believes them to be important and useful. However, stripping these icons of text labels renders them completely meaningless and is counterproductive to the goal of providing easy access to content.
 
 ## Contributions
 
@@ -201,4 +179,3 @@ You can also propose new icons following the guidelines below:
 - All icons should comply with Gestalt Accessibility standards
 - All icons should be usable and support all platforms and devices
 - All icons should be understandable by a global audience of users, regardless of nationality or language
-

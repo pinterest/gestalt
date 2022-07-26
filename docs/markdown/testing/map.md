@@ -3,9 +3,7 @@ title: Gestalt 2022 roadmap
 description: The following reflects all public-facing work the Gestalt team plans to ship in 2022.
 ---
 
-
 <PrivateLink href="#"> Visit our internal roadmap </PrivateLink>
-
 
 ## In Progress
 
@@ -13,7 +11,6 @@ description: The following reflects all public-facing work the Gestalt team plan
 
 Creation of a baseline component to support side navigation layout patterns.
 <small>Scheduled for Quarter 2, 2022</small>
-
 
 <br/>
 
@@ -23,8 +20,6 @@ Creation of a baseline component to support side navigation layout patterns.
 <small>Scheduled for Quarter 2, 2022</small>
 
 <br/>
-
-
 
 ### Modal/Sheet component (Mobile web)
 
@@ -41,21 +36,20 @@ Develop functionality to unlock device-specific UI in Gestalt.
 <br/>
 
 ### Gestalt illustration library
+
 Creation of a baseline component to support side navigation layout patterns.
 <small>Scheduled for Quarter 2, 2022</small>
 
 <br/>
 
-
 ## Upcoming
 
 ### Gestalt illustration library
+
 Creation of a baseline component to support side navigation layout patterns.
 <small>Scheduled for Quarter 2, 2022</small>
-
 
 ### Gestalt illustration library
+
 Creation of a baseline component to support side navigation layout patterns.
 <small>Scheduled for Quarter 2, 2022</small>
-
-
