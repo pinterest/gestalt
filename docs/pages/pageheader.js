@@ -679,9 +679,9 @@ Be brief with text in all components to account for languages with longer words.
 
 If there's already a primary action elsewhere on the page, PageHeader can have 1 or 2 secondary actions. Use \`primaryAction\` as an additional secondary action.
 
-Primary and secondary actions are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). \`primaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
+Primary and secondary actions are consolidated into [Dropdown](https://gestalt.pinterest.systems/dropdown) below the [sm breakpoint](https://gestalt.pinterest.systems/screen_sizes#Web-(px)). \`primaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
 
-For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reuse the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.netlify.app/dropdown) below the sm breakpoint.
+For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reuse the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.pinterest.systems/dropdown) below the sm breakpoint.
 
 Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
 `}
@@ -823,9 +823,9 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
           title="Secondary action"
           description={`PageHeader also supports an optional \`secondaryAction\`. It will likely be a [Button](/button) or an [IconButton](/iconbutton) with a [Tooltip](/tooltip) and optional [Dropdown](/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.
 
-Primary and secondary actions are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). \`secondaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
+Primary and secondary actions are consolidated into [Dropdown](https://gestalt.pinterest.systems/dropdown) below the [sm breakpoint](https://gestalt.pinterest.systems/screen_sizes#Web-(px)). \`secondaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
 
-For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reused the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.netlify.app/dropdown) below the sm breakpoint.
+For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reused the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.pinterest.systems/dropdown) below the sm breakpoint.
 
 Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
 
@@ -1120,7 +1120,7 @@ PageHeader also supports a bottom border to show the division between PageHeader
         }}
       >
         <MainSection.Subsection
-          description="PageHeader is responsive to different [web desktop breakpoints](https://gestalt.netlify.app/screen_sizes#Web-(px)). Therefore, PageHeader’s behavior relies on the window size and requires PageHeader to be used on a full-window width to correctly respond to different breakpoints. Don’t use PageHeader right next to elements such as side-navigation bars that wouldn’t allow PageHeader to extend the full width of the window.
+          description="PageHeader is responsive to different [web desktop breakpoints](https://gestalt.pinterest.systems/screen_sizes#Web-(px)). Therefore, PageHeader’s behavior relies on the window size and requires PageHeader to be used on a full-window width to correctly respond to different breakpoints. Don’t use PageHeader right next to elements such as side-navigation bars that wouldn’t allow PageHeader to extend the full width of the window.
 "
         />
       </MainSection>
