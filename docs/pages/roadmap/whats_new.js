@@ -6,7 +6,7 @@ import Markdown from '../../components/Markdown.js';
 import Page from '../../components/Page.js';
 import PageHeader from '../../components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
-import blogPosts from '../BlogPosts.json';
+import blogPosts from './BlogPosts.json';
 
 const POST_WIDTH_PX = 600;
 const POST_IMAGE_HEIGHT_PX = 340;

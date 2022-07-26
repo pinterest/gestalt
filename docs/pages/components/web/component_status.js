@@ -1,11 +1,11 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import { Badge, Box, Column, Flex, Text, Table, Link } from 'gestalt';
-import COMPONENT_DATA from '../components/COMPONENT_DATA.js';
-import Page from '../components/Page.js';
-import PageHeader from '../components/PageHeader.js';
-import StatusData from '../components/StatusData.js';
-import { STATUS_DESCRIPTION } from '../components/COMPONENT_STATUS_MESSAGING.js';
+import COMPONENT_DATA from '../../../components/COMPONENT_DATA.js';
+import Page from '../../../components/Page.js';
+import PageHeader from '../../../components/PageHeader.js';
+import StatusData from '../../../components/StatusData.js';
+import { STATUS_DESCRIPTION } from '../../../components/COMPONENT_STATUS_MESSAGING.js';
 
 function DeprecatedStatus() {
   return <StatusData text="Deprecated" status="deprecated" />;

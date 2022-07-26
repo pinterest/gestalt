@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
-import newSidebarIndex from './newSidebarIndex.js';
+import newSidebarIndex, { type sidebarIndexType } from './newSidebarIndex.js';
 
 import { useNavigationContext } from './navigationContext.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
@@ -16,12 +16,38 @@ function convertNamesForURL(name) {
 
 function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
   const router = useRouter();
-  const sectionToRender =
+  const { sidebarOrganisedBy, setSidebarOrganizedBy } = useNavigationContext();
+
+  // Find the section that corresponds to the top navigation
+  const activeSection =
     newSidebarIndex.find((section) =>
       router.pathname.includes(convertNamesForURL(section.sectionName)),
     ) || newSidebarIndex[0];
-  const innerSideNavItems = useGetSideNavItems(sectionToRender);
-  const { sidebarOrganisedBy, setSidebarOrganizedBy } = useNavigationContext();
+  let sectionToRender = activeSection;
+
+  // If that section is the components section, figure out which subsection
+  // to render based on the active filter
+  if (activeSection.sectionName === 'Components') {
+    const subsectionToRender =
+      activeSection.pages.find(
+        (subSection) =>
+          typeof subSection === 'object' &&
+          subSection.sectionName.toLowerCase().includes(sidebarOrganisedBy),
+      ) || null;
+
+    // Flatten the section date to cut out the middle layer
+    if (
+      subsectionToRender &&
+      typeof subsectionToRender === 'object' &&
+      subsectionToRender.pages &&
+      subsectionToRender.sectionName
+    ) {
+      const newSectionName = `${activeSection.sectionName}/${subsectionToRender.sectionName}`;
+      sectionToRender = { sectionName: newSectionName, pages: subsectionToRender.pages };
+    }
+  }
+  const sectionItemsForSideNav = useGetSideNavItems((sectionToRender: sidebarIndexType));
+
   return (
     <SideNavigation
       accessibilityLabel="Page navigation"
@@ -35,7 +61,7 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
         )
       }
     >
-      {innerSideNavItems}
+      {sectionItemsForSideNav}
     </SideNavigation>
   );
 }

@@ -2,7 +2,7 @@
 
 export type sidebarIndexType = {|
   sectionName: string,
-  pages: Array<mixed>,
+  pages: Array<string | sidebarIndexType>,
 |};
 
 // sidebarIndex is the source of truth for the sidebar documentation menu.
@@ -50,6 +50,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
         sectionName: 'Web',
         pages: [
           'Overview',
+          'Component status',
           'ActivationCard',
           'Avatar',
           'AvatarGroup',

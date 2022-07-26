@@ -7,7 +7,7 @@ import {
   STATUS_DESCRIPTION,
   COMPONENT_A11Y_STATUS_MESSAGING,
 } from './COMPONENT_STATUS_MESSAGING.js';
-import { type AccessibleStatus } from '../pages/components/web/component_overview.js';
+import { type AccessibleStatus } from '../pages/components/web/overview.js';
 
 export const STATUS_ICON_EQUIVALENCY_MAP = Object.freeze({
   'ready': 'workflow-status-ok',

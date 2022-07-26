@@ -185,7 +185,7 @@ function Header() {
               tabs={[
                 { href: '/get_started/about_us', text: 'Get started' },
                 {
-                  href: '/components/web/component_overview',
+                  href: '/components/web/overview',
                   text: 'Components',
                 },
                 { href: '/foundations/accessibility', text: 'Foundations' },

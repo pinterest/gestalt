@@ -116,7 +116,7 @@ export default function ComponentOverview(): Node {
   const [order, setOrder] = useState('category');
 
   return (
-    <Page title="Component overview" hideSideNav hideEditLink>
+    <Page title="Web component overview" hideSideNav hideEditLink>
       <Flex direction="column" width="100%">
         <IllustrationContainer justifyContent="start">
           <PageHeader
