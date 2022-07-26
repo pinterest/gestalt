@@ -102,7 +102,7 @@ export default function ColorExamplesPage(): Node {
                 <Text>
                   All color pairings must pass WCAG&apos;s AA color contrast standards. Using our
                   color tokens properly ensures our colors meet legibility standards. Check out our{' '}
-                  <Link inline href="https://gestalt.netlify.app/accessibility">
+                  <Link inline href="https://gestalt.pinterest.systems/accessibility">
                     <Text inline underline>
                       accessibility guidelines
                     </Text>
@@ -316,7 +316,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will evaluate."
+            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.pinterest.systems/how_to_work_with_us#Meetings-and-events) and we will evaluate."
             defaultCode={`
             <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
               <Box color="default" padding={10}>
@@ -374,7 +374,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](https://gestalt.netlify.app/how_to_work_with_us#Meetings-and-events) and we will assist."
+            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](https://gestalt.pinterest.systems/how_to_work_with_us#Meetings-and-events) and we will assist."
             defaultCode={`
             <Box width={200} height={305}>
               <Image

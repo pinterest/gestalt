@@ -62,10 +62,10 @@ function Td({
   return (
     <td
       style={{
-        verticalAlign: 'top',
-        borderBottom: border && '1px solid #ddd',
+        borderBottom: border ? '1px solid #ddd' : null,
         padding: 0,
-        width: shrink ? '1px' : '',
+        verticalAlign: 'top',
+        width: shrink ? '1px' : null,
       }}
       colSpan={colspan}
     >

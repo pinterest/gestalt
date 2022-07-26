@@ -38,7 +38,8 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation](https://gestalt.pinterest.systems/sidenavigation) for side navigation on a page or section.
+ * [SideNavigation](https://gestalt.pinterest.systems/sidenavigation) is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal [Tabs](https://gestalt.pinterest.systems/tabs).
+ *
  * **NOTE**This component is on alpha phase, still under developoment. The component will support three levels and keyboard navigation. The component will change behavior and the API might also change in future component version releases.**NOTE**
  *
  * ![SideNavigation light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SideNavigation.spec.mjs-snapshots/SideNavigation-chromium-darwin.png)
@@ -56,35 +57,33 @@ export default function SideNavigation({
 
   return (
     <SideNavigationProvider>
-      <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
-        <Box
-          as="nav"
-          aria-label={accessibilityLabel}
-          minWidth={280}
-          width={280}
-          padding={2}
-          color="default"
-          dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
-        >
-          <Flex direction="column" gap={4}>
-            {header ? (
-              <Flex direction="column" gap={4}>
-                <Box paddingX={4}>{header}</Box>
-                <Divider />
-              </Flex>
-            ) : null}
-
-            <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-
-            {footer ? (
-              <Flex direction="column" gap={4}>
-                <Divider />
-                <Box paddingX={4}>{footer}</Box>
-              </Flex>
-            ) : null}
-          </Flex>
-        </Box>
-      </div>
+      <Box minWidth={280} width={280}>
+        <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
+          <Box
+            as="nav"
+            aria-label={accessibilityLabel}
+            padding={2}
+            color="default"
+            dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
+          >
+            <Flex direction="column" gap={4}>
+              {header ? (
+                <Flex direction="column" gap={4}>
+                  <Box paddingX={4}>{header}</Box>
+                  <Divider />
+                </Flex>
+              ) : null}
+              <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+              {footer ? (
+                <Flex direction="column" gap={4}>
+                  <Divider />
+                  <Box paddingX={4}>{footer}</Box>
+                </Flex>
+              ) : null}
+            </Flex>
+          </Box>
+        </div>
+      </Box>
     </SideNavigationProvider>
   );
 }

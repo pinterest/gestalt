@@ -1,3 +1,63 @@
+## 62.1.4 (Jul 26, 2022)
+
+### Patch
+
+- Internal: upgrade flow-bin to 0.183.0 (#2223)
+
+## 62.1.3 (Jul 26, 2022)
+
+### Patch
+
+- Docs: replace instances of old domain (#2224)
+
+## 62.1.2 (Jul 25, 2022)
+
+### Patch
+
+- Docs: Tweaks and fixes to Iconography guidelines (#2215)
+
+## 62.1.1 (Jul 25, 2022)
+
+### Patch
+
+- Bump undici from 5.5.1 to 5.8.0 (#2212)
+
+## 62.1.0 (Jul 25, 2022)
+
+### Minor
+
+- Table.Header: add 'display' prop (#2220)
+
+## 62.0.11 (Jul 22, 2022)
+
+### Patch
+
+- Docs: What's new 7-22 update (#2216)
+
+## 62.0.10 (Jul 22, 2022)
+
+### Patch
+
+- Docs: Iconography guidelines (#2210)
+
+## 62.0.9 (Jul 21, 2022)
+
+### Patch
+
+- SideNavigation: quick fix docs (#2211)
+
+## 62.0.8 (Jul 20, 2022)
+
+### Patch
+
+- SideNavigation: implement guidelines (#2209)
+
+## 62.0.7 (Jul 20, 2022)
+
+### Patch
+
+- Bump terser from 5.3.4 to 5.14.2 (#2208)
+
 ## 62.0.6 (Jul 18, 2022)
 
 ### Patch
