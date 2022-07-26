@@ -60,9 +60,6 @@ li {
   display: block;
 }
 
-.Markdown code.language-jsx, .Markdown code.language-bash, .Markdown pre.language-bash code {
-  background-color: var(--g-colorGray0);
-}
 
 .Markdown p {
   background-color: var(--g-colorGray0);
@@ -671,3 +668,8 @@ html[dir="rtl"] .Markdown ul + pre {
     stroke-dasharray: 8,8;
   }
 }
+
+.Markdown code.language-jsx, .Markdown code.language-bash, .Markdown pre.language-bash code {
+  background-color: var(--g-colorGray0);
+}
+
