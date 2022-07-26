@@ -6,6 +6,7 @@ import Flex from './Flex.js';
 import Divider from './Divider.js';
 import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
+import SideNavigationMobile from './SideNavigationMobile.js';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
 import SideNavigationGroup from './SideNavigationGroup.js';
@@ -13,9 +14,18 @@ import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
 import useGetChildrenToArray from './useGetChildrenToArray.js';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
+import { type Indexable } from './zIndex.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
-type Props = {|
+type TooltipProps = {|
+  accessibilityLabel?: string,
+  inline?: boolean,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  text: string,
+  zIndex?: Indexable,
+|};
+
+export type Props = {|
   /**
    * String that clients such as VoiceOver will read to describe the element.
    */
@@ -33,9 +43,18 @@ type Props = {|
    */
   header?: Node,
   /**
+   * Callback fired when SideNavigation requests to be closed in mobile devices. Must be used to control SideNavigation´s on/off display state. The accessibilityLabel should follow the Accessibility guidelines.
+   */
+  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void, tooltip: TooltipProps |},
+  /**
+  /**
    * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/sidenavigation#Border) variant for more info.
    */
   showBorder?: boolean,
+  /**
+   * Title for mobile navigation.
+   */
+  title?: string,
 |};
 
 /**
@@ -50,54 +69,36 @@ type Props = {|
 export default function SideNavigation({
   accessibilityLabel,
   children,
+  dismissButton,
   footer,
   header,
   showBorder,
+  title,
 }: Props): Node {
   const navigationChildren = useGetChildrenToArray({ children, filterLevel: 'main' });
 
   const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
 
-  console.log("MACO", deviceType);
-
-  if (deviceType === 'phone') {
+  if (isMobile) {
     return (
-      <SideNavigationProvider>
-        <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
-          <Box
-            as="nav"
-            aria-label={accessibilityLabel}
-            width="100%"
-            padding={2}
-            color="default"
-            dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
-          >
-            <Flex direction="column" gap={4}>
-              {header ? (
-                <Flex direction="column" gap={4}>
-                  <Box paddingX={4}>{header}</Box>
-                  <Divider />
-                </Flex>
-              ) : null}
-
-              <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-
-              {footer ? (
-                <Flex direction="column" gap={4}>
-                  <Divider />
-                  <Box paddingX={4}>{footer}</Box>
-                </Flex>
-              ) : null}
-            </Flex>
-          </Box>
-        </div>
+      <SideNavigationProvider dismissButton={dismissButton}>
+        <SideNavigationMobile
+          accessibilityLabel={accessibilityLabel}
+          footer={footer}
+          header={header}
+          dismissButton={dismissButton}
+          title={title}
+        >
+          {navigationChildren}
+        </SideNavigationMobile>
       </SideNavigationProvider>
     );
   }
 
   return (
     <SideNavigationProvider>
-      <Box minWidth={280} width={280}>
+      <Box minWidth={280} width={280} height="100%">
         <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
           <Box
             as="nav"

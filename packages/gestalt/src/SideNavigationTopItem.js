@@ -11,6 +11,7 @@ import Box from './Box.js';
 import icons from './icons/index.js';
 import { useNesting } from './contexts/NestingProvider.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 export const NESTING_MARGIN_START_MAP = {
   '0': '16px',
@@ -81,6 +82,12 @@ export default function SideNavigationTopItem({
 
   const itemId = useId();
 
+  const deviceType = useDeviceType();
+
+  const isMobile = deviceType === 'mobile';
+
+  const isTopLevel = nestedLevel === 0;
+
   const [hovered, setHovered] = useState(false);
 
   let itemColor = active ? 'selected' : undefined;
@@ -90,6 +97,10 @@ export default function SideNavigationTopItem({
     itemColor = 'secondary';
     textColor = 'default';
   }
+
+  const nestingMargin = isMobile
+    ? NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1]
+    : NESTING_MARGIN_START_MAP[nestedLevel];
 
   return (
     <li className={classnames(styles.liItem)}>
@@ -117,7 +128,7 @@ export default function SideNavigationTopItem({
           alignItems="center"
           dangerouslySetInlineStyle={{
             __style: {
-              paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
+              paddingInlineStart: nestingMargin,
               paddingInlineEnd: '16px',
             },
           }}

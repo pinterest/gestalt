@@ -5,6 +5,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
   className="box"
   style={
     Object {
+      "height": "100%",
       "minWidth": 280,
       "width": 280,
     }
@@ -161,6 +162,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
   className="box"
   style={
     Object {
+      "height": "100%",
       "minWidth": 280,
       "width": 280,
     }
@@ -462,6 +464,7 @@ exports[`SideNavigation renders Sections 1`] = `
   className="box"
   style={
     Object {
+      "height": "100%",
       "minWidth": 280,
       "width": 280,
     }
@@ -578,6 +581,7 @@ exports[`SideNavigation renders basic Item 1`] = `
   className="box"
   style={
     Object {
+      "height": "100%",
       "minWidth": 280,
       "width": 280,
     }
@@ -670,6 +674,7 @@ exports[`SideNavigation renders nested directory 1`] = `
   className="box"
   style={
     Object {
+      "height": "100%",
       "minWidth": 280,
       "width": 280,
     }
