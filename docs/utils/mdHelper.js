@@ -31,8 +31,10 @@ export async function getDocByRoute(route: string): Promise<{|
 export async function getAllMarkdownPosts(): Promise<Array<string>> {
   const docsDirectory = path.join(process.cwd(), 'markdown');
 
-  const fileContents = await fs.readdir(docsDirectory);
-  const cleanedNames = fileContents.map((name) => name.replace('.md', ''));
+  const folderContents = await fs.readdir(docsDirectory);
+  const cleanedNames = folderContents
+    .filter((name) => name.endsWith('.mdx') || name.endsWith('.md'))
+    .map((name) => name.replace('.md', ''));
 
   return cleanedNames;
 }
