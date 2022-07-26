@@ -1,3 +1,9 @@
+## 62.1.3 (Jul 26, 2022)
+
+### Patch
+
+- Docs: replace instances of old domain (#2224)
+
 ## 62.1.2 (Jul 25, 2022)
 
 ### Patch
