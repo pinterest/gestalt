@@ -77,7 +77,7 @@ type Props = {|
   /**
    * The primary action of the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of [IconButton](https://gestalt.pinterest.systems/iconbutton), Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
    *
-   * Primary and secondary actions are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). `primaryAction` takes both the main component and its equivalent using Dropdown subcomponents. See the [primary action variant](https://gestalt.pinterest.systems/pageheader#Primary-action) to learn more.
+   * Primary and secondary actions are consolidated into [Dropdown](https://gestalt.pinterest.systems/dropdown) below the [sm breakpoint](https://gestalt.pinterest.systems/screen_sizes#Web-(px)). `primaryAction` takes both the main component and its equivalent using Dropdown subcomponents. See the [primary action variant](https://gestalt.pinterest.systems/pageheader#Primary-action) to learn more.
    */
   primaryAction?: {|
     component: ActionType,
@@ -86,7 +86,7 @@ type Props = {|
   /**
    * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/button), [Link](https://gestalt.pinterest.systems/link), [Tooltip](https://gestalt.pinterest.systems/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/dropdown).
    *
-   * Primary and secondary actions are are consolidated into [Dropdown](https://gestalt.netlify.app/dropdown) below the [sm breakpoint](https://gestalt.netlify.app/screen_sizes#Web-(px)). `secondaryAction` takes both the main component and its equivalent using Dropdown subcomponents. See the [secondary action variant](https://gestalt.pinterest.systems/pageheader#Secondary-action) to learn more.
+   * Primary and secondary actions are are consolidated into [Dropdown](https://gestalt.pinterest.systems/dropdown) below the [sm breakpoint](https://gestalt.pinterest.systems/screen_sizes#Web-(px)). `secondaryAction` takes both the main component and its equivalent using Dropdown subcomponents. See the [secondary action variant](https://gestalt.pinterest.systems/pageheader#Secondary-action) to learn more.
    */
   secondaryAction?: {|
     component: ActionType,
