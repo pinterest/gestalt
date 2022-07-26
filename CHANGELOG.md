@@ -1,3 +1,9 @@
+## 62.2.0 (Jul 26, 2022)
+
+### Minor
+
+- Docs: Add ability to write Markdown/MDX docs pages (#1981)
+
 ## 62.1.4 (Jul 26, 2022)
 
 ### Patch
