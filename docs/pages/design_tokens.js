@@ -130,29 +130,32 @@ export default function DesignTokensPage(): Node {
               <Table accessibilityLabel={`${category.name} Values`}>
                 {tableHeaders(category.name)}
                 <Table.Body>
-                  {tokensToUse
-                    .filter((token) => token.name.includes(`${category.id}`))
-                    .map((token: Token) => (
-                      <Table.Row key={`token${token.name}`}>
-                        <Table.Cell>
-                          <Flex direction="column" gap={2}>
-                            <Text>${token.name}</Text>
-                            <Text color="subtle">{token.comment || ''}</Text>
-                          </Flex>
-                        </Table.Cell>
-                        <Table.Cell>
-                          <Text>{token.value}</Text>
-                        </Table.Cell>
-                        {darkValueCategories.includes(category.name) && (
+                  {
+                    // $FlowFixMe[incompatible-type]
+                    tokensToUse
+                      .filter((token) => token.name.includes(`${category.id}`))
+                      .map((token: Token) => (
+                        <Table.Row key={`token${token.name}`}>
                           <Table.Cell>
-                            <Text>{token.darkValue || '--'}</Text>
+                            <Flex direction="column" gap={2}>
+                              <Text>${token.name}</Text>
+                              <Text color="subtle">{token.comment || ''}</Text>
+                            </Flex>
                           </Table.Cell>
-                        )}
-                        <Table.Cell>
-                          <TokenExample token={token} category={category.category} />
-                        </Table.Cell>
-                      </Table.Row>
-                    ))}
+                          <Table.Cell>
+                            <Text>{token.value}</Text>
+                          </Table.Cell>
+                          {darkValueCategories.includes(category.name) && (
+                            <Table.Cell>
+                              <Text>{token.darkValue || '--'}</Text>
+                            </Table.Cell>
+                          )}
+                          <Table.Cell>
+                            <TokenExample token={token} category={category.category} />
+                          </Table.Cell>
+                        </Table.Row>
+                      ))
+                  }
                 </Table.Body>
               </Table>
             </MainSection.Subsection>
