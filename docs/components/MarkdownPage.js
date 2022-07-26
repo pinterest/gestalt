@@ -108,12 +108,16 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
       />
     ),
     Card: (props) => <MainSection.Card {...props} description={undefined} />,
-    Code: (props: {| removeMarginBottom: 'default' | 'none', children: string | null |}) => {
+    Code: (props: {| marginBottom: 'default' | 'none', children: string | null |}) => {
       const newProps = { ...props };
       newProps.children = null;
       // may not need to this in the future
       return (
-        <MainSection.Card {...newProps} defaultCode={props.children || ''} marginBottom="none" />
+        <MainSection.Card
+          {...newProps}
+          defaultCode={props.children || ''}
+          marginBottom={props.marginBottom || 'none'}
+        />
       );
     },
     Group: (props) => <Box marginBottom={12}>{props.children}</Box>,

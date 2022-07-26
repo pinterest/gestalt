@@ -6,7 +6,7 @@ fullwidth: true
 
 <br/>
 
-<Code cardSize="lg" showCode={false} removeMarginBottom={false}>
+<Code cardSize="lg" showCode={false} marginBottom="default">
   {`<Box
     column={6}
     height={30}
