@@ -60,9 +60,6 @@ li {
   display: block;
 }
 
-.Markdown .language-jsx, .Markdown .language-bash {
-  background-color: var(--g-colorGray0);
-}
 
 .Markdown p {
   background-color: var(--g-colorGray0);
@@ -80,6 +77,11 @@ li {
 .Markdown ul + pre {
   margin-left: 40px;
 }
+
+.Markdown ul ~ .md-hint {
+  margin-left: 40px;
+}
+
 
 html[dir="rtl"] .Markdown ul + pre {
   margin-right: 40px;
@@ -104,9 +106,6 @@ html[dir="rtl"] .Markdown ul + pre {
   scroll-margin-top: 75px;
 }
 
-.Markdown h3 {
-  color: var(--g-colorGray200);
-}
 
 .Markdown .anchor {
   height: 14px;
@@ -669,3 +668,8 @@ html[dir="rtl"] .Markdown ul + pre {
     stroke-dasharray: 8,8;
   }
 }
+
+.Markdown code.language-jsx, .Markdown code.language-bash, .Markdown pre.language-bash code {
+  background-color: var(--g-colorGray0);
+}
+

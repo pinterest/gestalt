@@ -23,6 +23,7 @@ type Props = {|
   showCode?: boolean,
   title?: string | Array<string>,
   type?: 'do' | "don't" | 'info',
+  marginBottom?: 'default' | 'none',
 |};
 
 type PreviewCardProps = {|
@@ -52,6 +53,7 @@ function MainSectionCard({
   shadeColor,
   showCode = true,
   title,
+  marginBottom = 'default',
   type = 'info',
 }: Props): Node {
   const code = defaultCode?.trim();
@@ -115,7 +117,10 @@ function MainSectionCard({
   );
 
   return (
-    <Box minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginBottom={12}>
+    <Box
+      minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+      marginBottom={marginBottom === 'none' ? 0 : 12}
+    >
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
       {Boolean(children) && <PreviewCard>{children}</PreviewCard>}

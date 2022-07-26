@@ -24,6 +24,7 @@ type Props = {|
   folderName?: string, // only use if name !== file name and the link should point to a directory
   showCode?: boolean,
   name: string,
+  margin?: 'default' | 'none',
   shadedCodeExample?: boolean,
   slimBanner?: Element<typeof SlimBanner> | null,
   type?: 'guidelines' | 'component' | 'utils',
@@ -32,6 +33,7 @@ type Props = {|
 export default function PageHeader({
   badge,
   defaultCode,
+  margin = 'default',
   description = '',
   fileName,
   folderName,
@@ -60,9 +62,11 @@ export default function PageHeader({
     },
   };
 
+  const showMargin = margin === 'default';
+
   return (
     <Box
-      marginBottom={defaultCode ? 0 : 2}
+      marginBottom={defaultCode || !showMargin ? 0 : 2}
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',

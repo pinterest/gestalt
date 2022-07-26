@@ -11,6 +11,7 @@ type Props = {|
   title: string,
   hideSideNav?: boolean,
   hideEditLink?: boolean,
+  pageSourceUrl?: string,
 |};
 
 export default function Page({
@@ -18,10 +19,13 @@ export default function Page({
   children,
   hideSideNav = false,
   hideEditLink = false,
+  pageSourceUrl,
 }: Props): Node {
   const sections = Children.toArray(children);
 
-  const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
+  const editPageUrl =
+    pageSourceUrl ??
+    `https://github.com/pinterest/gestalt/tree/master/docs/pages/${page.toLowerCase()}.js`;
 
   useEffect(() => {
     if (page && document) {

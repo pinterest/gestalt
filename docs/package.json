@@ -12,21 +12,30 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mdx-js/react": "^2.1.1",
     "date-fns": "^2.16.1",
     "gestalt": ">0.0.0",
     "gestalt-datepicker": ">0.0.0",
     "gestalt-design-tokens": ">0.0.0",
+    "gray-matter": "^4.0.3",
     "highlight.js": "^10.4.1",
     "history": "^5.0.0",
     "lz-string": "^1.4.4",
     "marked": "^4.0.10",
+    "next-mdx-remote": "^4.0.2",
     "next": "^12.2.0",
     "react": "^18.1.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.1.0",
-    "react-live": "^2.3.0"
+    "react-live": "^2.3.0",
+    "remark-breaks": "^3.0.2",
+    "remark-gfm": "^3.0.1"
   },
-  "browserslist": ["last 2 versions", "not IE < 11", "not <1%"],
+  "browserslist": [
+    "last 2 versions",
+    "not IE < 11",
+    "not <1%"
+  ],
   "devDependencies": {
     "nodemon": "^2.0.15"
   }

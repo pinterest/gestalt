@@ -14,15 +14,30 @@ type Props = {|
   columns?: 1 | 2,
   description?: string,
   title?: string,
+  marginBottom?: 'default' | 'compact',
 |};
 
-function MainSectionSubsection({ badge, children, columns = 1, description, title }: Props): Node {
+function MainSectionSubsection({
+  badge,
+  children,
+  columns = 1,
+  description,
+  title,
+  marginBottom = 'default',
+}: Props): Node {
   const slugifiedId = slugify(title || '');
   const arrayChildren = Children.toArray(children);
 
+  let defaultBottomMargin = title || description ? 8 : 0;
+
+  // if we're rendering from MDX, decrease the bottom margin
+  if (marginBottom === 'compact') {
+    defaultBottomMargin = 5;
+  }
+
   return (
     <Box marginTop={4}>
-      <Box marginBottom={title || description ? 8 : 0}>
+      <Box marginBottom={defaultBottomMargin}>
         {title && (
           <Box
             dangerouslySetInlineStyle={{
