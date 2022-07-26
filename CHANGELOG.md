@@ -1,3 +1,9 @@
+## 62.1.4 (Jul 26, 2022)
+
+### Patch
+
+- Internal: upgrade flow-bin to 0.183.0 (#2223)
+
 ## 62.1.3 (Jul 26, 2022)
 
 ### Patch
