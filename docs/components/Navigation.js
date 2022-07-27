@@ -42,7 +42,7 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
       subsectionToRender.pages &&
       subsectionToRender.sectionName
     ) {
-      const newSectionName = `${activeSection.sectionName}/${subsectionToRender.sectionName}`;
+      const newSectionName = `${activeSection.sectionName} - ${subsectionToRender.sectionName}`;
       sectionToRender = { sectionName: newSectionName, pages: subsectionToRender.pages };
     }
   }

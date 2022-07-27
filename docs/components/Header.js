@@ -15,18 +15,32 @@ import {
   Text,
 } from 'gestalt';
 
+import { useRouter } from 'next/router';
 import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
 
+const mainNavigationTabs = [
+  { href: '/get_started/about_us', text: 'Get started' },
+  {
+    href: '/components/web/overview',
+    text: 'Components',
+  },
+  { href: '/foundations/accessibility', text: 'Foundations' },
+  { href: '/roadmap/overview', text: 'Roadmap' },
+];
+
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
+  const router = useRouter();
 
-  const [activeTab, setActiveTab] = useState(-1);
+  const [activeTab, setActiveTab] = useState(
+    mainNavigationTabs.findIndex((tab) => router.pathname.includes(tab.text.toLowerCase())),
+  );
 
   const anchorRef = useRef(null);
 
@@ -182,15 +196,7 @@ function Header() {
               onChange={({ activeTabIndex }) => {
                 setActiveTab(activeTabIndex);
               }}
-              tabs={[
-                { href: '/get_started/about_us', text: 'Get started' },
-                {
-                  href: '/components/web/overview',
-                  text: 'Components',
-                },
-                { href: '/foundations/accessibility', text: 'Foundations' },
-                { href: '/roadmap/overview', text: 'Roadmap' },
-              ]}
+              tabs={mainNavigationTabs}
             />
           </Flex>
         </Box>

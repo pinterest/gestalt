@@ -40,11 +40,11 @@ const sidebarIndex: Array<sidebarIndexType> = [
     pages: [
       {
         sectionName: 'Android',
-        pages: ['Overview', 'Modal', 'Sheet'],
+        pages: ['Overview'],
       },
       {
         sectionName: 'iOS',
-        pages: ['Overview', 'Button', 'Modal', 'Sheet'],
+        pages: ['Overview'],
       },
       {
         sectionName: 'Web',

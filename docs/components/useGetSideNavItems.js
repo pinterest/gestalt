@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { type sidebarIndexType } from './newSidebarIndex.js';
 
 function convertNamesForURL(name) {
-  return name.replace(/ /g, '_').replace(/'/g, '').toLowerCase();
+  return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
 const useGetSideNavItems = (sectionInfo: sidebarIndexType): Node => {
