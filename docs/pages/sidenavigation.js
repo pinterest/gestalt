@@ -49,7 +49,7 @@ export default function SideNavigationPage({
           <SlimBanner
             type="warning"
             iconAccessibilityLabel="Warning"
-            message="This component is in the alpha phase and is still under development. The component will support three nested levels and accessibility keyboard navigation. The component will change behavior and the API might also change in future component version releases."
+            message="This component is in the alpha phase and is still under development. The component will support three nested levels and acc    essibility keyboard navigation. The component will change behavior and the API might also change in future component version releases."
           />
         }
       />
