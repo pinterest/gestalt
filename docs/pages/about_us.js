@@ -6,7 +6,7 @@ import PageHeader from '../components/PageHeader.js';
 
 export default function DocsPage(): Node {
   return (
-    <Page title="About us">
+    <Page title="About Gestalt">
       <PageHeader name="About us" type="guidelines" />
 
       <MainSection
