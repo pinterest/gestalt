@@ -70,9 +70,10 @@ li {
   margin-top: 24px;
 }
 
+/*
 .Markdown ul {
   padding-inline-start: 20px;
-}
+}*/
 
 .Markdown ul + pre {
   margin-left: 40px;
@@ -82,6 +83,9 @@ li {
   margin-left: 40px;
 }
 
+.Markdown ul + details {
+  margin-left: 40px;
+}
 
 html[dir="rtl"] .Markdown ul + pre {
   margin-right: 40px;

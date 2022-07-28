@@ -25,6 +25,7 @@ type Props = {|
     badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
+    component: boolean,
   |},
   pageSourceUrl?: string,
 |};
@@ -76,7 +77,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         </Flex>
       </Link>
     ),
-    Hint: (props: {| children: string | null |}) => (
+    Hint: (props: {| icon?: string, children: string | null |}) => (
       <div
         className="md-hint"
         style={{
@@ -87,7 +88,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         }}
       >
         <Flex gap={2} alignItems="center" width="full">
-          <Icon accessibilityLabel="Hint" icon="lightbulb" size={16} />
+          <Icon accessibilityLabel="Hint" icon={props.icon ? props.icon : 'lightbulb'} size={16} />
           <Text>{props.children}</Text>
         </Flex>
       </div>
@@ -142,7 +143,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           badge={meta.badge}
           description={meta.description}
           margin="none"
-          type={meta.fullwidth ? 'component' : 'guidelines'}
+          type={meta.component ? 'component' : 'guidelines'}
         />
         <Text>
           <article
