@@ -5,14 +5,17 @@ export type siteIndexType = {|
   pages: Array<string | siteIndexType>,
 |};
 
-// sidebarIndex is the source of truth for the sidebar documentation menu.
-// sidebarIndex establishes the sidebar hierarchical menu order:
-// section 1
+// siteIndex is the source of truth for the side navigation menu.
+// siteIndex establishes the sidebar hierarchical menu order:
+// section 1 (corresponds to a top tab)
 //    >>> page 1
-// section 2
+//    >>> nested section 1
+//        >>> page 1
+//        >>> page 2
+// section 2 (corresponds to a top tab)
 //    >>> page 2
 //    >>> page 3
-// Any new section/page must be added to sidebarIndex to be displayed.
+// Any new section/page must be added to siteIndex to be displayed.
 const siteIndex: Array<siteIndexType> = [
   {
     sectionName: 'Get started',
