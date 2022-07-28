@@ -54,7 +54,7 @@ function DefaultExample() {
             type="don't"
             title="When not to use"
             description={`
-          - When any UI or content above the Tabs is altered upon selection. Use [Link](/link) instead.
+          - When any UI or content above the Tabs is altered upon selection. Use [Link](/components/web/link) instead.
           - To break up content that is not related to each other or is not on the same hierarchical level.
         `}
           />
@@ -122,7 +122,7 @@ function TabExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use Tabs as a way to filter content. Consider using [SegmentedControl](/segmentedcontrol) in this use-case."
+            description="Use Tabs as a way to filter content. Consider using [SegmentedControl](/components/web/segmentedcontrol) in this use-case."
             defaultCode={`
         function FilterExample() {
           const [activeIndex, setActiveIndex] = React.useState(0);
@@ -388,11 +388,11 @@ function TabExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Link](/link)**
+**[Link](/components/web/link)**
 Link is used to navigate to different areas of the product or to external sites. Link is the preferred component in cases where you want to direct the user to unrelated content.
 
-**[SegmentedControl](/segmentedcontrol)**
-SegmentedControl is used to switch between views within a small area of content, such as a [Popover](/popover). SegmentedControl is preferred when changing state or selection within a view.
+**[SegmentedControl](/components/web/segmentedcontrol)**
+SegmentedControl is used to switch between views within a small area of content, such as a [Popover](/components/web/popover). SegmentedControl is preferred when changing state or selection within a view.
 `}
         />
       </MainSection>

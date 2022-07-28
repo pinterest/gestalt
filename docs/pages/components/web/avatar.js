@@ -62,7 +62,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             title="When not to use"
             description={`
-          - To represent a group of people, companies and/or brands. Use [AvatarGroup](/avatargroup) instead.
+          - To represent a group of people, companies and/or brands. Use [AvatarGroup](/components/web/avatargroup) instead.
         `}
           />
         </MainSection.Subsection>
@@ -98,7 +98,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use round Avatars in the appropriate size for your need. Learn more about [avatar sizing](/avatar#Fixed-Sizes)."
+            description="Use round Avatars in the appropriate size for your need. Learn more about [avatar sizing](/components/web/avatar#Fixed-Sizes)."
             defaultCode={`
               <Flex gap={4} wrap>
                 <Avatar
@@ -152,7 +152,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use Avatar to represent a person, organization or group ([Avatar Group](/avatargroup))."
+            description="Use Avatar to represent a person, organization or group ([Avatar Group](/components/web/avatargroup))."
             defaultCode={`
               <Flex direction="column" gap={2} alignItems="center">
                 <Avatar
@@ -337,7 +337,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-        **[AvatarGroup](/avatargroup)**
+        **[AvatarGroup](/components/web/avatargroup)**
         AvatarGroup is the ideal component in cases where multiple people/brands need to be displayed.
       `}
         />

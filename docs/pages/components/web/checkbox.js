@@ -40,8 +40,8 @@ function Example() {
             type="do"
             title="When to use"
             description={`
-- In a list, form or a [Table](/table), to present users with multiple, related options where more than one option can be selected. Users must be able to select all, none or some of the presented options.
-- In a Form, along with a [TextField](/textfield), or other spaces that are too small for a [Switch](/switch)
+- In a list, form or a [Table](/components/web/table), to present users with multiple, related options where more than one option can be selected. Users must be able to select all, none or some of the presented options.
+- In a Form, along with a [TextField](/components/web/form_fields/textfield), or other spaces that are too small for a [Switch](/components/web/switch)
 - When selection doesn’t take immediate effect and requires form submission
         `}
           />
@@ -50,9 +50,9 @@ function Example() {
             type="don't"
             title="When not to use"
             description={`
-- Situations where users can only choose one out of multiple, related options. Use [RadioButton](/radiobutton) instead.
-- When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.
-- When visually, it’s hard to tell that a checkbox turns something on or off. Use [Switch](/switch) instead.
+- Situations where users can only choose one out of multiple, related options. Use [RadioGroup](/components/web/radiogroup) instead.
+- When a selection takes immediate effect, especially on mobile. Use [Switch](/components/web/switch) instead.
+- When visually, it’s hard to tell that a checkbox turns something on or off. Use [Switch](/components/web/switch) instead.
         `}
           />
         </MainSection.Subsection>
@@ -107,7 +107,7 @@ function Example() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use checkboxes for one selection. Use [RadioButton](/radiobutton) instead."
+            description="Use checkboxes for one selection. Use [RadioGroup](/components/web/radiogroup) instead."
             defaultCode={`
 function Example() {
   const [checked1, setChecked1] = React.useState(false);
@@ -192,7 +192,7 @@ function Example() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](/switch) instead."
+            description="Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](/components/web/switch) instead."
             defaultCode={`
 function Example() {
   const [checked1, setChecked1] = React.useState(false);
@@ -215,7 +215,7 @@ function Example() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use info [Tooltips](/tooltip) or subtext."
+            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use info [Tooltips](/components/web/tooltip) or subtext."
             defaultCode={`
 function Example() {
   const [checked1, setChecked1] = React.useState(false);
@@ -492,12 +492,12 @@ function Example() {
           title="Labels"
           description={`Checkboxes should have labels that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect options. Therefore, make sure to supply the \`label\` prop. If that’s not possible, make sure your standalone Label has an \`htmlFor\` prop that matches the \`id\` of the checkbox. Test that a checkbox and label are properly connected by clicking or tapping on the label and confirming that it activates the checkbox next to it.
 
-If Checkbox is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen. See the [Label visibility example](/checkbox#Label-visibility) for more detail.
+If Checkbox is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen. See the [Label visibility example](/components/web/checkbox#Label-visibility) for more detail.
 `}
         />
         <MainSection.Subsection
           title="Legends"
-          description={`All groups of related Checkboxes should have a legend, which is provided by wrapping them in [Fieldset](/fieldset) component.
+          description={`All groups of related Checkboxes should have a legend, which is provided by wrapping them in [Fieldset](/components/web/form_fields/fieldset) component.
 `}
         >
           {' '}
@@ -547,7 +547,7 @@ function Example() {
     - Users relying on the keyboard expect to move focus to each Checkbox by using the tab key or shift+tab when moving backwards
     - Setting \`disabled\` will prevent Checkbox from receiving keyboard focus or input
 
-    In order to ensure proper tab order, wrap a group of related Checkboxes in [Fieldset](/fieldset).
+    In order to ensure proper tab order, wrap a group of related Checkboxes in [Fieldset](/components/web/form_fields/fieldset).
     `}
         />
         <MainSection.Subsection
@@ -871,19 +871,19 @@ function Example() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[RadioButton](/radiobutton)**
+      **[RadioGroup](/components/web/radiogroup)**
       Use when presenting a user with a list of choices for which there can only be one selection.
 `}
         />
         <MainSection.Subsection
           description={`
-      **[Switch](/Switch)**
+      **[Switch](/components/web/switch)**
       Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm Form submission.
 `}
         />
         <MainSection.Subsection
           description={`
-      **[Fieldset](/fieldset)**
+      **[Fieldset](/components/web/form_fields/fieldset)**
       Use to group a list of related Checkboxes with a legend that describes the list.
     `}
         />

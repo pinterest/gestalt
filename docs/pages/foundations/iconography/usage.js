@@ -1,17 +1,17 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, Text, Icon } from 'gestalt';
-import MainSection from '../docs-components/MainSection.js';
-import PageHeader from '../docs-components/PageHeader.js';
-import Page from '../docs-components/Page.js';
-import Obvious from '../graphics/iconography/obvious.svg';
-import Intentional from '../graphics/iconography/intentional.svg';
-import Accessible from '../graphics/iconography/accessible.svg';
-import Layout from '../graphics/iconography/layout.svg';
-import OutlinedPincode from '../graphics/iconography/outlinedPincode.svg';
-import ReactionLove from '../graphics/iconography/reactionLove.svg';
-import CreditCards from '../graphics/iconography/creditCards.svg';
-import Markdown from '../docs-components/Markdown.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import Page from '../../../docs-components/Page.js';
+import Obvious from '../../../graphics/iconography/obvious.svg';
+import Intentional from '../../../graphics/iconography/intentional.svg';
+import Accessible from '../../../graphics/iconography/accessible.svg';
+import Layout from '../../../graphics/iconography/layout.svg';
+import OutlinedPincode from '../../../graphics/iconography/outlinedPincode.svg';
+import ReactionLove from '../../../graphics/iconography/reactionLove.svg';
+import CreditCards from '../../../graphics/iconography/creditCards.svg';
+import Markdown from '../../../docs-components/Markdown.js';
 
 type PrincipleItemProps = {|
   color: string,
@@ -47,10 +47,10 @@ function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Nod
 
 export default function IconographyPage(): Node {
   return (
-    <Page title="Iconography">
+    <Page title="Iconography usage">
       <PageHeader
-        name="Iconography"
-        description={`Our typographic system creates a content hierarchy that is scannable and efficient.
+        name="Iconography usage"
+        description={`Our iconography system provides symbolic representations of key actions and elements within an interface.
     `}
         type="guidelines"
       />
@@ -107,10 +107,10 @@ export default function IconographyPage(): Node {
         description={`
 Some of our React components use icons as primary elements to call attention to a particular action or information.
 
-- [Icon](/icon): The symbolic representation of an action or information, providing visual context and improving usability.
-- [IconButton](/iconbutton): Uses icons instead of text to convey available actions on a screen.
-- [Status](/status): A graphic indicator of an element’s state.
-- [Link](/link): External links use the visit icon as an external domain indicator.
+- [Icon](/components/web/icon): The symbolic representation of an action or information, providing visual context and improving usability.
+- [IconButton](/components/web/buttons/iconbutton): Uses icons instead of text to convey available actions on a screen.
+- [Status](/components/web/status): A graphic indicator of an element’s state.
+- [Link](/components/web/link): External links use the visit icon as an external domain indicator.
 `}
       />
 
@@ -164,7 +164,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
             </Flex>
           </Box>
           <Box maxWidth={572}>
-            <Markdown text="Check out our [Iconography collection](/iconography_and_svgs) to explore all of our available icons." />
+            <Markdown text="Check out our [Iconography collection](/foundations/iconography/library) to explore all of our available icons." />
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -231,14 +231,14 @@ Used occasionally, on more dense UI
 **32+**
 Should be used sparingly and only in places where the UI is very dense and a larger icon is required
 
-Generally 16px and 24px icons should be used in mobile interfaces. When icons are interactive, they should use [IconButton](/iconbutton) with its built in 44 x 44px touch targets.
+Generally 16px and 24px icons should be used in mobile interfaces. When icons are interactive, they should use [IconButton](/components/web/buttons/iconbutton) with its built in 44 x 44px touch targets.
           `}
             />
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Color"
-          description="Icons can display all of our [color design tokens](/design_tokens) options. However, we advise using colors semantically to avoid usability issues."
+          description="Icons can display all of our [color design tokens](/foundations/design_tokens) options. However, we advise using colors semantically to avoid usability issues."
         >
           <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
             <Flex gap={8} justifyContent="center">
@@ -260,7 +260,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             </Flex>
           </Box>
           <Box maxWidth={572}>
-            <Markdown text="Learn how to use colors by checking our [Iconography color guidelines](/color_usage#Iconography-color)." />
+            <Markdown text="Learn how to use colors by checking our [Iconography color guidelines](/foundations/color/usage#Iconography-color)." />
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -291,7 +291,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             </Box>
           </Flex>
           <Box maxWidth={572}>
-            <Markdown text="Please [get in touch](/how_to_work_with_us#Slack-channels) if you need specific iOS and Android icons guidelines." />
+            <Markdown text="Please [get in touch](/get_started/how_to_work_with_us#Slack-channels) if you need specific iOS and Android icons guidelines." />
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -333,7 +333,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="A11y: Stick to our [design tokens](/color_usage#Iconography-color) and use color combinations with at least 3:1 contrast ratio between foreground and background."
+            description="A11y: Stick to our [design tokens](/foundations/color/usage#Iconography-color) and use color combinations with at least 3:1 contrast ratio between foreground and background."
             defaultCode={`
 <Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
   <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="dark" size={24} />
@@ -343,7 +343,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use colors that doesn’t pass 3:1 contrast ratio. Ensure the icon color is compliant with the Web Content Accessibility Guidelines [(WCAG) 2.1 AA standard](/accessibility#Visuals) color contrast ratio."
+            description="Use colors that doesn’t pass 3:1 contrast ratio. Ensure the icon color is compliant with the Web Content Accessibility Guidelines [(WCAG) 2.1 AA standard](/foundations/accessibility#Visuals) color contrast ratio."
             defaultCode={`
 <Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
   <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="light" size={24} />
@@ -403,7 +403,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             </Flex>
           </Box>
           <Box maxWidth={572}>
-            <Markdown text="If you need a new logo set as an icon, [reach out to us](/how_to_work_with_us#Meetings-and-events), and we will direct you." />
+            <Markdown text="If you need a new logo set as an icon, [reach out to us](/get_started/how_to_work_with_us#Meetings-and-events), and we will direct you." />
           </Box>
         </MainSection.Subsection>
       </MainSection>
@@ -417,7 +417,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
         />
         <MainSection.Subsection
           title="Iconography search experience"
-          description="One of our goals is to enhance our search experience in our [Iconography and SVG page](/iconography_and_svgs), as well as establish guidelines for when to use each type of icon available in our collection."
+          description="One of our goals is to enhance our search experience in our [Iconography and SVG page](/foundations/iconography/library), as well as establish guidelines for when to use each type of icon available in our collection."
         />
         <MainSection.Subsection
           title="Collaboration model"

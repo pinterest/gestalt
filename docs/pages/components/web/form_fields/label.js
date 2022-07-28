@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import Example from '../../../docs-components/Example.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
-import MainSection from '../../../docs-components/MainSection.js';
+import Example from '../../../../docs-components/Example.js';
+import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
+import Page from '../../../../docs-components/Page.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
+import MainSection from '../../../../docs-components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -21,7 +21,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection name="Variants">
         <Example
           description={`
-    Whenever you are using a [SelectList](/selectlist), [Switch](/switch), [TextField](/textfield) or [TextArea](/textarea) component, you should use a \`Label\`.
+    Whenever you are using a [SelectList](/components/web/form_fields/selectlist), [Switch](/components/web/switch), [TextField](/components/web/form_fields/textfield) or [TextArea](/components/web/form_fields/textarea) component, you should use a \`Label\`.
   `}
           name="Example"
           defaultCode={`

@@ -63,7 +63,7 @@ export default function SideNavigationPage({
             type="do"
             title="When to use"
             description={`
-- When [Tabs](/tabs) or a top navigation cannot accommodate the number of links or sections you need to navigate through
+- When [Tabs](/components/web/tabs) or a top navigation cannot accommodate the number of links or sections you need to navigate through
 - When a deep hierarchy of navigation items is needed
         `}
           />
@@ -72,8 +72,8 @@ export default function SideNavigationPage({
             type="don't"
             title="When not to use"
             description={`
-- When you only have two to five items to navigate through. Use [Tabs](/tabs) instead
-- When you need to open a menu of external links and actions via a button. Use [Dropdown](/dropdown) instead
+- When you only have two to five items to navigate through. Use [Tabs](/components/web/tabs) instead
+- When you need to open a menu of external links and actions via a button. Use [Dropdown](/components/web/dropdown) instead
         `}
           />
         </MainSection.Subsection>
@@ -1168,25 +1168,25 @@ function Example() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Tabs](/tabs)**
+**[Tabs](/components/web/tabs)**
 Used to navigate between urls and placed horizontally. Tabs can be used when there are 2–5 URLs to navigate between and can be used as a sub-navigation after the top nav bar or after a SideNav.
 `}
         />
         <MainSection.Subsection
           description={`
-**[SegmentedControl](/segmentedcontrol)**
+**[SegmentedControl](/components/web/segmentedcontrol)**
 SegmentedControl is used to select between different views or arrangements of related content. Like Tabs, this control is horizontal, but unlike tabs, it doesn’t navigated between URLs.
 `}
         />
         <MainSection.Subsection
           description={`
-**[Dropdown](/dropdown)**
+**[Dropdown](/components/web/dropdown)**
 A custom menu to select URLs to navigate to, or actions to take. This is always triggered by a button.
 `}
         />
         <MainSection.Subsection
           description={`
-**[PageHeader](/pageheader)**
+**[PageHeader](/components/web/pageheader)**
 For pages with a main top nav bar, every SideNav should have a PageHeader to announce the main page that the navigation items belong to. Exceptions are internal tools or developer platform interfaces where the SideNav is the main navigation.
 `}
         />

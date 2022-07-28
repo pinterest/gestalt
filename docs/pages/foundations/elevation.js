@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import Page from '../../../docs-components/Page.js';
+import MainSection from '../../docs-components/MainSection.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import Page from '../../docs-components/Page.js';
 
 type ColorCardProps = {|
   description: string,
@@ -61,7 +61,7 @@ export default function ColorUsagePage(): Node {
       >
         <MainSection.Subsection
           title="Floating"
-          description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/box#Borders). For dark mode, we use the \`elevationFloating\` background of Box instead of a shadow.`}
+          description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/components/web/utilities/box#Borders). For dark mode, we use the \`elevationFloating\` background of Box instead of a shadow.`}
         >
           <Flex gap={4} direction="column">
             <Text italic>$elevation-floating</Text>
@@ -104,7 +104,7 @@ export default function ColorUsagePage(): Node {
         <MainSection.Subsection
           title="Raised"
           description={`
-          Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/box#Borders). In dark mode, the raised border should be paired with the \`elevationRaised\` background color.
+          Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/components/web/utilities/box#Borders). In dark mode, the raised border should be paired with the \`elevationRaised\` background color.
           `}
         >
           <Flex direction="column" gap={8}>
@@ -175,7 +175,7 @@ export default function ColorUsagePage(): Node {
       </MainSection>
       <MainSection
         name="Elevation using color"
-        description={`Use as needed to accent containers when shadows are not an option. Available with \`color="elevationAccent"\` in [Box](/box#Colors).`}
+        description={`Use as needed to accent containers when shadows are not an option. Available with \`color="elevationAccent"\` in [Box](/components/web/utilities/box#Colors).`}
       >
         <Flex gap={4} direction="column">
           <Text weight="bold">
@@ -218,7 +218,7 @@ export default function ColorUsagePage(): Node {
       </MainSection>
       <MainSection
         name="Elevation using borders"
-        description={`Technically, borders are not considered elevation; however, they can be used as an alternative to display a single contained group when shadows or color don't work. The border treatment helps to determine visible boundaries. Available through the \`borderStyle\` prop in [Box](/box#Borders).`}
+        description={`Technically, borders are not considered elevation; however, they can be used as an alternative to display a single contained group when shadows or color don't work. The border treatment helps to determine visible boundaries. Available through the \`borderStyle\` prop in [Box](/components/web/utilities/box#Borders).`}
       >
         <Flex gap={4} direction="column">
           <Text weight="bold">

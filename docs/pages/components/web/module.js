@@ -66,7 +66,7 @@ export default function DocsPage({
             type="don't"
             title="When not to use"
             description={`
-          - In a layout that conveys a clear sense of information hierarchy. Use [SegmentedControl](/segmentedcontrol) instead.
+          - In a layout that conveys a clear sense of information hierarchy. Use [SegmentedControl](/components/web/segmentedcontrol) instead.
           - When long content can’t be displayed all at once, and scrolling is necessary.
           - When there is insufficient content to condense, as collapsing can increase cognitive load and interaction cost. Consider the static variant of Module.
           - When the content is crucial to read in full. Consider the static variant instead.

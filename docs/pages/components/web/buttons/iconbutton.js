@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node } from 'react';
 import { IconButton } from 'gestalt';
-import PropTable from '../../../docs-components/PropTable.js';
-import CombinationNew from '../../../docs-components/CombinationNew.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import Page from '../../../docs-components/Page.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import PropTable from '../../../../docs-components/PropTable.js';
+import CombinationNew from '../../../../docs-components/CombinationNew.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import Page from '../../../../docs-components/Page.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -114,20 +114,20 @@ function SectionsIconButtonDropdownExample() {
             type: `"darkGray" | "gray" | "red" | "white"`,
             defaultValue: 'gray',
             description:
-              'Primary color to apply to the [Icon](/icon). See [icon color](#Icon-color) variant to learn more.',
+              'Primary color to apply to the [Icon](/components/web/icon). See [icon color](#Icon-color) variant to learn more.',
           },
           {
             name: 'icon',
             type: '$Keys<typeof icons>',
             description:
-              'Icon displayed in IconButton to convey the behavior of the component. Refer to the [iconography](/iconography_and_svgs#Search-icon-library) guidelines regarding the available icon options.',
+              'Icon displayed in IconButton to convey the behavior of the component. Refer to the [iconography](/foundations/iconography/library#Search-icon-library) guidelines regarding the available icon options.',
           },
 
           {
             name: 'onClick',
             type: '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
             description:
-              'Callback fired when the component is clicked, pressed or tapped. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+              'Callback fired when the component is clicked, pressed or tapped. See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
           },
           {
             name: 'padding',
@@ -165,7 +165,7 @@ function SectionsIconButtonDropdownExample() {
           {
             name: 'tooltip',
             type: `{| text: string, accessibilityLabel?: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
-            description: `Adds a [Tooltip](/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
+            description: `Adds a [Tooltip](/components/web/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
           },
         ]}
       />
@@ -235,7 +235,7 @@ function SectionsIconButtonDropdownExample() {
             type: 'link',
             required: true,
             description:
-              'Sets link interaction in the component. See the [role](#Role) variant and [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+              'Sets link interaction in the component. See the [role](#Role) variant and [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
           },
           {
             name: 'target',
@@ -251,8 +251,8 @@ function SectionsIconButtonDropdownExample() {
             type="do"
             title="When to use"
             description={`
-- Interface space is limited. Prioritize using a [Button](/button) if space is available.
-- Triggering a [Modal](/modal) to complete a related task.
+- Interface space is limited. Prioritize using a [Button](/components/web/buttons/button) if space is available.
+- Triggering a [Modal](/components/web/modal) to complete a related task.
 - Creating visual separation of actions in text-heavy content.
 - Lower-emphasis actions that don't impede users from completing a task.
         `}
@@ -262,7 +262,7 @@ function SectionsIconButtonDropdownExample() {
             type="don't"
             title="When not to use"
             description={`
-- Displaying icons that don't have actions associated with them. Use an [Icon](/icon) instead.
+- Displaying icons that don't have actions associated with them. Use an [Icon](/components/web/icon) instead.
 - Displaying multiple IconButtons on a surface that uses the same icon for different actions.
 - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users.
 - Destructive, high-emphasis actions, e.g "delete", "remove".
@@ -275,7 +275,7 @@ function SectionsIconButtonDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use IconButton to perform low-emphasis actions, such as opening a [Modal](/modal) to edit a board."
+            description="Use IconButton to perform low-emphasis actions, such as opening a [Modal](/components/web/modal) to edit a board."
             defaultCode={`
 function HeadingExample(props) {
   const ModalWithHeading = ({
@@ -488,7 +488,7 @@ function OrderDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Display a [Tooltip](/tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
+            description="Display a [Tooltip](/components/web/tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
             defaultCode={`
   <IconButton
     accessibilityLabel="Share"
@@ -530,7 +530,7 @@ function OrderDropdownExample() {
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
-IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
+IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/components/web/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
 
 If IconButton is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
 
@@ -658,7 +658,7 @@ function Example(props) {
 
 \`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link.
 
-IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.`}
+IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.`}
             defaultCode={`
 <IconButton
   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
@@ -774,7 +774,7 @@ Follow these guidelines for \`bgColor\`
         <MainSection.Subsection
           title="With Tooltip"
           description={`
-            By specifying the \`tooltip\` property, a [Tooltip](/tooltip) will automatically be triggered when IconButton is hovered or focused. If the Tooltip \`text\` does not provide more information than the IconButton \`accessibilityLabel\`, set the tooltip prop's \`accessibilityLabel\` to an empty string, as seen below in the Edit example.
+            By specifying the \`tooltip\` property, a [Tooltip](/components/web/tooltip) will automatically be triggered when IconButton is hovered or focused. If the Tooltip \`text\` does not provide more information than the IconButton \`accessibilityLabel\`, set the tooltip prop's \`accessibilityLabel\` to an empty string, as seen below in the Edit example.
           `}
         >
           <MainSection.Card
@@ -805,7 +805,7 @@ Follow these guidelines for \`bgColor\`
         <MainSection.Subsection
           title="Custom icon"
           columns={2}
-          description="IconButton accepts both Gestalt [Icons](/icon) and custom icons, as shown in the second example. For custom icons, follow our [custom SVG icons](/iconography_and_svgs#Custom-SVG-icons) guidelines."
+          description="IconButton accepts both Gestalt [Icons](/components/web/icon) and custom icons, as shown in the second example. For custom icons, follow our [custom SVG icons](/foundations/iconography/library#Custom-SVG-icons) guidelines."
         >
           <MainSection.Card
             cardSize="md"
@@ -941,7 +941,7 @@ function IconButtonPopoverExample() {
       </MainSection>
       <MainSection
         name="Writing"
-        description="When pairing IconButton with [Tooltip](/tooltip), refer to the Tooltip component for writing guidelines.
+        description="When pairing IconButton with [Tooltip](/components/web/tooltip), refer to the Tooltip component for writing guidelines.
 
 "
       >
@@ -964,17 +964,17 @@ function IconButtonPopoverExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Button](/button)**
+**[Button](/components/web/buttons/button)**
 Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
 
-**[Icon](/icon)**
-IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt [Icon](/icon) library.
+**[Icon](/components/web/icon)**
+IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt [Icon](/components/web/icon) library.
 
-**[OnLinkNavigationProvider](/onlinknavigationprovider)**
+**[OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 
-**[Dropdown](/dropdown)**
-It's most common to anchor Dropdown to [Button](/button) or IconButton.
+**[Dropdown](/components/web/dropdown)**
+It's most common to anchor Dropdown to [Button](/components/web/buttons/button) or IconButton.
       `}
         />
       </MainSection>{' '}

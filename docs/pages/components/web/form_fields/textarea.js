@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import Page from '../../../../docs-components/Page.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -43,7 +43,7 @@ function Example(props) {
             title="When to use"
             description={`
           - Allowing users to input long portions of free-form text while ensuring all text entered remains visible.
-          - Allowing users to type free-form options that get converted into [Tags](/tag) within the TextArea.
+          - Allowing users to type free-form options that get converted into [Tags](/components/web/tag) within the TextArea.
         `}
           />
           <MainSection.Card
@@ -51,7 +51,7 @@ function Example(props) {
             type="don't"
             title="When not to use"
             description={`
-          - For inputs that expect a certain format, like a date or email. Use a [DatePicker](/datepicker) or [TextField](/textfield) instead.
+          - For inputs that expect a certain format, like a date or email. Use a [DatePicker](/components/web/datepicker) or [TextField](/components/web/form_fields/textfield) instead.
         `}
           />
         </MainSection.Subsection>
@@ -86,7 +86,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use TextArea when the text input is a single, non-sentence response — even in cases with long content. Use [TextField](https://gestalt.pinterest.systems/textfield) instead."
+            description="Use TextArea when the text input is a single, non-sentence response — even in cases with long content. Use [TextField](https://gestalt.pinterest.systems/components/web/form_fields/textfield) instead."
             defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('https://www.pinterest.com/pin/768145280205600341/');
@@ -501,7 +501,7 @@ function TextAreaPopoverExample() {
         <MainSection.Subsection
           title="With tags"
           description={`
-    You can include [Tag](/tag) elements in the input using the \`tags\` prop.
+    You can include [Tag](/components/web/tag) elements in the input using the \`tags\` prop.
 
     Note that the \`TextArea\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
 
@@ -579,14 +579,14 @@ function Example(props) {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[TextField](/textfield)**
+      **[TextField](/components/web/form_fields/textfield)**
       TextField is ideal for short-form, single answer text input.
 
-      **[Tag](/tag)**
+      **[Tag](/components/web/tag)**
       Tag can be used in conjunction with TextArea to display separate elements of content.
 
-      **[ComboBox](/combobox)**
-      ComboBox + Tag is the recommended alternative to [TextArea + Tag](/textarea#With-tags) when selecting from a finite list list of items.
+      **[ComboBox](/components/web/form_fields/combobox)**
+      ComboBox + Tag is the recommended alternative to [TextArea + Tag](/components/web/form_fields/textarea#With-tags) when selecting from a finite list list of items.
     `}
         />
       </MainSection>

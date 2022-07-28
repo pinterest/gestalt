@@ -119,7 +119,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use colors to support creating distinction between elements, such as define primary and secondary actions. See [color usage](/color_usage) for reference and appropriate tokens."
+            description="Use colors to support creating distinction between elements, such as define primary and secondary actions. See [color usage](/foundations/color/usage) for reference and appropriate tokens."
             defaultCode={`
             <Flex gap={4}>
               <IconButton
@@ -170,7 +170,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use colors purposefully as it can convey meaning in multiple ways. Our extended color palette is used for communicating status or enhancing illustrations when needed. See [color usage](/color_usage) for reference."
+            description="Use colors purposefully as it can convey meaning in multiple ways. Our extended color palette is used for communicating status or enhancing illustrations when needed. See [color usage](/foundations/color/usage) for reference."
             defaultCode={`
             <Flex direction="column" gap={3}>
               <Badge type="info" text="Info"/>
@@ -255,7 +255,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use the established [typography](/color_usage#Typography-color) and [iconography](/color_usage#Iconography-color) color tokens so users can quickly scan and identify sentiment."
+            description="Use the established [typography](/foundations/color/usage#Typography-color) and [iconography](/foundations/color/usage#Iconography-color) color tokens so users can quickly scan and identify sentiment."
             defaultCode={`
             <Status
               type="ok"
@@ -266,7 +266,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors to text and icons. Always refer to [color usage](/color_usage) for the appropriate color pattern. "
+            description="Apply alternative colors to text and icons. Always refer to [color usage](/foundations/color/usage) for the appropriate color pattern. "
             defaultCode={`
             <Flex gap={1} alignItems="center">
               <Icon icon="eye" accessibilityLabel="views"/>
@@ -285,7 +285,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use the appropriate [color tokens](/design_tokens) to switch between themes (light and dark mode). It ensures consistency and avoids accessibility issues."
+            description="Use the appropriate [color tokens](/foundations/design_tokens) to switch between themes (light and dark mode). It ensures consistency and avoids accessibility issues."
             defaultCode={`
             <Flex direction="column" gap={8} alignItems="center">
               <Flex gap={4}>
@@ -316,7 +316,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.pinterest.systems/how_to_work_with_us#Meetings-and-events) and we will evaluate."
+            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.pinterest.systems/get_started/how_to_work_with_us#Meetings-and-events) and we will evaluate."
             defaultCode={`
             <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
               <Box color="default" padding={10}>
@@ -374,7 +374,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](https://gestalt.pinterest.systems/how_to_work_with_us#Meetings-and-events) and we will assist."
+            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](https://gestalt.pinterest.systems/get_started/how_to_work_with_us#Meetings-and-events) and we will assist."
             defaultCode={`
             <Box width={200} height={305}>
               <Image

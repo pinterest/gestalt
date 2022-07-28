@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, TapArea, Text } from 'gestalt';
-import PropTable from '../../../docs-components/PropTable.js';
-import Combination from '../../../docs-components/Combination.js';
-import Example from '../../../docs-components/Example.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import Page from '../../../docs-components/Page.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import PropTable from '../../../../docs-components/PropTable.js';
+import Combination from '../../../../docs-components/Combination.js';
+import Example from '../../../../docs-components/Example.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import Page from '../../../../docs-components/Page.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -161,7 +161,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description: [
               'Callback fired when a TapArea component is clicked (pressed and released) with a mouse or keyboard.',
               'Required with button-role + button-type buttons.',
-              'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+              'See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
             ],
             href: 'basic-taparea',
           },
@@ -289,7 +289,7 @@ function TapAreaExample() {
           id="link_buttons"
           description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
-TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.
   `}
           name="TapArea with Link/Button"
           defaultCode={`
@@ -653,7 +653,7 @@ function MenuButtonExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[OnLinkNavigationProvider](/onlinknavigationprovider)**
+**[OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
       `}
         />

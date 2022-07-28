@@ -43,8 +43,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-- Actions that will change data, change a state, or trigger a high-emphasis action. Use [Button](/Button) instead.
-- In [Heading](/heading), as headings aren't easily recognizable as interactive elements. Headings can act as anchor elements on the page (accompanied by the "link" [Icon](/icon)), but if the heading needs to take users to a different page, add a subtitle next to the heading with an inline Link instead.
+- Actions that will change data, change a state, or trigger a high-emphasis action. Use [Button](/components/web/buttons/button) instead.
+- In [Heading](/components/web/heading), as headings aren't easily recognizable as interactive elements. Headings can act as anchor elements on the page (accompanied by the "link" [Icon](/components/web/icon)), but if the heading needs to take users to a different page, add a subtitle next to the heading with an inline Link instead.
         `}
           />
         </MainSection.Subsection>
@@ -196,7 +196,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
           <MainSection.Card
             type="don't"
-            description="Apply multiple text styles on links paired with text, as it can create inconsistency it can make it hard to scan. See the [Link and color variant](/link#Link-and-Text) for guidelines."
+            description="Apply multiple text styles on links paired with text, as it can create inconsistency it can make it hard to scan. See the [Link and color variant](/components/web/link#Link-and-Text) for guidelines."
             defaultCode={`
 <Flex direction="column" width="70%" gap={3}>
   <Flex.Item>
@@ -453,7 +453,7 @@ We recommend adding an external Link to inline content. However, use max of two 
 
 Also, consider adding external Links to elements where the "visit" icon will support the user's comprehension, letting them know they are leaving Pinterest content and going to an external domain. For example, links inside a footer element.
 
-For external links that an external Gestalt Link doesn't apply, check out [Button link role](https://gestalt.pinterest.systems/button#Role) or [IconButton link role](https://gestalt.pinterest.systems/iconbutton#Role).`}
+For external links that an external Gestalt Link doesn't apply, check out [Button link role](https://gestalt.pinterest.systems/components/web/buttons/button#Role) or [IconButton link role](https://gestalt.pinterest.systems/component/web/buttons/iconbutton#Role).`}
         />
       </AccessibilitySection>
 
@@ -465,7 +465,7 @@ For external links that an external Gestalt Link doesn't apply, check out [Butto
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Link and Text"
-          description="Link depends on [Text](/text) to inherit style attributes including weight, color, and size. Aim to match the text size and style of the content they are accompanying. Always use Link within [Text](/text) to get the correct underline color."
+          description="Link depends on [Text](/components/web/text) to inherit style attributes including weight, color, and size. Aim to match the text size and style of the content they are accompanying. Always use Link within [Text](/components/web/text) to get the correct underline color."
         >
           <MainSection.Card
             defaultCode={`
@@ -492,11 +492,11 @@ For external links that an external Gestalt Link doesn't apply, check out [Butto
 2. \`color="subtle"\`
     Intended for links placed within a subtle inline text (e.g. additional link on a sub-header).
 3. \`color="inverse"\`
-    For links over a dark-colored background. Make sure it has a 4.5:1 [contrast ratio](/accessibility#Visuals) between foreground and background.
+    For links over a dark-colored background. Make sure it has a 4.5:1 [contrast ratio](/foundations/accessibility#Visuals) between foreground and background.
 4. \`color="shopping"\`
     Used on links related to shopping products or surfaces when a color is needed to highlight a link. Please note: This color should only be used in a shopping context.
 5. Status: \`color="error"\`, \`color="warning"\`, \`color="success"\`
-    Used purposefully, applies only on links within a status message. See [status colors](/color_usage#Status-text-colors) for reference.
+    Used purposefully, applies only on links within a status message. See [status colors](/foundations/color/usage#Status-text-colors) for reference.
 6. Documentation: \`color="link"\`
     Reserved color for links within documentation and internal subsites when a color is needed to convey interactivity. Please note: This color shouldn't be used on links across Pinterest customer-facing UI.
           `}
@@ -506,15 +506,15 @@ For external links that an external Gestalt Link doesn't apply, check out [Butto
           columns={2}
           description={`To follow Link design guidelines and [best practices](#Best-practices), \`inline\` and \`underline\` props must be used accordingly. In addition, using Links consistently will ensure a great usability experience.
 
-We recommend showing the underline on the link, at least upon a hover behavior; it will sustain accessibility standards. Only hide the underline if the link element has a different hover behavior (e.g., a color background), and the user can still perceive the element as a link. In that case, it’s always a good idea to test this assumption with users. Reach out to [Gestalt for assistance](/how_to_work_with_us#Meetings-and-events).
+We recommend showing the underline on the link, at least upon a hover behavior; it will sustain accessibility standards. Only hide the underline if the link element has a different hover behavior (e.g., a color background), and the user can still perceive the element as a link. In that case, it’s always a good idea to test this assumption with users. Reach out to [Gestalt for assistance](/get_started/how_to_work_with_us#Meetings-and-events).
 
-Don’t underline [Text](/text) that isn’t a Link, as underline has a strong link affordance.
+Don’t underline [Text](/components/web/text) that isn’t a Link, as underline has a strong link affordance.
 
 Link with \`inline={true}\` defaults the underline style to "always" to follow design guidelines while \`inline={false}\` defaults the underline style to "hover". On hover, \`underline="always"\` removes the underline, while \`underline="hover"\` adds it.
 
 However, Link's underline style can be overridden at any time using the \`underline\` prop.
 
-\`underline="none"\` doesn't show any underline style. However, for cases where underline isn’t needed to convey interactivity or when the link element doesn’t function as a link visually, consider using [TapArea](/taparea) or [Button](/button) with \`role=link\`.
+\`underline="none"\` doesn't show any underline style. However, for cases where underline isn’t needed to convey interactivity or when the link element doesn’t function as a link visually, consider using [TapArea](/components/web/utilities/taparea) or [Button](/components/web/buttons/button) with \`role=link\`.
 `}
         >
           <MainSection.Card
@@ -623,7 +623,7 @@ However, Link's underline style can be overridden at any time using the \`underl
 As the "visit" icon is a visual/graphic representation, it's hidden to assistive technologies to avoid duplication of information. Instead, follow accessibility best practices for external links as detailed in the [Accessibility section](#External-links).
 
 
-The "visit" icon should also match [Text](/text)'s \`size\` and \`color\`. \`externalLinkIcon="default"\` automatically sets the "visit" icon style to match Text's default properties: \`size="300"\` and \`color="default"\` as shown in the first example. However, for different Text treatments, \`externalLinkIcon\` can be used to match custom Text properties as shown in the second example.
+The "visit" icon should also match [Text](/components/web/text)'s \`size\` and \`color\`. \`externalLinkIcon="default"\` automatically sets the "visit" icon style to match Text's default properties: \`size="300"\` and \`color="default"\` as shown in the first example. However, for different Text treatments, \`externalLinkIcon\` can be used to match custom Text properties as shown in the second example.
       `}
       >
         <MainSection.Card
@@ -682,16 +682,16 @@ The "visit" icon should also match [Text](/text)'s \`size\` and \`color\`. \`ext
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Text](/text)**
+**[Text](/components/web/text)**
 Text provides Link with style: size, color, and font.
 
-**[OnLinkNavigationProvider](/onlinknavigationprovider)**
+**[OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 
-**[Button](/button)**
+**[Button](/components/web/buttons/button)**
 Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
 
-**[Button](/button), [IconButton](/iconbutton), [TapArea](/taparea)**
+**[Button](/components/web/buttons/button), [IconButton](/components/web/buttons/iconbutton), [TapArea](/components/web/utilities/taparea)**
 These components support link functionality themselves by setting \`role="link"\`. Don't use Link to add link functionality to elements other than text.
       `}
         />

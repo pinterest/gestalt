@@ -40,8 +40,8 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             title="When not to use"
             description={`
-          - To describe surface-level errors. Use [Callout](/callout) instead.
-          - To describe whether a numeric value is going up or down. Use [Datapoint](/datapoint) instead.
+          - To describe surface-level errors. Use [Callout](/components/web/callout) instead.
+          - To describe whether a numeric value is going up or down. Use [Datapoint](/components/web/datapoint) instead.
         `}
           />
         </MainSection.Subsection>
@@ -181,13 +181,13 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Icon](/icon)**
+**[Icon](/components/web/icon)**
 Icon should be used to display a symbol that does not represent the state or status of an item.
 
-**[Badge](/badge)**
+**[Badge](/components/web/badge)**
 Use Badge to label or mark an item with a designation or category.
 
-**[Callout](/callout)**
+**[Callout](/components/web/callout)**
 Use Callout to communicate page-level status, such as an error, and to provide actionable next steps.
     `}
         />

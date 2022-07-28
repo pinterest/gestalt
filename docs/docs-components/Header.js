@@ -78,7 +78,6 @@ function Header() {
   }, [isMobileSearchExpandedOpen]);
 
   useEffect(() => {
-    console.log(router.pathname);
     setActiveTab(
       mainNavigationTabs.findIndex((tab) => router.pathname.includes(convertNamesForURL(tab.text))),
     );

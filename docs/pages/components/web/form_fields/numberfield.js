@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import Page from '../../../../docs-components/Page.js';
+import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function NumberFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -53,8 +53,8 @@ function Example(props) {
             type="don't"
             title="When not to use"
             description={`
-          - When accepting telephone numbers, or numerical data that could contain leading 0's (e.g. ZIP codes). Use [TextField](/textfield) with \`type="tel"\` instead.
-          - Situations where text needs to be entered. Use [TextField](/textfield) or [TextArea](/textarea) instead.`}
+          - When accepting telephone numbers, or numerical data that could contain leading 0's (e.g. ZIP codes). Use [TextField](/components/web/form_fields/textfield) with \`type="tel"\` instead.
+          - Situations where text needs to be entered. Use [TextField](/components/web/form_fields/textfield) or [TextArea](/components/web/form_fields/textarea) instead.`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -607,7 +607,7 @@ function Example(props) {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[TextField](/textfield)**
+      **[TextField](/components/web/form_fields/textfield)**
       For text input, telephone numbers, or numerical input with possible leading 0's (e.g. ZIP codes), use TextField. (For telephone numbers, use \`<TextField type="tel" />\`.)
     `}
         />

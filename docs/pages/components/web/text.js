@@ -30,7 +30,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             type="don't"
             description={`
-- When you need to use a semantic H1–H6 heading to create a clear typographic hierarchy and page structure. Use [Heading](/heading) instead.
+- When you need to use a semantic H1–H6 heading to create a clear typographic hierarchy and page structure. Use [Heading](/components/web/heading) instead.
 `}
           />
         </MainSection.Subsection>
@@ -48,7 +48,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Emphasize text inside of paragraphs by underlining it; this can be confused with [Link](/link)."
+            description="Emphasize text inside of paragraphs by underlining it; this can be confused with [Link](/components/web/link)."
             defaultCode={`
  <Text>For campaign optimization and delivery, <Text underline inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
 `}
@@ -69,7 +69,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/heading) instead."
+            description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/components/web/heading) instead."
             defaultCode={`
 <Flex direction="column" gap={2}>
   <Text size={300} weight="bold">Impressions</Text>
@@ -127,7 +127,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
-            href: '/typography',
+            href: '/foundations/typography/guidelines',
             onClick: () => {},
           }}
         />
@@ -140,7 +140,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         />
         <MainSection.Subsection
           title="Accessible color"
-          description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/color_usage#Standard-text-colors). See our [accessibility](/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
+          description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/foundations/color/usage#Standard-text-colors). See our [accessibility](/foundations/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
         />
       </AccessibilitySection>
       <MainSection
@@ -271,7 +271,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Sizes"
           description={`
-          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/heading) instead.
+          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/components/web/heading) instead.
 
         `}
         >
@@ -354,7 +354,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Title"
           description={`The \`title\` attribute on a \`<div>\` can be used to show the full text of a truncated string on hover. That attribute is populated automatically when the text is truncated using \`lineClamp\`, as long as \`children\` is a string.
-           If \`children\` is a \`React.Node\` (e.g. [when using Link](/link#Link-and-Text)), use the \`title\` prop to manually set the \`title\` attribute.`}
+           If \`children\` is a \`React.Node\` (e.g. [when using Link](/components/web/link#Link-and-Text)), use the \`title\` prop to manually set the \`title\` attribute.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -432,25 +432,25 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection name="Related">
           <MainSection.Subsection
             description={`
-      **[Heading](/heading)**
+      **[Heading](/components/web/heading)**
       Heading allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.
 `}
           />
           <MainSection.Subsection
             description={`
-      **[Typography guidelines](/typography)**
+      **[Typography guidelines](/foundations/typography/guidelines)**
       A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
 `}
           />
           <MainSection.Subsection
             description={`
-      **[Design tokens](/design_tokens)**
+      **[Design tokens](/foundations/design_tokens)**
       Values for text sizes, weights, families and colors.
     `}
           />
           <MainSection.Subsection
             description={`
-      **[Link](/link)**
+      **[Link](/components/web/link)**
       Used as a text-only navigational element. Links usually appear within or directly following a paragraph or sentence.
     `}
           />

@@ -54,7 +54,7 @@ function SwitchExample() {
             type="don't"
             title="When not to use"
             description={`
-          - Choosing between related options. Each Switch should be considered a solitary, standalone option. For multiple, related choices, use [Checkboxes](/checkbox) or [RadioButtons](/radiobutton) instead.
+          - Choosing between related options. Each Switch should be considered a solitary, standalone option. For multiple, related choices, use [Checkboxes](/components/web/checkbox) or [RadioGroup](/components/web/radiogroup) instead.
         `}
           />
         </MainSection.Subsection>
@@ -195,7 +195,7 @@ function SwitchExample() {
         <MainSection.Subsection
           title="With a label"
           description={`
-        Whenever using Switch, always use a [Label](/label) with it to make your component accessible.`}
+        Whenever using Switch, always use a [Label](/components/web/form_fields/label) with it to make your component accessible.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -343,19 +343,19 @@ function SwitchExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[RadioButton](/radiobutton)**
+      **[RadioGroup](/components/web/radiogroup)**
       Use when presenting a user with a list of choices for which there can only be one selection.
 `}
         />
         <MainSection.Subsection
           description={`
-      **[Checkbox](/checkbox)**
+      **[Checkbox](/components/web/checkbox)**
       Used when presenting a user with a list of choices for which there can be multiple selections.
 `}
         />
         <MainSection.Subsection
           description={`
-      **[Fieldset](/fieldset)**
+      **[Fieldset](/components/web/form_fields/fieldset)**
       Used to group a list of related Switches with a legend that describes the list.
     `}
         />

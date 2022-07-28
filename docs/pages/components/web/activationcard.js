@@ -57,7 +57,7 @@ export default function ActivationCardPage({
             type="don't"
             title="When not to use"
             description={`
-          - As a single element communicating updates to the state or status of the surface. Use [Callout](/callout) instead.
+          - As a single element communicating updates to the state or status of the surface. Use [Callout](/components/web/callout) instead.
         `}
           />
         </MainSection.Subsection>
@@ -134,7 +134,7 @@ export default function ActivationCardPage({
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[OnLinkNavigationProvider](/onlinknavigationprovider)**
+**[OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
       `}
         />

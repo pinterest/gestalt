@@ -12,7 +12,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name="RadioButton"
         badge="deprecated"
-        description="Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
+        description="Use RadioButtons when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
         slimBanner={
           <SlimBanner
             type="error"
@@ -21,7 +21,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             helperLink={{
               text: 'View RadioGroup',
               accessibilityLabel: 'View RadioGroup Docs',
-              href: '/radiogroup',
+              href: '/components/web/radiogroup',
               onClick: () => {},
             }}
           />

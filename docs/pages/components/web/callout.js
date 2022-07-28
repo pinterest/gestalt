@@ -61,8 +61,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             title="When not to use"
             description={`
           - When providing messaging/guidance for specific elements or areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
-          - When displaying information that is intended for promotional/marketing purposes. Use [Upsell](/upsell) instead.
-          - When interacting with the Callout is required for the user to proceed with a task or flow. Use [Modal](/modal) instead.
+          - When displaying information that is intended for promotional/marketing purposes. Use [Upsell](/components/web/upsell) instead.
+          - When interacting with the Callout is required for the user to proceed with a task or flow. Use [Modal](/components/web/modal) instead.
         `}
           />
         </MainSection.Subsection>
@@ -132,7 +132,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="lg"
             type="don't"
             description={`
-        Use Callouts for marketing new products or features. Use [Upsell](/upsell) instead.
+        Use Callouts for marketing new products or features. Use [Upsell](/components/web/upsell) instead.
         `}
             defaultCode={`
           <Callout
@@ -369,11 +369,11 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Actions"
           description={`
-        Callouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/link), by specifying the \`href\` property, or [Buttons](/button), when no \`href\` is supplied.
+        Callouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/components/web/link), by specifying the \`href\` property, or [Buttons](/components/web/buttons/button), when no \`href\` is supplied.
 
-        Callout actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+        Callout actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.
 
-        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a Button that opens a [Modal](/modal) with an application flow. Be sure to localize the labels of the actions.
+        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a Button that opens a [Modal](/components/web/modal) with an application flow. Be sure to localize the labels of the actions.
 
         If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
 
@@ -521,16 +521,16 @@ function Example(props) {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Upsell](/upsell)**
+      **[Upsell](/components/web/upsell)**
       If marketing new products or features, or encouraging upgrades, use Upsell instead.
 
-      **[Toast](/toast)**
+      **[Toast](/components/web/toast)**
       Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
-      **[ActivationCard](/activationcard)**
+      **[ActivationCard](/components/web/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
 
-      **[OnLinkNavigationProvider](/onlinknavigationprovider)**
+      **[OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider)**
       OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
 
     `}

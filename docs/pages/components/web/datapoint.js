@@ -44,7 +44,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
             type="don't"
             title="When not to use"
             description={`
-          - When the information to convey is qualitative (e.g., “In Progress” or “Healthy”). Use [Status](/status) instead.
+          - When the information to convey is qualitative (e.g., “In Progress” or “Healthy”). Use [Status](/components/web/status) instead.
           - When the Datapoint’s metric/value is not clear or understandable in isolation.
         `}
           />
@@ -104,7 +104,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
             cardSize="md"
             type="don't"
             description={`
-Be cautious of using Datapoint for large volumes of data. In cases where the content is tabular, use [Table](/table).
+Be cautious of using Datapoint for large volumes of data. In cases where the content is tabular, use [Table](/components/web/table).
 `}
             defaultCode={`
 <Flex direction="column" gap={4}>
@@ -183,7 +183,7 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`The \`tooltipText\` prop is intended to provide the user context, detail and/or framing for a Datapoint through a [Tooltip](/Tooltip).`}
+          description={`The \`tooltipText\` prop is intended to provide the user context, detail and/or framing for a Datapoint through a [Tooltip](/components/web/tooltip).`}
           title="Tooltip text"
         >
           <MainSection.Card
@@ -195,7 +195,7 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`The \`badge\` prop is available to add a [Badge](/badge) to the title. This feature is in beta, so please use cautiously.`}
+          description={`The \`badge\` prop is available to add a [Badge](/components/web/badge) to the title. This feature is in beta, so please use cautiously.`}
           title="With a badge"
           badge="beta"
         >
@@ -213,10 +213,10 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Table](/table)**
+**[Table](/components/web/table)**
 Use Table when displaying a large volume of data values and trends (for instance, 10 or more).
 
-**[Status](/status)**
+**[Status](/components/web/status)**
 Use Status in instances where information is more categorical or qualitative (such as health or phase).
       `}
         />

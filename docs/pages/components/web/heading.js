@@ -32,8 +32,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             type="don't"
             description={`
-- To emphasize text. Use [Text](/text) with a bold or italic [style](/text#Styles) instead
-- To provide an overall Page title. Use [PageHeader](/pageheader) instead
+- To emphasize text. Use [Text](/components/web/text) with a bold or italic [style](/components/web/text#Styles) instead
+- To provide an overall Page title. Use [PageHeader](/components/web/pageheader) instead
 `}
           />
         </MainSection.Subsection>
@@ -56,7 +56,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use to emphasize text that you want users to read. Use a message component like [SlimBanner](/slimbanner), or [bold text](/text#Styles). You can also emphasize numbers by using [text sizes](/text#Sizes)."
+            description="Use to emphasize text that you want users to read. Use a message component like [SlimBanner](/slimbanner), or [bold text](/components/web/text#Styles). You can also emphasize numbers by using [text sizes](/components/web/text#Sizes)."
             defaultCode={`
 <Flex gap={2} direction="column">
   <Text weight="bold" size="500">(H2) The creator code</Text>
@@ -139,7 +139,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Start-align headings to make it faster for users to read text from the point where they naturally start reading. The exceptions are headings related to integers in [Table](/table)."
+            description="Start-align headings to make it faster for users to read text from the point where they naturally start reading. The exceptions are headings related to integers in [Table](/components/web/table)."
             defaultCode={`
 <Flex gap={4} direction="column">
   <Text weight="bold" size="500">Start a conversation</Text>
@@ -164,7 +164,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
-            href: '/typography',
+            href: '/foundations/typography/guidelines',
             onClick: () => {},
           }}
         />
@@ -242,7 +242,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         />
         <MainSection.Subsection
           title="Accessible color"
-          description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/color_usage#Standard-text-colors). See our [accessibility](/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
+          description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/foundations/color/usage#Standard-text-colors). See our [accessibility](/foundations/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
         />
       </AccessibilitySection>
       <MainSection name="Localization">
@@ -250,7 +250,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`These font sizes follow those available through our [Design Tokens](/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/text) instead.
+          description={`These font sizes follow those available through our [Design Tokens](/foundationsdesign_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/components/web/text) instead.
 `}
           title="Size"
         >
@@ -454,19 +454,19 @@ For certain specific situations, it is possible to use Heading without an access
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Text](/text)**
+      **[Text](/components/web/text)**
       A component to use for all text on a page or in UI components.
 `}
         />
         <MainSection.Subsection
           description={`
-      **[Typography guidelines](/typography)**
+      **[Typography guidelines](/foundations/typography/guidelines)**
       A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
 `}
         />
         <MainSection.Subsection
           description={`
-      **[Design tokens](/design_tokens)**
+      **[Design tokens](/foundations/design_tokens)**
       Values for text sizes, weights, families and colors.
     `}
         />

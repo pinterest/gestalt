@@ -270,7 +270,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Within other components"
-          description="Components like [Module](/module) and [Dropdown](/dropdown) have Badges built into the component through props, so it will not be necessary to add the component yourself."
+          description="Components like [Module](/components/web/module) and [Dropdown](/components/web/dropdown) have Badges built into the component through props, so it will not be necessary to add the component yourself."
         >
           <MainSection.Card
             defaultCode={`
@@ -315,10 +315,10 @@ function ModuleExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-        **[Status](/status)**
+        **[Status](/components/web/status)**
         Status is a graphic indicator of an element’s state.
 
-        **[Tooltip](/tooltip)**
+        **[Tooltip](/components/web/tooltip)**
         Tooltip is a floating text label that succinctly describes the function of an interactive element.       `}
         />
       </MainSection>

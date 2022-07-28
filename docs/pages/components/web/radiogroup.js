@@ -93,9 +93,9 @@ function RadioButtonExample() {
             type="don't"
             title="When not to use"
             description={`
-          - Situations where users can select multiple options. Use [Checkbox](/checkbox) instead.
+          - Situations where users can select multiple options. Use [Checkbox](/components/web/checkbox) instead.
           - When there is only one item to select or deselect. Use Checkbox instead.
-          - When a selection takes immediate effect, especially on mobile. Use [Switch](/switch) instead.
+          - When a selection takes immediate effect, especially on mobile. Use [Switch](/components/web/switch) instead.
           - When it is visually difficult to observe that RadioGroup turns something on or off. Use Switch instead.
         `}
           />
@@ -186,7 +186,7 @@ function RadioButtonExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use [IconButtons with Tooltips](/iconbutton#With-Tooltip) or `subtext`."
+            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use [IconButtons with Tooltips](/components/web/buttons/iconbutton#With-Tooltip) or `subtext`."
             defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState();
@@ -298,7 +298,7 @@ function RadioButtonExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use a RadioGroup to turn a state on and off with immediate effect on mobile; use [Switch](/switch) instead."
+            description="Use a RadioGroup to turn a state on and off with immediate effect on mobile; use [Switch](/components/web/switch) instead."
             defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState();
@@ -690,7 +690,7 @@ function RadioButtonExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="With custom labels"
-          description="The `label` on RadioGroup.RadioButton can be replaced with a custom [Label](/Label), as demonstrated below. Ensure the `htmlFor` property matches the `id` on the RadioButton."
+          description="The `label` on RadioGroup.RadioButton can be replaced with a custom [Label](/components/web/form_fields/label), as demonstrated below. Ensure the `htmlFor` property matches the `id` on the RadioButton."
         >
           <MainSection.Card
             defaultCode={`
@@ -898,19 +898,19 @@ function RadioButtonPopoverExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-    **[CheckBox](/checkbox)**
+    **[CheckBox](/components/web/checkbox)**
     Use when presenting a user with a list of choices where multiple options can be selected.
     `}
         />
         <MainSection.Subsection
           description={`
-    **[Switch](/Switch)**
+    **[Switch](/components/web/switch)**
     Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm form submission.
 `}
         />
         <MainSection.Subsection
           description={`
-    **[Fieldset](/fieldset)**
+    **[Fieldset](/components/web/form_fields/fieldset)**
     Fieldset is used under the hood of RadioGroup to ensure accessible groups of radio buttons.
   `}
         />

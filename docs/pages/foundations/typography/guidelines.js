@@ -54,9 +54,9 @@ function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Nod
 
 export default function TypographyPage(): Node {
   return (
-    <Page title="Typography">
+    <Page title="Typography guidelines">
       <PageHeader
-        name="Typography"
+        name="Typography guidelines"
         description={`Our typographic system creates a content hierarchy that is scannable and efficient.
     `}
         type="guidelines"
@@ -111,16 +111,16 @@ export default function TypographyPage(): Node {
         description={`
 We have several React components that use typography as the primary element.
 
-- [Text](/text): Used for all text on a surface.
-- [Heading](/heading): Used for [semantic headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) on a surface.
-- [Link](/link): For both inline and standalone hyperlinks.
+- [Text](/components/web/text): Used for all text on a surface.
+- [Heading](/components/web/heading): Used for [semantic headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) on a surface.
+- [Link](/components/web/link): For both inline and standalone hyperlinks.
 `}
       />
 
       <MainSection name="Font families">
         <MainSection.Subsection
           title="Product"
-          description="For our product interfaces, we default to *system fonts*. See our [font family design tokens](/design_tokens#Font-family) for more information."
+          description="For our product interfaces, we default to *system fonts*. See our [font family design tokens](/foundations/design_tokens#Font-family) for more information."
         />
         <MainSection.Subsection
           title="Brand"
@@ -643,7 +643,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Stick to our [design tokens](/design_tokens) and use color combinations with a 4.5:1 contrast ratio between foreground and background."
+            description="Stick to our [design tokens](/foundations/design_tokens) and use color combinations with a 4.5:1 contrast ratio between foreground and background."
           >
             <ContrastHigh />
           </MainSection.Card>

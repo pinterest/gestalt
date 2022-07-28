@@ -52,10 +52,10 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
             type="don't"
             title="When not to use"
             description={`
-- When displaying information that pertains to the whole page and is of the highest priority. Use [Callout](/callout) instead.
-- When interacting with the SlimBanner is required for the user to proceed with a task or flow. Use [Modal](/modal) instead.
-- When describing the function of an interactive element that doesn’t have a text label. Use [Tooltip](/tooltip) instead.
-- When calling a users attention to a feature for the first time. Use [Popover](/popover) instead.
+- When displaying information that pertains to the whole page and is of the highest priority. Use [Callout](/components/web/callout) instead.
+- When interacting with the SlimBanner is required for the user to proceed with a task or flow. Use [Modal](/components/web/modal) instead.
+- When describing the function of an interactive element that doesn’t have a text label. Use [Tooltip](/components/web/tooltip) instead.
+- When calling a users attention to a feature for the first time. Use [Popover](/components/web/popover) instead.
         `}
           />
         </MainSection.Subsection>
@@ -85,7 +85,7 @@ export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="lg"
             type="don't"
             description={`
-Use for messages generated as an immediate response to user interaction. Instead, use [Toast]/toast) for ephemeral messages, and [Modal](/modal) for a message that remains on the screen until it’s dismissed by a user.`}
+Use for messages generated as an immediate response to user interaction. Instead, use [Toast]/toast) for ephemeral messages, and [Modal](/components/web/modal) for a message that remains on the screen until it’s dismissed by a user.`}
             defaultCode={`
 <SlimBanner
   type="success"
@@ -173,7 +173,7 @@ Use for messages generated as an immediate response to user interaction. Instead
             cardSize="lg"
             type="don't"
             description={`
-Place SlimBanner at the top of a page and use them for highest-priority messaging. Use [Callout](/callout) instead`}
+Place SlimBanner at the top of a page and use them for highest-priority messaging. Use [Callout](/components/web/callout) instead`}
             defaultCode={`
 <Flex direction="column" width="100%" gap={6}>
   <Text weight="bold" size="500">Ads overview</Text>
@@ -258,7 +258,7 @@ Use a regular SlimBanner with a background for dense interfaces where space is a
             cardSize="lg"
             type="don't"
             description={`
-Combine SlimBanners with other components like [Callouts](/callout) or [Upsells](/upsell).`}
+Combine SlimBanners with other components like [Callouts](/components/web/callout) or [Upsells](/components/web/upsell).`}
             defaultCode={`
 <Flex width="100%" direction="column" gap={2}>
   <Callout
@@ -468,11 +468,11 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
         <MainSection.Subsection
           title="Primary action"
           description={`
-          SlimBanners can have a primary action. This action can be a [Link](/link), by specifying the \`href\` property, or a [Button](/button), when no \`href\` is supplied.
+          SlimBanners can have a primary action. This action can be a [Link](/components/web/link), by specifying the \`href\` property, or a [Button](/components/web/buttons/button), when no \`href\` is supplied.
 
-        SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+        SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.
 
-        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/modal) with an application flow. Be sure to localize the labels of the actions.
+        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/components/web/modal) with an application flow. Be sure to localize the labels of the actions.
 
         If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
 
@@ -551,16 +551,16 @@ Combine SlimBanners with other components like [Callouts](/callout) or [Upsells]
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Upsell](/Upsell)**
+**[Upsell](/components/web/upsell)**
 An Upsell is used to market new features or to encourage a user to try recommendations.
 
-**[Callout](/Callout)**
+**[Callout](/components/web/callout)**
 Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.
 
-**[Toast](/Toast)**
+**[Toast](/components/web/toast)**
 Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsells and SlimBanners, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
 
-**[Tooltip](/Tooltip)**
+**[Tooltip](/components/web/tooltip)**
 Tooltip provides helpful information regarding an interactive UI element, typically an IconButton. It is displayed on hover of a UI element, and disappears on mouse out.
     `}
         />

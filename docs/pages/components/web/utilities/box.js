@@ -80,7 +80,7 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
             description={`
         Use Box as a building block when creating other components or layouts that do not rely on flexbox. The included properties should cover any variations needed to create a diverse range of options.
 
-        If you find yourself using Box for flexbox layouts, consider [Flex](/flex) instead.
+        If you find yourself using Box for flexbox layouts, consider [Flex](/components/web/flex) instead.
         `}
             defaultCode={`
 <Box column={12}>
@@ -110,7 +110,7 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
             type="don't"
             description={`Don’t use the \`onClick\`, \`className\` and \`style\` properties.
 
-Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/button) or [TapArea](/taparea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
+Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/components/web/buttons/button) or [TapArea](/components/web/utilities/taparea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
 
 If you need to use these features for animation purposes, use a \`<div>\` instead.`}
             defaultCode={`
@@ -230,7 +230,7 @@ function MenuButtonExample() {
 
       <AccessibilitySection
         name={generatedDocGen?.displayName}
-        description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/checkboxes).`}
+        description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/components/web/checkboxes).`}
       >
         <MainSection.Subsection
           title="Visually hidden content"
@@ -445,9 +445,9 @@ function Example() {
         <MainSection.Subsection
           title="Colors"
           description={`
-          The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case. For full details on how to use our colors, visit our [Color usage page](/color_usage).
+          The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case. For full details on how to use our colors, visit our [Color usage page](/foundations/color/usage).
 
-          Colors should be used semantically whenever possible (i.e. using "errorBase" for error scenarios). If a color is needed for a branded moment in product, Box color can be set using our [color palette design tokens](/color_palette), but it is [considered a hack](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) and should be avoided.
+          Colors should be used semantically whenever possible (i.e. using "errorBase" for error scenarios). If a color is needed for a branded moment in product, Box color can be set using our [color palette design tokens](/foundations/color/palette), but it is [considered a hack](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) and should be avoided.
         `}
         >
           <CombinationNew
@@ -762,7 +762,7 @@ function BoxPopoverExample() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`The \`ref\` property can be used to anchor a [Popover](/popover) to a Box.`}
+          description={`The \`ref\` property can be used to anchor a [Popover](/components/web/popover) to a Box.`}
           title="Using as a ref"
         >
           <MainSection.Card
@@ -807,7 +807,7 @@ function BoxPopoverExample() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it. Visit our [Z-Index documentation](/zindex_classes) for more details on how to use these utility classes.`}
+          description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it. Visit our [Z-Index documentation](/components/web/utilities/zindex_classes) for more details on how to use these utility classes.`}
           title="Z-Index"
         >
           <MainSection.Card
@@ -847,19 +847,19 @@ function Example() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-        **[Flex](/flex)**
+        **[Flex](/components/web/flex)**
         Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
 
-        **[Container](/container)**
+        **[Container](/components/web/utilities/container)**
         Use Container to responsively layout content with a max-width on large screens.
 
-        **[ScrollBoundaryContainer](/scrollboundarycontainer)**
+        **[ScrollBoundaryContainer](/components/web/utilities/scrollboundarycontainer)**
         For proper positioning when using anchored components (Popover, Tooltip, etc.) within a container that could scroll, use ScrollBoundaryContainer.
 
-        **[TapArea](/taparea)**
+        **[TapArea](/components/web/utilities/taparea)**
         If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
 
-        **[Sticky](/sticky)**
+        **[Sticky](/components/web/utilities/sticky)**
         Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
       `}
         />

@@ -123,8 +123,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-          - Getting user confirmation on an action. Use a [Modal](/modal) instead.
-          - Displaying system errors or notices. Consider a [Callout](/callout) instead.
+          - Getting user confirmation on an action. Use a [Modal](/components/web/modal) instead.
+          - Displaying system errors or notices. Consider a [Callout](/components/web/callout) instead.
           - Any time a separate, designated URL is desired.
         `}
           />
@@ -181,7 +181,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use Sheet if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Modules](/module) to section out content."
+            description="Use Sheet if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Modules](/components/web/module) to section out content."
             defaultCode={`
 
 `}
@@ -189,7 +189,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use Sheet to confirm actions or display alerts. Use a [Modal](/modal) or [Toast](/toast) instead."
+            description="Use Sheet to confirm actions or display alerts. Use a [Modal](/components/web/modal) or [Toast](/components/web/toast) instead."
             defaultCode={`
 
 `}
@@ -1098,10 +1098,10 @@ function AnimationExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Modal](/modal)**
+**[Modal](/components/web/modal)**
 For alerts, actions or acknowledgments that should block the user’s current flow, use Modal.
 
-**[Toast](/toast)**
+**[Toast](/components/web/toast)**
 Toast provides feedback on an interaction. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of being attached to any particular element on the interface.
     `}
         />

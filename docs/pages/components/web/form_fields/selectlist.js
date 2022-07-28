@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import docgen, { overrideTypes, type DocGen } from '../../../docs-components/docgen.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import Page from '../../../../docs-components/Page.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
+import docgen, { overrideTypes, type DocGen } from '../../../../docs-components/docgen.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -51,9 +51,9 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
             type="don't"
             title="When not to use"
             description={`
-          - When more than 10 options are presented and the ability to filter the list would be beneficial. Use [ComboBox](/comboBox) instead.
-          - When extra functionality, like groups, subtext or badges, is needed. Use [Dropdown](/dropdown) instead.
-          - When the options are links and navigate users to different places. Use [Dropdown](/dropdown) instead.
+          - When more than 10 options are presented and the ability to filter the list would be beneficial. Use [ComboBox](/components/web/form_fields/combobox) instead.
+          - When extra functionality, like groups, subtext or badges, is needed. Use [Dropdown](/components/web/dropdown) instead.
+          - When the options are links and navigate users to different places. Use [Dropdown](/components/web/dropdown) instead.
           `}
           />
         </MainSection.Subsection>
@@ -84,7 +84,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use SelectList when additional functionality such as subtext or images are needed. Use [Dropdown](/dropdown) instead."
+            description="Use SelectList when additional functionality such as subtext or images are needed. Use [Dropdown](/components/web/dropdown) instead."
             defaultCode={`
 <SelectList
   id="selectlistexample3"
@@ -126,7 +126,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use [RadioButton](/radiobutton) instead."
+            description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use [RadioGroup](/components/web/radiogroup) instead."
             defaultCode={`
 <SelectList
   id="selectlistexample5"
@@ -145,7 +145,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/dropdown), use Dropdown for all the items in the group."
+            description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/components/web/dropdown), use Dropdown for all the items in the group."
             defaultCode={`
 <Flex gap={2}>
   <SelectList
@@ -183,7 +183,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Mix [Dropdown](/dropdown) and SelectList in a group of items."
+            description="Mix [Dropdown](/components/web/dropdown) and SelectList in a group of items."
             defaultCode={`
   function SubtextIconButtonFlyoutExample() {
     const [open, setOpen] = React.useState(false);
@@ -270,7 +270,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         <MainSection.Subsection
           title="Labels"
           description={`
-      SelectList comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.
+      SelectList comes with [Label](/components/web/form_fields/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.
 
       If SelectList is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
         >
@@ -385,7 +385,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Helper text"
-          description="Helper text should be used when additional description may be required to understand the SelectList. Common examples include text that is legally required to be displayed, or instructions to fill out a form (e.g. proper formatting). If the text is optional, [Tooltip](/tooltip) could be used instead."
+          description="Helper text should be used when additional description may be required to understand the SelectList. Common examples include text that is legally required to be displayed, or instructions to fill out a form (e.g. proper formatting). If the text is optional, [Tooltip](/components/web/tooltip) could be used instead."
         >
           <MainSection.Card
             cardSize="lg"
@@ -489,16 +489,16 @@ function Example(props) {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Dropdown](/dropdown)**
+**[Dropdown](/components/web/dropdown)**
 If additional functionality is needed in the menu, such as subtext, headers or custom styling, use Dropdown.
 
-**[ComboBox](/combobox)**
+**[ComboBox](/components/web/form_fields/combobox)**
 If users need the ability to choose an option by entering text to filter a long list of options, use ComboBox.
 
-**[RadioButton](/radiobutton)**
+**[RadioGroup](/components/web/radiogroup)**
 If users need the ability to choose between fewer than 4 options, use RadioButton.
 
-**[Checkbox](/checkbox)**
+**[Checkbox](/components/web/checkbox)**
 If users need the ability to choose between a yes/no option, use Checkbox.
 `}
         />

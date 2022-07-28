@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import Page from '../../../../docs-components/Page.js';
+import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function TextFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -55,7 +55,7 @@ function Example(props) {
             type="don't"
             title="When not to use"
             description={`
-          - Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](/textarea) instead.`}
+          - Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](/components/web/form_fields/textarea) instead.`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -403,7 +403,7 @@ function Example(props) {
         <MainSection.Subsection
           title="Labels"
           description={`
-      TextField comes with [Label](/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct TextField.
+      TextField comes with [Label](/components/web/form_fields/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct TextField.
 
       If TextField is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
         >
@@ -602,7 +602,7 @@ function Example(props) {
         <MainSection.Subsection
           title="Tags"
           description={`
-          You can include [Tag](/tag) elements in the input using the \`tags\` prop.
+          You can include [Tag](/components/web/tag) elements in the input using the \`tags\` prop.
 
           Note that TextField does not internally manage tags. Tag management should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
 
@@ -677,7 +677,7 @@ function Example(props) {
         <MainSection.Subsection
           title="Refs"
           description={`
-          TextField can accept a ref for anchoring [Popover](/popover)-based components.
+          TextField can accept a ref for anchoring [Popover](/components/web/popover)-based components.
           `}
         >
           <MainSection.Card
@@ -728,13 +728,13 @@ function TextFieldPopoverExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[TextArea](/textarea)**
+      **[TextArea](/components/web/form_fields/textarea)**
       When users need to enter long amounts of text, use TextArea to ensure the full content will be shown.
 
-      **[NumberField](/numberfield)**
+      **[NumberField](/components/web/form_fields/numberfield)**
       For numerical input, use NumberField. Exceptions: for telephone numbers, use \`<TextField type="tel" />\`. And for numerical input with possible leading 0's (e.g. ZIP codes), use \`<TextField type="text" />\`.
 
-      **[SearchField](/searchfield)**
+      **[SearchField](/components/web/searchfield)**
       If the input is used for searching content, use SearchField.
     `}
         />

@@ -14,7 +14,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <Page title="Tag">
       <PageHeader
         name="Tag"
-        description="[Tags](https://gestalt.pinterest.systems/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/combobox#Tags) or as standalone components."
+        description="[Tags](https://gestalt.pinterest.systems/components/web/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/components/web/form_fields/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/components/web/form_fields/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/components/web/combobox#Tags) or as standalone components."
       />
       <PropTable
         props={[
@@ -58,7 +58,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             title="When to use"
             description={`
-          - In conjunction with [TextField](/textfield#tagsExample), [TextArea](/textarea#tagsExample), and [ComboBox](/combobox#Tags), or as a standalone element to display selected options.
+          - In conjunction with [TextField](/components/web/form_fields/textfield#tagsExample), [TextArea](/components/web/form_fields/textarea#tagsExample), and [ComboBox](/components/web/form_fields/combobox#Tags), or as a standalone element to display selected options.
         `}
           />
           <MainSection.Card
@@ -66,7 +66,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-          - As a replacement for the [Badge](/badge), as the Badge is a singular element that gives context to a specific subject.
+          - As a replacement for the [Badge](/components/web/badge), as the Badge is a singular element that gives context to a specific subject.
         `}
           />
         </MainSection.Subsection>

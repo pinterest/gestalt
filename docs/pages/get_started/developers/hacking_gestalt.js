@@ -16,7 +16,7 @@ export default function DocsPage(): Node {
       <MainSection name="Disclaimer">
         <MainSection.Subsection
           description={`
-    For the vast majority of use cases, please do _not_ use these techniques. **Please explore building your custom UI element using our primitive components, like [Box](/box), [TapArea](/taparea), [Pog](/pog), etc first! And feel free to ask us for help!**
+    For the vast majority of use cases, please do _not_ use these techniques. **Please explore building your custom UI element using our primitive components, like [Box](/components/web/utilities/box), [TapArea](/components/web/utilities/taparea), [Pog](/components/web/buttons/pog), etc first! And feel free to ask us for help!**
 
     Gestalt's components enforce the design system by restricting possible usage. This is by design! However, in certain scenarios — experimental usage, usage on internal tools or other non-Pinner/M10n surfaces, etc — it may be necessary to circumvent those restrictions to build the desired experience. With that in mind, here are some common techniques and their trade-offs.
     `}
@@ -63,7 +63,7 @@ Custom components can also be made from scratch, using native DOM elements and C
         <MainSection.Subsection
           title={`Box's dangerouslySetInlineStyle`}
           description={`
-[Box](/box) provides an "escape hatch" prop, \`dangerouslySetInlineStyle\`, allowing for styles to be set directly on the component. Similarly, [Icon](/icon), [IconButton](/iconbutton), and [Pog](/pog) provide the \`dangerouslySetSvgPath\` to allow for custom icons.
+[Box](/components/web/utilities/box) provides an "escape hatch" prop, \`dangerouslySetInlineStyle\`, allowing for styles to be set directly on the component. Similarly, [Icon](/components/web/icon), [IconButton](/components/web/buttons/iconbutton), and [Pog](/components/web/buttons/pog) provide the \`dangerouslySetSvgPath\` to allow for custom icons.
 
 **Pro:**
 - Uses Gestalt components for all non-custom styles needed, taking advantage of our hashed classes for smaller stylesheets, adhering to the design system, and getting future upgrades for free
@@ -73,7 +73,7 @@ Custom components can also be made from scratch, using native DOM elements and C
 - Doesn't support pseudo-classes, pseudo-elements, or animations
 - Overridden styles will not respond to dark mode or RTL
 
-**Alternative:** When possible, stick to the styles available on Gestalt components natively. If you need to use a custom style, try to use the corresponding [design token](/design_tokens) instead of a hard-coded value. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
+**Alternative:** When possible, stick to the styles available on Gestalt components natively. If you need to use a custom style, try to use the corresponding [design token](/foundations/design_tokens) instead of a hard-coded value. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
 `}
         >
           <MainSection.Card
@@ -122,7 +122,7 @@ _Alternative_: When possible, stick to the styles available on Gestalt component
         <MainSection.Subsection
           title="Refs"
           description={`
-Components that accept refs (e.g. [Box](/box), [Button](/button), etc) can be customized by manipulating the referenced element.
+Components that accept refs (e.g. [Box](/components/web/utilities/box), [Button](/components/web/buttons/button), etc) can be customized by manipulating the referenced element.
 
 **Pro:**
 - Uses Gestalt components for all non-custom styles needed, taking advantage of our hashed classes for smaller stylesheets, adhering to the design system, and getting future upgrades for free

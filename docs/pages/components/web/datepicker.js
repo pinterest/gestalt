@@ -118,7 +118,7 @@ function DatePickerExample() {
             type="don't"
             title="When not to use"
             description={`
-          - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/textfield) with type=”date”.
+          - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/components/web/form_fields/textfield) with type=”date”.
         `}
           />
         </MainSection.Subsection>

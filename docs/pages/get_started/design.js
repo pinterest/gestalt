@@ -97,7 +97,7 @@ View the Gestalt documentation without leaving Figma!
           description={`
 We are always happy to help answer Gestalt questions regarding component design and usage, design system best practices, accessibility, icons, and colors. If it’s part of Gestalt, we’re here to help! If it’s outside of the realm of our design system, we’ll try our best to point you to the person who has the answer.
 
-For information on our slack channels, weekly meetings, and events, visit the [How to Work with Us](/how_to_work_with_us) page.`}
+For information on our slack channels, weekly meetings, and events, visit the [How to Work with Us](/get_started/how_to_work_with_us) page.`}
         />
       </MainSection>
     </Page>

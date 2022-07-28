@@ -44,8 +44,8 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description={`
 - For purposes that are decorative or for visual embellishment, such as how illustrations are typically used. Contact us if this is needed.
 - As a visual reinforcement for associated text, without adding new meaning.
-- To communicate status or health. Use [Status](/status) instead.
-- As an interactive element (e.g., utilizing hover, focus, click/tap). Use [IconButton](/iconbutton) instead.`}
+- To communicate status or health. Use [Status](/components/web/status) instead.
+- As an interactive element (e.g., utilizing hover, focus, click/tap). Use [IconButton](/components/web/buttons/iconbutton) instead.`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -88,7 +88,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Don't create interactive Icons using TapArea. Use [IconButton](/iconbutton) instead."
+            description="Don't create interactive Icons using TapArea. Use [IconButton](/components/web/buttons/iconbutton) instead."
             defaultCode={`
 <Tooltip text="Share pin" accessibilityLabel="">
   <TapArea>
@@ -106,7 +106,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="ARIA attributes"
           columns={2}
           description={`
-If the icon appears without text, the Icon requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/icon), as shown in the first example.
+If the icon appears without text, the Icon requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/components/web/icon), as shown in the first example.
 
 Avoid using the generic words like  "image" or "icon"; instead, use verbs that describe the meaning of the icon, for example: “pins".
 
@@ -142,7 +142,7 @@ If an icon has a visible label that describes what the icon represents, \`access
         <MainSection.Subsection
           title="Colors"
           description={`
-        Icons can be created using the following color options. \`brandPrimary\` should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](/design_tokens#Text-color) for more info.`}
+        Icons can be created using the following color options. \`brandPrimary\` should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](/foundations/design_tokens#Text-color) for more info.`}
         >
           <CombinationNew
             color={[
@@ -184,7 +184,7 @@ Should be used sparingly and only in places where the UI is very dense and a lar
         <MainSection.Subsection
           title="Custom icon"
           columns={2}
-          description="Icon accepts both Gestalt [icons](/iconography_and_svgs#Search-icon-library) and custom icons, as shown in the second example. For custom icons, follow the [iconography and SVG](/iconography_and_svgs#Custom-SVG-icons) guidelines."
+          description="Icon accepts both Gestalt [icons](/foundations/iconography/library#Search-icon-library) and custom icons, as shown in the second example. For custom icons, follow the [iconography and SVG](/foundations/iconography/library#Custom-SVG-icons) guidelines."
         >
           <MainSection.Card
             cardSize="md"
@@ -237,10 +237,10 @@ Use a descriptive label to describe the Icon
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[IconButton](/iconbutton)**
+**[IconButton](/components/web/buttons/iconbutton)**
 Use IconButton when only an icon is needed to represent an action instead of text.
 
-**[Button](/button)**
+**[Button](/components/web/buttons/button)**
 Use Button to allow users to take an action.
     `}
         />

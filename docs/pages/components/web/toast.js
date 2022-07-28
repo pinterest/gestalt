@@ -60,7 +60,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-          - Providing an update related to anything other than confirmation of a successful action. Consider a [Callout](/callout) instead.
+          - Providing an update related to anything other than confirmation of a successful action. Consider a [Callout](/components/web/callout) instead.
           - Presenting mandatory and/or critical actions to a user.
           - Displaying feedback at the element level (e.g., entered password doesn't meet requirements). Use inline text instead.
         `}

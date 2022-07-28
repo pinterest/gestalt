@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import Example from '../../../docs-components/Example.js';
-import PropTable from '../../../docs-components/PropTable.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import Page from '../../../docs-components/Page.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
-import MainSection from '../../../docs-components/MainSection.js';
+import Example from '../../../../docs-components/Example.js';
+import PropTable from '../../../../docs-components/PropTable.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import Page from '../../../../docs-components/Page.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
+import MainSection from '../../../../docs-components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

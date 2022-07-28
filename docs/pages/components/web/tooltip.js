@@ -24,7 +24,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             helperLink={{
               text: "IconButton's built-in tooltip.",
               accessibilityLabel: 'View IconButton Docs, with Tooltip section',
-              href: '/iconbutton#With-Tooltip',
+              href: '/components/web/buttons/iconbutton#With-Tooltip',
               onClick: () => {},
             }}
           />
@@ -80,9 +80,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-          - Using a separate Tooltip instance with IconButton. Use [IconButton's built-in tooltip](https://gestalt.pinterest.systems/iconbutton#With-Tooltip) instead.
+          - Using a separate Tooltip instance with IconButton. Use [IconButton's built-in tooltip](https://gestalt.pinterest.systems/components/web/buttons/iconbutton#With-Tooltip) instead.
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
-          - Offering context at the surface-level scope. Consider a [Callout](/callout) instead.
+          - Offering context at the surface-level scope. Consider a [Callout](/components/web/callout) instead.
         `}
           />
         </MainSection.Subsection>
@@ -92,7 +92,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/iconbutton), in as few words as possible."
+            description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/components/web/buttons/iconbutton), in as few words as possible."
             defaultCode={`
 <Tooltip text="Send Pin" accessibilityLabel="">
   <IconButton
@@ -166,7 +166,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/iconbutton)."
+            description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/components/web/buttons/iconbutton)."
             defaultCode={`
         <Flex direction="column" gap={1}>
           <Flex alignItems="center" gap={1}>
@@ -219,7 +219,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="Labels"
           description={`
-When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` should expand upon that intention, as seen in the "cog" example below. If Tooltip \`text\` is the same as IconButton \`accessibilityLabel\`, then add \`accessibilityLabel=""\` to the Tooltip, as seen with the "share" example below`}
+When using Tooltip with [IconButton](/components/web/buttons/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` should expand upon that intention, as seen in the "cog" example below. If Tooltip \`text\` is the same as IconButton \`accessibilityLabel\`, then add \`accessibilityLabel=""\` to the Tooltip, as seen with the "share" example below`}
           columns={2}
         >
           <MainSection.Card
@@ -254,9 +254,9 @@ When using Tooltip with [IconButton](/iconbutton), avoid repetitive labeling. Th
         <MainSection.Subsection
           title="Disabled elements"
           description={`
-Tooltips must be paired with an interactive, focusable element, like [Button](/button) or [IconButton](/iconbutton). They cannot be paired with anything disabled or static, because this prevents keyboard users from triggering Tooltip and consuming its content. To test if you’re using Tooltip properly, use your keyboard rather than your mouse to trigger Tooltip.
+Tooltips must be paired with an interactive, focusable element, like [Button](/components/web/buttons/button) or [IconButton](/components/web/buttons/iconbutton). They cannot be paired with anything disabled or static, because this prevents keyboard users from triggering Tooltip and consuming its content. To test if you’re using Tooltip properly, use your keyboard rather than your mouse to trigger Tooltip.
 
-If you need to explain why an item is disabled, consider adding plain [Text](/text) near the disabled item, or an \`info-circle\` [IconButton](/iconbutton) adjacent to the disabled element.
+If you need to explain why an item is disabled, consider adding plain [Text](/components/web/text) near the disabled item, or an \`info-circle\` [IconButton](/components/web/buttons/iconbutton) adjacent to the disabled element.
 `}
         />
         <MainSection.Card />
@@ -336,7 +336,7 @@ If you need to explain why an item is disabled, consider adding plain [Text](/te
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Inline"
-          description="Use inline to properly position Tooltip relative to an inline element, such as an [Icon Button](/iconbutton)"
+          description="Use inline to properly position Tooltip relative to an inline element, such as an [Icon Button](/components/web/buttons/iconbutton)"
         >
           <MainSection.Card
             cardSize="lg"
@@ -428,7 +428,7 @@ function SectionsIconButtonDropdownExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Z-index"
-          description={`Tooltip has [Layer](/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/zindex_classes#FixedZIndex) used in [Modal](/modal) and [CompositeZIndex](zindex_classes#CompositeZIndex) to layer Tooltip on top.
+          description={`Tooltip has [Layer](/components/web/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/components/web/utilities/zindex_classes#FixedZIndex) used in [Modal](/components/web/modal) and [CompositeZIndex](zindex_classes#CompositeZIndex) to layer Tooltip on top.
 
 `}
         >
@@ -825,13 +825,13 @@ function ScrollBoundaryContainerExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Popover](/popover)**
-Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Buttons](/button) and [Images](/image).
+**[Popover](/components/web/popover)**
+Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Buttons](/components/web/buttons/button) and [Images](/components/web/image).
 
-**[ScrollBoundaryContainer](/scrollboundarycontainer)**
+**[ScrollBoundaryContainer](/components/web/utilities/scrollboundarycontainer)**
 ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling. See the [within scrolling containers](#Within-scrolling-containers) variant to learn more.
 
-**[Toast](/toast)**
+**[Toast](/components/web/toast)**
 Toast provides feedback on an interaction. One example of Toast is the confirmation that appears when a Pin has been saved. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of being attached to any particular element on the interface.
     `}
         />

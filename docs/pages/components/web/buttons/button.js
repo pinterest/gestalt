@@ -1,14 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
 import { Button } from 'gestalt';
-import PropTable from '../../../docs-components/PropTable.js';
-import CombinationNew from '../../../docs-components/CombinationNew.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import Page from '../../../docs-components/Page.js';
+import PropTable from '../../../../docs-components/PropTable.js';
+import CombinationNew from '../../../../docs-components/CombinationNew.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import Page from '../../../../docs-components/Page.js';
 
 export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -29,7 +29,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type: 'string',
             required: false,
             description: [
-              'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/accessibility) to learn more.',
+              'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
             ],
           },
           {
@@ -37,7 +37,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type: 'string',
             required: false,
             description: [
-              'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/accessibility) to learn more.',
+              'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
             ],
           },
           {
@@ -45,7 +45,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type: 'boolean',
             required: false,
             description: [
-              'Needed if Button controls the visibility of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/accessibility) to learn more.',
+              'Needed if Button controls the visibility of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
             ],
           },
           {
@@ -53,7 +53,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type: 'boolean',
             required: false,
             description: [
-              'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/accessibility) to learn more.',
+              'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
             ],
           },
           {
@@ -93,7 +93,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             required: false,
             description: [
               'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
-              'See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.',
+              'See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
             ],
           },
           {
@@ -143,7 +143,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             required: false,
             defaultValue: 0,
             description: [
-              'Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](/accessibility) to learn more.',
+              'Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
             ],
           },
           {
@@ -188,8 +188,8 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             title="When not to use"
             description={`
-          - Directing users to a new page or different part within the same page. Instead, use [Link](/link).
-          - Limited space available. Consider using an [IconButton](/iconbutton) instead.
+          - Directing users to a new page or different part within the same page. Instead, use [Link](/components/web/link).
+          - Limited space available. Consider using an [IconButton](/components/web/buttons/iconbutton) instead.
         `}
           />
         </MainSection.Subsection>
@@ -751,21 +751,21 @@ function ButtonPopoverExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[ButtonGroup](/buttongroup)**
+**[ButtonGroup](/components/web/buttons/buttongroup)**
 When displaying multiple Buttons in a layout, use ButtonGroup to ensure consistent spacing and wrapping behavior.
 
-**[IconButton](/iconbutton)**
+**[IconButton](/components/web/buttons/iconbutton)**
 Use IconButton when only an icon is needed instead of text.
 
-**[TapArea](/taparea)**
+**[TapArea](/components/web/utilities/taparea)**
 Use TapArea to make non-button elements interactive, like an Image. This ensures the element interaction is accessible and uses Gestalt styles.
 
-**[Tabs](/tabs)**
+**[Tabs](/components/web/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
 
-**[OnLinkNavigationProvider](/onlinknavigationprovider)**
+**[OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.
       `}
         />
       </MainSection>

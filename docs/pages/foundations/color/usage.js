@@ -34,7 +34,7 @@ export default function ColorUsagePage(): Node {
       <PageHeader
         name="Color usage"
         description={`
-    Our color palettes are shared between Brand and Gestalt, and represent our full range of options. Please refer to the [Color Palette page](/color_palette) for all the shades and tints available.
+    Our color palettes are shared between Brand and Gestalt, and represent our full range of options. Please refer to the [Color Palette page](/foundations/color/palette) for all the shades and tints available.
 
     On this page, you will find guidance on how to use our color tokens for:
 
@@ -47,7 +47,7 @@ export default function ColorUsagePage(): Node {
       <MainSection
         name="Applying color to UI"
         description={`
-        When designing a product interface, you can choose between any color swatch available in our [design tokens documentation](/design_tokens). The color tokens represent the values used within Gestalt to construct layouts and components.
+        When designing a product interface, you can choose between any color swatch available in our [design tokens documentation](/foundations/design_tokens). The color tokens represent the values used within Gestalt to construct layouts and components.
 
         Colors available in our extended palette and not listed on the Gestalt Foundations library are reserved for larger brand moments, and they should not be applied to components.
 
@@ -333,7 +333,7 @@ export default function ColorUsagePage(): Node {
 
       [Section 508](https://webaim.org/standards/508/checklist), which aligns with [WCAG 2.0 Level AA](https://www.w3.org/TR/WCAG21/), establishes a legal standard for the contrast level essential between text and its background. The baseline AA contrast standard is 4.5:1 for most text and 3:1 for large text. We also recommend avoiding pure black text on white helps dyslexia, Irlen Syndrome, light sensitivity, and autism.
 
-      Don’t use color exclusively to convey meaning. Color should only be used as an enhancement — if color is the only cue, that cue won’t get through as intended to everyone. Learn more about [Accessibility Design considerations](/accessibility).
+      Don’t use color exclusively to convey meaning. Color should only be used as an enhancement — if color is the only cue, that cue won’t get through as intended to everyone. Learn more about [Accessibility Design considerations](/foundations/accessibility).
 
       Other resources for reference:
         - [About color and contrast](https://accessibility.digital.gov/visual-design/color-and-contrast/)

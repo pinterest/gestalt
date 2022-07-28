@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import Page from '../../../docs-components/Page.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import Page from '../../../../docs-components/Page.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -80,7 +80,7 @@ function RadioButtonExample() {
             type="don't"
             title="When not to use"
             description={`
-          - When the fields are unrelated. Use [TextFields](/textfield) and other input components within a \`<form/>\`.
+          - When the fields are unrelated. Use [TextFields](/components/web/form_fields/textfield) and other input components within a \`<form/>\`.
         `}
           />
         </MainSection.Subsection>
@@ -88,7 +88,7 @@ function RadioButtonExample() {
       <AccessibilitySection
         name={generatedDocGen?.displayName}
         description={`
-      Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioButtons](/radiobutton), [Checkboxes](/checkbox) or [TextFields](/textfield).
+      Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioGroup](/components/web/radiogroup), [Checkboxes](/components/web/checkbox) or [TextFields](/components/web/form_fields/textfield).
 
       In the example below, the pet RadioButtons are surrounded by a fieldset and include a \`legend\` of "Favorite pet". Learn more about the [use of fieldset and legend](https://www.w3.org/WAI/tutorials/forms/grouping/#associating-related-controls-with-fieldset).`}
       >
@@ -297,7 +297,7 @@ function CheckboxExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Label](/label)**
+      **[Label](/components/web/form_fields/label)**
       If a label is needed for a single form item (instead of a group of items), use Label.
     `}
         />

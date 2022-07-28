@@ -129,7 +129,7 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an [Image](/image) or the appropriate interactive component."
+            description="Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an [Image](/components/web/image) or the appropriate interactive component."
             defaultCode={`
             <Box width={150} height={125}>
               <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
@@ -547,7 +547,7 @@ function LinkExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-        **[Avatar](/avatar)**
+        **[Avatar](/components/web/avatar)**
         Avatar is the ideal component in cases where only one person or brand needs to be displayed.
       `}
         />

@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import Page from '../../../docs-components/Page.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
+import Page from '../../../../docs-components/Page.js';
+import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
+import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
 
 export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -91,7 +91,7 @@ function ComboBoxExample(props) {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use ComboBox for a simple list of items. Use [SelectList](/selectlist) instead for the added native mobile functionality."
+            description="Use ComboBox for a simple list of items. Use [SelectList](/components/web/form_fields/selectlist) instead for the added native mobile functionality."
           />
         </MainSection.Subsection>
       </MainSection>
@@ -520,11 +520,11 @@ function ComboBoxExample(props) {
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`
-    Include [Tag](/tag) elements in the input using the \`tags\` prop.
+    Include [Tag](/components/web/tag) elements in the input using the \`tags\` prop.
 
     Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled). A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`tags\`.
 
-    To use ComboBox with [tags](/tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
+    To use ComboBox with [tags](/components/web/tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
           title="Tags"
         >
           <MainSection.Card
@@ -707,7 +707,7 @@ function ComboBoxExample(props) {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Error message"
-          description="For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/link) or [TapArea](https://gestalt.pinterest.systems/taparea)"
+          description="For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/components/web/link) or [TapArea](https://gestalt.pinterest.systems/components/web/utilities/taparea)"
         >
           <MainSection.Card
             cardSize="lg"
@@ -735,13 +735,13 @@ function ComboBoxExample(props) {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[SelectList](/selectlist)**
+**[SelectList](/components/web/form_fields/selectlist)**
 If users need to select from a short, simple list (without needing sections, subtext details, or the ability to filter the list), use SelectList.
 
-**[Dropdown](/dropdown)**
+**[Dropdown](/components/web/dropdown)**
 Dropdown is an element constructed using Popover as its container. Use Dropdown to display a list of actions or options in a Popover.
 
-**[Fieldset](/fieldset)**
+**[Fieldset](/components/web/form_fields/fieldset)**
 Use Fieldset to group related form items.
     `}
         />

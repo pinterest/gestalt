@@ -23,7 +23,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             title="When to use"
             description={`
-          - To switch between views within a small area of content, such as a [Popover](/popover).
+          - To switch between views within a small area of content, such as a [Popover](/components/web/popover).
         `}
           />
           <MainSection.Card
@@ -31,8 +31,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-          - To switch between views that represent the main content of a surface. Use [Tabs](/tabs) instead.
-          - To act as a radio control within a form. Use [RadioButton](/radiobutton) instead.
+          - To switch between views that represent the main content of a surface. Use [Tabs](/components/web/tabs) instead.
+          - To act as a radio control within a form. Use [RadioGroup](/components/web/radiogroup) instead.
         `}
           />
         </MainSection.Subsection>

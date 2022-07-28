@@ -61,7 +61,7 @@ export default function ColorPage(): Node {
         name="Baseline colors"
         description={`
         Our baseline palette helps to create consistency across products.
-        The baseline palette is comprised of our hero and neutrals colors, allowing the Pinterest content to shine, while ensuring enough color contrast. In addition, the colors used serve specific purposes in order to provide a better user experience. Check out [Color Usage](/color_usage) for more details about their intended usage.
+        The baseline palette is comprised of our hero and neutrals colors, allowing the Pinterest content to shine, while ensuring enough color contrast. In addition, the colors used serve specific purposes in order to provide a better user experience. Check out [Color Usage](/foundations/color/usage) for more details about their intended usage.
         `}
       >
         <Flex gap={4}>
@@ -136,7 +136,7 @@ export default function ColorPage(): Node {
         description={`
         The extended color palette displays all the available shades and tints of each color in the palette. The colors are named and numbered for easy reference. The usage of these colors varies depending on the product needs, but they come in handy for illustrations, communicating status, and brand moments.
 
-        We aim to meet [WCAG 2.1 AA accessibility standards](https://www.w3.org/TR/WCAG21/), and in order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/Text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.
+        We aim to meet [WCAG 2.1 AA accessibility standards](https://www.w3.org/TR/WCAG21/), and in order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/components/web/text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.
         `}
       >
         <MainSection.Subsection title="Colors">
@@ -179,7 +179,7 @@ export default function ColorPage(): Node {
        - JavaScript  \`$color-pink-flaminglow-400\`
        - CSS  \`var(--color-pink-flaminglow-400)\`
 
-       Using colors that are not available through our [semantic design tokens](/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) can be used.
+       Using colors that are not available through our [semantic design tokens](/foundations/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) can be used.
       `}
       />
     </Page>

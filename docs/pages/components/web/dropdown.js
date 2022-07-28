@@ -92,7 +92,7 @@ function IntroMenuButtonDropdownExample() {
             title="When to use"
             description={`
           - Displaying a list of actions, options, or links. Usually displays 3 or more options.
-          - Allowing complex functionality that a [SelectList](/selectlist) can't accomplish.
+          - Allowing complex functionality that a [SelectList](/components/web/form_fields/selectlist) can't accomplish.
           - Taking immediate action or navigating users to another view.
             `}
           />
@@ -101,9 +101,9 @@ function IntroMenuButtonDropdownExample() {
             type="don't"
             title="When not to use"
             description={`
-          - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioButtons](/radiobutton) or [Checkboxes](/checkbox) instead.
-          - When it is desirable to filter a long list of options. Use [ComboBox](/combobox) instead.
-          - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/selectlist) instead.
+          - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioGroup](/components/web/radiogroup) or [Checkboxes](/components/web/checkbox) instead.
+          - When it is desirable to filter a long list of options. Use [ComboBox](/components/web/form_fields/combobox) instead.
+          - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/components/web/form_fields/selectlist) instead.
             `}
           />
         </MainSection.Subsection>
@@ -114,7 +114,7 @@ function IntroMenuButtonDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/selectlist)."
+            description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/components/web/form_fields/selectlist)."
             defaultCode={`
       function BestPracticeDropdownExample() {
         const [open, setOpen] = React.useState(false);
@@ -178,7 +178,7 @@ function IntroMenuButtonDropdownExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use Dropdown for a simple list of items. Use [SelectList](/selectlist) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
+            description="Use Dropdown for a simple list of items. Use [SelectList](/components/web/form_fields/selectlist) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
             defaultCode={`
     function SimpleListDropdownExample() {
       const [open, setOpen] = React.useState(false);
@@ -636,7 +636,7 @@ function ActionDropdownExample() {
           <MainSection.Card
             cardSize="md"
             title="Link"
-            description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+            description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) to learn more about link navigation.
             `}
             defaultCode={`
 function LinkDropdownExample() {
@@ -921,7 +921,7 @@ function SubtextDropdownExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Badges"
-          description={`A [Badge](/badge) can be used to indicate a new product surface or feature within the Dropdown using \`badgeText\`. Multiple badges within a Dropdown should be avoided when possible.`}
+          description={`A [Badge](/components/web/badge) can be used to indicate a new product surface or feature within the Dropdown using \`badgeText\`. Multiple badges within a Dropdown should be avoided when possible.`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -1059,19 +1059,19 @@ function CustomIconButtonPopoverExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Button](/button), [IconButton](/iconbutton)**
+**[Button](/components/web/buttons/button), [IconButton](/components/web/buttons/iconbutton)**
 It is most common to anchor Dropdown to Button or IconButton.
 
-**[ScrollBoundaryContainer](/scrollboundarycontainer)**
+**[ScrollBoundaryContainer](/components/web/utilities/scrollboundarycontainer)**
 ScrollableContainer is needed for proper positioning when the Dropdown is located within a scrolling container. The use of ScrollableContainer ensures the Dropdown remains attached to its anchor when scrolling.
 
-**[SelectList](/selectlist)**
+**[SelectList](/components/web/form_fields/selectlist)**
 If users need to select from a short, simple list (without needing sections, subtext details, or the ability to filter the list), use SelectList.
 
-**[ComboBox](/combobox)**
+**[ComboBox](/components/web/form_fields/combobox)**
 If users need the ability to choose an option by typing in an input and filtering a long list of options, use ComboBox.
 
-**[OnLinkNavigationProvider](/onlinknavigationprovider)**
+**[OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
           `}
         />

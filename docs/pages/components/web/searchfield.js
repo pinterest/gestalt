@@ -66,8 +66,8 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             title="When not to use"
             description={`
-          - As a means of inputting content to a form. Use [TextField](/textfield) instead.
-          - To act as an auto-complete input. Use [ComboBox](/combobox) instead.
+          - As a means of inputting content to a form. Use [TextField](/components/web/form_fields/textfield) instead.
+          - To act as an auto-complete input. Use [ComboBox](/components/web/form_fields/combobox) instead.
         `}
           />
         </MainSection.Subsection>
@@ -370,11 +370,11 @@ function SearchFieldExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[ComboBox](/combobox)**
+**[ComboBox](/components/web/form_fields/combobox)**
 ComboBox allows users to filter a list when selecting an option. Choose ComboBox when the user is selecting from a finite list of options.
-**[TextField](/textfield)**
+**[TextField](/components/web/form_fields/textfield)**
 TextField provides an affordance to input small to medium length text. Unless the text is used to search for or filter through content, choose TextField for shorter text input.
-**[TextArea](/textarea)**
+**[TextArea](/components/web/form_fields/textarea)**
 TextArea allows for multiline text input, suitable for longer length text. Unless the text is used to search for or filter through content, choose TextArea for longer text input.
       `}
         />

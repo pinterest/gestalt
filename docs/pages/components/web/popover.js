@@ -139,8 +139,8 @@ function PopoverExample() {
             title="When to use"
             description={`
           - Providing additional information for related context without cluttering the surface of a workflow.
-          - Bringing attention to specific user interface elements for educational purposes. In this case, likely used with a [Pulsar](/pulsar).
-          - Accommodating a variety of features, such as Buttons, Images or SearchFields, that are not available in [Dropdown](/dropdown).
+          - Bringing attention to specific user interface elements for educational purposes. In this case, likely used with a [Pulsar](/components/web/pulsar).
+          - Accommodating a variety of features, such as Buttons, Images or SearchFields, that are not available in [Dropdown](/components/web/dropdown).
         `}
           />
           <MainSection.Card
@@ -150,8 +150,8 @@ function PopoverExample() {
             description={`
           - Displaying critical information that prevents users from accomplishing a task.
           - Displaying information out of context.
-          - As a replacement for [Tooltip](/tooltip).
-          - For presenting a list of actions or options. Use [Dropdown](/dropdown) instead.
+          - As a replacement for [Tooltip](/components/web/tooltip).
+          - For presenting a list of actions or options. Use [Dropdown](/components/web/dropdown) instead.
         `}
           />
         </MainSection.Subsection>
@@ -389,7 +389,7 @@ function PopoverExample() {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Include a caret if Popover was triggered by user interaction, such as clicking or focusing on [Button](/button) or [IconButton](/iconbutton)."
+            description="Include a caret if Popover was triggered by user interaction, such as clicking or focusing on [Button](/components/web/buttons/button) or [IconButton](/components/web/buttons/iconbutton)."
             defaultCode={`
 function PopoverExample() {
   const [open, setOpen] = React.useState(false);
@@ -846,9 +846,9 @@ function PopoverExample() {
         <MainSection.Subsection
           title="Anchor"
           description={`
-Popover requires a reference element, typically [Button](/button) or [IconButton](/iconbutton), to set its position. The \`anchor\` ref can be directly set on the reference component itself. If the components don’t support \`ref\`, the anchor ref can be set to a parent [Box](/box).
+Popover requires a reference element, typically [Button](/components/web/buttons/button) or [IconButton](/components/web/buttons/iconbutton), to set its position. The \`anchor\` ref can be directly set on the reference component itself. If the components don’t support \`ref\`, the anchor ref can be set to a parent [Box](/components/web/utilities/box).
 
-Popover calculates its position based on the bounding box of the \`anchor\`. Therefore, the \`anchor\` ref should only include the trigger element itself, usually [Button](/button) or [IconButton](/iconbutton), or the specific feature component that requires an educational Popover.
+Popover calculates its position based on the bounding box of the \`anchor\`. Therefore, the \`anchor\` ref should only include the trigger element itself, usually [Button](/components/web/buttons/button) or [IconButton](/components/web/buttons/iconbutton), or the specific feature component that requires an educational Popover.
 `}
         >
           <MainSection.Card
@@ -923,7 +923,7 @@ function PopoverExample() {
         <MainSection.Subsection
           title="With Layer"
           description={`
-Popover is typically used within [Layer](/layer). Layer renders Popover outside the DOM hierarchy of the parent allowing it to overlay surrounding content. Popover calculates its position based on the bounding box of the \`anchor\`. Within Layer, Popover no longer shares a relative root with the \`anchor\` and requires \`positionRelativeToAnchor=false\` to properly calculate its position relative to the anchor element.
+Popover is typically used within [Layer](/components/web/layer). Layer renders Popover outside the DOM hierarchy of the parent allowing it to overlay surrounding content. Popover calculates its position based on the bounding box of the \`anchor\`. Within Layer, Popover no longer shares a relative root with the \`anchor\` and requires \`positionRelativeToAnchor=false\` to properly calculate its position relative to the anchor element.
 
 Using \`Layer\` with Popover eliminates the need to use \`z-index\` to solve stacking context conflicts. Popovers within Modals and Sheets with z-indexes don't require \`zIndex\` in \`Layer\` thanks to the built-in ScrollBoundaryContainer.
 `}
@@ -1139,7 +1139,7 @@ function ScrollBoundaryContainerExample() {
         <MainSection.Subsection
           title="Ideal direction"
           description={`
-Pass in \`idealDirection\` to specify the preferred position of Popover relative to the anchor, such as [Button](/button) or [IconButton](/iconbutton), that triggered it.
+Pass in \`idealDirection\` to specify the preferred position of Popover relative to the anchor, such as [Button](/components/web/buttons/button) or [IconButton](/components/web/buttons/iconbutton), that triggered it.
 
 Adjust the \`idealDirection\` as necessary to ensure the visibility of Popover and its contextual information. The default direction is "up", although Popover should be center-aligned directly below the element in most cases. The actual position may change given the available space around the anchor element.
 `}
@@ -1233,7 +1233,7 @@ function Example() {
         <MainSection.Subsection
           title="Within scrolling containers"
           description={`
-[ScrollBoundaryContainer](/scrollboundarycontainer) is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Popover remains attached to its anchor when scrolling.
+[ScrollBoundaryContainer](/components/web/utilities/scrollboundarycontainer) is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Popover remains attached to its anchor when scrolling.
 `}
         >
           <MainSection.Card
@@ -1342,19 +1342,19 @@ function Example() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Dropdown](/dropdown)**
+**[Dropdown](/components/web/dropdown)**
 Dropdown is an element constructed using Popover as its container. Use Dropdown to display a list of actions or options in a Popover.
 
-**[Toast](/toast)**
+**[Toast](/components/web/toast)**
 Toast provides feedback on an interaction. One example of Toast is the confirmation that appears when a Pin has been saved. Toasts appear at the bottom of a desktop screen or top of a mobile screen instead of being attached to any particular element on the interface.
 
-**[Tooltip](/tooltip)**
-Tooltip describes the function of an interactive element, typically [IconButton](/iconbutton), on hover. While Popovers offer broader content options, such as [Button](/button) and [Images](/image), Tooltips are purely text-based.
+**[Tooltip](/components/web/tooltip)**
+Tooltip describes the function of an interactive element, typically [IconButton](/components/web/buttons/iconbutton), on hover. While Popovers offer broader content options, such as [Button](/components/web/buttons/button) and [Images](/components/web/image), Tooltips are purely text-based.
 
-**[Layer](/layer)**
+**[Layer](/components/web/layer)**
 Layer renders Popover outside the DOM hierarchy of the parent and prevents surrounding components overlaying Popover. See the [with Layer](#With-layer) variant to learn more.
 
-**[ScrollBoundaryContainer](/scrollboundarycontainer)**
+**[ScrollBoundaryContainer](/components/web/utilities/scrollboundarycontainer)**
 ScrollBoundaryContainer is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures that Popover remains attached to its anchor when scrolling. See the [within scrolling containers](#Within-scrolling-containers) variant to learn more.
     `}
         />

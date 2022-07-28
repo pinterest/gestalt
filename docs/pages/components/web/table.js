@@ -958,7 +958,7 @@ function Example() {
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use an expand to display dense, highly-interactive content. Use a new page or a [Sheet](/Sheet) for that."
+            description="Use an expand to display dense, highly-interactive content. Use a new page or a [Sheet](/components/web/sheet) for that."
             defaultCode={`
 function MainExample() {
   const ExpandedContents = () => {
@@ -2583,10 +2583,10 @@ function Example() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Module](/module)**
+**[Module](/components/web/module)**
 Modules are another way to stack multiple rows of content. However, they are used to show 2 to 3 blocks of related content, whereas Tables are used for large data sets that can be easily scanned and compared across multiple rows and columns.
 
-**[Checkbox](/checkbox)**
+**[Checkbox](/components/web/checkbox)**
 Checkboxes are often used in tables to allow for selecting and editing of multiple rows at once.
           `}
         />
