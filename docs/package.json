@@ -29,7 +29,8 @@
     "react-dom": "^18.1.0",
     "react-live": "^2.3.0",
     "remark-breaks": "^3.0.2",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "ua-parser-js": "^1.0.2"
   },
   "browserslist": [
     "last 2 versions",

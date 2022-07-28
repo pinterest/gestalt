@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Heading, Text } from 'gestalt';
-import MainSection from '../../../components/MainSection.js';
-import PageHeader from '../../../components/PageHeader.js';
-import ColorTile from '../../../components/ColorTile.js';
-import Page from '../../../components/Page.js';
-import { capitalizeFirstLetter } from '../../../components/utils.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import ColorTile from '../../../docs-components/ColorTile.js';
+import Page from '../../../docs-components/Page.js';
+import { capitalizeFirstLetter } from '../../../docs-components/utils.js';
 
 const MAIN_STEPS = ['01', '02', '03', '04', '05', '06'];
 const EXTENDED_STEPS = ['07', '08', '09', '10', '11', '12'];

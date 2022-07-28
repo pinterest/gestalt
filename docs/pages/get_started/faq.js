@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
-import Markdown from '../../components/Markdown.js';
-import Card from '../../components/Card.js';
-import PageHeader from '../../components/PageHeader.js';
-import Page from '../../components/Page.js';
+import Markdown from '../../docs-components/Markdown.js';
+import Card from '../../docs-components/Card.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import Page from '../../docs-components/Page.js';
 
 export default function ContainerPage(): Node {
   return (

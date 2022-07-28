@@ -1,14 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
 import { Dropdown } from 'gestalt';
-import PageHeader from '../../../components/PageHeader.js';
-import MainSection from '../../../components/MainSection.js';
-import { multipledocgen, type DocGen } from '../../../components/docgen.js';
-import Page from '../../../components/Page.js';
-import GeneratedPropTable from '../../../components/GeneratedPropTable.js';
-import QualityChecklist from '../../../components/QualityChecklist.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import { multipledocgen, type DocGen } from '../../../docs-components/docgen.js';
+import Page from '../../../docs-components/Page.js';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../components/AccessibilitySection.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 
 export default function DropdownPage({
   generatedDocGen,

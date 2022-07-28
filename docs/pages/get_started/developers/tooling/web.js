@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Button, Flex, Icon, Link, Image, Text, Table } from 'gestalt';
-import MainSection from '../../../../components/MainSection.js';
-import { MAX_WIDTH } from '../../../../components/MainSectionSubsection.js';
-import trackButtonClick from '../../../../components/buttons/trackButtonClick.js';
-import Page from '../../../../components/Page.js';
-import PageHeader from '../../../../components/PageHeader.js';
-import InternalOnlyIconButton from '../../../../components/InternalOnlyIconButton.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import { MAX_WIDTH } from '../../../../docs-components/MainSectionSubsection.js';
+import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
+import Page from '../../../../docs-components/Page.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
 
 function ListElement({ text, href }: {| text: string, href: string |}) {
   return (

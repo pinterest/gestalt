@@ -1,12 +1,12 @@
 // @flow strict
 import { Fragment, useState, type Element, type Node } from 'react';
 import { Box, Fieldset, RadioButton, Flex, Text } from 'gestalt';
-import COMPONENT_DATA from '../../../components/COMPONENT_DATA.js';
-import Page from '../../../components/Page.js';
-import PageHeader from '../../../components/PageHeader.js';
-import IllustrationCard from '../../../components/IllustrationCard.js';
-import IllustrationSection from '../../../components/IllustrationSection.js';
-import IllustrationContainer from '../../../components/IllustrationContainer.js';
+import COMPONENT_DATA from '../../../docs-components/COMPONENT_DATA.js';
+import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import IllustrationCard from '../../../docs-components/IllustrationCard.js';
+import IllustrationSection from '../../../docs-components/IllustrationSection.js';
+import IllustrationContainer from '../../../docs-components/IllustrationContainer.js';
 import Accessibility from '../../../graphics/foundations/accessibility.svg';
 
 const getIllustrationCardColor = (category: string, hasDarkBackground?: boolean) => {

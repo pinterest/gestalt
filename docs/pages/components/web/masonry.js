@@ -1,14 +1,14 @@
 // @flow strict
 import { Component, type Node, type ElementProps } from 'react';
 import { Box, Masonry, Image, Label, Text } from 'gestalt';
-import GeneratedPropTable from '../../../components/GeneratedPropTable.js';
-import PageHeader from '../../../components/PageHeader.js';
-import Card from '../../../components/Card.js';
-import Page from '../../../components/Page.js';
-import docgen, { type DocGen } from '../../../components/docgen.js';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import Card from '../../../docs-components/Card.js';
+import Page from '../../../docs-components/Page.js';
+import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import deepCloneReplacingUndefined from '../../../utils/deepCloneReplacingUndefined.js';
-import QualityChecklist from '../../../components/QualityChecklist.js';
-import AccessibilitySection from '../../../components/AccessibilitySection.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 
 type Props = {|
   id?: string,

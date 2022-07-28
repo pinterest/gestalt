@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../components/PageHeader.js';
-import MainSection from '../../../components/MainSection.js';
-import Page from '../../../components/Page.js';
-import GeneratedPropTable from '../../../components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../../components/docgen.js';
-import QualityChecklist from '../../../components/QualityChecklist.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import Page from '../../../docs-components/Page.js';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../../../docs-components/docgen.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../components/AccessibilitySection.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 
 export default function NumberFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

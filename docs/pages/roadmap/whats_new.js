@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import { Badge, Box, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
-import MainSection from '../../components/MainSection.js';
-import Markdown from '../../components/Markdown.js';
-import Page from '../../components/Page.js';
-import PageHeader from '../../components/PageHeader.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Markdown from '../../docs-components/Markdown.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
 import blogPosts from './BlogPosts.json';
 

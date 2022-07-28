@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../components/PageHeader.js';
-import MainSection from '../../../components/MainSection.js';
-import Page from '../../../components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import Page from '../../../docs-components/Page.js';
 
 export default function EslintPluginPage(): Node {
   return (

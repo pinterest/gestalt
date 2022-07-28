@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import MainSection from '../../../components/MainSection.js';
-import PageHeader from '../../../components/PageHeader.js';
-import Page from '../../../components/Page.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import Page from '../../../docs-components/Page.js';
 
 type ColorCardProps = {|
   description: string,

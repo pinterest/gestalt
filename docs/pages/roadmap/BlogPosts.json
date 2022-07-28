@@ -63,7 +63,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/ac/33/84/ac33841d337bbd27fc06598c1ab52703.png",
           "imageAltText": "A screenshot of the Video component displaying captions",
-          "content": "Chalk this up as another big win for accessibility; [Video](https://gestalt.pinterest.systems/components/web/video) now has support for captions. Learn more about this new capability in our [Video captions documentation](https://gestalt.pinterest.systems/components/web/video#Captions)."
+          "content": "Chalk this up as another big win for accessibility; [Video](https://gestalt.pinterest.systems/docs-components/web/video) now has support for captions. Learn more about this new capability in our [Video captions documentation](https://gestalt.pinterest.systems/docs-components/web/video#Captions)."
         },
         {
           "title": "Figma iOS Modal improvements",
@@ -89,7 +89,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/92/12/aa/9212aad3a49fee3e29902d2052d90914.png",
           "imageAltText": "Examples of Recommendation SlimBanner",
-          "content": "SlimBanner now supports a [primary action](https://gestalt.pinterest.systems/components/web/slimbanner#Primary-action)! We've also added the ability to dismiss these banners with the `dismissButton` [prop](https://gestalt.pinterest.systems/components/web/slimbanner#Dismissible). And if that wasn't enough for one update, we've introduced a [new style called Recommendation](https://gestalt.pinterest.systems/components/web/slimbanner#Recommendation) that can be used to inform people of quick things they can do to improve their experience."
+          "content": "SlimBanner now supports a [primary action](https://gestalt.pinterest.systems/docs-components/web/slimbanner#Primary-action)! We've also added the ability to dismiss these banners with the `dismissButton` [prop](https://gestalt.pinterest.systems/docs-components/web/slimbanner#Dismissible). And if that wasn't enough for one update, we've introduced a [new style called Recommendation](https://gestalt.pinterest.systems/docs-components/web/slimbanner#Recommendation) that can be used to inform people of quick things they can do to improve their experience."
         },
         {
           "title": "Figma cleanup week",

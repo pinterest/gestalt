@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
-import MainSection from '../../../components/MainSection.js';
-import PageHeader from '../../../components/PageHeader.js';
-import Page from '../../../components/Page.js';
-import Markdown from '../../../components/Markdown.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import Page from '../../../docs-components/Page.js';
+import Markdown from '../../../docs-components/Markdown.js';
 import AlignmentStart from '../../../graphics/typography/alignmentStart.svg';
 import AlignmentCenter from '../../../graphics/typography/alignmentCenter.svg';
 import AlignmentEnd from '../../../graphics/typography/alignmentEnd.svg';

@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import GeneratedPropTable from '../../../components/GeneratedPropTable.js';
-import Example from '../../../components/Example.js';
-import PageHeader from '../../../components/PageHeader.js';
-import MainSection from '../../../components/MainSection.js';
-import docgen, { type DocGen } from '../../../components/docgen.js';
-import Page from '../../../components/Page.js';
-import QualityChecklist from '../../../components/QualityChecklist.js';
-import AccessibilitySection from '../../../components/AccessibilitySection.js';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import Example from '../../../docs-components/Example.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import docgen, { type DocGen } from '../../../docs-components/docgen.js';
+import Page from '../../../docs-components/Page.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 
 export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

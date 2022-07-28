@@ -1,9 +1,9 @@
 // @flow strict
 import { Box, Button, Flex, Heading, Text } from 'gestalt';
 import { type Node } from 'react';
-import IllustrationCard from '../components/IllustrationCard.js';
-import IllustrationSection from '../components/IllustrationSection.js';
-import Page from '../components/Page.js';
+import IllustrationCard from '../docs-components/IllustrationCard.js';
+import IllustrationSection from '../docs-components/IllustrationSection.js';
+import Page from '../docs-components/Page.js';
 import Hero from '../graphics/home-page/HeroGraphic.js';
 import Design from '../graphics/home-page/design.svg';
 import Development from '../graphics/home-page/development.svg';

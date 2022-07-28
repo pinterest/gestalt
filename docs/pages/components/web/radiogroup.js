@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
 import { RadioGroup } from 'gestalt';
-import GeneratedPropTable from '../../../components/GeneratedPropTable.js';
-import PageHeader from '../../../components/PageHeader.js';
-import MainSection from '../../../components/MainSection.js';
-import Page from '../../../components/Page.js';
-import { multipledocgen, type DocGen } from '../../../components/docgen.js';
-import AccessibilitySection from '../../../components/AccessibilitySection.js';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import Page from '../../../docs-components/Page.js';
+import { multipledocgen, type DocGen } from '../../../docs-components/docgen.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({
   generatedDocGen,

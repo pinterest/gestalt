@@ -8,10 +8,10 @@ import NextApp, { type AppInitialProps } from 'next/app';
 import { CookiesProvider } from 'react-cookie';
 import { useRouter } from 'next/router';
 import { Box, DeviceTypeProvider } from 'gestalt';
-import App from '../components/App.js';
-import DocsExperimentProvider from '../components/contexts/DocsExperimentProvider.js';
-import DocsI18nProvider from '../components/contexts/DocsI18nProvider.js';
-import { DocsDeviceTypeProvider } from '../components/contexts/DocsDeviceTypeProvider.js';
+import App from '../docs-components/App.js';
+import DocsExperimentProvider from '../docs-components/contexts/DocsExperimentProvider.js';
+import DocsI18nProvider from '../docs-components/contexts/DocsI18nProvider.js';
+import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
 
 // import parser from 'ua-parser-js'; Install     "ua-parser-js": "^1.0.2" in packahe
 
