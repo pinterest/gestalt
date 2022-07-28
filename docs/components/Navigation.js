@@ -35,7 +35,7 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
           subSection.sectionName.toLowerCase().includes(componentPlatformFilteredBy),
       ) || null;
 
-    // Flatten the section date to cut out the middle layer
+    // Flatten the section data to cut out the middle layer
     if (
       subsectionToRender &&
       typeof subsectionToRender === 'object' &&
