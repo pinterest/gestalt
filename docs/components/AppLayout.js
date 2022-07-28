@@ -2,9 +2,10 @@
 import { type Node } from 'react';
 import { Box, Divider } from 'gestalt';
 import Header from './Header.js';
-import Navigation, { MIN_NAV_WIDTH_PX } from './Navigation.js';
+import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
 import Footer from './Footer.js';
 import ResourcesFooter from './ResourcesFooter.js';
+import { useNavigationContext } from './navigationContext.js';
 
 const CONTENT_MAX_WIDTH_PX = 1544;
 
@@ -15,6 +16,8 @@ type Props = {|
 |};
 
 export default function AppLayout({ children, colorScheme, isHomePage }: Props): Node {
+  const { isSidebarOpen } = useNavigationContext();
+
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
   return (
@@ -24,7 +27,31 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
       <Box mdDisplay="flex">
         {!isHomePage && (
           <Box minWidth={MIN_NAV_WIDTH_PX}>
-            <Navigation />
+            {isSidebarOpen ? (
+              <Box
+                height={350}
+                overflow="scroll"
+                display="block"
+                mdDisplay="none"
+                paddingY={2}
+                paddingX={4}
+              >
+                <DocsSideNavigation />
+              </Box>
+            ) : (
+              <Box
+                display="none"
+                mdDisplay="block"
+                position="fixed"
+                overflow="auto"
+                minHeight="100%"
+                maxHeight="calc(100% - 100px)"
+                minWidth={MIN_NAV_WIDTH_PX}
+                marginTop={2}
+              >
+                <DocsSideNavigation />
+              </Box>
+            )}
           </Box>
         )}
         <Divider />

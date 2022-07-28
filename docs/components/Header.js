@@ -21,7 +21,7 @@ import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
-import { convertNamesForURL } from './Navigation.js';
+import { convertNamesForURL } from './DocsSideNavigation.js';
 
 function Header() {
   const router = useRouter();
