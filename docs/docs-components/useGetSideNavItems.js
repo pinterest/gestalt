@@ -3,13 +3,15 @@ import { type Node } from 'react';
 import { SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
 import { type siteIndexType } from './siteIndex.js';
+import { useNavigationContext } from './navigationContext.js';
 
 function convertNamesForURL(name) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
-const useGetSideNavItems = (sectionInfo: siteIndexType): Node => {
+const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): Node => {
   const router = useRouter();
+  const { setIsSidebarOpen } = useNavigationContext();
 
   let nestingLevel = 0;
   const getNavItems = (navItem: siteIndexType, previousSectionName: string) => {
@@ -25,7 +27,7 @@ const useGetSideNavItems = (sectionInfo: siteIndexType): Node => {
                 <SideNavigation.TopItem
                   active={router.pathname === href ? 'page' : undefined}
                   label={pageInfo}
-                  onClick={() => {}}
+                  onClick={() => setIsSidebarOpen?.(false)}
                   key={`${pageInfo}--${i}`}
                   href={href}
                 />
@@ -49,7 +51,7 @@ const useGetSideNavItems = (sectionInfo: siteIndexType): Node => {
                 <SideNavigation.NestedItem
                   active={router.pathname === href ? 'page' : undefined}
                   label={nestedPage}
-                  onClick={() => {}}
+                  onClick={() => setIsSidebarOpen?.(false)}
                   key={`${nestedPage}--${i}`}
                   href={href}
                 />
@@ -73,7 +75,7 @@ const useGetSideNavItems = (sectionInfo: siteIndexType): Node => {
               <SideNavigation.NestedItem
                 active={router.pathname === href ? 'page' : undefined}
                 label={nestedPage}
-                onClick={() => {}}
+                onClick={() => setIsSidebarOpen?.(false)}
                 key={`${nestedPage}--${i}`}
                 href={href}
               />

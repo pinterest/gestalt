@@ -1046,7 +1046,10 @@ function Example() {
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Mobile">
+      <MainSection
+        name="Mobile"
+        description="SideNavigation supports mobile interaction when paired with Gestalt's DeviceTypeProvider (not yet available)"
+      >
         <MainSection.Card
           defaultCode={`
           function Example() {

@@ -930,6 +930,33 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     },
   },
   {
+    svg: (
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0h1v1H0z" fill="#FFF" />
+      </svg>
+    ),
+    name: 'SideNavigation',
+    description:
+      'SideNavigation is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal Tabs',
+    category: 'Navigation',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'ready',
+    },
+  },
+  {
     svg: <Status />,
     name: 'Status',
     description: "Status is a graphic indicator of an element's state.",

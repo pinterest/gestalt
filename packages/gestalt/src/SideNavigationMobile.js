@@ -35,7 +35,7 @@ export default function SideNavigationMobile({
         dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
         overflow="scroll"
       >
-        <Box height={64} paddingY={2}>
+        <Box height={64} paddingY={2} marginStart={1}>
           <Flex height="100%" alignItems="center" justifyContent="center">
             <Flex.Item flex="grow">
               <Flex height="100%" alignItems="center" justifyContent="start">

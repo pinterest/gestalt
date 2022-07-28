@@ -12,6 +12,8 @@ export type NavigationContextType = {|
   setIsSidebarOpen: (val: boolean) => void,
   componentPlatformFilteredBy: ComponentPlatformFilteredBy,
   setComponentPlatformFilteredBy: (val: ComponentPlatformFilteredBy) => void,
+  sideNavigationSelectedTab: string,
+  setSideNavigationSelectedTab: (val: string) => void,
 |};
 
 const {
@@ -22,6 +24,7 @@ const {
 
 function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [sideNavigationSelectedTab, setSideNavigationSelectedTab] = useState('get-started');
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);
   const PLATFORM_MAP = {
@@ -41,6 +44,8 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
         setIsSidebarOpen,
         componentPlatformFilteredBy,
         setComponentPlatformFilteredBy,
+        sideNavigationSelectedTab,
+        setSideNavigationSelectedTab,
       }}
     >
       {children}

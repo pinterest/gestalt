@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import { SideNavigation } from 'gestalt';
+import { SideNavigation, Flex, SelectList } from 'gestalt';
 import { useRouter } from 'next/router';
 import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
-
 import { useNavigationContext } from './navigationContext.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
+import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
@@ -15,16 +15,34 @@ export function convertNamesForURL(name: string): string {
 }
 
 export default function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
-  const router = useRouter();
-  const { componentPlatformFilteredBy, setComponentPlatformFilteredBy, setIsSidebarOpen } =
-    useNavigationContext();
+  const { pathname } = useRouter();
+  const isComponents = pathname.includes('components');
+
+  const { isMobile } = useDocsDeviceType();
+  const {
+    componentPlatformFilteredBy,
+    setComponentPlatformFilteredBy,
+    setIsSidebarOpen,
+    sideNavigationSelectedTab,
+    setSideNavigationSelectedTab,
+  } = useNavigationContext();
+
+  const switcher = isComponents ? (
+    <SidebarPlatformSwitcher
+      componentPlatformFilteredBy={componentPlatformFilteredBy}
+      onClick={(platform) => setComponentPlatformFilteredBy(platform)}
+    />
+  ) : null;
 
   // Find the section that corresponds to the top navigation
   const activeSection =
     newSidebarIndex.find((section) =>
-      router.pathname.includes(convertNamesForURL(section.sectionName)),
+      isMobile
+        ? section.sectionName === sideNavigationSelectedTab
+        : pathname.includes(convertNamesForURL(section.sectionName)),
     ) || newSidebarIndex[0];
-  let sectionToRender = activeSection;
+
+  let sectionToRender: siteIndexType = activeSection;
 
   // If that section is the components section, figure out which subsection
   // to render based on the active filter
@@ -47,19 +65,40 @@ export default function DocsSideNavigation({ border }: {| border?: boolean |}): 
       sectionToRender = { sectionName: newSectionName, pages: subsectionToRender.pages };
     }
   }
-  const sectionItemsForSideNav = useGetSideNavItems((sectionToRender: siteIndexType));
+
   const closeSideNavigation = () => setIsSidebarOpen(false);
+
+  const sectionItemsForSideNav = useGetSideNavItems({
+    sectionInfo: sectionToRender,
+  });
 
   return (
     <SideNavigation
       accessibilityLabel="Page navigation"
       showBorder={border}
       header={
-        router.pathname.includes('components') && (
-          <SidebarPlatformSwitcher
-            componentPlatformFilteredBy={componentPlatformFilteredBy}
-            onClick={(platform) => setComponentPlatformFilteredBy(platform)}
-          />
+        isMobile ? (
+          <Flex direction="column" gap={4}>
+            <SelectList
+              labelDisplay="hidden"
+              id="mobile-sidenav"
+              onChange={({ value }) => {
+                setSideNavigationSelectedTab(value);
+              }}
+              options={[
+                { label: 'Get started', value: 'Get started' },
+                { label: 'Components', value: 'Components' },
+                { label: 'Foundations', value: 'Foundations' },
+                { label: 'Roadmap', value: 'Roadmap' },
+              ]}
+              size="lg"
+              label="Select site section"
+              value={sideNavigationSelectedTab}
+            />
+            {switcher}
+          </Flex>
+        ) : (
+          switcher
         )
       }
       title="Menu"
