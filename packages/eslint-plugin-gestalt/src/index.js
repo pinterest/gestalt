@@ -8,6 +8,7 @@ import noBoxMarginleftMarginright from './no-box-marginleft-marginright.js';
 import noMediumFormfields from './no-medium-formfields.js';
 import noRoleLinkComponents from './no-role-link-components.js';
 import noSpreadProps from './no-spread-props.js';
+import noWorkflowStatusIcon from './no-workflow-status-icon.js';
 import preferBoxInlineStyle from './prefer-box-inline-style.js';
 import preferBoxNoClassname from './prefer-box-no-disallowed.js';
 import preferBoxAsTag from './prefer-box-as-tag.js';
@@ -25,6 +26,7 @@ module.exports = {
     'no-medium-formfields': noMediumFormfields,
     'no-role-link-components': noRoleLinkComponents,
     'no-spread-props': noSpreadProps,
+    'no-workflow-status-icon': noWorkflowStatusIcon,
     'prefer-box-inline-style': preferBoxInlineStyle,
     'prefer-box-no-disallowed': preferBoxNoClassname,
     'prefer-box-as-tag': preferBoxAsTag,
