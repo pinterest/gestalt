@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, SideNavigation } from 'gestalt';
+import { SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
 import sidebarIndex from './sidebarIndex.js';
 import { useNavigationContext } from './navigationContext.js';
@@ -19,14 +19,24 @@ function getAlphabetizedComponents() {
   );
 }
 
-function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
-  const { sidebarOrganisedBy, setSidebarOrganizedBy } = useNavigationContext();
+export default function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
+  const { sidebarOrganisedBy, setSidebarOrganizedBy, setIsSidebarOpen } = useNavigationContext();
+
   const router = useRouter();
+
+  const closeSideNavigation = () => setIsSidebarOpen(false);
 
   return (
     <SideNavigation
       accessibilityLabel="Page navigation"
       showBorder={border}
+      title="Menu"
+      dismissButton={{
+        onDismiss: closeSideNavigation,
+        tooltip: {
+          text: 'Close navigation',
+        },
+      }}
       header={
         <SidebarCategorizationButton
           onClick={() =>
@@ -50,7 +60,7 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
                   <SideNavigation.TopItem
                     active={router.pathname === href ? 'page' : undefined}
                     label={componentName}
-                    onClick={() => {}}
+                    onClick={closeSideNavigation}
                     key={`${componentName}--${i}`}
                     href={href}
                   />
@@ -65,33 +75,12 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
               <SideNavigation.TopItem
                 active={router.pathname === href ? 'page' : undefined}
                 label={componentName}
+                onClick={closeSideNavigation}
                 key={`${sidebarOrganisedBy}-${i}`}
                 href={href}
               />
             );
           })}
     </SideNavigation>
-  );
-}
-
-export default function Navigation(): Node {
-  const { isSidebarOpen } = useNavigationContext();
-
-  return isSidebarOpen ? (
-    <Box height={350} overflow="scroll" display="block" mdDisplay="none" paddingY={2} paddingX={4}>
-      <DocsSideNavigation />
-    </Box>
-  ) : (
-    <Box
-      display="none"
-      mdDisplay="block"
-      position="fixed"
-      overflow="auto"
-      maxHeight="calc(100% - 100px)"
-      minWidth={MIN_NAV_WIDTH_PX}
-      marginTop={2}
-    >
-      <DocsSideNavigation border />
-    </Box>
   );
 }
