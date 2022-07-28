@@ -1,3 +1,9 @@
+## 62.3.0 (Jul 28, 2022)
+
+### Minor
+
+- SideNavigation: V3 (mobile) (#2217)
+
 ## 62.2.0 (Jul 26, 2022)
 
 ### Minor
