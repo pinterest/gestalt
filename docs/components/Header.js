@@ -21,6 +21,9 @@ import GestaltLogo from './GestaltLogo.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
 
+const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
+const ABOVE_PAGE_HEADER_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
+
 function Header() {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
@@ -30,9 +33,8 @@ function Header() {
 
   const anchorRef = useRef(null);
 
-  const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
   // Z-index to use for any popovers on the Header
-  const POPOVER_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
+  const POPOVER_ZINDEX = ABOVE_PAGE_HEADER_ZINDEX;
 
   const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
 
