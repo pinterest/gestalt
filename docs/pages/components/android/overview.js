@@ -6,8 +6,8 @@ import PageHeader from '../../../components/PageHeader.js';
 
 export default function ToolingPage(): Node {
   return (
-    <Page title="Tooling">
-      <PageHeader name="Android Tooling" type="guidelines" />
+    <Page title="Android component overview">
+      <PageHeader name="Android component overview" type="guidelines" />
       <Text>Coming Soon!</Text>
     </Page>
   );

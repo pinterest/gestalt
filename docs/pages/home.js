@@ -28,7 +28,12 @@ export default function HomePage(): Node {
                   they love
                 </Text>
 
-                <Button text="See what’s new" role="link" rel="nofollow" href="/whats_new" />
+                <Button
+                  text="See what’s new"
+                  role="link"
+                  rel="nofollow"
+                  href="/roadmap/whats_new"
+                />
               </Flex>
               <Box
                 minWidth="60%"
@@ -46,21 +51,21 @@ export default function HomePage(): Node {
           <IllustrationSection title="Get started">
             <IllustrationCard
               title="Design"
-              href="/design"
+              href="/get_started/design"
               isNew
               description="Our brand-new guide for designers to get started using Gestalt"
               color="blue-skycicle-450"
               image={<Design />}
             />
             <IllustrationCard
-              href="/development"
+              href="/get_started//development"
               title="Development"
               description="How to set up for development and create pull requests"
               color="blue-skycicle-450"
               image={<Development />}
             />
             <IllustrationCard
-              href="/how_to_work_with_us"
+              href="/get_started//how_to_work_with_us"
               title="How to work with us"
               description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
               color="blue-skycicle-450"
@@ -68,9 +73,9 @@ export default function HomePage(): Node {
             />
           </IllustrationSection>
           {/* Guidelines */}
-          <IllustrationSection title="Guidelines">
+          <IllustrationSection title="Build">
             <IllustrationCard
-              href="/accessibility"
+              href="/foundations/accessibility"
               title="Accessibility"
               description="How to create an inclusive product that brings inspiration to everyone"
               color="teal-spabattical-450"
@@ -78,16 +83,16 @@ export default function HomePage(): Node {
             />
 
             <IllustrationCard
-              href="/color_palette"
-              title="Color"
-              description="A full range of options based on Pinterest’s brand color palette"
+              href="/get_started/foundations/accessibility"
+              title="Foundations"
+              description="Guidelines around color palettes, typography, icons and more"
               color="teal-spabattical-450"
               image={<Color />}
             />
 
             <IllustrationCard
               title="Design tokens"
-              href="/design_tokens"
+              href="/foundations/design_tokens"
               description="Values used to construct layouts and components, such as spacing and color"
               color="teal-spabattical-450"
               image={<DesignTokens />}

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useState, useRef } from 'react';
+import { type Node, useCallback, useEffect, useState, useRef, useMemo } from 'react';
 import {
   Box,
   CompositeZIndex,
@@ -21,25 +21,28 @@ import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
-
-const mainNavigationTabs = [
-  { href: '/get_started/about_us', text: 'Get started' },
-  {
-    href: '/components/web/overview',
-    text: 'Components',
-  },
-  { href: '/foundations/accessibility', text: 'Foundations' },
-  { href: '/roadmap/overview', text: 'Roadmap' },
-];
+import { convertNamesForURL } from './Navigation.js';
 
 function Header() {
-  const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
+  const router = useRouter();
+  const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
-  const router = useRouter();
 
+  const mainNavigationTabs = useMemo(
+    () => [
+      { href: '/get_started/about_us', text: 'Get started' },
+      {
+        href: `/components/${componentPlatformFilteredBy}/overview`,
+        text: 'Components',
+      },
+      { href: '/foundations/accessibility', text: 'Foundations' },
+      { href: '/roadmap/overview', text: 'Roadmap' },
+    ],
+    [componentPlatformFilteredBy],
+  );
   const [activeTab, setActiveTab] = useState(
-    mainNavigationTabs.findIndex((tab) => router.pathname.includes(tab.text.toLowerCase())),
+    mainNavigationTabs.findIndex((tab) => router.pathname.includes(convertNamesForURL(tab.text))),
   );
 
   const anchorRef = useRef(null);
@@ -71,6 +74,13 @@ function Header() {
       algoliaSearchInput.focus();
     }
   }, [isMobileSearchExpandedOpen]);
+
+  useEffect(() => {
+    console.log(router.pathname);
+    setActiveTab(
+      mainNavigationTabs.findIndex((tab) => router.pathname.includes(convertNamesForURL(tab.text))),
+    );
+  }, [router.events, router.pathname, mainNavigationTabs]);
 
   return (
     <Box
@@ -107,7 +117,10 @@ function Header() {
             <Link
               accessibilityLabel="Gestalt home"
               href="/"
-              onClick={() => trackButtonClick('Gestalt logo')}
+              onClick={() => {
+                trackButtonClick('Gestalt logo');
+                setActiveTab(-1);
+              }}
             >
               <Box paddingX={2}>
                 <Flex alignItems="center">

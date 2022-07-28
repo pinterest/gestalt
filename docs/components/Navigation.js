@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
-import newSidebarIndex, { type sidebarIndexType } from './newSidebarIndex.js';
+import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
 
 import { useNavigationContext } from './navigationContext.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
@@ -10,13 +10,13 @@ import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
-function convertNamesForURL(name) {
+export function convertNamesForURL(name: string): string {
   return name.replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
 function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
   const router = useRouter();
-  const { sidebarOrganisedBy, setSidebarOrganizedBy } = useNavigationContext();
+  const { componentPlatformFilteredBy, setComponentPlatformFilteredBy } = useNavigationContext();
 
   // Find the section that corresponds to the top navigation
   const activeSection =
@@ -32,7 +32,7 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
       activeSection.pages.find(
         (subSection) =>
           typeof subSection === 'object' &&
-          subSection.sectionName.toLowerCase().includes(sidebarOrganisedBy),
+          subSection.sectionName.toLowerCase().includes(componentPlatformFilteredBy),
       ) || null;
 
     // Flatten the section date to cut out the middle layer
@@ -46,7 +46,7 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
       sectionToRender = { sectionName: newSectionName, pages: subsectionToRender.pages };
     }
   }
-  const sectionItemsForSideNav = useGetSideNavItems((sectionToRender: sidebarIndexType));
+  const sectionItemsForSideNav = useGetSideNavItems((sectionToRender: siteIndexType));
 
   return (
     <SideNavigation
@@ -55,8 +55,8 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
       header={
         router.pathname.includes('components') && (
           <SidebarPlatformSwitcher
-            sidebarOrganisedBy={sidebarOrganisedBy}
-            onClick={(platform) => setSidebarOrganizedBy(platform)}
+            componentPlatformFilteredBy={componentPlatformFilteredBy}
+            onClick={(platform) => setComponentPlatformFilteredBy(platform)}
           />
         )
       }
@@ -84,7 +84,7 @@ export default function Navigation(): Node {
       minWidth={MIN_NAV_WIDTH_PX}
       marginTop={2}
     >
-      <DocsSideNavigation border />
+      <DocsSideNavigation />
     </Box>
   );
 }

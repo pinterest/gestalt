@@ -3,15 +3,18 @@ import React, { type Node } from 'react';
 import { SegmentedControl } from 'gestalt';
 import AppleLogo from '../../graphics/home-page/apple-logo.svg';
 import AndroidLogo from '../../graphics/home-page/android-logo.svg';
-import { type SidebarOrganisedBy } from '../navigationContext.js';
+import { type ComponentPlatformFilteredBy } from '../navigationContext.js';
 import trackButtonClick from './trackButtonClick.js';
 
 type Props = {|
   onClick: (platform: 'web' | 'android' | 'ios') => void,
-  sidebarOrganisedBy: SidebarOrganisedBy,
+  componentPlatformFilteredBy: ComponentPlatformFilteredBy,
 |};
 
-export default function SidebarPlatformSwitcher({ onClick, sidebarOrganisedBy }: Props): Node {
+export default function SidebarPlatformSwitcher({
+  onClick,
+  componentPlatformFilteredBy,
+}: Props): Node {
   const PLATFORM_TO_INDEX_MAP = {
     'web': 0,
     'ios': 1,
@@ -32,7 +35,7 @@ export default function SidebarPlatformSwitcher({ onClick, sidebarOrganisedBy }:
     <SegmentedControl
       items={items}
       onChange={onSelect}
-      selectedItemIndex={PLATFORM_TO_INDEX_MAP[sidebarOrganisedBy]}
+      selectedItemIndex={PLATFORM_TO_INDEX_MAP[componentPlatformFilteredBy]}
     />
   );
 }

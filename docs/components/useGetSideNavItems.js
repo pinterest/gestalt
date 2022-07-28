@@ -2,17 +2,17 @@
 import { type Node } from 'react';
 import { SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
-import { type sidebarIndexType } from './newSidebarIndex.js';
+import { type siteIndexType } from './siteIndex.js';
 
 function convertNamesForURL(name) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
-const useGetSideNavItems = (sectionInfo: sidebarIndexType): Node => {
+const useGetSideNavItems = (sectionInfo: siteIndexType): Node => {
   const router = useRouter();
 
   let nestingLevel = 0;
-  const getNavItems = (navItem: sidebarIndexType, previousSectionName: string) => {
+  const getNavItems = (navItem: siteIndexType, previousSectionName: string) => {
     if (nestingLevel === 0) {
       return (
         <SideNavigation.Section key={`${navItem.sectionName}`} label={navItem.sectionName}>
@@ -86,7 +86,7 @@ const useGetSideNavItems = (sectionInfo: sidebarIndexType): Node => {
     );
   };
 
-  return getNavItems((sectionInfo: sidebarIndexType), '');
+  return getNavItems((sectionInfo: siteIndexType), '');
 };
 
 export default useGetSideNavItems;

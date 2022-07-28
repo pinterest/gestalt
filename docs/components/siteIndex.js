@@ -1,8 +1,8 @@
 // @flow strict
 
-export type sidebarIndexType = {|
+export type siteIndexType = {|
   sectionName: string,
-  pages: Array<string | sidebarIndexType>,
+  pages: Array<string | siteIndexType>,
 |};
 
 // sidebarIndex is the source of truth for the sidebar documentation menu.
@@ -13,7 +13,7 @@ export type sidebarIndexType = {|
 //    >>> page 2
 //    >>> page 3
 // Any new section/page must be added to sidebarIndex to be displayed.
-const sidebarIndex: Array<sidebarIndexType> = [
+const siteIndex: Array<siteIndexType> = [
   {
     sectionName: 'Get started',
     pages: [
@@ -135,7 +135,6 @@ const sidebarIndex: Array<sidebarIndexType> = [
   {
     sectionName: 'Foundations',
     pages: [
-      'Overview',
       'Accessibility',
       'Design tokens',
       {
@@ -164,4 +163,4 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
 ];
 
-export default sidebarIndex;
+export default siteIndex;
