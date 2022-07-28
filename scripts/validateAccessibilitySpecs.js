@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('@babel/register');
 const globby = require('globby');
-const sidebarIndex = require('../docs/components/sidebarIndex.js');
+const sidebarIndex = require('../docs/docs-components/siteIndex.js');
 
 const specFile = 'playwright/accessibility/*.spec.mjs';
 
