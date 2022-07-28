@@ -46,9 +46,13 @@ function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
             >
               {section.pages.map((componentName, i) => {
                 const href = `/${componentName.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`;
+
+                // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
+                const { id: pathId } = router.query;
+
                 return (
                   <SideNavigation.TopItem
-                    active={router.pathname === href ? 'page' : undefined}
+                    active={router.pathname === href || `/${pathId}` === href ? 'page' : undefined}
                     label={componentName}
                     onClick={() => {}}
                     key={`${componentName}--${i}`}
