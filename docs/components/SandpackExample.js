@@ -24,10 +24,12 @@ async function copyCode({ code }: {| code: ?string |}) {
 
 function SandpackContainer({
   name,
+  layout,
   previewHeight,
   showEditor,
 }: {|
   name: string,
+  layout: 'row' | 'column',
   previewHeight?: number,
   showEditor: boolean,
 |}) {
@@ -45,6 +47,8 @@ function SandpackContainer({
               wrapContent
               style={{
                 height: defaultHeight,
+                flex: layout === 'column' ? 'none' : null,
+                order: layout === 'column' ? 1 : null,
               }}
             />
           )}
@@ -81,13 +85,15 @@ function SandpackContainer({
 
 export default function SandpackExample({
   code,
-  previewHeight,
+  layout = 'row',
   name,
+  previewHeight,
   showEditor = true,
 }: {|
   code: ?string | (() => Node),
-  previewHeight?: number,
+  layout?: 'row' | 'column',
   name: string,
+  previewHeight?: number,
   showEditor?: boolean,
 |}): Node {
   // Based on
@@ -115,7 +121,12 @@ export default function SandpackExample({
         },
       }}
     >
-      <SandpackContainer name={name} showEditor={showEditor} previewHeight={previewHeight} />
+      <SandpackContainer
+        name={name}
+        showEditor={showEditor}
+        previewHeight={previewHeight}
+        layout={layout}
+      />
     </SandpackProvider>
   );
 }

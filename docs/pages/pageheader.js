@@ -35,6 +35,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
         <SandpackExample
           code={defaultExample}
           name="PageHeader Example"
+          layout="column"
           previewHeight={85}
           showEditor={false}
         />
@@ -75,6 +76,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
             sandpackExample={
               <SandpackExample
                 code={onePrimaryActionExample}
+                layout="column"
                 name="PageHeader one primary action example"
                 previewHeight={80}
                 showEditor={false}
@@ -88,6 +90,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
             sandpackExample={
               <SandpackExample
                 code={multiplePrimaryActionsExample}
+                layout="column"
                 name="PageHeader one primary action example"
                 showEditor={false}
               />
@@ -102,6 +105,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
             sandpackExample={
               <SandpackExample
                 code={centerAlignedExample}
+                layout="column"
                 name="PageHeader center aligned example"
                 showEditor={false}
               />
@@ -114,6 +118,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
             sandpackExample={
               <SandpackExample
                 code={maxWidthExample}
+                layout="column"
                 name="PageHeader max width example"
                 showEditor={false}
               />
@@ -126,6 +131,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
             sandpackExample={
               <SandpackExample
                 code={includeImageExample}
+                layout="column"
                 name="PageHeader include image example"
                 previewHeight={80}
                 showEditor={false}
@@ -139,6 +145,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
             sandpackExample={
               <SandpackExample
                 code={includeProfilePictureExample}
+                layout="column"
                 name="PageHeader include image example"
                 previewHeight={80}
                 showEditor={false}
@@ -153,6 +160,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
             sandpackExample={
               <SandpackExample
                 code={minimumButtonsExample}
+                layout="column"
                 name="PageHeader minimum buttons example"
                 previewHeight={80}
                 showEditor={false}
@@ -166,6 +174,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
             sandpackExample={
               <SandpackExample
                 code={dontOverloadExample}
+                layout="column"
                 name="PageHeader do not overload example"
                 previewHeight={85}
                 showEditor={false}
@@ -188,6 +197,7 @@ Be brief with text in all components to account for languages with longer words.
           sandpackExample={
             <SandpackExample
               code={localizationExample}
+              layout="column"
               name="PageHeader localization example"
               previewHeight={85}
               showEditor={false}
@@ -205,6 +215,7 @@ Be brief with text in all components to account for languages with longer words.
             sandpackExample={
               <SandpackExample
                 code={titleExample}
+                layout="column"
                 name="PageHeader title example"
                 previewHeight={80}
                 showEditor={false}
@@ -231,6 +242,7 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
             sandpackExample={
               <SandpackExample
                 code={primaryActionExample}
+                layout="column"
                 name="Primary action example"
                 previewHeight={260}
                 showEditor={false}
@@ -255,6 +267,7 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
             sandpackExample={
               <SandpackExample
                 code={SecondaryActionsExample}
+                layout="column"
                 name="Secondary actions example"
                 previewHeight={170}
                 showEditor={false}
@@ -271,6 +284,7 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
             sandpackExample={
               <SandpackExample
                 code={complimentaryItemsExample}
+                layout="column"
                 name="Complimentary items example"
                 previewHeight={85}
                 showEditor={false}
@@ -287,6 +301,7 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
             sandpackExample={
               <SandpackExample
                 code={subtextExample}
+                layout="column"
                 name="PageHeader subtext example"
                 previewHeight={85}
                 showEditor={false}
@@ -305,6 +320,7 @@ PageHeader also supports a bottom border to show the division between PageHeader
             sandpackExample={
               <SandpackExample
                 code={centerAlignedExample}
+                layout="column"
                 name="PageHeader max width & border example"
                 showEditor={false}
               />
