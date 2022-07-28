@@ -16,7 +16,8 @@ export function convertNamesForURL(name: string): string {
 
 export default function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
   const router = useRouter();
-  const { componentPlatformFilteredBy, setComponentPlatformFilteredBy } = useNavigationContext();
+  const { componentPlatformFilteredBy, setComponentPlatformFilteredBy, setIsSidebarOpen } =
+    useNavigationContext();
 
   // Find the section that corresponds to the top navigation
   const activeSection =
@@ -47,6 +48,7 @@ export default function DocsSideNavigation({ border }: {| border?: boolean |}): 
     }
   }
   const sectionItemsForSideNav = useGetSideNavItems((sectionToRender: siteIndexType));
+  const closeSideNavigation = () => setIsSidebarOpen(false);
 
   return (
     <SideNavigation
@@ -60,6 +62,13 @@ export default function DocsSideNavigation({ border }: {| border?: boolean |}): 
           />
         )
       }
+      title="Menu"
+      dismissButton={{
+        onDismiss: closeSideNavigation,
+        tooltip: {
+          text: 'Close navigation',
+        },
+      }}
     >
       {sectionItemsForSideNav}
     </SideNavigation>

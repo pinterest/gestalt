@@ -6,6 +6,7 @@ import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
 import Footer from './Footer.js';
 import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
+import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 
 const CONTENT_MAX_WIDTH_PX = 1544;
 
@@ -16,14 +17,28 @@ type Props = {|
 |};
 
 export default function AppLayout({ children, colorScheme, isHomePage }: Props): Node {
+  const { isMobile } = useDocsDeviceType();
   const { isSidebarOpen } = useNavigationContext();
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
-  return (
+
+  return isMobile && isSidebarOpen ? (
+    <Box
+      position="absolute"
+      top
+      bottom
+      left
+      right
+      overflow="scroll"
+      display="block"
+      mdDisplay="none"
+    >
+      <DocsSideNavigation />
+    </Box>
+  ) : (
     <Box minHeight="100vh" color="default">
       <Header />
-
       <Box mdDisplay="flex">
         {!isHomePage && (
           <Box minWidth={MIN_NAV_WIDTH_PX}>
