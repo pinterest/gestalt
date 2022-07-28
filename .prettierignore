@@ -5,7 +5,7 @@ build
 coverage
 dist
 docs/.next/
-docs/components/metadata.js
+docs/docs-components/metadata.js
 docs/markdown/*.md
 flow-typed
 node_modules
