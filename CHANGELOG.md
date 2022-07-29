@@ -1,3 +1,9 @@
+## 62.4.0 (Jul 29, 2022)
+
+### Minor
+
+- Docs: Introduce Sandpack for code examples (#2221)
+
 ## 62.3.0 (Jul 28, 2022)
 
 ### Minor
