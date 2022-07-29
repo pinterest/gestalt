@@ -1,3 +1,9 @@
+## 62.4.1 (Jul 29, 2022)
+
+### Patch
+
+- Docs: fix heading scroll position (#2230)
+
 ## 62.4.0 (Jul 29, 2022)
 
 ### Minor
