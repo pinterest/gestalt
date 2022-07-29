@@ -52,7 +52,7 @@ export default function Card({
         <Box
           dangerouslySetInlineStyle={{
             __style: {
-              scrollMarginTop: 60,
+              scrollMarginTop: 90,
             },
           }}
           id={slugifiedId}
