@@ -11,7 +11,7 @@
           ],
           "imageSrc": "https://i.pinimg.com/originals/cb/36/dc/cb36dc63c61d6a1e5e7b6e63c4eb76ef.png",
           "imageAltText": "A screenshot of the Gestalt Popover component",
-          "content": "We added placeholder slots for Popover is our [Android](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=3686%3A23889) and [iOS](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5975%3A9433) Figma libraries. This feature allows you to add add complex content without detaching or building from scratch."
+          "content": "We added placeholder slots for Popover in our [Android](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=3686%3A23889) and [iOS](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5975%3A9433) Figma libraries. This feature allows you to add add complex content without detaching or building from scratch."
         },
         {
           "title": "Improvements to TextField and Tabs in the Figma iOS library",
