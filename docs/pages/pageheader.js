@@ -6,8 +6,24 @@ import docgen, { type DocGen } from '../components/docgen.js';
 import DocsPageHeader from '../components/PageHeader.js'; // renaming to avoid confusion
 import MainSection from '../components/MainSection.js';
 import QualityChecklist from '../components/QualityChecklist.js';
-
 import AccessibilitySection from '../components/AccessibilitySection.js';
+import SandpackExample from '../components/SandpackExample.js';
+
+import centerAlignedExample from '../examples/pageheader/centerAlignedExample.js';
+import complimentaryItemsExample from '../examples/pageheader/complimentaryItemsExample.js';
+import defaultExample from '../examples/pageheader/defaultExample.js';
+import dontOverloadExample from '../examples/pageheader/dontOverloadExample.js';
+import includeImageExample from '../examples/pageheader/includeImageExample.js';
+import includeProfilePictureExample from '../examples/pageheader/includeProfilePictureExample.js';
+import localizationExample from '../examples/pageheader/localizationExample.js';
+import maxWidthExample from '../examples/pageheader/maxWidthExample.js';
+import minimumButtonsExample from '../examples/pageheader/minimumButtonsExample.js';
+import multiplePrimaryActionsExample from '../examples/pageheader/multiplePrimaryActionsExample.js';
+import onePrimaryActionExample from '../examples/pageheader/onePrimaryActionExample.js';
+import primaryActionExample from '../examples/pageheader/primaryActionExample.js';
+import SecondaryActionsExample from '../examples/pageheader/secondaryActionExample.js';
+import subtextExample from '../examples/pageheader/subtextExample.js';
+import titleExample from '../examples/pageheader/titleExample.js';
 
 export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -15,43 +31,15 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
       <DocsPageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        shadedCodeExample
-        defaultCode={`
-<PageHeader
-  title="Ads overview"
-  items={[
-    <Datapoint
-      size="md"
-      title="Impressions"
-      value="$1.25M"
-      trend={{ value: 30, accessibilityLabel: 'Trending up' }}
-    />,
-    <Datapoint
-      size="md"
-      title="Engagement"
-      value="10%"
-      trend={{ value: 5, accessibilityLabel: 'Trending up' }}
-    />
-  ]}
-  primaryAction={{
-    component: <Button color="red" size="lg" text="Promote" />,
-    dropdownItems: [
-      <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
-    ],
-  }}
-  secondaryAction={{
-    component: <Button size="lg" text="View analytics" />,
-    dropdownItems: [
-      <Dropdown.Link
-        option={{ value: 'View analytics', label: 'View analytics' }}
-        href="https://pinterest.com"
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="More options"
-/>
-    `}
-      />
+      >
+        <SandpackExample
+          code={defaultExample}
+          name="PageHeader Example"
+          layout="column"
+          previewHeight={85}
+          showEditor={false}
+        />
+      </DocsPageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -85,144 +73,28 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="lg"
             type="do"
             description="Use only one primary action style in PageHeader. This should also be the only primary action on the page."
-            defaultCode={`
-<PageHeader
-  title="Audiences"
-  primaryAction={{
-    component: <Button color="red" size="lg" text="Create audience" />,
-    dropdownItems: [
-      <Dropdown.Item
-        option={{ value: 'Create audience', label: 'Create audience' }}
-        onSelect={() => {}}
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="More options"
-/>
-`}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={onePrimaryActionExample}
+                layout="column"
+                name="PageHeader one primary action example"
+                previewHeight={80}
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description="Use more than one primary action style in PageHeader, or include a primary action when there’s already a primary action elsewhere on the page. If there's already a primary action elsewhere on the page, PageHeader can have 1 or 2 secondary actions."
-            defaultCode={`
-function Example() {
-  const HeaderRow = ({ id }) => {
-    return (
-      <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell>
-            <Box display="visuallyHidden"><Label htmlFor={id}>Not all checkboxes are checked</Label></Box>
-            <Checkbox
-              id={id}
-    onChange={() => {}}
-              indeterminate
-              size="sm"
-            />
-          </Table.HeaderCell>
-          {["Status", "Audience"].map((title, idx) => {
-            return (
-              <Table.HeaderCell key={idx}>
-                <Text weight="bold">{title}</Text>
-              </Table.HeaderCell>
-            );
-          })}
-        </Table.Row>
-      </Table.Header>
-    )
-  };
-
-  const BaseRow = ({ id, checked, status, audience }) => {
-    return (
-      <Table.Row>
-        <Table.Cell>
-          <Checkbox
-            id={id.replace(/ /g, "_").replace(/'/g, "") + "_" + status.replace(/ /g, "_").replace(/'/g, "")} onChange={() => {}}
-            size="sm"
-            checked={checked}
-          />
-        </Table.Cell>
-        <Table.Cell>
-          <Label htmlFor={id.replace(/ /g, "_").replace(/'/g, "") + "_" + status.replace(/ /g, "_").replace(/'/g, "")}>
-            <Text>{status}</Text>
-          </Label>
-        </Table.Cell>
-        <Table.Cell>
-          <Text color="darkGray">{audience}</Text>
-        </Table.Cell>
-      </Table.Row>
-    )
-  };
-
-  const tableID = "Audience table";
-
-  return (
-    <Box width="100%" color="white">
-      <PageHeader
-        borderStyle="sm"
-        title="Audiences"
-        primaryAction={{
-          component: <Button color="red" size="lg" text="Create audience" />,
-          dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Create audience', label: 'Create audience' }}
-              onSelect={() => {}}
-            />,
-          ],
-        }}
-        secondaryAction={{
-          component: <Button color="red" size="lg" text="Export" />,
-          dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Export', label: 'Export' }}
-              onSelect={() => {}}
-            />,
-          ],
-        }}
-        dropdownAccessibilityLabel="More options"
-      />
-      <Box padding={12}>
-        <Flex gap={7} alignItems="end">
-          <Flex.Item flex="grow">
-            <Table accessibilityLabel="Audiences">
-              <colgroup>
-                <col span="1" style={{ width: "5%" }} />
-                <col span="1" style={{ width: "10%" }} />
-                <col span="1" style={{ width: "50%" }} />
-              </colgroup>
-              <HeaderRow id={tableID}/>
-              <Table.Body>
-                <BaseRow
-                  id={tableID}
-                  checked={true}
-                  status="Active"
-                  audience="East Coast"
-                />
-                <BaseRow
-                  id={tableID}
-                  disabled
-                  status="Inactive"
-                  audience="West Coast"
-                />
-              </Table.Body>
-            </Table>
-          </Flex.Item>
-          <IconButton
-            accessibilityLabel="Create new audience"
-            bgColor="red"
-            icon="add"
-            onClick={() => {}}
-            size="lg"
-            tooltip={{text: "Create new audience", idealDirection: "up"}}
-          />
-        </Flex>
-      </Box>
-    </Box>
-  )
-}
-`}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={multiplePrimaryActionsExample}
+                layout="column"
+                name="PageHeader one primary action example"
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
@@ -230,371 +102,89 @@ function Example() {
             description={`
 Plan for most PageHeaders to be full width. A \`maxWidth\` should only be supplied when the content of the page is center aligned. The PageHeader’s padding should match the page’s overall padding.
         `}
-            defaultCode={`
-<Box width="100%" color="white">
-  <PageHeader
-    maxWidth="65%"
-    borderStyle="sm"
-    title="Settings"
-    primaryAction={{
-      component: (
-        <Tooltip text="Additional options" idealDirection="up">
-          <IconButton
-            icon="ellipsis"
-            iconColor="darkGray"
-            size="lg"
-            accessibilityLabel="Additional options"
-          />
-        </Tooltip>
-      ),
-      dropdownItems: [
-        <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
-      ],
-    }}
-    dropdownAccessibilityLabel="Additional options"
-  />
-    <Flex justifyContent="center">
-      <Box color="white" width="60%" paddingY={6}>
-        <Flex direction="column" gap={5}>
-          <Heading size="400" accessibilityLevel={2}>
-            Edit profile
-          </Heading>
-          <TextField label="Name" id="b-textfield1" onChange={() => {}} placeholder="Placeholder" />
-          <Flex gap={2}>
-            <Flex.Item flex="grow">
-              <TextField label="Phone" id="b-textfield2" onChange={() => {}} placeholder="Placeholder" />
-            </Flex.Item>
-            <Flex.Item flex="grow">
-              <TextField label="Email" id="b-textfield3" onChange={() => {}} placeholder="Placeholder" />
-            </Flex.Item>
-          </Flex>
-          <SelectList
-            label="Location"
-            id="selectlist1"
-            options={[
-              {
-                value: 'belgium',
-                label: 'Belgium',
-              },
-              {
-                value: 'france',
-                label: 'France',
-              },
-              {
-                value: 'usa',
-                label: 'USA',
-              },
-            ]}
-            placeholder="Placeholder"
-            onChange={() => {}}
-          />
-        </Flex>
-      </Box>
-    </Flex>
-</Box>
-`}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={centerAlignedExample}
+                layout="column"
+                name="PageHeader center aligned example"
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description={`Provide \`maxWidth\` for PageHeader content that is different from the page content`}
-            defaultCode={`
-<Box width="100%" color="white">
-  <PageHeader
-    maxWidth="65%"
-    borderStyle="sm"
-    title="Settings"
-    primaryAction={{
-      component: (
-        <Tooltip text="Additional options" idealDirection="up">
-          <IconButton
-            icon="ellipsis"
-            iconColor="darkGray"
-            size="lg"
-            accessibilityLabel="Additional options"
-          />
-        </Tooltip>
-      ),
-      dropdownItems: [
-        <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
-      ],
-    }}
-    dropdownAccessibilityLabel="Additional options"
-  />
-    <Flex justifyContent="center">
-      <Box color="white" width="100%" padding={6}>
-        <Flex direction="column" gap={5}>
-          <Heading size="400" accessibilityLevel={2}>
-            Edit profile
-          </Heading>
-          <TextField label="Name" id="c-textfield1" onChange={() => {}} placeholder="Placeholder" />
-          <Flex gap={2}>
-            <Flex.Item flex="grow">
-              <TextField label="Phone" id="c-textfield2" onChange={() => {}} placeholder="Placeholder" />
-            </Flex.Item>
-            <Flex.Item flex="grow">
-              <TextField label="Email" id="c-textfield3" onChange={() => {}} placeholder="Placeholder" />
-            </Flex.Item>
-          </Flex>
-          <SelectList
-            label="Location"
-            id="selectlist2"
-            options={[
-              {
-                value: 'belgium',
-                label: 'Belgium',
-              },
-              {
-                value: 'france',
-                label: 'France',
-              },
-              {
-                value: 'usa',
-                label: 'USA',
-              },
-            ]}
-            placeholder="Placeholder"
-            onChange={() => {}}
-          />
-        </Flex>
-      </Box>
-    </Flex>
-</Box>
-`}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={maxWidthExample}
+                layout="column"
+                name="PageHeader max width example"
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             type="do"
             description="Include an image when unique to the page content, such as a page dedicated to a developer’s apps"
-            defaultCode={`
-<PageHeader
-  title="Pinterest app"
-  subtext="Last updated 5 hours ago"
-  primaryAction={{
-    component: <IconButton
-      accessibilityLabel="Refresh page"
-      icon="refresh"
-      iconColor="darkGray"
-      onClick={() => {}}
-      size="lg"
-      tooltip={{text: "Refresh page", idealDirection: "up"}}
-    />,
-    dropdownItems: [
-      <Dropdown.Item
-        option={{ value: 'Refresh page', label: 'Refresh page' }}
-        onSelect={() => {}}
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="Additional options"
-  thumbnail={
-        <Image
-          alt="square"
-          fit="cover"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/LQc8ynn/image.png"
-        />
-      }
-
-/>
-`}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={includeImageExample}
+                layout="column"
+                name="PageHeader include image example"
+                previewHeight={80}
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description="Include a profile avatar image in PageHeader, as the user avatar should be provided in the main app navigation"
-            defaultCode={`
-<PageHeader
-  title="My apps"
-  subtext="5 total apps"
-  primaryAction={{
-    component: <IconButton
-      accessibilityLabel="Refresh page"
-      icon="refresh"
-      iconColor="darkGray"
-      onClick={() => {}}
-      size="lg"
-      tooltip={{text: "Refresh page", idealDirection: "up"}}
-    />,
-    dropdownItems: [
-      <Dropdown.Item
-        option={{ value: 'Refresh page', label: 'Refresh page' }}
-        onSelect={() => {}}
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="Additional options"
-  thumbnail={
-        <Image
-          alt="square"
-          fit="cover"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-        />
-      }
-
-/>
-`}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={includeProfilePictureExample}
+                layout="column"
+                name="PageHeader include image example"
+                previewHeight={80}
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             type="do"
             description={`
 Keep additional help buttons and links to a minimum, choosing one source of help per PageHeader`}
-            defaultCode={`
-<PageHeader
-  title="Ads overview"
-  helperIconButton={{
-        accessibilityLabel: 'Read more information about Ads overview',
-        onClick: () => {},
-      }}
-  items={[
-    <Datapoint
-      size="md"
-      title="Impressions"
-      value="$1.25M"
-      trend={{ value: 30, accessibilityLabel: 'Trending up' }}
-    />,
-    <Datapoint
-      size="md"
-      title="Engagement"
-      value="10%"
-      trend={{ value: 5, accessibilityLabel: 'Trending up' }}
-    />
-  ]}
-  primaryAction={{
-    component: <Button color="red" size="lg" text="Promote" />,
-    dropdownItems: [
-      <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
-    ],
-  }}
-  secondaryAction={{
-    component: <Button size="lg" text="View analytics" />,
-    dropdownItems: [
-      <Dropdown.Link
-        option={{ value: 'View analytics', label: 'View analytics' }}
-        href="https://pinterest.com"
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="More options"
-/>
-        `}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={minimumButtonsExample}
+                layout="column"
+                name="PageHeader minimum buttons example"
+                previewHeight={80}
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description={`Overload PageHeader with a help IconButton, help Link and info Tooltips. Too many sources of help on the page may confuse users. If there are multiple items to explain, use the help IconButton to open a [Sheet](/sheet) with further help. If you want to lead users to external documentation, add a help Link with the \`helperLink\` prop.`}
-            defaultCode={`
-<PageHeader
-  title="Ads overview"
-  helperIconButton={{
-        accessibilityLabel: 'Read more information about Ads overview',
-        onClick: () => {},
-      }}
-  subtext='5 active campaigns.'
-  helperLink={{
-    text: "Learn more.",
-    accessibilityLabel: "Learn more Pinterest.com",
-    href: "http://www.pinterest.com",
-    onClick: () => {} }}
-  items={[
-    <Datapoint
-      size="md"
-      title="Impressions"
-      value="$1.25M"
-      tooltipText="The number of times your ads were seen."
-      trend={{ value: 30, accessibilityLabel: 'Trending up' }}
-    />,
-    <Datapoint
-      size="md"
-      title="Engagement"
-      value="10%"
-      tooltipText="The number of times your ads were clicked."
-      trend={{ value: 5, accessibilityLabel: 'Trending up' }}
-    />
-  ]}
-  primaryAction={{
-    component: <Button color="red" size="lg" text="Promote" />,
-    dropdownItems: [
-      <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
-    ],
-  }}
-  secondaryAction={{
-    component: <Button size="lg" text="View analytics" />,
-    dropdownItems: [
-      <Dropdown.Link
-        option={{ value: 'View analytics', label: 'View analytics' }}
-        href="https://pinterest.com"
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="More options"
-/>
-        `}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={dontOverloadExample}
+                layout="column"
+                name="PageHeader do not overload example"
+                previewHeight={85}
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
 
-      <AccessibilitySection name={generatedDocGen?.displayName}>
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
-<Box width="100%" color="white">
-  <PageHeader
-    title="Settings"
-    primaryAction={{
-      component: (
-        <Tooltip text="Additional options" idealDirection="up">
-          <IconButton
-            icon="ellipsis"
-            iconColor="darkGray"
-            size="lg"
-            accessibilityLabel="Additional options"
-          />
-        </Tooltip>
-      ),
-      dropdownItems: [
-        <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
-      ],
-    }}
-    dropdownAccessibilityLabel="Additional options"
-  />
-  <Box display="flex" wrap width="80%" direction="column" marginStart={5}>
-    <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="400" accessibilityLevel={2}>
-        Edit profile
-      </Heading>
-    </Box>
-
-    <Box flex="grow" paddingX={3} paddingY={3}>
-      <TextField label="Name" id="textfield7" onChange={() => {}} placeholder="Placeholder" />
-    </Box>
-
-    <Box flex="grow" paddingX={3} paddingY={3}>
-      <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
-        <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField label="Phone" id="textfield8" onChange={() => {}} placeholder="Placeholder" />
-        </Box>
-        <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField label="Email" id="textfield9" onChange={() => {}} placeholder="Placeholder" />
-        </Box>
-      </Box>
-    </Box>
-  </Box>
-</Box>
-        `}
-          shaded
-        />
-      </AccessibilitySection>
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection
         name="Localization"
@@ -603,43 +193,16 @@ Keep additional help buttons and links to a minimum, choosing one source of help
 Be brief with text in all components to account for languages with longer words.`}
       >
         <MainSection.Card
-          shaded
           cardSize="lg"
-          defaultCode={`
-<PageHeader
-  title="Anzeigenübersicht"
-  subtext='5 aktive Kampagnen.'
-  helperLink={{
-    text: "Mehr erfahren.",
-    accessibilityLabel: "Erfahren Sie mehr auf Pinterest.com",
-    href: "http://www.pinterest.com",
-    onClick: () => {} }}
-  items={[
-    <Datapoint
-      size="md"
-      title="Impressionen"
-      value="$1.25M"
-      trend={{ value: 30, accessibilityLabel: 'Aufwärtstrend' }}
-    />,
-  ]}
-  primaryAction={{
-    component: <Button color="red" size="lg" text="Fördern" />,
-    dropdownItems: [
-      <Dropdown.Item option={{ value: 'Fördern', label: 'Fördern' }} onSelect={() => {}} />,
-    ],
-  }}
-  secondaryAction={{
-    component: <Button size="lg" text="Analysen anzeigen" />,
-    dropdownItems: [
-      <Dropdown.Link
-        option={{ value: 'Analysen anzeigen', label: 'Analysen anzeigen' }}
-        href="https://pinterest.com"
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="Mehr Optionen"
-/>
-    `}
+          sandpackExample={
+            <SandpackExample
+              code={localizationExample}
+              layout="column"
+              name="PageHeader localization example"
+              previewHeight={85}
+              showEditor={false}
+            />
+          }
         />
       </MainSection>
       <MainSection name="Variants">
@@ -648,28 +211,16 @@ Be brief with text in all components to account for languages with longer words.
           description={`PageHeader's \`title\` is the main part of the component as it represents the page's main heading (it will always be a level 1 heading). It can be complemented with three additional elements: a thumbnail (left) and a badge and/or a help Icon (right). Don't forget to localized its content.`}
         >
           <MainSection.Card
-            shaded
             cardSize="lg"
-            defaultCode={`
-<PageHeader
-  title="Pinterest app"
-  badge={{ text: 'New', tooltipText: 'New integration' }}
-  helperIconButton={{
-        accessibilityLabel: 'Read more information about the new Pinterest integration',
-        onClick: () => {},
-      }}
-  thumbnail={
-        <Image
-          alt="square"
-          fit="cover"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://i.ibb.co/LQc8ynn/image.png"
-        />
-      }
-
-/>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={titleExample}
+                layout="column"
+                name="PageHeader title example"
+                previewHeight={80}
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -688,135 +239,15 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-            function Example() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({ item }) => {
-    if (selected.some((selectedItem) => selectedItem.value === item.value)) {
-      setSelected((selected) =>
-        selected.filter((selectedItem) => selectedItem.value != item.value),
-      );
-    } else {
-      setSelected((selected) => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex gap={8} direction="column" flex="grow">
-      <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
-        primaryAction={{
-          component: <Button color="red" size="lg" text="Create group" />,
-          dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Create group', label: 'Create group' }}
-              onSelect={() => {}}
-            />,
-          ],
-        }}
-        dropdownAccessibilityLabel="Additional options"
-      />
-      <Divider />
-      <PageHeader
-        title="Kitchen Reno Ideas"
-        primaryAction={{
-          component: (
-            <React.Fragment>
-              <Tooltip idealDirection="up" text="Board options">
-                <IconButton
-                  accessibilityControls="page-header-example"
-                  accessibilityHaspopup
-                  accessibilityExpanded={open}
-                  accessibilityLabel="Board options"
-                  icon="ellipsis"
-                  iconColor="darkGray"
-                  selected={open}
-                  onClick={() => setOpen((prevVal) => !prevVal)}
-                  ref={anchorRef}
-                  size="lg"
-                />
-              </Tooltip>
-              {open && (
-                <Dropdown
-                  id="page-header-example"
-                  anchor={anchorRef.current}
-                  onDismiss={() => {
-                    setOpen(false);
-                  }}
-                >
-                  <Dropdown.Item
-                    handleSelect={handleSelect}
-                    selected={selected}
-                    option={{
-                      value: 'Edit Board',
-                      label: 'Edit Board',
-                    }}
-                  />
-                  <Dropdown.Item
-                    handleSelect={handleSelect}
-                    selected={selected}
-                    option={{ value: 'Share', label: 'Share' }}
-                  />
-                  <Dropdown.Item
-                    handleSelect={handleSelect}
-                    selected={selected}
-                    badge={{ text: 'New' }}
-                    option={{
-                      value: 'Merge',
-                      label: 'Merge',
-                    }}
-                  />
-                </Dropdown>
-              )}
-            </React.Fragment>
-          ),
-          dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Edit board', label: 'Edit board' }}
-              onSelect={() => {}}
-            />,
-            <Dropdown.Item
-              option={{ value: 'Share board', label: 'Share board' }}
-              onSelect={() => {}}
-            />,
-            <Dropdown.Item
-              option={{ value: 'Merge board', label: 'Merge board' }}
-              onSelect={() => {}}
-            />,
-          ],
-        }}
-        dropdownAccessibilityLabel="Additional options"
-      />
-      <Divider />
-      <PageHeader
-        title="Ads overview"
-        primaryAction={{
-          component: (
-            <Text weight="bold">
-              <Link href="www.pinterest.com">Switch to quick ad creation</Link>
-            </Text>
-          ),
-          dropdownItems: [
-            <Dropdown.Link
-              key="Visit"
-              href="www.pinterest.com"
-              option={{
-                value: 'Switch to quick ad creation',
-                label: 'Switch to quick ad creation',
-              }}
-            />,
-          ],
-        }}
-        dropdownAccessibilityLabel="Additional options"
-      />
-    </Flex>
-  )
-}
-      `}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={primaryActionExample}
+                layout="column"
+                name="Primary action example"
+                previewHeight={260}
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -833,129 +264,15 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({ item }) => {
-    if (selected.some((selectedItem) => selectedItem.value === item.value)) {
-      setSelected((selected) =>
-        selected.filter((selectedItem) => selectedItem.value != item.value),
-      );
-    } else {
-      setSelected((selected) => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex gap={8} direction="column" flex="grow">
-      <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
-        primaryAction={{
-          component: <Button color="red" size="lg" text="Create product group" />,
-          dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Create product group', label: 'Create product group' }}
-              onSelect={() => {}}
-            />,
-          ],
-        }}
-        secondaryAction={{
-          component: <Button text="Promote" size="lg" />,
-          dropdownItems: [
-            <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
-          ],
-        }}
-        dropdownAccessibilityLabel="Additional options"
-      />
-      <Divider />
-      <PageHeader
-        title="Custom reports"
-        dropdownAccessibilityLabel="Additional options"
-        primaryAction={{
-          component: <Button color="red" size="lg" text="Create new report" />,
-          dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Create new report', label: 'Create new report' }}
-              onSelect={() => {}}
-            />,
-          ],
-        }}
-        secondaryAction={{
-          component: (
-            <React.Fragment>
-              <Tooltip idealDirection="up" text="Board options">
-                <IconButton
-                  accessibilityControls="page-header-example"
-                  accessibilityHaspopup
-                  accessibilityExpanded={open}
-                  accessibilityLabel="Board options"
-                  icon="ellipsis"
-                  iconColor="darkGray"
-                  selected={open}
-                  onClick={() => setOpen((prevVal) => !prevVal)}
-                  ref={anchorRef}
-                  size="lg"
-                />
-              </Tooltip>
-              {open && (
-                <Dropdown
-                  id="page-header-example"
-                  anchor={anchorRef.current}
-                  onDismiss={() => {
-                    setOpen(false);
-                  }}
-                >
-                  <Dropdown.Item
-                    handleSelect={handleSelect}
-                    selected={selected}
-                    option={{
-                      value: 'Share report',
-                      label: 'Share report',
-                    }}
-                  />
-                  <Dropdown.Item
-                    handleSelect={handleSelect}
-                    selected={selected}
-                    option={{ value: 'Help center', label: 'Help center' }}
-                  />
-                  <Dropdown.Item
-                    handleSelect={handleSelect}
-                    selected={selected}
-                    badge={{ text: 'New' }}
-                    option={{
-                      value: 'Delete',
-                      label: 'Delete',
-                    }}
-                  />
-                </Dropdown>
-              )}
-            </React.Fragment>
-          ),
-          dropdownItems: [
-            <Dropdown.Item
-              option={{ value: 'Share report', label: 'Share report' }}
-              onSelect={() => {}}
-            />,
-            <Dropdown.Link
-              option={{ value: 'Visit help center', label: 'Visit help center' }}
-              isExternal
-              onSelect={() => {}}
-            />,
-            <Dropdown.Item
-              option={{ value: 'Delete report', label: 'Delete report' }}
-              onSelect={() => {}}
-            />,
-          ],
-        }}
-      />
-    </Flex>
-  )
-}
-        `}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={SecondaryActionsExample}
+                layout="column"
+                name="Secondary actions example"
+                previewHeight={170}
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -963,47 +280,16 @@ function Example() {
           description={`PageHeader supports an optional pair of components next to the CTA section. It's strongly recommended to limit this space to data display components, mostly [Datapoint](https://gestalt.pinterest.systems/datapoint). The complementary component section is hidden in small breakpoints.`}
         >
           <MainSection.Card
-            shaded
             cardSize="lg"
-            defaultCode={`
-<PageHeader
-  title="Ads overview"
-  helperIconButton={{
-        accessibilityLabel: 'Read more information about Ads overview',
-        onClick: () => {},
-      }}
-  items={[
-    <Datapoint
-      size="md"
-      title="Impressions"
-      value="$1.25M"
-      trend={{ value: 30, accessibilityLabel: 'Trending up' }}
-    />,
-    <Datapoint
-      size="md"
-      title="Engagement"
-      value="10%"
-      trend={{ value: 5, accessibilityLabel: 'Trending up' }}
-    />
-  ]}
-  primaryAction={{
-    component: <Button color="red" size="lg" text="Promote" />,
-    dropdownItems: [
-      <Dropdown.Item option={{ value: 'Promote', label: 'Promote' }} onSelect={() => {}} />,
-    ],
-  }}
-  secondaryAction={{
-    component: <Button size="lg" text="View analytics" />,
-    dropdownItems: [
-      <Dropdown.Link
-        option={{ value: 'View analytics', label: 'View analytics' }}
-        href="https://pinterest.com"
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="More options"
-/>
-        `}
+            sandpackExample={
+              <SandpackExample
+                code={complimentaryItemsExample}
+                layout="column"
+                name="Complimentary items example"
+                previewHeight={85}
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1011,28 +297,16 @@ function Example() {
           title="Subtext"
         >
           <MainSection.Card
-            shaded
             cardSize="lg"
-            defaultCode={`
-<PageHeader
-  title="Create product group"
-  subtext="2,131 catalog products."
-  helperLink={{
-    text: "Learn more about bulk product catalog uploads.",
-    href: "http://www.pinterest.com",
-    onClick: () => {} }}
-  primaryAction={{
-    component: <Button color="red" size="lg" text="Quick create" />,
-    dropdownItems: [
-      <Dropdown.Item
-        option={{ value: 'Quick create', label: 'Quick create' }}
-        onSelect={() => {}}
-      />,
-    ],
-  }}
-  dropdownAccessibilityLabel="Additional options"
-/>
-        `}
+            sandpackExample={
+              <SandpackExample
+                code={subtextExample}
+                layout="column"
+                name="PageHeader subtext example"
+                previewHeight={85}
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1042,71 +316,15 @@ function Example() {
 PageHeader also supports a bottom border to show the division between PageHeader and the page content below.`}
         >
           <MainSection.Card
-            shaded
             cardSize="lg"
-            defaultCode={`
-<Box width="100%" color="white">
-  <PageHeader
-    maxWidth="65%"
-    borderStyle="sm"
-    title="Settings"
-    primaryAction={{
-      component: (
-        <Tooltip text="Additional options" idealDirection="up">
-          <IconButton
-            icon="ellipsis"
-            iconColor="darkGray"
-            size="lg"
-            accessibilityLabel="Additional options"
-          />
-        </Tooltip>
-      ),
-      dropdownItems: [
-        <Dropdown.Item option={{ value: 'Item', label: 'Item' }} onSelect={() => {}} />,
-      ],
-    }}
-    dropdownAccessibilityLabel="Additional options"
-  />
-    <Flex justifyContent="center">
-      <Box color="white" width="60%" paddingY={6}>
-        <Flex direction="column" gap={5}>
-          <Heading size="400" accessibilityLevel={2}>
-            Edit profile
-          </Heading>
-          <TextField label="Name" id="a-textfield1" onChange={() => {}} placeholder="Placeholder" />
-          <Flex gap={2}>
-            <Flex.Item flex="grow">
-              <TextField label="Phone" id="a-textfield2" onChange={() => {}} placeholder="Placeholder" />
-            </Flex.Item>
-            <Flex.Item flex="grow">
-              <TextField label="Email" id="a-textfield3" onChange={() => {}} placeholder="Placeholder" />
-            </Flex.Item>
-          </Flex>
-          <SelectList
-            label="Location"
-            id="selectlist3"
-            options={[
-              {
-                value: 'belgium',
-                label: 'Belgium',
-              },
-              {
-                value: 'france',
-                label: 'France',
-              },
-              {
-                value: 'usa',
-                label: 'USA',
-              },
-            ]}
-            placeholder="Placeholder"
-            onChange={() => {}}
-          />
-        </Flex>
-      </Box>
-    </Flex>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={centerAlignedExample}
+                layout="column"
+                name="PageHeader max width & border example"
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

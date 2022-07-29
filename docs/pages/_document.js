@@ -2,6 +2,7 @@
 import { type Node } from 'react';
 import Cookies from 'universal-cookie';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 class GestaltDocument extends Document {
   // $FlowFixMe[signature-verification-failure]
@@ -48,6 +49,8 @@ gtag('config', 'UA-12967896-44');
             }}
           />
           <link rel="icon" href="/pinterest_favicon.png" />
+          {/* eslint-disable-next-line react/no-danger */}
+          <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
         </Head>
         <body>
           <Main />

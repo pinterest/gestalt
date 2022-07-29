@@ -8,7 +8,7 @@ import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
 import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 
-const CONTENT_MAX_WIDTH_PX = 1544;
+const CONTENT_MAX_WIDTH_PX = 1546;
 
 type Props = {|
   children?: Node,
