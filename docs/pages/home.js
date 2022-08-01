@@ -58,7 +58,7 @@ export default function HomePage(): Node {
               image={<Design />}
             />
             <IllustrationCard
-              href="/get_started//development"
+              href="/get_started/developers/installation"
               title="Development"
               description="How to set up for development and create pull requests"
               color="blue-skycicle-450"
@@ -83,7 +83,7 @@ export default function HomePage(): Node {
             />
 
             <IllustrationCard
-              href="/get_started/foundations/accessibility"
+              href="/foundations/accessibility"
               title="Foundations"
               description="Guidelines around color palettes, typography, icons and more"
               color="teal-spabattical-450"
