@@ -22,7 +22,11 @@ export default function SidebarPlatformSwitcher({
   };
 
   // Do not change the order of these items
-  const items = ['Web', <AppleLogo key="apple" />, <AndroidLogo key="android" />];
+  const items = [
+    'Web',
+    <AppleLogo aria-label="ios platform" key="apple" />,
+    <AndroidLogo aria-label="android platform" key="android" />,
+  ];
 
   const onSelect = ({ activeIndex }) => {
     const selectedPlatform = Object.keys(PLATFORM_TO_INDEX_MAP).find(

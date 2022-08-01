@@ -139,7 +139,7 @@ export default function ComponentOverview(): Node {
                   checked={order === 'category'}
                   id="category"
                   label="Category"
-                  name="category"
+                  name="overviewSort"
                   onChange={() => setOrder('category')}
                   value="category"
                 />
@@ -147,7 +147,7 @@ export default function ComponentOverview(): Node {
                   checked={order === 'alphabetical'}
                   id="alphabetical"
                   label="Alphabetical"
-                  name="alphabetical"
+                  name="overviewSort"
                   onChange={() => setOrder('alphabetical')}
                   value="alphabetical"
                 />
