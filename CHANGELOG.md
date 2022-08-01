@@ -1,3 +1,9 @@
+## 62.5.1 (Aug 1, 2022)
+
+### Patch
+
+- Docs: Fix /\_error renders on collage page (#2236)
+
 ## 62.5.0 (Aug 1, 2022)
 
 ### Minor
