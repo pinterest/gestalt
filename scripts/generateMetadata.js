@@ -86,7 +86,7 @@ const getFilesFromDirectory = (directoryPath) => {
 const metadata = ${JSON.stringify(formattedData)};
 export default metadata;`;
 
-  fs.writeFile(path.join(docsPath, `components/metadata.js`), fileContent, (err) => {
+  fs.writeFile(path.join(docsPath, `docs-components/metadata.js`), fileContent, (err) => {
     if (err) {
       logError(err);
     } else {
