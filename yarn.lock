@@ -16958,6 +16958,11 @@ typescript@^3.8.3, typescript@^3.9.7:
   resolved "https://registry.npmjs.org/typescript/-/typescript-3.9.7.tgz"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
+ua-parser-js@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-1.0.2.tgz#e2976c34dbfb30b15d2c300b2a53eac87c57a775"
+  integrity sha512-00y/AXhx0/SsnI51fTc0rLRmafiGOM4/O+ny10Ps7f+j/b8p/ZY11ytMgznXkOVo4GQ+KwQG5UQLkLGirsACRg==
+
 ufo@^0.7.10:
   version "0.7.10"
   resolved "https://registry.npmjs.org/ufo/-/ufo-0.7.10.tgz"

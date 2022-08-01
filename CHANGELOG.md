@@ -1,3 +1,9 @@
+## 63.0.0 (Aug 1, 2022)
+
+### Major
+
+- Docs: Introduced new nested site navigation + platform sections (#2214)
+
 ## 62.5.1 (Aug 1, 2022)
 
 ### Patch
