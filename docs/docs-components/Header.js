@@ -14,7 +14,6 @@ import {
   Tabs,
   Text,
 } from 'gestalt';
-
 import { useRouter } from 'next/router';
 import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
