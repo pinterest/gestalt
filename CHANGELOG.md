@@ -1,3 +1,9 @@
+## 62.4.5 (Aug 1, 2022)
+
+### Patch
+
+- Docs: fix web repository link (#2233)
+
 ## 62.4.4 (Aug 1, 2022)
 
 ### Patch
