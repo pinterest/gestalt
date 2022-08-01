@@ -4,21 +4,6 @@ import { Box, Label, Text } from 'gestalt';
 import Checkerboard from './Checkerboard.js';
 import Card from './Card.js';
 
-type Props = {
-  children: (Object, number) => Node, // flowlint-line unclear-type:off
-  description?: string,
-  hasCheckerboard?: boolean,
-  heading?: boolean,
-  id?: string,
-  layout?: '2column' | '4column' | '12column',
-  name?: string,
-  showHeading?: boolean,
-  showValues?: boolean,
-  stacked?: boolean,
-  labelPrefix?: string,
-  ...
-};
-
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
 const combinations = (variationsByField) => {
   const fieldNames = Object.keys(variationsByField);
@@ -87,20 +72,37 @@ function layoutReducer(layout) {
   }
 }
 
+type Props = {
+  // $FlowFixMe[unclear-type]
+  children: (Object, number) => Node,
+  description?: string,
+  hasCheckerboard?: boolean,
+  heading?: boolean,
+  id?: string,
+  labelPrefix?: string,
+  layout?: '2column' | '4column' | '12column',
+  name?: string,
+  showHeading?: boolean,
+  showValues?: boolean,
+  stacked?: boolean,
+  ...
+};
+
 export default function Combination({
-  name = 'Combinations',
+  children,
   description = '',
-  layout = '2column',
   hasCheckerboard = true,
   id,
+  labelPrefix,
+  layout = '2column',
+  name = 'Combinations',
   showHeading,
   showValues = true,
   stacked = false,
-  labelPrefix,
-  children,
   ...props
 }: Props): Node {
   const { column, mdColumn, lgColumn } = layoutReducer(layout);
+
   return (
     <Card name={name} description={description} id={id} stacked={stacked} showHeading={showHeading}>
       <Box display="flex" wrap>
