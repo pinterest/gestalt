@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 require('@babel/register');
 const globby = require('globby');
-const sidebarIndex = require('../docs/docs-components/siteIndex.js');
+const siteIndex = require('../docs/docs-components/siteIndex.js');
 
 const specFile = 'playwright/accessibility/*.spec.mjs';
 
+const flattenSiteStructure = (section) =>
+  section.flatMap((item) => [item, ...flattenSiteStructure(item.pages || [])]).flat();
+
 async function validate() {
-  const pages = sidebarIndex.default.reduce(
-    (acc, currentValue) => [...acc, ...currentValue.pages],
-    [],
-  );
+  // Get a flat list of all the pages from the nested site structure
+  // by flattening each section's page list
+  const pages = flattenSiteStructure(siteIndex.default).filter((item) => typeof item === 'string');
 
   const a11ySpecFiles = (await globby([specFile])).map((file) => file.toLocaleLowerCase());
 

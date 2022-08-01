@@ -29,7 +29,7 @@ const siteIndex: Array<siteIndexType> = [
           'Eslint plugin',
           {
             sectionName: 'Tooling',
-            pages: ['Web', 'iOS', 'Android'],
+            pages: ['Web'],
           },
           'Hacking Gestalt',
         ],
