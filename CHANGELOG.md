@@ -1,3 +1,9 @@
+## 62.4.7 (Aug 1, 2022)
+
+### Patch
+
+- Internal: add ability to use local Gestalt CSS & JS files (#2234)
+
 ## 62.4.6 (Aug 1, 2022)
 
 ### Patch
