@@ -23,6 +23,11 @@ const noMatchSize = readFileSync(
   'utf-8',
 );
 
+const renamedIcon = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-workflow-status-icon/valid/renamed-icon.js'),
+  'utf-8',
+);
+
 /** Invalid cases */
 const invalidDefaultSize = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-workflow-status-icon/invalid/default-size.js'),
@@ -34,10 +39,16 @@ const invalidMatchProperties = readFileSync(
   'utf-8',
 );
 
+const invalidRenamedIcon = readFileSync(
+  path.resolve(__dirname, './__fixtures__/no-workflow-status-icon/invalid/renamed-icon.js'),
+  'utf-8',
+);
+
 ruleTester.run('no-workflow-status-icon', rule, {
-  valid: [noMatchColor, noMatchIcon, noMatchSize],
+  valid: [noMatchColor, noMatchIcon, noMatchSize, renamedIcon],
   invalid: [
     [invalidDefaultSize, defaultOutputMessage],
     [invalidMatchProperties, defaultOutputMessage],
+    [invalidRenamedIcon, defaultOutputMessage],
   ].map(([code, errorMessage]) => ({ code, errors: [{ message: errorMessage }] })),
 });

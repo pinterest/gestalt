@@ -5,7 +5,12 @@
 
 // @flow strict
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import { hasImport, isGestaltComponent, hasAttributes } from './helpers/eslintASTHelpers.js';
+import {
+  hasImport,
+  isGestaltComponent,
+  hasAttributes,
+  getLocalComponentImportName,
+} from './helpers/eslintASTHelpers.js';
 
 const disallowedMatch = [
   { icon: 'workflow-status-in-progress', color: 'success' },
@@ -21,8 +26,7 @@ const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
     docs: {
-      description:
-        'Prevent the use of the Icon where should be replaceable for the `Status` component.',
+      description: 'Prevent the use of Icon that can be replaced with Status.',
       category: 'Gestalt restrictions',
       recommended: true,
       url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-workflow-status-icon',
@@ -40,6 +44,7 @@ const rule: ESLintRule = {
 
   create(context) {
     let gestaltImportNode;
+    let componentName = 'Icon';
 
     const matchValues = (node) => {
       const props = {};
@@ -66,6 +71,7 @@ const rule: ESLintRule = {
 
       if (!isGestaltImportNode) return;
 
+      componentName = node?.specifiers?.find(item => item?.imported?.name === 'Icon')?.local?.name || 'Icon';
       gestaltImportNode = node;
     };
 
@@ -84,8 +90,8 @@ const rule: ESLintRule = {
 
       const isMatchProps = hasAttributes({
         elementNode: node,
-        tagName: 'Icon',
-        attributes: ['icon', 'color', 'size'],
+        tagName: componentName,
+        attributes: ['icon', 'color'],
       });
 
       // exit if not have correct props
