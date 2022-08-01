@@ -1,3 +1,9 @@
+## 62.5.0 (Aug 1, 2022)
+
+### Minor
+
+- Eslint plugin: Avoid "workflow-status-[..]" on Icon (#2228)
+
 ## 62.4.8 (Aug 1, 2022)
 
 ### Patch
