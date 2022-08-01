@@ -1,3 +1,9 @@
+## 62.4.2 (Aug 1, 2022)
+
+### Patch
+
+- Docs: sidebar border should reach bottom (#2239)
+
 ## 62.4.1 (Jul 29, 2022)
 
 ### Patch
