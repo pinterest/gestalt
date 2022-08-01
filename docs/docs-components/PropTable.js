@@ -6,22 +6,6 @@ import { useAppContext } from './appContext.js';
 import { capitalizeFirstLetter } from './utils.js';
 import Markdown from './Markdown.js';
 
-type Props = {|
-  props: Array<{|
-    defaultValue?: boolean | string | number | null,
-    description?: string | Array<string>,
-    href?: string,
-    name: string,
-    required?: boolean,
-    responsive?: boolean,
-    nullable?: boolean,
-    type: string,
-  |}>,
-  Component?: ComponentType<any>, // flowlint-line unclear-type:off
-  name?: string,
-  id?: string,
-|};
-
 const unifyQuotes = (input) => input?.replace(/'/g, '"');
 
 function Description(lines: Array<string>): Node {
@@ -97,11 +81,28 @@ const transformDefaultValue = (input) => {
 
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
+type Props = {|
+  // $FlowFixMe[unclear-type]
+  Component?: ComponentType<any>,
+  id?: string,
+  name?: string,
+  props: Array<{|
+    defaultValue?: boolean | string | number | null,
+    description?: string | Array<string>,
+    href?: string,
+    name: string,
+    nullable?: boolean,
+    required?: boolean,
+    responsive?: boolean,
+    type: string,
+  |}>,
+|};
+
 export default function PropTable({
-  props: properties,
-  name: proptableName,
-  id = '',
   Component,
+  id = '',
+  name: proptableName,
+  props: properties,
 }: Props): Node {
   const { propTableVariant, setPropTableVariant } = useAppContext();
   const propsId = `${id}Props`;
