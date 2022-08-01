@@ -136,7 +136,7 @@ With AUTOFIX!
         />
         <MainSection.Subsection
           title="gestalt/no-workflow-status-icon"
-          description="Prevent the usage of 'workflow-status-[...]' icons on `Icon` component where the values of props matches with the [Status](/status) component usage."
+          description="Prevent the usage of 'workflow-status-[...]' icons on Icon component when the style matches one of the [Status](/status) types."
         />
         <MainSection.Subsection
           title="gestalt/prefer-flex"
