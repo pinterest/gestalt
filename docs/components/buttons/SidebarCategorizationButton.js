@@ -22,7 +22,7 @@ export default function SidebarCategorizationButton({ onClick, sidebarOrganisedB
           checked={sidebarOrganisedBy === 'categorized'}
           id="sortCategory"
           label="Category"
-          name="sidebarSortCategory"
+          name="sidebarSort"
           onChange={onSelect}
           value="categorized"
           size="sm"
@@ -31,7 +31,7 @@ export default function SidebarCategorizationButton({ onClick, sidebarOrganisedB
           checked={sidebarOrganisedBy === 'alphabetical'}
           id="sortAlphabetical"
           label="Alphabetical"
-          name="sidebarSortAlphabetical"
+          name="sidebarSort"
           onChange={onSelect}
           value="alphabetical"
           size="sm"
