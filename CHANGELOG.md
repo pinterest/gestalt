@@ -1,3 +1,9 @@
+## 62.4.8 (Aug 1, 2022)
+
+### Patch
+
+- Internal: replace flow-lint suppressions with FlowFixMe (#2241)
+
 ## 62.4.7 (Aug 1, 2022)
 
 ### Patch
