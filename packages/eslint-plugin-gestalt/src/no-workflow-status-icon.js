@@ -5,12 +5,7 @@
 
 // @flow strict
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import {
-  hasImport,
-  isGestaltComponent,
-  hasAttributes,
-  getLocalComponentImportName,
-} from './helpers/eslintASTHelpers.js';
+import { hasImport, isGestaltComponent, hasAttributes } from './helpers/eslintASTHelpers.js';
 
 const disallowedMatch = [
   { icon: 'workflow-status-in-progress', color: 'success' },
@@ -71,7 +66,8 @@ const rule: ESLintRule = {
 
       if (!isGestaltImportNode) return;
 
-      componentName = node?.specifiers?.find(item => item?.imported?.name === 'Icon')?.local?.name || 'Icon';
+      componentName =
+        node?.specifiers?.find((item) => item?.imported?.name === 'Icon')?.local?.name || 'Icon';
       gestaltImportNode = node;
     };
 
