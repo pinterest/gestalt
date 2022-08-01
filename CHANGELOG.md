@@ -1,3 +1,9 @@
+## 62.4.6 (Aug 1, 2022)
+
+### Patch
+
+- Internal: remove unused dependencies (#2232)
+
 ## 62.4.5 (Aug 1, 2022)
 
 ### Patch
