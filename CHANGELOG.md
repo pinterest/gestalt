@@ -1,3 +1,9 @@
+## 62.4.4 (Aug 1, 2022)
+
+### Patch
+
+- Docs: group sidebar toggles (#2238)
+
 ## 62.4.3 (Aug 1, 2022)
 
 ### Patch
