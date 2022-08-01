@@ -8,30 +8,46 @@ import styles from './DatePicker.css';
 import dateFormat from './dateFormat.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
-// flowlint unclear-type:off
 type LocaleData = {|
   code?: string,
+  // $FlowFixMe[unclear-type]
   formatDistance?: (...args: $ReadOnlyArray<any>) => any,
+  // $FlowFixMe[unclear-type]
   formatRelative?: (...args: $ReadOnlyArray<any>) => any,
   localize?: {|
+    // $FlowFixMe[unclear-type]
     ordinalNumber: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     era: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     quarter: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     month: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     day: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     dayPeriod: (...args: $ReadOnlyArray<any>) => any,
   |},
   formatLong?: {|
+    // $FlowFixMe[unclear-type]
     date: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     time: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     dateTime: (...args: $ReadOnlyArray<any>) => any,
   |},
   match?: {|
+    // $FlowFixMe[unclear-type]
     ordinalNumber: (...args: $ReadOnlyArray<string>) => any,
+    // $FlowFixMe[unclear-type]
     era: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     quarter: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     month: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     day: (...args: $ReadOnlyArray<any>) => any,
+    // $FlowFixMe[unclear-type]
     dayPeriod: (...args: $ReadOnlyArray<any>) => any,
   |},
   options?: {|
@@ -39,7 +55,6 @@ type LocaleData = {|
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
   |},
 |};
-// flowlint unclear-type:error
 
 type Props = {|
   /**

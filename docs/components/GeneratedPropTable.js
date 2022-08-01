@@ -47,19 +47,22 @@ function getHref(description?: string): {|
   };
 }
 
+type Props = {|
+  // $FlowFixMe[unclear-type]
+  Component?: ComponentType<any>,
+  excludeProps?: $ReadOnlyArray<string>,
+  generatedDocGen: DocGen,
+  id?: string,
+  name?: string,
+|};
+
 export default function GeneratedPropTable({
   Component,
+  excludeProps = [],
+  generatedDocGen,
   id,
   name,
-  generatedDocGen,
-  excludeProps = [],
-}: {|
-  Component?: ComponentType<any>, // flowlint-line unclear-type:off
-  name?: string,
-  id?: string,
-  generatedDocGen: DocGen,
-  excludeProps?: $ReadOnlyArray<string>,
-|}): Node {
+}: Props): Node {
   // Using Object.keys because of https://github.com/facebook/flow/issues/2174
   const props = Object.keys(generatedDocGen.props)
     .map((key: string) => {
