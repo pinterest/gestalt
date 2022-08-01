@@ -5,12 +5,17 @@ import { useRouter } from 'next/router';
 import { AppContextProvider, AppContextConsumer } from './appContext.js';
 import { NavigationContextProvider } from './navigationContext.js';
 import AppLayout from './AppLayout.js';
+import { LocalFilesProvider } from './contexts/LocalFilesProvider.js';
 
 type Props = {|
   children?: Node,
+  files?: {|
+    css: string,
+    js: string,
+  |},
 |};
 
-export default function App({ children }: Props): Node {
+export default function App({ children, files }: Props): Node {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(router?.route === '/home');
 
@@ -59,9 +64,11 @@ export default function App({ children }: Props): Node {
           <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
             <OnLinkNavigationProvider onNavigation={useOnNavigation}>
               <NavigationContextProvider>
-                <AppLayout isHomePage={isHomePage} colorScheme={colorScheme}>
-                  {children}
-                </AppLayout>
+                <LocalFilesProvider files={files}>
+                  <AppLayout isHomePage={isHomePage} colorScheme={colorScheme}>
+                    {children}
+                  </AppLayout>
+                </LocalFilesProvider>
               </NavigationContextProvider>
             </OnLinkNavigationProvider>
           </ColorSchemeProvider>

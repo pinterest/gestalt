@@ -187,6 +187,21 @@ git remote -v
           </Text>
         </Flex>
       </Card>
+      <Card name="Use local Gestalt CSS &amp; JS">
+        <Flex alignItems="start" direction="column" gap={4}>
+          <Text>
+            By default we use the latest published version of Gestalt&apos;s CSS and JS for Sandpack
+            examples. If you want to use the local Gestalt CSS &amp; JS, append{' '}
+            <code>localFiles=true</code> to the URL:
+          </Text>
+          <Markdown
+            text="
+~~~bash
+http://localhost:8888/modal?localFiles=true
+~~~"
+          />
+        </Flex>
+      </Card>
       <Card name="Create a pull request">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>
