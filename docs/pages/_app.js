@@ -8,6 +8,8 @@ import NextApp, { type AppInitialProps } from 'next/app';
 import { CookiesProvider } from 'react-cookie';
 import { useRouter } from 'next/router';
 import { Box, DeviceTypeProvider } from 'gestalt';
+import path from 'path';
+import { promises as fs } from 'fs';
 import App from '../components/App.js';
 import DocsExperimentProvider from '../components/contexts/DocsExperimentProvider.js';
 import DocsI18nProvider from '../components/contexts/DocsI18nProvider.js';
@@ -33,7 +35,7 @@ function Providers({ children, isMobile }: {| children: Node, isMobile: boolean 
 // This default export is required in a new `pages/_app.js` file.
 function GestaltApp(
   // $FlowFixMe[signature-verification-failure]
-  { Component, pageProps, cookieHeader, isMobile }, // eslint-disable-line react/prop-types
+  { Component, pageProps, cookieHeader, isMobile, files }, // eslint-disable-line react/prop-types
 ): Node {
   const router = useRouter();
 
@@ -55,7 +57,7 @@ function GestaltApp(
   return (
     <CookiesProvider cookies={cookies}>
       <Providers isMobile={isMobile}>
-        <App>
+        <App files={files}>
           <Component {...pageProps} />
         </App>
       </Providers>
@@ -63,9 +65,20 @@ function GestaltApp(
   );
 }
 
+async function localFiles() {
+  const gestaltBuildDirectory = path.join(process.cwd(), '..', 'packages', 'gestalt', 'dist');
+  const [css, js] = await Promise.all([
+    fs.readFile(path.join(gestaltBuildDirectory, 'gestalt.css'), 'utf8'),
+    fs.readFile(path.join(gestaltBuildDirectory, 'gestalt.js'), 'utf8'),
+  ]);
+  return { css, js };
+}
+
 GestaltApp.getInitialProps = async (appInitialProps: AppInitialProps): Promise<AppInitialProps> => {
   const initialProps = await NextApp.getInitialProps(appInitialProps);
   const cookieHeader = appInitialProps?.ctx?.req?.headers?.cookie;
+
+  const files = appInitialProps?.router?.query?.localFiles === 'true' ? await localFiles() : null;
 
   // This should be replaced with a more sophisticated userAgent detection
   // var ua = parser(appInitialProps?.ctx?.req?.headers['user-agent']);
@@ -75,7 +88,7 @@ GestaltApp.getInitialProps = async (appInitialProps: AppInitialProps): Promise<A
     ?.toLowerCase()
     .includes('mobile');
 
-  return { ...initialProps, ...(cookieHeader ? { cookieHeader } : {}), ...{ isMobile } };
+  return { ...initialProps, ...(cookieHeader ? { cookieHeader } : {}), isMobile, files };
 };
 
 export default GestaltApp;
