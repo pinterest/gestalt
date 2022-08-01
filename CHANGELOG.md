@@ -1,3 +1,9 @@
+## 62.4.3 (Aug 1, 2022)
+
+### Patch
+
+- Docs: fix received 'true' for a non-boolean attribute 'wsz' (#2237)
+
 ## 62.4.2 (Aug 1, 2022)
 
 ### Patch
