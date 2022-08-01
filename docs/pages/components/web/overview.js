@@ -101,7 +101,9 @@ function List({ array, title = '' }: {| array: ListItemType, title?: string |}):
         .map((element, idx) => (
           <IllustrationCard
             key={idx}
-            href={element?.path ?? `/${element.name.replace(/\s/g, '_').toLowerCase()}`}
+            href={
+              element?.path ?? `/components/web/${element.name.replace(/\s/g, '_').toLowerCase()}`
+            }
             title={element.name}
             description={element.description}
             color={getIllustrationCardColor(element.category, element?.hasDarkBackground)}
@@ -158,7 +160,6 @@ export default function ComponentOverview(): Node {
         {order === 'alphabetical' ? (
           <List
             array={[
-              ...COMPONENT_DATA.foundations,
               ...COMPONENT_DATA.utilityComponents,
               ...COMPONENT_DATA.buildingBlockComponents,
               ...COMPONENT_DATA.generalComponents,
@@ -166,7 +167,6 @@ export default function ComponentOverview(): Node {
           />
         ) : (
           <Fragment>
-            <List array={COMPONENT_DATA.foundations} title="Foundations" />
             {Object.keys(GENERAL_COMPONENT_CATEGORY_MAP)
               .sort()
               .map((category, idx) => (

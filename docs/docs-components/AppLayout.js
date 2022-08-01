@@ -59,8 +59,7 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
                 mdDisplay="block"
                 position="fixed"
                 overflow="auto"
-                minHeight="100%"
-                maxHeight="calc(100% - 75px)"
+                height="calc(100% - 75px)"
                 minWidth={MIN_NAV_WIDTH_PX}
                 marginTop={2}
               >
