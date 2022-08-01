@@ -32,6 +32,19 @@ li {
   background-color: rgb(42 39 52);
 }
 
+/**
+ * Sandpack overrides
+ */
+
+.sp-layout {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+}
+
+.sp-preview-container {
+  overflow: hidden;
+}
 
 /**
  * Markdown overrides

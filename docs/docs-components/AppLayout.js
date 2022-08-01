@@ -8,7 +8,7 @@ import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
 import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 
-const CONTENT_MAX_WIDTH_PX = 1544;
+const CONTENT_MAX_WIDTH_PX = 1546;
 
 type Props = {|
   children?: Node,
@@ -60,7 +60,7 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
                 position="fixed"
                 overflow="auto"
                 minHeight="100%"
-                maxHeight="calc(100% - 100px)"
+                maxHeight="calc(100% - 75px)"
                 minWidth={MIN_NAV_WIDTH_PX}
                 marginTop={2}
               >

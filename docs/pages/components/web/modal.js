@@ -1,29 +1,29 @@
 // @flow strict
 import { type Node } from 'react';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
 import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
 
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import accessibilityExample from '../../../examples/modal/accessibilityExample.js';
+import createBoardExample from '../../../examples/modal/createBoardExample.js';
+import defaultExample from '../../../examples/modal/defaultExample.js';
+import limitActionsExample from '../../../examples/modal/limitActionsExample.js';
+import userResponseExample from '../../../examples/modal/userResponseExample.js';
+import roleAlertDialogExample from '../../../examples/modal/roleAlertDialogExample.js';
+import sizesExample from '../../../examples/modal/sizesExample.js';
+import preventCloseExample from '../../../examples/modal/preventCloseExample.js';
 
 export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Modal">
-      <PageHeader
-        name="Modal"
-        description={generatedDocGen?.description}
-        defaultCode={`
-          <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
-          style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-          title="Modal Main Example"
-          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          ></iframe>
-        `}
-        showCode={false}
-      />
+      <PageHeader name="Modal" description={generatedDocGen?.description}>
+        <SandpackExample code={defaultExample} name="Modal Main Example" showEditor={false} />
+      </PageHeader>
       <GeneratedPropTable
         generatedDocGen={generatedDocGen}
         excludeProps={['_dangerouslyDisableScrollBoundaryContainer']}
@@ -60,38 +60,38 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             showCode={false}
             type="do"
             description="Use Modal when a response is required from the user. Clearly communicate what response is expected and make the action simple and straight forward, such as clicking a button to confirm. The most common responses will be related to confirming or canceling."
-            defaultCode={`
-<iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
-style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-title="Modal required response"
-sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-      `}
+            sandpackExample={
+              <SandpackExample
+                code={userResponseExample}
+                name="User response example"
+                showEditor={false}
+              />
+            }
           />
 
           <MainSection.Card
             cardSize="lg"
             type="do"
             description="Limit the number of actions in a Modal. A primary and secondary action should be used for Modals. The rarely used tertiary actions are often destructive, such as “Delete”."
-            defaultCode={`
-<iframe src="https://codesandbox.io/embed/cool-hill-ngdjx?fontsize=14&hidenavigation=1&theme=light&view=preview"
-style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-title="Modal with actions"
-sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-      `}
+            sandpackExample={
+              <SandpackExample
+                code={limitActionsExample}
+                name="Limit actions example"
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             type="do"
             description="In the few cases where Modals are being used within the Pinner product, aim to prevent the content from needing to scroll at a reasonable screen size."
-            defaultCode={`
-<iframe src="https://codesandbox.io/embed/fervent-rosalind-xrzm5?fontsize=14&hidenavigation=1&theme=light&view=preview"
-style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-title="Modal without scrolling"
-sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-      `}
+            sandpackExample={
+              <SandpackExample
+                code={createBoardExample}
+                name="Create board example"
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection>
@@ -129,42 +129,9 @@ sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-ori
         >
           <MainSection.Card
             cardSize="lg"
-            iframeContent={`
-              <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
-              style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-              title="Accessibility Labels"
-              sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-              ></iframe>
-            `}
-            defaultCode={`
-function AccessibilityExample(props) {
-  const [showModal, setShowModal] = React.useState(false);
-
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-    <Layer zIndex={zIndex}>
-      <Modal
-        accessibilityModalLabel="Delete board 60s Furniture"
-        heading="Are you sure?"
-        onDismiss={() => { setShowModal(!showModal) }}
-        footer={
-          <Flex justifyContent="end" gap={2}>
-            <Button color="gray" text="Cancel"/>
-            <Button color="red" text="Delete forever"/>
-          </Flex>
-        }
-        size="sm"
-      >
-        <Box padding={8}>
-          <Text align="center" size="300">Once you delete a board and all its Pins, you can't undo it!</Text>
-        </Box>
-      </Modal>
-    </Layer>
-  );
-}
-    `}
+            sandpackExample={
+              <SandpackExample code={accessibilityExample} name="Modal accessibility example" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -176,116 +143,16 @@ function AccessibilityExample(props) {
           <MainSection.Card
             title='role="alertdialog"'
             cardSize="lg"
-            iframeContent={`
-              <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
-                style={{width: '100%', height:'400px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-                title="Accessibility Role ex1"
-                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-              ></iframe>
-            `}
-            defaultCode={`
-function AlertDialogAccessibilityExample(props) {
-  const [showModal, setShowModal] = React.useState(false);
-
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-  <Layer zIndex={zIndex}>
-    <Modal
-      accessibilityModalLabel="Delete board 60s Furniture"
-      heading="Are you sure?"
-      role="alertdialog"
-      onDismiss={() => { setShowModal(!showModal) }}
-      footer={
-        <Flex justifyContent="end" gap={2}>
-          <Button color="gray" text="Cancel"/>
-          <Button color="red" text="Delete forever"/>
-        </Flex>
-      }
-      size="sm"
-    >
-      <Box padding={8}>
-        <Text align="center" size="300">Once you delete a board and all its Pins, you can't undo it!</Text>
-      </Box>
-    </Modal>
-  </Layer>
-  );
-}
-    `}
+            sandpackExample={
+              <SandpackExample code={roleAlertDialogExample} name="Alert dialog example" />
+            }
           />
           <MainSection.Card
             title='role="dialog" (default)'
             cardSize="lg"
-            iframeContent={`
-              <iframe src="https://codesandbox.io/embed/fervent-rosalind-xrzm5?fontsize=14&hidenavigation=1&theme=light&view=preview"
-              style={{width: '100%', height:'450px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-              title="Accessibility Role ex2"
-              sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-              ></iframe>
-            `}
-            defaultCode={`
-function DialogExample(props) {
-  const ModalWithHeading = ({
-    onDismiss,
-  }) => {
-
-    return (
-      <Modal
-        accessibilityModalLabel="Create new board"
-        heading="Create board"
-        onDismiss={onDismiss}
-        footer={
-          <Flex alignItems="center" justifyContent="end">
-            <Button color="red" text="Create"/>
-          </Flex>
-        }
-        size="sm"
-      >
-        <Box paddingX={8}>
-          <Box marginBottom={8}>
-            <TextField
-              id="name"
-              onChange={({ value }) => console.log(value)}
-              placeholder='Like "Places to go" or "Recipes to Make"'
-              label="Name"
-              type="text"
-            />
-          </Box>
-          <Checkbox
-            checked={false}
-            id="secret"
-            label="Keep this board secret"
-            subtext="So only you and collaborators can see it."
-            name="languages"
-            onChange={({ checked }) => {
-              console.log(checked);
-            }}
-          />
-        </Box>
-      </Modal>
-    );
-  };
-
-  const [shouldShow, setShouldShow] = React.useState(true);
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-    <React.Fragment>
-      <Button
-        text="View Modal"
-        onClick={() => setShouldShow(true)}
-      />
-      {shouldShow && (
-        <Layer zIndex={modalZIndex}>
-          <ModalWithHeading onDismiss={() => setShouldShow(false)} />
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample code={accessibilityExample} name="Default role example" />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -311,75 +178,13 @@ function DialogExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            iframeContent={`
-          <iframe src="https://codesandbox.io/embed/fervent-rosalind-xrzm5?fontsize=14&hidenavigation=1&theme=light&view=preview"
-          style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-          title="Modal with Heading"
-          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          ></iframe>
-        `}
-            defaultCode={`
-function HeadingExample(props) {
-  const ModalWithHeading = ({
-    onDismiss,
-  }) => {
-
-    return (
-      <Modal
-        accessibilityModalLabel="Create new board"
-        heading="Create board"
-        onDismiss={onDismiss}
-        footer={
-          <Flex alignItems="center" justifyContent="end">
-            <Button color="red" text="Create"/>
-          </Flex>
-        }
-        size="sm"
-      >
-        <Box paddingX={8}>
-          <Box marginBottom={8}>
-            <TextField
-              id="name"
-              onChange={({ value }) => console.log(value)}
-              placeholder='Like "Places to go" or "Recipes to Make"'
-              label="Name"
-              type="text"
-            />
-          </Box>
-          <Checkbox
-            checked={false}
-            id="secret"
-            label="Keep this board secret"
-            subtext="So only you and collaborators can see it."
-            name="languages"
-            onChange={({ checked }) => {
-              console.log(checked);
-            }}
-          />
-        </Box>
-      </Modal>
-    );
-  };
-
-  const [shouldShow, setShouldShow] = React.useState(true);
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-    <React.Fragment>
-      <Button
-        text="View Modal"
-        onClick={() => setShouldShow(true)}
-      />
-      {shouldShow && (
-        <Layer zIndex={modalZIndex}>
-          <ModalWithHeading onDismiss={() => setShouldShow(false)} />
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={createBoardExample}
+                name="Create board example"
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -388,60 +193,13 @@ function HeadingExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            iframeContent={`
-          <iframe src="https://codesandbox.io/embed/cool-hill-ngdjx?fontsize=14&hidenavigation=1&theme=light&view=preview"
-          style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-          title="Modal with Sub Heading"
-          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          ></iframe>
-        `}
-            defaultCode={`
-function SubHeadingExample(props) {
-  const ModalWithSubHeading = ({
-    onDismiss,
-  }) => {
-
-    return (
-      <Modal
-        accessibilityModalLabel="Resume account creation"
-        heading="Resume your work?"
-        subHeading="Welcome back to the business account creation process!"
-        align="start"
-        onDismiss={onDismiss}
-        footer={
-          <Flex alignItems="center" justifyContent="end" gap={2}>
-            <Button text="Cancel"/>
-            <Button color="red" text="Resume"/>
-          </Flex>
-        }
-        size="sm"
-      >
-        <Box paddingX={8}>
-          <Text>Want to continue where you left off? Click "Resume" to continue creating your account or "Cancel" to start over.</Text>
-        </Box>
-      </Modal>
-    );
-  };
-
-  const [shouldShow, setShouldShow] = React.useState(true);
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-    <React.Fragment>
-      <Button
-        text="View Modal"
-        onClick={() => setShouldShow(true)}
-      />
-      {shouldShow && (
-        <Layer zIndex={modalZIndex}>
-          <ModalWithSubHeading onDismiss={() => setShouldShow(false)} />
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={limitActionsExample}
+                name="Subheading example"
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -451,97 +209,9 @@ function SubHeadingExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function SizesExample(props) {
-  function reducer(state, action) {
-    switch (action.type) {
-      case 'small':
-        return {modal: 'small'};
-      case 'medium':
-        return {modal: 'medium'};
-      case 'large':
-        return {modal: 'large'};
-      case 'none':
-        return {modal: 'none'};
-      default:
-        throw new Error();
-    }
-  }
-
-  const initialState = {modal: 'none'};
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-    <Box marginStart={-1} marginEnd={-1}>
-      <Box padding={1}>
-        <Button
-          text="Small Modal"
-          onClick={() => { dispatch({type: 'small'}) }}
-        />
-        {state.modal === 'small' && (
-          <Layer zIndex={zIndex}>
-            <Modal
-              accessibilityModalLabel="View default padding and styling"
-              heading="Small modal"
-              onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="500">Footer</Heading>}
-              size="sm"
-            >
-              <Box padding={8}>
-                <Heading size="500">Children</Heading>
-              </Box>
-            </Modal>
-          </Layer>
-        )}
-      </Box>
-      <Box padding={1}>
-        <Button
-          text="Medium Modal"
-          onClick={() => { dispatch({type: 'medium'}) }}
-        />
-        {state.modal === 'medium' && (
-          <Layer zIndex={zIndex}>
-            <Modal
-              accessibilityModalLabel="View default padding and styling"
-              heading="Medium modal"
-              onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="500">Footer</Heading>}
-              size="md"
-            >
-              <Box padding={8}>
-                <Heading size="500">Children</Heading>
-              </Box>
-            </Modal>
-          </Layer>
-        )}
-      </Box>
-      <Box padding={1}>
-        <Button
-          text="Large Modal"
-          onClick={() => { dispatch({type: 'large'}) }}
-        />
-        {state.modal === 'large' && (
-          <Layer zIndex={zIndex}>
-            <Modal
-              accessibilityModalLabel="View default padding and styling"
-              heading="Large modal"
-              onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="500">Footer</Heading>}
-              size="lg"
-            >
-              <Box padding={8}>
-                <Heading size="500">Children</Heading>
-              </Box>
-            </Modal>
-          </Layer>
-        )}
-      </Box>
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={sizesExample} name="Sizes example" showEditor={false} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -550,39 +220,17 @@ function SizesExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function PreventCloseExample(props) {
-  const [showModal, setShowModal] = React.useState(false);
-  return (
-    <React.Fragment>
-      <Button
-        text="Open Modal"
-        onClick={() => { setShowModal(!showModal) }}
-      />
-      {showModal && (
-        <Layer>
-          <Modal
-            accessibilityModalLabel="Non closable modal"
-            closeOnOutsideClick={false}
-            heading="Heading"
-            onDismiss={() => { setShowModal(!showModal) }}
-          >
-            <Box padding={8}>
-              <Text align="center">Click on the button to close the modal</Text>
-              <Box marginTop={4}>
-                <Button color="red" text="Close" onClick={() => { setShowModal(!showModal) }} />
-              </Box>
-            </Box>
-          </Modal>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={preventCloseExample}
+                name="Prevent close example"
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
@@ -600,8 +248,12 @@ Toast provides temporary feedback on an interaction. Toasts appear at the bottom
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: DocGen |},
+|}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Modal' }) },
+    props: {
+      generatedDocGen: await docgen({ componentName: 'Modal' }),
+    },
   };
 }

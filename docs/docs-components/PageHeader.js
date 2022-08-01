@@ -18,6 +18,7 @@ const buildSourceLinkUrl = (componentName) =>
 
 type Props = {|
   badge?: 'pilot' | 'deprecated',
+  // DEPRECATED: Use `children` instead of `defaultCode`
   defaultCode?: string,
   description?: string,
   fileName?: string, // only use if name !== file name
@@ -28,10 +29,12 @@ type Props = {|
   shadedCodeExample?: boolean,
   slimBanner?: Element<typeof SlimBanner> | null,
   type?: 'guidelines' | 'component' | 'utils',
+  children?: Node,
 |};
 
 export default function PageHeader({
   badge,
+  children,
   defaultCode,
   margin = 'default',
   description = '',
@@ -63,17 +66,18 @@ export default function PageHeader({
   };
 
   const showMargin = margin === 'default';
+  const addGap = Boolean(defaultCode || children);
 
   return (
     <Box
-      marginBottom={defaultCode || !showMargin ? 0 : 2}
+      marginBottom={addGap || !showMargin ? 0 : 2}
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',
         },
       }}
     >
-      <Flex direction="column" gap={defaultCode ? 8 : 0}>
+      <Flex direction="column" gap={addGap ? 8 : 0}>
         <Flex direction="column" gap={2}>
           <Flex alignItems="baseline" direction="row" gap={2} justifyContent="between" wrap>
             <Heading>
@@ -113,6 +117,7 @@ export default function PageHeader({
                 hideCodePreview
               />
             )}
+            {children}
           </Flex>
         </Flex>
       </Flex>

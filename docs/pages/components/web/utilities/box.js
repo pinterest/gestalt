@@ -194,7 +194,7 @@ function MenuButtonExample() {
         color="infoBase"
         height={firstBoxHeight}
         padding={2}
-        marginBottom={1}wsz
+        marginBottom={1}
       >
         <Text color="light" weight="bold">
           This uses a proper, Gestalt colored Box

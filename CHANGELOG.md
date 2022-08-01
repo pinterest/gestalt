@@ -1,3 +1,51 @@
+## 62.4.7 (Aug 1, 2022)
+
+### Patch
+
+- Internal: add ability to use local Gestalt CSS & JS files (#2234)
+
+## 62.4.6 (Aug 1, 2022)
+
+### Patch
+
+- Internal: remove unused dependencies (#2232)
+
+## 62.4.5 (Aug 1, 2022)
+
+### Patch
+
+- Docs: fix web repository link (#2233)
+
+## 62.4.4 (Aug 1, 2022)
+
+### Patch
+
+- Docs: group sidebar toggles (#2238)
+
+## 62.4.3 (Aug 1, 2022)
+
+### Patch
+
+- Docs: fix received 'true' for a non-boolean attribute 'wsz' (#2237)
+
+## 62.4.2 (Aug 1, 2022)
+
+### Patch
+
+- Docs: sidebar border should reach bottom (#2239)
+
+## 62.4.1 (Jul 29, 2022)
+
+### Patch
+
+- Docs: fix heading scroll position (#2230)
+
+## 62.4.0 (Jul 29, 2022)
+
+### Minor
+
+- Docs: Introduce Sandpack for code examples (#2221)
+
 ## 62.3.0 (Jul 28, 2022)
 
 ### Minor
