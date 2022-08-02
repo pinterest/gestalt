@@ -1,3 +1,9 @@
+## 63.0.7 (Aug 2, 2022)
+
+### Patch
+
+- Docs: Fix missing pages (#2250)
+
 ## 63.0.6 (Aug 2, 2022)
 
 ### Patch
