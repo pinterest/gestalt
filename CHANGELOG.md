@@ -1,3 +1,9 @@
+## 63.0.1 (Aug 2, 2022)
+
+### Patch
+
+- Internal: remove unused cacache dependency (#2245)
+
 ## 63.0.0 (Aug 1, 2022)
 
 ### Major
