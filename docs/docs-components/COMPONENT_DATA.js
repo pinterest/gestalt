@@ -31,7 +31,9 @@ import Pulsar from '../graphics/general/Pulsar.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
+import SideNavigation from '../graphics/general/SideNavigation.svg';
 import Sheet from '../graphics/general/Sheet.svg';
+import SlimBanner from '../graphics/general/SlimBanner.svg';
 import Spinner from '../graphics/general/Spinner.svg';
 import Status from '../graphics/general/Status.svg';
 import Switch from '../graphics/general/Switch.svg';
@@ -908,7 +910,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     },
   },
   {
-    svg: <Callout />,
+    svg: <SlimBanner />,
     name: 'SlimBanner',
     description: 'SlimBanner conveys brief information related to a specific section of a page.',
     category: 'Messaging',
@@ -926,6 +928,29 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
       documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'partial',
+      responsive: 'ready',
+    },
+  },
+  {
+    svg: <SideNavigation />,
+    name: 'SideNavigation',
+    description:
+      'SideNavigation is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal Tabs',
+    category: 'Navigation',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
       responsive: 'ready',
     },
   },
