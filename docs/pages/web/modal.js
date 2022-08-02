@@ -8,7 +8,6 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-
 import accessibilityExample from '../../examples/modal/accessibilityExample.js';
 import createBoardExample from '../../examples/modal/createBoardExample.js';
 import defaultExample from '../../examples/modal/defaultExample.js';

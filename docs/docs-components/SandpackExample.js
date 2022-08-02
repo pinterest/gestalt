@@ -26,18 +26,28 @@ async function copyCode({ code }: {| code: ?string |}) {
 function SandpackContainer({
   name,
   layout,
-  previewHeight,
+  previewHeight = 'md',
   showEditor,
+  hideControls,
 }: {|
   name: string,
   layout: 'row' | 'column',
-  previewHeight?: number,
+  previewHeight?: 'sm' | 'md' | number,
   showEditor: boolean,
+  hideControls?: boolean,
 |}) {
   const [editorShown, setEditorShown] = React.useState(showEditor);
   const { sandpack } = useSandpack();
 
-  const defaultHeight = 500;
+  const CARD_SIZE_NAME_TO_PIXEL = {
+    sm: 236,
+    md: 362,
+  };
+
+  const height =
+    previewHeight !== 'sm' && previewHeight !== 'md'
+      ? previewHeight
+      : CARD_SIZE_NAME_TO_PIXEL[previewHeight];
 
   return (
     <React.Fragment>
@@ -47,7 +57,7 @@ function SandpackContainer({
             <SandpackCodeEditor
               wrapContent
               style={{
-                height: defaultHeight,
+                height,
                 flex: layout === 'column' ? 'none' : null,
                 order: layout === 'column' ? 1 : null,
               }}
@@ -55,14 +65,19 @@ function SandpackContainer({
           )}
           <SandpackPreview
             style={{
-              height: previewHeight ?? defaultHeight,
+              height,
             }}
             showRefreshButton={false}
             showOpenInCodeSandbox={false}
           />
         </SandpackLayout>
       </Box>
-      <Box marginTop={2}>
+      <Box
+        marginTop={2}
+        display={hideControls ? undefined : 'none'}
+        height={hideControls ? 24 : undefined}
+      />
+      <Box marginTop={2} display={hideControls ? 'none' : undefined}>
         <Flex justifyContent="end" alignItems="center" gap={2}>
           <OpenInCodeSandboxButton />
 
@@ -90,12 +105,14 @@ export default function SandpackExample({
   name,
   previewHeight,
   showEditor = true,
+  hideControls = false,
 }: {|
   code: ?string | (() => Node),
   layout?: 'row' | 'column',
   name: string,
-  previewHeight?: number,
+  previewHeight?: 'sm' | 'md' | number,
   showEditor?: boolean,
+  hideControls?: boolean,
 |}): Node {
   const { files } = useLocalFiles();
 
@@ -151,6 +168,7 @@ export default function SandpackExample({
         showEditor={showEditor}
         previewHeight={previewHeight}
         layout={layout}
+        hideControls={hideControls}
       />
     </SandpackProvider>
   );
