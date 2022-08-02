@@ -1,3 +1,9 @@
+## 63.0.5 (Aug 2, 2022)
+
+### Patch
+
+- Docs: Move development process page (#2249)
+
 ## 63.0.4 (Aug 2, 2022)
 
 ### Patch
