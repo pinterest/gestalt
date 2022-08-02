@@ -8,20 +8,30 @@ type WebpackConfig = {|
   |},
   resolve: {fallback: { fs: false, path: false }}
 |};
+
+type RedirectsReturn = Promise<
+  Array<{|
+    source: string,
+    destination: string,
+    permanent: boolean,
+  |}>,
+>
 */
 
 const path = require('path');
+const redirects = require('./redirects.js');
 
 const root /*: string */ = path.join(__dirname, '../');
 
 module.exports = {
+  images: {
+    domains: ['paper-attachments.dropbox.com', 'ibb.co', 'codahosted.io'],
+  },
   reactStrictMode: true,
+  redirects: async () /*: RedirectsReturn */ => redirects,
   serverRuntimeConfig: {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
-  },
-  images: {
-    domains: ['paper-attachments.dropbox.com', 'ibb.co', 'codahosted.io'],
   },
   webpack: (
     config /*: WebpackConfig */,
