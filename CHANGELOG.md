@@ -1,3 +1,9 @@
+## 63.0.6 (Aug 2, 2022)
+
+### Patch
+
+- Docs: add redirects for old paths (#2248)
+
 ## 63.0.5 (Aug 2, 2022)
 
 ### Patch
