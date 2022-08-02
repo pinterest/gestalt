@@ -35,6 +35,8 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   const router = useRouter();
   let currentPlatform = null;
 
+  // If the route already includes a platform,
+  // set that as the starting cookie
   if (router.pathname.includes('/web/')) {
     currentPlatform = 'web';
   } else if (router.pathname.includes('/android/')) {
@@ -43,10 +45,14 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
     currentPlatform = 'ios';
   }
 
+  // First prioritize the current route
+  // If that doesn't include a platform, use the cookie
+  // If there's no cookie set, use 'web'
   const [componentPlatformFilteredBy, setComponentPlatformFilteredBy] = useState(
     PLATFORM_MAP[currentPlatform || cookies[localStorageOrganizedByKey] || 'web'],
   );
 
+  // Set the cookie, and update the state
   const setComponentPlatformFilteredByCookie = (organizedBy) => {
     setCookies(localStorageOrganizedByKey, organizedBy);
     setComponentPlatformFilteredBy(organizedBy);

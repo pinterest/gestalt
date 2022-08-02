@@ -25,6 +25,9 @@ export default function DocsSideNavigation({ border }: {| border?: boolean |}): 
   const { componentPlatformFilteredBy, setComponentPlatformFilteredByCookie, setIsSidebarOpen } =
     useNavigationContext();
 
+  // Find the section that corresponds to the top navigation
+  // If it's the components section, find the section that is currently
+  // filtered with the component platform switcher
   useEffect(() => {
     const sectionToRender = isComponentsActiveSection(router.pathname)
       ? newSidebarIndex.find((section) =>
@@ -35,7 +38,6 @@ export default function DocsSideNavigation({ border }: {| border?: boolean |}): 
         );
     setActiveSection(sectionToRender || newSidebarIndex[0]);
   }, [router.pathname, componentPlatformFilteredBy]);
-  // Find the section that corresponds to the top navigation
 
   const sectionItemsForSideNav = useGetSideNavItems((activeSection: siteIndexType));
   const closeSideNavigation = () => setIsSidebarOpen(false);

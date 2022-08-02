@@ -82,6 +82,8 @@ function Header() {
     }
   }, [isMobileSearchExpandedOpen]);
 
+  // If the route includes a platform, set the "components" tab active
+  // Otherwise set it based on the route
   useEffect(() => {
     setActiveTab(
       isComponentsActiveSection(router.pathname)
