@@ -143,7 +143,7 @@ const misc = [
   },
   {
     source: '/iconography',
-    destination: '/iconography/usage',
+    destination: '/foundations/iconography/usage',
     permanent: true,
   },
   {
@@ -158,7 +158,7 @@ const misc = [
   },
   {
     source: '/typography',
-    destination: '/typography/guidelines',
+    destination: '/foundations/typography/guidelines',
     permanent: true,
   },
   {
