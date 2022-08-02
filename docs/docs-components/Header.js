@@ -21,7 +21,7 @@ import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
-import { convertNamesForURL } from './DocsSideNavigation.js';
+import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
 
 const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 const ABOVE_PAGE_HEADER_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
@@ -36,7 +36,7 @@ function Header() {
     () => [
       { href: '/get_started/about_us', text: 'Get started' },
       {
-        href: `/components/${componentPlatformFilteredBy}/overview`,
+        href: `/${componentPlatformFilteredBy}/overview`,
         text: 'Components',
       },
       { href: '/foundations/accessibility', text: 'Foundations' },
@@ -44,8 +44,13 @@ function Header() {
     ],
     [componentPlatformFilteredBy],
   );
+
   const [activeTab, setActiveTab] = useState(
-    mainNavigationTabs.findIndex((tab) => router.pathname.includes(convertNamesForURL(tab.text))),
+    isComponentsActiveSection(router.pathname)
+      ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
+      : mainNavigationTabs.findIndex((tab) =>
+          router.pathname.includes(convertNamesForURL(tab.text)),
+        ),
   );
 
   const anchorRef = useRef(null);
@@ -79,7 +84,11 @@ function Header() {
 
   useEffect(() => {
     setActiveTab(
-      mainNavigationTabs.findIndex((tab) => router.pathname.includes(convertNamesForURL(tab.text))),
+      isComponentsActiveSection(router.pathname)
+        ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
+        : mainNavigationTabs.findIndex((tab) =>
+            router.pathname.includes(convertNamesForURL(tab.text)),
+          ),
     );
   }, [router.events, router.pathname, mainNavigationTabs]);
 

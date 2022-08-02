@@ -135,9 +135,9 @@ export default function IconPage(): Node {
       <MainSection name="Custom SVG icons">
         <MainSection.Subsection
           description={`
-If you need a new icon for an experiment that is not listed on our [Icon](/components/web/icon) documentation, use the \`dangerouslySetSvgPath\` prop on [Icon](/components/web/icon), [IconButton](/components/web/buttons/iconbutton), and [Pog](/components/web/buttons/pog).
+If you need a new icon for an experiment that is not listed on our [Icon](/web/icon) documentation, use the \`dangerouslySetSvgPath\` prop on [Icon](/web/icon), [IconButton](/web/iconbutton), and [Pog](/web/pog).
 
-However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/components/web/utilities/box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
+However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/web/box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
 
 Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the icon to Gestalt.
 

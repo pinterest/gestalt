@@ -21,18 +21,18 @@ export default function EslintPluginPage(): Node {
           description={`
         Prevent using \`<div>\` inline styling for attributes that are already implemented in Box.
 
-        [Learn more about Box](/components/web/utilities/box).
+        [Learn more about Box](/web/box).
       `}
         />
         <MainSection.Subsection
           title="gestalt/prefer-box-no-disallowed"
           description={`Prevent \`<div>\` tags that don't contain disallowed attributes in Box: className, onClick, and any attribute not included in Box's allowed-attribute [list](https://github.com/pinterest/gestalt/blob/68d5d550a7358fcb1e104b27865a14c74d5ac01f/packages/eslint-plugin-gestalt/src/no-box-disallowed-props.js#L8). Use Gestalt Box, instead. Other attributes are disallowed as well so this Eslint rule doesn't conflict with [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
 
-[Read more about Box](/components/web/utilities/box).
+[Read more about Box](/web/box).
 
 It also prevents \`<div>\` tags used to only contain a \`ref\` attribute. \`ref\` is supported in Box and other elements such as Button or TextField.
 
-[Read more about the ref prop in Box](/components/web/utilities/box#Using-as-a-ref).
+[Read more about the ref prop in Box](/web/box#Using-as-a-ref).
 
 With AUTOFIX!
       `}
@@ -59,14 +59,14 @@ With AUTOFIX!
 
         With AUTOFIX!
 
-        [Read more about the as prop in Box](/components/web/utilities/box#Using-'as'-property).
+        [Read more about the as prop in Box](/web/box#Using-'as'-property).
       `}
         />
         <MainSection.Subsection
           title="gestalt/prefer-link"
           description={`Prevent anchor tags that only contain attributes matching supported props in Gestalt Link.
 
-[Read more about Link](/components/web/link).
+[Read more about Link](/web/link).
 
 With AUTOFIX!
       `}
@@ -75,7 +75,7 @@ With AUTOFIX!
           title="gestalt/prefer-heading"
           description={`Prevent heading tags (h1 ... h6) using Gestalt Heading with the corresponding accessibilityLevel, instead.
 
-[Read more about Heading](/components/web/heading).
+[Read more about Heading](/web/heading).
 
 With AUTOFIX!
       `}
@@ -112,7 +112,7 @@ With AUTOFIX!
 
         With AUTOFIX!
 
-        [Learn more about Box](/components/web/utilities/box).
+        [Learn more about Box](/web/box).
       `}
         />
         <MainSection.Subsection
@@ -142,7 +142,7 @@ With AUTOFIX!
           title="gestalt/prefer-flex"
           description={`Prevent \`Box\` usages in those cases where they can be replaced with \`Flex\`.
 
-[Read more about Flex](/components/web/flex).
+[Read more about Flex](/web/flex).
 
 With AUTOFIX!
       `}
@@ -239,7 +239,7 @@ yarn unlink eslint-plugin-gestalt
           description={`
         Do not allow role=&apos;link&apos; on Button, TapArea, and IconButton in cases where an alternative with additional functionality must be used instead such as for use with a routing library.
 
-        Deprecation due to: [OnLinkNavigationProvider](/components/web/utilities/onlinknavigationprovider) enables external link navigation in Gestalt components.
+        Deprecation due to: [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) enables external link navigation in Gestalt components.
       `}
         />
       </MainSection>
