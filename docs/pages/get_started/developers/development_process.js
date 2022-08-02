@@ -1,16 +1,16 @@
 // @flow strict
 import { type Node } from 'react';
 import { Flex, Heading, Link, Text } from 'gestalt';
-import Card from '../../docs-components/Card.js';
-import Markdown from '../../docs-components/Markdown.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import Page from '../../docs-components/Page.js';
-import MainSection from '../../docs-components/MainSection.js';
+import Card from '../../../docs-components/Card.js';
+import Markdown from '../../../docs-components/Markdown.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import Page from '../../../docs-components/Page.js';
+import MainSection from '../../../docs-components/MainSection.js';
 
 export default function ContainerPage(): Node {
   return (
-    <Page title="Development Guidelines">
-      <PageHeader name="Development" type="guidelines" />
+    <Page title="Development process">
+      <PageHeader name="Development process" type="guidelines" />
       <Card name="Set up your laptop">
         <Flex alignItems="start" direction="column" gap={4}>
           <ul>

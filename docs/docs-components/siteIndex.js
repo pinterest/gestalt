@@ -25,6 +25,7 @@ const siteIndex: Array<siteIndexType> = [
       {
         sectionName: 'Developers',
         pages: [
+          'Development process',
           'Installation',
           'Eslint plugin',
           {
