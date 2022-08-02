@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useState, useEffect } from 'react';
 import { SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
 import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
@@ -14,40 +14,32 @@ export function convertNamesForURL(name: string): string {
   return name.replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
+export function isComponentsActiveSection(pathname: string): boolean {
+  return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
+}
+
 export default function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
+  const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
+
   const router = useRouter();
-  const { componentPlatformFilteredBy, setComponentPlatformFilteredBy, setIsSidebarOpen } =
+  const { componentPlatformFilteredBy, setComponentPlatformFilteredByCookie, setIsSidebarOpen } =
     useNavigationContext();
 
   // Find the section that corresponds to the top navigation
-  const activeSection =
-    newSidebarIndex.find((section) =>
-      router.pathname.includes(convertNamesForURL(section.sectionName)),
-    ) || newSidebarIndex[0];
-  let sectionToRender = activeSection;
+  // If it's the components section, find the section that is currently
+  // filtered with the component platform switcher
+  useEffect(() => {
+    const sectionToRender = isComponentsActiveSection(router.pathname)
+      ? newSidebarIndex.find((section) =>
+          convertNamesForURL(section.sectionName).includes(componentPlatformFilteredBy),
+        )
+      : newSidebarIndex.find((section) =>
+          router.pathname.includes(convertNamesForURL(section.sectionName)),
+        );
+    setActiveSection(sectionToRender || newSidebarIndex[0]);
+  }, [router.pathname, componentPlatformFilteredBy]);
 
-  // If that section is the components section, figure out which subsection
-  // to render based on the active filter
-  if (activeSection.sectionName === 'Components') {
-    const subsectionToRender =
-      activeSection.pages.find(
-        (subSection) =>
-          typeof subSection === 'object' &&
-          subSection.sectionName.toLowerCase().includes(componentPlatformFilteredBy),
-      ) || null;
-
-    // Flatten the section data to cut out the middle layer
-    if (
-      subsectionToRender &&
-      typeof subsectionToRender === 'object' &&
-      subsectionToRender.pages &&
-      subsectionToRender.sectionName
-    ) {
-      const newSectionName = `${activeSection.sectionName} - ${subsectionToRender.sectionName}`;
-      sectionToRender = { sectionName: newSectionName, pages: subsectionToRender.pages };
-    }
-  }
-  const sectionItemsForSideNav = useGetSideNavItems((sectionToRender: siteIndexType));
+  const sectionItemsForSideNav = useGetSideNavItems((activeSection: siteIndexType));
   const closeSideNavigation = () => setIsSidebarOpen(false);
 
   return (
@@ -55,10 +47,10 @@ export default function DocsSideNavigation({ border }: {| border?: boolean |}): 
       accessibilityLabel="Page navigation"
       showBorder={border}
       header={
-        router.pathname.includes('components') && (
+        isComponentsActiveSection(router.pathname) && (
           <SidebarPlatformSwitcher
             componentPlatformFilteredBy={componentPlatformFilteredBy}
-            onClick={(platform) => setComponentPlatformFilteredBy(platform)}
+            onClick={(platform) => setComponentPlatformFilteredByCookie(platform)}
           />
         )
       }

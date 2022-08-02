@@ -107,10 +107,10 @@ export default function IconographyPage(): Node {
         description={`
 Some of our React components use icons as primary elements to call attention to a particular action or information.
 
-- [Icon](/components/web/icon): The symbolic representation of an action or information, providing visual context and improving usability.
-- [IconButton](/components/web/buttons/iconbutton): Uses icons instead of text to convey available actions on a screen.
-- [Status](/components/web/status): A graphic indicator of an element’s state.
-- [Link](/components/web/link): External links use the visit icon as an external domain indicator.
+- [Icon](/web/icon): The symbolic representation of an action or information, providing visual context and improving usability.
+- [IconButton](/web/iconbutton): Uses icons instead of text to convey available actions on a screen.
+- [Status](/web/status): A graphic indicator of an element’s state.
+- [Link](/web/link): External links use the visit icon as an external domain indicator.
 `}
       />
 
@@ -231,7 +231,7 @@ Used occasionally, on more dense UI
 **32+**
 Should be used sparingly and only in places where the UI is very dense and a larger icon is required
 
-Generally 16px and 24px icons should be used in mobile interfaces. When icons are interactive, they should use [IconButton](/components/web/buttons/iconbutton) with its built in 44 x 44px touch targets.
+Generally 16px and 24px icons should be used in mobile interfaces. When icons are interactive, they should use [IconButton](/web/iconbutton) with its built in 44 x 44px touch targets.
           `}
             />
           </Box>

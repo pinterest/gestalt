@@ -358,7 +358,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use designated elevation color values and styles on light and dark mode themes. See [elevation guidelines](/elevation) for guidance."
+            description="Use designated elevation color values and styles on light and dark mode themes. See [elevation guidelines](/foundations/elevation) for guidance."
             defaultCode={`
             <Box width={200} height={305}>
               <Image

@@ -28,6 +28,7 @@ export default function SidebarPlatformSwitcher({
     <AndroidLogo aria-label="android platform" key="android" />,
   ];
 
+  // Updates both the cookie and the state that tracks the selected platform
   const onSelect = ({ activeIndex }) => {
     const selectedPlatform = Object.keys(PLATFORM_TO_INDEX_MAP).find(
       (key) => PLATFORM_TO_INDEX_MAP[key] === activeIndex,
@@ -35,6 +36,7 @@ export default function SidebarPlatformSwitcher({
     trackButtonClick('Sidebar Platform ', selectedPlatform);
     onClick(selectedPlatform || 'web');
   };
+
   return (
     <SegmentedControl
       items={items}

@@ -111,9 +111,9 @@ export default function TypographyPage(): Node {
         description={`
 We have several React components that use typography as the primary element.
 
-- [Text](/components/web/text): Used for all text on a surface.
-- [Heading](/components/web/heading): Used for [semantic headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) on a surface.
-- [Link](/components/web/link): For both inline and standalone hyperlinks.
+- [Text](/web/text): Used for all text on a surface.
+- [Heading](/web/heading): Used for [semantic headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) on a surface.
+- [Link](/web/link): For both inline and standalone hyperlinks.
 `}
       />
 

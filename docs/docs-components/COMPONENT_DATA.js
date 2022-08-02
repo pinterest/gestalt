@@ -69,7 +69,7 @@ import DesignTokens from '../graphics/foundations/design-tokens.svg';
 import IconographySvg from '../graphics/foundations/iconography-svg.svg';
 import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
-import { type ListItemType } from '../pages/components/web/overview.js';
+import { type ListItemType } from '../pages/web/overview.js';
 
 const FOUNDATION_GUIDELINES_LIST: ListItemType = [
   {
@@ -206,7 +206,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <Button />,
     name: 'Button',
-    path: '/components/web/buttons/button',
+    path: '/web/button',
     description: 'Buttons allow users to perform actions within a surface.',
     category: 'Actions',
     status: {
@@ -229,7 +229,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <ButtonGroup />,
     name: 'ButtonGroup',
-    path: '/components/web/buttons/buttongroup',
+    path: '/web/buttongroup',
     description: 'ButtonGroup is used to display a series of buttons.',
     category: 'Actions',
     status: {
@@ -342,7 +342,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <ComboBox />,
     name: 'ComboBox',
-    path: 'components/web/form_fields/combobox',
+    path: 'web/combobox',
     description:
       'ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.',
     category: 'Fields & Forms',
@@ -455,7 +455,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <RadioGroup />,
     name: 'Fieldset',
-    path: 'components/web/form_fields/fieldset',
+    path: 'web/fieldset',
     description:
       'Fieldset creates a fieldset and legend for a group of related form items in order to clearly indicate related form items.',
     category: 'Fields & Forms',
@@ -526,7 +526,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <IconButton />,
     name: 'IconButton',
-    path: '/components/web/buttons/iconbutton',
+    path: '/web/iconbutton',
     description:
       'IconButton allows users to take actions and make choices with a single click or tap.',
     category: 'Actions',
@@ -572,7 +572,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <GestaltLabel />,
     name: 'Label',
-    path: 'components/web/form_fields/label',
+    path: 'web/label',
     description: 'Label is used to connect a label with a form component in an accessible way.',
     category: 'Fields & Forms',
     status: {
@@ -684,7 +684,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <NumberField />,
     name: 'NumberField',
-    path: 'components/web/form_fields/numberfield',
+    path: 'web/numberfield',
     description: 'NumberField allows for numerical input.',
     category: 'Fields & Forms',
     status: {
@@ -842,7 +842,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <SelectList />,
     name: 'SelectList',
-    path: 'components/web/form_fields/selectlist',
+    path: 'web/selectlist',
     description:
       'SelectList displays a list of actions or options using the browser’s native select.',
     category: 'Fields & Forms',
@@ -1090,7 +1090,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <TextArea />,
     name: 'TextArea',
-    path: 'components/web/form_fields/textarea',
+    path: 'web/textarea',
     description: 'TextArea allows for multi-line input.',
     category: 'Fields & Forms',
     status: {
@@ -1113,7 +1113,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <TextField />,
     name: 'TextField',
-    path: 'components/web/form_fields/textfield',
+    path: 'web/textfield',
     description: 'TextField allows for multiple types of text input.',
     category: 'Fields & Forms',
     status: {
@@ -1230,7 +1230,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Box />,
     name: 'Box',
-    path: '/components/web/utilities/box',
+    path: '/web/box',
     description:
       'Box is a component primitive that can be used to build the foundation of pretty much any other component.',
     category: 'Building Blocks',
@@ -1276,7 +1276,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Container />,
     name: 'Container',
-    path: '/components/web/utilities/container',
+    path: '/web/container',
     description: 'Containers are useful in responsively laying out content on different screens.',
     category: 'Building Blocks',
     status: {
@@ -1390,7 +1390,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Pog />,
     name: 'Pog',
-    path: '/components/web/buttons/pog',
+    path: '/web/pog',
     description:
       'Pog is a lower-level functional component to show the active, hovered, & focused states of IconButton.',
     category: 'Building Blocks',
@@ -1414,7 +1414,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <ScrollBoundaryContainer />,
     name: 'ScrollBoundaryContainer',
-    path: '/components/web/utilities/scrollboundarycontainer',
+    path: '/web/utilities/scrollboundarycontainer',
     description:
       'ScrollBoundaryContainer is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container.',
     category: 'Building Blocks',
@@ -1438,7 +1438,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Sticky />,
     name: 'Sticky',
-    path: '/components/web/utilities/sticky',
+    path: '/web/sticky',
     description: 'Sticky allows an element to become fixed when it reaches a threshold.',
     category: 'Building Blocks',
     status: {
@@ -1461,7 +1461,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <TapArea />,
     name: 'TapArea',
-    path: '/components/web/utilities/taparea',
+    path: '/web/taparea',
     description: 'TapArea allows components to be clickable and touchable in an accessible way.',
     category: 'Building Blocks',
     status: {
@@ -1484,7 +1484,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <ZIndexClasses />,
     name: 'Z-Index Classes',
-    path: '/components/web/utilities/zindex_classes',
+    path: '/web/zindex_classes',
     description:
       'FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components.',
     category: 'Building Blocks',
@@ -1606,7 +1606,7 @@ const UTILITIES_LIST: ListItemType = [
   {
     svg: <HookFocusVisible />,
     name: 'useFocusVisible',
-    path: '/components/web/utilities/usefocusvisible',
+    path: '/web/utilities/usefocusvisible',
     description:
       'useFocusVisible manages focus interactions on the page and determines whether a focus ring should be shown.',
     category: 'Utilities',
@@ -1630,7 +1630,7 @@ const UTILITIES_LIST: ListItemType = [
   {
     svg: <HookReducedMotion />,
     name: 'useReducedMotion',
-    path: '/components/web/utilities/usereducedmotion',
+    path: '/web/utilities/usereducedmotion',
     description:
       'useReducedMotion allows a user to request that the system minimize the amount of non-essential motion.',
     category: 'Utilities',
@@ -1654,7 +1654,7 @@ const UTILITIES_LIST: ListItemType = [
   {
     svg: <ProviderColorScheme />,
     name: 'ColorSchemeProvider',
-    path: '/components/web/utilities/colorschemeprovider',
+    path: '/web/utilities/colorschemeprovider',
     description: 'ColorSchemeProvider is an optional React context provider to enable dark mode.',
     category: 'Utilities',
     hasDarkBackground: true,
@@ -1678,7 +1678,7 @@ const UTILITIES_LIST: ListItemType = [
   {
     svg: <ProviderOnLinkNavigation />,
     name: 'OnLinkNavigationProvider',
-    path: '/components/web/utilities/onlinknavigationprovider',
+    path: '/web/utilities/onlinknavigationprovider',
     description:
       'OnLinkNavigationProvider is a React context provider to externally control the link behavior of components further down the tree.',
     category: 'Utilities',
