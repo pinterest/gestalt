@@ -1,3 +1,9 @@
+## 63.0.4 (Aug 2, 2022)
+
+### Patch
+
+- SideNavigation: implement Sandpack live code examples (#2240)
+
 ## 63.0.3 (Aug 2, 2022)
 
 ### Patch
