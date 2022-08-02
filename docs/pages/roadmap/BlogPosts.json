@@ -2,6 +2,32 @@
   "year": "2022",
   "digests": [
     {
+      "week": "July 29, 2022",
+      "posts": [
+        {
+          "title": "Popover placeholder slots in Android and iOS Figma libraries",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/cb/36/dc/cb36dc63c61d6a1e5e7b6e63c4eb76ef.png",
+          "imageAltText": "A screenshot of the Gestalt Popover component",
+          "content": "We added placeholder slots for Popover in our [Android](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=3686%3A23889) and [iOS](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5975%3A9433) Figma libraries. This feature allows you to add add complex content without detaching or building from scratch."
+        },
+        {
+          "title": "Improvements to TextField and Tabs in the Figma iOS library",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/42/5a/71/425a7132922dd8e43726fbce6bdfff2e.png",
+          "imageAltText": "A screenshot of the Gestalt TextField and Tabs components",
+          "content": "It's been a long time coming, but we finally made updates to our [iOS TextField component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=6655%3A12165) to better represent a mobile-centric affordance. We also added an underlined variant to the [iOS Tabs component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5977%3A3097). We're hoping to move towards the underlined treatment across all platforms, and so we want to begin representing this change in our Figma libraries. **Note:** Both of these components are only available for our iOS libraries. We will be updating our Android libraries with these changes shortly."
+        },
+        {
+          "title": "Improvements to Modal in Figma for Web & Mobile Web",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/a7/0b/53/a70b53a8ff0fdc319fc7a3bbbbb37512.png",
+          "imageAltText": "A screenshot of Gestalt's Modal Figma component",
+          "content": "Lastly, we made some more refinements to [Modal](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17900) in our Figma for Web library. The changes should reflect a more organized and refined component structure to improve ease of use."
+        }
+      ]
+    },
+    {
       "week": "July 22, 2022",
       "posts": [
         {
