@@ -1,3 +1,9 @@
+## 63.0.2 (Aug 2, 2022)
+
+### Patch
+
+- Docs: new SlimBanner, SideNavigation SVGs (#2247)
+
 ## 63.0.1 (Aug 2, 2022)
 
 ### Patch
