@@ -45,6 +45,8 @@ function Header() {
     [componentPlatformFilteredBy],
   );
 
+  // If the route includes a platform, set the "components" tab active
+  // Otherwise set it based on the route
   const [activeTab, setActiveTab] = useState(
     isComponentsActiveSection(router.pathname)
       ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')

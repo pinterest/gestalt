@@ -425,7 +425,7 @@ function Example() {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size (\`sm\` or \`lg\`) enables a solid, light gray color in that width. Specifying \`shadow\` adds an even box-shadow around the entire container, while \`raisedTopShadow\` and \`raisedBottomShadow\` add shadows to indicate an elevated header or footer. See the [elevation foundations page](/elevation) for more details.`}
+          description={`Borders are controlled by the \`borderStyle\` property. Specifying a size (\`sm\` or \`lg\`) enables a solid, light gray color in that width. Specifying \`shadow\` adds an even box-shadow around the entire container, while \`raisedTopShadow\` and \`raisedBottomShadow\` add shadows to indicate an elevated header or footer. See the [elevation foundations page](/foundations/elevation) for more details.`}
           title="Borders"
         >
           <CombinationNew
@@ -483,7 +483,7 @@ function Example() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Elevation"
-          description="Colors and shadows can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode, while `shadow` is only applicable in light mode. For full details, visit our [Elevation foundations page](/elevation)."
+          description="Colors and shadows can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode, while `shadow` is only applicable in light mode. For full details, visit our [Elevation foundations page](/foundations/elevation)."
         >
           <Flex direction="column" gap={2}>
             <Text size="400">Color</Text>
