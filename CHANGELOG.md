@@ -1,3 +1,9 @@
+## 63.0.3 (Aug 2, 2022)
+
+### Patch
+
+- Docs: site navigation updates (#2242)
+
 ## 63.0.2 (Aug 2, 2022)
 
 ### Patch
