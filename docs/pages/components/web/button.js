@@ -1,14 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
 import { Button } from 'gestalt';
-import PropTable from '../../../../docs-components/PropTable.js';
-import CombinationNew from '../../../../docs-components/CombinationNew.js';
-import PageHeader from '../../../../docs-components/PageHeader.js';
-import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
-import MainSection from '../../../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
-import Page from '../../../../docs-components/Page.js';
+import PropTable from '../../../docs-components/PropTable.js';
+import CombinationNew from '../../../docs-components/CombinationNew.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import docgen, { type DocGen } from '../../../docs-components/docgen.js';
+import Page from '../../../docs-components/Page.js';
 
 export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

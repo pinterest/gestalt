@@ -1,15 +1,15 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import Page from '../../../../docs-components/Page.js';
-import CombinationNew from '../../../../docs-components/CombinationNew.js';
-import PageHeader from '../../../../docs-components/PageHeader.js';
-import MainSection from '../../../../docs-components/MainSection.js';
-import GeneratedPropTable from '../../../../docs-components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../../../docs-components/docgen.js';
-import QualityChecklist from '../../../../docs-components/QualityChecklist.js';
+import Page from '../../../docs-components/Page.js';
+import CombinationNew from '../../../docs-components/CombinationNew.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../../../docs-components/docgen.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../../../docs-components/AccessibilitySection.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 
 const ignoredProps = [
   'smColumn',

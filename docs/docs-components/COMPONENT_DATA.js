@@ -204,7 +204,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <Button />,
     name: 'Button',
-    path: '/components/web/buttons/button',
+    path: '/components/web/button',
     description: 'Buttons allow users to perform actions within a surface.',
     category: 'Actions',
     status: {
@@ -227,7 +227,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <ButtonGroup />,
     name: 'ButtonGroup',
-    path: '/components/web/buttons/buttongroup',
+    path: '/components/web/buttongroup',
     description: 'ButtonGroup is used to display a series of buttons.',
     category: 'Actions',
     status: {
@@ -340,7 +340,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <ComboBox />,
     name: 'ComboBox',
-    path: 'components/web/form_fields/combobox',
+    path: 'components/web/combobox',
     description:
       'ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.',
     category: 'Fields & Forms',
@@ -453,7 +453,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <RadioGroup />,
     name: 'Fieldset',
-    path: 'components/web/form_fields/fieldset',
+    path: 'components/web/fieldset',
     description:
       'Fieldset creates a fieldset and legend for a group of related form items in order to clearly indicate related form items.',
     category: 'Fields & Forms',
@@ -524,7 +524,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <IconButton />,
     name: 'IconButton',
-    path: '/components/web/buttons/iconbutton',
+    path: '/components/web/iconbutton',
     description:
       'IconButton allows users to take actions and make choices with a single click or tap.',
     category: 'Actions',
@@ -570,7 +570,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <GestaltLabel />,
     name: 'Label',
-    path: 'components/web/form_fields/label',
+    path: 'components/web/label',
     description: 'Label is used to connect a label with a form component in an accessible way.',
     category: 'Fields & Forms',
     status: {
@@ -682,7 +682,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <NumberField />,
     name: 'NumberField',
-    path: 'components/web/form_fields/numberfield',
+    path: 'components/web/numberfield',
     description: 'NumberField allows for numerical input.',
     category: 'Fields & Forms',
     status: {
@@ -840,7 +840,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <SelectList />,
     name: 'SelectList',
-    path: 'components/web/form_fields/selectlist',
+    path: 'components/web/selectlist',
     description:
       'SelectList displays a list of actions or options using the browser’s native select.',
     category: 'Fields & Forms',
@@ -1065,7 +1065,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <TextArea />,
     name: 'TextArea',
-    path: 'components/web/form_fields/textarea',
+    path: 'components/web/textarea',
     description: 'TextArea allows for multi-line input.',
     category: 'Fields & Forms',
     status: {
@@ -1088,7 +1088,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   {
     svg: <TextField />,
     name: 'TextField',
-    path: 'components/web/form_fields/textfield',
+    path: 'components/web/textfield',
     description: 'TextField allows for multiple types of text input.',
     category: 'Fields & Forms',
     status: {
@@ -1205,7 +1205,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Box />,
     name: 'Box',
-    path: '/components/web/utilities/box',
+    path: '/components/web/box',
     description:
       'Box is a component primitive that can be used to build the foundation of pretty much any other component.',
     category: 'Building Blocks',
@@ -1251,7 +1251,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Container />,
     name: 'Container',
-    path: '/components/web/utilities/container',
+    path: '/components/web/container',
     description: 'Containers are useful in responsively laying out content on different screens.',
     category: 'Building Blocks',
     status: {
@@ -1365,7 +1365,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Pog />,
     name: 'Pog',
-    path: '/components/web/buttons/pog',
+    path: '/components/web/pog',
     description:
       'Pog is a lower-level functional component to show the active, hovered, & focused states of IconButton.',
     category: 'Building Blocks',
@@ -1413,7 +1413,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <Sticky />,
     name: 'Sticky',
-    path: '/components/web/utilities/sticky',
+    path: '/components/web/sticky',
     description: 'Sticky allows an element to become fixed when it reaches a threshold.',
     category: 'Building Blocks',
     status: {
@@ -1436,7 +1436,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <TapArea />,
     name: 'TapArea',
-    path: '/components/web/utilities/taparea',
+    path: '/components/web/taparea',
     description: 'TapArea allows components to be clickable and touchable in an accessible way.',
     category: 'Building Blocks',
     status: {
@@ -1459,7 +1459,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   {
     svg: <ZIndexClasses />,
     name: 'Z-Index Classes',
-    path: '/components/web/utilities/zindex_classes',
+    path: '/components/web/zindex_classes',
     description:
       'FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components.',
     category: 'Building Blocks',

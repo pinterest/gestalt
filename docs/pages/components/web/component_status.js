@@ -118,10 +118,13 @@ export default function ComponentStatus(): Node {
                         </Fragment>
                       ) : (
                         <Link
-                          href={`/${
-                            item.path ??
-                            item.name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()
-                          }`}
+                          href={
+                            item?.path ??
+                            `/components/web/${item.name
+                              .replace(/ /g, '_')
+                              .replace(/'/g, '')
+                              .toLowerCase()}`
+                          }
                           inline
                         >
                           {item.name}
