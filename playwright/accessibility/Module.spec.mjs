@@ -3,7 +3,7 @@ import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
 test('Module Accessibility check', async ({ page }) => {
-  await page.goto('/module');
+  await page.goto('/web/module');
   await expectAccessiblePage({
     page,
     rules: {
