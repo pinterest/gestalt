@@ -22,7 +22,8 @@
     "jsx-a11y",
     "react",
     "react-hooks",
-    "testing-library"
+    "testing-library",
+    "validate-jsx-nesting"
   ],
   "settings": {
     "next": {
@@ -31,6 +32,7 @@
   },
   "rules": {
     "eslint-comments/no-unused-disable": "error",
+    "validate-jsx-nesting/no-invalid-jsx-nesting": "error",
     "flowtype/no-mutable-array": "error",
     "flowtype/require-exact-type": ["error", "always"],
     "flowtype/require-valid-file-annotation": [

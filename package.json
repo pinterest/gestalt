@@ -54,6 +54,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-testing-library": "^5.3.0",
+    "eslint-plugin-validate-jsx-nesting": "^0.1.0",
     "flow-bin": "^0.183.0",
     "flow-remove-types": "^2.183.0",
     "identity-obj-proxy": "^3.0.0",

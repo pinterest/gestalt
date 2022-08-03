@@ -7313,6 +7313,13 @@ eslint-plugin-testing-library@^5.3.0:
   dependencies:
     "@typescript-eslint/utils" "^5.13.0"
 
+eslint-plugin-validate-jsx-nesting@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-validate-jsx-nesting/-/eslint-plugin-validate-jsx-nesting-0.1.0.tgz#a7678264abdfb0d58dfed790ba3a57a2f5d1d4a8"
+  integrity sha512-cEFjl8bFBpWNP4hVyy3oRGKAyNH0WqxAVjjrfkvhD4ciqCrSvkDuYZqGZ7PkZb5XE76asHPxyuW2f9N2I1cSsg==
+  dependencies:
+    validate-html-nesting "^1.0.2"
+
 eslint-scope@^5.1.1:
   version "5.1.1"
   resolved "https://registry.npmjs.org/eslint-scope/-/eslint-scope-5.1.1.tgz"
@@ -17321,6 +17328,11 @@ v8-to-istanbul@^9.0.0:
     "@jridgewell/trace-mapping" "^0.3.7"
     "@types/istanbul-lib-coverage" "^2.0.1"
     convert-source-map "^1.6.0"
+
+validate-html-nesting@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/validate-html-nesting/-/validate-html-nesting-1.0.2.tgz#a9b602f5fc2deb7eab7fe3ba30e804dcdb2aaa2b"
+  integrity sha512-0eUJ1TJ8Pr5+/4E004blNnR5wqlnVYn5vJ7u0avl29kuU6KS2HTngJ0WpdyEEqeArHoizLu0iUA5zyJt/jB1RA==
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
