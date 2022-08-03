@@ -6,7 +6,7 @@ export default function Example(): Node {
   const [showNav, setShowNav] = React.useState(false);
 
   return showNav ? (
-    <DeviceTypeProvider deviceType="mobile">
+    <DeviceTypeProvider deviceType="phone">
       <Box
         display="flex"
         alignItems="center"

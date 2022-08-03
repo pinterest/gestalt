@@ -80,7 +80,7 @@ export default function SideNavigationGroup({
 
   const deviceType = useDeviceType();
 
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'phone';
 
   const itemColor = hovered ? 'secondary' : undefined;
 

@@ -84,7 +84,7 @@ export default function SideNavigationTopItem({
 
   const deviceType = useDeviceType();
 
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'phone';
 
   const isTopLevel = nestedLevel === 0;
 
