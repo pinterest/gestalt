@@ -78,7 +78,7 @@ export default function SideNavigation({
   const navigationChildren = useGetChildrenToArray({ children, filterLevel: 'main' });
 
   const deviceType = useDeviceType();
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'phone';
 
   if (isMobile) {
     return (
