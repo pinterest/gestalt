@@ -3,6 +3,9 @@ import { type Node } from 'react';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import useFocusVisibleExample from '../../examples/accessibility/useFocusVisibleExample.js';
+import useReducedMotionExample from '../../examples/accessibility/useReducedMotionExample.js';
 
 export default function AccessibilityGuidelinesPage(): Node {
   return (
@@ -109,43 +112,14 @@ export default function AccessibilityGuidelinesPage(): Node {
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
           </ul>
         `}
-            defaultCode={`
-function Example() {
-  const { isFocusVisible } = useFocusVisible();
-  const [ focusedButton1, setFocusedButton1 ] = React.useState(false);
-  const [ focusedButton2, setFocusedButton2 ] = React.useState(false);
-
-  return (
-    <Flex alignItems="center" direction="column" gap={12}>
-      <Flex direction="column" alignItems="center" gap={4}>
-        <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
-        <button
-          onBlur={() => setFocusedButton1(false)}
-          onFocus={() => setFocusedButton1(true)}
-          style={{
-            outline: 'none',
-            boxShadow: isFocusVisible && focusedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
-          }}
-        >
-          <Text color="dark">Button 1</Text>
-        </button>
-      </Flex>
-      <Flex alignItems="center" direction="column" gap={4}>
-        <Text>Not using useFocusVisible(): Focus ring is always visible</Text>
-        <button
-          onBlur={() => setFocusedButton2(false)}
-          onFocus={() => setFocusedButton2(true)}
-          style={{
-            outline: 'none',
-            boxShadow: focusedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
-          }}
-        >
-          <Text color="dark">Button 2</Text>
-        </button>
-      </Flex>
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample
+                code={useFocusVisibleExample}
+                name="useFocusVisible example"
+                previewHeight={200}
+                showEditor={false}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
@@ -161,42 +135,14 @@ function Example() {
             <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
           </ul>
         `}
-            defaultCode={`
-        function Example() {
-          const shouldReduceMotion = useReducedMotion();
-
-          return (
-            <React.Fragment>
-              <style dangerouslySetInnerHTML={{__html: \`
-                @keyframes vibrate {
-                  0% {
-                    transform: translate(0);
-                  }
-                  33% {
-                    transform: translate(-2px, -2px);
-                  }
-                  66% {
-                    transform: translate(2px, -2px);
-                  }
-                  100% {
-                    transform: translate(0);
-                  }
-                }
-              \`}} />
-              <div
-                style={
-                  shouldReduceMotion
-                    ? {}
-                    : { animation: 'vibrate 0.3s linear infinite both' }
-                }
-              >
-                <Box color="red" display="inlineBlock" padding={4}>
-                  <Text color="inverse">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion not activated'}</Text>
-                </Box>
-              </div>
-            </React.Fragment>
-          );
-        }`}
+            sandpackExample={
+              <SandpackExample
+                code={useReducedMotionExample}
+                name="useReducedMotion example"
+                previewHeight={200}
+                showEditor={false}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
