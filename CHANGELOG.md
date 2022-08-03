@@ -1,3 +1,9 @@
+## 63.0.11 (Aug 3, 2022)
+
+### Patch
+
+- Tooling: refactor renameComponent codemod to use new helper functions (#2235)
+
 ## 63.0.10 (Aug 3, 2022)
 
 ### Patch
