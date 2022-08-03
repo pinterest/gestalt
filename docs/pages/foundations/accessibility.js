@@ -116,8 +116,7 @@ export default function AccessibilityGuidelinesPage(): Node {
               <SandpackExample
                 code={useFocusVisibleExample}
                 name="useFocusVisible example"
-                previewHeight={200}
-                showEditor={false}
+                previewHeight={250}
               />
             }
           />
@@ -139,8 +138,7 @@ export default function AccessibilityGuidelinesPage(): Node {
               <SandpackExample
                 code={useReducedMotionExample}
                 name="useReducedMotion example"
-                previewHeight={200}
-                showEditor={false}
+                previewHeight={250}
               />
             }
           />

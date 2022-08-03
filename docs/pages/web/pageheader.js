@@ -93,6 +93,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
                 layout="column"
                 name="PageHeader one primary action example"
                 showEditor={false}
+                hideControls
               />
             }
           />
@@ -121,6 +122,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
                 layout="column"
                 name="PageHeader max width example"
                 showEditor={false}
+                hideControls
               />
             }
           />
@@ -149,6 +151,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
                 name="PageHeader include image example"
                 previewHeight={80}
                 showEditor={false}
+                hideControls
               />
             }
           />
@@ -178,6 +181,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
                 name="PageHeader do not overload example"
                 previewHeight={85}
                 showEditor={false}
+                hideControls
               />
             }
           />
@@ -200,7 +204,6 @@ Be brief with text in all components to account for languages with longer words.
               layout="column"
               name="PageHeader localization example"
               previewHeight={85}
-              showEditor={false}
             />
           }
         />
@@ -218,7 +221,6 @@ Be brief with text in all components to account for languages with longer words.
                 layout="column"
                 name="PageHeader title example"
                 previewHeight={80}
-                showEditor={false}
               />
             }
           />
@@ -245,7 +247,6 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
                 layout="column"
                 name="Primary action example"
                 previewHeight={260}
-                showEditor={false}
               />
             }
           />
@@ -270,7 +271,6 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
                 layout="column"
                 name="Secondary actions example"
                 previewHeight={170}
-                showEditor={false}
               />
             }
           />
@@ -287,7 +287,6 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
                 layout="column"
                 name="Complimentary items example"
                 previewHeight={85}
-                showEditor={false}
               />
             }
           />
@@ -304,7 +303,6 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
                 layout="column"
                 name="PageHeader subtext example"
                 previewHeight={85}
-                showEditor={false}
               />
             }
           />
@@ -322,7 +320,6 @@ PageHeader also supports a bottom border to show the division between PageHeader
                 code={centerAlignedExample}
                 layout="column"
                 name="PageHeader max width & border example"
-                showEditor={false}
               />
             }
           />

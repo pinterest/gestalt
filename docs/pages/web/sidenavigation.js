@@ -210,13 +210,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={activeItemExample}
-                name="Active item example"
-                showEditor={false}
-                layout="column"
-                previewHeight={330}
-              />
+              <SandpackExample code={activeItemExample} name="Active item example" />
             }
           />
         </MainSection.Subsection>
@@ -230,13 +224,7 @@ export default function SideNavigationPage({
       >
         <MainSection.Card
           sandpackExample={
-            <SandpackExample
-              code={localizationExample}
-              name="Localization example"
-              showEditor={false}
-              layout="column"
-              previewHeight={263}
-            />
+            <SandpackExample code={localizationExample} name="Localization example" />
           }
         />
       </MainSection>
@@ -306,13 +294,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={sectionsExample}
-                name="Sections example"
-                showEditor={false}
-                layout="column"
-                previewHeight={470}
-              />
+              <SandpackExample code={sectionsExample} name="Sections example" previewHeight={470} />
             }
           />
         </MainSection.Subsection>
@@ -322,13 +304,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={headerExample}
-                name="Header example"
-                showEditor={false}
-                layout="column"
-                previewHeight={380}
-              />
+              <SandpackExample code={headerExample} name="Header example" previewHeight={380} />
             }
           />
         </MainSection.Subsection>
@@ -337,15 +313,6 @@ export default function SideNavigationPage({
           description="Footers allow for filters, additional external links or other UI controls to be included at the bottom of the navigation."
         >
           <MainSection.Card
-            // sandpackExample={
-            //   <SandpackExample
-            //     code={footerExample}
-            //     name="Footer example"
-            //     showEditor={false}
-            //
-            //     layout="column"
-            //   />
-            // }
             defaultCode={`
 <Box width="100%" height="100%">
   <Box height="100%" width={280} overflow="scroll">
@@ -407,15 +374,7 @@ export default function SideNavigationPage({
           description="A badge can be added to a menu label with information that may be useful to a person, such as whether a page is new or is a beta or deprecated feature. Only supported in SideNavigation.TopItem and SideNavigation.Group."
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={badgeExample}
-                name="Badge example"
-                showEditor={false}
-                layout="column"
-                previewHeight={330}
-              />
-            }
+            sandpackExample={<SandpackExample code={badgeExample} name="Badge example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -423,15 +382,7 @@ export default function SideNavigationPage({
           description="A border can be added to the end edge of the navigation on dense surfaces with tight spacing where it helps to visually separate the nav from other content."
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={borderExample}
-                name="Border example"
-                showEditor={false}
-                layout="column"
-                previewHeight={330}
-              />
-            }
+            sandpackExample={<SandpackExample code={borderExample} name="Border example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -441,26 +392,12 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             title="Gestalt icon"
-            sandpackExample={
-              <SandpackExample
-                code={iconsExample}
-                name="Icons example"
-                showEditor={false}
-                layout="column"
-                previewHeight={252}
-              />
-            }
+            sandpackExample={<SandpackExample code={iconsExample} name="Icons example" />}
           />
           <MainSection.Card
             title="Custom icon"
             sandpackExample={
-              <SandpackExample
-                code={customIconsExample}
-                name="Custom icon example"
-                showEditor={false}
-                layout="column"
-                previewHeight={252}
-              />
+              <SandpackExample code={customIconsExample} name="Custom icon example" />
             }
           />
         </MainSection.Subsection>
@@ -470,13 +407,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={notificationsExample}
-                name="Notifications example"
-                showEditor={false}
-                layout="column"
-                previewHeight={252}
-              />
+              <SandpackExample code={notificationsExample} name="Notifications example" />
             }
           />
         </MainSection.Subsection>
@@ -485,15 +416,7 @@ export default function SideNavigationPage({
           description="Counters can be included as indicators of the number of items on a page or section. Only include counters if it’s information that’s useful to the user to know before clicking on a menu item. Only supported in SideNavigation.TopItem and SideNavigation.Group."
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={counterExample}
-                name="Counters example"
-                showEditor={false}
-                previewHeight={140}
-                layout="column"
-              />
-            }
+            sandpackExample={<SandpackExample code={counterExample} name="Counters example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -502,12 +425,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={nestedExample}
-                name="Nested directory example"
-                showEditor={false}
-                layout="column"
-              />
+              <SandpackExample code={nestedExample} name="Nested directory example" />
             }
           />
         </MainSection.Subsection>
@@ -516,13 +434,7 @@ export default function SideNavigationPage({
       <MainSection name="Mobile">
         <MainSection.Card
           sandpackExample={
-            <SandpackExample
-              code={mobileExample}
-              name="Mobile example"
-              showEditor={false}
-              layout="column"
-              previewHeight={500}
-            />
+            <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
           }
         />
       </MainSection>

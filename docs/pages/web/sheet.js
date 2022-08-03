@@ -135,7 +135,12 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="Use Sheet for sub-tasks within a large workflow that are optional, like creating a new audience list while creating a campaign."
             sandpackExample={
-              <SandpackExample code={defaultExample} name="Sub task example" showEditor={false} />
+              <SandpackExample
+                code={defaultExample}
+                name="Sub task example"
+                showEditor={false}
+                layout="column"
+              />
             }
           />
 
@@ -148,6 +153,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
                 code={quickEditsExample}
                 name="Sub task example"
                 showEditor={false}
+                hideControls
               />
             }
           />
@@ -155,9 +161,6 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
             cardSize="lg"
             type="do"
             description="Use the same size Sheet on a product surface. For example, if filling out a form requires multiple Sheets to be opened to complete different subtasks, then all Sheets in that form should be the same width. When in doubt, pick the widest size needed for the entire flow."
-            defaultCode={`
-
-`}
           />
         </MainSection.Subsection>
         <MainSection.Subsection>
@@ -165,25 +168,16 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
             cardSize="lg"
             type="don't"
             description="Use Sheet for required tasks or main tasks, like logging in. Put those tasks within the content of the page instead."
-            defaultCode={`
-
-`}
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description="Use Sheet if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Modules](/web/module) to section out content."
-            defaultCode={`
-
-`}
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description="Use Sheet to confirm actions or display alerts. Use a [Modal](/web/modal) or [Toast](/web/toast) instead."
-            defaultCode={`
-
-`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -198,11 +192,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={defaultExample}
-                name="Accessibility example"
-                showEditor={false}
-              />
+              <SandpackExample code={defaultExample} name="Accessibility example" layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -225,7 +215,7 @@ When Sheet opens, focus should be placed on the first interactive element within
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={defaultExample} name="Heading example" showEditor={false} />
+              <SandpackExample code={defaultExample} name="Heading example" layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -236,11 +226,7 @@ When Sheet opens, focus should be placed on the first interactive element within
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={subheadingExample}
-                name="Subhading example"
-                showEditor={false}
-              />
+              <SandpackExample code={subheadingExample} name="Subhading example" layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -251,7 +237,7 @@ When Sheet opens, focus should be placed on the first interactive element within
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={footerExample} name="Footer example" showEditor={false} />
+              <SandpackExample code={footerExample} name="Footer example" layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -267,7 +253,7 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={sizesExample} name="Sizes example" showEditor={false} />
+              <SandpackExample code={sizesExample} name="Sizes example" layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -282,7 +268,7 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
               <SandpackExample
                 code={preventClosingExample}
                 name="Prevent closing example"
-                showEditor={false}
+                layout="column"
               />
             }
           />
@@ -309,11 +295,7 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={animationExample}
-                name="Animation example"
-                showEditor={false}
-              />
+              <SandpackExample code={animationExample} name="Animation example" layout="column" />
             }
           />
         </MainSection.Subsection>
