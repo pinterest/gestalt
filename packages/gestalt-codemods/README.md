@@ -43,9 +43,20 @@ Finally, it can come handy the jscodeshift API
 
 - 3 main objects jscodeshift API works with:
 
-  - nodes or AST nodes: plain JavaScript objects with a specific set of fields and with no methods in accordance with the Mozilla Parser API. Thet compose the AST. Use https://astexplorer.net/ to look into AST nodes. The primary way to identify nodes is via their "type".
+  - nodes or AST nodes: plain JavaScript objects with a specific set of fields and with no methods in accordance with the Mozilla Parser API. They compose the AST. Use https://astexplorer.net/ to look into AST nodes. The primary way to identify nodes is via their "type".
+
   - node-paths or path object: wrappers around AST nodes (provided by ast-types). Paths contain meta-information (scope or relationships of the node), store the AST node in the node property, and provide methods to process AST nodes.
+
+  References:
+  https://github.com/facebook/jscodeshift/wiki/jscodeshift-Documentation#nodepaths
+  https://github.com/benjamn/ast-types#nodepath
+  https://github.com/benjamn/ast-types#scope
+
   - collections: groups of 0 or more node-paths that the jscodeshift API returns when you query the AST. A collection has methods to process the nodes inside a collection, often resulting in a new collection.
+
+  References:
+  https://github.com/facebook/jscodeshift/wiki/jscodeshift-Documentation#collections
+  https://github.com/facebook/jscodeshift/blob/master/src/Collection.js
 
   Collections contain node-paths >
   Node-paths contain nodes >

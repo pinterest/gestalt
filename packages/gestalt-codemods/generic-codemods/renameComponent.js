@@ -5,76 +5,76 @@
  * Ex. <Flyout /> to <Popover />
  *
  * TO RUN THIS CODEMOD
- * yarn codemod renameComponent ~/path/to/your/code --previousName=<value> --nextName=<value>
- * E.g. yarn codemod renameComponent ~/code/pinboard/webapp --previousName=Box --nextName=RenamedBox
+ * yarn codemod renameComponent ~/path/to/your/code --componentName=<value> --nextComponentName=<value>
+ * E.g. yarn codemod renameComponent ~/code/pinboard/webapp --componentName=Box --nextComponentName=RenamedBox
  *
  * OPTIONS:
- * --previousName: current component name to be replaced
- * --nextName: new component name to replace with
+ * --componentName: current component name to be replaced
+ * --nextComponentName: new component name to replace with
  */
 
 import {
-  getImports,
-  getJSX,
+  getGestaltImport,
+  getComponentIdentifierByName,
   getLocalImportedName,
+  filterJSXByTargetLocalName,
   initialize,
-  isGestaltImport,
-  matchesComponentName,
-  replaceImportedName,
-  replaceImportNodePath,
-  renameJSXElement,
   saveToSource,
-  sortImportedNames,
-} from './deprecatedUtils.js';
+  buildReplaceWithRenamedComponent,
+  buildReplaceWithRenamedImport,
+} from './utils.js';
 import { type FileType, type ApiType } from './flowtypes.js';
 
-type OptionsType = {| previousName: string, nextName: string |};
+type OptionsType = {|
+  componentName: string,
+  nextComponentName: string,
+|};
 
-function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string {
-  const { previousName, nextName } = options;
+function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
+  const { componentName, nextComponentName } = options;
 
   const { j, src } = initialize({ api, fileInfo });
 
-  let targetLocalImportedName;
+  const gestaltImportCollection = getGestaltImport({ src, j });
 
-  getImports({ src, j }).forEach((nodePath) => {
-    const { node: importDeclaration } = nodePath;
+  if (gestaltImportCollection.size() === 0) return null;
 
-    if (!isGestaltImport({ importDeclaration })) return;
-
-    targetLocalImportedName = getLocalImportedName({
-      importDeclaration,
-      importedName: previousName,
-    });
-
-    if (!targetLocalImportedName) return;
-
-    const newImportSpecifiers = replaceImportedName({
-      j,
-      importDeclaration,
-      previousComponentName: previousName,
-      nextComponentName: nextName,
-    });
-
-    const newSortedImportSpecifiers = sortImportedNames({ importSpecifiers: newImportSpecifiers });
-
-    replaceImportNodePath({
-      j,
-      nodePath,
-      importSpecifiers: newSortedImportSpecifiers,
-      importPath: 'gestalt',
-    });
+  const componentIdentifierCollection = getComponentIdentifierByName({
+    j,
+    gestaltImportCollection,
+    componentName,
   });
 
-  getJSX({ src, j }).forEach((nodePath) => {
-    const { node: JSXNode } = nodePath;
+  if (componentIdentifierCollection.size() === 0) return null;
 
-    if (!matchesComponentName({ JSXNode, componentName: targetLocalImportedName })) return;
-
-    renameJSXElement({ JSXNode, nextComponentName: nextName });
-
-    src.modified = true;
+  const targetLocalName = getLocalImportedName({
+    importSpecifierCollection: componentIdentifierCollection,
   });
+
+  const matchedJSXCollection = filterJSXByTargetLocalName({
+    src,
+    j,
+    targetLocalName,
+  });
+
+  if (matchedJSXCollection.size() === 0) return null;
+
+  const replaceWithModifiedCloneCallback = buildReplaceWithRenamedComponent({
+    nextComponentName,
+  });
+
+  for (let idx = matchedJSXCollection.size() - 1; idx >= 0; idx -= 1) {
+    matchedJSXCollection.at(idx).replaceWith(replaceWithModifiedCloneCallback);
+  }
+
+  const replaceWithModifiedCloneCallbackImport = buildReplaceWithRenamedImport({
+    j,
+    nextComponentName,
+  });
+
+  componentIdentifierCollection.replaceWith(replaceWithModifiedCloneCallbackImport);
+
+  src.modified = true;
 
   return saveToSource({ src });
 }

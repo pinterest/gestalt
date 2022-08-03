@@ -13,8 +13,8 @@ describe('renameComponent', () => {
       'renameComponent',
       {
         quote: 'single',
-        previousName: 'ScrollableContainer',
-        nextName: 'ScrollBoundaryContainer',
+        componentName: 'ScrollableContainer',
+        nextComponentName: 'ScrollBoundaryContainer',
       },
       test,
       {},

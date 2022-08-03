@@ -94,7 +94,7 @@ const filterJSXByTargetLocalName = ({
   src: Collection,
   j: JSCodeShift,
   targetLocalName: ?string,
-  subcomponent: ?string,
+  subcomponent?: ?string,
 |}): Collection =>
   subcomponent
     ? src.find(j.JSXElement, {
@@ -188,7 +188,7 @@ const filterJSXByAttribute = ({
 };
 
 /**
- * deepCloneNode: Returns a collection containing the Gestalt import declaration node-path
+ * deepCloneNode: Returns a cloned node of a node-path
  */
 const deepCloneNode = <T>({ node }: { node: T }): T => JSON.parse(JSON.stringify(node) ?? '');
 
@@ -220,6 +220,36 @@ const buildAttributeFromValue = ({
       return null;
   }
 };
+
+/**
+ * buildReplaceWithRenamedComponent: Returns a collection containing the Gestalt import declaration node-path
+ */
+const buildReplaceWithRenamedComponent = ({
+  nextComponentName,
+}: {
+  nextComponentName: string,
+}): ((nodepath: Collection) => ?JSXNodeType) => {
+  const replaceWithRenamedComponent = (nodepath: Collection) => {
+    const newNode = deepCloneNode({ node: nodepath.get().node });
+
+    newNode.openingElement.name.name = nextComponentName;
+    if (!newNode.openingElement.selfClosing) {
+      newNode.closingElement.name.name = nextComponentName;
+    }
+    return newNode;
+  };
+
+  return replaceWithRenamedComponent;
+};
+
+/**
+ * buildReplaceWithRenamedComponent: Returns a callback for collection.replaceWith() that renames imported components
+ */
+const buildReplaceWithRenamedImport =
+  ({ j, nextComponentName }: { j: JSCodeShift, nextComponentName: string }): (() => ?JSXNodeType) =>
+  () =>
+    j.importSpecifier(j.identifier(nextComponentName));
+
 /**
  * buildReplaceWithModifiedAttributes: Returns a collection containing the Gestalt import declaration node-path
  */
@@ -315,6 +345,8 @@ const saveToSource = ({ src }: {| src: Collection |}): string | null =>
 
 export {
   buildReplaceWithModifiedAttributes,
+  buildReplaceWithRenamedComponent,
+  buildReplaceWithRenamedImport,
   deepCloneNode,
   filterJSXByAttribute,
   filterJSXByTargetLocalName,
