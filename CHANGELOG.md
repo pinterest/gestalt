@@ -1,3 +1,9 @@
+## 63.0.12 (Aug 3, 2022)
+
+### Patch
+
+- Docs: implement Tabs into Gestalt Documentation's SideNavigation for mobile (#2254)
+
 ## 63.0.11 (Aug 3, 2022)
 
 ### Patch
