@@ -38,6 +38,10 @@ export type Props = {|
    */
   display?: Display,
   /**
+   * When supplied, the  group will render expanded to show an active item  child.See the [Accessibility](https://gestalt.pinterest.systems/SideNavigation#Accessibility) guidelines to learn more.
+   */
+  hasActiveChild?: boolean,
+  /**
    * When supplied, will display Icon. See the [Icon](https://gestalt.pinterest.systems/SideNavigation#Icon) variant to learn more.
    */
   icon?: IconType,
@@ -55,10 +59,11 @@ export type Props = {|
  * Use [SideNavigation.Group](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Group) to hold SideNavigation.NestedItem and SideNavigation.NestedGroup at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 export default function SideNavigationGroup({
-  children,
   badge,
+  children,
   counter,
   display = 'expandable',
+  hasActiveChild = false,
   icon,
   notificationAccessibilityLabel,
   label,
@@ -70,7 +75,7 @@ export default function SideNavigationGroup({
 
   const [hovered, setHovered] = useState(false);
 
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(hasActiveChild);
 
   const itemId = useId();
 
