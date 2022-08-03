@@ -1,3 +1,9 @@
+## 63.0.10 (Aug 3, 2022)
+
+### Patch
+
+- Tests: Update accessibility tests (#2251)
+
 ## 63.0.9 (Aug 3, 2022)
 
 ### Patch
