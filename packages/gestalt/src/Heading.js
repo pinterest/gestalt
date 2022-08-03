@@ -31,7 +31,7 @@ type Props = {|
   /**
    * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See [Alignment example](https://gestalt.pinterest.systems/heading#Alignment) for more details.
    */
-  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
+  align?: 'start' | 'end' | 'center' | 'forceLeft' | 'forceRight',
   /**
    *
    */

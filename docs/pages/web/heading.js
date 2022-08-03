@@ -395,8 +395,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   <Divider />
   <Heading align="center" size="400">Center-aligned heading</Heading>
   <Divider />
-  <Heading align="justify" size="400">Justify-aligned heading</Heading>
-  <Divider />
   <Heading align="forceLeft" size="400">Forced-left-aligned heading</Heading>
   <Divider />
   <Heading align="forceRight" size="400">Forced-right-aligned heading</Heading>
