@@ -1,3 +1,9 @@
+## 63.0.9 (Aug 3, 2022)
+
+### Patch
+
+- Docs: convert accessibility page to Sandpack & fix useReducedMotion example (#2253)
+
 ## 63.0.8 (Aug 3, 2022)
 
 ### Patch
