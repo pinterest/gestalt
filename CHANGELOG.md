@@ -1,3 +1,9 @@
+## 63.1.1 (Aug 3, 2022)
+
+### Patch
+
+- Docs: adjustments to Sandpack code containers (#2255)
+
 ## 63.1.0 (Aug 3, 2022)
 
 ### Minor
