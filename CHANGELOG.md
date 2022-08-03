@@ -1,3 +1,9 @@
+## 63.1.0 (Aug 3, 2022)
+
+### Minor
+
+- DeviceTypeProvider: Rollback to use 'phone' to identify mobile devices
+
 ## 63.0.12 (Aug 3, 2022)
 
 ### Patch
