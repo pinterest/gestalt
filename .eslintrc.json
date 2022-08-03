@@ -22,7 +22,8 @@
     "jsx-a11y",
     "react",
     "react-hooks",
-    "testing-library"
+    "testing-library",
+    "validate-jsx-nesting"
   ],
   "settings": {
     "next": {
@@ -78,7 +79,8 @@
     "react/require-default-props": "off",
     "react/sort-comp": "off",
     "react/state-in-constructor": ["error", "never"],
-    "react/static-property-placement": ["error", "static public field"]
+    "react/static-property-placement": ["error", "static public field"],
+    "validate-jsx-nesting/no-invalid-jsx-nesting": "error"
   },
   "overrides": [
     {
