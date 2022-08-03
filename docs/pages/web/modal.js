@@ -98,25 +98,16 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             cardSize="lg"
             type="don't"
             description="Use Modal for content that should have a dedicated surface, like login flows. Think about the core areas of your product that could appear in navigation. If a dedicated URL would be beneficial, use a full page instead. If the user interaction is an optional sub-task, consider using a [Sheet](/web/sheet)."
-            defaultCode={`
-
-`}
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description="Use Modal for long and complex tasks. Don’t keep the user in a Modal that takes multiple steps to exit. If multiple tasks are required, take the user to a separate page instead."
-            defaultCode={`
-
-`}
           />
           <MainSection.Card
             cardSize="lg"
             type="don't"
             description="Add additional task-based Modals to the Pinner product. While these are currently used in some Pinner surfaces for editing, consider using a full page, Sheet, Flyout or inline editing for a better user experience."
-            defaultCode={`
-
-`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -178,11 +169,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={createBoardExample}
-                name="Create board example"
-                showEditor={false}
-              />
+              <SandpackExample code={createBoardExample} name="Create board example" />
             }
           />
         </MainSection.Subsection>
@@ -193,11 +180,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={limitActionsExample}
-                name="Subheading example"
-                showEditor={false}
-              />
+              <SandpackExample code={limitActionsExample} name="Subheading example" />
             }
           />
         </MainSection.Subsection>
@@ -209,7 +192,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={sizesExample} name="Sizes example" showEditor={false} />
+              <SandpackExample code={sizesExample} name="Sizes example" layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -220,11 +203,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={preventCloseExample}
-                name="Prevent close example"
-                showEditor={false}
-              />
+              <SandpackExample code={preventCloseExample} name="Prevent close example" />
             }
           />
         </MainSection.Subsection>

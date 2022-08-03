@@ -14,6 +14,8 @@ import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
 import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton.js';
 import { useLocalFiles } from './contexts/LocalFilesProvider.js';
 
+const MIN_HEIGHT = 350;
+
 async function copyCode({ code }: {| code: ?string |}) {
   try {
     await clipboardCopy(code ?? '');
@@ -41,7 +43,7 @@ function SandpackContainer({
 
   const CARD_SIZE_NAME_TO_PIXEL = {
     sm: 236,
-    md: 362,
+    md: MIN_HEIGHT,
   };
 
   const height =
@@ -57,9 +59,9 @@ function SandpackContainer({
             <SandpackCodeEditor
               wrapContent
               style={{
-                height,
+                height: height > MIN_HEIGHT ? height : MIN_HEIGHT,
                 flex: layout === 'column' ? 'none' : null,
-                order: layout === 'column' ? 1 : null,
+                order: 1,
               }}
             />
           )}
