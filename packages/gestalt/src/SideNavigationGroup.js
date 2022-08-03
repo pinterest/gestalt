@@ -100,6 +100,7 @@ export default function SideNavigationGroup({
         badge={badge}
         counter={counter}
         display={display}
+        hasActiveChild={hasActiveChild}
         icon={icon}
         label={label}
         notificationAccessibilityLabel={notificationAccessibilityLabel}

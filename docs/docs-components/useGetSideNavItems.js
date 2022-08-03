@@ -10,7 +10,7 @@ function convertNamesForURL(name) {
 }
 
 const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): Node => {
-  const router = useRouter();
+  const { pathname } = useRouter();
   const { setIsSidebarOpen } = useNavigationContext();
 
   let nestingLevel = 0;
@@ -25,7 +25,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
               )}`;
               return (
                 <SideNavigation.TopItem
-                  active={router.pathname === href ? 'page' : undefined}
+                  active={pathname === href ? 'page' : undefined}
                   label={pageInfo}
                   onClick={() => setIsSidebarOpen?.(false)}
                   key={`${pageInfo}--${i}`}
@@ -41,7 +41,13 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     }
     if (nestingLevel === 1) {
       return (
-        <SideNavigation.Group key={`${navItem.sectionName}`} label={navItem.sectionName}>
+        <SideNavigation.Group
+          key={`${navItem.sectionName}`}
+          label={navItem.sectionName}
+          hasActiveChild={pathname.includes(
+            `/${navItem.sectionName.toLocaleLowerCase().replace(' ', '_')}/`,
+          )}
+        >
           {navItem.pages.map((nestedPage, i) => {
             if (typeof nestedPage === 'string') {
               const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(
@@ -49,7 +55,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
               )}/${convertNamesForURL(nestedPage)}`;
               return (
                 <SideNavigation.NestedItem
-                  active={router.pathname === href ? 'page' : undefined}
+                  active={pathname === href ? 'page' : undefined}
                   label={nestedPage}
                   onClick={() => setIsSidebarOpen?.(false)}
                   key={`${nestedPage}--${i}`}
@@ -65,7 +71,13 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
       );
     }
     return (
-      <SideNavigation.NestedGroup key={`${navItem.sectionName}`} label={navItem.sectionName}>
+      <SideNavigation.NestedGroup
+        key={`${navItem.sectionName}`}
+        label={navItem.sectionName}
+        hasActiveChild={pathname.includes(
+          `/${navItem.sectionName.toLocaleLowerCase().replace(' ', '_')}/`,
+        )}
+      >
         {navItem.pages.map((nestedPage, i) => {
           if (typeof nestedPage === 'string') {
             const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(
@@ -73,7 +85,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
             )}/${convertNamesForURL(nestedPage)}`;
             return (
               <SideNavigation.NestedItem
-                active={router.pathname === href ? 'page' : undefined}
+                active={pathname === href ? 'page' : undefined}
                 label={nestedPage}
                 onClick={() => setIsSidebarOpen?.(false)}
                 key={`${nestedPage}--${i}`}

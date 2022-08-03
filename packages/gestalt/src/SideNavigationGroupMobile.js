@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, useId, type Node } from 'react';
+import { useState, useCallback, useEffect, useMemo, useId, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import TapArea from './TapArea.js';
@@ -19,28 +19,41 @@ export default function SideNavigationGroupMobile({
   badge,
   counter,
   display = 'expandable',
+  hasActiveChild = false,
   icon,
   label,
   notificationAccessibilityLabel,
 }: Props): Node {
   const [hovered, setHovered] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const itemId = useId();
 
   const { nestedLevel } = useNesting();
 
-  const { dismissButton, selectedItemId, setSelectedItemId, setSelectedMobileChildren } =
-    useSideNavigation();
+  const {
+    dismissButton,
+    selectedItemId,
+    setSelectedItemId,
+    setSelectedMobileChildren,
+    hideActiveChildren,
+    setHideActiveChildren,
+  } = useSideNavigation();
 
   const isTopLevel = nestedLevel === 0;
 
-  let navigationChildren = (
-    <ul id={itemId} className={classnames(styles.ulItem)}>
-      {useGetChildrenToArray({
-        children,
-        filterLevel: 'nested',
-      })}
-    </ul>
+  const childrenArray = useGetChildrenToArray({
+    children,
+    filterLevel: 'nested',
+  });
+
+  let childrenList = useMemo(
+    () => (
+      <ul id={itemId} className={classnames(styles.ulItem)}>
+        {childrenArray}
+      </ul>
+    ),
+    [itemId, childrenArray],
   );
 
   const itemColor = hovered ? 'secondary' : undefined;
@@ -52,8 +65,21 @@ export default function SideNavigationGroupMobile({
     paddingInlineEnd: '16px',
   };
 
+  const elevateChildrenToParent = useCallback(
+    () => setSelectedMobileChildren(<NestingProvider>{childrenList}</NestingProvider>),
+    [childrenList, setSelectedMobileChildren],
+  );
+
+  useEffect(() => {
+    if (isTopLevel && hasActiveChild && !hideActiveChildren) {
+      elevateChildrenToParent();
+    } else if (hasActiveChild && !hideActiveChildren) {
+      setExpanded(true);
+    }
+  }, [isTopLevel, hasActiveChild, hideActiveChildren, itemId, elevateChildrenToParent]);
+
   if (isTopLevel) {
-    navigationChildren = (
+    childrenList = (
       <Box color="default" padding={2} overflow="scroll">
         <Box position="relative" height={64} paddingY={2}>
           <Flex height="100%" alignItems="center" justifyContent="center">
@@ -66,7 +92,10 @@ export default function SideNavigationGroupMobile({
                   text: 'Go to previous item',
                   idealDirection: 'up',
                 }}
-                onClick={() => setSelectedMobileChildren(null)}
+                onClick={() => {
+                  setHideActiveChildren(true);
+                  setSelectedMobileChildren(null);
+                }}
               />
             </Flex.Item>
             <Flex.Item flex="grow">
@@ -87,12 +116,10 @@ export default function SideNavigationGroupMobile({
             </Flex.Item>
           </Flex>
         </Box>
-        {navigationChildren}
+        {childrenList}
       </Box>
     );
   }
-
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <li className={classnames(styles.liItem)}>
@@ -108,13 +135,7 @@ export default function SideNavigationGroupMobile({
           tapStyle="compress"
           onTap={() => {
             if (isTopLevel) {
-              setSelectedMobileChildren(
-                <NestingProvider>
-                  <ul id={itemId} className={classnames(styles.ulItem)}>
-                    {navigationChildren}
-                  </ul>
-                </NestingProvider>,
-              );
+              elevateChildrenToParent();
             } else {
               setExpanded((value) => {
                 if (!value) setSelectedItemId(itemId);
@@ -137,11 +158,7 @@ export default function SideNavigationGroupMobile({
             display={display}
           />
         </TapArea>
-        {expanded ? (
-          <ul id={itemId} className={classnames(styles.ulItem)}>
-            {navigationChildren}
-          </ul>
-        ) : null}
+        {expanded ? childrenList : null}
       </NestingProvider>
     </li>
   );
