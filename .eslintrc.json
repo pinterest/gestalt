@@ -32,7 +32,6 @@
   },
   "rules": {
     "eslint-comments/no-unused-disable": "error",
-    "validate-jsx-nesting/no-invalid-jsx-nesting": "error",
     "flowtype/no-mutable-array": "error",
     "flowtype/require-exact-type": ["error", "always"],
     "flowtype/require-valid-file-annotation": [
@@ -80,7 +79,8 @@
     "react/require-default-props": "off",
     "react/sort-comp": "off",
     "react/state-in-constructor": ["error", "never"],
-    "react/static-property-placement": ["error", "static public field"]
+    "react/static-property-placement": ["error", "static public field"],
+    "validate-jsx-nesting/no-invalid-jsx-nesting": "error"
   },
   "overrides": [
     {
