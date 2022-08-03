@@ -1,3 +1,9 @@
+## 63.0.8 (Aug 3, 2022)
+
+### Patch
+
+- Internal: add eslint-plugin-validate-jsx-nesting (#2252)
+
 ## 63.0.7 (Aug 2, 2022)
 
 ### Patch
