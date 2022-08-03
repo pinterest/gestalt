@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node, useState, useEffect } from 'react';
-import { SideNavigation } from 'gestalt';
+import { SideNavigation, Flex, SelectList } from 'gestalt';
 import { useRouter } from 'next/router';
-import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
-
+import newSidebarIndex from './siteIndex.js';
+import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 import { useNavigationContext } from './navigationContext.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
@@ -18,42 +18,80 @@ export function isComponentsActiveSection(pathname: string): boolean {
   return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
 }
 
-export default function DocsSideNavigation({ border }: {| border?: boolean |}): Node {
+export default function DocsSideNavigation(): Node {
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
-  const router = useRouter();
-  const { componentPlatformFilteredBy, setComponentPlatformFilteredByCookie, setIsSidebarOpen } =
-    useNavigationContext();
+  const { isMobile } = useDocsDeviceType();
+  const { pathname } = useRouter();
+  const {
+    componentPlatformFilteredBy,
+    setComponentPlatformFilteredByCookie,
+    setIsSidebarOpen,
+    selectedTab,
+    setSelectedTab,
+  } = useNavigationContext();
 
   // Find the section that corresponds to the top navigation
   // If it's the components section, find the section that is currently
   // filtered with the component platform switcher
-  useEffect(() => {
-    const sectionToRender = isComponentsActiveSection(router.pathname)
-      ? newSidebarIndex.find((section) =>
-          convertNamesForURL(section.sectionName).includes(componentPlatformFilteredBy),
-        )
-      : newSidebarIndex.find((section) =>
-          router.pathname.includes(convertNamesForURL(section.sectionName)),
-        );
-    setActiveSection(sectionToRender || newSidebarIndex[0]);
-  }, [router.pathname, componentPlatformFilteredBy]);
 
-  const sectionItemsForSideNav = useGetSideNavItems((activeSection: siteIndexType));
+  const isComponentsSection = isMobile
+    ? selectedTab === 'Components'
+    : isComponentsActiveSection(pathname);
+
+  const platformSwitcher = isComponentsSection ? (
+    <SidebarPlatformSwitcher
+      componentPlatformFilteredBy={componentPlatformFilteredBy}
+      onClick={(platform) => setComponentPlatformFilteredByCookie(platform)}
+    />
+  ) : null;
+
+  const header = isMobile ? (
+    <Flex direction="column" gap={4}>
+      <SelectList
+        labelDisplay="hidden"
+        id="mobile-sidenavigation"
+        onChange={({ value }) => setSelectedTab(value)}
+        options={[
+          { label: 'Get started', value: 'Get started' },
+          { label: 'Components', value: 'Components' },
+          { label: 'Foundations', value: 'Foundations' },
+          { label: 'Roadmap', value: 'Roadmap' },
+        ]}
+        size="lg"
+        label="Select site section"
+        value={selectedTab}
+      />
+      {platformSwitcher}
+    </Flex>
+  ) : (
+    platformSwitcher
+  );
+
+  useEffect(() => {
+    const isComponentsCallback = (section) =>
+      convertNamesForURL(section.sectionName).includes(componentPlatformFilteredBy);
+
+    const isNotComponentsCallback = (section) =>
+      isMobile
+        ? section.sectionName === selectedTab
+        : pathname.includes(convertNamesForURL(section.sectionName));
+
+    const sectionToRender =
+      newSidebarIndex.find(isComponentsSection ? isComponentsCallback : isNotComponentsCallback) ??
+      newSidebarIndex[0];
+
+    setActiveSection(sectionToRender);
+  }, [isMobile, isComponentsSection, pathname, componentPlatformFilteredBy, selectedTab]);
+
+  const sectionItemsForSideNav = useGetSideNavItems({ sectionInfo: activeSection });
+
   const closeSideNavigation = () => setIsSidebarOpen(false);
 
   return (
     <SideNavigation
       accessibilityLabel="Page navigation"
-      showBorder={border}
-      header={
-        isComponentsActiveSection(router.pathname) && (
-          <SidebarPlatformSwitcher
-            componentPlatformFilteredBy={componentPlatformFilteredBy}
-            onClick={(platform) => setComponentPlatformFilteredByCookie(platform)}
-          />
-        )
-      }
+      header={header}
       title="Menu"
       dismissButton={{
         onDismiss: closeSideNavigation,

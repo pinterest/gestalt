@@ -13,6 +13,8 @@ export type NavigationContextType = {|
   setIsSidebarOpen: (val: boolean) => void,
   componentPlatformFilteredBy: ComponentPlatformFilteredBy,
   setComponentPlatformFilteredByCookie: (val: ComponentPlatformFilteredBy) => void,
+  selectedTab: string,
+  setSelectedTab: (val: string) => void,
 |};
 
 const PLATFORM_MAP = {
@@ -32,18 +34,33 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);
 
-  const router = useRouter();
+  const { pathname } = useRouter();
+
   let currentPlatform = null;
 
   // If the route already includes a platform,
   // set that as the starting cookie
-  if (router.pathname.includes('/web/')) {
+  if (pathname.includes('/web/')) {
     currentPlatform = 'web';
-  } else if (router.pathname.includes('/android/')) {
+  } else if (pathname.includes('/android/')) {
     currentPlatform = 'android';
-  } else if (router.pathname.includes('/ios/')) {
+  } else if (pathname.includes('/ios/')) {
     currentPlatform = 'ios';
   }
+
+  let currentSiteSection = null;
+
+  if (currentPlatform) {
+    currentSiteSection = 'Components';
+  } else if (pathname.includes('/foundations/')) {
+    currentSiteSection = 'Foundations';
+  } else if (pathname.includes('/roadmap/')) {
+    currentSiteSection = 'Roadmap';
+  } else {
+    currentSiteSection = 'Get started';
+  }
+
+  const [selectedTab, setSelectedTab] = useState(currentSiteSection);
 
   // First prioritize the current route
   // If that doesn't include a platform, use the cookie
@@ -65,6 +82,8 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
         setIsSidebarOpen,
         componentPlatformFilteredBy,
         setComponentPlatformFilteredByCookie,
+        selectedTab,
+        setSelectedTab,
       }}
     >
       {children}
