@@ -314,7 +314,7 @@ yarn run flow-generate:css
                 <li>
                   <Text>
                     If you are introducing breaking changes, create a{' '}
-                    <Link href="#codemods" inline>
+                    <Link href="/releases#Codemods" inline>
                       <Text weight="bold">codemod</Text>
                     </Link>{' '}
                     to help users migrate between versions.
@@ -384,6 +384,15 @@ git push -f origin HEAD
               </Text>
             </li>
           </ul>
+          <Heading size="400">
+            My pull request fails on &quot;Semver / Require Label (pull_request)&quot;, how do I fix
+            it?
+          </Heading>
+          <Text>Nothing you can do to fix it.</Text>
+          <Text>
+            A Gestalt Core maintainer will add a semver label (patch release / minor release / major
+            release) when reviewing a PR.
+          </Text>
         </Flex>
       </Card>
       <Card name="Guidelines">
@@ -395,80 +404,7 @@ git push -f origin HEAD
             your work. If your goal was to change the default color of a component, keep the scope
             of changes to that specific task and word the title to exactly reflect those changes.
           </Text>
-          <Heading id="versioning" size="400">
-            Versioning
-          </Heading>
-          <Text>
-            Our versioning guidelines follow those outlined at{' '}
-            <Link href="https://semver.org/" inline target="blank">
-              <Text weight="bold">semver.org</Text>
-            </Link>
-            :
-            <ul>
-              <li>
-                <em>Patch</em>: internal fixes, documentation changes, or package upgrades (anything
-                that consumers of Gestalt don&apos;t need to worry about)
-              </li>
-              <li>
-                <em>Minor</em>: any new functionality or properties for a component, or net-new
-                components
-              </li>
-              <li>
-                <em>Major</em>: any breaking change, whether it be in a specific component or the
-                library itself (will most likely include a{' '}
-                <Link href="#codemods" inline>
-                  <Text weight="bold">codemod</Text>
-                </Link>
-                )
-              </li>
-            </ul>
-          </Text>
 
-          <Heading id="codemods" size="400">
-            Codemods
-          </Heading>
-          <Text>
-            When a release will cause breaking changes (in usage or in typing) we provide a codemod
-            to ease the upgrade process. Codemods are organized by release number in{' '}
-            <Text inline italic>
-              /packages/gestalt-codemods
-            </Text>
-            . The name of the folder should reflect the resulting version number of your PR.
-          </Text>
-          <Text>
-            Check out our{' '}
-            <Link
-              href="https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods"
-              inline
-              target="blank"
-            >
-              <Text weight="bold">codemod README</Text>
-            </Link>{' '}
-            for a walkthrough of the development process.
-          </Text>
-          <Text>
-            Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt
-            repo): anywhere the component to be updated is used. Example usage for a codebase using
-            Flow:
-          </Text>
-          <Markdown
-            text="
-~~~jsx
-yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
-~~~
-"
-          />
-          <Text>
-            For a dry run to see what the changes will be, add the{' '}
-            <Text inline italic>
-              -d
-            </Text>{' '}
-            (dry run) and{' '}
-            <Text inline italic>
-              -p
-            </Text>{' '}
-            (print output) flags (pipe stdout to a file for easier inspection if you like).
-          </Text>
           <Heading size="400">Changes not allowed</Heading>
           <Text>Do not use the following CSS style properties:</Text>
 
