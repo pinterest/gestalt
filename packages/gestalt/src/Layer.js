@@ -50,8 +50,6 @@ export default function Layer({ children, zIndex: zIndexIndexable }: Props): Por
     }
 
     if (portalContainer.current) {
-      // For some reason Flow won't believe the above truthy check
-      // $FlowFixMe[incompatible-use]
       portalContainer.current.style.zIndex = zIndex === undefined ? '' : zIndex.toString();
       // $FlowFixMe[incompatible-use]
       portalContainer.current.className = zIndex === undefined ? '' : styles.layer;

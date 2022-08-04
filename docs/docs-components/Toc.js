@@ -79,7 +79,7 @@ export default function Toc({ cards }: Props): Node {
       return;
     }
 
-    let active;
+    let active: ?HTMLElement;
 
     anchors
       .slice()
@@ -87,7 +87,7 @@ export default function Toc({ cards }: Props): Node {
       .every((anchor) => {
         // No hash if we're near the top of the page
         if (document.documentElement && document.documentElement.scrollTop < 120) {
-          active = { id: null };
+          active = null;
           return false;
         }
 

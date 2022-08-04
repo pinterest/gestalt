@@ -148,7 +148,7 @@ const rule: ESLintRule = {
   },
 
   create(context) {
-    let localBoxName = false;
+    let localBoxName: ?string = null;
 
     return {
       ImportDeclaration(decl) {
@@ -174,7 +174,7 @@ const rule: ESLintRule = {
           );
 
         if (disallowedProps.length) {
-          const message = errorMessage(disallowedProps, localBoxName);
+          const message = errorMessage(disallowedProps, localBoxName ?? '');
           context.report(node, message);
         }
       },

@@ -274,12 +274,16 @@ const buildReplaceWithModifiedAttributes = ({
     if (nextProp && isNullOrUndefined(nextValue)) newNode.name.name = nextProp;
 
     // In the presence of just nextProp, we change the value if there's a match.
-    if (!nextProp && !isNullOrUndefined(nextValue))
+    if (!nextProp && !isNullOrUndefined(nextValue)) {
+      // $FlowFixMe[incompatible-type]
       newNode = buildAttributeFromValue({ j, prop: previousProp, value: nextValue });
+    }
 
     // In the presence of both nextProp and nextValue, we change both nextProp and nextValue if there's a match.
-    if (nextProp && !isNullOrUndefined(nextValue))
+    if (nextProp && !isNullOrUndefined(nextValue)) {
+      // $FlowFixMe[incompatible-type]
       newNode = buildAttributeFromValue({ j, prop: nextProp, value: nextValue });
+    }
 
     return newNode;
   };

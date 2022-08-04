@@ -57,6 +57,7 @@ export const getContainerNode = ({
       ) {
         containerNode = scrollBoundaryContainerRef;
       }
+      // $FlowFixMe[incompatible-type]
       currentNode = currentNode.parentNode;
     } else {
       break;
