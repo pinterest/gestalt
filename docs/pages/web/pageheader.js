@@ -37,7 +37,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
           name="PageHeader Example"
           layout="column"
           previewHeight={85}
-          showEditor={false}
+          hideEditor
         />
       </DocsPageHeader>
 
@@ -79,7 +79,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
                 layout="column"
                 name="PageHeader one primary action example"
                 previewHeight={80}
-                showEditor={false}
+                hideEditor
               />
             }
           />
@@ -92,8 +92,9 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
                 code={multiplePrimaryActionsExample}
                 layout="column"
                 name="PageHeader one primary action example"
-                showEditor={false}
+                hideEditor
                 hideControls
+                previewHeight={320}
               />
             }
           />
@@ -108,7 +109,8 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
                 code={centerAlignedExample}
                 layout="column"
                 name="PageHeader center aligned example"
-                showEditor={false}
+                hideEditor
+                previewHeight={420}
               />
             }
           />
@@ -121,8 +123,9 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
                 code={maxWidthExample}
                 layout="column"
                 name="PageHeader max width example"
-                showEditor={false}
+                hideEditor
                 hideControls
+                previewHeight={420}
               />
             }
           />
@@ -136,7 +139,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
                 layout="column"
                 name="PageHeader include image example"
                 previewHeight={80}
-                showEditor={false}
+                hideEditor
               />
             }
           />
@@ -150,7 +153,7 @@ Plan for most PageHeaders to be full width. A \`maxWidth\` should only be suppli
                 layout="column"
                 name="PageHeader include image example"
                 previewHeight={80}
-                showEditor={false}
+                hideEditor
                 hideControls
               />
             }
@@ -165,7 +168,8 @@ Keep additional help buttons and links to a minimum, choosing one source of help
                 code={minimumButtonsExample}
                 layout="column"
                 name="PageHeader minimum buttons example"
-                showEditor={false}
+                hideEditor
+                previewHeight={200}
               />
             }
           />
@@ -178,8 +182,9 @@ Keep additional help buttons and links to a minimum, choosing one source of help
                 code={dontOverloadExample}
                 layout="column"
                 name="PageHeader do not overload example"
-                showEditor={false}
+                hideEditor
                 hideControls
+                previewHeight={200}
               />
             }
           />
@@ -195,13 +200,18 @@ PageHeader has built-in components that require accessibility labels.
 - [IconButton](/iconbutton) requires \`accessibilityLabel\`,  \`accessibilityControls\`, and  \`accessibilityExpanded\` via \`helperIconButton\`
 - [Link](/link) requires \`accessibilityLabel\` via \`helperLink\`
 
-Follow the accessibility guidelines for any other Gestat component passed to \`primaryaction\`, \`secondaryAction\` or \`items\`.
+Follow the accessibility guidelines for any other Gestalt component passed to \`primaryaction\`, \`secondaryAction\` or \`items\`.
 `}
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={defaultExample} name="Accessibility example" layout="column" />
+              <SandpackExample
+                code={defaultExample}
+                name="Accessibility example"
+                layout="column"
+                previewHeight={85}
+              />
             }
           />
         </MainSection.Subsection>
@@ -237,7 +247,7 @@ Be brief with text in all components to account for languages with longer words.
                 code={titleExample}
                 layout="column"
                 name="PageHeader title example"
-                previewHeight={80}
+                previewHeight={200}
               />
             }
           />
@@ -337,6 +347,7 @@ PageHeader also supports a bottom border to show the division between PageHeader
                 code={centerAlignedExample}
                 layout="column"
                 name="PageHeader max width & border example"
+                previewHeight={420}
               />
             }
           />
@@ -356,7 +367,7 @@ PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instea
               <SandpackExample
                 code={responsiveExample}
                 name="PageHeader max width & border example"
-                mobileView
+                layout="mobileRow"
               />
             }
           />
