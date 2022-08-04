@@ -28,6 +28,7 @@ const siteIndex: Array<siteIndexType> = [
           'Development process',
           'Installation',
           'Eslint plugin',
+          'Releases',
           {
             sectionName: 'Tooling',
             pages: ['Web'],
