@@ -1,3 +1,9 @@
+## 63.2.1 (Aug 4, 2022)
+
+### Patch
+
+- Internal: upgrade flow-bin to 0.184.0, try out new inference mode (#2261)
+
 ## 63.2.0 (Aug 4, 2022)
 
 ### Minor
