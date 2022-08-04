@@ -25,7 +25,7 @@ export default function throttle(
       deferTimer = setTimeout(() => {
         last = now;
         fn(...args);
-      }, threshhold - (now - last));
+      }, threshhold - (now - (last ?? 0)));
     } else {
       last = now;
       fn(...args);

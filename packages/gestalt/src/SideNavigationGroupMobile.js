@@ -34,7 +34,7 @@ export default function SideNavigationGroupMobile({
 
   const isTopLevel = nestedLevel === 0;
 
-  let navigationChildren = (
+  let navigationChildren: Node = (
     <ul id={itemId} className={classnames(styles.ulItem)}>
       {useGetChildrenToArray({
         children,
