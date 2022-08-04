@@ -1,5 +1,5 @@
 [version]
-0.183.0
+0.184.0
 
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
@@ -8,6 +8,7 @@
 [options]
 exact_by_default=true
 include_warnings=true
+inference_mode=constrain_writes
 react.runtime=automatic
 sharedmemory.hash_table_pow=21
 
