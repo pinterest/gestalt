@@ -1,3 +1,9 @@
+## 63.2.0 (Aug 4, 2022)
+
+### Minor
+
+- Releases: new developers/releases page (#2260)
+
 ## 63.1.1 (Aug 3, 2022)
 
 ### Patch
