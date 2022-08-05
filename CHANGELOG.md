@@ -1,3 +1,9 @@
+## 63.3.0 (Aug 5, 2022)
+
+### Minor
+
+- SideNavigation: add self-opening group on active items (#2263)
+
 ## 63.2.2 (Aug 5, 2022)
 
 ### Patch
