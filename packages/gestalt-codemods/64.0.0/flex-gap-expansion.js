@@ -3,7 +3,7 @@
  *  <Flex gap={3} /> to <Flex gap={{ row: 3, column: 0 }} />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/33.0.0/heading-replace-truncate-lineClamp.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/64.0.0/flex-gap-expansion.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
