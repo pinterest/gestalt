@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { addListener, removeListener } from './utils/matchMedia.js';
 
 /**
- * https://gestalt.pinterest.systems/usereducedmotion
+ * https://gestalt.pinterest.systems/web/utilities/usereducedmotion
  */
 export default function useReducedMotion(): boolean {
   const supportsMatchMedia = typeof window !== 'undefined' && window.matchMedia;

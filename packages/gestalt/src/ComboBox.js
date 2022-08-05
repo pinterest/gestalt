@@ -42,11 +42,11 @@ type Props = {|
    */
   accessibilityClearButtonLabel: string,
   /**
-   * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/combobox#Tags) variant to learn more.
+   * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */
   disabled?: boolean,
   /**
-   * Provide feedback when an error on selection occurs. See [error message](https://gestalt.pinterest.systems/combobox#Error-message) variant.
+   * Provide feedback when an error on selection occurs. See [error message](https://gestalt.pinterest.systems/web/combobox#Error-message) variant.
    */
   errorMessage?: Node,
   /**
@@ -54,11 +54,11 @@ type Props = {|
    */
   helperText?: string,
   /**
-   * The user input in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/combobox#Controlled-vs-Uncontrolled) variant to learn more.
+   * The user input in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/web/combobox#Controlled-vs-Uncontrolled) variant to learn more.
    */
   inputValue?: string | null,
   /**
-   * Unique id to identify each ComboBox. Used for [accessibility](https://gestalt.pinterest.systems/combobox#Accessibility) purposes.
+   * Unique id to identify each ComboBox. Used for [accessibility](https://gestalt.pinterest.systems/web/combobox#Accessibility) purposes.
    */
   id: string,
   /**
@@ -66,7 +66,7 @@ type Props = {|
    */
   label: string,
   /**
-   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems/combobox#Label-visibility) for more info.
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems/web/combobox#Label-visibility) for more info.
    */
   labelDisplay?: 'visible' | 'hidden',
   /**
@@ -117,7 +117,7 @@ type Props = {|
     |},
   |}) => void,
   /**
-   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/combobox#With-subtext) variant to learn more.
+   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/web/combobox#With-subtext) variant to learn more.
    */
   options: $ReadOnlyArray<{|
     label: string,
@@ -130,11 +130,11 @@ type Props = {|
   placeholder?: string,
   // The ref prop is unused and listed here just for documentation purposes.
   /**
-   * Forward the ref to the underlying component container element. See the [Ref](https://gestalt.pinterest.systems/combobox#Ref) variant to learn more about focus management.
+   * Forward the ref to the underlying component container element. See the [Ref](https://gestalt.pinterest.systems/web/combobox#Ref) variant to learn more about focus management.
    */
   ref?: Ref<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * The selected option in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/combobox#Controlled-vs-Uncontrolled) variant to learn more.
+   * The selected option in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/web/combobox#Controlled-vs-Uncontrolled) variant to learn more.
    */
   selectedOption?: OptionType,
   /**
@@ -142,17 +142,17 @@ type Props = {|
    */
   size?: Size,
   /**
-   * List of tags to display in the component. See [tags](https://gestalt.pinterest.systems/combobox#Tags) variant to learn more.
+   * List of tags to display in the component. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   /**
-   * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/zindex_classes)
+   * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
 |};
 
 /**
- * [ComboBox](https://gestalt.pinterest.systems/combobox) is the combination of a [Textfield](https://gestalt.pinterest.systems/textfield) and an associated [Dropdown](https://gestalt.pinterest.systems/dropdown) that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list.
+ * [ComboBox](https://gestalt.pinterest.systems/web/combobox) is the combination of a [Textfield](https://gestalt.pinterest.systems/web/textfield) and an associated [Dropdown](https://gestalt.pinterest.systems/web/dropdown) that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list.
  * Note: this is a new version of the deprecated component "Typeahead".
  *
  * ![Combobox closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-closed.spec.mjs-snapshots/ComboBox-closed-chromium-darwin.png)

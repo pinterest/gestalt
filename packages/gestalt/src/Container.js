@@ -10,7 +10,7 @@ type Props = {|
 |};
 
 /**
- * [Containers](https://gestalt.pinterest.systems/container ) are useful in responsively laying out content on different screens.
+ * [Containers](https://gestalt.pinterest.systems/web/container ) are useful in responsively laying out content on different screens.
  *
  * ![Container light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Container.spec.mjs-snapshots/Container-chromium-darwin.png)
  *

@@ -129,7 +129,7 @@ type Props = {|
 |};
 
 /**
- * [Upsells](https://gestalt.pinterest.systems/upsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.
+ * [Upsells](https://gestalt.pinterest.systems/web/upsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.
  *
  *
  * ![Upsell light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Upsell.spec.mjs-snapshots/Upsell-chromium-darwin.png)

@@ -18,7 +18,7 @@ type Props = {|
    */
   children?: Node,
   /**
-   * An optional [Image](https://gestalt.pinterest.systems/image) to be displayed at the top of the layout.
+   * An optional [Image](https://gestalt.pinterest.systems/web/image) to be displayed at the top of the layout.
    */
   image?: Node,
   /**
@@ -32,7 +32,7 @@ type Props = {|
 |};
 
 /**
- * [Card](https://gestalt.pinterest.systems/card) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
+ * [Card](https://gestalt.pinterest.systems/web/card) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
  */
 export default function Card({ active, children, image, onMouseEnter, onMouseLeave }: Props): Node {
   const [hovered, setHovered] = useState(false);

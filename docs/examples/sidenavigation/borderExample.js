@@ -7,22 +7,22 @@ export default function Example(): Node {
     <SideNavigation accessibilityLabel="Border example" showBorder>
       <SideNavigation.Section label="Navigation">
         <SideNavigation.TopItem
-          href="https://gestalt.pinterest.systems/pageheader"
+          href="https://gestalt.pinterest.systems/web/pageheader"
           label="PageHeader"
         />
-        <SideNavigation.TopItem href="https://gestalt.pinterest.systems/tabs" label="Tabs" />
+        <SideNavigation.TopItem href="https://gestalt.pinterest.systems/web/tabs" label="Tabs" />
         <SideNavigation.TopItem
-          href="https://gestalt.pinterest.systems/tooling"
+          href="https://gestalt.pinterest.systems/get_started/developers/tooling/web"
           label="SideNavigation"
         />
       </SideNavigation.Section>
       <SideNavigation.Section label="Controls">
         <SideNavigation.TopItem
-          href="https://gestalt.pinterest.systems/radiobutton"
+          href="https://gestalt.pinterest.systems/web/radiobutton"
           label="RadioButton"
         />
         <SideNavigation.TopItem
-          href="https://gestalt.pinterest.systems/radiogroup"
+          href="https://gestalt.pinterest.systems/web/radiogroup"
           label="RadioGroup"
         />
       </SideNavigation.Section>

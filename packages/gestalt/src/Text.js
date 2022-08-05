@@ -17,12 +17,12 @@ type Props = {|
   /**
    * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text.
    *
-   * Link: https://gestalt.pinterest.systems/text#align
+   * Link: https://gestalt.pinterest.systems/web/text#align
    */
   align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   children?: Node,
   /**
-   * Link: https://gestalt.pinterest.systems/text#color
+   * Link: https://gestalt.pinterest.systems/web/text#color
    */
   color?:
     | 'default'
@@ -36,45 +36,45 @@ type Props = {|
     | 'light'
     | 'dark',
   /**
-   * Link: https://gestalt.pinterest.systems/text#inline
+   * Link: https://gestalt.pinterest.systems/web/text#inline
    */
   inline?: boolean,
   /**
-   * Link: https://gestalt.pinterest.systems/text#styles
+   * Link: https://gestalt.pinterest.systems/web/text#styles
    */
   italic?: boolean,
   /**
    * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.
    *
-   * Link: https://gestalt.pinterest.systems/text#Overflow-and-truncation
+   * Link: https://gestalt.pinterest.systems/web/text#Overflow-and-truncation
    */
   lineClamp?: number,
   /**
-   * Link: https://gestalt.pinterest.systems/text#Overflow-and-truncation
+   * Link: https://gestalt.pinterest.systems/web/text#Overflow-and-truncation
    */
   overflow?: Overflow,
   /**
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/design_tokens#Font-size).
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size).
    *
-   * Link: https://gestalt.pinterest.systems/text#size
+   * Link: https://gestalt.pinterest.systems/web/text#size
    */
   size?: Size,
   /**
-   * This populates the `title` attribute of the element, which is visible on hover in most browsers. This is useful when truncating the text with `lineClamp` when `children` is a `React.Node`. See the [Title variant](https://gestalt.pinterest.systems/text#Title) for more details.
+   * This populates the `title` attribute of the element, which is visible on hover in most browsers. This is useful when truncating the text with `lineClamp` when `children` is a `React.Node`. See the [Title variant](https://gestalt.pinterest.systems/web/text#Title) for more details.
    */
   title?: string,
   /**
-   * Link: https://gestalt.pinterest.systems/text#styles
+   * Link: https://gestalt.pinterest.systems/web/text#styles
    */
   underline?: boolean,
   /**
-   * Link: https://gestalt.pinterest.systems/text#styles
+   * Link: https://gestalt.pinterest.systems/web/text#styles
    */
   weight?: 'bold' | 'normal',
 |};
 
 /**
- * The [Text](https://gestalt.pinterest.systems/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
+ * The [Text](https://gestalt.pinterest.systems/web/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
  *
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.mjs-snapshots/Text-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.mjs-snapshots/Text-dark-chromium-darwin.png)

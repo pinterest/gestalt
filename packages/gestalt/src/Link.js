@@ -64,15 +64,15 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
 type Props = {|
   /**
-   * Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See the [Accessibility guidelines](https://gestalt.pinterest.systems/link#Accessibility) for more information.
+   * Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
    */
   accessibilityLabel?: string,
   /**
-   * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/link#Link-and-Text) to learn more.
+   * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/web/link#Link-and-Text) to learn more.
    */
   children?: Node,
   /**
-   * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
+   * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/web/link#externalLinkIcon-and-rel) to learn more.
    */
   externalLinkIcon?: ExternalLinkIcon,
   /**
@@ -84,7 +84,7 @@ type Props = {|
    */
   id?: string,
   /**
-   * Properly positions Link relative to an inline element, such as [Text](https://gestalt.pinterest.systems/text), using the inline property. See the [underline variant](https://gestalt.pinterest.systems/link#Underline) to learn more.
+   * Properly positions Link relative to an inline element, such as [Text](https://gestalt.pinterest.systems/web/text), using the inline property. See the [underline variant](https://gestalt.pinterest.systems/web/link#Underline) to learn more.
    */
   inline?: boolean,
   /**
@@ -92,7 +92,7 @@ type Props = {|
    */
   onBlur?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
   /**
-   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) to learn more about link navigation.
+   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    */
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
@@ -107,7 +107,7 @@ type Props = {|
    */
   ref?: Ref<'a'>,
   /**
-   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/link#externalLinkIcon-and-rel) to learn more.
+   * Establishes the relationship of the linked URL. Use `rel="nofollow"` for offsite links to inform search engines to ignore and not follow them. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/web/link#externalLinkIcon-and-rel) to learn more.
    */
   rel?: 'none' | 'nofollow',
   /**
@@ -124,17 +124,17 @@ type Props = {|
 - 'blank' opens the anchor in a new window.
 - 'self' opens an anchor in the same frame.
 
-See the [target variant](https://gestalt.pinterest.systems/link#Target) to learn more.
+See the [target variant](https://gestalt.pinterest.systems/web/link#Target) to learn more.
    */
   target?: null | 'self' | 'blank',
   /**
-   * When `underline` is supplied, we override the underline style internally managed by the component. See the [underline variant](https://gestalt.pinterest.systems/link#Underline) to learn more.
+   * When `underline` is supplied, we override the underline style internally managed by the component. See the [underline variant](https://gestalt.pinterest.systems/web/link#Underline) to learn more.
    */
   underline?: 'auto' | 'none' | 'always' | 'hover',
 |};
 
 /**
- * [Link](https://gestalt.pinterest.systems/link) is mainly used as navigational element and usually appear within or directly following a paragraph or sentence.
+ * [Link](https://gestalt.pinterest.systems/web/link) is mainly used as navigational element and usually appear within or directly following a paragraph or sentence.
  *
  * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link.spec.mjs-snapshots/Link-chromium-darwin.png)
  * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link-dark.spec.mjs-snapshots/Link-dark-chromium-darwin.png)

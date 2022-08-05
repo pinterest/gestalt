@@ -15,7 +15,7 @@ const disallowedMatch = [
 ];
 
 export const errorMessage =
-  'Icons where `workflow-status-[...]` and matching color should be replaced for the Status Component. https://gestalt.pinterest.systems/status';
+  'Icons where `workflow-status-[...]` and matching color should be replaced for the Status Component. https://gestalt.pinterest.systems/web/status';
 
 const rule: ESLintRule = {
   meta: {

@@ -22,24 +22,24 @@ type Props = {|
    */
   legend: string,
   /**
-   * Determines the layout of the group. See the [direction](https://gestalt.pinterest.systems/radiogroup#Direction) variant to learn more.
+   * Determines the layout of the group. See the [direction](https://gestalt.pinterest.systems/web/radiogroup#Direction) variant to learn more.
    *
    */
   direction?: 'column' | 'row',
   /**
-   * Adds an error message below the group of radio buttons. See the [error](https://gestalt.pinterest.systems/radiogroup#With-an-error) variant to learn more.
+   * Adds an error message below the group of radio buttons. See the [error](https://gestalt.pinterest.systems/web/radiogroup#With-an-error) variant to learn more.
    *
    */
   errorMessage?: string,
   /**
-   * Whether the legend should be visible or not. If hidden, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility](https://gestalt.pinterest.systems/radiogroup#Legend-visibility) variant to learn more.
+   * Whether the legend should be visible or not. If hidden, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility](https://gestalt.pinterest.systems/web/radiogroup#Legend-visibility) variant to learn more.
    *
    */
   legendDisplay?: 'visible' | 'hidden',
 |};
 
 /**
- *  [RadioGroups](https://gestalt.pinterest.systems/radiogroup) are used for selecting only 1 item from a list of 2 or more items. If you need multiple selection or have only one option, use [Checkbox](https://gestalt.pinterest.systems/checkbox). If you need to provide a binary on/off choice that takes effect immediately, use [Switch](https://gestalt.pinterest.systems/switch).
+ *  [RadioGroups](https://gestalt.pinterest.systems/web/radiogroup) are used for selecting only 1 item from a list of 2 or more items. If you need multiple selection or have only one option, use [Checkbox](https://gestalt.pinterest.systems/web/checkbox). If you need to provide a binary on/off choice that takes effect immediately, use [Switch](https://gestalt.pinterest.systems/web/switch).
  *
  */
 export default function RadioGroup({

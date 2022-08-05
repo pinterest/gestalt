@@ -70,7 +70,7 @@ type unionProps = IconButtonType | LinkIconButtonType;
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 /**
- * [IconButton](https://gestalt.pinterest.systems/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
+ * [IconButton](https://gestalt.pinterest.systems/web/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
  Some buttons are specialized for particular tasks, such as navigation or presenting menus.
  *
  * ![IconButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton.spec.mjs-snapshots/IconButton-chromium-darwin.png)

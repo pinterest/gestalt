@@ -45,11 +45,11 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * Indicate if Pog is in an active state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   * Indicate if Pog is in an active state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
    */
   active?: boolean,
   /**
-   * The background color. See [color combinations](https://gestalt.pinterest.systems/pog#backgroundColorCombinations) for more details.
+   * The background color. See [color combinations](https://gestalt.pinterest.systems/web/pog#backgroundColorCombinations) for more details.
    */
   bgColor?:
     | 'transparent'
@@ -64,11 +64,11 @@ type Props = {|
    */
   dangerouslySetSvgPath?: {| __path: string |},
   /**
-   * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
    */
   focused?: boolean,
   /**
-   * Indicate if Pog is in a hovered state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   * Indicate if Pog is in a hovered state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
    */
   hovered?: boolean,
   /**
@@ -76,25 +76,25 @@ type Props = {|
    */
   icon?: $Keys<typeof icons>,
   /**
-   * Color applied to the [Icon](https://gestalt.pinterest.systems/pog/icon). See [color combinations](https://gestalt.pinterest.systems/pog#iconColorCombinations) for more details.
+   * Color applied to the [Icon](https://gestalt.pinterest.systems/web/pog/icon). See [color combinations](https://gestalt.pinterest.systems/web/pog#iconColorCombinations) for more details.
    */
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   /**
-   * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/pog#paddingCombinations) for more details.
+   * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/web/pog#paddingCombinations) for more details.
    */
   padding?: 1 | 2 | 3 | 4 | 5,
   /**
-   * Indicate if Pog is in a selected state. See [state combinations](https://gestalt.pinterest.systems/pog#stateCombinations) for more details.
+   * Indicate if Pog is in a selected state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
    */
   selected?: boolean,
   /**
-   * This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If padding is omitted, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px). See [size combinations](https://gestalt.pinterest.systems/pog#sizeCombinations) for more details.
+   * This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If padding is omitted, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px). See [size combinations](https://gestalt.pinterest.systems/web/pog#sizeCombinations) for more details.
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
 /**
- * [Pog](https://gestalt.pinterest.systems/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/pog/iconbutton).
+ * [Pog](https://gestalt.pinterest.systems/web/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/web/pog/iconbutton).
  *
  * This is an abstraction to allow for links that look like IconButton.
  *

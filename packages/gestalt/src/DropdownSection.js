@@ -6,17 +6,17 @@ import styles from './Dropdown.css';
 
 type Props = {|
   /**
-   * Any [Dropdown.Items](https://gestalt.pinterest.systems/dropdown#Dropdown.ItemProps) and/or [Dropdown.Links](https://gestalt.pinterest.systems/dropdown#Dropdown.LinkProps) to be rendered
+   * Any [Dropdown.Items](https://gestalt.pinterest.systems/web/dropdown#Dropdown.ItemProps) and/or [Dropdown.Links](https://gestalt.pinterest.systems/web/dropdown#Dropdown.LinkProps) to be rendered
    */
   children: Node,
   /**
-   * Label for the section. See the [Sections](https://gestalt.pinterest.systems/dropdown#Sections) variant for more info.
+   * Label for the section. See the [Sections](https://gestalt.pinterest.systems/web/dropdown#Sections) variant for more info.
    */
   label: string,
 |};
 
 /**
- * Use [Dropdown.Section](https://gestalt.pinterest.systems/dropdown#Dropdown.Section) to create hierarchy within a single Dropdown.
+ * Use [Dropdown.Section](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Section) to create hierarchy within a single Dropdown.
  */
 export default function DropdownSection({ label, children }: Props): Node {
   return (

@@ -15,11 +15,11 @@ const INPUT_PADDING_WITH_TAGS = 20;
 
 type Props = {|
   /**
-   * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/textarea#Disabled) for more details.
+   * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/web/textarea#Disabled) for more details.
    */
   disabled?: boolean,
   /**
-   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/textarea#Error-message) for more details.
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/web/textarea#Error-message) for more details.
    */
   errorMessage?: Node,
   /**
@@ -27,7 +27,7 @@ type Props = {|
    */
   hasError?: boolean,
   /**
-   * More information about how to complete the form field. See the [helper text example](https://gestalt.pinterest.systems/textarea#Helper-text) for more details.
+   * More information about how to complete the form field. See the [helper text example](https://gestalt.pinterest.systems/web/textarea#Helper-text) for more details.
    */
   helperText?: string,
   /**
@@ -79,11 +79,11 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textarea#Read-only) for more details.
+   * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textarea#Read-only) for more details.
    */
   readOnly?: boolean,
   /**
-   * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/textarea#With-a-ref) for more details.
+   * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/web/textarea#With-a-ref) for more details.
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
@@ -91,7 +91,7 @@ type Props = {|
    */
   rows?: number,
   /**
-   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/textarea#With-tags) for more details.
+   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/web/textarea#With-tags) for more details.
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   /**
@@ -101,7 +101,7 @@ type Props = {|
 |};
 
 /**
- * [TextArea](https://gestalt.pinterest.systems/textarea) allows for multi-line input.
+ * [TextArea](https://gestalt.pinterest.systems/web/textarea) allows for multi-line input.
  *
  * ![TextArea light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea.spec.mjs-snapshots/TextArea-chromium-darwin.png)
  * ![TextArea dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea-dark.spec.mjs-snapshots/TextArea-dark-chromium-darwin.png)

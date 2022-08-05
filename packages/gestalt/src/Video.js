@@ -47,15 +47,15 @@ type Props = {|
    */
   accessibilityProgressBarLabel: string,
   /**
-   * Accessibility label for the button to show captions if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/video#Captions) to learn more.
+   * Accessibility label for the button to show captions if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
   accessibilityShowCaptionsLabel?: string,
   /**
-   * Accessibility label for the unmute button if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/video#Captions) to learn more.
+   * Accessibility label for the unmute button if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
   accessibilityUnmuteLabel: string,
   /**
-   * When set to autoplay, the video will automatically start playing. See the [autoplay and error detection variant](https://gestalt.pinterest.systems/video#Autoplay-and-error-detection) to learn more.
+   * When set to autoplay, the video will automatically start playing. See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
   autoplay?: boolean,
   /**
@@ -67,11 +67,11 @@ type Props = {|
    */
   backgroundColor: BackgroundColor,
   /**
-   * The URL of the captions track for the video (.vtt file). See the [accessibility section](https://gestalt.pinterest.systems/video#Captions) to learn more.
+   * The URL of the captions track for the video (.vtt file). See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
   captions?: string,
   /**
-   * This `children` prop is not same as children inside the native html `video` element. Instead, it serves to add overlays on top of the html video element, while still being under the video controls. See [children example](https://gestalt.pinterest.systems/video#video-with-children) for more details.
+   * This `children` prop is not same as children inside the native html `video` element. Instead, it serves to add overlays on top of the html video element, while still being under the video controls. See [children example](https://gestalt.pinterest.systems/web/video#video-with-children) for more details.
    */
   children?: Node,
   /**
@@ -79,7 +79,7 @@ type Props = {|
    */
   crossOrigin?: CrossOrigin,
   /**
-   * Show the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
+   * Show the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
   controls?: boolean,
   /**
@@ -128,15 +128,15 @@ type Props = {|
   onPause?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
 
   /**
-   * Callback triggered when `pause` is changed from "true" to "false" or `autoplay`. See the [MDN Web Docs: play event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event) and the [autoplay and error detection variant](https://gestalt.pinterest.systems/video#Autoplay-and-error-detection) to learn more.
+   * Callback triggered when `pause` is changed from "true" to "false" or `autoplay`. See the [MDN Web Docs: play event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event) and the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
   onPlay: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
   /**
-   * Callback triggered when a [play() method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)'s Promise is [rejected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play#exceptions). See the [autoplay and error detection variant](https://gestalt.pinterest.systems/video#Autoplay-and-error-detection) to learn more.
+   * Callback triggered when a [play() method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)'s Promise is [rejected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play#exceptions). See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
   onPlayError: ({| error: Error |}) => void,
   /**
-   * Callback triggered when the video full-screen status changes. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
+   * Callback triggered when the video full-screen status changes. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
   onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
   /**
@@ -152,11 +152,11 @@ type Props = {|
    */
   onPlaying?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
   /**
-   * Callback triggered when mousedown event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
+   * Callback triggered when mousedown event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
   onPlayheadDown?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
   /**
-   * Callback triggered when mouseup event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
+   * Callback triggered when mouseup event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
   onPlayheadUp?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
   /**
@@ -180,7 +180,7 @@ type Props = {|
    */
   onTimeChange?: ({| event: SyntheticEvent<HTMLVideoElement>, time: number |}) => void,
   /**
-   * Callback triggered when the audio volume changes via the video control interface. See the [video updates variant](https://gestalt.pinterest.systems/video#Video-updates) to learn more.
+   * Callback triggered when the audio volume changes via the video control interface. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
    */
   onVolumeChange?: ({|
     event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
@@ -191,11 +191,11 @@ type Props = {|
    */
   onWaiting?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
   /**
-   * Specifies the speed at which the video plays: 1 for normal. See the [video updates variant](https://gestalt.pinterest.systems/video#Video-updates) to learn more.
+   * Specifies the speed at which the video plays: 1 for normal. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
    */
   playbackRate: number,
   /**
-   * Specifies whether the video should play or not. See [autoplay and error detection variant](https://gestalt.pinterest.systems/video#Autoplay-and-error-detection) to learn more.
+   * Specifies whether the video should play or not. See [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
   playing: boolean,
   /**
@@ -203,7 +203,7 @@ type Props = {|
    */
   playsInline?: boolean,
   /**
-   * The image to show while the video is loading. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
+   * The image to show while the video is loading. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
   poster?: string,
   /**
@@ -211,7 +211,7 @@ type Props = {|
    */
   preload: 'auto' | 'metadata' | 'none',
   /**
-   * The URL of the video file to play. This can also be supplied as a list of video types to respective video source urls in fallback order for support on various browsers. See [multiple sources example](https://gestalt.pinterest.systems/video#Video-multiple-sources) for more details.
+   * The URL of the video file to play. This can also be supplied as a list of video types to respective video source urls in fallback order for support on various browsers. See [multiple sources example](https://gestalt.pinterest.systems/web/video#Video-multiple-sources) for more details.
    */
   src: Source,
   /**
@@ -219,7 +219,7 @@ type Props = {|
    */
   startTime?: number,
   /**
-   * Specifies the volume of the video audio: 0 for muted, 1 for max. See the [video controls variant](https://gestalt.pinterest.systems/video#Video-controls) to learn more.
+   * Specifies the volume of the video audio: 0 for muted, 1 for max. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
   volume: number,
 |};
@@ -324,7 +324,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 };
 
 /**
- * [Video](https://gestalt.pinterest.systems/video) is used for media layout.
+ * [Video](https://gestalt.pinterest.systems/web/video) is used for media layout.
  *
  * ![Video light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Video.spec.mjs-snapshots/Video-chromium-darwin.png)
  */

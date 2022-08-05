@@ -9,7 +9,7 @@ type Role = 'dialog' | 'listbox' | 'menu';
 
 type Props = {|
   /**
-   * The reference element, typically [Button](https://gestalt.pinterest.systems/button) or [IconButton](https://gestalt.pinterest.systems/iconbutton), that Popover uses to set its position.
+   * The reference element, typically [Button](https://gestalt.pinterest.systems/web/button) or [IconButton](https://gestalt.pinterest.systems/web/iconbutton), that Popover uses to set its position.
    */
   anchor: ?HTMLElement,
   /**
@@ -17,7 +17,7 @@ type Props = {|
    */
   children?: Node,
   /**
-   * The background color of Popover. See the [color and caret](https://gestalt.pinterest.systems/popover#Color-and-caret) variant to learn more.
+   * The background color of Popover. See the [color and caret](https://gestalt.pinterest.systems/web/popover#Color-and-caret) variant to learn more.
    */
   color?: Color,
   /**
@@ -25,11 +25,11 @@ type Props = {|
    */
   onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
   /**
-   * Unique id to identify each Popover. Used for [accessibility](https://gestalt.pinterest.systems/popover#ARIA-attributes) purposes.
+   * Unique id to identify each Popover. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
   id?: string,
   /**
-   * Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/popover#Ideal-direction) variant to learn more.
+   * Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/popover#Ideal-direction) variant to learn more.
    */
   idealDirection?: IdealDirection,
   /**
@@ -37,29 +37,29 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * Properly positions Popover relative to its anchor element. Set to false when used within [Layer](https://gestalt.pinterest.systems/layer). See the [with Layer](https://gestalt.pinterest.systems/popover#With-layer) variant to learn more.
+   * Properly positions Popover relative to its anchor element. Set to false when used within [Layer](https://gestalt.pinterest.systems/web/layer). See the [with Layer](https://gestalt.pinterest.systems/web/popover#With-layer) variant to learn more.
    */
   positionRelativeToAnchor?: boolean,
   /**
-   * The underlying ARIA role for Popover. See the [accessibility](https://gestalt.pinterest.systems/popover#ARIA-attributes) section for more info.
+   * The underlying ARIA role for Popover. See the [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) section for more info.
    */
   role?: Role,
   /**
-   * Puts the focus on Popover when it’s triggered. See [accessibility](https://gestalt.pinterest.systems/popover#Accessibility) to learn more.
+   * Puts the focus on Popover when it’s triggered. See [accessibility](https://gestalt.pinterest.systems/web/popover#Accessibility) to learn more.
    */
   shouldFocus?: boolean,
   /**
-   * Shows a caret on Popover. See the [color and caret](https://gestalt.pinterest.systems/popover#Color-and-caret) variant to learn more.
+   * Shows a caret on Popover. See the [color and caret](https://gestalt.pinterest.systems/web/popover#Color-and-caret) variant to learn more.
    */
   showCaret?: boolean,
   /**
-   * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/popover#Size) variant to learn more.
+   * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/web/popover#Size) variant to learn more.
    */
   size?: Size,
 |};
 
 /**
- * [Popover](https://gestalt.pinterest.systems/popover) is a floating view that contains a task related to the content on screen. It can be triggered when the user clicks or focuses on an element, typically [Button](/button) or [IconButton](/iconbutton). It can also be triggered automatically, as in the case of user education. Popover is non-modal and can be dismissed by interacting with another part of the screen or an item within Popover.
+ * [Popover](https://gestalt.pinterest.systems/web/popover) is a floating view that contains a task related to the content on screen. It can be triggered when the user clicks or focuses on an element, typically [Button](/button) or [IconButton](/iconbutton). It can also be triggered automatically, as in the case of user education. Popover is non-modal and can be dismissed by interacting with another part of the screen or an item within Popover.
  *
  * Popover is most appropriate for desktop screens and can contain a variety of elements, such as [Button](/button) and [Images](/image). Popover is also the container used to construct more complex elements like [Dropdown](/dropdown) and the board picker, pictured below, which allow people to choose the board to save a Pin to.
  */

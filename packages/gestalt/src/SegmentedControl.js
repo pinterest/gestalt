@@ -20,7 +20,7 @@ type Props = {|
    */
   onChange: OnChange,
   /**
-   * By default, items have equal widths. If this prop is true, the width of an item is based on its content. See the [responsive example](https://gestalt.pinterest.systems/segmentedcontrol#Example:-Responsive) for more details.
+   * By default, items have equal widths. If this prop is true, the width of an item is based on its content. See the [responsive example](https://gestalt.pinterest.systems/web/segmentedcontrol#Example:-Responsive) for more details.
    */
   responsive?: boolean,
   /**
@@ -72,7 +72,7 @@ function SegmentedControlItem({
 }
 
 /**
- * [SegmentedControl](https://gestalt.pinterest.systems/segmentedcontrol)  may be used to group multiple selections. The controls display the current state and related state.
+ * [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol)  may be used to group multiple selections. The controls display the current state and related state.
  *
  * Create layout to convey clear sense of information hierarchy. When a control is engaged, information below the control should also be updated.
  */

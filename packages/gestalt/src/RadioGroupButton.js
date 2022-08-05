@@ -12,11 +12,11 @@ import { useRadioGroupContext } from './RadioGroupContext.js';
 
 type Props = {|
   /**
-   * Indicates if the input is checked. See the [state example](https://gestalt.pinterest.systems/radiogroup#States) for more details.
+   * Indicates if the input is checked. See the [state example](https://gestalt.pinterest.systems/web/radiogroup#States) for more details.
    */
   checked?: boolean,
   /**
-   * Indicates if the input is disabled. See the [state example](https://gestalt.pinterest.systems/radiogroup#States) for more details.
+   * Indicates if the input is disabled. See the [state example](https://gestalt.pinterest.systems/web/radiogroup#States) for more details.
    */
   disabled?: boolean,
   /**
@@ -24,7 +24,7 @@ type Props = {|
    */
   id: string,
   /**
-   * An optional [Image](https://gestalt.pinterest.systems/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/radiogroup#With-Image) for more details.
+   * An optional [Image](https://gestalt.pinterest.systems/web/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/web/radiogroup#With-Image) for more details.
    */
   image?: Node,
   /**
@@ -40,7 +40,7 @@ type Props = {|
    */
   onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
   /**
-   * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/radiogroup#Using-ref) for more details.
+   * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/web/radiogroup#Using-ref) for more details.
    */
   ref?: HTMLInputElement, // eslint-disable-line react/no-unused-prop-types
   /**
@@ -48,7 +48,7 @@ type Props = {|
    */
   size?: 'sm' | 'md',
   /**
-   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/radiogroup#With-subtext) for more details.
+   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/web/radiogroup#With-subtext) for more details.
    */
   subtext?: string,
   /**
@@ -58,7 +58,7 @@ type Props = {|
 |};
 
 /**
- *  Use [RadioGroup.RadioButtons](https://gestalt.pinterest.systems/radiogroup#RadioGroup.RadioButton) to present an option for selection to the user within a RadioGroup. They should not be used outside of RadioGroup or when the user can select more than one option from a list.
+ *  Use [RadioGroup.RadioButtons](https://gestalt.pinterest.systems/web/radiogroup#RadioGroup.RadioButton) to present an option for selection to the user within a RadioGroup. They should not be used outside of RadioGroup or when the user can select more than one option from a list.
  *
  * ![RadioGroup light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioGroup.spec.mjs-snapshots/RadioGroup-chromium-darwin.png)
  * ![RadioGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioGroup-dark.spec.mjs-snapshots/RadioGroup-dark-chromium-darwin.png)
@@ -121,7 +121,7 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
   const { parentName } = useRadioGroupContext();
   if (parentName !== 'RadioGroup') {
     throw new Error(
-      `RadioGroup.RadioButton must be used within a [RadioGroup](https://gestalt.pinterest.systems/radiogroup).`,
+      `RadioGroup.RadioButton must be used within a [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup).`,
     );
   }
 

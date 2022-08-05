@@ -15,7 +15,7 @@ import { TableContextProvider } from './contexts/TableContext.js';
 
 type Props = {|
   /**
-   * Must be instances of Table.Header, Table.Body, and/or Table.Footer components. See the [Subcomponent section](https://gestalt.pinterest.systems/table#Subcomponents) to learn more.
+   * Must be instances of Table.Header, Table.Body, and/or Table.Footer components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
   children: Node,
   /**
@@ -31,13 +31,13 @@ type Props = {|
    */
   maxHeight?: number | string,
   /**
-   * Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](https://gestalt.pinterest.systems/table#Sticky-Column), [multiple sticky columns](https://gestalt.pinterest.systems/table#Multiple-sticky-columns), [sticky header and columns](https://gestalt.pinterest.systems/table#Sticky-header-and-sticky-columns), [expandable row with sticky columns](https://gestalt.pinterest.systems/table#Table-Row-Expandable-with-Sticky-Columns), and [sortable header cells with sticky columns](https://gestalt.pinterest.systems/table#Sortable-header-cells-with-sticky-columns) variants for details.
+   * Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](https://gestalt.pinterest.systems/web/table#Sticky-Column), [multiple sticky columns](https://gestalt.pinterest.systems/web/table#Multiple-sticky-columns), [sticky header and columns](https://gestalt.pinterest.systems/web/table#Sticky-header-and-sticky-columns), [expandable row with sticky columns](https://gestalt.pinterest.systems/web/table#Table-Row-Expandable-with-Sticky-Columns), and [sortable header cells with sticky columns](https://gestalt.pinterest.systems/web/table#Sortable-header-cells-with-sticky-columns) variants for details.
    */
   stickyColumns?: ?number,
 |};
 
 /**
- * [Table](https://gestalt.pinterest.systems/table) is a set of structured data that is easy for a user to scan, examine, and compare. Table data is displayed in a grid format and can be used to structure both interactive and static data.
+ * [Table](https://gestalt.pinterest.systems/web/table) is a set of structured data that is easy for a user to scan, examine, and compare. Table data is displayed in a grid format and can be used to structure both interactive and static data.
  *
  * ![Table light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Table.spec.mjs-snapshots/Table-chromium-darwin.png)
  *

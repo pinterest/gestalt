@@ -14,24 +14,24 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   /**
-   * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/callout#Dismissible) for more info.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/callout#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   dismissButton?: {| accessibilityLabel: string, onDismiss: () => void |},
   /**
-   * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility) for details on proper usage.
+   * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility) for details on proper usage.
    */
   iconAccessibilityLabel: string,
   /**
-   * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/callout#Localization).
+   * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    *
-   * See [Best Practices](https://gestalt.pinterest.systems/callout#Best-practices) for more info.
+   * See [Best Practices](https://gestalt.pinterest.systems/web/callout#Best-practices) for more info.
    */
   message: string,
   /**
-   * Main action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) to learn more about link navigation.
+   * Main action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   primaryAction?: {|
     accessibilityLabel: string,
@@ -49,9 +49,9 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) to learn more about link navigation.
+   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   secondaryAction?: {|
     accessibilityLabel: string,
@@ -69,11 +69,11 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * The category of Callout. See [Variants](https://gestalt.pinterest.systems/callout#Variants) to learn more.
+   * The category of Callout. See [Variants](https://gestalt.pinterest.systems/web/callout#Variants) to learn more.
    */
   type: 'error' | 'info' | 'warning',
   /**
-   * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/callout#Localization).
+   * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    */
   title?: string,
 |};
@@ -132,7 +132,7 @@ function CalloutAction({
 }
 
 /**
- * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
+ * [Callout](https://gestalt.pinterest.systems/web/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
  *
  * ![Callout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Callout.spec.mjs-snapshots/Callout-chromium-darwin.png)
  * ![Callout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Callout-dark.spec.mjs-snapshots/Callout-dark-chromium-darwin.png)

@@ -17,7 +17,7 @@ export type TypeOptions =
 
 type Props = {|
   /**
-   * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/badge#Positioning) variant to learn more.
+   * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
    */
   position?: Position,
   /**
@@ -25,13 +25,13 @@ type Props = {|
    */
   text: string,
   /**
-   * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/badge#Type) variant to learn more.
+   * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
    */
   type?: TypeOptions,
 |};
 
 /**
- * [Badge](https://gestalt.pinterest.systems/badge) is a label that indicates status or importance. Badges should provide quick recognition.
+ * [Badge](https://gestalt.pinterest.systems/web/badge) is a label that indicates status or importance. Badges should provide quick recognition.
  *
  * ![Badge light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge.spec.mjs-snapshots/Badge-chromium-darwin.png)
  * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.mjs-snapshots/Badge-dark-chromium-darwin.png)

@@ -56,7 +56,7 @@ type Props = {|
 |};
 
 /**
- * Use [Table.SortableHeaderCell](https://gestalt.pinterest.systems/table#Table.SortableHeaderCell) to define a header cell with sorting functionality in Table.
+ * Use [Table.SortableHeaderCell](https://gestalt.pinterest.systems/web/table#Table.SortableHeaderCell) to define a header cell with sorting functionality in Table.
  */
 export default function TableSortableHeaderCell({
   children,

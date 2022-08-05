@@ -28,7 +28,7 @@ export type Props = {|
    */
   maxWidth?: Dimension,
   /**
-   * Use numbers for pixels: `minWidth={100}` and strings for percentages: `minWidth="100%"`. Can be used to fix overflowing children; see [the example](https://gestalt.pinterest.systems/flex#FlexItem-minWidth) to learn more.
+   * Use numbers for pixels: `minWidth={100}` and strings for percentages: `minWidth="100%"`. Can be used to fix overflowing children; see [the example](https://gestalt.pinterest.systems/web/flex#FlexItem-minWidth) to learn more.
    */
   minWidth?: Dimension,
 |};
@@ -36,7 +36,7 @@ export type Props = {|
 const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'maxWidth', 'minWidth'];
 
 /**
- * Use [Flex.Item](https://gestalt.pinterest.systems/flex) within a Flex container for more precise control over the child element. Flex children that are not explicitly wrapped in Flex.Item will be wrapped in the the component automatically to apply `gap` spacing.
+ * Use [Flex.Item](https://gestalt.pinterest.systems/web/flex) within a Flex container for more precise control over the child element. Flex children that are not explicitly wrapped in Flex.Item will be wrapped in the the component automatically to apply `gap` spacing.
  */
 export default function FlexItem(props: Props): Node {
   const { passthroughProps, propsStyles } = buildStyles<Props>({
