@@ -9,10 +9,12 @@ import IconButton from './IconButton.js';
 import Box from './Box.js';
 import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import useGetChildrenToArray from './useGetChildrenToArray.js';
+import getChildrenToArray from './getChildrenToArray.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import SideNavigationGroupContent from './SideNavigationGroupContent.js';
 import { type Props } from './SideNavigationGroup.js';
+
+type SideNavigationGroupMobileProps = {| ...Props, hasActiveChild: boolean |};
 
 export default function SideNavigationGroupMobile({
   children,
@@ -23,7 +25,7 @@ export default function SideNavigationGroupMobile({
   icon,
   label,
   notificationAccessibilityLabel,
-}: Props): Node {
+}: SideNavigationGroupMobileProps): Node {
   const [hovered, setHovered] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
@@ -42,13 +44,18 @@ export default function SideNavigationGroupMobile({
 
   const isTopLevel = nestedLevel === 0;
 
-  let navigationChildren: Node = (
-    <ul id={itemId} className={classnames(styles.ulItem)}>
-      {useGetChildrenToArray({
-        children,
-        filterLevel: 'nested',
-      })}
-    </ul>
+  const childrenArray = getChildrenToArray({
+    children,
+    filterLevel: 'nested',
+  });
+
+  const childrenList = useMemo(
+    () => (
+      <ul id={itemId} className={classnames(styles.ulItem)}>
+        {childrenArray}
+      </ul>
+    ),
+    [itemId, childrenArray],
   );
 
   const itemColor = hovered ? 'secondary' : undefined;
@@ -60,21 +67,10 @@ export default function SideNavigationGroupMobile({
     paddingInlineEnd: '16px',
   };
 
-  const elevateChildrenToParent = useCallback(
-    () => setSelectedMobileChildren(<NestingProvider>{childrenList}</NestingProvider>),
-    [childrenList, setSelectedMobileChildren],
-  );
-
-  useEffect(() => {
-    if (isTopLevel && hasActiveChild && !hideActiveChildren) {
-      elevateChildrenToParent();
-    } else if (hasActiveChild && !hideActiveChildren) {
-      setExpanded(true);
-    }
-  }, [isTopLevel, hasActiveChild, hideActiveChildren, itemId, elevateChildrenToParent]);
+  let topLevelChildrenList;
 
   if (isTopLevel) {
-    childrenList = (
+    topLevelChildrenList = (
       <Box color="default" padding={2} overflow="scroll">
         <Box position="relative" height={64} paddingY={2}>
           <Flex height="100%" alignItems="center" justifyContent="center">
@@ -116,6 +112,21 @@ export default function SideNavigationGroupMobile({
     );
   }
 
+  const passedChildren = isTopLevel ? topLevelChildrenList : childrenList;
+
+  const elevateChildrenToParent = useCallback(
+    () => setSelectedMobileChildren(<NestingProvider>{passedChildren}</NestingProvider>),
+    [passedChildren, setSelectedMobileChildren],
+  );
+
+  useEffect(() => {
+    if (isTopLevel && hasActiveChild && !hideActiveChildren) {
+      elevateChildrenToParent();
+    } else if (hasActiveChild && !hideActiveChildren) {
+      setExpanded(true);
+    }
+  }, [isTopLevel, hasActiveChild, hideActiveChildren, itemId, elevateChildrenToParent]);
+
   return (
     <li className={classnames(styles.liItem)}>
       <NestingProvider>
@@ -153,7 +164,7 @@ export default function SideNavigationGroupMobile({
             display={display}
           />
         </TapArea>
-        {expanded ? childrenList : null}
+        {expanded ? passedChildren : null}
       </NestingProvider>
     </li>
   );

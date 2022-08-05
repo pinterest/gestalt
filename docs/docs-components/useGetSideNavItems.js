@@ -41,13 +41,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     }
     if (nestingLevel === 1) {
       return (
-        <SideNavigation.Group
-          key={`${navItem.sectionName}`}
-          label={navItem.sectionName}
-          hasActiveChild={pathname.includes(
-            `/${navItem.sectionName.toLocaleLowerCase().replace(' ', '_')}/`,
-          )}
-        >
+        <SideNavigation.Group key={`${navItem.sectionName}`} label={navItem.sectionName}>
           {navItem.pages.map((nestedPage, i) => {
             if (typeof nestedPage === 'string') {
               const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(
@@ -71,13 +65,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
       );
     }
     return (
-      <SideNavigation.NestedGroup
-        key={`${navItem.sectionName}`}
-        label={navItem.sectionName}
-        hasActiveChild={pathname.includes(
-          `/${navItem.sectionName.toLocaleLowerCase().replace(' ', '_')}/`,
-        )}
-      >
+      <SideNavigation.NestedGroup key={`${navItem.sectionName}`} label={navItem.sectionName}>
         {navItem.pages.map((nestedPage, i) => {
           if (typeof nestedPage === 'string') {
             const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(

@@ -8,7 +8,7 @@ import SideNavigationGroupMobile from './SideNavigationGroupMobile.js';
 import icons from './icons/index.js';
 import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import useGetChildrenToArray from './useGetChildrenToArray.js';
+import getChildrenToArray from './getChildrenToArray.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
@@ -38,10 +38,6 @@ export type Props = {|
    */
   display?: Display,
   /**
-   * When supplied, the  group will render expanded to show an active item  child.See the [Accessibility](https://gestalt.pinterest.systems/SideNavigation#Accessibility) guidelines to learn more.
-   */
-  hasActiveChild?: boolean,
-  /**
    * When supplied, will display Icon. See the [Icon](https://gestalt.pinterest.systems/SideNavigation#Icon) variant to learn more.
    */
   icon?: IconType,
@@ -63,25 +59,46 @@ export default function SideNavigationGroup({
   children,
   counter,
   display = 'expandable',
-  hasActiveChild = false,
   icon,
   notificationAccessibilityLabel,
   label,
 }: Props): Node {
-  const navigationChildren = useGetChildrenToArray({
-    children,
-    filterLevel: 'nested',
-  });
-
-  const [hovered, setHovered] = useState(false);
-
-  const [expanded, setExpanded] = useState(hasActiveChild);
-
   const itemId = useId();
 
   const { nestedLevel } = useNesting();
 
   const { selectedItemId, setSelectedItemId } = useSideNavigation();
+
+  const navigationChildren = getChildrenToArray({
+    children,
+    filterLevel: 'nested',
+  });
+
+  const hasActiveChildCallback = (child) =>
+    child?.props?.active && ['page', 'section'].includes(child?.props?.active);
+
+  const hasActiveChildren = !!navigationChildren.find(hasActiveChildCallback);
+
+  let hasActiveGrandChildren;
+
+  if (nestedLevel === 0 && !hasActiveChildren) {
+    hasActiveGrandChildren = navigationChildren
+      .filter((child) => child?.type?.displayName === 'SideNavigation.NestedGroup')
+      .map((child) =>
+        getChildrenToArray({
+          children: child?.props?.children,
+          filterLevel: 'nested',
+        }).find(hasActiveChildCallback),
+      )
+      .filter(Boolean);
+  }
+
+  const hasAnyActiveChild =
+    !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
+
+  const [hovered, setHovered] = useState(false);
+
+  const [expanded, setExpanded] = useState(hasAnyActiveChild);
 
   const deviceType = useDeviceType();
 
@@ -100,7 +117,7 @@ export default function SideNavigationGroup({
         badge={badge}
         counter={counter}
         display={display}
-        hasActiveChild={hasActiveChild}
+        hasActiveChild={hasAnyActiveChild}
         icon={icon}
         label={label}
         notificationAccessibilityLabel={notificationAccessibilityLabel}
