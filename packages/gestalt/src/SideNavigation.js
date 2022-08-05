@@ -12,7 +12,7 @@ import SideNavigationTopItem from './SideNavigationTopItem.js';
 import SideNavigationGroup from './SideNavigationGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
-import useGetChildrenToArray from './useGetChildrenToArray.js';
+import getChildrenToArray from './getChildrenToArray.js';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
 import { type Indexable } from './zIndex.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
@@ -75,7 +75,7 @@ export default function SideNavigation({
   showBorder,
   title,
 }: Props): Node {
-  const navigationChildren = useGetChildrenToArray({ children, filterLevel: 'main' });
+  const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
 
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'phone';

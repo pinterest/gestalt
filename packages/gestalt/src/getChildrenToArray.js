@@ -6,13 +6,14 @@ const ALLOWED_CHILDREN_MAP = {
   'nested': ['SideNavigation.NestedItem', 'SideNavigation.NestedGroup'],
 };
 
-const useGetChildrenToArray = ({
+const getChildrenToArray = ({
   children,
   filterLevel,
 }: {|
   children: Node,
   filterLevel: 'main' | 'nested',
-|}): $ReadOnlyArray<Node> => {
+  // $FlowFixMe[unclear-type] ALBERTO TO FIX FLOW TYPE HERE
+|}): $ReadOnlyArray<any> => {
   let foundFirstNavigationItem = false;
 
   const navigationChildren = [];
@@ -56,4 +57,4 @@ const useGetChildrenToArray = ({
   return navigationChildren;
 };
 
-export default useGetChildrenToArray;
+export default getChildrenToArray;
