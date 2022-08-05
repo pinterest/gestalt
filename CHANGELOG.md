@@ -1,3 +1,9 @@
+## 63.2.2 (Aug 5, 2022)
+
+### Patch
+
+- PageHeader: improved Docs with examples and descriptions (#2262)
+
 ## 63.2.1 (Aug 4, 2022)
 
 ### Patch
