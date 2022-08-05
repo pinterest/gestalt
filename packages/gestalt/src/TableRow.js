@@ -4,13 +4,13 @@ import { useTableContext } from './contexts/TableContext.js';
 
 type Props = {|
   /**
-   * Must be instances of Table.Cell, Table.HeaderCell, or Table.SortableHeaderCell components. See the [Subcomponent section](https://gestalt.pinterest.systems/table#Subcomponents) to learn more.
+   * Must be instances of Table.Cell, Table.HeaderCell, or Table.SortableHeaderCell components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
   children: Node,
 |};
 
 /**
- * Use [Table.Row](https://gestalt.pinterest.systems/table#Table.Row) to define a row in Table.
+ * Use [Table.Row](https://gestalt.pinterest.systems/web/table#Table.Row) to define a row in Table.
  */
 export default function TableRow({ children }: Props): Node {
   const { stickyColumns } = useTableContext();

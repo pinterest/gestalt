@@ -25,7 +25,7 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/link) or [TapArea](https://gestalt.pinterest.systems/taparea).
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
   errorMessage?: Node,
   /**
@@ -103,7 +103,7 @@ type Props = {|
 |};
 
 /**
- * [NumberField](https://gestalt.pinterest.systems/numberfield) allows for numerical input.
+ * [NumberField](https://gestalt.pinterest.systems/web/numberfield) allows for numerical input.
  *
  * ![NumberField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField.spec.mjs-snapshots/NumberField-chromium-darwin.png)
  * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField-dark.spec.mjs-snapshots/NumberField-dark-chromium-darwin.png)

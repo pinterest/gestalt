@@ -15,11 +15,11 @@ type Props = {|
    */
   autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   /**
-   * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/textfield#Disabled) for more details.
+   * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/web/textfield#Disabled) for more details.
    */
   disabled?: boolean,
   /**
-   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/link) or [TapArea](https://gestalt.pinterest.systems/taparea).
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
   errorMessage?: Node,
   /**
@@ -79,7 +79,7 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/textfield#Read-only) for more details.
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textfield#Read-only) for more details.
    */
   readOnly?: boolean,
   /**
@@ -91,7 +91,7 @@ type Props = {|
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   /**
-   * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/numberfield).
+   * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/web/numberfield).
    */
   type?: Type,
   /**
@@ -105,7 +105,7 @@ type Props = {|
 |};
 
 /**
- * [TextField](https://gestalt.pinterest.systems/textfield) allows for multiple types of text input.
+ * [TextField](https://gestalt.pinterest.systems/web/textfield) allows for multiple types of text input.
  *
  * ![TextField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField.spec.mjs-snapshots/TextField-chromium-darwin.png)
  * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField-dark.spec.mjs-snapshots/TextField-dark-chromium-darwin.png)

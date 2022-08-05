@@ -31,7 +31,7 @@ type Props = {|
 |};
 
 /**
- * Use [Table.Cell](https://gestalt.pinterest.systems/table#Table.Cell) for individual table values.
+ * Use [Table.Cell](https://gestalt.pinterest.systems/web/table#Table.Cell) for individual table values.
  */
 export default function TableCell({
   children,

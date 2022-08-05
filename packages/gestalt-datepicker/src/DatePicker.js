@@ -58,19 +58,19 @@ type LocaleData = {|
 
 type Props = {|
   /**
-   *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/datepicker#disabled) to learn more.
+   *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/web/datepicker#disabled) to learn more.
    */
   disabled?: boolean,
   /**
-   * Provide feedback when an error on selection occurs. See the [error message example](https://gestalt.pinterest.systems/datepicker#errorMessage) to learn more.
+   * Provide feedback when an error on selection occurs. See the [error message example](https://gestalt.pinterest.systems/web/datepicker#errorMessage) to learn more.
    */
   errorMessage?: string,
   /**
-   * Array of disabled dates. Datepicker can be interacted with except for the dates passed which look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/datepicker#exclude) to learn more.
+   * Array of disabled dates. Datepicker can be interacted with except for the dates passed which look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/web/datepicker#exclude) to learn more.
    */
   excludeDates?: $ReadOnlyArray<Date>,
   /**
-   * More information about how to complete the DatePicker field. See the [helper text example](https://gestalt.pinterest.systems/datepicker#helperText) to learn more.
+   * More information about how to complete the DatePicker field. See the [helper text example](https://gestalt.pinterest.systems/web/datepicker#helperText) to learn more.
    */
   helperText?: string,
   /**
@@ -78,12 +78,12 @@ type Props = {|
    */
   id: string,
   /**
-   * Preferred direction for the calendar popover to open. See the [ideal direction example](https://gestalt.pinterest.systems/datepicker#idealDirection) to learn more.
+   * Preferred direction for the calendar popover to open. See the [ideal direction example](https://gestalt.pinterest.systems/web/datepicker#idealDirection) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
 
   /**
-   * Array of enabled dates. Datepicker can be interacted with only on the dates passed, all other dates look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/datepicker#include) to learn more.
+   * Array of enabled dates. Datepicker can be interacted with only on the dates passed, all other dates look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/web/datepicker#include) to learn more.
    */
   includeDates?: $ReadOnlyArray<Date>,
   /**
@@ -91,15 +91,15 @@ type Props = {|
    */
   label?: string,
   /**
-   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/datepicker#localeData) to learn more.
+   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more.
    */
   localeData?: LocaleData,
   /**
-   * Disable dates outside a max date. See the [delimited selection period example](https://gestalt.pinterest.systems/datepicker#maxMinDates) to learn more.
+   * Disable dates outside a max date. See the [delimited selection period example](https://gestalt.pinterest.systems/web/datepicker#maxMinDates) to learn more.
    */
   maxDate?: Date,
   /**
-   * Disable dates outside a min date. See the [delimited selection period example](https://gestalt.pinterest.systems/datepicker#maxMinDates) to learn more.
+   * Disable dates outside a min date. See the [delimited selection period example](https://gestalt.pinterest.systems/web/datepicker#maxMinDates) to learn more.
    */
   minDate?: Date,
   /**
@@ -107,7 +107,7 @@ type Props = {|
    */
   name?: string,
   /**
-   * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
    */
   nextRef?: {| current: ?HTMLInputElement |},
   /**
@@ -122,32 +122,32 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Required for date range selection. End date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   * Required for date range selection. End date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
    */
   rangeEndDate?: Date,
   /**
-   * Required for date range selection. Defines the datepicker start/end role in a date range selection.See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Defines the datepicker start/end role in a date range selection.See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
    */
   rangeSelector?: 'start' | 'end',
   /**
-   * Required for date range selection. Start date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Start date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
    */
   rangeStartDate?: Date,
   /**
-   * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * Pre-selected date value. See the [preselected date example](https://gestalt.pinterest.systems/datepicker#preselectedValue) to learn more.
+   * Pre-selected date value. See the [preselected date example](https://gestalt.pinterest.systems/web/datepicker#preselectedValue) to learn more.
    */
   value?: Date,
 |};
 
 /**
- * Use [Datepicker](https://gestalt.pinterest.systems/datepicker) when the user has to select a date or date range.
+ * Use [Datepicker](https://gestalt.pinterest.systems/web/datepicker) when the user has to select a date or date range.
  */
 /**
- * [DatePicker](https://gestalt.pinterest.systems/datepicker) is used when the user has to select a date or date range.
+ * [DatePicker](https://gestalt.pinterest.systems/web/datepicker) is used when the user has to select a date or date range.
  * DatePicker is distributed in its own package and must be installed separately.
  *
  * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.mjs-snapshots/DatePicker-closed-chromium-darwin.png)

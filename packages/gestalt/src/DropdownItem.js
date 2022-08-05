@@ -16,11 +16,11 @@ type OptionItemType = {|
 
 type Props = {|
   /**
-   * When supplied, will display a [Badge](https://gestalt.pinterest.systems/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/dropdown#Badges) variant to learn more.
+   * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/web/dropdown#Badges) variant to learn more.
    */
   badge?: BadgeType,
   /**
-   * If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](https://gestalt.pinterest.systems/dropdown#Custom-item-content) variant to learn more.
+   * If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](https://gestalt.pinterest.systems/web/dropdown#Custom-item-content) variant to learn more.
    */
   children?: Node,
   /**
@@ -63,7 +63,7 @@ type Props = {|
 |};
 
 /**
- * Use [Dropdown.Item](https://gestalt.pinterest.systems/dropdown#Dropdown.Item) for action & selection, when the Dropdown item triggers an action or selects an option.
+ * Use [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item) for action & selection, when the Dropdown item triggers an action or selects an option.
  */
 export default function DropdownItem({
   badge,

@@ -140,7 +140,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](https://gestalt.pinterest.systems/colorschemeprovider#Color-scheme) variant for examples.
+   * The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](https://gestalt.pinterest.systems/web/utilities/colorschemeprovider#Color-scheme) variant for examples.
    */
   colorScheme?: ColorScheme,
   /**
@@ -150,7 +150,7 @@ type Props = {|
 |};
 
 /**
- * [ColorSchemeProvider](https://gestalt.pinterest.systems/colorschemeprovider) is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode.
+ * [ColorSchemeProvider](https://gestalt.pinterest.systems/web/utilities/colorschemeprovider) is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode.
  */
 export default function ColorSchemeProvider({
   children,

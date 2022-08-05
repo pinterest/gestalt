@@ -16,7 +16,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation context](https://gestalt.pinterest.systems/onlinknavigationprovider#Custom-link-navigation-context) variant for examples.
+   * If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation context](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider#Custom-link-navigation-context) variant for examples.
    */
   onNavigation?: OnLinkNavigationType,
 |};
@@ -27,7 +27,7 @@ const OnLinkNavigationContext: Context<OnLinkNavigationContextType | void> =
 const { Provider } = OnLinkNavigationContext;
 
 /**
- * [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) is a [React context provider](https://reactjs.org/docs/context.html#contextprovider) to externally control the link behavior of components further down the tree.
+ * [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) is a [React context provider](https://reactjs.org/docs/context.html#contextprovider) to externally control the link behavior of components further down the tree.
  */
 export default function OnLinkNavigationProvider({
   children,

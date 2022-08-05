@@ -4,7 +4,7 @@ import InternalLabel from './InternalLabel.js';
 
 type Props = {|
   /**
-   * The content of the label, typically [Text](https://gestalt.pinterest.systems/text) or similar.
+   * The content of the label, typically [Text](https://gestalt.pinterest.systems/web/text) or similar.
    */
   children?: Node,
   /**

@@ -61,7 +61,7 @@ export default function ColorExamplesPage(): Node {
                   Having a limited range of colors supports consistency, making our product easier
                   to interact with. Keep in mind that continuous use of high-contrast and saturated
                   colors can create fatigue and eye strain. See our{' '}
-                  <Link inline href="https://gestalt.pinterest.systems/color_usage">
+                  <Link inline href="https://gestalt.pinterest.systems/foundations/color/usage">
                     <Text underline>color usage guidelines</Text>
                   </Link>{' '}
                   for more information about our color choices.
@@ -82,7 +82,7 @@ export default function ColorExamplesPage(): Node {
                   Any colors used should be consistent with the full{' '}
                   <Link
                     inline
-                    href="https://gestalt.pinterest.systems/color_palette#Extended-palette"
+                    href="https://gestalt.pinterest.systems/foundations/color/palette#Extended-palette"
                   >
                     <Text inline underline>
                       Pinterest color palette
@@ -102,7 +102,7 @@ export default function ColorExamplesPage(): Node {
                 <Text>
                   All color pairings must pass WCAG&apos;s AA color contrast standards. Using our
                   color tokens properly ensures our colors meet legibility standards. Check out our{' '}
-                  <Link inline href="https://gestalt.pinterest.systems/accessibility">
+                  <Link inline href="https://gestalt.pinterest.systems/foundations/accessibility">
                     <Text inline underline>
                       accessibility guidelines
                     </Text>

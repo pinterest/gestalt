@@ -22,7 +22,7 @@ type Counter = {| number: string, accessibilityLabel: string |};
 
 export type Props = {|
   /**
-   * When supplied, will display a [Badge](https://gestalt.pinterest.systems/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/SideNavigation#Badge) variant to learn more.
+   * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/SideNavigation#Badge) variant to learn more.
    */
   badge?: BadgeType,
   /**
@@ -52,7 +52,7 @@ export type Props = {|
 |};
 
 /**
- * Use [SideNavigation.Group](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.Group) to hold SideNavigation.NestedItem and SideNavigation.NestedGroup at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
+ * Use [SideNavigation.Group](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Group) to hold SideNavigation.NestedItem and SideNavigation.NestedGroup at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 export default function SideNavigationGroup({
   badge,

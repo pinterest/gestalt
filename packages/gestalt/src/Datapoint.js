@@ -37,7 +37,7 @@ type Props = {|
    */
   tooltipText?: string,
   /**
-   * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/zindex_classes) to learn more.
+   * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) to learn more.
    */
   tooltipZIndex?: Indexable,
   /**
@@ -55,7 +55,7 @@ type Props = {|
 |};
 
 /**
- * [Datapoint](https://gestalt.pinterest.systems/datapoint) displays at-a-glance data for a user to quickly view key metrics.
+ * [Datapoint](https://gestalt.pinterest.systems/web/datapoint) displays at-a-glance data for a user to quickly view key metrics.
  *
  * ![Datapoint light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Datapoint.spec.mjs-snapshots/Datapoint-chromium-darwin.png)
  * ![Datapoint dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Datapoint-dark.spec.mjs-snapshots/Datapoint-dark-chromium-darwin.png)

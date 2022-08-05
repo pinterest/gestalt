@@ -45,39 +45,39 @@ const reducer = (state, action) => {
 
 type Props = {|
   /**
-   * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/tooltip#Labels) section.
+   * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/web/tooltip#Labels) section.
    */
   accessibilityLabel?: string,
   /**
-   * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/iconbutton), that triggers Tooltip on hover or focus.
+   * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/web/iconbutton), that triggers Tooltip on hover or focus.
    */
   children: Node,
   /**
-   * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/tooltip#Ideal-direction) variant to learn more.
+   * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/tooltip#Ideal-direction) variant to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
-   * Properly positions Tooltip relative to an inline element, such as [Icon Button](https://gestalt.pinterest.systems/iconbutton) using the inline property. See the [inline](https://gestalt.pinterest.systems/tooltip#Inline) variant to learn more.
+   * Properly positions Tooltip relative to an inline element, such as [Icon Button](https://gestalt.pinterest.systems/web/iconbutton) using the inline property. See the [inline](https://gestalt.pinterest.systems/web/tooltip#Inline) variant to learn more.
    */
   inline?: boolean,
   /**
-   * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/tooltip#Link) variant to learn more.
+   * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/web/tooltip#Link) variant to learn more.
    */
   link?: Node,
   /**
-   * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/tooltip#Localization) to learn more.
+   * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/web/tooltip#Localization) to learn more.
    */
   text: string,
   /**
-   * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/tooltip#Z-index) variant to learn more.
+   * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/web/tooltip#Z-index) variant to learn more.
    */
   zIndex?: Indexable,
 |};
 
 /**
- * [Tooltip](https://gestalt.pinterest.systems/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.
+ * [Tooltip](https://gestalt.pinterest.systems/web/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.
  *
- * **NOTE** Planning to use Tooltip with IconButton? Use [IconButton's built-in tooltip](https://gestalt.pinterest.systems/iconbutton#With-Tooltip) instead. **NOTE**
+ * **NOTE** Planning to use Tooltip with IconButton? Use [IconButton's built-in tooltip](https://gestalt.pinterest.systems/web/iconbutton#With-Tooltip) instead. **NOTE**
  *
  * ![Tooltip light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip.spec.mjs-snapshots/Tooltip-chromium-darwin.png)
  * ![Tooltip dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip-dark.spec.mjs-snapshots/Tooltip-dark-chromium-darwin.png)

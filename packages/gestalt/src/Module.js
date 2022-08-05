@@ -33,7 +33,7 @@ export default function Module({
   /**
    * Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text.
    *
-   * Link: https://gestalt.pinterest.systems/text#static-badge
+   * Link: https://gestalt.pinterest.systems/web/text#static-badge
    */
   badge?: BadgeType,
   /**
@@ -43,7 +43,7 @@ export default function Module({
    */
   children?: Node,
   /**
-   * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/iconography_and_svgs#Search-icon-library).
+   * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/foundations/iconography/library#Search-icon-library).
    *
    * Link: https://gestalt.pinterest.systems/module#static-icon
    */

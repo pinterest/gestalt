@@ -43,7 +43,7 @@ type Props = {|
 |};
 
 /**
- * [Avatar](https://gestalt.pinterest.systems/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
+ * [Avatar](https://gestalt.pinterest.systems/web/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
  *
  * ![Avatar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Avatar.spec.mjs-snapshots/Avatar-chromium-darwin.png)
  * ![Avatar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Avatar-dark.spec.mjs-snapshots/Avatar-dark-chromium-darwin.png)

@@ -7,7 +7,7 @@ import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 type Props = {|
   /**
-   * Contents of the form, typically input components like [TextField](https://gestalt.pinterest.systems/textfield) or [NumberField](https://gestalt.pinterest.systems/numberfield).
+   * Contents of the form, typically input components like [TextField](https://gestalt.pinterest.systems/web/textfield) or [NumberField](https://gestalt.pinterest.systems/web/numberfield).
    */
   children: Node,
   /**
@@ -25,7 +25,7 @@ type Props = {|
    */
   submitButtonText: string,
   /**
-   * Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/upsell#Accessibility). Be sure to localize!
+   * Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility). Be sure to localize!
    */
   submitButtonAccessibilityLabel: string,
   /**
@@ -35,7 +35,7 @@ type Props = {|
 |};
 
 /**
- * [Upsell.Form](https://gestalt.pinterest.systems/upsell#Upsell.Form) can be used to add a short form to Upsell for collecting data from the user.
+ * [Upsell.Form](https://gestalt.pinterest.systems/web/upsell#Upsell.Form) can be used to add a short form to Upsell for collecting data from the user.
  */
 export default function UpsellForm({
   children,

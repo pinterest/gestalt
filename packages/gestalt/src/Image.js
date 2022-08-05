@@ -11,11 +11,11 @@ type Props = {|
    */
   alt: string,
   /**
-   * Children content will be overlaid on the image.  See the [Overlay example](https://gestalt.pinterest.systems/image#Overlay) for more details.
+   * Children content will be overlaid on the image.  See the [Overlay example](https://gestalt.pinterest.systems/web/image#Overlay) for more details.
    */
   children?: Node,
   /**
-   * Used as a visual placeholder while the image is loading.  See the [Placeholders example](https://gestalt.pinterest.systems/image#placeholders) for more details.
+   * Used as a visual placeholder while the image is loading.  See the [Placeholders example](https://gestalt.pinterest.systems/web/image#placeholders) for more details.
    */
   color: string,
   /**
@@ -31,7 +31,7 @@ type Props = {|
    */
   elementTiming?: string,
   /**
-   * Sets how the image is resized to fit its container. See the [Fit example](https://gestalt.pinterest.systems/image#fit) for more details.
+   * Sets how the image is resized to fit its container. See the [Fit example](https://gestalt.pinterest.systems/web/image#fit) for more details.
    * Note: this doesn't work with srcSet or sizes.
    */
   fit?: 'contain' | 'cover' | 'none',
@@ -41,15 +41,15 @@ type Props = {|
    */
   importance?: 'high' | 'low' | 'auto',
   /**
-   * Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource. See the [Lazy example](https://gestalt.pinterest.systems/image#Lazy) for more details.
+   * Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource. See the [Lazy example](https://gestalt.pinterest.systems/web/image#Lazy) for more details.
    */
   loading?: 'eager' | 'lazy' | 'auto',
   /**
-   * Exact height of source image. See the [Dimensions example](https://gestalt.pinterest.systems/image#Dimensions) for more details.
+   * Exact height of source image. See the [Dimensions example](https://gestalt.pinterest.systems/web/image#Dimensions) for more details.
    */
   naturalHeight: number,
   /**
-   * Exact width of source image. See the [Dimensions example](https://gestalt.pinterest.systems/image#Dimensions) for more details.
+   * Exact width of source image. See the [Dimensions example](https://gestalt.pinterest.systems/web/image#Dimensions) for more details.
    */
   naturalWidth: number,
   /**
@@ -61,7 +61,7 @@ type Props = {|
    */
   onLoad?: () => void,
   /**
-   * When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility. See the [Presentational Images with Role example](https://gestalt.pinterest.systems/image#Presentational-Images-with-Role) for more details.
+   * When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility. See the [Presentational Images with Role example](https://gestalt.pinterest.systems/web/image#Presentational-Images-with-Role) for more details.
    */
   role?: 'img' | 'presentation',
   /**
@@ -79,7 +79,7 @@ type Props = {|
 |};
 
 /**
- * [Image](https://gestalt.pinterest.systems/image) is the workhorse of Pinterest. If you define Pinterest to be all about collecting ideas, then images are how we choose to represent those ideas. In response, we've added a few extra superpowers to the regular img tag to make it even more awesome.
+ * [Image](https://gestalt.pinterest.systems/web/image) is the workhorse of Pinterest. If you define Pinterest to be all about collecting ideas, then images are how we choose to represent those ideas. In response, we've added a few extra superpowers to the regular img tag to make it even more awesome.
  *
  * ![Image light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Image.spec.mjs-snapshots/Image-chromium-darwin.png)
  * ![Image dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Image-dark.spec.mjs-snapshots/Image-dark-chromium-darwin.png)

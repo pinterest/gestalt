@@ -17,11 +17,11 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * Used to communicate error information to the user. Be sure to localize the text. See the [error message](https://gestalt.pinterest.systems/selectlist#Error-message) variant to learn more.
+   * Used to communicate error information to the user. Be sure to localize the text. See the [error message](https://gestalt.pinterest.systems/web/selectlist#Error-message) variant to learn more.
    */
   errorMessage?: string,
   /**
-   * Used to provide more information about the form field. Be sure to localize the text. See the [helper text](https://gestalt.pinterest.systems/selectlist#Helper-text) variant to learn more.
+   * Used to provide more information about the form field. Be sure to localize the text. See the [helper text](https://gestalt.pinterest.systems/web/selectlist#Helper-text) variant to learn more.
    */
   helperText?: string,
   /**
@@ -41,7 +41,7 @@ type Props = {|
    */
   name?: string,
   /**
-   * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/selectlist#Controlled-component) variant to learn more.
+   * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
   onChange: AbstractEventHandler<SyntheticInputEvent<HTMLSelectElement>, {| value: string |}>,
   /**
@@ -49,21 +49,21 @@ type Props = {|
    */
   options: $ReadOnlyArray<{| label: string, value: string, disabled?: boolean |}>,
   /**
-   * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/selectlist#Controlled-component) variant to learn more.
+   * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
   placeholder?: string,
   /**
-   * md: 40px, lg: 48px. See the [size](https://gestalt.pinterest.systems/selectlist#Size) variant to learn more.
+   * md: 40px, lg: 48px. See the [size](https://gestalt.pinterest.systems/web/selectlist#Size) variant to learn more.
    */
   size?: 'md' | 'lg',
   /**
-   * The currently-selected value. See the [controlled component](https://gestalt.pinterest.systems/selectlist#Controlled-component) variant to learn more.
+   * The currently-selected value. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
   value?: ?string,
 |};
 
 /**
- * [SelectList](https://gestalt.pinterest.systems/selectlist) displays a list of actions or options using the browser’s native select.
+ * [SelectList](https://gestalt.pinterest.systems/web/selectlist) displays a list of actions or options using the browser’s native select.
  *
  * ![SelectList light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SelectList.spec.mjs-snapshots/SelectList-chromium-darwin.png)
  * ![SelectList dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SelectList-dark.spec.mjs-snapshots/SelectList-dark-chromium-darwin.png)

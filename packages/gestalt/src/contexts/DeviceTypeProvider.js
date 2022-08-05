@@ -20,7 +20,7 @@ type Props = {|
 
 /**
  * *ALPHA - DO NOT USE YET - MAY HAVE BREAKING CHANGES IN THE NEAR FUTURE*
- * [DeviceTypeProvider](https://gestalt.pinterest.systems/devicetypeprovider) is an optional [React Context provider](https://reactjs.org/docs/context.html#contextprovider) to enable device-specific UI for Gestalt components that support it.
+ * [DeviceTypeProvider](https://gestalt.pinterest.systems/web/utilities/devicetypeprovider) is an optional [React Context provider](https://reactjs.org/docs/context.html#contextprovider) to enable device-specific UI for Gestalt components that support it.
  */
 export default function DeviceTypeProvider({ children, deviceType }: Props): Node {
   return <DeviceTypeContext.Provider value={deviceType}>{children}</DeviceTypeContext.Provider>;

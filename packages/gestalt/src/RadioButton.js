@@ -12,11 +12,11 @@ import focusStyles from './Focus.css';
 
 type Props = {|
   /**
-   * Indicates if the input is checked. See the [combinations example](https://gestalt.pinterest.systems/radiobutton#radio-state-combos) for more details.
+   * Indicates if the input is checked. See the [combinations example](https://gestalt.pinterest.systems/web/radiobutton#radio-state-combos) for more details.
    */
   checked?: boolean,
   /**
-   * Indicates if the input is disabled. See the [combinations example](https://gestalt.pinterest.systems/radiobutton#radio-state-combos) for more details.
+   * Indicates if the input is disabled. See the [combinations example](https://gestalt.pinterest.systems/web/radiobutton#radio-state-combos) for more details.
    */
   disabled?: boolean,
   /**
@@ -24,7 +24,7 @@ type Props = {|
    */
   id: string,
   /**
-   * An optional [Image](https://gestalt.pinterest.systems/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/radiobutton#images) for more details.
+   * An optional [Image](https://gestalt.pinterest.systems/web/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/web/radiobutton#images) for more details.
    */
   image?: Node,
   /**
@@ -40,7 +40,7 @@ type Props = {|
    */
   onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
   /**
-   * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/radiobutton#ref) for more details.
+   * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/web/radiobutton#ref) for more details.
    */
   ref?: HTMLInputElement, // eslint-disable-line react/no-unused-prop-types
   /**
@@ -48,7 +48,7 @@ type Props = {|
    */
   size?: 'sm' | 'md',
   /**
-   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/radiobutton#subtext) for more details.
+   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/web/radiobutton#subtext) for more details.
    */
   subtext?: string,
   /**
@@ -58,8 +58,8 @@ type Props = {|
 |};
 
 /**
- *  Use [RadioButtons](https://gestalt.pinterest.systems/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list.
- * **NOTE** The standalone RadioButton is soon to be deprecated, use [RadioGroup](https://gestalt.pinterest.systems/radiogroup) and RadioGroup.RadioButton instead.**NOTE**
+ *  Use [RadioButtons](https://gestalt.pinterest.systems/web/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list.
+ * **NOTE** The standalone RadioButton is soon to be deprecated, use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) and RadioGroup.RadioButton instead.**NOTE**
  * ![RadioButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioButton.spec.mjs-snapshots/RadioButton-chromium-darwin.png)
  * ![RadioButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioButton-dark.spec.mjs-snapshots/RadioButton-dark-chromium-darwin.png)
  *

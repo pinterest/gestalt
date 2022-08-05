@@ -37,24 +37,27 @@ export default function Example(): Node {
         <React.Fragment>
           <SideNavigation.Section label="Navigation">
             <SideNavigation.TopItem
-              href="https://gestalt.pinterest.systems/pageheader"
+              href="https://gestalt.pinterest.systems/web/pageheader"
               label="PageHeader"
             />
-            <SideNavigation.TopItem href="https://gestalt.pinterest.systems/tabs" label="Tabs" />
             <SideNavigation.TopItem
-              href="https://gestalt.pinterest.systems/tooling"
+              href="https://gestalt.pinterest.systems/web/tabs"
+              label="Tabs"
+            />
+            <SideNavigation.TopItem
+              href="https://gestalt.pinterest.systems/get_started/developers/tooling/web"
               label="SideNavigation"
               badge={{ text: 'New', type: 'info' }}
             />
           </SideNavigation.Section>
           <SideNavigation.Section label="Controls">
             <SideNavigation.TopItem
-              href="https://gestalt.pinterest.systems/radiobutton"
+              href="https://gestalt.pinterest.systems/web/radiobutton"
               label="RadioButton"
               badge={{ text: 'Deprecated', type: 'warning' }}
             />
             <SideNavigation.TopItem
-              href="https://gestalt.pinterest.systems/radiogroup"
+              href="https://gestalt.pinterest.systems/web/radiogroup"
               label="RadioGroup"
             />
           </SideNavigation.Section>
@@ -62,24 +65,24 @@ export default function Example(): Node {
       ) : (
         <React.Fragment>
           <SideNavigation.TopItem
-            href="https://gestalt.pinterest.systems/pageheader"
+            href="https://gestalt.pinterest.systems/web/pageheader"
             label="PageHeader"
           />
           <SideNavigation.TopItem
-            href="https://gestalt.pinterest.systems/radiobutton"
+            href="https://gestalt.pinterest.systems/web/radiobutton"
             label="RadioButton"
             badge={{ text: 'Deprecated', type: 'warning' }}
           />
           <SideNavigation.TopItem
-            href="https://gestalt.pinterest.systems/radiogroup"
+            href="https://gestalt.pinterest.systems/web/radiogroup"
             label="RadioGroup"
           />
           <SideNavigation.TopItem
-            href="https://gestalt.pinterest.systems/tooling"
+            href="https://gestalt.pinterest.systems/get_started/developers/tooling/web"
             label="SideNavigation"
             badge={{ text: 'New', type: 'info' }}
           />
-          <SideNavigation.TopItem href="https://gestalt.pinterest.systems/tabs" label="Tabs" />
+          <SideNavigation.TopItem href="https://gestalt.pinterest.systems/web/tabs" label="Tabs" />
         </React.Fragment>
       )}
     </SideNavigation>

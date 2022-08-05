@@ -152,7 +152,7 @@ git push -f origin HEAD
 
 - Click on `Create Draft Pull Request` to create your PR. Once you are done committing changes to it, and all the CI tests have passed, click the "Ready for Review" button. (Keeping the PR as a draft until it is ready for review reduces the number of unneeded notifications for maintainers.) If you are a Pinterest employee, please let us know on Slack (#gestalt-web) that your PR is ready for review.
 
-- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Check out our [versioning guidelines](https://gestalt.pinterest.systems/development#versioning) for more info.
+- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Check out our [versioning guidelines](https://gestalt.pinterest.systems/web/development#versioning) for more info.
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
 
@@ -169,7 +169,7 @@ Our versioning guidelines follow those outlined at **[semver.org](https://semver
 - Patch: internal fixes, documentation changes, or package upgrades (anything that consumers of Gestalt don't need to worry about)
 - Minor: any new functionality or properties for a component, or net-new components
 - Major: any breaking change, whether it be in a specific component or the library itself (will most likely include a
-  [codemod](https://gestalt.pinterest.systems/development#codemods))
+  [codemod](https://gestalt.pinterest.systems/web/development#codemods))
 
 ### Codemods
 
