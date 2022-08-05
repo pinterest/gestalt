@@ -8,7 +8,6 @@ import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-
 import centerAlignedExample from '../../examples/pageheader/centerAlignedExample.js';
 import complimentaryItemsExample from '../../examples/pageheader/complimentaryItemsExample.js';
 import defaultExample from '../../examples/pageheader/defaultExample.js';
@@ -21,7 +20,8 @@ import minimumButtonsExample from '../../examples/pageheader/minimumButtonsExamp
 import multiplePrimaryActionsExample from '../../examples/pageheader/multiplePrimaryActionsExample.js';
 import onePrimaryActionExample from '../../examples/pageheader/onePrimaryActionExample.js';
 import primaryActionExample from '../../examples/pageheader/primaryActionExample.js';
-import SecondaryActionsExample from '../../examples/pageheader/secondaryActionExample.js';
+import secondaryActionsExample from '../../examples/pageheader/secondaryActionExample.js';
+import responsiveExample from '../../examples/pageheader/responsiveExample.js';
 import subtextExample from '../../examples/pageheader/subtextExample.js';
 import titleExample from '../../examples/pageheader/titleExample.js';
 
@@ -165,7 +165,6 @@ Keep additional help buttons and links to a minimum, choosing one source of help
                 code={minimumButtonsExample}
                 layout="column"
                 name="PageHeader minimum buttons example"
-                previewHeight={80}
                 showEditor={false}
               />
             }
@@ -179,7 +178,6 @@ Keep additional help buttons and links to a minimum, choosing one source of help
                 code={dontOverloadExample}
                 layout="column"
                 name="PageHeader do not overload example"
-                previewHeight={85}
                 showEditor={false}
                 hideControls
               />
@@ -188,7 +186,26 @@ Keep additional help buttons and links to a minimum, choosing one source of help
         </MainSection.Subsection>
       </MainSection>
 
-      <AccessibilitySection name={generatedDocGen?.displayName} />
+      <AccessibilitySection name={generatedDocGen?.displayName}>
+        <MainSection.Subsection
+          title="Labels"
+          description={`
+PageHeader has built-in components that require accessibility labels.
+- [Dropdown](/dropdown) (displayed in small screens) requires \`dropdownAccessibilityLabel\`
+- [IconButton](/iconbutton) requires \`accessibilityLabel\`,  \`accessibilityControls\`, and  \`accessibilityExpanded\` via \`helperIconButton\`
+- [Link](/link) requires \`accessibilityLabel\` via \`helperLink\`
+
+Follow the accessibility guidelines for any other Gestat component passed to \`primaryaction\`, \`secondaryAction\` or \`items\`.
+`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={defaultExample} name="Accessibility example" layout="column" />
+            }
+          />
+        </MainSection.Subsection>
+      </AccessibilitySection>
 
       <MainSection
         name="Localization"
@@ -267,7 +284,7 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={SecondaryActionsExample}
+                code={secondaryActionsExample}
                 layout="column"
                 name="Secondary actions example"
                 previewHeight={170}
@@ -324,20 +341,26 @@ PageHeader also supports a bottom border to show the division between PageHeader
             }
           />
         </MainSection.Subsection>
-      </MainSection>
-
-      <MainSection
-        name="Responsive design"
-        badge={{
-          text: 'Beta',
-          tooltipText:
-            'This feature is on beta. We are still working on it! Have feedback? Reach out to us on Slack #gestalt-web!',
-        }}
-      >
         <MainSection.Subsection
-          description="PageHeader is responsive to different [web desktop breakpoints](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)). Therefore, PageHeader’s behavior relies on the window size and requires PageHeader to be used on a full-window width to correctly respond to different breakpoints. Don’t use PageHeader right next to elements such as side-navigation bars that wouldn’t allow PageHeader to extend the full width of the window.
-"
-        />
+          title="Responsive"
+          columns={2}
+          description={`PageHeader is responsive to different [viewport breakpoints](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)).
+
+Therefore, PageHeader’s behavior relies on the window size and requires PageHeader to be used on a full-window width to correctly respond to different breakpoints. Don’t use PageHeader right next to elements such as side-navigation bars that wouldn’t allow PageHeader to extend the full width of the window.
+
+PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instead, it adjusts to the smallest viewport breakpoint. The example below forces a mobile viewport width to render Pageheader at that particular viewport.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={responsiveExample}
+                name="PageHeader max width & border example"
+                mobileView
+              />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Writing">

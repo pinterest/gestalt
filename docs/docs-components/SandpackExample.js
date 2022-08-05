@@ -15,6 +15,7 @@ import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton.js';
 import { useLocalFiles } from './contexts/LocalFilesProvider.js';
 
 const MIN_HEIGHT = 350;
+const MAX_WIDTH = 390;
 
 async function copyCode({ code }: {| code: ?string |}) {
   try {
@@ -31,12 +32,14 @@ function SandpackContainer({
   previewHeight = 'md',
   showEditor,
   hideControls,
+  mobileView,
 }: {|
   name: string,
   layout: 'row' | 'column',
   previewHeight?: 'sm' | 'md' | number,
   showEditor: boolean,
   hideControls?: boolean,
+  mobileView?: boolean,
 |}) {
   const [editorShown, setEditorShown] = React.useState(showEditor);
   const { sandpack } = useSandpack();
@@ -51,10 +54,20 @@ function SandpackContainer({
       ? previewHeight
       : CARD_SIZE_NAME_TO_PIXEL[previewHeight];
 
+  const maxWidth = mobileView ? MAX_WIDTH : undefined;
+
   return (
     <React.Fragment>
       <Box borderStyle="sm" rounding={2}>
         <SandpackLayout>
+          <SandpackPreview
+            style={{
+              maxWidth,
+              height,
+            }}
+            showRefreshButton={false}
+            showOpenInCodeSandbox={false}
+          />
           {editorShown && (
             <SandpackCodeEditor
               wrapContent
@@ -65,13 +78,6 @@ function SandpackContainer({
               }}
             />
           )}
-          <SandpackPreview
-            style={{
-              height,
-            }}
-            showRefreshButton={false}
-            showOpenInCodeSandbox={false}
-          />
         </SandpackLayout>
       </Box>
       <Box
@@ -108,6 +114,7 @@ export default function SandpackExample({
   previewHeight,
   showEditor = true,
   hideControls = false,
+  mobileView = false,
 }: {|
   code: ?string | (() => Node),
   layout?: 'row' | 'column',
@@ -115,6 +122,7 @@ export default function SandpackExample({
   previewHeight?: 'sm' | 'md' | number,
   showEditor?: boolean,
   hideControls?: boolean,
+  mobileView?: boolean,
 |}): Node {
   const { files } = useLocalFiles();
 
@@ -171,6 +179,7 @@ export default function SandpackExample({
         previewHeight={previewHeight}
         layout={layout}
         hideControls={hideControls}
+        mobileView={mobileView}
       />
     </SandpackProvider>
   );
