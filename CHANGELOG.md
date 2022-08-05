@@ -1,3 +1,9 @@
+## 63.3.1 (Aug 5, 2022)
+
+### Patch
+
+- Docs: update all internal links to new URL structure (#2264)
+
 ## 63.3.0 (Aug 5, 2022)
 
 ### Minor
