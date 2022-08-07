@@ -1,6 +1,5 @@
 // @flow strict
-import { createRef } from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, screen, render } from '@testing-library/react';
 import Sheet from './Sheet.js';
 import * as AnimationControllerModule from './AnimationController.js'; // eslint-disable-line import/no-namespace
 
@@ -16,7 +15,6 @@ describe('Sheet', () => {
   });
 
   it('should render all props with nodes', () => {
-    const sheetRef = createRef();
     const { container } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
@@ -25,7 +23,6 @@ describe('Sheet', () => {
         footer={<footer />}
         heading="Sheet title"
         onDismiss={jest.fn()}
-        ref={sheetRef}
         size="sm"
         subHeading={<nav />}
       >
@@ -37,7 +34,6 @@ describe('Sheet', () => {
   });
 
   it('should render all props with render props', () => {
-    const sheetRef = createRef();
     const { container } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
@@ -46,7 +42,6 @@ describe('Sheet', () => {
         footer={({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
         heading="Sheet title"
         onDismiss={jest.fn()}
-        ref={sheetRef}
         size="sm"
         subHeading={({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
       >
@@ -94,7 +89,7 @@ describe('Sheet', () => {
   });
 
   it('should focus the dismiss button upon render', () => {
-    const { container } = render(
+    render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -104,8 +99,8 @@ describe('Sheet', () => {
       </Sheet>,
     );
 
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(container.querySelector('div[role="dialog"]')).toBe(document.activeElement);
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    expect(screen.getByRole('dialog')).toBe(document.activeElement);
   });
 
   it('should trigger onAnimationEnd', () => {
@@ -115,7 +110,7 @@ describe('Sheet', () => {
       onAnimationEnd: mockOnAnimationEnd,
     });
 
-    const { container } = render(
+    render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -124,8 +119,8 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnAnimationEnd).toHaveBeenCalledTimes(1);
   });
@@ -133,7 +128,7 @@ describe('Sheet', () => {
   it('should dismiss from the dismiss button', () => {
     const mockOnDismiss = jest.fn();
 
-    const { container, getByLabelText } = render(
+    render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -142,10 +137,10 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByLabelText('Dismiss').click();
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+    act(() => {
+      screen.getByLabelText('Dismiss').click();
+    });
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
@@ -153,7 +148,7 @@ describe('Sheet', () => {
   it('should dismiss from the ESC key', () => {
     const mockOnDismiss = jest.fn();
 
-    const { container } = render(
+    render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -165,8 +160,8 @@ describe('Sheet', () => {
     fireEvent.keyUp(window.document, {
       keyCode: 27,
     });
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
@@ -174,7 +169,7 @@ describe('Sheet', () => {
   it('should dismiss from clicking outside when closeOnOutsideClick is true', () => {
     const mockOnDismiss = jest.fn();
 
-    const { container } = render(
+    render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -184,11 +179,14 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    const backDrop = container.querySelector('div[role="dialog"]').parentElement.firstElementChild;
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
+    if (!(backDrop instanceof HTMLElement)) {
+      throw new Error('Backdrop should be an HTMLElement');
+    }
     fireEvent.click(backDrop);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
@@ -196,7 +194,7 @@ describe('Sheet', () => {
   it('should dismiss from clicking on the children content', () => {
     const mockOnDismiss = jest.fn();
 
-    const { container, getByText } = render(
+    const { getByText } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -213,8 +211,8 @@ describe('Sheet', () => {
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
     fireEvent.click(button);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
@@ -222,7 +220,7 @@ describe('Sheet', () => {
   it('should dismiss from clicking on the footer content', () => {
     const mockOnDismiss = jest.fn();
 
-    const { container, getByText } = render(
+    const { getByText } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -240,8 +238,8 @@ describe('Sheet', () => {
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
     fireEvent.click(button);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
@@ -249,7 +247,7 @@ describe('Sheet', () => {
   it('should dismiss from clicking on the subHeading content', () => {
     const mockOnDismiss = jest.fn();
 
-    const { container, getByText } = render(
+    const { getByText } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -268,8 +266,8 @@ describe('Sheet', () => {
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
     fireEvent.click(button);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
@@ -277,7 +275,7 @@ describe('Sheet', () => {
   it('should not dismiss from the ESC key when closeOnOutsideClick is false', () => {
     const mockOnDismiss = jest.fn();
 
-    const { container } = render(
+    render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -287,11 +285,14 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    const backDrop = container.querySelector('div[role="dialog"]').parentElement.firstElementChild;
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
+    if (!(backDrop instanceof HTMLElement)) {
+      throw new Error('Backdrop should be an HTMLElement');
+    }
     fireEvent.click(backDrop);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(0);
   });
