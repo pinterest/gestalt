@@ -43,7 +43,7 @@ export default function DocsPage({
         <MainSection.Subsection
           title="Flex Layout"
           description={`
-      Flex is strictly for flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+      Flex is strictly for flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). Also check out the excellent [Flexbox Froggy](https://flexboxfroggy.com/) game for a fun way to get comfortable with flexbox properties.
   `}
         >
           <CombinationNew
