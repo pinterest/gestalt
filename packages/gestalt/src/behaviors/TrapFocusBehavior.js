@@ -29,7 +29,7 @@ function queryFocusableAll(el: HTMLDivElement) {
 
 const focusElement = (el: HTMLElement) => {
   // https://github.com/facebook/flow/issues/8705
-  // $FlowFixMe[method-unbinding]
+  // $FlowIssue[method-unbinding]
   if (typeof el.focus === 'function') {
     el.focus();
   }
