@@ -35,7 +35,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -77,7 +77,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -125,7 +125,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
@@ -184,7 +184,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -246,7 +246,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
@@ -325,7 +325,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex rowGap1 columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"

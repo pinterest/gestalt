@@ -5,7 +5,7 @@ exports[`Status renders with accessibilityLabel 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+    className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
   >
     <div
       className="FlexItem"
@@ -33,7 +33,7 @@ exports[`Status renders with title 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+    className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
   >
     <div
       className="FlexItem"
@@ -70,7 +70,7 @@ exports[`Status renders with title and subtext 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+    className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
   >
     <div
       className="FlexItem"

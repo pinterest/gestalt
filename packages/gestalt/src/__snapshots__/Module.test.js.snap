@@ -6,13 +6,13 @@ exports[`Module renders a badge correctly 1`] = `
   id="module-test"
 >
   <div
-    className="Flex rowGap6 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
@@ -78,13 +78,13 @@ exports[`Module renders a title correctly 1`] = `
   id="module-test"
 >
   <div
-    className="Flex rowGap6 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
@@ -121,13 +121,13 @@ exports[`Module renders an error correctly 1`] = `
   id="module-test"
 >
   <div
-    className="Flex rowGap6 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
@@ -192,13 +192,13 @@ exports[`Module renders an icon button correctly 1`] = `
   id="module-test"
 >
   <div
-    className="Flex rowGap6 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
@@ -295,13 +295,13 @@ exports[`Module renders an icon correctly 1`] = `
   id="module-test"
 >
   <div
-    className="Flex rowGap6 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
       >
         <div
           className="FlexItem"
@@ -366,7 +366,7 @@ exports[`Module renders content correctly 1`] = `
   id="module-test"
 >
   <div
-    className="Flex rowGap6 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -387,7 +387,7 @@ exports[`Module renders the base correctly 1`] = `
   id="module-test"
 >
   <div
-    className="Flex rowGap6 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"

@@ -16,7 +16,7 @@ exports[`<Toast /> Error Toast 1`] = `
     className="box errorBase fit paddingX6 paddingY6 pill shadow"
   >
     <div
-      className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
     >
       <div
         className="FlexItem flexGrow"
@@ -53,7 +53,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
     className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
-      className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
     >
       <div
         className="FlexItem flexNone"
@@ -163,7 +163,7 @@ exports[`<Toast /> Text + Image 1`] = `
     className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
-      className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
     >
       <div
         className="FlexItem flexNone"
@@ -245,7 +245,7 @@ exports[`<Toast /> Text Only 1`] = `
     className="box dark fit paddingX6 paddingY6 pill shadow"
   >
     <div
-      className="Flex rowGap4 columnGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
     >
       <div
         className="FlexItem flexGrow"
