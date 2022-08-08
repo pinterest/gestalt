@@ -1,3 +1,9 @@
+## 64.0.0 (Aug 8, 2022)
+
+### Major
+
+- Flex: modify `gap` to support row/column values (#2218)
+
 ## 63.3.3 (Aug 8, 2022)
 
 ### Patch
