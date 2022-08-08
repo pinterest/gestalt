@@ -11,7 +11,14 @@ export default function DocsPage(): Node {
     <Page title="Installation Guidelines">
       <PageHeader name="Installation" type="guidelines" />
       <Card name="Install">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Markdown
             text="
 ~~~jsx
@@ -34,7 +41,14 @@ yarn add gestalt-datepicker
         </Flex>
       </Card>
       <Card name="Usage">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text>
             Gestalt exports each component as ES6 modules and a single, precompiled CSS file:
           </Text>
@@ -62,7 +76,14 @@ import 'gestalt-datepicker/dist/gestalt-datepicker.css';
         </Flex>
       </Card>
       <Card name="Dev">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text>
             Gestalt is a{' '}
             <Link inline href="https://yarnpkg.com/lang/en/docs/workspaces/" target="blank">
@@ -100,7 +121,14 @@ yarn start
       </Card>
 
       <Card name="Typescript Support">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text>
             Install the{' '}
             <Link inline href="https://www.npmjs.com/package/@types/gestalt" target="blank">

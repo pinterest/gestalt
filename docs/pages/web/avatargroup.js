@@ -234,7 +234,7 @@ function Example() {
               marginBottom={8}
               width={360}
             >
-              <Flex direction="column" gap={6}>
+              <Flex direction="column" gap={{ column: 6, row: 0 }}>
                 <Text align="center" color="default" weight="bold">
                   Invite collaborators
                 </Text>
@@ -455,9 +455,9 @@ function ButtonExample() {
   ];
 
 const List = () => (
-  <Flex direction="column" gap={2}>
+  <Flex direction="column" gap={{ column: 2, row: 0 }}>
     {collaborators.map(({ name, src }, index) => (
-      <Flex key={index} alignItems="center" gap={2}>
+      <Flex key={index} alignItems="center" gap={{ row: 2, column: 0 }}>
         <Avatar size="md" name={name} src={src} />
         <Text weight="bold">{name}</Text>
       </Flex>
@@ -492,7 +492,7 @@ const List = () => (
               marginBottom={8}
               width={360}
             >
-              <Flex direction="column" gap={6}>
+              <Flex direction="column" gap={{ column: 6, row: 0 }}>
                 <Text align="center" color="default" weight="bold">
                   Collaborators
                 </Text>

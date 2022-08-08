@@ -21,7 +21,13 @@ export default function HomePage(): Node {
           <IllustrationSection>
             {/* Cannot be Flex due to display none and minWidth needed on child */}
             <Box display="flex" alignItems="center" justifyContent="between">
-              <Flex gap={6} direction="column">
+              <Flex
+                gap={{
+                  row: 0,
+                  column: 6,
+                }}
+                direction="column"
+              >
                 <Heading>Gestalt is Pinterest&rsquo;s design system</Heading>
                 <Text size="300">
                   We’re here to help you build experiences that inspire people to create the life

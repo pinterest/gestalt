@@ -21,10 +21,27 @@ type PostProps = {|
 
 function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostProps): Node {
   return (
-    <Flex direction="column" gap={4}>
-      <Flex direction="column" gap={1}>
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 4,
+      }}
+    >
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 1,
+        }}
+      >
         <Heading size="400">{title}</Heading>
-        <Flex gap={2}>
+        <Flex
+          gap={{
+            row: 2,
+            column: 0,
+          }}
+        >
           {audience.includes('Design') && <Badge type="info" text="Design" />}
           {audience.includes('Engineering') && <Badge type="success" text="Engineering" />}
         </Flex>
@@ -104,7 +121,13 @@ export default function Blog(): Node {
 
       {blogPosts.digests.map((digest) => (
         <MainSection key={`digest-${digest.week}`} name={`Week of ${digest.week}`}>
-          <Flex direction="column" gap={12}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 12,
+            }}
+          >
             {digest.posts.map(
               (post) =>
                 (filter === 'All' || post.audience.includes(filter)) && (

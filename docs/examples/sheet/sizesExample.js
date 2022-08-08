@@ -78,9 +78,20 @@ export default function SizesExample(): Node {
             }}
             size={state.size}
           >
-            <Flex direction="column" gap={8}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 8,
+              }}
+            >
               <Text weight="bold">Bids</Text>
-              <Flex gap={4}>
+              <Flex
+                gap={{
+                  row: 4,
+                  column: 0,
+                }}
+              >
                 <Text>
                   Adjust bids for the selected ad groups below. Changes made here will apply to all
                   selected ad groups.
@@ -101,7 +112,13 @@ export default function SizesExample(): Node {
                         legend="What bid campaign do you want to run?"
                         legendDisplay="hidden"
                       >
-                        <Flex direction="column" gap={2}>
+                        <Flex
+                          direction="column"
+                          gap={{
+                            row: 0,
+                            column: 2,
+                          }}
+                        >
                           <RadioButton
                             checked
                             id="favoriteDog"

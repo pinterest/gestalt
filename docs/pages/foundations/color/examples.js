@@ -16,7 +16,13 @@ type PrincipleCardProps = {|
 |};
 function PrincipleLayout({ color, image, text, heading }: PrincipleCardProps): Node {
   return (
-    <Flex direction="column" gap={4}>
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 4,
+      }}
+    >
       <Box
         display="flex"
         alignItems="center"
@@ -48,7 +54,14 @@ export default function ColorExamplesPage(): Node {
         type="guidelines"
       />
       <MainSection name="Color principles">
-        <Flex gap={12} alignContent="between" wrap>
+        <Flex
+          gap={{
+            row: 12,
+            column: 0,
+          }}
+          alignContent="between"
+          wrap
+        >
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
             <PrincipleLayout
               color="teal-spabattical-500"
@@ -121,7 +134,7 @@ export default function ColorExamplesPage(): Node {
             type="do"
             description="Use colors to support creating distinction between elements, such as define primary and secondary actions. See [color usage](/foundations/color/usage) for reference and appropriate tokens."
             defaultCode={`
-            <Flex gap={4}>
+            <Flex gap={{ row: 4, column: 0 }}>
               <IconButton
                 icon="speech"
                 iconColor="darkGray"
@@ -148,9 +161,9 @@ export default function ColorExamplesPage(): Node {
             type="don't"
             description="Use color as a sole indicator of information. Color-only changes do not work well for those who may be color blind or have low vision; always supply an icon or text label for context."
             defaultCode={`
-            <Flex direction="column" gap={2}>
+            <Flex direction="column" gap={{ column: 2, row: 0 }}>
               <Label htmlFor={"solo-color"}><Text>Audience 1</Text></Label>
-              <Flex alignItems="center" gap={2}>
+              <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
                 <Box rounding="circle" color="infoBase" width={12} height={12}/>
                 <SelectList
                   id={"solo-color"}
@@ -172,7 +185,7 @@ export default function ColorExamplesPage(): Node {
             type="do"
             description="Use colors purposefully as it can convey meaning in multiple ways. Our extended color palette is used for communicating status or enhancing illustrations when needed. See [color usage](/foundations/color/usage) for reference."
             defaultCode={`
-            <Flex direction="column" gap={3}>
+            <Flex direction="column" gap={{ column: 3, row: 0 }}>
               <Badge type="info" text="Info"/>
               <Badge type="success" text="Success" />
               <Badge type="warning" text="Warning"/>
@@ -187,8 +200,8 @@ export default function ColorExamplesPage(): Node {
             description="Repurpose colors. Using colors for their intended meaning supports good comprehension and avoids usability and accessibility issues."
             defaultCode={`
             <Flex>
-              <Flex direction="column" gap={2}>
-                <Flex gap={2}>
+              <Flex direction="column" gap={{ column: 2, row: 0 }}>
+                <Flex gap={{ column: 0, row: 2 }}
                   <Label htmlFor="dont-01">
                     <Text weight="bold"> Search privacy</Text>
                   </Label>
@@ -226,7 +239,7 @@ export default function ColorExamplesPage(): Node {
             type="don't"
             description="Apply alternative colors modifying Gestalt components or UI patterns as it can create inconsistency and cognitive issues."
             defaultCode={`
-            <Flex gap={2}>
+            <Flex gap={{ column: 0, row: 2 }}
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {backgroundColor: 'gold'}
@@ -268,7 +281,7 @@ export default function ColorExamplesPage(): Node {
             type="don't"
             description="Apply alternative colors to text and icons. Always refer to [color usage](/foundations/color/usage) for the appropriate color pattern. "
             defaultCode={`
-            <Flex gap={1} alignItems="center">
+            <Flex gap={{ row: 1, column: 0 }} alignItems="center">
               <Icon icon="eye" accessibilityLabel="views"/>
               <Text weight="bold">
                 <Box dangerouslySetInlineStyle={{
@@ -287,17 +300,17 @@ export default function ColorExamplesPage(): Node {
             type="do"
             description="Use the appropriate [color tokens](/foundations/design_tokens) to switch between themes (light and dark mode). It ensures consistency and avoids accessibility issues."
             defaultCode={`
-            <Flex direction="column" gap={8} alignItems="center">
-              <Flex gap={4}>
+            <Flex direction="column" gap={{ column: 8, row: 0 }} alignItems="center">
+              <Flex gap={{ column: 0, row: 4 }}
                 <IconButton icon="speech" accessibilityLabel="Comment" />
                 <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share"/>
               </Flex>
-              <Flex gap={4}>
+              <Flex gap={{ column: 0, row: 4 }}
                 <Button color="red" text="Primary" />
                 <Button color="gray" text="Secondary" />
                 <Button color="blue" text="Shop" />
               </Flex>
-              <Flex gap={4}>
+              <Flex gap={{ column: 0, row: 4 }}
                 <SearchField
                   accessibilityLabel={'Search you Pins'}
                   id={'color-do-search'}
@@ -305,7 +318,7 @@ export default function ColorExamplesPage(): Node {
                   onChange={() => {}}
                 />
               </Flex>
-              <Flex gap={8}>
+              <Flex gap={{ column: 0, row: 8 }}
                 <Text>Default text</Text>
                 <Text color="subtle">Subtle text</Text>
               </Flex>
@@ -320,12 +333,12 @@ export default function ColorExamplesPage(): Node {
             defaultCode={`
             <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
               <Box color="default" padding={10}>
-                <Flex direction="column" gap={8} alignItems="center">
-                  <Flex gap={4}>
+                <Flex direction="column" gap={{ column: 8, row: 0 }} alignItems="center">
+                  <Flex gap={{ column: 0, row: 4 }}
                     <IconButton icon="speech" accessibilityLabel="Comment"/>
                     <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" />
                   </Flex>
-                  <Flex gap={4}>
+                  <Flex gap={{ column: 0, row: 4 }}
                     <Button color="red" text="Primary" />
                       <Box color="warningWeak" rounding="pill" padding={3}>
                         <TapArea color="white">
@@ -336,7 +349,7 @@ export default function ColorExamplesPage(): Node {
                       </Box>
                     <Button color="blue" text="Shop" />
                   </Flex>
-                  <Flex gap={4}>
+                  <Flex gap={{ column: 0, row: 4 }}
                     <SearchField
                       accessibilityLabel={'Search you Pins'}
                       id={'color-dont-search'}
@@ -344,7 +357,7 @@ export default function ColorExamplesPage(): Node {
                       onChange={() => {}}
                     />
                   </Flex>
-                  <Flex gap={8}>
+                  <Flex gap={{ column: 0, row: 8 }}
                     <Text>Default text</Text>
                     <Text color="subtle">Subtle text</Text>
                   </Flex>

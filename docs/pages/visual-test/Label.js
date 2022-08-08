@@ -5,7 +5,12 @@ import { Box, Flex, Label, Text, Switch } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <Box padding={1}>
-      <Flex gap={2}>
+      <Flex
+        gap={{
+          row: 2,
+          column: 0,
+        }}
+      >
         <Box paddingY={1}>
           <Label htmlFor="switchExample">
             <Text>Darkmode</Text>

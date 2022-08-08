@@ -5,7 +5,13 @@ import { Flex, RadioButton, Box } from 'gestalt';
 export default function Screenshot(): Node {
   return (
     <Box color="default" display="inlineBlock" padding={1}>
-      <Flex direction="column" gap={2}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 2,
+        }}
+      >
         <RadioButton
           checked
           id="monday"

@@ -11,11 +11,22 @@ type ColorCardProps = {|
 |};
 function ColorSchemeLayout({ children }: ColorCardProps): Node {
   return (
-    <Flex gap={4}>
+    <Flex
+      gap={{
+        row: 4,
+        column: 0,
+      }}
+    >
       {['light', 'dark'].map((scheme) => (
         <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
           <Box padding={4} color="default">
-            <Flex gap={4} direction="column">
+            <Flex
+              gap={{
+                row: 0,
+                column: 4,
+              }}
+              direction="column"
+            >
               <Text weight="bold" size="400" color="default">
                 {scheme === 'light' ? 'Light mode' : 'Dark mode'}
               </Text>
@@ -63,7 +74,12 @@ export default function ColorUsagePage(): Node {
         **$color-background-primary-base** - Use when conveying a primary action.
         **$color-background-brand** - Use when a background color is needed to signify the Pinterest brand.        `}
       >
-        <Flex gap={2}>
+        <Flex
+          gap={{
+            row: 2,
+            column: 0,
+          }}
+        >
           <ColorSchemeLayout>
             <ColorTile
               description="Primary base"

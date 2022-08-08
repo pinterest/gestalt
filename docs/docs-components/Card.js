@@ -59,7 +59,13 @@ export default function Card({
           data-anchor
           marginBottom={description ? 2 : 4}
         >
-          <Flex alignItems="center" gap={2}>
+          <Flex
+            alignItems="center"
+            gap={{
+              row: 2,
+              column: 0,
+            }}
+          >
             <Heading size={headingSize}>{name}</Heading>
             {badge ? (
               <Tooltip inline text={badge.tooltipText}>

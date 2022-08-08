@@ -37,7 +37,13 @@ export default function Page({
     <Flex>
       <Box flex="grow" maxWidth={hideSideNav ? '100%' : DETAIL_PAGE_MAX_WIDTH}>
         <SearchContent>
-          <Flex gap={8} direction="column">
+          <Flex
+            gap={{
+              row: 0,
+              column: 8,
+            }}
+            direction="column"
+          >
             {sections.map((card, i) => (
               <Box
                 id={`card-${i}`}

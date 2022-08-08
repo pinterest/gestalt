@@ -72,14 +72,32 @@ function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
       lgMarginBottom={0}
       alignItems="start"
     >
-      <Flex direction="column" gap={2}>
-        <Flex alignItems="center" gap={1}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 2,
+        }}
+      >
+        <Flex
+          alignItems="center"
+          gap={{
+            row: 1,
+            column: 0,
+          }}
+        >
           <Heading size="400" accessibilityLevel={3}>
             {heading}
           </Heading>
           {isInternal && <InternalOnlyIconButton size="sm" />}
         </Flex>
-        <Flex direction="column" gap={1}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 1,
+          }}
+        >
           {items.map((item) => (
             <Text key={item.title}>
               <Link href={item.url} accessibilityLabel={item.a11yLabel}>
@@ -97,9 +115,23 @@ export default function ResourcesFooter(): Node {
   return (
     <Box padding={8} display="none" mdDisplay="flex" justifyContent="center">
       <Box paddingX={6} maxWidth={1200} display="flex" flex="grow" justifyContent="start">
-        <Flex direction="column" gap={4} flex="grow">
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+          flex="grow"
+        >
           <Heading size="500">Resources</Heading>
-          <Flex justifyContent="between" gap={4} wrap>
+          <Flex
+            justifyContent="between"
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            wrap
+          >
             <LinkList heading="Figma libraries" items={figmaLibraries} />
 
             <LinkList heading="Figma plugins" items={figmaPlugins} />

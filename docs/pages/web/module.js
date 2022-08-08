@@ -21,7 +21,7 @@ export default function DocsPage({
         defaultCode={`
       function ModuleExample() {
         return (
-          <Flex direction="column" width="100%" justifyContent="between" gap={2}>
+          <Flex direction="column" width="100%" justifyContent="between" gap={{ column: 2, row: 0 }}>
             <Module
               icon="lock"
               iconAccessibilityLabel="Module Locked - check permission settings"
@@ -100,7 +100,7 @@ export default function DocsPage({
             defaultCode={`
 function ModuleExample() {
   return (
-    <Flex direction="column" gap={2} maxWidth={800} flex="grow">
+    <Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={800} flex="grow">
       <Module id="ModuleExample - default - 1">
         <Text size="200">This is example content.</Text>
       </Module>
@@ -247,7 +247,7 @@ function ModuleExample() {
         iconAccessibilityLabel={!value ? "This module contains an error" : null}
         type={!value ? "error" : "info"}
       >
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Text size="200">This is example content.</Text>
 
           <TextField
@@ -459,8 +459,8 @@ function ModuleExample5() {
   }
   return (
     <Box column={12} maxWidth={800} padding={2}>
-      <Flex direction="column" gap={4}>
-        <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Box marginStart={2}>
             <Text>Step 1</Text>
           </Box>
@@ -486,7 +486,7 @@ function ModuleExample5() {
           />
         </Flex>
 
-        <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Box marginStart={2}>
             <Text>Step 2</Text>
           </Box>

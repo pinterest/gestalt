@@ -77,9 +77,30 @@ export default function PageHeader({
         },
       }}
     >
-      <Flex direction="column" gap={addGap ? 8 : 0}>
-        <Flex direction="column" gap={2}>
-          <Flex alignItems="baseline" direction="row" gap={2} justifyContent="between" wrap>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: addGap ? 8 : 0,
+        }}
+      >
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 2,
+          }}
+        >
+          <Flex
+            alignItems="baseline"
+            direction="row"
+            gap={{
+              row: 2,
+              column: 0,
+            }}
+            justifyContent="between"
+            wrap
+          >
             <Heading>
               {name}{' '}
               {badge ? (
@@ -104,7 +125,13 @@ export default function PageHeader({
             )}
           </Flex>
 
-          <Flex direction="column" gap={6}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 6,
+            }}
+          >
             {description && <Markdown text={description} />}
             {slimBanner}
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}

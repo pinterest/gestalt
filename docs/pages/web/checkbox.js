@@ -73,7 +73,7 @@ function Example() {
 
   return (
     <Fieldset legend="Select what you enjoy">
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Checkbox
           checked={checked1}
           id="Fashion"
@@ -117,7 +117,7 @@ function Example() {
 
   return (
     <Fieldset legend="Pick one topic from the list">
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Checkbox
           checked={checked1}
           id="Fashion2"
@@ -159,7 +159,7 @@ function Example() {
   const [checked1, setChecked1] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={6}>
+    <Flex direction="column" gap={{ column: 6, row: 0 }}>
       <TextField
         id="name"
         label="Name"
@@ -223,11 +223,11 @@ function Example() {
   const [checked3, setChecked3] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text size={400} weight="bold">How do you like your eggs?</Text>
       <Text>Select all the options that apply</Text>
       <Fieldset legendDisplay="hidden" legend="How do you like your eggs? Select all the options that apply">
-        <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Checkbox
             checked={checked1}
             id="Overeasy"
@@ -240,7 +240,7 @@ function Example() {
             label="Sunny side up"
             onChange={({ checked }) => setChecked2(checked)}
           />
-          <Flex gap={2} alignItems="center">
+          <Flex gap={{ row: 2, column: 0 }} alignItems="center">
             <Checkbox
               checked={checked3}
               id="Scramboiled"
@@ -269,10 +269,10 @@ function Example() {
   const [checked3, setChecked3] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text size={400} weight="bold">Which one?</Text>
       <Fieldset legendDisplay="hidden" legend="Which one?">
-        <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Checkbox
             checked={checked1}
             id="Overeasy2"
@@ -511,7 +511,7 @@ function Example() {
 
   return (
     <Fieldset legend="What languages would you like to learn?">
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Checkbox
           checked={checkedEn}
           id="english"
@@ -590,7 +590,7 @@ function Example() {
     const [checked2, setChecked2] = React.useState(false);
 
   return (
-    <Flex gap={6}>
+    <Flex gap={{ column: 0, row: 6 }}
       <Checkbox
         checked={checked1}
         id="sm"
@@ -628,7 +628,7 @@ function Example() {
     const [checked5, setChecked5] = React.useState(false);
 
   return (
-    <Flex gap={6}>
+    <Flex gap={{ column: 0, row: 6 }}
       <Checkbox
         checked={false}
         id="Unchecked"
@@ -681,7 +681,7 @@ function Example() {
 
   return (
     <Fieldset legend="What languages would you like to learn?">
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Checkbox
           checked={checkedEn}
           id="english-info"
@@ -735,7 +735,7 @@ function CheckboxExample() {
 
   return (
     <Fieldset legend="Which backgrounds would you like to use?" legendDisplay="hidden">
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Checkbox
           checked={checkedCoral}
           id="coral"

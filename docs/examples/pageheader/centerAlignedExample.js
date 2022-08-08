@@ -42,7 +42,13 @@ export default function PageHeaderCenterExample(): Node {
       />
       <Flex justifyContent="center">
         <Box width="60%" paddingY={6}>
-          <Flex direction="column" gap={5}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 5,
+            }}
+          >
             <Heading size="400" accessibilityLevel={2}>
               Edit profile
             </Heading>
@@ -52,7 +58,12 @@ export default function PageHeaderCenterExample(): Node {
               onChange={() => {}}
               placeholder="Placeholder"
             />
-            <Flex gap={2}>
+            <Flex
+              gap={{
+                row: 2,
+                column: 0,
+              }}
+            >
               <Flex.Item flex="grow">
                 <TextField
                   label="Phone"

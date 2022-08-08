@@ -17,7 +17,13 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={colorScheme}>
       <Box color="default" padding={4}>
-        <Flex direction="column" gap={4}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Heading size="400">{capitalizeFirstLetter(colorScheme)} mode</Heading>
           <Flex direction="column">
             <ColorTile
@@ -65,10 +71,28 @@ export default function ColorPage(): Node {
         <MainSection.Subsection title="Light mode">
           <ColorSchemeProvider colorScheme="light" id="light">
             <Box color="default" padding={4} display="inlineBlock">
-              <Flex wrap gap={4}>
-                <Flex direction="column" gap={4}>
+              <Flex
+                wrap
+                gap={{
+                  row: 4,
+                  column: 0,
+                }}
+              >
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 4,
+                  }}
+                >
                   <Text weight="bold">Main palette</Text>
-                  <Flex direction="column" gap={1}>
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 1,
+                    }}
+                  >
                     {MAIN_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}
@@ -79,9 +103,21 @@ export default function ColorPage(): Node {
                     ))}
                   </Flex>
                 </Flex>
-                <Flex direction="column" gap={4}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 4,
+                  }}
+                >
                   <Text weight="bold">Extended palette</Text>
-                  <Flex direction="column" gap={1}>
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 1,
+                    }}
+                  >
                     {EXTENDED_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}
@@ -99,10 +135,29 @@ export default function ColorPage(): Node {
         <MainSection.Subsection title="Dark mode">
           <ColorSchemeProvider colorScheme="dark" id="dark">
             <Box color="default" padding={4} display="inlineBlock">
-              <Flex wrap gap={4} flex="none">
-                <Flex direction="column" gap={4}>
+              <Flex
+                wrap
+                gap={{
+                  row: 4,
+                  column: 0,
+                }}
+                flex="none"
+              >
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 4,
+                  }}
+                >
                   <Text weight="bold">Main palette</Text>
-                  <Flex direction="column" gap={1}>
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 1,
+                    }}
+                  >
                     {MAIN_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}
@@ -113,9 +168,21 @@ export default function ColorPage(): Node {
                     ))}
                   </Flex>
                 </Flex>
-                <Flex direction="column" gap={4}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 4,
+                  }}
+                >
                   <Text weight="bold">Extended palette</Text>
-                  <Flex direction="column" gap={1}>
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 1,
+                    }}
+                  >
                     {EXTENDED_STEPS.map((step) => (
                       <ColorTile
                         key={`${step}`}

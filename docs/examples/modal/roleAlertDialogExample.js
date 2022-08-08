@@ -18,7 +18,13 @@ export default function AlertDialogAccessibilityExample(): Node {
           setShowModal(!showModal);
         }}
         footer={
-          <Flex justifyContent="end" gap={2}>
+          <Flex
+            justifyContent="end"
+            gap={{
+              row: 2,
+              column: 0,
+            }}
+          >
             <Button color="gray" text="Cancel" />
             <Button color="red" text="Delete forever" />
           </Flex>

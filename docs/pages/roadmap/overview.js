@@ -29,7 +29,13 @@ function Task({
 
   const desc = (
     <Box marginTop={-6}>
-      <Flex direction="column" gap={2}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 2,
+        }}
+      >
         <Text>{description}</Text>
         {delivery ? (
           <Text size="100">
@@ -77,11 +83,23 @@ export default function RoadmapPage(): Node {
   return (
     <Page title={`Gestalt ${roadmapData.year} roadmap`}>
       <PageHeader name={`Gestalt ${roadmapData.year} roadmap`} type="guidelines" />
-      <Flex direction="column" gap={4}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 4,
+        }}
+      >
         <Text>
           {`The following reflects all public-facing work the Gestalt team plans to ship in ${roadmapData.year}.`}
         </Text>
-        <Flex gap={1} alignItems="center">
+        <Flex
+          gap={{
+            row: 1,
+            column: 0,
+          }}
+          alignItems="center"
+        >
           <Text>
             <Link
               href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog"
@@ -93,19 +111,43 @@ export default function RoadmapPage(): Node {
         </Flex>
       </Flex>
 
-      <Flex direction="column" gap={12}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 12,
+        }}
+      >
         <MainSection name="In progress">
-          <Flex direction="column" gap={8}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 8,
+            }}
+          >
             {theme1Items}
           </Flex>
         </MainSection>
         <MainSection name="Upcoming">
-          <Flex direction="column" gap={8}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 8,
+            }}
+          >
             {theme2Items}
           </Flex>
         </MainSection>
         <MainSection name="Complete">
-          <Flex direction="column" gap={8}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 8,
+            }}
+          >
             {theme3Items}
           </Flex>
         </MainSection>

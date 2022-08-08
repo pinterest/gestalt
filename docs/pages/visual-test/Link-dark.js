@@ -6,7 +6,13 @@ export default function Screenshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={4}>
-        <Flex direction="column" gap={2}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 2,
+          }}
+        >
           <Text inline>
             Visit our{' '}
             <Link inline href="https://pinterest.com">

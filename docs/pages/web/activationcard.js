@@ -66,7 +66,7 @@ export default function ActivationCardPage({
       <Example
         name="Not started and Pending Cards"
         defaultCode={`
-<Flex gap={2}>
+<Flex gap={{ column: 0, row: 2 }}
   <ActivationCard
     dismissButton={{
       accessibilityLabel: 'Dismiss card',
@@ -103,7 +103,7 @@ export default function ActivationCardPage({
       <Example
         name="Needs attention and Complete Cards"
         defaultCode={`
-<Flex gap={2}>
+<Flex gap={{ column: 0, row: 2 }}
   <ActivationCard
     dismissButton={{
       accessibilityLabel: 'Dismiss card',

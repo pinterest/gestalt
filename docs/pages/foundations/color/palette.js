@@ -30,10 +30,21 @@ type ColorCardProps = {|
 |};
 function ColorSchemeCard({ children, colorScheme }: ColorCardProps): Node {
   return (
-    <Flex gap={4}>
+    <Flex
+      gap={{
+        row: 4,
+        column: 0,
+      }}
+    >
       <ColorSchemeProvider key={colorScheme} colorScheme={colorScheme} id={colorScheme}>
         <Box padding={4} color="default">
-          <Flex gap={4} direction="column">
+          <Flex
+            gap={{
+              row: 0,
+              column: 4,
+            }}
+            direction="column"
+          >
             <Text weight="bold" size="400" color="default">
               {colorScheme === 'light' ? 'Light mode' : 'Dark mode'}
             </Text>
@@ -64,7 +75,12 @@ export default function ColorPage(): Node {
         The baseline palette is comprised of our hero and neutrals colors, allowing the Pinterest content to shine, while ensuring enough color contrast. In addition, the colors used serve specific purposes in order to provide a better user experience. Check out [Color Usage](/foundations/color/usage) for more details about their intended usage.
         `}
       >
-        <Flex gap={4}>
+        <Flex
+          gap={{
+            row: 4,
+            column: 0,
+          }}
+        >
           <ColorSchemeCard colorScheme="light">
             <ColorTile
               fullTokenName="color-red-pushpin-450"
@@ -140,7 +156,13 @@ export default function ColorPage(): Node {
         `}
       >
         <MainSection.Subsection title="Colors">
-          <Flex gap={12} wrap>
+          <Flex
+            gap={{
+              row: 12,
+              column: 0,
+            }}
+            wrap
+          >
             {colors.map(({ id, name }) => (
               <ColorPalette key={name} name={name} tokenId={id} />
             ))}

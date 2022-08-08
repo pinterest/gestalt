@@ -186,7 +186,15 @@ function Header() {
               onSelect={() => onChangeColorScheme()}
               option={{ value: 'isDarkMode', label: 'Custom link 1' }}
             >
-              <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+              <Flex
+                alignItems="center"
+                justifyContent="between"
+                flex="grow"
+                gap={{
+                  row: 8,
+                  column: 0,
+                }}
+              >
                 <Label htmlFor="darkMode-switch">
                   <Text weight="bold">Dark mode</Text>
                 </Label>
@@ -201,7 +209,15 @@ function Header() {
               onSelect={() => onTextDirectionChange()}
               option={{ value: 'isRTL', label: 'Custom link 1' }}
             >
-              <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+              <Flex
+                alignItems="center"
+                justifyContent="between"
+                flex="grow"
+                gap={{
+                  row: 8,
+                  column: 0,
+                }}
+              >
                 <Label htmlFor="rtl-switch">
                   <Text weight="bold">Right-to-left</Text>
                 </Label>

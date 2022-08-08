@@ -108,10 +108,10 @@ Use for messages generated as an immediate response to user interaction. Instead
             type="do"
             description="Place SlimBanner near elements of a section that it most relates to"
             defaultCode={`
-<Flex direction="column" width="100%" gap={6}>
+<Flex direction="column" width="100%" gap={{ column: 6, row: 0 }}>
   <Text weight="bold" size="500">Ads overview</Text>
   <Module id="doExample" title="Campaign optimization & delivery">
-    <Flex direction="column" width="100%" gap={8}>
+    <Flex direction="column" width="100%" gap={{ column: 8, row: 0 }}>
       <TextField
         id="tag-readonly"
         label="Tag ID"
@@ -130,7 +130,7 @@ Use for messages generated as an immediate response to user interaction. Instead
       />
       <Divider />
       <Fieldset legend="Bidding">
-        <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <RadioButton
             checked
             id="automatic"
@@ -175,7 +175,7 @@ Use for messages generated as an immediate response to user interaction. Instead
             description={`
 Place SlimBanner at the top of a page and use them for highest-priority messaging. Use [Callout](/web/callout) instead`}
             defaultCode={`
-<Flex direction="column" width="100%" gap={6}>
+<Flex direction="column" width="100%" gap={{ column: 6, row: 0 }}>
   <Text weight="bold" size="500">Ads overview</Text>
   <SlimBanner
   type="error"
@@ -192,9 +192,9 @@ Place SlimBanner at the top of a page and use them for highest-priority messagin
             type="do"
             description={`Use "bare" SlimBanners for dense interfaces where space is an issue.`}
             defaultCode={`
-<Flex direction="column" width="100%" gap={6}>
+<Flex direction="column" width="100%" gap={{ column: 6, row: 0 }}>
   <Text weight="bold" size="500">Campaign details</Text>
-  <Flex width="100%" direction="column" gap={4}>
+  <Flex width="100%" direction="column" gap={{ column: 4, row: 0 }}>
     <Heading size="400">Campaign name</Heading>
     <Text>Give your campaign a name. Only you will see what you've named your campaign.</Text>
     <Heading size="400">Campaign spend limits</Heading>
@@ -216,9 +216,9 @@ Place SlimBanner at the top of a page and use them for highest-priority messagin
             description={`
 Use a regular SlimBanner with a background for dense interfaces where space is an issue.`}
             defaultCode={`
-<Flex direction="column" width="100%" gap={6}>
+<Flex direction="column" width="100%" gap={{ column: 6, row: 0 }}>
   <Text weight="bold" size="500">Campaign details</Text>
-  <Flex width="100%" direction="column" gap={4}>
+  <Flex width="100%" direction="column" gap={{ column: 4, row: 0 }}>
     <Heading size="400">Campaign name</Heading>
     <Text>Give your campaign a name. Only you will see what you've named your campaign.</Text>
     <Heading size="400">Campaign spend limits</Heading>
@@ -260,7 +260,7 @@ Use a regular SlimBanner with a background for dense interfaces where space is a
             description={`
 Combine SlimBanners with other components like [Callouts](/web/callout) or [Upsells](/web/upsell).`}
             defaultCode={`
-<Flex width="100%" direction="column" gap={2}>
+<Flex width="100%" direction="column" gap={{ column: 2, row: 0 }}>
   <Callout
     dismissButton={{
       accessibilityLabel: 'Dismiss this banner',
@@ -320,7 +320,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={5} width="100%">
+<Flex direction="column" gap={{ column: 5, row: 0 }} width="100%">
   <SlimBanner type="info" iconAccessibilityLabel="Info" message="Idea Pins are now available across platforms."/>
   <SlimBanner type="infoBare" iconAccessibilityLabel="Info" message="Idea Pins are now available across platforms."/>
 </Flex>
@@ -334,7 +334,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={5} width="100%">
+<Flex direction="column" gap={{ column: 5, row: 0 }} width="100%">
   <SlimBanner type="recommendation" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
   <SlimBanner type="recommendationBare" iconAccessibilityLabel="Recommendation" message="Advertise with confidence! When you run ads on Pinterest, you'll find recommendations to improve them here."/>
 </Flex>
@@ -348,7 +348,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={5} width="100%">
+<Flex direction="column" gap={{ column: 5, row: 0 }} width="100%">
   <SlimBanner type="success" iconAccessibilityLabel="Info" message="Your ads are doing great! Keep it up by using recommendations to optimize your ad spend."/>
   <SlimBanner type="successBare" iconAccessibilityLabel="Info" message="Your ads are doing great! Keep it up by using recommendations to optimize your ad spend."/>
 </Flex>
@@ -362,7 +362,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={5} width="100%">
+<Flex direction="column" gap={{ column: 5, row: 0 }} width="100%">
   <SlimBanner
     type="warning"
     iconAccessibilityLabel="Info"
@@ -396,7 +396,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={5} width="100%">
+<Flex direction="column" gap={{ column: 5, row: 0 }} width="100%">
   <SlimBanner
     type="error"
     iconAccessibilityLabel="Info"
@@ -430,7 +430,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={5} width="100%">
+<Flex direction="column" gap={{ column: 5, row: 0 }} width="100%">
   {['infoBare', 'successBare', 'warningBare', 'errorBare', 'recommendationBare'].map(type => (
     <SlimBanner
       key={type}

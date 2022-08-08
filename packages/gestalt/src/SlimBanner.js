@@ -186,7 +186,7 @@ export default function SlimBanner({
       rounding={4}
       width="100%"
     >
-      <Flex alignItems="center" gap={isBare ? 2 : 4} flex="grow">
+      <Flex alignItems="center" gap={{ row: isBare ? 2 : 4, column: 0 }} flex="grow">
         {!isDefault && iconAccessibilityLabel && (
           <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
             <Icon
@@ -214,7 +214,7 @@ export default function SlimBanner({
 
         {shouldShowButtons && (
           <Flex.Item flex="none">
-            <Flex alignItems="center" gap={4}>
+            <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
               {primaryAction && (
                 <Flex.Item flex="none">
                   <PrimaryAction {...primaryAction} />

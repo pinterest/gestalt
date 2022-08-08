@@ -45,7 +45,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use to help group text and items into sections in a logical order."
             defaultCode={`
-  <Flex gap={2} direction="column">
+  <Flex gap={{ column: 2, row: 0 }} direction="column">
     <Text weight="bold" size="500">(H1) The creator code</Text>
     <Text size="200">(p) Pinterest is building a positive online space for creators. That’s why we made the Creator Code: A commitment to kindness for everyone on Pinterest. We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
     <Text weight="bold" size="400">(H2) Be kind</Text>
@@ -58,7 +58,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Use to emphasize text that you want users to read. Use a message component like [SlimBanner](/slimbanner), or [bold text](/web/text#Styles). You can also emphasize numbers by using [text sizes](/web/text#Sizes)."
             defaultCode={`
-<Flex gap={2} direction="column">
+<Flex gap={{ column: 2, row: 0 }} direction="column">
   <Text weight="bold" size="500">(H2) The creator code</Text>
   <Text size="200">(p) Pinterest is building a positive online space for creators. That’s why we made the Creator Code: A commitment to kindness for everyone on Pinterest. We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
   <Text weight="bold" size="600">(H1) Be kind!</Text>
@@ -73,7 +73,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Keep headings short and glanceable."
             defaultCode={`
-  <Flex gap={2} direction="column">
+  <Flex gap={{ column: 2, row: 0 }} direction="column">
     <Text weight="bold" size="200">Analytics overview</Text>
     <Text size="200">Organic and paid metrics changed over the last 30 days. This includes impressions, saves and outbound clicks.</Text>
   </Flex>`}
@@ -83,7 +83,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Use overly long headings. If headings are dynamically generated (like a 3rd party app name), lineClamp will work after 2 lines, but be mindful of unintended changes in meaning."
             defaultCode={`
-<Flex gap={2} direction="column">
+<Flex gap={{ column: 2, row: 0 }} direction="column">
   <Text weight="bold" size="200">Analytics overview of organic and paid metrics changed over the past 30 days against the previous 30 days</Text>
   <Text size="200">This includes impressions, saves and outbound clicks.</Text>
 </Flex>`}
@@ -141,7 +141,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Start-align headings to make it faster for users to read text from the point where they naturally start reading. The exceptions are headings related to integers in [Table](/web/table)."
             defaultCode={`
-<Flex gap={4} direction="column">
+<Flex gap={{ column: 4, row: 0 }} direction="column">
   <Text weight="bold" size="500">Start a conversation</Text>
   <Text size="200">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: Fashion inspiration to freshen up a wardrobe.</Text>
 </Flex>`}
@@ -151,7 +151,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Center-align headings as it can make it harder for users with dyslexia who need a consistent stating edge. Paired with left-aligned paragraph text, it can make the typographic structure feel off-center and unbalanced."
             defaultCode={`
-<Flex gap={4} direction="column">
+<Flex gap={{ column: 4, row: 0 }} direction="column">
   <Text weight="bold" size="500" align="center">Start a conversation</Text>
   <Text size="200">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: Fashion inspiration to freshen up a wardrobe.</Text>
 </Flex>`}
@@ -257,7 +257,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex gap={4} direction="column">
+<Flex gap={{ column: 4, row: 0 }} direction="column">
   <Heading size="100">Heading size 100</Heading>
   <span lang="ja">
     <Heading size="100">こんにちは</Heading>
@@ -297,7 +297,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Box color="gray" padding={1}>
     <Heading color="inverse" size="500">
       Inverse
@@ -347,8 +347,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex maxWidth={240} direction="column" gap={8}>
-  <Flex direction="column" gap={2}>
+<Flex maxWidth={240} direction="column" gap={{ column: 8, row: 0 }}>
+  <Flex direction="column" gap={{ column: 2, row: 0 }}>
     <Text>breakWord (default):</Text>
     <Box color="secondary" padding={2} rounding={2}>
       <Heading size="400" overflow="breakWord">
@@ -358,7 +358,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </Box>
   </Flex>
 
-  <Flex direction="column" gap={2}>
+  <Flex direction="column" gap={{ column: 2, row: 0 }}>
     <Text>normal:</Text>
     <Box color="secondary" padding={2} rounding={2}>
       <Heading size="400" overflow="normal">
@@ -368,7 +368,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </Box>
   </Flex>
 
-  <Flex direction="column" gap={2}>
+  <Flex direction="column" gap={{ column: 2, row: 0 }}>
   <Text>lineClamp:</Text>
     <Box color="secondary" padding={2} rounding={2}>
       <Heading size="400" lineClamp={2}>
@@ -388,7 +388,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Heading align="start" size="400">Start-aligned heading (default)</Heading>
   <Divider />
   <Heading align="end" size="400">End-aligned heading</Heading>
@@ -414,7 +414,7 @@ For certain specific situations, it is possible to use Heading without an access
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Heading size="500" accessibilityLevel={2}>
     Medium heading level 2
   </Heading>

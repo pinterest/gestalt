@@ -24,7 +24,13 @@ function ColorCard({
   dangerouslySetInlineStyle,
 }: ColorCardProps) {
   return (
-    <Flex gap={4} direction="column">
+    <Flex
+      gap={{
+        row: 0,
+        column: 4,
+      }}
+      direction="column"
+    >
       <ColorSchemeProvider colorScheme={colorScheme} id={id}>
         <Box padding={6} color="default">
           <Box
@@ -63,9 +69,21 @@ export default function ColorUsagePage(): Node {
           title="Floating"
           description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/web/box#Borders). For dark mode, we use the \`elevationFloating\` background of Box instead of a shadow.`}
         >
-          <Flex gap={4} direction="column">
+          <Flex
+            gap={{
+              row: 0,
+              column: 4,
+            }}
+            direction="column"
+          >
             <Text italic>$elevation-floating</Text>
-            <Flex gap={4} wrap>
+            <Flex
+              gap={{
+                row: 4,
+                column: 0,
+              }}
+              wrap
+            >
               <ColorCard
                 colorScheme="light"
                 id="elevation-floating-light"
@@ -107,14 +125,26 @@ export default function ColorUsagePage(): Node {
           Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/web/box#Borders). In dark mode, the raised border should be paired with the \`elevationRaised\` background color.
           `}
         >
-          <Flex direction="column" gap={8}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 8,
+            }}
+          >
             <Text weight="bold">
               Raised-top{' '}
               <Text italic inline>
                 $elevation-raised-top
               </Text>
             </Text>
-            <Flex gap={4} wrap>
+            <Flex
+              gap={{
+                row: 4,
+                column: 0,
+              }}
+              wrap
+            >
               <ColorCard
                 colorScheme="light"
                 id="elevation-raised-top-light"
@@ -136,7 +166,13 @@ export default function ColorUsagePage(): Node {
                 $elevation-raised-bottom
               </Text>
             </Text>
-            <Flex gap={4} wrap>
+            <Flex
+              gap={{
+                row: 4,
+                column: 0,
+              }}
+              wrap
+            >
               <ColorCard
                 colorScheme="light"
                 id="elevation-raised-bottom-light"
@@ -177,11 +213,23 @@ export default function ColorUsagePage(): Node {
         name="Elevation using color"
         description={`Use as needed to accent containers when shadows are not an option. Available with \`color="elevationAccent"\` in [Box](/web/box#Colors).`}
       >
-        <Flex gap={4} direction="column">
+        <Flex
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+          direction="column"
+        >
           <Text weight="bold">
             <Text italic>$color-background-elevation-accent</Text>
           </Text>
-          <Flex gap={4} wrap>
+          <Flex
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            wrap
+          >
             <ColorCard
               colorScheme="light"
               id="elevation-color-light"
@@ -220,11 +268,23 @@ export default function ColorUsagePage(): Node {
         name="Elevation using borders"
         description={`Technically, borders are not considered elevation; however, they can be used as an alternative to display a single contained group when shadows or color don't work. The border treatment helps to determine visible boundaries. Available through the \`borderStyle\` prop in [Box](/web/box#Borders).`}
       >
-        <Flex gap={4} direction="column">
+        <Flex
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+          direction="column"
+        >
           <Text weight="bold">
             <Text italic>$color-border-container</Text>
           </Text>
-          <Flex gap={4} wrap>
+          <Flex
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            wrap
+          >
             <ColorCard
               colorScheme="light"
               id="elevation-border-light"

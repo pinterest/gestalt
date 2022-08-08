@@ -67,8 +67,8 @@ function OnNavigation() {
 
   return (
     <OnLinkNavigationProvider onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}>
-      <Flex direction="column" gap={2}>
-        <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>Navigation type:</Text>
           <RadioButton
             checked={onNavigationMode === 'default'}
@@ -88,7 +88,7 @@ function OnNavigation() {
           />
           <Divider/>
         </Flex>
-        <Flex gap={4} alignItems="center">
+        <Flex gap={{ row: 4, column: 0 }} alignItems="center">
           <Text>
             <Link {...linkProps}>Visit pinterest.com</Link>
           </Text>
@@ -158,8 +158,8 @@ function OnNavigation() {
 
   return (
     <OnLinkNavigationProvider onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}>
-      <Flex direction="column" gap={2}>
-        <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>Navigation type:</Text>
           <RadioButton
             checked={onNavigationMode === 'default'}
@@ -179,7 +179,7 @@ function OnNavigation() {
           />
           <Divider/>
         </Flex>
-        <Flex direction="column" gap={4} alignItems="center">
+        <Flex direction="column" gap={{ column: 4, row: 0 }} alignItems="center">
           <Callout
             type="info"
             iconAccessibilityLabel="Info icon"
@@ -270,8 +270,8 @@ function OnNavigation() {
 
   return (
     <OnLinkNavigationProvider onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}>
-      <Flex direction="column" gap={2}>
-        <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>Navigation type:</Text>
           <RadioButton
             checked={onNavigationMode === 'default'}

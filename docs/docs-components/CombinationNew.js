@@ -78,7 +78,13 @@ export default function CombinationNew({ children, hideTitle, ...props }: Props)
     );
   });
   return (
-    <Flex wrap gap={4}>
+    <Flex
+      wrap
+      gap={{
+        row: 4,
+        column: 0,
+      }}
+    >
       {CardArray}
     </Flex>
   );

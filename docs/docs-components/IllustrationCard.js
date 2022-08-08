@@ -39,7 +39,14 @@ function IllustrationCard({ image, description, isNew, title, color, href }: Pro
               direction="column"
               justifyContent="start"
             >
-              <Flex direction="row" alignItems="baseline" gap={2}>
+              <Flex
+                direction="row"
+                alignItems="baseline"
+                gap={{
+                  row: 2,
+                  column: 0,
+                }}
+              >
                 <Heading accessibilityLevel={3} size="400">
                   {title}
                 </Heading>

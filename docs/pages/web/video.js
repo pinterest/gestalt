@@ -151,8 +151,8 @@ function Example() {
   const [showControls, setShowControls] = React.useState(false);
 
   return (
-    <Flex alignItems="center" gap={2} direction="column">
-      <Flex alignItems="center" gap={2}>
+    <Flex alignItems="center" gap={{ column: 2, row: 0 }} direction="column">
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Box paddingX={2}>
           <Label htmlFor="video">
             <Text>Show built-in Video controls</Text>
@@ -255,8 +255,8 @@ function Example() {
   const [volume, setVolume] = React.useState(1);
 
   return (
-    <Flex width="100%" gap={2} direction="column">
-      <Flex width="100%" gap={2} alignItems="center">
+    <Flex width="100%" gap={{ column: 2, row: 0 }} direction="column">
+      <Flex width="100%" gap={{ row: 2, column: 0 }} alignItems="center">
         <Label htmlFor="video-source">
           <Text>Video source URL</Text>
         </Label>
@@ -273,7 +273,7 @@ function Example() {
           onClick={() => setSrc(input)}
         />
       </Flex>
-      <Flex gap={2}>
+      <Flex gap={{ column: 0, row: 2 }}
         <Button
           text={volume === 0 ? "Unmute" : "Mute"}
           onClick={() => setVolume(volume === 0 ? 1 : 0)}

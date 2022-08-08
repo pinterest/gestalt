@@ -10,7 +10,14 @@ const unifyQuotes = (input) => input?.replace(/'/g, '"');
 
 function Description(lines: Array<string>): Node {
   return (
-    <Flex alignItems="start" direction="column" gap={2}>
+    <Flex
+      alignItems="start"
+      direction="column"
+      gap={{
+        row: 0,
+        column: 2,
+      }}
+    >
       {lines.map((line, idx) => (
         <Markdown key={idx} text={line} textColor="subtle" />
       ))}
@@ -209,7 +216,12 @@ export default function PropTable({
                               },
                             }}
                           >
-                            <Flex gap={2}>
+                            <Flex
+                              gap={{
+                                row: 2,
+                                column: 0,
+                              }}
+                            >
                               <Text overflow="normal" underline={!!href}>
                                 {href ? (
                                   <Link href={`#${href}`}>

@@ -6,7 +6,13 @@ export default function Snapshot(): Node {
   return (
     <Box padding={1}>
       <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message">
-        <Flex direction="column" gap={2}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 2,
+          }}
+        >
           <Checkbox
             id="english-info"
             label="English"

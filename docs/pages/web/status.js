@@ -71,7 +71,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="do"
             description="Place Status close to its subject to provide context and reference. It can be placed as an inline element or paired side by side as needed."
             defaultCode={`
-<Flex gap={1} alignItems="center">
+<Flex gap={{ row: 1, column: 0 }} alignItems="center">
   <Status accessibilityLabel="This item is complete" type="ok" />
   <Text weight="bold" size="300">Campaign complete</Text>
 </Flex>
@@ -82,7 +82,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             description="Place Status far away from its subject. "
             defaultCode={`
-<Flex gap={12} direction="column" alignItems="center">
+<Flex gap={{ column: 12, row: 0 }} direction="column" alignItems="center">
   <Status accessibilityLabel="This item is paused" type="halted" />
   <Text weight="bold" size="300">Campaign paused</Text>
 </Flex>
@@ -127,7 +127,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Flex gap={1}>
+<Flex gap={{ column: 0, row: 1 }}
   <Status accessibilityLabel="This item has a problem" type="problem" />
   <Text weight="bold" size="300">Dynamic re-targeting</Text>
 </Flex>`}
@@ -135,7 +135,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Flex alignItems="end" direction="column" gap={1}>
+<Flex alignItems="end" direction="column" gap={{ column: 1, row: 0 }}>
   <Status title="This item has a problem" type="problem" />
   <Text align="center" weight="bold">
     Dynamic re-targeting
@@ -156,7 +156,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
             cardSize="md"
             title="Status name"
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Status type='unstarted' title='Unstarted' />
   <Status type='inProgress' title='In progress' />
   <Status type='halted' title='Halted' />

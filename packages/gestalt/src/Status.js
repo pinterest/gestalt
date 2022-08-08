@@ -69,7 +69,7 @@ export default function Status({ accessibilityLabel, subtext, title, type }: Pro
 
   return (
     <Flex direction="column">
-      <Flex alignItems="center" gap={2}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
         {title && <Text size="200">{title}</Text>}
       </Flex>

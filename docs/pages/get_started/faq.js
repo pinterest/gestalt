@@ -11,7 +11,14 @@ export default function ContainerPage(): Node {
     <Page title="Frequently asked questions">
       <PageHeader name="Frequently asked questions" type="guidelines" />
       <Card name="Gestalt usage">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Heading size="400">What are the benefits of using the Gestalt library?</Heading>
           <Text>
             Using Gestalt guarantees adherence and compliance to Pinterest design standards and best
@@ -33,7 +40,14 @@ export default function ContainerPage(): Node {
         </Flex>
       </Card>
       <Card name="Component usage">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Heading size="400">What is a boint?</Heading>
           <Text>
             A boint is a Pinterest specific unit of spacing that is equivalent to 4px. 1 boint =
@@ -97,7 +111,14 @@ if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
         </Flex>
       </Card>
       <Card name="Component development">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Heading size="400">How do I get access to the Gestalt repo?</Heading>
           <Text>
             The{' '}

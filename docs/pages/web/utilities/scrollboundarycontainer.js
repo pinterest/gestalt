@@ -44,7 +44,7 @@ function Example() {
   return (
     <ScrollBoundaryContainer height={200}>
       <Box padding={4} width={600}>
-        <Flex gap={4}>
+        <Flex gap={{ column: 0, row: 4 }}
           <Box width={200}>
             <Text>
               You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website. If there are any errors with your data source file, you can learn how to troubleshoot them below. After you click Create Pins, you'll land back at the main data source page while your feed is being processed. Wait for a confirmation email from Pinterest about the status of your data source submission.
@@ -100,27 +100,11 @@ function ScrollBoundaryContainerExample() {
   const [device, setDevice] = React.useState(null);
 
   return (
-    <ScrollBoundaryContainer
-      overflow="scrollY"
-      height={200}
-    >
-      <Flex
-        width={300}
-        direction="column"
-        gap={4}
-      >
-        <Flex
-          direction="column"
-          gap={2}
-        >
-          <Flex
-            alignItems="center"
-            gap={1}
-          >
-            <Text
-              weight="bold"
-              size="lg"
-            >
+    <ScrollBoundaryContainer overflow="scrollY" height={200}>
+      <Flex width={300} direction="column" gap={{ column: 4, row: 0 }}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+            <Text weight="bold" size="lg">
               Content type
             </Text>
             <Tooltip
@@ -138,7 +122,7 @@ function ScrollBoundaryContainerExample() {
           </Flex>
           <Flex direction="column">
             <Fieldset legend="Select content type" legendDisplay="hidden">
-              <Flex direction="column" gap={2}>
+              <Flex direction="column" gap={{ column: 2, row: 0 }}>
                 <RadioButton
                   checked={content === "all"}
                   id="allcontent"
@@ -167,18 +151,9 @@ function ScrollBoundaryContainerExample() {
             </Fieldset>
           </Flex>
         </Flex>
-        <Flex
-          direction="column"
-          gap={2}
-        >
-          <Flex
-            alignItems="center"
-            gap={1}
-          >
-            <Text
-              weight="bold"
-              size="lg"
-            >
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+            <Text weight="bold" size="lg">
               Claimed account
             </Text>
             <Tooltip
@@ -196,7 +171,7 @@ function ScrollBoundaryContainerExample() {
           </Flex>
           <Flex direction="column">
           <Fieldset legend="Select claimed account" legendDisplay="hidden">
-            <Flex direction="column" gap={2}>
+            <Flex direction="column" gap={{ column: 2, row: 0 }}>
               <RadioButton
                 checked={claimed === "all"}
                 id="allclaimed"
@@ -225,18 +200,9 @@ function ScrollBoundaryContainerExample() {
             </Fieldset>
           </Flex>
         </Flex>
-        <Flex
-          direction="column"
-          gap={2}
-        >
-          <Flex
-            alignItems="center"
-            gap={1}
-          >
-            <Text
-              weight="bold"
-              size="lg"
-            >
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+            <Text weight="bold" size="lg">
               Device
             </Text>
             <Tooltip
@@ -253,7 +219,7 @@ function ScrollBoundaryContainerExample() {
           </Flex>
           <Flex direction="column">
           <Fieldset legend="Select a device" legendDisplay="hidden">
-            <Flex direction="column" gap={2}>
+            <Flex direction="column" gap={{ column: 2, row: 0 }}>
               <RadioButton
                 checked={device === "all"}
                 id="alldevices"
@@ -327,7 +293,7 @@ function ScrollBoundaryContainerExample() {
 
   return (
     <React.Fragment>
-      <Flex alignItems="center" gap={3}>
+      <Flex alignItems="center" gap={{ row: 3, column: 0 }}>
         <RadioButton
           checked={parentComponent === 'modal'}
           id="modal"

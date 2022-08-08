@@ -41,11 +41,11 @@ function PopoverExample() {
   }
 
   const List = ({ title }) => (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">
         { title }
       </Text>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         {[
           ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
           ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
@@ -55,7 +55,7 @@ function PopoverExample() {
               setSelectedBoard(data[1]);
               setOpen(false);
             }}>
-              <Flex gap={2} alignItems="center">
+              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                 <Box height={50} width={50} overflow="hidden" rounding={2}>
                   <Mask rounding={2}>
                     <Image
@@ -79,7 +79,7 @@ function PopoverExample() {
 
   return (
     <React.Fragment>
-      <Flex alignItems="center" gap={2}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
@@ -106,7 +106,7 @@ function PopoverExample() {
           >
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
+                <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
@@ -115,7 +115,7 @@ function PopoverExample() {
               </Box>
               <Box height={300} overflow="scrollY">
                 <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={8}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
                     <List title="Top choices"/>
                     <List title="All boards"/>
                   </Flex>
@@ -188,11 +188,11 @@ function PopoverExample() {
   }
 
   const List = ({ title }) => (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">
         { title }
       </Text>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         {[
           ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
           ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
@@ -202,7 +202,7 @@ function PopoverExample() {
               setSelectedBoard(data[1]);
               setOpen(false);
             }}>
-              <Flex gap={2} alignItems="center">
+              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                 <Box height={50} width={50} overflow="hidden" rounding={2}>
                   <Mask rounding={2}>
                     <Image
@@ -226,7 +226,7 @@ function PopoverExample() {
 
   return (
     <React.Fragment>
-      <Flex alignItems="center" gap={2}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
@@ -253,7 +253,7 @@ function PopoverExample() {
           >
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
+                <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
@@ -262,7 +262,7 @@ function PopoverExample() {
               </Box>
               <Box height={300} overflow="scrollY">
                 <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={8}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
                     <List title="Top choices"/>
                     <List title="All boards"/>
                   </Flex>
@@ -416,11 +416,11 @@ function PopoverExample() {
   }
 
   const List = ({ title }) => (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">
         { title }
       </Text>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         {[
           ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
           ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
@@ -430,7 +430,7 @@ function PopoverExample() {
               setSelectedBoard(data[1]);
               setOpen(false);
             }}>
-              <Flex gap={2} alignItems="center">
+              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                 <Box height={50} width={50} overflow="hidden" rounding={2}>
                   <Mask rounding={2}>
                     <Image
@@ -454,7 +454,7 @@ function PopoverExample() {
 
   return (
     <React.Fragment>
-      <Flex alignItems="center" gap={2}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
@@ -482,7 +482,7 @@ function PopoverExample() {
           >
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
+                <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
@@ -491,7 +491,7 @@ function PopoverExample() {
               </Box>
               <Box height={300} overflow="scrollY">
                 <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={8}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
                     <List title="Top choices"/>
                     <List title="All boards"/>
                   </Flex>
@@ -561,11 +561,11 @@ function PopoverExample() {
   }
 
   const List = ({ title }) => (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">
         { title }
       </Text>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         {[
           ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
           ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
@@ -575,7 +575,7 @@ function PopoverExample() {
               setSelectedBoard(data[1]);
               setOpen(false);
             }}>
-              <Flex gap={2} alignItems="center">
+              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                 <Box height={50} width={50} overflow="hidden" rounding={2}>
                   <Mask rounding={2}>
                     <Image
@@ -599,7 +599,7 @@ function PopoverExample() {
 
   return (
     <React.Fragment>
-      <Flex alignItems="center" gap={2}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
@@ -626,7 +626,7 @@ function PopoverExample() {
           >
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
+                <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
@@ -635,7 +635,7 @@ function PopoverExample() {
               </Box>
               <Box height={300} overflow="scrollY">
                 <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={8}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
                     <List title="Top choices"/>
                     <List title="All boards"/>
                   </Flex>
@@ -752,11 +752,11 @@ function PopoverExample() {
   }
 
   const List = ({ title }) => (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">
         { title }
       </Text>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         {[
           ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
           ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
@@ -766,7 +766,7 @@ function PopoverExample() {
               setSelectedBoard(data[1]);
               setOpen(false);
             }}>
-              <Flex gap={2} alignItems="center">
+              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                 <Box height={50} width={50} overflow="hidden" rounding={2}>
                   <Mask rounding={2}>
                     <Image
@@ -790,7 +790,7 @@ function PopoverExample() {
 
   return (
     <React.Fragment>
-      <Flex alignItems="center" gap={2}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
@@ -817,7 +817,7 @@ function PopoverExample() {
           >
             <Box width={360}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
+                <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
@@ -826,7 +826,7 @@ function PopoverExample() {
               </Box>
               <Box height={300} overflow="scrollY">
                 <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={8}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
                     <List title="Top choices"/>
                     <List title="All boards"/>
                   </Flex>
@@ -901,7 +901,7 @@ function PopoverExample() {
             size={240}
           >
             <Box padding={3}>
-              <Flex alignItems="center" direction="column" gap={4}>
+              <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
                 <Text color="inverse" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
@@ -963,11 +963,11 @@ function ScrollBoundaryContainerExample() {
     const anchorRef = React.useRef();
 
     const List = ({ title }) => (
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Text color="default" size="100">
           { title }
         </Text>
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           {[
             ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
             ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
@@ -981,7 +981,7 @@ function ScrollBoundaryContainerExample() {
                 }}
                 rounding={2}
               >
-                <Flex gap={2} alignItems="center">
+                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                   <Box height={50} width={50} overflow="hidden" rounding={2}>
                     <Mask rounding={2}>
                       <Image
@@ -1005,7 +1005,7 @@ function ScrollBoundaryContainerExample() {
 
     return (
       <React.Fragment>
-          <Flex direction="column" gap={2}>
+          <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Text size="100">Board</Text>
             <Button
               accessibilityHaspopup={true}
@@ -1030,7 +1030,7 @@ function ScrollBoundaryContainerExample() {
             >
               <Box width={360}>
                 <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                  <Flex direction="column" gap={6}>
+                  <Flex direction="column" gap={{ column: 6, row: 0 }}>
                     <Text align="center" color="default" weight="bold">
                       Save to board
                     </Text>
@@ -1039,7 +1039,7 @@ function ScrollBoundaryContainerExample() {
                 </Box>
                 <Box height={300} overflow="scrollY">
                   <Box marginEnd={4} marginStart={4}>
-                    <Flex direction="column" gap={8}>
+                    <Flex direction="column" gap={{ column: 8, row: 0 }}>
                       <List title="Top choices"/>
                       <List title="All boards"/>
                     </Flex>
@@ -1081,7 +1081,7 @@ function ScrollBoundaryContainerExample() {
                       onClick={() => setShowSheet(false)}
                     />
                   </Flex.Item>
-                  <Flex gap={2}>
+                  <Flex gap={{ column: 0, row: 2 }}
                     <Button
                       text="Cancel"
                       size="lg"
@@ -1101,7 +1101,7 @@ function ScrollBoundaryContainerExample() {
             size="lg"
           >
             <Box id="popover-sheet" display="flex" height={400} paddingX={8}>
-              <Flex gap={8} width="100%">
+              <Flex gap={{ row: 8, column: 0 }} width="100%">
                 <Box width={200} paddingX={2} rounding={4}>
                   <Mask rounding={4}>
                     <Image
@@ -1114,7 +1114,7 @@ function ScrollBoundaryContainerExample() {
                   </Mask>
                 </Box>
                 <Flex.Item flex="grow">
-                  <Flex direction="column" gap={8}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
                     <SelectBoard/>
                     <TextArea
                       id="note"
@@ -1182,7 +1182,7 @@ function Example() {
         width={600}
         height={200}
       >
-        <Flex gap={2}>
+        <Flex gap={{ column: 0, row: 2 }}
           <Box width={300}>
             <Text>
               You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website.
@@ -1266,7 +1266,7 @@ function Example() {
   return (
     <ScrollBoundaryContainer height={200}>
       <Box color="white" ref={viewRef} padding={4} width={600}>
-        <Flex gap={4}>
+        <Flex gap={{ column: 0, row: 4 }}
           <Box width={200}>
             <Text>
               You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website. If there are any errors with your data source file, you can learn how to troubleshoot them below. After you click Create Pins, you'll land back at the main data source page while your feed is being processed. Wait for a confirmation email from Pinterest about the status of your data source submission.

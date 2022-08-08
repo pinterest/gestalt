@@ -149,10 +149,7 @@ function ComboBoxExample(props) {
   const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
 
   return (
-    <Flex
-      direction="column"
-      gap={2}
-    >
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading size="500">Discover this week's top searched trends across all categories</Heading>
       <Text inline> Wanna learn how trends work? Read
         <Text weight="bold" inline>
@@ -384,7 +381,7 @@ function ComboBoxExample(props) {
   };
 
   return (
-    <Flex direction="column" gap={10} width="50%">
+    <Flex direction="column" gap={{ column: 10, row: 0 }} width="50%">
       <ComboBox
         accessibilityClearButtonLabel="Clear the current value"
         label="State"
@@ -487,7 +484,7 @@ function ComboBoxExample(props) {
   }
 
   return (
-    <Flex direction="column" gap={10}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }}>
       <Button
         onClick={() => {
           const nextCategory = currentCategory === 'BEAUTY' ? 'DIY' : 'BEAUTY';
@@ -643,7 +640,7 @@ function ComboBoxExample() {
   const ref = React.useRef();
 
   return (
-    <Flex gap={4}>
+    <Flex gap={{ column: 0, row: 4 }}
       <ComboBox
         accessibilityClearButtonLabel="Clear the current values"
         label="Select your favorite shape"

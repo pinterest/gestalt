@@ -319,12 +319,12 @@ export default function SideNavigationPage({
     <SideNavigation
       accessibilityLabel="Footer example"
       footer={
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Text size="300" weight="bold">
             Filters
           </Text>
           <Fieldset legend="Campaign filters" legendDisplay="hidden">
-            <Flex direction="column" gap={4}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
               <DatePicker
                 id="example-start-date"
                 label="Start"

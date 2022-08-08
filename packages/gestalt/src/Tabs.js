@@ -159,7 +159,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
             rounding={TAB_ROUNDING}
             userSelect="none"
           >
-            <Flex alignItems="center" gap={2} justifyContent="center">
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
               <Text color="default" overflow="noWrap" weight="bold">
                 {text}
               </Text>
@@ -230,7 +230,7 @@ export default function Tabs({
   wrap,
 }: Props): Node {
   return (
-    <Flex alignItems="center" gap={4} justifyContent="start" wrap={wrap}>
+    <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabWithForwardRef
           bgColor={bgColor}

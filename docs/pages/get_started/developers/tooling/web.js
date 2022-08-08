@@ -11,7 +11,13 @@ import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIcon
 function ListElement({ text, href }: {| text: string, href: string |}) {
   return (
     <li>
-      <Flex alignItems="center" gap={1}>
+      <Flex
+        alignItems="center"
+        gap={{
+          row: 1,
+          column: 0,
+        }}
+      >
         <Link
           accessibilityLabel={`${text}, opens new window`}
           target="blank"
@@ -42,7 +48,13 @@ function TableEntry({
   return (
     <Table.Row>
       <Table.Cell>
-        <Flex alignItems="center" gap={1}>
+        <Flex
+          alignItems="center"
+          gap={{
+            row: 1,
+            column: 0,
+          }}
+        >
           <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
             <Text size="100" underline overflow="noWrap">
               {metric}
@@ -67,7 +79,14 @@ export default function ToolingPage(): Node {
       <PageHeader name="Web tooling" type="guidelines" />
       <MainSection name="Core design system">
         <MainSection.Subsection />
-        <Flex gap={2} maxWidth={MAX_WIDTH} direction="column">
+        <Flex
+          gap={{
+            row: 0,
+            column: 2,
+          }}
+          maxWidth={MAX_WIDTH}
+          direction="column"
+        >
           <Text>The core Gestalt Design System consists of:</Text>
           <ul>
             {[
@@ -210,7 +229,13 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                 </Box>
               </Flex>
             </Box>
-            <Flex direction="column" gap={4}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 4,
+              }}
+            >
               <Text weight="bold">Snippets</Text>
               <Text>Using Gestalt snippets has the following benefits:</Text>
               <Text>- Auto-import</Text>
@@ -248,9 +273,23 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
           title="Gestalt Usage Visualizer"
           description="Visualize and easily identify the Gestalt usage on a page."
         >
-          <Flex maxWidth={MAX_WIDTH} gap={4} direction="column" alignItems="center">
+          <Flex
+            maxWidth={MAX_WIDTH}
+            gap={{
+              row: 0,
+              column: 4,
+            }}
+            direction="column"
+            alignItems="center"
+          >
             <Box>
-              <Flex direction="column" gap={4}>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 4,
+                }}
+              >
                 <Text weight="bold">How to install</Text>
                 <Box>
                   <Text inline>Drag this link: </Text>

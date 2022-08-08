@@ -35,8 +35,8 @@ function Example() {
   const [ focusedButton2, setFocusedButton2 ] = React.useState(false);
 
   return (
-    <Flex alignItems="center" direction="column" gap={12}>
-      <Flex direction="column" alignItems="center" gap={4}>
+    <Flex alignItems="center" direction="column" gap={{ column: 12, row: 0 }}>
+      <Flex direction="column" alignItems="center" gap={{ column: 4, row: 0 }}>
         <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
         <button
           onBlur={() => setFocusedButton1(false)}
@@ -49,7 +49,7 @@ function Example() {
           <Text>Button 1</Text>
         </button>
       </Flex>
-      <Flex alignItems="center" direction="column" gap={4}>
+      <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
         <Text>Not using useFocusVisible(): Focus ring is always visible</Text>
         <button
           onBlur={() => setFocusedButton2(false)}

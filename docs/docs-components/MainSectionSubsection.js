@@ -48,7 +48,13 @@ function MainSectionSubsection({
             id={slugifiedId}
             data-anchor
           >
-            <Flex alignItems="center" gap={2}>
+            <Flex
+              alignItems="center"
+              gap={{
+                row: 2,
+                column: 0,
+              }}
+            >
               <Heading size="400">{title}</Heading>
               {badge ? (
                 <Tooltip
@@ -81,7 +87,13 @@ function MainSectionSubsection({
 
       {arrayChildren &&
         (columns === 1 ? (
-          <Flex direction="column" gap={4}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 4,
+            }}
+          >
             {arrayChildren.map((child, idx) => (
               <Flex.Item flex="grow" key={idx}>
                 {child}

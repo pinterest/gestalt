@@ -96,7 +96,7 @@ function IconEnd({
   size: string,
 |}): Node {
   return (
-    <Flex alignItems="center" gap={2} justifyContent="center">
+    <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
       {text}
       <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
     </Flex>

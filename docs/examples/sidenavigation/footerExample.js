@@ -8,12 +8,24 @@ export default function Example(): Node {
     <SideNavigation
       accessibilityLabel="Footer example"
       footer={
-        <Flex direction="column" gap={4}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text size="300" weight="bold">
             Filters
           </Text>
           <Fieldset legend="Campaign filters" legendDisplay="hidden">
-            <Flex direction="column" gap={4}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 4,
+              }}
+            >
               <DatePicker
                 id="example-start-date"
                 label="Start"
