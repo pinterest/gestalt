@@ -1,3 +1,9 @@
+## 63.3.3 (Aug 8, 2022)
+
+### Patch
+
+- Flex: add link to Flexbox Froggy (#2266)
+
 ## 63.3.2 (Aug 8, 2022)
 
 ### Patch
