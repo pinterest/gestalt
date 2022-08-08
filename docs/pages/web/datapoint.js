@@ -107,7 +107,7 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
 Be cautious of using Datapoint for large volumes of data. In cases where the content is tabular, use [Table](/web/table).
 `}
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
 <Datapoint size="md" title="January spend" value="$14,325"  />
 <Datapoint size="md" title="February spend" value="$12,150"  />
 <Datapoint size="md" title="March spend" value="$23,700"  />
@@ -157,7 +157,7 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Datapoint title="Pin clicks" value="1.23k" trend={{value: 12, accessibilityLabel: "Trending up"}} />
   <Datapoint title="Saves" value="123" trend={{value: 0, accessibilityLabel: ""}} />
   <Datapoint title="Total impressions" value="1.23M" trend={{value: -5, accessibilityLabel: "Trending down"}}  />
@@ -173,7 +173,7 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Datapoint title="Bounce rate" value="86.3%" trend={{value: 29, accessibilityLabel: "Trending up"}} trendSentiment="bad" />
   <Datapoint title="Conversion falloffs" value="92" trend={{value: -10, accessibilityLabel: "Tending down"}} trendSentiment="good" />
   <Datapoint title="Spend" value="$19.3k" trend={{value: -4, accessibilityLabel: "Trending down"}} trendSentiment="neutral"  />

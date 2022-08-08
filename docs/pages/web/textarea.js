@@ -367,7 +367,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex gap={2} direction="column" width="100%">
+<Flex gap={{ column: 2, row: 0 }} direction="column" width="100%">
   <Text weight="bold" size="300">About me</Text>
   <TextArea
     id="textareaexampleHiddenLabel"

@@ -68,9 +68,49 @@ export default function DocsPage({
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          title="Gap"
+          description={`Flex's \`gap\` prop determines spacing between children. Use a single number for equal row and column spacing, or an object to specify different spacing for each direction. For example, use \`gap={{ row: 2, column: 4 }}\` for different spacing between items in rows and columns (regardless of the specified \`direction\`). Or use the \`gap={3}\` shorthand for equal spacing for rows and columns.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex direction="column" gap={6}>
+  <Flex direction="column" gap={2}>
+    <Text>Equal spacing</Text>
+    <Box borderStyle="sm" padding={2} rounding={3} width={150}>
+      <Flex alignItems="center" gap={4} wrap>
+        <Text>Item 1</Text>
+        <Text>Item 2</Text>
+        <Text>Item 3</Text>
+        <Text>Item 4</Text>
+        <Text>Item 5</Text>
+        <Text>Item 6</Text>
+      </Flex>
+    </Box>
+  </Flex>
+
+  <Flex direction="column" gap={2}>
+    <Text>Different spacing</Text>
+    <Box borderStyle="sm" padding={2} rounding={3} width={150}>
+      <Flex alignItems="center" gap={{ row: 2, column: 8 }} wrap>
+        <Text>Item 1</Text>
+        <Text>Item 2</Text>
+        <Text>Item 3</Text>
+        <Text>Item 4</Text>
+        <Text>Item 5</Text>
+        <Text>Item 6</Text>
+      </Flex>
+    </Box>
+  </Flex>
+</Flex>
+            `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           title="Menu"
           description={`
-    With a limited set of props that only relate to flex layouts, Flex is useful for separating layout from other concerns to prevent overloaded Box usage.
+    Flex makes flexbox layouts with equally-spaced children a snap!
   `}
         >
           <MainSection.Card
@@ -90,7 +130,7 @@ export default function DocsPage({
         <MainSection.Subsection
           title="Applying flex properties to children"
           description={`
-    When using the 'gap' property, Flex wraps each child in a Flex.Item sub-component. If one of more of those children need custom flex properties, you can use Flex.Item directly.
+    When using the \`gap\` prop, Flex wraps each child in a Flex.Item sub-component. If one or more of those children need specific flex properties, you can use Flex.Item directly.
   `}
         >
           <MainSection.Card

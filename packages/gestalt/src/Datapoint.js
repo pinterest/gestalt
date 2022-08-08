@@ -72,8 +72,8 @@ export default function Datapoint({
   value,
 }: Props): Node {
   return (
-    <Flex gap={1} direction="column">
-      <Flex gap={1} alignItems="center" minHeight={24}>
+    <Flex gap={{ column: 1, row: 0 }} direction="column">
+      <Flex gap={{ row: 1, column: 0 }} alignItems="center" minHeight={24}>
         <Text size="200">{title}</Text>
         {tooltipText && (
           <Tooltip

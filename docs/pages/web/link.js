@@ -57,7 +57,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Display an underline on inline Links in the context of heavy text around them or in dense layouts such as Links on dashboards. The underline helps to determine its interactivity and reinforces accessibility standards."
             defaultCode={`
 <Box color="elevationAccent" padding={4} rounding={4}>
-  <Flex gap={4} direction="column">
+  <Flex gap={{ column: 4, row: 0 }} direction="column">
     <Text weight="bold" align="center"> Product details </Text>
     <Text> Tennis-inspired retro sneaker by Pinterest, elevated with a stacked midsole for extra height and a chunky profile. </Text>
     <Text inline> Ships from and sold by
@@ -71,7 +71,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Use a bold font weight to represent inline Links in the context of text around them. Bold font weight in the text context can be perceived as emphasis purposes, and it could fail to convey interactivity. "
             defaultCode={`
-<Flex gap={4} direction="column" width="100%">
+<Flex gap={{ column: 4, row: 0 }} direction="column" width="100%">
   <Text weight="bold"> Need help? </Text>
   <Text inline> Find tips and best practices on the
     <Text weight="bold" inline>
@@ -92,7 +92,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use bold font-weight in link elements such as lists, profile and board names, and any link element that an underline style isn't necessary to convey interactivity. For example, the user easily recognizes the bold element as a link since it is a typical treatment across our surfaces."
             defaultCode={`
-<Flex gap={2} alignItems="center">
+<Flex gap={{ row: 2, column: 0 }} alignItems="center">
   <Box aria-hidden>
     <Avatar
       name="Shanice Romero"
@@ -117,7 +117,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Display an underline on Links that aren't within a paragraph context, for example, lists or table links, as it could create cognitive load. Please note: If these elements are nested inside message components, consider displaying an underline, as it reinforces interactivity."
             defaultCode={`
-<Flex gap={4} width="100%" wrap width={300}>
+<Flex gap={{ row: 4, column: 0 }} width="100%" wrap width={300}>
   {[
     'About',
     'Blog',
@@ -148,7 +148,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Match Link to the text size and font-weight of the content they are accompanying for consistency and visual balance."
             defaultCode={`
-<Flex direction="column" width="70%" gap={3}>
+<Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
   <Flex.Item>
     <Box display="visuallyHidden" width="100%">
       <Label htmlFor="example-email-1">Email</Label>
@@ -198,7 +198,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Apply multiple text styles on links paired with text, as it can create inconsistency it can make it hard to scan. See the [Link and color variant](/web/link#Link-and-Text) for guidelines."
             defaultCode={`
-<Flex direction="column" width="70%" gap={3}>
+<Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
   <Flex.Item>
     <Box display="visuallyHidden" width="100%">
       <Label htmlFor="example-email-2">Email</Label>
@@ -263,7 +263,7 @@ Please note: Disclaimers and links taking users to Pinterest subsites don't need
             type="don't"
             description="Use other icons paired with text within a paragraph or a sentence to represent an external Link."
             defaultCode={`
-<Flex gap={2} width="100%" justifyContent="center">
+<Flex gap={{ row: 2, column 0 }} width="100%" justifyContent="center">
   <Text inline> Visit
     <Text inline>
       <Link href="https://www.w3.org/WAI/standards-guidelines/" inline> WCAG accessibility resources</Link>
@@ -323,8 +323,8 @@ Accessible content is critical if we consider that assistive technology also pre
         >
           <MainSection.Card
             defaultCode={`
-<Flex direction="column" gap={4}>
-  <Flex gap={2}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
+  <Flex gap={{ column: 0, row: 2 }}
     <Checkbox
       checked
       id="1"
@@ -340,7 +340,7 @@ Accessible content is critical if we consider that assistive technology also pre
       </Text>
     </Label>
   </Flex>
-  <Flex gap={2}>
+  <Flex gap={{ column: 0, row: 2 }}
     <Checkbox
       checked
       id="2"
@@ -356,7 +356,7 @@ Accessible content is critical if we consider that assistive technology also pre
       </Text>
     </Label>
   </Flex>
-  <Flex gap={2}>
+  <Flex gap={{ column: 0, row: 2 }}
     <Checkbox
       checked
       id="3"
@@ -407,7 +407,7 @@ Accessible content is critical if we consider that assistive technology also pre
         <Text weight="bold">Rate limits</Text>
       </Table.Cell>
       <Table.Cell>
-        <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text size="100">1000/day</Text>
           <Text>
             <Link
@@ -421,7 +421,7 @@ Accessible content is critical if we consider that assistive technology also pre
         </Flex>
       </Table.Cell>
       <Table.Cell>
-        <Flex direction="column" gap={1}>
+        <Flex direction="column" gap={{ column: 1, row: 0 }}>
           <Text size="100">Variable</Text>
           <Text>
             <Link
@@ -470,9 +470,9 @@ For external links that an external Gestalt Link doesn't apply, check out [Butto
           <MainSection.Card
             defaultCode={`
 <Box color="infoBase" width="50%" padding={4} rounding={3}>
-  <Flex direction="column" gap={3} alignItems="center">
+  <Flex direction="column" gap={{ column: 3, row: 0 }} alignItems="center">
     <Text color="inverse" weight="bold" size="600">Tips</Text>
-      <Flex gap={1} alignItems="center">
+      <Flex gap={{ row: 1, column: 0 }} alignItems="center">
         <Text color="inverse" size="400" align="center" weight="bold">
           <Link href="https://pinterest.com" inline>Add a Pinterest widget</Link>{" "}
           and get inspired right from your phone's home screen.
@@ -529,7 +529,7 @@ However, Link's underline style can be overridden at any time using the \`underl
           <MainSection.Card
             title="Standalone Link"
             defaultCode={`
-<Flex gap={4} width="100%" wrap width={300}>
+<Flex gap={{ row: 4, column: 0 }} width="100%" wrap width={300}>
   {[
     'About',
     'Blog',
@@ -559,7 +559,7 @@ However, Link's underline style can be overridden at any time using the \`underl
           <MainSection.Card
             title="Inline Link with overridden underline"
             defaultCode={`
-<Flex gap={2} alignItems="center">
+<Flex gap={{ row: 2, column: 0 }} alignItems="center">
   <Box aria-hidden>
     <Avatar
       name="Shanice Romero"
@@ -583,7 +583,7 @@ However, Link's underline style can be overridden at any time using the \`underl
           <MainSection.Card
             title="Link with hidden underline"
             defaultCode={`
-<Flex gap={2} direction="column">
+<Flex gap={{ column: 2, row: 0 }} direction="column">
   <Text weight="bold">
     <Link href="https://www.pinterest.com" inline underline="none">I'm a link with no underline</Link>
   </Text>
@@ -636,7 +636,7 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
         />
         <MainSection.Card
           defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Text inline size="100">
     Visit
     <Link href="https://authy.com/download/" inline externalLinkIcon={{ size: "100" }} target="blank" rel="nofollow">

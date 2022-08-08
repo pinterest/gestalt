@@ -103,7 +103,13 @@ export default function OnePrimaryActionExample(): Node {
         dropdownAccessibilityLabel="More options"
       />
       <Box padding={12}>
-        <Flex gap={7} alignItems="end">
+        <Flex
+          gap={{
+            row: 7,
+            column: 0,
+          }}
+          alignItems="end"
+        >
           <Flex.Item flex="grow">
             <Table accessibilityLabel="Audiences">
               <colgroup>

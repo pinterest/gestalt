@@ -12,7 +12,14 @@ export default function ContainerPage(): Node {
     <Page title="Development process">
       <PageHeader name="Development process" type="guidelines" />
       <Card name="Set up your laptop">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <ul>
             <li>
               <Text>
@@ -57,7 +64,14 @@ export default function ContainerPage(): Node {
         </Flex>
       </Card>
       <Card name="Set up your Gestalt repository">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <ul>
             <li>
               <Text>
@@ -136,7 +150,14 @@ git remote -v
         </Flex>
       </Card>
       <Card name="Set up Visual Studio Code">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <ul>
             <li>
               <Text>
@@ -172,7 +193,14 @@ git remote -v
         </Flex>
       </Card>
       <Card name="Run the Gestalt documentation server">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text>
             Whenever you make changes to Gestalt, please test them out locally before making a PR.
           </Text>
@@ -188,7 +216,14 @@ git remote -v
         </Flex>
       </Card>
       <Card name="Use local Gestalt CSS &amp; JS">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text>
             By default we use the latest published version of Gestalt&apos;s CSS and JS for Sandpack
             examples. If you want to use the local Gestalt CSS &amp; JS, append{' '}
@@ -203,7 +238,14 @@ http://localhost:8888/modal?localFiles=true
         </Flex>
       </Card>
       <Card name="Create a pull request">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <ul>
             <li>
               <Text>Rebase your local master branch.</Text>
@@ -396,7 +438,14 @@ git push -f origin HEAD
         </Flex>
       </Card>
       <Card name="Guidelines">
-        <Flex alignItems="start" direction="column" gap={4}>
+        <Flex
+          alignItems="start"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Heading size="400">Scope of work</Heading>
 
           <Text>

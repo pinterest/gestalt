@@ -16,7 +16,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         name="Avatar"
         description={generatedDocGen?.description}
         defaultCode={`
-<Flex gap={4} wrap>
+<Flex gap={{ row: 4, column: 0 }} wrap>
   <Avatar
     size="xs"
     src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
@@ -100,7 +100,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use round Avatars in the appropriate size for your need. Learn more about [avatar sizing](/web/avatar#Fixed-Sizes)."
             defaultCode={`
-              <Flex gap={4} wrap>
+              <Flex gap={{ row: 4, column: 0 }} wrap>
                 <Avatar
                   size="xs"
                   src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
@@ -154,7 +154,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use Avatar to represent a person, organization or group ([Avatar Group](/web/avatargroup))."
             defaultCode={`
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center">
                 <Avatar
                   size="xl"
                   src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
@@ -169,7 +169,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             description="Use Avatar to represent metaphorical ideas, like a Board. Instead, consider an icon or the appropriate interactive component."
             defaultCode={`
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center">
                 <Avatar
                   size="xl"
                   src="https://i.ibb.co/jVR29XV/stock5.jpg"
@@ -187,7 +187,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use the collaborator’s name nearby or in an alternative view if possible."
             defaultCode={`
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center">
                 <Avatar
                   size="xl"
                   src="https://i.ibb.co/7tGKGvb/shanice.jpg"
@@ -240,7 +240,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={4} wrap>
+<Flex gap={{ row: 4, column: 0 }} wrap>
   <Avatar
     size="xs"
     src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"

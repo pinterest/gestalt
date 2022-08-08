@@ -182,7 +182,7 @@ function Example(props) {
   const [stateValue, setStateValue] = React.useState('');
 
   return (
-    <Flex gap={4}>
+    <Flex gap={{ column: 0, row: 4 }}
       <TextField
         id="best-practices-do-related-city"
         label="City"
@@ -216,7 +216,7 @@ function Example(props) {
   const [zipCodeValue, setZipCodeValue] = React.useState('');
 
   return (
-    <Flex gap={4}>
+    <Flex gap={{ column: 0, row: 4 }}
       <TextField
         autoComplete="new-password"
         id="best-practices-dont-related-password"
@@ -311,7 +311,7 @@ function Example(props) {
   });
 
   return (
-    <Flex direction="column" gap={3}>
+    <Flex direction="column" gap={{ column: 3, row: 0 }}>
       <TextField
         id="best-practices-do-required-firstName"
         label="First name"
@@ -357,7 +357,7 @@ function Example(props) {
   });
 
   return (
-    <Flex direction="column" gap={3}>
+    <Flex direction="column" gap={{ column: 3, row: 0 }}>
       <TextField
         helperText="* This field is required."
         id="best-practices-dont-required-firstName"
@@ -409,14 +409,14 @@ function Example(props) {
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={6}>
+<Flex gap={{ column: 0, row: 6 }}
   <TextField
     id="textfieldexampleA11yVisible"
     onChange={() => {}}
     label='First name'
     size='lg'
   />
-  <Flex gap={2} direction="column">
+  <Flex gap={{ column: 2, row: 0 }} direction="column">
     <Text weight="bold" size="300">First name</Text>
     <TextField
       id="textfieldexampleA11yHiddenLabel"
@@ -505,7 +505,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex gap={2} direction="column">
+<Flex gap={{ column: 2, row: 0 }} direction="column">
   <Text weight="bold" size="300">First name</Text>
   <TextField
     id="textfieldexampleHiddenLabel"

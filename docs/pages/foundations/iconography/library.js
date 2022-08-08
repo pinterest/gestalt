@@ -97,7 +97,13 @@ export default function IconPage(): Node {
             />
           </Box>
           <Box borderStyle="shadow" marginStart={4} overflow="auto" padding={4} width="65%">
-            <Flex gap={1} wrap>
+            <Flex
+              gap={{
+                row: 1,
+                column: 0,
+              }}
+              wrap
+            >
               {selectedIcon ? (
                 <ClickableIcon iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
               ) : (

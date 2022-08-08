@@ -70,7 +70,7 @@ function SwitchExample() {
   const [switched, setSwitched] = React.useState(true);
 
   return (
-    <Flex gap={2} alignItems="center" width="100%" maxWidth={300}>
+    <Flex gap={{ row: 2, column: 0 }} alignItems="center" width="100%" maxWidth={300}>
       <Flex.Item flex="grow">
         <Label htmlFor="makesecret">
           <Text weight="bold">Make this board secret</Text>
@@ -95,7 +95,7 @@ function SwitchExample() {
   const [switched, setSwitched] = React.useState(false);
 
   return (
-    <Flex gap={2} alignItems="center">
+    <Flex gap={{ row: 2, column: 0 }} alignItems="center">
       <Switch
         onChange={() => setSwitched(!switched)}
         id="setboard"
@@ -116,7 +116,7 @@ function SwitchExample() {
             type="do"
             description="Communicate why a switch is disabled and how to enable it if possible."
             defaultCode={`
-<Flex gap={2} alignItems="center">
+<Flex gap={{ row: 2, column: 0 }} alignItems="center">
   <Switch
     onChange={() => {}}
     id="showsecretboards"
@@ -124,7 +124,7 @@ function SwitchExample() {
     disabled={true}
   />
   <Label htmlFor="showsecretboards">
-    <Flex direction="column" gap={1}>
+    <Flex direction="column" gap={{ column: 1, row: 0 }}>
       <Text>Show secret boards</Text>
       <Text size="100" color="subtle">You don't have any secret boards</Text>
     </Flex>
@@ -137,9 +137,9 @@ function SwitchExample() {
             type="don't"
             description="Use alternative styling to represent the functionality of a switch. Use Switch instead."
             defaultCode={`
-<Flex direction="column" gap={2} width="100%" maxWidth={300}>
+<Flex direction="column" gap={{ column: 2, row: 0 }} width="100%" maxWidth={300}>
   <Heading size="300" accessibilityLevel={3}>On Pinterest notifications</Heading>
-  <Flex direction="column" gap={4}>
+  <Flex direction="column" gap={{ column: 4, row: 0 }}>
     <Flex alignItems="center">
       <Flex.Item flex="grow">
         <Text>Comments</Text>
@@ -205,14 +205,14 @@ function SwitchExample() {
       const [switched3, setSwitched3] = React.useState(true);
 
       return (
-        <Flex direction="column" gap={2} width="100%" maxWidth={300}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }} width="100%" maxWidth={300}>
             <Heading size="300">Tune your home feed</Heading>
             <Text>Turn off any boards that you don't want us to use for your home feed recommendations</Text>
-            <Flex direction="column" gap={4}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
               <Flex alignItems="center">
                 <Flex.Item flex="grow">
                   <Label htmlFor="boardfood">
-                    <Flex direction="column" gap={1}>
+                    <Flex direction="column" gap={{ column: 1, row: 0 }}>
                       <Text>Food</Text>
                       <Text size="100">55 pins · 1 section</Text>
                     </Flex>
@@ -227,7 +227,7 @@ function SwitchExample() {
               <Flex alignItems="center">
                 <Flex.Item flex="grow">
                   <Label htmlFor="boardoutfits">
-                    <Flex direction="column" gap={1}>
+                    <Flex direction="column" gap={{ column: 1, row: 0 }}>
                       <Text>Outfits</Text>
                       <Text size="100">138 pins · 5 sections</Text>
                     </Flex>
@@ -242,7 +242,7 @@ function SwitchExample() {
               <Flex alignItems="center">
                 <Flex.Item flex="grow">
                   <Label htmlFor="boardhomedecor">
-                    <Flex direction="column" gap={1}>
+                    <Flex direction="column" gap={{ column: 1, row: 0 }}>
                       <Text>Home Decor</Text>
                       <Text size="100">33 pins · 2 sections</Text>
                     </Flex>
@@ -266,8 +266,8 @@ function SwitchExample() {
             defaultCode={`
 function SwitchExample() {
   return (
-    <Flex alignItems="center" gap={8}>
-      <Flex direction="column" gap={2}>
+    <Flex alignItems="center" gap={{ row: 8, column: 0 }}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Label htmlFor="base">
           <Text>Base state</Text>
         </Label>
@@ -277,7 +277,7 @@ function SwitchExample() {
           switched={false}
         />
       </Flex>
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Label htmlFor="switched">
         <Text>Switched</Text>
       </Label>
@@ -287,7 +287,7 @@ function SwitchExample() {
         switched={true}
       />
     </Flex>
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Label htmlFor="disabled">
           <Text>Disabled, not switched</Text>
         </Label>
@@ -298,7 +298,7 @@ function SwitchExample() {
           disabled={true}
         />
       </Flex>
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Label htmlFor="disabledAndSwitched">
           <Text>Disabled and switched</Text>
         </Label>

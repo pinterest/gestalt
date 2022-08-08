@@ -146,7 +146,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
           style={
             Object {
               "height": "100%",
@@ -206,7 +206,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
           style={
             Object {
               "height": "100%",
@@ -266,7 +266,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
           style={
             Object {
               "height": "100%",

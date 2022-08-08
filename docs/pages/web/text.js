@@ -15,7 +15,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        defaultCode={`<Flex direction="column" gap={4}><Text size="500">This simple description uses the Text component.</Text><Badge text="Badge also uses it" /></Flex>`}
+        defaultCode={`<Flex direction="column" gap={{ column: 4, row: 0 }}><Text size="500">This simple description uses the Text component.</Text><Badge text="Badge also uses it" /></Flex>`}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -71,7 +71,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/web/heading) instead."
             defaultCode={`
-<Flex direction="column" gap={2}>
+<Flex direction="column" gap={{ column: 2, row: 0 }}>
   <Text size={300} weight="bold">Impressions</Text>
   <Text size={100}>1,250,000</Text>
 </Flex>
@@ -84,7 +84,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use a minimal amount of sizes and styles to keep the UI clean and readable."
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Text>Pinterest is building a positive online space for creators. That’s why we made the <Text weight="bold" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
   <Text>Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text italic inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
 </Flex>
@@ -95,7 +95,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Mix styles and alignment, as this can be hard to read and follow."
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Text size={100}>Pinterest is building a positive online space for creators. That’s why we made the <Text size={100} color="success" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
   <Text weight="bold" align="center">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text weight="bold" italic color="warning" inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
 </Flex>
@@ -159,7 +159,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-<Flex direction="column" gap={4} width={200}>
+<Flex direction="column" gap={{ column: 4, row: 0 }} width={200}>
   <Text align="start">Start (default)</Text>
   <Divider />
   <Text align="end">End</Text>
@@ -184,7 +184,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-<Flex alignItems="start" direction="column" gap={4}>
+<Flex alignItems="start" direction="column" gap={{ column: 4, row: 0 }}>
   <Text>Some content in a default block element. (default)</Text>
   <Box>
     <Text inline>Inline text with the inline prop.</Text>
@@ -205,7 +205,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-  <Flex alignItems="start" direction="column" gap={3}>
+  <Flex alignItems="start" direction="column" gap={{ column: 3, row: 0 }}>
     <Box color="inverse" padding={1}>
       <Text color="inverse" size="400">Inverse</Text>
     </Box>
@@ -233,8 +233,8 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex maxWidth={200} direction="column" gap={8}>
-  <Flex direction="column" gap={2}>
+<Flex maxWidth={200} direction="column" gap={{ column: 8, row: 0 }}>
+  <Flex direction="column" gap={{ column: 2, row: 0 }}>
     <Text>breakWord (default):</Text>
     <Box color="secondary" padding={2} rounding={2}>
       <Text>
@@ -244,7 +244,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </Box>
   </Flex>
 
-  <Flex direction="column" gap={2}>
+  <Flex direction="column" gap={{ column: 2, row: 0 }}>
     <Text>normal:</Text>
     <Box color="secondary" padding={2} rounding={2}>
       <Text overflow="normal">
@@ -254,7 +254,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </Box>
   </Flex>
 
-  <Flex direction="column" gap={2}>
+  <Flex direction="column" gap={{ column: 2, row: 0 }}>
   <Text>lineClamp:</Text>
     <Box color="secondary" padding={2} rounding={2}>
       <Text lineClamp={2}>
@@ -277,8 +277,8 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-<Flex alignItems="start" direction="column" gap={2}>
-  <Flex alignItems="center" gap={2}>
+<Flex alignItems="start" direction="column" gap={{ column: 2, row: 0 }}>
+  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
     <Text inline size="100">Size 100</Text>
     <span lang="ja">
       <Text inline size="100">
@@ -287,7 +287,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </span>
   </Flex>
 
-  <Flex alignItems="center" gap={2}>
+  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
     <Text inline size="200">Size 200</Text>
     <span lang="ja">
       <Text inline size="200">
@@ -296,7 +296,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </span>
   </Flex>
 
-  <Flex alignItems="center" gap={2}>
+  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
     <Text inline size="300">Size 300 (default size)</Text>
     <span lang="ja">
       <Text inline size="300">
@@ -305,7 +305,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </span>
   </Flex>
 
-  <Flex alignItems="center" gap={2}>
+  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
     <Text inline size="400">Size 400</Text>
     <span lang="ja">
       <Text inline size="400">
@@ -314,7 +314,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </span>
   </Flex>
 
-  <Flex alignItems="center" gap={2}>
+  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
     <Text inline size="500">Size 500</Text>
     <span lang="ja">
       <Text inline size="500">
@@ -323,7 +323,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
     </span>
   </Flex>
 
-  <Flex alignItems="center" gap={2}>
+  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
     <Text inline size="600">Size 600</Text>
     <span lang="ja">
       <Text inline size="600">
@@ -342,7 +342,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-<Flex direction="column" gap={2}>
+<Flex direction="column" gap={{ column: 2, row: 0 }}>
   <Text weight="bold">Bold</Text>
   <Text italic>Italic</Text>
   <Text underline>Underline</Text>
@@ -358,14 +358,14 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             defaultCode={`
-<Flex alignItems="center" direction="column" gap={2}>
+<Flex alignItems="center" direction="column" gap={{ column: 2, row: 0 }}>
   <Text size="200" weight="bold">
     Hover over the examples below for a few seconds to see the title text:
   </Text>
 
   <Box borderStyle="sm" maxWidth={400} padding={1}>
-    <Flex direction="column" gap={3}>
-      <Flex direction="column" gap={1}>
+    <Flex direction="column" gap={{ column: 3, row: 0 }}>
+      <Flex direction="column" gap={{ column: 1, row: 0 }}>
         <Text italic size="100">
           This title attribute is automatically added because lineClamp is used and children is a string.
         </Text>
@@ -375,7 +375,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </Text>
       </Flex>
 
-      <Flex direction="column" gap={1}>
+      <Flex direction="column" gap={{ column: 1, row: 0 }}>
         <Text italic size="100">
           This example uses lineClamp but has no title attribute, because children is a React.Node.
         </Text>
@@ -387,7 +387,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </Text>
       </Flex>
 
-      <Flex direction="column" gap={1}>
+      <Flex direction="column" gap={{ column: 1, row: 0 }}>
         <Text italic size="100">
           This example uses lineClamp and children is a React.Node, but uses the title prop.
         </Text>

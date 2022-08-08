@@ -201,7 +201,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Place primary Buttons to the right or top of other Button styles."
             defaultCode={`
-<Flex gap={8} direction="column" alignItems="stretch" alignContent="stretch" flex="grow" width="100%">
+<Flex gap={{ column: 8, row: 0 }} direction="column" alignItems="stretch" alignContent="stretch" flex="grow" width="100%">
   <Flex direction="column" alignItems="center" alignContent="center" width="100%">
     <ButtonGroup>
       <Button text="Visit" size="lg" color="gray" />
@@ -209,7 +209,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
     </ButtonGroup>
   </Flex>
   <Divider />
-  <Flex gap={2} direction="column" flex="grow" width="100%">
+  <Flex gap={{ column: 2, row: 0 }} direction="column" flex="grow" width="100%">
     <Button text="Learn more" size="lg" color="red" fullWidth />
     <Button text="Install now" size="lg" color="gray" fullWidth />
   </Flex>
@@ -236,7 +236,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Show the full text on Buttons. Buttons should be stacked when they cannot be displayed side by side."
             defaultCode={`
-<Flex gap={2} direction="column" alignContent="stretch">
+<Flex gap={{ column: 2, row: 0 }} direction="column" alignContent="stretch">
   <Button text="Create account" size="lg" color="red" fullWidth />
   <Button text="View settings" size="lg" color="gray" fullWidth />
 </Flex>
@@ -247,7 +247,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             description="Truncate the Button text. In rare instances where Buttons must remain on one line, truncate the text on the secondary Button before truncating on the primary Button."
             defaultCode={`
-<Flex gap={2}>
+<Flex gap={{ column: 0, row: 2 }}
   <Button text="Kontoeinst..." size="lg" color="gray" />
   <Button text="Neues We..." size="lg" color="red" />
 </Flex>
@@ -278,7 +278,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use an IconButton + Tooltip next to the disabled Button if you need to explain why it is disabled."
             defaultCode={`
-  <Flex gap={1}>
+  <Flex gap={{ column: 0, row: 1 }}
     <Button text="Create account" disabled size="lg" color="red" />
     <Tooltip text="You need to fill in a username to create an account">
       <IconButton
@@ -297,7 +297,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             description="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
             defaultCode={`
-  <Flex gap={1}>
+  <Flex gap={{ column: 0, row: 1 }}
     <Tooltip text="You need to fill in a username to create an account">
       <Button text="Create account" disabled size="lg" color="red" />
     </Tooltip>
@@ -439,7 +439,7 @@ function WhiteButtonExample() {
             size={240}
           >
             <Box padding={3}>
-              <Flex alignItems="center" direction="column" gap={4}>
+              <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
                 <Text color="light" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
@@ -492,11 +492,11 @@ function SemiTransparentWhiteButtonExample() {
             size={240}
           >
             <Box padding={3}>
-              <Flex alignItems="center" direction="column" gap={4}>
+              <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
                 <Text color="light" align="center">
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
-                <Flex alignItems="stretch" direction="column" gap={2}>
+                <Flex alignItems="stretch" direction="column" gap={{ column: 2, row: 0 }}>
                   <Button
                     color="white"
                     size="lg"

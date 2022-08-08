@@ -96,7 +96,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         Place Callout at the top of the page, under the primary navigation or page header when possible.
         `}
             defaultCode={`
-          <Flex direction="column" gap={4}>
+          <Flex direction="column" gap={{ column: 4, row: 0 }}>
             <Flex alignItems="center" justifyContent="start">
               <Icon accessibilityLabel="" icon="pinterest" color="error" size={32}/>
               <ButtonGroup>
@@ -158,7 +158,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         Stack Callouts. In the case that banners must be stacked, Callouts should come before Upsells.
         `}
             defaultCode={`
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Flex alignItems="center" justifyContent="start">
             <Icon accessibilityLabel="" icon="pinterest" color="error" size={32}/>
             <ButtonGroup>
@@ -172,7 +172,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <Divider/>
 
           <Box marginTop={4}>
-            <Flex gap={2} direction="column">
+            <Flex gap={{ column: 2, row: 0 }} direction="column">
               <Upsell
                 imageData={{
                   component: <Icon icon="send" accessibilityLabel="Send" color="default" size={32}/>

@@ -95,7 +95,7 @@ export default function Toast({
       width={hasButton ? undefined : TOAST_WIDTH_PX}
     >
       <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
-        <Flex alignItems="center" gap={4}>
+        <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
           {thumbnail ? (
             <Flex.Item flex="none">
               <Mask

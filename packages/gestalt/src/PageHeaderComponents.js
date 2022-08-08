@@ -165,7 +165,7 @@ export function PageHeaderActionBlock({
   return (
     <Fragment>
       <Box display="none" mdDisplay="block">
-        <Flex gap={2}>
+        <Flex gap={{ column: 0, row: 2 }}>
           {/* 48px height needed to maintain proper sizing when action is a Link */}
           {secondaryAction ? (
             <Box height={48} display="flex" alignItems="center">
@@ -211,7 +211,7 @@ export function PageHeaderActionBlock({
 export function PageHeaderItemsBlock({ items }: {| items: $ReadOnlyArray<Node> |}): Node {
   return (
     <Box display="none" mdDisplay="block" overflow="hidden">
-      <Flex gap={6}>
+      <Flex gap={{ column: 0, row: 6 }}>
         {items.slice(0, 2).map((item, i) => (
           <Flex.Item key={i}>{item}</Flex.Item>
         ))}

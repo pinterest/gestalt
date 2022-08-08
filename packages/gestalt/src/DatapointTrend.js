@@ -36,7 +36,7 @@ export default function DatapointTrend({
   const color = getValueColor({ sentiment, value });
 
   return (
-    <Flex gap={1}>
+    <Flex gap={{ column: 0, row: 1 }}>
       {value !== 0 && (
         <Icon
           accessibilityLabel={iconAccessibilityLabel}

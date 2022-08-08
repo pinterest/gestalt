@@ -71,7 +71,7 @@ function SegmentedControlExample() {
   ];
 
   return (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <SegmentedControl
         items={items}
         selectedItemIndex={itemIndex}
@@ -96,8 +96,8 @@ function SegmentedControlExample() {
   const items = ['Short', 'Really really really long title'];
 
   return (
-    <Flex direction="column" gap={6}>
-      <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 6, row: 0 }}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Heading size="400">Equal widths</Heading>
         <SegmentedControl
         items={items}
@@ -106,7 +106,7 @@ function SegmentedControlExample() {
         />
       </Flex>
 
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Heading size="400">Responsive widths</Heading>
         <SegmentedControl
         items={items}

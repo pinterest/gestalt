@@ -29,7 +29,13 @@ export default function ComponentStatus(): Node {
         description="A detailed synopsis of our components and their implementation status."
         type="guidelines"
       />
-      <Flex direction="column" gap={12}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 12,
+        }}
+      >
         <Column span={8}>
           <Table accessibilityLabel="Component status legend">
             <colgroup>

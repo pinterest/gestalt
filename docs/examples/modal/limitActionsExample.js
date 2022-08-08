@@ -11,7 +11,14 @@ function ModalWithSubHeading({ onDismiss }: {| onDismiss: () => void |}) {
       align="start"
       onDismiss={onDismiss}
       footer={
-        <Flex alignItems="center" justifyContent="end" gap={2}>
+        <Flex
+          alignItems="center"
+          justifyContent="end"
+          gap={{
+            row: 2,
+            column: 0,
+          }}
+        >
           <Button text="Cancel" onClick={onDismiss} />
           <Button color="red" text="Resume" />
         </Flex>

@@ -2,7 +2,7 @@
 
 exports[`<Tabs /> matches snapshot with default props 1`] = `
 <div
-  className="Flex rowGap4 itemsCenter xsDirectionRow"
+  className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -32,13 +32,13 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
             className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -102,13 +102,13 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
             className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -130,7 +130,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
 
 exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 <div
-  className="Flex rowGap4 itemsCenter xsDirectionRow"
+  className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -160,13 +160,13 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
             className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -244,13 +244,13 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
             className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -286,7 +286,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 
 exports[`<Tabs /> matches snapshot with wrap 1`] = `
 <div
-  className="Flex rowGap4 flexWrap itemsCenter xsDirectionRow"
+  className="Flex rowGap4 columnGap0 flexWrap itemsCenter xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -316,13 +316,13 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
             className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"
@@ -386,13 +386,13 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionColumn"
         >
           <div
             className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
             >
               <div
                 className="FlexItem"

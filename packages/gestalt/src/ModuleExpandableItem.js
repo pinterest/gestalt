@@ -48,7 +48,7 @@ export default function ModuleExpandableItem({
 |}): Node {
   return (
     <Box padding={6}>
-      <Flex direction="column" gap={6}>
+      <Flex direction="column" gap={{ column: 6, row: 0 }}>
         <TapArea
           accessibilityControls={id}
           accessibilityExpanded={!isCollapsed}
@@ -75,7 +75,7 @@ export default function ModuleExpandableItem({
 
               {summary && isCollapsed && (
                 <Box column={6} marginStart={6}>
-                  <Flex direction="column" gap={2}>
+                  <Flex direction="column" gap={{ column: 2, row: 0 }}>
                     {summary.map((item, i) => (
                       <Text key={i} size="200" lineClamp={1}>
                         {item}

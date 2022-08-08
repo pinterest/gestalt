@@ -137,7 +137,13 @@ export default function DesignTokensPage(): Node {
                       .map((token: Token) => (
                         <Table.Row key={`token${token.name}`}>
                           <Table.Cell>
-                            <Flex direction="column" gap={2}>
+                            <Flex
+                              direction="column"
+                              gap={{
+                                row: 0,
+                                column: 2,
+                              }}
+                            >
                               <Text>${token.name}</Text>
                               <Text color="subtle">{token.comment || ''}</Text>
                             </Flex>

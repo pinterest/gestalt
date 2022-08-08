@@ -126,7 +126,13 @@ export default function ComponentOverview(): Node {
           />
         </IllustrationContainer>
         <IllustrationContainer justifyContent="start">
-          <Flex gap={2} alignItems="center">
+          <Flex
+            gap={{
+              row: 2,
+              column: 0,
+            }}
+            alignItems="center"
+          >
             <Box aria-hidden>
               <Text>Sort by</Text>
             </Box>
@@ -134,7 +140,12 @@ export default function ComponentOverview(): Node {
               legend="Sort Gestalt components alphabetically or categorically"
               legendDisplay="hidden"
             >
-              <Flex gap={2}>
+              <Flex
+                gap={{
+                  row: 2,
+                  column: 0,
+                }}
+              >
                 <RadioButton
                   checked={order === 'category'}
                   id="category"

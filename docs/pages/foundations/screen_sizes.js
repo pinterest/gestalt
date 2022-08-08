@@ -62,7 +62,7 @@ export default function DocsPage(): Node {
                 </Box>
               </Table.Cell>
               <Table.Cell>
-                <Flex direction="column" gap={2}>
+                <Flex direction="column" gap={{ column: 2, row: 0 }}>
                   <Text>sm: 576px</Text>
                   <Text>md: 768px</Text>
                   <Text>lg: 1312px</Text>

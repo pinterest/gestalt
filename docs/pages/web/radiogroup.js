@@ -193,7 +193,7 @@ function RadioButtonExample() {
 
   return (
       <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
-        <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+        <Flex gap={{ row: 2, column: 0 }} alignItems="center" justifyContent="start">
           <RadioGroup.RadioButton
             checked={favorite === "daily"}
             id="daily"
@@ -208,7 +208,7 @@ function RadioButtonExample() {
             </Flex>
           </Label>
         </Flex>
-        <Flex direction="row" gap={2} alignItems="center" justifyContent="start">
+        <Flex gap={{ row: 2, column: 0 }} alignItems="center" justifyContent="start">
           <RadioGroup.RadioButton
             checked={favorite === "lifetime"}
             id="lifetime"
@@ -270,7 +270,7 @@ function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState();
 
   return (
-    <Flex gap={4} direction="column">
+    <Flex gap={{ column: 4, row: 0 }} direction="column">
       <RadioGroup legend="Feed preference" id="bestPracticeFeedsDo">
         <RadioGroup.RadioButton
           checked={favorite === "grid"}
@@ -304,8 +304,8 @@ function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState();
 
   return (
-    <Flex gap={4} direction="column">
-      <Flex direction="column" gap={2}>
+    <Flex gap={{ column: 4, row: 0 }} direction="column">
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Text size="400" weight="bold">Auto-renew subscription</Text>
         <Text size="200">
           Change will auto-save
@@ -367,7 +367,7 @@ function RadioButtonExample() {
   const [favoriteFood, setFavoriteFood] = React.useState();
 
   return (
-    <Flex gap={8}>
+    <Flex gap={{ column: 0, row: 8 }}
       <RadioGroup legend="What is your favorite pet?" id="directionExample-1">
         <RadioGroup.RadioButton
           checked={favorite === 'dogs'}
@@ -438,7 +438,7 @@ function RadioButtonExample() {
   const [favoriteFood, setFavoriteFood] = React.useState();
 
   return (
-    <Flex gap={8}>
+    <Flex gap={{ column: 0, row: 8 }}
       <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" id="sizeExample">
         <RadioGroup.RadioButton
           checked={favorite === 'pizza'}
@@ -699,7 +699,7 @@ function RadioButtonExample() {
 
           return (
               <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
-                <Flex direction="row" gap={2} alignItems="center">
+                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                   <RadioGroup.RadioButton
                     checked={favorite === "daily"}
                     id="daily-label-ex-custom"
@@ -714,7 +714,7 @@ function RadioButtonExample() {
                     </Flex>
                   </Label>
                 </Flex>
-                <Flex direction="row" gap={2} alignItems="center">
+                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                   <RadioGroup.RadioButton
                     checked={favorite === "lifetime"}
                     id="lifetime-label-ex-custom"
@@ -749,8 +749,8 @@ function RadioButtonExample() {
   const [goal, setGoal] = React.useState();
 
   return (
-    <Flex direction="column" gap={4}>
-      <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Heading size="400">Primary company account goal</Heading>
         <Text size="200">
           Choose your primary goal for this account to help us better understand your needs

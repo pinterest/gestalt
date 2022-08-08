@@ -173,7 +173,7 @@ function Example(props) {
   const [secondValue, setSecondValue] = React.useState();
 
   return (
-    <Flex gap={4}>
+    <Flex gap={{ column: 0, row: 4 }}
       <NumberField
         id="best-practices-do-related-first"
         label="First value"
@@ -205,7 +205,7 @@ function Example(props) {
   const [petsValue, setPetsValue] = React.useState();
 
   return (
-    <Flex gap={4}>
+    <Flex gap={{ column: 0, row: 4 }}
       <NumberField
         id="best-practices-dont-related-age"
         label="Age"
@@ -296,7 +296,7 @@ function Example(props) {
   });
 
   return (
-    <Flex direction="column" gap={3}>
+    <Flex direction="column" gap={{ column: 3, row: 0 }}>
       <NumberField
         id="best-practices-do-required-first"
         label="First number"
@@ -339,7 +339,7 @@ function Example(props) {
   });
 
   return (
-    <Flex direction="column" gap={3}>
+    <Flex direction="column" gap={{ column: 3, row: 0 }}>
       <NumberField
         helperText="* This field is required."
         id="best-practices-dont-required-first"
@@ -525,7 +525,7 @@ function Example(props) {
   const [value2, setValue2] = React.useState();
 
   return (
-    <Flex direction="column" gap={2} width="80%">
+    <Flex direction="column" gap={{ column: 2, row: 0 }} width="80%">
       <NumberField
         id="minMaxStepExampleNumberField1"
         label="Stepping in intervals of 5"

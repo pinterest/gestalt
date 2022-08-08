@@ -2,7 +2,7 @@
 
 exports[`DatapointTrend renders 1`] = `
 <div
-  className="Flex rowGap1 xsDirectionRow"
+  className="Flex rowGap1 columnGap0 xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -35,7 +35,7 @@ exports[`DatapointTrend renders 1`] = `
 
 exports[`DatapointTrend renders an accessibility label 1`] = `
 <div
-  className="Flex rowGap1 xsDirectionRow"
+  className="Flex rowGap1 columnGap0 xsDirectionRow"
 >
   <div
     className="FlexItem"

@@ -50,7 +50,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="Align the badge to the top of large accompanying text (anything larger than 16px). Center align for standard size text."
             defaultCode={`
-              <Flex direction="column" gap={4}>
+              <Flex direction="column" gap={{ column: 4, row: 0 }}>
                 <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
                 <Text size="300">Ads & Campaigns <Badge text="Beta"/></Text>
               </Flex>
@@ -235,7 +235,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={4}>
+<Flex gap={{ column: 0, row: 4 }}
   <Mask height={150} width={280} rounding={2}>
     <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}>
       <Box padding={4}>
@@ -261,7 +261,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={4} direction="column">
+<Flex gap={{ column: 4, row: 0 }} direction="column">
   <Text size="300">Ads & Campaigns <Badge text="New" /></Text>
   <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
 </Flex>

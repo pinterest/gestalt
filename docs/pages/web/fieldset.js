@@ -22,7 +22,7 @@ function RadioButtonExample() {
 
   return (
     <Fieldset legend="What is your favorite pet?">
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <RadioButton
           checked={favorite === 'dogs'}
           id="favoriteDog"
@@ -102,7 +102,7 @@ function RadioButtonExample() {
 
   return (
     <form>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <TextField
           id="name"
           onChange={({ value }) => setName(value)}
@@ -120,7 +120,7 @@ function RadioButtonExample() {
           type="email"
         />
         <Fieldset legend="Favorite pet">
-          <Flex direction="column" gap={2}>
+          <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <RadioButton
               checked={favorite === 'dogs'}
               id="favoriteDogA11y"
@@ -175,8 +175,8 @@ function CheckboxExample() {
   const [checkedNotSure, setCheckedNotSure] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={4}>
-      <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Heading size="400">Company Account Goals</Heading>
         <Text size="200">
           Choose up to 3.
@@ -188,7 +188,7 @@ function CheckboxExample() {
         </Text>
       </Flex>
       <Fieldset legend="Choose up to 3 company account goals" legendDisplay="hidden">
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Checkbox
             checked={checkedSell}
             id="sell"
@@ -253,7 +253,7 @@ function CheckboxExample() {
 
   return (
     <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message" errorMessage="At least 1 item must be selected">
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Checkbox
           checked={checkedEn}
           id="english-info"

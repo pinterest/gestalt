@@ -52,7 +52,12 @@ type ColorCardProps = {|
 |};
 function ColorSchemeLayout({ children }: ColorCardProps): Node {
   return (
-    <Flex gap={4}>
+    <Flex
+      gap={{
+        row: 4,
+        column: 0,
+      }}
+    >
       {['light', 'dark'].map((scheme) => (
         <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
           <Box color="default" padding={4} display="flex" direction="column" alignItems="center">
@@ -485,7 +490,13 @@ function Example() {
           title="Elevation"
           description="Colors and shadows can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode, while `shadow` is only applicable in light mode. For full details, visit our [Elevation foundations page](/foundations/elevation)."
         >
-          <Flex direction="column" gap={2}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 2,
+            }}
+          >
             <Text size="400">Color</Text>
             <Box>
               <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
@@ -591,8 +602,8 @@ function BoxPopoverExample() {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo. Maecenas tincidunt neque elit, eu pretium arcu dictum ac. Donec vehicula mauris ut erat dictum, eget tempus elit luctus. In volutpat felis justo, et venenatis arcu viverra in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin enim lorem, vulputate eget imperdiet nec, dapibus sed diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse rhoncus ut leo non gravida. Nulla tincidunt tellus sit amet ornare venenatis. Sed quis lorem cursus, porttitor tellus sed, commodo ex. Praesent blandit pretium faucibus. Aenean orci tellus, vulputate id sapien sit amet, porta fermentum quam. Praesent sem risus, tristique sit amet pulvinar in, scelerisque sit amet massa.';
 
   return (
-    <Flex gap={4} wrap>
-      <Flex gap={8} direction="column" wrap>
+    <Flex gap={{ row: 4, column: 0 }} wrap>
+      <Flex gap={{ column: 8, row: 0 }} direction="column" wrap>
         <Box>
           <Text>Overflow Hidden</Text>
           <Box
@@ -636,7 +647,7 @@ function BoxPopoverExample() {
           </Box>
         </Box>
       </Flex>
-      <Flex gap={8} direction="column" wrap>
+      <Flex gap={{ column: 8, row: 0 }} direction="column" wrap>
         <Box>
           <Text>Overflow Auto</Text>
           <Box
@@ -698,7 +709,7 @@ function BoxPopoverExample() {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex gap={3}>
+<Flex gap={{ column: 0, row: 3 }}
   <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="darkWash">
     <Box width={40} height={40} color="successBase" />
   </Box>
@@ -776,7 +787,7 @@ function BoxPopoverExample() {
 
   return (
     <React.Fragment>
-      <Flex alignItems="start" direction="column" gap={6}>
+      <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }}>
         <Button
           inline
           color="red"

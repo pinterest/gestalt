@@ -10,7 +10,12 @@ export default function Example(): Node {
       accessibilityLabel="Header example"
       header={
         <RadioGroup legend="Sort by?" id="example-header">
-          <Flex gap={2}>
+          <Flex
+            gap={{
+              row: 2,
+              column: 0,
+            }}
+          >
             <RadioGroup.RadioButton
               checked={organisedBy === 'categorized'}
               id="category"

@@ -168,8 +168,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/web/iconbutton)."
             defaultCode={`
-        <Flex direction="column" gap={1}>
-          <Flex alignItems="center" gap={1}>
+        <Flex direction="column" gap={{ column: 1, row: 0 }}>
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
             <Label htmlFor="business-url-field">
               <Text size="100">Business URL</Text>
             </Label>
@@ -277,8 +277,8 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
   const [idealDirection, setIdealDirection] = React.useState('down');
 
   return (
-    <Flex direction="column" alignItems="center" gap={8}>
-      <Flex gap={4}>
+    <Flex direction="column" alignItems="center" gap={{ column: 8, row: 0 }}>
+      <Flex gap={{ column: 0, row: 4 }}
         <RadioButton
           checked={idealDirection === 'up'}
           id="up"
@@ -399,7 +399,7 @@ function SectionsIconButtonDropdownExample() {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-  <Flex gap={2} justifyContent="center" alignItems="center">
+  <Flex gap={{ row: 2, column: 0 }} justifyContent="center" alignItems="center">
     <Text>Enable expanded targeting</Text>
     <Tooltip
       text="Use your Pin to expand your targeting."
@@ -526,7 +526,7 @@ function ScrollBoundaryContainerExample() {
                     </Box>
                   </Image>
                 </Box>
-                <Flex direction="column" gap={4}>
+                <Flex direction="column" gap={{ column: 4, row: 0 }}>
                   <Heading size="400" weight="bold">Text Overlay</Heading>
                   <Text size="300">Add text directly onto your Pin</Text>
                   <Text size="300" weight="bold">Alignment</Text>
@@ -588,27 +588,11 @@ function ScrollBoundaryContainerExample() {
   const [device, setDevice] = React.useState(null);
 
   return (
-    <ScrollBoundaryContainer
-      overflow="scrollY"
-      height={200}
-    >
-      <Flex
-        width={300}
-        direction="column"
-        gap={4}
-      >
-        <Flex
-          direction="column"
-          gap={2}
-        >
-          <Flex
-            alignItems="center"
-            gap={1}
-          >
-            <Text
-              weight="bold"
-              size="lg"
-            >
+    <ScrollBoundaryContainer overflow="scrollY" height={200}>
+      <Flex width={300} direction="column" gap={{ column: 4, row: 0 }}>
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+            <Text weight="bold" size="lg">
               Content type
             </Text>
             <Tooltip
@@ -623,10 +607,7 @@ function ScrollBoundaryContainerExample() {
               />
             </Tooltip>
           </Flex>
-          <Box
-            display="flex"
-            direction="column"
-          >
+          <Box display="flex" direction="column">
           <Box paddingY={1}>
               <RadioButton
                 checked={content === "all"}
@@ -659,18 +640,9 @@ function ScrollBoundaryContainerExample() {
             </Box>
           </Box>
         </Flex>
-        <Flex
-          direction="column"
-          gap={2}
-        >
-          <Flex
-            alignItems="center"
-            gap={1}
-          >
-            <Text
-              weight="bold"
-              size="lg"
-            >
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+            <Text weight="bold" size="lg">
               Claimed account
             </Text>
             <Tooltip
@@ -684,10 +656,7 @@ function ScrollBoundaryContainerExample() {
               />
             </Tooltip>
           </Flex>
-          <Box
-            display="flex"
-            direction="column"
-          >
+          <Box display="flex" direction="column">
           <Box paddingY={1}>
             <RadioButton
               checked={claimed === "all"}
@@ -720,18 +689,9 @@ function ScrollBoundaryContainerExample() {
             </Box>
           </Box>
         </Flex>
-        <Flex
-          direction="column"
-          gap={2}
-        >
-          <Flex
-            alignItems="center"
-            gap={1}
-          >
-            <Text
-              weight="bold"
-              size="lg"
-            >
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+            <Text weight="bold" size="lg">
               Device
             </Text>
             <Tooltip
@@ -744,10 +704,7 @@ function ScrollBoundaryContainerExample() {
               />
             </Tooltip>
           </Flex>
-          <Box
-            display="flex"
-            direction="column"
-          >
+          <Box display="flex" direction="column">
           <Box paddingY={1}>
             <RadioButton
               checked={device === "all"}

@@ -137,16 +137,16 @@ export default function PageHeader({
           <Flex flex="grow" maxWidth={maxWidth}>
             <Flex.Item minWidth={0} flex="grow" alignSelf="center">
               <Box marginEnd={6}>
-                <Flex gap={4} alignItems="center">
+                <Flex gap={{ row: 4, column: 0 }} alignItems="center">
                   {thumbnail ? <PageHeaderThumbnail thumbnail={thumbnail} /> : null}
-                  <Flex direction="column" gap={1}>
+                  <Flex direction="column" gap={{ column: 1, row: 0 }}>
                     <Flex alignItems="center">
                       <PageHeaderTitle
                         marginTop={thumbnail && subtext ? -4 : undefined}
                         title={title}
                       />
                       <Box display="none" smDisplay="block" marginStart={badge ? 1 : 3}>
-                        <Flex gap={3}>
+                        <Flex gap={{ column: 0, row: 3 }}>
                           {badge ? (
                             <PageHeaderBadge
                               badgeText={badgeText}
@@ -172,7 +172,7 @@ export default function PageHeader({
               </Box>
             </Flex.Item>
             <Flex.Item minWidth={0} flex="none">
-              <Flex gap={8} alignItems="center" height="100%">
+              <Flex gap={{ row: 8, column: 0 }} alignItems="center" height="100%">
                 {items && items.length !== 0 ? <PageHeaderItemsBlock items={items} /> : null}
                 {primaryAction || secondaryAction ? (
                   <PageHeaderActionBlock

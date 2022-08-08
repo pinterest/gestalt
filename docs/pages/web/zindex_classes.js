@@ -325,11 +325,11 @@ function ScrollBoundaryContainerExample() {
     const anchorRef = React.useRef();
 
     const List = ({ title }) => (
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Text color="default" size="100">
           { title }
         </Text>
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           {[
             ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
             ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
@@ -343,7 +343,7 @@ function ScrollBoundaryContainerExample() {
                 }}
                 rounding={2}
               >
-                <Flex gap={2} alignItems="center">
+                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
                   <Box height={50} width={50} overflow="hidden" rounding={2}>
                     <Mask rounding={2}>
                       <Image
@@ -367,7 +367,7 @@ function ScrollBoundaryContainerExample() {
 
     return (
       <React.Fragment>
-          <Flex direction="column" gap={2}>
+          <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Text size="100">Board</Text>
             <Button
               iconEnd="arrow-down"
@@ -388,7 +388,7 @@ function ScrollBoundaryContainerExample() {
             >
               <Box width={360}>
                 <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                  <Flex direction="column" gap={6}>
+                  <Flex direction="column" gap={{ column: 6, row: 0 }}>
                     <Text align="center" color="default" weight="bold">
                       Save to board
                     </Text>
@@ -397,7 +397,7 @@ function ScrollBoundaryContainerExample() {
                 </Box>
                 <Box height={300} overflow="scrollY">
                   <Box marginEnd={4} marginStart={4}>
-                    <Flex direction="column" gap={8}>
+                    <Flex direction="column" gap={{ column: 8, row: 0 }}>
                       <List title="Top choices"/>
                       <List title="All boards"/>
                     </Flex>
@@ -436,7 +436,7 @@ function ScrollBoundaryContainerExample() {
                       onClick={() => setShowSheet(false)}
                     />
                   </Flex.Item>
-                  <Flex gap={2}>
+                  <Flex gap={{ column: 0, row: 2 }}
                     <Button
                       text="Cancel"
                       size="lg"
@@ -456,7 +456,7 @@ function ScrollBoundaryContainerExample() {
             size="lg"
           >
             <Box display="flex" height={400} paddingX={8}>
-              <Flex gap={8} width="100%">
+              <Flex gap={{ row: 8, column: 0 }} width="100%">
                 <Box width={200} paddingX={2} rounding={4}>
                   <Mask rounding={4}>
                     <Image
@@ -469,7 +469,7 @@ function ScrollBoundaryContainerExample() {
                   </Mask>
                 </Box>
                 <Flex.Item flex="grow">
-                  <Flex direction="column" gap={8}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
                     <SelectBoard/>
                     <TextArea
                       id="note"
@@ -599,7 +599,7 @@ function ScrollBoundaryContainerExample() {
                     </Box>
                   </Image>
                 </Box>
-                <Flex direction="column" gap={4}>
+                <Flex direction="column" gap={{ column: 4, row: 0 }}>
                   <Heading size="400" weight="bold">Text Overlay</Heading>
                   <Text size="300">Add text directly onto your Pin</Text>
                   <Text size="300" weight="bold">Alignment</Text>

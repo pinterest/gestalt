@@ -970,7 +970,7 @@ function MainExample() {
       'first-2': 2,
     };
     return (
-      <Flex direction="column" gap={6} width={800}>
+      <Flex direction="column" gap={{ column: 6, row: 0 }} width={800}>
         <Tabs
           activeTabIndex={tabItem === 'campaign' ? 0 : 1}
           bgColor="transparent"
@@ -984,11 +984,11 @@ function MainExample() {
           ]}
         />
         {tabItem === 'campaign' ? (
-          <Flex direction="column" gap={6} width="100%">
+          <Flex direction="column" gap={{ column: 6, row: 0 }} width="100%">
             <Heading size="400" accessibilityLevel={2}>
               Latest boards
             </Heading>
-            <Flex gap={6} width="100%">
+            <Flex gap={{ row: 6, column: 0 }} width="100%">
               <Flex.Item width="50%">
                 <TapArea tapStyle="compress" onTap={() => {}}>
                   <Mask rounding={4}>
@@ -1051,18 +1051,18 @@ function MainExample() {
                       }}
                     />
                   </Mask>
-                  <Flex direction="column" gap={2}>
+                  <Flex direction="column" gap={{ column: 2, row: 0 }}>
                     <Heading size="400" accessibilityLevel={0}>
                       Uniform
                     </Heading>
-                    <Flex gap={5}>
+                    <Flex gap={{ column: 0, row: 5 }}
                       <Text size="200">123 Pins</Text>
                       <Text size="200">4 sections</Text>
                     </Flex>
                   </Flex>
                 </TapArea>
               </Flex.Item>
-              <Flex direction="column" gap={4} width="100%">
+              <Flex direction="column" gap={{ column: 4, row: 0 }} width="100%">
                 <TextField
                   id="name"
                   onChange={() => {}}
@@ -1077,7 +1077,7 @@ function MainExample() {
                   label="Notes"
                   value=""
                 />
-                <Flex gap={4}>
+                <Flex gap={{ column: 0, row: 4 }}
                   <NumberField
                     id="budget"
                     onChange={() => {}}
@@ -1099,7 +1099,7 @@ function MainExample() {
                 <Switch onChange={() => {}} id="status" switched />
               </Flex>
             </Flex>
-            <Flex gap={3}>
+            <Flex gap={{ column: 0, row: 3 }}
               <Button text="Cancel" />
               <Flex.Item flex="grow">
                 <Button text="Pause" />
@@ -1108,7 +1108,7 @@ function MainExample() {
             </Flex>
           </Flex>
         ) : (
-          <Flex gap={3}>
+          <Flex gap={{ column: 0, row: 3 }}
             <Module id="Analitycs Overview" title="Analitycs Overview">
               <Box width={300}>
                 <Datapoint
@@ -1134,7 +1134,7 @@ function MainExample() {
                 />
               </Box>
             </Module>
-            <Flex direction="column" gap={2} maxWidth={800}>
+            <Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={800}>
               <Module
                 id="Ads Overview"
                 title="Ads Overview"
@@ -1358,7 +1358,7 @@ function Example() {
   const tableID = "Example of correct accessibility with top caption";
 
   return (
-    <Flex gap={2} direction="column">
+    <Flex gap={{ column: 2, row: 0 }} direction="column">
       <Box aria-hidden>
         <Text
           size="400"
@@ -1465,7 +1465,7 @@ function Example() {
   const tableID = "Example of correct accessibility with bottom caption";
 
   return (
-    <Flex gap={2} direction="column">
+    <Flex gap={{ column: 2, row: 0 }} direction="column">
       <Table accessibilityLabel="Your campaigns summary">
         <HeaderRow id={tableID}/>
         <Table.Body>

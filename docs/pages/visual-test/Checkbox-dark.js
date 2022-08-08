@@ -6,7 +6,13 @@ export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
-        <Flex direction="column" gap={2}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 2,
+          }}
+        >
           <Checkbox
             checked
             id="english-info"

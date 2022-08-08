@@ -29,7 +29,13 @@ type PrincipleItemProps = {|
 
 function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Node {
   return (
-    <Flex direction="column" gap={4}>
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 4,
+      }}
+    >
       <Box
         display="flex"
         alignItems="center"
@@ -63,7 +69,14 @@ export default function TypographyPage(): Node {
       />
 
       <MainSection name="Principles">
-        <Flex gap={12} alignContent="between" wrap>
+        <Flex
+          gap={{
+            row: 12,
+            column: 0,
+          }}
+          alignContent="between"
+          wrap
+        >
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
               color="teal-spabattical-100"
@@ -236,9 +249,22 @@ We use browser defaults on web UIs so that lines of text are readable in all lan
             `}
             />
           </Box>
-          <Flex gap={4} width="100%" wrap>
+          <Flex
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            width="100%"
+            wrap
+          >
             <Flex.Item flex="shrink" flexBasis={244}>
-              <Flex direction="column" gap={2}>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+              >
                 <Box color="infoWeak">
                   <LineHeightLatin />
                 </Box>
@@ -249,7 +275,13 @@ We use browser defaults on web UIs so that lines of text are readable in all lan
               </Flex>
             </Flex.Item>
             <Flex.Item flex="shrink" flexBasis={244}>
-              <Flex direction="column" gap={2}>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+              >
                 <Box color="infoWeak">
                   <LineHeightCJK />
                 </Box>
@@ -331,13 +363,26 @@ Line height is automatically determined by a font’s size. For more info, refer
 
       <MainSection name="Alignment">
         <MainSection.Subsection title="Default">
-          <Flex gap={4} wrap>
+          <Flex
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            wrap
+          >
             <Flex.Item flex="shrink" flexBasis={244}>
               <Box color="infoWeak" marginBottom={4}>
                 <AlignmentStart />
               </Box>
             </Flex.Item>
-            <Flex direction="column" gap={2} maxWidth={420}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 2,
+              }}
+              maxWidth={420}
+            >
               <Heading size="300" accessibilityLevel={4}>
                 Start-aligned
               </Heading>
@@ -353,26 +398,52 @@ Line height is automatically determined by a font’s size. For more info, refer
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Exceptions">
-          <Flex gap={4} wrap>
+          <Flex
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            wrap
+          >
             <Flex.Item flex="shrink" flexBasis={244}>
               <Box color="infoWeak" marginBottom={4}>
                 <AlignmentCenter />
               </Box>
             </Flex.Item>
-            <Flex direction="column" gap={2} maxWidth={420}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 2,
+              }}
+              maxWidth={420}
+            >
               <Heading size="300" accessibilityLevel={4}>
                 Centered
               </Heading>
               <Markdown text="Use center-aligned text for very short blocks of content, like text inside of buttons or tabs." />
             </Flex>
           </Flex>
-          <Flex gap={4} wrap>
+          <Flex
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            wrap
+          >
             <Flex.Item flex="shrink" flexBasis={244}>
               <Box color="infoWeak" marginBottom={4}>
                 <AlignmentEnd />
               </Box>
             </Flex.Item>
-            <Flex direction="column" gap={2} maxWidth={420}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 2,
+              }}
+              maxWidth={420}
+            >
               <Heading size="300" accessibilityLevel={4}>
                 End-aligned
               </Heading>
@@ -440,7 +511,12 @@ Line height is automatically determined by a font’s size. For more info, refer
                   </Table.Cell>
                 ))}
                 <Table.Cell>
-                  <Flex gap={8}>
+                  <Flex
+                    gap={{
+                      row: 8,
+                      column: 0,
+                    }}
+                  >
                     <Text weight="bold">
                       <Link href="https://pinterest.com">Pinterest</Link>
                     </Text>
@@ -713,7 +789,7 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
             defaultCode={`
-<Flex direction="column" gap={2} alignItems="center" >
+<Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center" >
   <Heading align="center" accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
   <Text color="subtle">See your account settings</Text>
   <Text color="subtle">Create new Pins for you</Text>
@@ -802,7 +878,7 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Truncate paragraph text, which can be misread and change the original meaning of the text."
             defaultCode={`
-<Flex direction="column" gap={2} maxWidth={250}>
+<Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={250}>
   <Heading accessibilityLevel={4} size="400">Cheesy chicken sandwich</Heading>
   <Text lineClamp={3}>An updated twist to a grilled classic. This is a delicious treat, especially if you are a chicken lover. Make sure to try this out!</Text>
 </Flex>

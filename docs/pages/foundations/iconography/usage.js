@@ -22,7 +22,13 @@ type PrincipleItemProps = {|
 
 function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Node {
   return (
-    <Flex direction="column" gap={4}>
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 4,
+      }}
+    >
       <Box
         display="flex"
         alignItems="center"
@@ -56,7 +62,14 @@ export default function IconographyPage(): Node {
       />
 
       <MainSection name="Principles">
-        <Flex gap={12} alignContent="between" wrap>
+        <Flex
+          gap={{
+            row: 12,
+            column: 0,
+          }}
+          alignContent="between"
+          wrap
+        >
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
               color="purple-mysticool-100"
@@ -124,39 +137,121 @@ When choosing icons, we recommend sticking to a consistent style as much as poss
 Get in touch with us if an aesthetic change is needed, and we will evaluate the case.`}
         >
           <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
-            <Flex direction="column" gap={8}>
-              <Flex gap={8} justifyContent="center">
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 8,
+              }}
+            >
+              <Flex
+                gap={{
+                  row: 8,
+                  column: 0,
+                }}
+                justifyContent="center"
+              >
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="home" accessibilityLabel="home" size={24} color="dark" />
                   <Text size="100">home</Text>
                 </Flex>
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="heart" accessibilityLabel="heart" size={24} color="dark" />
                   <Text size="100">heart</Text>
                 </Flex>
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="lock" accessibilityLabel="lock" size={24} color="dark" />
                   <Text size="100">lock</Text>
                 </Flex>
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="trash-can" accessibilityLabel="trash can" size={24} color="dark" />
                   <Text size="100">trash-can</Text>
                 </Flex>
               </Flex>
-              <Flex gap={8} justifyContent="center">
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+              <Flex
+                gap={{
+                  row: 8,
+                  column: 0,
+                }}
+                justifyContent="center"
+              >
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="search" accessibilityLabel="search" size={24} color="dark" />
                   <Text size="100">search</Text>
                 </Flex>
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="calendar" accessibilityLabel="calendar" size={24} color="dark" />
                   <Text size="100">calendar</Text>
                 </Flex>
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="visit" accessibilityLabel="visit" size={24} color="dark" />
                   <Text size="100">visit</Text>
                 </Flex>
-                <Flex direction="column" gap={2} alignItems="center" width={64}>
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                  width={64}
+                >
                   <Icon icon="globe" accessibilityLabel="globe" size={24} color="dark" />
                   <Text size="100">globe</Text>
                 </Flex>
@@ -172,32 +267,77 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
           description="Our icons are pixel-snapped for each singular case. Using a size not available in our size scale can cause the proportions to be off-balance and create an unintentional hierarchy within the Pinner experience. Our icons are purposefully designed to scale proportionally. Icons should fit organically in your design and feel balanced and optical aligned. In addition, we must ensure that your users can use your icons without the need for zooming."
         >
           <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
-            <Flex gap={8} justifyContent="center">
-              <Flex direction="column" gap={2} alignItems="center" justifyContent="center">
+            <Flex
+              gap={{
+                row: 8,
+                column: 0,
+              }}
+              justifyContent="center"
+            >
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+                justifyContent="center"
+              >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
                   <Icon icon="bell" accessibilityLabel="bell" size={12} color="dark" />
                 </Flex>
                 <Text size="100">12px</Text>
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center" justifyContent="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+                justifyContent="center"
+              >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
                   <Icon icon="bell" accessibilityLabel="bell" size={14} color="dark" />
                 </Flex>
                 <Text size="100">14px</Text>
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center" justifyContent="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+                justifyContent="center"
+              >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
                   <Icon icon="bell" accessibilityLabel="bell" size={16} color="dark" />
                 </Flex>
                 <Text size="100">16px</Text>
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center" justifyContent="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+                justifyContent="center"
+              >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
                   <Icon icon="bell" accessibilityLabel="bell" size={24} color="dark" />
                 </Flex>
                 <Text size="100">24px</Text>
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+              >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
                   <Icon icon="bell" accessibilityLabel="bell" size={32} color="dark" />
                 </Flex>
@@ -241,20 +381,61 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           description="Icons can display all of our [color design tokens](/foundations/design_tokens) options. However, we advise using colors semantically to avoid usability issues."
         >
           <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
-            <Flex gap={8} justifyContent="center">
-              <Flex direction="column" gap={2} alignItems="center">
+            <Flex
+              gap={{
+                row: 8,
+                column: 0,
+              }}
+              justifyContent="center"
+            >
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+              >
                 <Icon icon="heart" accessibilityLabel="heart" size={24} color="error" />
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+              >
                 <Icon icon="heart" accessibilityLabel="heart" size={24} color="dark" />
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+              >
                 <Icon icon="heart" accessibilityLabel="heart" size={24} color="default" />
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+              >
                 <Icon icon="heart" accessibilityLabel="heart" size={24} color="info" />
               </Flex>
-              <Flex direction="column" gap={2} alignItems="center">
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                alignItems="center"
+              >
                 <Icon icon="heart" accessibilityLabel="heart" size={24} color="success" />
               </Flex>
             </Flex>
@@ -267,10 +448,29 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           title="Platform-specific"
           description={`Our icons are used across multiple platforms, so we ensure that our icons are as similar as possible across all these platforms. However, some icons have already established conventions on specific platforms. In these cases, it's beneficial to follow the system's standards. Please note: We provide platform-specific icons (e.g., share, check, back).`}
         >
-          <Flex gap={4} wrap>
+          <Flex
+            gap={{
+              row: 4,
+              column: 0,
+            }}
+            wrap
+          >
             <Box color="infoWeak" padding={8} width={240}>
-              <Flex gap={8} justifyContent="center">
-                <Flex direction="column" gap={2} alignItems="center">
+              <Flex
+                gap={{
+                  row: 8,
+                  column: 0,
+                }}
+                justifyContent="center"
+              >
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                >
                   <Icon
                     icon="android-share"
                     accessibilityLabel="share for android"
@@ -282,8 +482,21 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
               </Flex>
             </Box>
             <Box color="infoWeak" padding={8} width={240}>
-              <Flex gap={8} justifyContent="center">
-                <Flex direction="column" gap={2} alignItems="center">
+              <Flex
+                gap={{
+                  row: 8,
+                  column: 0,
+                }}
+                justifyContent="center"
+              >
+                <Flex
+                  direction="column"
+                  gap={{
+                    row: 0,
+                    column: 2,
+                  }}
+                  alignItems="center"
+                >
                   <Icon icon="share" accessibilityLabel="share for iOS" size={24} color="dark" />
                   <Text size="100">iOS share</Text>
                 </Flex>
@@ -313,7 +526,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="do"
             description="A11y: Use icons semantically and provide meaningful text whenever it is possible."
             defaultCode={`
-<Flex gap={2} alignItems="center">
+<Flex gap={{ row: 2, column: 0 }} alignItems="center"></Flex>
   <Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
   <Text>Recommendation text</Text>
 </Flex>
@@ -375,7 +588,13 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="do"
             description="Alignment: Center-align icons when they’re next to a text element."
           >
-            <Flex gap={1} alignItems="center">
+            <Flex
+              gap={{
+                row: 1,
+                column: 0,
+              }}
+              alignItems="center"
+            >
               <ReactionLove />
               <Text>2.8k</Text>
             </Flex>
@@ -385,7 +604,12 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="don't"
             description="Baseline-align icons to the text element."
           >
-            <Flex gap={1}>
+            <Flex
+              gap={{
+                row: 1,
+                column: 0,
+              }}
+            >
               <ReactionLove />
               <Text>2.8k</Text>
             </Flex>

@@ -166,7 +166,7 @@ export default function DocsPage({
         Plan for the timing of your Upsells with new product launches. Try to create different messages for each time an Upsell appears to the user.
         `}
             defaultCode={`
-<Flex gap={4} direction="column">
+<Flex gap={{ column: 4, row: 0 }} direction="column">
   <Text>First Upsell:</Text>
   <Upsell
     dismissButton={{
@@ -243,7 +243,7 @@ export default function DocsPage({
   <Divider />
 
   <Box marginTop={8}>
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Upsell
         imageData={{
           component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
@@ -282,7 +282,7 @@ export default function DocsPage({
         Keep showing the same Upsell once it has been dismissed. Upsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
         `}
             defaultCode={`
-<Flex direction="column" gap={4}>
+<Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Upsell
     dismissButton={{
       accessibilityLabel: 'Dismiss banner',

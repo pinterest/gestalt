@@ -64,8 +64,21 @@ export default function ExampleCode({
 
   return (
     <Box marginTop={2}>
-      <Flex direction="column" gap={2}>
-        <Flex justifyContent="between" alignItems="center" gap={2}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 2,
+        }}
+      >
+        <Flex
+          justifyContent="between"
+          alignItems="center"
+          gap={{
+            row: 2,
+            column: 0,
+          }}
+        >
           <Flex justifyContent="start">
             <OpenSandboxButton
               onClick={() => {

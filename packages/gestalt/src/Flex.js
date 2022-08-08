@@ -6,6 +6,7 @@ import wrapWithComponent from './utils/wrapWithComponent.js';
 import { buildStyles } from './boxTransforms.js';
 
 type Dimension = number | string;
+type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 type Props = {|
   /**
@@ -21,7 +22,7 @@ type Props = {|
    */
   alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   /**
-   *
+   * Note that each child will be automatically wrapped in [Flex.Item](https://gestalt.pinterest.systems/flex#Flex.Item) to apply various styles. If specific flex styles are needed on a child, you can manually wrap it in Flex.Item to apply those styles. See [the Applying flex properties to children example](https://gestalt.pinterest.systems/flex#Applying-flex-properties-to-children) to learn more.
    */
   children?: Node,
   /**
@@ -34,9 +35,9 @@ type Props = {|
    */
   flex?: 'grow' | 'shrink' | 'none',
   /**
-   * Defines spacing between each child along the main axis.
+   * Defines spacing between each child along the main and cross axes. Use an object to define different spacing for rows and columns. See the [Gap](https://gestalt.pinterest.systems/flex#Gap) variant to learn more.
    */
-  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+  gap?: Gap | {| row: Gap, column: Gap |},
   /**
    * Use numbers for pixels: `height={100}` and strings for percentages: `height="100%"`.
    */
@@ -124,8 +125,12 @@ export default function Flex({
       }).filter(Boolean)
     : childrenProp;
 
+  const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
+    styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
+  }`;
+
   const { passthroughProps, propsStyles } = buildStyles<Props>({
-    baseStyles: `${styles.Flex} ${styles[`${direction}Gap${gap}`]}`,
+    baseStyles: `${styles.Flex} ${gapStyles}`,
     props: {
       ...rest,
       alignItems,

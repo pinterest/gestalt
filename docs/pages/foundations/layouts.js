@@ -22,7 +22,7 @@ export default function DocsPage(): Node {
             defaultCode={`
 <Flex
   direction="column"
-  gap={6}
+  gap={{ column: 6, row: 0 }}
   maxWidth={800}
   width="100%"
   wrap
@@ -86,7 +86,7 @@ export default function DocsPage(): Node {
     onChange={() => {}}
   />
 
-  <Flex gap={2} justifyContent="end" wrap>
+  <Flex gap={{ row: 2, column: 0 }} justifyContent="end" wrap>
     <Button text="Cancel" size="lg" />
     <Button text="Submit" color="red" size="lg" type="submit" />
   </Flex>

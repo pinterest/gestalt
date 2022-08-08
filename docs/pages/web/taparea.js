@@ -345,8 +345,8 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Flex alignItems="start" direction="column" gap={6}>
-      <Flex gap={6}>
+    <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }}>
+      <Flex gap={{ column: 0, row: 6 }}
         <Tooltip text="Default TapArea">
           <TapArea
             tapStyle={compressed}
@@ -390,7 +390,7 @@ function Example() {
           </TapArea>
         </Tooltip>
       </Flex>
-      <Flex gap={2}>
+      <Flex gap={{ column: 0, row: 2 }}
         <Switch
           onChange={() => setCompressed(compressed === "compress" ? "none" : "compress")}
           id="compress-buttons"
@@ -402,7 +402,7 @@ function Example() {
           </Label>
         </Box>
       </Flex>
-      <Flex gap={2}>
+      <Flex gap={{ column: 0, row: 2 }}
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -414,7 +414,7 @@ function Example() {
           </Label>
         </Box>
       </Flex>
-      <Flex gap={2}>
+      <Flex gap={{ column: 0, row: 2 }}
         <Switch
           onChange={() => setTabIndex(!tabIndex)}
           id="unreachable-buttons"
@@ -465,7 +465,7 @@ function Example() {
           description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
           defaultCode={`
 <Box color="warningBase" height={250} padding={3} width={500}>
-  <Flex direction="column" gap={6}>
+  <Flex direction="column" gap={{ column: 6, row: 0 }}>
     <Flex.Item>
       <Text color="inverse" inline>Other content</Text>
       <Box borderStyle="sm" margin={3} column={6}>
@@ -554,7 +554,7 @@ function TapAreaRefExample() {
   const [focus, setFocus] = React.useState(0);
 
   return (
-    <Flex gap={2}>
+    <Flex gap={{ column: 0, row: 2 }}
       <Button
         text="Focus the TapArea"
         onClick={() => ref.current.focus()}
@@ -602,7 +602,7 @@ function MenuButtonExample() {
             rounding={1}
             padding={2}
           >
-            <Flex gap={2}>
+            <Flex gap={{ column: 0, row: 2 }}
               <Box height={50} width={50}>
                 <Mask rounding={1}>
                   <Image

@@ -16,7 +16,7 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
         defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">{title}</Heading>
       <Text size="200">{text}</Text>
     </Flex>
@@ -57,14 +57,14 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">{title}</Heading>
       <Text size="200">{text}</Text>
     </Flex>
   );
 
   return (
-    <Flex direction="column" gap={10}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }}>
       <Block title="Discover ideas" text="Use the search bar to discover ideas, people and trends. Explore suggested topics or search for topics of your own." />
       <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online." />
     </Flex>
@@ -79,14 +79,14 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">{title}</Heading>
       <Text size="200">{text}</Text>
     </Flex>
   );
 
   return (
-    <Flex direction="column" gap={10}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }}>
       <Divider />
       <Block title="Discover ideas" text="Use the search bar to discover ideas, people and trends. Explore suggested topics or search for topics of your own." />
       <Divider />
@@ -106,7 +106,7 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">{title}</Heading>
       {
         text.map((item, idx) => <Text key={idx} size="200" underline><Link href="#" target="blank">{item}</Link></Text> )
@@ -115,7 +115,7 @@ function Example() {
   );
 
   return (
-    <Flex direction="column" gap={10} width={300}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>
       <Block title="Get started" text={['Add a Pinterest widget', 'Upgrade the Pinterest App', 'Interact with Idea Pins']} />
       <Divider />
       <Block title="Manage Account" text={['Edit notification settings', 'Two-factor authentication', 'Log in and out of Pinterest']} />
@@ -131,7 +131,7 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">{title}</Heading>
       {
         text.map((item, idx) => <Text key={idx} size="200" underline><Link href="#" target="blank">{item}</Link></Text> )
@@ -140,7 +140,7 @@ function Example() {
   );
 
   return (
-    <Flex direction="column" gap={10} width={300}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>
       <Block title="Get started" text={['Add a Pinterest widget', 'Upgrade the Pinterest App', 'Interact with Idea Pins']} />
       <hr style={{  borderTop: '3px dashed blue' }}/>
       <Block title="Manage Account" text={['Edit notification settings', 'Two-factor authentication', 'Log in and out of Pinterest']} />
@@ -158,7 +158,7 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, url, locked }) => (
-    <Flex gap={2} alignItems="center">
+    <Flex gap={{ row: 2, column: 0 }} alignItems="center">
       <Box maxWidth={60}>
         <Mask rounding={4}>
           <img alt="example image" src={url} style={{ maxWidth: '100%', display: 'block' }} />
@@ -195,7 +195,7 @@ function Example() {
   );
 
   return (
-    <Flex direction="column" gap={10} width={300}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>
       <Block title="Home decor" url="https://i.ibb.co/121JJzC/stock7.jpg" locked/>
       <Divider />
       <Block title="Plants" url="https://i.ibb.co/FY2MKr5/stock6.jpg" />
@@ -211,7 +211,7 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, url, locked }) => (
-    <Flex gap={2} alignItems="center">
+    <Flex gap={{ row: 2, column: 0 }} alignItems="center">
       <Box maxWidth={60}>
         <Mask rounding={4}>
           <img alt="example image" src={url} style={{ maxWidth: '100%', display: 'block' }} />
@@ -248,7 +248,7 @@ function Example() {
   );
 
   return (
-    <Flex direction="column" gap={10} width={300}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>
       <Block title="Home decor" url="https://i.ibb.co/121JJzC/stock7.jpg" locked/>
       <Flex width="100%" justifyContent="center">
         <Box width="50%">
@@ -286,7 +286,7 @@ function Example() {
       </Box>
       <Divider />
       <Box marginStart={12}>
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Heading accessibilityLevel="none" size="md">
             Public profile
           </Heading>
@@ -342,14 +342,14 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">{title}</Heading>
       <Text size="200">{text}</Text>
     </Flex>
   );
 
   return (
-    <Flex direction="column" gap={10}>
+    <Flex direction="column" gap={{ column: 10, row: 0 }}>
       <Block title="Discover ideas" text="Use the search bar to discover ideas, people and trends. Explore suggested topics or search for topics of your own." />
       <Divider />
       <Block title="Create Pins" text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online." />
@@ -364,7 +364,7 @@ function Example() {
             defaultCode={`
 function Example() {
   const Block = ({ title, text }) => (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">{title}</Heading>
       <Text size="200">{text}</Text>
     </Flex>

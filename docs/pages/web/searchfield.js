@@ -20,7 +20,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
     const [value, setValue] = React.useState('');
 
     return (
-      <Flex gap={4} alignItems="center" flex="grow">
+      <Flex gap={{ row: 4, column: 0 }} alignItems="center" flex="grow">
         <Icon
           icon="pinterest"
           color="brandPrimary"
@@ -184,7 +184,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
   function SearchFieldExample() {
     const [value, setValue] = React.useState('');
     return (
-      <Flex alignItems="center" flex="grow" gap={4}>
+      <Flex alignItems="center" flex="grow" gap={{ row: 4, column: 0 }}>
         <Icon
           accessibilityLabel="Pinterest"
           color="brandPrimary"
@@ -229,7 +229,7 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
   function SearchFieldExample() {
     const [value, setValue] = React.useState('');
     return (
-      <Flex alignItems="center" flex="grow" gap={4}>
+      <Flex alignItems="center" flex="grow" gap={{ row: 4, column: 0 }}>
         <Icon
           accessibilityLabel="Pinterest"
           color="brandPrimary"
@@ -302,7 +302,7 @@ function SearchFieldExample() {
   const [lgValue, setLgValue] = React.useState('');
   return (
     <Flex alignItems="center" gap={12}>
-      <Flex direction="column" flex="grow" gap={4}>
+      <Flex direction="column" flex="grow" gap={{ column: 4, row: 0 }}>
         <Text>Medium (md)</Text>
         <SearchField
           accessibilityLabel=""
@@ -314,7 +314,7 @@ function SearchFieldExample() {
           value={value}
         />
       </Flex>
-      <Flex direction="column" flex="grow" gap={4}>
+      <Flex direction="column" flex="grow" gap={{ column: 4, row: 0 }}>
         <Text>Large (lg)</Text>
         <SearchField
           accessibilityLabel=""

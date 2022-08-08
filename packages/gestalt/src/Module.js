@@ -81,7 +81,7 @@ export default function Module({
 |}): Node {
   return (
     <Box borderStyle="shadow" color="elevationFloating" id={id} padding={6} rounding={4}>
-      <Flex direction="column" gap={6}>
+      <Flex direction="column" gap={{ column: 6, row: 0 }}>
         {title && (
           <ModuleTitle
             badge={badge}

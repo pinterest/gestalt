@@ -30,8 +30,20 @@ function SheetWithAccessibilityLabels({ onDismiss }: {| onDismiss: () => void |}
       )}
       size="md"
     >
-      <Flex direction="column" gap={12}>
-        <Flex direction="column" gap={4}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 12,
+        }}
+      >
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Box>
             <Text inline weight="bold">
               Step 1:
@@ -51,7 +63,13 @@ function SheetWithAccessibilityLabels({ onDismiss }: {| onDismiss: () => void |}
             onChange={() => {}}
           />
           <Fieldset legend="When adding this audience list to an ad group:">
-            <Flex direction="column" gap={3}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 3,
+              }}
+            >
               <RadioButton
                 label="Include list"
                 name="audience"
@@ -69,7 +87,13 @@ function SheetWithAccessibilityLabels({ onDismiss }: {| onDismiss: () => void |}
             </Flex>
           </Fieldset>
         </Flex>
-        <Flex direction="column" gap={4}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Box>
             <Text inline weight="bold">
               Step 2:
@@ -81,7 +105,13 @@ function SheetWithAccessibilityLabels({ onDismiss }: {| onDismiss: () => void |}
             source of this event.
           </Text>
           <Fieldset legend="Select conversion source:" legendDisplay="hidden">
-            <Flex direction="column" gap={3}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 3,
+              }}
+            >
               <RadioButton
                 label="Pinterest Tag"
                 name="source"
@@ -107,7 +137,13 @@ function SheetWithAccessibilityLabels({ onDismiss }: {| onDismiss: () => void |}
             </Flex>
           </Fieldset>
         </Flex>
-        <Flex direction="column" gap={4}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Box>
             <Text inline weight="bold">
               Step 3:

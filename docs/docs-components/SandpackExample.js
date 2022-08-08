@@ -86,7 +86,14 @@ function SandpackContainer({
         height={hideControls ? 24 : undefined}
       />
       <Box marginTop={2} display={hideControls ? 'none' : undefined}>
-        <Flex justifyContent="end" alignItems="center" gap={2}>
+        <Flex
+          justifyContent="end"
+          alignItems="center"
+          gap={{
+            row: 2,
+            column: 0,
+          }}
+        >
           <OpenInCodeSandboxButton />
 
           <CopyCodeButton

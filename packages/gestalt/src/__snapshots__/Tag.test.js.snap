@@ -12,7 +12,7 @@ exports[`Tag clips long strings 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
     style={
       Object {
         "height": "100%",
@@ -71,7 +71,7 @@ exports[`Tag renders 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
     style={
       Object {
         "height": "100%",
@@ -131,7 +131,7 @@ exports[`Tag renders a disabled tag 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
     style={
       Object {
         "height": "100%",
@@ -170,7 +170,7 @@ exports[`Tag renders a tag with an error state 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
     style={
       Object {
         "height": "100%",

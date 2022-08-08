@@ -55,16 +55,16 @@ export default function SideNavigationMobile({
             </Flex.Item>
           </Flex>
         </Box>
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           {header ? (
-            <Flex direction="column" gap={4}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
               <Box paddingX={4}>{header}</Box>
               <Divider />
             </Flex>
           ) : null}
           <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
           {footer ? (
-            <Flex direction="column" gap={4}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
               <Divider />
               <Box paddingX={4}>{footer}</Box>
             </Flex>

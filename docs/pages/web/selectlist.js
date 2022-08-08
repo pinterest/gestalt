@@ -147,7 +147,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
             type="do"
             description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/web/dropdown), use Dropdown for all the items in the group."
             defaultCode={`
-<Flex gap={2}>
+<Flex gap={{ column: 0, row: 2 }}
   <SelectList
     id="selectlistexample6"
     onChange={() => {}}
@@ -194,7 +194,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
     };
 
     return (
-      <Flex gap={2} alignItems='end'>
+      <Flex gap={{ row: 2, column: 0 }} alignItems='end'>
       <SelectList
         id="selectlistexample8"
         onChange={() => {}}
@@ -276,7 +276,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={6}>
+<Flex gap={{ column: 0, row: 6 }}
   <SelectList
     id="selectlistexampleA11yVisible"
     onChange={() => {}}
@@ -290,7 +290,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
     label='Date range'
     size='lg'
   />
-  <Flex gap={2} direction="column">
+  <Flex gap={{ column: 2, row: 0 }} direction="column">
     <Text weight="bold" size="300">Date range</Text>
     <SelectList
       id="selectlistexampleA11yHiddenLabel"
@@ -363,7 +363,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-            <Flex gap={2} direction="column">
+            <Flex gap={{ column: 2, row: 0 }} direction="column">
 <Text weight="bold" size="300">Date range</Text>
 <SelectList
   id="selectlistexampleHiddenLabel"

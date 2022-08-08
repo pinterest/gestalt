@@ -9,8 +9,22 @@ export default function UseFocusVisibleExample(): Node {
 
   return (
     <Box padding={4} height="100%">
-      <Flex alignItems="center" direction="column" gap={12}>
-        <Flex direction="column" alignItems="center" gap={4}>
+      <Flex
+        alignItems="center"
+        direction="column"
+        gap={{
+          row: 0,
+          column: 12,
+        }}
+      >
+        <Flex
+          direction="column"
+          alignItems="center"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
           <button
             type="button"
@@ -25,7 +39,14 @@ export default function UseFocusVisibleExample(): Node {
             <Text color="dark">Button 1</Text>
           </button>
         </Flex>
-        <Flex alignItems="center" direction="column" gap={4}>
+        <Flex
+          alignItems="center"
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Text>Not using useFocusVisible(): Focus ring is always visible</Text>
           <button
             type="button"

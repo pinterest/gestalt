@@ -84,8 +84,8 @@ function TabExample() {
   ];
 
   return (
-    <Flex width="100%" minWidth="100%" alignItems="center" direction="column" gap={4} flex="grow">
-      <Flex gap={4} padding={2} direction="column">
+    <Flex width="100%" minWidth="100%" alignItems="center" direction="column" gap={{ column: 4, row: 0 }} flex="grow">
+      <Flex gap={{ column: 4, row: 0 }} padding={2} direction="column">
         <Heading>Tune your home feed</Heading>
       </Flex>
 
@@ -312,8 +312,8 @@ function TabExample() {
   ];
 
   return (
-    <Flex alignItems="start" direction="column" gap={4}>
-      <Flex gap={4} padding={2}>
+    <Flex alignItems="start" direction="column" gap={{ column: 4, row: 0 }}>
+      <Flex gap={{ row: 4, column: 0 }}>
         <Label htmlFor="wrap">
           <Text>Wrap</Text>
         </Label>
@@ -357,8 +357,8 @@ function TabExample() {
   ];
 
   return (
-    <Flex alignItems="start" direction="column" gap={4}>
-      <Flex gap={4} padding={2}>
+    <Flex alignItems="start" direction="column" gap={{ column: 4, row: 0 }}>
+      <Flex gap={{ row: 4, column: 0 }}>
         <Label htmlFor="wrap">
           <Text>Wrap</Text>
         </Label>

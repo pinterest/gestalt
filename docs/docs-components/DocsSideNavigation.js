@@ -47,7 +47,13 @@ export default function DocsSideNavigation(): Node {
   ) : null;
 
   const header = isMobile ? (
-    <Flex direction="column" gap={4}>
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 4,
+      }}
+    >
       <SelectList
         labelDisplay="hidden"
         id="mobile-sidenavigation"

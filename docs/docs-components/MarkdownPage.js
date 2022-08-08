@@ -70,7 +70,13 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     ),
     PrivateLink: (props: {| href: string, children: string | null |}) => (
       <Link href={props.href} target="blank">
-        <Flex alignItems="baseline" gap={1}>
+        <Flex
+          alignItems="baseline"
+          gap={{
+            row: 1,
+            column: 0,
+          }}
+        >
           <Text underline>{props.children}</Text>
           <LockIcon size={16} />
         </Flex>
@@ -86,7 +92,14 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           marginBottom: '16px',
         }}
       >
-        <Flex gap={2} alignItems="center" width="full">
+        <Flex
+          gap={{
+            row: 2,
+            column: 0,
+          }}
+          alignItems="center"
+          width="full"
+        >
           <Icon accessibilityLabel="Hint" icon="lightbulb" size={16} />
           <Text>{props.children}</Text>
         </Flex>

@@ -18,7 +18,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name="Icon"
         description={generatedDocGen?.description}
         defaultCode={`
-          <Flex gap={1}>
+          <Flex gap={{ column: 0, row: 1 }}
               <Icon icon="pin" accessibilityLabel="Pin" color="default" />
             <Text align="center" color="default" weight="bold">
               Pinterest
@@ -56,7 +56,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use icons intentionally, ensuring the Icon choice is easily recognizable and makes sense in the context. "
             defaultCode={`
-  <Flex gap={1}>
+  <Flex gap={{ column: 0, row: 1 }}
     <Icon icon="eye" accessibilityLabel="Number of views" color="default" />
     <Text weight="bold" size="300">4</Text>
   </Flex>`}
@@ -66,7 +66,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Repurpose icons. Using icons for their intended meaning supports good comprehension."
             defaultCode={`
-  <Flex gap={2}>
+  <Flex gap={{ column: 0, row: 2 }}
     <Icon icon="sound" accessibilityLabel="" color="default" />
     <Text size="300" weight="bold">24 monthly views</Text>
   </Flex>`}
@@ -78,7 +78,7 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Pair text and icons when possible to provide better clarity."
             defaultCode={`
-<Flex gap={1}>
+<Flex gap={{ column: 0, row: 1 }}
   <Icon icon="tag" accessibilityLabel="" color="default" />
   <Text size="300" weight="bold">
     Shopping spotlight
@@ -116,7 +116,7 @@ If an icon has a visible label that describes what the icon represents, \`access
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Flex gap={1}>
+<Flex gap={{ column: 0, row: 1 }}
   <Icon icon="eye" accessibilityLabel="Number of views" color="default" />
   <Text weight="bold" size="300">4</Text>
 </Flex>`}
@@ -124,7 +124,7 @@ If an icon has a visible label that describes what the icon represents, \`access
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Flex gap={1}>
+<Flex gap={{ column: 0, row: 1 }}
   <Icon icon="tag" accessibilityLabel="" color="default" />
   <Text align="center" weight="bold">
     Shopping spotlight

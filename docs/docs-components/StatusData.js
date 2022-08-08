@@ -17,7 +17,13 @@ export default function StatusData({
   if (!status) return null;
 
   return (
-    <Flex gap={2} alignItems="center">
+    <Flex
+      gap={{
+        row: 2,
+        column: 0,
+      }}
+      alignItems="center"
+    >
       {STATUS_EQUIVALENCY_MAP[status] === 'notAvailable' ? (
         <Icon accessibilityLabel="Not available" icon="dash" />
       ) : (

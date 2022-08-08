@@ -31,8 +31,20 @@ function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
       )}
       size="md"
     >
-      <Flex direction="column" gap={12}>
-        <Flex direction="column" gap={4}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 12,
+        }}
+      >
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Box>
             <Text inline weight="bold">
               Step 1:
@@ -52,7 +64,13 @@ function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
             onChange={() => {}}
           />
           <Fieldset legend="When adding this audience list to an ad group:">
-            <Flex direction="column" gap={3}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 3,
+              }}
+            >
               <RadioButton
                 id="include-list"
                 label="Include list"
@@ -70,7 +88,13 @@ function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
             </Flex>
           </Fieldset>
         </Flex>
-        <Flex direction="column" gap={4}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Box>
             <Text inline weight="bold">
               Step 2:
@@ -82,7 +106,13 @@ function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
             source of this event.
           </Text>
           <Fieldset legend="Select conversion source:" legendDisplay="hidden">
-            <Flex direction="column" gap={3}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 3,
+              }}
+            >
               <RadioButton
                 id="pinterest-tag"
                 label="Pinterest Tag"
@@ -108,7 +138,13 @@ function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
             </Flex>
           </Fieldset>
         </Flex>
-        <Flex direction="column" gap={4}>
+        <Flex
+          direction="column"
+          gap={{
+            row: 0,
+            column: 4,
+          }}
+        >
           <Box>
             <Text inline weight="bold">
               Step 3:

@@ -45,16 +45,17 @@ export default function UpsellForm({
   submitButtonDisabled,
 }: Props): Node {
   const responsiveMinWidth = useResponsiveMinWidth();
+  const isXsWidth = responsiveMinWidth === 'xs';
 
   return (
     <form onSubmit={(event) => onSubmit({ event })} style={{ width: '100%' }}>
       <Flex
-        direction={responsiveMinWidth === 'xs' ? 'column' : 'row'}
-        gap={2}
+        direction={isXsWidth ? 'column' : 'row'}
+        gap={isXsWidth ? { column: 2, row: 0 } : { row: 2, column: 0 }}
         justifyContent="end"
         wrap
       >
-        <Flex.Item flex={responsiveMinWidth === 'xs' ? 'shrink' : 'grow'}>
+        <Flex.Item flex={isXsWidth ? 'shrink' : 'grow'}>
           <Box smMarginBottom={2} marginBottom={0}>
             {children}
           </Box>
@@ -64,7 +65,7 @@ export default function UpsellForm({
             accessibilityLabel={submitButtonAccessibilityLabel}
             color="red"
             disabled={submitButtonDisabled}
-            fullWidth={responsiveMinWidth === 'xs'}
+            fullWidth={isXsWidth}
             text={submitButtonText}
             type="submit"
           />

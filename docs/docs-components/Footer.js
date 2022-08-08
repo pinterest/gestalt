@@ -22,7 +22,13 @@ export default function Footer(): Node {
     <Box padding={4}>
       <Flex direction="row" alignItems="center" wrap>
         <Box column={12} mdColumn={3} padding={2}>
-          <Flex alignItems="center" gap={2}>
+          <Flex
+            alignItems="center"
+            gap={{
+              row: 2,
+              column: 0,
+            }}
+          >
             <Box aria-hidden>
               <Icon icon="pinterest" color="default" size={24} accessibilityLabel="" />
             </Box>
