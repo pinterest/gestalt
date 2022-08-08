@@ -134,26 +134,26 @@ describe('ComboBox', () => {
       expect(screen.getByRole('option', { name: 'he / him Selected item' })).toBeVisible();
     });
 
-    it('filters options on valid input resets options after selecting', () => {
+    it('filters options on valid input resets options after selecting', async () => {
       renderComboBox({});
 
       const input1 = 'he';
       const input2 = 'r';
       const input3 = '{backspace}';
 
-      userEvent.type(screen.getByLabelText(LABEL), input1);
+      await userEvent.type(screen.getByLabelText(LABEL), input1);
 
       expect(screen.getAllByRole('option').length).toBe(
         PRONOUNS.filter((x) => x.includes(input1)).length,
       );
 
-      userEvent.type(screen.getByDisplayValue(input1), input2);
+      await userEvent.type(screen.getByDisplayValue(input1), input2);
 
       expect(screen.getAllByRole('option').length).toBe(
         PRONOUNS.filter((x) => x.includes(input1 + input2)).length,
       );
 
-      userEvent.type(screen.getByDisplayValue(input1 + input2), input3);
+      await userEvent.type(screen.getByDisplayValue(input1 + input2), input3);
 
       expect(screen.getAllByRole('option').length).toBe(
         PRONOUNS.filter((x) => x.includes(input1)).length,
@@ -172,17 +172,17 @@ describe('ComboBox', () => {
       expect(screen.getAllByRole('option').length).toBe(defaultOptionsLength);
     });
 
-    it('returns no results message if no options match input', () => {
+    it('returns no results message if no options match input', async () => {
       renderComboBox({});
 
       const input = 'xxxx';
 
-      userEvent.type(screen.getByLabelText(LABEL), input);
+      await userEvent.type(screen.getByLabelText(LABEL), input);
 
-      expect(screen.queryByText(NO_RESULTS)).toBeVisible();
+      expect(screen.getByText(NO_RESULTS)).toBeVisible();
     });
 
-    it('shows correct icons', () => {
+    it('shows correct icons', async () => {
       renderComboBox({});
 
       expect(screen.queryByRole('button')).not.toBeInTheDocument();
@@ -190,10 +190,10 @@ describe('ComboBox', () => {
       fireEvent.click(screen.getByLabelText(LABEL));
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
-      expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
+      expect(await screen.findByRole('button', { name: CLEAR })).toBeVisible();
     });
 
-    it('clears selected options with clear button', () => {
+    it('clears selected options with clear button', async () => {
       renderComboBox({});
       const SPACE = '{space}';
       const ENTER = '{enter}';
@@ -210,9 +210,9 @@ describe('ComboBox', () => {
 
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
-      userEvent.tab();
+      await userEvent.tab();
 
-      userEvent.type(screen.getByRole('button', { name: CLEAR }), ENTER);
+      await userEvent.type(screen.getByRole('button', { name: CLEAR }), ENTER);
 
       expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
 
@@ -220,19 +220,19 @@ describe('ComboBox', () => {
 
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
-      userEvent.tab();
+      await userEvent.tab();
 
-      userEvent.type(screen.getByRole('button', { name: CLEAR }), SPACE);
+      await userEvent.type(screen.getByRole('button', { name: CLEAR }), SPACE);
 
       expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
     });
 
-    it('manages focus', () => {
+    it('manages focus', async () => {
       renderComboBox({});
 
       expect(document.body).toHaveFocus();
 
-      userEvent.tab();
+      await userEvent.tab();
 
       expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
@@ -240,7 +240,7 @@ describe('ComboBox', () => {
 
       fireEvent.click(screen.getByText(PRONOUNS[1]));
 
-      userEvent.tab();
+      await userEvent.tab();
 
       expect(screen.getByRole('button', { name: CLEAR })).toHaveFocus();
 
@@ -248,21 +248,21 @@ describe('ComboBox', () => {
 
       expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
-      userEvent.tab();
+      await userEvent.tab();
 
       expect(screen.queryByRole('button')).not.toBeInTheDocument();
     });
 
-    it("doesn't clear input on blur when no option is selected", () => {
+    it("doesn't clear input on blur when no option is selected", async () => {
       renderComboBox({});
 
-      userEvent.tab();
+      await userEvent.tab();
 
       const input1 = 'he';
 
-      userEvent.type(screen.getByLabelText(LABEL), input1);
+      await userEvent.type(screen.getByLabelText(LABEL), input1);
 
-      userEvent.tab();
+      await userEvent.tab();
 
       expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
     });

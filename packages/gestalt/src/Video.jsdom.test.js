@@ -214,8 +214,9 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(container.querySelector('video').attributes.disableremoteplayback).toBeDefined();
+
+    // $FlowFixMe[prop-missing] disableremoteplayback is not available on attributes
+    expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeDefined(); // eslint-disable-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   });
 
   it('DisableRemotePlayback is not set on <video />', () => {
@@ -235,8 +236,8 @@ describe('Video loading', () => {
     };
 
     const { container } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(container.querySelector('video').attributes.disableremoteplayback).toBeUndefined();
+    // $FlowFixMe[prop-missing] disableremoteplayback is not available on attributes
+    expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeUndefined(); // eslint-disable-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   });
 
   it('Progress bar label is set', () => {
