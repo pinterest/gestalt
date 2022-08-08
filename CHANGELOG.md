@@ -1,3 +1,9 @@
+## 63.3.2 (Aug 8, 2022)
+
+### Patch
+
+- Internal: Upgrade React Testing Library and update flow types (#2265)
+
 ## 63.3.1 (Aug 5, 2022)
 
 ### Patch
