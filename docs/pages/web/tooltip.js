@@ -278,7 +278,7 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
 
   return (
     <Flex direction="column" alignItems="center" gap={{ column: 8, row: 0 }}>
-      <Flex gap={{ column: 0, row: 4 }}
+      <Flex gap={{ column: 0, row: 4 }}>
         <RadioButton
           checked={idealDirection === 'up'}
           id="up"

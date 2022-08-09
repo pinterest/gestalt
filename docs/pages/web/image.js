@@ -12,9 +12,12 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />\
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <AccessibilitySection name={generatedDocGen?.displayName} />
+
       <Card
         description={`
 One thing that might be unusual is that the \`width\` and the \`height\` of the component are required, yet the image will scale to the size of its container.

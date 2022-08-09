@@ -247,7 +247,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             description="Truncate the Button text. In rare instances where Buttons must remain on one line, truncate the text on the secondary Button before truncating on the primary Button."
             defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}
+<Flex gap={{ column: 0, row: 2 }}>
   <Button text="Kontoeinst..." size="lg" color="gray" />
   <Button text="Neues We..." size="lg" color="red" />
 </Flex>
@@ -278,7 +278,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use an IconButton + Tooltip next to the disabled Button if you need to explain why it is disabled."
             defaultCode={`
-  <Flex gap={{ column: 0, row: 1 }}
+  <Flex gap={{ column: 0, row: 1 }}>
     <Button text="Create account" disabled size="lg" color="red" />
     <Tooltip text="You need to fill in a username to create an account">
       <IconButton
@@ -297,7 +297,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="don't"
             description="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
             defaultCode={`
-  <Flex gap={{ column: 0, row: 1 }}
+  <Flex gap={{ column: 0, row: 1 }}>
     <Tooltip text="You need to fill in a username to create an account">
       <Button text="Create account" disabled size="lg" color="red" />
     </Tooltip>

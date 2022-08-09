@@ -11,8 +11,8 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="ButtonGroup">
-      <PageHeader name="ButtonGroup" description={generatedDocGen.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

@@ -263,7 +263,7 @@ Please note: Disclaimers and links taking users to Pinterest subsites don't need
             type="don't"
             description="Use other icons paired with text within a paragraph or a sentence to represent an external Link."
             defaultCode={`
-<Flex gap={{ row: 2, column 0 }} width="100%" justifyContent="center">
+<Flex gap={2} justifyContent="center" width="100%">
   <Text inline> Visit
     <Text inline>
       <Link href="https://www.w3.org/WAI/standards-guidelines/" inline> WCAG accessibility resources</Link>
@@ -324,7 +324,7 @@ Accessible content is critical if we consider that assistive technology also pre
           <MainSection.Card
             defaultCode={`
 <Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Flex gap={{ column: 0, row: 2 }}
+  <Flex gap={{ column: 0, row: 2 }}>
     <Checkbox
       checked
       id="1"

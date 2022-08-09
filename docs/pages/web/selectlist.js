@@ -147,7 +147,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
             type="do"
             description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/web/dropdown), use Dropdown for all the items in the group."
             defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}
+<Flex gap={{ column: 0, row: 2 }}>
   <SelectList
     id="selectlistexample6"
     onChange={() => {}}
@@ -276,7 +276,7 @@ export default function SelectListPage({ generatedDocGen }: {| generatedDocGen: 
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={{ column: 0, row: 6 }}
+<Flex gap={{ column: 0, row: 6 }}>
   <SelectList
     id="selectlistexampleA11yVisible"
     onChange={() => {}}

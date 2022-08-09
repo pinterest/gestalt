@@ -436,7 +436,7 @@ function ScrollBoundaryContainerExample() {
                       onClick={() => setShowSheet(false)}
                     />
                   </Flex.Item>
-                  <Flex gap={{ column: 0, row: 2 }}
+                  <Flex gap={{ column: 0, row: 2 }}>
                     <Button
                       text="Cancel"
                       size="lg"
