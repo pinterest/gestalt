@@ -1,3 +1,9 @@
+## 64.0.2 (Aug 9, 2022)
+
+### Patch
+
+- Docs: fix Flex issues (#2269)
+
 ## 64.0.1 (Aug 9, 2022)
 
 ### Patch
