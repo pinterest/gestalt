@@ -640,7 +640,7 @@ function ComboBoxExample() {
   const ref = React.useRef();
 
   return (
-    <Flex gap={{ column: 0, row: 4 }}
+    <Flex gap={{ column: 0, row: 4 }}>
       <ComboBox
         accessibilityClearButtonLabel="Clear the current values"
         label="Select your favorite shape"

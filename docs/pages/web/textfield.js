@@ -182,7 +182,7 @@ function Example(props) {
   const [stateValue, setStateValue] = React.useState('');
 
   return (
-    <Flex gap={{ column: 0, row: 4 }}
+    <Flex gap={{ column: 0, row: 4 }}>
       <TextField
         id="best-practices-do-related-city"
         label="City"
@@ -216,7 +216,7 @@ function Example(props) {
   const [zipCodeValue, setZipCodeValue] = React.useState('');
 
   return (
-    <Flex gap={{ column: 0, row: 4 }}
+    <Flex gap={{ column: 0, row: 4 }}>
       <TextField
         autoComplete="new-password"
         id="best-practices-dont-related-password"
@@ -409,7 +409,7 @@ function Example(props) {
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={{ column: 0, row: 6 }}
+<Flex gap={{ column: 0, row: 6 }}>
   <TextField
     id="textfieldexampleA11yVisible"
     onChange={() => {}}

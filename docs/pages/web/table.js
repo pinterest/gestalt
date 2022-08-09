@@ -1055,7 +1055,7 @@ function MainExample() {
                     <Heading size="400" accessibilityLevel={0}>
                       Uniform
                     </Heading>
-                    <Flex gap={{ column: 0, row: 5 }}
+                    <Flex gap={{ column: 0, row: 5 }}>
                       <Text size="200">123 Pins</Text>
                       <Text size="200">4 sections</Text>
                     </Flex>

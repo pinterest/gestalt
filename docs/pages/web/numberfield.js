@@ -1,13 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../docs-components/PageHeader.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 export default function NumberFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -173,7 +172,7 @@ function Example(props) {
   const [secondValue, setSecondValue] = React.useState();
 
   return (
-    <Flex gap={{ column: 0, row: 4 }}
+    <Flex gap={{ column: 0, row: 4 }}>
       <NumberField
         id="best-practices-do-related-first"
         label="First value"
@@ -205,7 +204,7 @@ function Example(props) {
   const [petsValue, setPetsValue] = React.useState();
 
   return (
-    <Flex gap={{ column: 0, row: 4 }}
+    <Flex gap={{ column: 0, row: 4 }}>
       <NumberField
         id="best-practices-dont-related-age"
         label="Age"

@@ -590,7 +590,7 @@ function Example() {
     const [checked2, setChecked2] = React.useState(false);
 
   return (
-    <Flex gap={{ column: 0, row: 6 }}
+    <Flex gap={{ column: 0, row: 6 }}>
       <Checkbox
         checked={checked1}
         id="sm"
@@ -628,7 +628,7 @@ function Example() {
     const [checked5, setChecked5] = React.useState(false);
 
   return (
-    <Flex gap={{ column: 0, row: 6 }}
+    <Flex gap={{ column: 0, row: 6 }}>
       <Checkbox
         checked={false}
         id="Unchecked"

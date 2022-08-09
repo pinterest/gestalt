@@ -15,9 +15,9 @@ export default function ActivationCardPage({
   generatedDocGen: DocGen,
 |}): Node {
   return (
-    <Page title="ActivationCard">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="ActivationCard"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 <ActivationCard
@@ -66,7 +66,7 @@ export default function ActivationCardPage({
       <Example
         name="Not started and Pending Cards"
         defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}
+<Flex gap={{ column: 0, row: 2 }}>
   <ActivationCard
     dismissButton={{
       accessibilityLabel: 'Dismiss card',
@@ -103,7 +103,7 @@ export default function ActivationCardPage({
       <Example
         name="Needs attention and Complete Cards"
         defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}
+<Flex gap={{ column: 0, row: 2 }}>
   <ActivationCard
     dismissButton={{
       accessibilityLabel: 'Dismiss card',

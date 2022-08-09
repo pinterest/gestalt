@@ -127,7 +127,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Flex gap={{ column: 0, row: 1 }}
+<Flex gap={{ column: 0, row: 1 }}>
   <Status accessibilityLabel="This item has a problem" type="problem" />
   <Text weight="bold" size="300">Dynamic re-targeting</Text>
 </Flex>`}

@@ -201,7 +201,7 @@ export default function ColorExamplesPage(): Node {
             defaultCode={`
             <Flex>
               <Flex direction="column" gap={{ column: 2, row: 0 }}>
-                <Flex gap={{ column: 0, row: 2 }}
+                <Flex gap={{ column: 0, row: 2 }}>
                   <Label htmlFor="dont-01">
                     <Text weight="bold"> Search privacy</Text>
                   </Label>
@@ -239,7 +239,7 @@ export default function ColorExamplesPage(): Node {
             type="don't"
             description="Apply alternative colors modifying Gestalt components or UI patterns as it can create inconsistency and cognitive issues."
             defaultCode={`
-            <Flex gap={{ column: 0, row: 2 }}
+            <Flex gap={{ column: 0, row: 2 }}>
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {backgroundColor: 'gold'}
@@ -301,16 +301,16 @@ export default function ColorExamplesPage(): Node {
             description="Use the appropriate [color tokens](/foundations/design_tokens) to switch between themes (light and dark mode). It ensures consistency and avoids accessibility issues."
             defaultCode={`
             <Flex direction="column" gap={{ column: 8, row: 0 }} alignItems="center">
-              <Flex gap={{ column: 0, row: 4 }}
+              <Flex gap={{ column: 0, row: 4 }}>
                 <IconButton icon="speech" accessibilityLabel="Comment" />
                 <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share"/>
               </Flex>
-              <Flex gap={{ column: 0, row: 4 }}
+              <Flex gap={{ column: 0, row: 4 }}>
                 <Button color="red" text="Primary" />
                 <Button color="gray" text="Secondary" />
                 <Button color="blue" text="Shop" />
               </Flex>
-              <Flex gap={{ column: 0, row: 4 }}
+              <Flex gap={{ column: 0, row: 4 }}>
                 <SearchField
                   accessibilityLabel={'Search you Pins'}
                   id={'color-do-search'}
@@ -318,7 +318,7 @@ export default function ColorExamplesPage(): Node {
                   onChange={() => {}}
                 />
               </Flex>
-              <Flex gap={{ column: 0, row: 8 }}
+              <Flex gap={{ column: 0, row: 8 }}>
                 <Text>Default text</Text>
                 <Text color="subtle">Subtle text</Text>
               </Flex>
@@ -334,11 +334,11 @@ export default function ColorExamplesPage(): Node {
             <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
               <Box color="default" padding={10}>
                 <Flex direction="column" gap={{ column: 8, row: 0 }} alignItems="center">
-                  <Flex gap={{ column: 0, row: 4 }}
+                  <Flex gap={{ column: 0, row: 4 }}>
                     <IconButton icon="speech" accessibilityLabel="Comment"/>
                     <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" />
                   </Flex>
-                  <Flex gap={{ column: 0, row: 4 }}
+                  <Flex gap={{ column: 0, row: 4 }}>
                     <Button color="red" text="Primary" />
                       <Box color="warningWeak" rounding="pill" padding={3}>
                         <TapArea color="white">
@@ -349,7 +349,7 @@ export default function ColorExamplesPage(): Node {
                       </Box>
                     <Button color="blue" text="Shop" />
                   </Flex>
-                  <Flex gap={{ column: 0, row: 4 }}
+                  <Flex gap={{ column: 0, row: 4 }}>
                     <SearchField
                       accessibilityLabel={'Search you Pins'}
                       id={'color-dont-search'}
@@ -357,7 +357,7 @@ export default function ColorExamplesPage(): Node {
                       onChange={() => {}}
                     />
                   </Flex>
-                  <Flex gap={{ column: 0, row: 8 }}
+                  <Flex gap={{ column: 0, row: 8 }}>
                     <Text>Default text</Text>
                     <Text color="subtle">Subtle text</Text>
                   </Flex>

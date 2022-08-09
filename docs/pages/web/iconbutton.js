@@ -347,7 +347,7 @@ function HeadingExample(props) {
             type="don't"
             description="Pair IconButton with a regular button to perform a high-emphasis action. IconButton should be a secondary action among regular buttons. "
             defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}
+<Flex gap={{ column: 0, row: 2 }}>
   <Button text="Cancel" size="lg"/>
   <IconButton
     accessibilityLabel="Open edit modal"
@@ -373,7 +373,7 @@ function OrderDropdownExample() {
   const onSelect = ({ item }) => setSelected(item);
 
   return (
-    <Flex gap={{ column: 0, row: 2 }}
+    <Flex gap={{ column: 0, row: 2 }}>
       <Tooltip text="Go back to previous page">
         <IconButton
           accessibilityLabel="Back"
@@ -443,7 +443,7 @@ function OrderDropdownExample() {
             type="don't"
             description="Display more than 4 icon buttons in a single row as it can cause cognitive load and usability issues."
             defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}
+<Flex gap={{ column: 0, row: 2 }}>
   <Tooltip text="Navigate to previous page">
     <IconButton
       accessibilityLabel="Back"
@@ -503,7 +503,7 @@ function OrderDropdownExample() {
             type="don't"
             description="Add an IconButton on top of images unless it has a background that ensures easy readability and accessible contrast. Check the [background color](#Color) variant to learn more."
             defaultCode={`
-<Box height={250} paddingX={2} width={250} >
+<Box height={250} paddingX={2} width={250}>
   <Mask rounding={6} wash>
     <Image
         alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
@@ -608,7 +608,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
             defaultCode={`
 function Example(props) {
   return (
-    <Flex gap={{ column: 0, row: 2 }}
+    <Flex gap={{ column: 0, row: 2 }}>
       <Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" size="md" />
       <Flex gap={{ row: 2, column: 0 }} alignItems="center">
         <Text inline weight="bold">
@@ -780,7 +780,7 @@ Follow these guidelines for \`bgColor\`
           <MainSection.Card
             cardSize="md"
             defaultCode={`
-<Flex gap={{ column: 0, row: 4 }}
+<Flex gap={{ column: 0, row: 4 }}>
   <IconButton
     accessibilityLabel="Sharing"
     icon="share"

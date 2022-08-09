@@ -709,7 +709,7 @@ function BoxPopoverExample() {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Flex gap={{ column: 0, row: 3 }}
+<Flex gap={{ column: 0, row: 3 }}>
   <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="darkWash">
     <Box width={40} height={40} color="successBase" />
   </Box>

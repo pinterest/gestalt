@@ -11,8 +11,9 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 export default function CollagePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Collage">
-      <PageHeader name="Collage" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <Example
         id="basicExample"

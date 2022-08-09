@@ -1081,7 +1081,7 @@ function ScrollBoundaryContainerExample() {
                       onClick={() => setShowSheet(false)}
                     />
                   </Flex.Item>
-                  <Flex gap={{ column: 0, row: 2 }}
+                  <Flex gap={{ column: 0, row: 2 }}>
                     <Button
                       text="Cancel"
                       size="lg"
@@ -1182,7 +1182,7 @@ function Example() {
         width={600}
         height={200}
       >
-        <Flex gap={{ column: 0, row: 2 }}
+        <Flex gap={{ column: 0, row: 2 }}>
           <Box width={300}>
             <Text>
               You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website.
@@ -1266,7 +1266,7 @@ function Example() {
   return (
     <ScrollBoundaryContainer height={200}>
       <Box color="white" ref={viewRef} padding={4} width={600}>
-        <Flex gap={{ column: 0, row: 4 }}
+        <Flex gap={{ column: 0, row: 4 }}>
           <Box width={200}>
             <Text>
               You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website. If there are any errors with your data source file, you can learn how to troubleshoot them below. After you click Create Pins, you'll land back at the main data source page while your feed is being processed. Wait for a confirmation email from Pinterest about the status of your data source submission.

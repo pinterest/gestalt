@@ -526,7 +526,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="do"
             description="A11y: Use icons semantically and provide meaningful text whenever it is possible."
             defaultCode={`
-<Flex gap={{ row: 2, column: 0 }} alignItems="center"></Flex>
+<Flex gap={{ row: 2, column: 0 }} alignItems="center">
   <Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
   <Text>Recommendation text</Text>
 </Flex>

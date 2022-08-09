@@ -273,7 +273,7 @@ function Example() {
           onClick={() => setSrc(input)}
         />
       </Flex>
-      <Flex gap={{ column: 0, row: 2 }}
+      <Flex gap={{ column: 0, row: 2 }}>
         <Button
           text={volume === 0 ? "Unmute" : "Mute"}
           onClick={() => setVolume(volume === 0 ? 1 : 0)}
