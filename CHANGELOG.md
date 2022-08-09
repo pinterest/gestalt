@@ -1,3 +1,9 @@
+## 64.0.1 (Aug 9, 2022)
+
+### Patch
+
+- Internal: upgrade caniuse (#2267)
+
 ## 64.0.0 (Aug 8, 2022)
 
 ### Major
