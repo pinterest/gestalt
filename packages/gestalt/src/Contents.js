@@ -38,11 +38,11 @@ type OwnProps = {|
   onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
   onResize: () => void,
   positionRelativeToAnchor?: boolean,
-  relativeOffset: Coordinates,
+  relativeOffset: ?Coordinates,
   role: ?Role,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
-  triggerRect: ClientRect,
+  triggerRect: ?ClientRect,
   width: ?number,
 |};
 
