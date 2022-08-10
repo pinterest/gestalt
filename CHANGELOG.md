@@ -1,3 +1,9 @@
+## 64.0.4 (Aug 10, 2022)
+
+### Patch
+
+- Docs: Fixed broken link in color palette page (#2272)
+
 ## 64.0.3 (Aug 10, 2022)
 
 ### Patch
