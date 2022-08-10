@@ -1,3 +1,9 @@
+## 64.0.3 (Aug 10, 2022)
+
+### Patch
+
+- Docs: fix Collage bug (#2270)
+
 ## 64.0.2 (Aug 9, 2022)
 
 ### Patch
