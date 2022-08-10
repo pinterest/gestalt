@@ -142,7 +142,7 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
           const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
-              {image?.src ? (
+              {image.src ? (
                 <Image
                   alt="collage image"
                   color={image.color}
@@ -344,7 +344,7 @@ export default function CollagePage({ generatedDocGen }: {| generatedDocGen: Doc
           const image = images[index] || {};
           return (
             <Mask wash width={width} height={height}>
-              {image?.src ? (
+              {image.src ? (
                 <Image
                   alt="collage image"
                   color={image.color}
