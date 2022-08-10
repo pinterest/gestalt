@@ -196,7 +196,7 @@ export default function ColorPage(): Node {
       <MainSection
         name="Colors in code"
         description={`
-       All colors in this palette are available through [design tokens](/https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099) and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
+       All colors in this palette are available through [design tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099) and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
 
        - JavaScript  \`$color-pink-flaminglow-400\`
        - CSS  \`var(--color-pink-flaminglow-400)\`
