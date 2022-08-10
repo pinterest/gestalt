@@ -1,3 +1,9 @@
+## 64.0.5 (Aug 10, 2022)
+
+### Patch
+
+- Internal: disallow console.\* calls in tests (#2271)
+
 ## 64.0.4 (Aug 10, 2022)
 
 ### Patch
