@@ -1,6 +1,6 @@
 // @flow strict-local
 import { useState } from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { act, render, screen, fireEvent } from '@testing-library/react';
 import { I18nProvider } from 'gestalt';
 import DatePicker from './DatePicker.js';
 
@@ -10,14 +10,20 @@ const translations = {
     accessibilityShowPasswordLabel: 'Show password',
   },
 };
+const initialDate = new Date(2018, 11, 14);
 
 function renderComp(comp) {
   return render(<I18nProvider value={translations}>{comp}</I18nProvider>);
 }
 
+function DatePickerWrap() {
+  const [date, setDate] = useState(initialDate);
+
+  return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
+}
+
 describe('DatePicker', () => {
   const mockOnChange = jest.fn();
-  const initialDate = new Date(2018, 11, 14);
 
   global.document.createRange = () => ({
     setStart: () => {},
@@ -60,16 +66,13 @@ describe('DatePicker', () => {
     expect(mockOnChange).toHaveBeenCalledWith(expect.objectContaining({ value: newDate }));
   });
 
-  test('opens and closes DatePicker popover correctly', () => {
-    function DatePickerWrap() {
-      const [date, setDate] = useState(initialDate);
-
-      return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
-    }
-
+  test('opens and closes DatePicker popover correctly', async () => {
     renderComp(<DatePickerWrap />);
 
-    fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
+    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
+    await act(async () => {
+      await fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
+    });
 
     // Test correct render of DatePicker popover
     // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
@@ -86,23 +89,23 @@ describe('DatePicker', () => {
     // Test correct unmount of DatePicker popover
     expect(screen.getByDisplayValue('12/13/2018')).toBeInTheDocument();
 
-    fireEvent.focus(screen.getByDisplayValue('12/13/2018'));
+    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
+    await act(async () => {
+      await fireEvent.focus(screen.getByDisplayValue('12/13/2018'));
+    });
 
     // Test correct render of DatePicker popover
     // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
   });
 
-  test('accepts entering manual dates', () => {
-    function DatePickerWrap() {
-      const [date, setDate] = useState(initialDate);
-
-      return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
-    }
-
+  test('accepts entering manual dates', async () => {
     renderComp(<DatePickerWrap />);
 
-    fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
+    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
+    await act(async () => {
+      fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
+    });
 
     const selectedInput = screen.getByDisplayValue('12/14/2018');
 
