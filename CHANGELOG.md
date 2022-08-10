@@ -1,3 +1,9 @@
+## 64.0.6 (Aug 10, 2022)
+
+### Patch
+
+- Internal: fix Flow issues with positioning utils (#2268)
+
 ## 64.0.5 (Aug 10, 2022)
 
 ### Patch
