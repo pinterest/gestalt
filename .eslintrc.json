@@ -117,7 +117,7 @@
       "rules": {
         "jest/expect-expect": [
           "error",
-          { "assertFunctionNames": ["expect", "runInlineTest"] }
+          { "assertFunctionNames": ["expect", "runInlineTest", "runTest"] }
         ]
       }
     },
