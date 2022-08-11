@@ -3,6 +3,8 @@ import { type Node } from 'react';
 import PageHeader from '../../docs-components/PageHeader.js';
 import Page from '../../docs-components/Page.js';
 import MainSection from '../../docs-components/MainSection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import LayoutsExample from '../../examples/layouts/layoutsExample.js';
 
 export default function DocsPage(): Node {
   return (
@@ -19,79 +21,9 @@ export default function DocsPage(): Node {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex
-  direction="column"
-  gap={{ column: 6, row: 0 }}
-  maxWidth={800}
-  width="100%"
-  wrap
->
-  <Heading size="400" accessibilityLevel={2}>
-    Form Title
-  </Heading>
-
-  <TextField
-    label="TextField 1"
-    id="textfield1"
-    onChange={() => {}}
-    placeholder="Placeholder"
-  />
-
-  <Box
-    // Using Box instead of Flex + 'gap' for proper vertical spacing when text fields wrap
-    display="flex"
-    marginStart={-3}
-    marginEnd={-3}
-    marginBottom={-3}
-    marginTop={-3}
-    wrap
-  >
-    <Box flex="grow" minWidth={250} paddingX={3} paddingY={3}>
-      <TextField
-        label="TextField 2"
-        id="textfield2"
-        onChange={() => {}}
-        placeholder="Placeholder"
-      />
-    </Box>
-    <Box flex="grow" minWidth={250} paddingX={3} paddingY={3}>
-      <TextField
-        label="TextField 3"
-        id="textfield3"
-        onChange={() => {}}
-        placeholder="Placeholder"
-      />
-    </Box>
-  </Box>
-
-  <SelectList
-    label="SelectList"
-    id="selectlist"
-    options={[
-      {
-        value: 'belgium',
-        label: 'Belgium',
-      },
-      {
-        value: 'france',
-        label: 'France',
-      },
-      {
-        value: 'usa',
-        label: 'USA',
-      },
-    ]}
-    placeholder="Placeholder"
-    onChange={() => {}}
-  />
-
-  <Flex gap={{ row: 2, column: 0 }} justifyContent="end" wrap>
-    <Button text="Cancel" size="lg" />
-    <Button text="Submit" color="red" size="lg" type="submit" />
-  </Flex>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample code={LayoutsExample} name="Layout example" previewHeight={400} />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

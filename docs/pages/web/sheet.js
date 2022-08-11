@@ -20,7 +20,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={defaultExample} name="Sheet Main Example" showEditor={false} />
+        <SandpackExample code={defaultExample} name="Sheet Main Example" hideEditor />
       </PageHeader>
       <PropTable
         props={[
@@ -138,7 +138,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={defaultExample}
                 name="Sub task example"
-                showEditor={false}
+                hideEditor
                 layout="column"
               />
             }
@@ -152,7 +152,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={quickEditsExample}
                 name="Sub task example"
-                showEditor={false}
+                hideEditor
                 hideControls
               />
             }

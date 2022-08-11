@@ -21,7 +21,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
   return (
     <Page title="Modal">
       <PageHeader name="Modal" description={generatedDocGen?.description}>
-        <SandpackExample code={defaultExample} name="Modal Main Example" showEditor={false} />
+        <SandpackExample code={defaultExample} name="Modal Main Example" hideEditor />
       </PageHeader>
       <GeneratedPropTable
         generatedDocGen={generatedDocGen}
@@ -60,11 +60,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="Use Modal when a response is required from the user. Clearly communicate what response is expected and make the action simple and straight forward, such as clicking a button to confirm. The most common responses will be related to confirming or canceling."
             sandpackExample={
-              <SandpackExample
-                code={userResponseExample}
-                name="User response example"
-                showEditor={false}
-              />
+              <SandpackExample code={userResponseExample} name="User response example" hideEditor />
             }
           />
 
@@ -73,11 +69,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="Limit the number of actions in a Modal. A primary and secondary action should be used for Modals. The rarely used tertiary actions are often destructive, such as “Delete”."
             sandpackExample={
-              <SandpackExample
-                code={limitActionsExample}
-                name="Limit actions example"
-                showEditor={false}
-              />
+              <SandpackExample code={limitActionsExample} name="Limit actions example" hideEditor />
             }
           />
           <MainSection.Card
@@ -85,11 +77,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="In the few cases where Modals are being used within the Pinner product, aim to prevent the content from needing to scroll at a reasonable screen size."
             sandpackExample={
-              <SandpackExample
-                code={createBoardExample}
-                name="Create board example"
-                showEditor={false}
-              />
+              <SandpackExample code={createBoardExample} name="Create board example" hideEditor />
             }
           />
         </MainSection.Subsection>

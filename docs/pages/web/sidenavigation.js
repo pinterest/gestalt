@@ -52,7 +52,7 @@ export default function SideNavigationPage({
         <SandpackExample
           code={mainExample}
           name="SideNavigation Main Example"
-          showEditor={false}
+          hideEditor
           previewHeight={208}
         />
       </PageHeader>
@@ -92,7 +92,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={correctLengthExample}
                 name="Correct length example"
-                showEditor={false}
+                hideEditor
                 previewHeight={230}
               />
             }
@@ -105,7 +105,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={incorrectLengthExample}
                 name="Incorrect length example"
-                showEditor={false}
+                hideEditor
                 previewHeight={230}
                 hideControls
               />
@@ -121,7 +121,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={correctGroupingExample}
                 name="Correct grouping example"
-                showEditor={false}
+                hideEditor
                 previewHeight={286}
               />
             }
@@ -134,7 +134,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={incorrectGroupingExample}
                 name="Incorrect grouping example"
-                showEditor={false}
+                hideEditor
                 previewHeight={286}
                 hideControls
               />
@@ -150,7 +150,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={correctIconExample}
                 name="Correct icon example"
-                showEditor={false}
+                hideEditor
                 previewHeight={164}
               />
             }
@@ -163,7 +163,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={incorrectIconExample}
                 name="Incorrect icon example"
-                showEditor={false}
+                hideEditor
                 previewHeight={164}
                 hideControls
               />
@@ -179,7 +179,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={correctHeadingExample}
                 name="Correct heading example"
-                showEditor={false}
+                hideEditor
                 layout="column"
                 previewHeight={230}
               />
@@ -193,7 +193,7 @@ export default function SideNavigationPage({
               <SandpackExample
                 code={incorrectHeadingExample}
                 name="Incorrect heading example"
-                showEditor={false}
+                hideEditor
                 layout="column"
                 previewHeight={210}
                 hideControls
