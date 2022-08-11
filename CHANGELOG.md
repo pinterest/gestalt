@@ -1,3 +1,9 @@
+## 65.0.0 (Aug 11, 2022)
+
+### Major
+
+- Removing justify value prop of Heading component (#2257)
+
 ## 64.0.7 (Aug 11, 2022)
 
 ### Patch
