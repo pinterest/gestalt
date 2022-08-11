@@ -100,7 +100,17 @@ import {
   useMemo,
   useState,
 } from 'react';
+import ReactDOM from 'react-dom';
 import useReducedMotion from './useReducedMotion.js';
+
+/* A backward-compatible shim for React < 18 */
+function flushSync(callback) {
+  if (ReactDOM.flushSync) {
+    ReactDOM.flushSync(callback);
+  } else {
+    callback();
+  }
+}
 
 export type AnimationStateType = 'in' | 'postIn' | 'out' | 'postOut' | null;
 
@@ -130,7 +140,8 @@ export function useAnimation(): UseAnimationType {
   const { animationState, setAnimationState } = useContext(AnimationContext);
   const onAnimationEnd = useCallback(() => {
     if (['in', 'out'].includes(animationState) && setAnimationState) {
-      setAnimationState(animationState === 'in' ? 'postIn' : 'postOut');
+      // flushSync is needed in React 18+ to ensure that the animation is finished before the onDismissEnd callback is called.
+      flushSync(() => setAnimationState(animationState === 'in' ? 'postIn' : 'postOut'));
     }
   }, [animationState, setAnimationState]);
   return {
@@ -147,10 +158,9 @@ function AnimationController({
   const [animationState, setAnimationState] = useState<AnimationStateType>(
     shouldAnimate ? 'in' : null,
   );
-  const onDismissStart = useCallback(
-    () => setAnimationState(shouldAnimate ? 'out' : 'postOut'),
-    [setAnimationState, shouldAnimate],
-  );
+  const onDismissStart = useCallback(() => {
+    flushSync(() => setAnimationState(shouldAnimate ? 'out' : 'postOut'));
+  }, [setAnimationState, shouldAnimate]);
 
   useEffect(() => {
     if (animationState === 'postOut') {
