@@ -1,3 +1,9 @@
+## 64.0.7 (Aug 11, 2022)
+
+### Patch
+
+- Docs: convert mutliple foundation pages to use Sandpack (#2259)
+
 ## 64.0.6 (Aug 10, 2022)
 
 ### Patch
