@@ -1,3 +1,9 @@
+## 65.0.1 (Aug 11, 2022)
+
+### Patch
+
+- Internal: remove deepCloneReplacingUndefined (#2273)
+
 ## 65.0.0 (Aug 11, 2022)
 
 ### Major
