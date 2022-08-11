@@ -214,7 +214,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     <Masonry comp={Item} items={items} minCols={1} />
-    ~~~Pcard
+    ~~~
   `}
         name="Non-flexible item width"
       >
