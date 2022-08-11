@@ -1,3 +1,9 @@
+## 65.0.2 (Aug 11, 2022)
+
+### Patch
+
+- Docs: fix incorrect code wrapping on Masonry docs (#2274)
+
 ## 65.0.1 (Aug 11, 2022)
 
 ### Patch
