@@ -6,7 +6,6 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import Card from '../../docs-components/Card.js';
 import Page from '../../docs-components/Page.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import deepCloneReplacingUndefined from '../../utils/deepCloneReplacingUndefined.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
@@ -256,6 +255,6 @@ export async function getServerSideProps(): Promise<{| props: {| generatedDocGen
   };
 
   return {
-    props: { generatedDocGen: deepCloneReplacingUndefined(generatedDocGen) },
+    props: { generatedDocGen },
   };
 }
