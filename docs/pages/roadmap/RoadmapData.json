@@ -4,7 +4,7 @@
     {
       "task": "InfoButton component",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Creation of a component to provide contextual information for elements within a layout.",
       "link": ""
@@ -12,7 +12,7 @@
     {
       "task": "Form component",
       "deadline": "Quarter 3",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Addition of a component to encapsulate and structure form elements in a layout.",
       "link": ""
@@ -52,7 +52,7 @@
     {
       "task": "InfoButton integration in input components",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Providing the ability in form components to add an InfoButton to provide contextual help.",
       "link": ""
@@ -164,7 +164,7 @@
     {
       "task": "Masonry component enhancements",
       "deadline": "",
-      "status": "unstarted",
+      "status": "inProgress",
       "platform": "Web",
       "description": "Develop general technical improvements to Masonry.",
       "link": ""
@@ -172,7 +172,7 @@
     {
       "task": "Device type hooks",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Web",
       "description": "Develop functionality to unlock device-specific UI in Gestalt.",
       "link": ""
@@ -180,7 +180,7 @@
     {
       "task": "Context logging hooks",
       "deadline": "",
-      "status": "inProgress",
+      "status": "problem",
       "platform": "Web",
       "description": "Develop functionality to allow for generic logic to be added on component interaction.",
       "link": ""
@@ -260,7 +260,7 @@
     {
       "task": "Tag component design guidelines",
       "deadline": "Quarter 1",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Tag web documentation.",
       "link": ""
@@ -444,7 +444,7 @@
     {
       "task": "ButtonGroup component design guidelines",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to ButtonGroup web documentation.",
       "link": ""
@@ -460,7 +460,7 @@
     {
       "task": "Iconography pattern guidelines",
       "deadline": "Quarter 4",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "",
       "description": "Publish guidelines on appropriate usage of iconography with Gestalt.",
       "link": ""
@@ -468,7 +468,7 @@
     {
       "task": "Form autofix",
       "deadline": "Quarter 1",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Develop a lint rule to automatically convert <form>​ instances to our upcoming <Form>​ component",
       "link": ""
@@ -476,7 +476,7 @@
     {
       "task": "Box duplicate props autofix",
       "deadline": "Quarter 1",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Develop a lint rule to automatically combine props on Box where possible.",
       "link": ""
@@ -516,7 +516,7 @@
     {
       "task": "Testing helpers library",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Develop infrastructure to support Gestalt component integration testing in Cypress.",
       "link": ""
