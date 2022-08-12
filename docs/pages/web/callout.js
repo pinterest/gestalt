@@ -317,6 +317,59 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          description="Recommendation Callouts inform people of quick things they can do to improve their experience."
+          title="Recommendation"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Callout
+  dismissButton={{
+    accessibilityLabel: 'Dismiss this banner',
+    onDismiss: () => {},
+  }}
+  iconAccessibilityLabel="Recommendation"
+  message="When you run ads on Pinterest, you'll find recommendations to improve them here."
+  primaryAction={{
+    accessibilityLabel: "Learn more: Ads on Pinterest",
+    href: "https://pinterest.com",
+    label: "Learn more",
+    target: "blank",
+  }}
+  title="Advertise with confidence!"
+  type="recommendation"
+/>
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Success Callouts communicate confirmation regarding an action within a larger flow."
+          title="Success"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+  <Callout
+    dismissButton={{
+      accessibilityLabel: 'Dismiss this banner',
+      onDismiss: () => {},
+    }}
+    iconAccessibilityLabel="Success"
+    message="Keep it up by using recommendations to optimize your ad spend."
+    primaryAction={{
+      accessibilityLabel: "Get started: Ad recommendations",
+      href: "https://pinterest.com",
+      label: "Get started",
+      target: "blank",
+    }}
+    title="Your ads are doing great!"
+    type="success"
+  />
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           title="Warning"
           description="Warning Callouts communicate cautionary messages to users. Action shouldn't be required. The Callout should provide clear guidance on how to correct an issue and/or learn more about it."
         >

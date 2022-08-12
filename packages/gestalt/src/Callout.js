@@ -71,7 +71,7 @@ type Props = {|
   /**
    * The category of Callout. See [Variants](https://gestalt.pinterest.systems/web/callout#Variants) to learn more.
    */
-  type: 'error' | 'info' | 'warning',
+  type: 'error' | 'info' | 'recommendation' | 'success' | 'warning',
   /**
    * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    */
