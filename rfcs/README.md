@@ -18,10 +18,10 @@ changes to any of the Gestalt packages or its documentation.
 
 What constitutes a "substantial" change may include the following:
 
-- A new Gestalt building-block component that solves complex library issues (such as [ScrollBoundaryContainer](https://gestalt.pinterest.systems/scrollboundarycontainer) or [Z-Index classes](https://gestalt.pinterest.systems/zindex_classes)) and/or adds new developing patterns to Gestalt users (such as [Flex](https://gestalt.pinterest.systems/flex) or [TapArea](https://gestalt.pinterest.systems/taparea)).
-- A new Gestalt utility component (such as [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) or [useReducedMotion](https://gestalt.pinterest.systems/usereducedmotion)).
-- A new feature that creates new API surface area (such as [OnLinkNavigationProvider](https://gestalt.pinterest.systems/onlinknavigationprovider) and `dangerouslyDisableOnNavigation`).
-- The introduction of new idiomatic usage, conventions, or patterns (such as [Gestalt design tokens](https://gestalt.pinterest.systems/design_tokens), [boint units](https://gestalt.pinterest.systems/faq#Component-usage), or subcomponents modularity patterns like [Table](https://gestalt.pinterest.systems/table#Props) or [Dropdown](https://gestalt.pinterest.systems/dropdown) subcomponents).
+- A new Gestalt building-block component that solves complex library issues (such as [ScrollBoundaryContainer](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer) or [Z-Index classes](https://gestalt.pinterest.systems/web/zindex_classes)) and/or adds new developing patterns to Gestalt users (such as [Flex](https://gestalt.pinterest.systems/web/flex) or [TapArea](https://gestalt.pinterest.systems/web/taparea)).
+- A new Gestalt utility component (such as [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) or [useReducedMotion](https://gestalt.pinterest.systems/web/utilities/usereducedmotion)).
+- A new feature that creates new API surface area (such as [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) and `dangerouslyDisableOnNavigation`).
+- The introduction of new idiomatic usage, conventions, or patterns (such as [Gestalt design tokens](https://gestalt.pinterest.systems/foundations/design_tokens), [boint units](https://gestalt.pinterest.systems/get_started/faq#Component-usage), or subcomponents modularity patterns like [Table](https://gestalt.pinterest.systems/web/table#Props) or [Dropdown](https://gestalt.pinterest.systems/web/dropdown) subcomponents).
 - Technology migrations (such as the [migration to Next.js](https://github.com/pinterest/gestalt/pull/1642))
 
 Some changes do not require an RFC:

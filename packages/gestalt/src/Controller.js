@@ -38,8 +38,8 @@ type HookProps = {|
 type Props = {| ...OwnProps, ...HookProps |};
 
 type State = {|
-  relativeOffset: Coordinates,
-  triggerBoundingRect: ClientRect,
+  relativeOffset: ?Coordinates,
+  triggerBoundingRect: ?ClientRect,
 |};
 
 class Controller extends Component<Props, State> {

@@ -5,7 +5,14 @@ import { SlimBanner, Flex, Box } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <Box padding={1}>
-      <Flex direction="column" gap={1} width={400}>
+      <Flex
+        direction="column"
+        gap={{
+          row: 0,
+          column: 1,
+        }}
+        width={400}
+      >
         <SlimBanner message="Your total audience includes all users who have seen your Pins." />
         {[
           'error',

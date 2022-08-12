@@ -25,7 +25,7 @@ type Props = {|
    */
   active?: 'page' | 'section',
   /**
-   * When supplied, will display a [Badge](https://gestalt.pinterest.systems/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/SideNavigation#Badge) variant to learn more.
+   * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/SideNavigation#Badge) variant to learn more.
    */
   badge?: {|
     text: string,
@@ -65,7 +65,7 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
+ * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 export default function SideNavigationTopItem({
   active,
@@ -84,7 +84,7 @@ export default function SideNavigationTopItem({
 
   const deviceType = useDeviceType();
 
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'phone';
 
   const isTopLevel = nestedLevel === 0;
 
@@ -133,7 +133,7 @@ export default function SideNavigationTopItem({
             },
           }}
         >
-          <Flex gap={2} height="100%" width="100%">
+          <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
             {icon ? (
               <Flex.Item alignSelf="center">
                 <Box aria-hidden>

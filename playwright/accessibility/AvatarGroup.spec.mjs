@@ -3,7 +3,7 @@ import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
 test('AvatarGroup Accessibility check', async ({ page }) => {
-  await page.goto('/avatargroup');
+  await page.goto('/web/avatargroup');
   await expectAccessiblePage({
     page,
     rules: {

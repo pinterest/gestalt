@@ -96,7 +96,7 @@ function IconEnd({
   size: string,
 |}): Node {
   return (
-    <Flex alignItems="center" gap={2} justifyContent="center">
+    <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
       {text}
       <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
     </Flex>
@@ -104,7 +104,7 @@ function IconEnd({
 }
 
 /**
- * [Buttons](https://gestalt.pinterest.systems/button) allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like [Dropdown](https://gestalt.pinterest.systems/dropdown) or [Popover](https://gestalt.pinterest.systems/popover).
+ * [Buttons](https://gestalt.pinterest.systems/web/button) allow users to perform actions within a surface. They can be used alone for immediate action, or as a trigger for another component, like [Dropdown](https://gestalt.pinterest.systems/web/dropdown) or [Popover](https://gestalt.pinterest.systems/web/popover).
  *
  * ![Button light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Button.spec.mjs-snapshots/Button-chromium-darwin.png)
  * ![Button dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Button-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)

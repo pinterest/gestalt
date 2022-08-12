@@ -18,7 +18,7 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation.NestedGroup](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.NestedGroup) to hold SideNavigation.NestedItem in the second nested level of Pageheader.
+ * Use [SideNavigation.NestedGroup](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedGroup) to hold SideNavigation.NestedItem in the second nested level of Pageheader.
  */
 export default function SideNavigationNestedGroup({
   children,

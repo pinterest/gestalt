@@ -1,3 +1,273 @@
+## 65.1.0 (Aug 12, 2022)
+
+### Minor
+
+- Sheet: fix flicker when closing Sheet with React 18 (#2275)
+
+## 65.0.2 (Aug 11, 2022)
+
+### Patch
+
+- Docs: fix incorrect code wrapping on Masonry docs (#2274)
+
+## 65.0.1 (Aug 11, 2022)
+
+### Patch
+
+- Internal: remove deepCloneReplacingUndefined (#2273)
+
+## 65.0.0 (Aug 11, 2022)
+
+### Major
+
+- Removing justify value prop of Heading component (#2257)
+
+## 64.0.7 (Aug 11, 2022)
+
+### Patch
+
+- Docs: convert mutliple foundation pages to use Sandpack (#2259)
+
+## 64.0.6 (Aug 10, 2022)
+
+### Patch
+
+- Internal: fix Flow issues with positioning utils (#2268)
+
+## 64.0.5 (Aug 10, 2022)
+
+### Patch
+
+- Internal: disallow console.\* calls in tests (#2271)
+
+## 64.0.4 (Aug 10, 2022)
+
+### Patch
+
+- Docs: Fixed broken link in color palette page (#2272)
+
+## 64.0.3 (Aug 10, 2022)
+
+### Patch
+
+- Docs: fix Collage bug (#2270)
+
+## 64.0.2 (Aug 9, 2022)
+
+### Patch
+
+- Docs: fix Flex issues (#2269)
+
+## 64.0.1 (Aug 9, 2022)
+
+### Patch
+
+- Internal: upgrade caniuse (#2267)
+
+## 64.0.0 (Aug 8, 2022)
+
+### Major
+
+- Flex: modify `gap` to support row/column values (#2218)
+
+## 63.3.3 (Aug 8, 2022)
+
+### Patch
+
+- Flex: add link to Flexbox Froggy (#2266)
+
+## 63.3.2 (Aug 8, 2022)
+
+### Patch
+
+- Internal: Upgrade React Testing Library and update flow types (#2265)
+
+## 63.3.1 (Aug 5, 2022)
+
+### Patch
+
+- Docs: update all internal links to new URL structure (#2264)
+
+## 63.3.0 (Aug 5, 2022)
+
+### Minor
+
+- SideNavigation: add self-opening group on active items (#2263)
+
+## 63.2.2 (Aug 5, 2022)
+
+### Patch
+
+- PageHeader: improved Docs with examples and descriptions (#2262)
+
+## 63.2.1 (Aug 4, 2022)
+
+### Patch
+
+- Internal: upgrade flow-bin to 0.184.0, try out new inference mode (#2261)
+
+## 63.2.0 (Aug 4, 2022)
+
+### Minor
+
+- Releases: new developers/releases page (#2260)
+
+## 63.1.1 (Aug 3, 2022)
+
+### Patch
+
+- Docs: adjustments to Sandpack code containers (#2255)
+
+## 63.1.0 (Aug 3, 2022)
+
+### Minor
+
+- DeviceTypeProvider: Rollback to use 'phone' to identify mobile devices
+
+## 63.0.12 (Aug 3, 2022)
+
+### Patch
+
+- Docs: implement Tabs into Gestalt Documentation's SideNavigation for mobile (#2254)
+
+## 63.0.11 (Aug 3, 2022)
+
+### Patch
+
+- Tooling: refactor renameComponent codemod to use new helper functions (#2235)
+
+## 63.0.10 (Aug 3, 2022)
+
+### Patch
+
+- Tests: Update accessibility tests (#2251)
+
+## 63.0.9 (Aug 3, 2022)
+
+### Patch
+
+- Docs: convert accessibility page to Sandpack & fix useReducedMotion example (#2253)
+
+## 63.0.8 (Aug 3, 2022)
+
+### Patch
+
+- Internal: add eslint-plugin-validate-jsx-nesting (#2252)
+
+## 63.0.7 (Aug 2, 2022)
+
+### Patch
+
+- Docs: Fix missing pages (#2250)
+
+## 63.0.6 (Aug 2, 2022)
+
+### Patch
+
+- Docs: add redirects for old paths (#2248)
+
+## 63.0.5 (Aug 2, 2022)
+
+### Patch
+
+- Docs: Move development process page (#2249)
+
+## 63.0.4 (Aug 2, 2022)
+
+### Patch
+
+- SideNavigation: implement Sandpack live code examples (#2240)
+
+## 63.0.3 (Aug 2, 2022)
+
+### Patch
+
+- Docs: site navigation updates (#2242)
+
+## 63.0.2 (Aug 2, 2022)
+
+### Patch
+
+- Docs: new SlimBanner, SideNavigation SVGs (#2247)
+
+## 63.0.1 (Aug 2, 2022)
+
+### Patch
+
+- Internal: remove unused cacache dependency (#2245)
+
+## 63.0.0 (Aug 1, 2022)
+
+### Major
+
+- Docs: Introduced new nested site navigation + platform sections (#2214)
+
+## 62.5.1 (Aug 1, 2022)
+
+### Patch
+
+- Docs: Fix /\_error renders on collage page (#2236)
+
+## 62.5.0 (Aug 1, 2022)
+
+### Minor
+
+- Eslint plugin: Avoid "workflow-status-[..]" on Icon (#2228)
+
+## 62.4.8 (Aug 1, 2022)
+
+### Patch
+
+- Internal: replace flow-lint suppressions with FlowFixMe (#2241)
+
+## 62.4.7 (Aug 1, 2022)
+
+### Patch
+
+- Internal: add ability to use local Gestalt CSS & JS files (#2234)
+
+## 62.4.6 (Aug 1, 2022)
+
+### Patch
+
+- Internal: remove unused dependencies (#2232)
+
+## 62.4.5 (Aug 1, 2022)
+
+### Patch
+
+- Docs: fix web repository link (#2233)
+
+## 62.4.4 (Aug 1, 2022)
+
+### Patch
+
+- Docs: group sidebar toggles (#2238)
+
+## 62.4.3 (Aug 1, 2022)
+
+### Patch
+
+- Docs: fix received 'true' for a non-boolean attribute 'wsz' (#2237)
+
+## 62.4.2 (Aug 1, 2022)
+
+### Patch
+
+- Docs: sidebar border should reach bottom (#2239)
+
+## 62.4.1 (Jul 29, 2022)
+
+### Patch
+
+- Docs: fix heading scroll position (#2230)
+
+## 62.4.0 (Jul 29, 2022)
+
+### Minor
+
+- Docs: Introduce Sandpack for code examples (#2221)
+
 ## 62.3.0 (Jul 28, 2022)
 
 ### Minor

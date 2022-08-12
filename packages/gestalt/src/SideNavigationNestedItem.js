@@ -29,7 +29,7 @@ type Props = {|
 |};
 
 /**
- * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/sidenavigation#SideNavigation.NestedItem) to redirect the user to a different page or section. SideNavigation.NestedItem must be used in second and third nested levels.
+ * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem) to redirect the user to a different page or section. SideNavigation.NestedItem must be used in second and third nested levels.
  */
 export default function SideNavigationNestedItem({ active, href, label, onClick }: Props): Node {
   return <SideNavigationTopItem active={active} href={href} label={label} onClick={onClick} />;

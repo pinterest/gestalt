@@ -18,14 +18,6 @@
  * --prop=string
  * --value=string|number|boolean
  *
- *
- * If all options passed, prop+value combination are replaced with new prop+value combination
- * In the absence of nextProp, the codemod only replaces the prop value
- * In the absence of nextValue, the codemod only replaces the prop name for that prop+value combination
- * In the absence of nextProp+nextValue, the codemod removes the prop with that particular value
- * In the absence of previousProp+previousValue, the codemod adds a new prop with value
- *
- *
  * E.g. yarn codemod detectManualReplacement ~/code/pinboard/webapp --component=Box --prop=color value=error
  *
  */

@@ -14,15 +14,15 @@ import focusStyles from './Focus.css';
 
 type Props = {|
   /**
-   * Indicates whether or not Checkbox is checked. See the [state variant](https://gestalt.pinterest.systems/checkbox#State) to learn more.
+   * Indicates whether or not Checkbox is checked. See the [state variant](https://gestalt.pinterest.systems/web/checkbox#State) to learn more.
    */
   checked?: boolean,
   /**
-   * Indicates whether or not Checkbox is disabled. Disabled Checkboxes do not respond to mouse events and cannot be reached by the keyboard. See the [state variant](https://gestalt.pinterest.systems/checkbox#State) to learn more.
+   * Indicates whether or not Checkbox is disabled. Disabled Checkboxes do not respond to mouse events and cannot be reached by the keyboard. See the [state variant](https://gestalt.pinterest.systems/web/checkbox#State) to learn more.
    */
   disabled?: boolean,
   /**
-   * Displays an error message and error state. See the [accessibility section](https://gestalt.pinterest.systems/checkbox#Error-message) to learn more.
+   * Displays an error message and error state. See the [accessibility section](https://gestalt.pinterest.systems/web/checkbox#Error-message) to learn more.
    */
   errorMessage?: string,
   /**
@@ -34,15 +34,15 @@ type Props = {|
    */
   id: string,
   /**
-   * An optional Image can be supplied to add an image to each Checkbox. See the [with Image variant](https://gestalt.pinterest.systems/checkbox#With-Image) to learn more.
+   * An optional Image can be supplied to add an image to each Checkbox. See the [with Image variant](https://gestalt.pinterest.systems/web/checkbox#With-Image) to learn more.
    */
   image?: Node,
   /**
-   * Indicates a state that is neither checked nor unchecked. See the [state variant](https://gestalt.pinterest.systems/checkbox#State) to learn more.
+   * Indicates a state that is neither checked nor unchecked. See the [state variant](https://gestalt.pinterest.systems/web/checkbox#State) to learn more.
    */
   indeterminate?: boolean,
   /**
-   * The label for the input. Be sure to localize the text. See the [accessibility section](https://gestalt.pinterest.systems/checkbox#Labels) to learn more.
+   * The label for the input. Be sure to localize the text. See the [accessibility section](https://gestalt.pinterest.systems/web/checkbox#Labels) to learn more.
    */
   label?: string,
   /**
@@ -66,17 +66,17 @@ type Props = {|
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * Determines the Checkbox size: sm = 16px, md = 24px. See the [size variant](https://gestalt.pinterest.systems/checkbox#Size) to learn more.
+   * Determines the Checkbox size: sm = 16px, md = 24px. See the [size variant](https://gestalt.pinterest.systems/web/checkbox#Size) to learn more.
    */
   size?: 'sm' | 'md',
   /**
-   * Optional description for Checkbox, used to provide more detail about an option. See the [with subtext variant](https://gestalt.pinterest.systems/checkbox#With-subtext) to learn more.
+   * Optional description for Checkbox, used to provide more detail about an option. See the [with subtext variant](https://gestalt.pinterest.systems/web/checkbox#With-subtext) to learn more.
    */
   subtext?: string,
 |};
 
 /**
- * [Checkbox](https://gestalt.pinterest.systems/checkbox) is used for multiple choice selection. They are independent of each other in a list, and therefore, different from [RadioButton](https://gestalt.pinterest.systems/radiobutton), one selection does not affect other checkboxes in the same list.
+ * [Checkbox](https://gestalt.pinterest.systems/web/checkbox) is used for multiple choice selection. They are independent of each other in a list, and therefore, different from [RadioButton](https://gestalt.pinterest.systems/web/radiobutton), one selection does not affect other checkboxes in the same list.
  *
  * ![Checkbox light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Checkbox.spec.mjs-snapshots/Checkbox-chromium-darwin.png)
  * ![Checkbox dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Checkbox-dark.spec.mjs-snapshots/Checkbox-dark-chromium-darwin.png)

@@ -19,27 +19,27 @@ type Props = {|
    */
   _dangerouslyDisableScrollBoundaryContainer?: boolean,
   /**
-   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/modal#Accessibility) for more info.
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modal#Accessibility) for more info.
    */
   accessibilityModalLabel: string,
   /**
-   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
+   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
    */
   align?: 'start' | 'center',
   /**
-   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
+   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
    */
   children?: Node,
   /**
-   * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/modal#Preventing-close-on-outside-click) for more info.
+   * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/web/modal#Preventing-close-on-outside-click) for more info.
    */
   closeOnOutsideClick?: boolean,
   /**
-   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
+   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
    */
   footer?: Node,
   /**
-   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
+   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
    */
   heading?: Node,
   /**
@@ -47,13 +47,13 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/modal#Role) for more info.
+   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
    *
    * Default: 'dialog'
    */
   role?: 'alertdialog' | 'dialog',
   /**
-   * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/modal#Sizes) for more info.
+   * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/web/modal#Sizes) for more info.
    *
    * sm: `540px` | md: `720px` | lg: `900px` | number
    *
@@ -61,7 +61,7 @@ type Props = {|
    */
   size?: 'sm' | 'md' | 'lg' | number,
   /**
-   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/modal#Sub-heading) for more info.
+   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
    */
   subHeading?: string,
 |};
@@ -96,7 +96,7 @@ function Header({
 }
 
 /**
- * A [Modal](https://gestalt.pinterest.systems/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. The most common example of Modal is confirming an action the user has taken.
+ * A [Modal](https://gestalt.pinterest.systems/web/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. The most common example of Modal is confirming an action the user has taken.
  */
 export default function Modal({
   _dangerouslyDisableScrollBoundaryContainer = false,

@@ -47,7 +47,7 @@ export default function SideNavigationGroupContent({
 |}): Node {
   const deviceType = useDeviceType();
 
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'phone';
 
   return (
     <Box
@@ -67,7 +67,7 @@ export default function SideNavigationGroupContent({
             : paddingStyle,
       }}
     >
-      <Flex gap={2} height="100%" width="100%">
+      <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
         {icon ? (
           <Flex.Item alignSelf="center">
             <Box aria-hidden>

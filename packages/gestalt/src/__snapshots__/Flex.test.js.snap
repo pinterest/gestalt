@@ -2,7 +2,7 @@
 
 exports[`Flex aligns items 1`] = `
 <div
-  className="Flex rowGap0 itemsEnd xsDirectionRow"
+  className="Flex rowGap0 columnGap0 itemsEnd xsDirectionRow"
 >
   <div />
   <div />
@@ -13,7 +13,7 @@ exports[`Flex aligns items 1`] = `
 
 exports[`Flex justifies content 1`] = `
 <div
-  className="Flex rowGap0 justifyAround xsDirectionRow"
+  className="Flex rowGap0 columnGap0 justifyAround xsDirectionRow"
 >
   <div />
   <div />
@@ -24,7 +24,7 @@ exports[`Flex justifies content 1`] = `
 
 exports[`Flex renders 1`] = `
 <div
-  className="Flex rowGap0 xsDirectionRow"
+  className="Flex rowGap0 columnGap0 xsDirectionRow"
 >
   <div />
   <div />
@@ -35,7 +35,7 @@ exports[`Flex renders 1`] = `
 
 exports[`Flex renders with direction: column 1`] = `
 <div
-  className="Flex columnGap0 xsDirectionColumn"
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div />
   <div />
@@ -46,7 +46,7 @@ exports[`Flex renders with direction: column 1`] = `
 
 exports[`Flex renders with specified gap 1`] = `
 <div
-  className="Flex rowGap8 xsDirectionRow"
+  className="Flex rowGap8 columnGap8 xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -73,7 +73,7 @@ exports[`Flex renders with specified gap 1`] = `
 
 exports[`Flex.Item renders with specified props 1`] = `
 <div
-  className="Flex rowGap0 xsDirectionRow"
+  className="Flex rowGap0 columnGap0 xsDirectionRow"
 >
   <div />
   <div

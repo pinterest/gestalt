@@ -3,6 +3,6 @@ import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
 test('TextField Accessibility check', async ({ page }) => {
-  await page.goto('/textfield');
+  await page.goto('/web/textfield');
   await expectAccessiblePage({ page });
 });

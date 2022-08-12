@@ -35,7 +35,7 @@ type Props = {|
 |};
 
 /**
- * Use [Table.HeaderCell](https://gestalt.pinterest.systems/table#Table.HeaderCell) to define a header cell in Table.
+ * Use [Table.HeaderCell](https://gestalt.pinterest.systems/web/table#Table.HeaderCell) to define a header cell in Table.
  */
 export default function TableHeaderCell({
   children,

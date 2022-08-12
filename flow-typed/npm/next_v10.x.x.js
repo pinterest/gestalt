@@ -261,3 +261,11 @@ declare module "next/dynamic" {
     options: ?NextDynamicOptions
   ): Object;
 }
+
+// From TypeScript types
+// https://github.com/vercel/next.js/blob/dce8c0ce9d2af48ae29489dab7d052ff79acd357/packages/next/shared/lib/utils.ts#L238
+declare class NextRequest extends http$IncomingMessage { }
+declare class NextResponse extends http$ServerResponse {
+  status: (statusCode: number) => NextResponse;
+  json: (json: any) => NextResponse;
+}

@@ -8,7 +8,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -111,7 +111,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
         style="isolation: isolate;"
       >
         <div
-          class="Flex rowGap0 xsDirectionRow"
+          class="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
             aria-hidden="true"
@@ -209,7 +209,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -347,7 +347,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -479,7 +479,7 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -536,7 +536,7 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -593,7 +593,7 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"

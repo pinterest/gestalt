@@ -159,7 +159,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
             rounding={TAB_ROUNDING}
             userSelect="none"
           >
-            <Flex alignItems="center" gap={2} justifyContent="center">
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
               <Text color="default" overflow="noWrap" weight="bold">
                 {text}
               </Text>
@@ -196,11 +196,11 @@ type Props = {|
    */
   activeTabIndex: number,
   /**
-   * If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color example](https://gestalt.pinterest.systems/tabs#Background-color) to learn more.
+   * If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color example](https://gestalt.pinterest.systems/web/tabs#Background-color) to learn more.
    */
   bgColor?: BgColor,
   /**
-   * If your app requires client navigation, be sure to use [OnLinkNavigationProvider](`https://gestalt.pinterest.systems/onlinknavigationprovider`) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
+   * If your app requires client navigation, be sure to use [OnLinkNavigationProvider](`https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider`) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
    */
   onChange: OnChangeHandler,
   /**
@@ -220,7 +220,7 @@ type Props = {|
 |};
 
 /**
- * [Tabs](https://gestalt.pinterest.systems/tabs) may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](https://gestalt.pinterest.systems/segmentedcontrol).
+ * [Tabs](https://gestalt.pinterest.systems/web/tabs) may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol).
  */
 export default function Tabs({
   activeTabIndex,
@@ -230,7 +230,7 @@ export default function Tabs({
   wrap,
 }: Props): Node {
   return (
-    <Flex alignItems="center" gap={4} justifyContent="start" wrap={wrap}>
+    <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabWithForwardRef
           bgColor={bgColor}

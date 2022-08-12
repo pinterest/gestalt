@@ -1,9 +1,11 @@
-import { Box, ScrollBoundaryContainer } from 'gestalt';
+import { ScrollBoundaryContainer, Box } from 'gestalt';
 
 export default function TestComp() {
   return (
     <ScrollBoundaryContainer height={200} overflow="scrollY">
-      <Box/>
+      <ScrollBoundaryContainer>
+        <Box />
+      </ScrollBoundaryContainer>
     </ScrollBoundaryContainer>
   );
 }

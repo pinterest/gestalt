@@ -7,7 +7,7 @@ import Divider from './Divider.js';
 import Heading from './Heading.js';
 import IconButton from './IconButton.js';
 import styles from './SideNavigation.css';
-import useGetChildrenToArray from './useGetChildrenToArray.js';
+import getChildrenToArray from './getChildrenToArray.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import { type Props } from './SideNavigation.js';
 
@@ -19,7 +19,7 @@ export default function SideNavigationMobile({
   title,
   dismissButton,
 }: Props): Node {
-  const navigationChildren = useGetChildrenToArray({ children, filterLevel: 'main' });
+  const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
 
   const { selectedMobileChildren } = useSideNavigation();
 
@@ -55,16 +55,16 @@ export default function SideNavigationMobile({
             </Flex.Item>
           </Flex>
         </Box>
-        <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           {header ? (
-            <Flex direction="column" gap={4}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
               <Box paddingX={4}>{header}</Box>
               <Divider />
             </Flex>
           ) : null}
           <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
           {footer ? (
-            <Flex direction="column" gap={4}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
               <Divider />
               <Box paddingX={4}>{footer}</Box>
             </Flex>

@@ -4,7 +4,13 @@ import { Flex, Tag } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
-    <Flex direction="column" gap={2}>
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 2,
+      }}
+    >
       <Tag onRemove={() => {}} removeIconAccessibilityLabel="Remove" text="New" />
       <Tag disabled text="Disabled" />
       <Tag

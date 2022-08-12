@@ -32,7 +32,7 @@ export default function ModuleTitle(props: {|
   const textAndIconColor = hasError ? 'error' : 'default';
 
   return (
-    <Flex alignItems="center" gap={2}>
+    <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
       {hasIcon && (
         <Flex.Item minWidth={0}>
           <Icon

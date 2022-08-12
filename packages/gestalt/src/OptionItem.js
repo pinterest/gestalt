@@ -94,7 +94,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
 
   const optionItemContent = (
     <Flex>
-      <Flex direction="column" flex="grow" gap={1}>
+      <Flex direction="column" flex="grow" gap={{ column: 1, row: 0 }}>
         <Flex alignItems="center">
           {children || (
             <Fragment>

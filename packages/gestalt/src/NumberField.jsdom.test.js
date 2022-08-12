@@ -40,7 +40,7 @@ describe('NumberField', () => {
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const input = getByDisplayValue('42');
     fireEvent.focus(input);
-    expect(input).toHaveDescription('Error message');
+    expect(input).toHaveAccessibleDescription('Error message');
   });
 
   it('forwards a ref to <input />', () => {

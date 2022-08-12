@@ -18,6 +18,8 @@ type SideNavigationContextType = {|
   setSelectedItemId: (string) => void,
   selectedMobileChildren: Node | null,
   setSelectedMobileChildren: (Node | null) => void,
+  hideActiveChildren: boolean | null,
+  setHideActiveChildren: (boolean | null) => void,
   dismissButton?: {|
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -36,6 +38,8 @@ const SideNavigationContext: Context<SideNavigationContextType> =
     setSelectedItemId: () => {},
     selectedMobileChildren: null,
     setSelectedMobileChildren: () => {},
+    hideActiveChildren: false,
+    setHideActiveChildren: () => {},
   });
 
 const { Provider } = SideNavigationContext;
@@ -43,12 +47,15 @@ const { Provider } = SideNavigationContext;
 function SideNavigationProvider({ children, dismissButton }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState(null);
+  const [hideActiveChildren, setHideActiveChildren] = useState(false);
 
   const sideNavigationContext = {
     selectedItemId,
     setSelectedItemId,
     selectedMobileChildren,
     setSelectedMobileChildren,
+    hideActiveChildren,
+    setHideActiveChildren,
     dismissButton,
   };
 
@@ -61,6 +68,8 @@ function useSideNavigation(): SideNavigationContextType {
     setSelectedItemId,
     selectedMobileChildren,
     setSelectedMobileChildren,
+    hideActiveChildren,
+    setHideActiveChildren,
     dismissButton,
   } = useContext(SideNavigationContext);
   return {
@@ -68,6 +77,8 @@ function useSideNavigation(): SideNavigationContextType {
     setSelectedItemId,
     selectedMobileChildren,
     setSelectedMobileChildren,
+    hideActiveChildren,
+    setHideActiveChildren,
     dismissButton,
   };
 }

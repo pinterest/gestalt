@@ -17,7 +17,7 @@ type Props = {|
    */
   accessibilityCollapseLabel: string,
   /**
-   * Must be instances of Table.Cell. See the [Subcomponent section](https://gestalt.pinterest.systems/table#Subcomponents) to learn more.
+   * Must be instances of Table.Cell. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
   children: Node,
   /**
@@ -46,7 +46,7 @@ type Props = {|
 |};
 
 /**
- * Use [Table.RowExpandable](https://gestalt.pinterest.systems/table#Table.RowExpandable) to define a row that expands and collapses additional content.
+ * Use [Table.RowExpandable](https://gestalt.pinterest.systems/web/table#Table.RowExpandable) to define a row that expands and collapses additional content.
  */
 export default function TableRowExpandable({
   accessibilityCollapseLabel,

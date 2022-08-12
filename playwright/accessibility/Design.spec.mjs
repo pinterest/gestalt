@@ -3,6 +3,6 @@ import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
 test('Design Accessibility check', async ({ page }) => {
-  await page.goto('/design');
+  await page.goto('/get_started/design');
   await expectAccessiblePage({ page });
 });

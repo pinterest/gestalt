@@ -12,7 +12,7 @@ import SideNavigationTopItem from './SideNavigationTopItem.js';
 import SideNavigationGroup from './SideNavigationGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
-import useGetChildrenToArray from './useGetChildrenToArray.js';
+import getChildrenToArray from './getChildrenToArray.js';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
 import { type Indexable } from './zIndex.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
@@ -31,15 +31,15 @@ export type Props = {|
    */
   accessibilityLabel: string,
   /**
-   * The content shown in SideNavigation. See [subcomponents](https://gestalt.pinterest.systems/sidenavigation#Subcomponents).
+   * The content shown in SideNavigation. See [subcomponents](https://gestalt.pinterest.systems/web/sidenavigation#Subcomponents).
    */
   children: Node,
   /**
-   * Content to display at the bottom of SideNavigation. Open slot available to display other functionality required in the page. See the [Footer variant](https://gestalt.pinterest.systems/sidenavigation#Header) to learn more.
+   * Content to display at the bottom of SideNavigation. Open slot available to display other functionality required in the page. See the [Footer variant](https://gestalt.pinterest.systems/web/sidenavigation#Header) to learn more.
    */
   footer?: Node,
   /**
-   * Content to display at the top of SideNavigation. Open slot used for controlling the display of navigation items. See the [Header variant](https://gestalt.pinterest.systems/sidenavigation#Header) to learn more.
+   * Content to display at the top of SideNavigation. Open slot used for controlling the display of navigation items. See the [Header variant](https://gestalt.pinterest.systems/web/sidenavigation#Header) to learn more.
    */
   header?: Node,
   /**
@@ -48,7 +48,7 @@ export type Props = {|
   dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void, tooltip: TooltipProps |},
   /**
   /**
-   * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/sidenavigation#Border) variant for more info.
+   * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/web/sidenavigation#Border) variant for more info.
    */
   showBorder?: boolean,
   /**
@@ -58,7 +58,7 @@ export type Props = {|
 |};
 
 /**
- * [SideNavigation](https://gestalt.pinterest.systems/sidenavigation) is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal [Tabs](https://gestalt.pinterest.systems/tabs).
+ * [SideNavigation](https://gestalt.pinterest.systems/web/sidenavigation) is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal [Tabs](https://gestalt.pinterest.systems/web/tabs).
  *
  * **NOTE**This component is on alpha phase, still under developoment. The component will support three levels and keyboard navigation. The component will change behavior and the API might also change in future component version releases.**NOTE**
  *
@@ -75,10 +75,10 @@ export default function SideNavigation({
   showBorder,
   title,
 }: Props): Node {
-  const navigationChildren = useGetChildrenToArray({ children, filterLevel: 'main' });
+  const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
 
   const deviceType = useDeviceType();
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'phone';
 
   if (isMobile) {
     return (
@@ -107,16 +107,16 @@ export default function SideNavigation({
             color="default"
             dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
           >
-            <Flex direction="column" gap={4}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
               {header ? (
-                <Flex direction="column" gap={4}>
+                <Flex direction="column" gap={{ column: 4, row: 0 }}>
                   <Box paddingX={4}>{header}</Box>
                   <Divider />
                 </Flex>
               ) : null}
               <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
               {footer ? (
-                <Flex direction="column" gap={4}>
+                <Flex direction="column" gap={{ column: 4, row: 0 }}>
                   <Divider />
                   <Box paddingX={4}>{footer}</Box>
                 </Flex>

@@ -22,13 +22,13 @@ exports[`SideNavigation renders Header + Footer 1`] = `
       }
     >
       <div
-        className="Flex columnGap4 xsDirectionColumn"
+        className="Flex rowGap0 columnGap4 xsDirectionColumn"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="Flex columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap4 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -96,7 +96,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   }
                 >
                   <div
-                    className="Flex rowGap2 xsDirectionRow"
+                    className="Flex rowGap2 columnGap0 xsDirectionRow"
                     style={
                       Object {
                         "height": "100%",
@@ -123,7 +123,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
           className="FlexItem"
         >
           <div
-            className="Flex columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap4 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -181,7 +181,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
       }
     >
       <div
-        className="Flex columnGap4 xsDirectionColumn"
+        className="Flex rowGap0 columnGap4 xsDirectionColumn"
       >
         <div
           className="FlexItem"
@@ -245,7 +245,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       }
                     >
                       <div
-                        className="Flex rowGap2 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 xsDirectionRow"
                         style={
                           Object {
                             "height": "100%",
@@ -361,7 +361,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       }
                     >
                       <div
-                        className="Flex rowGap2 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 xsDirectionRow"
                         style={
                           Object {
                             "height": "100%",
@@ -481,7 +481,7 @@ exports[`SideNavigation renders Sections 1`] = `
       }
     >
       <div
-        className="Flex columnGap4 xsDirectionColumn"
+        className="Flex rowGap0 columnGap4 xsDirectionColumn"
       >
         <div
           className="FlexItem"
@@ -545,7 +545,7 @@ exports[`SideNavigation renders Sections 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 xsDirectionRow"
                         style={
                           Object {
                             "height": "100%",
@@ -598,7 +598,7 @@ exports[`SideNavigation renders basic Item 1`] = `
       }
     >
       <div
-        className="Flex columnGap4 xsDirectionColumn"
+        className="Flex rowGap0 columnGap4 xsDirectionColumn"
       >
         <div
           className="FlexItem"
@@ -640,7 +640,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                   }
                 >
                   <div
-                    className="Flex rowGap2 xsDirectionRow"
+                    className="Flex rowGap2 columnGap0 xsDirectionRow"
                     style={
                       Object {
                         "height": "100%",
@@ -691,7 +691,7 @@ exports[`SideNavigation renders nested directory 1`] = `
       }
     >
       <div
-        className="Flex columnGap4 xsDirectionColumn"
+        className="Flex rowGap0 columnGap4 xsDirectionColumn"
       >
         <div
           className="FlexItem"
@@ -733,7 +733,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                   }
                 >
                   <div
-                    className="Flex rowGap2 xsDirectionRow"
+                    className="Flex rowGap2 columnGap0 xsDirectionRow"
                     style={
                       Object {
                         "height": "100%",
@@ -810,7 +810,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                   }
                 >
                   <div
-                    className="Flex rowGap2 xsDirectionRow"
+                    className="Flex rowGap2 columnGap0 xsDirectionRow"
                     style={
                       Object {
                         "height": "100%",
@@ -909,7 +909,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 xsDirectionRow"
                         style={
                           Object {
                             "height": "100%",
@@ -987,7 +987,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 xsDirectionRow"
                         style={
                           Object {
                             "height": "100%",
@@ -1067,7 +1067,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                     }
                   >
                     <div
-                      className="Flex rowGap2 xsDirectionRow"
+                      className="Flex rowGap2 columnGap0 xsDirectionRow"
                       style={
                         Object {
                           "height": "100%",
@@ -1146,7 +1146,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 xsDirectionRow"
                             style={
                               Object {
                                 "height": "100%",
@@ -1201,7 +1201,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 xsDirectionRow"
                             style={
                               Object {
                                 "height": "100%",
