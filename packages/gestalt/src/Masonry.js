@@ -395,6 +395,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       isVisible = true;
     }
 
+    const isRtl = this.gridWrapper ? getComputedStyle(this.gridWrapper).direction === 'rtl' : false;
+
     const itemComponent = (
       <div
         className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
@@ -403,9 +405,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         role="listitem"
         style={{
           top: 0,
-          left: 0,
-          transform: `translateX(${left}px) translateY(${top}px)`,
-          WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
+          transform: `translateX(${isRtl ? '-' : ''}${left}px) translateY(${top}px)`,
+          WebkitTransform: `translateX(${isRtl ? '-' : ''}${left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
         }}
