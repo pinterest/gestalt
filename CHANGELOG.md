@@ -1,3 +1,9 @@
+## 65.2.0 (Aug 12, 2022)
+
+### Minor
+
+- Callout: add "success", "recommendation" variants (#2277)
+
 ## 65.1.2 (Aug 12, 2022)
 
 ### Patch
