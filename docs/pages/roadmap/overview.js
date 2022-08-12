@@ -14,6 +14,8 @@ const future = roadmapData.tasks.filter((x) => x.status === 'unstarted');
 
 const complete = roadmapData.tasks.filter((x) => x.status === 'ok');
 
+const abandoned = roadmapData.tasks.filter((x) => x.status === 'problem');
+
 function Task({
   text,
   description,
@@ -50,7 +52,7 @@ function Task({
 }
 
 export default function RoadmapPage(): Node {
-  const theme1Items = inProgress.map((obj) => (
+  const inProgressItems = inProgress.map((obj) => (
     <Task
       key={obj.task}
       text={obj.task}
@@ -60,7 +62,7 @@ export default function RoadmapPage(): Node {
     />
   ));
 
-  const theme2Items = future.map((obj) => (
+  const futureItems = future.map((obj) => (
     <Task
       key={obj.task}
       text={obj.task}
@@ -70,12 +72,22 @@ export default function RoadmapPage(): Node {
     />
   ));
 
-  const theme3Items = complete.map((obj) => (
+  const completeItems = complete.map((obj) => (
     <Task
       key={obj.task}
       text={obj.task}
       description={obj.description}
       delivery={obj.deadline}
+      platform={obj.platform}
+    />
+  ));
+
+  const abandonedItems = abandoned.map((obj) => (
+    <Task
+      key={obj.task}
+      text={obj.task}
+      description={obj.description}
+      delivery=""
       platform={obj.platform}
     />
   ));
@@ -126,7 +138,7 @@ export default function RoadmapPage(): Node {
               column: 8,
             }}
           >
-            {theme1Items}
+            {inProgressItems}
           </Flex>
         </MainSection>
         <MainSection name="Upcoming">
@@ -137,7 +149,7 @@ export default function RoadmapPage(): Node {
               column: 8,
             }}
           >
-            {theme2Items}
+            {futureItems}
           </Flex>
         </MainSection>
         <MainSection name="Complete">
@@ -148,7 +160,18 @@ export default function RoadmapPage(): Node {
               column: 8,
             }}
           >
-            {theme3Items}
+            {completeItems}
+          </Flex>
+        </MainSection>
+        <MainSection name="Abandoned">
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 8,
+            }}
+          >
+            {abandonedItems}
           </Flex>
         </MainSection>
       </Flex>
