@@ -77,7 +77,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         </Flex>
       </Link>
     ),
-    Hint: (props: {| icon?: string, children: string | null |}) => (
+    Hint: (props: {| icon?: Icons, children: string | null |}) => (
       <div
         className="md-hint"
         style={{

@@ -29,6 +29,7 @@ type Props = {|
     badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
+    component: boolean,
   |},
   pageSourceUrl: string,
 |};
