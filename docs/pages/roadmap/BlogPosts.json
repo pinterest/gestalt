@@ -2,6 +2,58 @@
   "year": "2022",
   "digests": [
     {
+      "week": "August 12, 2022",
+      "posts": [
+        {
+          "title": "Major Gestalt site updates",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/72/74/d7/7274d7a5fecdf97620a247766c802adf.png",
+          "imageAltText": "Screenshot of the Gestalt docs site",
+          "content": "We've stayed mum about this update, but if you've dropped by the [Gestalt docs site](https://gestalt.pinterest.systems) since the past week or so, you've probably noticed some things have changed. We've shipped a _major_ IA update to the Gestalt docs site which opens the door for [Android](https://gestalt.pinterest.systems/android/overview) and [iOS](https://gestalt.pinterest.systems/ios/overview) guidelines. This was our top goal for the year as it lays the foundation for Gestalt to expand to mobile platforms. \n\nSpecifically of note, we now have a top navigation which breaks up our content into (what we hope is) logical sections. Specifically within 'Components', we now have a platform switcher which, you guessed it, allows you to view a specific platform's component documentation. We also have a handy footer nav on the home page with quick links to important things like our Figma libraries, plugins, Slack channels and engineering resources.\n\n Things are still a bit empty at the moment, but expect that to change _soon_."
+        },
+        {
+          "title": "Spacer components added to Gestalt handoff kit",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/5c/d2/4a/5cd24a1a8d45efe485b73db560d29f37.png",
+          "imageAltText": "Screenshot of design using spacer components",
+          "content": "There's nothing better than a well documented design and we made a little addition to our [handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) to help make doing that (even) easier with the addition of [spacer annotation components](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?node-id=1387%3A2843)."
+        },
+        {
+          "title": "Figma Web IconButton improvements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/dc/8b/0a/dc8b0a743b01642979fda36b5a01e6a9.png",
+          "imageAltText": "Screenshot of Figma Web IconButton components",
+          "content": "OK, we'll own up to it, our IconButton Figma components were a smidge _lacking_. We took the first step towards a better IconButton by adding background color variants to the [Web Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A18626)."
+        },
+        {
+          "title": "Vastly simplified Figma Web Upsell component",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/1c/0c/41/1c0c41478c854761244c78ce5b9b6ae5.png",
+          "imageAltText": "Screenshot comparing before and after examples of the Figma Web Upsell simplification",
+          "content": "We don't want to oversell our work, but the [Figma Web Upsell component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=12901%3A28954) is in a _much_ better place now. We cut down the number of variants by over 32x! And to be clear, you have all the same options as before, they're now available in the component's properties panel. That said, we have a bit of retrofitting to do after this major overhaul, so expect another update to tune things up in the next two weeks."
+        },
+        {
+          "title": "Figma listening session in August's Gestalt Open Forum",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/b9/83/03/b98303c666634d3d27e5fa1278652f90.png",
+          "imageAltText": "",
+          "content": "We just went on and on about Figma, but honestly, we want to hear what _you_ think on the subject. We've spent a lot of time these least six months working to improve the experience of using our Gestalt Figma libraries, but we know there's still _so much_ that can be improved. So, if you're hankering to share your thoughts on ways to improve your Figma/Gestalt experience, we're hankering to hear it! Join us on **Thursday, August 18 @ 10am PST**. We'll be there with our listening ears on."
+        }
+      ]
+    },
+    {
+      "week": "August 5, 2022",
+      "posts": [
+        {
+          "title": "No updates this week",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "",
+          "imageAltText": "",
+          "content": "But we're coming strong next week. Promise."
+        }
+      ]
+    },
+    {
       "week": "July 29, 2022",
       "posts": [
         {
