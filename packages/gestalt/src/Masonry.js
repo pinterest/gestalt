@@ -405,6 +405,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         role="listitem"
         style={{
           top: 0,
+          ...(isRtl ? { right: 0 } : { left: 0 }),
           transform: `translateX(${isRtl ? '-' : ''}${left}px) translateY(${top}px)`,
           WebkitTransform: `translateX(${isRtl ? '-' : ''}${left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),

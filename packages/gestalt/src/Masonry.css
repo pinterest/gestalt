@@ -8,14 +8,6 @@
   composes: absolute from "./Layout.css";
 }
 
-html[dir="rtl"] .Masonry__Item {
-  right: 0;
-}
-
-html:not([dir="rtl"]) .Masonry__Item {
-  left: 0;
-}
-
 .Masonry__Item__Mounted {
   transition: transform 0.2s;
 }
