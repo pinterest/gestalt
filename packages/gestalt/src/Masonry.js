@@ -395,7 +395,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       isVisible = true;
     }
 
-    const isRtl = this.gridWrapper ? getComputedStyle(this.gridWrapper).direction === 'rtl' : false;
+    const isRtl = document?.dir === 'rtl';
 
     const itemComponent = (
       <div
