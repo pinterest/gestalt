@@ -1,3 +1,9 @@
+## 65.1.2 (Aug 12, 2022)
+
+### Patch
+
+- Internal: remove unused scripts (#2279)
+
 ## 65.1.1 (Aug 12, 2022)
 
 ### Patch
