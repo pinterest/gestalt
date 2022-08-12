@@ -1,3 +1,9 @@
+## 65.1.1 (Aug 12, 2022)
+
+### Patch
+
+- Added an "Abandoned" section to our roadmap (#2280)
+
 ## 65.1.0 (Aug 12, 2022)
 
 ### Minor
