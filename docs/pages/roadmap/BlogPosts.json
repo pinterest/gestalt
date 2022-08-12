@@ -16,7 +16,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/5c/d2/4a/5cd24a1a8d45efe485b73db560d29f37.png",
           "imageAltText": "Screenshot of design using spacer components",
-          "content": "There's nothing better than a well documented design and we made a little addition to our [handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) to help make doing that (even) easier with the addition of [spacer annotation components](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?node-id=1387%3A2843).  "
+          "content": "There's nothing better than a well documented design and we made a little addition to our [handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) to help make doing that (even) easier with the addition of [spacer annotation components](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?node-id=1387%3A2843)."
         },
         {
           "title": "Figma Web IconButton improvements",
@@ -30,7 +30,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/1c/0c/41/1c0c41478c854761244c78ce5b9b6ae5.png",
           "imageAltText": "Screenshot comparing before and after examples of the Figma Web Upsell simplification",
-          "content": "We don't want to oversell our work, but the [Figma Web Upsell component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=12901%3A28954) is in a _much_ better place now. We cut down the number of variants by over 32x! That said, we have a bit of retrofitting to do after this major overhaul, so expect another update to tune things up in the next two weeks."
+          "content": "We don't want to oversell our work, but the [Figma Web Upsell component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=12901%3A28954) is in a _much_ better place now. We cut down the number of variants by over 32x! And to be clear, you have all the same options as before, they're now available in the component's properties panel. That said, we have a bit of retrofitting to do after this major overhaul, so expect another update to tune things up in the next two weeks."
         },
         {
           "title": "Figma listening session in August's Gestalt Open Forum",
