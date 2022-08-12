@@ -9,14 +9,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/72/74/d7/7274d7a5fecdf97620a247766c802adf.png",
           "imageAltText": "Screenshot of the Gestalt docs site",
-          "content": "We've stayed mum about this update, but if you've dropped by the [Gestalt docs site](https://gestalt.pinterest.systems) since the past week or so, you've probably noticed some things have changed. It's been a long time coming, but we've officially opened the door to add guidelines for [Android](https://gestalt.pinterest.systems/android/overview) and [iOS](https://gestalt.pinterest.systems/ios/overview). Things are still a bit empty at the moment, but expect that to change _soon_."
-        },
-        {
-          "title": "Big update to our Figma Web Pin component",
-          "audience": ["Design"],
-          "imageSrc": "https://i.pinimg.com/originals/24/d2/15/24d215556e2f3ae8a021e81e601d24b8.png",
-          "imageAltText": "Screenshot of the Figma Web Pin component",
-          "content": "We worked out tushies off to get a new-and-improved Pin component for our Android and iOS Figma libraries and now it's available for our [Figma Web library]()! We're stoked to have hit this milestone and even more stoked that you get to use it!"
+          "content": "We've stayed mum about this update, but if you've dropped by the [Gestalt docs site](https://gestalt.pinterest.systems) since the past week or so, you've probably noticed some things have changed. We've shipped a _major_ IA update to the Gestalt docs site which opens the door for [Android](https://gestalt.pinterest.systems/android/overview) and [iOS](https://gestalt.pinterest.systems/ios/overview) guidelines. This was our top goal for the year as it lays the foundation for Gestalt to expand to mobile platforms. \n\nSpecifically of note, we now have a top navigation which breaks up our content into (what we hope is) logical sections. Specifically within 'Components', we now have a platform switcher which, you guessed it, allows you to view a specific platform's component documentation. We also have a handy footer nav on the home page with quick links to important things like our Figma libraries, plugins, Slack channels and engineering resources.\n\n Things are still a bit empty at the moment, but expect that to change _soon_."
         },
         {
           "title": "Spacer components added to Gestalt handoff kit",
