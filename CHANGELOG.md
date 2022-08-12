@@ -1,3 +1,9 @@
+## 65.1.0 (Aug 12, 2022)
+
+### Minor
+
+- Sheet: fix flicker when closing Sheet with React 18 (#2275)
+
 ## 65.0.2 (Aug 11, 2022)
 
 ### Patch
