@@ -32,6 +32,9 @@ yarn run flow-generate:css
 echo "CSS: variables"
 yarn run css:validate
 
+echo "Shell check"
+yarn run lint:sh
+
 FILES=$(git diff --name-only -- '*.flow')
 if [[ "$FILES" ]]
 then
