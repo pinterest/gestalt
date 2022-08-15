@@ -1,3 +1,9 @@
+## 65.2.2 (Aug 15, 2022)
+
+### Patch
+
+- Internal: lint shell files (#2281)
+
 ## 65.2.1 (Aug 12, 2022)
 
 ### Patch
