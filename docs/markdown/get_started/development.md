@@ -10,7 +10,7 @@ fullwidth: true
 - **Install node**
 - **Install yarn**
 - **[Install Docker desktop](333)** \
-<Hint>You can also run the following command `brew install docker`</Hint>
+  <Hint>You can also run the following command `brew install docker`</Hint>
 
 ## Set up your Gestalt repository
 
@@ -103,7 +103,7 @@ yarn generate ComponentName
   yarn playwright:test accessibility/
   ```
 
-  - Run **[Playwright visual diff snapshot tests**](https://playwright.dev/docs/test-snapshots)**. If any component changes are expected to visually modify your component, you must update the snapshot tests
+  - Run **[Playwright visual diff snapshot tests**](https://playwright.dev/docs/test-snapshots)\*\*. If any component changes are expected to visually modify your component, you must update the snapshot tests
 
   ```bash
   # Start the documentation server (required for updating macOS snapshots)
@@ -148,9 +148,9 @@ git push -f origin HEAD
 
 - Add useful summary and screenshots. We provide a template for the summary to make sure you include all necessary information.
 
-- Click on `Create Draft Pull Request` to create your PR. Once you are done committing changes to it, and all the CI tests have passed, click the "Ready for Review" button. 
+- Click on `Create Draft Pull Request` to create your PR. Once you are done committing changes to it, and all the CI tests have passed, click the "Ready for Review" button.
 
-<Hint>Keeping the PR as a draft until it is ready for review reduces the number of unneeded notifications for maintainers </Hint> 
+<Hint>Keeping the PR as a draft until it is ready for review reduces the number of unneeded notifications for maintainers </Hint>
 
 <Hint icon="lock"> If you are a Pinterest employee, please let us know on Slack (#gestalt-web) that your PR is ready for review. </Hint>
 
@@ -168,9 +168,9 @@ When pushing new changes to GitHub, your PR title should be aligned with the sco
 
 Our versioning guidelines follow those outlined at **[semver.org](https://semver.org)**:
 
-- *Patch*: internal fixes, documentation changes, or package upgrades (anything that consumers of Gestalt don't need to worry about)
-- *Minor*: any new functionality or properties for a component, or net-new components
-- *Major*: any breaking change, whether it be in a specific component or the library itself (will most likely include a
+- _Patch_: internal fixes, documentation changes, or package upgrades (anything that consumers of Gestalt don't need to worry about)
+- _Minor_: any new functionality or properties for a component, or net-new components
+- _Major_: any breaking change, whether it be in a specific component or the library itself (will most likely include a
   [codemod](https://gestalt.pinterest.systems/development#codemods))
 
 ### Codemods
@@ -187,7 +187,7 @@ Example usage for a codebase using Flow:
 yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
 ```
 
-For a dry run to see what the changes will be, add the *-d (dry run)* and *-p (print output)* flags (pipe stdout to a file for easier inspection if you like).
+For a dry run to see what the changes will be, add the _-d (dry run)_ and _-p (print output)_ flags (pipe stdout to a file for easier inspection if you like).
 
 ### Changes not allowed
 
