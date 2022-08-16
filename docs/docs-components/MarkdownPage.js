@@ -160,7 +160,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         />
         <Text>
           <article
-            className="Markdown MDX"
+            className="Markdown mdx-page"
             style={{ maxWidth, marginTop: meta.description ? '0px' : '-32px' }}
           >
             {children}

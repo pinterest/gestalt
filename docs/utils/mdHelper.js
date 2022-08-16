@@ -45,11 +45,11 @@ export async function getAllMarkdownPosts(): Promise<Array<string[]>> {
       // for each choice
       pageItems.forEach((page) => {
         if (page.sectionName) {
-          // $FlowFixMe: This is a siteIndexType because it has a section name and isn't a string
+          // $FlowFixMe[incompatible-type] This is a siteIndexType because it has a section name and isn't a string
           const siteIndexSection: siteIndexType = page;
           addUrlPaths(siteIndexSection.pages, pages.concat([siteIndexSection.sectionName]));
         } else {
-          // $FlowFixMe: No section name exists. It's a string
+          // $FlowFixMe[incompatible-call] No section name exists, so it's a string
           pagePaths.push(pages.concat([page]));
         }
       });
@@ -66,16 +66,13 @@ export async function getAllMarkdownPosts(): Promise<Array<string[]>> {
   const pagePaths = getAllSitePaths();
 
   const checkIfPathExists = async (pagePath: string[]) => {
-    // join the paths
     const pathName = pagePath.join('/');
-    // console.log(path.join(docsDirectory, `${convertNamesForURL(pathName)}.md`));
 
     try {
       await fs.stat(path.join(docsDirectory, `${convertNamesForURL(pathName)}.md`));
       return pagePath.map((name) => convertNamesForURL(name));
     } catch (ex) {
       // do nothing, a markdown page doesn't exist
-      // console.log(ex);
       return [];
     }
   };

@@ -91,7 +91,8 @@ li {
 /**
  * Add some extra padding when MDX Renderer is used
  */
-.Markdown.MDX ul{
+
+.Markdown.mdx-page ul{
   padding-inline-start: 30px;
 }
 
