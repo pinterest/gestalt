@@ -1,3 +1,33 @@
+## 65.2.2 (Aug 15, 2022)
+
+### Patch
+
+- Internal: lint shell files (#2281)
+
+## 65.2.1 (Aug 12, 2022)
+
+### Patch
+
+- Docs: 8-12 update (#2278)
+
+## 65.2.0 (Aug 12, 2022)
+
+### Minor
+
+- Callout: add "success", "recommendation" variants (#2277)
+
+## 65.1.2 (Aug 12, 2022)
+
+### Patch
+
+- Internal: remove unused scripts (#2279)
+
+## 65.1.1 (Aug 12, 2022)
+
+### Patch
+
+- Added an "Abandoned" section to our roadmap (#2280)
+
 ## 65.1.0 (Aug 12, 2022)
 
 ### Minor
