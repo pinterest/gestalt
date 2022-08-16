@@ -1,3 +1,9 @@
+## 65.2.3 (Aug 16, 2022)
+
+### Patch
+
+- Docs: improve keyboard interactions for search bar (#2283)
+
 ## 65.2.2 (Aug 15, 2022)
 
 ### Patch
