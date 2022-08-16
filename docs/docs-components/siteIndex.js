@@ -46,7 +46,7 @@ const siteIndex: Array<siteIndexType> = [
   },
   {
     sectionName: 'iOS',
-    pages: ['Overview', 'Button'],
+    pages: ['Overview', 'Toast'],
   },
   {
     sectionName: 'Web',
