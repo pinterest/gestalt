@@ -12,3 +12,7 @@
   border: 1px solid var(--color-black-cosmicore-900);
 }
 
+.fullHeight {
+  height: 100%;
+  overflow: scroll;
+}

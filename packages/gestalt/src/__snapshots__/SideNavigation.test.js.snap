@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SideNavigation renders Header + Footer 1`] = `
-<div
+<nav
+  aria-label="label"
   className="box"
   style={
     Object {
@@ -12,11 +13,11 @@ exports[`SideNavigation renders Header + Footer 1`] = `
   }
 >
   <div>
-    <nav
-      aria-label="label"
+    <div
       className="box default paddingX2 paddingY2"
       style={
         Object {
+          "height": "100%",
           "paddingBottom": 24,
         }
       }
@@ -152,13 +153,14 @@ exports[`SideNavigation renders Header + Footer 1`] = `
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
 `;
 
 exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`] = `
-<div
+<nav
+  aria-label="label"
   className="box"
   style={
     Object {
@@ -169,13 +171,13 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
   }
 >
   <div
-    className="borderRight"
+    className="borderRight fullHeight"
   >
-    <nav
-      aria-label="label"
+    <div
       className="box default paddingX2 paddingY2"
       style={
         Object {
+          "height": "100%",
           "paddingBottom": 24,
         }
       }
@@ -454,13 +456,14 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
           </ul>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
 `;
 
 exports[`SideNavigation renders Sections 1`] = `
-<div
+<nav
+  aria-label="label"
   className="box"
   style={
     Object {
@@ -471,11 +474,11 @@ exports[`SideNavigation renders Sections 1`] = `
   }
 >
   <div>
-    <nav
-      aria-label="label"
+    <div
       className="box default paddingX2 paddingY2"
       style={
         Object {
+          "height": "100%",
           "paddingBottom": 24,
         }
       }
@@ -571,13 +574,14 @@ exports[`SideNavigation renders Sections 1`] = `
           </ul>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
 `;
 
 exports[`SideNavigation renders basic Item 1`] = `
-<div
+<nav
+  aria-label="label"
   className="box"
   style={
     Object {
@@ -588,11 +592,11 @@ exports[`SideNavigation renders basic Item 1`] = `
   }
 >
   <div>
-    <nav
-      aria-label="label"
+    <div
       className="box default paddingX2 paddingY2"
       style={
         Object {
+          "height": "100%",
           "paddingBottom": 24,
         }
       }
@@ -664,13 +668,14 @@ exports[`SideNavigation renders basic Item 1`] = `
           </ul>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
 `;
 
 exports[`SideNavigation renders nested directory 1`] = `
-<div
+<nav
+  aria-label="Nested items example"
   className="box"
   style={
     Object {
@@ -681,11 +686,11 @@ exports[`SideNavigation renders nested directory 1`] = `
   }
 >
   <div>
-    <nav
-      aria-label="Nested items example"
+    <div
       className="box default paddingX2 paddingY2"
       style={
         Object {
+          "height": "100%",
           "paddingBottom": 24,
         }
       }
@@ -1229,7 +1234,7 @@ exports[`SideNavigation renders nested directory 1`] = `
           </ul>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
 `;

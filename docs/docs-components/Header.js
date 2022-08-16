@@ -162,7 +162,7 @@ function Header() {
             icon="menu"
             onClick={() => {
               window.scrollTo(0, 0);
-              setIsSidebarOpen(!isSidebarOpen);
+              setIsSidebarOpen((value) => !value);
             }}
           />
         </Box>

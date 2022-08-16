@@ -10,11 +10,11 @@ export type ComponentPlatformFilteredBy = 'web' | 'ios' | 'android';
 
 export type NavigationContextType = {|
   isSidebarOpen: boolean,
-  setIsSidebarOpen: (val: boolean) => void,
+  setIsSidebarOpen: (boolean | ((boolean) => boolean)) => void,
   componentPlatformFilteredBy: ComponentPlatformFilteredBy,
   setComponentPlatformFilteredByCookie: (val: ComponentPlatformFilteredBy) => void,
   selectedTab: string,
-  setSelectedTab: (val: string) => void,
+  setSelectedTab: (string | ((string) => string)) => void,
 |};
 
 const PLATFORM_MAP = {
