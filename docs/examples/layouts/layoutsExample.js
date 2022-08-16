@@ -48,23 +48,17 @@ export default function LayoutsExample(): Node {
         <SelectList
           label="SelectList"
           id="selectlist"
-          options={[
-            {
-              value: 'belgium',
-              label: 'Belgium',
-            },
-            {
-              value: 'france',
-              label: 'France',
-            },
-            {
-              value: 'usa',
-              label: 'USA',
-            },
-          ]}
           placeholder="Placeholder"
           onChange={() => {}}
-        />
+        >
+          {[
+            { value: 'belgium', label: 'Belgium' },
+            { value: 'france', label: 'France' },
+            { value: 'usa', label: 'USA' },
+          ].map(({ label, value }) => (
+            <SelectList.Option key={label} label={label} value={value} />
+          ))}
+        </SelectList>
 
         <Flex
           gap={{

@@ -25,15 +25,15 @@ export default function SoleIndicatorExample(): Node {
         }}
       >
         <Box rounding="circle" color="infoBase" width={12} height={12} />
-        <SelectList
-          id="solo-color"
-          onChange={() => {}}
-          options={[
+        <SelectList id="solo-color" onChange={() => {}}>
+          {[
             { label: 'Your total audience', value: '5' },
             { label: 'Active in the last week', value: '7' },
             { label: 'Active in the last month', value: '30' },
-          ]}
-        />
+          ].map(({ label, value }) => (
+            <SelectList.Option key={label} label={label} value={value} />
+          ))}
+        </SelectList>
       </Flex>
     </Flex>
   );
