@@ -83,7 +83,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         </Flex>
       </Link>
     ),
-    Hint: (props: {| icon?: Icons, children: string | null |}) => (
+    Hint: (props: {| children: string | null |}) => (
       <div
         className="md-hint"
         style={{
@@ -160,7 +160,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         />
         <Text>
           <article
-            className="Markdown"
+            className="Markdown MDX"
             style={{ maxWidth, marginTop: meta.description ? '0px' : '-32px' }}
           >
             {children}

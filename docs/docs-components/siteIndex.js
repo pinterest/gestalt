@@ -20,7 +20,6 @@ const siteIndex: Array<siteIndexType> = [
   {
     sectionName: 'Get started',
     pages: [
-      'About Me',
       'About Us',
       'Design',
       {

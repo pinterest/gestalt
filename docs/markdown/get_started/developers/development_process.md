@@ -5,12 +5,12 @@ fullwidth: true
 
 ## Set up your laptop
 
-- Install a code editor - we recommended **[VS Code](https://code.visualstudio.com/download)**
-- **Install nvm**
-- **Install node**
-- **Install yarn**
-- **[Install Docker desktop](333)** \
-  <Hint>You can also run the following command `brew install docker`</Hint>
+- Install a code editor - we recommended [VS Code](https://code.visualstudio.com/download)
+- [Install nvm](https://github.com/creationix/nvm#install-script)
+- [Install node](https://github.com/nvm-sh/nvm#usage)
+- [Install yarn](https://classic.yarnpkg.com/en/docs/install)
+- [Install Docker desktop](https://docs.docker.com/get-docker/)
+  <Hint>You can also run the following command `brew install --cask docker`</Hint>
 
 ## Set up your Gestalt repository
 
