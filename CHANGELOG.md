@@ -1,3 +1,9 @@
+## 65.3.5 (Aug 17, 2022)
+
+### Patch
+
+- Component overview: updated per redesign (#2288)
+
 ## 65.3.4 (Aug 17, 2022)
 
 ### Patch
