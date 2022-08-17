@@ -97,13 +97,13 @@ yarn generate ComponentName
   yarn jest -u
   ```
 
-  - Run **[Playwright accessibility integration tests](https://www.npmjs.com/package/@axe-core/playwright)**. If any documentation examples are expected to fail accessibility testing, wrap the example in a container with `data-skip-accessibility-check`.
+  - Run [Playwright accessibility integration tests](https://www.npmjs.com/package/@axe-core/playwright). If any documentation examples are expected to fail accessibility testing, wrap the example in a container with `data-skip-accessibility-check`.
 
   ```bash
   yarn playwright:test accessibility/
   ```
 
-  - Run **[Playwright visual diff snapshot tests**](https://playwright.dev/docs/test-snapshots)\*\*. If any component changes are expected to visually modify your component, you must update the snapshot tests
+  - Run [Playwright visual diff snapshot tests](https://playwright.dev/docs/test-snapshots). If any component changes are expected to visually modify your component, you must update the snapshot tests
 
   ```bash
   # Start the documentation server (required for updating macOS snapshots)
@@ -158,36 +158,17 @@ git push -f origin HEAD
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
 
+#### My pull request fails on "Semver / Require Label (pull_request)", how do I fix it?
+
+Nothing you can do to fix it.
+
+A Gestalt Core maintainer will add a semver label (patch release / minor release / major release) when reviewing a PR.
+
 ## Guidelines
 
 ### Scope of work
 
 When pushing new changes to GitHub, your PR title should be aligned with the scope of your work. If your goal was to change the default color of a component, keep the scope of changes to that specific task and word the title to exactly reflect those changes.
-
-### Versioning
-
-Our versioning guidelines follow those outlined at **[semver.org](https://semver.org)**:
-
-- _Patch_: internal fixes, documentation changes, or package upgrades (anything that consumers of Gestalt don't need to worry about)
-- _Minor_: any new functionality or properties for a component, or net-new components
-- _Major_: any breaking change, whether it be in a specific component or the library itself (will most likely include a
-  [codemod](https://gestalt.pinterest.systems/development#codemods))
-
-### Codemods
-
-When a release will cause breaking changes (in usage or in typing) we provide a codemod to ease the upgrade process. Codemods are organized by release number in `/packages/gestalt-codemods`. The name of the folder should reflect the resulting version number of your PR.
-
-Check out our [codemod README](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) for a walkthrough of the development process.
-
-Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used.
-
-Example usage for a codebase using Flow:
-
-```bash
-yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
-```
-
-For a dry run to see what the changes will be, add the _-d (dry run)_ and _-p (print output)_ flags (pipe stdout to a file for easier inspection if you like).
 
 ### Changes not allowed
 
