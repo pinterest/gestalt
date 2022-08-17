@@ -1,3 +1,9 @@
+## 65.3.3 (Aug 17, 2022)
+
+### Patch
+
+- Internal: increase Node memory to solve OOM issue on CI (#2291)
+
 ## 65.3.2 (Aug 17, 2022)
 
 ### Patch
