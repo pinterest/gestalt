@@ -99,13 +99,14 @@ function VideoControls({
 
   useEffect(() => {
     setShowFullscreenButton(
-      document.fullscreenEnabled ||
-        // $FlowFixMe[prop-missing]
-        document.webkitFullscreenEnabled ||
-        // $FlowFixMe[prop-missing]
-        document.mozFullScreenEnabled ||
-        // $FlowFixMe[prop-missing]
-        document.msFullscreenEnabled,
+      typeof document !== 'undefined' &&
+        (document.fullscreenEnabled ||
+          // $FlowFixMe[prop-missing]
+          document.webkitFullscreenEnabled ||
+          // $FlowFixMe[prop-missing]
+          document.mozFullScreenEnabled ||
+          // $FlowFixMe[prop-missing]
+          document.msFullscreenEnabled),
     );
   }, []);
 
