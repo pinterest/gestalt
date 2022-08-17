@@ -8,9 +8,9 @@ import Hero from '../graphics/home-page/HeroGraphic.js';
 import Design from '../graphics/home-page/design.svg';
 import Development from '../graphics/home-page/development.svg';
 import HowToWork from '../graphics/home-page/how-to-work-with-us.svg';
-import A11Y from '../graphics/home-page/accessibility.svg';
+import Components from '../graphics/home-page/components.svg';
 import Color from '../graphics/home-page/color.svg';
-import DesignTokens from '../graphics/home-page/design-tokens.svg';
+import Roadmap from '../graphics/home-page/roadmap.svg';
 
 export default function HomePage(): Node {
   return (
@@ -34,12 +34,7 @@ export default function HomePage(): Node {
                   they love
                 </Text>
 
-                <Button
-                  text="See what’s new"
-                  role="link"
-                  rel="nofollow"
-                  href="/roadmap/whats_new"
-                />
+                <Button text="View road map" role="link" href="/roadmap/overview" />
               </Flex>
               <Box
                 minWidth="60%"
@@ -58,7 +53,6 @@ export default function HomePage(): Node {
             <IllustrationCard
               title="Design"
               href="/get_started/design"
-              isNew
               description="Our brand-new guide for designers to get started using Gestalt"
               color="blue-skycicle-450"
               image={<Design />}
@@ -81,11 +75,11 @@ export default function HomePage(): Node {
           {/* Guidelines */}
           <IllustrationSection title="Build">
             <IllustrationCard
-              href="/foundations/accessibility"
-              title="Accessibility"
-              description="How to create an inclusive product that brings inspiration to everyone"
+              href="/web/overview"
+              title="Components"
+              description="An extensive set of UI controls and utilities to help you build great experiences"
               color="teal-spabattical-450"
-              image={<A11Y />}
+              image={<Components />}
             />
 
             <IllustrationCard
@@ -97,11 +91,11 @@ export default function HomePage(): Node {
             />
 
             <IllustrationCard
-              title="Design tokens"
-              href="/foundations/design_tokens"
-              description="Values used to construct layouts and components, such as spacing and color"
+              title="Road map"
+              href="/roadmap/overview"
+              description="What we plan to build and update in the short and long term"
               color="teal-spabattical-450"
-              image={<DesignTokens />}
+              image={<Roadmap />}
             />
           </IllustrationSection>
         </Flex>

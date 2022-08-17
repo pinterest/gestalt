@@ -7,7 +7,7 @@ import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
-import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
+import { isComponentsActiveSection } from './DocsSideNavigation.js';
 import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 
 function SettingsDropdown({
@@ -102,6 +102,7 @@ function getTabs(componentPlatform) {
     },
     { href: '/foundations/accessibility', text: 'Foundations' },
     { href: '/roadmap/overview', text: 'Roadmap' },
+    { href: '/roadmap/whats_new', text: "What's new" },
   ];
 }
 
@@ -121,9 +122,7 @@ function Header() {
   const [activeTab, setActiveTab] = useState(
     isComponentsActiveSection(router.pathname)
       ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
-      : mainNavigationTabs.findIndex((tab) =>
-          router.pathname.includes(convertNamesForURL(tab.text)),
-        ),
+      : mainNavigationTabs.findIndex((tab) => router.pathname.includes(tab.href)),
   );
 
   const anchorRef = useRef(null);
@@ -134,9 +133,7 @@ function Header() {
     setActiveTab(
       isComponentsActiveSection(router.pathname)
         ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
-        : mainNavigationTabs.findIndex((tab) =>
-            router.pathname.includes(convertNamesForURL(tab.text)),
-          ),
+        : mainNavigationTabs.findIndex((tab) => router.pathname.includes(tab.href)),
     );
   }, [router.events, router.pathname, mainNavigationTabs]);
 
