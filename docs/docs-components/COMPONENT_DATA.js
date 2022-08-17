@@ -71,7 +71,7 @@ import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
 import { type ListItemType } from '../pages/web/overview.js';
 
-const FOUNDATION_GUIDELINES_LIST: ListItemType = [
+const FOUNDATION_GUIDELINES_LIST: Array<ListItemType> = [
   {
     svg: <Accessibility />,
     name: 'Accessibility',
@@ -112,7 +112,7 @@ const FOUNDATION_GUIDELINES_LIST: ListItemType = [
   },
 ];
 
-const GENERAL_COMPONENT_LIST: ListItemType = [
+const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <ActivationCard />,
     name: 'ActivationCard',
@@ -1226,7 +1226,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   },
 ];
 
-const BUILDING_BLOCKS_LIST: ListItemType = [
+const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <Box />,
     name: 'Box',
@@ -1507,7 +1507,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   },
 ];
 
-const FIGMA_ONLY_LIST: ListItemType = [
+const FIGMA_ONLY_LIST: Array<ListItemType> = [
   {
     svg: <svg />,
     name: 'BoardRep',
@@ -1602,7 +1602,7 @@ const FIGMA_ONLY_LIST: ListItemType = [
   },
 ];
 
-const UTILITIES_LIST: ListItemType = [
+const UTILITIES_LIST: Array<ListItemType> = [
   {
     svg: <HookFocusVisible />,
     name: 'useFocusVisible',
@@ -1702,11 +1702,11 @@ const UTILITIES_LIST: ListItemType = [
 ];
 
 const COMPONENT_DATA_MAP: {|
-  buildingBlockComponents: ListItemType,
-  generalComponents: ListItemType,
-  utilityComponents: ListItemType,
-  figmaOnlyComponents: ListItemType,
-  foundations: ListItemType,
+  buildingBlockComponents: Array<ListItemType>,
+  generalComponents: Array<ListItemType>,
+  utilityComponents: Array<ListItemType>,
+  figmaOnlyComponents: Array<ListItemType>,
+  foundations: Array<ListItemType>,
 |} = {
   buildingBlockComponents: BUILDING_BLOCKS_LIST,
   generalComponents: GENERAL_COMPONENT_LIST,
