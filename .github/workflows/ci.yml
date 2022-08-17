@@ -35,3 +35,5 @@ jobs:
         run: yarn build
       - name: Run tests
         run: yarn test
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
