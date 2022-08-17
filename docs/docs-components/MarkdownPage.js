@@ -17,6 +17,7 @@ import { MAX_WIDTH } from './MainSectionSubsection.js';
 
 import 'highlight.js/styles/a11y-light.css';
 import Highlighter from './highlight.js';
+import IllustrationCard, { type IllustrationCardProps } from './IllustrationCard.js';
 
 type Props = {|
   children: Node,
@@ -113,18 +114,19 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     ),
 
     ImgContainer: (props: {| src: string |}) => (
-      <Box padding={8} rounding={2} borderStyle="sm">
-        <Image
-          src={props.src}
-          alt="image"
-          width="100%"
-          height="100%"
-          layout="responsive"
-          objectFit="contain"
-        />
+      <Box padding={8} rounding={2} borderStyle="sm" height="200px">
+        <Box position="relative" width="100%" height="100%">
+          <Image
+            src={props.src}
+            alt="image"
+            width="100%"
+            height="100%"
+            layout="fill"
+            objectFit="contain"
+          />
+        </Box>
       </Box>
     ),
-
     img: (props: {| src: string |}) => (
       <Image
         src={props.src}

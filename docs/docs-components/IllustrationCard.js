@@ -2,7 +2,7 @@
 import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
 
-type Props = {|
+export type IllustrationCardProps = {|
   image: Node,
   description: string,
   title: string,
@@ -11,7 +11,14 @@ type Props = {|
   isNew?: boolean,
 |};
 
-function IllustrationCard({ image, description, isNew, title, color, href }: Props): Node {
+function IllustrationCard({
+  image,
+  description,
+  isNew,
+  title,
+  color,
+  href,
+}: IllustrationCardProps): Node {
   return (
     <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
       <Box minWidth={280}>
