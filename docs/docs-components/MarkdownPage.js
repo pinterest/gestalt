@@ -111,6 +111,20 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         <MainSection.Subsection title={props.children} marginBottom="compact" />
       </Box>
     ),
+
+    ImgContainer: (props: {| src: string |}) => (
+      <Box padding={8} rounding={2} borderStyle="sm">
+      <Image
+        src={props.src}
+        alt="image"
+        width="100%"
+        height="100%"
+        layout="responsive"
+        objectFit="contain"
+      />
+      </Box>
+    ),
+
     img: (props: {| src: string |}) => (
       <Image
         src={props.src}
