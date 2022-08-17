@@ -158,11 +158,14 @@ git push -f origin HEAD
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
 
-#### My pull request fails on "Semver / Require Label (pull_request)", how do I fix it?
-
+<details>
+  <summary><b>My pull request fails on "Semver / Require Label (pull_request)", how do I fix it?</b></summary>
+  
 Nothing you can do to fix it.
 
 A Gestalt Core maintainer will add a semver label (patch release / minor release / major release) when reviewing a PR.
+
+</details>
 
 ## Guidelines
 
