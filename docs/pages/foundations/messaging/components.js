@@ -8,7 +8,7 @@ import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-export default function ToolingPage(): Node {
+export default function MessagingComponentsPage(): Node {
   return (
     <Page title="Messaging components">
       <PageHeader name="Messaging components" type="guidelines" />
