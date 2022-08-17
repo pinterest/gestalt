@@ -1,3 +1,9 @@
+## 65.3.0 (Aug 17, 2022)
+
+### Minor
+
+- Video: fix hydration issue (#2284)
+
 ## 65.2.3 (Aug 16, 2022)
 
 ### Patch
