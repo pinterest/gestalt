@@ -1,3 +1,9 @@
+## 65.3.1 (Aug 17, 2022)
+
+### Patch
+
+- Internal: add Node.js 18 to test matrix (#2285)
+
 ## 65.3.0 (Aug 17, 2022)
 
 ### Minor
