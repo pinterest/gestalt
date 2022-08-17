@@ -3,7 +3,7 @@ import { Text, Flex, Box, Link } from 'gestalt';
 import { type Node } from 'react';
 import Example from '../../../docs-components/Example.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
-import defaultExample from '../../../examples/modal/defaultExample.js';
+import modalExample from '../../../examples/modal/limitActionsExample.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -32,7 +32,7 @@ export default function ToolingPage(): Node {
       <Flex direction="column" gap={4}>
         <Text>Banners sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.</Text>
 
-        <Text><Link href='https://gestalt.pinterest.systems/web/callout'>Go to the Callout component</Link></Text>
+        <Text><Link href='https://gestalt.pinterest.systems/web/callout' underline>Go to the Callout component</Link></Text>
         </Flex>
       </MainSection>
       <MainSection name="SlimBanner">
@@ -53,14 +53,16 @@ export default function ToolingPage(): Node {
       <Flex direction="column" gap={4}>
         <Text>SlimBanner conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. SlimBanners are used to reference a specific section of a page, or in any dense interface where space is a concern.</Text>
 
-        <Text><Link href='https://gestalt.pinterest.systems/web/slimbanner'>Go to the SlimBanner componen</Link></Text>
-        </Flex>
+        <Text><Link href='https://gestalt.pinterest.systems/web/slimbanner' underline>Go to the SlimBanner componen</Link></Text>
+      </Flex>
       </MainSection>
       <MainSection name="Modal">
-        <SandpackExample code={defaultExample} name="Modal Main Example" hideEditor />
-        <Text>A modal dialog can be used to alert a user of an issue, or to request confirmation after a user-generated action. AlertModal overlays and blocks Page content until it is dismissed by the user.</Text>
+        <SandpackExample code={modalExample} name="Modal Main Example" hideEditor />
+        <Flex direction="column" gap={4}>
+          <Text>A modal dialog can be used to alert a user of an issue, or to request confirmation after a user-generated action. AlertModal overlays and blocks Page content until it is dismissed by the user.</Text>
 
-        <Text><Link href='https://gestalt.pinterest.systems/web/modal'>Go to the Modal component</Link></Text>
+          <Text><Link href='https://gestalt.pinterest.systems/web/modal' underline>Go to the Modal component</Link></Text>
+        </Flex>
       </MainSection>
       <MainSection name="Toast">
       <Example
@@ -120,7 +122,7 @@ export default function ToolingPage(): Node {
               <li>Alert users of connectivity issues or unknown errors without disrupting their flow</li>
             </ul>
           </Text>
-          <Text><Link href='https://gestalt.pinterest.systems/web/toast'>Go to the Toast component</Link></Text>
+          <Text><Link href='https://gestalt.pinterest.systems/web/toast' underline>Go to the Toast component</Link></Text>
         </Flex>
       </MainSection>
       <MainSection name="What component should I use?">
@@ -131,17 +133,24 @@ export default function ToolingPage(): Node {
           <iFrame style={{border:'none'}} width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092" allowFullScreen />
           </Box>
 
-          <Text>View in Figma</Text>
+          <Text><Link href='https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092' underline externalLinkIcon="default">View in Figma</Link></Text>
         </Flex>
       </MainSection>
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Sheet](/web/sheet)**
-To allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page, use Sheet.
+**[Popover](/web/popover)**
+A popover can be formatted to provide help and guidance around new features, or features a user may not be aware of.
 
-**[Toast](/web/toast)**
+**[Upsell](/web/upsell)**
+Upsells are on-page banners that encourage more ad spend and upgrades. They can also be used to promote and market new features.
+
+**Error message variants**
 Toast provides temporary feedback on an interaction. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of blocking the entire page.
+
+- **[Text field error message](/web/textfield#Error-message)**
+- **[RadioGroup error message](/web/radiogroup#With-an-error)**
+- **[Checkbox error message](/web/checkbox#Error-message)**
       `}
         />
       </MainSection>
