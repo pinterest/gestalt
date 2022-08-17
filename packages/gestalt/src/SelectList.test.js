@@ -44,11 +44,18 @@ describe('SelectList', () => {
     const component = create(
       <SelectList id="test" onChange={jest.fn()}>
         {options}
-        <SelectList.Option disabled label="label4" value="value4" />
+        <SelectList.Option disabled label="option4" value="value4" />
       </SelectList>,
     );
-    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
-    expect(component.root.findByProps({ disabled: true }).children).toEqual(['option4']);
+
+    // This rule is for testing-library, not react-test-renderer
+    // Apparently the rule only looks for `findBy*` without considering actual usage
+    // https://github.com/facebook/react/issues/23093
+    // https://github.com/testing-library/eslint-plugin-testing-library/issues/518
+    // eslint-disable-next-line testing-library/await-async-query
+    expect(component.root.findByProps({ disabled: true }).props).toMatchObject({
+      label: 'option4',
+    });
   });
 
   it('renders with typical props', () => {

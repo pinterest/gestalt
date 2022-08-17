@@ -1,9 +1,116 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectList SelectList normal 1`] = `
+exports[`SelectList renders an option group 1`] = `
 <div
   className="box"
 >
+  <label
+    className="label"
+    htmlFor="optionGroup"
+  >
+    <div
+      className="formLabel"
+    >
+      <div
+        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+      >
+        With option group
+      </div>
+    </div>
+  </label>
+  <div
+    className="box default relative rounding4 xsDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="absolute bottom0 box itemsCenter right0 top0 xsDisplayFlex"
+      style={
+        Object {
+          "paddingRight": 14,
+          "paddingTop": 2,
+        }
+      }
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon defaultIcon iconBlock"
+        height={12}
+        role="img"
+        viewBox="0 0 24 24"
+        width={12}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <select
+      aria-describedby={null}
+      aria-invalid="false"
+      className="select base enabled normal medium"
+      disabled={false}
+      id="optionGroup"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+    >
+      <option
+        value="value1"
+      >
+        option1
+      </option>
+      <option
+        value="value2"
+      >
+        option2
+      </option>
+      <option
+        value="value3"
+      >
+        option3
+      </option>
+      <optgroup
+        label="Foo group"
+      >
+        <option
+          value="Foo-value1"
+        >
+          Foo-option1
+        </option>
+        <option
+          value="Foo-value2"
+        >
+          Foo-option2
+        </option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+`;
+
+exports[`SelectList renders with a hidden label 1`] = `
+<div
+  className="box"
+>
+  <label
+    className="label visuallyHidden"
+    htmlFor="test"
+  >
+    <div
+      className="formLabel"
+    >
+      <div
+        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+      >
+        testing
+      </div>
+    </div>
+  </label>
   <div
     className="box default relative rounding4 xsDisplayFlex"
     style={
@@ -65,24 +172,10 @@ exports[`SelectList SelectList normal 1`] = `
 </div>
 `;
 
-exports[`SelectList SelectList with a hidden label 1`] = `
+exports[`SelectList renders with typical props 1`] = `
 <div
   className="box"
 >
-  <label
-    className="label visuallyHidden"
-    htmlFor="test"
-  >
-    <div
-      className="formLabel"
-    >
-      <div
-        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
-      >
-        testing
-      </div>
-    </div>
-  </label>
   <div
     className="box default relative rounding4 xsDisplayFlex"
     style={
