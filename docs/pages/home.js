@@ -51,6 +51,7 @@ export default function HomePage(): Node {
           {/* Get started */}
           <IllustrationSection title="Get started">
             <IllustrationCard
+              headingLevel={3}
               title="Design"
               href="/get_started/design"
               description="Our brand-new guide for designers to get started using Gestalt"
@@ -58,6 +59,7 @@ export default function HomePage(): Node {
               image={<Design />}
             />
             <IllustrationCard
+              headingLevel={3}
               href="/get_started/developers/installation"
               title="Development"
               description="How to set up for development and create pull requests"
@@ -65,6 +67,7 @@ export default function HomePage(): Node {
               image={<Development />}
             />
             <IllustrationCard
+              headingLevel={3}
               href="/get_started//how_to_work_with_us"
               title="How to work with us"
               description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
@@ -76,6 +79,7 @@ export default function HomePage(): Node {
           <IllustrationSection title="Build">
             <IllustrationCard
               href="/web/overview"
+              headingLevel={3}
               title="Components"
               description="An extensive set of UI controls and utilities to help you build great experiences"
               color="teal-spabattical-450"
@@ -83,6 +87,7 @@ export default function HomePage(): Node {
             />
 
             <IllustrationCard
+              headingLevel={3}
               href="/foundations/accessibility"
               title="Foundations"
               description="Guidelines around color palettes, typography, icons and more"
@@ -91,6 +96,7 @@ export default function HomePage(): Node {
             />
 
             <IllustrationCard
+              headingLevel={3}
               title="Road map"
               href="/roadmap/overview"
               description="What we plan to build and update in the short and long term"
