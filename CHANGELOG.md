@@ -1,3 +1,9 @@
+## 65.3.4 (Aug 17, 2022)
+
+### Patch
+
+- SideNavigation: fixes in height and mobile implementation in sm breakpoint (#2282)
+
 ## 65.3.3 (Aug 17, 2022)
 
 ### Patch
