@@ -7,6 +7,7 @@ import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 import { useNavigationContext } from './navigationContext.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
+import { TOOLTIP_ZINDEX } from './z-indices.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
@@ -18,7 +19,7 @@ export function isComponentsActiveSection(pathname: string): boolean {
   return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
 }
 
-export default function DocsSideNavigation(): Node {
+export default function DocsSideNavigation({ showBorder }: {| showBorder?: boolean |}): Node {
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
   const { isMobile } = useDocsDeviceType();
@@ -103,8 +104,10 @@ export default function DocsSideNavigation(): Node {
         onDismiss: closeSideNavigation,
         tooltip: {
           text: 'Close navigation',
+          zIndex: TOOLTIP_ZINDEX,
         },
       }}
+      showBorder={showBorder}
     >
       {sectionItemsForSideNav}
     </SideNavigation>

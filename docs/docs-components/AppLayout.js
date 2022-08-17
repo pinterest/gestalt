@@ -1,12 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
-import { Box, Divider } from 'gestalt';
+import { useEffect, Fragment, type Node } from 'react';
+import { Box, Divider, DeviceTypeProvider } from 'gestalt';
 import Header from './Header.js';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
 import Footer from './Footer.js';
 import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
-import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
+import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDeviceTypeProvider.js';
+import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
 
 const CONTENT_MAX_WIDTH_PX = 1546;
 
@@ -18,10 +19,18 @@ type Props = {|
 
 export default function AppLayout({ children, colorScheme, isHomePage }: Props): Node {
   const { isMobile } = useDocsDeviceType();
-  const { isSidebarOpen } = useNavigationContext();
+  const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
+
+  useEffect(() => {
+    const handleScroll = () => setIsSidebarOpen(false);
+
+    if (typeof window !== 'undefined') window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [setIsSidebarOpen]);
 
   return isMobile && isSidebarOpen ? (
     <Box
@@ -39,36 +48,56 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
   ) : (
     <Box minHeight="100vh" color="default">
       <Header />
+      {isSidebarOpen && (
+        <Fragment>
+          {/* The <div> element has a child <button> element that allows keyboard interaction */}
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+          <div
+            style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) setIsSidebarOpen(false);
+            }}
+            onKeyPress={(event) => {
+              if (event.target === event.currentTarget) setIsSidebarOpen(false);
+            }}
+          />
+          <Box
+            position="absolute"
+            top
+            bottom
+            left
+            right
+            width={MIN_NAV_WIDTH_PX}
+            overflow="scroll"
+            display="block"
+            mdDisplay="none"
+            height="100vh"
+            zIndex={ABOVE_PAGE_HEADER_ZINDEX}
+          >
+            <DocsDeviceTypeProvider isMobile>
+              <DeviceTypeProvider deviceType="phone">
+                <DocsSideNavigation showBorder />
+              </DeviceTypeProvider>
+            </DocsDeviceTypeProvider>
+          </Box>
+        </Fragment>
+      )}
       <Box mdDisplay="flex">
         {!isHomePage && (
           <Box minWidth={MIN_NAV_WIDTH_PX}>
-            {isSidebarOpen ? (
-              <Box
-                height={350}
-                overflow="scroll"
-                display="block"
-                mdDisplay="none"
-                paddingY={2}
-                paddingX={4}
-              >
-                <DocsSideNavigation />
-              </Box>
-            ) : (
-              <Box
-                display="none"
-                mdDisplay="block"
-                position="fixed"
-                overflow="auto"
-                height="calc(100% - 75px)"
-                minWidth={MIN_NAV_WIDTH_PX}
-                marginTop={2}
-              >
-                <DocsSideNavigation />
-              </Box>
-            )}
+            <Box
+              display="none"
+              mdDisplay="block"
+              position="fixed"
+              overflow="auto"
+              height="calc(100% - 75px)"
+              minWidth={MIN_NAV_WIDTH_PX}
+              marginTop={2}
+            >
+              <DocsSideNavigation showBorder />
+            </Box>
           </Box>
         )}
-        <Divider />
         <Box width="100%" minWidth={0}>
           <Box
             padding={4}
