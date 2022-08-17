@@ -3,6 +3,7 @@ import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
 
 type Props = {|
+  headingLevel: 2 | 3,
   image: Node,
   description: string,
   title: string,
@@ -11,7 +12,15 @@ type Props = {|
   isNew?: boolean,
 |};
 
-function IllustrationCard({ image, description, isNew, title, color, href }: Props): Node {
+function IllustrationCard({
+  headingLevel,
+  image,
+  description,
+  isNew,
+  title,
+  color,
+  href,
+}: Props): Node {
   return (
     <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
       <Box minWidth={280}>
@@ -47,7 +56,7 @@ function IllustrationCard({ image, description, isNew, title, color, href }: Pro
                   column: 0,
                 }}
               >
-                <Heading accessibilityLevel={3} size="400">
+                <Heading accessibilityLevel={headingLevel} size="400">
                   {title}
                 </Heading>
                 {isNew && <Badge text="New" />}
