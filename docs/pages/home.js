@@ -88,7 +88,7 @@ export default function HomePage(): Node {
 
             <IllustrationCard
               headingLevel={3}
-              href="/foundations/accessibility"
+              href="/foundations/overview"
               title="Foundations"
               description="Guidelines around color palettes, typography, icons and more"
               color="teal-spabattical-450"
