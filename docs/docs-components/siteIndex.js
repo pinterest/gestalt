@@ -150,6 +150,10 @@ const siteIndex: Array<siteIndexType> = [
       },
       'Layouts',
       'Screen sizes',
+      {
+        sectionName: 'Messaging',
+        pages: ['Principles', 'Components', 'Priority and placement', 'A messaging story'],
+      },
     ],
   },
   {
