@@ -1,3 +1,9 @@
+## 65.3.12 (Aug 18, 2022)
+
+### Patch
+
+- Internal: Bump @actions/core from 1.2.6 to 1.9.1 (#2301)
+
 ## 65.3.11 (Aug 18, 2022)
 
 ### Patch
