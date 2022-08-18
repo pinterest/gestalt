@@ -2,7 +2,7 @@
   composes: antialiased sansSerif from "./Typography.css";
   composes: inlineBlock from "./Layout.css";
   composes: rounding1 from "./Borders.css";
-  composes: fontWeightSemiBold from './Typography.css';
+  composes: fontWeightSemiBold from "./Typography.css";
   color: var(--color-text-inverse);
   font-size: 10px;
   height: min-content;

@@ -102,7 +102,9 @@ to prevent conflict with another CSS module */
   border-top-right-radius: var(--g-borderRadius-circle);
 }
 
-:global ._gestalt .react-datepicker__day--in-range:not(.react-datepicker__day--selected):hover::before {
+:global
+  ._gestalt
+  .react-datepicker__day--in-range:not(.react-datepicker__day--selected):hover::before {
   background: var(--g-colorTransparentGray60);
   border-radius: 0;
   content: "";
@@ -133,7 +135,9 @@ to prevent conflict with another CSS module */
   position: relative;
 }
 
-:global ._gestalt .react-datepicker__day--range-start:not(:last-child):not(.react-datepicker__day--range-end)::before {
+:global
+  ._gestalt
+  .react-datepicker__day--range-start:not(:last-child):not(.react-datepicker__day--range-end)::before {
   background: var(--g-colorTransparentGray60);
   border-radius: var(--g-borderRadius-halfCircle-Start);
   content: "";
@@ -175,7 +179,9 @@ to prevent conflict with another CSS module */
   position: relative;
 }
 
-:global ._gestalt .react-datepicker__day--range-end:not(:first-child):not(.react-datepicker__day--range-start)::before {
+:global
+  ._gestalt
+  .react-datepicker__day--range-end:not(:first-child):not(.react-datepicker__day--range-start)::before {
   background: var(--g-colorTransparentGray60);
   border-radius: var(--g-borderRadius-halfCircle-End);
   content: "";
@@ -211,8 +217,12 @@ to prevent conflict with another CSS module */
   z-index: -1;
 }
 
-:global ._gestalt .react-datepicker__day--selecting-range-start:not(.react-datepicker__day--in-range):not(.react-datepicker__day--highlighted),
-:global ._gestalt .react-datepicker__day--selecting-range-end:not(.react-datepicker__day--in-range):not(.react-datepicker__day--highlighted) {
+:global
+  ._gestalt
+  .react-datepicker__day--selecting-range-start:not(.react-datepicker__day--in-range):not(.react-datepicker__day--highlighted),
+:global
+  ._gestalt
+  .react-datepicker__day--selecting-range-end:not(.react-datepicker__day--in-range):not(.react-datepicker__day--highlighted) {
   background-color: var(--g-colorTransparentGray60);
 }
 
@@ -302,12 +312,14 @@ to prevent conflict with another CSS module */
   width: 100%;
 }
 
-
 html[dir="rtl"] :global ._gestalt .react-datepicker__navigation--previous {
   right: 8px;
 }
 
-html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--previous {
+html:not([dir="rtl"])
+  :global
+  ._gestalt
+  .react-datepicker__navigation--previous {
   left: 8px;
 }
 
@@ -372,6 +384,3 @@ html[dir="rtl"] .calendarIcon {
 html:not([dir="rtl"]) .calendarIcon {
   right: 0;
 }
-
-
-
