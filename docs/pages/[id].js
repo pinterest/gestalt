@@ -60,7 +60,7 @@ export async function getStaticProps(context: {| params: {| id: string |} |}): P
 }
 
 export async function getStaticPaths(): Promise<{|
-  paths: {| params: {| id: string |} |}[],
+  paths: Array<{| params: {| id: string |} |}>,
   fallback: boolean,
 |}> {
   // get all the paths that exist within ./markdown folder
