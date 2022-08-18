@@ -63,7 +63,7 @@ A message is different from a status indicator in that it includes a more detail
         >
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="purple-mysticool-100"
+              color="purple-mysticool-450"
               image={<Timely />}
               heading="Timely"
               text={
@@ -75,7 +75,7 @@ A message is different from a status indicator in that it includes a more detail
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="green-matchacado-100"
+              color="blue-skycicle-450"
               image={<Brief />}
               heading="Brief"
               text={
@@ -87,7 +87,7 @@ A message is different from a status indicator in that it includes a more detail
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="blue-skycicle-100"
+              color="teal-spabattical-450"
               image={<Relevant />}
               heading="Relevant"
               text={

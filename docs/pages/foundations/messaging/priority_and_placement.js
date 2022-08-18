@@ -4,6 +4,10 @@ import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
+import Blocking from '../../../graphics/messaging/blocking.svg';
+import Emphemeral from '../../../graphics/messaging/ephemeral.svg';
+import Section from '../../../graphics/messaging/section.svg';
+import TopPage from '../../../graphics/messaging/topPage.svg';
 
 export default function MessagingPriorityAndPlacementPage(): Node {
   return (
@@ -47,15 +51,29 @@ export default function MessagingPriorityAndPlacementPage(): Node {
       </MainSection>
       <MainSection name="Prominence and placement" description="Prominence of a message is determined by its severity. The amount of time it remains on screen is also determined by severity." >
         <MainSection.Subsection title="Overlays">
-          <Heading accessibilityLevel={4}>Blocking—the most prominent</Heading>
+          <Heading size={300} accessibilityLevel={4}>Blocking—the most prominent</Heading>
+          <Blocking />
           <Text>Messages that block the surface below them are placed in the center of the screen, both vertically and horizontally. They should be used sparingly to avoid blocking people from productivity and inspiration.</Text>
 
-          <Heading accessibilityLevel={4}>Current components: Modal</Heading>
+          <Heading size={300} accessibilityLevel={4}>Current components: Modal</Heading>
           <Text>Blocking content slows a person down from their usual flow, so here are some guidelines on when it’s okay to block content.</Text>
 
-          <Box>
-            <Flex><Box><Text>To confirm that someone wants to peform a destructive//irreversible action</Text></Box></Flex>
+          <Box color='successWeak'>
+            <Flex direction='column'>
+              <Flex><Box><Text>To confirm that someone wants to peform a destructive//irreversible action</Text></Box><Box>foo</Box></Flex>
+              <Flex><Box><Text>When an issue is so severe that it’s hard to continue with a good experience</Text></Box><Box>foo</Box></Flex>
+            </Flex>
           </Box>
+
+          <Heading size={300} accessibilityLevel={4}>Foo</Heading>
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Not-blocking">
+          <Emphemeral />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="On surface">
+          <TopPage />
+
+          <Section />
         </MainSection.Subsection>
       </MainSection>
     </Page>
