@@ -1,5 +1,5 @@
 // @flow strict
-import { Text, Table, Icon, Flex, Heading, Box } from 'gestalt';
+import { Text, Table, Icon, Flex, Heading, Box, Link } from 'gestalt';
 import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -68,12 +68,21 @@ export default function MessagingPriorityAndPlacementPage(): Node {
           <Heading size={300} accessibilityLevel={4}>Foo</Heading>
         </MainSection.Subsection>
         <MainSection.Subsection title="Not-blocking">
+          <Heading size={300} accessibilityLevel={4}>Ephemeral—less prominent</Heading>
           <Emphemeral />
+          <Text>Small overlays that appear for a short period of time, usually 3–5 seconds depending on content. They do not prevent a user from accessing the main content and navigation on the surface underneath.</Text>
+          <Text>Current components: <Link href='/web/toast' underlined>Toast</Link></Text>
         </MainSection.Subsection>
         <MainSection.Subsection title="On surface">
+          <Heading size={300} accessibilityLevel={4}>Top of the page—very prominent</Heading>
           <TopPage />
+          <Text>Place messages at the top of a page, below the main app nav if the alert or information applies to the entire page. Avoid stacking messages so that a person’s view isn’t cluttered and they can’t focus on the main information they came to see and interact with. Show the highest-severity ones first.</Text>
+          <Text>Current components: <Link href='/web/callout' underlined>Callout</Link> <Link href='/web/slimbanner' underlined>SlimBanner</Link> <Link href='/web/upsell' underlined>Upsell</Link></Text>
 
+          <Heading size={300} accessibilityLevel={4}>Ephemeral—less prominent</Heading>
           <Section />
+          <Text>Place messages at the top of a page, below the main app nav if the alert or information applies to the entire page. Avoid stacking messages so that a person’s view isn’t cluttered and they can’t focus on the main information they came to see and interact with. Show the highest-severity ones first.</Text>
+          <Text>Current components: <Link href='/web/slimbanner' underlined>SlimBanner</Link></Text>
         </MainSection.Subsection>
       </MainSection>
     </Page>
