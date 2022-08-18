@@ -12,9 +12,9 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Heading">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Heading"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode="<Heading size={500}>An H2 Heading example</Heading>"
       />
@@ -250,7 +250,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`These font sizes follow those available through our [Design Tokens](/foundationsdesign_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/web/text) instead.
+          description={`These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/web/text) instead.
 `}
           title="Size"
         >
