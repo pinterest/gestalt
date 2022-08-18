@@ -1,7 +1,7 @@
 .DropdownSection {
-  width: 100%
+  width: 100%;
 }
 
-.DropdownSection:not(:first-child){
+.DropdownSection:not(:first-child) {
   margin-top: 16px;
 }

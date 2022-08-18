@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useEffect, useState } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
@@ -36,15 +36,6 @@ type Props = {|
   seek: (time: number) => void,
   volume: number,
 |};
-
-const fullscreenEnabled = () =>
-  document.fullscreenEnabled ||
-  // $FlowFixMe[prop-missing]
-  document.webkitFullscreenEnabled ||
-  // $FlowFixMe[prop-missing]
-  document.mozFullScreenEnabled ||
-  // $FlowFixMe[prop-missing]
-  document.msFullscreenEnabled;
 
 const timeToString = (time?: number) => {
   const rounded = Math.floor(time || 0);
@@ -103,7 +94,21 @@ function VideoControls({
   };
 
   const muted = volume === 0;
-  const showFullscreenButton = typeof document !== 'undefined' && !!fullscreenEnabled();
+
+  const [showFullscreenButton, setShowFullscreenButton] = useState(false);
+
+  useEffect(() => {
+    setShowFullscreenButton(
+      typeof document !== 'undefined' &&
+        (document.fullscreenEnabled ||
+          // $FlowFixMe[prop-missing]
+          document.webkitFullscreenEnabled ||
+          // $FlowFixMe[prop-missing]
+          document.mozFullScreenEnabled ||
+          // $FlowFixMe[prop-missing]
+          document.msFullscreenEnabled),
+    );
+  }, []);
 
   return (
     <div className={styles.controls}>

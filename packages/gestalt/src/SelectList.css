@@ -1,5 +1,5 @@
 .select {
-  composes: Text  from "./Text.css";
+  composes: Text from "./Text.css";
   composes: fontSize300 from "./Typography.css";
   composes: darkGray from "./Colors.css";
   composes: pointer from "./Cursor.css";

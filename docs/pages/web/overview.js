@@ -9,20 +9,43 @@ import IllustrationSection from '../../docs-components/IllustrationSection.js';
 import IllustrationContainer from '../../docs-components/IllustrationContainer.js';
 import Accessibility from '../../graphics/foundations/accessibility.svg';
 
-const getIllustrationCardColor = (category: string, hasDarkBackground?: boolean) => {
+type Category =
+  | 'Actions'
+  | 'Avatars'
+  | 'Building blocks'
+  | 'Controls'
+  | 'Data'
+  | 'Fields and forms'
+  | 'Foundations'
+  | 'Help and guidance'
+  | 'Indicators'
+  | 'Loading'
+  | 'Messaging'
+  | 'Navigation'
+  | 'Overlays'
+  | 'Pilot'
+  | 'Pins and imagery'
+  | 'Structure'
+  | 'Text'
+  | 'Utilities'
+  | '';
+
+const getIllustrationCardColor = (category: Category, hasDarkBackground?: boolean) => {
   const tealBackgrounds = ['Foundations'];
-  const grayBackgrounds = ['Utilities', 'Building Blocks'];
+  const grayBackgrounds = ['Utilities', 'Building blocks'];
   const greenBackgrounds = [
-    'building-blocks',
     'Actions',
     'Avatars',
     'Controls',
     'Data',
-    'Fields & Forms',
+    'Fields and forms',
+    'Help and guidance',
+    'Indicators',
     'Loading',
     'Messaging',
     'Navigation',
-    'Pins & Imagery',
+    'Overlays',
+    'Pins and imagery',
     'Structure',
     'Text',
   ];
@@ -50,11 +73,11 @@ const getIllustrationCardColor = (category: string, hasDarkBackground?: boolean)
 const GENERAL_COMPONENT_CATEGORY_MAP = COMPONENT_DATA.generalComponents.reduce(
   (acc, cur) => ({
     ...acc,
+    // $FlowFixMe[invalid-computed-prop] I have no idea how to fix this =/
     [cur.category]: (acc[cur.category] ?? []).concat(cur),
   }),
   {},
 );
-
 type Status = 'notAvailable' | 'partial' | 'planned' | 'ready';
 
 export type AccessibleStatus = {|
@@ -65,8 +88,8 @@ export type AccessibleStatus = {|
   a11yComprehension: ?Status,
 |};
 
-export type ListItemType = Array<{|
-  category: string,
+export type ListItemType = {|
+  category: Category,
   description: string,
   hasDarkBackground?: boolean,
   name: string,
@@ -83,9 +106,17 @@ export type ListItemType = Array<{|
     responsive: Status,
   |},
   svg: Element<typeof Accessibility>,
-|}>;
+|};
 
-function List({ array, title = '' }: {| array: ListItemType, title?: string |}): Node {
+function List({
+  array,
+  headingLevel,
+  title = '',
+}: {|
+  array: Array<ListItemType>,
+  headingLevel: 2 | 3,
+  title?: string,
+|}): Node {
   return (
     <IllustrationSection title={title} grid="auto-fill" min={312}>
       {array
@@ -100,6 +131,7 @@ function List({ array, title = '' }: {| array: ListItemType, title?: string |}):
         })
         .map((element, idx) => (
           <IllustrationCard
+            headingLevel={headingLevel}
             key={idx}
             href={element?.path ?? `/web/${element.name.replace(/\s/g, '_').toLowerCase()}`}
             title={element.name}
@@ -113,7 +145,7 @@ function List({ array, title = '' }: {| array: ListItemType, title?: string |}):
 }
 
 export default function ComponentOverview(): Node {
-  const [order, setOrder] = useState('category');
+  const [order, setOrder] = useState('alphabetical');
 
   return (
     <Page title="Web component overview" hideSideNav hideEditLink>
@@ -121,7 +153,9 @@ export default function ComponentOverview(): Node {
         <IllustrationContainer justifyContent="start">
           <PageHeader
             name="Web component overview"
-            description="Not sure which component you need? Take a look below or set up time with the Gestalt team."
+            description={`Gestalt provides an extensive set of React components for use in building larger web experiences and patterns. They include interactive UI components and developer utilities to help with implemention.
+
+Not sure which component to use? [Set up time with the Gestalt team.](/get_started/how_to_work_with_us#Slack-channels)`}
             type="guidelines"
           />
         </IllustrationContainer>
@@ -147,14 +181,6 @@ export default function ComponentOverview(): Node {
                 }}
               >
                 <RadioButton
-                  checked={order === 'category'}
-                  id="category"
-                  label="Category"
-                  name="overviewSort"
-                  onChange={() => setOrder('category')}
-                  value="category"
-                />
-                <RadioButton
                   checked={order === 'alphabetical'}
                   id="alphabetical"
                   label="Alphabetical"
@@ -162,12 +188,21 @@ export default function ComponentOverview(): Node {
                   onChange={() => setOrder('alphabetical')}
                   value="alphabetical"
                 />
+                <RadioButton
+                  checked={order === 'category'}
+                  id="category"
+                  label="Category"
+                  name="overviewSort"
+                  onChange={() => setOrder('category')}
+                  value="category"
+                />
               </Flex>
             </Fieldset>
           </Flex>
         </IllustrationContainer>
         {order === 'alphabetical' ? (
           <List
+            headingLevel={2}
             array={[
               ...COMPONENT_DATA.utilityComponents,
               ...COMPONENT_DATA.buildingBlockComponents,
@@ -179,10 +214,19 @@ export default function ComponentOverview(): Node {
             {Object.keys(GENERAL_COMPONENT_CATEGORY_MAP)
               .sort()
               .map((category, idx) => (
-                <List key={idx} array={GENERAL_COMPONENT_CATEGORY_MAP[category]} title={category} />
+                <List
+                  headingLevel={3}
+                  key={idx}
+                  array={GENERAL_COMPONENT_CATEGORY_MAP[category]}
+                  title={category}
+                />
               ))}
-            <List array={COMPONENT_DATA.buildingBlockComponents} title="Building blocks" />
-            <List array={COMPONENT_DATA.utilityComponents} title="Utilities" />
+            <List
+              headingLevel={3}
+              array={COMPONENT_DATA.buildingBlockComponents}
+              title="Building blocks"
+            />
+            <List headingLevel={3} array={COMPONENT_DATA.utilityComponents} title="Utilities" />
           </Fragment>
         )}
       </Flex>

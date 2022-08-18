@@ -1,3 +1,69 @@
+## 65.3.9 (Aug 18, 2022)
+
+### Patch
+
+- Internal: run prettier on CSS files (#2298)
+
+## 65.3.8 (Aug 18, 2022)
+
+### Patch
+
+- Video: fix docs link for disableRemotePlayback (#2296)
+
+## 65.3.7 (Aug 18, 2022)
+
+### Patch
+
+- Docs: add Category type to catch regressions (#2294)
+
+## 65.3.6 (Aug 18, 2022)
+
+### Patch
+
+- Docs: add link to web overview page (#2293)
+
+## 65.3.5 (Aug 17, 2022)
+
+### Patch
+
+- Component overview: updated per redesign (#2288)
+
+## 65.3.4 (Aug 17, 2022)
+
+### Patch
+
+- SideNavigation: fixes in height and mobile implementation in sm breakpoint (#2282)
+
+## 65.3.3 (Aug 17, 2022)
+
+### Patch
+
+- Internal: increase Node memory to solve OOM issue on CI (#2291)
+
+## 65.3.2 (Aug 17, 2022)
+
+### Patch
+
+- Docs: refactored Homepage (#2287)
+
+## 65.3.1 (Aug 17, 2022)
+
+### Patch
+
+- Internal: add Node.js 18 to test matrix (#2285)
+
+## 65.3.0 (Aug 17, 2022)
+
+### Minor
+
+- Video: fix hydration issue (#2284)
+
+## 65.2.3 (Aug 16, 2022)
+
+### Patch
+
+- Docs: improve keyboard interactions for search bar (#2283)
+
 ## 65.2.2 (Aug 15, 2022)
 
 ### Patch

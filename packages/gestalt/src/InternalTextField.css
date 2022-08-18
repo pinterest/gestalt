@@ -10,7 +10,8 @@
   color: var(--g-colorGray200);
 }
 
-.unstyledTextField, .textFieldSpacer {
+.unstyledTextField,
+.textFieldSpacer {
   composes: unstyled from "./FormElement.css";
   composes: Text from "./Text.css";
   composes: fontSize300 from "./Typography.css";

@@ -1,64 +1,22 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useState, useRef, useMemo } from 'react';
-import {
-  Box,
-  CompositeZIndex,
-  Dropdown,
-  FixedZIndex,
-  Flex,
-  IconButton,
-  Label,
-  Link,
-  Sticky,
-  Switch,
-  Tabs,
-  Text,
-} from 'gestalt';
+import { type Node, type Ref, useCallback, useEffect, useState, useRef, useMemo } from 'react';
+import { Box, Dropdown, Flex, IconButton, Label, Link, Sticky, Switch, Tabs, Text } from 'gestalt';
 import { useRouter } from 'next/router';
 import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
 import GestaltLogo from './GestaltLogo.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
-import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
+import { isComponentsActiveSection } from './DocsSideNavigation.js';
+import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 
-const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
-const ABOVE_PAGE_HEADER_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
-
-function Header() {
-  const router = useRouter();
-  const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
-  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
-  const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
-
-  const mainNavigationTabs = useMemo(
-    () => [
-      { href: '/get_started/about_us', text: 'Get started' },
-      {
-        href: `/${componentPlatformFilteredBy}/overview`,
-        text: 'Components',
-      },
-      { href: '/foundations/accessibility', text: 'Foundations' },
-      { href: '/roadmap/overview', text: 'Roadmap' },
-    ],
-    [componentPlatformFilteredBy],
-  );
-
-  // If the route includes a platform, set the "components" tab active
-  // Otherwise set it based on the route
-  const [activeTab, setActiveTab] = useState(
-    isComponentsActiveSection(router.pathname)
-      ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
-      : mainNavigationTabs.findIndex((tab) =>
-          router.pathname.includes(convertNamesForURL(tab.text)),
-        ),
-  );
-
-  const anchorRef = useRef(null);
-
-  // Z-index to use for any popovers on the Header
-  const POPOVER_ZINDEX = ABOVE_PAGE_HEADER_ZINDEX;
-
+function SettingsDropdown({
+  anchorRef,
+  closeDropdown,
+}: {|
+  anchorRef: Ref<typeof IconButton>,
+  closeDropdown: () => void,
+|}) {
   const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
 
   const colorSchemeCopy = colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View';
@@ -70,18 +28,104 @@ function Header() {
 
   const directionCopy = textDirection === 'rtl' ? 'Left-To-Right View' : 'Right-To-Left View';
 
-  const onTextDirectionChange = () => {
+  const onChangeTextDirection = () => {
     trackButtonClick('Toggle page direction', directionCopy);
-    setSettingsDropdownOpen(false);
+    closeDropdown();
     return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
   };
+  return (
+    <Dropdown
+      // $FlowFixMe[cannot-read] Flow is wrong here
+      // $FlowFixMe[prop-missing]
+      anchor={anchorRef.current}
+      id="site-settings-dropdown"
+      onDismiss={closeDropdown}
+      zIndex={PAGE_HEADER_POPOVER_ZINDEX}
+      isWithinFixedContainer
+    >
+      <Dropdown.Item
+        onSelect={onChangeColorScheme}
+        option={{ value: 'isDarkMode', label: 'Custom link 1' }}
+      >
+        <Flex
+          alignItems="center"
+          justifyContent="between"
+          flex="grow"
+          gap={{
+            row: 8,
+            column: 0,
+          }}
+        >
+          <Label htmlFor="darkMode-switch">
+            <Text weight="bold">Dark mode</Text>
+          </Label>
+          <Switch
+            switched={colorScheme === 'dark'}
+            onChange={onChangeColorScheme}
+            id="darkMode-switch"
+          />
+        </Flex>
+      </Dropdown.Item>
+      <Dropdown.Item
+        onSelect={onChangeTextDirection}
+        option={{ value: 'isRTL', label: 'Custom link 1' }}
+      >
+        <Flex
+          alignItems="center"
+          justifyContent="between"
+          flex="grow"
+          gap={{
+            row: 8,
+            column: 0,
+          }}
+        >
+          <Label htmlFor="rtl-switch">
+            <Text weight="bold">Right-to-left</Text>
+          </Label>
+          <Switch
+            switched={textDirection === 'rtl'}
+            onChange={onChangeTextDirection}
+            id="rtl-switch"
+          />
+        </Flex>
+      </Dropdown.Item>
+    </Dropdown>
+  );
+}
 
-  useEffect(() => {
-    const algoliaSearchInput = document.querySelector('#algolia-doc-search');
-    if (algoliaSearchInput && isMobileSearchExpandedOpen) {
-      algoliaSearchInput.focus();
-    }
-  }, [isMobileSearchExpandedOpen]);
+function getTabs(componentPlatform) {
+  return [
+    { href: '/get_started/about_us', text: 'Get started' },
+    {
+      href: `/${componentPlatform}/overview`,
+      text: 'Components',
+    },
+    { href: '/foundations/accessibility', text: 'Foundations' },
+    { href: '/roadmap/overview', text: 'Roadmap' },
+    { href: '/roadmap/whats_new', text: "What's new" },
+  ];
+}
+
+function Header() {
+  const router = useRouter();
+  const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
+  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+  const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
+
+  const mainNavigationTabs = useMemo(
+    () => getTabs(componentPlatformFilteredBy),
+    [componentPlatformFilteredBy],
+  );
+
+  // If the route includes a platform, set the "components" tab active
+  // Otherwise set it based on the route
+  const [activeTab, setActiveTab] = useState(
+    isComponentsActiveSection(router.pathname)
+      ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
+      : mainNavigationTabs.findIndex((tab) => router.pathname.includes(tab.href)),
+  );
+
+  const anchorRef = useRef(null);
 
   // If the route includes a platform, set the "components" tab active
   // Otherwise set it based on the route
@@ -89,9 +133,7 @@ function Header() {
     setActiveTab(
       isComponentsActiveSection(router.pathname)
         ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
-        : mainNavigationTabs.findIndex((tab) =>
-            router.pathname.includes(convertNamesForURL(tab.text)),
-          ),
+        : mainNavigationTabs.findIndex((tab) => router.pathname.includes(tab.href)),
     );
   }, [router.events, router.pathname, mainNavigationTabs]);
 
@@ -120,7 +162,7 @@ function Header() {
             icon="menu"
             onClick={() => {
               window.scrollTo(0, 0);
-              setIsSidebarOpen(!isSidebarOpen);
+              setIsSidebarOpen((value) => !value);
             }}
           />
         </Box>
@@ -171,64 +213,14 @@ function Header() {
             ref={anchorRef}
             selected={isSettingsDropdownOpen}
             size="sm"
-            tooltip={{ 'text': 'Site settings', 'zIndex': POPOVER_ZINDEX }}
+            tooltip={{ 'text': 'Site settings', 'zIndex': PAGE_HEADER_POPOVER_ZINDEX }}
           />
         </Box>
         {isSettingsDropdownOpen && (
-          <Dropdown
-            anchor={anchorRef.current}
-            id="site-settings-dropdown"
-            onDismiss={() => setSettingsDropdownOpen(false)}
-            zIndex={POPOVER_ZINDEX}
-            isWithinFixedContainer
-          >
-            <Dropdown.Item
-              onSelect={() => onChangeColorScheme()}
-              option={{ value: 'isDarkMode', label: 'Custom link 1' }}
-            >
-              <Flex
-                alignItems="center"
-                justifyContent="between"
-                flex="grow"
-                gap={{
-                  row: 8,
-                  column: 0,
-                }}
-              >
-                <Label htmlFor="darkMode-switch">
-                  <Text weight="bold">Dark mode</Text>
-                </Label>
-                <Switch
-                  switched={colorScheme === 'dark'}
-                  onChange={() => onChangeColorScheme()}
-                  id="darkMode-switch"
-                />
-              </Flex>
-            </Dropdown.Item>
-            <Dropdown.Item
-              onSelect={() => onTextDirectionChange()}
-              option={{ value: 'isRTL', label: 'Custom link 1' }}
-            >
-              <Flex
-                alignItems="center"
-                justifyContent="between"
-                flex="grow"
-                gap={{
-                  row: 8,
-                  column: 0,
-                }}
-              >
-                <Label htmlFor="rtl-switch">
-                  <Text weight="bold">Right-to-left</Text>
-                </Label>
-                <Switch
-                  switched={textDirection === 'rtl'}
-                  onChange={() => onTextDirectionChange()}
-                  id="rtl-switch"
-                />
-              </Flex>
-            </Dropdown.Item>
-          </Dropdown>
+          <SettingsDropdown
+            anchorRef={anchorRef}
+            closeDropdown={() => setSettingsDropdownOpen(false)}
+          />
         )}
 
         <Box display="none" mdDisplay="block" flex="grow">
@@ -243,37 +235,13 @@ function Header() {
           </Flex>
         </Box>
 
-        <Box
-          alignItems="center"
-          display={isMobileSearchExpandedOpen ? 'flex' : 'none'}
-          lgDisplay="flex"
-          flex="shrink"
-          marginStart={2}
-          mdMarginStart={0}
-        >
-          <Box flex="grow" paddingX={2}>
-            <DocSearch popoverZIndex={POPOVER_ZINDEX} />
-          </Box>
-        </Box>
-        <Box display="block" lgDisplay="none" marginStart={2}>
-          <IconButton
-            accessibilityControls="site-settings-dropdown"
-            accessibilityExpanded={isMobileSearchExpandedOpen}
-            accessibilityHaspopup
-            accessibilityLabel="Search Gestalt"
-            icon={isMobileSearchExpandedOpen ? 'cancel' : 'search'}
-            iconColor="darkGray"
-            onClick={() => {
-              setMobileSearchExpanded((prevVal) => !prevVal);
-            }}
-            ref={anchorRef}
-            size="sm"
-            tooltip={{
-              'text': isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
-              'zIndex': POPOVER_ZINDEX,
-            }}
-          />
-        </Box>
+        <DocSearch
+          anchorRef={anchorRef}
+          isMobileSearchExpandedOpen={isMobileSearchExpandedOpen}
+          toggleSearchBarOpen={() => {
+            setMobileSearchExpanded((prevVal) => !prevVal);
+          }}
+        />
       </Flex>
     </Box>
   );
@@ -302,7 +270,7 @@ export default function StickyHeader(): Node {
   return reducedHeight ? (
     <Header />
   ) : (
-    <Sticky zIndex={new FixedZIndex(10)} top={0}>
+    <Sticky zIndex={PAGE_HEADER_ZINDEX} top={0}>
       <Header />
     </Sticky>
   );
