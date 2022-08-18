@@ -1,3 +1,9 @@
+## 65.3.8 (Aug 18, 2022)
+
+### Patch
+
+- Video: fix docs link for disableRemotePlayback (#2296)
+
 ## 65.3.7 (Aug 18, 2022)
 
 ### Patch
