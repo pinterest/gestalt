@@ -17,7 +17,7 @@ import { MAX_WIDTH } from './MainSectionSubsection.js';
 
 import 'highlight.js/styles/a11y-light.css';
 import Highlighter from './highlight.js';
-import IllustrationCard, { type IllustrationCardProps } from './IllustrationCard.js';
+import IllustrationCard from './IllustrationCard.js';
 
 type Props = {|
   children: Node,
@@ -112,7 +112,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
         <MainSection.Subsection title={props.children} marginBottom="compact" />
       </Box>
     ),
-
+    IllustrationCard,
     ImgContainer: (props: {| src: string |}) => (
       <Box padding={8} rounding={2} borderStyle="sm" height="200px">
         <Box position="relative" width="100%" height="100%">
@@ -159,6 +159,17 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     ),
     TwoCol: (props) => (
       <MainSection.Subsection columns={2}>{props.children}</MainSection.Subsection>
+    ),
+    ThreeCol: (props) => (
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '2px',
+        }}
+      >
+        {props.children}
+      </div>
     ),
   };
 

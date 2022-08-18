@@ -1,9 +1,10 @@
 // @flow strict
 import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
+import illustrations from '../graphics/index.js';
 
 export type IllustrationCardProps = {|
-  image: Node,
+  image: Node | string,
   description: string,
   title: string,
   color: string,
@@ -36,7 +37,7 @@ function IllustrationCard({
                 },
               }}
             >
-              {image}
+              {typeof image === 'string' ? illustrations[image]() : image}
             </Box>
             <Box
               color="default"

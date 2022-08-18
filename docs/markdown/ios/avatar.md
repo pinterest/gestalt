@@ -69,6 +69,36 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 If there is no image source provided for the Avatar, the first character of the name provided will be used as a placeholder.
 
+<br/>
+
 <ImgContainer src="https://i.pinimg.com/originals/a7/e9/d7/a7e9d796017c740a00bb1b3d7fb600a3.png" />
 
 ## Related
+
+<ThreeCol>
+
+<IllustrationCard
+              title="AvatarGroup"
+              href="/web/avatargroup"
+              description="AvatarGroup is used ideally where multiple people are displayed"
+              color="teal-spabattical-450"
+              image="avatar-group"
+            />
+
+<IllustrationCard
+              title="AvatarGroup"
+              href="/web/avatargroup"
+              description="AvatarGroup is used ideally where multiple people are displayed"
+              color="teal-spabattical-450"
+              image="avatar-group"
+            />
+
+<IllustrationCard
+              title="AvatarGroup"
+              href="/web/avatargroup"
+              description="AvatarGroup is used ideally where multiple people are displayed"
+              color="teal-spabattical-450"
+              image="avatar-group"
+            />
+
+</ThreeCol>
