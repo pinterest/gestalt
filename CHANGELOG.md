@@ -1,3 +1,9 @@
+## 65.4.0 (Aug 18, 2022)
+
+### Minor
+
+- IconButton: codemod for upcoming default iconColor value changes (#2299)
+
 ## 65.3.12 (Aug 18, 2022)
 
 ### Patch
