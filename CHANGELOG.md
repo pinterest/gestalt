@@ -1,3 +1,9 @@
+## 65.3.10 (Aug 18, 2022)
+
+### Patch
+
+- Foundations: new Overview page (#2292)
+
 ## 65.3.9 (Aug 18, 2022)
 
 ### Patch
