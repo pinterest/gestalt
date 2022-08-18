@@ -32,6 +32,8 @@
   },
   "rules": {
     "eslint-comments/no-unused-disable": "error",
+    "flowtype/array-style-complex-type": ["error", "verbose"],
+    "flowtype/array-style-simple-type": ["error", "verbose"],
     "flowtype/no-mutable-array": "error",
     "flowtype/require-exact-type": ["error", "always"],
     "flowtype/require-valid-file-annotation": [
