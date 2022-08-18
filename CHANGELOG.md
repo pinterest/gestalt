@@ -1,3 +1,9 @@
+## 65.3.6 (Aug 18, 2022)
+
+### Patch
+
+- Docs: add link to web overview page (#2293)
+
 ## 65.3.5 (Aug 17, 2022)
 
 ### Patch
