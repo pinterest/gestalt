@@ -253,39 +253,11 @@ export default function DocsPage({
     };
 
     return (
-<<<<<<< HEAD:docs/pages/web/selectlist.js
-      <Flex gap={{ row: 2, column: 0 }} alignItems='end'>
-      <SelectList
-        id="selectlistexample8"
-        onChange={() => {}}
-        options={[
-          {label:'Revenue', value: 'v1'},
-          {label:'Checkouts', value: 'v2'},
-          {label:'Purchasers', value: 'v3'},
-          {label:'Page visits', value: 'v4'},
-          {label:'Add to cart', value: 'v5'},
-          {label:'Pin clicks', value: 'v6'},
-        ]}
-        size='lg'
-        label='Metric'
-      />
-      <Box display="flex" justifyContent="center">
-
-        <Button
-          accessibilityControls="header-dropdown-example"
-          accessibilityHaspopup
-          accessibilityExpanded={ open }
-          iconEnd="arrow-down"
-          text="Date range"
-          selected={open}
-          icon="add"
-=======
       <Flex gap={2} alignItems="end">
         <SelectList
           id="selectlistexample8"
           label="Metric"
           onChange={() => {}}
->>>>>>> e333851b (update docs examples):docs/pages/selectlist.js
           size="lg"
         >
           {[
@@ -361,19 +333,6 @@ export default function DocsPage({
     id="selectlistexampleA11yVisible"
     label="Date range"
     onChange={() => {}}
-<<<<<<< HEAD:docs/pages/web/selectlist.js
-    options={[
-      {label: 'Last 5 days', value: '5'},
-      {label: 'Last week', value: '7'},
-      {label: 'Last 30 days', value: '30'},
-      {label: 'Last sixth months', value: '6m'},
-      {label: 'Last year', value: '365'},
-    ]}
-    label='Date range'
-    size='lg'
-  />
-  <Flex gap={{ column: 2, row: 0 }} direction="column">
-=======
     size="lg"
   >
     {[
@@ -388,7 +347,6 @@ export default function DocsPage({
   </SelectList>
 
   <Flex gap={2} direction="column">
->>>>>>> e333851b (update docs examples):docs/pages/selectlist.js
     <Text weight="bold" size="300">Date range</Text>
     <SelectList
       id="selectlistexampleA11yHiddenLabel"
@@ -474,24 +432,6 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<<<<<<< HEAD:docs/pages/web/selectlist.js
-            <Flex gap={{ column: 2, row: 0 }} direction="column">
-<Text weight="bold" size="300">Date range</Text>
-<SelectList
-  id="selectlistexampleHiddenLabel"
-  onChange={() => {}}
-  options={[
-    {label: 'Last 5 days', value: '5'},
-    {label: 'Last week', value: '7'},
-    {label: 'Last 30 days', value: '30'},
-    {label: 'Last sixth months', value: '6m'},
-    {label: 'Last year', value: '365'},
-  ]}
-  label='Date range'
-  labelDisplay="hidden"
-  size='lg'
-/>
-=======
 <Flex gap={2} direction="column">
   <Text weight="bold" size="300">Date range</Text>
 
@@ -512,7 +452,6 @@ export default function DocsPage({
       <SelectList.Option key={label} label={label} value={value} />
     )}
   </SelectList>
->>>>>>> e333851b (update docs examples):docs/pages/selectlist.js
 </Flex>
 `}
           />
