@@ -1,3 +1,9 @@
+## 65.4.1 (Aug 18, 2022)
+
+### Patch
+
+- Internal: lint for array Flow type syntax (#2302)
+
 ## 65.4.0 (Aug 18, 2022)
 
 ### Minor
