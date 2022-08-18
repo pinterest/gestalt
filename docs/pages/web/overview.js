@@ -9,7 +9,28 @@ import IllustrationSection from '../../docs-components/IllustrationSection.js';
 import IllustrationContainer from '../../docs-components/IllustrationContainer.js';
 import Accessibility from '../../graphics/foundations/accessibility.svg';
 
-const getIllustrationCardColor = (category: string, hasDarkBackground?: boolean) => {
+type Category =
+  | 'Actions'
+  | 'Avatars'
+  | 'Building blocks'
+  | 'Controls'
+  | 'Data'
+  | 'Fields and forms'
+  | 'Foundations'
+  | 'Help and guidance'
+  | 'Indicators'
+  | 'Loading'
+  | 'Messaging'
+  | 'Navigation'
+  | 'Overlays'
+  | 'Pilot'
+  | 'Pins and imagery'
+  | 'Structure'
+  | 'Text'
+  | 'Utilities'
+  | '';
+
+const getIllustrationCardColor = (category: Category, hasDarkBackground?: boolean) => {
   const tealBackgrounds = ['Foundations'];
   const grayBackgrounds = ['Utilities', 'Building blocks'];
   const greenBackgrounds = [
@@ -52,11 +73,11 @@ const getIllustrationCardColor = (category: string, hasDarkBackground?: boolean)
 const GENERAL_COMPONENT_CATEGORY_MAP = COMPONENT_DATA.generalComponents.reduce(
   (acc, cur) => ({
     ...acc,
+    // $FlowFixMe[invalid-computed-prop] I have no idea how to fix this =/
     [cur.category]: (acc[cur.category] ?? []).concat(cur),
   }),
   {},
 );
-
 type Status = 'notAvailable' | 'partial' | 'planned' | 'ready';
 
 export type AccessibleStatus = {|
@@ -67,8 +88,8 @@ export type AccessibleStatus = {|
   a11yComprehension: ?Status,
 |};
 
-export type ListItemType = Array<{|
-  category: string,
+export type ListItemType = {|
+  category: Category,
   description: string,
   hasDarkBackground?: boolean,
   name: string,
@@ -85,14 +106,14 @@ export type ListItemType = Array<{|
     responsive: Status,
   |},
   svg: Element<typeof Accessibility>,
-|}>;
+|};
 
 function List({
   array,
   headingLevel,
   title = '',
 }: {|
-  array: ListItemType,
+  array: Array<ListItemType>,
   headingLevel: 2 | 3,
   title?: string,
 |}): Node {
