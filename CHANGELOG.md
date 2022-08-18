@@ -1,3 +1,9 @@
+## 65.3.7 (Aug 18, 2022)
+
+### Patch
+
+- Docs: add Category type to catch regressions (#2294)
+
 ## 65.3.6 (Aug 18, 2022)
 
 ### Patch
