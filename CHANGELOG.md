@@ -1,3 +1,9 @@
+## 65.3.9 (Aug 18, 2022)
+
+### Patch
+
+- Internal: run prettier on CSS files (#2298)
+
 ## 65.3.8 (Aug 18, 2022)
 
 ### Patch
