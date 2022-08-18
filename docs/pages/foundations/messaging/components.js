@@ -130,7 +130,7 @@ export default function MessagingComponentsPage(): Node {
           <Text>Here is a quick diagram to help you make a decision on what Messaging component to use. If you don’t see it here, perhaps you need a related component.</Text>
 
           <Box>
-          <iFrame style={{border:'none'}} width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092" allowFullScreen />
+          <iFrame style={{border:'none'}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092" allowFullScreen />
           </Box>
 
           <Text><Link href='https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092' underline externalLinkIcon="default">View in Figma</Link></Text>
