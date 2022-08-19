@@ -87,7 +87,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     dangerouslySetSvgPath,
     disabled,
     icon,
-    iconColor,
+    iconColor = 'darkGray',
     onClick,
     padding,
     tabIndex = 0,
