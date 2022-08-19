@@ -1,3 +1,9 @@
+## 66.0.3 (Aug 19, 2022)
+
+### Patch
+
+- Docs: Weekly update for 8-19 (#2307)
+
 ## 66.0.2 (Aug 19, 2022)
 
 ### Patch
