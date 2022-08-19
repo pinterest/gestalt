@@ -13,8 +13,12 @@ export default function MessagingComponentsPage(): Node {
     <Page title="Messaging components">
       <PageHeader name="Messaging components" type="guidelines" />
       <MainSection name="Callout">
-
-      <Example id="calloutExample" name="Callout example" showCode={false} showHeading={false} defaultCode={`<Callout
+        <Example
+          id="calloutExample"
+          name="Callout example"
+          showCode={false}
+          showHeading={false}
+          defaultCode={`<Callout
   title='Your tag is not working'
   message='Data may be outdated because your tag is not sendng information. Fix your tag for the most accurate metrics.'
   type='error'
@@ -28,15 +32,29 @@ export default function MessagingComponentsPage(): Node {
     label: 'Fix tag',
     onClick: () => {},
   }}
-/>`} />
-      <Flex direction="column" gap={4}>
-        <Text>Banners sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.</Text>
+/>`}
+        />
+        <Flex direction="column" gap={4}>
+          <Text>
+            Banners sit on a page or surface and provide status alerts, information or
+            recommendations to a user. They are used for highest priority messages, usually at the
+            top of a page.
+          </Text>
 
-        <Text><Link href='https://gestalt.pinterest.systems/web/callout' underline='always'>Go to the Callout component</Link></Text>
+          <Text>
+            <Link href="https://gestalt.pinterest.systems/web/callout" underline="always">
+              Go to the Callout component
+            </Link>
+          </Text>
         </Flex>
       </MainSection>
       <MainSection name="SlimBanner">
-        <Example id="slimbannerExample" name="SlimBanner example" showCode={false} showHeading={false} defaultCode={`<SlimBanner
+        <Example
+          id="slimbannerExample"
+          name="SlimBanner example"
+          showCode={false}
+          showHeading={false}
+          defaultCode={`<SlimBanner
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: () => {},
@@ -49,23 +67,41 @@ export default function MessagingComponentsPage(): Node {
     onClick: () => {},
   }}
   type="info"
-/>`} />
-      <Flex direction="column" gap={4}>
-        <Text>SlimBanner conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. SlimBanners are used to reference a specific section of a page, or in any dense interface where space is a concern.</Text>
+/>`}
+        />
+        <Flex direction="column" gap={4}>
+          <Text>
+            SlimBanner conveys brief information related to a specific section of a page. The
+            message can relay success, warning, error or general information. SlimBanners are used
+            to reference a specific section of a page, or in any dense interface where space is a
+            concern.
+          </Text>
 
-        <Text><Link href='https://gestalt.pinterest.systems/web/slimbanner' underline='always'>Go to the SlimBanner componen</Link></Text>
-      </Flex>
+          <Text>
+            <Link href="https://gestalt.pinterest.systems/web/slimbanner" underline="always">
+              Go to the SlimBanner componen
+            </Link>
+          </Text>
+        </Flex>
       </MainSection>
       <MainSection name="Modal">
         <SandpackExample code={modalExample} name="Modal Main Example" hideEditor />
         <Flex direction="column" gap={4}>
-          <Text>A modal dialog can be used to alert a user of an issue, or to request confirmation after a user-generated action. AlertModal overlays and blocks Page content until it is dismissed by the user.</Text>
+          <Text>
+            A modal dialog can be used to alert a user of an issue, or to request confirmation after
+            a user-generated action. AlertModal overlays and blocks Page content until it is
+            dismissed by the user.
+          </Text>
 
-          <Text><Link href='https://gestalt.pinterest.systems/web/modal' underline='always'>Go to the Modal component</Link></Text>
+          <Text>
+            <Link href="https://gestalt.pinterest.systems/web/modal" underline="always">
+              Go to the Modal component
+            </Link>
+          </Text>
         </Flex>
       </MainSection>
       <MainSection name="Toast">
-      <Example
+        <Example
           id="toastExamples"
           name="Toast examples"
           showCode={false}
@@ -114,26 +150,53 @@ export default function MessagingComponentsPage(): Node {
 `}
         />
         <Flex direction="column" gap={4}>
-          <Text>Toasts are the least disruptive of messages in that they are ephemeral and don’t require a user to act or dismiss them. They appear opposite  a surface’s main navigation and overlay content without fully blocking it. They can be used to:</Text>
+          <Text>
+            Toasts are the least disruptive of messages in that they are ephemeral and don’t require
+            a user to act or dismiss them. They appear opposite a surface’s main navigation and
+            overlay content without fully blocking it. They can be used to:
+          </Text>
           <Text>
             <ul>
               <li>Acknowledge a user action immediately after it happens</li>
               <li>Acknowledge a user action while nudging them to improve their experience</li>
-              <li>Alert users of connectivity issues or unknown errors without disrupting their flow</li>
+              <li>
+                Alert users of connectivity issues or unknown errors without disrupting their flow
+              </li>
             </ul>
           </Text>
-          <Text><Link href='https://gestalt.pinterest.systems/web/toast' underline='always'>Go to the Toast component</Link></Text>
+          <Text>
+            <Link href="https://gestalt.pinterest.systems/web/toast" underline="always">
+              Go to the Toast component
+            </Link>
+          </Text>
         </Flex>
       </MainSection>
       <MainSection name="What component should I use?">
         <Flex direction="column" gap={4}>
-          <Text>Here is a quick diagram to help you make a decision on what Messaging component to use. If you don’t see it here, perhaps you need a related component.</Text>
+          <Text>
+            Here is a quick diagram to help you make a decision on what Messaging component to use.
+            If you don’t see it here, perhaps you need a related component.
+          </Text>
 
           <Box>
-          <iFrame style={{border:'none'}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092" allowFullScreen />
+            <iFrame
+              style={{ border: 'none' }}
+              width="100%"
+              height="450"
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092"
+              allowFullScreen
+            />
           </Box>
 
-          <Text><Link href='https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092' underline='always' externalLinkIcon="default">View in Figma</Link></Text>
+          <Text>
+            <Link
+              href="https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092"
+              underline="always"
+              externalLinkIcon="default"
+            >
+              View in Figma
+            </Link>
+          </Text>
         </Flex>
       </MainSection>
       <MainSection name="Related">
