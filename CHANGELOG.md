@@ -1,3 +1,9 @@
+## 66.0.6 (Aug 19, 2022)
+
+### Patch
+
+- Docs: 8/19 blog post update (#2311)
+
 ## 66.0.5 (Aug 19, 2022)
 
 ### Patch
