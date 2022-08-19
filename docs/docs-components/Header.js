@@ -100,7 +100,7 @@ function getTabs(componentPlatform) {
       href: `/${componentPlatform}/overview`,
       text: 'Components',
     },
-    { href: '/foundations/accessibility', text: 'Foundations' },
+    { href: '/foundations/overview', text: 'Foundations' },
     { href: '/roadmap/overview', text: 'Roadmap' },
     { href: '/roadmap/whats_new', text: "What's new" },
   ];

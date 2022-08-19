@@ -1,3 +1,39 @@
+## 65.4.2 (Aug 19, 2022)
+
+### Patch
+
+- Heading: fix docs link to design tokens (#2303)
+
+## 65.4.1 (Aug 18, 2022)
+
+### Patch
+
+- Internal: lint for array Flow type syntax (#2302)
+
+## 65.4.0 (Aug 18, 2022)
+
+### Minor
+
+- IconButton: codemod for upcoming default iconColor value changes (#2299)
+
+## 65.3.12 (Aug 18, 2022)
+
+### Patch
+
+- Internal: Bump @actions/core from 1.2.6 to 1.9.1 (#2301)
+
+## 65.3.11 (Aug 18, 2022)
+
+### Patch
+
+- Bump undici from 5.8.0 to 5.9.1 (#2300)
+
+## 65.3.10 (Aug 18, 2022)
+
+### Patch
+
+- Foundations: new Overview page (#2292)
+
 ## 65.3.9 (Aug 18, 2022)
 
 ### Patch

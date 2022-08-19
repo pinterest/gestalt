@@ -64,9 +64,12 @@ import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 import Accessibility from '../graphics/foundations/accessibility.svg';
+import DataVisualization from '../graphics/foundations/data_visualization.svg';
+import Elevation from '../graphics/foundations/elevation.svg';
+import Typography from '../graphics/foundations/typography.svg';
 import Color from '../graphics/foundations/color.svg';
 import DesignTokens from '../graphics/foundations/design-tokens.svg';
-import IconographySvg from '../graphics/foundations/iconography-svg.svg';
+import Iconography from '../graphics/foundations/iconography.svg';
 import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
 import { type ListItemType } from '../pages/web/overview.js';
@@ -75,40 +78,69 @@ const FOUNDATION_GUIDELINES_LIST: Array<ListItemType> = [
   {
     svg: <Accessibility />,
     name: 'Accessibility',
-    description: 'Accessibility best practices at Pinterest.',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
     category: 'Foundations',
     path: '/foundations/accessibility',
   },
   {
     svg: <Color />,
-    name: 'Color palette',
-    description: 'Color palettes shared between Brand and Gestalt.',
+    name: 'Color',
+    description: 'Palettes and guidelines for using color across product interfaces and surfaces',
     category: 'Foundations',
-    path: '/color_palette',
+    path: '/foundations/color/palette',
   },
   {
     svg: <DesignTokens />,
     name: 'Design tokens',
-    description: 'Values used within Gestalt to construct layouts and components.',
+    description:
+      'An expanded color palette for charts, graphs and other data visualizations. Includes guidelines for accessibility and usage.',
     category: 'Foundations',
+    path: '/foundations/design_tokens',
   },
   {
-    svg: <IconographySvg />,
-    name: 'Iconography and SVGs',
-    description: 'Symbolic representations of an action or information.',
+    svg: <DataVisualization />,
+    name: 'Data visualization',
+    description: 'Data visualization',
     category: 'Foundations',
+    path: '/foundations/data_visualization/palette',
+  },
+  {
+    svg: <Elevation />,
+    name: 'Elevation',
+    description:
+      'How and when to lift UI elements from the base surface via color, borders, shadows and other methods',
+    category: 'Foundations',
+    path: '/foundations/elevation',
+  },
+  {
+    svg: <Typography />,
+    name: 'Typography',
+    description: 'A typographic system for a content hierarchy that is scannable and efficient',
+    category: 'Foundations',
+    path: '/foundations/typography/guidelines',
+  },
+  {
+    svg: <Iconography />,
+    name: 'Iconography',
+    description: 'Our current icon library, complete with guidelines on using and creating icons',
+    category: 'Foundations',
+    path: '/foundations/iconography/library',
   },
   {
     svg: <Layouts />,
     name: 'Layouts',
-    description: 'A list of easy-to-copy layouts which have best battle tests.',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
     category: 'Foundations',
+    path: '/foundations/layouts',
   },
   {
     svg: <ScreenSizes />,
     name: 'Screen sizes',
-    description: 'The screen sizes that Pinterest operates on.',
+    description: 'Responsive breakpoints and screen sizes for desktop, iOS and Android',
     category: 'Foundations',
+    path: '/foundations/screen_sizes',
   },
 ];
 
