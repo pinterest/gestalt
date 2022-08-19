@@ -23,7 +23,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/24/d2/15/24d215556e2f3ae8a021e81e601d24b8.png",
           "imageAltText": "Screenshot of Gestalt's Figma Pin component for Web",
-          "content": "At long last, we landed the final stage of our Figma Pin component rehaul (emphasis on _haul_). We now have implemented and published new and improved Figma Pin components for Android, iOS and Web. Please let "
+          "content": "At long last, we landed the final stage of our Figma Pin component rehaul (emphasis on _haul_). We now have implemented and published new and improved Figma Pin components for Android, iOS and Web."
         },
         {
           "title": "Simplified Figma Web components",
