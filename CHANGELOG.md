@@ -1,3 +1,9 @@
+## 66.0.0 (Aug 19, 2022)
+
+### Major
+
+- IconButton: change default iconColor prop value from "gray" to "darkGray" (#2304)
+
 ## 65.5.0 (Aug 19, 2022)
 
 ### Minor
