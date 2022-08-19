@@ -114,7 +114,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
     ),
     IllustrationCard,
     ImgContainer: (props: {| src: string |}) => (
-      <Box padding={8} rounding={2} borderStyle="sm" height="200px">
+      <Box padding={8} rounding={2} borderStyle="sm" height="250px">
         <Box position="relative" width="100%" height="100%">
           <Image
             src={props.src}
