@@ -37,7 +37,6 @@
     "flowtype/define-flow-type": "error",
     "flowtype/no-mutable-array": "error",
     "flowtype/no-types-missing-file-annotation": "error",
-    // "flowtype/no-weak-types": "error", #to-be-enabled rjames will do this in follow-up PR
     "flowtype/require-exact-type": ["error", "always"],
     "flowtype/require-valid-file-annotation": [
       "error",
