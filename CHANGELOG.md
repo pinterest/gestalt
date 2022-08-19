@@ -1,3 +1,9 @@
+## 66.0.2 (Aug 19, 2022)
+
+### Patch
+
+- Internal: more Flow lint rules (#2305)
+
 ## 66.0.1 (Aug 19, 2022)
 
 ### Patch
