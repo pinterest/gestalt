@@ -10,7 +10,7 @@ fullwidth: true
 - [Install node](https://github.com/nvm-sh/nvm#usage)
 - [Install yarn](https://classic.yarnpkg.com/en/docs/install)
 - [Install Docker desktop](https://docs.docker.com/get-docker/)
-  <Hint>You can also run the following command `brew install --cask docker`</Hint>
+  <Hint>To install Docker, try running `brew install --cask docker`</Hint>
 
 ## Set up your Gestalt repository
 
