@@ -34,7 +34,10 @@
     "eslint-comments/no-unused-disable": "error",
     "flowtype/array-style-complex-type": ["error", "verbose"],
     "flowtype/array-style-simple-type": ["error", "verbose"],
+    "flowtype/define-flow-type": "error",
     "flowtype/no-mutable-array": "error",
+    "flowtype/no-types-missing-file-annotation": "error",
+    // "flowtype/no-weak-types": "error", #to-be-enabled rjames will do this in follow-up PR
     "flowtype/require-exact-type": ["error", "always"],
     "flowtype/require-valid-file-annotation": [
       "error",
@@ -44,6 +47,12 @@
         "strict": true
       }
     ],
+    "flowtype/space-after-type-colon": [
+      "error",
+      "always",
+      { "allowLineBreak": true }
+    ],
+    "flowtype/space-before-type-colon": ["error", "never"],
     "flowtype/type-import-style": "error",
     "import/extensions": ["error", "always", { "ignorePackages": true }],
     "import/no-anonymous-default-export": "error",
