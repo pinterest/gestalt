@@ -9,14 +9,14 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/78/92/d2/7892d27456212d38386a3dda5527cccc.png",
           "imageAltText": "Design Systems Day invitation",
-          "content": "We are super excited to announce the Design System Day! 🎉\n\nYes, that's right! A full day of talks and training covering multiple themes to help you build the best product experience and create an effective design using Gestalt components, no matter your area within the product. We will have guest speakers from P&G, Meta, and Spotify, and other fantastic folks from Pinterest. We're preparing a mini-conference for you! So clear your calendar, and join us on this special day. \n\nYou can see more details about the event in our [CODA doc](https://coda.io/d/_dlrfsMAwXFF/Agenda_surbS) and sign up for the sections in our [sign up sheet](https://docs.google.com/spreadsheets/d/1TNcdR5P5a3ciWIOlEy2ls4GnUeMFWeEpf2hCkfoiEXw/edit?usp=sharing). Stay tuned for more updates! We will be posting more about it next week. "
+          "content": "We are super excited to announce the Design System Day! 🎉\n\nYes, that's right! A full day of talks and training covering multiple themes to help you build the best product experience and create an effective design using Gestalt components, no matter your area within the product. We will have guest speakers from Procter & Gamble, Meta, and Spotify, and other fantastic folks from Pinterest. We're preparing a mini-conference for you! So clear your calendar, and join us on this special day. \n\nYou can see more details about the event in our [CODA doc](https://coda.io/d/_dlrfsMAwXFF/Agenda_surbS) and sign up for the sections in our [sign up sheet](https://docs.google.com/spreadsheets/d/1TNcdR5P5a3ciWIOlEy2ls4GnUeMFWeEpf2hCkfoiEXw/edit?usp=sharing). Stay tuned for more updates! We will be posting more about it next week. "
         },
         {
           "title": "Success and recommendation variants for SlimBanner",
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/12/f4/7e/12f47e9ad624262395d1a72980168aa7.png",
           "imageAltText": "Screenshot of SlimBanner's success and recommendation variants",
-          "content": "[SlimBanner](https://gestalt.pinterest.systems/web/slimbanner) is now just _that more_ awesome with the addution of success and recommendation variants. Psst... We also updated our [SlimBanner Figma component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=15696%3A26199) to include these variants as well.  "
+          "content": "[SlimBanner](https://gestalt.pinterest.systems/web/slimbanner) is now just _that much more_ awesome with the addition of success and recommendation variants. Psst... We also updated our [SlimBanner Figma component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=15696%3A26199) to include these variants as well.  "
         },
         {
           "title": "Updated Figma Pin component for Web",
