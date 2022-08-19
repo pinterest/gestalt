@@ -2,7 +2,7 @@
 import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
-test('About us Accessibility check', async ({ page }) => {
-  await page.goto('/foundations/messaging/components');
+test('Messaging Principles Accessibility check', async ({ page }) => {
+  await page.goto('/foundations/messaging/principles');
   await expectAccessiblePage({ page });
 });
