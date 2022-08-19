@@ -2,6 +2,53 @@
   "year": "2022",
   "digests": [
     {
+      "week": "August 19, 2022",
+      "posts": [
+        {
+          "title": "Save the date! Design Systems Day 2022 on September 30!",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/78/92/d2/7892d27456212d38386a3dda5527cccc.png",
+          "imageAltText": "Design Systems Day invitation",
+          "content": "We are super excited to announce the Design System Day! 🎉\n\nYes, that's right! A full day of talks and training covering multiple themes to help you build the best product experience and create an effective design using Gestalt components, no matter your area within the product. We will have guest speakers from P&G, Meta, and Spotify, and other fantastic folks from Pinterest. We're preparing a mini-conference for you! So clear your calendar, and join us on this special day. \n\nYou can see more details about the event in our CODA doc and sign up for the sections in our [sign up sheet](https://docs.google.com/spreadsheets/d/1TNcdR5P5a3ciWIOlEy2ls4GnUeMFWeEpf2hCkfoiEXw/edit?usp=sharing). Stay tuned for more updates! We will be posting more about it next week. "
+        },
+        {
+          "title": "Mobile Avatar documentation",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "",
+          "imageAltText": "Screenshot of the Gestalt docs site",
+          "content": ""
+        },
+        {
+          "title": "Success and recommendation variants for SlimBanner",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/12/f4/7e/12f47e9ad624262395d1a72980168aa7.png",
+          "imageAltText": "Screenshot of SlimBanner's success and recommendation variants",
+          "content": "[SlimBanner](https://gestalt.pinterest.systems/web/slimbanner) is now just _that more_ awesome with the addution of success and recommendation variants. Psst... We also updated our [SlimBanner Figma component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=15696%3A26199) to include these variants as well.  "
+        },
+        {
+          "title": "Updated Figma Pin component for Web",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/24/d2/15/24d215556e2f3ae8a021e81e601d24b8.png",
+          "imageAltText": "Screenshot of Gestalt's Figma Pin component for Web",
+          "content": "At long last, we landed the final stage of our Figma Pin component rehaul (emphasis on _haul_). We now have implemented and published new and improved Figma Pin components for Android, iOS and Web. Please let "
+        },
+        {
+          "title": "Simplified Figma Web components",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/d9/ae/33/d9ae33a84b828e8d4299d932da066b2f.png",
+          "imageAltText": "Screenshot of simplified Figma components",
+          "content": "Who likes a bazillion variants to wade through? No one, that's who. We've made improvements to our ComboBox, SelectList, TextField and TextArea components to be easy-to-use, lean, mean reusable machines."
+        },
+        {
+          "title": "Save another date! Accessibility Training for Designers on August 24",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/2b/1e/99/2b1e99c9b7b42e633a8e0822eb55de70.png",
+          "imageAltText": "",
+          "content": "Our last accessility training was a hit. So much so that we're making the magic happen again on Wednesday, August 24 at 10-11:30am PST. So save the date and come on by!"
+        }
+      ]
+    },
+    {
       "week": "August 12, 2022",
       "posts": [
         {
