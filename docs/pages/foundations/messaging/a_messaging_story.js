@@ -37,14 +37,18 @@ function StoryItem({
   );
   const contentMobile = (
     <Box width="100%" padding={4} lgDisplay="none" display="block">
-      <Heading size="400">{heading}</Heading>
-      <Text>{text}</Text>
+      <Flex direction="column" gap={2}>
+        <Heading size="400">{heading}</Heading>
+        <Text>{text}</Text>
+      </Flex>
     </Box>
   );
   const contentDesktop = (
     <Box width="100%" padding={4} lgDisplay="block" display="none">
-      <Heading size="400">{heading}</Heading>
-      <Text>{text}</Text>
+      <Flex direction="column" gap={2}>
+        <Heading size="400">{heading}</Heading>
+        <Text>{text}</Text>
+      </Flex>
     </Box>
   );
   const lockup =
@@ -86,13 +90,15 @@ export default function MessagingStoryPage(): Node {
         <Box color="infoBase">
           <Flex alignItems="center">
             <Box width="100%" padding={8}>
-              <Heading color="light" size="400">
-                Meet Claire
-              </Heading>
-              <Text color="light">
-                Claire Ọyáwálé is a Pinner who loves architecture and fine art. She also has a
-                Pinterest Business account through her employer—a high-end shoe brand.
-              </Text>
+              <Flex direction="column" gap={2}>
+                <Heading color="light" size="500">
+                  Meet Claire
+                </Heading>
+                <Text color="light">
+                  Claire Ọyáwálé is a Pinner who loves architecture and fine art. She also has a
+                  Pinterest Business account through her employer—a high-end shoe brand.
+                </Text>
+              </Flex>
             </Box>
             <Box width="40%" marginEnd={-1} marginBottom={-1}>
               <Image
