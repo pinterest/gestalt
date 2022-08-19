@@ -52,7 +52,7 @@ function StoryItem({ heading, imageUrl, imageWidth, imageHeight, text, format = 
 export default function MessagingStoryPage(): Node {
   return (
     <Page title="A messaging story">
-      <PageHeader name="A messaging story" type="guidelines" />
+      <PageHeader name="A messaging story" type="guidelines" description="A brief story of how messages work together along with other components and patterns based on practical use cases from Pinterest products." />
 
       <Flex direction="column" maxWidth={678} gap={8}>
         <Box color='inverse'>
@@ -142,12 +142,16 @@ Claire completes the Idea Pin and turns it into an ad campaign. After publishing
             imageWidth={1492}
             imageHeight={900}
             />
-        <Flex>
-          <Box>https://i.pinimg.com/originals/f9/2f/97/f92f97cff5b2a5ede604e956cdd5825e.png</Box>
-          <Box>
-            <Heading size={400}>Time to relax</Heading>
-            <Text>After a clear and easy messaging session, it’s time for Claire to relax and call it a day. Have fun Claire!</Text></Box>
-        </Flex>
+            <StoryItem
+            format='twoColImgRight'
+            heading='Time to relax'
+            text={`
+After a clear and easy messaging session, it’s time for Claire to relax and call it a day. Have fun Claire!
+            `}
+            imageUrl='https://i.pinimg.com/originals/f9/2f/97/f92f97cff5b2a5ede604e956cdd5825e.png'
+            imageWidth={1701}
+            imageHeight={2108}
+            />
       </Flex>
     </Page>
   );
