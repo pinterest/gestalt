@@ -113,18 +113,25 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
       </Box>
     ),
     IllustrationCard,
-    ImgContainer: (props: {| src: string |}) => (
-      <Box padding={8} rounding={2} borderStyle="sm" height="250px">
-        <Box position="relative" width="100%" height="100%">
-          <Image
-            src={props.src}
-            alt="image"
-            width="100%"
-            height="100%"
-            layout="fill"
-            objectFit="contain"
-          />
+    ImgContainer: ({ src, caption, alt }: {| src: string, caption?: string, alt?: string |}) => (
+      <Box>
+        <Box padding={8} rounding={2} borderStyle="sm" height="250px">
+          <Box position="relative" width="100%" height="100%">
+            <Image
+              src={src}
+              alt={alt}
+              width="100%"
+              height="100%"
+              layout="fill"
+              objectFit="contain"
+            />
+          </Box>
         </Box>
+        <Text size="300" align="start">
+          <Box as="figcaption" marginTop={3}>
+            {caption || ''}
+          </Box>
+        </Text>
       </Box>
     ),
     img: (props: {| src: string |}) => (
