@@ -17,7 +17,7 @@ jobs:
       # We don't know when the site will be deployed, we just wait a few seconds
       # Better solutions can be found
       - name: Sleep for 30s
-        run: sleep 30
+        run: sleep 3000
 
       # For PRs
       - name: Netlify-PR => Algolia crawler creation and recrawl on preview (Pull Request)
