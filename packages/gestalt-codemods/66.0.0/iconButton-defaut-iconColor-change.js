@@ -1,6 +1,8 @@
 /*
  * Converts
- *  <IconButton bgColor="transparent" /> to <IconButton bgColor="transparent" iconColor="gray"iconColor="gray" />
+ * for IconButton | Pog
+ * for bgColor="transparent" | "lightGray" | "white"
+ *  <IconButton bgColor="transparent" /> to <IconButton bgColor="transparent" iconColor="gray" />
  *  <IconButton /> to <IconButton iconColor="gray" />
  */
 
@@ -21,7 +23,7 @@ export default function transformer(file, api) {
 
     // Find the local names of IconButton imports
     localIdentifierName = decl.specifiers
-      .filter((node) => node.imported.name === 'IconButton')
+      .filter((node) => ['IconButton', 'Pog'].includes(node.imported.name))
       .map((node) => node.local.name);
     return null;
   });
@@ -67,11 +69,15 @@ export default function transformer(file, api) {
       const bgColorAttrValue = bgColorAttr?.value?.value;
       const iconColorAttrValue = iconColorAttr?.value?.value;
       // DO NOTHING if
-      if (bgColorAttrValue && bgColorAttrValue !== 'transparent') return null; // bgColor is already set to transparent or default transparent
+      if (bgColorAttrValue && !['transparent', 'lightGray', 'white'].includes(bgColorAttrValue))
+        return null; // bgColor is already set to transparent or default transparent
       if (iconColorAttrValue) return null; // iconColor is already set
 
       // ADD iconColor="gray" if bgColor is transparent and there's no iconColor
-      if ((bgColorAttrValue === 'transparent' || !bgColorAttrValue) && !iconColorAttrValue) {
+      if (
+        (['transparent', 'lightGray', 'white'].includes(bgColorAttrValue) || !bgColorAttrValue) &&
+        !iconColorAttrValue
+      ) {
         fileHasModifications = true;
       }
 

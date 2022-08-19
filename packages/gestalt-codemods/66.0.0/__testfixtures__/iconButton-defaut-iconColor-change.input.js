@@ -21,6 +21,16 @@ export default function TestComponent() {
         icon="directional-arrow-right"
       />
       <IconButton
+        bgColor="white"
+        accessibilityLabel="test 1"
+        icon="directional-arrow-right"
+      />
+      <IconButton
+        bgColor="lightGray"
+        accessibilityLabel="test 1"
+        icon="directional-arrow-right"
+      />
+      <IconButton
         accessibilityLabel="test 1"
         icon="directional-arrow-right"
       />
