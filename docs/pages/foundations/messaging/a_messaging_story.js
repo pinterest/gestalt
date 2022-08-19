@@ -35,14 +35,14 @@ export default function MessagingStoryPage(): Node {
     <Page title="A messaging story">
       <PageHeader name="A messaging story" type="guidelines" description="A brief story of how messages work together along with other components and patterns based on practical use cases from Pinterest products." />
 
-      <Flex direction="column" maxWidth={678} gap={8}>
+      <Flex direction="column" gap={8}>
         <Box color='infoBase'>
           <Flex alignItems='center'>
             <Box width='100%' padding={8}>
               <Heading color='light' size='400'>Meet Claire</Heading>
               <Text color='light'>Claire Ọyáwálé is a Pinner who loves architecture and fine art. She also has a Pinterest Business account through her employer—a high-end shoe brand.</Text>
             </Box>
-            <Box width='40%'>
+            <Box width='40%' marginEnd={-1} marginBottom={-1}>
               <Image alt='collage' src='https://i.pinimg.com/originals/fb/94/a7/fb94a7630c03b9542a3ce732940f4a6f.png' naturalWidth={1388} naturalHeight={1687} />
             </Box>
           </Flex>
