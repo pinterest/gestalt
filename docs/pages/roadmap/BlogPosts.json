@@ -12,13 +12,6 @@
           "content": "We are super excited to announce the Design System Day! 🎉\n\nYes, that's right! A full day of talks and training covering multiple themes to help you build the best product experience and create an effective design using Gestalt components, no matter your area within the product. We will have guest speakers from P&G, Meta, and Spotify, and other fantastic folks from Pinterest. We're preparing a mini-conference for you! So clear your calendar, and join us on this special day. \n\nYou can see more details about the event in our CODA doc and sign up for the sections in our [sign up sheet](https://docs.google.com/spreadsheets/d/1TNcdR5P5a3ciWIOlEy2ls4GnUeMFWeEpf2hCkfoiEXw/edit?usp=sharing). Stay tuned for more updates! We will be posting more about it next week. "
         },
         {
-          "title": "Mobile Avatar documentation",
-          "audience": ["Design", "Engineering"],
-          "imageSrc": "",
-          "imageAltText": "Screenshot of the Gestalt docs site",
-          "content": ""
-        },
-        {
           "title": "Success and recommendation variants for SlimBanner",
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/12/f4/7e/12f47e9ad624262395d1a72980168aa7.png",
