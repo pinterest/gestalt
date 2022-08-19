@@ -1,8 +1,7 @@
 // @flow strict
 
 // ignoring: since we do in fact want to render each component md block again
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable react/no-unstable-nested-components */
+
 import { Text, Box, Link, Flex, Icon } from 'gestalt';
 import Image from 'next/image';
 import { MDXProvider } from '@mdx-js/react';
@@ -25,126 +24,127 @@ type Props = {|
     badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
+    component: boolean,
   |},
   pageSourceUrl?: string,
 |};
 
-export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): Node {
-  const components = {
-    small: (props) => <Text size="100">{props.children}</Text>,
-    pre: (props: {|
-      children: {| props: {| className: Array<string>, children: string | null |} |},
-    |}) => (
-      <Highlighter classNames={props.children.props.className}>
-        {props.children.props.children}
-      </Highlighter>
-    ),
-    figure: (props: {| src: string, caption?: string |}) => (
-      <Flex wrap justifyContent="center">
-        <Box as="figure" width={400}>
-          <Image
-            src={props.src}
-            alt="image"
-            width="100%"
-            height="100%"
-            layout="responsive"
-            objectFit="contain"
-          />
-          <Text size="100" align="center">
-            <Box as="figcaption" marginTop={3}>
-              {props.caption || ''}
-            </Box>
-          </Text>
-        </Box>
-      </Flex>
-    ),
-    h2: (props) => (
-      <Box marginTop={12} marginBottom={0}>
-        <MainSection name={props.children} />
+const components = {
+  small: (props) => <Text size="100">{props.children}</Text>,
+  pre: (props: {|
+    children: {| props: {| className: Array<string>, children: string | null |} |},
+  |}) => (
+    <Highlighter classNames={props.children.props.className}>
+      {props.children.props.children}
+    </Highlighter>
+  ),
+  figure: ({ src, caption }: {| src: string, caption?: string |}) => (
+    <Flex wrap justifyContent="center">
+      <Box as="figure" width={400}>
+        <Image
+          src={src}
+          alt="image"
+          width="100%"
+          height="100%"
+          layout="responsive"
+          objectFit="contain"
+        />
+        <Text size="100" align="center">
+          <Box as="figcaption" marginTop={3}>
+            {caption || ''}
+          </Box>
+        </Text>
       </Box>
-    ),
-    hr: () => (
-      <Box marginTop={8} marginBottom={8}>
-        <hr />
-      </Box>
-    ),
-    PrivateLink: (props: {| href: string, children: string | null |}) => (
-      <Link href={props.href} target="blank">
-        <Flex
-          alignItems="baseline"
-          gap={{
-            row: 1,
-            column: 0,
-          }}
-        >
-          <Text underline>{props.children}</Text>
-          <LockIcon size={16} />
-        </Flex>
-      </Link>
-    ),
-    Hint: (props: {| children: string | null |}) => (
-      <div
-        className="md-hint"
-        style={{
-          padding: '1rem',
-          backgroundColor: 'var(--g-colorGray100)',
-          marginTop: '16px',
-          marginBottom: '16px',
+    </Flex>
+  ),
+  h2: ({ children }) => (
+    <Box marginTop={12} marginBottom={0}>
+      <MainSection name={children} />
+    </Box>
+  ),
+  hr: () => (
+    <Box marginTop={8} marginBottom={8}>
+      <hr />
+    </Box>
+  ),
+  PrivateLink: ({ children, href }: {| href: string, children: string | null |}) => (
+    <Link href={href} target="blank">
+      <Flex
+        alignItems="baseline"
+        gap={{
+          row: 1,
+          column: 0,
         }}
       >
-        <Flex
-          gap={{
-            row: 2,
-            column: 0,
-          }}
-          alignItems="center"
-          width="full"
-        >
-          <Icon accessibilityLabel="Hint" icon="lightbulb" size={16} />
-          <Text>{props.children}</Text>
-        </Flex>
-      </div>
-    ),
-    h3: (props) => (
-      <Box>
-        <MainSection.Subsection title={props.children} marginBottom="compact" />
-      </Box>
-    ),
-    img: (props: {| src: string |}) => (
-      <Image
-        src={props.src}
-        alt="image"
-        width="100%"
-        height="100%"
-        layout="responsive"
-        objectFit="contain"
+        <Text underline>{children}</Text>
+        <LockIcon size={16} />
+      </Flex>
+    </Link>
+  ),
+  Hint: ({ children }: {| children: string | null |}) => (
+    <div
+      className="md-hint"
+      style={{
+        padding: '1rem',
+        backgroundColor: 'var(--g-colorGray100)',
+        marginTop: '16px',
+        marginBottom: '16px',
+      }}
+    >
+      <Flex
+        gap={{
+          row: 2,
+          column: 0,
+        }}
+        alignItems="center"
+        width="full"
+      >
+        <Icon accessibilityLabel="Hint" icon="lightbulb" size={16} />
+        <Text>{children}</Text>
+      </Flex>
+    </div>
+  ),
+  h3: ({ children }: {| children: string |}) => (
+    <Box>
+      <MainSection.Subsection title={children} marginBottom="compact" />
+    </Box>
+  ),
+  img: (props: {| src: string |}) => (
+    <Image
+      src={props.src}
+      alt="image"
+      width="100%"
+      height="100%"
+      layout="responsive"
+      objectFit="contain"
+    />
+  ),
+  Card: (props) => <MainSection.Card {...props} description={undefined} />,
+  Code: (props: {| marginBottom: 'default' | 'none', children: string | null |}) => {
+    const newProps = { ...props };
+    newProps.children = null;
+    // may not need to this in the future
+    return (
+      <MainSection.Card
+        {...newProps}
+        defaultCode={props.children || ''}
+        marginBottom={props.marginBottom || 'none'}
       />
-    ),
-    Card: (props) => <MainSection.Card {...props} description={undefined} />,
-    Code: (props: {| marginBottom: 'default' | 'none', children: string | null |}) => {
-      const newProps = { ...props };
-      newProps.children = null;
-      // may not need to this in the future
-      return (
-        <MainSection.Card
-          {...newProps}
-          defaultCode={props.children || ''}
-          marginBottom={props.marginBottom || 'none'}
-        />
-      );
-    },
-    Group: (props) => <Box marginBottom={12}>{props.children}</Box>,
-    Do: (props: {| title: string |}) => (
-      <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none" />
-    ),
-    Dont: (props: {| title: string |}) => (
-      <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none" />
-    ),
-    TwoCol: (props) => (
-      <MainSection.Subsection columns={2}>{props.children}</MainSection.Subsection>
-    ),
-  };
+    );
+  },
+  Group: ({ children }: {| children: Node |}) => <Box marginBottom={12}>{children}</Box>,
+  Do: (props: {| title: string |}) => (
+    <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none" />
+  ),
+  Dont: (props: {| title: string |}) => (
+    <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none" />
+  ),
+  TwoCol: ({ children }: {| children: Node |}) => (
+    <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
+  ),
+};
 
+export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): Node {
   const maxWidth = meta.fullwidth ? 'none' : `${MAX_WIDTH}px`;
 
   return (
@@ -155,11 +155,11 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           badge={meta.badge}
           description={meta.description}
           margin="none"
-          type={meta.fullwidth ? 'component' : 'guidelines'}
+          type={meta.component ? 'component' : 'guidelines'}
         />
         <Text>
           <article
-            className="Markdown"
+            className="Markdown mdx-page"
             style={{ maxWidth, marginTop: meta.description ? '0px' : '-32px' }}
           >
             {children}

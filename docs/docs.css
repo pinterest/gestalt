@@ -86,11 +86,23 @@ li {
   padding-inline-start: 20px;
 }
 
+/**
+ * Add some extra padding when MDX Renderer is used
+ */
+
+.Markdown.mdx-page ul {
+  padding-inline-start: 30px;
+}
+
 .Markdown ul + pre {
   margin-left: 40px;
 }
 
 .Markdown ul ~ .md-hint {
+  margin-left: 40px;
+}
+
+.Markdown ul + details {
   margin-left: 40px;
 }
 
