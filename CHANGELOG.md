@@ -1,3 +1,9 @@
+## 66.0.1 (Aug 19, 2022)
+
+### Patch
+
+- Revert " IconButton: change default iconColor prop value from "gray" to "darkGray" (#2304)" (#2308)
+
 ## 66.0.0 (Aug 19, 2022)
 
 ### Major
