@@ -1,3 +1,9 @@
+## 66.0.7 (Aug 19, 2022)
+
+### Patch
+
+- Docs: add link to Figma plugins doc (#2312)
+
 ## 66.0.6 (Aug 19, 2022)
 
 ### Patch
