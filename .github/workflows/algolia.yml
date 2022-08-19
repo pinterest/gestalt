@@ -1,5 +1,4 @@
-name: Algolia Recrawl
-
+name: Netlify -> Algolia Crawler
 on:
   push:
     branches: [main]
@@ -7,7 +6,7 @@ on:
     types: ['opened', 'edited', 'reopened', 'synchronize']
 
 jobs:
-  algolia_crawl:
+  algolia_recrawl:
     name: Algolia Recrawl
     runs-on: ubuntu-latest
     steps:
@@ -15,12 +14,33 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Algolia crawler creation and crawl
+      # We don't know when the site will be deployed, we just wait a few seconds
+      # Better solutions can be found
+      - name: Sleep for 30s
+        run: sleep 30
+
+      # For PRs
+      - name: Netlify-PR => Algolia crawler creation and recrawl on preview (Pull Request)
+        if: github.ref != 'refs/heads/main'
         uses: algolia/algoliasearch-crawler-github-actions@v1
-        id: algolia_crawler
-        with: # mandatory parameters
+        id: crawler_pr
+        with:
+          crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
+          crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
+          algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
+          algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
+          site-url: 'https://deploy-preview-${{ github.event.pull_request.number }}--gestalt.netlify.app/'
+          override-config: true
+
+      # For main branch
+      - name: Netlify-MAIN => Algolia crawler creation and recrawl (Push on Main branch)
+        if: github.ref == 'refs/heads/main'
+        uses: algolia/algoliasearch-crawler-github-actions@v1
+        id: crawler_push
+        with:
           crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
           crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
           algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
           algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
           site-url: 'https://gestalt.pinterest.systems/'
+          override-config: true
