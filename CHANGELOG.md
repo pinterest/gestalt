@@ -1,3 +1,9 @@
+## 66.0.5 (Aug 19, 2022)
+
+### Patch
+
+- Internal: remove commented-out lint rule (#2310)
+
 ## 66.0.4 (Aug 19, 2022)
 
 ### Patch
