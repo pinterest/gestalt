@@ -1,3 +1,9 @@
+## 66.0.4 (Aug 19, 2022)
+
+### Patch
+
+- Docs: fix typos in digest (#2309)
+
 ## 66.0.3 (Aug 19, 2022)
 
 ### Patch
