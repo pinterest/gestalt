@@ -238,7 +238,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <Button />,
     name: 'Button',
-    path: '/web/button',
     description: 'Buttons allow users to perform actions within a surface.',
     category: 'Actions',
     status: {
@@ -261,7 +260,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <ButtonGroup />,
     name: 'ButtonGroup',
-    path: '/web/buttongroup',
     description: 'ButtonGroup is used to display a series of buttons.',
     category: 'Actions',
     status: {
@@ -374,7 +372,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <ComboBox />,
     name: 'ComboBox',
-    path: 'web/combobox',
     description:
       'ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.',
     category: 'Fields and forms',
@@ -487,7 +484,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <RadioGroup />,
     name: 'Fieldset',
-    path: 'web/fieldset',
     description:
       'Fieldset creates a fieldset and legend for a group of related form items in order to clearly indicate related form items.',
     category: 'Fields and forms',
@@ -558,7 +554,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <IconButton />,
     name: 'IconButton',
-    path: '/web/iconbutton',
     description:
       'IconButton allows users to take actions and make choices with a single click or tap.',
     category: 'Actions',
@@ -604,7 +599,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <GestaltLabel />,
     name: 'Label',
-    path: 'web/label',
     description: 'Label is used to connect a label with a form component in an accessible way.',
     category: 'Fields and forms',
     status: {
@@ -716,7 +710,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <NumberField />,
     name: 'NumberField',
-    path: 'web/numberfield',
     description: 'NumberField allows for numerical input.',
     category: 'Fields and forms',
     status: {
@@ -874,7 +867,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <SelectList />,
     name: 'SelectList',
-    path: 'web/selectlist',
     description:
       'SelectList displays a list of actions or options using the browser’s native select.',
     category: 'Fields and forms',
@@ -1122,7 +1114,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <TextArea />,
     name: 'TextArea',
-    path: 'web/textarea',
     description: 'TextArea allows for multi-line input.',
     category: 'Fields and forms',
     status: {
@@ -1145,7 +1136,6 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <TextField />,
     name: 'TextField',
-    path: 'web/textfield',
     description: 'TextField allows for multiple types of text input.',
     category: 'Fields and forms',
     status: {
@@ -1262,7 +1252,6 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <Box />,
     name: 'Box',
-    path: '/web/box',
     description:
       'Box is a component primitive that can be used to build the foundation of pretty much any other component.',
     category: 'Building blocks',
@@ -1308,7 +1297,6 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <Container />,
     name: 'Container',
-    path: '/web/container',
     description: 'Containers are useful in responsively laying out content on different screens.',
     category: 'Building blocks',
     status: {
@@ -1422,7 +1410,6 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <Pog />,
     name: 'Pog',
-    path: '/web/pog',
     description:
       'Pog is a lower-level functional component to show the active, hovered, abnd focused states of IconButton.',
     category: 'Building blocks',
@@ -1470,7 +1457,6 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <Sticky />,
     name: 'Sticky',
-    path: '/web/sticky',
     description: 'Sticky allows an element to become fixed when it reaches a threshold.',
     category: 'Building blocks',
     status: {
@@ -1493,7 +1479,6 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <TapArea />,
     name: 'TapArea',
-    path: '/web/taparea',
     description: 'TapArea allows components to be clickable and touchable in an accessible way.',
     category: 'Building blocks',
     status: {
@@ -1516,7 +1501,6 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <ZIndexClasses />,
     name: 'Z-Index Classes',
-    path: '/web/zindex_classes',
     description:
       'FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components.',
     category: 'Building blocks',
