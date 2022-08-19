@@ -1,6 +1,5 @@
 __fixtures__
 __testfixtures__
-*.css
 build
 coverage
 dist

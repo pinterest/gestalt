@@ -9,7 +9,7 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^4.0.0",
     "@axe-core/playwright": "^4.4.2",
     "@babel/core": "^7.12.9",

@@ -88,6 +88,7 @@ export default function SideNavigation({
           footer={footer}
           header={header}
           dismissButton={dismissButton}
+          showBorder={showBorder}
           title={title}
         >
           {navigationChildren}
@@ -98,14 +99,17 @@ export default function SideNavigation({
 
   return (
     <SideNavigationProvider>
-      <Box minWidth={280} width={280} height="100%">
-        <div className={showBorder ? classnames(borderStyles.borderRight) : undefined}>
+      <Box minWidth={280} width={280} height="100%" as="nav" aria-label={accessibilityLabel}>
+        <div
+          className={
+            showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
+          }
+        >
           <Box
-            as="nav"
-            aria-label={accessibilityLabel}
             padding={2}
             color="default"
             dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
+            height="100%"
           >
             <Flex direction="column" gap={{ column: 4, row: 0 }}>
               {header ? (

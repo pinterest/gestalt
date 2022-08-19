@@ -42,7 +42,7 @@ export default function DocumentPage({ content, meta, pageSourceUrl }: Props): N
   );
 }
 
-export async function getStaticProps(context: {| params: {| id: string[] |} |}): Promise<{|
+export async function getStaticProps(context: {| params: {| id: Array<string> |} |}): Promise<{|
   props: {| meta: { [key: string]: string }, content: {||}, pageSourceUrl: string |},
 |}> {
   const { id } = context.params;
@@ -64,7 +64,7 @@ export async function getStaticProps(context: {| params: {| id: string[] |} |}):
 }
 
 export async function getStaticPaths(): Promise<{|
-  paths: {| params: {| id: string | string[] |} |}[],
+  paths: Array<{| params: {| id: string | Array<string> |} |}>,
   fallback: boolean,
 |}> {
   // get all the possible paths that exist within ./markdown folder

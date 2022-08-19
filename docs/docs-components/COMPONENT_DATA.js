@@ -64,55 +64,87 @@ import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 import Accessibility from '../graphics/foundations/accessibility.svg';
+import DataVisualization from '../graphics/foundations/data_visualization.svg';
+import Elevation from '../graphics/foundations/elevation.svg';
+import Typography from '../graphics/foundations/typography.svg';
 import Color from '../graphics/foundations/color.svg';
 import DesignTokens from '../graphics/foundations/design-tokens.svg';
-import IconographySvg from '../graphics/foundations/iconography-svg.svg';
+import Iconography from '../graphics/foundations/iconography.svg';
 import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
 import { type ListItemType } from '../pages/web/overview.js';
 
-const FOUNDATION_GUIDELINES_LIST: ListItemType = [
+const FOUNDATION_GUIDELINES_LIST: Array<ListItemType> = [
   {
     svg: <Accessibility />,
     name: 'Accessibility',
-    description: 'Accessibility best practices at Pinterest.',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
     category: 'Foundations',
     path: '/foundations/accessibility',
   },
   {
     svg: <Color />,
-    name: 'Color palette',
-    description: 'Color palettes shared between Brand and Gestalt.',
+    name: 'Color',
+    description: 'Palettes and guidelines for using color across product interfaces and surfaces',
     category: 'Foundations',
-    path: '/color_palette',
+    path: '/foundations/color/palette',
   },
   {
     svg: <DesignTokens />,
     name: 'Design tokens',
-    description: 'Values used within Gestalt to construct layouts and components.',
+    description:
+      'An expanded color palette for charts, graphs and other data visualizations. Includes guidelines for accessibility and usage.',
     category: 'Foundations',
+    path: '/foundations/design_tokens',
   },
   {
-    svg: <IconographySvg />,
-    name: 'Iconography and SVGs',
-    description: 'Symbolic representations of an action or information.',
+    svg: <DataVisualization />,
+    name: 'Data visualization',
+    description: 'Data visualization',
     category: 'Foundations',
+    path: '/foundations/data_visualization/palette',
+  },
+  {
+    svg: <Elevation />,
+    name: 'Elevation',
+    description:
+      'How and when to lift UI elements from the base surface via color, borders, shadows and other methods',
+    category: 'Foundations',
+    path: '/foundations/elevation',
+  },
+  {
+    svg: <Typography />,
+    name: 'Typography',
+    description: 'A typographic system for a content hierarchy that is scannable and efficient',
+    category: 'Foundations',
+    path: '/foundations/typography/guidelines',
+  },
+  {
+    svg: <Iconography />,
+    name: 'Iconography',
+    description: 'Our current icon library, complete with guidelines on using and creating icons',
+    category: 'Foundations',
+    path: '/foundations/iconography/library',
   },
   {
     svg: <Layouts />,
     name: 'Layouts',
-    description: 'A list of easy-to-copy layouts which have best battle tests.',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
     category: 'Foundations',
+    path: '/foundations/layouts',
   },
   {
     svg: <ScreenSizes />,
     name: 'Screen sizes',
-    description: 'The screen sizes that Pinterest operates on.',
+    description: 'Responsive breakpoints and screen sizes for desktop, iOS and Android',
     category: 'Foundations',
+    path: '/foundations/screen_sizes',
   },
 ];
 
-const GENERAL_COMPONENT_LIST: ListItemType = [
+const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   {
     svg: <ActivationCard />,
     name: 'ActivationCard',
@@ -185,7 +217,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Badge />,
     name: 'Badge',
     description: 'Badge is a label that indicates status or importance.',
-    category: 'Messaging',
+    category: 'Indicators',
     status: {
       accessible: {
         summary: 'ready',
@@ -321,7 +353,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'Collage',
     description:
       'Collage, similarly to Masonry, creates a deterministic grid layout that can absolutely position and virtualize images.',
-    category: 'Pins & Imagery',
+    category: 'Pins and imagery',
     status: {
       accessible: {
         summary: 'ready',
@@ -345,7 +377,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     path: 'web/combobox',
     description:
       'ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -367,7 +399,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Datapoint />,
     name: 'Datapoint',
     description: 'Datapoint displays at-a-glance data for a user to quickly view key metrics.',
-    category: 'Data',
+    category: 'Indicators',
     status: {
       accessible: {
         summary: 'ready',
@@ -389,7 +421,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <DatePicker />,
     name: 'DatePicker',
     description: 'DatePicker is used when the user has to select a date or date range.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -434,7 +466,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Dropdown />,
     name: 'Dropdown',
     description: 'Dropdown displays a list of actions, options or links.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -458,7 +490,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     path: 'web/fieldset',
     description:
       'Fieldset creates a fieldset and legend for a group of related form items in order to clearly indicate related form items.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -480,7 +512,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Heading />,
     name: 'Heading',
     description:
-      'Heading allows you to show headings on the page & has a bigger line height than regular text.',
+      'Heading allows you to show headings on the page and has a bigger line height than regular text.',
     category: 'Text',
     status: {
       accessible: {
@@ -504,7 +536,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'Icon',
     description:
       'Icons are the symbolic representation of an action or information, providing visual context and improving usability.',
-    category: 'Pins & Imagery',
+    category: 'Pins and imagery',
     status: {
       accessible: {
         summary: 'ready',
@@ -551,7 +583,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Image />,
     name: 'Image',
     description: 'Image is used to represent images.',
-    category: 'Pins & Imagery',
+    category: 'Pins and imagery',
     status: {
       accessible: {
         summary: 'ready',
@@ -574,7 +606,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'Label',
     path: 'web/label',
     description: 'Label is used to connect a label with a form component in an accessible way.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -619,7 +651,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'Masonry',
     description:
       'Masonry creates a deterministic grid layout, positioning items based on available vertical space.',
-    category: 'Pins & Imagery',
+    category: 'Pins and imagery',
     status: {
       accessible: {
         summary: 'ready',
@@ -641,7 +673,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Modal />,
     name: 'Modal',
     description: 'Modal displays content that requires user interaction.',
-    category: 'Messaging',
+    category: 'Overlays',
     status: {
       accessible: {
         summary: 'partial',
@@ -663,7 +695,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Module />,
     name: 'Module',
     description: 'Module is a container that holds content about one subject.',
-    category: 'Messaging',
+    category: 'Structure',
     status: {
       accessible: {
         summary: 'ready',
@@ -686,7 +718,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'NumberField',
     path: 'web/numberfield',
     description: 'NumberField allows for numerical input.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -709,7 +741,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'PageHeader',
     description:
       'PageHeader is used to indicate the title of the current page, as well as optional actions.',
-    category: 'Navigation',
+    category: 'Structure',
     status: {
       accessible: {
         summary: 'ready',
@@ -732,7 +764,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'Popover',
     description:
       'Popover is a floating view that contains a task related to the content on screen.',
-    category: 'Messaging',
+    category: 'Overlays',
     status: {
       accessible: {
         summary: 'partial',
@@ -799,7 +831,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <SearchField />,
     name: 'SearchField',
     description: 'SearchField allows users to search for free-form content.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -845,7 +877,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     path: 'web/selectlist',
     description:
       'SelectList displays a list of actions or options using the browser’s native select.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'partial',
@@ -868,7 +900,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'Sheet',
     description:
       'Sheets are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page.',
-    category: 'Messaging',
+    category: 'Overlays',
     status: {
       accessible: {
         summary: 'ready',
@@ -958,7 +990,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Status />,
     name: 'Status',
     description: "Status is a graphic indicator of an element's state.",
-    category: 'Messaging',
+    category: 'Indicators',
     status: {
       accessible: {
         summary: 'ready',
@@ -1092,7 +1124,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'TextArea',
     path: 'web/textarea',
     description: 'TextArea allows for multi-line input.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -1115,7 +1147,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'TextField',
     path: 'web/textfield',
     description: 'TextField allows for multiple types of text input.',
-    category: 'Fields & Forms',
+    category: 'Fields and forms',
     status: {
       accessible: {
         summary: 'ready',
@@ -1161,7 +1193,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     name: 'Tooltip',
     description:
       'Tooltip is a floating text label that succinctly describes the function of an interactive element.',
-    category: 'Messaging',
+    category: 'Help and guidance',
     status: {
       accessible: {
         summary: 'ready',
@@ -1206,7 +1238,7 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
     svg: <Video />,
     name: 'Video',
     description: 'Video is used for media layout.',
-    category: 'Pins & Imagery',
+    category: 'Pins and imagery',
     status: {
       accessible: {
         summary: 'partial',
@@ -1226,14 +1258,14 @@ const GENERAL_COMPONENT_LIST: ListItemType = [
   },
 ];
 
-const BUILDING_BLOCKS_LIST: ListItemType = [
+const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   {
     svg: <Box />,
     name: 'Box',
     path: '/web/box',
     description:
       'Box is a component primitive that can be used to build the foundation of pretty much any other component.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'ready',
@@ -1255,7 +1287,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     svg: <Column />,
     name: 'Column',
     description: 'Column implements a 12-column system.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'notAvailable',
@@ -1278,7 +1310,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     name: 'Container',
     path: '/web/container',
     description: 'Containers are useful in responsively laying out content on different screens.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'notAvailable',
@@ -1301,7 +1333,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     name: 'Flex',
     description:
       'Flex is a layout component with a very limited subset of the props available to Box.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'notAvailable',
@@ -1323,7 +1355,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     svg: <Layer />,
     name: 'Layer',
     description: 'Layers allow you to render children outside the DOM hierarchy of the parent.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     hasDarkBackground: true,
     status: {
       accessible: {
@@ -1347,7 +1379,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     name: 'Letterbox',
     description:
       'Letterboxes are useful if you have some source media which is larger than the area you want to display it in.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'ready',
@@ -1369,7 +1401,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     svg: <Mask />,
     name: 'Mask',
     description: 'Mask is used to display content in a specific shape.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'notAvailable',
@@ -1392,8 +1424,8 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     name: 'Pog',
     path: '/web/pog',
     description:
-      'Pog is a lower-level functional component to show the active, hovered, & focused states of IconButton.',
-    category: 'Building Blocks',
+      'Pog is a lower-level functional component to show the active, hovered, abnd focused states of IconButton.',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'ready',
@@ -1417,7 +1449,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     path: '/web/utilities/scrollboundarycontainer',
     description:
       'ScrollBoundaryContainer is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'notAvailable',
@@ -1440,7 +1472,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     name: 'Sticky',
     path: '/web/sticky',
     description: 'Sticky allows an element to become fixed when it reaches a threshold.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'ready',
@@ -1463,7 +1495,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     name: 'TapArea',
     path: '/web/taparea',
     description: 'TapArea allows components to be clickable and touchable in an accessible way.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'ready',
@@ -1487,7 +1519,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
     path: '/web/zindex_classes',
     description:
       'FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components.',
-    category: 'Building Blocks',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'notAvailable',
@@ -1507,7 +1539,7 @@ const BUILDING_BLOCKS_LIST: ListItemType = [
   },
 ];
 
-const FIGMA_ONLY_LIST: ListItemType = [
+const FIGMA_ONLY_LIST: Array<ListItemType> = [
   {
     svg: <svg />,
     name: 'BoardRep',
@@ -1602,7 +1634,7 @@ const FIGMA_ONLY_LIST: ListItemType = [
   },
 ];
 
-const UTILITIES_LIST: ListItemType = [
+const UTILITIES_LIST: Array<ListItemType> = [
   {
     svg: <HookFocusVisible />,
     name: 'useFocusVisible',
@@ -1702,11 +1734,11 @@ const UTILITIES_LIST: ListItemType = [
 ];
 
 const COMPONENT_DATA_MAP: {|
-  buildingBlockComponents: ListItemType,
-  generalComponents: ListItemType,
-  utilityComponents: ListItemType,
-  figmaOnlyComponents: ListItemType,
-  foundations: ListItemType,
+  buildingBlockComponents: Array<ListItemType>,
+  generalComponents: Array<ListItemType>,
+  utilityComponents: Array<ListItemType>,
+  figmaOnlyComponents: Array<ListItemType>,
+  foundations: Array<ListItemType>,
 |} = {
   buildingBlockComponents: BUILDING_BLOCKS_LIST,
   generalComponents: GENERAL_COMPONENT_LIST,

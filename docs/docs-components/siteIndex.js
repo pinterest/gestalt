@@ -129,6 +129,7 @@ const siteIndex: Array<siteIndexType> = [
   {
     sectionName: 'Foundations',
     pages: [
+      'Overview',
       'Accessibility',
       'Design tokens',
       {

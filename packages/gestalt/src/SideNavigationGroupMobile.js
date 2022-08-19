@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, useCallback, useEffect, useMemo, useId, type Node } from 'react';
+import { Fragment, useState, useCallback, useEffect, useMemo, useId, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import TapArea from './TapArea.js';
@@ -71,7 +71,7 @@ export default function SideNavigationGroupMobile({
 
   if (isTopLevel) {
     topLevelChildrenList = (
-      <Box color="default" padding={2} overflow="scroll">
+      <Fragment>
         <Box position="relative" height={64} paddingY={2}>
           <Flex height="100%" alignItems="center" justifyContent="center">
             <Flex.Item flex="none">
@@ -108,7 +108,7 @@ export default function SideNavigationGroupMobile({
           </Flex>
         </Box>
         {childrenList}
-      </Box>
+      </Fragment>
     );
   }
 

@@ -83,7 +83,7 @@ type Props = {|
    */
   controls?: boolean,
   /**
-   * Disable remote playback. See [MDN Web Docs: disableRemotePlayback](https://gestalt.pinterest.systems/videohttps://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback) for more info.
+   * Disable remote playback. See [MDN Web Docs: disableRemotePlayback](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback) for more info.
    */
   disableRemotePlayback?: boolean,
   /**

@@ -55,7 +55,7 @@ function IllustrationCard({
                   column: 0,
                 }}
               >
-                <Heading accessibilityLevel={3} size="400">
+                <Heading accessibilityLevel={headingLevel} size="400">
                   {title}
                 </Heading>
                 {isNew && <Badge text="New" />}
