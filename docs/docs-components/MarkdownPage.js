@@ -120,6 +120,7 @@ const components = {
       objectFit="contain"
     />
   ),
+  IllustrationCard,
   Card: (props) => <MainSection.Card {...props} description={undefined} />,
   Code: (props: {| marginBottom: 'default' | 'none', children: string | null |}) => {
     const newProps = { ...props };
@@ -161,7 +162,7 @@ const components = {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, .33fr))',
         gap: '2px',
       }}
     >

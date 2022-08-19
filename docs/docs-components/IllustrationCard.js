@@ -1,9 +1,11 @@
 // @flow strict
 import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
+import unambiguous from 'eslint-plugin-import/lib/rules/unambiguous';
 import illustrations from '../graphics/index.js';
 
 export type IllustrationCardProps = {|
+  headingLevel: 2 | 3,
   image: Node | string,
   description: string,
   title: string,
@@ -13,6 +15,7 @@ export type IllustrationCardProps = {|
 |};
 
 function IllustrationCard({
+  headingLevel,
   image,
   description,
   isNew,
@@ -20,6 +23,10 @@ function IllustrationCard({
   color,
   href,
 }: IllustrationCardProps): Node {
+  // we either render the svg string, or use our lookup table to render the right illustration component
+  const Illustration =
+    typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;
+
   return (
     <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
       <Box minWidth={280}>
@@ -37,7 +44,7 @@ function IllustrationCard({
                 },
               }}
             >
-              {typeof image === 'string' ? illustrations[image]() : image}
+              {Illustration ? <Illustration /> : image}
             </Box>
             <Box
               color="default"

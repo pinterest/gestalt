@@ -9,15 +9,14 @@ fullwidth: true
 ## Usage guidelines
 
 <TwoCol>
-<Group>
-<Do title="Do" />
-- To reflect a person, company, or brand within the product
-
-</Group>
-<Group>
-<Dont title="Don't" />
-- To represent a group of people, companies, and/or brands. use [AvatarGroup](https://gestalt.netlify.app/avatargroup) instead
-</Group>
+  <Group>
+    <Do title="Do" />
+      - To reflect a person, company, or brand within the product
+  </Group>
+  <Group>
+  <Dont title="Don't" />
+     - To represent a group of people, companies, and/or brands. use [AvatarGroup](https://gestalt.netlify.app/avatargroup) instead
+  </Group>
 </TwoCol>
 
 ## Best practices
@@ -28,21 +27,21 @@ fullwidth: true
 
 For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
 <TwoCol>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" />
-<Do title="Do" />
-Use round Avatars in the appropriate size for your need.
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" />
-<Dont title="Don't" />
-Use round Avatars in the appropriate size for your need.
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" />
-<Do title="Do" />
-Use the collaborators name nearby or in an alternative view if possible
-</Group>
+  <Group>
+    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" />
+    <Do title="Do" />
+    Use round Avatars in the appropriate size for your need.
+  </Group>
+  <Group>
+    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" />
+    <Dont title="Don't" />
+    Use round Avatars in the appropriate size for your need.
+  </Group>
+  <Group>
+    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" />
+    <Do title="Do" />
+    Use the collaborators name nearby or in an alternative view if possible
+  </Group>
 </TwoCol>
 
 ## Accessibility
@@ -76,29 +75,12 @@ If there is no image source provided for the Avatar, the first character of the 
 ## Related
 
 <ThreeCol>
-
-<IllustrationCard
-              title="AvatarGroup"
-              href="/web/avatargroup"
-              description="AvatarGroup is used ideally where multiple people are displayed"
-              color="teal-spabattical-450"
-              image="avatar-group"
-            />
-
-<IllustrationCard
-              title="AvatarGroup"
-              href="/web/avatargroup"
-              description="AvatarGroup is used ideally where multiple people are displayed"
-              color="teal-spabattical-450"
-              image="avatar-group"
-            />
-
-<IllustrationCard
-              title="AvatarGroup"
-              href="/web/avatargroup"
-              description="AvatarGroup is used ideally where multiple people are displayed"
-              color="teal-spabattical-450"
-              image="avatar-group"
-            />
+  <IllustrationCard
+  title="AvatarGroup"
+  href="/web/avatargroup"
+  description="AvatarGroup is used ideally where multiple people are displayed"
+  color="teal-spabattical-450"
+  image="avatar-group"
+  />
 
 </ThreeCol>
