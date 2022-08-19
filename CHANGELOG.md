@@ -1,3 +1,9 @@
+## 65.5.0 (Aug 19, 2022)
+
+### Minor
+
+- Docs: Move Development Page to Markdown (#2227)
+
 ## 65.4.2 (Aug 19, 2022)
 
 ### Patch
