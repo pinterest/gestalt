@@ -32,7 +32,7 @@ export default function MessagingComponentsPage(): Node {
       <Flex direction="column" gap={4}>
         <Text>Banners sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.</Text>
 
-        <Text><Link href='https://gestalt.pinterest.systems/web/callout' underline>Go to the Callout component</Link></Text>
+        <Text><Link href='https://gestalt.pinterest.systems/web/callout' underline='always'>Go to the Callout component</Link></Text>
         </Flex>
       </MainSection>
       <MainSection name="SlimBanner">
@@ -53,7 +53,7 @@ export default function MessagingComponentsPage(): Node {
       <Flex direction="column" gap={4}>
         <Text>SlimBanner conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. SlimBanners are used to reference a specific section of a page, or in any dense interface where space is a concern.</Text>
 
-        <Text><Link href='https://gestalt.pinterest.systems/web/slimbanner' underline>Go to the SlimBanner componen</Link></Text>
+        <Text><Link href='https://gestalt.pinterest.systems/web/slimbanner' underline='always'>Go to the SlimBanner componen</Link></Text>
       </Flex>
       </MainSection>
       <MainSection name="Modal">
@@ -61,7 +61,7 @@ export default function MessagingComponentsPage(): Node {
         <Flex direction="column" gap={4}>
           <Text>A modal dialog can be used to alert a user of an issue, or to request confirmation after a user-generated action. AlertModal overlays and blocks Page content until it is dismissed by the user.</Text>
 
-          <Text><Link href='https://gestalt.pinterest.systems/web/modal' underline>Go to the Modal component</Link></Text>
+          <Text><Link href='https://gestalt.pinterest.systems/web/modal' underline='always'>Go to the Modal component</Link></Text>
         </Flex>
       </MainSection>
       <MainSection name="Toast">
@@ -122,7 +122,7 @@ export default function MessagingComponentsPage(): Node {
               <li>Alert users of connectivity issues or unknown errors without disrupting their flow</li>
             </ul>
           </Text>
-          <Text><Link href='https://gestalt.pinterest.systems/web/toast' underline>Go to the Toast component</Link></Text>
+          <Text><Link href='https://gestalt.pinterest.systems/web/toast' underline='always'>Go to the Toast component</Link></Text>
         </Flex>
       </MainSection>
       <MainSection name="What component should I use?">
@@ -133,7 +133,7 @@ export default function MessagingComponentsPage(): Node {
           <iFrame style={{border:'none'}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092" allowFullScreen />
           </Box>
 
-          <Text><Link href='https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092' underline externalLinkIcon="default">View in Figma</Link></Text>
+          <Text><Link href='https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092' underline='always' externalLinkIcon="default">View in Figma</Link></Text>
         </Flex>
       </MainSection>
       <MainSection name="Related">

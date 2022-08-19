@@ -7,40 +7,21 @@ import PageHeader from '../../../docs-components/PageHeader.js';
 type StoryItemProps = {|
   heading: string,
   imageUrl: string,
-  imageWidth: string,
-  imageHeight: string,
+  imageWidth: number,
+  imageHeight: number,
   text: string | Node,
   format?: 'twoColImgLeft' | 'twoColImgRight' | 'oneCol'
 |};
 
-function ImageBox({imageUrl, imageWidth, imageHeight, format = 'oneCol'}: StoryItemProps): Node {
-  return (
-    <Box width={format === 'oneCol' ? '100%' : '50%' } padding={4} display="flex" flex="grow" justifyContent='center'>
-      <Box maxWidth={format === 'oneCol' ? '100%' : 320 } width="100%">
-        <Image src={imageUrl} naturalWidth={imageWidth} naturalHeight={imageHeight} />
-      </Box>
-    </Box>
-  )
-}
-
-function ContentBox({heading, text, format = 'oneCol'}: StoryItemProps): Node {
-  return (
-    <Box width={format === 'oneCol' ? '100%' : '50%' } padding={4}><Heading size={400}>{heading}</Heading><Text>{text}</Text></Box>
-  )
-}
-
 function StoryItem({ heading, imageUrl, imageWidth, imageHeight, text, format = 'oneCol' }: StoryItemProps): Node {
-  //  const img = <ImageBox imageUrl={imageUrl} imageWidth={imageWidth} imageHeight={imageHeight} format={format} />
   const img =
   <Box width='100%' padding={4} display="flex" flex="grow" justifyContent='center' alignItems='center'>
     <Box maxWidth={format === 'oneCol' ? '100%' : 320 } width="100%">
-      <Image src={imageUrl} naturalWidth={imageWidth} naturalHeight={imageHeight} />
+      <Image alt='collage' src={imageUrl} naturalWidth={imageWidth} naturalHeight={imageHeight} />
     </Box>
   </Box>
-  const contentMobile = <Box width='100%' padding={4} lgDisplay="none" display="block"><Heading size={400}>{heading}</Heading><Text>{text}</Text></Box>
-  const contentDesktop = <Box width='100%' padding={4} lgDisplay="block" display="none"><Heading size={400}>{heading}</Heading><Text>{text}</Text></Box>
-  // const contentDesktop = <ContentBox heading={heading} text={text} format={format} />
-  // const contentMobile = <ContentBox heading={heading} text={text} format={format} />
+  const contentMobile = <Box width='100%' padding={4} lgDisplay="none" display="block"><Heading size='400'>{heading}</Heading><Text>{text}</Text></Box>
+  const contentDesktop = <Box width='100%' padding={4} lgDisplay="block" display="none"><Heading size='400'>{heading}</Heading><Text>{text}</Text></Box>
   const lockup = format === 'twoColImgRight' ? <React.Fragment>{contentDesktop}{img}{contentMobile}</React.Fragment> : <React.Fragment>{img}{contentDesktop}{contentMobile}</React.Fragment>
   return (
     <Box display='flex' direction='column' lgDirection={format === 'oneCol' ? 'column' : 'row'} alignItems="center">
@@ -55,14 +36,14 @@ export default function MessagingStoryPage(): Node {
       <PageHeader name="A messaging story" type="guidelines" description="A brief story of how messages work together along with other components and patterns based on practical use cases from Pinterest products." />
 
       <Flex direction="column" maxWidth={678} gap={8}>
-        <Box color='inverse'>
+        <Box color='infoBase'>
           <Flex alignItems='center'>
             <Box width='100%' padding={8}>
-              <Heading color='light' size={400}>Meet Claire</Heading>
+              <Heading color='light' size='400'>Meet Claire</Heading>
               <Text color='light'>Claire Ọyáwálé is a Pinner who loves architecture and fine art. She also has a Pinterest Business account through her employer—a high-end shoe brand.</Text>
             </Box>
             <Box width='40%'>
-              <Image src='https://i.pinimg.com/originals/fb/94/a7/fb94a7630c03b9542a3ce732940f4a6f.png' naturalWidth={1388} naturalHeight={1687} />
+              <Image alt='collage' src='https://i.pinimg.com/originals/fb/94/a7/fb94a7630c03b9542a3ce732940f4a6f.png' naturalWidth={1388} naturalHeight={1687} />
             </Box>
           </Flex>
         </Box>
