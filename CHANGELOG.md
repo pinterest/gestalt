@@ -1,3 +1,9 @@
+## 65.4.2 (Aug 19, 2022)
+
+### Patch
+
+- Heading: fix docs link to design tokens (#2303)
+
 ## 65.4.1 (Aug 18, 2022)
 
 ### Patch
