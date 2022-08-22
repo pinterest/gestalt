@@ -116,7 +116,7 @@ export default function MessagingStoryPage(): Node {
           text={`
 Claire opens Pinterest on her phone to see a red dot on her Avatar.
 
-This isn’t a highly urgent issue, so we don’t throw a modal, banner or other message component in her face just yet; just a little nudge that tells her she needs to look at her profile.
+This isn’t a highly urgent issue, so we don’t display a prominent modal, banner or other message component just yet; just a little nudge that tells her she needs to look at her profile.
 `}
           imageUrl="https://i.pinimg.com/originals/09/99/84/0999846e77dd4a685a1a107a3d9a3787.png"
           imageWidth={528}

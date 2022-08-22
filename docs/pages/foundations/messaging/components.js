@@ -36,7 +36,7 @@ export default function MessagingComponentsPage(): Node {
         />
         <Flex direction="column" gap={4}>
           <Text>
-            Banners sit on a page or surface and provide status alerts, information or
+            Callouts sit on a page or surface and provide status alerts, information or
             recommendations to a user. They are used for highest priority messages, usually at the
             top of a page.
           </Text>
@@ -89,8 +89,8 @@ export default function MessagingComponentsPage(): Node {
         <Flex direction="column" gap={4}>
           <Text>
             A modal dialog can be used to alert a user of an issue, or to request confirmation after
-            a user-generated action. AlertModal overlays and blocks Page content until it is
-            dismissed by the user.
+            a user-generated action. Modal overlays and blocks page content until it is dismissed by
+            the user.
           </Text>
 
           <Text>
@@ -209,7 +209,7 @@ A popover can be formatted to provide help and guidance around new features, or 
 Upsells are on-page banners that encourage more ad spend and upgrades. They can also be used to promote and market new features.
 
 **Error message variants**
-Toast provides temporary feedback on an interaction. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of blocking the entire page.
+Variants for other non-messaging components that provide a way to show an error message (simple error status indicators are not included)..
 
 - **[Text field error message](/web/textfield#Error-message)**
 - **[RadioGroup error message](/web/radiogroup#With-an-error)**

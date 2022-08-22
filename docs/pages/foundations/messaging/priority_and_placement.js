@@ -130,9 +130,14 @@ export default function MessagingPriorityAndPlacementPage(): Node {
             productivity and inspiration.
           </Text>
 
-          <Heading size="300" accessibilityLevel={4}>
-            Current components: Modal
-          </Heading>
+          <Flex gap={2}>
+            <Text weight="bold">Current components:</Text>
+            <Text>
+              <Link href="/web/modal" underline="always">
+                Modal
+              </Link>
+            </Text>
+          </Flex>
           <Text>
             Blocking content slows a person down from their usual flow, so here are some guidelines
             on when it’s okay to block content.
@@ -262,7 +267,7 @@ export default function MessagingPriorityAndPlacementPage(): Node {
             </Box>
           </Box>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Not-blocking">
+        <MainSection.Subsection title="Non-blocking">
           <Heading size="300" accessibilityLevel={4}>
             Ephemeral—less prominent
           </Heading>
@@ -272,12 +277,14 @@ export default function MessagingPriorityAndPlacementPage(): Node {
             content. They do not prevent a user from accessing the main content and navigation on
             the surface underneath.
           </Text>
-          <Text>
-            Current components:{' '}
-            <Link href="/web/toast" underline="always">
-              Toast
-            </Link>
-          </Text>
+          <Flex gap={2}>
+            <Text weight="bold">Current components:</Text>
+            <Text>
+              <Link href="/web/toast" underline="always">
+                Toast
+              </Link>
+            </Text>
+          </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection title="On surface">
           <Heading size="300" accessibilityLevel={4}>
@@ -290,18 +297,24 @@ export default function MessagingPriorityAndPlacementPage(): Node {
             cluttered and they can’t focus on the main information they came to see and interact
             with. Show the highest-severity ones first.
           </Text>
-          <Text>
-            Current components:{' '}
-            <Link href="/web/callout" underline="always">
-              Callout
-            </Link>{' '}
-            <Link href="/web/slimbanner" underline="always">
-              SlimBanner
-            </Link>{' '}
-            <Link href="/web/upsell" underline="always">
-              Upsell
-            </Link>
-          </Text>
+          <Flex gap={2}>
+            <Text weight="bold">Current components:</Text>
+            <Text>
+              <Link href="/web/callout" underline="always">
+                Callout
+              </Link>
+            </Text>
+            <Text>
+              <Link href="/web/slimbanner" underline="always">
+                SlimBanner
+              </Link>
+            </Text>
+            <Text>
+              <Link href="/web/upsell" underline="always">
+                Upsell
+              </Link>
+            </Text>
+          </Flex>
 
           <Heading size="300" accessibilityLevel={4}>
             Ephemeral—less prominent
@@ -313,12 +326,14 @@ export default function MessagingPriorityAndPlacementPage(): Node {
             cluttered and they can’t focus on the main information they came to see and interact
             with. Show the highest-severity ones first.
           </Text>
-          <Text>
-            Current components:{' '}
-            <Link href="/web/slimbanner" underline="always">
-              SlimBanner
-            </Link>
-          </Text>
+          <Flex gap={2}>
+            <Text weight="bold">Current components:</Text>
+            <Text>
+              <Link href="/web/slimbanner" underline="always">
+                SlimBanner
+              </Link>
+            </Text>
+          </Flex>
         </MainSection.Subsection>
       </MainSection>
     </Page>

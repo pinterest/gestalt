@@ -98,8 +98,8 @@ A message is different from a status indicator in that it includes a more detail
               heading="Relevant"
               text={
                 <Text>
-                  The information or alerts provided should be relevant to the surface a user
-                  currently is working on, and be placed near the sections they relate to.
+                  The information or alerts provided should be relevant to the surface a user is
+                  currently working on, and be placed near the sections they relate to.
                 </Text>
               }
             />
