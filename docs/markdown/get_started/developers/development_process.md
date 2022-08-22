@@ -173,7 +173,6 @@ A Gestalt Core maintainer will add a semver label (patch release / minor release
 
 When pushing new changes to GitHub, your PR title should be aligned with the scope of your work. If your goal was to change the default color of a component, keep the scope of changes to that specific task and word the title to exactly reflect those changes.
 
-
 ### Changes not allowed
 
 Do not use the following CSS style properties:
