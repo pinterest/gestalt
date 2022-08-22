@@ -78,7 +78,7 @@ If there is no image source provided for the Avatar, the first character of the 
   <IllustrationCard
   title="AvatarGroup"
   href="/web/avatargroup"
-  description="AvatarGroup is the ideal component where multiple people/groups need to be displayed"
+  description="AvatarGroup is the ideal component in cases where multiple people/brands need to be displayed."
   color="teal-spabattical-450"
   image="avatar-group"
   />
