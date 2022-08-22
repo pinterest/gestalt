@@ -1,3 +1,9 @@
+## 66.0.8 (Aug 22, 2022)
+
+### Patch
+
+- Docs: update PR template with new title format (#2315)
+
 ## 66.0.7 (Aug 19, 2022)
 
 ### Patch
