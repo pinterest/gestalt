@@ -408,8 +408,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         style={{
           top: 0,
           ...(isRtl ? { right: 0 } : { left: 0 }),
-          transform: `translateX(${isRtl ? '-' : ''}${left}px) translateY(${top}px)`,
-          WebkitTransform: `translateX(${isRtl ? '-' : ''}${left}px) translateY(${top}px)`,
+          transform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
+          WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
         }}
