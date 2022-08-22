@@ -135,7 +135,7 @@ function Header() {
       isComponentsActiveSection(router.pathname)
         ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
         : mainNavigationTabs.findIndex((tab) =>
-            router.pathname.includes(convertNamesForURL(tab.text)),
+            router.pathname.includes(`/${convertNamesForURL(tab.text)}/`),
           ),
     );
   }, [router.events, router.pathname, mainNavigationTabs]);

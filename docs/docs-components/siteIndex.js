@@ -147,7 +147,12 @@ const siteIndex: Array<siteIndexType> = [
       'Layouts',
       {
         sectionName: 'Messaging',
-        pages: ['Principles', 'Components', 'Priority and placement', 'A messaging story'],
+        pages: [
+          'Principles',
+          'Available components',
+          'Priority and placement',
+          'A messaging story',
+        ],
       },
       'Screen sizes',
 
