@@ -1,11 +1,11 @@
 // @flow strict
 import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
-import illustrations from '../graphics/index.js';
+import illustrations, { type IllustrationTypes } from '../graphics/index.js';
 
 export type IllustrationCardProps = {|
   headingLevel: 2 | 3,
-  image: Node | string,
+  image: Node | IllustrationTypes,
   description: string,
   title: string,
   color: string,
