@@ -1,7 +1,6 @@
 // @flow strict
 import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
-import unambiguous from 'eslint-plugin-import/lib/rules/unambiguous';
 import illustrations from '../graphics/index.js';
 
 export type IllustrationCardProps = {|

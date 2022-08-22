@@ -82,5 +82,4 @@ If there is no image source provided for the Avatar, the first character of the 
   color="teal-spabattical-450"
   image="avatar-group"
   />
-
 </ThreeCol>
