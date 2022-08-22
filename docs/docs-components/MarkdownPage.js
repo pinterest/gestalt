@@ -151,11 +151,13 @@ const components = {
           <Image src={src} alt={alt} width="100%" height="100%" layout="fill" objectFit="contain" />
         </Box>
       </Box>
-      <Text size="300" align="start">
-        <Box as="figcaption" marginTop={3}>
-          {caption || ''}
-        </Box>
-      </Text>
+      {caption && (
+        <Text size="300" align="start">
+          <Box as="figcaption" marginTop={3}>
+            {caption}
+          </Box>
+        </Text>
+      )}
     </Box>
   ),
   ThreeCol: ({ children }: {| children: Node |}) => (

@@ -11,11 +11,11 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="Do" />
-      - To reflect a person, company, or brand within the product
+      - To reflect a person, company or brand within the product
   </Group>
   <Group>
   <Dont title="Don't" />
-     - To represent a group of people, companies, and/or brands. use [AvatarGroup](https://gestalt.netlify.app/avatargroup) instead
+     - To represent a group of people, companies and/or brands. use [AvatarGroup](https://gestalt.pinterest.systems/web/avatargroup) instead
   </Group>
 </TwoCol>
 
