@@ -130,7 +130,6 @@ const siteIndex: Array<siteIndexType> = [
     sectionName: 'Foundations',
     pages: [
       'Accessibility',
-      'Design tokens',
       {
         sectionName: 'Color',
         pages: ['Palette', 'Usage', 'Examples'],
@@ -139,20 +138,22 @@ const siteIndex: Array<siteIndexType> = [
         sectionName: 'Data Visualization',
         pages: ['Palette', 'Usage'],
       },
+      'Design tokens',
       'Elevation',
-      {
-        sectionName: 'Typography',
-        pages: ['Guidelines'],
-      },
       {
         sectionName: 'Iconography',
         pages: ['Library', 'Usage', 'Creating icons'],
       },
       'Layouts',
-      'Screen sizes',
       {
         sectionName: 'Messaging',
         pages: ['Principles', 'Components', 'Priority and placement', 'A messaging story'],
+      },
+      'Screen sizes',
+
+      {
+        sectionName: 'Typography',
+        pages: ['Guidelines'],
       },
     ],
   },
