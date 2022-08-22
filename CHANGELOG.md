@@ -1,3 +1,9 @@
+## 66.0.9 (Aug 22, 2022)
+
+### Patch
+
+- Docs: Fix links on overview page (#2314)
+
 ## 66.0.8 (Aug 22, 2022)
 
 ### Patch
