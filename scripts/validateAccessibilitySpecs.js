@@ -5,13 +5,56 @@ const siteIndex = require('../docs/docs-components/siteIndex.js');
 
 const specFile = 'playwright/accessibility/*.spec.mjs';
 
-const flattenSiteStructure = (section) =>
-  section.flatMap((item) => [item, ...flattenSiteStructure(item.pages || [])]).flat();
+const getAllSitePaths = (index) => {
+  const pagePaths = [];
+
+  const addUrlPaths = (pageItems, pages) => {
+    // for each choice
+    pageItems.forEach((page) => {
+      if (page.sectionName) {
+        const siteIndexSection = page;
+        addUrlPaths(siteIndexSection.pages, pages.concat([siteIndexSection.sectionName]));
+      } else {
+        pagePaths.push(pages.concat([page]));
+      }
+    });
+  };
+
+  index.forEach((section) => {
+    const startPath = [section.sectionName];
+    addUrlPaths(section.pages, startPath);
+  });
+
+  return pagePaths;
+};
 
 async function validate() {
-  // Get a flat list of all the pages from the nested site structure
-  // by flattening each section's page list
-  const pages = flattenSiteStructure(siteIndex.default).filter((item) => typeof item === 'string');
+  // get a list of all of the site paths. Only use the leaf nodes for simplicty
+  // if there's a collision (e.g. web/avatar and iOS/Avatar)
+  // expect two separate files to exist (e..g Avatar_Web, Avatar_iOS)
+  const uniqueFlatPages = {};
+
+  const listOfPaths = getAllSitePaths(siteIndex.default);
+
+  listOfPaths.forEach((path) => {
+    const lastNode = path.pop();
+
+    // if it exists, then use the n-1 path as the name of the file
+    if (uniqueFlatPages[lastNode]) {
+      // the first time this happens, we need to add it back to our list
+      if (uniqueFlatPages[lastNode] !== 'collision') {
+        const existingPath = uniqueFlatPages[lastNode];
+        uniqueFlatPages[`${lastNode}_${existingPath.pop()}`] = existingPath;
+      }
+
+      uniqueFlatPages[`${lastNode}_${path.pop()}`] = path;
+      uniqueFlatPages[lastNode] = 'collision';
+    } else {
+      uniqueFlatPages[lastNode] = path;
+    }
+  });
+
+  const pages = Object.keys(uniqueFlatPages).filter((key) => uniqueFlatPages[key] !== 'collision');
 
   const a11ySpecFiles = (await globby([specFile])).map((file) => file.toLocaleLowerCase());
 
