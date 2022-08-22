@@ -1,3 +1,165 @@
+## 66.0.9 (Aug 22, 2022)
+
+### Patch
+
+- Docs: Fix links on overview page (#2314)
+
+## 66.0.8 (Aug 22, 2022)
+
+### Patch
+
+- Docs: update PR template with new title format (#2315)
+
+## 66.0.7 (Aug 19, 2022)
+
+### Patch
+
+- Docs: add link to Figma plugins doc (#2312)
+
+## 66.0.6 (Aug 19, 2022)
+
+### Patch
+
+- Docs: 8/19 blog post update (#2311)
+
+## 66.0.5 (Aug 19, 2022)
+
+### Patch
+
+- Internal: remove commented-out lint rule (#2310)
+
+## 66.0.4 (Aug 19, 2022)
+
+### Patch
+
+- Docs: fix typos in digest (#2309)
+
+## 66.0.3 (Aug 19, 2022)
+
+### Patch
+
+- Docs: Weekly update for 8-19 (#2307)
+
+## 66.0.2 (Aug 19, 2022)
+
+### Patch
+
+- Internal: more Flow lint rules (#2305)
+
+## 66.0.1 (Aug 19, 2022)
+
+### Patch
+
+- Revert " IconButton: change default iconColor prop value from "gray" to "darkGray" (#2304)" (#2308)
+
+## 66.0.0 (Aug 19, 2022)
+
+### Major
+
+- IconButton: change default iconColor prop value from "gray" to "darkGray" (#2304)
+
+## 65.5.0 (Aug 19, 2022)
+
+### Minor
+
+- Docs: Move Development Page to Markdown (#2227)
+
+## 65.4.2 (Aug 19, 2022)
+
+### Patch
+
+- Heading: fix docs link to design tokens (#2303)
+
+## 65.4.1 (Aug 18, 2022)
+
+### Patch
+
+- Internal: lint for array Flow type syntax (#2302)
+
+## 65.4.0 (Aug 18, 2022)
+
+### Minor
+
+- IconButton: codemod for upcoming default iconColor value changes (#2299)
+
+## 65.3.12 (Aug 18, 2022)
+
+### Patch
+
+- Internal: Bump @actions/core from 1.2.6 to 1.9.1 (#2301)
+
+## 65.3.11 (Aug 18, 2022)
+
+### Patch
+
+- Bump undici from 5.8.0 to 5.9.1 (#2300)
+
+## 65.3.10 (Aug 18, 2022)
+
+### Patch
+
+- Foundations: new Overview page (#2292)
+
+## 65.3.9 (Aug 18, 2022)
+
+### Patch
+
+- Internal: run prettier on CSS files (#2298)
+
+## 65.3.8 (Aug 18, 2022)
+
+### Patch
+
+- Video: fix docs link for disableRemotePlayback (#2296)
+
+## 65.3.7 (Aug 18, 2022)
+
+### Patch
+
+- Docs: add Category type to catch regressions (#2294)
+
+## 65.3.6 (Aug 18, 2022)
+
+### Patch
+
+- Docs: add link to web overview page (#2293)
+
+## 65.3.5 (Aug 17, 2022)
+
+### Patch
+
+- Component overview: updated per redesign (#2288)
+
+## 65.3.4 (Aug 17, 2022)
+
+### Patch
+
+- SideNavigation: fixes in height and mobile implementation in sm breakpoint (#2282)
+
+## 65.3.3 (Aug 17, 2022)
+
+### Patch
+
+- Internal: increase Node memory to solve OOM issue on CI (#2291)
+
+## 65.3.2 (Aug 17, 2022)
+
+### Patch
+
+- Docs: refactored Homepage (#2287)
+
+## 65.3.1 (Aug 17, 2022)
+
+### Patch
+
+- Internal: add Node.js 18 to test matrix (#2285)
+
+## 65.3.0 (Aug 17, 2022)
+
+### Minor
+
+- Video: fix hydration issue (#2284)
+
 ## 65.2.3 (Aug 16, 2022)
 
 ### Patch

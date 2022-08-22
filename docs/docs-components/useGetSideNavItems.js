@@ -10,11 +10,18 @@ function convertNamesForURL(name) {
 }
 
 const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): Node => {
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
   const { setIsSidebarOpen } = useNavigationContext();
 
   let nestingLevel = 0;
   const getNavItems = (navItem: siteIndexType, previousSectionName: string) => {
+    // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
+    const { id: pathId } = query;
+    const urlPath = pathId ? pathId.join('/') : '';
+
+    const isActiveTab = (href: string) =>
+      pathname === href || `/${urlPath}` === href ? 'page' : undefined;
+
     if (nestingLevel === 0) {
       return (
         <SideNavigation.Section key={`${navItem.sectionName}`} label={navItem.sectionName}>
@@ -25,7 +32,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
               )}`;
               return (
                 <SideNavigation.TopItem
-                  active={pathname === href ? 'page' : undefined}
+                  active={isActiveTab(href)}
                   label={pageInfo}
                   onClick={() => setIsSidebarOpen?.(false)}
                   key={`${pageInfo}--${i}`}
@@ -49,7 +56,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
               )}/${convertNamesForURL(nestedPage)}`;
               return (
                 <SideNavigation.NestedItem
-                  active={pathname === href ? 'page' : undefined}
+                  active={isActiveTab(href)}
                   label={nestedPage}
                   onClick={() => setIsSidebarOpen?.(false)}
                   key={`${nestedPage}--${i}`}
@@ -73,7 +80,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
             )}/${convertNamesForURL(nestedPage)}`;
             return (
               <SideNavigation.NestedItem
-                active={pathname === href ? 'page' : undefined}
+                active={isActiveTab(href)}
                 label={nestedPage}
                 onClick={() => setIsSidebarOpen?.(false)}
                 key={`${nestedPage}--${i}`}

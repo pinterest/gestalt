@@ -70,4 +70,3 @@ html:not([dir="rtl"]) .clear {
 html[dir="rtl"] .clear {
   left: var(--space-0);
 }
-

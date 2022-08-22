@@ -3,6 +3,7 @@ import path from 'path';
 import { promises as fs } from 'fs';
 import matter from 'gray-matter';
 import logGAEvent from './gAnalytics.js';
+import siteIndex, { type siteIndexType } from '../docs-components/siteIndex.js';
 
 export async function getDocByRoute(route: string): Promise<{|
   content?: string,
@@ -28,13 +29,54 @@ export async function getDocByRoute(route: string): Promise<{|
   }
 }
 
-export async function getAllMarkdownPosts(): Promise<Array<string>> {
+export async function getAllMarkdownPosts(): Promise<Array<Array<string>>> {
+  function convertNamesForURL(name: string): string {
+    return name.replace(/ /g, '_').replace(/'/g, '').toLowerCase();
+  }
+
   const docsDirectory = path.join(process.cwd(), 'markdown');
 
-  const folderContents = await fs.readdir(docsDirectory);
-  const cleanedNames = folderContents
-    .filter((name) => name.endsWith('.mdx') || name.endsWith('.md'))
-    .map((name) => name.replace('.md', ''));
+  const getAllSitePaths = () => {
+    const pagePaths = [];
 
-  return cleanedNames;
+    const addUrlPaths = (pageItems: Array<siteIndexType | string>, pages: Array<string>) => {
+      // for each choice
+      pageItems.forEach((page) => {
+        if (page.sectionName) {
+          // $FlowFixMe[incompatible-type] This is a siteIndexType because it has a section name and isn't a string
+          const siteIndexSection: siteIndexType = page;
+          addUrlPaths(siteIndexSection.pages, pages.concat([siteIndexSection.sectionName]));
+        } else {
+          // $FlowFixMe[incompatible-call] No section name exists, so it's a string
+          pagePaths.push(pages.concat([page]));
+        }
+      });
+    };
+
+    siteIndex.forEach((section) => {
+      const startPath = [section.sectionName];
+      addUrlPaths(section.pages, startPath);
+    });
+
+    return pagePaths;
+  };
+
+  const pagePaths = getAllSitePaths();
+
+  const checkIfPathExists = async (pagePath: Array<string>) => {
+    const pathName = pagePath.join('/');
+
+    try {
+      await fs.stat(path.join(docsDirectory, `${convertNamesForURL(pathName)}.md`));
+      return pagePath.map((name) => convertNamesForURL(name));
+    } catch (ex) {
+      // do nothing, a markdown page doesn't exist
+      return [];
+    }
+  };
+
+  const pathResults = await Promise.all(pagePaths.map((pagePath) => checkIfPathExists(pagePath)));
+
+  const validMarkdownPages = pathResults.filter((p) => p.length > 0);
+  return validMarkdownPages;
 }

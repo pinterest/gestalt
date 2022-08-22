@@ -48,6 +48,7 @@ export default function Example(): Node {
                 href="#"
                 onClick={({ event }) => event.preventDefault()}
                 label="West Coast"
+                active="section"
               />
               <SideNavigation.NestedItem
                 href="#"

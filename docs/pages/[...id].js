@@ -29,6 +29,7 @@ type Props = {|
     badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
+    component: boolean,
   |},
   pageSourceUrl: string,
 |};
@@ -41,11 +42,14 @@ export default function DocumentPage({ content, meta, pageSourceUrl }: Props): N
   );
 }
 
-export async function getStaticProps(context: {| params: {| id: string |} |}): Promise<{|
+export async function getStaticProps(context: {| params: {| id: Array<string> |} |}): Promise<{|
   props: {| meta: { [key: string]: string }, content: {||}, pageSourceUrl: string |},
 |}> {
   const { id } = context.params;
-  const { meta, content } = await getDocByRoute(id);
+
+  const pathName = id.join('/');
+  const { meta, content } = await getDocByRoute(pathName);
+
   const mdxSource = await serialize(content, {
     mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks], format: 'mdx' },
   });
@@ -54,17 +58,18 @@ export async function getStaticProps(context: {| params: {| id: string |} |}): P
     props: {
       meta,
       content: mdxSource,
-      pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/pages/markdown/${id}.md`,
+      pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/pages/markdown/${pathName}.md`,
     },
   };
 }
 
 export async function getStaticPaths(): Promise<{|
-  paths: {| params: {| id: string |} |}[],
+  paths: Array<{| params: {| id: string | Array<string> |} |}>,
   fallback: boolean,
 |}> {
-  // get all the paths that exist within ./markdown folder
+  // get all the possible paths that exist within ./markdown folder
   const paths = await getAllMarkdownPosts();
+
   return {
     paths: paths.map((name) => ({
       params: {

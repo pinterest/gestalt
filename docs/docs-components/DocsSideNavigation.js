@@ -7,6 +7,7 @@ import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 import { useNavigationContext } from './navigationContext.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
+import { TOOLTIP_ZINDEX } from './z-indices.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
@@ -18,11 +19,11 @@ export function isComponentsActiveSection(pathname: string): boolean {
   return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
 }
 
-export default function DocsSideNavigation(): Node {
+export default function DocsSideNavigation({ showBorder }: {| showBorder?: boolean |}): Node {
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
   const { isMobile } = useDocsDeviceType();
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
   const {
     componentPlatformFilteredBy,
     setComponentPlatformFilteredByCookie,
@@ -35,9 +36,14 @@ export default function DocsSideNavigation(): Node {
   // If it's the components section, find the section that is currently
   // filtered with the component platform switcher
 
+  // if it's a markdown path, then the url is provided in the query obj
+  // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
+  const { id: pathId } = query;
+  const dynamicUrlPath = pathId ? `/${pathId.join('/')}` : '';
+
   const isComponentsSection = isMobile
     ? selectedTab === 'Components'
-    : isComponentsActiveSection(pathname);
+    : isComponentsActiveSection(dynamicUrlPath || pathname);
 
   const platformSwitcher = isComponentsSection ? (
     <SidebarPlatformSwitcher
@@ -103,8 +109,10 @@ export default function DocsSideNavigation(): Node {
         onDismiss: closeSideNavigation,
         tooltip: {
           text: 'Close navigation',
+          zIndex: TOOLTIP_ZINDEX,
         },
       }}
+      showBorder={showBorder}
     >
       {sectionItemsForSideNav}
     </SideNavigation>
