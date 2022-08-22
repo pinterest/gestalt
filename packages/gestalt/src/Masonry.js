@@ -395,6 +395,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       isVisible = true;
     }
 
+    // This assumes `document.dir` exists, since this method is only invoked
+    // on the client. If that assumption changes, this will need to be revisited
     const isRtl = document?.dir === 'rtl';
 
     const itemComponent = (
