@@ -1411,7 +1411,7 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
     svg: <Pog />,
     name: 'Pog',
     description:
-      'Pog is a lower-level functional component to show the active, hovered, abnd focused states of IconButton.',
+      'Pog is a lower-level functional component to show the active, hovered, and focused states of IconButton.',
     category: 'Building blocks',
     status: {
       accessible: {
