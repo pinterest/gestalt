@@ -4,7 +4,7 @@ description: Avatar is used to represent a user. Every Avatar image has a subtle
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" />
+<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="avatar hero image"/>
 
 ## Usage guidelines
 
@@ -28,17 +28,17 @@ fullwidth: true
 For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" />
+    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" alt="do use right image size"/>
     <Do title="Do" />
     Use round Avatars in the appropriate size for your need.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" />
+    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt="do not use not round images"/>
     <Dont title="Don't" />
     Use round Avatars in the appropriate size for your need.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" />
+    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" alt="do use avatar with names"/>
     <Do title="Do" />
     Use the collaborators name nearby or in an alternative view if possible
   </Group>
@@ -62,7 +62,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 5. **sm** **24px**
 6. **xs** **16px**
 
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" />
+<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="different avatar sizes"/>
 
 ### Without an image
 
@@ -70,7 +70,7 @@ If there is no image source provided for the Avatar, the first character of the 
 
 <br/>
 
-<ImgContainer src="https://i.pinimg.com/originals/a7/e9/d7/a7e9d796017c740a00bb1b3d7fb600a3.png" />
+<ImgContainer src="https://i.pinimg.com/originals/a7/e9/d7/a7e9d796017c740a00bb1b3d7fb600a3.png" alt="avatar without an image"/>
 
 ## Related
 
@@ -78,7 +78,7 @@ If there is no image source provided for the Avatar, the first character of the 
   <IllustrationCard
   title="AvatarGroup"
   href="/web/avatargroup"
-  description="AvatarGroup is used ideally where multiple people are displayed"
+  description="AvatarGroup is the ideal component where multiple people/groups need to be displayed"
   color="teal-spabattical-450"
   image="avatar-group"
   />
