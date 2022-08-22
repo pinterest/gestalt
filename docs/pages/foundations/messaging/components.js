@@ -79,7 +79,7 @@ export default function MessagingComponentsPage(): Node {
 
           <Text>
             <Link href="https://gestalt.pinterest.systems/web/slimbanner" underline="always">
-              Go to the SlimBanner componen
+              Go to the SlimBanner component
             </Link>
           </Text>
         </Flex>
