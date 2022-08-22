@@ -59,6 +59,8 @@ Export your self-created icons in all the sizes/formats for each platform
         <MainSection.Subsection
           title="Additional Figma plugins"
           description={`
+Pinterest employees should check out this full list of [approved Figma plugins](http://pinch.pinadmin.com/figma-plugins). We especially recommend:
+
 [**Able**](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility)
 Able makes accessibility easy while looking and feeling like Figma!
 

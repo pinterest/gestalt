@@ -1,3 +1,51 @@
+## 66.0.9 (Aug 22, 2022)
+
+### Patch
+
+- Docs: Fix links on overview page (#2314)
+
+## 66.0.8 (Aug 22, 2022)
+
+### Patch
+
+- Docs: update PR template with new title format (#2315)
+
+## 66.0.7 (Aug 19, 2022)
+
+### Patch
+
+- Docs: add link to Figma plugins doc (#2312)
+
+## 66.0.6 (Aug 19, 2022)
+
+### Patch
+
+- Docs: 8/19 blog post update (#2311)
+
+## 66.0.5 (Aug 19, 2022)
+
+### Patch
+
+- Internal: remove commented-out lint rule (#2310)
+
+## 66.0.4 (Aug 19, 2022)
+
+### Patch
+
+- Docs: fix typos in digest (#2309)
+
+## 66.0.3 (Aug 19, 2022)
+
+### Patch
+
+- Docs: Weekly update for 8-19 (#2307)
+
+## 66.0.2 (Aug 19, 2022)
+
+### Patch
+
+- Internal: more Flow lint rules (#2305)
+
 ## 66.0.1 (Aug 19, 2022)
 
 ### Patch

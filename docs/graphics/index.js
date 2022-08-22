@@ -5,4 +5,6 @@ const illustrations = Object.freeze({
   'avatar-group': AvatarGroup,
 });
 
+export type IllustrationTypes = $Keys<typeof illustrations>;
+
 export default illustrations;
