@@ -1,11 +1,10 @@
 // @flow strict
 import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
-import illustrations, { type IllustrationTypes } from '../graphics/index.js';
 
-export type IllustrationCardProps = {|
+type Props = {|
   headingLevel: 2 | 3,
-  image: Node | IllustrationTypes,
+  image: Node,
   description: string,
   title: string,
   color: string,
@@ -21,11 +20,7 @@ function IllustrationCard({
   title,
   color,
   href,
-}: IllustrationCardProps): Node {
-  // we either render the svg string, or use our lookup table to render the right illustration component
-  const Illustration =
-    typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;
-
+}: Props): Node {
   return (
     <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
       <Box minWidth={280}>
@@ -43,7 +38,7 @@ function IllustrationCard({
                 },
               }}
             >
-              {Illustration ? <Illustration /> : image}
+              {image}
             </Box>
             <Box
               color="default"
