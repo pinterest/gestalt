@@ -16,6 +16,7 @@ import { MAX_WIDTH } from './MainSectionSubsection.js';
 
 import 'highlight.js/styles/a11y-light.css';
 import Highlighter from './highlight.js';
+import IllustrationCard from './IllustrationCard.js';
 
 type Props = {|
   children: Node,
@@ -119,6 +120,7 @@ const components = {
       objectFit="contain"
     />
   ),
+  IllustrationCard,
   Card: (props) => <MainSection.Card {...props} description={undefined} />,
   Code: (props: {| marginBottom: 'default' | 'none', children: string | null |}) => {
     const newProps = { ...props };
@@ -141,6 +143,33 @@ const components = {
   ),
   TwoCol: ({ children }: {| children: Node |}) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
+  ),
+  ImgContainer: ({ src, caption, alt }: {| src: string, caption?: string, alt?: string |}) => (
+    <Box>
+      <Box padding={8} rounding={2} borderStyle="sm" height="250px">
+        <Box position="relative" width="100%" height="100%">
+          <Image src={src} alt={alt} width="100%" height="100%" layout="fill" objectFit="contain" />
+        </Box>
+      </Box>
+      {caption && (
+        <Text size="300" align="start">
+          <Box as="figcaption" marginTop={3}>
+            {caption}
+          </Box>
+        </Text>
+      )}
+    </Box>
+  ),
+  ThreeCol: ({ children }: {| children: Node |}) => (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, .33fr))',
+        gap: '2px',
+      }}
+    >
+      {children}
+    </div>
   ),
 };
 
