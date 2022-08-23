@@ -1,3 +1,9 @@
+## 67.0.2 (Aug 23, 2022)
+
+### Patch
+
+- Docs: Fix Overlapping Accessibility Checks (#2316)
+
 ## 67.0.1 (Aug 23, 2022)
 
 ### Patch
