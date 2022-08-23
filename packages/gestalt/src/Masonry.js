@@ -23,7 +23,7 @@ type Props<T> = {|
    */
   columnWidth?: number,
   /**
-   * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item. *Note that this must be a stable reference!* If using a component declared within a parent function component, you must use `useCallback` to ensure a stable reference.
+   * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item. *Note that this [must be a stable reference!](https://www.developerway.com/posts/react-re-renders-guide#part3.1)* If using a component declared within a parent function component, you must use [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback) to ensure a stable reference.
    */
   comp: ComponentType<{|
     data: T,
