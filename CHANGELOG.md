@@ -1,3 +1,9 @@
+## 66.0.12 (Aug 23, 2022)
+
+### Patch
+
+- Docs: Add Messaging guidelines (#2290)
+
 ## 66.0.11 (Aug 23, 2022)
 
 ### Patch
