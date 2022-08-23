@@ -1,3 +1,9 @@
+## 67.0.1 (Aug 23, 2022)
+
+### Patch
+
+- Masonry: add note about stable component references (#2323)
+
 ## 67.0.0 (Aug 23, 2022)
 
 ### Major
