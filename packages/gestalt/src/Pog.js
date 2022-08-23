@@ -31,11 +31,11 @@ const OLD_TO_NEW_COLOR_MAP = {
 const defaultIconButtonIconColors = {
   darkGray: 'white',
   gray: 'white',
-  lightGray: 'gray',
-  transparent: 'gray',
+  lightGray: 'darkGray',
+  transparent: 'darkGray',
   red: 'white',
   transparentDarkGray: 'white',
-  white: 'gray',
+  white: 'darkGray',
 };
 
 type Props = {|

@@ -112,7 +112,7 @@ function SectionsIconButtonDropdownExample() {
           {
             name: 'iconColor',
             type: `"darkGray" | "gray" | "red" | "white"`,
-            defaultValue: 'gray',
+            defaultValue: 'darkGray',
             description:
               'Primary color to apply to the [Icon](/web/icon). See [icon color](#Icon-color) variant to learn more.',
           },
