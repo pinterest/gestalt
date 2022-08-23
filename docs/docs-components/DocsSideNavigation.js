@@ -23,7 +23,7 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
   const { isMobile } = useDocsDeviceType();
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
   const {
     componentPlatformFilteredBy,
     setComponentPlatformFilteredByCookie,
@@ -36,9 +36,14 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
   // If it's the components section, find the section that is currently
   // filtered with the component platform switcher
 
+  // if it's a markdown path, then the url is provided in the query obj
+  // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
+  const { id: pathId } = query;
+  const dynamicUrlPath = pathId ? `/${pathId.join('/')}` : '';
+
   const isComponentsSection = isMobile
     ? selectedTab === 'Components'
-    : isComponentsActiveSection(pathname);
+    : isComponentsActiveSection(dynamicUrlPath || pathname);
 
   const platformSwitcher = isComponentsSection ? (
     <SidebarPlatformSwitcher
