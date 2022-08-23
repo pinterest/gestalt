@@ -5,10 +5,12 @@ const siteIndex = require('../docs/docs-components/siteIndex.js');
 
 const specFile = 'playwright/accessibility/*.spec.mjs';
 
+// READ How this works: https://github.com/pinterest/gestalt/pull/2316#issuecomment-1223356379
+
 /**
-* Helper function to get a list of all the site paths. 
-* Returns a list of arrays e.g. [["web","avatar"], ["ios","avatar"]]
-**/
+ * Helper function to get a list of all the site paths.
+ * Returns a list of arrays e.g. [["web","avatar"], ["ios","avatar"]]
+ * */
 const getAllSitePaths = (index) => {
   const pagePaths = [];
 
@@ -32,23 +34,19 @@ const getAllSitePaths = (index) => {
   return pagePaths;
 };
 
-
 async function validate() {
-
   // a map of all the pages on the apge
   const uniqueFlatPages = {};
-  
+
   // get a list of all of the site paths
   const listOfPaths = getAllSitePaths(siteIndex.default);
-  
- 
+
   listOfPaths.forEach((path) => {
     // we use the page name as the final path
     const lastNode = path.pop();
-    
+
     // if there's a collision (e.g. web/avatar and iOS/Avatar)
     if (uniqueFlatPages[lastNode]) {
-      
       // require the spec file name to be a level more specific. e.g. avatar_ios, avatar_web
       if (uniqueFlatPages[lastNode] !== 'collision') {
         const existingPath = uniqueFlatPages[lastNode];
@@ -61,7 +59,6 @@ async function validate() {
       uniqueFlatPages[lastNode] = path;
     }
   });
-  
 
   const pages = Object.keys(uniqueFlatPages).filter((key) => uniqueFlatPages[key] !== 'collision');
 
