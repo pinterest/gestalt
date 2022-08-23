@@ -11,7 +11,7 @@ import PageHeader from '../../../docs-components/PageHeader.js';
 export default function MessagingComponentsPage(): Node {
   return (
     <Page title="Available messaging components">
-      <PageHeader name="Available messaging components" type="guidelines" />
+      <PageHeader badge="pilot" name="Available messaging components" type="guidelines" />
       <MainSection name="Callout">
         <Example
           id="calloutExample"

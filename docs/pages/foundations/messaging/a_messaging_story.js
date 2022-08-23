@@ -81,6 +81,7 @@ export default function MessagingStoryPage(): Node {
   return (
     <Page title="A messaging story">
       <PageHeader
+        badge="pilot"
         name="A messaging story"
         type="guidelines"
         description="A brief story of how messages work together along with other components and patterns based on practical use cases from Pinterest products."

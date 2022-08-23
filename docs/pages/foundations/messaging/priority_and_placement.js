@@ -19,7 +19,7 @@ import CampaignIssue from '../../../graphics/messaging/modals/campaignIssue.svg'
 export default function MessagingPriorityAndPlacementPage(): Node {
   return (
     <Page title="Messaging priority and placement">
-      <PageHeader name="Messaging priority and placement" type="guidelines" />
+      <PageHeader badge="pilot" name="Messaging priority and placement" type="guidelines" />
       <MainSection name="Priority">
         <Text>
           In order to avoid too many messages stacked on the screen, we prioritize which messages to
