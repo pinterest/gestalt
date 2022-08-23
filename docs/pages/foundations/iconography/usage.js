@@ -62,14 +62,7 @@ export default function IconographyPage(): Node {
       />
 
       <MainSection name="Principles">
-        <Flex
-          gap={{
-            row: 12,
-            column: 12,
-          }}
-          alignContent="between"
-          wrap
-        >
+        <Flex gap={12} alignContent="between" wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
               color="purple-mysticool-100"

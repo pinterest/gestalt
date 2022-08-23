@@ -70,13 +70,7 @@ export default function ColorPage(): Node {
             column: 4,
           }}
         >
-          <Flex
-            wrap
-            gap={{
-              row: 4,
-              column: 4,
-            }}
-          >
+          <Flex wrap gap={4}>
             <Flex
               direction="column"
               gap={{
@@ -230,13 +224,7 @@ export default function ColorPage(): Node {
         - for lines or small points under normal vision
         - for large areas under red-green or yellow-blue color blindness`}
       >
-        <Flex
-          gap={{
-            row: 6,
-            column: 6,
-          }}
-          wrap
-        >
+        <Flex gap={6} wrap>
           <Flex
             direction="column"
             gap={{
