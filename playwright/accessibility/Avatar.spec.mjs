@@ -11,3 +11,8 @@ test('iOS Avatar Accessibility check', async ({ page }) => {
   await page.goto('/ios/avatar');
   await expectAccessiblePage({ page });
 });
+
+test('Android Avatar Accessibility check', async ({ page }) => {
+  await page.goto('/android/avatar');
+  await expectAccessiblePage({ page });
+});
