@@ -1,3 +1,9 @@
+## 67.0.3 (Aug 23, 2022)
+
+### Patch
+
+- IconButton: codemod for upcoming default size changes (#2306)
+
 ## 67.0.2 (Aug 23, 2022)
 
 ### Patch
