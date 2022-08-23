@@ -5,10 +5,10 @@ const siteIndex = require('../docs/docs-components/siteIndex.js');
 
 const specFile = 'playwright/accessibility/*.spec.mjs';
 
-// READ How this works: https://github.com/pinterest/gestalt/pull/2316#issuecomment-1223356379
+// Note How this works: https://github.com/pinterest/gestalt/pull/2316#issuecomment-1223356379
 
 /**
- * Helper function to get a list of all the site paths.
+ * Helper function to get a list of all the site paths. Also used in mdHelper.js
  * Returns a list of arrays e.g. [["web","avatar"], ["ios","avatar"]]
  * */
 const getAllSitePaths = (index) => {
