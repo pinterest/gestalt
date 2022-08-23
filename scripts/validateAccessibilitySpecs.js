@@ -5,6 +5,10 @@ const siteIndex = require('../docs/docs-components/siteIndex.js');
 
 const specFile = 'playwright/accessibility/*.spec.mjs';
 
+/**
+* Helper function to get a list of all the site paths. 
+* Returns a list of arrays e.g. [["web","avatar"], ["ios","avatar"]]
+**/
 const getAllSitePaths = (index) => {
   const pagePaths = [];
 
@@ -28,20 +32,24 @@ const getAllSitePaths = (index) => {
   return pagePaths;
 };
 
+
 async function validate() {
-  // get a list of all of the site paths. Only use the leaf nodes for simplicty
-  // if there's a collision (e.g. web/avatar and iOS/Avatar)
-  // expect two separate files to exist (e..g Avatar_Web, Avatar_iOS)
+
+  // a map of all the pages on the apge
   const uniqueFlatPages = {};
-
+  
+  // get a list of all of the site paths
   const listOfPaths = getAllSitePaths(siteIndex.default);
-
+  
+ 
   listOfPaths.forEach((path) => {
+    // we use the page name as the final path
     const lastNode = path.pop();
-
-    // if it exists, then use the n-1 path as the name of the file
+    
+    // if there's a collision (e.g. web/avatar and iOS/Avatar)
     if (uniqueFlatPages[lastNode]) {
-      // the first time this happens, we need to add it back to our list
+      
+      // require the spec file name to be a level more specific. e.g. avatar_ios, avatar_web
       if (uniqueFlatPages[lastNode] !== 'collision') {
         const existingPath = uniqueFlatPages[lastNode];
         uniqueFlatPages[`${lastNode}_${existingPath.pop()}`] = existingPath;
@@ -53,6 +61,7 @@ async function validate() {
       uniqueFlatPages[lastNode] = path;
     }
   });
+  
 
   const pages = Object.keys(uniqueFlatPages).filter((key) => uniqueFlatPages[key] !== 'collision');
 
