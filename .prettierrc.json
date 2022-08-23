@@ -17,6 +17,12 @@
         "parser": "css",
         "singleQuote": false
       }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "parser": "markdown"
+      }
     }
   ]
 }

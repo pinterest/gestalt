@@ -1,3 +1,21 @@
+## 66.0.12 (Aug 23, 2022)
+
+### Patch
+
+- Docs: Add Messaging guidelines (#2290)
+
+## 66.0.11 (Aug 23, 2022)
+
+### Patch
+
+- Avatar-iOS: Add docs page (#2319)
+
+## 66.0.10 (Aug 22, 2022)
+
+### Patch
+
+- Revert "Avatar-iOS: Add docs page (#2295)" (#2318)
+
 ## 66.0.9 (Aug 22, 2022)
 
 ### Patch
