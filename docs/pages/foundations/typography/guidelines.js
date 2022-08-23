@@ -72,7 +72,7 @@ export default function TypographyPage(): Node {
         <Flex
           gap={{
             row: 12,
-            column: 0,
+            column: 12,
           }}
           alignContent="between"
           wrap
@@ -252,7 +252,7 @@ We use browser defaults on web UIs so that lines of text are readable in all lan
           <Flex
             gap={{
               row: 4,
-              column: 0,
+              column: 8,
             }}
             width="100%"
             wrap
@@ -401,53 +401,61 @@ Line height is automatically determined by a font’s size. For more info, refer
           <Flex
             gap={{
               row: 4,
-              column: 0,
+              column: 10,
             }}
             wrap
           >
-            <Flex.Item flex="shrink" flexBasis={244}>
-              <Box color="infoWeak" marginBottom={4}>
-                <AlignmentCenter />
-              </Box>
-            </Flex.Item>
             <Flex
-              direction="column"
               gap={{
-                row: 0,
-                column: 2,
+                row: 4,
+                column: 0,
               }}
-              maxWidth={420}
+              wrap
             >
-              <Heading size="300" accessibilityLevel={4}>
-                Centered
-              </Heading>
-              <Markdown text="Use center-aligned text for very short blocks of content, like text inside of buttons or tabs." />
+              <Flex.Item flex="shrink" flexBasis={244}>
+                <Box color="infoWeak" marginBottom={4}>
+                  <AlignmentCenter />
+                </Box>
+              </Flex.Item>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                maxWidth={420}
+              >
+                <Heading size="300" accessibilityLevel={4}>
+                  Centered
+                </Heading>
+                <Markdown text="Use center-aligned text for very short blocks of content, like text inside of buttons or tabs." />
+              </Flex>
             </Flex>
-          </Flex>
-          <Flex
-            gap={{
-              row: 4,
-              column: 0,
-            }}
-            wrap
-          >
-            <Flex.Item flex="shrink" flexBasis={244}>
-              <Box color="infoWeak" marginBottom={4}>
-                <AlignmentEnd />
-              </Box>
-            </Flex.Item>
             <Flex
-              direction="column"
               gap={{
-                row: 0,
-                column: 2,
+                row: 4,
+                column: 0,
               }}
-              maxWidth={420}
+              wrap
             >
-              <Heading size="300" accessibilityLevel={4}>
-                End-aligned
-              </Heading>
-              <Markdown text="End-align integers in tables so that they are easy to compare." />
+              <Flex.Item flex="shrink" flexBasis={244}>
+                <Box color="infoWeak" marginBottom={4}>
+                  <AlignmentEnd />
+                </Box>
+              </Flex.Item>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 2,
+                }}
+                maxWidth={420}
+              >
+                <Heading size="300" accessibilityLevel={4}>
+                  End-aligned
+                </Heading>
+                <Markdown text="End-align integers in tables so that they are easy to compare." />
+              </Flex>
             </Flex>
           </Flex>
         </MainSection.Subsection>

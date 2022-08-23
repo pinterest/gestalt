@@ -80,7 +80,7 @@ export default function ColorUsagePage(): Node {
             <Flex
               gap={{
                 row: 4,
-                column: 0,
+                column: 8,
               }}
               wrap
             >
@@ -141,7 +141,7 @@ export default function ColorUsagePage(): Node {
             <Flex
               gap={{
                 row: 4,
-                column: 0,
+                column: 8,
               }}
               wrap
             >
@@ -169,7 +169,7 @@ export default function ColorUsagePage(): Node {
             <Flex
               gap={{
                 row: 4,
-                column: 0,
+                column: 8,
               }}
               wrap
             >
@@ -226,7 +226,7 @@ export default function ColorUsagePage(): Node {
           <Flex
             gap={{
               row: 4,
-              column: 0,
+              column: 8,
             }}
             wrap
           >
@@ -281,7 +281,7 @@ export default function ColorUsagePage(): Node {
           <Flex
             gap={{
               row: 4,
-              column: 0,
+              column: 8,
             }}
             wrap
           >

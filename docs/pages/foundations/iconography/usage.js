@@ -65,7 +65,7 @@ export default function IconographyPage(): Node {
         <Flex
           gap={{
             row: 12,
-            column: 0,
+            column: 12,
           }}
           alignContent="between"
           wrap

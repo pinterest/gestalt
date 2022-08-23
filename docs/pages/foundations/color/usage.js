@@ -14,8 +14,9 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
     <Flex
       gap={{
         row: 4,
-        column: 0,
+        column: 4,
       }}
+      wrap
     >
       {['light', 'dark'].map((scheme) => (
         <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
@@ -77,7 +78,7 @@ export default function ColorUsagePage(): Node {
         <Flex
           gap={{
             row: 2,
-            column: 0,
+            column: 2,
           }}
         >
           <ColorSchemeLayout>

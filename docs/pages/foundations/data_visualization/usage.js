@@ -74,29 +74,27 @@ export default function ColorPage(): Node {
             wrap
             gap={{
               row: 4,
-              column: 0,
+              column: 4,
             }}
           >
-            <Box marginBottom={4}>
-              <Flex
-                direction="column"
-                gap={{
-                  row: 0,
-                  column: 1,
-                }}
-              >
-                <ColorTile
-                  textColor="inverse"
-                  description="Success (Graph)"
-                  fullTokenName="color-data-visualization-success-graph"
-                />
-                <ColorTile
-                  textColor="inverse"
-                  description="Success (Text/Icon)"
-                  fullTokenName="color-data-visualization-success-text"
-                />
-              </Flex>
-            </Box>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 1,
+              }}
+            >
+              <ColorTile
+                textColor="inverse"
+                description="Success (Graph)"
+                fullTokenName="color-data-visualization-success-graph"
+              />
+              <ColorTile
+                textColor="inverse"
+                description="Success (Text/Icon)"
+                fullTokenName="color-data-visualization-success-text"
+              />
+            </Flex>
             <ColorTile
               textColor="inverse"
               description="Error (Graph and Text)"
@@ -235,7 +233,7 @@ export default function ColorPage(): Node {
         <Flex
           gap={{
             row: 6,
-            column: 0,
+            column: 6,
           }}
           wrap
         >
@@ -322,7 +320,7 @@ export default function ColorPage(): Node {
             <Flex
               direction="column"
               gap={{
-                row: 0,
+                row: 2,
                 column: 1,
               }}
             >
@@ -331,20 +329,17 @@ export default function ColorPage(): Node {
                 description="Data Visualization 08"
                 fullTokenName="color-data-visualization-08"
               />
-              {/* Margin bottom used for spacing when these columns wrap */}
-              <Box marginBottom={6}>
-                <ColorTile
-                  textColor="inverse"
-                  description="Data Visualization 11"
-                  fullTokenName="color-data-visualization-11"
-                />
-              </Box>
+              <ColorTile
+                textColor="inverse"
+                description="Data Visualization 11"
+                fullTokenName="color-data-visualization-11"
+              />
             </Flex>
           </Flex>
           <Flex
             direction="column"
             gap={{
-              row: 0,
+              row: 2,
               column: 6,
             }}
           >

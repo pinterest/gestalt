@@ -61,7 +61,7 @@ A message is different from a status indicator in that it includes a more detail
         <Flex
           gap={{
             row: 12,
-            column: 0,
+            column: 12,
           }}
           alignContent="between"
           wrap
