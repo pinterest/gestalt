@@ -1,3 +1,9 @@
+## 67.0.0 (Aug 23, 2022)
+
+### Major
+
+- IconButton, Pog: change default iconColor prop value from "gray" to "darkGray" (#2320)
+
 ## 66.0.12 (Aug 23, 2022)
 
 ### Patch
