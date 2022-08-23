@@ -5,13 +5,62 @@ const siteIndex = require('../docs/docs-components/siteIndex.js');
 
 const specFile = 'playwright/accessibility/*.spec.mjs';
 
-const flattenSiteStructure = (section) =>
-  section.flatMap((item) => [item, ...flattenSiteStructure(item.pages || [])]).flat();
+// Note How this works: https://github.com/pinterest/gestalt/pull/2316#issuecomment-1223356379
+
+/**
+ * Helper function to get a list of all the site paths. Also used in mdHelper.js
+ * Returns a list of arrays e.g. [["web","avatar"], ["ios","avatar"]]
+ * */
+const getAllSitePaths = (index) => {
+  const pagePaths = [];
+
+  const addUrlPaths = (pageItems, pages) => {
+    // for each choice
+    pageItems.forEach((page) => {
+      if (page.sectionName) {
+        const siteIndexSection = page;
+        addUrlPaths(siteIndexSection.pages, pages.concat([siteIndexSection.sectionName]));
+      } else {
+        pagePaths.push(pages.concat([page]));
+      }
+    });
+  };
+
+  index.forEach((section) => {
+    const startPath = [section.sectionName];
+    addUrlPaths(section.pages, startPath);
+  });
+
+  return pagePaths;
+};
 
 async function validate() {
-  // Get a flat list of all the pages from the nested site structure
-  // by flattening each section's page list
-  const pages = flattenSiteStructure(siteIndex.default).filter((item) => typeof item === 'string');
+  // a map of all the pages on the apge
+  const uniqueFlatPages = {};
+
+  // get a list of all of the site paths
+  const listOfPaths = getAllSitePaths(siteIndex.default);
+
+  listOfPaths.forEach((path) => {
+    // we use the page name as the final path
+    const lastNode = path.pop();
+
+    // if there's a collision (e.g. web/avatar and iOS/Avatar)
+    if (uniqueFlatPages[lastNode]) {
+      // require the spec file name to be a level more specific. e.g. avatar_ios, avatar_web
+      if (uniqueFlatPages[lastNode] !== 'collision') {
+        const existingPath = uniqueFlatPages[lastNode];
+        uniqueFlatPages[`${lastNode}_${existingPath.pop()}`] = existingPath;
+      }
+
+      uniqueFlatPages[`${lastNode}_${path.pop()}`] = path;
+      uniqueFlatPages[lastNode] = 'collision';
+    } else {
+      uniqueFlatPages[lastNode] = path;
+    }
+  });
+
+  const pages = Object.keys(uniqueFlatPages).filter((key) => uniqueFlatPages[key] !== 'collision');
 
   const a11ySpecFiles = (await globby([specFile])).map((file) => file.toLocaleLowerCase());
 
