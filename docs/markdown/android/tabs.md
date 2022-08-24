@@ -4,7 +4,7 @@ description: Tabs may be used navigate between multiple URLs. Tabs are intended 
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/5b/b9/0e/5bb90ee7b0b2e9f336cb803303f3eecf.png" height={48} alt="an example of tabs"/>
+<ImgContainer src="https://i.pinimg.com/originals/5b/b9/0e/5bb90ee7b0b2e9f336cb803303f3eecf.png" width={413} height={48} alt="an example of tabs"/>
 
 ## Usage guidelines
 
@@ -30,12 +30,12 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d7/27/63/d727634455161d98e7614c8b12b956f6.png" height={48} alt="example with concise tab labels"/>
+    <ImgContainer src="https://i.pinimg.com/originals/d7/27/63/d727634455161d98e7614c8b12b956f6.png" width={233} height={48} alt="example with concise tab labels"/>
     <Do title="Do" />
     Keep Tab labels short and concise, one or two words.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/ae/f7/f8/aef7f8343979091c40c01111e732a95c.png" height={48} alt="example of only one tab"/>
+    <ImgContainer src="https://i.pinimg.com/originals/ae/f7/f8/aef7f8343979091c40c01111e732a95c.png" width={78} height={48} alt="example of only one tab"/>
     <Dont title="Don't" />
     Hide or disable Tabs if that Tab’s content is empty. Additionally, there should always be at least two tabs.
   </Group>
