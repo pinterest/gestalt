@@ -1,6 +1,6 @@
 ---
 title: IconButton
-description: IconButton allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.Some buttons are specialized for particular tasks, such as navigation or presenting menus.
+description: IconButton allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus.
 fullwidth: true
 ---
 
@@ -28,7 +28,7 @@ fullwidth: true
 ## Mobile best practices
 
 - Avoid using a floating icon button if it obscures important information on the screen. 
-- IconButton on mobile should primarily utilize the lg (44pt) size as the increased size will better accomodate tapping with a finger.   
+- IconButton on mobile should primarily utilize the lg (44pt) size as the increased size will better accommodate tapping with a finger.   
 
 For general IconButton best practices, refer to the [IconButton web documentation](/web/iconbutton).
 
@@ -84,7 +84,7 @@ Floating components are lifted off of the background, with high-emphasis elevati
 </TwoCol>
 
 ### Styling
-For information on color, icons, roles, and states, refer to the [web IconButton documentation](/web/iconbutton). 
+For information on color, icons, roles and states, refer to the [web IconButton documentation](/web/iconbutton). 
 
 ## Writing
 
