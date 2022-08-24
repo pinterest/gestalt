@@ -4,7 +4,7 @@ description: Tabs may be used navigate between multiple URLs. Tabs are intended 
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt=""/>
+<ImgContainer src="https://i.pinimg.com/originals/8b/cf/19/8bcf1919b6b5f9379a99bfbe8e304d5a.png" height={44} alt="an example of tabs"/>
 
 ## Usage guidelines
 
@@ -30,27 +30,27 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/f5/7f/85/f57f85ccb677cca5372f3419feb4d7f1.png" height={44} alt="example with concise tab labels"/>
     <Do title="Do" />
     Keep Tab labels short and concise, one or two words.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/34/48/4f/34484faabaf959cac956ff2e85c8cc48.png" height={44} alt="example of only one tab"/>
     <Dont title="Don't" />
     Hide or disable Tabs if that Tab’s content is empty. Additionally, there should always be at least two tabs.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/a1/ad/0c/a1ad0cef8be13f304a3b350aef24f12e.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/f5/0b/d4/f50bd4fb2fecc191cf462717c828e483.png" alt="example of tabs scrolling horizontally"/>
     <Do title="Do" />
     Allow tabs to scroll horizontally.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/d1/02/d0/d102d035b37609342307de99560cd56a.png" alt="example of tabs with truncated labels"/>
     <Dont title="Don't" />
     Truncate tabs to fit within a view.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/1b/54/ed/1b54edeaa10d58365ce6808bf70c0abb.png" alt="example of using too many tabs"/>
     <Dont title="Don't" />
     Use more than 6 Tabs. Consider using a different component like a Sheet.
   </Group>
@@ -76,11 +76,13 @@ This variant may be used if you have two or three tabs. Center aligned Tabs shou
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/cd/56/43/cd5643de79de5d00f4dff323451fb5d3.png" alt="start aligned tabs"/>
+    
     **Start or end aligned (Default)**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/95/07/7b/95077b097278c0d1a69e16397ab268a7.png" alt="center aligned tabs"/>
+   
     **Center aligned**
   </Group>
 </TwoCol>
@@ -96,11 +98,13 @@ The underline style of Tabs sits primarily in the header of the screen.
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/cd/56/43/cd5643de79de5d00f4dff323451fb5d3.png" alt="filled tabs style"/>
+    
     **Filled (Default)**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt=""/>
+    <ImgContainer src="https://i.pinimg.com/originals/95/07/7b/95077b097278c0d1a69e16397ab268a7.png" alt="underlined tabs style"/>
+    
     **Underline**
   </Group>
 </TwoCol>
