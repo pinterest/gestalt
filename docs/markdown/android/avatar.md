@@ -10,11 +10,11 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <Do title="Do" />
+    <Do title="When to use" />
       - To reflect a person, company or brand within the product
   </Group>
   <Group>
-  <Dont title="Don't" />
+  <Dont title="When not to use" />
      - To represent a group of people, companies and/or brands. use [AvatarGroup](https://gestalt.pinterest.systems/web/avatargroup) instead
   </Group>
 </TwoCol>
