@@ -1,3 +1,9 @@
+## 68.0.0 (Aug 24, 2022)
+
+### Major
+
+- Masonry: rename `comp` to `Item` (#2325)
+
 ## 67.0.4 (Aug 24, 2022)
 
 ### Patch
