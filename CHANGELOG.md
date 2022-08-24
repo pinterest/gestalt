@@ -1,3 +1,9 @@
+## 68.0.2 (Aug 24, 2022)
+
+### Patch
+
+- Docs: Mobile IconButton docs for iOS and Android (#2328)
+
 ## 68.0.1 (Aug 24, 2022)
 
 ### Patch
