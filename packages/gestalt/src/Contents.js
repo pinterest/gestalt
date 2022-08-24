@@ -213,6 +213,23 @@ class Contents extends Component<Props, State> {
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
+    /**
+     * Should verify the max-height of box and render the popOver aligning the
+     * box on top of view;
+     */
+    const heightAvailable = window.innerHeight;
+    const heightOfList = document.getElementById(id)?.clientHeight;
+    // 90 is 90% or 90vh;
+    const shouldRenderOnTop = heightOfList
+      ? Math.round((heightOfList / heightAvailable) * 100) >= 90
+      : false;
+    const overridePropsToMaxPopoverSize = shouldRenderOnTop
+      ? {
+          top: '5vh',
+          zIndex: 10,
+        }
+      : {};
+
     return (
       <div
         className={classnames(
@@ -226,7 +243,11 @@ class Contents extends Component<Props, State> {
         ref={this.setPopoverRef}
         tabIndex={-1}
         // popoverOffset positions the Popover component
-        style={{ visibility, ...popoverOffset }}
+        style={{
+          visibility,
+          ...popoverOffset,
+          ...overridePropsToMaxPopoverSize,
+        }}
       >
         {caret && popoverDir && (
           <div
