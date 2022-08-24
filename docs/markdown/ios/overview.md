@@ -1,3 +1,6 @@
-# iOS Component Overview
+---
+title: iOS Component Overview
+fullwidth: true
+---
 
 Coming Soon!!!

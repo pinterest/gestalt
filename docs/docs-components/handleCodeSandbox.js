@@ -17,7 +17,7 @@ ${code}
 
 export default Demo;`;
 
-const dedupeArray = <T>(arr: Array<T>): Array<T> => [...new Set(arr)];
+const dedupeArray = <T>(arr: $ReadOnlyArray<T>): $ReadOnlyArray<T> => [...new Set(arr)];
 
 const handleCodeSandbox = async ({ code, title }: {| code: string, title: string |}) => {
   const gestaltComponents = Object.keys(gestalt);

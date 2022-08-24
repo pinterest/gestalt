@@ -1,3 +1,33 @@
+## 67.0.4 (Aug 24, 2022)
+
+### Patch
+
+- Internal: use immutable arrays in docs components (#2324)
+
+## 67.0.3 (Aug 23, 2022)
+
+### Patch
+
+- IconButton: codemod for upcoming default size changes (#2306)
+
+## 67.0.2 (Aug 23, 2022)
+
+### Patch
+
+- Docs: Fix Overlapping Accessibility Checks (#2316)
+
+## 67.0.1 (Aug 23, 2022)
+
+### Patch
+
+- Masonry: add note about stable component references (#2323)
+
+## 67.0.0 (Aug 23, 2022)
+
+### Major
+
+- IconButton, Pog: change default iconColor prop value from "gray" to "darkGray" (#2320)
+
 ## 66.0.12 (Aug 23, 2022)
 
 ### Patch
