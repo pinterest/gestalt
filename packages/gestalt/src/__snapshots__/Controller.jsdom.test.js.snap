@@ -35,6 +35,7 @@ exports[`Controller renders 1`] = `
       </svg>
     </div>
     <div
+      aria-label="Popover"
       className="border darkGrayBg darkGray innerContents maxDimensions minDimensions"
       id=""
       style={

@@ -15,6 +15,7 @@ const SIZE_WIDTH_MAP = {
   xl: 360,
 };
 type OwnProps = {|
+  accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
@@ -112,6 +113,7 @@ class Controller extends Component<Props, State> {
 
   render(): ReactNode {
     const {
+      accessibilityLabel,
       anchor,
       bgColor,
       border,
@@ -132,6 +134,7 @@ class Controller extends Component<Props, State> {
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <Contents
+          accessibilityLabel={accessibilityLabel}
           anchor={anchor}
           bgColor={bgColor}
           border={border}

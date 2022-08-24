@@ -16,7 +16,9 @@ exports[`Popover renders 1`] = `
     tabIndex={-1}
   >
     <div
+      aria-label="Popover"
       className="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+      role="dialog"
       style={
         Object {
           "maxWidth": 230,
@@ -41,7 +43,9 @@ exports[`Popover renders as blue 1`] = `
     tabIndex={-1}
   >
     <div
+      aria-label="Popover"
       className="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+      role="dialog"
       style={
         Object {
           "maxWidth": 230,
@@ -66,7 +70,9 @@ exports[`Popover renders as error 1`] = `
     tabIndex={-1}
   >
     <div
+      aria-label="Popover"
       className="border redBg red rounding4 innerContents maxDimensions minDimensions"
+      role="dialog"
       style={
         Object {
           "maxWidth": 230,
