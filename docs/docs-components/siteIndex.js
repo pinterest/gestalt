@@ -42,11 +42,11 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
   },
   {
     sectionName: 'Android',
-    pages: ['Overview'],
+    pages: ['Overview', 'Button', 'Sheet'],
   },
   {
     sectionName: 'iOS',
-    pages: ['Overview', 'Avatar'],
+    pages: ['Overview', 'Avatar', 'Button', 'Sheet'],
   },
   {
     sectionName: 'Web',
