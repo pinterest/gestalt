@@ -111,7 +111,7 @@ The underline style of Tabs sits primarily in the header of the screen.
 
 ### Animation
 
-By default, the Tabs content swipes in either from the left or right, depending on the way you are tabbing. Visit Apple’s HIG for more information on Animation and Motion.
+By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
 
 ## Related
 

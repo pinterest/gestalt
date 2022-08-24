@@ -111,7 +111,7 @@ The underline style of Tabs sits primarily in the header of the screen.
 
 ### Animation
 
-By default, the Tabs content swipes in either from the left or right, depending on the way you are tabbing. Visit Apple’s HIG for more information on Animation and Motion.
+By default, the Tabs content swipes in either from the left or right, depending on the way you are tabbing. Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/animation/).
 
 ## Related
 
