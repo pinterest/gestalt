@@ -8,7 +8,7 @@ import Markdown from './Markdown.js';
 
 const unifyQuotes = (input) => input?.replace(/'/g, '"');
 
-function Description(lines: Array<string>): Node {
+function Description(lines: $ReadOnlyArray<string>): Node {
   return (
     <Flex
       alignItems="start"
@@ -86,16 +86,16 @@ const transformDefaultValue = (input) => {
   return input;
 };
 
-const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
+const sortBy = (list, fn) => [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
 
 type Props = {|
   // $FlowFixMe[unclear-type]
   Component?: ComponentType<any>,
   id?: string,
   name?: string,
-  props: Array<{|
+  props: $ReadOnlyArray<{|
     defaultValue?: boolean | string | number | null,
-    description?: string | Array<string>,
+    description?: string | $ReadOnlyArray<string>,
     href?: string,
     name: string,
     nullable?: boolean,

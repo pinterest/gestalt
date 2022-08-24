@@ -4,13 +4,13 @@
 type WebpackConfig = {|
   watchOptions: {| poll: number | false |},
   module: {|
-    rules: Array<{test: RegExp, use: string}>
+    rules: $ReadOnlyArray<{test: RegExp, use: string}>
   |},
   resolve: {fallback: { fs: false, path: false }}
 |};
 
 type RedirectsReturn = Promise<
-  Array<{|
+  $ReadOnlyArray<{|
     source: string,
     destination: string,
     permanent: boolean,

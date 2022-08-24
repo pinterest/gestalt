@@ -29,7 +29,7 @@ export async function getDocByRoute(route: string): Promise<{|
   }
 }
 
-export async function getAllMarkdownPosts(): Promise<Array<Array<string>>> {
+export async function getAllMarkdownPosts(): Promise<$ReadOnlyArray<$ReadOnlyArray<string>>> {
   function convertNamesForURL(name: string): string {
     return name.replace(/ /g, '_').replace(/'/g, '').toLowerCase();
   }
@@ -39,7 +39,10 @@ export async function getAllMarkdownPosts(): Promise<Array<Array<string>>> {
   const getAllSitePaths = () => {
     const pagePaths = [];
 
-    const addUrlPaths = (pageItems: Array<siteIndexType | string>, pages: Array<string>) => {
+    const addUrlPaths = (
+      pageItems: $ReadOnlyArray<siteIndexType | string>,
+      pages: $ReadOnlyArray<string>,
+    ) => {
       // for each choice
       pageItems.forEach((page) => {
         if (page.sectionName) {
@@ -63,7 +66,7 @@ export async function getAllMarkdownPosts(): Promise<Array<Array<string>>> {
 
   const pagePaths = getAllSitePaths();
 
-  const checkIfPathExists = async (pagePath: Array<string>) => {
+  const checkIfPathExists = async (pagePath: $ReadOnlyArray<string>) => {
     const pathName = pagePath.join('/');
 
     try {

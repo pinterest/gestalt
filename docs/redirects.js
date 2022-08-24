@@ -169,7 +169,7 @@ const misc = [
 ];
 
 /*::
-type Redirects = Array<{|
+type Redirects = $ReadOnlyArray<{|
     source: string,
     destination: string,
     permanent: boolean,

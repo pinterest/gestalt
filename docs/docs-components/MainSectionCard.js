@@ -21,7 +21,7 @@ type Props = {|
   shadeColor?: 'tertiary' | 'darkWash' | 'lightWash' | 'default',
   shaded?: boolean,
   showCode?: boolean,
-  title?: string | Array<string>,
+  title?: string | $ReadOnlyArray<string>,
   type?: 'do' | "don't" | 'info',
   marginBottom?: 'default' | 'none',
 |};
