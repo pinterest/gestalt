@@ -6,7 +6,7 @@ import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
   children: string | null,
-  classNames: Array<string>,
+  classNames: $ReadOnlyArray<string>,
 |};
 
 export default function Highlighter({ children, classNames }: Props): React$Element<'pre'> {

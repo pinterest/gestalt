@@ -12,7 +12,7 @@ const POST_WIDTH_PX = 600;
 const POST_IMAGE_HEIGHT_PX = 340;
 
 type PostProps = {|
-  audience: Array<string>,
+  audience: $ReadOnlyArray<string>,
   content: string,
   imageAltText?: string,
   imageSrc?: string,

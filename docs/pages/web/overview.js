@@ -113,13 +113,13 @@ function List({
   headingLevel,
   title = '',
 }: {|
-  array: Array<ListItemType>,
+  array: $ReadOnlyArray<ListItemType>,
   headingLevel: 2 | 3,
   title?: string,
 |}): Node {
   return (
     <IllustrationSection title={title} grid="auto-fill" min={312}>
-      {array
+      {[...array]
         .sort((a, b) => {
           if (a.name < b.name) {
             return -1;

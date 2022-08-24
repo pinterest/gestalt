@@ -110,8 +110,7 @@
     {
       "files": ["docs/**/*.js"],
       "rules": {
-        "import/no-relative-parent-imports": "off",
-        "flowtype/no-mutable-array": "off"
+        "import/no-relative-parent-imports": "off"
       }
     },
     {

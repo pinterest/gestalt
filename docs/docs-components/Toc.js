@@ -64,7 +64,7 @@ function useThrottledOnScroll(callback, delay) {
 }
 
 type Props = {|
-  cards: Array<Node>,
+  cards: $ReadOnlyArray<Node>,
 |};
 
 export default function Toc({ cards }: Props): Node {
