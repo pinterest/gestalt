@@ -4,45 +4,34 @@ description: IconButton allows users to take actions and make choices with a sin
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="all variations of the avatar component"/>
+<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" width={44} height={44} alt="all variations of the avatar component"/>
 
 ## Usage guidelines
 
 <TwoCol>
   <Group>
     <Do title="Do" />
-      - To reflect a person, company or brand within the product
+    - Interface space is limited. Prioritize using a Button if space is available.
+    - Triggering a Modal to complete a related task.
+    - Creating visual separation of actions in text-heavy content.
+    - Lower-emphasis actions that don't impede users from completing a task.
   </Group>
   <Group>
   <Dont title="Don't" />
-     - To represent a group of people, companies and/or brands. use [AvatarGroup](https://gestalt.pinterest.systems/web/avatargroup) instead
+    - Displaying icons that don't have actions associated with them. Use an Icon instead.
+    - Displaying multiple IconButtons on a surface that uses the same icon for different actions.
+    - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users.
+    - Destructive, high-emphasis actions, e.g "delete", "remove".
   </Group>
 </TwoCol>
 
 ## Mobile best practices
 
-- Display a Tooltip in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button.
+- Display Tooltip in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button.
 - Avoid using a floating icon button if it obscures important information on the screen. 
-- Icon Buttons on mobile should primarily utilize the lg (44pt) size as the increased size will better accomodate tapping with a finger.   
+- IconButton on mobile should primarily utilize the lg (44pt) size as the increased size will better accomodate tapping with a finger.   
 
-For general Avatar best practices, refer to the [IconButton web documentation](/web/iconbutton).
-<TwoCol>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" alt="example profile with correct avatar size"/>
-    <Do title="Do" />
-    Use round Avatars in the appropriate size for your need. 
-  </Group>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt="example of triangle avatar"/>
-    <Dont title="Don't" />
-    Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style. 
-  </Group>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/a1/ad/0c/a1ad0cef8be13f304a3b350aef24f12e.png" alt="avatar with a name underneath"/>
-    <Do title="Do" />
-    Use the collaborator’s name nearby or in an alternative view if possible.
-  </Group>
-</TwoCol>
+For general IconButton best practices, refer to the [IconButton web documentation](/web/iconbutton).
 
 ## Accessibility
 
@@ -55,7 +44,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 ### Size
 
-1. **lg** **(48pt)**
+1. **lg** **(44pt)**
 Large is the only size that should be used on Pinner surfaces.
 2. **md** **(32pt)**
 Medium is the size used on more dense UI such as business surfaces or internal tools.
@@ -63,37 +52,61 @@ Medium is the size used on more dense UI such as business surfaces or internal t
 Small IconButton should be used sparingly and only in places where the UI is very dense.
 
 <ThreeCol>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="different avatar variations"/>
+<Group center>
+<ImgContainer src="https://i.pinimg.com/originals/30/fa/30/30fa30fd2e78a285efd2b81ef7cba745.png" alt="different avatar variations" width={24} height={24} />
 **size = "sm"**
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="different avatar variations"/>
+<ImgContainer src="https://i.pinimg.com/originals/cd/6b/4f/cd6b4ffcd8254493c5a8da94b1d68e19.png" alt="different avatar variations" width={32} height={32} />
 **size = "md"**
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="different avatar variations"/>
+<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" alt="different avatar variations" width={44} height={44} />
 **size = "lg"**
 </Group>
 </ThreeCol>
 
+### Elevation
 
-### Without an image
+1. **Flat**
+Flat components sit right on top of the background, with no elevation. Therefore they do not have a drop shadow. 
+2. **Floating**
+Floating components are lifted off of the background, with high-emphasis elevation. They present with a drop shadow which can serve as an affordance for scrolling behavior. 
 
-If there is no image source provided for the Avatar, the first character of the name provided will be used as a placeholder.
+<TwoCol>
+<Group>
+<ImgContainer src="https://i.pinimg.com/originals/6c/27/78/6c27788eca8b18879395892bda8ca8e5.png" width={60} height={60} alt="different avatar variations"/>
+**flat**
+</Group>
+<Group>
+<ImgContainer src="https://i.pinimg.com/originals/54/73/1d/54731d4ae0c67a031887f6f58cd7905f.png" width={60} height={60} alt="different avatar variations"/>
+**floating**
+</Group>
+</TwoCol>
 
-<br/>
+### Writing
 
-<ImgContainer src="https://i.pinimg.com/originals/a7/e9/d7/a7e9d796017c740a00bb1b3d7fb600a3.png" alt="avatar without any image"/>
+For writing best practices, refer to the [web IconButton documentation](/web/iconbutton). 
 
 ## Related
 
 <ThreeCol>
   <IllustrationCard
-  title="AvatarGroup"
-  href="/web/avatargroup"
-  description="AvatarGroup is the ideal component where multiple people/groups need to be displayed"
+  title="Button"
+  description="Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it."
   color="teal-spabattical-450"
-  image="avatar-group"
+  image="button"
+  />
+  <IllustrationCard
+  title="Icon"
+  description="IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt Icon library."
+  color="teal-spabattical-450"
+  image="icon"
+  />
+  <IllustrationCard
+  title="Dropdown"
+  description="It's most common to anchor Dropdown to Button or IconButton."
+  color="teal-spabattical-450"
+  image="dropdown"
   />
 </ThreeCol>
