@@ -75,7 +75,7 @@ export default function ColorPage(): Node {
                 wrap
                 gap={{
                   row: 4,
-                  column: 0,
+                  column: 8,
                 }}
               >
                 <Flex
@@ -139,7 +139,7 @@ export default function ColorPage(): Node {
                 wrap
                 gap={{
                   row: 4,
-                  column: 0,
+                  column: 8,
                 }}
                 flex="none"
               >
@@ -202,7 +202,7 @@ export default function ColorPage(): Node {
         name="Semantic colors"
         description="Semantic colors are used to indicate trends in performance data. For successful trends, we use a slightly darker green color for text or icons associated with data to ensure the text has enough contrast."
       >
-        <Flex>
+        <Flex wrap gap={4}>
           <SemanticThemeExample colorScheme="light" />
           <SemanticThemeExample colorScheme="dark" />
         </Flex>

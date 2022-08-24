@@ -74,7 +74,7 @@ import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
 import { type ListItemType } from '../pages/web/overview.js';
 
-const FOUNDATION_GUIDELINES_LIST: Array<ListItemType> = [
+const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Accessibility />,
     name: 'Accessibility',
@@ -144,7 +144,7 @@ const FOUNDATION_GUIDELINES_LIST: Array<ListItemType> = [
   },
 ];
 
-const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
+const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <ActivationCard />,
     name: 'ActivationCard',
@@ -1248,7 +1248,7 @@ const GENERAL_COMPONENT_LIST: Array<ListItemType> = [
   },
 ];
 
-const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
+const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Box />,
     name: 'Box',
@@ -1523,7 +1523,7 @@ const BUILDING_BLOCKS_LIST: Array<ListItemType> = [
   },
 ];
 
-const FIGMA_ONLY_LIST: Array<ListItemType> = [
+const FIGMA_ONLY_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <svg />,
     name: 'BoardRep',
@@ -1618,7 +1618,7 @@ const FIGMA_ONLY_LIST: Array<ListItemType> = [
   },
 ];
 
-const UTILITIES_LIST: Array<ListItemType> = [
+const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <HookFocusVisible />,
     name: 'useFocusVisible',
@@ -1718,11 +1718,11 @@ const UTILITIES_LIST: Array<ListItemType> = [
 ];
 
 const COMPONENT_DATA_MAP: {|
-  buildingBlockComponents: Array<ListItemType>,
-  generalComponents: Array<ListItemType>,
-  utilityComponents: Array<ListItemType>,
-  figmaOnlyComponents: Array<ListItemType>,
-  foundations: Array<ListItemType>,
+  buildingBlockComponents: $ReadOnlyArray<ListItemType>,
+  generalComponents: $ReadOnlyArray<ListItemType>,
+  utilityComponents: $ReadOnlyArray<ListItemType>,
+  figmaOnlyComponents: $ReadOnlyArray<ListItemType>,
+  foundations: $ReadOnlyArray<ListItemType>,
 |} = {
   buildingBlockComponents: BUILDING_BLOCKS_LIST,
   generalComponents: GENERAL_COMPONENT_LIST,

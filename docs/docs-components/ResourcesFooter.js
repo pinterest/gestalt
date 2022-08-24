@@ -53,7 +53,7 @@ const engResources = [
 ];
 
 type LinkListProps = {|
-  items: Array<{|
+  items: $ReadOnlyArray<{|
     title: string,
     url: string,
     a11yLabel?: string,

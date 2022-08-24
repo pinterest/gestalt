@@ -23,19 +23,19 @@ type Props<T> = {|
    */
   columnWidth?: number,
   /**
-   * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   * The amount of vertical and horizontal space between each item, specified in pixels.
    */
-  comp: ComponentType<{|
+  gutterWidth?: number,
+  /**
+   * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item. *Note that this [must be a stable reference!](https://www.developerway.com/posts/react-re-renders-guide#part3.1)* If using a component declared within a parent function component, you must use [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback) to ensure a stable reference.
+   */
+  Item: ComponentType<{|
     data: T,
     itemIdx: number,
     isMeasuring: boolean,
   |}>,
   /**
-   * The amount of vertical and horizontal space between each item, specified in pixels.
-   */
-  gutterWidth?: number,
-  /**
-   * An array of items to display that contains the information that `comp` needs to render.
+   * An array of items to display that contains the data to be rendered by `<Item />`.
    */
   items: $ReadOnlyArray<T>,
   /**
@@ -375,13 +375,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     idx,
     position,
   ) => {
-    const {
-      comp: Component,
-      scrollContainer,
-      virtualize,
-      virtualBoundsTop,
-      virtualBoundsBottom,
-    } = this.props;
+    const { Item, scrollContainer, virtualize, virtualBoundsTop, virtualBoundsBottom } = this.props;
     const { top, left, width, height } = position;
 
     let isVisible;
@@ -416,7 +410,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           height: layoutNumberToCssDimension(height),
         }}
       >
-        <Component data={itemData} itemIdx={idx} isMeasuring={false} />
+        <Item data={itemData} itemIdx={idx} isMeasuring={false} />
       </div>
     );
 
@@ -426,8 +420,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   render(): Node {
     const {
       columnWidth,
-      comp: Component,
       gutterWidth: gutter,
+      Item,
       items,
       layout,
       minCols,
@@ -502,7 +496,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
               }}
             >
-              <Component data={item} itemIdx={i} isMeasuring={false} />
+              <Item data={item} itemIdx={i} isMeasuring={false} />
             </div>
           ))}
         </div>
@@ -553,7 +547,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     }
                   }}
                 >
-                  <Component data={data} itemIdx={measurementIndex} isMeasuring />
+                  <Item data={data} itemIdx={measurementIndex} isMeasuring />
                 </div>
               );
             })}

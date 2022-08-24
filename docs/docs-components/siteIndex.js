@@ -2,7 +2,7 @@
 
 export type siteIndexType = {|
   sectionName: string,
-  pages: Array<string | siteIndexType>,
+  pages: $ReadOnlyArray<string | siteIndexType>,
 |};
 
 // siteIndex is the source of truth for the side navigation menu.
@@ -16,7 +16,7 @@ export type siteIndexType = {|
 //    >>> page 2
 //    >>> page 3
 // Any new section/page must be added to siteIndex to be displayed.
-const siteIndex: Array<siteIndexType> = [
+const siteIndex: $ReadOnlyArray<siteIndexType> = [
   {
     sectionName: 'Get started',
     pages: [
@@ -42,7 +42,7 @@ const siteIndex: Array<siteIndexType> = [
   },
   {
     sectionName: 'Android',
-    pages: ['Overview', 'IconButton'],
+    pages: ['Overview', 'Avatar', 'IconButton'],
   },
   {
     sectionName: 'iOS',

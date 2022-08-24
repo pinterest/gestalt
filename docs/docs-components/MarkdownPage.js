@@ -33,7 +33,7 @@ type Props = {|
 const components = {
   small: (props) => <Text size="100">{props.children}</Text>,
   pre: (props: {|
-    children: {| props: {| className: Array<string>, children: string | null |} |},
+    children: {| props: {| className: $ReadOnlyArray<string>, children: string | null |} |},
   |}) => (
     <Highlighter classNames={props.children.props.className}>
       {props.children.props.children}

@@ -80,6 +80,7 @@ export default function ColorPage(): Node {
             row: 4,
             column: 0,
           }}
+          wrap
         >
           <ColorSchemeCard colorScheme="light">
             <ColorTile

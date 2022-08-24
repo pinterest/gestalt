@@ -1,10 +1,9 @@
 /*
  * Converts
- *  <IconButton bgColor="transparent" /> to <IconButton bgColor="transparent" iconColor="gray"iconColor="gray" />
- *  <IconButton /> to <IconButton iconColor="gray" />
+ *  <IconButton /> to <IconButton size="md" />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/next_IconButton/iconButton-defaut-iconColor-change.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/68.0.0/iconButton-defaut-size-change.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
@@ -48,36 +47,30 @@ export default function transformer(file, api) {
         );
       }
 
-      const bgColorAttr = attrs.find((attr) => attr?.name?.name === 'bgColor');
-      const iconColorAttr = attrs.find((attr) => attr?.name?.name === 'iconColor');
+      const sizeAttr = attrs.find((attr) => attr?.name?.name === 'size');
 
-      // If bgColor and iconColor props aren't literal values, review manually. No automated changes will refact this component.
-      if (
-        bgColorAttr?.value?.type === 'JSXExpressionContainer' ||
-        iconColorAttr?.value?.type === 'JSXExpressionContainer'
-      ) {
+      // If size prop isn't a literal values, review manually. No automated changes will refact this component.
+      if (sizeAttr?.value?.type === 'JSXExpressionContainer') {
         // eslint-disable-next-line no-console
         console.log(
-          `Review this ${node.openingElement.name.name} with bgColor and iconColor prop manually. Location: ${file.path} @line: ${node.loc.start.line}`,
+          `Review this ${node.openingElement.name.name} with size prop manually. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
 
         return null;
       }
 
-      const bgColorAttrValue = bgColorAttr?.value?.value;
-      const iconColorAttrValue = iconColorAttr?.value?.value;
+      const sizeAttrValue = sizeAttr?.value?.value;
       // DO NOTHING if
-      if (bgColorAttrValue && bgColorAttrValue !== 'transparent') return null; // bgColor is already set to transparent or default transparent
-      if (iconColorAttrValue) return null; // iconColor is already set
+      if (sizeAttrValue) return null; // sizeAttrValue is already set
 
-      // ADD iconColor="gray" if bgColor is transparent and there's no iconColor
-      if ((bgColorAttrValue === 'transparent' || !bgColorAttrValue) && !iconColorAttrValue) {
+      // ADD size="md" if size is set to default
+      if (!sizeAttrValue) {
         fileHasModifications = true;
       }
 
       node.openingElement.attributes = [
         ...attrs,
-        j.jsxAttribute(j.jsxIdentifier('iconColor'), j.stringLiteral('gray')),
+        j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('md')),
       ];
 
       return null;

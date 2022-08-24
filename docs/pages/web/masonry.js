@@ -23,55 +23,52 @@ type Pin = {|
 |};
 
 type State = {|
-  pins: Array<Pin>,
+  pins: $ReadOnlyArray<Pin>,
   width: number,
 |};
-
-const pins = [
-  {
-    color: '#2b3938',
-    height: 316,
-    src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
-    width: 474,
-    name: 'the Hang Son Doong cave in Vietnam',
-  },
-  {
-    color: '#8e7439',
-    height: 1081,
-    src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
-    width: 474,
-    name: 'La Gran Muralla, Pekín, China',
-  },
-  {
-    color: '#698157',
-    height: 711,
-    src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
-    width: 474,
-    name: 'Plitvice Lakes National Park, Croatia',
-  },
-  {
-    color: '#4e5d50',
-    height: 632,
-    src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
-    width: 474,
-    name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
-  },
-  {
-    color: '#6d6368',
-    height: 710,
-    src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
-    width: 474,
-    name: 'Border of China and Vietnam',
-  },
-];
 
 const inputStyle = { width: '700px', display: 'block', margin: '10px auto' };
 
 const getPins = () => {
-  let pinList = [];
-  for (let i = 0; i < 3; i += 1) {
-    pinList = pinList.concat(pins.slice());
-  }
+  const pins = [
+    {
+      color: '#2b3938',
+      height: 316,
+      src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
+      width: 474,
+      name: 'the Hang Son Doong cave in Vietnam',
+    },
+    {
+      color: '#8e7439',
+      height: 1081,
+      src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
+      width: 474,
+      name: 'La Gran Muralla, Pekín, China',
+    },
+    {
+      color: '#698157',
+      height: 711,
+      src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
+      width: 474,
+      name: 'Plitvice Lakes National Park, Croatia',
+    },
+    {
+      color: '#4e5d50',
+      height: 632,
+      src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
+      width: 474,
+      name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
+    },
+    {
+      color: '#6d6368',
+      height: 710,
+      src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
+      width: 474,
+      name: 'Border of China and Vietnam',
+    },
+  ];
+
+  const pinList = [...new Array(3)].map(() => [...pins]).flat();
   return Promise.resolve(pinList);
 };
 
@@ -155,8 +152,8 @@ class ExampleMasonry extends Component<Props, State> {
           {scrollContainer && (
             <Masonry
               columnWidth={170}
-              comp={GridComponent}
               gutterWidth={5}
+              Item={GridComponent}
               items={this.state.pins}
               layout={this.props.layout}
               minCols={1}
@@ -187,7 +184,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     <Masonry
-      comp={Item}
+      Item={Item}
       items={this.state.pins}
       loadItems={this.loadItems}
       minCols={1}
@@ -201,7 +198,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     When layout is set to \`flexible\`, the item width will shrink/grow to fill the container. This is great for responsive designs.
 
     ~~~jsx
-    <Masonry layout="flexible" comp={Item} items={items} minCols={1} />
+    <Masonry layout="flexible" Item={Item} items={items} minCols={1} />
     ~~~
     `}
         name="Flexible item width"
@@ -213,7 +210,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     When the \`flexible\` property is omitted, the item width will be fixed to \`columnWidth\`.
 
     ~~~jsx
-    <Masonry comp={Item} items={items} minCols={1} />
+    <Masonry Item={Item} items={items} minCols={1} />
     ~~~
   `}
         name="Non-flexible item width"
@@ -226,7 +223,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     import { Masonry, MasonryUniformRowLayout } from 'gestalt';
-    <Masonry comp={Item} items={items} layout={MasonryUniformRowLayout} />;
+    <Masonry Item={Item} items={items} layout={MasonryUniformRowLayout} />;
     ~~~
   `}
         name="Uniform row heights"
