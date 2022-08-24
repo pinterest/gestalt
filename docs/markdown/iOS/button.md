@@ -76,7 +76,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 For RTL (right-to-left) languages, the layout of the button is mirrored. The icon is placed on the right side of the text.
 
-## Related
+{/* ## Related
 
 <ThreeCol>
 
@@ -101,4 +101,4 @@ For RTL (right-to-left) languages, the layout of the button is mirrored. The ico
               image="avatar-group"
             />
 
-</ThreeCol>
+</ThreeCol> */}

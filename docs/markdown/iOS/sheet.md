@@ -1,5 +1,5 @@
 ---
-title: Modal (Sheet)
+title: Sheet
 description: Sheets are bottom-anchored overlays that that allow the user to easily return to the previous screen. They are meant for temporary focused tasks. Sheets are the mobile equivalent of the modal or overlay on web.
 fullwidth: true
 ---
@@ -33,7 +33,7 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/12/8c/2d/128c2d8557950e5beeb85dddb1f58d04.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"
+    <ImgContainer src="https://i.pinimg.com/originals/12/8c/2d/128c2d8557950e5beeb85dddb1f58d04.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
     <Do title="Do" />
     Provide a collapse or a close affordance&#151;multiple if possible. This could include an X, back caret, grabber or close button. 
   </Group>
@@ -42,8 +42,11 @@ fullwidth: true
     <Dont title="Don't" />
     Include Buttons in the header of the Sheet as this can lead to sizing and internationalization problems. 
   </Group>
+</TwoCol>
+
+<TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/16/65/43/16654315cb922e2fc51f6cd60b2d86c7.png" alt="a partial sheet with a grabber to help resize"
+    <ImgContainer src="https://i.pinimg.com/originals/16/65/43/16654315cb922e2fc51f6cd60b2d86c7.png" alt="a partial sheet with a grabber to help resize"/>
     <Do title="Do" />Utilize a grabber for Partial sheets that are able to be resized.
   </Group>
   <Group>
@@ -111,9 +114,8 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 - [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/foundations/accessibility/)
 - [Accessible development on iOS](https://developer.apple.com/accessibility/)
 
-## Related
-
-<ThreeCol>
+{/* ## Related
+ <ThreeCol>
 
 <IllustrationCard
               title="Modal"
@@ -128,4 +130,4 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
               color="green-matchacado-50"
               image="avatar-group"
             />
-</ThreeCol>
+</ThreeCol> */}

@@ -33,7 +33,7 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/84/d4/0d/84d40d290128608db361a276a586da87.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"
+    <ImgContainer src="https://i.pinimg.com/originals/84/d4/0d/84d40d290128608db361a276a586da87.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
     <Do title="Do" />
     Provide a collapse or a close affordance&#151;multiple if possible. This could include an X, back caret, grabber or close button. 
   </Group>
@@ -42,8 +42,11 @@ fullwidth: true
     <Dont title="Don't" />
     Include Buttons in the header of the Sheet as this can lead to sizing and internationalization problems. 
   </Group>
+</TwoCol>
+
+<TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/06/e9/6f/06e96f0193da3a32a25d7f1174d5dfa1.png" alt="a partial sheet with a grabber to help resize"
+    <ImgContainer src="https://i.pinimg.com/originals/06/e9/6f/06e96f0193da3a32a25d7f1174d5dfa1.png" alt="a partial sheet with a grabber to help resize"/>
     <Do title="Do" />Utilize a grabber for Partial sheets that are able to be resized.
   </Group>
   <Group>
@@ -111,7 +114,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 - [Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 - [Accessible development on Android](hhttps://developer.android.com/guide/topics/ui/accessibility)
 
-## Related
+{/* ## Related
 
 <ThreeCol>
 
@@ -128,4 +131,4 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
               color="green-matchacado-50"
               image="avatar-group"
             />
-</ThreeCol>
+</ThreeCol> */}

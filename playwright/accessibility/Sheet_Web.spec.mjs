@@ -2,7 +2,7 @@
 import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
-test('Sheet Accessibility check', async ({ page }) => {
+test('Web Sheet Page Accessibility check', async ({ page }) => {
   await page.goto('/web/sheet');
   await expectAccessiblePage({ page });
 });
