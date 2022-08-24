@@ -83,7 +83,10 @@ Floating components are lifted off of the background, with high-emphasis elevati
 </Group>
 </TwoCol>
 
-### Writing
+### Styling
+For information on color, icons, roles, and states, refer to the [web IconButton documentation](/web/iconbutton). 
+
+## Writing
 
 For writing best practices, refer to the [web IconButton documentation](/web/iconbutton). 
 
