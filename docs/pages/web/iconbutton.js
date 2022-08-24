@@ -731,6 +731,7 @@ Follow these guidelines for \`iconColor\`
                 accessibilityLabel={`Example icon color ${iconColor}`}
                 icon="add"
                 iconColor={iconColor}
+                size="md"
               />
             )}
           </CombinationNew>
@@ -767,6 +768,7 @@ Follow these guidelines for \`bgColor\`
                 accessibilityLabel={`Example background color ${bgColor}`}
                 bgColor={bgColor}
                 icon="add"
+                size="md"
               />
             )}
           </CombinationNew>
