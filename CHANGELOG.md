@@ -1,3 +1,9 @@
+## 67.0.4 (Aug 24, 2022)
+
+### Patch
+
+- Internal: use immutable arrays in docs components (#2324)
+
 ## 67.0.3 (Aug 23, 2022)
 
 ### Patch
