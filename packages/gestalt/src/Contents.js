@@ -211,7 +211,7 @@ class Contents extends Component<Props, State> {
    */
   balancePopoverPosition(): Object {
     // Required because of SSR
-    if (!window && !document) {
+    if (!window || !document) {
       return {};
     }
 
