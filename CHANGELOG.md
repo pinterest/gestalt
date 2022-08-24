@@ -1,3 +1,9 @@
+## 68.0.1 (Aug 24, 2022)
+
+### Patch
+
+- Avatar-Android: Added new guidelines (#2321)
+
 ## 68.0.0 (Aug 24, 2022)
 
 ### Major
