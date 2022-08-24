@@ -4,7 +4,7 @@ description: IconButton allows users to take actions and make choices with a sin
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" width={44} height={44} alt="all variations of the avatar component"/>
+<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" width={44} height={44} alt="IconButton component"/>
 
 ## Usage guidelines
 
@@ -27,7 +27,6 @@ fullwidth: true
 
 ## Mobile best practices
 
-- Display Tooltip in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button.
 - Avoid using a floating icon button if it obscures important information on the screen. 
 - IconButton on mobile should primarily utilize the lg (44pt) size as the increased size will better accomodate tapping with a finger.   
 
@@ -53,15 +52,15 @@ Small IconButton should be used sparingly and only in places where the UI is ver
 
 <ThreeCol>
 <Group center>
-<ImgContainer src="https://i.pinimg.com/originals/30/fa/30/30fa30fd2e78a285efd2b81ef7cba745.png" alt="different avatar variations" width={24} height={24} />
+<ImgContainer src="https://i.pinimg.com/originals/30/fa/30/30fa30fd2e78a285efd2b81ef7cba745.png" alt="small IconButton" width={24} height={24} />
 **size = "sm"**
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/cd/6b/4f/cd6b4ffcd8254493c5a8da94b1d68e19.png" alt="different avatar variations" width={32} height={32} />
+<ImgContainer src="https://i.pinimg.com/originals/cd/6b/4f/cd6b4ffcd8254493c5a8da94b1d68e19.png" alt="medium IconButton" width={32} height={32} />
 **size = "md"**
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" alt="different avatar variations" width={44} height={44} />
+<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" alt="large IconButton" width={44} height={44} />
 **size = "lg"**
 </Group>
 </ThreeCol>
@@ -75,11 +74,11 @@ Floating components are lifted off of the background, with high-emphasis elevati
 
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/6c/27/78/6c27788eca8b18879395892bda8ca8e5.png" width={60} height={60} alt="different avatar variations"/>
+<ImgContainer src="https://i.pinimg.com/originals/6c/27/78/6c27788eca8b18879395892bda8ca8e5.png" width={60} height={60} alt="flat IconButton"/>
 **flat**
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/54/73/1d/54731d4ae0c67a031887f6f58cd7905f.png" width={60} height={60} alt="different avatar variations"/>
+<ImgContainer src="https://i.pinimg.com/originals/54/73/1d/54731d4ae0c67a031887f6f58cd7905f.png" width={60} height={60} alt="floating IconButton"/>
 **floating**
 </Group>
 </TwoCol>
