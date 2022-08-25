@@ -19,7 +19,7 @@ For general Button best practices, refer to the [Button web documentation](/web/
 
 ### Size
 
-Mobile buttons are available in 2 sizes. The Button text always use [[$font-size-300 token](/foundations/design_tokens#Font-size)] (16dp).
+Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16dp).
 
 1. **lg (60dp)**
    Large should be primarily used on Pinner, business and internal surfaces.
@@ -75,30 +75,3 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 ## Internationalization
 
 For RTL (right-to-left) languages, the layout of the button is mirrored. The icon is placed on the right side of the text.
-
-{/* ## Related
-
-<ThreeCol>
-
-<IllustrationCard
-              title="ButtonGroup"
-              description="When displaying multiple Buttons in a layout, use ButtonGroup to ensure consistent spacing and wrapping behavior."
-              color="green-matchacado-50"
-              image="avatar-group"
-            />
-
-<IllustrationCard
-              title="IconButton"
-              description="Use IconButton when only an icon is needed instead of text."
-              color="green-matchacado-50"
-              image="avatar-group"
-            />
-
-<IllustrationCard
-              title="Tabs"
-              description="Tabs are intended for page-level navigation between multiple URLs."
-              color="green-matchacado-50"
-              image="avatar-group"
-            />
-
-</ThreeCol> */}
