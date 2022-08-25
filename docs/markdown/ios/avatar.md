@@ -32,7 +32,7 @@ For general Avatar best practices, refer to the [Avatar web documentation](/web/
     <Do title="Do" />
     Use round Avatars in the appropriate size for your need. 
   </Group>
-  <Group>
+  <Group> 
     <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt="example of triangle avatar"/>
     <Dont title="Don't" />
     Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style. 
