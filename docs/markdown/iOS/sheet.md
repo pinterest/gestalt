@@ -35,7 +35,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/12/8c/2d/128c2d8557950e5beeb85dddb1f58d04.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
     <Do title="Do" />
-    Provide a collapse or a close affordance&#151;multiple if possible. This could include an X, back caret, grabber or close button. 
+    Provide a collapse or a close affordance&mdash;multiple if possible. This could include an X, back arrow, grabber or close button. 
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/6a/d3/49/6ad3491d1618960d094d41c733b00e8e.png" alt="a partial sheet with a button in the top right corner of the header"/>
@@ -113,21 +113,3 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 - [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/foundations/accessibility/)
 - [Accessible development on iOS](https://developer.apple.com/accessibility/)
-
-{/* ## Related
- <ThreeCol>
-
-<IllustrationCard
-              title="Modal"
-              description="A Modal displays content that requires user interaction."
-              color="green-matchacado-50"
-              image="avatar-group"
-            />
-
-<IllustrationCard
-              title="Sheet"
-              description="Sheets are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page."
-              color="green-matchacado-50"
-              image="avatar-group"
-            />
-</ThreeCol> */}
