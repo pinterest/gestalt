@@ -49,11 +49,6 @@ fullwidth: true
     <Dont title="Don't" />
     Truncate tabs to fit within a view.
   </Group>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/09/e9/b6/09e9b68dea0327b92311472655e416a1.png" alt="example of using too many tabs"/>
-    <Dont title="Don't" />
-    Use more than 6 Tabs. Consider using a different component like a Sheet.
-  </Group>
 </TwoCol>
 
 ## Accessibility
