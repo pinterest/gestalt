@@ -19,7 +19,7 @@ For general Button best practices, refer to the [Button web documentation](/web/
 
 ### Size
 
-Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size)] (16pt).
+Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16pt).
 
 1. **lg (60pt)**
    Large should be primarily used on Pinner, business and internal surfaces.
