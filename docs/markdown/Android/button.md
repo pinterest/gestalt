@@ -4,7 +4,7 @@ description: Buttons allow users to perform actions within a surface. They can b
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/a8/24/be/a824be59514046f5088ae0f56a135b55.png" />
+<ImgContainer src="https://i.pinimg.com/originals/a8/24/be/a824be59514046f5088ae0f56a135b55.png" alt="a red button that says Save" />
 
 ## Mobile best practices
 
@@ -28,12 +28,12 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" />
+<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 size = “sm”
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" />
+<ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
 size = "lg"
 </Group>
 </TwoCol>
@@ -47,12 +47,12 @@ size = "lg"
 
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/ef/87/89/ef878985da4fe1eb9a18471ec0506aca.png" />
+<ImgContainer src="https://i.pinimg.com/originals/ef/87/89/ef878985da4fe1eb9a18471ec0506aca.png" alt="a default button that says Save and is the length of its text"/>
 default
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/41/aa/cd/41aacd4f33058566574f283498a3612c.png" />
+<ImgContainer src="https://i.pinimg.com/originals/41/aa/cd/41aacd4f33058566574f283498a3612c.png" alt="a fullwidth button that says Save and is the full width of the content area"/>
 fullWidth
 </Group>
 </TwoCol>

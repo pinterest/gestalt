@@ -4,7 +4,7 @@ description: Sheets are bottom-anchored overlays that that allow the user to eas
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/51/37/d2/5137d238a2fa8d2ff93668d87860e667.png" />
+<ImgContainer src="https://i.pinimg.com/originals/51/37/d2/5137d238a2fa8d2ff93668d87860e667.png" alt="examples of three types of sheets: a Full sheet, a Partial resizable sheet and an Action sheet"/>
 
 ## Usage guidelines
 
@@ -71,17 +71,17 @@ Sheets are available in three sizes.
 
 <ThreeCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/f4/dc/73/f4dc732c95493aa96a1ca09a2bd6c66d.png" />
+<ImgContainer src="https://i.pinimg.com/originals/f4/dc/73/f4dc732c95493aa96a1ca09a2bd6c66d.png" alt="a Full sheet that takes up the full phone screen and shows a profile picture and the ability to see ideas from a pinner, along with other actions like downloading and changing the profile picture" />
 **Full sheet**
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/ce/d7/9a/ced79ab112a1934d569b535de3bd6b67.png" />
+<ImgContainer src="https://i.pinimg.com/originals/ce/d7/9a/ced79ab112a1934d569b535de3bd6b67.png" alt="a Partial sheet that can be closed and/or resized. It is for Creating a board" />
 **Partial sheet**
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/21/c9/2c/21c92cd25b3df51249216404a64c16bd.png" />
+<ImgContainer src="https://i.pinimg.com/originals/21/c9/2c/21c92cd25b3df51249216404a64c16bd.png" alt="An Action Sheet that allows for sorting and organization" />
 **Action sheet**
 </Group>
 </ThreeCol>
