@@ -1,3 +1,9 @@
+## 68.1.0 (Aug 25, 2022)
+
+### Minor
+
+- Popover: Fix accessibility bug, add option for accessibilityLabel (#2330)
+
 ## 68.0.2 (Aug 24, 2022)
 
 ### Patch
