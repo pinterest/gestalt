@@ -37,11 +37,9 @@ type Props = {|
 
 export default function DocumentPage({ content, meta, pageSourceUrl }: Props): Node {
   return (
-    <ErrorBoundary>
-      <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
-        <MDXRemote {...content} />
-      </MarkdownPage>
-    </ErrorBoundary>
+    <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
+      <MDXRemote {...content} />
+    </MarkdownPage>
   );
 }
 
