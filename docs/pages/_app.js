@@ -14,7 +14,7 @@ import App from '../docs-components/App.js';
 import DocsExperimentProvider from '../docs-components/contexts/DocsExperimentProvider.js';
 import DocsI18nProvider from '../docs-components/contexts/DocsI18nProvider.js';
 import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
-import ErrorBoundary from '../docs-components/ErrorBoundary';
+import ErrorBoundary from '../docs-components/ErrorBoundary.js';
 
 // import parser from 'ua-parser-js'; Install     "ua-parser-js": "^1.0.2" in packahe
 
