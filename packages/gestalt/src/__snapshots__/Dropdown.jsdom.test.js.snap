@@ -13,6 +13,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
         tabindex="-1"
       >
         <div
+          aria-label="Popover"
           class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
           id="ex-1"
           role="menu"
