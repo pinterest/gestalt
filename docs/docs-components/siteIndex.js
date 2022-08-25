@@ -42,7 +42,8 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
   },
   {
     sectionName: 'Android',
-    pages: ['Overview', 'Avatar', 'IconButton'],
+
+    pages: ['Overview', 'Avatar', 'IconButton', 'Icon'],
   },
   {
     sectionName: 'iOS',
