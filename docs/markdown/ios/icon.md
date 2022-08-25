@@ -10,13 +10,13 @@ fullwidth: true
 
 <TwoCol>
 <Group>
-<Do title="Do" />
+<Do title="When to use"/>
 - Use as symbolic communication for elements that do not have room for text. In this case, ensure the icon choice is easily recognizable and makes sense to international users.
 - To help with quick scanning by adding rhythm and hierarchy to the design.
 
 </Group>
 <Group>
-<Dont title="Don't" />
+<Dont title="When not to use" />
 - For decorative purposes or visual embellishment, like how you would use an illustration. Contact us if this is needed.
 - As a visual reinforcement for associated text without adding new meaning.
 - To communicate status or health. Use Status instead.
@@ -119,7 +119,6 @@ Used sparingly to draw attention to an icon that might otherwise be missed.
 
 <IllustrationCard
               title="Button"
-              href="#related"
               description="Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it."
               color="green-matchacado-50"
               image="button"
@@ -127,7 +126,6 @@ Used sparingly to draw attention to an icon that might otherwise be missed.
 
 <IllustrationCard
               title="IconButton"
-              href="#related"
               description="Use IconButton when only an icon is needed instead of text."
               color="green-matchacado-50"
               image="icon-button"
