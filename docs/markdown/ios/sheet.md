@@ -47,7 +47,8 @@ fullwidth: true
 <TwoCol>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/16/65/43/16654315cb922e2fc51f6cd60b2d86c7.png" alt="a partial sheet with a grabber to help resize"/>
-    <Do title="Do" />Utilize a grabber for Partial sheets that are able to be resized.
+    <Do title="Do" />
+    Utilize a grabber for Partial sheets that are able to be resized.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/34/7c/0a/347c0a68fa3548b73f01af4a67fe914d.png" alt="a full sheet with rounded corners"/>
