@@ -152,8 +152,8 @@ class ExampleMasonry extends Component<Props, State> {
           {scrollContainer && (
             <Masonry
               columnWidth={170}
-              comp={GridComponent}
               gutterWidth={5}
+              Item={GridComponent}
               items={this.state.pins}
               layout={this.props.layout}
               minCols={1}
@@ -184,7 +184,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     <Masonry
-      comp={Item}
+      Item={Item}
       items={this.state.pins}
       loadItems={this.loadItems}
       minCols={1}
@@ -198,7 +198,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     When layout is set to \`flexible\`, the item width will shrink/grow to fill the container. This is great for responsive designs.
 
     ~~~jsx
-    <Masonry layout="flexible" comp={Item} items={items} minCols={1} />
+    <Masonry layout="flexible" Item={Item} items={items} minCols={1} />
     ~~~
     `}
         name="Flexible item width"
@@ -210,7 +210,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     When the \`flexible\` property is omitted, the item width will be fixed to \`columnWidth\`.
 
     ~~~jsx
-    <Masonry comp={Item} items={items} minCols={1} />
+    <Masonry Item={Item} items={items} minCols={1} />
     ~~~
   `}
         name="Non-flexible item width"
@@ -223,7 +223,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     import { Masonry, MasonryUniformRowLayout } from 'gestalt';
-    <Masonry comp={Item} items={items} layout={MasonryUniformRowLayout} />;
+    <Masonry Item={Item} items={items} layout={MasonryUniformRowLayout} />;
     ~~~
   `}
         name="Uniform row heights"

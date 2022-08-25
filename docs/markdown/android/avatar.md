@@ -4,7 +4,7 @@ description: Avatar is used to represent a user. Every Avatar image has a subtle
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="all variations of the avatar component"/>
+<ImgContainer src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="all variations of the avatar component"/>
 
 ## Usage guidelines
 
@@ -28,17 +28,17 @@ fullwidth: true
 For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/f0/c5/c9f0c597503b7d3ea1dc840ce1e3add8.png" alt="example profile with correct avatar size"/>
+    <ImgContainer src="https://i.pinimg.com/originals/92/e5/ec/92e5ec30eb262ff1decfb70653a0d92c.png" alt="example profile with correct avatar size"/>
     <Do title="Do" />
     Use round Avatars in the appropriate size for your need. 
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ea/f5/8beaf574ae9b9207700c63cbb6f33f33.png" alt="example of triangle avatar"/>
+    <ImgContainer src="https://i.pinimg.com/originals/43/f4/5c/43f45caf6d30655c47eaaf89e4a9d6d4.png" alt="example of triangle avatar"/>
     <Dont title="Don't" />
     Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style. 
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/a1/ad/0c/a1ad0cef8be13f304a3b350aef24f12e.png" alt="avatar with a name underneath"/>
+    <ImgContainer src="https://i.pinimg.com/originals/f4/5d/bd/f45dbde69d53684aeab0a81eede52609.png" alt="avatar with a name underneath"/>
     <Do title="Do" />
     Use the collaborator’s name nearby or in an alternative view if possible.
   </Group>
@@ -46,10 +46,10 @@ For general Avatar best practices, refer to the [Avatar web documentation](/web/
 
 ## Accessibility
 
-People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
+People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
-[Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
-[Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
+[Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
+[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
 ## Variants
 
@@ -62,7 +62,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 5. **sm** **(24px)**
 6. **xs** **(16px)**
 
-<ImgContainer src="https://i.pinimg.com/originals/30/7a/de/307adebcacf4fca359de788e6a077329.png" alt="different avatar variations"/>
+<ImgContainer src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="different avatar variations"/>
 
 ### Without an image
 
@@ -70,14 +70,13 @@ If there is no image source provided for the Avatar, the first character of the 
 
 <br/>
 
-<ImgContainer src="https://i.pinimg.com/originals/a7/e9/d7/a7e9d796017c740a00bb1b3d7fb600a3.png" alt="avatar without any image"/>
+<ImgContainer src="https://i.pinimg.com/originals/09/fb/35/09fb35ea880ea6748003d7ed0b3de426.png" alt="avatar without any image"/>
 
 ## Related
 
 <ThreeCol>
   <IllustrationCard
   title="AvatarGroup"
-  href="/web/avatargroup"
   description="AvatarGroup is the ideal component where multiple people/groups need to be displayed"
   color="teal-spabattical-450"
   image="avatar-group"

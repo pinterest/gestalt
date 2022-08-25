@@ -1,3 +1,27 @@
+## 68.1.0 (Aug 25, 2022)
+
+### Minor
+
+- Popover: Fix accessibility bug, add option for accessibilityLabel (#2330)
+
+## 68.0.2 (Aug 24, 2022)
+
+### Patch
+
+- Docs: Mobile IconButton docs for iOS and Android (#2328)
+
+## 68.0.1 (Aug 24, 2022)
+
+### Patch
+
+- Avatar-Android: Added new guidelines (#2321)
+
+## 68.0.0 (Aug 24, 2022)
+
+### Major
+
+- Masonry: rename `comp` to `Item` (#2325)
+
 ## 67.0.4 (Aug 24, 2022)
 
 ### Patch
