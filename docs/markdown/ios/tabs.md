@@ -1,6 +1,6 @@
 ---
 title: Tabs
-description: Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation.
+description: Tabs may be used to navigate between multiple URLs. Tabs are intended as page-level navigation.
 fullwidth: true
 ---
 
