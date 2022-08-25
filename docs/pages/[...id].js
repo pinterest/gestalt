@@ -15,7 +15,6 @@ import { type Node } from 'react';
 
 import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
 import MarkdownPage from '../docs-components/MarkdownPage.js';
-import ErrorBoundary from '../docs-components/ErrorBoundary.js';
 
 type MDXRemoteSerializeResult = {|
   compiledSource: string,

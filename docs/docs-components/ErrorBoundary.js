@@ -3,7 +3,7 @@
 import React, { type Node } from 'react';
 import { Text, Button } from 'gestalt';
 
-class ErrorBoundary extends React.Component<{| children: React.Node |}, {| hasError: boolean |}> {
+class ErrorBoundary extends React.Component<{| children: Node |}, {| hasError: boolean |}> {
   state: {| hasError: boolean |} = { hasError: false };
 
   static getDerivedStateFromError(): {| hasError: boolean |} {
