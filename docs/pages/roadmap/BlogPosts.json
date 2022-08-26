@@ -37,7 +37,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/1b/b0/9c/1bb09c1d2196588143ff79afa1e342e2.png",
           "imageAltText": "examples of the Gestalt Figma components",
-          "content": "On top of _all of that good stuff_, we also fixed a ton of things in our Figma libraries. Given this update is already running long, we're going to cram all the updates in this one post.\n\nFor our Android Figma library we fixed the height of our tappable components (e.g. Button, IconButton, etc.) to be 48dp.\n\nFor our Web library, we significantly simplified our Callout, ComboBox, Module, TextArea, TextField, SelectList components. This should make these components easier for you all to use and easier for us to maintain.\n\nLastly, for our Foundations library, we added some missing icons to our library. Specifically ads-overview, dash, file-unknown, folder, heart-outline and dash."
+          "content": "On top of _all of that good stuff_, we also fixed a ton of things in our Figma libraries. Given this update is already running long, we're going to cram all the updates in this one post.\n\nFor our Android Figma library we fixed the height of our tappable components (e.g. Button, IconButton, etc.) to be 48dp.\n\nFor our Web library, we significantly simplified our Callout, ComboBox, Module, TextArea, TextField, SelectList components. This should make these components easier for you all to use and easier for us to maintain.\n\nLastly, for our Foundations library, we added some missing icons to our library. Specifically ads-overview, dash, file-unknown, folder, heart-outline and history."
         }
       ]
     },
