@@ -2,6 +2,46 @@
   "year": "2022",
   "digests": [
     {
+      "week": "August 26, 2022",
+      "posts": [
+        {
+          "title": "Gestalt now has mobile component docs!",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/19/5a/af/195aaf8a65f0d7ceaa3b685beadd23cd.png",
+          "imageAltText": "a screenshot of Avatar's mobile documentation",
+          "content": "It has been a _long_ time coming, but it's (finally) here. We have begun to ship mobile-specific documentation for high-use components. So far, we've shipped hot-off-the-press docs for [Avatar](https://gestalt.pinterest.systems/android/avatar) and [IconButton](https://gestalt.pinterest.systems/android/iconbutton). Expect _many more_ dropping in the weeks to come. And yeah, before you ask, these docs are available for both Android and iOS. Our goal is to prioritize the most high-frequency components to cover components that constitute the top 80% most frequently used. \n\nKeep in mind, these docs are still a little light, but we wanted to get them out the door in order to get your feedback. So please let us know how we can improve these and we'll get on it!"
+        },
+        {
+          "title": "Messaging pattern guidelines",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/da/ab/e5/daabe5c4e3cfe7da7a54ae771f431f80.png",
+          "imageAltText": "a screenshot of Gestalt's Messaging guidelines",
+          "content": "This is another effort that's been a long time coming. We shipped out pilot version of [Messaging pattern guidelines](https://gestalt.pinterest.systems/foundations/messaging/principles), and it's meaty! This first iteration contains four separate pages: [Principles](https://gestalt.pinterest.systems/foundations/messaging/principles), [Available components](https://gestalt.pinterest.systems/foundations/messaging/available_components), [Priority and placement](https://gestalt.pinterest.systems/foundations/messaging/priority_and_placement) and [A messaging story](https://gestalt.pinterest.systems/foundations/messaging/a_messaging_story), because who doesn't like a good story?\n\nWe have plans to introduce more design patterns in the future and look forward to hearing your feedback on how to improve them."
+        },
+        {
+          "title": "Popover a11y bug fix",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/57/0b/c2/570bc24288d9eda94ceac7e88d549524.png",
+          "imageAltText": "an example of Popover",
+          "content": "We updated [Popover](https://gestalt.pinterest.systems/web/popover) (and its inner components) to always include a role and aria-label - a requirement for accessibility. We also now allow you to specify an accessibilityLabel for your Popover."
+        },
+        {
+          "title": "Figma link styles",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/0e/d9/08/0ed9083cff212885b0910c8580574b40.png",
+          "imageAltText": "a sample of Gestalt's Figma link text style",
+          "content": "Adding underlined links to designs was a pain in the butt because it meant you needed to detach a Gestalt style to manually add the underlined treatment. Well, no more! Gestalt for Web now has link styles for all of body text styles."
+        },
+        {
+          "title": "Figma cleanups",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/1b/b0/9c/1bb09c1d2196588143ff79afa1e342e2.png",
+          "imageAltText": "examples of the Gestalt Figma components",
+          "content": "On top of _all of that good stuff_, we also fixed a ton of things in our Figma libraries. Given this update is already running long, we're going to cram all the updates in this one post.\n\nFor our Android Figma library we fixed the height of our tappable components (e.g. Button, IconButton, etc.) to be 48dp.\n\nFor our Web library, we significantly simplified our Callout, ComboBox, Module, TextArea, TextField, SelectList components. This should make these components easier for you all to use and easier for us to maintain.\n\nLastly, for our Foundations library, we added some missing icons to our library. Specifically ads-overview, dash, file-unknown, folder, heart-outline and dash."
+        }
+      ]
+    },
+    {
       "week": "August 19, 2022",
       "posts": [
         {
@@ -37,7 +77,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/2b/1e/99/2b1e99c9b7b42e633a8e0822eb55de70.png",
           "imageAltText": "",
-          "content": "Our last accessility training was a hit. So much so that we're making the magic happen again on Wednesday, August 24 at 10-11:30am PST. So save the date and come on by!"
+          "content": "Our last accessibility training was a hit. So much so that we're making the magic happen again on Wednesday, August 24 at 10-11:30am PST. So save the date and come on by!"
         }
       ]
     },
