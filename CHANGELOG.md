@@ -1,3 +1,9 @@
+## 69.0.1 (Aug 26, 2022)
+
+### Patch
+
+- Docs: Added 8/26 weekly update (#2335)
+
 ## 69.0.0 (Aug 26, 2022)
 
 ### Major
