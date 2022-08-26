@@ -26,8 +26,8 @@ exports[`IconButton renders with disabled state 1`] = `
       className="pog transparent"
       style={
         Object {
-          "height": 40,
-          "width": 40,
+          "height": 48,
+          "width": 48,
         }
       }
     >
@@ -35,10 +35,10 @@ exports[`IconButton renders with disabled state 1`] = `
         aria-hidden={true}
         aria-label=""
         className="icon defaultIcon iconBlock"
-        height={18}
+        height={20}
         role="img"
         viewBox="0 0 24 24"
-        width={18}
+        width={20}
       >
         <path
           d="test-file-stub"
@@ -74,8 +74,8 @@ exports[`IconButton renders with icon 1`] = `
       className="pog transparent"
       style={
         Object {
-          "height": 40,
-          "width": 40,
+          "height": 48,
+          "width": 48,
         }
       }
     >
@@ -83,10 +83,10 @@ exports[`IconButton renders with icon 1`] = `
         aria-hidden={true}
         aria-label=""
         className="icon defaultIcon iconBlock"
-        height={18}
+        height={20}
         role="img"
         viewBox="0 0 24 24"
-        width={18}
+        width={20}
       >
         <path
           d="test-file-stub"
@@ -122,8 +122,8 @@ exports[`IconButton renders with svg 1`] = `
       className="pog transparent"
       style={
         Object {
-          "height": 40,
-          "width": 40,
+          "height": 48,
+          "width": 48,
         }
       }
     >
@@ -131,10 +131,10 @@ exports[`IconButton renders with svg 1`] = `
         aria-hidden={true}
         aria-label=""
         className="icon defaultIcon iconBlock"
-        height={18}
+        height={20}
         role="img"
         viewBox="0 0 24 24"
-        width={18}
+        width={20}
       >
         <path
           d="M13.00,20.00"
@@ -181,8 +181,8 @@ exports[`IconButton renders with tooltip 1`] = `
           className="pog transparent"
           style={
             Object {
-              "height": 40,
-              "width": 40,
+              "height": 48,
+              "width": 48,
             }
           }
         >
@@ -190,10 +190,10 @@ exports[`IconButton renders with tooltip 1`] = `
             aria-hidden={true}
             aria-label=""
             className="icon defaultIcon iconBlock"
-            height={18}
+            height={20}
             role="img"
             viewBox="0 0 24 24"
-            width={18}
+            width={20}
           >
             <path
               d="test-file-stub"
@@ -242,8 +242,8 @@ exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
           className="pog transparent"
           style={
             Object {
-              "height": 40,
-              "width": 40,
+              "height": 48,
+              "width": 48,
             }
           }
         >
@@ -251,10 +251,10 @@ exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
             aria-hidden={true}
             aria-label=""
             className="icon defaultIcon iconBlock"
-            height={18}
+            height={20}
             role="img"
             viewBox="0 0 24 24"
-            width={18}
+            width={20}
           >
             <path
               d="test-file-stub"

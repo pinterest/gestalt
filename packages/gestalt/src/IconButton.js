@@ -92,7 +92,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
     padding,
     tabIndex = 0,
     tooltip,
-    size,
+    size = 'lg',
   } = props;
 
   const innerRef = useRef(null);

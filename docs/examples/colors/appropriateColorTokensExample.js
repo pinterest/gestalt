@@ -20,8 +20,8 @@ export default function AppropriateColorTokensExample(): Node {
           column: 0,
         }}
       >
-        <IconButton icon="speech" accessibilityLabel="Comment" />
-        <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" />
+        <IconButton icon="speech" accessibilityLabel="Comment" size="md" />
+        <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" size="md" />
       </Flex>
       <Flex
         gap={{
