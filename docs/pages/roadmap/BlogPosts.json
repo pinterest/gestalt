@@ -23,7 +23,7 @@
           "audience": ["Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/57/0b/c2/570bc24288d9eda94ceac7e88d549524.png",
           "imageAltText": "an example of Popover",
-          "content": "We updated Popover (and its inner components) to always include a role and aria-label - a requirement for accessibility. We also now allow you to specify an accessibilityLabel for your Popover."
+          "content": "We updated [Popover](https://gestalt.pinterest.systems/web/popover) (and its inner components) to always include a role and aria-label - a requirement for accessibility. We also now allow you to specify an accessibilityLabel for your Popover."
         },
         {
           "title": "Figma link styles",
