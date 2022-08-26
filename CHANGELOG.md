@@ -1,3 +1,9 @@
+## 69.0.0 (Aug 26, 2022)
+
+### Major
+
+- IconButton: new size default (#2326)
+
 ## 68.1.0 (Aug 25, 2022)
 
 ### Minor
