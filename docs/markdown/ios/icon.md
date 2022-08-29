@@ -4,7 +4,7 @@ description: Icons are the symbolic representation of an action or information, 
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/1d/52/31/1d5231c99699e72628135de682fede30.jpg" />
+<ImgContainer src="https://i.pinimg.com/originals/1d/52/31/1d5231c99699e72628135de682fede30.jpg" alt="Five example icons in a row. Icons include share, check, back, filter, and menu." />
 
 ## Usage guidelines
 
@@ -56,15 +56,15 @@ On iOS, use the chevron icon titled arrow-back to indicate backward movement.
 
 <ThreeCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/91/f5/12/91f512297d96187a3c110b977c366bc1.jpg" />
+<ImgContainer src="https://i.pinimg.com/originals/91/f5/12/91f512297d96187a3c110b977c366bc1.jpg" alt="A share icon." />
 ios-share
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/b2/ad/e6/b2ade673955c952da0188b67fe65049a.jpg" />
+<ImgContainer src="https://i.pinimg.com/originals/b2/ad/e6/b2ade673955c952da0188b67fe65049a.jpg" alt="A check mark icon." />
 check
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/ae/80/ce/ae80ce91701e3115d1c4d875508bf131.jpg" />
+<ImgContainer src="https://i.pinimg.com/originals/ae/80/ce/ae80ce91701e3115d1c4d875508bf131.jpg" alt="A chevron icon pointing left." />
 arrow-back
 </Group>
 </ThreeCol>
@@ -84,11 +84,11 @@ Used sparingly to draw attention to an icon that might otherwise be missed.
 
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/81/ca/d0/81cad0e1aa26025955806c587f135f47.jpg" />
+<ImgContainer src="https://i.pinimg.com/originals/81/ca/d0/81cad0e1aa26025955806c587f135f47.jpg" alt="The Pinterest homepage with a 16 pixel TV icon." />
 16px Icon example
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/5e/f1/ec/5ef1ecca4f57fc3f6940db9639bd2d4b.jpg" />
+<ImgContainer src="https://i.pinimg.com/originals/5e/f1/ec/5ef1ecca4f57fc3f6940db9639bd2d4b.jpg" alt="The Pinterest homepage footer with several 24 pixel icons." />
 24px Icon example
 </Group>
 </TwoCol>
