@@ -107,6 +107,7 @@ function DismissButton({
       icon="cancel"
       iconColor="darkGray"
       onClick={onClick}
+      size="md"
     />
   );
 }

@@ -13,10 +13,10 @@ export default function DistinctionExample(): Node {
       alignItems="center"
       height="100%"
     >
-      <IconButton icon="speech" iconColor="darkGray" accessibilityLabel="Comment" />
+      <IconButton icon="speech" iconColor="darkGray" size="md" accessibilityLabel="Comment" />
       <Button color="gray" text="Visit" />
       <Button color="red" text="Save" />
-      <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" />
+      <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" size="md" />
     </Flex>
   );
 }
