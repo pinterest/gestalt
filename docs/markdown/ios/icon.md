@@ -113,6 +113,7 @@ Used sparingly to draw attention to an icon that might otherwise be missed.
 </Group>
 </TwoCol>
 
+{/*
 ## Related
 
 <TwoCol>
@@ -132,3 +133,4 @@ Used sparingly to draw attention to an icon that might otherwise be missed.
             />
 
 </TwoCol>
+*/}
