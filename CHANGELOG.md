@@ -1,3 +1,9 @@
+## 69.1.5 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Add iOS & Android text field (#2334)
+
 ## 69.1.4 (Aug 29, 2022)
 
 ### Patch
