@@ -3,8 +3,8 @@ title: Icon
 description: Icons are the symbolic representation of an action or information, providing visual context and improving usability.
 fullwidth: true
 ---
+<ImgContainer src="https://i.pinimg.com/originals/5c/e9/65/5ce965aac16951ef57b3a735bb41e823.jpg" alt="Four example icons in a row. Icons include share, check, back and menu. >
 
-<ImgContainer src="https://i.pinimg.com/originals/5c/e9/65/5ce965aac16951ef57b3a735bb41e823.jpg" />
 
 ## Usage guidelines
 
