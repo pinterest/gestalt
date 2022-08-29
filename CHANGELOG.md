@@ -1,3 +1,27 @@
+## 69.1.4 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Added button and sheet for iOS Android (#2327)
+
+## 69.1.3 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Navigate to overview page with platform switcher (#2340)
+
+## 69.1.2 (Aug 29, 2022)
+
+### Patch
+
+- Docs: update favicon to Gestalt logo (#2343)
+
+## 69.1.1 (Aug 29, 2022)
+
+### Patch
+
+- Updated component_data to set Tabs docs ready for Android and iOS (#2338)
+
 ## 69.1.0 (Aug 29, 2022)
 
 ### Minor

@@ -48,7 +48,7 @@ gtag('config', 'UA-12967896-44');
 `,
             }}
           />
-          <link rel="icon" href="/pinterest_favicon.png" />
+          <link rel="icon" href="/gestalt_favicon.png" />
           {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
         </Head>

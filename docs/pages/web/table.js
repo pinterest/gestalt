@@ -1077,7 +1077,7 @@ function MainExample() {
                   label="Notes"
                   value=""
                 />
-                <Flex gap={{ column: 0, row: 4 }}
+                <Flex gap={{ column: 0, row: 4 }}>
                   <NumberField
                     id="budget"
                     onChange={() => {}}

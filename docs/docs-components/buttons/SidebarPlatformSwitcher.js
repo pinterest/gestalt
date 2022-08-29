@@ -1,5 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
+import { useRouter } from 'next/router';
 import { SegmentedControl } from 'gestalt';
 import AppleLogo from '../../graphics/home-page/apple-logo.svg';
 import AndroidLogo from '../../graphics/home-page/android-logo.svg';
@@ -20,6 +21,7 @@ export default function SidebarPlatformSwitcher({
     'ios': 1,
     'android': 2,
   };
+  const router = useRouter();
 
   // Do not change the order of these items
   const items = [
@@ -34,6 +36,8 @@ export default function SidebarPlatformSwitcher({
       (key) => PLATFORM_TO_INDEX_MAP[key] === activeIndex,
     );
     trackButtonClick('Sidebar Platform ', selectedPlatform);
+    router.push(`/${selectedPlatform || 'web'}/overview`);
+
     onClick(selectedPlatform || 'web');
   };
 
