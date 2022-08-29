@@ -1038,7 +1038,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'planned',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'planned',
       figma: 'ready',
       responsive: 'ready',
