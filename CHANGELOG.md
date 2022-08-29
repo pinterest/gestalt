@@ -1,3 +1,9 @@
+## 69.1.4 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Added button and sheet for iOS Android (#2327)
+
 ## 69.1.3 (Aug 29, 2022)
 
 ### Patch
