@@ -1,3 +1,9 @@
+## 69.0.2 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Fixed typo in 8/26 update (#2336)
+
 ## 69.0.1 (Aug 26, 2022)
 
 ### Patch
