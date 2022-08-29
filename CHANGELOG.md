@@ -1,3 +1,9 @@
+## 69.1.1 (Aug 29, 2022)
+
+### Patch
+
+- Updated component_data to set Tabs docs ready for Android and iOS (#2338)
+
 ## 69.1.0 (Aug 29, 2022)
 
 ### Minor
