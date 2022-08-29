@@ -60,7 +60,9 @@ async function validate() {
     }
   });
 
-  const pages = Object.keys(uniqueFlatPages).filter((key) => uniqueFlatPages[key] !== 'collision');
+  const pages = Object.keys(uniqueFlatPages)
+    .filter((key) => uniqueFlatPages[key] !== 'collision')
+    .map((page) => page.toLocaleLowerCase());
 
   const a11ySpecFiles = (await globby([specFile])).map((file) => file.toLocaleLowerCase());
 
