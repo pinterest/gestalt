@@ -1,3 +1,9 @@
+## 69.1.3 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Navigate to overview page with platform switcher (#2340)
+
 ## 69.1.2 (Aug 29, 2022)
 
 ### Patch
