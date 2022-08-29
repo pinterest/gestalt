@@ -14,6 +14,7 @@ import remarkGfm from 'remark-gfm';
 import { type Node } from 'react';
 
 import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
+import ErrorBoundary from '../docs-components/ErrorBoundary.js';
 import MarkdownPage from '../docs-components/MarkdownPage.js';
 
 type MDXRemoteSerializeResult = {|
@@ -36,9 +37,11 @@ type Props = {|
 
 export default function DocumentPage({ content, meta, pageSourceUrl }: Props): Node {
   return (
-    <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
-      <MDXRemote {...content} />
-    </MarkdownPage>
+    <ErrorBoundary>
+      <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
+        <MDXRemote {...content} />
+      </MarkdownPage>
+    </ErrorBoundary>
   );
 }
 
