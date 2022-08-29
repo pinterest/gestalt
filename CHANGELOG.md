@@ -1,3 +1,9 @@
+## 69.0.3 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Mobile docs added for Tabs (#2331)
+
 ## 69.0.2 (Aug 29, 2022)
 
 ### Patch
