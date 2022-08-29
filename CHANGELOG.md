@@ -1,3 +1,33 @@
+## 69.1.0 (Aug 29, 2022)
+
+### Minor
+
+- Docs: new iOS & Android overview pages (#2332)
+
+## 69.0.3 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Mobile docs added for Tabs (#2331)
+
+## 69.0.2 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Fixed typo in 8/26 update (#2336)
+
+## 69.0.1 (Aug 26, 2022)
+
+### Patch
+
+- Docs: Added 8/26 weekly update (#2335)
+
+## 69.0.0 (Aug 26, 2022)
+
+### Major
+
+- IconButton: new size default (#2326)
+
 ## 68.1.0 (Aug 25, 2022)
 
 ### Minor

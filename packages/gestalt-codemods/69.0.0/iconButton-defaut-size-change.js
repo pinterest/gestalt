@@ -3,7 +3,7 @@
  *  <IconButton /> to <IconButton size="md" />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/68.0.0/iconButton-defaut-size-change.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/69.0.0/iconButton-defaut-size-change.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;

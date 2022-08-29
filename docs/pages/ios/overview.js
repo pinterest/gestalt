@@ -6,9 +6,9 @@ import Overview from '../../docs-components/Overview.js';
 export default function ComponentOverview(): Node {
   return (
     <Overview
-      platform="Android"
+      platform="iOS"
       generalComponents={COMPONENT_DATA.generalComponents.filter(
-        (x) => x?.android?.documentation === 'ready',
+        (x) => x?.iOS?.documentation === 'ready',
       )}
     />
   );
