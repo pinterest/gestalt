@@ -97,6 +97,7 @@ function PopoverExample() {
       {open && (
         <Layer>
           <Popover
+            accessibilityLabel="Save to board"
             anchor={anchorRef.current}
             id="main-example"
             idealDirection="down"
@@ -521,13 +522,17 @@ function PopoverExample() {
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
-To assist screen readers, we recommend passing the following ARIA attributes to the anchor element:
+We recommend passing the following ARIA attribute to Popover for a better screen reader experience:
+
+- \`accessibilityLabel\`: describes the main purpose of a Popover for the screen reader. Should be unique and concise. For example, "Save to board" instead of "Popover".  It populates [aria-label](https://w3c.github.io/aria-practices/#dialog_roles_states_props).
+
+To further assist screen readers, we recommend passing the following ARIA attributes to the _anchor element_:
 
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover attached to the anchor element. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityExpanded\`: informs the screen reader whether Popover is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityControls\`: match with the \`id\` of the associated Popover whose contents or visibility are controlled by the interactive component so that screen reader users can identify the relationship between elements. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 
-For role attribute, use:
+For the \`role\` prop, use:
 - 'dialog' if the Popover is a dialog that prompts the user to enter information or requires a response.
 - 'menu' if the Popover presents a list of choices to the user.
 - 'listbox' if the Popover is a widget that allows the user to select one or more items (whose role is option) from a list. May also include a search option.
@@ -617,11 +622,13 @@ function PopoverExample() {
       {open && (
         <Layer>
           <Popover
+            accessibilityLabel="Save to board"
             anchor={anchorRef.current}
             id="example-a11y"
             idealDirection="down"
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
+            role="listbox"
             size="xl"
           >
             <Box width={360}>

@@ -1,3 +1,57 @@
+## 69.1.0 (Aug 29, 2022)
+
+### Minor
+
+- Docs: new iOS & Android overview pages (#2332)
+
+## 69.0.3 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Mobile docs added for Tabs (#2331)
+
+## 69.0.2 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Fixed typo in 8/26 update (#2336)
+
+## 69.0.1 (Aug 26, 2022)
+
+### Patch
+
+- Docs: Added 8/26 weekly update (#2335)
+
+## 69.0.0 (Aug 26, 2022)
+
+### Major
+
+- IconButton: new size default (#2326)
+
+## 68.1.0 (Aug 25, 2022)
+
+### Minor
+
+- Popover: Fix accessibility bug, add option for accessibilityLabel (#2330)
+
+## 68.0.2 (Aug 24, 2022)
+
+### Patch
+
+- Docs: Mobile IconButton docs for iOS and Android (#2328)
+
+## 68.0.1 (Aug 24, 2022)
+
+### Patch
+
+- Avatar-Android: Added new guidelines (#2321)
+
+## 68.0.0 (Aug 24, 2022)
+
+### Major
+
+- Masonry: rename `comp` to `Item` (#2325)
+
 ## 67.0.4 (Aug 24, 2022)
 
 ### Patch

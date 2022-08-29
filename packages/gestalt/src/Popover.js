@@ -9,6 +9,10 @@ type Role = 'dialog' | 'listbox' | 'menu';
 
 type Props = {|
   /**
+   * Unique label to describe each Popover. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
+   */
+  accessibilityLabel?: string,
+  /**
    * The reference element, typically [Button](https://gestalt.pinterest.systems/web/button) or [IconButton](https://gestalt.pinterest.systems/web/iconbutton), that Popover uses to set its position.
    */
   anchor: ?HTMLElement,
@@ -64,6 +68,7 @@ type Props = {|
  * Popover is most appropriate for desktop screens and can contain a variety of elements, such as [Button](/button) and [Images](/image). Popover is also the container used to construct more complex elements like [Dropdown](/dropdown) and the board picker, pictured below, which allow people to choose the board to save a Pin to.
  */
 export default function Popover({
+  accessibilityLabel = 'Popover',
   anchor,
   children,
   onKeyDown,
@@ -72,7 +77,7 @@ export default function Popover({
   onDismiss,
   positionRelativeToAnchor = true,
   color = 'white',
-  role,
+  role = 'dialog',
   shouldFocus = true,
   showCaret = false,
   size = 'sm',
@@ -83,6 +88,7 @@ export default function Popover({
 
   return (
     <Controller
+      accessibilityLabel={accessibilityLabel}
       anchor={anchor}
       bgColor={color}
       border

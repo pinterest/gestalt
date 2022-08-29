@@ -144,11 +144,37 @@ const components = {
   TwoCol: ({ children }: {| children: Node |}) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
   ),
-  ImgContainer: ({ src, caption, alt }: {| src: string, caption?: string, alt?: string |}) => (
+  ImgContainer: ({
+    src,
+    caption,
+    alt,
+    width,
+    height,
+  }: {|
+    src: string,
+    caption?: string,
+    alt?: string,
+    width?: number,
+    height?: number,
+  |}) => (
     <Box>
       <Box padding={8} rounding={2} borderStyle="sm" height="250px">
-        <Box position="relative" width="100%" height="100%">
-          <Image src={src} alt={alt} layout="fill" objectFit="contain" />
+        <Box
+          position="relative"
+          width="100%"
+          height="100%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Image
+            src={src}
+            alt={alt}
+            width={width || '100%'}
+            height={height || '100%'}
+            layout={width || height ? 'fixed' : 'fill'}
+            objectFit="contain"
+          />
         </Box>
       </Box>
       {caption && (

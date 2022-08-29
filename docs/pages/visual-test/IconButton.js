@@ -10,6 +10,7 @@ export default function Snapshot(): Node {
         icon="visit"
         bgColor="lightGray"
         iconColor="darkGray"
+        size="md"
       />
     </Box>
   );

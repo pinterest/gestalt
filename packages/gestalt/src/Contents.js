@@ -28,6 +28,7 @@ import {
 export type Role = 'dialog' | 'listbox' | 'menu';
 
 type OwnProps = {|
+  accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
@@ -202,7 +203,8 @@ class Contents extends Component<Props, State> {
   };
 
   render(): Node {
-    const { bgColor, border, caret, children, id, role, rounding, width } = this.props;
+    const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
+      this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
 
     // Needed to prevent UI thrashing
@@ -240,6 +242,7 @@ class Contents extends Component<Props, State> {
           </div>
         )}
         <div
+          aria-label={accessibilityLabel}
           id={id}
           role={role}
           className={classnames(
