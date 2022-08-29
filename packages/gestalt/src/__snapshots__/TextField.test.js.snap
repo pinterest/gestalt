@@ -71,6 +71,30 @@ exports[`TextField TextField with disabled 1`] = `
 </span>
 `;
 
+exports[`TextField TextField with enterKeyHint 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      enterKeyHint="go"
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
 exports[`TextField TextField with error 1`] = `
 <span>
   <div

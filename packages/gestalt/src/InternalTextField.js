@@ -25,6 +25,7 @@ type Props = {|
   accessibilityActiveDescendant?: string,
   autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
+  enterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   errorMessage?: Node,
   hasError?: boolean,
   helperText?: string,
@@ -67,6 +68,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
       autoComplete,
       disabled = false,
       errorMessage,
+      enterKeyHint,
       hasError = false,
       helperText,
       id,
@@ -152,6 +154,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
         autoComplete={autoComplete}
         className={tags ? unstyledClasses : styledClasses}
         disabled={disabled}
+        enterKeyHint={enterKeyHint}
         id={id}
         max={type === 'number' ? max : undefined}
         min={type === 'number' ? min : undefined}

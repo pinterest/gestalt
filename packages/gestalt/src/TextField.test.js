@@ -38,6 +38,19 @@ describe('TextField', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('TextField with enterKeyHint', () => {
+    const tree = create(
+      <TextField
+        id="test"
+        enterKeyHint="go"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('TextField with hasError', () => {
     const tree = create(
       <TextField hasError id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,

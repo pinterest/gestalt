@@ -48,6 +48,30 @@ exports[`NumberField NumberField with autocomplete 1`] = `
 </span>
 `;
 
+exports[`NumberField NumberField with enterKeyHint 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      enterKeyHint="go"
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      pattern="\\\\d*"
+      type="number"
+    />
+  </div>
+</span>
+`;
+
 exports[`NumberField NumberField with error 1`] = `
 <span>
   <div
