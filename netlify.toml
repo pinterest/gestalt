@@ -13,5 +13,11 @@
     [headers.values]
     Access-Control-Allow-Origin = "*"
 
+[[redirects]]
+  from = "https://gestalt.netlify.app"
+  to = "https://gestalt.pinterest.systems"
+  status = 301
+  force = true
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
