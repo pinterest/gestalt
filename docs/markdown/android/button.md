@@ -72,6 +72,6 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 - [Accessible design on iOS](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 - [Accessible development on iOS](https://developer.android.com/guide/topics/ui/accessibility)
 
-## Internationalization
+## Localization
 
 For RTL (right-to-left) languages, the layout of the button is mirrored. The icon is placed on the right side of the text.
