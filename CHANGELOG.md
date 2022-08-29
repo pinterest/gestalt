@@ -1,3 +1,9 @@
+## 69.1.0 (Aug 29, 2022)
+
+### Minor
+
+- Docs: new iOS & Android overview pages (#2332)
+
 ## 69.0.3 (Aug 29, 2022)
 
 ### Patch
