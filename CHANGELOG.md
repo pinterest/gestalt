@@ -1,3 +1,9 @@
+## 70.1.1 (Aug 30, 2022)
+
+### Patch
+
+- Docs: Update example sizes in Modal and Sheet (#2347)
+
 ## 70.1.0 (Aug 30, 2022)
 
 ### Minor
