@@ -18,6 +18,8 @@ import sizesExample from '../../examples/modal/sizesExample.js';
 import preventCloseExample from '../../examples/modal/preventCloseExample.js';
 
 export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  const PREVIEW_HEIGHT = 450;
+
   return (
     <Page title="Modal">
       <PageHeader name="Modal" description={generatedDocGen?.description}>
@@ -25,7 +27,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           code={defaultExample}
           name="Modal Main Example"
           hideEditor
-          previewHeight={450}
+          previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
       <GeneratedPropTable
@@ -69,7 +71,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
                 code={userResponseExample}
                 name="User response example"
                 hideEditor
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -83,7 +85,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
                 code={limitActionsExample}
                 name="Limit actions example"
                 hideEditor
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -96,7 +98,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
                 code={createBoardExample}
                 name="Create board example"
                 hideEditor
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -131,7 +133,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={accessibilityExample}
                 name="Modal accessibility example"
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -149,7 +151,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={roleAlertDialogExample}
                 name="Alert dialog example"
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -160,7 +162,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={accessibilityExample}
                 name="Default role example"
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -192,7 +194,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={createBoardExample}
                 name="Create board example"
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -207,7 +209,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={limitActionsExample}
                 name="Subheading example"
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -224,7 +226,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
                 code={sizesExample}
                 name="Sizes example"
                 layout="column"
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -239,7 +241,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
               <SandpackExample
                 code={preventCloseExample}
                 name="Prevent close example"
-                previewHeight={450}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
