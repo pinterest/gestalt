@@ -21,7 +21,12 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
   return (
     <Page title="Modal">
       <PageHeader name="Modal" description={generatedDocGen?.description}>
-        <SandpackExample code={defaultExample} name="Modal Main Example" hideEditor />
+        <SandpackExample
+          code={defaultExample}
+          name="Modal Main Example"
+          hideEditor
+          previewHeight={450}
+        />
       </PageHeader>
       <GeneratedPropTable
         generatedDocGen={generatedDocGen}
@@ -60,7 +65,12 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="Use Modal when a response is required from the user. Clearly communicate what response is expected and make the action simple and straight forward, such as clicking a button to confirm. The most common responses will be related to confirming or canceling."
             sandpackExample={
-              <SandpackExample code={userResponseExample} name="User response example" hideEditor />
+              <SandpackExample
+                code={userResponseExample}
+                name="User response example"
+                hideEditor
+                previewHeight={450}
+              />
             }
           />
 
@@ -69,7 +79,12 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="Limit the number of actions in a Modal. A primary and secondary action should be used for Modals. The rarely used tertiary actions are often destructive, such as “Delete”."
             sandpackExample={
-              <SandpackExample code={limitActionsExample} name="Limit actions example" hideEditor />
+              <SandpackExample
+                code={limitActionsExample}
+                name="Limit actions example"
+                hideEditor
+                previewHeight={450}
+              />
             }
           />
           <MainSection.Card
@@ -77,7 +92,12 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             type="do"
             description="In the few cases where Modals are being used within the Pinner product, aim to prevent the content from needing to scroll at a reasonable screen size."
             sandpackExample={
-              <SandpackExample code={createBoardExample} name="Create board example" hideEditor />
+              <SandpackExample
+                code={createBoardExample}
+                name="Create board example"
+                hideEditor
+                previewHeight={450}
+              />
             }
           />
         </MainSection.Subsection>
@@ -108,7 +128,11 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={accessibilityExample} name="Modal accessibility example" />
+              <SandpackExample
+                code={accessibilityExample}
+                name="Modal accessibility example"
+                previewHeight={450}
+              />
             }
           />
         </MainSection.Subsection>
@@ -122,14 +146,22 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             title='role="alertdialog"'
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={roleAlertDialogExample} name="Alert dialog example" />
+              <SandpackExample
+                code={roleAlertDialogExample}
+                name="Alert dialog example"
+                previewHeight={450}
+              />
             }
           />
           <MainSection.Card
             title='role="dialog" (default)'
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={accessibilityExample} name="Default role example" />
+              <SandpackExample
+                code={accessibilityExample}
+                name="Default role example"
+                previewHeight={450}
+              />
             }
           />
         </MainSection.Subsection>
@@ -157,7 +189,11 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={createBoardExample} name="Create board example" />
+              <SandpackExample
+                code={createBoardExample}
+                name="Create board example"
+                previewHeight={450}
+              />
             }
           />
         </MainSection.Subsection>
@@ -168,7 +204,11 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={limitActionsExample} name="Subheading example" />
+              <SandpackExample
+                code={limitActionsExample}
+                name="Subheading example"
+                previewHeight={450}
+              />
             }
           />
         </MainSection.Subsection>
@@ -180,7 +220,12 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={sizesExample} name="Sizes example" layout="column" />
+              <SandpackExample
+                code={sizesExample}
+                name="Sizes example"
+                layout="column"
+                previewHeight={450}
+              />
             }
           />
         </MainSection.Subsection>
@@ -191,7 +236,11 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={preventCloseExample} name="Prevent close example" />
+              <SandpackExample
+                code={preventCloseExample}
+                name="Prevent close example"
+                previewHeight={450}
+              />
             }
           />
         </MainSection.Subsection>
