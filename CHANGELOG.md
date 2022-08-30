@@ -1,3 +1,9 @@
+## 70.1.0 (Aug 30, 2022)
+
+### Minor
+
+- Docs: implement a11y "Skip to content" (#2339)
+
 ## 70.0.0 (Aug 30, 2022)
 
 ### Major
