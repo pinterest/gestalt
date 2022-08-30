@@ -14,8 +14,8 @@
     Access-Control-Allow-Origin = "*"
 
 [[redirects]]
-  from = "https://gestalt.netlify.app"
-  to = "https://gestalt.pinterest.systems"
+  from = "https://gestalt.netlify.app/*"
+  to = "https://gestalt.pinterest.systems/:splat"
   status = 301
   force = true
 
