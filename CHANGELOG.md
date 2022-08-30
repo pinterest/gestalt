@@ -1,3 +1,9 @@
+## 69.1.6 (Aug 30, 2022)
+
+### Patch
+
+- Docs: Add Android & iOS Icon Page (#2333)
+
 ## 69.1.5 (Aug 29, 2022)
 
 ### Patch
