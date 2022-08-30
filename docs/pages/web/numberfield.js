@@ -557,6 +557,37 @@ function Example(props) {
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          title="EnterKeyHint"
+          description={`The \`enterKeyHint\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
+
+- "enter": inserting a new line
+- "done": there is nothing more to input and the input editor will be closed
+- "go": taking the user to the target of the text they typed
+- "next": taking the user to the next field that will accept text
+- "previous": taking the user to the previous field that will accept text
+- "search": taking the user to the results of searching for the text they have typed
+- "send": submitting the input, such as an email or chat
+          `}
+        >
+          <MainSection.Card
+            defaultCode={`
+function NumberFieldExample() {
+  return (
+    <NumberField
+      id="enterKeyHint"
+      enterKeyHint="next"
+      label="Age"
+      onChange={() => {}}
+      onBlur={() => {}}
+      onFocus={() => {}}
+    />
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           title="Refs"
           description={`
     Set a ref on NumberField to use the [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation) or to anchor a Popover-based element.

@@ -19,6 +19,10 @@ type Props = {|
    */
   disabled?: boolean,
   /**
+   *  Optionally specify the action label to present for the enter key on virtual keyboards. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/textfield#EnterKeyHint) for more info.
+   */
+  enterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
+  /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
   errorMessage?: Node,
@@ -118,6 +122,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   {
     autoComplete,
     disabled = false,
+    enterKeyHint,
     errorMessage,
     hasError = false,
     helperText,
@@ -196,6 +201,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     <InternalTextField
       autoComplete={autoComplete}
       disabled={disabled}
+      enterKeyHint={enterKeyHint}
       errorMessage={errorMessage}
       hasError={hasError}
       helperText={helperText}
