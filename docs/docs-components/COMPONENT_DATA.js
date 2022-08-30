@@ -1043,6 +1043,32 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       figma: 'ready',
       responsive: 'ready',
     },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'ready',
+      figma: 'ready',
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'ready',
+      figma: 'ready',
+    },
   },
 
   {
