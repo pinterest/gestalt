@@ -1,3 +1,9 @@
+## 69.2.3 (Aug 30, 2022)
+
+### Patch
+
+- Docs: fix broken examples (#2346)
+
 ## 69.2.2 (Aug 30, 2022)
 
 ### Patch
