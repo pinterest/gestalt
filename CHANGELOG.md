@@ -1,3 +1,9 @@
+## 69.2.2 (Aug 30, 2022)
+
+### Patch
+
+- Docs: add redirect from old domain to new one, now with splat! (#2345)
+
 ## 69.2.1 (Aug 30, 2022)
 
 ### Patch
