@@ -1,3 +1,9 @@
+## 69.2.1 (Aug 30, 2022)
+
+### Patch
+
+- Docs: updated favicon with Gestalt logo variant for development environments (#2344)
+
 ## 69.2.0 (Aug 30, 2022)
 
 ### Minor
