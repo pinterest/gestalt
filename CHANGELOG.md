@@ -1,3 +1,9 @@
+## 69.2.0 (Aug 30, 2022)
+
+### Minor
+
+- Textfield, Numberfield: new enterKeyHint prop (#2337)
+
 ## 69.1.6 (Aug 30, 2022)
 
 ### Patch
