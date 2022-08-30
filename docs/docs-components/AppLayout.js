@@ -2,6 +2,7 @@
 import { useEffect, Fragment, type Node } from 'react';
 import { Box, Divider, DeviceTypeProvider } from 'gestalt';
 import Header from './Header.js';
+import SkipToContent from './SkipToContent.js';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
 import Footer from './Footer.js';
 import ResourcesFooter from './ResourcesFooter.js';
@@ -47,6 +48,7 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
     </Box>
   ) : (
     <Box minHeight="100vh" color="default">
+      <SkipToContent />
       <Header />
       {isSidebarOpen && (
         <Fragment>
