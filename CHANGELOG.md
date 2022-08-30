@@ -1,3 +1,9 @@
+## 70.0.0 (Aug 30, 2022)
+
+### Major
+
+- Masonry: add support for RTL text direction (#2276)
+
 ## 69.2.3 (Aug 30, 2022)
 
 ### Patch
