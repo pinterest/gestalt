@@ -145,7 +145,7 @@ If you need a new icon for an experiment that is not listed on our [Icon](/web/i
 
 However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/web/box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
 
-Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the icon to Gestalt.
+Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](ICON_KIT). Once the asset is ready, we can add the icon to Gestalt.
 
 Gestalt icon svg files follow a particular format and use automatic file validation testing.
 
@@ -155,7 +155,7 @@ Gestalt icon svg files follow a particular format and use automatic file validat
 
 We override the color in the Gestalt Icon component and Gestalt only uses the \`d\` attribute in the \`path\` tag and the basic attributes for visualizing the raw file in the \`svg\` tag . For consistency, we don't include unnecessary attributes in the \`svg\` and \`path\` tags.
 
-We recommend streamlining (removing strokes, transforms, etc.) and optimizing the SVGs to improve performance and the pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac)
+We recommend streamlining (removing strokes, transforms, etc.) and optimizing the SVGs to improve performance and the pinner experience using the tools [svgo](SVGO) or [ImageOptim](IMAGEOPTIM)
 
 To use svgo, install
 
@@ -170,7 +170,7 @@ and run
       <MainSection name="Accessibility">
         <MainSection.Subsection
           description="
-- Icons must meet the [Non-Text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) requirement.
+- Icons must meet the [Non-Text Contrast](A11y_W3_NON_TEXT_CONTRAST) requirement.
 - Avoid using unfamiliar icons. Always refer to Gestalt available icons. A new icon needs to be user tested to evaluate comprehension.
 - Icons should be universal across cultures, regions, ages, and backgrounds without need for translation. Be mindful of your audience and use symbols and labels that resonate with them.
 - Some icons don't translate well in all cultures, so it's preferred to user-test each icon before it is added to Gestalt.

@@ -2,19 +2,20 @@
 import { type Node } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
+import LINKS from './LINK_REPOSITORY.js';
 
 const links = [
   {
     title: 'Careers',
-    url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
+    url: LINKS.PINTEREST_CAREERS,
     external: true,
   },
   {
     title: 'Code sandbox',
-    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
+    url: LINKS.CODE_SANDBOX,
     external: true,
   },
-  { title: 'GitHub', url: 'https://github.com/pinterest/gestalt', external: true },
+  { title: 'GitHub', url: LINKS.GESTALT_GITHUB, external: true },
 ];
 
 export default function Footer(): Node {
@@ -35,7 +36,7 @@ export default function Footer(): Node {
             <Text size="100">
               <Link
                 accessibilityLabel="Visit Pinterest.com"
-                href="https://www.pinterest.com"
+                href={LINKS.PINTEREST_CANONICAL}
                 onClick={() => trackButtonClick('Pinterest copyright')}
               >
                 &copy; {new Date().getFullYear()} Pinterest
@@ -78,7 +79,7 @@ export default function Footer(): Node {
         >
           <Text inline size="100">
             <Link
-              href="https://www.netlify.com/"
+              href={LINKS.NETLIFY}
               target="blank"
               externalLinkIcon={{ color: 'default', size: '100' }}
             >

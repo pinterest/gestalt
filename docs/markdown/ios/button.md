@@ -69,8 +69,8 @@ For writing best practices, refer to the [web Button documentation](/web/button)
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 
-- [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/foundations/accessibility/)
-- [Accessible development on iOS](https://developer.apple.com/accessibility/)
+- [Accessible design on iOS](ACCESSIBLE_DESIGN_IOS)
+- [Accessible development on iOS](ACCESSIBLE_DEVELOPMENT_IOS)
 
 ## Localization
 

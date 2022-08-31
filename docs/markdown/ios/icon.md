@@ -20,7 +20,7 @@ fullwidth: true
 - For decorative purposes or visual embellishment, like how you would use an illustration. Contact us if this is needed.
 - As a visual reinforcement for associated text without adding new meaning.
 - To communicate status or health. Use Status instead.
-- As an interactive element (e.g., hover, focus, click/tap). Use [IconButton](https://gestalt.pinterest.systems/web/iconbutton) instead.
+- As an interactive element (e.g., hover, focus, click/tap). Use [IconButton](/web/iconbutton) instead.
 </Group>
 </TwoCol>
 
@@ -31,19 +31,19 @@ fullwidth: true
 - When possible, include a visible text label.
 - Icons should always be a solid color and should inherit the color of the surrounding text if applicable.
 
-For general Icon best practices, refer to the web [Icon documentation](https://gestalt.pinterest.systems/web/icon).
+For general Icon best practices, refer to the web [Icon documentation](/web/icon).
 
 ## Accessibility
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size, to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
-[Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
-[Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
+- [Accessible design on iOS](ACCESSIBLE_DESIGN_IOS)
+- [Accessible development on iOS](ACCESSIBLE_DEVELOPMENT_IOS)
 
 ## Variants
 
 ### Styling
-For information on colors and states, refer to the [web Icon guidelines](https://gestalt.pinterest.systems/web/icon).
+For information on colors and states, refer to the [web Icon guidelines](/web/icon).
 
 ### Platform Specific Icons
 
@@ -119,18 +119,18 @@ Used sparingly to draw attention to an icon that might otherwise be missed.
 <TwoCol>
 
 <IllustrationCard
-              title="Button"
-              description="Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it."
-              color="green-matchacado-50"
-              image="button"
-            />
+  title="Button"
+  description="Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it."
+  color="green-matchacado-50"
+  image="button"
+/>
 
 <IllustrationCard
-              title="IconButton"
-              description="Use IconButton when only an icon is needed instead of text."
-              color="green-matchacado-50"
-              image="icon-button"
-            />
+  title="IconButton"
+  description="Use IconButton when only an icon is needed instead of text."
+  color="green-matchacado-50"
+  image="icon-button"
+/>
 
 </TwoCol>
 */}

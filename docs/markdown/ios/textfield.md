@@ -16,7 +16,7 @@ fullwidth: true
 </Group>
 <Group>
 <Dont title="When not to use" />
-- Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](https://gestalt.pinterest.systems/web/textarea) instead.
+- Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](/web/textarea) instead.
 </Group>
 </TwoCol>
 
@@ -88,15 +88,14 @@ Place fields horizontally. This creates unnecessarily restricted fields and a mo
 </TwoCol>
 
 
-For general Icon best practices, refer to the web [Text Field Documentation](https://gestalt.pinterest.systems/web/textfield).
+For general Icon best practices, refer to the web [Text Field Documentation](/web/textfield).
 
 ## Accessibility
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
-[Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
-[Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
-
+- [Accessible design on iOS](ACCESSIBLE_DESIGN_IOS)
+- [Accessible development on iOS](ACCESSIBLE_DEVELOPMENT_IOS)
 
 ### Labels
 Be sure to provide a unique for each TextField.
@@ -130,7 +129,7 @@ Text Field can display a success message below the field. Always include an icon
 <ImgContainer src="https://i.pinimg.com/originals/41/66/b5/4166b58231fa38697bd1d8a91e18255d.jpg" alt="A text field that was successfully submitted. The success text reads, that username is available." />
 
 ## Animation
-By default, the placeholder text will animate up into the label position when the user interacts with the field. Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/animation/).
+By default, the placeholder text will animate up into the label position when the user interacts with the field. Visit Apple’s HIG for more information on [Animation and Motion](hANIMATION_AND_MOTION).
 
 {/*
 ## Related
@@ -138,17 +137,17 @@ By default, the placeholder text will animate up into the label position when th
 <TwoCol>
 
 <IllustrationCard
-              title="TextArea"
-              description="TextArea allows for multi-line input."
-              color="green-matchacado-50"
-              image="text-area"
-            />
+  title="TextArea"
+  description="TextArea allows for multi-line input."
+  color="green-matchacado-50"
+  image="text-area"
+/>
 
 <IllustrationCard
-              title="SelectList"
-              description="SelectList displays a list of actions or options using the browser’s native select."
-              color="green-matchacado-50"
-              image="select-list"
-            />
+  title="SelectList"
+  description="SelectList displays a list of actions or options using the browser’s native select."
+  color="green-matchacado-50"
+  image="select-list"
+/>
 
 </TwoCol> */}

@@ -106,11 +106,11 @@ Sheets can utilize several navigation actions.
 
 ### Animation
 
-By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/foundations/motion/).
+By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Apple’s HIG for more information on [Animation and Motion](ANIMATION_AND_MOTION).
 
 ## Accessibility
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 
-- [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/foundations/accessibility/)
-- [Accessible development on iOS](https://developer.apple.com/accessibility/)
+- [Accessible design on iOS](ACCESSIBLE_DESIGN_IOS)
+- [Accessible development on iOS](ACCESSIBLE_DEVELOPMENT_IOS)

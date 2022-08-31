@@ -2,7 +2,10 @@
 import { type Node } from 'react';
 import { Text } from 'gestalt';
 import { marked, Renderer } from 'marked';
+import { getUrl } from './MarkdownLink.js';
 import highlightjs from 'highlight.js';
+import LINKS from './LINK_REPOSITORY.js';
+
 import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
@@ -17,6 +20,7 @@ type Props = {|
     | 'light'
     | 'dark',
   text: string,
+  allowCanonical?: boolean,
 |};
 
 // Source: https://github.com/Thinkmill/react-markings/blob/master/index.js
@@ -37,7 +41,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({ textColor, text }: Props): Node {
+export default function Markdown({ textColor, text, allowCanonical }: Props): Node {
   const renderer = new Renderer();
   renderer.heading = (input, level) => {
     const escapedText = input
@@ -59,6 +63,9 @@ export default function Markdown({ textColor, text }: Props): Node {
       </h${level}>`;
   };
 
+  renderer.link = (href, title, children) => {
+    return `<a href=${allowCanonical ? href : getUrl(href)}>${children}</a>`;
+  };
   const html = marked(stripIndent(text), {
     renderer,
     highlight(code, language) {

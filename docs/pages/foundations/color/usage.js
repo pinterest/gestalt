@@ -337,17 +337,17 @@ export default function ColorUsagePage(): Node {
         description={`
       Please consider accessibility when using colors, as it is our responsibility to deliver an inclusive product that inspires everyone.
 
-      [Section 508](https://webaim.org/standards/508/checklist), which aligns with [WCAG 2.0 Level AA](https://www.w3.org/TR/WCAG21/), establishes a legal standard for the contrast level essential between text and its background. The baseline AA contrast standard is 4.5:1 for most text and 3:1 for large text. We also recommend avoiding pure black text on white helps dyslexia, Irlen Syndrome, light sensitivity, and autism.
+      [Section 508](SECTION_508), which aligns with [WCAG 2.0 Level AA](A11y_W3_STANDARDS), establishes a legal standard for the contrast level essential between text and its background. The baseline AA contrast standard is 4.5:1 for most text and 3:1 for large text. We also recommend avoiding pure black text on white helps dyslexia, Irlen Syndrome, light sensitivity, and autism.
 
       Don’t use color exclusively to convey meaning. Color should only be used as an enhancement — if color is the only cue, that cue won’t get through as intended to everyone. Learn more about [Accessibility Design considerations](/foundations/accessibility).
 
       Other resources for reference:
-        - [About color and contrast](https://accessibility.digital.gov/visual-design/color-and-contrast/)
-        - [About color and readability](https://www.w3.org/WAI/RD/2012/text-customization/r11)
-        - [Improving accessibility for colorblind users](https://www.smashingmagazine.com/2016/06/improving-color-accessibility-for-color-blind-users/)
-        - [Accessibility and dyslexia](https://www.figma.com/exit?url=https%3A%2F%2Fwww.dyslexic.com%2Fblog%2Fquick-guide-making-content-accessible%2F)
-        - [W3C: Accessibility requirements for low vision needs](https://www.w3.org/TR/low-vision-needs/)
-        - [The Irlen Syndrome](https://irlen.com/what-is-irlen-syndrome/)
+        - [About color and contrast](COLOR_AND_CONTRAST)
+        - [About color and readability](A11y_W3_READABILITY)
+        - [Improving accessibility for colorblind users](COLOR_BLINDNESS)
+        - [Accessibility and dyslexia](DISLEXIA)
+        - [W3C: Accessibility requirements for low vision needs](A11y_W3_LOW_VISION)
+        - [The Irlen Syndrome](IRLEN_SYNDROME)
       `}
       />
     </Page>

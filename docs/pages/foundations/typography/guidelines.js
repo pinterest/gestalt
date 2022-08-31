@@ -19,6 +19,7 @@ import HierarchyDo from '../../../graphics/typography/hierarchyDo.svg';
 import HierarchyDont from '../../../graphics/typography/hierarchyDont.svg';
 import ContrastLow from '../../../graphics/typography/contrastLow.svg';
 import ContrastHigh from '../../../graphics/typography/contrastHigh.svg';
+import LINKS from '../../../docs-components/LINK_REPOSITORY.js';
 
 type PrincipleItemProps = {|
   color: string,
@@ -118,7 +119,7 @@ export default function TypographyPage(): Node {
 We have several React components that use typography as the primary element.
 
 - [Text](/web/text): Used for all text on a surface.
-- [Heading](/web/heading): Used for [semantic headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) on a surface.
+- [Heading](/web/heading): Used for [semantic headings](MOZILLA_SEMANTIC_HEADING) on a surface.
 - [Link](/web/link): For both inline and standalone hyperlinks.
 `}
       />
@@ -130,7 +131,7 @@ We have several React components that use typography as the primary element.
         />
         <MainSection.Subsection
           title="Brand"
-          description="Our custom typeface, Pinterest Sans, can be used occasionally for branded graphics in our products, but never for UI. For more info, consult our [brand guidelines](https://brand.pinterest.com/typography)."
+          description="Our custom typeface, Pinterest Sans, can be used occasionally for branded graphics in our products, but never for UI. For more info, consult our [brand guidelines](BRAND_PINTEREST_TYPROGRAPHY)."
         />
       </MainSection>
 
@@ -293,7 +294,7 @@ We use browser defaults on web UIs so that lines of text are readable in all lan
           </Heading>
           <Markdown
             text={`
-iOS leading is automatically determined by a font’s size. Below is a breakdown based on Gestalt’s current font sizes. For more info, refer to Apple’s [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
+iOS leading is automatically determined by a font’s size. Below is a breakdown based on Gestalt’s current font sizes. For more info, refer to Apple’s [Human Interface Guidelines](HUMAN_INTERFACE_GUIDELINES).
             `}
           />
           <Table accessibilityLabel="Font weight treatements">
@@ -334,7 +335,7 @@ iOS leading is automatically determined by a font’s size. Below is a breakdown
           </Heading>
           <Markdown
             text={`
-Line height is automatically determined by a font’s size. For more info, refer to [Material Design](https://material.io/design/typography/the-type-system.html#type-scale).
+Line height is automatically determined by a font’s size. For more info, refer to [Material Design](LINE_HEIGHT).
 `}
           />
         </MainSection.Subsection>
@@ -383,7 +384,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 text={`
               Our default alignment is start-aligned. There are a couple of reasons to default to start-aligned text:
               - Users tend to read in “F” patterns, so placing text in a similar pattern helps with users absorbing all the information they need for a good experience.
-              - Since the starting edge of centered text moves around, it’s harder for users to read; this can be especially difficult for [people with dyslexia](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
+              - Since the starting edge of centered text moves around, it’s harder for users to read; this can be especially difficult for [people with dyslexia](DISLEXIA_WORKPLACE).
               `}
               />
             </Flex>
@@ -519,10 +520,10 @@ Line height is automatically determined by a font’s size. For more info, refer
                     }}
                   >
                     <Text weight="bold">
-                      <Link href="https://pinterest.com">Pinterest</Link>
+                      <Link href={LINKS.PINTEREST_CANONICAL}>Pinterest</Link>
                     </Text>
                     <Text weight="bold">
-                      <Link href="https://gestalt.pinterest.systems">Gestalt</Link>
+                      <Link href={LINKS.GESTALT_CANONICAL}>Gestalt</Link>
                     </Text>
                   </Flex>
                 </Table.Cell>
@@ -550,7 +551,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           <Box color="infoWeak" paddingX={6} paddingY={8}>
             <Text color="dark">
               This is a paragraph with a{' '}
-              <Link href="https://gestalt.pinterest.systems" underline="always" inline>
+              <Link href={LINKS.GESTALT_CANONICAL} underline="always" inline>
                 link
               </Link>{' '}
               inside of it. Remember, the whole is different from the sum of its parts.

@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
+import LINKS from '../../docs-components/LINK_REPOSITORY.js';
 
 export default function PageHeaderExample(): Node {
   return (
@@ -38,7 +39,7 @@ export default function PageHeaderExample(): Node {
           <Dropdown.Link
             option={{ value: 'View analytics', label: 'View analytics' }}
             key="view-analytics"
-            href="https://pinterest.com"
+            href={LINKS.PINTEREST_CANONICAL}
           />,
         ],
       }}

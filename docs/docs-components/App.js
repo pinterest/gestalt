@@ -32,6 +32,7 @@ export default function App({ children, files }: Props): Node {
       if (target === 'blank') return; // let browser handle "target=_blank"
 
       event.preventDefault();
+
       router.push(href);
     };
 

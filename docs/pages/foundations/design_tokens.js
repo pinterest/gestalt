@@ -115,7 +115,7 @@ export default function DesignTokensPage(): Node {
       <PageHeader
         badge="pilot"
         name="Design tokens"
-        description="Design tokens represent the values used within a design system to construct layouts and components, such as spacing and color. Because the tokens are an abstraction, the underlying value can change in different scenarios without affecting the designer or developer experience. [Learn more about Design Tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099)."
+        description="Design tokens represent the values used within a design system to construct layouts and components, such as spacing and color. Because the tokens are an abstraction, the underlying value can change in different scenarios without affecting the designer or developer experience. [Learn more about Design Tokens](DESIGN_TOKENS)."
         type="guidelines"
       />
       <MainSection name="Token values">

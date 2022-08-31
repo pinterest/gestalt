@@ -18,14 +18,14 @@ export default function AccessibilityGuidelinesPage(): Node {
       <MainSection
         name="Our approach"
         description={`
-    Everyone should be able to create the life they love with Pinterest, no matter their ability. An inclusive product is a top priority, and it relies on everyone's commitment to accessibility. Pinterest's goal as a company is to meet <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 AA standards</a>, and Gestalt's goal is no different. By creating accessible components, we aim to help everyone create an inclusive product.
+    Everyone should be able to create the life they love with Pinterest, no matter their ability. An inclusive product is a top priority, and it relies on everyone's commitment to accessibility. Pinterest's goal as a company is to meet [WCAG 2.1 AA standards](A11y_W3_STANDARDS), and Gestalt's goal is no different. By creating accessible components, we aim to help everyone create an inclusive product.
 
-    It's important to remember that accessible components are a great starting point, but there is further work to do to create a cohesive, accessible experience. Below we've highlighted some key areas to address, but for a more extensive list we recommend checking out <a href="https://www.a11yproject.com/">The A11Y Project</a> and Heydon Pickering's <a href="https://github.com/Heydon/inclusive-design-checklist">Inclusive Design Checklist</a>.
+    It's important to remember that accessible components are a great starting point, but there is further work to do to create a cohesive, accessible experience. Below we've highlighted some key areas to address, but for a more extensive list we recommend checking out [The A11Y Project](A11y_PROJECT) and Heydon Pickering's [Inclusive Design Checklist](HEYDON_PICKERING).
     `}
       />
       <MainSection
         name="Design considerations"
-        description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](https://www.dropbox.com/s/m1jmveyuvv6p9pq/Pinterest%20Accessible%20Design.pdf?dl=0)."
+        description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](GESTALT_ACCESSIBLE_DESIGN_DECK)."
       >
         <MainSection.Subsection
           title="Visuals"
@@ -33,7 +33,7 @@ export default function AccessibilityGuidelinesPage(): Node {
       When designing, it's important to ensure our use of color and typography is appropriate.
 
       - **Avoid using color as the sole indicator of information.** For instance, always supply an icon or text describing errors, rather than relying on a red outline or red text. Color-only changes do not work well for those who may be color blind or have low vision.
-      - **Check your color contrast!** We follow AA guidance from the Web Content Accessibility Guidelines, so we recommend using a tool like [aremycolorsaccessible.com](https://www.aremycolorsaccessible.com/) to check the foreground color against the background color. In Figma, you can use [the Able plugin](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility) to check color contrast in your designs.
+      - **Check your color contrast!** We follow AA guidance from the Web Content Accessibility Guidelines, so we recommend using a tool like [aremycolorsaccessible.com](AREMY_COLORS_ACCESSIBLE) to check the foreground color against the background color. In Figma, you can use [the Able plugin](FIGMA_ABLE_PLUGIN) to check color contrast in your designs.
       - **Use appropriate text-sizes.** WCAG 2.1 suggests using text no smaller than 16pt for easy readability.
       `}
         />
@@ -75,7 +75,7 @@ export default function AccessibilityGuidelinesPage(): Node {
 
       Please note, HTML 5 covers many common patterns and interactions by default, so ARIA should only be used to fill gaps, not in place of correct semantic HTML. For instance, it is always preferred to use the native \`<button>\` instead of adding \`role="button"\`. Better yet, use the Gestalt [Button](/web/button), and you won't have to worry about a thing!
 
-      In general, ARIA is best used to provide extra information about a component, like using \`aria-expanded\` to signal when a [Popover](/web/popover#ARIA-attributes) is open or closed. Learn more about [ARIA and its use cases](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
+      In general, ARIA is best used to provide extra information about a component, like using \`aria-expanded\` to signal when a [Popover](/web/popover#ARIA-attributes) is open or closed. Learn more about [ARIA and its use cases](MOZILLA_ARIA).
     `}
         />
         <MainSection.Subsection
@@ -90,15 +90,15 @@ export default function AccessibilityGuidelinesPage(): Node {
         <MainSection.Subsection
           title="Keyboard navigation"
           description={`
-        People use and interact with technology in myriad ways. Many people do not use a mouse for various reasons and instead rely on the keyboard and a [screen reader](https://www.afb.org/blindness-and-low-vision/using-technology/assistive-technology-products/screen-readers) to interact with applications. The key to creating truly accessible products is ensuring that your application works very well when using only a keyboard and/or screen reader to navigate and interact with content. In other words, if it can be done with a mouse, it can be done with a keyboard. In the Gestalt documentation, we aim to help describe the expectations for keyboard navigation, particularly within our more complex components. For example, in [ComboBox](/web/combobox#Keyboard-interaction), we've detailed the expected keyboard interaction for all aspects of the ComboBox.
+        People use and interact with technology in myriad ways. Many people do not use a mouse for various reasons and instead rely on the keyboard and a [screen reader](SCREEN_READERS) to interact with applications. The key to creating truly accessible products is ensuring that your application works very well when using only a keyboard and/or screen reader to navigate and interact with content. In other words, if it can be done with a mouse, it can be done with a keyboard. In the Gestalt documentation, we aim to help describe the expectations for keyboard navigation, particularly within our more complex components. For example, in [ComboBox](/web/combobox#Keyboard-interaction), we've detailed the expected keyboard interaction for all aspects of the ComboBox.
 
-        Another key aspect to keyboard navigation is [focus management](https://css-tricks.com/focus-management-and-inert/). Users should never lose their place within a page, and their current point of focus should always be clear visually. Some components, like Modals or Popovers, act as focus traps, meaning the user's focus should only rotate between items inside the Modal or Popover, and anything below these items is not reachable by keyboard. When a component like Modal or Popover is dismissed or closed, the user's focus should go back to the item that triggered the component.
+        Another key aspect to keyboard navigation is [focus management](FOCUS_MANAGEMENT). Users should never lose their place within a page, and their current point of focus should always be clear visually. Some components, like Modals or Popovers, act as focus traps, meaning the user's focus should only rotate between items inside the Modal or Popover, and anything below these items is not reachable by keyboard. When a component like Modal or Popover is dismissed or closed, the user's focus should go back to the item that triggered the component.
     `}
         />
         <MainSection.Subsection
           columns={2}
           title="Available Hooks"
-          description={`Gestalt provides two [custom Hooks](https://reactjs.org/docs/hooks-custom.html) that help create more accessible experiences: \`useFocusVisible\` and \`useReducedMotion\`.`}
+          description={`Gestalt provides two [custom Hooks](REACT_CUSTOM_HOOKS) that help create more accessible experiences: \`useFocusVisible\` and \`useReducedMotion\`.`}
         >
           <MainSection.Card
             cardSize="md"
@@ -107,10 +107,9 @@ export default function AccessibilityGuidelinesPage(): Node {
           \`useFocusVisible\` manages focus interactions on the page and determines whether a focus ring should be shown. When using the \`useFocusVisible\` hook, if a user interacts with a mouse or by touch, then the focus indicator is not visible. When the user interacts with the keyboard however, the focus indicator will be visible.
 
           References:
-          <ul>
-            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">WCAG 2.4.7: Focus Visible</a></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
-          </ul>
+          - [WCAG 2.4.7: Focus Visible](A11y_W3_FOCUS_VISIBLE)
+
+          - [:focus-visible CSS pseudo-class](MOZILLA_FOCUS_VISIBLE)
         `}
             sandpackExample={
               <SandpackExample
@@ -129,10 +128,8 @@ export default function AccessibilityGuidelinesPage(): Node {
           Users can experience distraction or nausea from animated content. For example, scrolling a page which causes elements to move (other than the essential movement associated with scrolling) can trigger vestibular disorders. Change your Accessibility -> Display device settings to "Reduce motion" and notice the animation stops.
 
           References:
-          <ul>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion" target="_blank">CSS media query: prefers-reduced-motion</a></li>
-            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
-          </ul>
+         - [CSS media query: prefers-reduced-motion](MOZILLA_REDUCED_MOTION)
+         - [WCAG C39: Using the CSS reduce-motion query to prevent motion](A11y_W3_REDUCED_MOTION)
         `}
             sandpackExample={
               <SandpackExample
@@ -148,32 +145,32 @@ export default function AccessibilityGuidelinesPage(): Node {
         <MainSection.Subsection
           title="Pinternal"
           description={`
-        **[Web Accessibility Wiki](https://w.pinadmin.com/display/WT/Accessibility)**
-        Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests).
+        **[Web Accessibility Wiki](WEB_A11y_WIKI)**
+        Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](WEB_A11y_INTEGRATION_TESTS).
 
-        **[Product Accessibility Working Group](http://pinch.pinadmin.com/productAccessibilityWorkingGroup)**
+        **[Product Accessibility Working Group](WEB_A11y_WORKING_GROUP)**
         Details about the accessibility working group, including success metrics and project statuses.
 
-        **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**
+        **[Accessible Design](GESTALT_ACCESSIBLE_DESIGN_DECK)**
         Checkout our Accessible Design deck for examples and recommendations regarding accessibility at the design phase.
 
-        **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/EPD/Accessibility+101)**
+        **[Accessibility 101 Basecamp Session](A11y_101_TRAINING)**
         Reference video recordings and materials from our Accessibility 101 session for new hires.
       `}
         />
         <MainSection.Subsection
           title="External"
           description={`
-        **[A11Y Project](https://www.a11yproject.com/checklist/)**
+        **[A11Y Project](A11y_PROJECT_CHECKLIST)**
         Reference checklists, blog posts, and more. This is a great tool for learning about accessibility.
 
-        **[Able Figma Plugin](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility)**
+        **[Able Figma Plugin](FIGMA_ABLE_PLUGIN)**
         Use the Able plugin to verify color contrast and account for color blindness.
 
-        **[Deque aXe DevTools](https://www.deque.com/axe/devtools/)**
+        **[Deque aXe DevTools](AXE_DEVTOOLS)**
         Learn more about the software that powers our accessibility testing.
 
-        **[Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/)**
+        **[Understanding WCAG 2.1](A11y_W3_UNDERSTANDINGS)**
         Details and info about the web content accessibility guidelines.
       `}
         />

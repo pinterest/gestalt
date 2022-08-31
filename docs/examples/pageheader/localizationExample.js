@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
+import LINKS from '../../docs-components/LINK_REPOSITORY.js';
 
 export default function PageHeaderLocalizationExample(): Node {
   return (
@@ -10,7 +11,7 @@ export default function PageHeaderLocalizationExample(): Node {
       helperLink={{
         text: 'Mehr erfahren.',
         accessibilityLabel: 'Erfahren Sie mehr auf Pinterest.com',
-        href: 'http://www.pinterest.com',
+        href: LINKS.PINTEREST_CANONICAL,
         onClick: () => {},
       }}
       items={[
@@ -38,7 +39,7 @@ export default function PageHeaderLocalizationExample(): Node {
           <Dropdown.Link
             key="analysen"
             option={{ value: 'Analysen anzeigen', label: 'Analysen anzeigen' }}
-            href="https://pinterest.com"
+            href={LINKS.PINTEREST_CANONICAL}
           />,
         ],
       }}

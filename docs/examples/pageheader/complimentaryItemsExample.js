@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Button, Datapoint, Dropdown, PageHeader, Sheet, Text } from 'gestalt';
+import LINKS from '../../docs-components/LINK_REPOSITORY.js';
 
 export default function IncludeImageExample(): Node {
   const [open, setOpen] = React.useState(false);
@@ -47,7 +48,7 @@ export default function IncludeImageExample(): Node {
             <Dropdown.Link
               key="view-analytics"
               option={{ value: 'View analytics', label: 'View analytics' }}
-              href="https://pinterest.com"
+              href={LINKS.PINTEREST_CANONICAL}
             />,
           ],
         }}

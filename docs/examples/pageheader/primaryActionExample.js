@@ -11,6 +11,7 @@ import {
   Text,
   Tooltip,
 } from 'gestalt';
+import LINKS from '../../docs-components/LINK_REPOSITORY.js';
 
 export default function PrimaryActionExample(): Node {
   const [open, setOpen] = React.useState(false);
@@ -123,13 +124,13 @@ export default function PrimaryActionExample(): Node {
         primaryAction={{
           component: (
             <Text weight="bold">
-              <Link href="https://www.pinterest.com">Switch to quick ad creation</Link>
+              <Link href={LINKS.PINTEREST_CANONICAL}>Switch to quick ad creation</Link>
             </Text>
           ),
           dropdownItems: [
             <Dropdown.Link
               key="Visit"
-              href="https://www.pinterest.com"
+              href={LINKS.PINTEREST_CANONICAL}
               option={{
                 value: 'Switch to quick ad creation',
                 label: 'Switch to quick ad creation',

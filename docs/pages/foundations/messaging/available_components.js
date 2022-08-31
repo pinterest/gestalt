@@ -7,6 +7,7 @@ import modalExample from '../../../examples/modal/limitActionsExample.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
+import LINKS from '../../../docs-components/LINK_REPOSITORY.js';
 
 export default function MessagingComponentsPage(): Node {
   return (
@@ -42,7 +43,7 @@ export default function MessagingComponentsPage(): Node {
           </Text>
 
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/callout" underline="always">
+            <Link href="/web/callout" underline="always">
               Go to the Callout component
             </Link>
           </Text>
@@ -78,7 +79,7 @@ export default function MessagingComponentsPage(): Node {
           </Text>
 
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/slimbanner" underline="always">
+            <Link href="/web/slimbanner" underline="always">
               Go to the SlimBanner component
             </Link>
           </Text>
@@ -94,7 +95,7 @@ export default function MessagingComponentsPage(): Node {
           </Text>
 
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/modal" underline="always">
+            <Link href="/web/modal" underline="always">
               Go to the Modal component
             </Link>
           </Text>
@@ -165,7 +166,7 @@ export default function MessagingComponentsPage(): Node {
             </ul>
           </Text>
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/toast" underline="always">
+            <Link href="/web/toast" underline="always">
               Go to the Toast component
             </Link>
           </Text>
@@ -183,14 +184,14 @@ export default function MessagingComponentsPage(): Node {
               style={{ border: 'none' }}
               width="100%"
               height="450"
-              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092"
+              src={LINKS.FIGMA_MESSAGING_DECISION_TREE_EMBEDDED}
               allowFullScreen
             />
           </Box>
 
           <Text>
             <Link
-              href="https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092"
+              href={LINKS.FIGMA_MESSAGING_DECISION_TREE}
               underline="always"
               externalLinkIcon="default"
             >

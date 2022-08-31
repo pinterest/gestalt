@@ -20,7 +20,7 @@ fullwidth: true
 - For decorative purposes or visual embellishment, like how you would use an illustration. Contact us if this is needed.
 - As a visual reinforcement for associated text without adding new meaning.
 - To communicate status or health. Use Status instead.
-- As an interactive element (e.g., hover, focus, click/tap). Use [IconButton](https://gestalt.pinterest.systems/web/iconbutton) instead.
+- As an interactive element (e.g., hover, focus, click/tap). Use [IconButton](/web/iconbutton) instead.
 </Group>
 </TwoCol>
 
@@ -31,19 +31,19 @@ fullwidth: true
 - When possible, include a visible text label.
 - Icons should always be a solid color and should inherit the color of the surrounding text if applicable.
 
-For general Icon best practices, refer to the web [Icon documentation](https://gestalt.pinterest.systems/web/icon).
+For general Icon best practices, refer to the web [Icon documentation](/web/icon).
 
 ## Accessibility
 
 People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
-[Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+[Accessible design on Android](ACCESSIBLE_DESIGN_ANDROID)
+[Accessible development on Android](ACCESSIBLE_DEVELOPMENT_ANDROID)
 
 ## Variants
 
 ### Styling
-For information on colors and states, refer to the [web Icon guidelines](https://gestalt.pinterest.systems/web/icon).
+For information on colors and states, refer to the [web Icon guidelines](/web/icon).
 
 ### Platform-specific icons
 

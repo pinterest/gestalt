@@ -5,11 +5,12 @@ fullwidth: true
 
 ## Set up your laptop
 
-- Install a code editor - we recommended [VS Code](https://code.visualstudio.com/download)
-- [Install nvm](https://github.com/creationix/nvm#install-script)
-- [Install node](https://github.com/nvm-sh/nvm#usage)
-- [Install yarn](https://classic.yarnpkg.com/en/docs/install)
-- [Install Docker desktop](https://docs.docker.com/get-docker/)
+- Install a code editor - we recommended [VS Code](VSCODE)
+- [Install nvm](NVM)
+- [Install node](NODE)
+- [Install yarn](YARN)
+- [Install Docker desktop](DOCKER)
+
   <Hint>To install Docker, try running `brew install --cask docker`</Hint>
 
 ## Set up your Gestalt repository
@@ -27,7 +28,7 @@ git clone git@github.com:<YOUR_USERNAME>/gestalt.git
 cd gestalt && nvm use
 ```
 
-<Hint>If the node version isn't available, you will need to [install](https://github.com/nvm-sh/nvm#usage) it.</Hint>
+<Hint>If the node version isn't available, you will need to [install](NODE) it.</Hint>
 
 - Install project dependencies. Do not run npm install because it will create a package-lock.json file (and also takes considerably longer).
 
@@ -54,7 +55,7 @@ git remote -v
 ## Set up Visual Studio Code
 
 - Open the new `/gestalt` folder with VS Code.
-- Install the suggested VS Code extensions including [vs code-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) to lint CSS files.
+- Install the suggested VS Code extensions including [vs code-stylelint](STYLELINT) to lint CSS files.
 - If you want to automatically launch the docs when you open VS Code:
   - In VS Code type `CMD+Shift+p`
   - Search and select Tasks: "Manage Automatic Tasks in Folder"
@@ -97,13 +98,13 @@ yarn generate ComponentName
   yarn jest -u
   ```
 
-  - Run [Playwright accessibility integration tests](https://www.npmjs.com/package/@axe-core/playwright). If any documentation examples are expected to fail accessibility testing, wrap the example in a container with `data-skip-accessibility-check`.
+  - Run [Playwright accessibility integration tests](PLAYWRIGHT_AXE). If any documentation examples are expected to fail accessibility testing, wrap the example in a container with `data-skip-accessibility-check`.
 
   ```bash
   yarn playwright:test accessibility/
   ```
 
-  - Run [Playwright visual diff snapshot tests](https://playwright.dev/docs/test-snapshots). If any component changes are expected to visually modify your component, you must update the snapshot tests
+  - Run [Playwright visual diff snapshot tests](PLAYWRIGHT_TESTS). If any component changes are expected to visually modify your component, you must update the snapshot tests
 
   ```bash
   # Start the documentation server (required for updating macOS snapshots)
@@ -129,7 +130,7 @@ yarn generate ComponentName
   yarn run flow-generate:css
   ```
 
-  - If you are introducing breaking changes, create a **[codemod](https://gestalt.pinterest.systems/development#codemods)** to help users migrate between versions.
+  - If you are introducing breaking changes, create a **[codemod](/get_started/developers/releases#Codemods)** to help users migrate between versions.
 
   ```bash
   yarn run flow-generate:css
@@ -144,7 +145,7 @@ git commit -am "Component: Commit Change Description"
 git push -f origin HEAD
 ```
 
-- Go to **[https://github.com/pinterest/gestalt](https://github.com/pinterest/gestalt)**. A new banner will be displayed, click on 'Compare & Create Pull Request'.
+- Go to **[https://github.com/pinterest/gestalt](GITHUB)**. A new banner will be displayed, click on 'Compare & Create Pull Request'.
 
 - Add useful summary and screenshots. We provide a template for the summary to make sure you include all necessary information.
 
@@ -154,7 +155,7 @@ git push -f origin HEAD
 
 <Hint icon="lock"> If you are a Pinterest employee, please let us know on Slack (#gestalt-web) that your PR is ready for review. </Hint>
 
-- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [versioning guidelines](https://gestalt.pinterest.systems/development#versioning).
+- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [release guidelines](/get_started/developers/releases#Automated-releases).
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
 
@@ -188,4 +189,4 @@ Avoid:
 
 ## RFCs
 
-Find the RFCs (request for comments) process and repository [here](https://github.com/pinterest/gestalt/tree/master/rfcs).
+Find the RFCs (request for comments) process and repository [here](GITHUB_RFC).

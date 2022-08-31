@@ -55,8 +55,8 @@ fullwidth: true
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
-[Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
-[Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
+- [Accessible design on iOS](ACCESSIBLE_DESIGN_IOS)
+- [Accessible development on iOS](ACCESSIBLE_DEVELOPMENT_IOS)
 
 ## Variants
 
@@ -106,7 +106,7 @@ The underline style of Tabs sits primarily in the header of the screen.
 
 ### Animation
 
-By default, the Tabs content swipes in either from the left or right, depending on the way you are tabbing. Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/animation/).
+By default, the Tabs content swipes in either from the left or right, depending on the way you are tabbing. Visit Apple’s HIG for more information on [Animation and Motion](ANIMATION_AND_MOTION).
 
 ## Related
 

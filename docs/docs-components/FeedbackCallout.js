@@ -1,9 +1,7 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import { Box, Callout } from 'gestalt';
-
-const BASE_LINK =
-  'https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=';
+import LINKS from './LINK_REPOSITORY.js';
 
 type Props = {|
   componentName: string,
@@ -11,7 +9,7 @@ type Props = {|
 
 export default function FeedbackCallout({ componentName }: Props): Node {
   const [showCallout, setShowCallout] = useState(true);
-  const link = `${BASE_LINK}${componentName}`;
+  const link = `${LINKS.FEEDBACK_CALLOUT_BASE_URL}${componentName}`;
 
   return (
     <Box marginLeft={-1} marginRight={-1}>

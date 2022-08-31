@@ -9,6 +9,7 @@ import { type Node } from 'react';
 
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
+import MarkdownLink from './MarkdownLink.js';
 import MainSection from './MainSection.js';
 
 import LockIcon from './LockIcon.js';
@@ -31,6 +32,7 @@ type Props = {|
 |};
 
 const components = {
+  a: (props) => <MarkdownLink href={props.href} text={props.children} />,
   small: (props) => <Text size="100">{props.children}</Text>,
   pre: (props: {|
     children: {| props: {| className: $ReadOnlyArray<string>, children: string | null |} |},

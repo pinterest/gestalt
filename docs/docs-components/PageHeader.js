@@ -132,7 +132,7 @@ export default function PageHeader({
               column: 6,
             }}
           >
-            {description && <Markdown text={description} />}
+            {description && <Markdown text={description} allowCanonical />}
             {slimBanner}
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
             {defaultCode && (

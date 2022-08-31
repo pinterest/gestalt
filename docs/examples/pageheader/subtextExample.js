@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Button, Dropdown, PageHeader } from 'gestalt';
+import LINKS from '../../docs-components/LINK_REPOSITORY.js';
 
 export default function IncludeImageExample(): Node {
   return (
@@ -10,7 +11,7 @@ export default function IncludeImageExample(): Node {
       helperLink={{
         accessibilityLabel: '',
         text: 'Learn more about bulk product catalog uploads.',
-        href: 'http://www.pinterest.com',
+        href: LINKS.PINTEREST_CANONICAL,
         onClick: () => {},
       }}
       primaryAction={{

@@ -36,8 +36,8 @@ For general IconButton best practices, refer to the [IconButton web documentatio
 
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
-[Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+[Accessible design on Android](ACCESSIBLE_DESIGN_ANDROID)
+[Accessible development on Android](ACCESSIBLE_DEVELOPMENT_ANDROID)
 
 ## Variants
 

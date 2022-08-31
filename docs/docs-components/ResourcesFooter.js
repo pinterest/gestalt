@@ -1,23 +1,23 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Link, Heading, Text } from 'gestalt';
-
+import LINKS from './LINK_REPOSITORY.js';
 import InternalOnlyIconButton from './InternalOnlyIconButton.js';
 
 const figmaLibraries = [
   {
     title: 'Web',
-    url: 'https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web',
+    url: LINKS.FIGMA_WEB_LIBRARY,
     a11yLabel: 'Figma Web Library',
   },
   {
     title: 'iOS',
-    url: 'https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS',
+    url: LINKS.FIGMA_IOS_LIBRARY,
     a11yLabel: 'Figma iOS Library',
   },
   {
     title: 'Android',
-    url: 'https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android',
+    url: LINKS.FIGMA_ANDROID_LIBRARY,
     a11yLabel: 'Figma Android Library',
   },
 ];
@@ -25,12 +25,12 @@ const figmaLibraries = [
 const figmaPlugins = [
   {
     title: 'Color',
-    url: 'https://www.figma.com/community/plugin/1019681360638128106/Pinterest-Brand-color-palettes',
+    url: LINKS.FIGMA_COLOR_PLUGIN,
     a11yLabel: 'Brand Color Figma Plugin',
   },
   {
     title: 'Docs',
-    url: 'https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta)',
+    url: LINKS.FIGMA_DOCS_PLUGIN,
     a11yLabel: 'Gestalt Docs Figma Plugin',
   },
 ];
@@ -38,18 +38,18 @@ const figmaPlugins = [
 const slackChannels = [
   {
     title: 'Design',
-    url: 'http://pinch.pinadmin.com/gestalt-design-slack',
+    url: LINKS.SLACK_DESIGN,
     a11yLabel: 'Design Slack channel',
   },
   {
     title: 'Engineering',
-    url: 'http://pinch.pinadmin.com/gestalt-web-slack',
+    url: LINKS.SLACK_ENGINEERING,
     a11yLabel: 'Web engineering Slack channel',
   },
 ];
 const engResources = [
-  { title: 'Web repository', url: 'https://github.com/pinterest/gestalt' },
-  { title: 'Code sandbox', url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js' },
+  { title: 'Web repository', url: LINKS.GESTALT_GITHUB },
+  { title: 'Code sandbox', url: LINKS.CODE_SANDBOX },
 ];
 
 type LinkListProps = {|

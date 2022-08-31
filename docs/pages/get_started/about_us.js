@@ -14,9 +14,9 @@ export default function DocsPage(): Node {
         description={`
 Our system includes a React component library with comprehensive guidelines, best practices, tools, and resources to support designers and engineers delivering a high-quality product.
 
-We constantly ask ourselves how might we improve experiences to be even more intuitive and inclusive. We believe that this is a never-ending journey and something to improve every day. We've integrated accessibility into the design and development of our components, following the [WCAG 2.1 AA guidelines](https://www.w3.org/TR/WCAG21/), ensuring they are not only compliant but accessible by users of all abilities.
+We constantly ask ourselves how might we improve experiences to be even more intuitive and inclusive. We believe that this is a never-ending journey and something to improve every day. We've integrated accessibility into the design and development of our components, following the [WCAG 2.1 AA guidelines](A11y_W3_STANDARDS), ensuring they are not only compliant but accessible by users of all abilities.
 
-We work closely with the Brand team to maintain Pinterest's identity and aesthetic; however, Gestalt and Brand are different areas within our organization. For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).
+We work closely with the Brand team to maintain Pinterest's identity and aesthetic; however, Gestalt and Brand are different areas within our organization. For further Brand guidance, please reference the [Brand guidelines website](BRAND_PINTEREST).
 `}
       />
       <MainSection

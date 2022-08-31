@@ -64,7 +64,7 @@ export default function ColorPage(): Node {
         description={`
         Our color palettes are shared between Brand and Gestalt, and represent our full range of options. The colors are divided into baseline, extended, and reserved colors.
 
-        For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).
+        For further Brand guidance, please reference the [Brand guidelines website](BRAND_PINTEREST).
         `}
         type="guidelines"
       />
@@ -153,7 +153,7 @@ export default function ColorPage(): Node {
         description={`
         The extended color palette displays all the available shades and tints of each color in the palette. The colors are named and numbered for easy reference. The usage of these colors varies depending on the product needs, but they come in handy for illustrations, communicating status, and brand moments.
 
-        We aim to meet [WCAG 2.1 AA accessibility standards](https://www.w3.org/TR/WCAG21/), and in order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/web/text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.
+        We aim to meet [WCAG 2.1 AA accessibility standards](A11y_W3_STANDARDS), and in order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/web/text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.
         `}
       >
         <MainSection.Subsection title="Colors">
@@ -197,12 +197,12 @@ export default function ColorPage(): Node {
       <MainSection
         name="Colors in code"
         description={`
-       All colors in this palette are available through [design tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099) and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
+       All colors in this palette are available through [design tokens](DESIGN_TOKENS) and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
 
        - JavaScript  \`$color-pink-flaminglow-400\`
        - CSS  \`var(--color-pink-flaminglow-400)\`
 
-       Using colors that are not available through our [semantic design tokens](/foundations/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) can be used.
+       Using colors that are not available through our [semantic design tokens](/foundations/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/get_started/developers/hacking_gestalt#Box's-dangerouslySetInlineStyle) can be used.
       `}
       />
     </Page>

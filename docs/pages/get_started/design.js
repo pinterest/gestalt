@@ -24,11 +24,11 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
         <MainSection.Subsection
           title="Connect to Gestalt in Figma"
           description={`
-1. You may be able to download Figma directly from the [Figma Website](https://www.figma.com/downloads/). If you do not have the appropriate access you can request access through the [Pinterest Approved Software Collection](http://w.pinadmin.com/display/SOFTWARE/Figma).
+1. You may be able to download Figma directly from the [Figma Website](FIGMA_DOWNLOADS). If you do not have the appropriate access you can request access through the [Pinterest Approved Software Collection](PINTEREST_APPROVED_SOFTWARE).
 2. Once you have Figma on your computer, you can open the application and select “Log in with SAML SSO.” From there, enter your Pinterest email address and open Figma.
 3. From the left-hand column, select “Pinterest” and join the Gestalt team to gain access to the Gestalt asset libraries and documentation.
 4. When creating or opening an existing design file, you should see the Gestalt components populate under the “Assets” tab in the left-hand column. Libraries include Web Sticker Sheet, IOS Sticker Sheet, Android Library, Gestalt Icons, and Platform Extras.
-5. The [#gestalt-design](https://pinterest.slack.com/archives/C0HUV5J93) Slack channel is always here to support you.
+5. The [#gestalt-design](SLACK_DESIGNSLACK_DESIGN) Slack channel is always here to support you.
           `}
         />
         <MainSection.Subsection
@@ -43,16 +43,16 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
           description={`
 **Please note: The following plugins are only available for Pinterest employees.**
 
-[**Gestalt docs for Figma**](https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta))
+[**Gestalt docs for Figma**](FIGMA_DOCS_PLUGIN)
 View the Gestalt documentation without leaving Figma!
 
-[**Pinsert**](https://www.figma.com/community/plugin/763812093925718603/Pinsert)
+[**Pinsert**](FIGMA_PINSERT)
 Insert Pins, Boards, and Profiles from Pinterest.
 
-[**Pinterest Assets**](https://www.figma.com/community/plugin/1001559251745003811/Pinterest-Assets)
+[**Pinterest Assets**](FIGMA_PINTEREST_ASSETS)
 Insert Pinterest Brand-approved, royalty-free stock photography from curated collections on our DAM.
 
-[**Pinterest Icon Exporter**](https://www.figma.com/community/plugin/809542389605054255/Pinterest-Icon-Exporter-(beta))
+[**Pinterest Icon Exporter**](FIGMA_ICON_EXPORTER)
 Export your self-created icons in all the sizes/formats for each platform
           `}
         />
@@ -61,23 +61,23 @@ Export your self-created icons in all the sizes/formats for each platform
           description={`
 Pinterest employees should check out this full list of [approved Figma plugins](http://pinch.pinadmin.com/figma-plugins). We especially recommend:
 
-[**Able**](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility)
+[**Able**](FIGMA_ABLE_PLUGIN)
 Able makes accessibility easy while looking and feeling like Figma!
 
-[**Spellchecker**](https://www.figma.com/community/plugin/738839069237725273/Spellchecker)
+[**Spellchecker**](FIGMA_SPELLCHECKER_PLUGIN)
 Spellchecker uses the Yandex API. Spellchecker helps to find and correct spelling errors.
 
-[**Translator**](https://www.figma.com/community/plugin/743218037112142643/Translator)
+[**Translator**](FIGMA_TRANSLATOR_PLUGIN)
 Translator instantly translates the text in your Figma designs into other languages.
           `}
         />
         <MainSection.Subsection
           title="Fonts"
           description={`
-[**SF Pro (iOS & Web)**](https://developer.apple.com/fonts/)
+[**SF Pro (iOS & Web)**](FONTS_IOS_WEB)
 Fonts for Apple Platforms
 
-[**Roboto (Android & Google Platforms)**](https://fonts.google.com/specimen/Roboto)
+[**Roboto (Android & Google Platforms)**](FONTS_ANDROID)
 Google Fonts
           `}
         />
@@ -86,9 +86,9 @@ Google Fonts
           description={`
 Wondering how a component works? The dos and donts of its use?
 
-All of Gestalt’s documentation can be found right here at [gestalt.pinterest.systems](https://gestalt.pinterest.systems). This site is continuously updated and serves as the Gestalt source of truth. If you can’t find something or have ideas for our documentation, reach out or set up a meeting with the Gestalt team.
+All of Gestalt’s documentation can be found right here at [gestalt.pinterest.systems](GESTALT_CANONICAL). This site is continuously updated and serves as the Gestalt source of truth. If you can’t find something or have ideas for our documentation, reach out or set up a meeting with the Gestalt team.
 
-[**Gestalt docs for Figma**](https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta))
+[**Gestalt docs for Figma**](FIGMA_DOCS_PLUGIN)
 View the Gestalt documentation without leaving Figma!
           `}
         />

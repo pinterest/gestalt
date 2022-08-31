@@ -2,6 +2,7 @@
 import { type Node } from 'react';
 import { Box, CompositeZIndex, Link as GestaltLink, Text, Tooltip } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
+import LINKS from './LINK_REPOSITORY.js';
 
 export default function HeaderMenu({
   isHeader,
@@ -24,7 +25,7 @@ export default function HeaderMenu({
       >
         <Text>
           <GestaltLink
-            href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js"
+            href={LINKS.CODE_SANDBOX}
             onClick={() => trackButtonClick('Playground')}
             target="blank"
           >
@@ -36,7 +37,7 @@ export default function HeaderMenu({
       <Tooltip inline text="View source code" zIndex={popoverZIndex}>
         <Text>
           <GestaltLink
-            href="https://github.com/pinterest/gestalt"
+            href={LINKS.GESTALT_GITHUB}
             onClick={() => trackButtonClick('GitHub')}
             target="blank"
           >

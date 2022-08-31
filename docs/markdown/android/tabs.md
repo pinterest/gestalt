@@ -55,8 +55,8 @@ fullwidth: true
 
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
-[Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+[Accessible design on Android](ACCESSIBLE_DESIGN_ANDROID)
+[Accessible development on Android](ACCESSIBLE_DEVELOPMENT_ANDROID)
 
 ## Variants
 
@@ -106,7 +106,7 @@ The underline style of Tabs sits primarily in the header of the screen.
 
 ### Animation
 
-By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
+By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](CONTAINER_MOTION).
 
 ## Related
 
