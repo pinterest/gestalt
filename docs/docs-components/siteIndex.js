@@ -21,7 +21,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
     sectionName: 'Get started',
     pages: [
       'About Us',
-      'Design',
+      'Designers',
       {
         sectionName: 'Developers',
         pages: [
