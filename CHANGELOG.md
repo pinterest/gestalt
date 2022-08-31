@@ -1,3 +1,81 @@
+## 70.1.1 (Aug 30, 2022)
+
+### Patch
+
+- Docs: Update example sizes in Modal and Sheet (#2347)
+
+## 70.1.0 (Aug 30, 2022)
+
+### Minor
+
+- Docs: implement a11y "Skip to content" (#2339)
+
+## 70.0.0 (Aug 30, 2022)
+
+### Major
+
+- Masonry: add support for RTL text direction (#2276)
+
+## 69.2.3 (Aug 30, 2022)
+
+### Patch
+
+- Docs: fix broken examples (#2346)
+
+## 69.2.2 (Aug 30, 2022)
+
+### Patch
+
+- Docs: add redirect from old domain to new one, now with splat! (#2345)
+
+## 69.2.1 (Aug 30, 2022)
+
+### Patch
+
+- Docs: updated favicon with Gestalt logo variant for development environments (#2344)
+
+## 69.2.0 (Aug 30, 2022)
+
+### Minor
+
+- Textfield, Numberfield: new enterKeyHint prop (#2337)
+
+## 69.1.6 (Aug 30, 2022)
+
+### Patch
+
+- Docs: Add Android & iOS Icon Page (#2333)
+
+## 69.1.5 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Add iOS & Android text field (#2334)
+
+## 69.1.4 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Added button and sheet for iOS Android (#2327)
+
+## 69.1.3 (Aug 29, 2022)
+
+### Patch
+
+- Docs: Navigate to overview page with platform switcher (#2340)
+
+## 69.1.2 (Aug 29, 2022)
+
+### Patch
+
+- Docs: update favicon to Gestalt logo (#2343)
+
+## 69.1.1 (Aug 29, 2022)
+
+### Patch
+
+- Updated component_data to set Tabs docs ready for Android and iOS (#2338)
+
 ## 69.1.0 (Aug 29, 2022)
 
 ### Minor

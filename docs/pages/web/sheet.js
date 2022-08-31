@@ -17,10 +17,17 @@ import sizesExample from '../../examples/sheet/sizesExample.js';
 import subheadingExample from '../../examples/sheet/subHeadingExample.js';
 
 export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  const PREVIEW_HEIGHT = 800;
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={defaultExample} name="Sheet Main Example" hideEditor />
+        <SandpackExample
+          code={defaultExample}
+          name="Sheet Main Example"
+          hideEditor
+          previewHeight={PREVIEW_HEIGHT}
+        />
       </PageHeader>
       <PropTable
         props={[
@@ -140,6 +147,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
                 name="Sub task example"
                 hideEditor
                 layout="column"
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -154,6 +162,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
                 name="Sub task example"
                 hideEditor
                 hideControls
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -192,7 +201,12 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={defaultExample} name="Accessibility example" layout="column" />
+              <SandpackExample
+                code={defaultExample}
+                name="Accessibility example"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>
@@ -215,7 +229,12 @@ When Sheet opens, focus should be placed on the first interactive element within
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={defaultExample} name="Heading example" layout="column" />
+              <SandpackExample
+                code={defaultExample}
+                name="Heading example"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>
@@ -226,7 +245,12 @@ When Sheet opens, focus should be placed on the first interactive element within
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={subheadingExample} name="Subhading example" layout="column" />
+              <SandpackExample
+                code={subheadingExample}
+                name="Subheading example"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>
@@ -237,7 +261,12 @@ When Sheet opens, focus should be placed on the first interactive element within
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={footerExample} name="Footer example" layout="column" />
+              <SandpackExample
+                code={footerExample}
+                name="Footer example"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>
@@ -253,7 +282,12 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={sizesExample} name="Sizes example" layout="column" />
+              <SandpackExample
+                code={sizesExample}
+                name="Sizes example"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>
@@ -269,6 +303,7 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
                 code={preventClosingExample}
                 name="Prevent closing example"
                 layout="column"
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -295,7 +330,12 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={animationExample} name="Animation example" layout="column" />
+              <SandpackExample
+                code={animationExample}
+                name="Animation example"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>

@@ -1077,7 +1077,7 @@ function MainExample() {
                   label="Notes"
                   value=""
                 />
-                <Flex gap={{ column: 0, row: 4 }}
+                <Flex gap={{ column: 0, row: 4 }}>
                   <NumberField
                     id="budget"
                     onChange={() => {}}
@@ -1099,7 +1099,7 @@ function MainExample() {
                 <Switch onChange={() => {}} id="status" switched />
               </Flex>
             </Flex>
-            <Flex gap={{ column: 0, row: 3 }}
+            <Flex gap={{ column: 0, row: 3 }}>
               <Button text="Cancel" />
               <Flex.Item flex="grow">
                 <Button text="Pause" />
@@ -1108,7 +1108,7 @@ function MainExample() {
             </Flex>
           </Flex>
         ) : (
-          <Flex gap={{ column: 0, row: 3 }}
+          <Flex gap={{ column: 0, row: 3 }}>
             <Module id="Analitycs Overview" title="Analitycs Overview">
               <Box width={300}>
                 <Datapoint

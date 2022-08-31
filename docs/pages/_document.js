@@ -48,7 +48,14 @@ gtag('config', 'UA-12967896-44');
 `,
             }}
           />
-          <link rel="icon" href="/pinterest_favicon.png" />
+          <link
+            rel="icon"
+            href={
+              process.env.NODE_ENV === 'development'
+                ? '/gestaltDev_favicon.png'
+                : '/gestalt_favicon.png'
+            }
+          />
           {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
         </Head>

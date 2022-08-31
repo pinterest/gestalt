@@ -340,7 +340,7 @@ Accessible content is critical if we consider that assistive technology also pre
       </Text>
     </Label>
   </Flex>
-  <Flex gap={{ column: 0, row: 2 }}
+  <Flex gap={{ column: 0, row: 2 }}>
     <Checkbox
       checked
       id="2"
@@ -356,7 +356,7 @@ Accessible content is critical if we consider that assistive technology also pre
       </Text>
     </Label>
   </Flex>
-  <Flex gap={{ column: 0, row: 2 }}
+  <Flex gap={{ column: 0, row: 2 }}>
     <Checkbox
       checked
       id="3"
