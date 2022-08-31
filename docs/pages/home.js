@@ -53,7 +53,7 @@ export default function HomePage(): Node {
             <IllustrationCard
               headingLevel={3}
               title="Designer onboarding and tooling"
-              href="/get_started/design"
+              href="/get_started/designers"
               description="Our brand-new guide for designers to get started using Gestalt"
               color="blue-skycicle-450"
               image={<Design />}
