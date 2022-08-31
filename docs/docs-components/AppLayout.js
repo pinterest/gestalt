@@ -25,15 +25,16 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
 
   const [isHomePage, setIsHomePage] = useState(router?.route === '/home');
   const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
-  const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
 
   useEffect(() => {
+    const fullWidthPages = ['home', 'whats_new', 'roadmap'];
+
     setIsHomePage(window?.location?.pathname === '/home');
     setShouldHideSideNav(fullWidthPages.some((page) => window?.location?.pathname.includes(page)));
-  }, [router, fullWidthPages]);
+  }, [router]);
 
   useEffect(() => {
     const handleScroll = () => setIsSidebarOpen(false);
