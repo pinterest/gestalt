@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Text, Link } from 'gestalt';
-import Page from '../../docs-components/Page.js';
-import MainSection from '../../docs-components/MainSection.js';
-import PageHeader from '../../docs-components/PageHeader.js';
+import Page from '../docs-components/Page.js';
+import MainSection from '../docs-components/MainSection.js';
+import PageHeader from '../docs-components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
 import roadmapData from './RoadmapData.json';
-import InternalOnlyIconButton from '../../docs-components/InternalOnlyIconButton.js';
+import InternalOnlyIconButton from '../docs-components/InternalOnlyIconButton.js';
 
 const inProgress = roadmapData.tasks.filter((x) => x.status === 'inProgress');
 

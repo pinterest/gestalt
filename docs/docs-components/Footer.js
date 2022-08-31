@@ -5,6 +5,10 @@ import trackButtonClick from './buttons/trackButtonClick.js';
 
 const links = [
   {
+    title: "What's New",
+    url: '/whats_new',
+  },
+  {
     title: 'Careers',
     url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
     external: true,
@@ -58,7 +62,6 @@ export default function Footer(): Node {
               <Text inline>
                 <Link
                   href={link.url}
-                  target="blank"
                   onClick={() => trackButtonClick(link.title)}
                   externalLinkIcon={link.external ? 'default' : 'none'}
                 >

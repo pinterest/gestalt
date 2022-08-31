@@ -34,7 +34,7 @@ export default function HomePage(): Node {
                   they love
                 </Text>
 
-                <Button text="View road map" role="link" href="/roadmap/overview" />
+                <Button text="View road map" role="link" href="/roadmap" />
               </Flex>
               <Box
                 minWidth="60%"
@@ -98,7 +98,7 @@ export default function HomePage(): Node {
             <IllustrationCard
               headingLevel={3}
               title="Road map"
-              href="/roadmap/overview"
+              href="/roadmap"
               description="What we plan to build and update in the short and long term"
               color="teal-spabattical-450"
               image={<Roadmap />}

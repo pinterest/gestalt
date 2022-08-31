@@ -68,7 +68,6 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
           { label: 'Get started', value: 'Get started' },
           { label: 'Components', value: 'Components' },
           { label: 'Foundations', value: 'Foundations' },
-          { label: 'Roadmap', value: 'Roadmap' },
         ]}
         size="lg"
         label="Select site section"

@@ -101,8 +101,7 @@ function getTabs(componentPlatform) {
       text: 'Components',
     },
     { href: '/foundations/overview', text: 'Foundations' },
-    { href: '/roadmap/overview', text: 'Roadmap' },
-    { href: '/roadmap/whats_new', text: "What's new" },
+    { href: '/roadmap', text: 'Roadmap' },
   ];
 }
 
@@ -173,7 +172,7 @@ function Header() {
           <Text color="default" weight="bold">
             <Link
               accessibilityLabel="Gestalt home"
-              href="/"
+              href="/home"
               onClick={() => {
                 trackButtonClick('Gestalt logo');
                 setActiveTab(-1);
