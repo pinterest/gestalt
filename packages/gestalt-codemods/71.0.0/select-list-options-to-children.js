@@ -3,7 +3,7 @@
  *  <SelectList options={foo} /> to <SelectList>{foo.map((item) => <SelectList.Option {...item} />)}</SelectList>
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/_next/select-list-options-to-children.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/71.0.0/select-list-options-to-children.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
