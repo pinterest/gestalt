@@ -1,6 +1,7 @@
 // @flow strict
 import { useEffect, useState, Fragment, type Node } from 'react';
 import { Box, Divider, DeviceTypeProvider } from 'gestalt';
+import { useRouter } from 'next/router';
 import Header from './Header.js';
 import SkipToContent from './SkipToContent.js';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
@@ -9,8 +10,6 @@ import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
 import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDeviceTypeProvider.js';
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
-import { useRouter } from 'next/router';
-import full from '@babel/core/lib/config/full';
 
 const CONTENT_MAX_WIDTH_PX = 1546;
 
@@ -34,7 +33,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   useEffect(() => {
     setIsHomePage(window?.location?.pathname === '/home');
     setShouldHideSideNav(fullWidthPages.some((page) => window?.location?.pathname.includes(page)));
-  }, [router]);
+  }, [router, fullWidthPages]);
 
   useEffect(() => {
     const handleScroll = () => setIsSidebarOpen(false);

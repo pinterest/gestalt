@@ -1,5 +1,5 @@
 // @flow strict
-import { useEffect, useState, type Node } from 'react';
+import { useEffect, type Node } from 'react';
 import { ColorSchemeProvider, OnLinkNavigationProvider } from 'gestalt';
 import { useRouter } from 'next/router';
 import { AppContextProvider, AppContextConsumer } from './appContext.js';
