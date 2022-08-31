@@ -224,10 +224,7 @@ class Contents extends Component<Props, State> {
       ? Math.round((heightOfList / heightAvailable) * 100) >= 90
       : false;
     const overridePropsToMaxPopoverSize = shouldRenderOnTop
-      ? {
-          top: '5vh',
-          zIndex: 10,
-        }
+      ? { top: `calc(${document.documentElement.scrollTop}px + 5vh)` }
       : {};
 
     return (
