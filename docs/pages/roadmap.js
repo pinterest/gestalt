@@ -103,7 +103,11 @@ export default function RoadmapPage(): Node {
         }}
       >
         <Text>
-          {`The following reflects all public-facing work the Gestalt team plans to ship in ${roadmapData.year}.`}
+          {`The following reflects all public-facing work the Gestalt team plans to ship in ${roadmapData.year}.`}{' '}
+          For more details on our latest updates, visit the{' '}
+          <Link href="/whats_new" inline>
+            What's New page.
+          </Link>
         </Text>
         <Flex
           gap={{
