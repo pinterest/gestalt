@@ -1,3 +1,9 @@
+## 71.0.1 (Sep 1, 2022)
+
+### Patch
+
+- Avatar: implement Sandpack code editors (#2353)
+
 ## 71.0.0 (Sep 1, 2022)
 
 ### Major
