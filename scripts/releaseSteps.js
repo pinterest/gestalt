@@ -54,7 +54,10 @@ async function getReleaseNotes({ lastCommitMessage, newVersion, releaseType }) {
 
 ### ${capitalizeFirstLetter(releaseType)}
 
-- ${lastCommitMessage}`;
+- ${lastCommitMessage.replace(/(\(#\d+\))/g, (value) => {
+    const PR = value.replace('(', '').replace(')', '').replace('#', '');
+    return `([#${PR}](https://github.com/pinterest/gestalt/pull/${PR}))`;
+  })}`;
 }
 
 async function bumpPackageVersion() {
