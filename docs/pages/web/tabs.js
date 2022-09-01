@@ -365,7 +365,7 @@ function TabExample() {
         </Label>
         <Switch
           id="color"
-          onChange={() => setIsTransparent(!isTransparent)}
+          onChange={() => setIsTransparent( (value) => !value)}
           switched={isTransparent}
         />
       </Flex>
