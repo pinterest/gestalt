@@ -1,3 +1,9 @@
+## 71.0.5 (Sep 1, 2022)
+
+### Patch
+
+- Dropdown: support conditional children wrapped in Fragment ([#2354](https://github.com/pinterest/gestalt/pull/2354))
+
 ## 71.0.4 (Sep 1, 2022)
 
 ### Patch
