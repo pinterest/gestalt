@@ -1,3 +1,9 @@
+## 71.0.3 (Sep 1, 2022)
+
+### Patch
+
+- Docs: Fix Flex wrapping in multiple pages (#2351)
+
 ## 71.0.2 (Sep 1, 2022)
 
 ### Patch
