@@ -64,16 +64,19 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
         labelDisplay="hidden"
         id="mobile-sidenavigation"
         onChange={({ value }) => setSelectedTab(value)}
-        options={[
+        size="lg"
+        label="Select site section"
+        value={selectedTab}
+      >
+        {[
           { label: 'Get started', value: 'Get started' },
           { label: 'Components', value: 'Components' },
           { label: 'Foundations', value: 'Foundations' },
           { label: 'Roadmap', value: 'Roadmap' },
-        ]}
-        size="lg"
-        label="Select site section"
-        value={selectedTab}
-      />
+        ].map(({ label, value }) => (
+          <SelectList.Option key={label} label={label} value={value} />
+        ))}
+      </SelectList>
       {platformSwitcher}
     </Flex>
   ) : (
