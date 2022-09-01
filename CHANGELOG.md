@@ -1,3 +1,9 @@
+## 71.0.2 (Sep 1, 2022)
+
+### Patch
+
+- Updated roadmap for August (#2352)
+
 ## 71.0.1 (Sep 1, 2022)
 
 ### Patch
