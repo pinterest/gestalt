@@ -1,5 +1,539 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
+<body>
+  <div />
+  <div
+    class=""
+  >
+    <div>
+      <div
+        class="container rounding4 contents maxDimensions minDimensions"
+        style="visibility: visible; top: 8px; left: -10px;"
+        tabindex="-1"
+      >
+        <div
+          aria-label="Popover"
+          class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          id="ex-1"
+          role="menu"
+          style="max-width: 360px;"
+        >
+          <div
+            class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
+          >
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-0"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 secondary xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="1"
+                        >
+                          1
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-1"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="2"
+                        >
+                          2
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-2"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="3"
+                        >
+                          3
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-3"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="4"
+                        >
+                          4
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-4"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="5"
+                        >
+                          5
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-5"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="6"
+                        >
+                          6
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-6"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="7"
+                        >
+                          7
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-7"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="8"
+                        >
+                          8
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-8"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="9"
+                        >
+                          9
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-9"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="10"
+                        >
+                          10
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-10"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="11"
+                        >
+                          11
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-11"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="12"
+                        >
+                          12
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box itemsCenter justifyCenter xsDisplayFlex"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`Dropdown renders a menu of 6 items 1`] = `
 <body>
   <div />
