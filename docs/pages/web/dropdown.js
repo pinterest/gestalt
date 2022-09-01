@@ -1070,9 +1070,9 @@ function CustomIconButtonPopoverExample() {
           description={`
 Under the hood, Dropdown executes two actions: recognizing subcomponents by display name and sequencially indexing each subcomponent for keyboard navigation.
 
-Dropdown requires its own subcomponents as children to build its the list of actions.
+Dropdown requires its own subcomponents as children to build the list of actions.
 
-When building a Dropdown, we might waant to render different combinations of subcomponents conditionally. Dropdown supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of this cases. More complex logics might break the correct behavior of Dropdown.
+When building a Dropdown, we might want to render different combinations of subcomponents conditionally. Dropdown supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of these cases. More logic complexity might break the correct Dropdown behavior.
           `}
         >
           <MainSection.Card
