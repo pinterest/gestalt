@@ -246,10 +246,10 @@ function MenuButtonExample() {
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Box>
+<Flex>
   <Text>Enable your screen reader to hear the following text:</Text>
-  <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
-</Box>
+  <Box display="visuallyHidden">Hi there.</Box>
+</Flex>
 `}
           />
         </MainSection.Subsection>
@@ -766,7 +766,7 @@ function BoxPopoverExample() {
   <Box position="absolute" bottom right padding={2} color="infoBase">
     <Text color="light">Bottom Right</Text>
   </Box>
-  <Box color="successBase" width={400} height="100%"/>
+  <Box color="successBase" minWidth={100} maxWidth={400} height="100%"/>
 </Box>
 `}
           />

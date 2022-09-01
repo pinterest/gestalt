@@ -179,7 +179,8 @@ export default function MessagingComponentsPage(): Node {
           </Text>
 
           <Box>
-            <iFrame
+            <iframe
+              title="Messaging Figma decision tree"
               style={{ border: 'none' }}
               width="100%"
               height="450"
