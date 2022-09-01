@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, cloneElement, type Node, useState } from 'react';
+import { Fragment, Children, cloneElement, type Node, useState } from 'react';
 import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
@@ -23,13 +23,16 @@ function getChildrenOptions(childrenArray) {
   return childrenArray.reduce((accumulatedChildren, currentChild) => {
     const {
       props: { children: currentItemChildren },
+      type,
       type: { displayName },
     } = currentChild;
 
-    if (currentItemChildren && displayName === 'Dropdown.Section') {
+    if ((currentItemChildren && displayName === 'Dropdown.Section') || type === Fragment) {
       return [
         ...accumulatedChildren,
-        ...(Array.isArray(currentItemChildren) ? currentItemChildren : [currentItemChildren]),
+        ...(Array.isArray(currentItemChildren)
+          ? currentItemChildren.flat()
+          : [currentItemChildren]),
       ];
     }
 
@@ -66,8 +69,12 @@ const renderChildrenWithIndex = (childrenArray) => {
     const subSectionChildren = child.props.children;
     const childDisplayName = child.type.displayName;
 
-    if (subSectionChildren && childDisplayName === 'Dropdown.Section') {
-      const sectionChildrenArray = Children.toArray(subSectionChildren);
+    if (
+      (subSectionChildren && childDisplayName === 'Dropdown.Section') ||
+      child.type === Fragment
+    ) {
+      const sectionChildrenArray = Children.toArray(subSectionChildren).flat();
+
       const childWithIndex = cloneElement(child, {
         children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
       });

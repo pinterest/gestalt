@@ -22,14 +22,14 @@ export default function DropdownPage({
         description={generatedDocGen.Dropdown?.description}
         badge="pilot"
         defaultCode={`
-function IntroMenuButtonDropdownExample() {
+function Example() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
   const anchorRef = React.useRef(null);
   const onSelect = ({ item }) => setSelected(item);
 
   return (
-    <Flex justifyContent="center">
+    <Flex height="100%" justifyContent="center">
       <Button
         accessibilityControls="demo-dropdown-example"
         accessibilityExpanded={open}
@@ -42,44 +42,56 @@ function IntroMenuButtonDropdownExample() {
         text="Menu"
       />
       {open && (
-        <Dropdown anchor={anchorRef.current} id="demo-dropdown-example" onDismiss={() => setOpen(false)}>
+        <Dropdown
+          anchor={anchorRef.current}
+          id="demo-dropdown-example"
+          onDismiss={() => setOpen(false)}
+        >
           <Dropdown.Item
             onSelect={onSelect}
-            option={{ value: "item 1", label: "Item 1" }}
+            option={{ value: 'item 1', label: 'Item 1' }}
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
-            option={{ value: "item 2", label: "Item 2 with a really long, detailed, complex name" }}
+            option={{
+              value: 'item 2',
+              label: 'Item 2 with a really long, detailed, complex name',
+            }}
             selected={selected}
           />
           <Dropdown.Link
             href="https://pinterest.com"
             isExternal
-            option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
+            option={{
+              value: 'item 3',
+              label: 'Item 3 with a really long, detailed, complex name',
+            }}
           />
           <Dropdown.Item
             badge={{ text: 'New' }}
             onSelect={onSelect}
-            option={{ value: "item 4", label: "Item 4" }}
+            option={{ value: 'item 4', label: 'Item 4' }}
             selected={selected}
           />
           <Dropdown.Link
             badge={{ text: 'New' }}
             href="https://pinterest.com"
             isExternal
-            option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
+            option={{ value: 'item 5', label: 'Item 5 with a really long, detailed name' }}
           />
           <Dropdown.Link
             href="/combobox"
-            option={{ value: "item 6", label: "Item 6 navigates internally" }}
+            option={{ value: 'item 6', label: 'Item 6 navigates internally' }}
           />
         </Dropdown>
       )}
     </Flex>
   );
 }
-      `}
+
+
+        `}
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Dropdown} />
@@ -1049,6 +1061,108 @@ function CustomIconButtonPopoverExample() {
     </Flex>
   );
 }
+            `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Subcomponent composability"
+          description={`
+Under the hood, Dropdown executes two actions: recognizing subcomponents by display name and sequencially indexing each subcomponent for keyboard navigation.
+
+Dropdown requires its own subcomponents as children to build its the list of actions.
+
+When building a Dropdown, we might waant to render different combinations of subcomponents conditionally. Dropdown supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of this cases. More complex logics might break the correct behavior of Dropdown.
+          `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+            function Example() {
+  const [open, setOpen] = React.useState(false);
+  const [switched, setSwitched] = React.useState(true);
+  const [selected, setSelected] = React.useState(null);
+
+  const anchorRef = React.useRef(null);
+  const onSelect = ({ item }) => setSelected(item);
+
+  return (
+    <Flex justifyContent="center" direction="column" gap={4}>
+      <Box display="flex" alignItems="center">
+        <Box paddingX={2}>
+          <Label htmlFor="dropdown-example">
+            <Text>Toggle Dropdown subcomponents</Text>
+          </Label>
+        </Box>
+        <Switch
+          onChange={() => setSwitched((value) => !value)}
+          id="dropdown-example"
+          switched={switched}
+        />
+      </Box>
+      <IconButton
+        accessibilityControls="custom-dropdown-example"
+        accessibilityExpanded={open}
+        accessibilityHaspopup
+        accessibilityLabel="More Options"
+        icon="add"
+        iconColor="darkGray"
+        onClick={() => setOpen((prevVal) => !prevVal)}
+        ref={anchorRef}
+        selected={open}
+        size="lg"
+      />
+      {open && (
+        <Dropdown
+          anchor={anchorRef.current}
+          id="custom-dropdown-example"
+          onDismiss={() => setOpen(false)}
+        >
+          {switched ? (
+            <React.Fragment>
+              <Dropdown.Link isExternal option={{ value: 'item 1', label: 'Custom link 1' }}>
+                <Box width="100%">
+                  <Text>
+                    <Link hoverStyle="none" href="https://pinterest.com" target="blank">
+                      Custom link 1
+                    </Link>
+                  </Text>
+                </Box>
+              </Dropdown.Link>
+              <Dropdown.Link isExternal option={{ value: 'item 2', label: 'Another custom link' }}>
+                <Box width="100%">
+                  <Text>
+                    <Link hoverStyle="none" href="https://google.com" target="blank">
+                      Another custom link
+                    </Link>
+                  </Text>
+                </Box>
+              </Dropdown.Link>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {[1, 2, 3, 4, 5, 6].map((x) => (
+                <Dropdown.Item
+                  key={x}
+                  onSelect={() => {}}
+                  option={{ value: x.toString(), label: x.toString() }}
+                />
+              ))}
+              {[7, 8, 9, 10, 11, 12].map((x) => (
+                <Dropdown.Item
+                  key={x}
+                  onSelect={() => {}}
+                  option={{ value: x.toString(), label: x.toString() }}
+                />
+              ))}
+            </React.Fragment>
+          )}
+        </Dropdown>
+      )}
+    </Flex>
+  );
+}
+
             `}
           />
         </MainSection.Subsection>
