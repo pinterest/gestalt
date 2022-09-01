@@ -1,3 +1,9 @@
+## 71.0.4 (Sep 1, 2022)
+
+### Patch
+
+- Docs: Update headings on Home page ([#2350](https://github.com/pinterest/gestalt/pull/2350))
+
 ## 71.0.3 (Sep 1, 2022)
 
 ### Patch
