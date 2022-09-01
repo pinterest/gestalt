@@ -292,9 +292,10 @@ function TabExample() {
         description={`Be sure to localize \`text\` and \`accessibilityLabel\`.
     The Tab's title should be 3 words or less: long enough to be understood by users but short enough to prevent text wrapping. Aim for a single word when possible.`}
       />
-      <Example
-        name="Example"
-        defaultCode={`
+      <MainSection name="Variants">
+        <Example
+          name="Wrapping"
+          defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [wrap, setWrap] = React.useState(false);
@@ -336,13 +337,13 @@ function TabExample() {
   );
 }
   `}
-      />
-      <Example
-        name="Background color"
-        defaultCode={`
+        />
+        <Example
+          name="Background color"
+          defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [wrap, setWrap] = React.useState(false);
+  const [isTransparent, setIsTransparent] = React.useState(true);
 
   const handleChange = ({ activeTabIndex, event }) => {
     event.preventDefault();
@@ -359,30 +360,31 @@ function TabExample() {
   return (
     <Flex alignItems="start" direction="column" gap={{ column: 4, row: 0 }}>
       <Flex gap={{ row: 4, column: 0 }}>
-        <Label htmlFor="wrap">
-          <Text>Wrap</Text>
+        <Label htmlFor="color">
+          <Text>Transparent background</Text>
         </Label>
         <Switch
-          id="wrap"
-          onChange={() => setWrap(!wrap)}
-          switched={wrap}
+          id="color"
+          onChange={() => setIsTransparent(!isTransparent)}
+          switched={isTransparent}
         />
       </Flex>
 
-      <Box borderStyle="sm" color="lightGray" maxWidth={500} overflow="auto" padding={1}>
+      <Box borderStyle="sm" color="secondary" maxWidth={500} overflow="auto" padding={1}>
         <Tabs
           activeTabIndex={activeIndex}
-          bgColor="transparent"
+          bgColor={isTransparent ? 'transparent' : 'default'}
           onChange={handleChange}
           tabs={tabs}
-          wrap={wrap}
+          wrap={true}
         />
       </Box>
     </Flex>
   );
 }
   `}
-      />
+        />
+      </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">

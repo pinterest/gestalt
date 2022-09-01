@@ -628,7 +628,7 @@ function Example() {
     const [checked5, setChecked5] = React.useState(false);
 
   return (
-    <Flex gap={{ column: 0, row: 6 }}>
+    <Flex gap={6} wrap>
       <Checkbox
         checked={false}
         id="Unchecked"
