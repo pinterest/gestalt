@@ -9,27 +9,7 @@ import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import mainExample from '../../examples/sidenavigation/mainExample.js';
-import correctLengthExample from '../../examples/sidenavigation/correctLengthExample.js';
-import incorrectLengthExample from '../../examples/sidenavigation/incorrectLengthExample.js';
-import correctGroupingExample from '../../examples/sidenavigation/correctGroupingExample.js';
-import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample.js';
-import correctIconExample from '../../examples/sidenavigation/correctIconExample.js';
-import incorrectIconExample from '../../examples/sidenavigation/incorrectIconExample.js';
-import correctHeadingExample from '../../examples/sidenavigation/correctHeadingExample.js';
-import incorrectHeadingExample from '../../examples/sidenavigation/incorrectHeadingExample.js';
-import activeItemExample from '../../examples/sidenavigation/activeItemExample.js';
-import localizationExample from '../../examples/sidenavigation/localizationExample.js';
-import sectionsExample from '../../examples/sidenavigation/sectionsExample.js';
-import badgeExample from '../../examples/sidenavigation/badgeExample.js';
-import borderExample from '../../examples/sidenavigation/borderExample.js';
-import counterExample from '../../examples/sidenavigation/counterExample.js';
-import customIconsExample from '../../examples/sidenavigation/customIconsExample.js';
-import iconsExample from '../../examples/sidenavigation/iconsExample.js';
-import headerExample from '../../examples/sidenavigation/headerExample.js';
-import nestedExample from '../../examples/sidenavigation/nestedExample.js';
-import notificationsExample from '../../examples/sidenavigation/notificationsExample.js';
-import mobileExample from '../../examples/sidenavigation/mobileExample.js';
+import EXAMPLES from '../../examples/sidenavigation/index.js';
 
 export default function SideNavigationPage({
   generatedDocGen,
@@ -50,7 +30,7 @@ export default function SideNavigationPage({
         }
       >
         <SandpackExample
-          code={mainExample}
+          code={EXAMPLES.main}
           name="SideNavigation Main Example"
           hideEditor
           previewHeight={208}
@@ -90,7 +70,7 @@ export default function SideNavigationPage({
             description="Keep item labels brief and clear to keep them memorable and scannable."
             sandpackExample={
               <SandpackExample
-                code={correctLengthExample}
+                code={EXAMPLES.correctLength}
                 name="Correct length example"
                 hideEditor
                 previewHeight={230}
@@ -103,7 +83,7 @@ export default function SideNavigationPage({
             description="Use long text labels that end up wrapping, especially in certain languages. Don’t shorten labels so much that they are hard to understand."
             sandpackExample={
               <SandpackExample
-                code={incorrectLengthExample}
+                code={EXAMPLES.incorrectLength}
                 name="Incorrect length example"
                 hideEditor
                 previewHeight={230}
@@ -119,7 +99,7 @@ export default function SideNavigationPage({
             description="Group related items and use section headings to help users parse information and help with redundancy."
             sandpackExample={
               <SandpackExample
-                code={correctGroupingExample}
+                code={EXAMPLES.correctGrouping}
                 name="Correct grouping example"
                 hideEditor
                 previewHeight={286}
@@ -132,7 +112,7 @@ export default function SideNavigationPage({
             description="Provide an unordered “kitchen sink” of features that is hard to parse and creates redundancy."
             sandpackExample={
               <SandpackExample
-                code={incorrectGroupingExample}
+                code={EXAMPLES.incorrectGrouping}
                 name="Incorrect grouping example"
                 hideEditor
                 previewHeight={286}
@@ -148,7 +128,7 @@ export default function SideNavigationPage({
             description="Use icons that clearly match their text labels and serve as bullet points for the content."
             sandpackExample={
               <SandpackExample
-                code={correctIconExample}
+                code={EXAMPLES.correctIcon}
                 name="Correct icon example"
                 hideEditor
                 previewHeight={164}
@@ -161,7 +141,7 @@ export default function SideNavigationPage({
             description="Use icons if you’ll be forced to include icons that don’t quite reinforce their text labels."
             sandpackExample={
               <SandpackExample
-                code={incorrectIconExample}
+                code={EXAMPLES.incorrectIcon}
                 name="Incorrect icon example"
                 hideEditor
                 previewHeight={164}
@@ -177,7 +157,7 @@ export default function SideNavigationPage({
             description="Place under the PageHeader when SideNav is used to navigate urls that are sub-sections of a main page"
             sandpackExample={
               <SandpackExample
-                code={correctHeadingExample}
+                code={EXAMPLES.correctHeading}
                 name="Correct heading example"
                 hideEditor
                 layout="column"
@@ -191,7 +171,7 @@ export default function SideNavigationPage({
             description="Omit a PageHeader and make it seem like each SideNav item is a primary, independent page."
             sandpackExample={
               <SandpackExample
-                code={incorrectHeadingExample}
+                code={EXAMPLES.incorrectHeading}
                 name="Incorrect heading example"
                 hideEditor
                 layout="column"
@@ -210,7 +190,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={activeItemExample} name="Active item example" />
+              <SandpackExample code={EXAMPLES.activeItem} name="Active item example" />
             }
           />
         </MainSection.Subsection>
@@ -224,7 +204,7 @@ export default function SideNavigationPage({
       >
         <MainSection.Card
           sandpackExample={
-            <SandpackExample code={localizationExample} name="Localization example" />
+            <SandpackExample code={EXAMPLES.localization} name="Localization example" />
           }
         />
       </MainSection>
@@ -294,7 +274,11 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={sectionsExample} name="Sections example" previewHeight={470} />
+              <SandpackExample
+                code={EXAMPLES.sections}
+                name="Sections example"
+                previewHeight={470}
+              />
             }
           />
         </MainSection.Subsection>
@@ -304,7 +288,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={headerExample} name="Header example" previewHeight={380} />
+              <SandpackExample code={EXAMPLES.header} name="Header example" previewHeight={380} />
             }
           />
         </MainSection.Subsection>
@@ -374,7 +358,7 @@ export default function SideNavigationPage({
           description="A badge can be added to a menu label with information that may be useful to a person, such as whether a page is new or is a beta or deprecated feature. Only supported in SideNavigation.TopItem and SideNavigation.Group."
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={badgeExample} name="Badge example" />}
+            sandpackExample={<SandpackExample code={EXAMPLES.badge} name="Badge example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -382,7 +366,7 @@ export default function SideNavigationPage({
           description="A border can be added to the end edge of the navigation on dense surfaces with tight spacing where it helps to visually separate the nav from other content."
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={borderExample} name="Border example" />}
+            sandpackExample={<SandpackExample code={EXAMPLES.border} name="Border example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -392,12 +376,12 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             title="Gestalt icon"
-            sandpackExample={<SandpackExample code={iconsExample} name="Icons example" />}
+            sandpackExample={<SandpackExample code={EXAMPLES.icons} name="Icons example" />}
           />
           <MainSection.Card
             title="Custom icon"
             sandpackExample={
-              <SandpackExample code={customIconsExample} name="Custom icon example" />
+              <SandpackExample code={EXAMPLES.customIcons} name="Custom icon example" />
             }
           />
         </MainSection.Subsection>
@@ -407,7 +391,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={notificationsExample} name="Notifications example" />
+              <SandpackExample code={EXAMPLES.notifications} name="Notifications example" />
             }
           />
         </MainSection.Subsection>
@@ -416,7 +400,7 @@ export default function SideNavigationPage({
           description="Counters can be included as indicators of the number of items on a page or section. Only include counters if it’s information that’s useful to the user to know before clicking on a menu item. Only supported in SideNavigation.TopItem and SideNavigation.Group."
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={counterExample} name="Counters example" />}
+            sandpackExample={<SandpackExample code={EXAMPLES.counter} name="Counters example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -425,7 +409,7 @@ export default function SideNavigationPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={nestedExample} name="Nested directory example" />
+              <SandpackExample code={EXAMPLES.nested} name="Nested directory example" />
             }
           />
         </MainSection.Subsection>
@@ -434,7 +418,7 @@ export default function SideNavigationPage({
       <MainSection name="Mobile">
         <MainSection.Card
           sandpackExample={
-            <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
+            <SandpackExample code={EXAMPLES.mobile} name="Mobile example" previewHeight={500} />
           }
         />
       </MainSection>
