@@ -1,3 +1,9 @@
+## 71.0.0 (Sep 1, 2022)
+
+### Major
+
+- SelectList: Add support for `<optgroup>`, replace `items` prop with subcomponents (#2219)
+
 ## 70.1.1 (Aug 30, 2022)
 
 ### Patch
