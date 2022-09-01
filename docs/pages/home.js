@@ -52,16 +52,16 @@ export default function HomePage(): Node {
           <IllustrationSection title="Get started">
             <IllustrationCard
               headingLevel={3}
-              title="Design"
-              href="/get_started/design"
+              title="Designer onboarding and tooling"
+              href="/get_started/designers"
               description="Our brand-new guide for designers to get started using Gestalt"
               color="blue-skycicle-450"
               image={<Design />}
             />
             <IllustrationCard
               headingLevel={3}
-              href="/get_started/developers/installation"
-              title="Development"
+              href="/get_started/developers/development_process"
+              title="Developer onboarding and tooling"
               description="How to set up for development and create pull requests"
               color="blue-skycicle-450"
               image={<Development />}
