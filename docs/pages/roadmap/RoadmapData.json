@@ -212,7 +212,7 @@
     {
       "task": "Gestalt docs IA update",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "",
       "description": "Update of the Gestalt docs site’s information architecture to support pattern guidelines and mobile component documentation.",
       "link": ""
@@ -276,7 +276,7 @@
     {
       "task": "Button component design guidelines",
       "deadline": "Quarter 1",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Button mobile documentation.",
       "link": ""
@@ -284,7 +284,7 @@
     {
       "task": "IconButton component design guidelines",
       "deadline": "Quarter 1",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to IconButton mobile documentation.",
       "link": ""
@@ -292,7 +292,7 @@
     {
       "task": "Modal/Sheet component design guidelines",
       "deadline": "Quarter 1",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Modal/Sheet mobile documentation.",
       "link": ""
@@ -332,7 +332,7 @@
     {
       "task": "Tabs component design guidelines",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Tabs mobile documentation.",
       "link": ""
@@ -348,7 +348,7 @@
     {
       "task": "Avatar component design guidelines",
       "deadline": "Quarter 2",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Avatar mobile documentation.",
       "link": ""
@@ -396,7 +396,7 @@
     {
       "task": "Icon component design guidelines",
       "deadline": "Quarter 3",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Icon mobile documentation.",
       "link": ""
