@@ -12,7 +12,7 @@
         {
           "title": "New docs site and code example style",
           "audience": ["Engineering"],
-          "imageSrc": "https://i.pinimg.com/originals/90/75/de/9075de0039c3344b2c45cb5af424006f.png",
+          "imageSrc": "https://i.pinimg.com/originals/19/5a/af/195aaf8a65f0d7ceaa3b685beadd23cd.png",
           "imageAltText": "Screenshot of new docs site",
           "content": "If you've used [our docs site](https://gestalt.pinterest.systems/) over the past few weeks, you may have noticed that we completely overhauled the structure! These changes accommodate our expansion to include design guidance (and soon eng components!) for iOS and Android. This also allowed us to de-clutter the side nav, helping you find what you're looking for more quickly. Also check out the new code example style we're migrating to on the [Modal](https://gestalt.pinterest.systems/web/modal) or [Sheet](https://gestalt.pinterest.systems/web/sheet) pages. This will finally fix the persistent and annoying problems we've had with our existing code examples."
         },
