@@ -1,3 +1,9 @@
+## 71.0.10 (Sep 2, 2022)
+
+### Patch
+
+- Docs: Refresh component status ([#2361](https://github.com/pinterest/gestalt/pull/2361)) - [PREVIEW URL](https://deploy-preview-2361--gestalt.netlify.app)
+
 ## 71.0.9 (Sep 2, 2022)
 
 ### Patch
