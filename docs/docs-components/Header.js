@@ -217,7 +217,11 @@ function Header() {
             ref={anchorRef}
             selected={isSettingsDropdownOpen}
             size="sm"
-            tooltip={{ 'text': 'Site settings', 'zIndex': PAGE_HEADER_POPOVER_ZINDEX }}
+            tooltip={{
+              'text': 'Site settings',
+              'idealDirection': 'right',
+              'zIndex': PAGE_HEADER_POPOVER_ZINDEX,
+            }}
           />
         </Box>
         {isSettingsDropdownOpen && (
