@@ -20,7 +20,6 @@ export default function DropdownPage({
       <PageHeader
         name={generatedDocGen.Dropdown?.displayName}
         description={generatedDocGen.Dropdown?.description}
-        badge="pilot"
         defaultCode={`
 function Example() {
   const [open, setOpen] = React.useState(false);

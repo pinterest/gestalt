@@ -14,7 +14,6 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         name={generatedDocGen?.displayName}
-        badge="pilot"
         description={generatedDocGen?.description}
         defaultCode={`
 <Datapoint
