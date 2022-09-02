@@ -20,7 +20,6 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
   <Status type='ok' title="OK" subtext="Updated 2 days ago" />
 </Flex>
 `}
-        badge="pilot"
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
