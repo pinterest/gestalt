@@ -1,3 +1,9 @@
+## 71.0.11 (Sep 2, 2022)
+
+### Patch
+
+- Docs: add support for monthly eng newsletter + the Aug newsletter ([#2362](https://github.com/pinterest/gestalt/pull/2362)) - [PREVIEW URL](https://deploy-preview-2362--gestalt.netlify.app)
+
 ## 71.0.10 (Sep 2, 2022)
 
 ### Patch
