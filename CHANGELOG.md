@@ -1,3 +1,9 @@
+## 71.0.9 (Sep 2, 2022)
+
+### Patch
+
+- Internal: Add preview link to changelog ([#2360](https://github.com/pinterest/gestalt/pull/2360)) - [PREVIEW URL](https://deploy-preview-2360--gestalt.netlify.app)
+
 ## 71.0.8 (Sep 2, 2022)
 
 ### Patch
