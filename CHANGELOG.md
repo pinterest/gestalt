@@ -1,3 +1,9 @@
+## 71.0.12 (Sep 2, 2022)
+
+### Patch
+
+- Internal: tweak preview link ([#2363](https://github.com/pinterest/gestalt/pull/2363)) - [Preview link](https://deploy-preview-2363--gestalt.netlify.app)
+
 ## 71.0.11 (Sep 2, 2022)
 
 ### Patch
