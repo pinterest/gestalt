@@ -8,18 +8,23 @@ import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import EXAMPLES from '../../examples/avatar/index.js';
+import noImageSourceExample from '../../examples/avatar/noImageSourceExample.js';
+import noEmojiExample from '../../examples/avatar/noEmojiExample.js';
+import mainExample from '../../examples/avatar/mainExample.js';
+import sizingExample from '../../examples/avatar/sizingExample.js';
+import shapeExample from '../../examples/avatar/shapeExample.js';
+import personExample from '../../examples/avatar/personExample.js';
+import ideasExample from '../../examples/avatar/ideasExample.js';
+import nameExample from '../../examples/avatar/nameExample.js';
+import overExample from '../../examples/avatar/overExample.js';
+import containerExample from '../../examples/avatar/containerExample.js';
+import verifiedExample from '../../examples/avatar/verifiedExample.js';
 
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Avatar">
       <PageHeader name="Avatar" description={generatedDocGen?.description}>
-        <SandpackExample
-          code={EXAMPLES.main}
-          name="No image source"
-          hideEditor
-          previewHeight={150}
-        />
+        <SandpackExample code={mainExample} name="No image source" hideEditor previewHeight={150} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -53,7 +58,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             description="Use the default alternative if no image source is available. This will be the first character of the provided name."
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.noImageSource}
+                code={noImageSourceExample}
                 name="No image source"
                 hideEditor
                 previewHeight={200}
@@ -66,7 +71,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             description="Use alternative graphics or icons"
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.noEmoji}
+                code={noEmojiExample}
                 name="No emoji"
                 hideEditor
                 previewHeight={200}
@@ -82,12 +87,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use round Avatars in the appropriate size for your need. Learn more about [avatar sizing](/web/avatar#Fixed-Sizes)."
             sandpackExample={
-              <SandpackExample
-                code={EXAMPLES.sizing}
-                name="Sizing"
-                hideEditor
-                previewHeight={200}
-              />
+              <SandpackExample code={sizingExample} name="Sizing" hideEditor previewHeight={200} />
             }
           />
           <MainSection.Card
@@ -96,7 +96,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             description="Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style."
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.shape}
+                code={shapeExample}
                 name="Shape"
                 hideControls
                 hideEditor
@@ -112,12 +112,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use Avatar to represent a person, organization or group ([Avatar Group](/web/avatargroup))."
             sandpackExample={
-              <SandpackExample
-                code={EXAMPLES.person}
-                name="People"
-                hideEditor
-                previewHeight={200}
-              />
+              <SandpackExample code={personExample} name="People" hideEditor previewHeight={200} />
             }
           />
           <MainSection.Card
@@ -126,7 +121,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             description="Use Avatar to represent metaphorical ideas, like a Board. Instead, consider an icon or the appropriate interactive component."
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.ideas}
+                code={ideasExample}
                 name="Ideas"
                 hideEditor
                 previewHeight={200}
@@ -142,7 +137,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             type="do"
             description="Use the collaborator’s name nearby or in an alternative view if possible."
             sandpackExample={
-              <SandpackExample code={EXAMPLES.name} name="Name" hideEditor previewHeight={200} />
+              <SandpackExample code={nameExample} name="Name" hideEditor previewHeight={200} />
             }
           />
           <MainSection.Card
@@ -151,7 +146,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             description="Place elements like washes, text or icons over Avatars."
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.over}
+                code={overExample}
                 name="Over"
                 hideEditor
                 previewHeight={200}
@@ -184,7 +179,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.sizing}
+                code={sizingExample}
                 name="Sizing variant"
                 hideEditor
                 previewHeight={200}
@@ -202,11 +197,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={EXAMPLES.container}
-                name="Container-based variant"
-                hideEditor
-              />
+              <SandpackExample code={containerExample} name="Container-based variant" hideEditor />
             }
           />
         </MainSection.Subsection>
@@ -220,7 +211,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.noImageSource}
+                code={noImageSourceExample}
                 name="No image variant"
                 hideEditor
                 previewHeight={200}
@@ -237,7 +228,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={EXAMPLES.verified}
+                code={verifiedExample}
                 name="Verified variant"
                 hideEditor
                 previewHeight={200}
