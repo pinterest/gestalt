@@ -1,3 +1,9 @@
+## 71.0.8 (Sep 2, 2022)
+
+### Patch
+
+- Revert "Internal: suggest index.js pattern for exporting Sandpack examples ([#2356](https://github.com/pinterest/gestalt/pull/2356))" ([#2358](https://github.com/pinterest/gestalt/pull/2358))
+
 ## 71.0.7 (Sep 2, 2022)
 
 ### Patch
