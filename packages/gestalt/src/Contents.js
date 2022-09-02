@@ -61,6 +61,7 @@ type State = {|
   caretOffset: CaretOffset,
   popoverDir: ?PopoverDir,
   popoverRef: ?HTMLElement,
+  shouldRenderOnScreenTop: boolean,
 |};
 
 class Contents extends Component<Props, State> {
@@ -82,6 +83,7 @@ class Contents extends Component<Props, State> {
     },
     popoverDir: null,
     popoverRef: null,
+    shouldRenderOnScreenTop: false,
   };
 
   componentDidMount() {
@@ -202,6 +204,37 @@ class Contents extends Component<Props, State> {
     }
   };
 
+  /**
+   * Identify when is required to repositioning the popover, i.e., the windows popover has 90% of
+   * viewport (available screen height), and set the controller variable as `true`;
+   * When the height of popover is less than 90% the controller variable is `false`;
+   */
+  balancePopoverPosition(): Object {
+    // Required because of SSR
+    if (!window && !document) {
+      return {};
+    }
+
+    const viewportAvailable = window.innerHeight;
+    const popoverHeight = document.getElementById(this.props.id)?.clientHeight;
+
+    // Trigger (in percentage) to indicate if it should handle the popover or not;
+    const percentageLimit = 90;
+    const shouldRenderOnScreenTop = popoverHeight
+      ? Math.round((popoverHeight / viewportAvailable) * 100) >= percentageLimit
+      : false;
+
+    // As the popover's `maxHeight` is 90%(90vh) we use the value below to keep the popover on viewport vertical center.
+    const defaultTopPadding = '5vh';
+
+    // The `scrollPosition` is required to cases which popover has opened on the scrolled screen
+    const overridePropsToMaxPopoverSize = shouldRenderOnScreenTop
+      ? { top: `calc(${document.documentElement.scrollTop}px + ${defaultTopPadding})` }
+      : {};
+
+    return overridePropsToMaxPopoverSize;
+  }
+
   render(): Node {
     const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
       this.props;
@@ -213,19 +246,7 @@ class Contents extends Component<Props, State> {
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
-    /**
-     * Should verify the max-height of box and render the popOver aligning the
-     * box on top of view;
-     */
-    const heightAvailable = window.innerHeight;
-    const heightOfList = document.getElementById(id)?.clientHeight;
-    // 90 is 90% or 90vh;
-    const shouldRenderOnTop = heightOfList
-      ? Math.round((heightOfList / heightAvailable) * 100) >= 90
-      : false;
-    const overridePropsToMaxPopoverSize = shouldRenderOnTop
-      ? { top: `calc(${document.documentElement.scrollTop}px + 5vh)` }
-      : {};
+    const overridePropsToMaxPopoverSize = this.balancePopoverPosition();
 
     return (
       <div
