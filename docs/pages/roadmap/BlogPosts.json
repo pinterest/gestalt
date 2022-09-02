@@ -2,6 +2,44 @@
   "year": "2022",
   "digests": [
     {
+      "month": "August",
+      "posts": [
+        {
+          "title": "Gestalt Eng August Newsletter",
+          "audience": ["Engineering"],
+          "content": "From feedback in our latest survey, we're starting a monthly newsletter to recap engineering changes you should know about."
+        },
+        {
+          "title": "New docs site and code example style",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/90/75/de/9075de0039c3344b2c45cb5af424006f.png",
+          "imageAltText": "Screenshot of new docs site",
+          "content": "If you've used [our docs site](https://gestalt.pinterest.systems/) over the past few weeks, you may have noticed that we completely overhauled the structure! These changes accommodate our expansion to include design guidance (and soon eng components!) for iOS and Android. This also allowed us to de-clutter the side nav, helping you find what you're looking for more quickly. Also check out the new code example style we're migrating to on the [Modal](https://gestalt.pinterest.systems/web/modal) or [Sheet](https://gestalt.pinterest.systems/web/sheet) pages. This will finally fix the persistent and annoying problems we've had with our existing code examples."
+        },
+        {
+          "title": "New component: SideNavigation",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/68/09/5d/68095d6bf20c733fa51d8b936780b1e6.png",
+          "imageAltText": "Illustration of SideNavigation component",
+          "content": "Developed for our docs site and with M10n teams, our new [SideNavigation component](https://gestalt.pinterest.systems/web/sidenavigation) can be used to build a variety of rich navigation experiences, and supports mweb out of the box. You'll start to see this in action on M10n product surfaces soon!"
+        },
+        {
+          "title": "Component updates: Flex, IconButton, Masonry",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/0f/3f/61/0f3f6134c6639fd9e7122a2fec5f3d0c.png",
+          "imageAltText": "Illustration of Flex/Masonry component",
+          "content": "We reworked [Flex's `gap` prop](https://gestalt.pinterest.systems/web/flex#Gap) to support row and column spacing, making the component much more useful in situations where items could wrap to the next row or column. We adjusted [IconButton's default values](https://gestalt.pinterest.systems/web/iconbutton) for `size` and `iconColor` to match design guidance, so you have less code to type for the default treatment. We also renamed [Masonry's `comp` prop to `Item`](https://gestalt.pinterest.systems/web/masonry), to better communicate that the prop value needs to be a stable component reference. (We'll address this further with a lint rule in the near future.) And finally, [Masonry now supports RTL (right-to-left)!](https://gestalt.pinterest.systems/web/masonry) In RTL layouts, Masonry's first item now appears in the top right, rather than the top left. This better supports localization needs for pinners around the world."
+        },
+        {
+          "title": "Token migrations: Box",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/39/4d/7c/394d7c674cfc8ffc26d42b67519db73a.png",
+          "imageAltText": "Illustration of Box component",
+          "content": "Continuing with our long-running [design tokens](https://gestalt.pinterest.systems/foundations/design_tokens) project, we converted [Box's `color` prop](https://gestalt.pinterest.systems/web/box) to use semantic names. This makes it easier to find the right color for a given purpose, and gets dark mode support for free!"
+        }
+      ]
+    },
+    {
       "week": "August 26, 2022",
       "posts": [
         {

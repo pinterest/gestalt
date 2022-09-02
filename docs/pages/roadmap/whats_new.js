@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Badge, Box, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
+import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import Markdown from '../../docs-components/Markdown.js';
 import Page from '../../docs-components/Page.js';
@@ -11,8 +11,13 @@ import blogPosts from './BlogPosts.json';
 const POST_WIDTH_PX = 600;
 const POST_IMAGE_HEIGHT_PX = 340;
 
+const badges = {
+  Design: <Badge key="design" type="info" text="Design" />,
+  Engineering: <Badge key="engineering" type="success" text="Engineering" />,
+};
+
 type PostProps = {|
-  audience: $ReadOnlyArray<string>,
+  audience: $ReadOnlyArray<'Design' | 'Engineering'>,
   content: string,
   imageAltText?: string,
   imageSrc?: string,
@@ -25,7 +30,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
       direction="column"
       gap={{
         row: 0,
-        column: 4,
+        column: 2,
       }}
     >
       <Flex
@@ -42,8 +47,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
             column: 0,
           }}
         >
-          {audience.includes('Design') && <Badge type="info" text="Design" />}
-          {audience.includes('Engineering') && <Badge type="success" text="Engineering" />}
+          {audience.map((item) => badges[item])}
         </Flex>
       </Flex>
 
@@ -76,8 +80,32 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
   );
 }
 
+const radioButtons = [
+  {
+    label: 'All',
+    value: 'All',
+  },
+  {
+    label: 'Design updates',
+    value: 'Design',
+  },
+  {
+    label: 'Engineering updates',
+    value: 'Engineering',
+  },
+];
+
 export default function Blog(): Node {
   const [filter, setFilter] = useState<'All' | 'Design' | 'Engineering'>('All');
+
+  // We don't want to show empty digests, so remove if no posts for the current filter
+  const filteredDigests = blogPosts.digests
+    .map((digest) =>
+      digest.posts.some(({ audience }) => filter === 'All' || audience.includes(filter))
+        ? digest
+        : null,
+    )
+    .filter(Boolean);
 
   return (
     <Page title="What's New Blog">
@@ -91,20 +119,7 @@ export default function Blog(): Node {
       />
 
       <RadioGroup id="filter" legend="Filter posts by" direction="row">
-        {[
-          {
-            label: 'All',
-            value: 'All',
-          },
-          {
-            label: 'Design updates',
-            value: 'Design',
-          },
-          {
-            label: 'Engineering updates',
-            value: 'Engineering',
-          },
-        ].map(({ label, value }) => (
+        {radioButtons.map(({ label, value }) => (
           <RadioGroup.RadioButton
             checked={filter === value}
             id={label}
@@ -119,24 +134,30 @@ export default function Blog(): Node {
         ))}
       </RadioGroup>
 
-      {blogPosts.digests.map((digest) => (
-        <MainSection key={`digest-${digest.week}`} name={`Week of ${digest.week}`}>
-          <Flex
-            direction="column"
-            gap={{
-              row: 0,
-              column: 12,
-            }}
-          >
-            {digest.posts.map(
-              (post) =>
-                (filter === 'All' || post.audience.includes(filter)) && (
-                  <PostLayout key={`post-${post.title}`} {...post} />
-                ),
-            )}
+      <Flex direction="column" gap={12}>
+        {filteredDigests.map(({ month, week, posts }, i) => (
+          <Flex key={`digest-${week ?? month}`} direction="column" gap={12}>
+            {i > 0 && <Divider />}
+
+            <MainSection name={week ? `Week of ${week}` : `Month of ${month}`}>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 8,
+                }}
+              >
+                {posts.map(
+                  (post) =>
+                    (filter === 'All' || post.audience.includes(filter)) && (
+                      <PostLayout key={`post-${post.title}`} {...post} />
+                    ),
+                )}
+              </Flex>
+            </MainSection>
           </Flex>
-        </MainSection>
-      ))}
+        ))}
+      </Flex>
     </Page>
   );
 }
