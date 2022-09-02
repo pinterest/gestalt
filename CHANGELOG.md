@@ -1,3 +1,9 @@
+## 71.0.6 (Sep 2, 2022)
+
+### Patch
+
+- Dropdown: typos in Docs ([#2357](https://github.com/pinterest/gestalt/pull/2357))
+
 ## 71.0.5 (Sep 1, 2022)
 
 ### Patch
