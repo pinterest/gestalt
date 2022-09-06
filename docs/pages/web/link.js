@@ -150,7 +150,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
   <Flex.Item>
-    <Box display="visuallyHidden" width="100%">
+    <Box display="visuallyHidden">
       <Label htmlFor="example-email-1">Email</Label>
     </Box>
     <TextField placeholder="Email" id="example-email-1" onChange={() => {}} type="email" value="" />
@@ -200,7 +200,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 <Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
   <Flex.Item>
-    <Box display="visuallyHidden" width="100%">
+    <Box display="visuallyHidden">
       <Label htmlFor="example-email-2">Email</Label>
     </Box>
     <TextField placeholder="Email" id="example-email-2" onChange={() => {}} type="email" value="" />

@@ -101,9 +101,9 @@ Notes:
         name="Fit"
         defaultCode={`
 <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }} wrap>
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
+  <Flex direction="column" gap={2}>
     <Text weight="bold" size="300">Square content: contain vs cover</Text>
-      <Flex gap={{ row: 8, column: 0 }} justifyContent="around">
+      <Flex gap={8} justifyContent="around" wrap>
         <Box color="darkGray" height={200} width={200}>
           <Image
             alt="square"
@@ -129,7 +129,7 @@ Notes:
 
   <Flex direction="column" gap={{ column: 2, row: 0 }}>
     <Text weight="bold" size="300">Wide content: contain vs cover</Text>
-      <Flex gap={{ row: 8, column: 0 }} justifyContent="around">
+      <Flex gap={8} justifyContent="around" wrap>
         <Box color="darkGray" height={200} width={200}>
           <Image
             alt="wide"
@@ -155,7 +155,7 @@ Notes:
 
   <Flex direction="column" gap={{ column: 2, row: 0 }}>
     <Text weight="bold" size="300">Tall content: contain vs cover</Text>
-      <Flex gap={{ row: 8, column: 0 }} justifyContent="around">
+      <Flex gap={8} justifyContent="around" wrap>
         <Box color="darkGray" height={200} width={200}>
           <Image
             alt="tall"

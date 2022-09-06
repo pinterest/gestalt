@@ -367,7 +367,7 @@ function RadioButtonExample() {
   const [favoriteFood, setFavoriteFood] = React.useState();
 
   return (
-    <Flex gap={{ column: 0, row: 8 }}>
+    <Flex gap={8} wrap>
       <RadioGroup legend="What is your favorite pet?" id="directionExample-1">
         <RadioGroup.RadioButton
           checked={favorite === 'dogs'}
@@ -511,7 +511,7 @@ function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState();
 
   return (
-      <RadioGroup legend="Which state is your favorite?" direction="row" id="rowExample">
+      <RadioGroup legend="Which state is your favorite?" id="rowExample">
         <RadioGroup.RadioButton
           checked={false}
           id="unchecked"

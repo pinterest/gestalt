@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { SideNavigation, SlimBanner } from 'gestalt';
+import { SideNavigation } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import Page from '../../docs-components/Page.js';
@@ -41,13 +41,7 @@ export default function SideNavigationPage({
       <PageHeader
         name={generatedDocGen.SideNavigation?.displayName}
         description={generatedDocGen.SideNavigation?.description}
-        slimBanner={
-          <SlimBanner
-            type="warning"
-            iconAccessibilityLabel="Warning"
-            message="This component is in the alpha phase and is still under development. The component will support three nested levels and accessibility keyboard navigation. The component will change behavior and the API might also change in future component version releases."
-          />
-        }
+        badge="pilot"
       >
         <SandpackExample
           code={mainExample}

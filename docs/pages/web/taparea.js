@@ -346,7 +346,7 @@ function Example() {
 
   return (
     <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }}>
-      <Flex gap={{ column: 0, row: 6 }}>
+      <Flex gap={6} wrap>
         <Tooltip text="Default TapArea">
           <TapArea
             tapStyle={compressed}
@@ -436,8 +436,8 @@ function Example() {
           name="Height & width"
           id="fullHeightWidth"
           defaultCode={`
-<Box color="olive" display="flex" width={500} height={250}>
-  <Box borderStyle="sm" margin={3} column={6}>
+<Flex gap={6} wrap maxWidth={500} height={250}>
+  <Box borderStyle="sm" margin={3} width="100%" height="100%">
     <TapArea fullHeight>
       <Box height="100%" color="secondary">
         <Text align="center">
@@ -446,7 +446,7 @@ function Example() {
       </Box>
     </TapArea>
   </Box>
-  <Box borderStyle="sm" margin={3} column={6}>
+  <Box borderStyle="sm" margin={3} width="100%" height="100%">
     <TapArea>
       <Box height="100%" color="secondary">
         <Text align="center">
@@ -455,7 +455,7 @@ function Example() {
       </Box>
     </TapArea>
   </Box>
-</Box>
+</Flex>
 `}
         />
 
@@ -464,7 +464,7 @@ function Example() {
           id="inlineUsage"
           description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
           defaultCode={`
-<Box color="warningBase" height={250} padding={3} width={500}>
+<Box color="warningBase" height={250} padding={3} maxWidth={500}>
   <Flex direction="column" gap={{ column: 6, row: 0 }}>
     <Flex.Item>
       <Text color="inverse" inline>Other content</Text>

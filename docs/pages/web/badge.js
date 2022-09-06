@@ -235,7 +235,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={{ column: 0, row: 4 }}>
+<Flex gap={{ column: 8, row: 4 }} wrap>
   <Mask height={150} width={280} rounding={2}>
     <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}>
       <Box padding={4}>

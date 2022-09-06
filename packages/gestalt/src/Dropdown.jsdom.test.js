@@ -1,4 +1,5 @@
 // @flow strict
+import { Fragment } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes.js';
 import Dropdown from './Dropdown.js';
@@ -50,6 +51,38 @@ describe('Dropdown', () => {
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
         />
+      </Dropdown>,
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('renders a menu of 3 items conditionally', () => {
+    const mockOnDismiss = jest.fn();
+    const onSelectMock = jest.fn();
+    const element = document.createElement('button');
+    const renderOptions = true;
+
+    const { baseElement } = render(
+      <Dropdown anchor={element} id="ex-1" onDismiss={mockOnDismiss}>
+        {renderOptions && (
+          <Fragment>
+            {[1, 2, 3, 4, 5, 6].map((x) => (
+              <Dropdown.Item
+                key={x}
+                onSelect={onSelectMock}
+                option={{ value: x.toString(), label: x.toString() }}
+              />
+            ))}
+            {[7, 8, 9, 10, 11, 12].map((x) => (
+              <Dropdown.Item
+                key={x}
+                onSelect={onSelectMock}
+                option={{ value: x.toString(), label: x.toString() }}
+              />
+            ))}
+          </Fragment>
+        )}
       </Dropdown>,
     );
 

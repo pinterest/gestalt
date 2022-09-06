@@ -6,44 +6,26 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
+import SandpackExample from '../../docs-components/SandpackExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import noImageSourceExample from '../../examples/avatar/noImageSourceExample.js';
+import noEmojiExample from '../../examples/avatar/noEmojiExample.js';
+import mainExample from '../../examples/avatar/mainExample.js';
+import sizingExample from '../../examples/avatar/sizingExample.js';
+import shapeExample from '../../examples/avatar/shapeExample.js';
+import personExample from '../../examples/avatar/personExample.js';
+import ideasExample from '../../examples/avatar/ideasExample.js';
+import nameExample from '../../examples/avatar/nameExample.js';
+import overExample from '../../examples/avatar/overExample.js';
+import containerExample from '../../examples/avatar/containerExample.js';
+import verifiedExample from '../../examples/avatar/verifiedExample.js';
 
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Avatar">
-      <PageHeader
-        name="Avatar"
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Flex gap={{ row: 4, column: 0 }} wrap>
-  <Avatar
-    size="xs"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-  />
-  <Avatar
-    size="sm"
-    name="Keerthi"
-  />
-  <Avatar
-    size="md"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-    verified
-  />
-  <Avatar
-    size="lg"
-    name="Ayesha"
-  />
-  <Avatar
-    size="xl"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-  />
-</Flex>
-      `}
-      />
+      <PageHeader name="Avatar" description={generatedDocGen?.description}>
+        <SandpackExample code={mainExample} name="No image source" hideEditor previewHeight={150} />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -74,23 +56,28 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             cardSize="md"
             type="do"
             description="Use the default alternative if no image source is available. This will be the first character of the provided name."
-            defaultCode={`
-              <Avatar
-                size="lg"
-                name="Keerthi"
+            sandpackExample={
+              <SandpackExample
+                code={noImageSourceExample}
+                name="No image source"
+                hideEditor
+                previewHeight={200}
               />
-            `}
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use alternative graphics or icons"
-            defaultCode={`
-              <Avatar
-                size="lg"
-                name="😀"
+            sandpackExample={
+              <SandpackExample
+                code={noEmojiExample}
+                name="No emoji"
+                hideEditor
+                previewHeight={200}
+                hideControls
               />
-            `}
+            }
           />
         </MainSection.Subsection>
 
@@ -99,52 +86,23 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             cardSize="md"
             type="do"
             description="Use round Avatars in the appropriate size for your need. Learn more about [avatar sizing](/web/avatar#Fixed-Sizes)."
-            defaultCode={`
-              <Flex gap={{ row: 4, column: 0 }} wrap>
-                <Avatar
-                  size="xs"
-                  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                  name="Keerthi"
-                />
-                <Avatar
-                  size="sm"
-                  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                  name="Keerthi"
-                />
-                <Avatar
-                  size="md"
-                  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                  name="Keerthi"
-                />
-                <Avatar
-                  size="lg"
-                  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                  name="Keerthi"
-                />
-                <Avatar
-                  size="xl"
-                  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                  name="Keerthi"
-                />
-              </Flex>
-            `}
+            sandpackExample={
+              <SandpackExample code={sizingExample} name="Sizing" hideEditor previewHeight={200} />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style."
-            defaultCode={`
-                <Mask rounding={3} width={150} height={150}>
-                  <Image
-                    alt="Keerthi Avatar"
-                    color="#000"
-                    fit="contain"
-                    naturalHeight={1}
-                    naturalWidth={1}
-                    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                  />
-                </Mask>
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={shapeExample}
+                name="Shape"
+                hideControls
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -153,31 +111,23 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             cardSize="md"
             type="do"
             description="Use Avatar to represent a person, organization or group ([Avatar Group](/web/avatargroup))."
-            defaultCode={`
-              <Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center">
-                <Avatar
-                  size="xl"
-                  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                  name="Keerthi"
-                />
-                <Text weight="bold">Keerthi Singh</Text>
-              </Flex>
-            `}
+            sandpackExample={
+              <SandpackExample code={personExample} name="People" hideEditor previewHeight={200} />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use Avatar to represent metaphorical ideas, like a Board. Instead, consider an icon or the appropriate interactive component."
-            defaultCode={`
-              <Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center">
-                <Avatar
-                  size="xl"
-                  src="https://i.ibb.co/jVR29XV/stock5.jpg"
-                  name="Artwork"
-                />
-                <Text weight="bold">Explore Typographic Art</Text>
-              </Flex>
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={ideasExample}
+                name="Ideas"
+                hideEditor
+                previewHeight={200}
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -186,35 +136,23 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
             cardSize="md"
             type="do"
             description="Use the collaborator’s name nearby or in an alternative view if possible."
-            defaultCode={`
-              <Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center">
-                <Avatar
-                  size="xl"
-                  src="https://i.ibb.co/7tGKGvb/shanice.jpg"
-                  name="Shanice Byles"
-                />
-                <Text weight="bold">Shanice Byles</Text>
-              </Flex>
-            `}
+            sandpackExample={
+              <SandpackExample code={nameExample} name="Name" hideEditor previewHeight={200} />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Place elements like washes, text or icons over Avatars."
-            defaultCode={`
-              <Box position="relative">
-                <Mask wash>
-                  <Avatar
-                    size="xl"
-                    src="https://i.ibb.co/jVR29XV/stock5.jpg"
-                    name="Artwork"
-                  />
-                </Mask>
-                <Box position="absolute" top="50%" left="50%">
-                  <Text weight="bold">Explore Typographic Art</Text>
-                </Box>
-              </Box>
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={overExample}
+                name="Over"
+                hideEditor
+                previewHeight={200}
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -239,35 +177,14 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           title="Fixed sizes"
         >
           <MainSection.Card
-            defaultCode={`
-<Flex gap={{ row: 4, column: 0 }} wrap>
-  <Avatar
-    size="xs"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-  />
-  <Avatar
-    size="sm"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-  />
-  <Avatar
-    size="md"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-  />
-  <Avatar
-    size="lg"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-  />
-  <Avatar
-    size="xl"
-    src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-    name="Keerthi"
-  />
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={sizingExample}
+                name="Sizing variant"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -279,21 +196,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           title="Container-based sizes"
         >
           <MainSection.Card
-            defaultCode={`
-<Box width="100%" maxWidth={900}>
-  <Flex>
-    <Box width={40}>
-      <Avatar name="Julia" />
-    </Box>
-    <Box column={2}>
-      <Avatar name="Julia" />
-    </Box>
-    <Box column={4}>
-      <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
-    </Box>
-  </Flex>
-</Box>
-  `}
+            sandpackExample={
+              <SandpackExample code={containerExample} name="Container-based variant" hideEditor />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -304,12 +209,14 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           title="Without an image"
         >
           <MainSection.Card
-            defaultCode={`
-<Avatar
-  name="Keerthi"
-  size="lg"
-/>
-  `}
+            sandpackExample={
+              <SandpackExample
+                code={noImageSourceExample}
+                name="No image variant"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -319,15 +226,14 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           title="Verified"
         >
           <MainSection.Card
-            defaultCode={`
-<Avatar
-  name="Shanice"
-  accessibilityLabel="Shanice, Verified account"
-  size="lg"
-  src="https://i.ibb.co/7tGKGvb/shanice.jpg"
-  verified
-/>
-  `}
+            sandpackExample={
+              <SandpackExample
+                code={verifiedExample}
+                name="Verified variant"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
