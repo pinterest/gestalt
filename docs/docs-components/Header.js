@@ -102,6 +102,7 @@ function getTabs(componentPlatform) {
     },
     { href: '/foundations/overview', text: 'Foundations' },
     { href: '/roadmap', text: 'Roadmap' },
+    { href: '/whats_new', text: "What's New" },
   ];
 }
 
@@ -121,7 +122,9 @@ function Header() {
   const [activeTab, setActiveTab] = useState(
     isComponentsActiveSection(router.pathname)
       ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
-      : mainNavigationTabs.findIndex((tab) => router.pathname.includes(tab.href)),
+      : mainNavigationTabs.findIndex((tab) =>
+          router.pathname.includes(`/${convertNamesForURL(tab.text)}`),
+        ),
   );
 
   const anchorRef = useRef(null);
@@ -133,7 +136,7 @@ function Header() {
       isComponentsActiveSection(router.pathname)
         ? mainNavigationTabs.findIndex((tab) => tab.text === 'Components')
         : mainNavigationTabs.findIndex((tab) =>
-            router.pathname.includes(`/${convertNamesForURL(tab.text)}/`),
+            router.pathname.includes(`/${convertNamesForURL(tab.text)}`),
           ),
     );
   }, [router.events, router.pathname, mainNavigationTabs]);

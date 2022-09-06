@@ -5,10 +5,6 @@ import trackButtonClick from './buttons/trackButtonClick.js';
 
 const links = [
   {
-    title: "What's New",
-    url: '/whats_new',
-  },
-  {
     title: 'Careers',
     url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
     external: true,
