@@ -26,8 +26,8 @@ export default function Example(): Node {
   const anchorRef = useRef();
 
   return (
-    <Flex height="100%" width="100%" justifyContent="center">
-      <Box height="200" marginTop={6}>
+    <Flex height="100%" width="100%">
+      <Box height="200" marginTop={6} padding={2}>
         <AvatarGroup
           accessibilityLabel="Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
           accessibilityExpanded={open}

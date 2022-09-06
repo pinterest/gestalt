@@ -5,7 +5,7 @@ import { Flex, AvatarGroup, Box, Text, Link } from 'gestalt';
 export default function Example(): Node {
   return (
     <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
-      <Box width={600} height={100}>
+      <Box width={600} height={100} padding={2}>
         <Flex alignItems="center" height="100%">
           <Box column={5} height="100%">
             <AvatarGroup

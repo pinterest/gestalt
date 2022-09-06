@@ -22,7 +22,7 @@ import roleLink from '../../examples/avatarGroup/roleLink.js';
 
 export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="AvatarGroup">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="No image source" hideEditor previewHeight={200} />
       </PageHeader>
@@ -61,7 +61,13 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             description="Use alternative graphics or icons"
             sandpackExample={
-              <SandpackExample code={noEmoji} name="No emoji" hideEditor previewHeight={200} />
+              <SandpackExample
+                code={noEmoji}
+                name="No emoji"
+                hideEditor
+                hideControls
+                previewHeight={200}
+              />
             }
           />
           <MainSection.Card
@@ -69,7 +75,13 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
             type="do"
             description="Use AvatarGroup to represent a group of people and/or organizations."
             sandpackExample={
-              <SandpackExample code={person} name="Person" hideEditor previewHeight={200} />
+              <SandpackExample
+                code={person}
+                name="Person"
+                hideEditor
+                hideControls
+                previewHeight={200}
+              />
             }
           />
           <MainSection.Card
@@ -77,7 +89,13 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
             type="don't"
             description="Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an [Image](/web/image) or the appropriate interactive component."
             sandpackExample={
-              <SandpackExample code={ideas} name="Ideas" hideEditor previewHeight={200} />
+              <SandpackExample
+                code={ideas}
+                name="Ideas"
+                hideEditor
+                hideControls
+                previewHeight={200}
+              />
             }
           />
         </MainSection.Subsection>
@@ -99,7 +117,7 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={accessibility} name="ARIA" hideEditor previewHeight={250} />
+              <SandpackExample code={accessibility} name="ARIA" previewHeight={250} />
             }
           />
         </MainSection.Subsection>
@@ -148,12 +166,7 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={sizing}
-                name="Responsive sizing"
-                hideEditor
-                previewHeight={200}
-              />
+              <SandpackExample code={sizing} name="Responsive sizing" previewHeight={200} />
             }
           />
         </MainSection.Subsection>
@@ -265,19 +278,14 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
             title={'role="button"'}
             cardSize="md"
             sandpackExample={
-              <SandpackExample
-                code={roleButton}
-                name="Role button"
-                hideEditor
-                previewHeight={200}
-              />
+              <SandpackExample code={roleButton} name="Role button" previewHeight={200} />
             }
           />
           <MainSection.Card
             title={'role="link"'}
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={roleLink} name="Role Link" hideEditor previewHeight={200} />
+              <SandpackExample code={roleLink} name="Role Link" previewHeight={200} />
             }
           />
         </MainSection.Subsection>
