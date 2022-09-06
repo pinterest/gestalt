@@ -1,3 +1,9 @@
+## 71.0.13 (Sep 6, 2022)
+
+### Patch
+
+- Docs: Add updates for week of Sept 2 ([#2364](https://github.com/pinterest/gestalt/pull/2364)) - [Preview link](https://deploy-preview-2364--gestalt.netlify.app)
+
 ## 71.0.12 (Sep 2, 2022)
 
 ### Patch
