@@ -12,6 +12,8 @@ import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDevice
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
 
 const CONTENT_MAX_WIDTH_PX = 1546;
+const HEADER_HEIGHT_PX = 75;
+const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 
 type Props = {|
   children?: Node,
@@ -23,17 +25,15 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();
 
-  const [isHomePage, setIsHomePage] = useState(router?.route === '/home');
   const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
+
+  const isHomePage = router?.route === '/home';
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
 
   useEffect(() => {
-    const fullWidthPages = ['home', 'whats_new', 'roadmap'];
-
-    setIsHomePage(window?.location?.pathname === '/home');
-    setShouldHideSideNav(fullWidthPages.some((page) => window?.location?.pathname.includes(page)));
+    setShouldHideSideNav(fullWidthPages.some((page) => router?.route.includes(page)));
   }, [router]);
 
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
             mdDisplay="block"
             position="fixed"
             overflow="auto"
-            height="calc(100% - 75px)"
+            height={`calc(100% - ${HEADER_HEIGHT_PX}px)`}
             minWidth={MIN_NAV_WIDTH_PX}
             marginTop={2}
           >

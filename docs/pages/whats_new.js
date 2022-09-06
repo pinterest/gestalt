@@ -135,14 +135,11 @@ export default function Blog(): Node {
       </RadioGroup>
 
       <Flex direction="column" gap={12}>
-        {filteredDigests.map(({ month, week, posts, summary }, i) => (
+        {filteredDigests.map(({ month, week, posts }, i) => (
           <Flex key={`digest-${week ?? month}`} direction="column" gap={12}>
             {i > 0 && <Divider />}
 
-            <MainSection
-              name={week ? `Week of ${week}` : `Month of ${month}`}
-              description={summary}
-            >
+            <MainSection name={week ? `Week of ${week}` : `Month of ${month}`}>
               <Flex
                 direction="column"
                 gap={{

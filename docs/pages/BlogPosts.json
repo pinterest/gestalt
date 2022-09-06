@@ -3,7 +3,6 @@
   "digests": [
     {
       "week": "September 02, 2022",
-      "summary": "Handoff kit updates, Figma search improvements, and more mobile docs",
       "posts": [
         {
           "title": "Design handoff kit split!",
@@ -30,7 +29,6 @@
     },
     {
       "month": "August",
-      "summary": "Introducing SideNavigation, a monthly Eng newsletter, and new Box colors",
       "posts": [
         {
           "title": "Gestalt Eng August Newsletter",
@@ -69,7 +67,6 @@
     },
     {
       "week": "August 26, 2022",
-      "summary": "New messaging guidelines, Figma cleanups, and mobile docs",
       "posts": [
         {
           "title": "Gestalt now has mobile component docs!",
