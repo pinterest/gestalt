@@ -12,7 +12,6 @@ import path from 'path';
 import { promises as fs } from 'fs';
 import App from '../docs-components/App.js';
 import DocsExperimentProvider from '../docs-components/contexts/DocsExperimentProvider.js';
-import DocsI18nProvider from '../docs-components/contexts/DocsI18nProvider.js';
 import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
 
 // import parser from 'ua-parser-js'; Install     "ua-parser-js": "^1.0.2" in packahe
@@ -24,9 +23,7 @@ function Providers({ children, isMobile }: {| children: Node, isMobile: boolean 
   return (
     <DocsDeviceTypeProvider isMobile={isMobileDevice}>
       <DeviceTypeProvider deviceType={isMobileDevice ? 'phone' : 'desktop'}>
-        <DocsExperimentProvider>
-          <DocsI18nProvider>{children}</DocsI18nProvider>
-        </DocsExperimentProvider>
+        <DocsExperimentProvider>{children}</DocsExperimentProvider>
       </DeviceTypeProvider>
     </DocsDeviceTypeProvider>
   );

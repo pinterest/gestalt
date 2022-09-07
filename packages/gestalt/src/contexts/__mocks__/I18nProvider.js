@@ -8,6 +8,17 @@ const translations: I18nContextType = {
     accessibilityHidePasswordLabel: 'Hide password',
     accessibilityShowPasswordLabel: 'Show password',
   },
+  Video: {
+    accessibilityHideCaptionsLabel: 'Hide captions',
+    accessibilityShowCaptionsLabel: 'Show captions',
+    accessibilityMaximizeLabel: 'Maximize',
+    accessibilityMinimizeLabel: 'Minimize',
+    accessibilityMuteLabel: 'Mute',
+    accessibilityPauseLabel: 'Pause',
+    accessibilityPlayLabel: 'Play',
+    accessibilityProgressBarLabel: 'Progress bar',
+    accessibilityUnmuteLabel: 'Unmute',
+  },
 };
 
 const MockContext: Context<I18nContextType> = createContext<I18nContextType>(translations);

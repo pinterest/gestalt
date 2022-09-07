@@ -17,13 +17,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         defaultCode={`
 <Box width={300}>
   <Video
-    accessibilityMaximizeLabel="Maximize"
-    accessibilityMinimizeLabel="Minimize"
-    accessibilityMuteLabel="Mute"
-    accessibilityPauseLabel="Pause"
-    accessibilityPlayLabel="Play"
-    accessibilityProgressBarLabel="Progress bar"
-    accessibilityUnmuteLabel="Unmute"
     aspectRatio={540 / 960}
     controls
     onPlayError={() => {}}
@@ -54,15 +47,6 @@ function Example () {
   return (
     <Box width={1000}>
       <Video
-        accessibilityMaximizeLabel="Maximize"
-        accessibilityMinimizeLabel="Minimize"
-        accessibilityMuteLabel="Mute"
-        accessibilityPauseLabel="Pause"
-        accessibilityPlayLabel="Play"
-        accessibilityProgressBarLabel="Progress bar"
-        accessibilityUnmuteLabel="Unmute"
-        accessibilityHideCaptionsLabel="Hide captions"
-        accessibilityShowCaptionsLabel="Show captions"
         aspectRatio={1024 / 435}
         captions="https://iandevlin.github.io/mdn/video-player-with-captions/subtitles/vtt/sintel-en.vtt"
         controls
@@ -117,13 +101,6 @@ function Example () {
     <Box width={300}>
       <Video
         autoplay
-        accessibilityMaximizeLabel="Maximize"
-        accessibilityMinimizeLabel="Minimize"
-        accessibilityMuteLabel="Mute"
-        accessibilityPauseLabel="Pause"
-        accessibilityPlayLabel="Play"
-        accessibilityProgressBarLabel="Progress bar"
-        accessibilityUnmuteLabel="Unmute"
         aspectRatio={540 / 960}
         controls
         onPlayError={({ error }) => error && setPlaying(false)}
@@ -166,13 +143,6 @@ function Example() {
       </Flex>
       <Box width={300}>
         <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
           aspectRatio={540 / 960}
           controls={showControls}
           onPlayError={() => {}}
@@ -212,13 +182,6 @@ function Example() {
             defaultCode={`
 <Box width={300}>
   <Video
-    accessibilityMaximizeLabel="Maximize"
-    accessibilityMinimizeLabel="Minimize"
-    accessibilityMuteLabel="Mute"
-    accessibilityPauseLabel="Pause"
-    accessibilityPlayLabel="Play"
-    accessibilityProgressBarLabel="Progress bar"
-    accessibilityUnmuteLabel="Unmute"
     aspectRatio={540 / 960}
     controls
     src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
@@ -289,13 +252,6 @@ function Example() {
       </Flex>
       <Box width={300}>
         <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
           aspectRatio={540 / 960}
           controls
           onControlsPlay={() => setPlaying(true)}
@@ -328,13 +284,6 @@ function Example () {
   return (
     <Box width={500}>
       <Video
-        accessibilityMaximizeLabel="Maximize"
-        accessibilityMinimizeLabel="Minimize"
-        accessibilityMuteLabel="Mute"
-        accessibilityPauseLabel="Pause"
-        accessibilityPlayLabel="Play"
-        accessibilityProgressBarLabel="Progress bar"
-        accessibilityUnmuteLabel="Unmute"
         aspectRatio={426 / 240}
         controls
         playing={playing}

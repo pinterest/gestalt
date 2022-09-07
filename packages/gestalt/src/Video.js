@@ -5,6 +5,7 @@ import VideoControls from './VideoControls.js';
 import styles from './Video.css';
 import colors from './Colors.css';
 import Box from './Box.js';
+import { useI18nContext } from './contexts/I18nProvider.js';
 
 type Source =
   | string
@@ -17,7 +18,7 @@ type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 type CrossOrigin = 'anonymous' | 'use-credentials';
 type BackgroundColor = 'black' | 'transparent';
 
-type Props = {|
+type WrapperProps = {|
   /**
    * Accessibility label for the button to hide captions if controls are shown.
    */
@@ -25,27 +26,27 @@ type Props = {|
   /**
    * Accessibility label for the fullscreen maximize button if controls are shown.
    */
-  accessibilityMaximizeLabel: string,
+  accessibilityMaximizeLabel?: string,
   /**
    * Accessibility label for the fullscreen minimize button if controls are shown.
    */
-  accessibilityMinimizeLabel: string,
+  accessibilityMinimizeLabel?: string,
   /**
    * Accessibility label for the mute button if controls are shown.
    */
-  accessibilityMuteLabel: string,
+  accessibilityMuteLabel?: string,
   /**
    * Accessibility label for the pause button if controls are shown.
    */
-  accessibilityPauseLabel: string,
+  accessibilityPauseLabel?: string,
   /**
    * Accessibility label for the play button if controls are shown.
    */
-  accessibilityPlayLabel: string,
+  accessibilityPlayLabel?: string,
   /**
    * Accessibility label for the video progress bar.
    */
-  accessibilityProgressBarLabel: string,
+  accessibilityProgressBarLabel?: string,
   /**
    * Accessibility label for the button to show captions if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
@@ -53,7 +54,7 @@ type Props = {|
   /**
    * Accessibility label for the unmute button if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
-  accessibilityUnmuteLabel: string,
+  accessibilityUnmuteLabel?: string,
   /**
    * When set to autoplay, the video will automatically start playing. See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
@@ -65,7 +66,7 @@ type Props = {|
   /**
    * Background color used to fill the video's placeholder.
    */
-  backgroundColor: BackgroundColor,
+  backgroundColor?: BackgroundColor,
   /**
    * The URL of the captions track for the video (.vtt file). See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
@@ -193,11 +194,11 @@ type Props = {|
   /**
    * Specifies the speed at which the video plays: 1 for normal. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
    */
-  playbackRate: number,
+  playbackRate?: number,
   /**
    * Specifies whether the video should play or not. See [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
-  playing: boolean,
+  playing?: boolean,
   /**
    * Serves as a hint to the user agent that the video should to be displayed "inline" in the document by default, constrained to the element's playback area, instead of being displayed fullscreen or in an independent resizable window. This attribute is mainly relevant to iOS Safari browsers. See the [MDN Web Docs: playsinline](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-playsinline)
    */
@@ -209,7 +210,7 @@ type Props = {|
   /**
    * Specifies how, if at all, the video should be pre-loaded when the page loads. See the [MDN Web Docs: preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-preload)
    */
-  preload: 'auto' | 'metadata' | 'none',
+  preload?: 'auto' | 'metadata' | 'none',
   /**
    * The URL of the video file to play. This can also be supplied as a list of video types to respective video source urls in fallback order for support on various browsers. See [multiple sources example](https://gestalt.pinterest.systems/web/video#Video-multiple-sources) for more details.
    */
@@ -221,7 +222,7 @@ type Props = {|
   /**
    * Specifies the volume of the video audio: 0 for muted, 1 for max. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
-  volume: number,
+  volume?: number,
 |};
 
 type State = {|
@@ -323,12 +324,19 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
   return newSource !== oldSource;
 };
 
+type Props = {|
+  ...WrapperProps,
+  i18nProvider: {|
+    [string]: string,
+  |},
+|};
+
 /**
  * [Video](https://gestalt.pinterest.systems/web/video) is used for media layout.
  *
  * ![Video light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Video.spec.mjs-snapshots/Video-chromium-darwin.png)
  */
-export default class Video extends PureComponent<Props, State> {
+class Video extends PureComponent<Props, State> {
   video: ?HTMLVideoElement;
 
   player: ?HTMLDivElement;
@@ -344,15 +352,10 @@ export default class Video extends PureComponent<Props, State> {
   |} = {
     startTime: 0,
     disableRemotePlayback: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
     backgroundColor: 'black',
-    // eslint-disable-next-line react/default-props-match-prop-types
     playbackRate: 1,
-    // eslint-disable-next-line react/default-props-match-prop-types
     playing: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
     preload: 'auto',
-    // eslint-disable-next-line react/default-props-match-prop-types
     volume: 0,
   };
 
@@ -377,9 +380,9 @@ export default class Video extends PureComponent<Props, State> {
     // Load the video to hydrate the DOM after a server render
     this.load();
     // Set the initial volume
-    this.setVolume(volume);
+    this.setVolume(volume ?? 0);
     // Set the initial playback rate
-    this.setPlaybackRate(playbackRate);
+    this.setPlaybackRate(playbackRate ?? 1);
 
     if (startTime) {
       this.seek(startTime);
@@ -407,11 +410,11 @@ export default class Video extends PureComponent<Props, State> {
 
     // If the volume changed, set the new volume
     if (prevProps.volume !== this.props.volume) {
-      this.setVolume(this.props.volume);
+      this.setVolume(this.props.volume ?? 0);
     }
     // If the playback rate changed, set the new rate
     if (prevProps.playbackRate !== this.props.playbackRate) {
-      this.setPlaybackRate(this.props.playbackRate);
+      this.setPlaybackRate(this.props.playbackRate ?? 1);
     }
 
     // If the playback changed, play or pause the video
@@ -688,6 +691,7 @@ export default class Video extends PureComponent<Props, State> {
       children,
       crossOrigin,
       disableRemotePlayback,
+      i18nProvider,
       loop,
       objectFit,
       playing,
@@ -761,15 +765,35 @@ export default class Video extends PureComponent<Props, State> {
         {/* Need to use full path for these props so Flow can infer correct subtype */}
         {this.props.controls && (
           <VideoControls
-            accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
-            accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
-            accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
-            accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
-            accessibilityMuteLabel={this.props.accessibilityMuteLabel}
-            accessibilityPauseLabel={this.props.accessibilityPauseLabel}
-            accessibilityPlayLabel={this.props.accessibilityPlayLabel}
-            accessibilityProgressBarLabel={this.props.accessibilityProgressBarLabel}
-            accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
+            accessibilityHideCaptionsLabel={
+              this.props.accessibilityHideCaptionsLabel ??
+              i18nProvider.accessibilityHideCaptionsLabel
+            }
+            accessibilityShowCaptionsLabel={
+              this.props.accessibilityShowCaptionsLabel ??
+              i18nProvider.accessibilityShowCaptionsLabel
+            }
+            accessibilityMaximizeLabel={
+              this.props.accessibilityMaximizeLabel ?? i18nProvider.accessibilityMaximizeLabel
+            }
+            accessibilityMinimizeLabel={
+              this.props.accessibilityMinimizeLabel ?? i18nProvider.accessibilityMinimizeLabel
+            }
+            accessibilityMuteLabel={
+              this.props.accessibilityMuteLabel ?? i18nProvider.accessibilityMuteLabel
+            }
+            accessibilityPauseLabel={
+              this.props.accessibilityPauseLabel ?? i18nProvider.accessibilityPauseLabel
+            }
+            accessibilityPlayLabel={
+              this.props.accessibilityPlayLabel ?? i18nProvider.accessibilityPlayLabel
+            }
+            accessibilityProgressBarLabel={
+              this.props.accessibilityProgressBarLabel ?? i18nProvider.accessibilityProgressBarLabel
+            }
+            accessibilityUnmuteLabel={
+              this.props.accessibilityUnmuteLabel ?? i18nProvider.accessibilityUnmuteLabel
+            }
             captionsButton={captionsButton}
             currentTime={currentTime}
             duration={duration}
@@ -781,12 +805,19 @@ export default class Video extends PureComponent<Props, State> {
             onPause={this.handleControlsPause}
             onFullscreenChange={this.toggleFullscreen}
             onVolumeChange={this.handleVolumeChange}
-            playing={playing}
+            playing={playing ?? false}
             seek={this.seek}
-            volume={volume}
+            volume={volume ?? 0}
           />
         )}
       </div>
     );
   }
 }
+
+export default function VideoWrapper(props: WrapperProps): Node {
+  const i18nProvider = useI18nContext('Video');
+  return <Video {...props} i18nProvider={i18nProvider} />;
+}
+
+VideoWrapper.displayName = 'Video';

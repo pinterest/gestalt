@@ -2,20 +2,9 @@
 import { create } from 'react-test-renderer';
 import Video from './Video.js';
 
-const A11Y_LABELS = Object.freeze({
-  accessibilityMaximizeLabel: 'Maximize',
-  accessibilityMinimizeLabel: 'Minimize',
-  accessibilityMuteLabel: 'Mute',
-  accessibilityPauseLabel: 'Pause',
-  accessibilityPlayLabel: 'Play',
-  accessibilityProgressBarLabel: 'Progress bar',
-  accessibilityUnmuteLabel: 'Unmute',
-});
-
 test('Video with source', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       onPlay={() => {}}
@@ -29,7 +18,6 @@ test('Video with source', () => {
 test('Video with multiple sources', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       onPlay={() => {}}
@@ -52,7 +40,6 @@ test('Video with multiple sources', () => {
 test('Video with media attributes', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       loop
@@ -69,7 +56,6 @@ test('Video with media attributes', () => {
 test('Video with callbacks', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       onDurationChange={() => {}}
@@ -93,7 +79,6 @@ test('Video with callbacks', () => {
 test('Video with children', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -110,7 +95,6 @@ test('Video with children', () => {
 test('Video with crossOrigin', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       crossOrigin="anonymous"
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
@@ -125,7 +109,6 @@ test('Video with crossOrigin', () => {
 test('Video with objectFit', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       objectFit="contain"
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
@@ -140,7 +123,6 @@ test('Video with objectFit', () => {
 test('Video with startTime', () => {
   const tree = create(
     <Video
-      {...A11Y_LABELS}
       startTime={3}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"

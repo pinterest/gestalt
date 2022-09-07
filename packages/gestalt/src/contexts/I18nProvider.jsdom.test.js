@@ -31,31 +31,7 @@ describe('useI18nContext', () => {
     expect(screen.getByText(/Show password/)).toBeInTheDocument();
   });
 
-  it('throws on unsupported component', () => {
-    const consoleMock = jest.spyOn(console, 'error').mockImplementation(jest.fn());
-
-    function TestComponent() {
-      // $FlowExpectedError[prop-missing]
-      const { foo } = useI18nContext('Foo');
-
-      return <div>{foo}</div>;
-    }
-
-    expect(() => {
-      render(<TestComponent />);
-    }).toThrow();
-
-    expect(consoleMock).toHaveBeenCalledTimes(3);
-    expect(consoleMock.mock.calls[0][0].message).toEqual(
-      expect.stringContaining(
-        'Foo translations not available — please add translations to I18nProvider',
-      ),
-    );
-  });
-
   it('provides defaults for partial missing translations for supported component', () => {
-    const consoleMock = jest.spyOn(console, 'error').mockImplementation(jest.fn());
-
     function TestComponent() {
       const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
         useI18nContext('TextField');
@@ -66,7 +42,6 @@ describe('useI18nContext', () => {
     render(
       <I18nProvider
         value={{
-          // $FlowExpectedError[prop-missing]
           TextField: {
             accessibilityHidePasswordLabel: 'Hide password',
           },
@@ -74,12 +49,6 @@ describe('useI18nContext', () => {
       >
         <TestComponent />
       </I18nProvider>,
-    );
-
-    expect(consoleMock).toHaveBeenCalledWith(
-      expect.stringContaining(
-        'TextField prop accessibilityShowPasswordLabel is missing translations — please add translations to I18nProvider',
-      ),
     );
 
     // This is a bit roundabout — we don't really care that these strings are in the document, but that they were returned from the Hook correctly
