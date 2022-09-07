@@ -26,7 +26,7 @@ fullwidth: true
 
 ## Best practices
 
-- If your icons are interactive, use the IconButton component and ensure that they utilize at least 44 x 44px touch targets. 
+- If your icons are interactive, use the IconButton component and ensure that they utilize at least 44 x 44px touch targets.
 - When designing in iOS and Android, use platform-specific icons as they are most recognizable to that platform’s users.
 - When possible, include a visible text label.
 - Icons should always be a solid color and should inherit the color of the surrounding text if applicable.
@@ -45,14 +45,15 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 ### Styling
 For information on colors and states, refer to the [web Icon guidelines](/web/icon).
 
+
 ### Platform Specific Icons
 
 1. **Share**
-On iOS, use the icon-share icon to indicate the ability to share an element. 
+   On iOS, use the icon-share icon to indicate the ability to share an element.
 2. **Check**
-Instead of a radio button on iOS, use the check icon.
+   Instead of a radio button on iOS, use the check icon.
 3. **Back**
-On iOS, use the chevron icon titled arrow-back to indicate backward movement. 
+   On iOS, use the chevron icon titled arrow-back to indicate backward movement.
 
 <ThreeCol>
 <Group>
@@ -72,15 +73,15 @@ arrow-back
 ### Size
 
 1. **12px**
-Used only for Pins and Boards. 
+   Used only for Pins and Boards.
 2. **16px**
-Default icon size. Used often, whenever an icon is needed, i.e., icons in headers, close icons, etc.
+   Default icon size. Used often, whenever an icon is needed, i.e., icons in headers, close icons, etc.
 3. **20px**
-Used only when pairing with 16pt (Size200) text.
+   Used only when pairing with 16pt (Size200) text.
 4. **24px**
-Used for navigation bar elements or when a larger icon is needed.
+   Used for navigation bar elements or when a larger icon is needed.
 5. **32px**
-Used sparingly to draw attention to an icon that might otherwise be missed.  
+   Used sparingly to draw attention to an icon that might otherwise be missed.
 
 <TwoCol>
 <Group>

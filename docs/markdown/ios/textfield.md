@@ -138,17 +138,17 @@ By default, the placeholder text will animate up into the label position when th
 <TwoCol>
 
 <IllustrationCard
-              title="TextArea"
-              description="TextArea allows for multi-line input."
-              color="green-matchacado-50"
-              image="text-area"
-            />
+  title="TextArea"
+  description="TextArea allows for multi-line input."
+  color="green-matchacado-50"
+  image="text-area"
+/>
 
 <IllustrationCard
-              title="SelectList"
-              description="SelectList displays a list of actions or options using the browser’s native select."
-              color="green-matchacado-50"
-              image="select-list"
-            />
+  title="SelectList"
+  description="SelectList displays a list of actions or options using the browser’s native select."
+  color="green-matchacado-50"
+  image="select-list"
+/>
 
 </TwoCol> */}

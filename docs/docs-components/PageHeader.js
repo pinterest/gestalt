@@ -132,7 +132,9 @@ export default function PageHeader({
               column: 6,
             }}
           >
-            {description && <Markdown text={description} />}
+            {description && (
+              <Markdown text={description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, '')} />
+            )}
             {slimBanner}
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
             {defaultCode && (

@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import { Text } from 'gestalt';
 import { marked, Renderer } from 'marked';
 import highlightjs from 'highlight.js';
+import { checkUrl, isPinchLink } from './MarkdownLink.js';
 import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
@@ -58,6 +59,22 @@ export default function Markdown({ textColor, text }: Props): Node {
         }
       </h${level}>`;
   };
+
+  renderer.link = (href, title, children) =>
+    isPinchLink(href)
+      ? `<div style="display:inline;">
+      <a aria-label="${href}: Access is restricted to Pinterest employees" href=${checkUrl({
+          href,
+        })}>
+        ${children}
+      </a>
+      <div style="display:inline;" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 25 25">
+          <path d="M8 10V7c0-2.206 1.794-4 4-4s4 1.794 4 4v3H8zm11 .017V7c0-3.86-3.141-7-7-7S5 3.14 5 7v3.017a8.698 8.698 0 0 0-1.75 5.233 8.75 8.75 0 1 0 17.5 0A8.698 8.698 0 0 0 19 10.017z" />
+        </svg>
+      </div>
+    </div>`
+      : `<a href=${checkUrl({ href })}>${children}</a>`;
 
   const html = marked(stripIndent(text), {
     renderer,

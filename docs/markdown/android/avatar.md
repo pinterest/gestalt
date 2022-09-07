@@ -15,7 +15,7 @@ fullwidth: true
   </Group>
   <Group>
   <Dont title="When not to use" />
-     - To represent a group of people, companies and/or brands. Use [AvatarGroup](/web/avatargroup) instead
+     - To represent a group of people, companies and/or brands. Use [AvatarGroup](/web/avatargroup) instead.
   </Group>
 </TwoCol>
 
@@ -48,7 +48,7 @@ For general Avatar best practices, refer to the [Avatar web documentation](/web/
 
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
-[Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
+[Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
 ## Variants

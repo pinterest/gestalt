@@ -74,7 +74,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
         </Box>
       )}
       <Flex maxWidth={POST_WIDTH_PX}>
-        <Markdown text={content} />
+        <Markdown text={content?.replace(/https:\/\/gestalt\.pinterest\.systems/g, '')} />
       </Flex>
     </Flex>
   );

@@ -9,7 +9,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/ee/84/94/ee8494b181569225faa4ff954a81da9c.png",
           "imageAltText": "",
-          "content": "We divided the Gestalt handoff kit into two files: the library and the Figma file setup + handoff guide. It will help you have a better experience when dealing with the assets panel and our Gestalt Figma libraries. \n\nDon't worry! The file you have linked to your designs ([Gestalt handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/%5BLibrary%5D-Gestalt-Handoff-Kit?node-id=1587%3A3092)) still provides you access to all assets and components to do design handoffs and annotations. And if you are looking for file setup and structure guidance, we invite you to check out our [File setup + Handoff standards guide](https://www.figma.com/file/DJD8HWhXfnHF0TJxczx9kN/%5BGuidance%5D-File-setup-%2B-Design-handoff-guide). \n\nBonus: We added some file hygiene standards and naming conventions we are starting to adopt, and we believe it can help you as well to optimize your design files and workflow. [Check it out](https://www.figma.com/file/DJD8HWhXfnHF0TJxczx9kN/%5BGuidance%5D-File-setup-%2B-Design-handoff-guide?node-id=1%3A204)!"
+          "content": "We divided the Gestalt handoff kit into two files: the library and the Figma file setup + handoff guide. It will help you have a better experience when dealing with the assets panel and our Gestalt Figma libraries. \n\nDon't worry! The file you have linked to your designs ([Gestalt handoff kit](http://pinch.pinadmin.com/figma_handoff_kit)) still provides you access to all assets and components to do design handoffs and annotations. And if you are looking for file setup and structure guidance, we invite you to check out our [File setup + Handoff standards guide](http://pinch.pinadmin.com/figma_file_setup). \n\nBonus: We added some file hygiene standards and naming conventions we are starting to adopt, and we believe it can help you as well to optimize your design files and workflow. [Check it out](http://pinch.pinadmin.com/figma_file_setup)!"
         },
         {
           "title": "Figma component search improvements",
@@ -113,14 +113,14 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/78/92/d2/7892d27456212d38386a3dda5527cccc.png",
           "imageAltText": "Design Systems Day invitation",
-          "content": "We are super excited to announce the Design System Day! 🎉\n\nYes, that's right! A full day of talks and training covering multiple themes to help you build the best product experience and create an effective design using Gestalt components, no matter your area within the product. We will have guest speakers from Procter & Gamble, Meta, and Spotify, and other fantastic folks from Pinterest. We're preparing a mini-conference for you! So clear your calendar, and join us on this special day. \n\nYou can see more details about the event in our [CODA doc](https://coda.io/d/_dlrfsMAwXFF/Agenda_surbS) and sign up for the sections in our [sign up sheet](https://docs.google.com/spreadsheets/d/1TNcdR5P5a3ciWIOlEy2ls4GnUeMFWeEpf2hCkfoiEXw/edit?usp=sharing). Stay tuned for more updates! We will be posting more about it next week. "
+          "content": "We are super excited to announce the Design System Day! 🎉\n\nYes, that's right! A full day of talks and training covering multiple themes to help you build the best product experience and create an effective design using Gestalt components, no matter your area within the product. We will have guest speakers from Procter & Gamble, Meta, and Spotify, and other fantastic folks from Pinterest. We're preparing a mini-conference for you! So clear your calendar, and join us on this special day. \n\nYou can see more details about the event in our [CODA doc](http://pinch.pinadmin.com/gestalt_dsd) and sign up for the sections in our [sign up sheet](http://pinch.pinadmin.com/gestalt_dsd_signup). Stay tuned for more updates! We will be posting more about it next week. "
         },
         {
           "title": "Success and recommendation variants for Callout",
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/12/f4/7e/12f47e9ad624262395d1a72980168aa7.png",
           "imageAltText": "Screenshot of SlimBanner's success and recommendation variants",
-          "content": "[Callout](https://gestalt.pinterest.systems/web/callout) is now just _that much more_ awesome with the addition of success and recommendation variants. Psst... We also updated our [Callout Figma component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A28954) to include these variants as well.  "
+          "content": "[Callout](https://gestalt.pinterest.systems/web/callout) is now just _that much more_ awesome with the addition of success and recommendation variants. Psst... We also updated our [Callout Figma component](http://pinch.pinadmin.com/gestalt_figma_callout) to include these variants as well.  "
         },
         {
           "title": "Updated Figma Pin component for Web",
@@ -160,21 +160,21 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/5c/d2/4a/5cd24a1a8d45efe485b73db560d29f37.png",
           "imageAltText": "Screenshot of design using spacer components",
-          "content": "There's nothing better than a well documented design and we made a little addition to our [handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) to help make doing that (even) easier with the addition of [spacer annotation components](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?node-id=1387%3A2843)."
+          "content": "There's nothing better than a well documented design and we made a little addition to our [handoff kit](http://pinch.pinadmin.com/figma_handoff_kit) to help make doing that (even) easier with the addition of [spacer annotation components](http://pinch.pinadmin.com/figma_handof_kit_spacing_annotation)."
         },
         {
           "title": "Figma Web IconButton improvements",
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/dc/8b/0a/dc8b0a743b01642979fda36b5a01e6a9.png",
           "imageAltText": "Screenshot of Figma Web IconButton components",
-          "content": "OK, we'll own up to it, our IconButton Figma components were a smidge _lacking_. We took the first step towards a better IconButton by adding background color variants to the [Web Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A18626)."
+          "content": "OK, we'll own up to it, our IconButton Figma components were a smidge _lacking_. We took the first step towards a better IconButton by adding background color variants to the [Web Figma library](http://pinch.pinadmin.com/gestalt_figma_iconbutton)."
         },
         {
           "title": "Vastly simplified Figma Web Upsell component",
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/1c/0c/41/1c0c41478c854761244c78ce5b9b6ae5.png",
           "imageAltText": "Screenshot comparing before and after examples of the Figma Web Upsell simplification",
-          "content": "We don't want to oversell our work, but the [Figma Web Upsell component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=12901%3A28954) is in a _much_ better place now. We cut down the number of variants by over 32x! And to be clear, you have all the same options as before, they're now available in the component's properties panel. That said, we have a bit of retrofitting to do after this major overhaul, so expect another update to tune things up in the next two weeks."
+          "content": "We don't want to oversell our work, but the [Figma Web Upsell component](http://pinch.pinadmin.com/gestalt_figma_upsell) is in a _much_ better place now. We cut down the number of variants by over 32x! And to be clear, you have all the same options as before, they're now available in the component's properties panel. That said, we have a bit of retrofitting to do after this major overhaul, so expect another update to tune things up in the next two weeks."
         },
         {
           "title": "Figma listening session in August's Gestalt Open Forum",
@@ -205,21 +205,21 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/cb/36/dc/cb36dc63c61d6a1e5e7b6e63c4eb76ef.png",
           "imageAltText": "A screenshot of the Gestalt Popover component",
-          "content": "We added placeholder slots for Popover in our [Android](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=3686%3A23889) and [iOS](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5975%3A9433) Figma libraries. This feature allows you to add add complex content without detaching or building from scratch."
+          "content": "We added placeholder slots for Popover in our [Android](http://pinch.pinadmin.com/gestalt_figma_android_popover) and [iOS](http://pinch.pinadmin.com/gestalt_figma_ios_popover) Figma libraries. This feature allows you to add add complex content without detaching or building from scratch."
         },
         {
           "title": "Improvements to TextField and Tabs in the Figma iOS library",
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/42/5a/71/425a7132922dd8e43726fbce6bdfff2e.png",
           "imageAltText": "A screenshot of the Gestalt TextField and Tabs components",
-          "content": "It's been a long time coming, but we finally made updates to our [iOS TextField component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=6655%3A12165) to better represent a mobile-centric affordance. We also added an underlined variant to the [iOS Tabs component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5977%3A3097). We're hoping to move towards the underlined treatment across all platforms, and so we want to begin representing this change in our Figma libraries. **Note:** Both of these components are only available for our iOS libraries. We will be updating our Android libraries with these changes shortly."
+          "content": "It's been a long time coming, but we finally made updates to our [iOS TextField component](http://pinch.pinadmin.com/gestalt_figma_ios_textfield) to better represent a mobile-centric affordance. We also added an underlined variant to the [iOS Tabs component](http://pinch.pinadmin.com/gestalt_figma_ios_tabs). We're hoping to move towards the underlined treatment across all platforms, and so we want to begin representing this change in our Figma libraries. **Note:** Both of these components are only available for our iOS libraries. We will be updating our Android libraries with these changes shortly."
         },
         {
           "title": "Improvements to Modal in Figma for Web & Mobile Web",
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/a7/0b/53/a70b53a8ff0fdc319fc7a3bbbbb37512.png",
           "imageAltText": "A screenshot of Gestalt's Modal Figma component",
-          "content": "Lastly, we made some more refinements to [Modal](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17900) in our Figma for Web library. The changes should reflect a more organized and refined component structure to improve ease of use."
+          "content": "Lastly, we made some more refinements to [Modal](http://pinch.pinadmin.com/gestalt_figma_modal) in our Figma for Web library. The changes should reflect a more organized and refined component structure to improve ease of use."
         }
       ]
     },
@@ -231,14 +231,14 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/99/c6/0a/99c60ae0bf2a019f18e34b37e9210de3.png",
           "imageAltText": "A picture of the Gestalt logo, Figma logo and Android logo",
-          "content": "We're super happy to announce that our big update to the [Gestalt for Android Figma library](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=2769%3A2477) has landed! This library should be at parity with our iOS Figma library, including dark mode variants for each component. We haven't added reference pages yet, but each component should work _exactly_ like its iOS counterpart. So have a look and let us know what you think!"
+          "content": "We're super happy to announce that our big update to the [Gestalt for Android Figma library]( http://pinch.pinadmin.com/gestalt_android) has landed! This library should be at parity with our iOS Figma library, including dark mode variants for each component. We haven't added reference pages yet, but each component should work _exactly_ like its iOS counterpart. So have a look and let us know what you think!"
         },
         {
           "title": "SideNavigation component pre-release",
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/9e/cb/ea/9ecbeadb6a8c683b10c1c72cb7b0b591.png",
           "imageAltText": "A screenshot of the Gestalt SideNavigation component",
-          "content": "In some more exciting news, we shipped a pre-release of our fancy new [SideNavigation component](https://gestalt.pinterest.systems/web/sidenavigation). This component is still in alpha and not (quite) ready for production, but we wanted to give y'all a sneak peek ahead of time. We also created a [SideNavigation Figma component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=17421%3A31236) that's ready to use today. Again, keep in mind that this component is currently in alpha."
+          "content": "In some more exciting news, we shipped a pre-release of our fancy new [SideNavigation component](https://gestalt.pinterest.systems/web/sidenavigation). This component is still in alpha and not (quite) ready for production, but we wanted to give y'all a sneak peek ahead of time. We also created a [SideNavigation Figma component](http://pinch.pinadmin.com/gestalt_figma_sidenavigation) that's ready to use today. Again, keep in mind that this component is currently in alpha."
         },
         {
           "title": "Gestalt Iconography guidelines",
@@ -252,14 +252,14 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/56/0b/c9/560bc92a7caeaf4459766362cf5d0534.png",
           "imageAltText": "Screenshot of Gestalt Figma iOS components",
-          "content": "We made some nice improvements to our iOS library including an overhaul of [Button](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5860%3A8644) to have smarter defaults, more capabilities (like an end icon) and, most importantly, be simpler to use.  We also made some simplifications and quality-of-life improvements to [SearchField](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5860%3A8648). Lastly, we implemented a nice enhancement to hide components in our library that aren't intended for everyday use. This should make the overall component discovery experience much simpler."
+          "content": "We made some nice improvements to our iOS library including an overhaul of [Button](http://pinch.pinadmin.com/gestalt_figma_ios_button) to have smarter defaults, more capabilities (like an end icon) and, most importantly, be simpler to use.  We also made some simplifications and quality-of-life improvements to [SearchField](http://pinch.pinadmin.com/gestalt_figma_ios_searchfield). Lastly, we implemented a nice enhancement to hide components in our library that aren't intended for everyday use. This should make the overall component discovery experience much simpler."
         },
         {
           "title": "Gestalt for Web Figma library improvements",
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/22/c9/ca/22c9ca872312b3d67e8e5bab00b26ce3.png",
           "imageAltText": "Screenshot of Gestalt Figma Web components",
-          "content": "Similar to the iOS library, we make enhancements to [Button](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17905) which should closer mimic the API of our [React Button](https://gestalt.pinterest.systems/web/button). We also made a near-complete overhaul to [Dropdown](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=4526%3A0) to again better mimic its [React counterpart](https://gestalt.pinterest.systems/web/dropdown). One note on Dropdown - we ran into so Figma limitations which prevented us from implementing text truncation in the Dropdown list components, so you'd need to manually truncate text until we can determine a solution. Lastly, we made updates to the Figma Web library's page strucure/organization to more closely resemble our documentation."
+          "content": "Similar to the iOS library, we make enhancements to [Button](http://pinch.pinadmin.com/gestalt_figma_button) which should closer mimic the API of our [React Button](https://gestalt.pinterest.systems/web/button). We also made a near-complete overhaul to [Dropdown](http://pinch.pinadmin.com/gestalt_figma_dropdown) to again better mimic its [React counterpart](https://gestalt.pinterest.systems/web/dropdown). One note on Dropdown - we ran into so Figma limitations which prevented us from implementing text truncation in the Dropdown list components, so you'd need to manually truncate text until we can determine a solution. Lastly, we made updates to the Figma Web library's page strucure/organization to more closely resemble our documentation."
         }
       ]
     },
@@ -278,7 +278,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/75/3f/3d/753f3d9a102f84262cca6e9ce5b6278d.png",
           "imageAltText": "A picture that shows Gestalt plus Figma plus Android equaling a heart",
-          "content": "You've been asking for it, we've been working on it and it's _almost here_. That's right, a full overhaul to our Gestalt Figma Android library. It's not ready quite yet, but you can see a preview of what we're cooking up in [this branch](https://www.figma.com/file/DkU8imdrmBUZUkS7fL8JPd/DP-Gestalt-4392-Port-Figma-iOS-library-to-Android?node-id=3686%3A21528). We cannot wait to get this out the door and in your hands!"
+          "content": "You've been asking for it, we've been working on it and it's _almost here_. That's right, a full overhaul to our Gestalt Figma Android library. It's not ready quite yet, but you can see a preview of what we're cooking up in [this branch](http://pinch.pinadmin.com/gestalt_android). We cannot wait to get this out the door and in your hands!"
         },
         {
           "title": "Video caption support",
@@ -292,7 +292,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/6d/8f/3b/6d8f3be52d865d64b3b06a27113ce1d0.png",
           "imageAltText": "A screenshot of the Figma iOS Modal component",
-          "content": "We made a sizable update to our [iOS Modal component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=5860%3A8641) to both reduce the number of variants while making it far easier to place content within it. A large focus for us is to make our components significantly simpler to use, so expect more of these updates throughout 2022."
+          "content": "We made a sizable update to our [iOS Modal component](http://pinch.pinadmin.com/gestalt_figma_ios_modal) to both reduce the number of variants while making it far easier to place content within it. A large focus for us is to make our components significantly simpler to use, so expect more of these updates throughout 2022."
         },
         {
           "title": "Gestalt July Open Forum canceled",
@@ -318,7 +318,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/bd/76/c6/bd76c67a16eb326b99316a6d2d8688af.png",
           "imageAltText": "Screenshot showcasing out figma libraries",
-          "content": "We did a little cleanup and reorganization in our Figma folders to help you scan all the supportive files and libraries you need more efficiently. We archived outdated and deprecated resources to avoid confusion with their usage, and moved some files around to reinforce a semantic structure. All the must-have folders and files, such as libraries, helpful resources, product surfaces, and experimental resources are under [Gestalt](https://www.figma.com/files/757008090659779062/team/626524232805730321/Gestalt?fuid=982037494021279625). And if you are curious about what the team is baking, feel free to check out our [Design Systems Figma collection](https://www.figma.com/files/757008090659779062/team/758073086094656143/Design-Systems?fuid=982037494021279625). Feel free to reach out if you have any questions about it!"
+          "content": "We did a little cleanup and reorganization in our Figma folders to help you scan all the supportive files and libraries you need more efficiently. We archived outdated and deprecated resources to avoid confusion with their usage, and moved some files around to reinforce a semantic structure. All the must-have folders and files, such as libraries, helpful resources, product surfaces, and experimental resources are under [Gestalt](http://pinch.pinadmin.com/figma_gestalt_directory). And if you are curious about what the team is baking, feel free to check out our [Design Systems Figma collection](http://pinch.pinadmin.com/design_system_figma_collection). Feel free to reach out if you have any questions about it!"
         },
         {
           "title": "Say goodbye to food coloring 🍉",
@@ -344,7 +344,7 @@
           "audience": ["Engineering", "Design"],
           "imageSrc": "https://i.pinimg.com/originals/d6/1f/09/d61f096cc84951d4a3193c4a2cb86be9.png",
           "imageAltText": "",
-          "content": "In order to get Pinterest one step closer to a more unified visual experience, we've update bold fonts on web to be semibold, meaning our native mobile and web experiences are now aesthetically closer. We've updated our Gestalt for web Figma library with the new treatments so if you're using our type styles, just accept the latest library update and you should be good to go. See PJ's [post in Slack](https://pinterest.slack.com/archives/C0HUV5J93/p1656616134835949) for full details."
+          "content": "In order to get Pinterest one step closer to a more unified visual experience, we've update bold fonts on web to be semibold, meaning our native mobile and web experiences are now aesthetically closer. We've updated our Gestalt for web Figma library with the new treatments so if you're using our type styles, just accept the latest library update and you should be good to go. See PJ's [post in Slack](http://pinch.pinadmin.com/slack_bold_font_comms) for full details."
         },
         {
           "title": "Component status and quality checklist added to the docs",
@@ -365,7 +365,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/5b/44/3f/5b443f09a5ac2bb3feb160d6de033ef0.png",
           "imageAltText": "Screenshot of Modal and Sheet components",
-          "content": "Who loves a good placeholder component? We do! Placeholder components will enable you to more easily utilize our container-esque components, like Modal and Sheet. And now, besides our [Web Modal component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A29633), the placeholder is also available to test in our [Sheet component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17902), and [Module component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=4068%3A7200). Check it out! We would love to hear your feedback."
+          "content": "Who loves a good placeholder component? We do! Placeholder components will enable you to more easily utilize our container-esque components, like Modal and Sheet. And now, besides our [Web Modal component](http://pinch.pinadmin.com/gestalt_figma_modal_placeholder), the placeholder is also available to test in our [Sheet component](http://pinch.pinadmin.com/gestalt_figma_sheet_placeholder), and [Module component](http://pinch.pinadmin.com/gestalt_figma_module_placeholder). Check it out! We would love to hear your feedback."
         },
         {
           "title": "Figma IconButton on iOS and Web",
@@ -378,7 +378,7 @@
           "title": "Figma library deprecation",
           "audience": ["Design"],
           "imageAltText": "",
-          "content": "The day finally came, and the following Gestalt Figma libraries have now been taken offline: _04. Gestalt Icons_, _06. Platform Extras_, _PDS 3.0 Styles: Light Mode_, and _WIP 02. Mobile Library WIP_. If you have a file that depends on any of these libraries, you will need to migrate the components/styles over to the corresponding active file. See PJ's post in Slack for the [conversion details](https://pinterest.slack.com/archives/C0HUV5J93/p1656621459570089)."
+          "content": "The day finally came, and the following Gestalt Figma libraries have now been taken offline: _04. Gestalt Icons_, _06. Platform Extras_, _PDS 3.0 Styles: Light Mode_, and _WIP 02. Mobile Library WIP_. If you have a file that depends on any of these libraries, you will need to migrate the components/styles over to the corresponding active file. See PJ's post in Slack for the [conversion details](http://pinch.pinadmin.com/slack_library_migration_comms)."
         }
       ]
     },
@@ -390,7 +390,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/2d/d9/88/2dd988cf72ca8eac19102ecd80e0e190.png",
           "imageAltText": "Screenshot of Figma Bar component",
-          "content": "We're working to grow out our Gestalt Figma web library to include more mobile web use cases. A first step towards that goal is the creation of a [mobile web Bar component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=16483%3A28229). This component is our first iteration, so please send us your feedback on ways to improve it."
+          "content": "We're working to grow out our Gestalt Figma web library to include more mobile web use cases. A first step towards that goal is the creation of a [mobile web Bar component](http://pinch.pinadmin.com/gestalt_figma_mweb_bar). This component is our first iteration, so please send us your feedback on ways to improve it."
         },
         {
           "title": "Iconography open forum next steps",
@@ -416,7 +416,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/90/d6/86/90d6869063bd80e56fe0820eebf10aca.png",
           "imageAltText": "A dark mode variant of Popover",
-          "content": "This has been a long time coming, but we've shipped our first phase of dark mode variants in our Gestalt Figma libraries! This first phase has focused on core components for our [Gestalt for iOS library](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS) (e.g., Button, Avatar, Popover, etc.). Our next phase will be to offer dark mode for more complex components like Pin, Board, and other reps. We look forward to sharing many more updates _soon_."
+          "content": "This has been a long time coming, but we've shipped our first phase of dark mode variants in our Gestalt Figma libraries! This first phase has focused on core components for our [Gestalt for iOS library](http://pinch.pinadmin.com/gestalt_ios) (e.g., Button, Avatar, Popover, etc.). Our next phase will be to offer dark mode for more complex components like Pin, Board, and other reps. We look forward to sharing many more updates _soon_."
         },
         {
           "title": "Data visualization guidelines",
@@ -444,7 +444,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/3a/1e/76/3a1e76e2f6e1e3f3fbe598cb3d4dca5b.png",
           "imageAltText": "Screenshot of Handoff kit's screen/device templates",
-          "content": "We made nice update to our [Figma Handoff kit](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit) with the addition of [screen/device templates](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/?node-id=246%3A3533). This should give designers a faster starting point for designing their features. We have templates for web, mobile web, handset and tablet (for iOS and Android)."
+          "content": "We made nice update to our [Figma Handoff kit](http://pinch.pinadmin.com/figma_handoff_kit) with the addition of [screen/device templates](http://pinch.pinadmin.com/figma_handoff_kit_devices). This should give designers a faster starting point for designing their features. We have templates for web, mobile web, handset and tablet (for iOS and Android)."
         }
       ]
     },
@@ -475,7 +475,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/9c/07/1e/9c071edc9ac15787bae57860a4854db8.png",
           "imageAltText": "Anatomy of Figma Pin component",
-          "content": "The Gestalt team has been busy iterating on a new revs of the [Pin component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13346%3A55393) and [Masonry component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13386%3A67271) in our Figma iOS library. Our focus for this iteration was to drastically simplify the experience of using it in designs. This new component leverages all the new fancy bells and whistles Figma recently released, which _drastically_ reduced the number of variants for this component. We also added a [built-in introduction to the component](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=13366%3A51700) and guides on common use-cases. We think it's going to be _big_ improvement.\n\nHowever, big improvements sometimes lead to (dun dun dunnn) breaking changes. This Pin is so different that we needed to essentially build it from scratch as a new component. Don't fret though, we've kept our previous version of the Pin component in our library for backward compatibility. That component will be sunset on September 30, 2022."
+          "content": "The Gestalt team has been busy iterating on a new revs of the [Pin component](http://pinch.pinadmin.com/gestalt_figma_ios_pin) and [Masonry component](http://pinch.pinadmin.com/gestalt_figma_ios_masonry) in our Figma iOS library. Our focus for this iteration was to drastically simplify the experience of using it in designs. This new component leverages all the new fancy bells and whistles Figma recently released, which _drastically_ reduced the number of variants for this component. We also added a [built-in introduction to the component](http://pinch.pinadmin.com/gestalt_figma_ios_pin_intro) and guides on common use-cases. We think it's going to be _big_ improvement.\n\nHowever, big improvements sometimes lead to (dun dun dunnn) breaking changes. This Pin is so different that we needed to essentially build it from scratch as a new component. Don't fret though, we've kept our previous version of the Pin component in our library for backward compatibility. That component will be sunset on September 30, 2022."
         },
         {
           "title": "An Updated What's New page",

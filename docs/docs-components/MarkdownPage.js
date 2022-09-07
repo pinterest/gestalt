@@ -2,20 +2,16 @@
 
 // ignoring: since we do in fact want to render each component md block again
 
-import { Text, Box, Link, Flex, Icon } from 'gestalt';
+import { Text, Box, Flex, Icon } from 'gestalt';
 import Image from 'next/image';
 import { MDXProvider } from '@mdx-js/react';
 import { type Node } from 'react';
-
+import Highlighter from './highlight.js';
+import MarkdownLink from './MarkdownLink.js';
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
 import MainSection from './MainSection.js';
-
-import LockIcon from './LockIcon.js';
 import { MAX_WIDTH } from './MainSectionSubsection.js';
-
-import 'highlight.js/styles/a11y-light.css';
-import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
 
 type Props = {|
@@ -31,6 +27,7 @@ type Props = {|
 |};
 
 const components = {
+  a: (props) => <MarkdownLink href={props.href} text={props.children} />,
   small: (props) => <Text size="100">{props.children}</Text>,
   pre: (props: {|
     children: {| props: {| className: $ReadOnlyArray<string>, children: string | null |} |},
@@ -67,20 +64,6 @@ const components = {
     <Box marginTop={8} marginBottom={8}>
       <hr />
     </Box>
-  ),
-  PrivateLink: ({ children, href }: {| href: string, children: string | null |}) => (
-    <Link href={href} target="blank">
-      <Flex
-        alignItems="baseline"
-        gap={{
-          row: 1,
-          column: 0,
-        }}
-      >
-        <Text underline>{children}</Text>
-        <LockIcon size={16} />
-      </Flex>
-    </Link>
   ),
   Hint: ({ children }: {| children: string | null |}) => (
     <div

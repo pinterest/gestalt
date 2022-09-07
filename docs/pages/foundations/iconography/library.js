@@ -145,7 +145,7 @@ If you need a new icon for an experiment that is not listed on our [Icon](/web/i
 
 However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/web/box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
 
-Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the icon to Gestalt.
+Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](http://pinch.pinadmin.com/gestalt_figma_icon_kit). Once the asset is ready, we can add the icon to Gestalt.
 
 Gestalt icon svg files follow a particular format and use automatic file validation testing.
 

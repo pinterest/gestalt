@@ -25,7 +25,7 @@ export default function AccessibilityGuidelinesPage(): Node {
       />
       <MainSection
         name="Design considerations"
-        description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](https://www.dropbox.com/s/m1jmveyuvv6p9pq/Pinterest%20Accessible%20Design.pdf?dl=0)."
+        description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](http://pinch.pinadmin.com/accessible_design_deck)."
       >
         <MainSection.Subsection
           title="Visuals"
@@ -106,11 +106,9 @@ export default function AccessibilityGuidelinesPage(): Node {
             description={`
           \`useFocusVisible\` manages focus interactions on the page and determines whether a focus ring should be shown. When using the \`useFocusVisible\` hook, if a user interacts with a mouse or by touch, then the focus indicator is not visible. When the user interacts with the keyboard however, the focus indicator will be visible.
 
-          References:
-          <ul>
-            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">WCAG 2.4.7: Focus Visible</a></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
-          </ul>
+References:
+- [WCAG 2.4.7: Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
+- [:focus-visible CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
         `}
             sandpackExample={
               <SandpackExample
@@ -128,11 +126,9 @@ export default function AccessibilityGuidelinesPage(): Node {
 
           Users can experience distraction or nausea from animated content. For example, scrolling a page which causes elements to move (other than the essential movement associated with scrolling) can trigger vestibular disorders. Change your Accessibility -> Display device settings to "Reduce motion" and notice the animation stops.
 
-          References:
-          <ul>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion" target="_blank">CSS media query: prefers-reduced-motion</a></li>
-            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
-          </ul>
+References:
+- [CSS media query: prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [WCAG C39: Using the CSS reduce-motion query to prevent motion](https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html)s
         `}
             sandpackExample={
               <SandpackExample
@@ -148,16 +144,16 @@ export default function AccessibilityGuidelinesPage(): Node {
         <MainSection.Subsection
           title="Pinternal"
           description={`
-        **[Web Accessibility Wiki](https://w.pinadmin.com/display/WT/Accessibility)**
-        Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](https://w.pinadmin.com/display/WT/Web+Accessibility+Integration+Tests).
+        **[Web Accessibility Wiki](http://pinch.pinadmin.com/web_accessibility_wiki)**
+        Learn more about or web accessibility efforts, best practices, and [Web Accessibility Integration Tests](http://pinch.pinadmin.com/web_accessibility_integration_tests_wiki).
 
         **[Product Accessibility Working Group](http://pinch.pinadmin.com/productAccessibilityWorkingGroup)**
         Details about the accessibility working group, including success metrics and project statuses.
 
-        **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**
+        **[Accessible Design](http://pinch.pinadmin.com/accessible_design_deck)**
         Checkout our Accessible Design deck for examples and recommendations regarding accessibility at the design phase.
 
-        **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/EPD/Accessibility+101)**
+        **[Accessibility 101 Basecamp Session](http://pinch.pinadmin.com/a11y-101)**
         Reference video recordings and materials from our Accessibility 101 session for new hires.
       `}
         />
