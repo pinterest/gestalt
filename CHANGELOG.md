@@ -1,3 +1,9 @@
+## 71.0.16 (Sep 7, 2022)
+
+### Patch
+
+- AvatarGroup: implement Sandpack code editors ([#2359](https://github.com/pinterest/gestalt/pull/2359)) - [Preview link](https://deploy-preview-2359--gestalt.netlify.app)
+
 ## 71.0.15 (Sep 7, 2022)
 
 ### Patch
