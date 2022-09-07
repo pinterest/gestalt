@@ -1,3 +1,9 @@
+## 71.0.15 (Sep 7, 2022)
+
+### Patch
+
+- ComboBox: implement Sandpack code editors ([#2365](https://github.com/pinterest/gestalt/pull/2365)) - [Preview link](https://deploy-preview-2365--gestalt.netlify.app)
+
 ## 71.0.14 (Sep 7, 2022)
 
 ### Patch
