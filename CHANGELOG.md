@@ -1,3 +1,9 @@
+## 71.0.17 (Sep 7, 2022)
+
+### Patch
+
+- Docs: added link references to Pinterest's Web platform documentation about Gestalt ([#2367](https://github.com/pinterest/gestalt/pull/2367)) - [Preview link](https://deploy-preview-2367--gestalt.netlify.app)
+
 ## 71.0.16 (Sep 7, 2022)
 
 ### Patch
