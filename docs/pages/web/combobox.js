@@ -704,7 +704,7 @@ function ComboBoxExample(props) {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Error message"
-          description="For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea)"
+          description="For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](/web/link) or [TapArea](/web/taparea)"
         >
           <MainSection.Card
             cardSize="lg"

@@ -14,7 +14,7 @@ export default function ReleasesPage(): Node {
 
 Each major, minor, and patch change is merged to master and released as the latest supported Gestalt version. Check the [release log](https://github.com/pinterest/gestalt/releases).
 
-When a release will cause breaking changes — in usage or in typing — we provide a  codemod to ease the upgrade process. Read more about [codemods](https://gestalt.pinterest.systems/releases#Codemods)
+When a release will cause breaking changes — in usage or in typing — we provide a  codemod to ease the upgrade process. Read more about [codemods](/releases#Codemods)
 
 Our versioning guidelines follow those outlined at [semver.org](https://semver.org/):
 

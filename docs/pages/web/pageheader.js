@@ -259,9 +259,9 @@ Be brief with text in all components to account for languages with longer words.
 
 If there's already a primary action elsewhere on the page, PageHeader can have 1 or 2 secondary actions. Use \`primaryAction\` as an additional secondary action.
 
-Primary and secondary actions are consolidated into [Dropdown](https://gestalt.pinterest.systems/web/dropdown) below the [sm breakpoint](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)). \`primaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
+Primary and secondary actions are consolidated into [Dropdown](/web/dropdown) below the [sm breakpoint](/foundations/screen_sizes#Web-(px)). \`primaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
 
-For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reuse the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.pinterest.systems/web/dropdown) below the sm breakpoint.
+For example, Button should be complemented with [Dropdown.Item](/web/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](/web/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reuse the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](/web/dropdown) below the sm breakpoint.
 
 Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
 `}
@@ -282,9 +282,9 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
           title="Secondary action"
           description={`PageHeader also supports an optional \`secondaryAction\`. It will likely be a [Button](/web/button) or an [IconButton](/web/iconbutton) with a [Tooltip](/web/tooltip) and optional [Dropdown](/web/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.
 
-Primary and secondary actions are consolidated into [Dropdown](https://gestalt.pinterest.systems/web/dropdown) below the [sm breakpoint](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)). \`secondaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
+Primary and secondary actions are consolidated into [Dropdown](/web/dropdown) below the [sm breakpoint](/foundations/screen_sizes#Web-(px)). \`secondaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
 
-For example, Button should be complemented with [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reused the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](https://gestalt.pinterest.systems/web/dropdown) below the sm breakpoint.
+For example, Button should be complemented with [Dropdown.Item](/web/dropdown#Dropdown.Item), Link should be complemented with [Dropdown.Link](/web/dropdown#Dropdown.Link), and an IconButton displaying a Dropdown should reused the same Dropdown subcomponents. Don't forget to pass \`dropdownAccessibilityLabel\` for the IconButton consolidating all actions into [Dropdown](/web/dropdown) below the sm breakpoint.
 
 Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
 
@@ -304,7 +304,7 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Complementary items"
-          description={`PageHeader supports an optional pair of components next to the CTA section. It's strongly recommended to limit this space to data display components, mostly [Datapoint](https://gestalt.pinterest.systems/web/datapoint). The complementary component section is hidden in small breakpoints.`}
+          description={`PageHeader supports an optional pair of components next to the CTA section. It's strongly recommended to limit this space to data display components, mostly [Datapoint](/web/datapoint). The complementary component section is hidden in small breakpoints.`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -355,7 +355,7 @@ PageHeader also supports a bottom border to show the division between PageHeader
         <MainSection.Subsection
           title="Responsive"
           columns={2}
-          description={`PageHeader is responsive to different [viewport breakpoints](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)).
+          description={`PageHeader is responsive to different [viewport breakpoints](/foundations/screen_sizes#Web-(px)).
 
 Therefore, PageHeader’s behavior relies on the window size and requires PageHeader to be used on a full-window width to correctly respond to different breakpoints. Don’t use PageHeader right next to elements such as side-navigation bars that wouldn’t allow PageHeader to extend the full width of the window.
 

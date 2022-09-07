@@ -67,7 +67,7 @@ export default function ColorUsagePage(): Node {
       >
         <MainSection.Subsection
           title="Floating"
-          description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/web/box#Borders). For dark mode, we use the \`elevationFloating\` background of Box instead of a shadow.`}
+          description={`Default elevation level that elevates messages temporarily appearing in front of other surfaces, such as modals and banners. Available through the \`borderStyle\` prop in [Box](/web/box#Borders). For dark mode, we use the \`elevationFloating\` background of Box instead of a shadow.`}
         >
           <Flex
             gap={{
@@ -122,7 +122,7 @@ export default function ColorUsagePage(): Node {
         <MainSection.Subsection
           title="Raised"
           description={`
-          Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. Available through the \`borderStyle\` prop in [Box](https://gestalt.pinterest.systems/web/box#Borders). In dark mode, the raised border should be paired with the \`elevationRaised\` background color.
+          Presents a drop shadow on the edge of a top or bottom component, allowing surfaces to move behind when scrolled. Available through the \`borderStyle\` prop in [Box](/web/box#Borders). In dark mode, the raised border should be paired with the \`elevationRaised\` background color.
           `}
         >
           <Flex

@@ -129,7 +129,7 @@ yarn generate ComponentName
   yarn run flow-generate:css
   ```
 
-  - If you are introducing breaking changes, create a **[codemod](https://gestalt.pinterest.systems/development#codemods)** to help users migrate between versions.
+  - If you are introducing breaking changes, create a **[codemod](/development#codemods)** to help users migrate between versions.
 
   ```bash
   yarn run flow-generate:css
@@ -154,7 +154,7 @@ git push -f origin HEAD
 
 <Hint icon="lock"> If you are a Pinterest employee, please let us know on Slack (#gestalt-web) that your PR is ready for review. </Hint>
 
-- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [versioning guidelines](https://gestalt.pinterest.systems/development#versioning).
+- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [versioning guidelines](/development#versioning).
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
 

@@ -15,7 +15,7 @@ fullwidth: true
   </Group>
   <Group>
   <Dont title="When not to use" />
-     - To represent a group of people, companies and/or brands. use [AvatarGroup](https://gestalt.pinterest.systems/web/avatargroup) instead
+     - To represent a group of people, companies and/or brands. Use [AvatarGroup](/web/avatargroup) instead
   </Group>
 </TwoCol>
 

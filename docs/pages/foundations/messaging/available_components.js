@@ -42,7 +42,7 @@ export default function MessagingComponentsPage(): Node {
           </Text>
 
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/callout" underline="always">
+            <Link href="/web/callout" underline="always">
               Go to the Callout component
             </Link>
           </Text>
@@ -78,7 +78,7 @@ export default function MessagingComponentsPage(): Node {
           </Text>
 
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/slimbanner" underline="always">
+            <Link href="/web/slimbanner" underline="always">
               Go to the SlimBanner component
             </Link>
           </Text>
@@ -94,7 +94,7 @@ export default function MessagingComponentsPage(): Node {
           </Text>
 
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/modal" underline="always">
+            <Link href="/web/modal" underline="always">
               Go to the Modal component
             </Link>
           </Text>
@@ -165,7 +165,7 @@ export default function MessagingComponentsPage(): Node {
             </ul>
           </Text>
           <Text>
-            <Link href="https://gestalt.pinterest.systems/web/toast" underline="always">
+            <Link href="/web/toast" underline="always">
               Go to the Toast component
             </Link>
           </Text>

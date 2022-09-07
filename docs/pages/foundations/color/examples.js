@@ -88,7 +88,7 @@ export default function ColorExamplesPage(): Node {
                   Having a limited range of colors supports consistency, making our product easier
                   to interact with. Keep in mind that continuous use of high-contrast and saturated
                   colors can create fatigue and eye strain. See our{' '}
-                  <Link inline href="https://gestalt.pinterest.systems/foundations/color/usage">
+                  <Link inline href="/foundations/color/usage">
                     <Text underline>color usage guidelines</Text>
                   </Link>{' '}
                   for more information about our color choices.
@@ -107,10 +107,7 @@ export default function ColorExamplesPage(): Node {
                   ways. For example, colors often change between light and dark modes to help
                   portray elevation and hierarchy, while ensuring proper contrast and legibility.
                   Any colors used should be consistent with the full{' '}
-                  <Link
-                    inline
-                    href="https://gestalt.pinterest.systems/foundations/color/palette#Extended-palette"
-                  >
+                  <Link inline href="/foundations/color/palette#Extended-palette">
                     <Text inline underline>
                       Pinterest color palette
                     </Text>
@@ -129,7 +126,7 @@ export default function ColorExamplesPage(): Node {
                 <Text>
                   All color pairings must pass WCAG&apos;s AA color contrast standards. Using our
                   color tokens properly ensures our colors meet legibility standards. Check out our{' '}
-                  <Link inline href="https://gestalt.pinterest.systems/foundations/accessibility">
+                  <Link inline href="/foundations/accessibility">
                     <Text inline underline>
                       accessibility guidelines
                     </Text>
@@ -277,7 +274,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](https://gestalt.pinterest.systems/get_started/how_to_work_with_us#Meetings-and-events) and we will evaluate."
+            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](/get_started/how_to_work_with_us#Meetings-and-events) and we will evaluate."
             sandpackExample={
               <SandpackExample
                 code={alternativeColorTokensExample}
@@ -306,7 +303,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](https://gestalt.pinterest.systems/get_started/how_to_work_with_us#Meetings-and-events) and we will assist."
+            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](/get_started/how_to_work_with_us#Meetings-and-events) and we will assist."
             sandpackExample={
               <SandpackExample
                 code={invalidElevationExample}
