@@ -16,7 +16,7 @@ fullwidth: true
 </Group>
 <Group>
 <Dont title="When not to use" />
-- Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](https://gestalt.pinterest.systems/web/textarea) instead.
+- Situations where long amounts of text need to be entered, since the full content of the TextField will be truncated. Use [TextArea](/web/textarea) instead.
 </Group>
 </TwoCol>
 
@@ -88,7 +88,7 @@ Place fields horizontally. This creates unnecessarily restricted fields and a mo
 </TwoCol>
 
 
-For general Icon best practices, refer to the web [Text Field Documentation](https://gestalt.pinterest.systems/web/textfield).
+For general Icon best practices, refer to the web [Text Field Documentation](/web/textfield).
 
 ## Accessibility
 

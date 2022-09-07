@@ -453,7 +453,7 @@ We recommend adding an external Link to inline content. However, use max of two 
 
 Also, consider adding external Links to elements where the "visit" icon will support the user's comprehension, letting them know they are leaving Pinterest content and going to an external domain. For example, links inside a footer element.
 
-For external links that an external Gestalt Link doesn't apply, check out [Button link role](https://gestalt.pinterest.systems/web/button#Role) or [IconButton link role](https://gestalt.pinterest.systems/component/web/iconbutton#Role).`}
+For external links that an external Gestalt Link doesn't apply, check out [Button link role](/web/button#Role) or [IconButton link role](/component/web/iconbutton#Role).`}
         />
       </AccessibilitySection>
 

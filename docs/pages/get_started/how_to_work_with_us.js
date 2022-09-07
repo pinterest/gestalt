@@ -91,7 +91,7 @@ The Gestalt team sends out twice-yearly surveys to the design and engineering or
         <MainSection.Subsection
           description={`
 We are always happy to help answer questions regarding Gestalt component design and usage, design system best practices, accessibility, icons and colors. If it’s part of Gestalt, we’re here to help! If it’s outside of the realm of our design system, we’ll try our best to answer and/or point you to the person who can. Feel free to reach out to us on [Slack](http://gestalt.pinterest.systems/how_to_work_with_us#Slack-channels) anytime.
-We also offer documentation on this site ([go/GestaltWeb](https://gestalt.pinterest.systems/)) and a [Figma library](https://pinch/gestaltFigma) of components that exist within Gestalt.
+We also offer documentation on this [site](https://gestalt.pinterest.systems/)) and a [Figma library](https://pinch/gestaltFigma) of components that exist within Gestalt.
 `}
         />
       </MainSection>

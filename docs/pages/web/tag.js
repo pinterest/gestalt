@@ -14,7 +14,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     <Page title="Tag">
       <PageHeader
         name="Tag"
-        description="[Tags](https://gestalt.pinterest.systems/web/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/web/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components."
+        description="[Tags](/web/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](/web/textfield#tagsExample), [TextAreas](/web/textarea#tagsExample), [ComboBox](/web/combobox#Tags) or as standalone components."
       />
       <PropTable
         props={[

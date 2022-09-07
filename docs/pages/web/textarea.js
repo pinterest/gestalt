@@ -86,7 +86,7 @@ function Example(props) {
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use TextArea when the text input is a single, non-sentence response — even in cases with long content. Use [TextField](https://gestalt.pinterest.systems/web/textfield) instead."
+            description="Use TextArea when the text input is a single, non-sentence response — even in cases with long content. Use [TextField](/web/textfield) instead."
             defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('https://www.pinterest.com/pin/768145280205600341/');
