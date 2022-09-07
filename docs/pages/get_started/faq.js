@@ -157,22 +157,13 @@ yarn playwright:test
             />
           </Text>
 
-          <Heading size="400">What is Gestalt teachings and how do I add a video?</Heading>
+          <Heading size="400">Is there any internal Pinterest documentation for Gestalt?</Heading>
           <Text>
-            <Link
-              inline
-              href="https://www.youtube.com/playlist?list=PLbmG-F9A233J1ID2Nl-zwfYNnhazHLZzV"
-            >
-              <Text weight="bold">Gestalt teachings</Text>
-            </Link>{' '}
-            is a youtube video playlist containing tips and tricks on how to use Gestalt. Use{' '}
-            <Link
-              inline
-              href="https://www.youtube.com/playlist?list=PLbmG-F9A233J1ID2Nl-zwfYNnhazHLZzV&amp;jct=cIfcNOunrGwHcEAbFodTthlHYhkvWw"
-            >
-              <Text weight="bold">this special collaboration link</Text>
-            </Link>{' '}
-            to add your own videos to this list.
+            If you&apos;re a Pinterest employee, you can visit Pinterest&apos;s web platform
+            documentation for Gestalt{' '}
+            <Link inline href="http://pinch.pinadmin.com/gestalt_wiki">
+              <Text weight="bold">here.</Text>
+            </Link>
           </Text>
         </Flex>
       </Card>

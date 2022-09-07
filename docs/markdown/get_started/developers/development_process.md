@@ -3,6 +3,8 @@ title: Development
 fullwidth: true
 ---
 
+Pinterest web engineers can visit the [internal Gestalt documentation](http://pinch.pinadmin.com/gestalt_wiki).
+
 ## Set up your laptop
 
 - Install a code editor - we recommended [VS Code](https://code.visualstudio.com/download)
@@ -129,7 +131,7 @@ yarn generate ComponentName
   yarn run flow-generate:css
   ```
 
-  - If you are introducing breaking changes, create a **[codemod](/development#codemods)** to help users migrate between versions.
+  - If you are introducing breaking changes, create a **[codemod](/get_started/developers/tooling/web#Release-codemods)** to help users migrate between versions.
 
   ```bash
   yarn run flow-generate:css
@@ -154,7 +156,7 @@ git push -f origin HEAD
 
 <Hint icon="lock"> If you are a Pinterest employee, please let us know on Slack (#gestalt-web) that your PR is ready for review. </Hint>
 
-- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [versioning guidelines](/development#versioning).
+- Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [release and versioning guidelines](/get_started/developers/releases#Automated-releases).
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
 
@@ -185,6 +187,10 @@ Do not use the following CSS style properties:
 Avoid:
 
 - Boolean props: For example, instead of `isRTL: boolean` or `isStart: boolean` or `isEnd: boolean`, use more declarative props such as `layoutDirection: rtl | ltr` or `role: startInput | endInput`.
+
+## Technical Design Documents
+
+Before starting coding a new component, you must first detail the componentn specifications in Technical Design Documents (TDD). You can find the [TDD template here](http://pinch.pinadmin.com/TDD).
 
 ## RFCs
 
