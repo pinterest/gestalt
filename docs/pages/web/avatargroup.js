@@ -8,36 +8,25 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import Page from '../../docs-components/Page.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import noImageSource from '../../examples/avatarGroup/noImageSource.js';
+import noEmoji from '../../examples/avatarGroup/noEmoji.js';
+import main from '../../examples/avatarGroup/main.js';
+import sizing from '../../examples/avatarGroup/sizing.js';
+import accessibility from '../../examples/avatarGroup/accessibility.js';
+import person from '../../examples/avatarGroup/person.js';
+import ideas from '../../examples/avatarGroup/ideas.js';
+import roleButton from '../../examples/avatarGroup/roleButton.js';
+import roleLink from '../../examples/avatarGroup/roleLink.js';
 
 export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="AvatarGroup">
-      <PageHeader
-        name="AvatarGroup"
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Box width={300} height={125}>
-  <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
-    collaborators={[
-      {
-        name: 'Keerthi',
-        src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-      },
-      {
-        name: 'Alberto',
-        src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-      },
-        {
-        name: 'Shanice',
-        src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-      },
-    ]}
-  />
-</Box>
-  `}
-      />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="No image source" hideEditor previewHeight={200} />
+      </PageHeader>
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -58,98 +47,56 @@ export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen:
             cardSize="md"
             type="do"
             description="Use the default alternative if no image source is available. This should be the first character of the provided name."
-            defaultCode={`
-              <Box width={150} height={125}>
-                <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
-                  collaborators={[
-                    {
-                      name: 'Keerthi',
-                    },
-                    {
-                      name: 'Alberto',
-                      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-                    },
-                      {
-                      name: 'Shanice',
-                      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-                    },
-                  ]}
-                />
-              </Box>
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={noImageSource}
+                name="No image source"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use alternative graphics or icons"
-            defaultCode={`
-              <Box width={150} height={125}>
-                <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
-                  collaborators={[
-                    {
-                      name: 'Keerthi',
-                    },
-                    {
-                      name: '🎉',
-                    },
-                      {
-                      name: 'Shanice',
-                      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-                    },
-                  ]}
-                />
-              </Box>
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={noEmoji}
+                name="No emoji"
+                hideEditor
+                hideControls
+                previewHeight={200}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="do"
             description="Use AvatarGroup to represent a group of people and/or organizations."
-            defaultCode={`
-              <Box width={150} height={125}>
-                <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
-                  collaborators={[
-                    {
-                      name: 'PinAble',
-                      src: 'https://i.pinimg.com/75x75_RS/93/ad/66/93ad660e38e4f4315869424ea90e7ea4.jpg',
-                    },
-                    {
-                      name: 'Alberto',
-                      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-                    },
-                      {
-                      name: 'Shanice',
-                      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-                    },
-                  ]}
-                />
-              </Box>
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={person}
+                name="Person"
+                hideEditor
+                hideControls
+                previewHeight={200}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an [Image](/web/image) or the appropriate interactive component."
-            defaultCode={`
-            <Box width={150} height={125}>
-              <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
-                collaborators={[
-                  {
-                    name: 'Art 1',
-                    src: 'https://i.ibb.co/d0pQsJz/stock3.jpg',
-                  },
-                  {
-                    name: 'Art 2',
-                    src: 'https://i.ibb.co/SB0pXgS/stock4.jpg',
-                  },
-                    {
-                    name: 'Art 3',
-                    src: 'https://i.ibb.co/jVR29XV/stock5.jpg',
-                  },
-                ]}
+            sandpackExample={
+              <SandpackExample
+                code={ideas}
+                name="Ideas"
+                hideEditor
+                hideControls
+                previewHeight={200}
               />
-            </Box>
-            `}
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -169,85 +116,9 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
-
-  const SearchCollaboratorsField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search other users"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search by name or email"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  return (
-    <React.Fragment>
-      <AvatarGroup
-        accessibilityLabel="Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
-        accessibilityExpanded={open}
-        addCollaborators
-        role="button"
-        onClick={() => setOpen( open => !open)}
-        ref={anchorRef}
-        size="md"
-        collaborators={[
-
-          {
-            name: 'Keerthi',
-            src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-          },
-          {
-            name: 'Alberto',
-            src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-          },
-          ...new Array(10),
-        ]}
-        />
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="xl"
-          >
-            <Box
-              flex="grow"
-              marginEnd={4}
-              marginStart={4}
-              marginTop={6}
-              marginBottom={8}
-              width={360}
-            >
-              <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                <Text align="center" color="default" weight="bold">
-                  Invite collaborators
-                </Text>
-                <SearchCollaboratorsField />
-              </Flex>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-    `}
+            sandpackExample={
+              <SandpackExample code={accessibility} name="ARIA" previewHeight={250} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -294,39 +165,9 @@ function Example() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box width={600} height={100}>
-  <Flex>
-    <Box column={5}>
-      <AvatarGroup
-        accessibilityLabel="Collaborators: Keerthi, Alberto, and Shanice."
-        size="fit"
-        collaborators={[
-          {
-            name: 'Keerthi',
-            src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-          },
-          {
-            name: 'Alberto',
-            src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-          },
-            {
-            name: 'Shanice',
-            src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-          },
-        ]}
-      />
-    </Box>
-    <Box column={7} marginStart={2} height="100%">
-      <Text inline >The </Text>
-      <Text inline weight="bold">
-        <Link inline href="https://www.pinterest.com/search/boards/?q=quick%20vegan%20recipes&rs=typed&term_meta[]=quick%7Ctyped&term_meta[]=vegan%7Ctyped&term_meta[]=recipes%7Ctyped">Quick Vegan Recipes </Link>
-      </Text>
-      <Text inline> board has 3 followers.</Text>
-    </Box>
-  </Flex>
-</Box>
-   `}
+            sandpackExample={
+              <SandpackExample code={sizing} name="Responsive sizing" previewHeight={200} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -436,109 +277,16 @@ function Example() {
           <MainSection.Card
             title={'role="button"'}
             cardSize="md"
-            defaultCode={`
-function ButtonExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
-  const collaborators = [
-    {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    }, {
-      name: 'Alberto',
-      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-    }, {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    }
-  ];
-
-const List = () => (
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
-    {collaborators.map(({ name, src }, index) => (
-      <Flex key={index} alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Avatar size="md" name={name} src={src} />
-        <Text weight="bold">{name}</Text>
-      </Flex>
-    ))}
-  </Flex>
-);
-
-  return (
-    <React.Fragment>
-      <AvatarGroup
-        accessibilityLabel="Click to see group collaborators."
-        role="button"
-        onClick={() => setOpen( open => !open)}
-        ref={anchorRef}
-        size="md"
-        collaborators={collaborators}
-        />
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="xs"
-          >
-            <Box
-              flex="grow"
-              marginEnd={4}
-              marginStart={4}
-              marginTop={6}
-              marginBottom={8}
-              width={360}
-            >
-              <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                <Text align="center" color="default" weight="bold">
-                  Collaborators
-                </Text>
-                <List />
-              </Flex>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-    `}
+            sandpackExample={
+              <SandpackExample code={roleButton} name="Role button" previewHeight={200} />
+            }
           />
           <MainSection.Card
             title={'role="link"'}
             cardSize="md"
-            defaultCode={`
-function LinkExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const collaborators = [
-    {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    }, {
-      name: 'Alberto',
-      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-    }, {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    }
-  ];
-
-  return (
-    <AvatarGroup
-      accessibilityLabel="Visit group activity board."
-      role="link"
-      onClick={() => setOpen( open => !open)}
-      size="md"
-      collaborators={collaborators}
-      href="#Role"
-      />
-  );
-}
-    `}
+            sandpackExample={
+              <SandpackExample code={roleLink} name="Role Link" previewHeight={200} />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
