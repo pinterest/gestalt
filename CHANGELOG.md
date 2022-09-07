@@ -1,3 +1,9 @@
+## 71.0.14 (Sep 7, 2022)
+
+### Patch
+
+- Docs: clean link urls to only use relative paths for Docs links ([#2368](https://github.com/pinterest/gestalt/pull/2368)) - [Preview link](https://deploy-preview-2368--gestalt.netlify.app)
+
 ## 71.0.13 (Sep 6, 2022)
 
 ### Patch
