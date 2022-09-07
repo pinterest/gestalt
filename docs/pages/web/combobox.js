@@ -6,59 +6,33 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
+import SandpackExample from '../../docs-components/SandpackExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import main from '../../examples/combobox/main.js';
+import labels from '../../examples/combobox/labels.js';
+import localization from '../../examples/combobox/localization.js';
+import programmatic from '../../examples/combobox/programmatic.js';
+import uncontrolled from '../../examples/combobox/uncontrolled.js';
+import controlled from '../../examples/combobox/controlled.js';
+import tags from '../../examples/combobox/tags.js';
+import ref from '../../examples/combobox/ref.js';
+import subtext from '../../examples/combobox/subtext.js';
+import error from '../../examples/combobox/error.js';
+
+const PREVIEW_HEIGHT = 320;
 
 export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="ComboBox">
-      <PageHeader
-        name="ComboBox"
-        description={generatedDocGen?.description}
-        defaultCode={`
-function ComboBoxExample(props) {
-  const PRONOUNS = [
-    'ey / em',
-    'he / him',
-    'ne / nem',
-    'she / her',
-    'they / them',
-    've / ver',
-    'xe / xem',
-    'xie / xem',
-    'zie / zem',
-  ];
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name="Main Combobox example"
+          hideEditor
+          previewHeight={PREVIEW_HEIGHT}
+        />
+      </PageHeader>
 
-  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
-
-  const [errorMessage, setErrorMessage] = React.useState();
-
-  const handleOnBlur = ({ value }) => {
-    if (value !== "" && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
-  };
-
-  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
-
-  return (
-    <Box width={400}>
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
-        errorMessage={errorMessage}
-        helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-        id="header"
-        label="Pronouns"
-        noResultText="No results for your selection"
-        onBlur={handleOnBlur}
-        onChange={resetErrorMessage}
-        onClear={resetErrorMessage}
-        options={options}
-        placeholder="Add your pronouns"
-      />
-    </Box>
-  );
-}
-`}
-      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
@@ -106,75 +80,13 @@ function ComboBoxExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ComboBoxExample(props) {
-  const CATEGORIES = [
-    'All Categories',
-    'Food and drinks',
-    'Beauty',
-    'Home decor',
-    'Fashion',
-    'Travel',
-    'Art',
-    'Quotes',
-    'Entertainment',
-    'Entertainment',
-    'DIY and crafts',
-    'Health',
-    'Wedding',
-    'Event planning',
-    'Gardening',
-    'Parenting',
-    'Vehicles',
-    'Design',
-    'Sport',
-    'Electronics',
-    'Animals',
-    'Finance',
-    'Architecture',
-  ];
-
-  const options = CATEGORIES.map((category, index) => ({
-    label: category,
-    value: 'value'+index ,
-  }));
-
-  const [errorMessage, setErrorMessage] = React.useState();
-
-  const handleOnBlur = ({ value }) => {
-    if (value !== '' && !CATEGORIES.includes(value))
-      setErrorMessage('Please, select a valid option');
-  };
-
-  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
-
-  return (
-    <Flex direction="column" gap={{ column: 2, row: 0 }}>
-      <Heading size="500">Discover this week's top searched trends across all categories</Heading>
-      <Text inline> Wanna learn how trends work? Read
-        <Text weight="bold" inline>
-          <Link accessibilityLabel="Learn how trends on Pinterest work" target="blank" inline href="https://business.pinterest.com/content/pinterest-predicts/">
-            additional information
-          </Link>
-        </Text>
-      </Text>
-      <ComboBox
-        accessibilityClearButtonLabel="Clear category value"
-        errorMessage={errorMessage}
-        id="displayLabel"
-        label="Choose a category to display top search trends"
-        labelDisplay="hidden"
-        noResultText="No results for your selection"
-        onBlur={handleOnBlur}
-        onChange={resetErrorMessage}
-        onClear={resetErrorMessage}
-        options={options}
-        placeholder="Select category"
-      />
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={labels}
+                name="Example with accessibility labels"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Subsection
             title="Keyboard interaction"
@@ -195,46 +107,13 @@ function ComboBoxExample(props) {
       >
         <MainSection.Card
           cardSize="lg"
-          defaultCode={`
-function ComboBoxExample(props) {
-  const PRONOUNS = [
-    'ell@ / l@ / -@',
-    'ella / la / le / -a',
-    'elle / le / -e',
-    'ellx / lx / -x',
-    'él / lo / le / -o',
-  ];
-
-  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
-
-  const [errorMessage, setErrorMessage] = React.useState();
-
-  const handleOnBlur = ({ value }) => {
-    if (value !== "" && !PRONOUNS.includes(value)) setErrorMessage('Por favor, selecciona una opción válida');
-  };
-
-  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
-
-  return (
-    <Box width={400}>
-      <ComboBox
-        accessibilityClearButtonLabel="Remueve la lista de pronombres seleccionados"
-        errorMessage={errorMessage}
-        helperText="Elige hasta 2 grupos de pronombres para que aparezcan en tu perfil y otras personas sepan cómo referirse a ti. Puedes editarlos o eliminarlos en cualquier momento."
-        id="localization"
-        label="Pronombres"
-        noResultText="No se encontró ninguna coincidencia"
-        onBlur={handleOnBlur}
-        onChange={resetErrorMessage}
-        onClear={resetErrorMessage}
-        options={options}
-        placeholder="Añade tus pronombres"
-      />
-    </Box>
-
-  );
-}
-`}
+          sandpackExample={
+            <SandpackExample
+              code={localization}
+              name="Localization example"
+              previewHeight={PREVIEW_HEIGHT}
+            />
+          }
         />
       </MainSection>
       <MainSection name="Variants">
@@ -246,273 +125,35 @@ function ComboBoxExample(props) {
             cardSize="lg"
             title="Uncontrolled ComboBox"
             description={`An uncontrolled ComboBox should be used for basic cases where no default value or tags are required. Don't pass \`inputValue\` or \`selectedOptions\` props to keep the component uncontrolled. By passing \`inputValue\` to ComboBox, the component fully manages its internal state: any value different from \`null\` and \`undefined\` makes Combobox controlled.`}
-            defaultCode={`
-function ComboBoxExample(props) {
-  const PRONOUNS = [
-    'ey / em',
-    'he / him',
-    'ne / nem',
-    'she / her',
-    'they / them',
-    've / ver',
-    'xe / xem',
-    'xie / xem',
-    'zie / zem',
-  ];
-
-  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
-
-  const [errorMessage, setErrorMessage] = React.useState();
-
-  const handleOnBlur = ({ value }) => {
-    if (value !== "" && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
-  };
-
-  const resetErrorMessage = () => (errorMessage ? setErrorMessage() : () => {});
-
-  return (
-    <Box width={400}>
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
-        errorMessage={errorMessage}
-        helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-        id="uncontrolled"
-        label="Pronouns"
-        noResultText="No results for your selection"
-        onBlur={handleOnBlur}
-        onChange={resetErrorMessage}
-        onClear={resetErrorMessage}
-        options={options}
-        placeholder="Add your pronouns"
-      />
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={uncontrolled}
+                name="Uncontrolled component example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             title="Controlled ComboBox"
             description={` A controlled ComboBox is required if a selected value is set, as shown in the first example. In the second example, values are set programatically. Controlled Comboboxes with [tags](#Tags) are also controlled components. A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`selectedOptions\`. ComboBox is notified of changes via the \`onChange\`, \`onSelect\`, \`onBlur\`, \`onFocus\`, \`onKeyDown\`, and \`onClear\` props. All values displayed by ComboBox at any time are controlled externally. To clear \`inputValue\`, set the value to an empty string \`inputValue\` = \` "" \`, \`null\`  or \` undefined\` values turn ComboBox into an uncontrolled component.`}
-            defaultCode={`
-function ComboBoxExample(props) {
-  const US_STATES = [
-    'AK - Alaska',
-    'AL - Alabama',
-    'AR - Arkansas',
-    'AS - American Samoa',
-    'AZ - Arizona',
-    'CA - California',
-    'CO - Colorado',
-    'CT - Connecticut',
-    'DC - District of Columbia',
-    'DE - Delaware',
-    'FL - Florida',
-    'GA - Georgia',
-    'GU - Guam',
-    'HI - Hawaii',
-    'IA - Iowa',
-    'ID - Idaho',
-    'IL - Illinois',
-    'IN - Indiana',
-    'KS - Kansas',
-    'KY - Kentucky',
-    'LA - Louisiana',
-    'MA - Massachusetts',
-    'MD - Maryland',
-    'ME - Maine',
-    'MI - Michigan',
-    'MN - Minnesota',
-    'MO - Missouri',
-    'MS - Mississippi',
-    'MT - Montana',
-    'NC - North Carolina',
-    'ND - North Dakota',
-    'NE - Nebraska',
-    'NH - New Hampshire',
-    'NJ - New Jersey',
-    'NM - New Mexico',
-    'NV - Nevada',
-    'NY - New York',
-    'OH - Ohio',
-    'OK - Oklahoma',
-    'OR - Oregon',
-    'PA - Pennsylvania',
-    'PR - Puerto Rico',
-    'RI - Rhode Island',
-    'SC - South Carolina',
-    'SD - South Dakota',
-    'TN - Tennessee',
-    'TX - Texas',
-    'UT - Utah',
-    'VA - Virginia',
-    'VI - Virgin Islands',
-    'VT - Vermont',
-    'WA - Washington',
-    'WI - Wisconsin',
-    'WV - West Virginia',
-    'WY - Wyoming',
-  ];
-
-  const usStatesOptions = US_STATES.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
-
-  const [suggestedOptions, setSuggestedOptions] = React.useState(usStatesOptions);
-  const [inputValue, setInputValue] = React.useState(usStatesOptions[5].label);
-  const [selected, setSelected] = React.useState(usStatesOptions[5]);
-
-  const handleOnChange = ({ value }) => {
-    setSelected();
-    if (value) {
-      setInputValue(value);
-      const filteredOptions = usStatesOptions.filter((item) =>
-        item.label.toLowerCase().includes(value.toLowerCase()),
-      );
-      setSuggestedOptions(filteredOptions);
-    } else {
-      setInputValue(value);
-      setSuggestedOptions(usStatesOptions);
-    }
-  };
-
-  const handleSelect = ({ item }) => {
-    setInputValue(item.label);
-    setSuggestedOptions(usStatesOptions);
-    setSelected(item);
-  };
-
-  return (
-    <Flex direction="column" gap={{ column: 10, row: 0 }} width="50%">
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
-        label="State"
-        id="controlled"
-        inputValue={inputValue}
-        noResultText="No results for your selection"
-        options={suggestedOptions}
-        onBlur={() => {
-          if (!selected) setInputValue("");
-          setSuggestedOptions(usStatesOptions);
-        }}
-        onClear={() => {
-          setInputValue("")
-          setSelected();
-          setSuggestedOptions(usStatesOptions);
-        }}
-        selectedOption={selected}
-        placeholder="Select a US state"
-        onChange={handleOnChange}
-        onSelect={handleSelect}
-      />
-      { selected && selected.label
-        ? <Text>Estimated tax to be collected in { (selected && selected.label) } will be calculated at checkout</Text>
-        : null
-      }
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample
+                code={controlled}
+                name="Controlled component example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ComboBoxExample(props) {
-
-  const CATEGORIES = { "BEAUTY": [
-    'Beauty tips',
-    'DIY beauty',
-    'Wedding beauty',
-    'Vegan beauty products',
-    'Beauty photography',
-    'Beauty quotes',
-    'Beauty illustration',
-    'Beauty salon',
-    'Beauty blender',
-   ].map((pronoun, index) => ({ label: pronoun, value: 'value'+index })),
-   "DIY": [
-    'DIY Projects',
-    'DIY Art',
-    'DIY Home decor',
-    'DIY Furniture',
-    'DIY Gifts',
-    'DIY Wall decor',
-    'DIY Clothes',
-    'DIY Christmas decorations',
-    'DIY Christmas gifts',
-    'DIY Wall art'].map((pronoun, index) => ({ label: pronoun, value: 'value'+index }))
-  };
-
-  const [currentCategory, setCurrentCategory] = React.useState("BEAUTY");
-
-  const [suggestedOptions, setSuggestedOptions] = React.useState(CATEGORIES[currentCategory]);
-
-  const [inputValue, setInputValue] = React.useState("");
-
-  const [selectedOption, setSelectedOption] = React.useState();
-
-  const resetOptions = () => {
-    setSuggestedOptions(CATEGORIES[currentCategory]);
-  }
-
-  const handleOnChange = ({ value }) => {
-    setSelectedOption()
-    if (value) {
-      setInputValue(value);
-      const filteredOptions = CATEGORIES[currentCategory].filter((item) =>
-        item.label.toLowerCase().includes(value.toLowerCase()),
-      );
-      setSuggestedOptions(filteredOptions);
-    } else {
-      setInputValue(value);
-      resetOptions();
-    }
-  };
-
-  const handleSelect = ({ item }) => {
-    setInputValue(item.label);
-    setSelectedOption(item);
-    resetOptions();
-  };
-
-  const handleOnBlur = () => {
-    if (!selectedOption) setInputValue("");
-    resetOptions();
-  }
-
-  const handleOnClear = () => {
-    setInputValue("");
-    setSelectedOption()
-    resetOptions();
-  }
-
-  return (
-    <Flex direction="column" gap={{ column: 10, row: 0 }}>
-      <Button
-        onClick={() => {
-          const nextCategory = currentCategory === 'BEAUTY' ? 'DIY' : 'BEAUTY';
-          setCurrentCategory(nextCategory)
-          setSuggestedOptions(CATEGORIES[nextCategory])
-          setInputValue("")
-        }}
-        text={"Change options to " + (currentCategory === "BEAUTY" ? "DIY" : "BEAUTY") + " category"}
-        inline
-        />
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
-        id="programaticallySet"
-        inputValue={inputValue}
-        noResultText="No results for your selection"
-        options={suggestedOptions}
-        label="Pin category"
-        size="lg"
-        onBlur={handleOnBlur}
-        onClear={handleOnClear}
-        placeholder="Select a category"
-        onChange={handleOnChange}
-        onSelect={handleSelect}
-        selectedOption={selectedOption}
-      />
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample
+                code={programmatic}
+                name="programmatic"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -526,106 +167,9 @@ function ComboBoxExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ComboBoxExample(props) {
-  const ref = React.useRef();
-  const [selected, setSelected] = React.useState([]);
-  const [searchTerm, setSearchTerm] = React.useState('');
-
-  const PRONOUNS = [
-    'ey / em',
-    'he / him',
-    'ne / nem',
-    'she / her',
-    'they / them',
-    've / ver',
-    'xe / xem',
-    'xie / xem',
-    'zie / zem',
-  ];
-
-  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: 'value'+index }));
-
-  const [suggestedOptions, setSuggestedOptions] = React.useState(options.filter((pronoun) => !selected.includes(pronoun.value)));
-
-  const handleOnSelect = ({ item: { label } }) => {
-    if (!selected.includes(label) && selected.length < 2) {
-      const newSelected = [...selected, label];
-      setSelected(newSelected);
-      setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
-      setSearchTerm('');
-    }
-  };
-
-  const handleOnChange = ({ value }) => {
-    setSearchTerm(value);
-
-    const suggested = value
-      ? suggestedOptions.filter((item) =>
-        item.label.toLowerCase().includes(value.toLowerCase()),
-      )
-      : options.filter((option) => !selected.includes(option.value))
-
-    setSuggestedOptions(suggested);
-  };
-
-  const handleOnBlur = () => setSearchTerm("");
-
-  const handleClear = () => {
-    setSelected([]);
-    setSuggestedOptions(options);
-  };
-
-  const handleOnKeyDown = ({
-    event: {
-      keyCode,
-      target: { selectionEnd },
-    },
-  }) => {
-    // Remove tag on backspace if the cursor is at the beginning of the field
-    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
-      const newSelected = [...selected.slice(0, -1)];
-      setSelected(newSelected);
-      setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
-    }
-  };
-
-  const handleRemoveTag = (removedValue) => {
-    const newSelected = selected.filter((tagValue) => tagValue !== removedValue);
-    setSelected(newSelected);
-    setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));
-  };
-
-  const renderedTags = selected.map((pronoun) => (
-    <Tag
-      key={pronoun}
-      onRemove={() => handleRemoveTag(pronoun)}
-      removeIconAccessibilityLabel={\`Remove \${pronoun} tag\`}
-      text={pronoun}
-    />
-  ));
-
-  return (
-    <ComboBox
-      accessibilityClearButtonLabel="Clear the current value"
-      label="Pronouns"
-      id="tags"
-      inputValue={searchTerm}
-      noResultText="No results for your selection"
-      options={suggestedOptions}
-      ref={ref}
-      helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-      onKeyDown={handleOnKeyDown}
-      onChange={handleOnChange}
-      onClear={handleClear}
-      onBlur={handleOnBlur}
-      onSelect={handleOnSelect}
-      placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
-      tags={renderedTags}
-    />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={tags} name="Tags example" previewHeight={PREVIEW_HEIGHT} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -634,72 +178,21 @@ function ComboBoxExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            title="Focus management"
-            defaultCode={`
-function ComboBoxExample() {
-  const ref = React.useRef();
-
-  return (
-    <Flex gap={{ column: 0, row: 4 }}>
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current values"
-        label="Select your favorite shape"
-        id="favoriteShape"
-        noResultText="No results for your selection"
-        options={[{ label:'square', value:'1'}, { label:'circle', value:'2'}]}
-        onSelect={() => ref.current.focus()}
-        placeholder="Select a shape"
-      />
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current values"
-        label="Select your favorite color"
-        id="favoriteColor"
-        noResultText="No results for your selection"
-        options={[{ label:'red', value:'1'}, { label:'blue', value:'2'}, { label:'green', value:'3'}, { label:'yellow', value:'4'}]}
-        placeholder="Select a color"
-        ref={ref}
-      />
-    </Flex>
-  );
-}`}
+            title="Focus management with ref example"
+            sandpackExample={
+              <SandpackExample code={ref} name="ref" previewHeight={PREVIEW_HEIGHT} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
           description="Display `subtext` under each selection option"
-          title="With subtext"
+          title="Example with subtext"
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ComboBoxExample(props) {
-  const [item, setItem] = React.useState('');
-  const [selected, setSelected] = React.useState(null);
-
-  const options = Array(20).fill(0).map((item, index) => ({
-    label: "Label-" + (index + 1),
-    value: "Value-" + (index + 1),
-    subtext: "Subtext-" + (index + 1),
-  }));
-
-  const handleOnChange = ({ value }) => setItem(value);
-
-  const handleSelect = ({ item }) => setSelected(item);
-
-  const label = "Selected Item: " + (selected && selected.value || '');
-
-  return (
-    <ComboBox
-      accessibilityClearButtonLabel="Clear the current value"
-      label="Choose a value"
-      id="subtext"
-      noResultText="No results for your selection"
-      options={options}
-      placeholder="Select a value"
-      onChange={handleOnChange}
-      onSelect={handleSelect}
-    />
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={subtext} name="subtext" previewHeight={PREVIEW_HEIGHT} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -708,22 +201,9 @@ function ComboBoxExample(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ComboBoxExample(props) {
-  return (
-    <Box width={400}>
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
-        errorMessage="Please select a valid category"
-        id="error"
-        label="Category"
-        noResultText="No results for your selection"
-        options={[]}
-      />
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={error} name="Error example" previewHeight={PREVIEW_HEIGHT} />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
