@@ -1,3 +1,9 @@
+## 71.0.19 (Sep 8, 2022)
+
+### Patch
+
+- Internal: implement ua-parser-js to detect device type in docs site ([#2371](https://github.com/pinterest/gestalt/pull/2371)) - [Preview link](https://deploy-preview-2371--gestalt.netlify.app)
+
 ## 71.0.18 (Sep 8, 2022)
 
 ### Patch
