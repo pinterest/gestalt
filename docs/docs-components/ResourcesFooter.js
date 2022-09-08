@@ -114,7 +114,14 @@ function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
 export default function ResourcesFooter(): Node {
   return (
     <Box padding={8} display="none" mdDisplay="flex" justifyContent="center">
-      <Box paddingX={6} maxWidth={1200} display="flex" flex="grow" justifyContent="start">
+      <Box
+        paddingX={6}
+        lgPaddingX={0}
+        maxWidth={1200}
+        display="flex"
+        flex="grow"
+        justifyContent="start"
+      >
         <Flex
           direction="column"
           gap={{

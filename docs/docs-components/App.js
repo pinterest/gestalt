@@ -1,5 +1,5 @@
 // @flow strict
-import { useEffect, useState, type Node } from 'react';
+import { useEffect, type Node } from 'react';
 import { ColorSchemeProvider, OnLinkNavigationProvider } from 'gestalt';
 import { useRouter } from 'next/router';
 import { AppContextProvider, AppContextConsumer } from './appContext.js';
@@ -17,7 +17,6 @@ type Props = {|
 
 export default function App({ children, files }: Props): Node {
   const router = useRouter();
-  const [isHomePage, setIsHomePage] = useState(router?.route === '/home');
 
   // $FlowIssue[prop-missing]
   const isLeftClickEvent = (event) => event.button === 0; // ignore everything but left clicks
@@ -47,9 +46,7 @@ export default function App({ children, files }: Props): Node {
       window.gtag('config', 'UA-12967896-44', {
         page_path: window.location.pathname + window.location.search + window.location.hash,
       });
-      setIsHomePage(window?.location?.pathname === '/home');
     };
-
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
@@ -65,9 +62,7 @@ export default function App({ children, files }: Props): Node {
             <OnLinkNavigationProvider onNavigation={useOnNavigation}>
               <NavigationContextProvider>
                 <LocalFilesProvider files={files}>
-                  <AppLayout isHomePage={isHomePage} colorScheme={colorScheme}>
-                    {children}
-                  </AppLayout>
+                  <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
                 </LocalFilesProvider>
               </NavigationContextProvider>
             </OnLinkNavigationProvider>

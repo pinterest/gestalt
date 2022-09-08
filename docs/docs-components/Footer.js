@@ -58,7 +58,6 @@ export default function Footer(): Node {
               <Text inline>
                 <Link
                   href={link.url}
-                  target="blank"
                   onClick={() => trackButtonClick(link.title)}
                   externalLinkIcon={link.external ? 'default' : 'none'}
                 >

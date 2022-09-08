@@ -72,7 +72,6 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
           { label: 'Get started', value: 'Get started' },
           { label: 'Components', value: 'Components' },
           { label: 'Foundations', value: 'Foundations' },
-          { label: 'Roadmap', value: 'Roadmap' },
         ].map(({ label, value }) => (
           <SelectList.Option key={label} label={label} value={value} />
         ))}

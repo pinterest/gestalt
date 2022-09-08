@@ -163,10 +163,6 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       },
     ],
   },
-  {
-    sectionName: 'Roadmap',
-    pages: ['Overview', "What's New"],
-  },
 ];
 
 export default siteIndex;

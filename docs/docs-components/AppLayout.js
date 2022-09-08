@@ -1,6 +1,7 @@
 // @flow strict
-import { useEffect, Fragment, type Node } from 'react';
+import { useEffect, useState, Fragment, type Node } from 'react';
 import { Box, Divider, DeviceTypeProvider } from 'gestalt';
+import { useRouter } from 'next/router';
 import Header from './Header.js';
 import SkipToContent from './SkipToContent.js';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
@@ -11,19 +12,29 @@ import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDevice
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
 
 const CONTENT_MAX_WIDTH_PX = 1546;
+const HEADER_HEIGHT_PX = 75;
+const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 
 type Props = {|
   children?: Node,
   colorScheme?: 'light' | 'dark',
-  isHomePage?: boolean,
 |};
 
-export default function AppLayout({ children, colorScheme, isHomePage }: Props): Node {
+export default function AppLayout({ children, colorScheme }: Props): Node {
   const { isMobile } = useDocsDeviceType();
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
+  const router = useRouter();
+
+  const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
+
+  const isHomePage = router?.route === '/home';
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
+
+  useEffect(() => {
+    setShouldHideSideNav(fullWidthPages.some((page) => router?.route.includes(page)));
+  }, [router]);
 
   useEffect(() => {
     const handleScroll = () => setIsSidebarOpen(false);
@@ -85,21 +96,20 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
         </Fragment>
       )}
       <Box mdDisplay="flex">
-        {!isHomePage && (
-          <Box minWidth={MIN_NAV_WIDTH_PX}>
-            <Box
-              display="none"
-              mdDisplay="block"
-              position="fixed"
-              overflow="auto"
-              height="calc(100% - 75px)"
-              minWidth={MIN_NAV_WIDTH_PX}
-              marginTop={2}
-            >
-              <DocsSideNavigation showBorder />
-            </Box>
+        <Box minWidth={MIN_NAV_WIDTH_PX} mdDisplay={shouldHideSideNav ? 'none' : 'block'}>
+          <Box
+            display="none"
+            mdDisplay="block"
+            position="fixed"
+            overflow="auto"
+            height={`calc(100% - ${HEADER_HEIGHT_PX}px)`}
+            minWidth={MIN_NAV_WIDTH_PX}
+            marginTop={2}
+          >
+            <DocsSideNavigation showBorder />
           </Box>
-        )}
+        </Box>
+
         <Box width="100%" minWidth={0}>
           <Box
             padding={4}
@@ -107,7 +117,7 @@ export default function AppLayout({ children, colorScheme, isHomePage }: Props):
             marginBottom={12}
             width="100%"
             role="main"
-            lgDisplay="flex"
+            mdDisplay="flex"
             justifyContent="center"
           >
             <Box width="100%" maxWidth={CONTENT_MAX_WIDTH_PX}>

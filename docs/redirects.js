@@ -147,8 +147,8 @@ const misc = [
     permanent: true,
   },
   {
-    source: '/roadmap',
-    destination: '/roadmap/overview',
+    source: '/roadmap/overview',
+    destination: '/roadmap',
     permanent: true,
   },
   {
@@ -162,8 +162,8 @@ const misc = [
     permanent: true,
   },
   {
-    source: '/whats_new',
-    destination: '/roadmap/whats_new',
+    source: '/roadmap/whats_new',
+    destination: '/whats_new',
     permanent: true,
   },
 ];
