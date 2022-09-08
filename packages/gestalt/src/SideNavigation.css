@@ -16,3 +16,11 @@
   height: 100%;
   overflow: scroll;
 }
+
+.section {
+  margin-top: 24px;
+}
+
+.section:nth-child(1) {
+  margin-top: 0;
+}

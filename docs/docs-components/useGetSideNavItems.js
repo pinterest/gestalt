@@ -13,8 +13,11 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
   const { pathname, query } = useRouter();
   const { setIsSidebarOpen } = useNavigationContext();
 
-  let nestingLevel = 0;
-  const getNavItems = (navItem: siteIndexType, previousSectionName: string) => {
+  const getNavItems = (
+    navItem: siteIndexType,
+    previousSectionName: string,
+    nestingLevel: number = 0,
+  ) => {
     // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
     const { id: pathId } = query;
     const urlPath = pathId ? pathId.join('/') : '';
@@ -40,8 +43,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
                 />
               );
             }
-            nestingLevel += 1;
-            return getNavItems(pageInfo, navItem.sectionName);
+            return getNavItems(pageInfo, navItem.sectionName, 1);
           })}
         </SideNavigation.Section>
       );
@@ -64,9 +66,8 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
                 />
               );
             }
-            nestingLevel += 1;
             const previousURL = `${previousSectionName}/${navItem.sectionName}`;
-            return getNavItems(nestedPage, previousURL);
+            return getNavItems(nestedPage, previousURL, 2);
           })}
         </SideNavigation.Group>
       );
