@@ -1,5 +1,6 @@
 // @flow strict
 import { useState, type Node } from 'react';
+import parser from 'ua-parser-js';
 import '../docs.css';
 import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
@@ -14,8 +15,6 @@ import App from '../docs-components/App.js';
 import DocsExperimentProvider from '../docs-components/contexts/DocsExperimentProvider.js';
 import DocsI18nProvider from '../docs-components/contexts/DocsI18nProvider.js';
 import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
-
-// import parser from 'ua-parser-js'; Install     "ua-parser-js": "^1.0.2" in packahe
 
 // Adding providers here instead of components/App.js as they're needed by visual tests as well
 function Providers({ children, isMobile }: {| children: Node, isMobile: boolean |}): Node {
@@ -80,13 +79,8 @@ GestaltApp.getInitialProps = async (appInitialProps: AppInitialProps): Promise<A
 
   const files = appInitialProps?.router?.query?.localFiles === 'true' ? await localFiles() : null;
 
-  // This should be replaced with a more sophisticated userAgent detection
-  // var ua = parser(appInitialProps?.ctx?.req?.headers['user-agent']);
-  // const isMobile = ua?.device?.type === 'mobile';
-
-  const isMobile = appInitialProps?.ctx?.req?.headers['user-agent']
-    ?.toLowerCase()
-    .includes('mobile');
+  const ua = parser(appInitialProps?.ctx?.req?.headers['user-agent']);
+  const isMobile = ua?.device?.type === 'mobile';
 
   return { ...initialProps, ...(cookieHeader ? { cookieHeader } : {}), isMobile, files };
 };
