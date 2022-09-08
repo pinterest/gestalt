@@ -1,3 +1,9 @@
+## 71.0.18 (Sep 8, 2022)
+
+### Patch
+
+- Docs: Clean up Roadmap and What's New page ([#2348](https://github.com/pinterest/gestalt/pull/2348)) - [Preview link](https://deploy-preview-2348--gestalt.netlify.app)
+
 ## 71.0.17 (Sep 7, 2022)
 
 ### Patch
