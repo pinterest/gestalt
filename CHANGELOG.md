@@ -1,3 +1,9 @@
+## 71.0.20 (Sep 9, 2022)
+
+### Patch
+
+- SideNavigation: conditional rendering improvements ([#2372](https://github.com/pinterest/gestalt/pull/2372)) - [Preview link](https://deploy-preview-2372--gestalt.netlify.app)
+
 ## 71.0.19 (Sep 8, 2022)
 
 ### Patch
