@@ -1,3 +1,9 @@
+## 71.0.23 (Sep 9, 2022)
+
+### Patch
+
+- Docs: fix broken links from recent Algolia crawl ([#2376](https://github.com/pinterest/gestalt/pull/2376)) - [Preview link](https://deploy-preview-2376--gestalt.netlify.app)
+
 ## 71.0.22 (Sep 9, 2022)
 
 ### Patch
