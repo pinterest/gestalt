@@ -2,9 +2,9 @@
 import { type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
-import boxStyles from './boxWhitespace.css';
 import Box from './Box.js';
 import Text from './Text.js';
+import getChildrenToArray from './getChildrenToArray.js';
 
 type Props = {|
   /**
@@ -15,24 +15,24 @@ type Props = {|
    * Label for the section. See the [Sections](https://gestalt.pinterest.systems/web/sidenavigation#Sections) variant for more info.
    */
   label: string,
-  /**
-   * Private prop.
-   */
-  _hasMarginTop?: string,
 |};
 
 /**
  * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
  */
-export default function SideNavigationSection({ _hasMarginTop, children, label }: Props): Node {
+export default function SideNavigationSection({ children, label }: Props): Node {
+  const navigationChildren = getChildrenToArray({
+    children,
+    filterLevel: 'main',
+  });
   return (
-    <li className={classnames(styles.liItem, _hasMarginTop ? boxStyles.marginTop6 : {})}>
+    <li className={classnames(styles.liItem, styles.section)}>
       <Box paddingX={4} display="flex" role="presentation" marginBottom={2}>
         <Text size="300" weight="bold" lineClamp={2}>
           {label}
         </Text>
       </Box>
-      <ul className={classnames(styles.ulItem)}>{children}</ul>
+      <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
     </li>
   );
 }

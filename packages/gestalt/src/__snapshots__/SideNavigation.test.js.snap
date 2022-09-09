@@ -192,7 +192,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
             className="ulItem"
           >
             <li
-              className="liItem"
+              className="liItem section"
             >
               <div
                 className="box marginBottom2 paddingX4 xsDisplayFlex"
@@ -493,7 +493,7 @@ exports[`SideNavigation renders Sections 1`] = `
             className="ulItem"
           >
             <li
-              className="liItem"
+              className="liItem section"
             >
               <div
                 className="box marginBottom2 paddingX4 xsDisplayFlex"
@@ -859,7 +859,7 @@ exports[`SideNavigation renders nested directory 1`] = `
               </a>
             </li>
             <li
-              className="liItem marginTop6"
+              className="liItem section"
             >
               <div
                 className="box marginBottom2 paddingX4 xsDisplayFlex"

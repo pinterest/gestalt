@@ -4,5 +4,6 @@ declare module.exports: {|
   +'borderExpandableSelected': string,
   +'fullHeight': string,
   +'liItem': string,
+  +'section': string,
   +'ulItem': string,
 |};

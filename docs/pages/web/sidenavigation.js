@@ -423,6 +423,92 @@ export default function SideNavigationPage({
             }
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Subcomponent composability"
+          description={`
+Under the hood, SideNavigation recognizes subcomponents by display name. SideNavigation requires its own subcomponents as children to build the list of navigation items.
+
+When building SideNavigation, we might want to render different combinations of subcomponents conditionally. SideNavigation supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of these cases. More logic complexity might break the correct SideNavigation behavior.
+          `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<SideNavigation accessibilityLabel="Subcomponent composability example">
+
+  { true && <SideNavigation.TopItem
+      href="#"
+      onClick={({ event }) => event.preventDefault()}
+      label="Trends"
+      icon="ads-stats"
+    /> }
+
+  <SideNavigation.Section label="Analytics">
+    { true && <SideNavigation.TopItem
+      href="#"
+      onClick={({ event }) => event.preventDefault()}
+      label="Reporting"
+      icon="ads-stats"
+    /> }
+    { true && <SideNavigation.TopItem
+      href="#"
+      onClick={({ event }) => event.preventDefault()}
+      label="Conversions"
+      icon="replace"
+    /> }
+  </SideNavigation.Section>
+
+  <SideNavigation.Section label="Audiences">
+    <SideNavigation.Group label="Christmas" icon="people">
+      <SideNavigation.NestedItem
+        href="#"
+        onClick={({ event }) => event.preventDefault()}
+        label="Luxury Christmas"
+      />
+      <SideNavigation.NestedGroup label="Classic Christmas">
+        <SideNavigation.NestedItem
+          href="#"
+          onClick={({ event }) => event.preventDefault()}
+          label="West Coast"
+        />
+        <SideNavigation.NestedItem
+          href="#"
+          onClick={({ event }) => event.preventDefault()}
+          label="East Coast"
+        />
+      </SideNavigation.NestedGroup>
+
+      <SideNavigation.NestedGroup label="Alternative Christmas">
+        { ["West Coast","East Coast"].map(x => <SideNavigation.NestedItem
+          href="#"
+          key={"xmas" + x}
+          onClick={({ event }) => event.preventDefault()}
+          label={x}
+        />) }
+        { ["Southern","NorthEast"].map(x => <SideNavigation.NestedItem
+          href="#"
+          key={"xmas" + x}
+          onClick={({ event }) => event.preventDefault()}
+          label={x}
+        />) }
+      </SideNavigation.NestedGroup>
+
+    </SideNavigation.Group>
+    <SideNavigation.Group label="Halloween" icon="people">
+      { ["West Coast","East Coast"].map(x => <SideNavigation.NestedItem
+          href="#"
+          key={"halloween" + x}
+          onClick={({ event }) => event.preventDefault()}
+          label={x}
+        />) }
+    </SideNavigation.Group>
+
+  </SideNavigation.Section>
+</SideNavigation>
+            `}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Mobile">
