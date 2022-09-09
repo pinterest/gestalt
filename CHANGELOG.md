@@ -1,3 +1,9 @@
+## 71.0.25 (Sep 9, 2022)
+
+### Patch
+
+- Internal: remove markdown test files ([#2378](https://github.com/pinterest/gestalt/pull/2378)) - [Preview link](https://deploy-preview-2378--gestalt.netlify.app)
+
 ## 71.0.24 (Sep 9, 2022)
 
 ### Patch
