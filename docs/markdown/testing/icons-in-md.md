@@ -61,8 +61,8 @@ There are a few icons that enjoy mostly universal recognition from users. The ic
 
 - For purposes that are decorative or for visual embellishment, such as how illustrations are typically used. Contact us if this is needed.
 - As a visual reinforcement for associated text, without adding new meaning.
-- To communicate status or health. Use [Status](https://gestalt.netlify.app/status) instead.
-- As an interactive element (e.g., utilizing hover, focus, click/tap). Use [IconButton](https://gestalt.netlify.app/iconbutton) instead.
+- To communicate status or health. Use [Status](https://gestalt.pinterest.systems/web/status) instead.
+- As an interactive element (e.g., utilizing hover, focus, click/tap). Use [IconButton](https://gestalt.pinterest.systems/web/iconbutton) instead.
 
 ## Best practices
 
@@ -76,7 +76,7 @@ There are a few icons that enjoy mostly universal recognition from users. The ic
 **Dont**
 
 - Repurpose icons. Using icons for their intended meaning supports good comprehension.
-- Don't create interactive Icons using TapArea. Use [IconButton](https://gestalt.netlify.app/iconbutton) instead.
+- Don't create interactive Icons using TapArea. Use [IconButton](https://gestalt.pinterest.systems/web/iconbutton) instead.
 - Don’t baseline-align icons to the text.
 - Don’t use different colors for text and icons.
 
@@ -112,7 +112,7 @@ All touch targets for interactive icons need to be 44px or larger. Engineers can
 
 ## Icon color
 
-Icons can be created using the following color options. brandPrimary should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](https://gestalt.netlify.app/design_tokens#Text-color) for more info.
+Icons can be created using the following color options. brandPrimary should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Text-color) for more info.
 
 ![Screen Shot 2022-05-18 at 1.42.18 PM.png](https://codahosted.io/docs/vlenTJHtyS/blobs/bl-bSZTauMmHr/c77129a1c3ece0e8b0ddca9761f701ab7182dd1b97dd1283c8caf291816e9ead43a0fb6741112ce4c49d582f257cd3ef8a327d2ef60f475febe38fc69d67fefe760e9baa738d7bcb19a8812417ede1ed6a70ff0d3da9667d57d79838360ef9b5117c03ce)
 

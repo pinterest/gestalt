@@ -75,7 +75,7 @@ type Props = {|
 |};
 
 /**
- * [Tooltip](https://gestalt.pinterest.systems/web/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.
+ * [Tooltip](https://gestalt.pinterest.systems/web/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](https://gestalt.pinterest.systems/web/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.
  *
  * **NOTE** Planning to use Tooltip with IconButton? Use [IconButton's built-in tooltip](https://gestalt.pinterest.systems/web/iconbutton#With-Tooltip) instead. **NOTE**
  *

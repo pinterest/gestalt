@@ -56,7 +56,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use to emphasize text that you want users to read. Use a message component like [SlimBanner](/slimbanner), or [bold text](/web/text#Styles). You can also emphasize numbers by using [text sizes](/web/text#Sizes)."
+            description="Use to emphasize text that you want users to read. Use a message component like [SlimBanner](/web/slimbanner), or [bold text](/web/text#Styles). You can also emphasize numbers by using [text sizes](/web/text#Sizes)."
             defaultCode={`
 <Flex gap={{ column: 2, row: 0 }} direction="column">
   <Text weight="bold" size="500">(H2) The creator code</Text>
@@ -250,7 +250,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](/https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/web/text) instead.
+          description={`These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/web/text) instead.
 `}
           title="Size"
         >

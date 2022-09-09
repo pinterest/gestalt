@@ -247,7 +247,7 @@
       "status": "ok",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Status web documentation.",
-      "link": "/status"
+      "link": "/web/status"
     },
     {
       "task": "Datapoint component design guidelines",

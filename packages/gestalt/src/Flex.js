@@ -22,7 +22,7 @@ type Props = {|
    */
   alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   /**
-   * Note that each child will be automatically wrapped in [Flex.Item](https://gestalt.pinterest.systems/flex#Flex.Item) to apply various styles. If specific flex styles are needed on a child, you can manually wrap it in Flex.Item to apply those styles. See [the Applying flex properties to children example](https://gestalt.pinterest.systems/flex#Applying-flex-properties-to-children) to learn more.
+   * Note that each child will be automatically wrapped in [Flex.Item](https://gestalt.pinterest.systems/web/flex#Flex.Item) to apply various styles. If specific flex styles are needed on a child, you can manually wrap it in Flex.Item to apply those styles. See [the Applying flex properties to children example](https://gestalt.pinterest.systems/web/flex#Applying-flex-properties-to-children) to learn more.
    */
   children?: Node,
   /**
@@ -35,7 +35,7 @@ type Props = {|
    */
   flex?: 'grow' | 'shrink' | 'none',
   /**
-   * Defines spacing between each child along the main and cross axes. Use an object to define different spacing for rows and columns. See the [Gap](https://gestalt.pinterest.systems/flex#Gap) variant to learn more.
+   * Defines spacing between each child along the main and cross axes. Use an object to define different spacing for rows and columns. See the [Gap](https://gestalt.pinterest.systems/web/flex#Gap) variant to learn more.
    */
   gap?: Gap | {| row: Gap, column: Gap |},
   /**

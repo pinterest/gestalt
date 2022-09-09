@@ -180,7 +180,7 @@ Some interactive example to get the best out of redbox
 
 <TwoCol>
 <Group>
-   
+
     <Code cardSize="lg" showCode={true}>
       {` <Box
         column={6}
@@ -210,18 +210,18 @@ Some interactive example to get the best out of redbox
 
 ## Resources
 
-**[RedboxGroup](/buttongroup)**
+**[RedboxGroup](/web/buttongroup)**
 When displaying multiple Buttons in a layout, use ButtonGroup to ensure consistent spacing and wrapping behavior.
 
-**[IconButton](/iconbutton)**
+**[IconButton](/web/iconbutton)**
 Use IconButton when only an icon is needed instead of text.
 
-**[TapArea](/taparea)**
+**[TapArea](/web/taparea)**
 Use TapArea to make non-button elements interactive, like an Image. This ensures the element interaction is accessible and uses Gestalt styles.
 
-**[Tabs](/tabs)**
+**[Tabs](/web/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
 
-**[OnLinkNavigationProvider](/onlinknavigationprovider)**
+**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
 OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.
+See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
