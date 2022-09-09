@@ -112,6 +112,9 @@ function Header() {
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
 
+  const siteSettingsAnchorRef = useRef(null);
+  const searchAnchorRef = useRef(null);
+
   const mainNavigationTabs = useMemo(
     () => getTabs(componentPlatformFilteredBy),
     [componentPlatformFilteredBy],
@@ -126,8 +129,6 @@ function Header() {
           router.pathname.includes(`/${convertNamesForURL(tab.text)}`),
         ),
   );
-
-  const anchorRef = useRef(null);
 
   // If the route includes a platform, set the "components" tab active
   // Otherwise set it based on the route
@@ -214,7 +215,7 @@ function Header() {
             icon="filter"
             iconColor="darkGray"
             onClick={() => setSettingsDropdownOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
+            ref={siteSettingsAnchorRef}
             selected={isSettingsDropdownOpen}
             size="sm"
             tooltip={{
@@ -226,7 +227,7 @@ function Header() {
         </Box>
         {isSettingsDropdownOpen && (
           <SettingsDropdown
-            anchorRef={anchorRef}
+            anchorRef={siteSettingsAnchorRef}
             closeDropdown={() => setSettingsDropdownOpen(false)}
           />
         )}
@@ -244,7 +245,7 @@ function Header() {
         </Box>
 
         <DocSearch
-          anchorRef={anchorRef}
+          anchorRef={searchAnchorRef}
           isMobileSearchExpandedOpen={isMobileSearchExpandedOpen}
           toggleSearchBarOpen={() => {
             setMobileSearchExpanded((prevVal) => !prevVal);

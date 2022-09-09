@@ -17,8 +17,21 @@ function SearchBox({ popoverZIndex }: {| popoverZIndex?: CompositeZIndex |}) {
             placeholder="Search Gestalt"
             aria-label="Search Gestalt docs"
           />
-          <Box position="absolute" top left marginTop={3} marginStart={4}>
-            <Icon icon="search" accessibilityLabel="" size="16" color="default" />
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                pointerEvents: 'none',
+                // Added the following lines for Safari support
+                top: '50%',
+                transform: 'translateY(-50%)',
+              },
+            }}
+            left
+            right
+            paddingX={4}
+            position="absolute"
+          >
+            <Icon icon="search" accessibilityLabel="" />
           </Box>
         </div>
       </form>

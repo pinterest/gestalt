@@ -178,6 +178,7 @@ html[dir="rtl"] .Markdown ul + pre {
   font-size: 16px;
   height: 100%;
   padding: 0 32px 0 40px;
+  text-align: start;
   vertical-align: middle;
   white-space: normal;
   width: 100%;
@@ -304,10 +305,10 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .algolia-autocomplete .ds-dropdown-menu {
-  background: transparent;
+  background: var(--color-background-elevation-floating);
   border: none;
   border-radius: 16px;
-  box-shadow: 0 0 8px var(--g-colorTransparentGray100);
+  box-shadow: var(--elevation-floating);
   height: auto;
   margin: 6px 0 0;
   max-width: 600px;
