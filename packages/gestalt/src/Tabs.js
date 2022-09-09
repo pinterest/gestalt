@@ -204,7 +204,7 @@ type Props = {|
    */
   onChange: OnChangeHandler,
   /**
-   * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the [optional `indicator` field](https://gestalt.pinterest.systems/web/tabs#Indicator) to show a notification of new items on the tab. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
+   * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
    */
   tabs: $ReadOnlyArray<{|
     href: string,
