@@ -1,3 +1,9 @@
+## 71.0.21 (Sep 9, 2022)
+
+### Patch
+
+- Tabs: clarify indicator usage in docs ([#2373](https://github.com/pinterest/gestalt/pull/2373)) - [Preview link](https://deploy-preview-2373--gestalt.netlify.app)
+
 ## 71.0.20 (Sep 9, 2022)
 
 ### Patch
