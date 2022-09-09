@@ -176,7 +176,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description={`Overload PageHeader with a help IconButton, help Link and info Tooltips. Too many sources of help on the page may confuse users. If there are multiple items to explain, use the help IconButton to open a [Sheet](/sheet) with further help. If you want to lead users to external documentation, add a help Link with the \`helperLink\` prop.`}
+            description={`Overload PageHeader with a help IconButton, help Link and info Tooltips. Too many sources of help on the page may confuse users. If there are multiple items to explain, use the help IconButton to open a [Sheet](/web/sheet) with further help. If you want to lead users to external documentation, add a help Link with the \`helperLink\` prop.`}
             sandpackExample={
               <SandpackExample
                 code={dontOverloadExample}
@@ -196,9 +196,9 @@ Keep additional help buttons and links to a minimum, choosing one source of help
           title="Labels"
           description={`
 PageHeader has built-in components that require accessibility labels.
-- [Dropdown](/dropdown) (displayed in small screens) requires \`dropdownAccessibilityLabel\`
-- [IconButton](/iconbutton) requires \`accessibilityLabel\`,  \`accessibilityControls\`, and  \`accessibilityExpanded\` via \`helperIconButton\`
-- [Link](/link) requires \`accessibilityLabel\` via \`helperLink\`
+- [Dropdown](/web/dropdown) (displayed in small screens) requires \`dropdownAccessibilityLabel\`
+- [IconButton](/web/iconbutton) requires \`accessibilityLabel\`,  \`accessibilityControls\`, and  \`accessibilityExpanded\` via \`helperIconButton\`
+- [Link](/web/link) requires \`accessibilityLabel\` via \`helperLink\`
 
 Follow the accessibility guidelines for any other Gestalt component passed to \`primaryaction\`, \`secondaryAction\` or \`items\`.
 `}

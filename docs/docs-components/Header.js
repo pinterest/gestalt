@@ -102,7 +102,7 @@ function getTabs(componentPlatform) {
     },
     { href: '/foundations/overview', text: 'Foundations' },
     { href: '/roadmap', text: 'Roadmap' },
-    { href: '/whats_new', text: "What's New" },
+    { href: '/whats_new', text: "What's new" },
   ];
 }
 

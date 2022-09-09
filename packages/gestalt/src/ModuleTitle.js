@@ -14,7 +14,7 @@ type BadgeType = {|
 |};
 
 /**
- * https://gestalt.pinterest.systems/module
+ * https://gestalt.pinterest.systems/web/module
  */
 export default function ModuleTitle(props: {|
   badge?: BadgeType,

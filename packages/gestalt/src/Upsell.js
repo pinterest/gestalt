@@ -59,14 +59,14 @@ type Props = {|
    */
   children?: Element<typeof UpsellForm>,
   /**
-   * Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   * Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
   dismissButton?: {|
     accessibilityLabel: string,
     onDismiss: () => void,
   |},
   /**
-   * Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.
+   * Either an [Icon](https://gestalt.pinterest.systems/web/icon) or an [Image](https://gestalt.pinterest.systems/web/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](https://gestalt.pinterest.systems/web/upsell#Icon) and [Image](https://gestalt.pinterest.systems/web/upsell#Image) variants for more info.
    */
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
@@ -77,13 +77,13 @@ type Props = {|
     width?: number,
   |},
   /**
-   * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.
+   * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization). See [Best Practices](https://gestalt.pinterest.systems/web/upsell#Best-practices) for more info.
    */
   message: string,
   /**
-   * Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
+   * Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.'
    * If no \`href\` is supplied, the action will be a button.
-   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
   primaryAction?: {|
     accessibilityLabel: string,
@@ -102,9 +102,9 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](/onlinknavigationprovider) to learn more about link navigation.'
+   * Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.'
    * If no \`href\` is supplied, the action will be a button.
-   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
   secondaryAction?: {|
     accessibilityLabel: string,
@@ -123,7 +123,7 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Brief title summarizing the Upsell. Content should be [localized](#Localization).
+   * Brief title summarizing the Upsell. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization).
    */
   title?: string,
 |};

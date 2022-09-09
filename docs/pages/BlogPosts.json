@@ -285,7 +285,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/ac/33/84/ac33841d337bbd27fc06598c1ab52703.png",
           "imageAltText": "A screenshot of the Video component displaying captions",
-          "content": "Chalk this up as another big win for accessibility; [Video](https://gestalt.pinterest.systems/docs-components/web/video) now has support for captions. Learn more about this new capability in our [Video captions documentation](https://gestalt.pinterest.systems/docs-components/web/video#Captions)."
+          "content": "Chalk this up as another big win for accessibility; [Video](https://gestalt.pinterest.systems/web/video) now has support for captions. Learn more about this new capability in our [Video captions documentation](https://gestalt.pinterest.systems/web/video#Captions)."
         },
         {
           "title": "Figma iOS Modal improvements",
@@ -311,7 +311,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/92/12/aa/9212aad3a49fee3e29902d2052d90914.png",
           "imageAltText": "Examples of Recommendation SlimBanner",
-          "content": "SlimBanner now supports a [primary action](https://gestalt.pinterest.systems/docs-components/web/slimbanner#Primary-action)! We've also added the ability to dismiss these banners with the `dismissButton` [prop](https://gestalt.pinterest.systems/docs-components/web/slimbanner#Dismissible). And if that wasn't enough for one update, we've introduced a [new style called Recommendation](https://gestalt.pinterest.systems/docs-components/web/slimbanner#Recommendation) that can be used to inform people of quick things they can do to improve their experience."
+          "content": "SlimBanner now supports a [primary action](https://gestalt.pinterest.systems/web/slimbanner#Primary-action)! We've also added the ability to dismiss these banners with the `dismissButton` [prop](https://gestalt.pinterest.systems/web/slimbanner#Dismissible). And if that wasn't enough for one update, we've introduced a [new style called Recommendation](https://gestalt.pinterest.systems/web/slimbanner#Recommendation) that can be used to inform people of quick things they can do to improve their experience."
         },
         {
           "title": "Figma cleanup week",
@@ -423,7 +423,7 @@
           "audience": ["Engineering", "Design"],
           "imageSrc": "https://i.pinimg.com/originals/68/b7/29/68b7290ff502f95904a959a0a5239372.png",
           "imageAltText": "Screenshot of Gestalt's data visualization guidelines",
-          "content": "We recently shipped our [data visualization color palette](https://gestalt.pinterest.systems/data_visualization/colors) which was our building block to deliver [data visualization guidelines](https://gestalt.pinterest.systems/data_visualization/usage). This is a major milestone for us and unlocks our ability to provide even more in this space later this year."
+          "content": "We recently shipped our [data visualization color palette](https://gestalt.pinterest.systems/foundations/data_visualization/colors) which was our building block to deliver [data visualization guidelines](https://gestalt.pinterest.systems/foundations/data_visualization/usage). This is a major milestone for us and unlocks our ability to provide even more in this space later this year."
         },
         {
           "title": "Design guidelines for Text and Heading components",
@@ -482,7 +482,7 @@
           "audience": ["Engineering", "Design"],
           "imageSrc": "https://i.pinimg.com/originals/a7/38/95/a73895ed57aa346c8c5d52d10e41a9a5.png",
           "imageAltText": "Screenshot of updated What's new page",
-          "content": "In an effort to make our Gestalt docs _the_ single source of truth, it's now [the home for our weekly updates](https://gestalt.pinterest.systems/roadmap/whats_new). We know it's hard to keep track of everything we ship, so we want to provide an easily accessible and digestible synopsis of all the new goodies our team cooks up.\n\nAnd for all you fans of our Changelog, never fear &mdash; it's not gone, it's just in a happier place now. You can view our [full changelog](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md) on Gestalt Web Github repo."
+          "content": "In an effort to make our Gestalt docs _the_ single source of truth, it's now [the home for our weekly updates](https://gestalt.pinterest.systems/whats_new). We know it's hard to keep track of everything we ship, so we want to provide an easily accessible and digestible synopsis of all the new goodies our team cooks up.\n\nAnd for all you fans of our Changelog, never fear &mdash; it's not gone, it's just in a happier place now. You can view our [full changelog](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md) on Gestalt Web Github repo."
         },
         {
           "title": "Gestalt is on Pinterest!",
@@ -508,7 +508,7 @@
           "audience": ["Engineering"],
           "imageSrc": "https://slack-imgs.com/?c=1&o1=wi1200.he674.si.ro&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fa7%2F68%2F23%2Fa7682371976aaa31d270d0dc36ee04be.png",
           "imageAltText": "RadioGroup depiction",
-          "content": "We recently shipped a new [RadioGroup component](/components/web/radiogroup) which will make building forms easier and faster. The big change is that this component allows you to create a group of radio buttons as opposed to having to create each one independently. This may not have a ton of impact on your day-to-day, but we’re sharing it with you so that you remind your XFN buddies in case they aren’t aware. On that note, we’ve also deprecated our [RadioButton component](/components/web/radiobutton) in favor of RadioGroup."
+          "content": "We recently shipped a new [RadioGroup component](/web/radiogroup) which will make building forms easier and faster. The big change is that this component allows you to create a group of radio buttons as opposed to having to create each one independently. This may not have a ton of impact on your day-to-day, but we’re sharing it with you so that you remind your XFN buddies in case they aren’t aware. On that note, we’ve also deprecated our [RadioButton component](/web/radiobutton) in favor of RadioGroup."
         },
 
         {

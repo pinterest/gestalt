@@ -36,7 +36,7 @@ type Props = {|
    */
   accessibilityHaspopup?: boolean,
   /**
-   * When supplied, it appends an `add` [icon](https://gestalt.pinterest.systems/Icon) to the avatar pile as a call to action to the user. See [Best Practices](https://gestalt.pinterest.systems/web/avatargroup#Best-practices) for more info.
+   * When supplied, it appends an `add` [icon](https://gestalt.pinterest.systems/web/icon) to the avatar pile as a call to action to the user. See [Best Practices](https://gestalt.pinterest.systems/web/avatargroup#Best-practices) for more info.
    */
   addCollaborators?: boolean,
   /**

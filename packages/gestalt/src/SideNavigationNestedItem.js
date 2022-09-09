@@ -4,7 +4,7 @@ import SideNavigationTopItem from './SideNavigationTopItem.js';
 
 type Props = {|
   /**
-   * When set to 'page' or 'section', it displays the item in "active" state. See the [Accessibility](https://gestalt.pinterest.systems/SideNavigation#Accessibility) guidelines to learn more.
+   * When set to 'page' or 'section', it displays the item in "active" state. See the [Accessibility](https://gestalt.pinterest.systems/web/sidenavigation#Accessibility) guidelines to learn more.
    */
   active?: 'page' | 'section',
   /**

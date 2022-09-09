@@ -17,24 +17,24 @@ type BadgeType = {|
 
 type Props = {|
   /**
-   * Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   * Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    *
    */
   accessibilityCollapseLabel: string,
   /**
-   * Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   * Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   accessibilityExpandLabel: string,
   /**
-   * The 0-based index indicating the item that should currently be expanded. This must be updated via `onExpandedChange` to ensure the correct item is expanded. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   * The 0-based index indicating the item that should currently be expanded. This must be updated via `onExpandedChange` to ensure the correct item is expanded. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   expandedIndex?: ?number,
   /**
-   * Unique id to identify this Module. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   * Unique id to identify this Module. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   id: string,
   /**
-   * Array of modules displayed in a stack. Only one item can be expanded at a time. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   * Array of modules displayed in a stack. Only one item can be expanded at a time. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   items: $ReadOnlyArray<{|
     badge?: BadgeType,
@@ -47,13 +47,13 @@ type Props = {|
     type?: 'error' | 'info',
   |}>,
   /**
-   * Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded. See [Expandable](https://gestalt.pinterest.systems/module#Expandable) variant to learn more.
+   * Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   onExpandedChange?: (?number) => void,
 |};
 
 /**
- * Use [Module.Expandable](https://gestalt.pinterest.systems/module) if your module requires expanding and collapsing content.
+ * Use [Module.Expandable](https://gestalt.pinterest.systems/web/module) if your module requires expanding and collapsing content.
  */
 export default function ModuleExpandable({
   accessibilityExpandLabel,

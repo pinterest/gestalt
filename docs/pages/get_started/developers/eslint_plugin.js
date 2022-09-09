@@ -136,7 +136,7 @@ With AUTOFIX!
         />
         <MainSection.Subsection
           title="gestalt/no-workflow-status-icon"
-          description="Prevent the usage of 'workflow-status-[...]' icons on Icon component when the style matches one of the [Status](/status) types."
+          description="Prevent the usage of 'workflow-status-[...]' icons on Icon component when the style matches one of the [Status](/web/status) types."
         />
         <MainSection.Subsection
           title="gestalt/prefer-flex"
@@ -219,7 +219,7 @@ yarn unlink eslint-plugin-gestalt
       <MainSection
         name="Releasing"
         description={`
-    Every commit to master performs a release. See the main docs [releasing information](/installation#Releasing) for more details.
+    Every commit to master performs a release. See the main docs [releasing information](/get_started/developers/installation#Releasing) for more details.
   `}
       />
       <MainSection

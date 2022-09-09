@@ -72,11 +72,11 @@ type Props = {|
    */
   hovered?: boolean,
   /**
-   * Icon displayed in Pog to convey the behavior of the component. Refer to the [iconography](/iconography_and_svgs#Search-icon-library) guidelines regarding the available icon options.
+   * Icon displayed in Pog to convey the behavior of the component. Refer to the [iconography](https://gestalt.pinterest.systems/foundations/iconography/library) guidelines regarding the available icon options.
    */
   icon?: $Keys<typeof icons>,
   /**
-   * Color applied to the [Icon](https://gestalt.pinterest.systems/web/pog/icon). See [color combinations](https://gestalt.pinterest.systems/web/pog#iconColorCombinations) for more details.
+   * Color applied to the [Icon](https://gestalt.pinterest.systems/web/icon). See [color combinations](https://gestalt.pinterest.systems/web/pog#iconColorCombinations) for more details.
    */
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   /**
@@ -94,7 +94,7 @@ type Props = {|
 |};
 
 /**
- * [Pog](https://gestalt.pinterest.systems/web/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/web/pog/iconbutton).
+ * [Pog](https://gestalt.pinterest.systems/web/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/web/iconbutton).
  *
  * This is an abstraction to allow for links that look like IconButton.
  *

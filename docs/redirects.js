@@ -118,12 +118,12 @@ const misc = [
   },
   {
     source: '/data_visualization_colors',
-    destination: '/data_visualization/colors',
+    destination: '/foundations/data_visualization/colors',
     permanent: true,
   },
   {
     source: '/data_visualization_guidelines',
-    destination: '/data_visualization/usage',
+    destination: '/foundations/data_visualization/usage',
     permanent: true,
   },
   {

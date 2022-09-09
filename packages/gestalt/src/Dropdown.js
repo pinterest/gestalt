@@ -92,7 +92,7 @@ const renderChildrenWithIndex = (childrenArray) => {
 
 type Props = {|
   /**
-   * Ref for the element that the Dropdown will attach to, will most likely be a [Button](/button). See the [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) guidelines to learn more.
+   * Ref for the element that the Dropdown will attach to, will most likely be a [Button](https://gestalt.pinterest.systems/web/button). See the [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) guidelines to learn more.
    */
   anchor?: ?HTMLElement,
   /**
