@@ -12,9 +12,9 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Tabs">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Tabs"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 function DefaultExample() {
@@ -25,8 +25,8 @@ function DefaultExample() {
       activeTabIndex={activeIndex}
       onChange={({ activeTabIndex }) => { setActiveIndex(activeTabIndex); }}
       tabs={[
-        { href: "#", text: "Explore", indicator: "dot" },
-        { href: "#", text: "Shop" },
+        { href: "#", text: "Explore" },
+        { href: "#", text: "Shop", indicator: "dot" },
         { href: "#", text: "Profiles" },
       ]}
       wrap
@@ -287,11 +287,13 @@ function TabExample() {
         />
         <MainSection.Card />
       </AccessibilitySection>
+
       <MainSection
         name="Localization"
         description={`Be sure to localize \`text\` and \`accessibilityLabel\`.
     The Tab's title should be 3 words or less: long enough to be understood by users but short enough to prevent text wrapping. Aim for a single word when possible.`}
       />
+
       <MainSection name="Variants">
         <Example
           name="Wrapping"
@@ -306,7 +308,7 @@ function TabExample() {
   };
 
   const tabs = [
-    { href: "https://pinterest.com", text: "Boards for You", indicator: "dot" },
+    { href: "https://pinterest.com", text: "Boards for You" },
     { href: "https://pinterest.com", text: "Pins for You" },
     { href: "https://pinterest.com", text: "Following" },
     { href: "https://pinterest.com", text: "People to Follow" },
@@ -339,11 +341,12 @@ function TabExample() {
   `}
         />
         <Example
-          name="Background color"
+          name="Indicator"
+          description={`Use the \`indicator\` field on individual tabs to indicate notifications. You can either show a red dot or a number — numbers greater than 99 will be shown as "99+".`}
           defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [isTransparent, setIsTransparent] = React.useState(true);
+  const [wrap, setWrap] = React.useState(false);
 
   const handleChange = ({ activeTabIndex, event }) => {
     event.preventDefault();
@@ -351,7 +354,37 @@ function TabExample() {
   };
 
   const tabs = [
-    { href: "https://pinterest.com", text: "Boards for You", indicator: "dot" },
+    { href: "https://pinterest.com", text: "Boards for You" },
+    { href: "https://pinterest.com", text: "Pins for You", indicator: "dot" },
+    { href: "https://pinterest.com", text: "Following", indicator: 3 },
+    { href: "https://pinterest.com", text: "People to Follow", indicator: 112 },
+  ];
+
+  return (
+    <Tabs
+      activeTabIndex={activeIndex}
+      onChange={handleChange}
+      tabs={tabs}
+      wrap={wrap}
+    />
+  );
+}
+  `}
+        />
+        <Example
+          name="Background color"
+          defaultCode={`
+function TabExample() {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isTransparent, setIsTransparent] = React.useState(false);
+
+  const handleChange = ({ activeTabIndex, event }) => {
+    event.preventDefault();
+    setActiveIndex(activeTabIndex)
+  };
+
+  const tabs = [
+    { href: "https://pinterest.com", text: "Boards for You" },
     { href: "https://pinterest.com", text: "Pins for You" },
     { href: "https://pinterest.com", text: "Following" },
     { href: "https://pinterest.com", text: "People to Follow" },
@@ -370,7 +403,7 @@ function TabExample() {
         />
       </Flex>
 
-      <Box borderStyle="sm" color="secondary" maxWidth={500} overflow="auto" padding={1}>
+      <Box borderStyle="sm" color="secondary" paddingX={3} paddingY={1}>
         <Tabs
           activeTabIndex={activeIndex}
           bgColor={isTransparent ? 'transparent' : 'default'}
