@@ -304,10 +304,10 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .algolia-autocomplete .ds-dropdown-menu {
-  background: transparent;
+  background: var(--color-background-elevation-floating);
   border: none;
   border-radius: 16px;
-  box-shadow: 0 0 8px var(--g-colorTransparentGray100);
+  box-shadow: var(--elevation-floating);
   height: auto;
   margin: 6px 0 0;
   max-width: 600px;

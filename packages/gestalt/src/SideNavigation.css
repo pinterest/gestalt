@@ -18,7 +18,7 @@
 }
 
 .section {
-  margin-top: 24px;
+  margin-top: var(--space-400);
 }
 
 .section:nth-child(1) {
