@@ -22,55 +22,58 @@ const tokenCategories = [
     name: 'Spacing',
     category: 'spacing',
     id: 'space',
-    infoPage: { name: 'Box', id: 'box#Responsive-padding' },
+    infoPage: { name: 'Box', path: 'web/box#Responsive-padding' },
   },
   {
     name: 'Background color',
     category: 'background-color',
     id: 'background',
-    infoPage: { name: 'Box', id: 'box#Colors' },
+    infoPage: { name: 'Box', path: 'web/box#Colors' },
   },
   {
     name: 'Text color',
     category: 'text-color',
     id: 'color-text',
-    infoPage: { name: 'Text', id: 'text#Colors' },
+    infoPage: { name: 'Text', path: 'web/text#Colors' },
   },
   {
     name: 'Font size',
     category: 'font-size',
     id: 'font-size',
-    infoPage: { name: 'Text', id: 'text#Sizes' },
+    infoPage: { name: 'Text', path: 'web/text#Sizes' },
   },
   {
     name: 'Font weight',
     category: 'font-weight',
     id: 'font-weight',
-    infoPage: { name: 'Text', id: 'text#Styles' },
+    infoPage: { name: 'Text', path: 'web/text#Styles' },
   },
   {
     name: 'Font family',
     category: 'font-family',
     id: 'font-family',
-    infoPage: { name: 'Typography', id: 'typography' },
+    infoPage: { name: 'Typography', path: 'foundations/typography/guidelines' },
   },
   {
     name: 'Border color',
     category: 'color-border',
     id: 'color-border',
-    infoPage: { name: 'Box', id: 'box#Borders' },
+    infoPage: { name: 'Box', path: 'web/box#Borders' },
   },
   {
     name: 'Elevation',
     category: 'elevation',
     id: 'elevation',
-    infoPage: { name: 'Box', id: 'box#Elevation' },
+    infoPage: { name: 'Box', path: 'web/box#Elevation' },
   },
   {
     name: 'Data visualization',
     category: 'data-visualization',
     id: 'data-visualization',
-    infoPage: { name: 'Data Visualization Guidelines', id: 'data_visualization_colors' },
+    infoPage: {
+      name: 'Data Visualization Guidelines',
+      path: 'foundations/data_visualization/palette',
+    },
   },
 ];
 
@@ -124,7 +127,7 @@ export default function DesignTokensPage(): Node {
             <MainSection.Subsection
               key={`table${category.name}`}
               title={category.name}
-              description={`Visit the [${category?.infoPage?.name} page](/${category?.infoPage?.id}) for guidelines and implementation details.`}
+              description={`Visit the [${category?.infoPage?.name} page](/${category?.infoPage?.path}) for guidelines and implementation details.`}
             >
               <Table accessibilityLabel={`${category.name} Values`}>
                 {tableHeaders(category.name)}

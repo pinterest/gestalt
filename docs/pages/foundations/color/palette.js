@@ -202,7 +202,7 @@ export default function ColorPage(): Node {
        - JavaScript  \`$color-pink-flaminglow-400\`
        - CSS  \`var(--color-pink-flaminglow-400)\`
 
-       Using colors that are not available through our [semantic design tokens](/foundations/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/get_started/developers/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) can be used.
+       Using colors that are not available through our [semantic design tokens](/foundations/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/get_started/developers/hacking_gestalt#Box's-dangerouslySetInlineStyle) can be used.
       `}
       />
     </Page>

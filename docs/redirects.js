@@ -118,7 +118,7 @@ const misc = [
   },
   {
     source: '/data_visualization_colors',
-    destination: '/foundations/data_visualization/colors',
+    destination: '/foundations/data_visualization/palette',
     permanent: true,
   },
   {

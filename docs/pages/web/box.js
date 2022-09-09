@@ -452,7 +452,7 @@ function Example() {
           description={`
           The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case. For full details on how to use our colors, visit our [Color usage page](/foundations/color/usage).
 
-          Colors should be used semantically whenever possible (i.e. using "errorBase" for error scenarios). If a color is needed for a branded moment in product, Box color can be set using our [color palette design tokens](/foundations/color/palette), but it is [considered a hack](/get_started/developers/how_to_hack_around_gestalt#Box's-dangerouslySetInlineStyle) and should be avoided.
+          Colors should be used semantically whenever possible (i.e. using "errorBase" for error scenarios). If a color is needed for a branded moment in product, Box color can be set using our [color palette design tokens](/foundations/color/palette), but it is [considered a hack](/get_started/developers/hacking_gestalt#Box's-dangerouslySetInlineStyle) and should be avoided.
         `}
         >
           <CombinationNew

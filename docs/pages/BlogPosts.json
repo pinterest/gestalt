@@ -426,7 +426,7 @@
           "audience": ["Engineering", "Design"],
           "imageSrc": "https://i.pinimg.com/originals/68/b7/29/68b7290ff502f95904a959a0a5239372.png",
           "imageAltText": "Screenshot of Gestalt's data visualization guidelines",
-          "content": "We recently shipped our [data visualization color palette](https://gestalt.pinterest.systems/foundations/data_visualization/colors) which was our building block to deliver [data visualization guidelines](https://gestalt.pinterest.systems/foundations/data_visualization/usage). This is a major milestone for us and unlocks our ability to provide even more in this space later this year."
+          "content": "We recently shipped our [data visualization color palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) which was our building block to deliver [data visualization guidelines](https://gestalt.pinterest.systems/foundations/data_visualization/usage). This is a major milestone for us and unlocks our ability to provide even more in this space later this year."
         },
         {
           "title": "Design guidelines for Text and Heading components",
