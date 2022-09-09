@@ -1,3 +1,9 @@
+## 71.0.24 (Sep 9, 2022)
+
+### Patch
+
+- Added reference to the Gestalt handoff kit ([#2374](https://github.com/pinterest/gestalt/pull/2374)) - [Preview link](https://deploy-preview-2374--gestalt.netlify.app)
+
 ## 71.0.23 (Sep 9, 2022)
 
 ### Patch
