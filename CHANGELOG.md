@@ -1,3 +1,9 @@
+## 71.0.27 (Sep 9, 2022)
+
+### Patch
+
+- Internal: upgrade Next.js to 12.3.0 ([#2380](https://github.com/pinterest/gestalt/pull/2380)) - [Preview link](https://deploy-preview-2380--gestalt.netlify.app)
+
 ## 71.0.26 (Sep 9, 2022)
 
 ### Patch
