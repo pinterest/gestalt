@@ -178,7 +178,6 @@ html[dir="rtl"] .Markdown ul + pre {
   font-size: 16px;
   height: 100%;
   padding: 0 32px 0 40px;
-  text-align: start;
   vertical-align: middle;
   white-space: normal;
   width: 100%;

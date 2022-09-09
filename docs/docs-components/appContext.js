@@ -39,7 +39,6 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
   const setTextDirection = (direction) => setCookies(textDirectionKey, direction);
 
   useEffect(() => {
-    console.log('***');
     if (document && document.documentElement) {
       document.documentElement.dir = textDirection;
     }
