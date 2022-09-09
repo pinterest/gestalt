@@ -1,3 +1,9 @@
+## 71.0.29 (Sep 9, 2022)
+
+### Patch
+
+- Docs: Visual fixes to the site header ([#2381](https://github.com/pinterest/gestalt/pull/2381)) - [Preview link](https://deploy-preview-2381--gestalt.netlify.app)
+
 ## 71.0.28 (Sep 9, 2022)
 
 ### Patch
