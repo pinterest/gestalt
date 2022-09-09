@@ -18,7 +18,7 @@ fullwidth: true
   </Group>
   <Group>
     <Dont title="When not to use" />
-      - Displaying system errors or notices. Consider a [Callout](web/callout) instead
+      - Displaying system errors or notices. Consider a [Callout](callout) instead
       - Any time a separate, designated URL is desired
       - Any action that should not interrupt users from their current work stream
       - On top of another sheet, as this can create usability issues and confusion
@@ -35,12 +35,12 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/84/d4/0d/84d40d290128608db361a276a586da87.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
     <Do title="Do" />
-    Provide a collapse or a close affordance&mdash;multiple if possible. This could include an X, back arrow, grabber or close button. 
+    Provide a collapse or a close affordance&mdash;multiple if possible. This could include an X, back arrow, grabber or close button.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/5d/3a/20/5d3a20657045824cb4b7d89263b6ec30.png" alt="a partial sheet with a button in the top right corner of the header"/>
     <Dont title="Don't" />
-    Include Buttons in the header of the Sheet as this can lead to sizing and internationalization problems. 
+    Include Buttons in the header of the Sheet as this can lead to sizing and internationalization problems.
   </Group>
 </TwoCol>
 

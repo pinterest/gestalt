@@ -27,7 +27,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`
 Components with links use simple \`<a>\` tags. In order to replace the default link behavior with custom ones (e.g. [react-router](https://www.google.com/search?q=react-router&oq=react-router&aqs=chrome..69i57j0l9.2115j0j7&sourceid=chrome&ie=UTF-8)), \`onNavigation\` provides an interface to pass external logic into the 'onClick' event handler in children links.
 
-This example illustrates a custom navigation implementations to externally control the link functionality of Link: setting a default navigation logic with [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider).
+This example illustrates a custom navigation implementations to externally control the link functionality of Link: setting a default navigation logic with OnLinkNavigationProvider.
 
 If \`onNavigation\` prop is passed to OnLinkNavigationProvider, it's passed down to all children links and sets a customized default link navigation behavior. \`onNavigation\` is a higher-order function: it takes named arguments: \`href\` and \`target\` and returns an event handler function. In the component's \`onClick\` event handler, the \`onClick\` prop gets called first, followed by the function passed down by the OnLinkNavigationProvider.
 
