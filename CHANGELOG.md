@@ -1,3 +1,9 @@
+## 71.0.26 (Sep 9, 2022)
+
+### Patch
+
+- Internal: fix more broken links ([#2379](https://github.com/pinterest/gestalt/pull/2379)) - [Preview link](https://deploy-preview-2379--gestalt.netlify.app)
+
 ## 71.0.25 (Sep 9, 2022)
 
 ### Patch
