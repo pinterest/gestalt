@@ -36,6 +36,7 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
           description={`
 * Avoid detaching components when possible. Instead, use the component’s variant options or show and hide layers within the component. If a component is not working as expected, reach out via #gestalt-design.
 * Make sure to keep your components up-to-date. You may see a notification in the bottom right corner of Figma when an update is available.
+* We recommend using [Gestalt's handoff kit](http://pinch.pinadmin.com/figmaHandoffKit) when prepping a design for implementation. The handoff kit provides guidance on design file structure, best practices, and annotation/flow components to make the design handoff process smoother between engineers and designers.
           `}
         />
         <MainSection.Subsection
