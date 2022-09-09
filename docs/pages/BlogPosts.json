@@ -3,6 +3,7 @@
   "digests": [
     {
       "week": "September 09, 2022",
+      "summary": "Figma library improvements and upgrades to documentation code samples",
       "posts": [
         {
           "title": "New iOS Figma library structure ",
