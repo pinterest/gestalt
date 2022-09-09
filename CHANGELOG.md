@@ -1,3 +1,9 @@
+## 71.0.28 (Sep 9, 2022)
+
+### Patch
+
+- Internal: upgrade eslint to 8.23.0 ([#2382](https://github.com/pinterest/gestalt/pull/2382)) - [Preview link](https://deploy-preview-2382--gestalt.netlify.app)
+
 ## 71.0.27 (Sep 9, 2022)
 
 ### Patch
