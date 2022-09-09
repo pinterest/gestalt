@@ -1,3 +1,9 @@
+## 71.0.22 (Sep 9, 2022)
+
+### Patch
+
+- Docs: Add summary field for Whats New ([#2370](https://github.com/pinterest/gestalt/pull/2370)) - [Preview link](https://deploy-preview-2370--gestalt.netlify.app)
+
 ## 71.0.21 (Sep 9, 2022)
 
 ### Patch
