@@ -2,6 +2,33 @@
   "year": "2022",
   "digests": [
     {
+      "week": "September 09, 2022",
+      "summary": "Figma library improvements and upgrades to documentation code samples",
+      "posts": [
+        {
+          "title": "New iOS Figma library structure ",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/29/ad/d6/29add6b9e60d00eac304f90efe4ac4c2.png",
+          "imageAltText": "iOS library cover art",
+          "content": "We've been listening to designers' feedback and, by a large margin, there's a strong preference to add Gestalt components to design from the Assets panel or the new Resources popover. We've also excited to hear that designers' prefer to learn about how to use our components from our [documentation site](https://gestalt.pinterest.systems/home). We're going all-in with this feedback to focus our libraries on a search-first experience while also removing the confusion regarding where to go to learn how to design with Gestalt. To do so, we're paring back our libraries to focus only on components/styles and removing non-essential pages/resources. This should make our libraries clearer and more focused on your desired workflow. It also has the added benefit of reducing the overall maintenance of these libraries, meaning we can focus our efforts on new/improve components, better documentation, etc.\n\nWe couldn't be more excited about this change. We _just_ rolled out this update for the iOS library and plan to apply the same changes to our Android and Web libraries in the weeks to come."
+        },
+        {
+          "title": "More Figma component search improvements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/f7/61/93/f7619318c84ccf2520e6c008a88089dd.png",
+          "imageAltText": "screenshot of Figma's resource popover",
+          "content": "Speaking of updates to our Gestalt Figma libraries, we've continued to make improvements to the component search experience. We've added keywords to all components to make finding the component you need just _that much easier_."
+        },
+        {
+          "title": "Improved code examples",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/a9/ff/3f/a9ff3f86646ec91de48344a8971cee10.png",
+          "imageAltText": "screenshot of a Gestalt code example",
+          "content": "Last, but definitely not least, we have begun to upgrade the code blocks in our Gestalt docs to a new solution that should fix the long-standing issues with selecting text. So far we've updated [AvatarGroup](/web/avatargroup), [ComboBox](/web/combobox), [Modal](/web/modal), [Sheet](/web/sheet) and [SideNavigation](/web/sidenavigation). We have many more updates planned through September."
+        }
+      ]
+    },
+    {
       "week": "September 02, 2022",
       "summary": "Handoff kit updates, Figma search improvements, and more mobile docs",
       "posts": [
