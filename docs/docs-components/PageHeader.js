@@ -18,11 +18,19 @@ const buildSourceLinkUrl = (componentName) =>
 
 type Props = {|
   badge?: 'pilot' | 'deprecated',
-  // DEPRECATED: Use `children` instead of `defaultCode`
+  /**
+   * @deprecated : Use `children` instead of `defaultCode`
+   */
   defaultCode?: string,
   description?: string,
-  fileName?: string, // only use if name !== file name
-  folderName?: string, // only use if name !== file name and the link should point to a directory
+  /**
+   * Only use if name !== file name
+   */
+  fileName?: string,
+  /**
+   * Only use if name !== file name and the link should point to a directory
+   */
+  folderName?: string,
   showCode?: boolean,
   name: string,
   margin?: 'default' | 'none',
