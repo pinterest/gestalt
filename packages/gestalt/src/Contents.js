@@ -61,7 +61,6 @@ type State = {|
   caretOffset: CaretOffset,
   popoverDir: ?PopoverDir,
   popoverRef: ?HTMLElement,
-  shouldRenderOnScreenTop: boolean,
 |};
 
 type PopoverOverride = {| top: string |} | null;
@@ -85,7 +84,6 @@ class Contents extends Component<Props, State> {
     },
     popoverDir: null,
     popoverRef: null,
-    shouldRenderOnScreenTop: false,
   };
 
   componentDidMount() {
