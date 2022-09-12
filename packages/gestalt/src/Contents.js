@@ -63,6 +63,8 @@ type State = {|
   popoverRef: ?HTMLElement,
 |};
 
+type PopoverOverride = {| top: string |} | $Shape<{||}>;
+
 class Contents extends Component<Props, State> {
   static defaultProps: {| border: boolean, caret: boolean |} = {
     border: true,
@@ -207,14 +209,14 @@ class Contents extends Component<Props, State> {
    * viewport (available screen height), and set the controller variable as `true`;
    * When the height of popover is less than 90% the controller variable is `false`;
    */
-  balancePopoverPosition(): Object {
+  balancePopoverPosition(): PopoverOverride {
     // Required because of SSR
     if (!window || !document) {
       return {};
     }
 
     const viewportAvailable = window.innerHeight;
-    const popoverHeight = document.getElementById(this.props.id)?.clientHeight;
+    const popoverHeight = document.getElementById(this.props?.id || '')?.clientHeight;
 
     // Trigger (in percentage) to indicate if it should handle the popover or not;
     const percentageLimit = 90;
@@ -227,7 +229,7 @@ class Contents extends Component<Props, State> {
 
     // The `scrollPosition` is required to cases which popover has opened on the scrolled screen
     const overridePropsToMaxPopoverSize = shouldRenderOnScreenTop
-      ? { top: `calc(${document.documentElement.scrollTop}px + ${defaultTopPadding})` }
+      ? { top: `calc(${document.documentElement?.scrollTop || 0}px + ${defaultTopPadding})` }
       : {};
 
     return overridePropsToMaxPopoverSize;
