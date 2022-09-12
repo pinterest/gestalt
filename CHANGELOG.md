@@ -1,3 +1,9 @@
+## 71.0.31 (Sep 12, 2022)
+
+### Patch
+
+- Internal: use multiline comments to enable flow docs ([#2383](https://github.com/pinterest/gestalt/pull/2383)) - [Preview link](https://deploy-preview-2383--gestalt.netlify.app)
+
 ## 71.0.30 (Sep 10, 2022)
 
 ### Patch
