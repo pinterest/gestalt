@@ -359,7 +359,7 @@ export function adjustOffsets({
 
   return {
     popoverOffset: {
-      top: popoverTop > 0 ? popoverTop : '2em',
+      top: popoverTop,
       left: popoverLeft,
     },
     caretOffset: {
