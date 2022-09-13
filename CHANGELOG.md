@@ -1,3 +1,9 @@
+## 71.0.32 (Sep 13, 2022)
+
+### Patch
+
+- Avatar: fix Sandpack code editor view in Docs ([#2386](https://github.com/pinterest/gestalt/pull/2386)) - [Preview link](https://deploy-preview-2386--gestalt.netlify.app)
+
 ## 71.0.31 (Sep 12, 2022)
 
 ### Patch
