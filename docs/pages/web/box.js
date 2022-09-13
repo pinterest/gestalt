@@ -10,7 +10,22 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import mainExample from '../../examples/avatar/mainExample.js';
+import main from '../../examples/box/main.js';
+import notAllowed from '../../examples/box/notAllowed.js';
+import padding from '../../examples/box/padding.js';
+import divs from '../../examples/box/divs.js';
+import asProp from '../../examples/box/as.js';
+import role from '../../examples/box/role.js';
+import rtl from '../../examples/box/rtl.js';
+import buildingBlock from '../../examples/box/buildingBlock.js';
+import sizing from '../../examples/box/sizing.js';
+import overflow from '../../examples/box/overflow.js';
+import responsive from '../../examples/box/responsive.js';
+import autoMargins from '../../examples/box/autoMargins.js';
+import absolute from '../../examples/box/absolute.js';
+import ref from '../../examples/box/ref.js';
+import zIndex from '../../examples/box/zIndex.js';
+import visuallyHidden from '../../examples/box/visuallyHidden.js';
 
 const ignoredProps = [
   'smColumn',
@@ -75,7 +90,7 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={mainExample} name="No image source" hideEditor previewHeight={150} />
+        <SandpackExample code={main} name="Main example" hideEditor previewHeight={150} />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 
@@ -89,28 +104,14 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
 
         If you find yourself using Box for flexbox layouts, consider [Flex](/web/flex) instead.
         `}
-            defaultCode={`
-<Box column={12}>
-  <Box column={12}>
-    <Box color="infoBase" height={50} width="100%">
-      <Text color="light" weight="bold">Header</Text>
-    </Box>
-    <Box column={6} display="inlineBlock">
-      <Box color="successBase" height={50} width="100%">
-        <Text color="light" weight="bold">Body 50% Content</Text>
-      </Box>
-    </Box>
-    <Box column={6} display="inlineBlock">
-      <Box color="warningBase" height={50} width="100%">
-        <Text color="light" weight="bold">Body 50% Content</Text>
-      </Box>
-    </Box>
-    <Box color="infoBase" height={50} width="100%">
-      <Text color="light" weight="bold">Footer</Text>
-    </Box>
-  </Box>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={buildingBlock}
+                name="Building block example"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
@@ -120,25 +121,14 @@ export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen 
 Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/web/button) or [TapArea](/web/taparea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
 
 If you need to use these features for animation purposes, use a \`<div>\` instead.`}
-            defaultCode={`
-<Box
-  className="This class name will not appear"
-  style={{backgroundColor: "orange"}}
-  color="infoBase"
-  column={12}
-  height={100}
-  padding={4}
->
-  <Box
-    onClick={() => {console.log("This won't get logged.");}}
-    paddingX={1}
-    color="successBase"
-    height={50}
-  >
-    <Text color="light" weight="bold">Adding onClick here will do nothing</Text>
-  </Box>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={notAllowed}
+                name="Not allowed props example"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -147,90 +137,22 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
             cardSize="md"
             type="do"
             description={`When addressing the spacing of the Box, use padding before you use margins, as padding will compose better and won't collapse. Padding is applied in 4px increments and is always symmetric. Learn more about [margin collapsing](https://css-tricks.com/what-you-should-know-about-collapsing-margins/).`}
-            defaultCode={`
-<Box>
-  <Box marginTop={4} color="blue" width={200} height={50}>
-    <Box
-      color="successBase"
-      height={50}
-      marginTop={2}
-    >
-      <Box
-        color="infoBase"
-        height={50}
-        marginTop={3}
-      >
-        <Text color="light" weight="bold">
-          These margins all collapsed
-        </Text>
-      </Box>
-    </Box>
-  </Box>
-  <Box marginTop={4} paddingY={1} color="infoBase" width={200} height={100}>
-    <Box
-      color="successBase"
-      height={100}
-      paddingY={2}
-    >
-      <Box
-        color="infoBase"
-        height={100}
-        padding={2}
-      >
-        <Text color="light" weight="bold">
-          These are not collapsed, because they use padding
-        </Text>
-      </Box>
-    </Box>
-  </Box>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={padding}
+                name="Padding example"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule](https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-box-dangerous-style-duplicates.js) to prevent this from happening.`}
-            defaultCode={`
-function MenuButtonExample() {
-  const firstBoxHeight = 50;
-  const secondBoxHeight = 25;
-
-  return (
-    <Box paddingY={2}>
-      <Box
-        color="infoBase"
-        height={firstBoxHeight}
-        padding={2}
-        marginBottom={1}
-      >
-        <Text color="light" weight="bold">
-          This uses a proper, Gestalt colored Box
-        </Text>
-      </Box>
-      <div
-        style={{backgroundColor: '#6e0f3c', color: 'white'}}
-      >
-        This could be using Box, but isn't.
-      </div>
-      <Box
-        color="warningBase"
-        dangerouslySetInlineStyle={{
-          __style: {
-            paddingBottom: '${50 + 25}px',
-          },
-        }}
-        height={50}
-        padding={2}
-        marginTop={1}
-      >
-        <Text color="light" weight="bold">
-          This uses dangerouslySetInlineStyle to add a calculated paddingBottom
-        </Text>
-      </Box>
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={divs} name="Divs example" hideEditor previewHeight={200} />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -247,12 +169,9 @@ function MenuButtonExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex>
-  <Text>Enable your screen reader to hear the following text:</Text>
-  <Box display="visuallyHidden">Hi there.</Box>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample code={visuallyHidden} name="Visually hidden example" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -267,62 +186,14 @@ function MenuButtonExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex direction="column" flex="grow">
-  <Flex alignItems="top">
-    <Box
-      as="nav"
-      title="as prop example nav"
-      column={6}
-      color="successBase"
-      width="100%"
-      padding={2}
-      borderStyle="sm"
-    >
-      <Text color="light" weight="bold">
-        Top Nav Menu: as="nav"
-      </Text>
-    </Box>
-    <Box column={6} display="inlineBlock" borderStyle="sm">
-      <Box color="infoBase" width="100%" padding={2}>
-        <Text color="light" weight="bold">
-          HTML output:
-        </Text>
-        <Text color="light" weight="bold">
-          {'<nav>Menu</nav>'}
-        </Text>
-      </Box>
-    </Box>
-  </Flex>
-  <Flex alignItems="top">
-    <Box as="article" column={6} color="successBase" width="100%" padding={2} borderStyle="sm">
-      <Heading color="light" size="500">
-        Article 1
-      </Heading>
-      <Text color="light" weight="bold">
-        Article: as="article"
-      </Text>
-    </Box>
-    <Box column={6} display="inlineBlock" borderStyle="sm">
-      <Box color="infoBase" width="100%" padding={2}>
-        <Text color="light" weight="bold">
-          HTML output:
-        </Text>
-        <Text color="light" weight="bold">
-          {'<article>'}
-        </Text>
-        <Text color="light" weight="bold">
-          {' '}
-          {'<h2>Article 1</h2>'}
-        </Text>
-        <Text color="light" weight="bold">
-          {'</article>'}
-        </Text>
-      </Box>
-    </Box>
-  </Flex>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={asProp}
+                name="As prop example"
+                layout="column"
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -336,35 +207,14 @@ function MenuButtonExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box column={12}>
-  <Box role="feed" color="infoBase" width="100%" padding={2}>
-    <Text color="light" weight="bold">
-      Container: role="feed"
-    </Text>
-    <Box column={8} display="inlineBlock">
-      <Box role="article" title="Article 1" color="successBase" height={50} width="100%" padding={2}>
-        <Text color="light" weight="bold">
-          Content: role="article"
-        </Text>
-      </Box>
-    </Box>
-    <Box column={4} display="inlineBlock">
-      <Box role="form" color="warningBase" height={50} width="100%" padding={2}>
-        <Text color="light" weight="bold">
-          Contact Form: role="form"
-        </Text>
-      </Box>
-    </Box>
-  </Box>
-  <Box role="navigation" title="Site Map" color="successBase" height={50} width="100%" padding={2}>
-    <Text color="light" weight="bold">
-      Site Map: role="navigation"
-    </Text>
-  </Box>
-  <Text>{"Everything above will render as a <div>"}</Text>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={role}
+                name="Role prop example"
+                layout="column"
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -387,45 +237,7 @@ function MenuButtonExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const MarginSwatch = (props) => (
-    <Box
-      margin={1}
-      dangerouslySetInlineStyle={{
-        __style: { backgroundColor: 'rgba(110, 15, 60, 0.2)' },
-      }}
-    >
-      <Box
-        padding={1}
-        {...props}
-        dangerouslySetInlineStyle={{
-          __style: { backgroundColor: 'rgba(19, 58, 94, 0.2)' },
-        }}
-      >
-        <Text>{JSON.stringify(props)}</Text>
-      </Box>
-    </Box>
-  );
-
-  const toggleRTL = () => {
-    if (document.documentElement) {
-      const isRTL = document.documentElement.dir === 'rtl';
-      document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
-    }
-  };
-
-  return (
-    <Box maxWidth={200} marginBottom={2}>
-      <Button size="sm" onClick={toggleRTL} text="Toggle Page Direction" />
-      <MarginSwatch marginStart={2} />
-      <MarginSwatch marginEnd={2} />
-      <MarginSwatch marginStart={-2} />
-      <MarginSwatch marginEnd={-2} />
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample code={rtl} name="Right-to-left example" />}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -484,8 +296,7 @@ function Example() {
               'darkWash',
             ]}
           >
-            {/* eslint-disable-next-line react/prop-types */}
-            {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
+            {({ color }) => <Box width={60} height={60} rounding="circle" color={color} />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -500,31 +311,27 @@ function Example() {
             }}
           >
             <Text size="400">Color</Text>
-            <Box>
-              <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
-                {({ color }) => (
-                  <ColorSchemeLayout>
-                    <Box width={60} height={60} rounding="circle" color={color} marginBottom={8} />
-                  </ColorSchemeLayout>
-                )}
-              </CombinationNew>
-            </Box>
+            <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
+              {({ color }) => (
+                <ColorSchemeLayout>
+                  <Box width={60} height={60} rounding="circle" color={color} marginBottom={8} />
+                </ColorSchemeLayout>
+              )}
+            </CombinationNew>
             <Text size="400">Borders and Shadows</Text>
-            <Box>
-              <CombinationNew borderStyle={['shadow', 'raisedTopShadow', 'raisedBottomShadow']}>
-                {({ borderStyle }) => (
-                  <ColorSchemeLayout>
-                    <Box
-                      width={60}
-                      height={60}
-                      rounding="circle"
-                      borderStyle={borderStyle}
-                      marginBottom={8}
-                    />
-                  </ColorSchemeLayout>
-                )}
-              </CombinationNew>
-            </Box>
+            <CombinationNew borderStyle={['shadow', 'raisedTopShadow', 'raisedBottomShadow']}>
+              {({ borderStyle }) => (
+                <ColorSchemeLayout>
+                  <Box
+                    width={60}
+                    height={60}
+                    rounding="circle"
+                    borderStyle={borderStyle}
+                    marginBottom={8}
+                  />
+                </ColorSchemeLayout>
+              )}
+            </CombinationNew>
           </Flex>
         </MainSection.Subsection>
 
@@ -533,12 +340,12 @@ function Example() {
           title="Rounding"
         >
           <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
-            {(props) => (
+            {({ rounding }) => (
               <Box
                 color="tertiary"
-                width={props.rounding === 'pill' ? 120 : 70} // eslint-disable-line react/prop-types
+                width={rounding === 'pill' ? 120 : 70}
                 height={70}
-                rounding={props.rounding} // eslint-disable-line react/prop-types
+                rounding={rounding}
               />
             )}
           </CombinationNew>
@@ -546,8 +353,7 @@ function Example() {
 
         <MainSection.Subsection description="" title="Opacity">
           <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
-            {/* eslint-disable-next-line react/prop-types */}
-            {(props) => <Box color="selected" width={60} height={60} opacity={props.opacity} />}
+            {({ opacity }) => <Box color="selected" width={60} height={60} opacity={opacity} />}
           </CombinationNew>
         </MainSection.Subsection>
 
@@ -558,8 +364,7 @@ function Example() {
           title="Column layout"
         >
           <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
-            {/* eslint-disable-next-line react/prop-types */}
-            {(props) => <Box height={100} color="infoBase" column={props.column} />}
+            {({ column }) => <Box height={100} color="infoBase" column={column} />}
           </CombinationNew>
         </MainSection.Subsection>
 
@@ -573,22 +378,9 @@ function Example() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box borderStyle="lg" column={12}>
-  <Box width="25%" minHeight={25} maxHeight={100} overflow="hidden" padding={2} borderStyle="sm" color="warningBase">
-    <Text color="light"> Add or remove text in the editor to see the min and max heights take affect.</Text>
-  </Box>
-  <Box width="50%" height={100} padding={2} borderStyle="sm" color="successBase">
-    <Text color="light">Width and Height can be specified with numbers for "px" values or percentages</Text>
-  </Box>
-  <Box width="75%" minWidth={100} maxWidth={500} padding={2} borderStyle="sm" color="warningBase">
-    <Text color="light">Change the screen width to see the min and max widths take affect </Text>
-  </Box>
-  <Box fit padding={2} borderStyle="sm" color="successBase">
-    <Text color="light">"fit" sets width to 100% </Text>
-  </Box>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample code={sizing} name="Sizing example" layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -598,131 +390,27 @@ function Example() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function BoxPopoverExample() {
-  const longText =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo. Maecenas tincidunt neque elit, eu pretium arcu dictum ac. Donec vehicula mauris ut erat dictum, eget tempus elit luctus. In volutpat felis justo, et venenatis arcu viverra in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin enim lorem, vulputate eget imperdiet nec, dapibus sed diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse rhoncus ut leo non gravida. Nulla tincidunt tellus sit amet ornare venenatis. Sed quis lorem cursus, porttitor tellus sed, commodo ex. Praesent blandit pretium faucibus. Aenean orci tellus, vulputate id sapien sit amet, porta fermentum quam. Praesent sem risus, tristique sit amet pulvinar in, scelerisque sit amet massa.';
-
-  return (
-    <Flex gap={{ row: 4, column: 0 }} wrap>
-      <Flex gap={{ column: 8, row: 0 }} direction="column" wrap>
-        <Box>
-          <Text>Overflow Hidden</Text>
-          <Box
-            overflow="hidden"
-            width={300}
-            maxHeight={100}
-            padding={2}
-            borderStyle="sm"
-            color="warningBase"
-          >
-            <Text color="light">{longText}</Text>
-          </Box>
-        </Box>
-        <Box>
-          <Text>Overflow Scroll</Text>
-          <Box
-            overflow="scroll"
-            width={300}
-            maxHeight={100}
-            padding={2}
-            borderStyle="sm"
-            color="successBase"
-            tabIndex={0}
-          >
-            <Text color="light">{longText}</Text>
-          </Box>
-        </Box>
-        <Box marginBottom={4}>
-          <Text>Overflow Visible</Text>
-          <Box
-            overflow="visible"
-            width={300}
-            maxHeight={100}
-            padding={2}
-            borderStyle="sm"
-            color="warningBase"
-          >
-            <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo.
-            </Text>
-          </Box>
-        </Box>
-      </Flex>
-      <Flex gap={{ column: 8, row: 0 }} direction="column" wrap>
-        <Box>
-          <Text>Overflow Auto</Text>
-          <Box
-            overflow="auto"
-            width={300}
-            maxHeight={100}
-            padding={2}
-            borderStyle="sm"
-            color="warningBase"
-          >
-            <Box width={350} padding={2} borderStyle="sm" color="successBase" tabIndex={0}>
-              <Text color="light">{longText}</Text>
-            </Box>
-          </Box>
-        </Box>
-        <Box>
-          <Text>Overflow scrollX</Text>
-          <Box
-            overflow="scrollX"
-            width={300}
-            maxHeight={100}
-            padding={2}
-            borderStyle="sm"
-            color="successBase"
-          >
-            <Box width={350} padding={2} borderStyle="sm" color="warningBase" tabIndex={0}>
-              <Text color="light">{longText}</Text>
-            </Box>
-          </Box>
-        </Box>
-        <Box>
-          <Text>Overflow scrollY</Text>
-          <Box
-            overflow="scrollY"
-            width={300}
-            maxHeight={100}
-            padding={2}
-            borderStyle="sm"
-            color="successBase"
-          >
-            <Box width={350} padding={2} borderStyle="sm" color="warningBase" tabIndex={0}>
-              <Text color="light">{longText}</Text>
-            </Box>
-          </Box>
-        </Box>
-      </Flex>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={overflow} name="Overflow example" previewHeight={925} />
+            }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
           description={`
-      Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding by 4px for every breakpoint in either all directions, the x-axis only or the y-axis only.`}
+      Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding for every breakpoint in either all directions, the x-axis only or the y-axis only.`}
           title="Responsive padding"
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex gap={{ column: 0, row: 3 }}>
-  <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="darkWash">
-    <Box width={40} height={40} color="successBase" />
-  </Box>
-  <Box paddingX={0} smPaddingX={1} mdPaddingX={2} lgPaddingX={3} color="darkWash">
-    <Box width={40} height={40} color="infoBase" />
-  </Box>
-  <Box paddingY={0} smPaddingY={1} mdPaddingY={2} lgPaddingY={3} color="darkWash">
-    <Box width={40} height={40} color="warningBase" />
-  </Box>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={responsive}
+                layout="column"
+                name="Responsive padding example"
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -736,12 +424,14 @@ function BoxPopoverExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box color="infoBase" marginStart={12} marginEnd={12} column={12}>
-  <Box borderStyle="sm" color="successBase" margin="auto" column={5} height={100}/>
-  <Box borderStyle="sm" color="warningBase" marginStart="auto" column={3} height={100}/>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={autoMargins}
+                layout="column"
+                name="Auto margins example"
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -754,23 +444,9 @@ function BoxPopoverExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box height={100}>
-  <Box position="absolute" top left padding={2} color="infoBase">
-    <Text color="light">Top Left</Text>
-  </Box>
-  <Box position="absolute" top right padding={2} color="infoBase">
-    <Text color="light">Top Right</Text>
-  </Box>
-  <Box position="absolute" bottom left padding={2} color="infoBase">
-    <Text color="light">Bottom Left</Text>
-  </Box>
-  <Box position="absolute" bottom right padding={2} color="infoBase">
-    <Text color="light">Bottom Right</Text>
-  </Box>
-  <Box color="successBase" minWidth={100} maxWidth={400} height="100%"/>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample code={absolute} name="Absolute positioning example" />
+            }
           />
         </MainSection.Subsection>
 
@@ -780,42 +456,7 @@ function BoxPopoverExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function BoxPopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [checked, setChecked] = React.useState(false);
-
-  const anchorRef = React.useRef(null);
-
-  return (
-    <React.Fragment>
-      <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }}>
-        <Button
-          inline
-          color="red"
-          onClick={ () => setOpen((prevVal) => !prevVal) }
-          size="sm"
-          text={open ? "Close Popover" : "Anchor a Popover to Box"}
-        />
-        <Box borderStyle='sm' padding={3} ref={anchorRef} rounding={1}>
-          <Text>I'm a Box</Text>
-        </Box>
-      </Flex>
-      {open && (
-        <Popover
-          anchor={anchorRef.current}
-          idealDirection="right"
-          onDismiss={() => {}}
-          shouldFocus={false}
-        >
-          <Box padding={3}>
-            <Text weight="bold">I'm a Popover anchored to a Box</Text>
-          </Box>
-        </Popover>
-      )}
-    </React.Fragment>
-  );
-}`}
+            sandpackExample={<SandpackExample code={ref} name="Ref example" />}
           />
         </MainSection.Subsection>
 
@@ -825,32 +466,14 @@ function BoxPopoverExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const HEADER_ZINDEX = new FixedZIndex(100);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-  return (
-    <Box
-      column={12}
-      dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
-      height={150}
-      overflow="scroll"
-      tabIndex={0}
-    >
-      <Sticky top={0} zIndex={HEADER_ZINDEX}>
-        <Box color="successBase" width="80%" height={60} padding={2}>
-          <Text color="light">This is sticky and won't move when scrolling</Text>
-        </Box>
-      </Sticky>
-      <Box color="infoBase" width="50%" height={100} zIndex={zIndex} position="relative" padding={2}>
-        <Text color="light">This will float above the successBase Box when scrolling</Text>
-      </Box>
-      <Box color="successBase" width="30%" height={120} padding={2}>
-        <Text color="light">This will go behind the successBase Box</Text>
-      </Box>
-    </Box>
-)}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={zIndex}
+                layout="column"
+                previewHeight={150}
+                name="zIndex example"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
