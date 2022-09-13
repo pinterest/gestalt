@@ -63,7 +63,7 @@ type State = {|
   popoverRef: ?HTMLElement,
 |};
 
-type PopoverOverride = {| top: string |} | $Shape<{||}>;
+type PopoverOverride = {| top: string |} | null;
 
 class Contents extends Component<Props, State> {
   static defaultProps: {| border: boolean, caret: boolean |} = {
@@ -212,11 +212,13 @@ class Contents extends Component<Props, State> {
   balancePopoverPosition(): PopoverOverride {
     // Required because of SSR
     if (!window || !document) {
-      return {};
+      return null;
     }
 
+    const { id } = this.props;
+
     const viewportAvailable = window.innerHeight;
-    const popoverHeight = document.getElementById(this.props?.id || '')?.clientHeight;
+    const popoverHeight = document.getElementById(id ?? '')?.clientHeight;
 
     // Trigger (in percentage) to indicate if it should handle the popover or not;
     const percentageLimit = 90;
@@ -229,8 +231,8 @@ class Contents extends Component<Props, State> {
 
     // The `scrollPosition` is required to cases which popover has opened on the scrolled screen
     const overridePropsToMaxPopoverSize = shouldRenderOnScreenTop
-      ? { top: `calc(${document.documentElement?.scrollTop || 0}px + ${defaultTopPadding})` }
-      : {};
+      ? { top: `calc(${document.documentElement?.scrollTop ?? 0}px + ${defaultTopPadding})` }
+      : null;
 
     return overridePropsToMaxPopoverSize;
   }
@@ -246,7 +248,7 @@ class Contents extends Component<Props, State> {
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
-    const overridePropsToMaxPopoverSize = this.balancePopoverPosition();
+    const overridePropsToMaxPopoverSize = this.balancePopoverPosition() ?? {};
 
     return (
       <div
