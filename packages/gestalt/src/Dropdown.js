@@ -222,12 +222,12 @@ export default function Dropdown({
       size="xl"
     >
       <Box
-        maxHeight="90vh"
         alignItems="center"
         direction="column"
         display="flex"
         flex="grow"
         margin={2}
+        maxHeight="90vh"
       >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
