@@ -8,8 +8,9 @@ import MainSection from '../../docs-components/MainSection.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
+import SandpackExample from '../../docs-components/SandpackExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import mainExample from '../../examples/avatar/mainExample.js';
 
 const ignoredProps = [
   'smColumn',
@@ -72,9 +73,10 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
 
 export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Box">
-      <PageHeader name="Box" description={generatedDocGen?.description} />
-
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={mainExample} name="No image source" hideEditor previewHeight={150} />
+      </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 
       <MainSection name="Best practices">
