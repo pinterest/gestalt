@@ -177,14 +177,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           title="Fixed sizes"
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={sizingExample}
-                name="Sizing variant"
-                hideEditor
-                previewHeight={200}
-              />
-            }
+            sandpackExample={<SandpackExample code={sizingExample} name="Sizing variant" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -197,7 +190,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={containerExample} name="Container-based variant" hideEditor />
+              <SandpackExample code={containerExample} name="Container-based variant" />
             }
           />
         </MainSection.Subsection>
@@ -210,12 +203,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={noImageSourceExample}
-                name="No image variant"
-                hideEditor
-                previewHeight={200}
-              />
+              <SandpackExample code={noImageSourceExample} name="No image variant" />
             }
           />
         </MainSection.Subsection>
@@ -226,14 +214,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           title="Verified"
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={verifiedExample}
-                name="Verified variant"
-                hideEditor
-                previewHeight={200}
-              />
-            }
+            sandpackExample={<SandpackExample code={verifiedExample} name="Verified variant" />}
           />
         </MainSection.Subsection>
       </MainSection>
