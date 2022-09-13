@@ -228,7 +228,7 @@ export default function SlimBanner({
           </Flex.Item>
         )}
       </Flex>
-      {shouldShowButtons && primaryAction && (
+      {!isBare && primaryAction && (
         <Box display="flex" mdDisplay="none" flex="none" alignSelf="end" marginTop={4}>
           <PrimaryAction {...primaryAction} />
         </Box>
