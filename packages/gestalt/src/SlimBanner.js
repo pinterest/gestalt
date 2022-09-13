@@ -181,6 +181,8 @@ export default function SlimBanner({
       alignItems="center"
       color={isBare ? 'transparent' : backgroundColor}
       display="flex"
+      direction="column"
+      mdDirection="row"
       padding={isBare ? 0 : 4}
       paddingY={isBare ? 1 : 0}
       rounding={4}
@@ -216,9 +218,9 @@ export default function SlimBanner({
           <Flex.Item flex="none">
             <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
               {primaryAction && (
-                <Flex.Item flex="none">
+                <Box display="none" mdDisplay="flex" flex="none">
                   <PrimaryAction {...primaryAction} />
-                </Flex.Item>
+                </Box>
               )}
 
               {dismissButton && <DismissButton {...dismissButton} />}
@@ -226,6 +228,11 @@ export default function SlimBanner({
           </Flex.Item>
         )}
       </Flex>
+      {shouldShowButtons && primaryAction && (
+        <Box display="flex" mdDisplay="none" flex="none" alignSelf="end" marginTop={4}>
+          <PrimaryAction {...primaryAction} />
+        </Box>
+      )}
     </Box>
   );
 }
