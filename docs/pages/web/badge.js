@@ -162,7 +162,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           Indicates a general, non-critical status update. For example, 'Unavailable' or 'Not started'.
 
           6. **Recommendation**
-          Indicates a suggestion to improve the users experience.
+          Indicates a suggestion to improve the user's experience.
  `}
         >
           <MainSection.Card
