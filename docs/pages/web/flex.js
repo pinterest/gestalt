@@ -9,6 +9,13 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/flex/main.js';
+import gap from '../../examples/flex/gap.js';
+import menu from '../../examples/flex/menu.js';
+import flexItem from '../../examples/flex/flexItem.js';
+import flexBasis from '../../examples/flex/flexBasis.js';
+import overflowing from '../../examples/flex/overflowing.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -20,7 +27,9 @@ export default function DocsPage({
       <PageHeader
         name={generatedDocGen?.Flex?.displayName}
         description={generatedDocGen?.Flex?.description}
-      />
+      >
+        <SandpackExample code={main} name="Main example source" hideEditor previewHeight={150} />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Flex} />
 
@@ -73,37 +82,9 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex direction="column" gap={6}>
-  <Flex direction="column" gap={2}>
-    <Text>Equal spacing</Text>
-    <Box borderStyle="sm" padding={2} rounding={3} width={150}>
-      <Flex alignItems="center" gap={4} wrap>
-        <Text>Item 1</Text>
-        <Text>Item 2</Text>
-        <Text>Item 3</Text>
-        <Text>Item 4</Text>
-        <Text>Item 5</Text>
-        <Text>Item 6</Text>
-      </Flex>
-    </Box>
-  </Flex>
-
-  <Flex direction="column" gap={2}>
-    <Text>Different spacing</Text>
-    <Box borderStyle="sm" padding={2} rounding={3} width={150}>
-      <Flex alignItems="center" gap={{ row: 2, column: 8 }} wrap>
-        <Text>Item 1</Text>
-        <Text>Item 2</Text>
-        <Text>Item 3</Text>
-        <Text>Item 4</Text>
-        <Text>Item 5</Text>
-        <Text>Item 6</Text>
-      </Flex>
-    </Box>
-  </Flex>
-</Flex>
-            `}
+            sandpackExample={
+              <SandpackExample code={gap} name="Gap prop example" previewHeight={400} />
+            }
           />
         </MainSection.Subsection>
 
@@ -115,15 +96,7 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
-  <Flex alignItems="center" direction="column" gap={4}>
-    <Text>Menu Item 1</Text>
-    <Text>Menu Item 2</Text>
-    <Text>Menu Item 3</Text>
-  </Flex>
-</Box>
-`}
+            sandpackExample={<SandpackExample code={menu} name="Menu example" />}
           />
         </MainSection.Subsection>
 
@@ -135,17 +108,9 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
-  <Flex alignItems="center" gap={4}>
-    <Button text="Button 1" />
-    <Flex.Item flex="grow">
-      <Button text="Button 2" />
-    </Flex.Item>
-    <Button text="Button 3" />
-  </Flex>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample code={flexItem} name="FlexItem example" layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -157,21 +122,14 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
-  <Flex alignItems="center" gap={4}>
-    <Flex.Item flexBasis={200}>
-      <Text>Some text</Text>
-    </Flex.Item>
-
-    <Text>Some text</Text>
-
-    <Flex.Item flexBasis="10em">
-      <Text>Some really really really really really really really long text</Text>
-    </Flex.Item>
-  </Flex>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={flexBasis}
+                name="Flexbasis example"
+                layout="column"
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -186,19 +144,14 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box borderStyle="sm" padding={3} rounding={3}>
-  <Flex alignItems="center" gap={3}>
-    <Icon accessibilityLabel="Private" icon="lock" />
-
-    <Flex.Item minWidth={0}>
-      <Text truncate>Some really long title text that just keeps going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going</Text>
-    </Flex.Item>
-
-    <Badge text="Try it out!" />
-  </Flex>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={overflowing}
+                name="Overflowing example"
+                layout="column"
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
