@@ -1,3 +1,9 @@
+## 71.1.1 (Sep 14, 2022)
+
+### Patch
+
+- Box: implement Sandpack code editor examples ([#2387](https://github.com/pinterest/gestalt/pull/2387)) - [Preview link](https://deploy-preview-2387--gestalt.netlify.app)
+
 ## 71.1.0 (Sep 14, 2022)
 
 ### Minor
