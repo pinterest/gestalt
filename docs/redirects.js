@@ -128,7 +128,12 @@ const misc = [
   },
   {
     source: '/development',
-    destination: '/get_started/developers/development_process',
+    destination: '/get_started/developers/contributing/development_process',
+    permanent: true,
+  },
+  {
+    source: '/get_started/developers/development_process',
+    destination: '/get_started/developers/contributing/development_process',
     permanent: true,
   },
   {

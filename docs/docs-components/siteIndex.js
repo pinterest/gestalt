@@ -25,15 +25,18 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       {
         sectionName: 'Developers',
         pages: [
-          'Development process',
-          'Installation',
+          {
+            sectionName: 'Contributing',
+            pages: ['Creating and updating pages', 'Development process'],
+          },
           'Eslint plugin',
+          'Hacking Gestalt',
+          'Installation',
           'Releases',
           {
             sectionName: 'Tooling',
             pages: ['Web'],
           },
-          'Hacking Gestalt',
         ],
       },
       'How to work with us',
