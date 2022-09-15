@@ -29,7 +29,7 @@ To add a new page, follow these 4 steps:
         1. The options are Building Blocks, General Components, Utilities, Figma-only, and Foundation guidelines. 
             1. This info affects the layout of the Component Overview page
         2. You may also need a new svg to represent this component on the [Overview pages](https://gestalt.pinterest.systems/web/overview). Reach out on Slack if you need assistance with the graphic.
-    2. If this is a new page for an existing component, like the Android page for an existing Web component, update the corresponding data for the object that already exists for that component. ([see example](https://github.com/pinterest/gestalt/pull/2334/files#diff-19b5af995282361ea4311af93f9268393d56c1da8964523c5ee74933a1c60de1))
+    2. If this is a new page for an existing component, like the Android page for an existing Web component, update the corresponding data for the object that already exists for that component. ([See example](https://github.com/pinterest/gestalt/pull/2334/files#diff-19b5af995282361ea4311af93f9268393d56c1da8964523c5ee74933a1c60de1))
 
 
 ## Moving or Deleting a page
