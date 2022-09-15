@@ -1,3 +1,9 @@
+## 71.1.2 (Sep 15, 2022)
+
+### Patch
+
+- Flex: implement Sandpack code editor examples ([#2388](https://github.com/pinterest/gestalt/pull/2388)) - [Preview link](https://deploy-preview-2388--gestalt.netlify.app)
+
 ## 71.1.1 (Sep 14, 2022)
 
 ### Patch
