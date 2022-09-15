@@ -1,3 +1,9 @@
+## 71.2.1 (Sep 15, 2022)
+
+### Patch
+
+- SlimBanner: Adjust layout in small viewports ([#2385](https://github.com/pinterest/gestalt/pull/2385)) - [Preview link](https://deploy-preview-2385--gestalt.netlify.app)
+
 ## 71.2.0 (Sep 15, 2022)
 
 ### Minor
