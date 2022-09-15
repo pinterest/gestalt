@@ -1,3 +1,9 @@
+## 71.2.0 (Sep 15, 2022)
+
+### Minor
+
+- Badge: Add recommendation type ([#2389](https://github.com/pinterest/gestalt/pull/2389)) - [Preview link](https://deploy-preview-2389--gestalt.netlify.app)
+
 ## 71.1.3 (Sep 15, 2022)
 
 ### Patch
