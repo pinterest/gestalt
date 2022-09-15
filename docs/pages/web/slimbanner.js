@@ -8,6 +8,8 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import responsiveExample from '../../examples/slimbanner/responsiveExample.js';
 
 export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -517,10 +519,28 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
   iconAccessibilityLabel="Information"
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
-    onClick: () => {},
+    onDismiss: () => {},
   }}
 />
 `}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Responsive"
+          description={`
+          SlimBanner is responsive to different [viewport breakpoints](/foundations/screen_sizes#Web-(px)).
+          `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={responsiveExample}
+                name="SlimBanner responsive example"
+                layout="mobileRow"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
