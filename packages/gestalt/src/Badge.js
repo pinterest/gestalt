@@ -12,6 +12,7 @@ export type TypeOptions =
   | 'warning'
   | 'success'
   | 'neutral'
+  | 'recommendation'
   | 'darkWash'
   | 'lightWash';
 
@@ -44,6 +45,7 @@ export default function Badge({ position = 'middle', text, type = 'info' }: Prop
     'warning': 'warningBase',
     'success': 'successBase',
     'neutral': 'tertiary',
+    'recommendation': 'recommendationBase',
     'darkWash': 'washDark',
     'lightWash': 'washLight',
   };

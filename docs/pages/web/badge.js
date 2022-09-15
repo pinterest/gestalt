@@ -160,6 +160,9 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
 
           5. **Neutral**
           Indicates a general, non-critical status update. For example, 'Unavailable' or 'Not started'.
+
+          6. **Recommendation**
+          Highlights a suggestion that will improve the experience and achieve better results. For example, 'Recommended for you'.
  `}
         >
           <MainSection.Card
@@ -214,6 +217,14 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         </Table.Cell>
         <Table.Cell>
           <Text size="300">Ads & Campaigns <Badge text="Not started" type="neutral"/></Text>
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>
+          <Text>Recommendation</Text>
+        </Table.Cell>
+        <Table.Cell>
+          <Text size="300">Ads & Campaigns <Badge text="Recommended for you" type="recommendation"/></Text>
         </Table.Cell>
       </Table.Row>
     </Table.Body>
