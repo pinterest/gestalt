@@ -16,7 +16,7 @@ Pinterest web engineers can visit the [internal Gestalt documentation](http://pi
 
 ## Set up your Gestalt repository
 
-- Clone the repo: Fork the Gestalt repo and work off your forked repo, not the `pintertest/gestalt` repo.
+- Clone the repo: Fork the Gestalt repo and work off your forked repo, not the `pinterest/gestalt` repo.
 - Once forked, clone to your local machine using the SSH option
 
 ```bash
@@ -190,7 +190,7 @@ Avoid:
 
 ## Technical Design Documents
 
-Before starting coding a new component, you must first detail the componentn specifications in Technical Design Documents (TDD). You can find the [TDD template here](http://pinch.pinadmin.com/TDD).
+Before starting coding a new component, you must first detail the component specifications in Technical Design Documents (TDD). You can find the [TDD template here](http://pinch.pinadmin.com/TDD).
 
 ## RFCs
 
