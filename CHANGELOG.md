@@ -1,3 +1,9 @@
+## 71.1.3 (Sep 15, 2022)
+
+### Patch
+
+- Docs: Add developer guide on adding a new page ([#2390](https://github.com/pinterest/gestalt/pull/2390)) - [Preview link](https://deploy-preview-2390--gestalt.netlify.app)
+
 ## 71.1.2 (Sep 15, 2022)
 
 ### Patch
