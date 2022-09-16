@@ -1,3 +1,9 @@
+## 72.0.0 (Sep 16, 2022)
+
+### Major
+
+- Checkbox: standardize helper/error message style with other form/control fields, renamed subtext, deprecated hasError ([#2391](https://github.com/pinterest/gestalt/pull/2391)) - [Preview link](https://deploy-preview-2391--gestalt.netlify.app)
+
 ## 71.2.2 (Sep 16, 2022)
 
 ### Patch
