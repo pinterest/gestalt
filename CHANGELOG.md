@@ -1,3 +1,9 @@
+## 72.0.1 (Sep 16, 2022)
+
+### Patch
+
+- Docs: 9-16 weekly digest ([#2394](https://github.com/pinterest/gestalt/pull/2394)) - [Preview link](https://deploy-preview-2394--gestalt.netlify.app)
+
 ## 72.0.0 (Sep 16, 2022)
 
 ### Major
