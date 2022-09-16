@@ -16,14 +16,14 @@ export default function Snapshot(): Node {
           <Checkbox
             id="english-info"
             label="English"
-            subtext="USA has the top number of English speakers "
+            helperText="USA has the top number of English speakers "
             name="languages"
             onChange={() => {}}
           />
           <Checkbox
             id="spanish-info"
             label="Spanish"
-            subtext="Mexico is the top Spanish speaking country"
+            helperText="Mexico is the top Spanish speaking country"
             name="languages"
             onChange={() => {}}
           />

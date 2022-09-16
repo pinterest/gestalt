@@ -25,7 +25,7 @@ function Example() {
         id="checkbox"
         label="I agree that this is a checkbox"
         onChange={({ checked }) => setChecked1(checked)}
-        subtext="Nothing will happen if you disagree"
+        helperText="Nothing will happen if you disagree"
       />
   );
 }
@@ -202,7 +202,7 @@ function Example() {
       checked={checked1}
       id="location"
       label="Turn location tracking off"
-      subtext="Change will auto-save"
+      helperText="Change will auto-save"
       onChange={({ checked }) => setChecked1(checked)}
     />
 
@@ -215,7 +215,7 @@ function Example() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use info [Tooltips](/web/tooltip) or subtext."
+            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use info [Tooltips](/web/tooltip) or helperText."
             defaultCode={`
 function Example() {
   const [checked1, setChecked1] = React.useState(false);
@@ -575,7 +575,7 @@ function CheckboxExample() {
 
       <MainSection
         name="Localization"
-        description={`Be sure to localize \`label\` and any \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
+        description={`Be sure to localize \`label\` and any \`helperText\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
       />
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -670,7 +670,7 @@ function Example() {
 `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="With subtext" description="Checkbox supports subtexts">
+        <MainSection.Subsection title="With helperText" description="Checkbox supports helperText">
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
@@ -686,7 +686,7 @@ function Example() {
           checked={checkedEn}
           id="english-info"
           label="English"
-          subtext="USA, India, and Pakistan have the top number of English speakers "
+          helperText="USA, India, and Pakistan have the top number of English speakers "
           name="languages"
           onChange={({ checked }) => {
             setCheckedEn(checked);
@@ -696,7 +696,7 @@ function Example() {
           checked={checkedSp}
           id="spanish-info"
           label="Spanish"
-          subtext="Mexico, Colombia, and Spain are the top three Spanish-speaking countries"
+          helperText="Mexico, Colombia, and Spain are the top three Spanish-speaking countries"
           name="languages"
           onChange={({ checked }) => {
             setCheckedSp(checked);
@@ -706,7 +706,7 @@ function Example() {
           checked={checkedCh}
           id="chinese-info"
           label="Chinese"
-          subtext="Chinese has many varieties, including Cantonese and Mandarin"
+          helperText="Chinese has many varieties, including Cantonese and Mandarin"
           name="languages"
           onChange={({ checked }) => {
             setCheckedCh(checked);
@@ -722,7 +722,7 @@ function Example() {
 
         <MainSection.Subsection
           title="With Image"
-          description={`Checkbox supports images. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context.
+          description={`Checkbox supports images. When including images, you can use the helperText property to clearly describe the information being presented by the image, or use the image's alt text to provide more context.
 
 Spacing is already accounted for; simply specify the width and height.`}
         >
@@ -740,7 +740,7 @@ function CheckboxExample() {
           checked={checkedCoral}
           id="coral"
           label="Coral"
-          subtext="Botanical art in coral and green"
+          helperText="Botanical art in coral and green"
           image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
@@ -751,7 +751,7 @@ function CheckboxExample() {
           checked={checkedBlue}
           id="blue"
           label="Blue"
-          subtext="Typography and shoe in blue"
+          helperText="Typography and shoe in blue"
           image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {

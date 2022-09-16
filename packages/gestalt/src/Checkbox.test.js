@@ -50,9 +50,9 @@ test('Checkbox with error', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Checkbox with subtext', () => {
+test('Checkbox with helperText', () => {
   const tree = create(
-    <Checkbox subtext="Additional Info" size="sm" id="id" label="Name" onChange={() => {}} />,
+    <Checkbox helperText="Additional Info" size="sm" id="id" label="Name" onChange={() => {}} />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
