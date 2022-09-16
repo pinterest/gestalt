@@ -1,3 +1,9 @@
+## 72.0.2 (Sep 16, 2022)
+
+### Patch
+
+- NumberField: add link to useful blog post ([#2396](https://github.com/pinterest/gestalt/pull/2396)) - [Preview link](https://deploy-preview-2396--gestalt.netlify.app)
+
 ## 72.0.1 (Sep 16, 2022)
 
 ### Patch
