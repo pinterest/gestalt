@@ -44,7 +44,7 @@ function Example(props) {
             type="do"
             title="When to use"
             description={`
-          - Any time succinct numerical data needs to be entered by a user.
+          - Any time the user needs to enter mathematically-relevant numeric values, e.g. the quantity of a product or someone’s age.
         `}
           />
           <MainSection.Card
@@ -52,7 +52,7 @@ function Example(props) {
             type="don't"
             title="When not to use"
             description={`
-          - When accepting telephone numbers, or numerical data that could contain leading 0's (e.g. ZIP codes). Use [TextField](/web/textfield) with \`type="tel"\` instead.
+          - When accepting numerical data that is not mathematically relevant or could have semantic leading 0's, e.g. ZIP codes, phone numbers, social security numbers, etc. Use [TextField](/web/textfield) instead. For telephone numbers specifically, be sure to use \`type="tel"\` for the best UX. Check out [this blog post](https://stackoverflow.blog/2022/09/15/why-the-number-input-is-the-worst-input/) for tips on when a number input is a good choice.
           - Situations where text needs to be entered. Use [TextField](/web/textfield) or [TextArea](/web/textarea) instead.`}
           />
         </MainSection.Subsection>
