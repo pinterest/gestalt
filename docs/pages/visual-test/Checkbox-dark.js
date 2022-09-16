@@ -17,14 +17,14 @@ export default function Snapshot(): Node {
             checked
             id="english-info"
             label="English"
-            subtext="USA and India have the top number of English speakers "
+            helperText="USA and India have the top number of English speakers "
             onChange={() => {}}
           />
           <Checkbox
             checked={false}
             id="spanish-info"
             label="Spanish"
-            subtext="Mexico and Colombia have the top number of Spanish speakers"
+            helperText="Mexico and Colombia have the top number of Spanish speakers"
             onChange={() => {}}
           />
         </Flex>{' '}

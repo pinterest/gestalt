@@ -452,7 +452,7 @@ exports[`Checkbox with error 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"
@@ -494,36 +494,28 @@ exports[`Checkbox with error 1`] = `
           >
             Name
           </div>
+          <div
+            className="box marginTop2"
+          >
+            <div
+              className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
+            >
+              <span
+                className="formErrorMessage"
+                id="id-error"
+              >
+                Error message
+              </span>
+            </div>
+          </div>
         </div>
       </label>
-    </div>
-  </div>
-  <div
-    className="box marginTop2"
-  >
-    <div
-      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
-    >
-      <div
-        className="box marginTop2"
-      >
-        <div
-          className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
-        >
-          <span
-            className="formErrorMessage"
-            id="id-error"
-          >
-            Error message
-          </span>
-        </div>
-      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Checkbox with subtext 1`] = `
+exports[`Checkbox with helperText 1`] = `
 <div
   className="box"
 >
@@ -571,17 +563,11 @@ exports[`Checkbox with subtext 1`] = `
             Name
           </div>
           <div
-            className="box paddingY1"
+            className="box marginTop2"
           >
             <div
-              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+              className="Text fontSize100 subtleText alignStart breakWord fontWeightNormal"
             >
-              <div
-                className="box xsDisplayVisuallyHidden"
-              >
-                :
-              </div>
-               
               Additional Info
             </div>
           </div>

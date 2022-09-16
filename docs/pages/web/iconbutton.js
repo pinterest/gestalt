@@ -308,7 +308,7 @@ function HeadingExample(props) {
             checked={false}
             id="secret"
             label="Keep this board secret"
-            subtext="So only you and collaborators can see it."
+            helperText="So only you and collaborators can see it."
             name="languages"
             onChange={({ checked }) => {
               console.log(checked);

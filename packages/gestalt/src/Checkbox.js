@@ -11,6 +11,7 @@ import Label from './Label.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
+import FormHelperText from './FormHelperText.js';
 
 type Props = {|
   /**
@@ -26,9 +27,9 @@ type Props = {|
    */
   errorMessage?: string,
   /**
-   * This field is deprecated and will be removed soon. Please do not use.
+   * Optional description for Checkbox, used to provide more detail about an option. See the [with helperText variant](https://gestalt.pinterest.systems/web/checkbox#With-helperText) to learn more.
    */
-  hasError?: boolean,
+  helperText?: string,
   /**
    * A unique identifier for the input.
    */
@@ -69,10 +70,6 @@ type Props = {|
    * Determines the Checkbox size: sm = 16px, md = 24px. See the [size variant](https://gestalt.pinterest.systems/web/checkbox#Size) to learn more.
    */
   size?: 'sm' | 'md',
-  /**
-   * Optional description for Checkbox, used to provide more detail about an option. See the [with subtext variant](https://gestalt.pinterest.systems/web/checkbox#With-subtext) to learn more.
-   */
-  subtext?: string,
 |};
 
 /**
@@ -90,7 +87,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     checked = false,
     disabled = false,
     errorMessage,
-    hasError = false,
+    helperText,
     id,
     image,
     indeterminate = false,
@@ -100,7 +97,6 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     onChange,
     onClick,
     size = 'md',
-    subtext,
   }: Props,
   ref,
 ): Node {
@@ -146,7 +142,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     borderStyle = styles.borderDisabled;
   } else if (!disabled && (checked || indeterminate)) {
     borderStyle = styles.borderSelected;
-  } else if (hasError || errorMessage) {
+  } else if (errorMessage) {
     borderStyle = styles.borderError;
   } else if (!disabled && hovered) {
     borderStyle = styles.borderHovered;
@@ -161,7 +157,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   return (
     <Box>
       <Box
-        alignItems={subtext || image ? 'start' : 'center'}
+        alignItems={helperText || errorMessage || image ? 'start' : 'center'}
         display="flex"
         justifyContent="start"
         marginStart={-1}
@@ -217,25 +213,13 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                   {label}
                 </Text>
-                {subtext && (
-                  <Box paddingY={1}>
-                    <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
-                      <Box display="visuallyHidden">:</Box> {subtext}
-                    </Text>
-                  </Box>
-                )}
+                {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
+                {errorMessage ? <FormErrorMessage id={id} text={errorMessage} /> : null}
               </Box>
             </Label>
           </Box>
         )}
       </Box>
-      {errorMessage && (
-        <Box marginTop={2}>
-          <Text color="error" size="100">
-            <FormErrorMessage id={id} text={errorMessage} />
-          </Text>
-        </Box>
-      )}
     </Box>
   );
 });

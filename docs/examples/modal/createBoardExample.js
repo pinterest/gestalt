@@ -39,7 +39,7 @@ function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}) {
           checked={false}
           id="secret"
           label="Keep this board secret"
-          subtext="So only you and collaborators can see it."
+          helperText="So only you and collaborators can see it."
           name="languages"
           onChange={() => {}}
         />
