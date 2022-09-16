@@ -3,6 +3,40 @@
   "digests": [
     {
       "week": "September 09, 2022",
+      "summary": "New component variants, component bug fixes and improved doc code samples",
+      "posts": [
+        {
+          "title": "New Recommendation type for Badge",
+          "audience": ["Design, Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/04/1e/ba/041eba4ff21a8bfe83ba1ac0f8af6a54.png",
+          "imageAltText": "screenshot of Recommendation Badge",
+          "content": "With the introduction of recommendation types for Callout and SlimBanner, we added a [Recommendation type](https://gestalt.pinterest.systems/web/badge#Type) for [Badge](https://gestalt.pinterest.systems/web/badge). This update will open up Badge to new uses within the product to help make in-product recommendations quickly recognizable."
+        },
+        {
+          "title": "Popover now limits its height to fit  the viewport",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/4f/9a/5f/4f9a5f8d4b059db9ccb3870bd2e30b89.png",
+          "imageAltText": "screenshot of popover",
+          "content": "Sometime content in a [Popover](https://gestalt.pinterest.systems/web/popover) just tall. Sometime too tall... Well, never fear, we fixed a bug where the height of Popover would be higher than the viewport. Now, it limits its height to fit in the viewport."
+        },
+        {
+          "title": "SlimBanner now adjusts layouts in small viewports",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/04/30/3b/04303b8653ffa9ceb5f256a0cc53664c.png",
+          "imageAltText": "screenshot of SlimBanner for small viewports",
+          "content": "We made some fixes to [SlimBanner](https://gestalt.pinterest.systems/web/slimbanner) to display more elegantly on smaller viewports. This fix will make SlimBanner much more usable in the mobile context."
+        },
+        {
+          "title": "More Improved code examples",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/ed/01/59/ed0159df8721a93f66c6f3ba79a8caeb.png",
+          "imageAltText": "screenshot of a Gestalt code example",
+          "content": "As promised, we continue to convert our docs over to use our improved code samples. We made updates to [Avatar](https://gestalt.pinterest.systems/web/avatar), [Box](https://gestalt.pinterest.systems/web/box) and [Flex](https://gestalt.pinterest.systems/web/flex). We will continue to work on fixing code samples with the most frequently viewed component docs getting the highest priority."
+        }
+      ]
+    },
+    {
+      "week": "September 09, 2022",
       "summary": "Figma library improvements and upgrades to documentation code samples",
       "posts": [
         {
