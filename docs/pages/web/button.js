@@ -524,7 +524,7 @@ function SemiTransparentWhiteButtonExample() {
           title="Icons"
           description={`
 Icon end
-Adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`arrow-up-right\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
+Adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
 `}
         >
           <MainSection.Card
@@ -565,7 +565,7 @@ Adds an icon after the Button text. Icons should only be used to visually reinfo
             defaultCode={`
 <Button
   accessibilityLabel='Visit Pinterest'
-  iconEnd="arrow-up-right"
+  iconEnd="visit"
   size="lg"
   text="Visit Pinterest"
   role="link"
@@ -585,7 +585,7 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
             defaultCode={`
 <Button
   accessibilityLabel='Visit Pinterest'
-  iconEnd="arrow-up-right"
+  iconEnd="visit"
   size="lg"
   text="Visit Pinterest"
   role="link"
