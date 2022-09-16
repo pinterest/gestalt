@@ -11,6 +11,11 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
 >
   <div
     className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       className="FlexItem selfStart"
@@ -62,6 +67,11 @@ exports[`SlimBanner renders helper link 1`] = `
 >
   <div
     className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       className="FlexItem flexGrow"
@@ -115,6 +125,11 @@ exports[`SlimBanner renders neutral type with message 1`] = `
 >
   <div
     className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       className="FlexItem flexGrow"
@@ -144,6 +159,11 @@ exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
 >
   <div
     className="Flex rowGap2 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       className="FlexItem selfStart"
