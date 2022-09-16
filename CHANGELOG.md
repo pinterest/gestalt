@@ -1,3 +1,9 @@
+## 71.2.2 (Sep 16, 2022)
+
+### Patch
+
+- SlimBanner: Fix alignment of short text ([#2393](https://github.com/pinterest/gestalt/pull/2393)) - [Preview link](https://deploy-preview-2393--gestalt.netlify.app)
+
 ## 71.2.1 (Sep 15, 2022)
 
 ### Patch
