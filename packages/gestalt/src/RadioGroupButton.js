@@ -6,6 +6,7 @@ import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
+import FormHelperText from './FormHelperText.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import { useRadioGroupContext } from './RadioGroupContext.js';
@@ -48,9 +49,9 @@ type Props = {|
    */
   size?: 'sm' | 'md',
   /**
-   * Optional description for the input, used to provide more detail about an option. See the [subtext example](https://gestalt.pinterest.systems/web/radiogroup#With-subtext) for more details.
+   * Optional description for the input, used to provide more detail about an option. See the [helperText example](https://gestalt.pinterest.systems/web/radiogroup#With-helperText) for more details.
    */
-  subtext?: string,
+  helperText?: string,
   /**
    * The value of the input.
    */
@@ -76,7 +77,7 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
     label,
     name,
     onChange,
-    subtext,
+    helperText,
     value,
     size = 'md',
   }: Props,
@@ -127,7 +128,7 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
 
   return (
     <Box
-      alignItems={subtext || image ? 'start' : 'center'}
+      alignItems={helperText || image ? 'start' : 'center'}
       display="flex"
       justifyContent="start"
       marginStart={-1}
@@ -174,13 +175,7 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
             <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
               {label}
             </Text>
-            {subtext && (
-              <Box paddingY={1}>
-                <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
-                  <Box display="visuallyHidden">:</Box> {subtext}
-                </Text>
-              </Box>
-            )}
+            {helperText ? <FormHelperText text={helperText} /> : null}
           </Box>
         </Label>
       )}
