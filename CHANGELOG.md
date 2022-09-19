@@ -1,3 +1,9 @@
+## 72.0.7 (Sep 19, 2022)
+
+### Patch
+
+- Docs: fix useReducedMotion example ([#2402](https://github.com/pinterest/gestalt/pull/2402)) - [Preview link](https://deploy-preview-2402--gestalt.netlify.app)
+
 ## 72.0.6 (Sep 19, 2022)
 
 ### Patch
