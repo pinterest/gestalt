@@ -1,3 +1,9 @@
+## 73.0.0 (Sep 19, 2022)
+
+### Major
+
+- RadioGroupButton: standardize helper message style with other form/control fields, renamed subtext ([#2392](https://github.com/pinterest/gestalt/pull/2392)) - [Preview link](https://deploy-preview-2392--gestalt.netlify.app)
+
 ## 72.0.7 (Sep 19, 2022)
 
 ### Patch
