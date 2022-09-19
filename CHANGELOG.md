@@ -1,3 +1,9 @@
+## 72.0.4 (Sep 19, 2022)
+
+### Patch
+
+- Button: change iconEnd from arrow-up-right to visit icon in Docs ([#2397](https://github.com/pinterest/gestalt/pull/2397)) - [Preview link](https://deploy-preview-2397--gestalt.netlify.app)
+
 ## 72.0.3 (Sep 19, 2022)
 
 ### Patch
