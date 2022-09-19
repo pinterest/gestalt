@@ -112,6 +112,11 @@ const color = ['color_examples', 'color_palette', 'color_usage'].map((item) => (
 
 const misc = [
   {
+    source: '/',
+    destination: '/home',
+    permanent: false,
+  },
+  {
     source: '/component_overview',
     destination: '/web/overview',
     permanent: true,
