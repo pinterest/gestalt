@@ -1,3 +1,9 @@
+## 72.0.3 (Sep 19, 2022)
+
+### Patch
+
+- Docs: fix / to /home redirect to avoid invalid double render ([#2398](https://github.com/pinterest/gestalt/pull/2398)) - [Preview link](https://deploy-preview-2398--gestalt.netlify.app)
+
 ## 72.0.2 (Sep 16, 2022)
 
 ### Patch
