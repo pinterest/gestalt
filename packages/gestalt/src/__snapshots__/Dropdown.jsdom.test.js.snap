@@ -21,7 +21,6 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
         >
           <div
             class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
-            style="max-height: 90vh;"
           >
             <div
               class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
@@ -556,7 +555,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
         >
           <div
             class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
-            style="max-height: 90vh;"
           >
             <div
               class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
