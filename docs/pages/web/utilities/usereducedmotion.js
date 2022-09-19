@@ -66,7 +66,7 @@ function Example() {
             : { animation: 'vibrate 0.3s linear infinite both' }
         }
       >
-        <Box color="red" display="inlineBlock" padding={4}>
+        <Box color="infoBase" display="inlineBlock" padding={4}>
           <Text color="inverse">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion disabled'}</Text>
         </Box>
       </div>
