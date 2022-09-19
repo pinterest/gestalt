@@ -8,78 +8,30 @@ import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/iconbutton/main.js';
+import lowActions from '../../examples/iconbutton/lowActions.js';
+import highActions from '../../examples/iconbutton/highActions.js';
+import grouping from '../../examples/iconbutton/grouping.js';
+import noGrouping from '../../examples/iconbutton/noGrouping.js';
+import tooltip from '../../examples/iconbutton/tooltip.js';
+import image from '../../examples/iconbutton/image.js';
+import aria from '../../examples/iconbutton/aria.js';
+import keyboard from '../../examples/iconbutton/keyboard.js';
+import roleLink from '../../examples/iconbutton/roleLink.js';
+import roleButton from '../../examples/iconbutton/roleButton.js';
+import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
+import gestaltIcon from '../../examples/iconbutton/gestaltIcon.js';
+import customIcon from '../../examples/iconbutton/customIcon.js';
+import selectedState from '../../examples/iconbutton/selectedState.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-function SectionsIconButtonDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => {
-    if (selected.some(({ value }) => value === item.value )) {
-      setSelected((selected) => selected.filter(({ value }) => value != item.value));
-    } else {
-      setSelected((selected) => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="sections-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="Create Pin Menu"
-        bgColor="lightGray"
-        icon="add"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        tooltip={{text: "Create", idealDirection: "up"}}
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Section label="Create">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Pin', label: 'Pin' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Story Pin', label: 'Story Pin' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-          <Dropdown.Section label="Add">
-            <Dropdown.Item
-              badge={{ text: 'New' }}
-              onSelect={onSelect}
-              option={{ value: 'Note', label: 'Note' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Section', label: 'Section' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-      `}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Main example" hideEditor />
+      </PageHeader>
       <PropTable
         Component={IconButton}
         id="IconButton"
@@ -139,7 +91,7 @@ function SectionsIconButtonDropdownExample() {
             name: 'ref',
             type: `HTMLButtonElement | HTMLAnchorElement`,
             description:
-              'Forward the ref to the underlying button or anchor element. See the [ref](#Ref) variant to learn more.',
+              'Forward the ref to the underlying button or anchor element. See the [ARIA attributes guidelines](#ARIA-attributes) to learn more.',
           },
           {
             name: 'role',
@@ -276,88 +228,22 @@ function SectionsIconButtonDropdownExample() {
             cardSize="md"
             type="do"
             description="Use IconButton to perform low-emphasis actions, such as opening a [Modal](/web/modal) to edit a board."
-            defaultCode={`
-function HeadingExample(props) {
-  const ModalWithHeading = ({
-    onDismiss,
-  }) => {
-
-    return (
-      <Modal
-        accessibilityModalLabel="Edit board"
-        heading="Edit board"
-        onDismiss={onDismiss}
-        footer={
-          <Flex alignItems="center" justifyContent="end">
-            <Button color="red" text="Save"/>
-          </Flex>
-        }
-        size="sm"
-      >
-        <Box paddingX={8}>
-          <Box marginBottom={8}>
-            <TextField
-              id="name"
-              onChange={({ value }) => console.log(value)}
-              placeholder='Like "Places to go" or "Recipes to Make"'
-              label="Name"
-              type="text"
-            />
-          </Box>
-          <Checkbox
-            checked={false}
-            id="secret"
-            label="Keep this board secret"
-            helperText="So only you and collaborators can see it."
-            name="languages"
-            onChange={({ checked }) => {
-              console.log(checked);
-            }}
-          />
-        </Box>
-      </Modal>
-    );
-  };
-
-  const [shouldShow, setShouldShow] = React.useState(false);
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-    <React.Fragment>
-      <IconButton
-        accessibilityLabel="Open edit modal"
-        icon="edit"
-        onClick={() => setShouldShow(true)}
-        size="lg"
-        tooltip={{text: "Edit Pin"}}
-      />
-      {shouldShow && (
-        <Layer zIndex={modalZIndex}>
-          <ModalWithHeading onDismiss={() => setShouldShow(false)} />
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={lowActions} name="Low-emphasis action example" hideEditor />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Pair IconButton with a regular button to perform a high-emphasis action. IconButton should be a secondary action among regular buttons. "
-            defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}>
-  <Button text="Cancel" size="lg"/>
-  <IconButton
-    accessibilityLabel="Open edit modal"
-    icon="trash-can"
-    onClick={() => {}}
-    iconColor="red"
-    size="lg"
-  />
-</Flex>
-`}
+            description="Pair IconButton with a regular button to perform a high-emphasis action. IconButton should be a secondary action among regular buttons."
+            sandpackExample={
+              <SandpackExample
+                code={highActions}
+                name="High-emphasis action example"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -365,123 +251,15 @@ function HeadingExample(props) {
             cardSize="md"
             type="do"
             description='Consider grouping multiple actions in an "ellipsis" IconButton to avoid distraction with an overload of icons.'
-            defaultCode={`
-function OrderDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex gap={{ column: 0, row: 2 }}>
-      <Tooltip text="Go back to previous page">
-        <IconButton
-          accessibilityLabel="Back"
-          icon="arrow-back"
-          size="md"
-        />
-      </Tooltip>
-      <Tooltip text="Send pin">
-        <IconButton
-          accessibilityLabel="Share"
-          icon="share"
-          size="md"
-        />
-      </Tooltip>
-      <Tooltip text="Edit board details">
-        <IconButton
-          accessibilityLabel="Edit"
-          icon="edit"
-          size="md"
-        />
-      </Tooltip>
-      <IconButton
-        accessibilityControls="selectlist-dropdown-example3"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="Open menu"
-        icon="ellipsis"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="md"
-        tooltip={{text: "More options"}}
-      />
-      <Button text="Visit" size="md"/>
-      <Button color="red" text="Save" size="md"/>
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="selectlist-dropdown-example3" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Download image", label: "Download image" }}
-            selected={selected}
-          />
-          <Dropdown.Item
-            badge={{ text: 'New' }}
-            onSelect={onSelect}
-            option={{ value: "Hide Pin", label: "Hide Pin" }}
-            selected={selected}
-          />
-          <Dropdown.Link
-            href="https://pinterest.com"
-            isExternal
-            option={{ value: "Report Pin", label: "Report Pin" }}
-          />
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Delete Pin", label: "Delete Pin" }}
-            selected={selected}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  )
-}`}
+            sandpackExample={<SandpackExample code={grouping} name="Grouping example" hideEditor />}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Display more than 4 icon buttons in a single row as it can cause cognitive load and usability issues."
-            defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}>
-  <Tooltip text="Navigate to previous page">
-    <IconButton
-      accessibilityLabel="Back"
-      icon="arrow-back"
-      size="md"
-    />
-  </Tooltip>
-  <Tooltip text="Send pin">
-    <IconButton
-      accessibilityLabel="Share"
-      icon="share"
-      size="md"
-    />
-  </Tooltip>
-  <Tooltip text="Edit board details and sections">
-    <IconButton
-      accessibilityLabel="Customize"
-      icon="edit"
-      size="md"
-    />
-  </Tooltip>
-  <Tooltip text="Create new pin or board">
-    <IconButton
-      accessibilityLabel="Create"
-      icon="add"
-      size="md"
-    />
-  </Tooltip>
-  <Tooltip text="Search this board">
-    <IconButton
-      accessibilityLabel="Search"
-      icon="search"
-      size="md"
-    />
-  </Tooltip>
-  <Button color="red" text="Save" size="md"/>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample code={noGrouping} name="No Grouping example" hideEditor />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -489,40 +267,20 @@ function OrderDropdownExample() {
             cardSize="md"
             type="do"
             description="Display a [Tooltip](/web/tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
-            defaultCode={`
-  <IconButton
-    accessibilityLabel="Share"
-    icon="share"
-    size="lg"
-    tooltip={{text: "Send pin to others"}}
-  />
-`}
+            sandpackExample={<SandpackExample code={tooltip} name="Tooltip example" hideEditor />}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Add an IconButton on top of images unless it has a background that ensures easy readability and accessible contrast. Check the [background color](#Color) variant to learn more."
-            defaultCode={`
-<Box height={250} paddingX={2} width={250}>
-  <Mask rounding={6} wash>
-    <Image
-        alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-        naturalHeight={1}
-        naturalWidth={1}
-        src="https://i.ibb.co/x65Wctf/image.jpg"
-      >
-        <Box height="100%" padding={3} display="flex" justifyContent="end" alignItems="end">
-          <IconButton
-            accessibilityLabel="Share pin"
-            icon="share"
-            size="md"
-            iconColor="white"
-          />
-        </Box>
-      </Image>
-  </Mask>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={image}
+                name="IconButton over image example"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -541,59 +299,7 @@ If IconButton is used as a control button to show/hide a Popover-based component
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => {
-    if (selected.some(({ value }) => value === item.value)) {
-      setSelected((selected) => selected.filter(({ value }) => value != item.value));
-    } else {
-      setSelected((selected) => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="accessibility-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="Create Pin Menu"
-        bgColor="lightGray"
-        icon="add"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        tooltip={{text: "Create Pin", idealDirection: "up"}}
-      />
-      {open && (
-        <Dropdown
-          anchor={anchorRef.current}
-          id="accessibility-example"
-          onDismiss={() => setOpen(false)}
-        >
-          <Dropdown.Section label="Create">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Pin', label: 'Pin' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Story Pin', label: 'Story Pin' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-      `}
+            sandpackExample={<SandpackExample code={aria} name="ARIA attributes example" />}
           />
           <MainSection.Subsection
             title="Keyboard interaction"
@@ -605,37 +311,9 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
           />
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example(props) {
-  return (
-    <Flex gap={{ column: 0, row: 2 }}>
-      <Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" size="md" />
-      <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-        <Text inline weight="bold">
-          <Link
-            accessibilityLabel="Open the settings page"
-            target="blank"
-            inline
-            href="https://www.pinterest.com/settings/"
-          >
-            James Jones
-          </Link>
-        </Text>
-        <IconButton
-          accessibilityLabel="Open the settings page"
-          href="https://www.pinterest.com/settings/"
-          icon="edit"
-          role="link"
-          size="xs"
-          tabIndex="-1"
-          target="blank"
-          tooltip={{text: "Edit name"}}
-        />
-      </Flex>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={keyboard} name="Keyboard interaction example" />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -659,29 +337,13 @@ function Example(props) {
 \`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link.
 
 IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.`}
-            defaultCode={`
-<IconButton
-  accessibilityLabel="This IconButton is an example of IconButton acting as a link"
-  icon="visit"
-  role="link"
-  target="blank"
-  href="https://www.pinterest.com"
-  tooltip={{text: "Link example"}}
-/>
-`}
+            sandpackExample={<SandpackExample code={roleLink} name="Role link example" />}
           />
           <MainSection.Card
             cardSize="md"
             title="role = button"
             description="If IconButton acts as a button, pass role-specific [props](#role_buttonProps)."
-            defaultCode={`
-<IconButton
-  accessibilityLabel="This IconButton is an example of IconButton acting as a button"
-  icon="share"
-  onClick={() => {}}
-  tooltip={{text: "Button Example"}}
-/>
-`}
+            sandpackExample={<SandpackExample code={roleButton} name="Role button example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -781,27 +443,9 @@ Follow these guidelines for \`bgColor\`
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Flex gap={{ column: 0, row: 4 }}>
-  <IconButton
-    accessibilityLabel="Sharing"
-    icon="share"
-    tooltip={{
-      text: "This Pin is private unless you share it with others.",
-      idealDirection: "up"
-    }}
-  />
-  <IconButton
-    accessibilityLabel="Edit"
-    icon="edit"
-    tooltip={{
-      text: "Edit",
-      accessibilityLabel: "",
-      idealDirection: "up"
-    }}
-  />
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample code={tooltipVariant} name="Tooltip variant example example" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -811,23 +455,11 @@ Follow these guidelines for \`bgColor\`
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<IconButton
-  accessibilityLabel="Go to next steps"
-  icon="directional-arrow-right"
-  tooltip={{text: "Built-in Gestalt Icon"}}
-/>
-`}
+            sandpackExample={<SandpackExample code={gestaltIcon} name="Gestalt icon example" />}
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<IconButton
-  accessibilityLabel="Go to next steps"
-  dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
-  tooltip={{text: "Custom Icon"}}
-/>
-`}
+            sandpackExample={<SandpackExample code={customIcon} name="Custom icon example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -836,108 +468,7 @@ Follow these guidelines for \`bgColor\`
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function SectionsIconButtonDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => {
-    if (selected.some(({ value }) => value === item.value )) {
-      setSelected((selected) => selected.filter(({ value }) => value != item.value));
-    } else {
-      setSelected((selected) => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="sections-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="Create Pin Menu"
-        bgColor="lightGray"
-        icon="add"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        tooltip={{text: "Create", accessibilityLabel: "", idealDirection: "up"}}
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Section label="Create">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Pin', label: 'Pin' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Story Pin', label: 'Story Pin' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-          <Dropdown.Section label="Add">
-            <Dropdown.Item
-              badge={{ text: 'New' }}
-              onSelect={onSelect}
-              option={{ value: 'Note', label: 'Note' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Section', label: 'Section' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-      `}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Ref"
-          description={`To control focus, or position any anchor components to IconButton, use \`ref\`, as shown in the example below.`}
-        >
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
-function IconButtonPopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [checked, setChecked] = React.useState(false);
-  const anchorRef = React.useRef(null);
-  return (
-    <React.Fragment>
-      <IconButton
-        accessibilityLabel="Favorite this Pin"
-        bgColor="white"
-        icon="heart"
-        iconColor="red"
-        onClick={() => { setOpen(true), setChecked(!checked) } }
-        selected={checked}
-        ref={anchorRef}
-        tooltip={{text: "Favorite this pin", accessibilityLabel: ""}}
-      />
-      {open && checked &&(
-        <Popover
-          anchor={anchorRef.current}
-          idealDirection="right"
-          onDismiss={() => setOpen(false)}
-          shouldFocus={false}
-        >
-          <Box padding={3}>
-            <Text weight="bold">You loved this pin!</Text>
-          </Box>
-        </Popover>
-      )}
-    </React.Fragment>
-  );
-}`}
+            sandpackExample={<SandpackExample code={selectedState} name="Selected state example" />}
           />
         </MainSection.Subsection>
       </MainSection>
