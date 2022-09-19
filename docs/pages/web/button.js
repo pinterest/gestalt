@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Button } from 'gestalt';
+import { Button, SlimBanner } from 'gestalt';
 import PropTable from '../../docs-components/PropTable.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -76,7 +76,9 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
             name: 'iconEnd',
             type: '$Keys<typeof icons>',
             required: false,
-            description: ['An icon displayed after the text to help clarify the usage of Button.'],
+            description: [
+              'An icon displayed after the text to help clarify the usage of Button. See the [icon variant](#Icons) to learn more.',
+            ],
           },
           {
             name: 'fullWidth',
@@ -523,10 +525,19 @@ function SemiTransparentWhiteButtonExample() {
         <MainSection.Subsection
           title="Icons"
           description={`
-Icon end
-Adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
+\`iconEnd\` adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
 `}
         >
+          <SlimBanner
+            type="recommendationBare"
+            iconAccessibilityLabel="Recommendation"
+            message="Use Gestalt's Eslint rule to enforce the correct icons usage in Button."
+            helperLink={{
+              accessibilityLabel: 'Learn more about the "button-icon-restrictions" rule',
+              href: '/get_started/developers/eslint_plugin#gestaltbutton-icon-restrictions',
+              text: 'Learn more about the "button-icon-restrictions" rule',
+            }}
+          />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`

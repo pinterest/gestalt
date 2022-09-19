@@ -64,16 +64,20 @@ const rule: ESLintRule = {
         }
 
         const iconAttribute = getAttribute(node, 'iconEnd');
-        const isCorrectIcon = getValue(iconAttribute) === 'arrow-down';
+        const iconEndValue = getValue(iconAttribute);
+
+        const roleAttribute = getAttribute(node, 'role');
+        const roleValue = getValue(roleAttribute);
 
         // Not using iconEnd, early return
         if (!iconAttribute) {
           return;
         }
-
         // Not using correct props
-        if (!isCorrectIcon) {
-          context.report(node, 'Buttons using iconEnd must use "arrow-down"');
+        if (roleValue === 'link' && iconEndValue !== 'visit') {
+          context.report(node, 'Buttons with="link" using iconEnd must use the "visit" icon');
+        } else if (roleValue !== 'link' && iconEndValue !== 'arrow-down') {
+          context.report(node, 'Buttons using iconEnd must use "arrow-down" icon');
         }
       },
     };

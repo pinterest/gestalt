@@ -88,7 +88,8 @@ With AUTOFIX!
         <MainSection.Subsection
           title="gestalt/button-icon-restrictions"
           description={`
-        Require a specific icon when using an icon with Button. Buttons using \`iconEnd\` must use icon &quot;arrow-down&quot;
+        Require a specific value when using [Icon](/web/icon) with [Button](/web/button). Gestalt is more permissive than we recommend internally for adding icons to Buttons, so Buttons using \`iconEnd\` must use the &quot;arrow-down&quot; icon and Buttons with link role using \`iconEnd\` must use the &quot;visit&quot; icon.
+
       `}
         />
         <MainSection.Subsection
