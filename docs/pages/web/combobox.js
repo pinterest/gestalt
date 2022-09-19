@@ -18,6 +18,7 @@ import tags from '../../examples/combobox/tags.js';
 import ref from '../../examples/combobox/ref.js';
 import subtext from '../../examples/combobox/subtext.js';
 import error from '../../examples/combobox/error.js';
+import helperText from '../../examples/combobox/helperText.js';
 
 const PREVIEW_HEIGHT = 320;
 
@@ -186,12 +187,27 @@ export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: Do
         </MainSection.Subsection>
         <MainSection.Subsection
           description="Display `subtext` under each selection option"
-          title="Example with subtext"
+          title="Subtext"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={subtext} name="subtext" previewHeight={PREVIEW_HEIGHT} />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Helper text"
+          description="Whenever you want to provide more information about a form field, you should use `helperText`."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={helperText}
+                name="Helper text example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>

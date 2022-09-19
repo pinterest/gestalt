@@ -46,11 +46,11 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * Provide feedback when an error on selection occurs. See [error message](https://gestalt.pinterest.systems/web/combobox#Error-message) variant.
+   * Provide feedback when an error on selection occurs. See [error message variant](https://gestalt.pinterest.systems/web/combobox#Error-message).
    */
   errorMessage?: Node,
   /**
-   * Provides additional information about how to select a ComboBox option.
+   * Provides additional information about how to select a ComboBox option. See [helper text variant](https://gestalt.pinterest.systems/web/combobox#Helper-text).
    */
   helperText?: string,
   /**
@@ -117,7 +117,7 @@ type Props = {|
     |},
   |}) => void,
   /**
-   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/web/combobox#With-subtext) variant to learn more.
+   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/web/combobox#Subtext) variant to learn more.
    */
   options: $ReadOnlyArray<{|
     label: string,
