@@ -20,7 +20,7 @@ exports[`RadioGroup renders 1`] = `
       className="FlexItem"
     >
       <div
-        className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+        className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
         <label
           className="label"
@@ -75,7 +75,7 @@ exports[`RadioGroup renders a hidden legend 1`] = `
       className="FlexItem"
     >
       <div
-        className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+        className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
         <label
           className="label"
@@ -130,7 +130,7 @@ exports[`RadioGroup renders an error 1`] = `
       className="FlexItem"
     >
       <div
-        className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+        className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
         <label
           className="label"
@@ -199,7 +199,7 @@ exports[`RadioGroup renders in different direction 1`] = `
       className="FlexItem"
     >
       <div
-        className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+        className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
         <label
           className="label"

@@ -5,7 +5,7 @@ exports[`Checkbox 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"
@@ -34,6 +34,11 @@ exports[`Checkbox 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -59,7 +64,7 @@ exports[`Checkbox checked 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"
@@ -102,6 +107,11 @@ exports[`Checkbox checked 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -127,7 +137,7 @@ exports[`Checkbox disabled & checked 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"
@@ -170,6 +180,11 @@ exports[`Checkbox disabled & checked 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -195,7 +210,7 @@ exports[`Checkbox disabled 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"
@@ -224,6 +239,11 @@ exports[`Checkbox disabled 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -249,7 +269,7 @@ exports[`Checkbox indeterminate 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"
@@ -292,6 +312,11 @@ exports[`Checkbox indeterminate 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -317,7 +342,7 @@ exports[`Checkbox small 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"
@@ -346,6 +371,11 @@ exports[`Checkbox small 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -427,6 +457,11 @@ exports[`Checkbox with an image 1`] = `
     </div>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -481,6 +516,11 @@ exports[`Checkbox with error 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -549,6 +589,11 @@ exports[`Checkbox with helperText 1`] = `
     </label>
     <div
       className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <label
         className="label"
@@ -583,7 +628,7 @@ exports[`Checkbox without label 1`] = `
   className="box"
 >
   <div
-    className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
   >
     <label
       className="label"

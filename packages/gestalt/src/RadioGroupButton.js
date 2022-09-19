@@ -127,13 +127,7 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
   }
 
   return (
-    <Box
-      alignItems={helperText || image ? 'start' : 'center'}
-      display="flex"
-      justifyContent="start"
-      marginStart={-1}
-      marginEnd={-1}
-    >
+    <Box alignItems="start" display="flex" justifyContent="start" marginStart={-1} marginEnd={-1}>
       <Label htmlFor={id}>
         <Box paddingX={1}>
           <div
@@ -171,7 +165,8 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
       {Boolean(image) && <Box paddingX={1}>{image}</Box>}
       {label && (
         <Label htmlFor={id}>
-          <Box paddingX={1}>
+          {/* marginTop: '2px' is needed to  visually align the label text & radiobutton input */}
+          <Box paddingX={1} dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }}>
             <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
               {label}
             </Text>

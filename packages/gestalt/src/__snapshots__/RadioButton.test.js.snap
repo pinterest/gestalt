@@ -2,7 +2,7 @@
 
 exports[`RadioButton 1`] = `
 <div
-  className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+  className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
 >
   <label
     className="label"
@@ -36,6 +36,11 @@ exports[`RadioButton 1`] = `
   >
     <div
       className="box paddingX1"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <div
         className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -49,7 +54,7 @@ exports[`RadioButton 1`] = `
 
 exports[`RadioButton checked 1`] = `
 <div
-  className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+  className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
 >
   <label
     className="label"
@@ -82,7 +87,7 @@ exports[`RadioButton checked 1`] = `
 
 exports[`RadioButton disabled 1`] = `
 <div
-  className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+  className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
 >
   <label
     className="label"
@@ -116,6 +121,11 @@ exports[`RadioButton disabled 1`] = `
   >
     <div
       className="box paddingX1"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <div
         className="Text fontSize300 subtleText alignStart breakWord fontWeightNormal"
@@ -129,7 +139,7 @@ exports[`RadioButton disabled 1`] = `
 
 exports[`RadioButton disabled small 1`] = `
 <div
-  className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+  className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
 >
   <label
     className="label"
@@ -163,6 +173,11 @@ exports[`RadioButton disabled small 1`] = `
   >
     <div
       className="box paddingX1"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <div
         className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
@@ -176,7 +191,7 @@ exports[`RadioButton disabled small 1`] = `
 
 exports[`RadioButton small 1`] = `
 <div
-  className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+  className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
 >
   <label
     className="label"
@@ -210,6 +225,11 @@ exports[`RadioButton small 1`] = `
   >
     <div
       className="box paddingX1"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <div
         className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
@@ -284,6 +304,11 @@ exports[`RadioButton with image 1`] = `
   >
     <div
       className="box paddingX1"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <div
         className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
@@ -331,6 +356,11 @@ exports[`RadioButton with subtext 1`] = `
   >
     <div
       className="box paddingX1"
+      style={
+        Object {
+          "marginTop": "2px",
+        }
+      }
     >
       <div
         className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
@@ -359,7 +389,7 @@ exports[`RadioButton with subtext 1`] = `
 
 exports[`RadioButton without label 1`] = `
 <div
-  className="box itemsCenter marginEndN1 marginStartN1 xsDisplayFlex"
+  className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
 >
   <label
     className="label"

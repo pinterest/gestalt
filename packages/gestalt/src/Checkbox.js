@@ -156,13 +156,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   return (
     <Box>
-      <Box
-        alignItems={helperText || errorMessage || image ? 'start' : 'center'}
-        display="flex"
-        justifyContent="start"
-        marginStart={-1}
-        marginEnd={-1}
-      >
+      <Box alignItems="start" display="flex" justifyContent="start" marginStart={-1} marginEnd={-1}>
         <Label htmlFor={id}>
           <Box paddingX={1} position="relative">
             <input
@@ -207,7 +201,11 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         </Label>
         {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
-          <Box display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}>
+          <Box
+            display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
+            //  marginTop: '2px' is needed to  visually align the label text & radiobutton input
+            dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }}
+          >
             <Label htmlFor={id}>
               <Box paddingX={1}>
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
