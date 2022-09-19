@@ -186,7 +186,7 @@ function RadioButtonExample() {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use [IconButtons with Tooltips](/web/iconbutton#With-Tooltip) or `subtext`."
+            description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use [IconButtons with Tooltips](/web/iconbutton#With-Tooltip) or `helperText`."
             defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState();
@@ -352,7 +352,7 @@ function RadioButtonExample() {
       </AccessibilitySection>
       <MainSection
         name="Localization"
-        description={`Be sure to localize \`errorMessage\`, \`subtext\`, \`label\`, and \`legend\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
+        description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, and \`legend\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
       />
 
       <MainSection name="Variants">
@@ -553,8 +553,8 @@ function RadioButtonExample() {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="With subtext"
-          description="Use `subtext` to provide extra context or information for each option."
+          title="With helperText"
+          description="Use `helperText` to provide extra context or information for each option."
         >
           <MainSection.Card
             defaultCode={`
@@ -562,12 +562,12 @@ function RadioButtonExample() {
   const [availability, setAvailability] = React.useState();
 
   return (
-    <RadioGroup legend="Which time slot works best for you?" id="subtextExample">
+    <RadioGroup legend="Which time slot works best for you?" id="helperTextExample">
         <RadioGroup.RadioButton
           checked={availability === 'monday'}
           id="monday"
           label="Monday"
-          subtext="Morning and afternoon"
+          helperText="Morning and afternoon"
           name="Availability"
           onChange={() => setAvailability('monday')}
           value="monday"
@@ -576,7 +576,7 @@ function RadioButtonExample() {
           checked={availability === 'tuesday'}
           id="tuesday"
           label="Tuesday"
-          subtext="Morning, afternoon, and evening"
+          helperText="Morning, afternoon, and evening"
           name="Availability"
           onChange={() => setAvailability('tuesday')}
           value="tuesday"
@@ -585,7 +585,7 @@ function RadioButtonExample() {
           checked={availability === 'wednesday'}
           id="Wednesday"
           label="Wednesday"
-          subtext="Evening only"
+          helperText="Evening only"
           name="Availability"
           onChange={() => setAvailability('wednesday')}
           value="wednesday"
@@ -598,7 +598,7 @@ function RadioButtonExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="With Image"
-          description="When including images, you can use the `subtext` property to clearly describe the information being presented by the image, or use the image's `alt` text to provide more context."
+          description="When including images, you can use the `helperText` property to clearly describe the information being presented by the image, or use the image's `alt` text to provide more context."
         >
           <MainSection.Card
             defaultCode={`
@@ -611,7 +611,7 @@ function RadioButtonExample() {
         checked={artPreference === 'coral'}
         id="coral"
         label="Coral"
-        subtext="Botanical art in coral and green"
+        helperText="Botanical art in coral and green"
         image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
 
         name="Art Preference"
@@ -622,7 +622,7 @@ function RadioButtonExample() {
         checked={artPreference === 'blue'}
         id="blue"
         label="Blue"
-        subtext="Typography and shoe in blue"
+        helperText="Typography and shoe in blue"
         image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
         name="Art Preference"
         onChange={() => setArtPreference('blue')}
@@ -632,7 +632,7 @@ function RadioButtonExample() {
         checked={artPreference === 'green'}
         id="green"
         label="Green"
-        subtext="Abstract art in green"
+        helperText="Abstract art in green"
         image={<Box height={100} width={80}><Image alt="Abstract art in green" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
         name="Art Preference"
         onChange={() => setArtPreference('green')}
@@ -659,7 +659,7 @@ function RadioButtonExample() {
           checked={availability === 'monday'}
           id="mondayError"
           label="Monday"
-          subtext="Morning and afternoon"
+          helperText="Morning and afternoon"
           name="Availability with error"
           onChange={() => setAvailability('monday')}
           value="monday"
@@ -668,7 +668,7 @@ function RadioButtonExample() {
           checked={availability === 'tuesday'}
           id="tuesdayError"
           label="Tuesday"
-          subtext="Morning, afternoon, and evening"
+          helperText="Morning, afternoon, and evening"
           name="Availability with error"
           onChange={() => setAvailability('tuesday')}
           value="tuesday"
@@ -677,7 +677,7 @@ function RadioButtonExample() {
           checked={availability === 'wednesday'}
           id="WednesdayError"
           label="Wednesday"
-          subtext="Evening only"
+          helperText="Evening only"
           name="Availability with error"
           onChange={() => setAvailability('wednesday')}
           value="wednesday"
