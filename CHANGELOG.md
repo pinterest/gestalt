@@ -1,3 +1,9 @@
+## 72.0.5 (Sep 19, 2022)
+
+### Patch
+
+- ComboBox: add helperText variant in Docs ([#2399](https://github.com/pinterest/gestalt/pull/2399)) - [Preview link](https://deploy-preview-2399--gestalt.netlify.app)
+
 ## 72.0.4 (Sep 19, 2022)
 
 ### Patch
