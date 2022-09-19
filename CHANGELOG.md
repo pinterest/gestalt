@@ -1,3 +1,9 @@
+## 72.0.6 (Sep 19, 2022)
+
+### Patch
+
+- Revert "Popover: Add support to handle content that overflows the viewport height ([#2384](https://github.com/pinterest/gestalt/pull/2384)) - [Preview link](https://deploy-preview-2384--gestalt.netlify.app)" ([#2400](https://github.com/pinterest/gestalt/pull/2400)) - [Preview link](https://deploy-preview-2400--gestalt.netlify.app)
+
 ## 72.0.5 (Sep 19, 2022)
 
 ### Patch
