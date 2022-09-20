@@ -5,6 +5,9 @@ import { I18nProvider } from 'gestalt';
 import DatePicker from './DatePicker.js';
 
 const translations = {
+  ComboBox: {
+    accessibilityClearButtonLabel: 'Clear input',
+  },
   TextField: {
     accessibilityHidePasswordLabel: 'Hide password',
     accessibilityShowPasswordLabel: 'Show password',

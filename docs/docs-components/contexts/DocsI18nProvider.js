@@ -3,6 +3,9 @@ import { type Node } from 'react';
 import { I18nProvider } from 'gestalt';
 
 const translations = {
+  ComboBox: {
+    accessibilityClearButtonLabel: 'Clear input',
+  },
   TextField: {
     accessibilityHidePasswordLabel: 'Hide password',
     accessibilityShowPasswordLabel: 'Show password',

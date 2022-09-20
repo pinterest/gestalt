@@ -10,6 +10,9 @@ import { type Context, createContext, useContext } from 'react';
  */
 
 export type I18nContextType = {|
+  ComboBox: {|
+    accessibilityClearButtonLabel: ?string,
+  |},
   TextField: {|
     accessibilityHidePasswordLabel: ?string,
     accessibilityShowPasswordLabel: ?string,
@@ -17,16 +20,12 @@ export type I18nContextType = {|
 |};
 
 export const initialContext = {
+  ComboBox: {
+    accessibilityClearButtonLabel: null,
+  },
   TextField: {
     accessibilityHidePasswordLabel: null,
     accessibilityShowPasswordLabel: null,
-  },
-};
-
-const defaultTranslations: I18nContextType = {
-  TextField: {
-    accessibilityHidePasswordLabel: 'Hide password',
-    accessibilityShowPasswordLabel: 'Show password',
   },
 };
 
@@ -53,39 +52,18 @@ export function useI18nContext<C: ValidComponent>(
     );
   }
 
-  const translationPropNames = Object.keys(componentTranslations);
-  // Translations that are still nullish (less likely)
-  const nullTranslations = translationPropNames.filter(
-    (propName) => typeof componentTranslations[propName] !== 'string',
-  );
-  const expectedTranslations = Object.keys(initialContext[componentName]);
-  // Translations that weren't provided in the Provider (more likely)
-  const missingTranslations = expectedTranslations.filter(
-    (item) => !translationPropNames.includes(item),
-  );
-  const missingAndNullTranslations = [...nullTranslations, ...missingTranslations];
+  const areNullTranslations = Object.values(componentTranslations).some((item) => item === null);
 
-  if (missingAndNullTranslations.length > 0) {
-    const multipleMissing = missingAndNullTranslations.length > 1;
+  if (areNullTranslations) {
     const isNotProd = process.env.NODE_ENV !== 'production';
 
     if (isNotProd) {
       // Ideally we would throw an actual error here (at least in dev), but this wasn't working with the mocks in Pinboard
       // eslint-disable-next-line no-console
       console.error(
-        `${componentName} prop${multipleMissing ? 's' : ''} ${missingAndNullTranslations.join(
-          ', ',
-        )} ${
-          multipleMissing ? 'are' : 'is'
-        } missing translations — please add translations to I18nProvider`,
+        "Translations missing in Gestalt's I18nProvider. Please provide translations to ensure users see the correct text.",
       );
     }
-    const defaultComponentTranslations = defaultTranslations[componentName];
-    Object.keys(defaultComponentTranslations).forEach((propName) => {
-      if (!componentTranslations[propName]) {
-        componentTranslations[propName] = defaultComponentTranslations[propName];
-      }
-    });
   }
 
   return componentTranslations;

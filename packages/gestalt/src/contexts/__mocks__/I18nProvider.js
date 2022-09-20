@@ -4,6 +4,9 @@ import { createContext, type Context, useContext } from 'react';
 import { type I18nContextType } from '../I18nProvider.js';
 
 const translations: I18nContextType = {
+  ComboBox: {
+    accessibilityClearButtonLabel: 'Clear input',
+  },
   TextField: {
     accessibilityHidePasswordLabel: 'Hide password',
     accessibilityShowPasswordLabel: 'Show password',
