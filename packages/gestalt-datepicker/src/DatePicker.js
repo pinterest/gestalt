@@ -226,7 +226,14 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
       )}
       <ReactDatePicker
         calendarClassName={classnames(styles['react-datepicker'])}
-        customInput={<DatePickerTextField name={name} id={id} />}
+        customInput={
+          <DatePickerTextField
+            name={name}
+            id={id}
+            errorMessage={errorMessage}
+            helperText={helperText}
+          />
+        }
         dateFormat={format}
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
@@ -273,13 +280,6 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
         showPopperArrow={false}
         startDate={rangeStartDate}
       />
-      {(!!errorMessage || !!helperText) && (
-        <Box marginTop={2}>
-          <Text color={errorMessage ? 'error' : 'subtle'} size="100">
-            {errorMessage || helperText}
-          </Text>
-        </Box>
-      )}
     </div>
   );
 });
