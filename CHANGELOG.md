@@ -1,3 +1,9 @@
+## 73.0.3 (Sep 20, 2022)
+
+### Patch
+
+- IconButton: implement Sandpack code editor examples ([#2405](https://github.com/pinterest/gestalt/pull/2405)) - [Preview link](https://deploy-preview-2405--gestalt.netlify.app)
+
 ## 73.0.2 (Sep 20, 2022)
 
 ### Patch
