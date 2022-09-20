@@ -121,8 +121,8 @@ Any other engineers will highly benefit from reducing the amount of steps to ado
       </MainSection>
       <MainSection name="Developer velocity tools">
         <MainSection.Subsection
-          title="Eslint plugin"
-          description={`Visit the [Eslint plugin](/get_started/developers/eslint_plugin) guidance page to see all the available Eslint rules.
+          title="ESLint plugin"
+          description={`Visit the [ESLint plugin](/get_started/developers/eslint_plugin) guidance page to see all the available ESLint rules.
 
 Most rules come with out-of-the-box autofixes, automating the adoption of Gestalt best practices.`}
         />

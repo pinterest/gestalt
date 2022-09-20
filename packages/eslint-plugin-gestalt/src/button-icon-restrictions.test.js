@@ -2,7 +2,7 @@
 import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
-import rule from './button-icon-restrictions.js';
+import rule, { errorMessage, errorMessage2 } from './button-icon-restrictions.js';
 import { parserOptions } from './helpers/testHelpers.js';
 
 const ruleTester = new RuleTester({ parserOptions });
@@ -28,15 +28,11 @@ const invalidWrongIconLinkRole = readFileSync(
   'utf-8',
 );
 
-const errorMessage = 'Buttons using iconEnd must use "arrow-down" icon';
-
-const errorMessage2 = 'Buttons with="link" using iconEnd must use the "visit" icon';
-
 ruleTester.run('button-icon-restrictions', rule, {
   valid: [validWithSize].map((code) => ({ code })),
   invalid: [invalidRenamed, invalidWrongIcon].map((code) => ({
     code,
-    errors: [{ message: errorMessage }],
+    errors: [{ message: errorMessage2 }],
   })),
 });
 
@@ -44,6 +40,6 @@ ruleTester.run('button-icon-restrictions', rule, {
   valid: [validWithSize].map((code) => ({ code })),
   invalid: [invalidWrongIconLinkRole].map((code) => ({
     code,
-    errors: [{ message: errorMessage2 }],
+    errors: [{ message: errorMessage }],
   })),
 });

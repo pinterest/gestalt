@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick, or disallowed props on `Box` (no-box-disallowed-props Eslint rule)
+ * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick, or disallowed props on `Box` (no-box-disallowed-props ESLint rule)
  */
 
 // @flow strict

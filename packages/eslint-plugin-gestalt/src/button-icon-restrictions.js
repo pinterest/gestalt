@@ -9,6 +9,10 @@
 // @flow strict
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
+export const errorMessage = 'Buttons with="link" using iconEnd must use the "visit" icon';
+
+export const errorMessage2 = 'Buttons using iconEnd must use "arrow-down" icon';
+
 const rule: ESLintRule = {
   meta: {
     type: 'suggestion',
@@ -75,9 +79,9 @@ const rule: ESLintRule = {
         }
         // Not using correct props
         if (roleValue === 'link' && iconEndValue !== 'visit') {
-          context.report(node, 'Buttons with="link" using iconEnd must use the "visit" icon');
+          context.report(node, errorMessage);
         } else if (roleValue !== 'link' && iconEndValue !== 'arrow-down') {
-          context.report(node, 'Buttons using iconEnd must use "arrow-down" icon');
+          context.report(node, errorMessage2);
         }
       },
     };

@@ -531,7 +531,7 @@ function SemiTransparentWhiteButtonExample() {
           <SlimBanner
             type="recommendationBare"
             iconAccessibilityLabel="Recommendation"
-            message="Use Gestalt's Eslint rule to enforce the correct icons usage in Button."
+            message="Use Gestalt's ESLint rule to enforce the correct icons usage in Button."
             helperLink={{
               accessibilityLabel: 'Learn more about the "button-icon-restrictions" rule',
               href: '/get_started/developers/eslint_plugin#gestaltbutton-icon-restrictions',
