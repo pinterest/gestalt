@@ -1,3 +1,9 @@
+## 73.0.1 (Sep 20, 2022)
+
+### Patch
+
+- Checkbox, RadioButton: Implementing a11y pause ([#2406](https://github.com/pinterest/gestalt/pull/2406)) - [Preview link](https://deploy-preview-2406--gestalt.netlify.app)
+
 ## 73.0.0 (Sep 19, 2022)
 
 ### Major
