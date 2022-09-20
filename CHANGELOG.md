@@ -1,3 +1,9 @@
+## 73.0.4 (Sep 20, 2022)
+
+### Patch
+
+- DatePicker: standardize error message style and internal cleanup ([#2395](https://github.com/pinterest/gestalt/pull/2395)) - [Preview link](https://deploy-preview-2395--gestalt.netlify.app)
+
 ## 73.0.3 (Sep 20, 2022)
 
 ### Patch
