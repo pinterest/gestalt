@@ -459,6 +459,81 @@ function Example(props) {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          title="Maximum length"
+          columns={2}
+          description={`TextArea supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in TextArea.
+          
+For controlled TextAreas, if the initial value in the external state exceeds the \`maxLength\` value, TextArea will display the long value; however, the user won't be able to add additional characters and they will only be allowed to delete characters. 
+          
+When \`maxLength\` is passed to TextArea, the component displays a character counter as well as an [error Status](/status) when the user reaches or the controlled value exceeds the maximum length of characters. 
+
+The first example shows an empty TextArea with \`maxLength\` set to 200 characters. The second example shows the error Status. The example below should be prevented as it shows TextArea displaying the error Status when the value lenght is exceeded.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+function TextAreaExample() {
+  const [value, setValue] = React.useState('');
+  const maxLength = 200;
+
+  return (
+    <TextArea
+        id="maxLength"
+        label="Alt text"
+        helperText="Describe your image with detail so visually impaired users can understand your Pin"
+        onChange={({ value }) => setValue(value)}
+        placeholder="Enter the image alt text"
+        value={value}
+        onBlur={() => {}}
+        onFocus={() => {}}
+        rows={2}
+        maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel: 'Limit reached. You can only use 20 characters in this field.' }}
+      />
+  );
+}
+`}
+          />
+          <MainSection.Card
+            defaultCode={`
+            function TextAreaExample() {
+  const [valueA, setValueA] = React.useState('Before and after via side by side display of pale woman with auburn hair using concealer. The image shows her using a brush with concealer under her eyes.  The second image shows her with full makeup.');
+  const [valueB, setValueB] = React.useState('Before and after via side by side display of pale woman with auburn hair using concealer. The image shows her using a brush with concealer under her eyes, second image shows her with full makeup and says new.');
+
+  const maxLength = 200;
+  const errorAccessibilityLabel = "Limit reached. You can only use 20 characters in this field.";
+
+  return (
+    <Flex direction="column" gap={4}>
+      <TextArea
+        id="maxLengthReached"
+        label="Alt text"
+        helperText="Describe your image with detail so visually impaired users can understand your Pin"
+        onChange={({ value }) => setValueA(value)}
+        placeholder="Enter the image alt text"
+        value={valueA}
+        onBlur={() => {}}
+        onFocus={() => {}}
+        rows={2}
+        maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel }}
+      />
+      <TextArea
+        id="maxLengthExceeded"
+        label="Alt text"
+        helperText="Describe your image with detail so visually impaired users can understand your Pin"
+        onChange={({ value }) => setValueB(value)}
+        placeholder="Enter the image alt text"
+        value={valueB}
+        onBlur={() => {}}
+        onFocus={() => {}}
+        rows={2}
+        maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel }}
+      />
+    </Flex>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
           title="With a ref"
           description={`
           A \`TextArea\` with an anchor ref to a Popover component

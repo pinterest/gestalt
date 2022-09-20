@@ -1,11 +1,64 @@
 // @flow strict
 import { createRef } from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+// $FlowFixMe[untyped-import]
+import userEvent from '@testing-library/user-event';
 import TextField from './TextField.js';
 
 jest.mock('./contexts/I18nProvider.js');
 
+const LABEL = 'textfieldLabel';
+
+const renderTextField = ({
+  // Cmp Props
+  id = 'test',
+  onChange = jest.fn(),
+  onFocus = jest.fn(),
+  onBlur = jest.fn(),
+  maxLength,
+}) =>
+  render(
+    <TextField
+      id={id}
+      label={LABEL}
+      onChange={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      maxLength={maxLength}
+    />,
+  );
+
 describe('TextField', () => {
+  it('has an accessible maxLength', async () => {
+    const errorAccessibilityLabel = 'Limit reached. You can only use 20 characters in this field.';
+
+    renderTextField({
+      maxLength: {
+        maxLengthChar: 20,
+        errorAccessibilityLabel,
+      },
+    });
+
+    const userInput = 'text';
+    const userInput2 = 'very, very long text!';
+
+    expect(screen.getByText('0/20')).toBeVisible();
+
+    await userEvent.type(screen.getByLabelText(LABEL), userInput);
+
+    expect(screen.getByText('4/20')).toBeVisible();
+
+    await userEvent.type(screen.getByLabelText(LABEL), userInput2);
+
+    expect(screen.getByText('20/20', { ignore: '.errorText' })).not.toBeVisible();
+
+    expect(screen.getByText('20/20', { ignore: '.subtleText' })).toBeVisible();
+
+    expect(screen.getByText(errorAccessibilityLabel)).toBeVisible();
+
+    expect(screen.getByLabelText(errorAccessibilityLabel)).toBeVisible();
+  });
+
   it('renders error message on errorMessage prop change', () => {
     const { getByText, rerender } = render(
       <TextField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,

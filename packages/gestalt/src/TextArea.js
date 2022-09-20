@@ -43,6 +43,13 @@ type Props = {|
    */
   labelDisplay?: 'visible' | 'hidden',
   /**
+   * The maximum number of characters allowed in TextArea. See the [maximum lenght variant](https://gestalt.pinterest.systems/web/textarea##Maximum-length) for more details.
+   */
+  maxLength?: {|
+    maxLengthChar: number,
+    errorAccessibilityLabel: string,
+  |},
+  /**
    * A unique name for the input.
    */
   name?: string,
@@ -119,6 +126,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
     id,
     label,
     labelDisplay = 'visible',
+    maxLength,
     name,
     onBlur,
     onChange,
@@ -133,8 +141,10 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
   ref,
 ): Node {
   const [focused, setFocused] = useState(false);
+  const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
   const handleChange = (event: SyntheticInputEvent<HTMLTextAreaElement>) => {
+    setCurrentLength(event.currentTarget.value?.length ?? 0);
     onChange({ event, value: event.currentTarget.value });
   };
 
@@ -180,6 +190,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
       className={tags ? styles.unstyledTextArea : classes}
       disabled={disabled}
       id={id}
+      maxLength={maxLength?.maxLengthChar}
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
@@ -222,7 +233,9 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
       ) : (
         inputElement
       )}
-      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
+      {(helperText || maxLength) && !errorMessage ? (
+        <FormHelperText text={helperText} maxLength={maxLength} currentLength={currentLength} />
+      ) : null}
       {hasErrorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </span>
   );

@@ -9,6 +9,11 @@ import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
+export type MaxLength = {|
+  maxLengthChar: number,
+  errorAccessibilityLabel: string,
+|};
+
 type Props = {|
   /**
    * Indicate if autocomplete should be available on the input, and the type of autocomplete. Autocomplete values are implemented upon request. [Reach out to the Gestalt team](https://gestalt.pinterest.systems/get_started/how_to_work_with_us#Slack-channels) if you need [additional autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) to be supported.
@@ -46,6 +51,10 @@ type Props = {|
    * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
    */
   labelDisplay?: 'visible' | 'hidden',
+  /**
+   * The maximum number of characters allowed in Textfield. See the [maximum lenght variant](https://gestalt.pinterest.systems/web/textfield##Maximum-length) for more details.
+   */
+  maxLength?: MaxLength,
   /**
    * A unique name for the input.
    */
@@ -129,6 +138,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     id,
     label,
     labelDisplay = 'visible',
+    maxLength,
     name,
     onBlur,
     onChange,
@@ -209,6 +219,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       id={id}
       label={label}
       labelDisplay={labelDisplay}
+      maxLength={maxLength}
       name={name}
       onBlur={onBlur}
       onChange={onChange}

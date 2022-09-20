@@ -2,6 +2,7 @@
 import { useImperativeHandle, useRef, forwardRef, type Element, type Node, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
+import { type MaxLength } from './TextField.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
@@ -33,6 +34,7 @@ type Props = {|
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
   max?: number,
+  maxLength?: ?MaxLength,
   min?: number,
   name?: string,
   onBlur?: ({|
@@ -76,6 +78,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
       label,
       labelDisplay,
       max,
+      maxLength,
       min,
       name,
       onBlur,
@@ -101,6 +104,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
 
     // ==== STATE ====
     const [focused, setFocused] = useState(false);
+    const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
     // ==== HANDLERS ====
     const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
@@ -111,8 +115,10 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
     const handleClick = (event: SyntheticInputEvent<HTMLInputElement>) =>
       onClick?.({ event, value: event.currentTarget.value });
 
-    const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) =>
+    const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+      setCurrentLength(event.currentTarget.value?.length ?? 0);
       onChange({ event, value: event.currentTarget.value });
+    };
 
     const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
       setFocused(true);
@@ -156,6 +162,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
         disabled={disabled}
         enterKeyHint={enterKeyHint}
         id={id}
+        maxLength={maxLength?.maxLengthChar}
         max={type === 'number' ? max : undefined}
         min={type === 'number' ? min : undefined}
         name={name}
@@ -206,7 +213,9 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
           {!disabled && iconButton}
         </Box>
 
-        {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
+        {(helperText || maxLength) && !errorMessage ? (
+          <FormHelperText text={helperText} maxLength={maxLength} currentLength={currentLength} />
+        ) : null}
 
         {hasErrorMessage ? <FormErrorMessage id={id} text={errorMessage} /> : null}
       </span>
