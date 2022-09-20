@@ -9,15 +9,15 @@ import { type Context, createContext, useContext } from 'react';
  * - Add default translations to the mock file (./__mocks__/I18nProvider.js) and docs/components/contexts/DocsExperimentProvider.js
  */
 
-type nullOrString = null | string;
+type NullOrString = null | string;
 
 export type I18nContextType = {|
   ComboBox: {|
-    accessibilityClearButtonLabel: nullOrString,
+    accessibilityClearButtonLabel: NullOrString,
   |},
   TextField: {|
-    accessibilityHidePasswordLabel: nullOrString,
-    accessibilityShowPasswordLabel: nullOrString,
+    accessibilityHidePasswordLabel: NullOrString,
+    accessibilityShowPasswordLabel: NullOrString,
   |},
 |};
 
