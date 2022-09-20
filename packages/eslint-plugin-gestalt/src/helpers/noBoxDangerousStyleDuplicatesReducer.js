@@ -46,9 +46,9 @@ const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }
       }
     };
 
-    // This function is guard clause for those opt-out props from Eslint configuration
+    // This function is guard clause for those opt-out props from ESLint configuration
     function includeKey(keyName) {
-      const { onlyKeys } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
+      const { onlyKeys } = context?.options?.[0] ?? {}; // Access options from ESLint configuration
       return !onlyKeys || onlyKeys.includes(keyName);
     }
 

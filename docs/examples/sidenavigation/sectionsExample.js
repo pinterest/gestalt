@@ -6,7 +6,7 @@ export default function Example(): Node {
   return (
     <SideNavigation accessibilityLabel="Sections example">
       <SideNavigation.Section label="Resources">
-        <SideNavigation.TopItem href="#" label="Eslint plugin" />
+        <SideNavigation.TopItem href="#" label="ESLint plugin" />
         <SideNavigation.TopItem href="#" label="FAQ" />
         <SideNavigation.TopItem href="#" label="How to hack around Gestalt" />
         <SideNavigation.TopItem href="#" label="Tooling" />

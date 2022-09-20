@@ -908,7 +908,7 @@
 
 ### Minor
 
-- Eslint plugin: Avoid "workflow-status-[..]" on Icon [#2228](https://github.com/pinterest/gestalt/pull/2228) - [PREVIEW URL](https://deploy-preview-2228--gestalt.netlify.app)
+- ESLint plugin: Avoid "workflow-status-[..]" on Icon [#2228](https://github.com/pinterest/gestalt/pull/2228) - [PREVIEW URL](https://deploy-preview-2228--gestalt.netlify.app)
 
 ## 62.4.8 (Aug 1, 2022)
 
@@ -1526,7 +1526,7 @@
 
 ### Patch
 
-- Eslint: Loosen Button iconEnd restrictions [#2121](https://github.com/pinterest/gestalt/pull/2121) - [PREVIEW URL](https://deploy-preview-2121--gestalt.netlify.app)
+- ESLint: Loosen Button iconEnd restrictions [#2121](https://github.com/pinterest/gestalt/pull/2121) - [PREVIEW URL](https://deploy-preview-2121--gestalt.netlify.app)
 
 ## 55.2.1 (May 16, 2022)
 
@@ -1562,7 +1562,7 @@
 
 ### Major
 
-- Eslint plugin: Remove excludeTests & excludePaths [#2116](https://github.com/pinterest/gestalt/pull/2116) - [PREVIEW URL](https://deploy-preview-2116--gestalt.netlify.app)
+- ESLint plugin: Remove excludeTests & excludePaths [#2116](https://github.com/pinterest/gestalt/pull/2116) - [PREVIEW URL](https://deploy-preview-2116--gestalt.netlify.app)
 
 ## 54.3.0 (May 11, 2022)
 
@@ -3106,7 +3106,7 @@
 
 ### Minor
 
-- Eslint plugin: `prefer-heading` + autofix/suggestions [#1802](https://github.com/pinterest/gestalt/pull/1802) - [PREVIEW URL](https://deploy-preview-1802--gestalt.netlify.app)
+- ESLint plugin: `prefer-heading` + autofix/suggestions [#1802](https://github.com/pinterest/gestalt/pull/1802) - [PREVIEW URL](https://deploy-preview-1802--gestalt.netlify.app)
 
 ## 40.2.4 (Dec 7, 2021)
 
@@ -3286,13 +3286,13 @@
 
 ### Patch
 
-- Internal: upgrade Eslint to 8.1.0, + configs+plugins [#1762](https://github.com/pinterest/gestalt/pull/1762) - [PREVIEW URL](https://deploy-preview-1762--gestalt.netlify.app)
+- Internal: upgrade ESLint to 8.1.0, + configs+plugins [#1762](https://github.com/pinterest/gestalt/pull/1762) - [PREVIEW URL](https://deploy-preview-1762--gestalt.netlify.app)
 
 ## 39.2.2 (Nov 3, 2021)
 
 ### Patch
 
-- Eslint plugin: prefer-link fixes and added suggestions [#1759](https://github.com/pinterest/gestalt/pull/1759) - [PREVIEW URL](https://deploy-preview-1759--gestalt.netlify.app)
+- ESLint plugin: prefer-link fixes and added suggestions [#1759](https://github.com/pinterest/gestalt/pull/1759) - [PREVIEW URL](https://deploy-preview-1759--gestalt.netlify.app)
 
 ## 39.2.1 (Nov 3, 2021)
 
@@ -3346,7 +3346,7 @@
 
 ### Minor
 
-- Eslint plugin: prefer-link, convert anchor tag to Gestalt Link [#1741](https://github.com/pinterest/gestalt/pull/1741) - [PREVIEW URL](https://deploy-preview-1741--gestalt.netlify.app)
+- ESLint plugin: prefer-link, convert anchor tag to Gestalt Link [#1741](https://github.com/pinterest/gestalt/pull/1741) - [PREVIEW URL](https://deploy-preview-1741--gestalt.netlify.app)
 
 ## 38.0.11 (Oct 20, 2021)
 
@@ -3520,7 +3520,7 @@
 
 ### Minor
 
-- Eslint plugin: add zIndex props coverage to gestalt/no-box-dangerous-style-duplicates [#1713](https://github.com/pinterest/gestalt/pull/1713) - [PREVIEW URL](https://deploy-preview-1713--gestalt.netlify.app)
+- ESLint plugin: add zIndex props coverage to gestalt/no-box-dangerous-style-duplicates [#1713](https://github.com/pinterest/gestalt/pull/1713) - [PREVIEW URL](https://deploy-preview-1713--gestalt.netlify.app)
 
 ## 35.4.0 (Sep 27, 2021)
 
@@ -3538,13 +3538,13 @@
 
 ### Minor
 
-- Eslint plugin: add full Box props coverage to gestalt/no-box-dangerous-style-duplicates [#1711](https://github.com/pinterest/gestalt/pull/1711) - [PREVIEW URL](https://deploy-preview-1711--gestalt.netlify.app)
+- ESLint plugin: add full Box props coverage to gestalt/no-box-dangerous-style-duplicates [#1711](https://github.com/pinterest/gestalt/pull/1711) - [PREVIEW URL](https://deploy-preview-1711--gestalt.netlify.app)
 
 ## 35.2.14 (Sep 23, 2021)
 
 ### Patch
 
-- Eslint plugin: gestalt/no-box-dangerous-style-duplicates fixes and refactor [#1709](https://github.com/pinterest/gestalt/pull/1709) - [PREVIEW URL](https://deploy-preview-1709--gestalt.netlify.app)
+- ESLint plugin: gestalt/no-box-dangerous-style-duplicates fixes and refactor [#1709](https://github.com/pinterest/gestalt/pull/1709) - [PREVIEW URL](https://deploy-preview-1709--gestalt.netlify.app)
 
 ## 35.2.13 (Sep 23, 2021)
 
@@ -3790,7 +3790,7 @@
 
 ### Patch
 
-- Eslint plugin: fix on 'prefer-box-no-disallowed' rule [#1668](https://github.com/pinterest/gestalt/pull/1668) - [PREVIEW URL](https://deploy-preview-1668--gestalt.netlify.app)
+- ESLint plugin: fix on 'prefer-box-no-disallowed' rule [#1668](https://github.com/pinterest/gestalt/pull/1668) - [PREVIEW URL](https://deploy-preview-1668--gestalt.netlify.app)
 
 ## 33.8.1 (Aug 30, 2021)
 
@@ -3802,7 +3802,7 @@
 
 ### Minor
 
-- Eslint plugin: added schema options to `prefer-box-no-disallowed` rule [#1667](https://github.com/pinterest/gestalt/pull/1667) - [PREVIEW URL](https://deploy-preview-1667--gestalt.netlify.app)
+- ESLint plugin: added schema options to `prefer-box-no-disallowed` rule [#1667](https://github.com/pinterest/gestalt/pull/1667) - [PREVIEW URL](https://deploy-preview-1667--gestalt.netlify.app)
 
 ## 33.7.10 (Aug 27, 2021)
 
@@ -3868,7 +3868,7 @@
 
 ### Minor
 
-- Eslint plugin: updated `gestalt/no-dangerous-style-duplicates` w/ autofix [#1641](https://github.com/pinterest/gestalt/pull/1641) - [PREVIEW URL](https://deploy-preview-1641--gestalt.netlify.app)
+- ESLint plugin: updated `gestalt/no-dangerous-style-duplicates` w/ autofix [#1641](https://github.com/pinterest/gestalt/pull/1641) - [PREVIEW URL](https://deploy-preview-1641--gestalt.netlify.app)
 
 ## 33.6.0 (Aug 24, 2021)
 
@@ -3940,7 +3940,7 @@
 
 ### Minor
 
-- Eslint plugin: `prefer-box-no-classname` rule w/ autofix + merged into `prefer-box-lonely-ref` [#1629](https://github.com/pinterest/gestalt/pull/1629) - [PREVIEW URL](https://deploy-preview-1629--gestalt.netlify.app)
+- ESLint plugin: `prefer-box-no-classname` rule w/ autofix + merged into `prefer-box-lonely-ref` [#1629](https://github.com/pinterest/gestalt/pull/1629) - [PREVIEW URL](https://deploy-preview-1629--gestalt.netlify.app)
 
 ## 33.0.1 (Aug 19, 2021)
 
@@ -4024,13 +4024,13 @@
 
 ### Patch
 
-- Eslint plugin: fix prefer-box-as-tag
+- ESLint plugin: fix prefer-box-as-tag
 
 ## 31.3.0 (Aug 11, 2021)
 
 ### Minor
 
-- Eslint plugin: prefer-box-as-tag rule w/ autofix
+- ESLint plugin: prefer-box-as-tag rule w/ autofix
 
 ## 31.2.1 (Aug 11, 2021)
 
@@ -4072,13 +4072,13 @@
 
 ### Patch
 
-- Eslint plugin: fixes to `prefer-box`, `no-spread-props` [#1615](https://github.com/pinterest/gestalt/pull/1615) - [PREVIEW URL](https://deploy-preview-1615--gestalt.netlify.app)
+- ESLint plugin: fixes to `prefer-box`, `no-spread-props` [#1615](https://github.com/pinterest/gestalt/pull/1615) - [PREVIEW URL](https://deploy-preview-1615--gestalt.netlify.app)
 
 ## 31.1.0 (Aug 9, 2021)
 
 ### Minor
 
-- Eslint plugin: prefer-box-lonely-ref rule w/ autofix + no-spread-props rule w/ autofix [#1608](https://github.com/pinterest/gestalt/pull/1608) - [PREVIEW URL](https://deploy-preview-1608--gestalt.netlify.app)
+- ESLint plugin: prefer-box-lonely-ref rule w/ autofix + no-spread-props rule w/ autofix [#1608](https://github.com/pinterest/gestalt/pull/1608) - [PREVIEW URL](https://deploy-preview-1608--gestalt.netlify.app)
 
 ## 31.0.1 (Aug 9, 2021)
 
@@ -4102,7 +4102,7 @@
 
 ### Patch
 
-- Eslint Plugin: Add missing ComboBox to "no-medium-formfields"
+- ESLint Plugin: Add missing ComboBox to "no-medium-formfields"
 
 ## 30.0.0 (Aug 4, 2021)
 
@@ -4138,7 +4138,7 @@
 
 ### Patch
 
-- Eslint Plugin: Add missing rules to Docs, categorize, and standardize rule config [#1601](https://github.com/pinterest/gestalt/pull/1601) - [PREVIEW URL](https://deploy-preview-1601--gestalt.netlify.app)
+- ESLint Plugin: Add missing rules to Docs, categorize, and standardize rule config [#1601](https://github.com/pinterest/gestalt/pull/1601) - [PREVIEW URL](https://deploy-preview-1601--gestalt.netlify.app)
 
 ## 29.6.0 (Jul 27, 2021)
 
@@ -5226,7 +5226,7 @@
 
 ### Minor
 
-- [Eslint] Add border to prefer-box eslint rule [#1381](https://github.com/pinterest/gestalt/pull/1381) - [PREVIEW URL](https://deploy-preview-1381--gestalt.netlify.app)
+- [ESLint] Add border to prefer-box eslint rule [#1381](https://github.com/pinterest/gestalt/pull/1381) - [PREVIEW URL](https://deploy-preview-1381--gestalt.netlify.app)
 
 ## 17.2.0 (Feb 10, 2021)
 
@@ -8235,7 +8235,7 @@ Run codemods for breaking changes in order:
 ### Minor
 
 - Enzyme: Upgrade to the latest `v3.10.0` version and pull in Flow library changes [#543](https://github.com/pinterest/gestalt/pull/543) - [PREVIEW URL](https://deploy-preview-543--gestalt.netlify.app)
-- Eslint: Bump all related packages/plugins to current latest version [#544](https://github.com/pinterest/gestalt/pull/544) - [PREVIEW URL](https://deploy-preview-544--gestalt.netlify.app)
+- ESLint: Bump all related packages/plugins to current latest version [#544](https://github.com/pinterest/gestalt/pull/544) - [PREVIEW URL](https://deploy-preview-544--gestalt.netlify.app)
 - Button: add new `textColor` prop to allow overriding of text color for buttons [#545](https://github.com/pinterest/gestalt/pull/545) - [PREVIEW URL](https://deploy-preview-545--gestalt.netlify.app)
 - Icon: Add new lightning icon [#547](https://github.com/pinterest/gestalt/pull/547) - [PREVIEW URL](https://deploy-preview-547--gestalt.netlify.app)
 - Icon: Update send icon [#549](https://github.com/pinterest/gestalt/pull/549) - [PREVIEW URL](https://deploy-preview-549--gestalt.netlify.app)

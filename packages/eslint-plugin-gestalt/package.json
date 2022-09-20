@@ -3,7 +3,7 @@
   "version": "73.0.4",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
-  "description": "Eslint rules for Pinterest’s design language Gestalt",
+  "description": "ESLint rules for Pinterest’s design language Gestalt",
   "main": "dist/eslint-plugin-gestalt.js",
   "jsnext:main": "dist/eslint-plugin-gestalt.es.js",
   "module": "dist/eslint-plugin-gestalt.es.js",

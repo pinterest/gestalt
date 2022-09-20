@@ -6,15 +6,15 @@ import Page from '../../../docs-components/Page.js';
 
 export default function EslintPluginPage(): Node {
   return (
-    <Page title="Eslint plugin">
+    <Page title="ESLint plugin">
       <PageHeader
-        name="Eslint plugin"
+        name="ESLint plugin"
         description="Install the package eslint-plugin-gestalt to get lint rules encouraging the correct usage of Gestalt components"
         type="guidelines"
       />
       <MainSection
         name="Gestalt alternatives"
-        description="The following Eslint rules provide guidance on how to replace native HTML elements and attributes with available Gestalt equivalents"
+        description="The following ESLint rules provide guidance on how to replace native HTML elements and attributes with available Gestalt equivalents"
       >
         <MainSection.Subsection
           title="gestalt/prefer-box-inline-style"
@@ -26,7 +26,7 @@ export default function EslintPluginPage(): Node {
         />
         <MainSection.Subsection
           title="gestalt/prefer-box-no-disallowed"
-          description={`Prevent \`<div>\` tags that don't contain disallowed attributes in Box: className, onClick, and any attribute not included in Box's allowed-attribute [list](https://github.com/pinterest/gestalt/blob/68d5d550a7358fcb1e104b27865a14c74d5ac01f/packages/eslint-plugin-gestalt/src/no-box-disallowed-props.js#L8). Use Gestalt Box, instead. Other attributes are disallowed as well so this Eslint rule doesn't conflict with [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
+          description={`Prevent \`<div>\` tags that don't contain disallowed attributes in Box: className, onClick, and any attribute not included in Box's allowed-attribute [list](https://github.com/pinterest/gestalt/blob/68d5d550a7358fcb1e104b27865a14c74d5ac01f/packages/eslint-plugin-gestalt/src/no-box-disallowed-props.js#L8). Use Gestalt Box, instead. Other attributes are disallowed as well so this ESLint rule doesn't conflict with [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
 
 [Read more about Box](/web/box).
 
@@ -83,12 +83,13 @@ With AUTOFIX!
       </MainSection>
       <MainSection
         name="Gestalt restrictions"
-        description="The following Eslint rules restrict the usage of Gestalt component props to enforce design consistency, code safety and best practices."
+        description="The following ESLint rules restrict the usage of Gestalt component props to enforce design consistency, code safety and best practices."
       >
         <MainSection.Subsection
           title="gestalt/button-icon-restrictions"
           description={`
-        Require a specific icon when using an icon with Button. Buttons using \`iconEnd\` must use icon &quot;arrow-down&quot;
+        Require a specific value when using an icon with [Button](/web/button). Gestalt is more permissive than we recommend internally for adding icons to Buttons, so Buttons using \`iconEnd\` must use the &quot;arrow-down&quot; icon and Buttons with link role using \`iconEnd\` must use the &quot;visit&quot; icon.
+
       `}
         />
         <MainSection.Subsection
@@ -224,7 +225,7 @@ yarn unlink eslint-plugin-gestalt
       />
       <MainSection
         name="Deprecated ESlint rules"
-        description="The following Eslint rules are no longer needed."
+        description="The following ESLint rules are no longer needed."
       >
         <MainSection.Subsection
           title="gestalt/no-box-marginleft-marginright"
