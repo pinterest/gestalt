@@ -175,7 +175,7 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
             <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
               {label}
             </Text>
-            {helperText ? <FormHelperText text={helperText} /> : null}
+            {helperText ? <FormHelperText addA11yPause text={helperText} /> : null}
           </Box>
         </Label>
       )}

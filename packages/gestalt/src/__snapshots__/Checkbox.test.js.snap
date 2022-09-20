@@ -504,6 +504,11 @@ exports[`Checkbox with error 1`] = `
                 className="formErrorMessage"
                 id="id-error"
               >
+                <div
+                  className="box xsDisplayVisuallyHidden"
+                >
+                  :
+                </div>
                 Error message
               </span>
             </div>
@@ -568,6 +573,11 @@ exports[`Checkbox with helperText 1`] = `
             <div
               className="Text fontSize100 subtleText alignStart breakWord fontWeightNormal"
             >
+              <div
+                className="box xsDisplayVisuallyHidden"
+              >
+                :
+              </div>
               Additional Info
             </div>
           </div>
