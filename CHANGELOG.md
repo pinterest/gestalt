@@ -1,3 +1,9 @@
+## 73.0.2 (Sep 20, 2022)
+
+### Patch
+
+- Checkbox, RadioButton, RadioGroupButton: start align input ([#2403](https://github.com/pinterest/gestalt/pull/2403)) - [Preview link](https://deploy-preview-2403--gestalt.netlify.app)
+
 ## 73.0.1 (Sep 20, 2022)
 
 ### Patch
