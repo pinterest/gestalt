@@ -213,8 +213,12 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                   {label}
                 </Text>
-                {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
-                {errorMessage ? <FormErrorMessage id={id} text={errorMessage} /> : null}
+                {helperText && !errorMessage ? (
+                  <FormHelperText addA11yPause text={helperText} />
+                ) : null}
+                {errorMessage ? (
+                  <FormErrorMessage addA11yPause id={id} text={errorMessage} />
+                ) : null}
               </Box>
             </Label>
           </Box>
