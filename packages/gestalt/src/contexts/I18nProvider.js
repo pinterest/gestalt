@@ -65,7 +65,7 @@ export function useI18nContext<C: ValidComponent>(
       // Ideally we would throw an actual error here (at least in dev), but this wasn't working with the mocks in Pinboard
       // eslint-disable-next-line no-console
       console.error(
-        "Translations missing in Gestalt's I18nProvider. Please provide translations to ensure users see the correct text.",
+        `Translations missing in Gestalt's I18nProvider for ${componentName}. Please provide translations to ensure users see the correct text.`,
       );
     }
   }
