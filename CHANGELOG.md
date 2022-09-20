@@ -1,3 +1,9 @@
+## 73.1.0 (Sep 20, 2022)
+
+### Minor
+
+- Eslint plugin: extend gestalt/button-icon-restrictions to cover role=link icon restrictions ([#2401](https://github.com/pinterest/gestalt/pull/2401)) - [Preview link](https://deploy-preview-2401--gestalt.netlify.app)
+
 ## 73.0.4 (Sep 20, 2022)
 
 ### Patch
