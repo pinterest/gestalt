@@ -104,6 +104,17 @@ $ElementType<React$ElementConfig<typeof ComponentName>, 'propName'>
 ~~~"
           />
 
+          <Heading size="400">Does Gestalt have TypeScript support?</Heading>
+          <Text>
+            Not officially. However, a group of dedicated engineers who work on internal tools at
+            Pinterest created
+            <InlineLink href="https://www.npmjs.com/package/@types/gestalt">
+              this package
+            </InlineLink>
+            with TypeScript definitions. We hope to offer better official TypeScript support in the
+            future, but currently lack the resources for proper support.
+          </Text>
+
           <Heading size="400">What&apos;s required to support IE11?</Heading>
           <Text>
             Gestalt supports IE11 currently, but you will need to use a polyfill because the css
