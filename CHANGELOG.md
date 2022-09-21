@@ -1,3 +1,9 @@
+## 73.1.1 (Sep 21, 2022)
+
+### Patch
+
+- Docs: add notes about types to FAQ ([#2409](https://github.com/pinterest/gestalt/pull/2409)) - [Preview link](https://deploy-preview-2409--gestalt.netlify.app)
+
 ## 73.1.0 (Sep 20, 2022)
 
 ### Minor
