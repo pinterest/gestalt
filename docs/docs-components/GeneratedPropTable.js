@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, type ComponentType } from 'react';
+import { type Node } from 'react';
 import { type DocGen } from './docgen.js';
 import PropTable from './PropTable.js';
 
@@ -48,8 +48,6 @@ function getHref(description?: string): {|
 }
 
 type Props = {|
-  // $FlowFixMe[unclear-type]
-  Component?: ComponentType<any>,
   excludeProps?: $ReadOnlyArray<string>,
   generatedDocGen: DocGen,
   id?: string,
@@ -57,7 +55,6 @@ type Props = {|
 |};
 
 export default function GeneratedPropTable({
-  Component,
   excludeProps = [],
   generatedDocGen,
   id,
@@ -124,5 +121,7 @@ export default function GeneratedPropTable({
     })
     .filter(Boolean);
 
-  return <PropTable Component={Component} name={name} id={id} props={props} />;
+  return (
+    <PropTable componentName={generatedDocGen.displayName} name={name} id={id} props={props} />
+  );
 }

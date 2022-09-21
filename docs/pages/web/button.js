@@ -22,7 +22,9 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
 </Flex>
     `}
       />
+
       <PropTable
+        componentName={generatedDocGen?.displayName}
         props={[
           {
             name: 'accessibilityLabel',
@@ -171,6 +173,7 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           },
         ]}
       />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

@@ -33,7 +33,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
       <PropTable
-        Component={IconButton}
+        componentName={generatedDocGen?.displayName}
         id="IconButton"
         props={[
           {
@@ -122,7 +122,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         ]}
       />
       <PropTable
-        Component={IconButton}
+        componentName={generatedDocGen?.displayName}
         name='Additional role="button"'
         id="role_button"
         props={[
@@ -166,7 +166,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         ]}
       />
       <PropTable
-        Component={IconButton}
+        componentName={generatedDocGen?.displayName}
         name='Additional role="link"'
         id="role_link"
         props={[

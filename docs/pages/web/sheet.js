@@ -29,7 +29,9 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
+
       <PropTable
+        componentName={generatedDocGen?.displayName}
         props={[
           {
             name: 'accessibilityDismissButtonLabel',
@@ -110,6 +112,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
           },
         ]}
       />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

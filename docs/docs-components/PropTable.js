@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, type ComponentType } from 'react';
+import { type Node } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
 import Markdown from './Markdown.js';
@@ -100,8 +100,7 @@ function Td({
 }
 
 type Props = {|
-  // $FlowFixMe[unclear-type]
-  Component?: ComponentType<any>,
+  componentName: string,
   id?: string,
   name?: string,
   props: $ReadOnlyArray<{|
@@ -117,31 +116,13 @@ type Props = {|
 |};
 
 export default function PropTable({
-  Component,
+  componentName,
   id = '',
   name: proptableName,
   props: properties,
 }: Props): Node {
   const { propTableVariant, setPropTableVariant } = useAppContext();
   const propsId = `${id}Props`;
-
-  if (process.env.NODE_ENV === 'development' && Component) {
-    const { displayName, propTypes } = Component; // eslint-disable-line react/forbid-foreign-prop-types
-    const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
-      if (!properties.find((p) => p.name === prop)) {
-        return acc.concat(prop);
-      }
-      return acc;
-    }, []);
-    if (missingProps.length > 0) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `${displayName || ''} is missing ${
-          missingProps.length
-        } PropTable definitions ${missingProps.join(', ')}`,
-      );
-    }
-  }
 
   return (
     <Card
@@ -154,7 +135,7 @@ export default function PropTable({
             icon={propTableVariant === 'expanded' ? 'minimize' : 'maximize'}
             accessibilityLabel={`${
               propTableVariant === 'expanded' ? 'Collapse' : 'Expand'
-            } props for ${Component?.displayName || ''}`}
+            } props for ${componentName || ''}`}
             iconColor="darkGray"
             size="xs"
             onClick={() =>
@@ -259,11 +240,11 @@ export default function PropTable({
                               onClick={() => {
                                 trackButtonClick(
                                   'Copy Flow type',
-                                  `${proptableName ?? 'No Component'} - ${name}`,
+                                  `${componentName ?? 'No Component'} - ${name}`,
                                 );
                                 copyFlowType(
                                   `$ElementType<React$ElementConfig<typeof ${
-                                    proptableName ?? '{ComponentName}'
+                                    componentName ?? '{ComponentName}'
                                   }>, '${name}'>`,
                                 );
                               }}
