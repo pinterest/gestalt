@@ -1,9 +1,10 @@
 // @flow strict
-import { Fragment, useRef, useEffect, useState, type Node } from 'react';
+import { type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
-import Status from './Status.js';
 import Text from './Text.js';
+import FormHelperTextCounter from './FormHelperTextCounter.js';
+
 import { type MaxLength } from './TextField.js';
 
 type Props = {|
@@ -19,18 +20,6 @@ export default function FormHelperText({
   maxLength,
   addA11yPause = false,
 }: Props): Node {
-  const ref = useRef();
-  const [width, setWidth] = useState(undefined);
-
-  useEffect(() => {
-    const containerWidth = ref?.current?.getBoundingClientRect().width;
-    setWidth(containerWidth ? Math.ceil(containerWidth) : undefined);
-  }, [ref]);
-
-  const maxLengthChars = maxLength?.maxLengthChar.toString() ?? '';
-
-  const maxLengthExceeded = (currentLength ?? 0) >= (maxLength?.maxLengthChar ?? 0);
-
   return (
     <Box marginTop={2}>
       <Flex gap={4}>
@@ -43,36 +32,7 @@ export default function FormHelperText({
           ) : null}
         </Flex.Item>
         {maxLength ? (
-          <Fragment>
-            {/* This hidden container is used to calculate the width of the character tracker and prevent spacing changes on each input value changes */}
-            <Box
-              position="absolute"
-              dangerouslySetInlineStyle={{ __style: { visibility: 'hidden' } }}
-              ref={ref}
-            >
-              <Text color="subtle" size="100">
-                {`${maxLengthChars}/${maxLengthChars}`}
-              </Text>
-            </Box>
-            <Flex gap={1}>
-              {maxLengthExceeded ? (
-                <Fragment>
-                  {/* This vvisually hidden error message is accessible by screenreaders. It alerts the user right after the maximum length is reached. */}
-                  <Box display="visuallyHidden" aria-live="assertive" role="alert">
-                    {maxLength?.errorAccessibilityLabel}
-                  </Box>
-                  <Status type="problem" accessibilityLabel={maxLength?.errorAccessibilityLabel} />
-                </Fragment>
-              ) : (
-                <Box width={16} />
-              )}
-              <Flex width={width} justifyContent="end">
-                <Text color={maxLengthExceeded ? 'error' : 'subtle'} size="100" align="end">
-                  {`${currentLength?.toString() ?? ''}/${maxLengthChars}`}
-                </Text>
-              </Flex>
-            </Flex>
-          </Fragment>
+          <FormHelperTextCounter currentLength={currentLength} maxLength={maxLength} />
         ) : null}
       </Flex>
     </Box>

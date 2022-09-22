@@ -37,7 +37,7 @@ describe('TextArea', () => {
 
     renderTextArea({
       maxLength: {
-        maxLengthChar: 20,
+        characterCount: 20,
         errorAccessibilityLabel,
       },
     });
@@ -53,7 +53,7 @@ describe('TextArea', () => {
 
     await userEvent.type(screen.getByLabelText(LABEL), userInput2);
 
-    expect(screen.getByText('20/20', { ignore: '.errorText' })).not.toBeVisible();
+    expect(screen.getByText('20/20', { ignore: '.warningText' })).not.toBeVisible();
 
     expect(screen.getByText('20/20', { ignore: '.subtleText' })).toBeVisible();
 
@@ -62,13 +62,14 @@ describe('TextArea', () => {
     expect(screen.getByLabelText(errorAccessibilityLabel)).toBeVisible();
   });
 
+  /* eslint-disable-next-line jest/expect-expect */
   it('throws error on invalid maxLength', async () => {
     const errorAccessibilityLabel = 'Limit reached. You can only use 20 characters in this field.';
 
     expectToThrow(() => {
       renderTextArea({
         maxLength: {
-          maxLengthChar: -20,
+          characterCount: -20,
           errorAccessibilityLabel,
         },
       });

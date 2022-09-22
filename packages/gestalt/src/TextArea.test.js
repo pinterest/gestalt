@@ -43,6 +43,23 @@ describe('TextArea', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('TextField with maxLength character counter', () => {
+    const tree = create(
+      <TextArea
+        name="maxLength"
+        id="test"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+        maxLength={{
+          characterCount: 20,
+          errorAccessibilityLabel: 'Exceeded',
+        }}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('TextArea with readOnly', () => {
     const tree = create(
       <TextArea readOnly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,

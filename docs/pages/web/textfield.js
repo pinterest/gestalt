@@ -706,17 +706,17 @@ function TextFieldExample() {
           columns={2}
           description={`Textfield supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in Textfield. \`maxLength\` must be an integer value 0 or higher.
 
-When \`maxLength\` is passed to TextField, the component displays a character counter as well as an [error Status](/status) when the user reaches or the controlled value exceeds the maximum length of characters.
+The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the \`maxLength\`.
 
-For controlled TextFields, if the initial value in the external state exceeds the \`maxLength\` value, Textfield will display the full value; however, the user won't be able to add additional characters and they will only be allowed to delete characters.
+When \`maxLength\` is passed to TextField, the component displays a character counter as well as a [warning or problem Status](/status) when the user reaches or the prepopulated controlled value exceeds the maximum length of characters.
 
-The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the error Status.`}
+The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the warning and problem Status.`}
         >
           <MainSection.Card
             defaultCode={`
 function TextFieldExample() {
   const [value, setValue] = React.useState('');
-  const maxLength = 20;
+  const characterCount = 20;
 
   return (
     <TextField
@@ -728,7 +728,7 @@ function TextFieldExample() {
       value={value}
       onBlur={() => {}}
       onFocus={() => {}}
-      maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel: 'Limit reached. You can only use 20 characters in this field.' }}
+      maxLength={{ characterCount, errorAccessibilityLabel: 'Limit reached. You can only use 20 characters in this field.' }}
     />
   );
 }
@@ -740,7 +740,7 @@ function TextFieldExample() {
   const [valueA, setValueA] = React.useState('Delicious vegan soup');
   const [valueB, setValueB] = React.useState('Delicious vegan noodle soup');
 
-  const maxLength = 20;
+  const characterCount = 20;
   const errorAccessibilityLabel = "Limit reached. You can only use 20 characters in this field.";
 
   return (
@@ -754,7 +754,7 @@ function TextFieldExample() {
         value={valueA}
         onBlur={() => {}}
         onFocus={() => {}}
-        maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel }}
+        maxLength={{ characterCount, errorAccessibilityLabel }}
       />
       <TextField
         id="maxLengthExceeded"
@@ -765,7 +765,7 @@ function TextFieldExample() {
         value={valueB}
         onBlur={() => {}}
         onFocus={() => {}}
-        maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel }}
+        maxLength={{ characterCount, errorAccessibilityLabel }}
       />
     </Flex>
   );

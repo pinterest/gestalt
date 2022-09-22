@@ -151,7 +151,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
 
     const unstyledClasses = classnames(styles.unstyledTextField);
 
-    if (maxLength && maxLength?.maxLengthChar < 0) {
+    if (maxLength && maxLength.characterCount < 0) {
       throw new Error('`maxLength` must be an integer value 0 or higher.');
     }
 
@@ -166,7 +166,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
         disabled={disabled}
         enterKeyHint={enterKeyHint}
         id={id}
-        maxLength={maxLength?.maxLengthChar}
+        maxLength={maxLength?.characterCount}
         max={type === 'number' ? max : undefined}
         min={type === 'number' ? min : undefined}
         name={name}

@@ -43,10 +43,10 @@ type Props = {|
    */
   labelDisplay?: 'visible' | 'hidden',
   /**
-   * The maximum number of characters allowed in TextArea. \`maxLength\` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.
+   * The maximum number of characters allowed in TextArea. `maxLength` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.
    */
   maxLength?: {|
-    maxLengthChar: number,
+    characterCount: number,
     errorAccessibilityLabel: string,
   |},
   /**
@@ -183,7 +183,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
       : {},
   );
 
-  if (maxLength && maxLength?.maxLengthChar < 0) {
+  if (maxLength && maxLength.characterCount < 0) {
     throw new Error('`maxLength` must be an integer value 0 or higher.');
   }
 
@@ -194,7 +194,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
       className={tags ? styles.unstyledTextArea : classes}
       disabled={disabled}
       id={id}
-      maxLength={maxLength?.maxLengthChar}
+      maxLength={maxLength?.characterCount}
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}

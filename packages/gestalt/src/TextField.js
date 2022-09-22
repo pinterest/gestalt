@@ -10,7 +10,7 @@ import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 export type MaxLength = {|
-  maxLengthChar: number,
+  characterCount: number,
   errorAccessibilityLabel: string,
 |};
 
@@ -52,7 +52,7 @@ type Props = {|
    */
   labelDisplay?: 'visible' | 'hidden',
   /**
-   * The maximum number of characters allowed in Textfield. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details. \`maxLength\` must be an integer value 0 or higher.
+   * The maximum number of characters allowed in Textfield. `maxLength` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.
    */
   maxLength?: MaxLength,
   /**
