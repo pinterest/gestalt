@@ -616,14 +616,22 @@ exports[`Checkbox with helperText 1`] = `
             className="box marginTop2"
           >
             <div
-              className="Text fontSize100 subtleText alignStart breakWord fontWeightNormal"
+              className="Flex rowGap4 columnGap4 xsDirectionRow"
             >
               <div
-                className="box xsDisplayVisuallyHidden"
+                className="FlexItem flexGrow"
               >
-                :
+                <div
+                  className="Text fontSize100 subtleText alignStart breakWord fontWeightNormal"
+                >
+                  <div
+                    className="box xsDisplayVisuallyHidden"
+                  >
+                    :
+                  </div>
+                  Additional Info
+                </div>
               </div>
-              Additional Info
             </div>
           </div>
         </div>

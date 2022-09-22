@@ -31,7 +31,7 @@ function Example(props) {
         placeholder="Please enter your username"
         type="text"
         value={value}
-      /> 
+      />
     </Box>
   );
 }
@@ -532,7 +532,7 @@ function Example(props) {
     <TextField
       id="variants-readonly"
       label="Email address"
-      onChange={({ value }) => setValue(value)}}
+      onChange={({ value }) => setValue(value)}
       placeholder="Name"
       value={value}
       readOnly
@@ -704,13 +704,13 @@ function TextFieldExample() {
         <MainSection.Subsection
           title="Maximum length"
           columns={2}
-          description={`Textfield supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in Textfield.
-          
-For controlled TextFields, if the initial value in the external state exceeds the \`maxLength\` value, Textfield will display the long value; however, the user won't be able to add additional characters and they will only be allowed to delete characters. 
-          
-When \`maxLength\` is passed to TextField, the component displays a character counter as well as an [error Status](/status) when the user reaches or the controlled value exceeds the maximum length of characters. 
+          description={`Textfield supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in Textfield. \`maxLength\` must be an integer value 0 or higher.
 
-The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the error Status. The example below should be prevented as it shows Textfield displaying the error Status when the value lenght is exceeded.`}
+When \`maxLength\` is passed to TextField, the component displays a character counter as well as an [error Status](/status) when the user reaches or the controlled value exceeds the maximum length of characters.
+
+For controlled TextFields, if the initial value in the external state exceeds the \`maxLength\` value, Textfield will display the full value; however, the user won't be able to add additional characters and they will only be allowed to delete characters.
+
+The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the error Status.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -744,7 +744,7 @@ function TextFieldExample() {
   const errorAccessibilityLabel = "Limit reached. You can only use 20 characters in this field.";
 
   return (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={12}>
       <TextField
         id="maxLengthReached"
         label="Title"

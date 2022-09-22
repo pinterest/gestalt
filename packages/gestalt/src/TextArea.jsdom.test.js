@@ -4,6 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 // $FlowFixMe[untyped-import]
 import userEvent from '@testing-library/user-event';
 import TextArea from './TextArea.js';
+import expectToThrow from './utils/testing/expectToThrow.js';
 
 const LABEL = 'textfieldLabel';
 
@@ -27,6 +28,10 @@ const renderTextArea = ({
   );
 
 describe('TextArea', () => {
+  beforeAll(() => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
   it('has an accessible maxLength', async () => {
     const errorAccessibilityLabel = 'Limit reached. You can only use 20 characters in this field.';
 
@@ -55,6 +60,19 @@ describe('TextArea', () => {
     expect(screen.getByText(errorAccessibilityLabel)).toBeVisible();
 
     expect(screen.getByLabelText(errorAccessibilityLabel)).toBeVisible();
+  });
+
+  it('throws error on invalid maxLength', async () => {
+    const errorAccessibilityLabel = 'Limit reached. You can only use 20 characters in this field.';
+
+    expectToThrow(() => {
+      renderTextArea({
+        maxLength: {
+          maxLengthChar: -20,
+          errorAccessibilityLabel,
+        },
+      });
+    }, '`maxLength` must be an integer value 0 or higher.');
   });
 
   it('TextArea with errorMessage prop change', () => {

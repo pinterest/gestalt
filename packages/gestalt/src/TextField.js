@@ -52,7 +52,7 @@ type Props = {|
    */
   labelDisplay?: 'visible' | 'hidden',
   /**
-   * The maximum number of characters allowed in Textfield. See the [maximum lenght variant](https://gestalt.pinterest.systems/web/textfield##Maximum-length) for more details.
+   * The maximum number of characters allowed in Textfield. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details. \`maxLength\` must be an integer value 0 or higher.
    */
   maxLength?: MaxLength,
   /**

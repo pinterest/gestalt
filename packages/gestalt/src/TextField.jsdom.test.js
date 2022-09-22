@@ -4,6 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 // $FlowFixMe[untyped-import]
 import userEvent from '@testing-library/user-event';
 import TextField from './TextField.js';
+import expectToThrow from './utils/testing/expectToThrow.js';
 
 jest.mock('./contexts/I18nProvider.js');
 
@@ -57,6 +58,19 @@ describe('TextField', () => {
     expect(screen.getByText(errorAccessibilityLabel)).toBeVisible();
 
     expect(screen.getByLabelText(errorAccessibilityLabel)).toBeVisible();
+  });
+
+  it('throws error on invalid maxLength', async () => {
+    const errorAccessibilityLabel = 'Limit reached. You can only use 20 characters in this field.';
+
+    expectToThrow(() => {
+      renderTextField({
+        maxLength: {
+          maxLengthChar: -20,
+          errorAccessibilityLabel,
+        },
+      });
+    }, '`maxLength` must be an integer value 0 or higher.');
   });
 
   it('renders error message on errorMessage prop change', () => {

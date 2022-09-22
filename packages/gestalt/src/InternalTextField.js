@@ -151,6 +151,10 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
 
     const unstyledClasses = classnames(styles.unstyledTextField);
 
+    if (maxLength && maxLength?.maxLengthChar < 0) {
+      throw new Error('`maxLength` must be an integer value 0 or higher.');
+    }
+
     const inputElement = (
       <input
         aria-activedescendant={accessibilityActiveDescendant}

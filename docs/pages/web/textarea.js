@@ -460,16 +460,17 @@ function Example(props) {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Maximum length"
-          columns={2}
-          description={`TextArea supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in TextArea.
-          
-For controlled TextAreas, if the initial value in the external state exceeds the \`maxLength\` value, TextArea will display the long value; however, the user won't be able to add additional characters and they will only be allowed to delete characters. 
-          
-When \`maxLength\` is passed to TextArea, the component displays a character counter as well as an [error Status](/status) when the user reaches or the controlled value exceeds the maximum length of characters. 
+          description={`TextArea supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in TextArea. \`maxLength\` must be an integer value 0 or higher.
 
-The first example shows an empty TextArea with \`maxLength\` set to 200 characters. The second example shows the error Status. The example below should be prevented as it shows TextArea displaying the error Status when the value lenght is exceeded.`}
+When \`maxLength\` is passed to TextArea, the component displays a character counter as well as an [error Status](/status) when the user reaches or the controlled value exceeds the maximum length of characters.
+
+For controlled TextAreas, if the initial value in the external state exceeds the \`maxLength\` value, TextArea will display the full value; however, the user won't be able to add additional characters and they will only be allowed to delete characters. This case should be prevented.
+
+
+The first example shows an empty TextArea with \`maxLength\` set to 200 characters. The second example shows the error Status.`}
         >
           <MainSection.Card
+            cardSize="sm"
             defaultCode={`
 function TextAreaExample() {
   const [value, setValue] = React.useState('');
@@ -485,7 +486,7 @@ function TextAreaExample() {
         value={value}
         onBlur={() => {}}
         onFocus={() => {}}
-        rows={2}
+        rows={4}
         maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel: 'Limit reached. You can only use 20 characters in this field.' }}
       />
   );
@@ -493,6 +494,7 @@ function TextAreaExample() {
 `}
           />
           <MainSection.Card
+            cardSize="lg"
             defaultCode={`
             function TextAreaExample() {
   const [valueA, setValueA] = React.useState('Before and after via side by side display of pale woman with auburn hair using concealer. The image shows her using a brush with concealer under her eyes.  The second image shows her with full makeup.');
@@ -502,7 +504,7 @@ function TextAreaExample() {
   const errorAccessibilityLabel = "Limit reached. You can only use 20 characters in this field.";
 
   return (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={12}>
       <TextArea
         id="maxLengthReached"
         label="Alt text"
@@ -512,7 +514,7 @@ function TextAreaExample() {
         value={valueA}
         onBlur={() => {}}
         onFocus={() => {}}
-        rows={2}
+        rows={4}
         maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel }}
       />
       <TextArea
@@ -524,7 +526,7 @@ function TextAreaExample() {
         value={valueB}
         onBlur={() => {}}
         onFocus={() => {}}
-        rows={2}
+        rows={4}
         maxLength={{ maxLengthChar: maxLength, errorAccessibilityLabel }}
       />
     </Flex>

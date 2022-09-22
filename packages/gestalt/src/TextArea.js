@@ -43,7 +43,7 @@ type Props = {|
    */
   labelDisplay?: 'visible' | 'hidden',
   /**
-   * The maximum number of characters allowed in TextArea. See the [maximum lenght variant](https://gestalt.pinterest.systems/web/textarea##Maximum-length) for more details.
+   * The maximum number of characters allowed in TextArea. \`maxLength\` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.
    */
   maxLength?: {|
     maxLengthChar: number,
@@ -182,6 +182,10 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
         }
       : {},
   );
+
+  if (maxLength && maxLength?.maxLengthChar < 0) {
+    throw new Error('`maxLength` must be an integer value 0 or higher.');
+  }
 
   const inputElement = (
     <textarea

@@ -44,6 +44,7 @@ export default function FormHelperText({
         </Flex.Item>
         {maxLength ? (
           <Fragment>
+            {/* This hidden container is used to calculate the width of the character tracker and prevent spacing changes on each input value changes */}
             <Box
               position="absolute"
               dangerouslySetInlineStyle={{ __style: { visibility: 'hidden' } }}
@@ -56,6 +57,7 @@ export default function FormHelperText({
             <Flex gap={1}>
               {maxLengthExceeded ? (
                 <Fragment>
+                  {/* This vvisually hidden error message is accessible by screenreaders. It alerts the user right after the maximum length is reached. */}
                   <Box display="visuallyHidden" aria-live="assertive" role="alert">
                     {maxLength?.errorAccessibilityLabel}
                   </Box>
