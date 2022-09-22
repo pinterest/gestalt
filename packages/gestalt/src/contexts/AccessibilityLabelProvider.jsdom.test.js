@@ -1,20 +1,22 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import I18nProvider, { useI18nContext } from './I18nProvider.js';
+import AccessibilityLabelProvider, {
+  useAccessibilityLabelContext,
+} from './AccessibilityLabelProvider.js';
 
-// I18nProvider is a rename of the React Context.Provider, so no tests required
+// AccessibilityLabelProvider is a rename of the React Context.Provider, so no tests required
 
-describe('useI18nContext', () => {
+describe('useAccessibilityLabelContext', () => {
   it('returns provided string values for a supported component', () => {
     function TestComponent() {
       const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
-        useI18nContext('TextField');
+        useAccessibilityLabelContext('TextField');
 
       return <div>{[accessibilityHidePasswordLabel, accessibilityShowPasswordLabel]}</div>;
     }
 
     render(
-      <I18nProvider
+      <AccessibilityLabelProvider
         value={{
           ComboBox: {
             accessibilityClearButtonLabel: 'Clear input',
@@ -26,7 +28,7 @@ describe('useI18nContext', () => {
         }}
       >
         <TestComponent />
-      </I18nProvider>,
+      </AccessibilityLabelProvider>,
     );
 
     // This is a bit roundabout — we don't really care that these strings are in the document, but that they were returned from the Hook correctly
@@ -39,7 +41,7 @@ describe('useI18nContext', () => {
 
     function TestComponent() {
       // $FlowExpectedError[prop-missing]
-      const { foo } = useI18nContext('Foo');
+      const { foo } = useAccessibilityLabelContext('Foo');
 
       return <div>{foo}</div>;
     }
@@ -51,7 +53,7 @@ describe('useI18nContext', () => {
     expect(consoleMock).toHaveBeenCalledTimes(3);
     expect(consoleMock.mock.calls[0][0].message).toEqual(
       expect.stringContaining(
-        'Foo translations not available — please add translations to I18nProvider',
+        'Foo translations not available — please add translations to AccessibilityLabelProvider',
       ),
     );
   });

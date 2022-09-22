@@ -27,6 +27,7 @@ import handleContainerScrolling, {
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
 import { type Indexable } from './zIndex.js';
+import { useAccessibilityLabelContext } from './contexts/AccessibilityLabelProvider.js';
 
 type Size = 'md' | 'lg';
 
@@ -166,7 +167,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   HTMLInputElement,
 >(function ComboBox(
   {
-    accessibilityClearButtonLabel,
+    accessibilityClearButtonLabel: accessibilityClearButtonLabelProp,
     disabled = false,
     errorMessage,
     helperText,
@@ -190,6 +191,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   }: Props,
   ref,
 ): Node {
+  const { accessibilityClearButtonLabel } = useAccessibilityLabelContext('ComboBox');
+  console.log(accessibilityClearButtonLabel);
+
   // ==== REFS ====
 
   const innerRef = useRef(null);
@@ -433,7 +437,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           iconButton={
             controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
               <InternalTextFieldIconButton
-                accessibilityLabel={accessibilityClearButtonLabel}
+                accessibilityLabel={
+                  accessibilityClearButtonLabelProp ?? accessibilityClearButtonLabel
+                }
                 hoverStyle="default"
                 icon="cancel"
                 onClick={handleOnClickIconButtonClear}

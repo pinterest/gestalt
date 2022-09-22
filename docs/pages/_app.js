@@ -12,8 +12,8 @@ import { Box, DeviceTypeProvider } from 'gestalt';
 import path from 'path';
 import { promises as fs } from 'fs';
 import App from '../docs-components/App.js';
+import DocsAccessibilityLabelProvider from '../docs-components/contexts/DocsAccessibilityLabelProvider.js';
 import DocsExperimentProvider from '../docs-components/contexts/DocsExperimentProvider.js';
-import DocsI18nProvider from '../docs-components/contexts/DocsI18nProvider.js';
 import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
 
 // Adding providers here instead of components/App.js as they're needed by visual tests as well
@@ -24,7 +24,7 @@ function Providers({ children, isMobile }: {| children: Node, isMobile: boolean 
     <DocsDeviceTypeProvider isMobile={isMobileDevice}>
       <DeviceTypeProvider deviceType={isMobileDevice ? 'mobile' : 'desktop'}>
         <DocsExperimentProvider>
-          <DocsI18nProvider>{children}</DocsI18nProvider>
+          <DocsAccessibilityLabelProvider>{children}</DocsAccessibilityLabelProvider>
         </DocsExperimentProvider>
       </DeviceTypeProvider>
     </DocsDeviceTypeProvider>

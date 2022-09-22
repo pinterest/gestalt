@@ -1,5 +1,6 @@
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
+import AccessibilityLabelProvider from './contexts/AccessibilityLabelProvider.js';
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';
@@ -24,7 +25,6 @@ import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
-import I18nProvider from './contexts/I18nProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
@@ -72,6 +72,7 @@ import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 
 export {
+  AccessibilityLabelProvider,
   ActivationCard,
   Avatar,
   AvatarGroup,
@@ -98,7 +99,6 @@ export {
   FixedZIndex,
   Flex,
   Heading,
-  I18nProvider,
   Icon,
   IconButton,
   Image,
