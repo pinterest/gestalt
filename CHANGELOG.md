@@ -1,3 +1,9 @@
+## 73.1.3 (Sep 22, 2022)
+
+### Patch
+
+- Docs: remove IE11 section from FAQ ([#2412](https://github.com/pinterest/gestalt/pull/2412)) - [Preview link](https://deploy-preview-2412--gestalt.netlify.app)
+
 ## 73.1.2 (Sep 22, 2022)
 
 ### Patch
