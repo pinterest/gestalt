@@ -1,3 +1,9 @@
+## 73.1.4 (Sep 22, 2022)
+
+### Patch
+
+- Docs: add button to copy Flow type ([#2411](https://github.com/pinterest/gestalt/pull/2411)) - [Preview link](https://deploy-preview-2411--gestalt.netlify.app)
+
 ## 73.1.3 (Sep 22, 2022)
 
 ### Patch
