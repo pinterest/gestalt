@@ -11,12 +11,11 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Tag">
-      <PageHeader
-        name="Tag"
-        description="[Tags](/web/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](/web/textfield#tagsExample), [TextAreas](/web/textarea#tagsExample), [ComboBox](/web/combobox#Tags) or as standalone components."
-      />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
       <PropTable
+        componentName={generatedDocGen?.displayName}
         props={[
           {
             name: 'disabled',
@@ -51,6 +50,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
         ]}
       />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

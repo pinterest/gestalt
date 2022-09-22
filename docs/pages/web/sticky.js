@@ -11,9 +11,11 @@ import MainSection from '../../docs-components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Sticky">
-      <PageHeader name="Sticky" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+
       <PropTable
+        componentName={generatedDocGen?.displayName}
         props={[
           {
             name: 'bottom',
@@ -51,6 +53,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
         ]}
       />
+
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Example">

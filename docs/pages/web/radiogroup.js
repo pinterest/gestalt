@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { RadioGroup } from 'gestalt';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -63,15 +62,15 @@ function RadioButtonExample() {
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.RadioGroup} />
+
       <MainSection name="Subcomponents">
         <MainSection.Subsection
           title={generatedDocGen?.RadioGroupButton.displayName}
           description={generatedDocGen?.RadioGroupButton.description}
         >
           <GeneratedPropTable
-            Component={RadioGroup?.RadioButton}
-            name="RadioGroup.RadioButton"
-            id="RadioGroup.RadioButton"
+            name={generatedDocGen?.RadioGroupButton.displayName}
+            id={generatedDocGen?.RadioGroupButton.displayName}
             generatedDocGen={generatedDocGen.RadioGroupButton}
           />
         </MainSection.Subsection>

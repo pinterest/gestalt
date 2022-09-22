@@ -1,12 +1,42 @@
 // @flow strict
-import { type Node, type ComponentType } from 'react';
+import { type Node } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
-import { useAppContext } from './appContext.js';
-import { capitalizeFirstLetter } from './utils.js';
 import Markdown from './Markdown.js';
+import clipboardCopy from './clipboardCopy.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
+import { capitalizeFirstLetter } from './utils.js';
+import { useAppContext } from './appContext.js';
 
 const unifyQuotes = (input) => input?.replace(/'/g, '"');
+
+async function copyFlowType(code: string) {
+  try {
+    await clipboardCopy(code);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+  }
+}
+
+function isNumeric(value) {
+  return /^-?\d+$/.test(value);
+}
+
+const transformDefaultValue = (input) => {
+  if (input === 'true') {
+    return true;
+  }
+  if (input === 'false') {
+    return false;
+  }
+  if (typeof input === 'string' && isNumeric(input)) {
+    return parseFloat(input);
+  }
+  return input;
+};
+
+const sortBy = (list, fn) => [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
 
 function Description(lines: $ReadOnlyArray<string>): Node {
   return (
@@ -69,28 +99,8 @@ function Td({
   );
 }
 
-function isNumeric(value) {
-  return /^-?\d+$/.test(value);
-}
-
-const transformDefaultValue = (input) => {
-  if (input === 'true') {
-    return true;
-  }
-  if (input === 'false') {
-    return false;
-  }
-  if (typeof input === 'string' && isNumeric(input)) {
-    return parseFloat(input);
-  }
-  return input;
-};
-
-const sortBy = (list, fn) => [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
-
 type Props = {|
-  // $FlowFixMe[unclear-type]
-  Component?: ComponentType<any>,
+  componentName: string,
   id?: string,
   name?: string,
   props: $ReadOnlyArray<{|
@@ -106,31 +116,13 @@ type Props = {|
 |};
 
 export default function PropTable({
-  Component,
+  componentName,
   id = '',
   name: proptableName,
   props: properties,
 }: Props): Node {
   const { propTableVariant, setPropTableVariant } = useAppContext();
   const propsId = `${id}Props`;
-
-  if (process.env.NODE_ENV === 'development' && Component) {
-    const { displayName, propTypes } = Component; // eslint-disable-line react/forbid-foreign-prop-types
-    const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
-      if (!properties.find((p) => p.name === prop)) {
-        return acc.concat(prop);
-      }
-      return acc;
-    }, []);
-    if (missingProps.length > 0) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `${displayName || ''} is missing ${
-          missingProps.length
-        } PropTable definitions ${missingProps.join(', ')}`,
-      );
-    }
-  }
 
   return (
     <Card
@@ -143,7 +135,7 @@ export default function PropTable({
             icon={propTableVariant === 'expanded' ? 'minimize' : 'maximize'}
             accessibilityLabel={`${
               propTableVariant === 'expanded' ? 'Collapse' : 'Expand'
-            } props for ${Component?.displayName || ''}`}
+            } props for ${componentName || ''}`}
             iconColor="darkGray"
             size="xs"
             onClick={() =>
@@ -179,13 +171,15 @@ export default function PropTable({
             >
               {proptableName ? `${proptableName} subcomponent props` : 'Component props'}
             </Box>
+
             <thead>
               <tr>
-                <Th>Name</Th>
-                <Th>Type</Th>
-                <Th>Default</Th>
+                {['Name', 'Type', 'Default'].map((item) => (
+                  <Th key={item}>{item}</Th>
+                ))}
               </tr>
             </thead>
+
             <tbody>
               {properties.length > 0 ? (
                 sortBy(properties, ({ required, name }) => `${required ? 'a' : 'b'}${name}`).reduce(
@@ -201,12 +195,11 @@ export default function PropTable({
                       nullable,
                       type,
                     },
-                    i,
                   ) => {
                     const propNameHasSecondRow = description || responsive;
                     const transformedDefaultValue = transformDefaultValue(defaultValue);
                     acc.push(
-                      <tr key={i}>
+                      <tr key={name}>
                         <Td shrink border={!propNameHasSecondRow}>
                           <Box
                             id={`${propsId}-${name}`}
@@ -235,9 +228,32 @@ export default function PropTable({
                             </Flex>
                           </Box>
                         </Td>
+
                         <Td border={!propNameHasSecondRow}>
-                          <code>{nullable ? `?${unifyQuotes(type)}` : unifyQuotes(type)}</code>
+                          <Flex justifyContent="between">
+                            <code>{nullable ? `?${unifyQuotes(type)}` : unifyQuotes(type)}</code>
+
+                            <IconButton
+                              accessibilityLabel="Copy Flow type"
+                              icon="drag-drop"
+                              iconColor="darkGray"
+                              onClick={() => {
+                                trackButtonClick('Copy Flow type', `${componentName} - ${name}`);
+                                copyFlowType(
+                                  `$ElementType<React$ElementConfig<typeof ${componentName}>, '${name}'>`,
+                                );
+                              }}
+                              size="xs"
+                              tooltip={{
+                                text: 'Copy Flow type',
+                                inline: true,
+                                idealDirection: 'up',
+                                accessibilityLabel: '',
+                              }}
+                            />
+                          </Flex>
                         </Td>
+
                         <Td
                           shrink
                           color={defaultValue != null ? 'default' : 'subtle'}
@@ -251,9 +267,10 @@ export default function PropTable({
                         </Td>
                       </tr>,
                     );
+
                     if (propNameHasSecondRow) {
                       acc.push(
-                        <tr key={`${i}-second-row`}>
+                        <tr key={`${name}-second-row`}>
                           <Td colspan={1}>
                             {responsive && (
                               <Box marginTop={6}>

@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { Dropdown } from 'gestalt';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
@@ -570,9 +569,8 @@ function TruncationDropdownExample() {
           description={generatedDocGen?.DropdownItem?.description}
         >
           <GeneratedPropTable
-            Component={Dropdown?.Item}
-            name="Dropdown.Item"
-            id="Dropdown.Item"
+            name={generatedDocGen?.DropdownItem.displayName}
+            id={generatedDocGen?.DropdownItem.displayName}
             generatedDocGen={generatedDocGen.DropdownItem}
           />
         </MainSection.Subsection>
@@ -581,9 +579,8 @@ function TruncationDropdownExample() {
           description={generatedDocGen?.DropdownLink?.description}
         >
           <GeneratedPropTable
-            Component={Dropdown?.Link}
-            name="Dropdown.Link"
-            id="Dropdown.Link"
+            name={generatedDocGen?.DropdownLink.displayName}
+            id={generatedDocGen?.DropdownLink.displayName}
             generatedDocGen={generatedDocGen.DropdownLink}
           />
         </MainSection.Subsection>
@@ -592,9 +589,8 @@ function TruncationDropdownExample() {
           description={generatedDocGen?.DropdownSection?.description}
         >
           <GeneratedPropTable
-            Component={Dropdown?.Section}
-            name="Dropdown.Section"
-            id="Dropdown.Section"
+            name={generatedDocGen?.DropdownSection.displayName}
+            id={generatedDocGen?.DropdownSection.displayName}
             generatedDocGen={generatedDocGen.DropdownSection}
           />
         </MainSection.Subsection>

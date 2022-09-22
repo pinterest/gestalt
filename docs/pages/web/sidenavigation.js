@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { SideNavigation } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import Page from '../../docs-components/Page.js';
@@ -229,7 +228,6 @@ export default function SideNavigationPage({
           description={generatedDocGen.SideNavigationSection?.description}
         >
           <GeneratedPropTable
-            Component={SideNavigation?.Section}
             name={generatedDocGen.SideNavigationSection?.displayName}
             id={generatedDocGen.SideNavigationSection?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationSection}
@@ -240,7 +238,6 @@ export default function SideNavigationPage({
           description={generatedDocGen.SideNavigationTopItem?.description}
         >
           <GeneratedPropTable
-            Component={SideNavigation?.TopItem}
             name={generatedDocGen.SideNavigationTopItem?.displayName}
             id={generatedDocGen.SideNavigationTopItem?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationTopItem}
@@ -251,7 +248,6 @@ export default function SideNavigationPage({
           description={generatedDocGen.SideNavigationNestedItem?.description}
         >
           <GeneratedPropTable
-            Component={SideNavigation?.NestedItem}
             name={generatedDocGen.SideNavigationNestedItem?.displayName}
             id={generatedDocGen.SideNavigationNestedItem?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationNestedItem}
@@ -262,7 +258,6 @@ export default function SideNavigationPage({
           description={generatedDocGen.SideNavigationGroup?.description}
         >
           <GeneratedPropTable
-            Component={SideNavigation?.Group}
             name={generatedDocGen.SideNavigationGroup?.displayName}
             id={generatedDocGen.SideNavigationGroup?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationGroup}
@@ -273,7 +268,6 @@ export default function SideNavigationPage({
           description={generatedDocGen.SideNavigationNestedGroup?.description}
         >
           <GeneratedPropTable
-            Component={SideNavigation?.NestedGroup}
             name={generatedDocGen.SideNavigationNestedGroup?.displayName}
             id={generatedDocGen.SideNavigationNestedGroup?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationNestedGroup}

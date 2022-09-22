@@ -17,6 +17,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
 
       <PropTable
+        componentName={generatedDocGen?.displayName}
         props={[
           {
             name: 'accessibilityLabel',
@@ -253,6 +254,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
         ]}
       />
+
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
