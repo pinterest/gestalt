@@ -17,7 +17,7 @@ function InlineLink({ children, href }: {| children: string, href: string |}) {
   );
 }
 
-export default function ContainerPage(): Node {
+export default function DocsPage(): Node {
   return (
     <Page title="Frequently asked questions">
       <PageHeader name="Frequently asked questions" type="guidelines" />
@@ -114,37 +114,11 @@ $ElementType<React$ElementConfig<typeof ComponentName>, 'propName'>
             with TypeScript definitions. We hope to offer better official TypeScript support in the
             future, but currently lack the resources for proper support.
           </Text>
-
-          <Heading size="400">What&apos;s required to support IE11?</Heading>
-          <Text>
-            Gestalt supports IE11 currently, but you will need to use a polyfill because the css
-            file uses css variables. Below is an example of how we set the polyfill up in the docs
-            which should go in the &lt;head /&gt; of your html.
-            <Markdown
-              text={`
-~~~jsx
-// Load polyfills for IE 11
-if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
-  document.write(
-    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>' +
-    '<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"></script>'
-  );
-}
-~~~
-          `}
-            />
-          </Text>
         </Flex>
       </Card>
+
       <Card name="Component development">
-        <Flex
-          alignItems="start"
-          direction="column"
-          gap={{
-            row: 0,
-            column: 4,
-          }}
-        >
+        <Flex alignItems="start" direction="column" gap={4}>
           <Heading size="400">How do I get access to the Gestalt repo?</Heading>
           <Text>
             The
