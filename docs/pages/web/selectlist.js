@@ -347,7 +347,20 @@ export default function DocsPage({
   </SelectList>
 
   <Flex gap={2} direction="column">
-    <Text weight="bold" size="300">Date range</Text>
+    <Flex gap={1} alignItems="center">
+      <Text size="300">
+        Date range
+      </Text>
+      <IconButton
+        accessibilityLabel="Info"
+        icon="info-circle"
+        size="sm"
+        tooltip={{
+          text: "Options available are based on your usage.",
+          idealDirection: "right"
+        }}
+      />
+    </Flex>
     <SelectList
       id="selectlistexampleA11yHiddenLabel"
       label="Date range"
@@ -433,7 +446,20 @@ export default function DocsPage({
             cardSize="lg"
             defaultCode={`
 <Flex gap={2} direction="column">
-  <Text weight="bold" size="300">Date range</Text>
+  <Flex gap={1} alignItems="center">
+    <Text weight="bold" size="300">
+      Date range
+    </Text>
+    <IconButton
+      accessibilityLabel="Info"
+      icon="info-circle"
+      size="sm"
+      tooltip={{
+        text: "Options available are based on your usage.",
+        idealDirection: "right"
+      }}
+    />
+  </Flex>
 
   <SelectList
     id="selectlistexampleHiddenLabel"
