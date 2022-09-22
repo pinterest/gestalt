@@ -1,3 +1,9 @@
+## 73.1.2 (Sep 22, 2022)
+
+### Patch
+
+- SelectList: Update label visibility example to show tooltip ([#2410](https://github.com/pinterest/gestalt/pull/2410)) - [Preview link](https://deploy-preview-2410--gestalt.netlify.app)
+
 ## 73.1.1 (Sep 21, 2022)
 
 ### Patch
