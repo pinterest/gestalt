@@ -238,14 +238,9 @@ export default function PropTable({
                               icon="drag-drop"
                               iconColor="darkGray"
                               onClick={() => {
-                                trackButtonClick(
-                                  'Copy Flow type',
-                                  `${componentName ?? 'No Component'} - ${name}`,
-                                );
+                                trackButtonClick('Copy Flow type', `${componentName} - ${name}`);
                                 copyFlowType(
-                                  `$ElementType<React$ElementConfig<typeof ${
-                                    componentName ?? '{ComponentName}'
-                                  }>, '${name}'>`,
+                                  `$ElementType<React$ElementConfig<typeof ${componentName}>, '${name}'>`,
                                 );
                               }}
                               size="xs"
