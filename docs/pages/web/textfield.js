@@ -464,7 +464,7 @@ function Example(props) {
 
       <MainSection
         name="Localization"
-        description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, and \`placeholder\`.`}
+        description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, \`maxLength\`'s \`errorAccessibilityLabel\` and \`placeholder\`.`}
       />
 
       <MainSection name="Variants">
@@ -532,9 +532,7 @@ function Example(props) {
     <TextField
       id="variants-readonly"
       label="Email address"
-      onChange={({ value }) => {
-        setValue(value);
-      }}
+      onChange={({ value }) => setValue(value)}
       placeholder="Name"
       value={value}
       readOnly
@@ -698,6 +696,78 @@ function TextFieldExample() {
       onBlur={() => {}}
       onFocus={() => {}}
     />
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Maximum length"
+          columns={2}
+          description={`Textfield supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in Textfield. \`maxLength\` must be an integer value 0 or higher.
+
+The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the \`maxLength\`.
+
+When \`maxLength\` is passed to TextField, the component displays a character counter as well as a [warning or problem Status](/status) when the user reaches or the prepopulated controlled value exceeds the maximum length of characters.
+
+The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the warning and problem Status.`}
+        >
+          <MainSection.Card
+            defaultCode={`
+function TextFieldExample() {
+  const [value, setValue] = React.useState('');
+  const characterCount = 20;
+
+  return (
+    <TextField
+      id="maxLength"
+      label="Title"
+      helperText="Enter a title that captures the imagination of Pinners"
+      onChange={({ value }) => setValue(value)}
+      placeholder="Enter your pin title"
+      value={value}
+      onBlur={() => {}}
+      onFocus={() => {}}
+      maxLength={{ characterCount, errorAccessibilityLabel: 'Limit reached. You can only use 20 characters in this field.' }}
+    />
+  );
+}
+`}
+          />
+          <MainSection.Card
+            defaultCode={`
+            function TextFieldExample() {
+  const [valueA, setValueA] = React.useState('Delicious vegan soup');
+  const [valueB, setValueB] = React.useState('Delicious vegan noodle soup');
+
+  const characterCount = 20;
+  const errorAccessibilityLabel = "Limit reached. You can only use 20 characters in this field.";
+
+  return (
+    <Flex direction="column" gap={12}>
+      <TextField
+        id="maxLengthReached"
+        label="Title"
+        helperText="Enter a title that captures the imagination of Pinners"
+        onChange={({ value }) => setValueA(value)}
+        placeholder="Enter your pin title"
+        value={valueA}
+        onBlur={() => {}}
+        onFocus={() => {}}
+        maxLength={{ characterCount, errorAccessibilityLabel }}
+      />
+      <TextField
+        id="maxLengthExceeded"
+        label="Title"
+        helperText="Enter a title that captures the imagination of Pinners"
+        onChange={({ value }) => setValueB(value)}
+        placeholder="Enter your pin title"
+        value={valueB}
+        onBlur={() => {}}
+        onFocus={() => {}}
+        maxLength={{ characterCount, errorAccessibilityLabel }}
+      />
+    </Flex>
   );
 }
 `}

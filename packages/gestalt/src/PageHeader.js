@@ -71,7 +71,7 @@ type Props = {|
    */
   items?: $ReadOnlyArray<Node>,
   /**
-   * Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`. See the [max width & border variant](https://gestalt.pinterest.systems/web/pageheader##Max-width-and-border) for more info.
+   * Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`. See the [max width & border variant](https://gestalt.pinterest.systems/web/pageheader#Max-width-and-border) for more info.
    */
   maxWidth?: Dimension,
   /**

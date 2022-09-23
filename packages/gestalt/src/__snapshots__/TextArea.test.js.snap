@@ -122,6 +122,89 @@ exports[`TextArea TextArea with rows 1`] = `
 </span>
 `;
 
+exports[`TextArea TextField with maxLength character counter 1`] = `
+<span>
+  <textarea
+    aria-describedby={null}
+    aria-invalid="false"
+    className="textArea base enabled normal"
+    disabled={false}
+    id="test"
+    maxLength={20}
+    name="maxLength"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    readOnly={false}
+    rows={3}
+  />
+  <div
+    className="box marginTop2"
+  >
+    <div
+      className="Flex rowGap4 columnGap4 xsDirectionRow"
+    >
+      <div
+        className="FlexItem flexGrow"
+      />
+      <div
+        className="FlexItem"
+      >
+        <div
+          className="absolute box"
+          style={
+            Object {
+              "visibility": "hidden",
+            }
+          }
+        >
+          <div
+            className="Text fontSize100 subtleText alignStart breakWord fontWeightNormal"
+          >
+            20/20
+          </div>
+        </div>
+        <div
+          className="Flex rowGap1 columnGap1 xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="box"
+              style={
+                Object {
+                  "width": 16,
+                }
+              }
+            />
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Flex rowGap0 columnGap0 justifyEnd xsDirectionRow"
+              style={
+                Object {
+                  "width": undefined,
+                }
+              }
+            >
+              <div
+                className="Text fontSize100 subtleText alignEnd breakWord fontWeightNormal"
+              >
+                0/20
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
 exports[`TextArea renders tags when supplied 1`] = `
 <span>
   <div
