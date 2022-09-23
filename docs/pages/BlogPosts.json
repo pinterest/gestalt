@@ -10,7 +10,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/7f/19/87/7f1987ae32d0c003cbe979cf498eab24.png",
           "imageAltText": "screenshot of checkboxes",
-          "content": "We made three substantial improvements to [Checkbox](https://gestalt.pinterest.systems/web/checkbox) and [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup).\n* We updated the size of `helperText` to be consistent with other input components such as [TextField](https://gestalt.pinterest.systems/web/textfield#Helper-text)\n* We adjusted the vertical alignment of multi-line labels so that the first line is vertically centered with the checkbox/radio control\n* Lastly, we adjusted the horizontal alignment of `errorMessage` on Checkbox to be aligned with the label\nThese three updates should make Pinterest forms just _that much_ cleaner and easier to parse."
+          "content": "We made three substantial improvements to [Checkbox](https://gestalt.pinterest.systems/web/checkbox) and [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup).\n* We updated the size of `helperText` to be consistent with other input components such as [TextField](https://gestalt.pinterest.systems/web/textfield#Helper-text)\n* We adjusted the vertical alignment of multi-line labels so that the first line is vertically centered with the checkbox/radio control\n* Lastly, we adjusted the horizontal alignment of `errorMessage` on Checkbox to be aligned with the label\n\nThese three updates should make Pinterest forms just _that much_ cleaner and easier to parse."
         },
         {
           "title": "TextArea/TextField maxLength",
