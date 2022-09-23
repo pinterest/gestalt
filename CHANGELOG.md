@@ -1,3 +1,9 @@
+## 73.2.0 (Sep 23, 2022)
+
+### Minor
+
+- Textfield, TextArea: add maxLength prop ([#2408](https://github.com/pinterest/gestalt/pull/2408)) - [Preview link](https://deploy-preview-2408--gestalt.netlify.app)
+
 ## 73.1.4 (Sep 22, 2022)
 
 ### Patch
