@@ -34,7 +34,7 @@
           "content": "We mentioned in our [9/9 update](https://gestalt.pinterest.systems/whats_new#Week-of-September-09-2022) that we began simplifying our Gestalt Figma libraries. We were able to finish the simplification of our Gestalt Figma Android library and plan to finish this work up by converting our Web library in October.\n\nThis work will help our Figma libraries be more focused and aligned with how designers want to use them."
         },
         {
-          "title": "General Figma improvements",
+          "title": "General Figma library improvements",
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/03/26/a9/0326a9467076319de1d5a7a4b77d214b.png",
           "imageAltText": "screenshot of Gestalt figma components",
