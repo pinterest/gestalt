@@ -1,3 +1,9 @@
+## 73.2.1 (Sep 24, 2022)
+
+### Patch
+
+- Docs: 9/23 update ([#2413](https://github.com/pinterest/gestalt/pull/2413)) - [Preview link](https://deploy-preview-2413--gestalt.netlify.app)
+
 ## 73.2.0 (Sep 23, 2022)
 
 ### Minor
