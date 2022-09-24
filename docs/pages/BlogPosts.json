@@ -2,6 +2,47 @@
   "year": "2022",
   "digests": [
     {
+      "week": "September 23, 2022",
+      "summary": "Improvement to Gestalt form fields, Figma quality-of-life improvements and Flow types improvements",
+      "posts": [
+        {
+          "title": "Checkbox/RadioGroup improvements",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/7f/19/87/7f1987ae32d0c003cbe979cf498eab24.png",
+          "imageAltText": "screenshot of checkboxes",
+          "content": "We made three substantial improvements to [Checkbox](https://gestalt.pinterest.systems/web/checkbox) and [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup).\n* We updated the size of `helperText` to be consistent with other input components such as [TextField](https://gestalt.pinterest.systems/web/textfield#Helper-text)\n* We adjusted the vertical alignment of multi-line labels so that the first line is vertically centered with the checkbox/radio control\n* Lastly, we adjusted the horizontal alignment of `errorMessage` on Checkbox to be aligned with the label\n\nThese three updates should make Pinterest forms just _that much_ cleaner and easier to parse."
+        },
+        {
+          "title": "TextArea/TextField maxLength",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/dc/b8/f6/dcb8f6ea6f06c315d6f4f8b03fb0f340.png",
+          "imageAltText": "screenshot of textarea",
+          "content": "We added the ability limit the amount of characters allowed in [TextField](https://gestalt.pinterest.systems/web/textfield#Maximum-length) and [TextArea](https://gestalt.pinterest.systems/web/textarea#Maximum-length). This feature will enable you to enforce strict character counts for form submissions."
+        },
+        {
+          "title": "Flow types quality of life improvements",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/21/64/e3/2164e3b3707446e20d0b20002a0fa14d.png",
+          "imageAltText": "screenshot of flow types button in props table",
+          "content": "We've added a button to our Props table to allow for easy copying of the correct Flow syntax to access a component's prop type. We've also added more info to our FAQ for [how to import Flow types from Gestalt](https://gestalt.pinterest.systems/get_started/faq#Component-usage)."
+        },
+        {
+          "title": "Android Figma library update",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/54/33/21/543321175e6b44f77066c185b6527ca0.png",
+          "imageAltText": "Gestalt for android cover art",
+          "content": "We mentioned in our [9/9 update](https://gestalt.pinterest.systems/whats_new#Week-of-September-09-2022) that we began simplifying our Gestalt Figma libraries. We were able to finish the simplification of our Gestalt Figma Android library and plan to finish this work up by converting our Web library in October.\n\nThis work will help our Figma libraries be more focused and aligned with how designers want to use them."
+        },
+        {
+          "title": "General Figma library improvements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/03/26/a9/0326a9467076319de1d5a7a4b77d214b.png",
+          "imageAltText": "screenshot of Gestalt figma components",
+          "content": "We continue to make solid quality-of-life improvements to our Figma libraries. This week we completed the following:\n* Simplified our Web Searchfield component to have less variants for simpler use\n* Updated the IconButton component on iOS and Android to contain all standard sizes/colors\n* Hid the notification dot on the Tabs component by default to be more aligned with most common use cases."
+        }
+      ]
+    },
+    {
       "week": "September 16, 2022",
       "summary": "New component variants, component bug fixes and improved doc code samples",
       "posts": [
