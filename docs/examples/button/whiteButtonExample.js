@@ -1,8 +1,8 @@
 // @flow strict
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, type Node } from 'react';
 import { Box, Button, Flex, Layer, Popover, ScrollBoundaryContainer, Tabs, Text } from 'gestalt';
 
-export default function WhiteButtonExample() {
+export default function WhiteButtonExample(): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef();
   const viewRef = useRef();

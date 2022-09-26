@@ -1,7 +1,8 @@
 // @flow strict
+import { type Node } from 'react';
 import { Box, Button, ButtonGroup, Divider, Flex } from 'gestalt';
 
-export default function Example() {
+export default function Example(): Node {
   return (
     <Box padding={8}>
       <Flex

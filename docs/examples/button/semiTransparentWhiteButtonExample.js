@@ -1,8 +1,8 @@
 // @flow strict
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, type Node } from 'react';
 import { Box, Button, Flex, Layer, Popover, ScrollBoundaryContainer, Tabs, Text } from 'gestalt';
 
-export default function SemiTransparentWhiteButtonExample() {
+export default function SemiTransparentWhiteButtonExample(): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef();
   const viewRef = useRef();

@@ -1,7 +1,8 @@
 // @flow strict
+import { type Node } from 'react';
 import { Box, Button, Flex, IconButton, Tooltip } from 'gestalt';
 
-export default function Example() {
+export default function Example(): Node {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Button text="Create account" disabled size="lg" color="red" />

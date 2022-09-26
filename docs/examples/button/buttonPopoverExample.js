@@ -1,8 +1,8 @@
 // @flow strict
-import { useState, useRef } from 'react';
+import { useState, useRef, type Node } from 'react';
 import { Box, Button, Popover, Text } from 'gestalt';
 
-export default function ButtonPopoverExample() {
+export default function ButtonPopoverExample(): Node {
   const [selected, setSelected] = useState(false);
   const anchorRef = useRef(null);
 
