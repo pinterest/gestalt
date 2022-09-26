@@ -1,3 +1,9 @@
+## 73.2.2 (Sep 26, 2022)
+
+### Patch
+
+- Textfield: implemented spellcheck=false for type=password or email ([#2415](https://github.com/pinterest/gestalt/pull/2415)) - [Preview link](https://deploy-preview-2415--gestalt.netlify.app)
+
 ## 73.2.1 (Sep 24, 2022)
 
 ### Patch
