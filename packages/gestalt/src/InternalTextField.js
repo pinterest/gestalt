@@ -180,6 +180,8 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
         pattern={type === 'number' ? '\\d*' : undefined}
         placeholder={placeholder}
         readOnly={readOnly}
+        // This config is required to prevent exposing passwords and usernames to spell-checking servers during login processes. More info here: https://www.androidpolice.com/google-chrome-servers-get-passwords-enhanced-spell-check/
+        spellCheck={['email', 'password'].includes(type) ? false : undefined}
         step={type === 'number' ? step : undefined}
         {...(tags ? {} : { ref: innerRef })}
         type={type}
