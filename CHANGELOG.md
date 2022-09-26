@@ -1,3 +1,9 @@
+## 73.2.4 (Sep 26, 2022)
+
+### Patch
+
+- CheckBox, RadioGroupButton: fix spacing in size='sm' with custom marginTop ([#2416](https://github.com/pinterest/gestalt/pull/2416)) - [Preview link](https://deploy-preview-2416--gestalt.netlify.app)
+
 ## 73.2.3 (Sep 26, 2022)
 
 ### Patch
