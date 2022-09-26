@@ -10,18 +10,41 @@ import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 
-export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+import SandpackExample from '../../docs-components/SandpackExample.js';
+// Examples
+import main from '../../examples/button/main.js';
+import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo.js';
+import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont.js';
+import showFullTextDo from '../../examples/button/showFullTextDo.js';
+import showFullTextDont from '../../examples/button/showFullTextDont.js';
+import keepSimpleTextDo from '../../examples/button/keepSimpleTextDo.js';
+import keepSimpleTextDont from '../../examples/button/keepSimpleTextDont.js';
+import iconTooltipToExplainDo from '../../examples/button/iconTooltipToExplainDo.js';
+import iconTooltipToExplainDont from '../../examples/button/iconTooltipToExplainDont.js';
+import whiteButtonExample from '../../examples/button/whiteButtonExample.js';
+import semiTransparentWhiteButtonExample from '../../examples/button/semiTransparentWhiteButtonExample.js';
+import iconEndExample from '../../examples/button/iconEndExample.js';
+import roleButtonExample from '../../examples/button/roleButtonExample.js';
+import roleLinkExample from '../../examples/button/roleLinkExample.js';
+import relAndTargetExample from '../../examples/button/relAndTargetExample.js';
+import defaultStateExample from '../../examples/button/defaultStateExample.js';
+import disabledStateExample from '../../examples/button/disabledStateExample.js';
+import selectedStateExample from '../../examples/button/selectedStateExample.js';
+import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample.js';
+import buttonPopoverExample from '../../examples/button/buttonPopoverExample.js';
+
+const PREVIEW_HEIGHT = 300;
+
+type DocType = {|
+  generatedDocGen: DocGen,
+|};
+
+export default function ButtonPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Flex>
-  <Button color='red' size='lg' text='Save' />
-</Flex>
-    `}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Main Button example" hideEditor />
+      </PageHeader>
 
       <PropTable
         componentName={generatedDocGen?.displayName}
@@ -199,118 +222,128 @@ export default function ButtonPage({ generatedDocGen }: {| generatedDocGen: DocG
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Place primary Buttons to the right or top of other Button styles."
-            defaultCode={`
-<Flex gap={{ column: 8, row: 0 }} direction="column" alignItems="stretch" alignContent="stretch" flex="grow" width="100%">
-  <Flex direction="column" alignItems="center" alignContent="center" width="100%">
-    <ButtonGroup>
-      <Button text="Visit" size="lg" color="gray" />
-      <Button text="Save" size="lg" color="red" />
-    </ButtonGroup>
-  </Flex>
-  <Divider />
-  <Flex gap={{ column: 2, row: 0 }} direction="column" flex="grow" width="100%">
-    <Button text="Learn more" size="lg" color="red" fullWidth />
-    <Button text="Install now" size="lg" color="gray" fullWidth />
-  </Flex>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={placePrimaryButtonDo}
+                hideEditor
+                name="Place primary Buttons to the right or top of other Button styles."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Place more than one primary Button per container/area."
-            defaultCode={`
-<Flex alignContent="center">
-  <ButtonGroup>
-    <Button text="Visit" size="lg" color="red" />
-    <Button text="Save" size="lg" color="red" />
-  </ButtonGroup>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={placePrimaryButtonDont}
+                hideControls
+                hideEditor
+                name="Place primary Buttons to the right or top of other Button styles."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            type="don't"
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Show the full text on Buttons. Buttons should be stacked when they cannot be displayed side by side."
-            defaultCode={`
-<Flex gap={{ column: 2, row: 0 }} direction="column" alignContent="stretch">
-  <Button text="Create account" size="lg" color="red" fullWidth />
-  <Button text="View settings" size="lg" color="gray" fullWidth />
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={showFullTextDo}
+                hideEditor
+                name="Show the full text on Buttons. Buttons should be stacked when they cannot be displayed side by side."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Truncate the Button text. In rare instances where Buttons must remain on one line, truncate the text on the secondary Button before truncating on the primary Button."
-            defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}>
-  <Button text="Kontoeinst..." size="lg" color="gray" />
-  <Button text="Neues We..." size="lg" color="red" />
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={showFullTextDont}
+                hideEditor
+                hideControls
+                name="Truncate the Button text. In rare instances where Buttons must remain on one line, truncate the text on the secondary Button before truncating on the primary Button."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            type="don't"
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Keep the Button text as simple and actionable as possible. Refer to the [Button writing guidelines](#Writing) for more detail. If text is not sufficient for accessibility, refer to [Accessibility guidelines](#Accessibility) for more detail."
-            defaultCode={`
-  <Button text="Create account" size="lg" color="red" />
-`}
+            sandpackExample={
+              <SandpackExample
+                code={keepSimpleTextDo}
+                hideEditor
+                name="Keep the Button text as simple and actionable as possible. Refer to the [Button writing guidelines](#Writing) for more detail. If text is not sufficient for accessibility, refer to [Accessibility guidelines](#Accessibility) for more detail."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Do not add icons to a Button to reinforce the text."
-            defaultCode={`
-          <Button text="Create new Pinterest account" size="lg" color="red" iconEnd='person-add' />
-`}
+            sandpackExample={
+              <SandpackExample
+                code={keepSimpleTextDont}
+                hideEditor
+                hideControls
+                name="Do not add icons to a Button to reinforce the text."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            type="don't"
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use an IconButton + Tooltip next to the disabled Button if you need to explain why it is disabled."
-            defaultCode={`
-  <Flex gap={{ column: 0, row: 1 }}>
-    <Button text="Create account" disabled size="lg" color="red" />
-    <Tooltip text="You need to fill in a username to create an account">
-      <IconButton
-        accessibilityLabel="Additional info."
-        bgColor="white"
-        icon="info-circle"
-        iconColor="gray"
-        size="lg"
-      />
-    </Tooltip>
-  </Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={iconTooltipToExplainDo}
+                hideEditor
+                name="Use an IconButton + Tooltip next to the disabled Button if you need to explain why it is disabled."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
-            defaultCode={`
-  <Flex gap={{ column: 0, row: 1 }}>
-    <Tooltip text="You need to fill in a username to create an account">
-      <Button text="Create account" disabled size="lg" color="red" />
-    </Tooltip>
-  </Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={iconTooltipToExplainDont}
+                hideEditor
+                hideControls
+                name="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
+              />
+            }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
+
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
@@ -411,120 +444,26 @@ If Button is used as a control Button to show/hide a Popover-based component, we
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-function WhiteButtonExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-  const viewRef = React.useRef();
-
-  React.useEffect(() => {
-    setOpen(true)
-  }, []);
-
-  return (
-    <ScrollBoundaryContainer>
-      <Box ref={viewRef} width={300} height={220}>
-        <Box display="flex" justifyContent="center" ref={anchorRef}>
-          <Tabs
-            activeTabIndex={0}
-            onChange={() => {}}
-            tabs={[{ href: '#Anchor', text: 'Created'}]}
-          />
-        </Box>
-      </Box>
-      {open &&
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            color="blue"
-            idealDirection="down"
-            showCaret
-            onDismiss={() => {}}
-            positionRelativeToAnchor={false}
-            size={240}
-          >
-            <Box padding={3}>
-              <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
-                <Text color="light" align="center">
-                  New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
-                </Text>
-                <Button
-                  color="white"
-                  size="lg"
-                  text="Got it"
-                />
-              </Flex>
-            </Box>
-          </Popover>
-        </Layer>}
-    </ScrollBoundaryContainer>
-  )
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={whiteButtonExample}
+                name="White button example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-function SemiTransparentWhiteButtonExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-  const viewRef = React.useRef();
-
-  React.useEffect(() => {
-    setOpen(true)
-  }, []);
-
-  return (
-    <ScrollBoundaryContainer>
-      <Box ref={viewRef} width={300} height={220}>
-        <Box display="flex" justifyContent="center" ref={anchorRef}>
-        <Tabs
-          activeTabIndex={0}
-          onChange={() => {}}
-          tabs={[{ href: '#Anchor', text: 'Created'}]}
-        />
-        </Box>
-      </Box>
-      {open &&
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            color="blue"
-            idealDirection="down"
-            showCaret
-            onDismiss={() => {}}
-            positionRelativeToAnchor={false}
-            size={240}
-          >
-            <Box padding={3}>
-              <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
-                <Text color="light" align="center">
-                  New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
-                </Text>
-                <Flex alignItems="stretch" direction="column" gap={{ column: 2, row: 0 }}>
-                  <Button
-                    color="white"
-                    size="lg"
-                    text="Got it"
-                    fullWidth
-                  />
-                  <Button
-                    color="semiTransparentWhite"
-                    size="lg"
-                    text="Learn more"
-                    fullWidth
-                  />
-                </Flex>
-              </Flex>
-            </Box>
-          </Popover>
-        </Layer>}
-    </ScrollBoundaryContainer>
-  )
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={semiTransparentWhiteButtonExample}
+                name="SemiTransparentWhite button example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Icons"
           description={`
@@ -541,18 +480,19 @@ function SemiTransparentWhiteButtonExample() {
               text: 'Learn more about the "button-icon-restrictions" rule',
             }}
           />
+
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Button
-  accessibilityLabel='Menu'
-  iconEnd="arrow-down"
-  size="lg"
-  text="Menu"
-/>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={iconEndExample}
+                name="Icon end of button example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           columns={2}
           title="Role"
@@ -565,29 +505,16 @@ function SemiTransparentWhiteButtonExample() {
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Button
-  accessibilityLabel='Follow'
-  size="lg"
-  text="Follow"
-  role="button"
-/>
-`}
+            sandpackExample={
+              <SandpackExample code={roleButtonExample} name="Role button example." />
+            }
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Button
-  accessibilityLabel='Visit Pinterest'
-  iconEnd="visit"
-  size="lg"
-  text="Visit Pinterest"
-  role="link"
-  href="https://pinterest.com"
-/>
-`}
+            sandpackExample={<SandpackExample code={roleLinkExample} name="Role link example." />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="rel and target"
           description={`
@@ -596,20 +523,12 @@ These optional props control the behavior of \`role="link"\` Buttons. External l
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Button
-  accessibilityLabel='Visit Pinterest'
-  iconEnd="visit"
-  size="lg"
-  text="Visit Pinterest"
-  role="link"
-  rel="nofollow"
-  target="_blank"
-  href="https://pinterest.com"
-/>
-`}
+            sandpackExample={
+              <SandpackExample code={relAndTargetExample} name="Rel and target example." />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           columns={2}
           title="States"
@@ -624,80 +543,36 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Button
-  accessibilityLabel='Save'
-  color="red"
-  text="Save"
-  size="lg"
-/>
-`}
+            sandpackExample={
+              <SandpackExample code={defaultStateExample} name="Default state button example." />
+            }
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Button
-  accessibilityLabel='Submit'
-  disabled
-  text="Submit"
-  size="lg"
-/>
-`}
+            sandpackExample={
+              <SandpackExample code={disabledStateExample} name="Disabled state button example." />
+            }
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Button
-  accessibilityLabel='Following'
-  text="Following"
-  selected
-  size="lg"
-/>
-`}
+            sandpackExample={
+              <SandpackExample code={selectedStateExample} name="Selected state button example." />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection title="Accessibility props: controls, expanded, & popup">
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-function ActionDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-  return (
-    <Flex justifyContent="center">
-      <Button
-        accessibilityControls="action-variant-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        iconEnd="arrow-down"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        text={selected ? selected.label : 'Display'}
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="action-variant-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: 'Cozy', label: 'Cozy' }}
-            selected={selected}
-          />
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: 'Comfy', label: 'Comfy' }}
-            selected={selected}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={accessibilityDropdownExample}
+                name="Accessibility dropdown example."
+              />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Ref"
           description={`
@@ -706,35 +581,9 @@ To control focus or position anchored components relative to Button, use \`ref\`
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-function ButtonPopoverExample() {
-  const [selected, setSelected] = React.useState(false);
-  const anchorRef = React.useRef(null);
-  return (
-    <React.Fragment>
-      <Button
-        onClick={() => setSelected(!selected)}
-        ref={anchorRef}
-        selected={selected}
-        text={selected ? "Hide Popover" : "Show Popover"}
-        iconEnd="arrow-down"
-      />
-      {selected && (
-        <Popover
-          anchor={anchorRef.current}
-          idealDirection="right"
-          onDismiss={() => setSelected(false)}
-          shouldFocus={false}
-        >
-          <Box padding={3}>
-            <Text weight="bold">This is a Button with an anchor ref to a Popover component</Text>
-          </Box>
-        </Popover>
-      )}
-    </React.Fragment>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={buttonPopoverExample} name="Button with Popover example." />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -759,9 +608,7 @@ function ButtonPopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-
       <QualityChecklist component={generatedDocGen?.displayName} />
-
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
