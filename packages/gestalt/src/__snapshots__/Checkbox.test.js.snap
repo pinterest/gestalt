@@ -182,7 +182,7 @@ exports[`Checkbox disabled & checked 1`] = `
       className="box xsDisplayBlock"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -241,7 +241,7 @@ exports[`Checkbox disabled 1`] = `
       className="box xsDisplayBlock"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -373,7 +373,7 @@ exports[`Checkbox small 1`] = `
       className="box xsDisplayBlock"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -459,7 +459,7 @@ exports[`Checkbox with an image 1`] = `
       className="box xsDisplayBlock"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -518,7 +518,7 @@ exports[`Checkbox with error 1`] = `
       className="box xsDisplayBlock"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -596,7 +596,7 @@ exports[`Checkbox with helperText 1`] = `
       className="box xsDisplayBlock"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >

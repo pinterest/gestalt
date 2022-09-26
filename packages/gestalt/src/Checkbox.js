@@ -203,8 +203,8 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         {label && (
           <Box
             display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
-            //  marginTop: '2px' is needed to  visually align the label text & radiobutton input
-            dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }}
+            //  marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input
+            dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
           >
             <Label htmlFor={id}>
               <Box paddingX={1}>
