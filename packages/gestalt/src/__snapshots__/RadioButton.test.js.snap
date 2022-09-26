@@ -175,7 +175,7 @@ exports[`RadioButton disabled small 1`] = `
       className="box paddingX1"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -227,7 +227,7 @@ exports[`RadioButton small 1`] = `
       className="box paddingX1"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -306,7 +306,7 @@ exports[`RadioButton with image 1`] = `
       className="box paddingX1"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
@@ -358,7 +358,7 @@ exports[`RadioButton with subtext 1`] = `
       className="box paddingX1"
       style={
         Object {
-          "marginTop": "2px",
+          "marginTop": "-1px",
         }
       }
     >
