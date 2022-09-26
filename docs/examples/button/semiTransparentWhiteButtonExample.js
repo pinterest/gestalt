@@ -36,7 +36,7 @@ export default function SemiTransparentWhiteButtonExample() {
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
                 <Text color="light" align="center">
-                  New look! Click Created to see Pins you've published. Click Saved to see your
+                  New look! Click Created to see Pins you`ve published. Click Saved to see your
                   saved Pins and boards.
                 </Text>
                 <Flex alignItems="stretch" direction="column" gap={{ column: 2, row: 0 }}>

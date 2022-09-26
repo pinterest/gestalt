@@ -42,7 +42,7 @@ export default function WhiteButtonExample() {
             <Box padding={3}>
               <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
                 <Text color="light" align="center">
-                  New look! Click Created to see Pins you've published. Click Saved to see your
+                  New look! Click Created to see Pins you`ve published. Click Saved to see your
                   saved Pins and boards.
                 </Text>
                 <Button color="white" size="lg" text="Got it" />
