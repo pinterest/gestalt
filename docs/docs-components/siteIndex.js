@@ -61,6 +61,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: [
           'ColorSchemeProvider',
           'OnLinkNavigationProvider',
+          'DeviceTypeProvider',
           'ScrollBoundaryContainer',
           'useFocusVisible',
           'useReducedMotion',

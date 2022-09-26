@@ -8,13 +8,19 @@ import Markdown from './Markdown.js';
 type Props = {|
   children?: Node,
   description?: string,
+  hideChecklist?: boolean,
   name: string,
 |};
 
-function AccessibilityMainSection({ children, description, name }: Props): Node {
+function AccessibilityMainSection({
+  children,
+  description,
+  hideChecklist = false,
+  name,
+}: Props): Node {
   return (
     <Card name="Accessibility" showHeading>
-      <AccessibilityChecklist component={name} />
+      {hideChecklist ? null : <AccessibilityChecklist component={name} />}
       {description && (
         <Box marginTop={6} marginBottom={8} maxWidth={572}>
           <Markdown text={description} />

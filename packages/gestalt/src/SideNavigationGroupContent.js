@@ -47,7 +47,7 @@ export default function SideNavigationGroupContent({
 |}): Node {
   const deviceType = useDeviceType();
 
-  const isMobile = deviceType === 'phone';
+  const isMobile = deviceType === 'mobile';
 
   return (
     <Box
