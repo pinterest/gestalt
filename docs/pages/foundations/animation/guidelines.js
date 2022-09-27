@@ -107,7 +107,7 @@ export default function TypographyPage(): Node {
           description={`
           Ensure that there are no flashing animations present, where flashing is defined as anything that flashes _more than three times in a one second period_.
 
-          Further reading: [WCAG 2.0 Three FLashes requirements](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-three-times.html)
+          Further reading: [WCAG 2.0 Three Flashes requirements](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-three-times.html)
           `}
           columns={2}
         >
