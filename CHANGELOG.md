@@ -1,3 +1,9 @@
+## 73.3.0 (Sep 27, 2022)
+
+### Minor
+
+- Fix nits of PR 2414 ([#2419](https://github.com/pinterest/gestalt/pull/2419)) - [Preview link](https://deploy-preview-2419--gestalt.netlify.app)
+
 ## 73.2.4 (Sep 26, 2022)
 
 ### Patch
