@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Heading, Text, Icon } from 'gestalt';
+import { Box, Flex, Text, Icon } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import Page from '../../../docs-components/Page.js';
@@ -12,44 +12,7 @@ import OutlinedPincode from '../../../graphics/iconography/outlinedPincode.svg';
 import ReactionLove from '../../../graphics/iconography/reactionLove.svg';
 import CreditCards from '../../../graphics/iconography/creditCards.svg';
 import Markdown from '../../../docs-components/Markdown.js';
-
-type PrincipleItemProps = {|
-  color: string,
-  heading: string,
-  image?: Node,
-  text: string | Node,
-|};
-
-function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Node {
-  return (
-    <Flex
-      direction="column"
-      gap={{
-        row: 0,
-        column: 4,
-      }}
-    >
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        height={160}
-        width={260}
-        dangerouslySetInlineStyle={{
-          __style: {
-            backgroundColor: `var(--color-${color})`,
-          },
-        }}
-      >
-        {image}
-      </Box>
-      <Heading size="400">{heading}</Heading>
-      <Box marginBottom={6}>
-        <Text>{text}</Text>
-      </Box>
-    </Flex>
-  );
-}
+import PrincipleItem from '../../../docs-components/PrincipleItem.js';
 
 export default function IconographyPage(): Node {
   return (
