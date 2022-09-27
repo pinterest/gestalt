@@ -27,7 +27,7 @@ export default function TypographyPage(): Node {
       >
         <MainSection.Subsection
           title="Animating UI elements"
-          description="For our product interfaces, we default to *system fonts*. See our [font family design tokens](/foundations/design_tokens#Font-family) for more information."
+          description="UI elements refers to non-graphical elements on a surface, like a Card, Button, Sheet or Pin."
         >
           <Flex gap={8} direction="column" maxWidth={572}>
             <Flex gap={2} direction="column">
