@@ -43,7 +43,7 @@ export default function ButtonPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main Button example" hideEditor />
+        <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
       </PageHeader>
 
       <PropTable
@@ -544,19 +544,31 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
           <MainSection.Card
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={defaultStateExample} name="Default state button example." />
+              <SandpackExample
+                code={defaultStateExample}
+                name="Default state button example."
+                previewHeight={150}
+              />
             }
           />
           <MainSection.Card
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={disabledStateExample} name="Disabled state button example." />
+              <SandpackExample
+                code={disabledStateExample}
+                name="Disabled state button example."
+                previewHeight={150}
+              />
             }
           />
           <MainSection.Card
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={selectedStateExample} name="Selected state button example." />
+              <SandpackExample
+                code={selectedStateExample}
+                name="Selected state button example."
+                previewHeight={150}
+              />
             }
           />
         </MainSection.Subsection>

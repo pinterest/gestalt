@@ -13,7 +13,7 @@ export default function Example(): Node {
         role="link"
         rel="nofollow"
         target="blank"
-        href="https://pinterest.com"
+        href="#"
       />
     </Flex>
   );
