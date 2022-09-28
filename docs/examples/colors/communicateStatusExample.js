@@ -15,6 +15,7 @@ export default function CommunicateStatusExample(): Node {
       height="100%"
     >
       <Badge type="info" text="Info" />
+      <Badge type="recommendation" text="Recommendation" />
       <Badge type="success" text="Success" />
       <Badge type="warning" text="Warning" />
       <Badge type="error" text="Error" />

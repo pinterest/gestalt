@@ -151,6 +151,11 @@ export default function ColorUsagePage(): Node {
               fullTokenName="color-background-info-base"
             />
             <ColorTile
+              description="Recommendation base"
+              textColor="inverse"
+              fullTokenName="color-background-recommendation-base"
+            />
+            <ColorTile
               description="Success base"
               textColor="inverse"
               fullTokenName="color-background-success-base"
@@ -187,6 +192,11 @@ export default function ColorUsagePage(): Node {
               description="Info weak"
               fullTokenName="color-background-info-weak"
               textColor="default"
+            />
+            <ColorTile
+              description="Recommendation weak"
+              textColor="default"
+              fullTokenName="color-background-recommendation-weak"
             />
             <ColorTile
               description="Success weak"
@@ -293,6 +303,8 @@ export default function ColorUsagePage(): Node {
 
       **$color-text-icon-default** - Use as the default color for icons.
       **$color-text-icon-subtle** - Use as the secondary color for icons.
+      **$color-text-icon-info** - Use for info icons.
+      **$color-text-icon-recommendation** - Use for recommendation icons.
       **$color-text-icon-success** - Use for success icons.
       **$color-text-icon-warning** - Use for warning icons.
       **$color-text-icon-error** - Use for error icons.
@@ -309,6 +321,12 @@ export default function ColorUsagePage(): Node {
             description="Subtle"
             textColor="inverse"
             fullTokenName="color-text-icon-subtle"
+          />
+          <ColorTile description="Info" textColor="inverse" fullTokenName="color-text-icon-info" />
+          <ColorTile
+            description="Recommendation"
+            textColor="inverse"
+            fullTokenName="color-text-icon-recommendation"
           />
           <ColorTile
             description="Success"
