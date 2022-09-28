@@ -1,3 +1,9 @@
+## 74.0.2 (Sep 28, 2022)
+
+### Patch
+
+- Checkbox: new best practice example re vertical alignment ([#2421](https://github.com/pinterest/gestalt/pull/2421)) - [Preview link](https://deploy-preview-2421--gestalt.netlify.app)
+
 ## 74.0.1 (Sep 28, 2022)
 
 ### Patch
