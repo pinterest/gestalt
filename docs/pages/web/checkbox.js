@@ -485,6 +485,112 @@ function Example() {
 `}
           />
         </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use vertical alignment of multi-line labels so that the first line is vertically centered with the checkbox input"
+            defaultCode={`
+            function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+
+  return (
+    <Fieldset legend="Data personalization">
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Checkbox
+          checked={checked1}
+          id="sites"
+          label="Use sites you visit to improve which recommendations and ads you see on Pinterest"
+          onChange={({ checked }) => setChecked1(checked)}
+        />
+        <Checkbox
+          checked={checked2}
+          id="partner"
+          label="Use partner info to improve which recommendations and ads you see on Pinterest"
+          onChange={({ checked }) => setChecked2(checked)}
+        />
+        <Checkbox
+          checked={checked3}
+          id="activity"
+          label="Use your activity to improve ads you see about Pinterest on other sites or apps you may visit"
+          onChange={({ checked }) => setChecked3(checked)}
+        />
+      </Flex>
+    </Fieldset>
+  );
+}
+`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Vertically center checkbox inputs with their respective custom labels"
+            defaultCode={`
+            function Example() {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+
+  return (
+    <Fieldset legend="Data personalization">
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Flex gap={2} alignItems="center">
+          <Checkbox
+            checked={checked1}
+            id="sites2"
+            onChange={({ checked }) => setChecked1(checked)}
+          />
+          <Text inline>
+            <Label htmlFor="sites2">
+              Use sites you visit to improve which recommendations and ads you see on Pinterest.
+            </Label>
+            <Link href="#" inline>
+              Learn more
+            </Link>
+          </Text>
+        </Flex>
+
+        <Flex gap={2} alignItems="center">
+          <Checkbox
+            checked={checked2}
+            id="partner2"
+            onChange={({ checked }) => setChecked2(checked)}
+          />
+          <Text inline>
+            <Label htmlFor="partner2">
+              Use partner info to improve which recommendations and ads you see on Pinterest.
+            </Label>
+            <Link href="#" inline>
+              Learn more
+            </Link>
+          </Text>
+        </Flex>
+
+        <Flex gap={2} alignItems="center">
+          <Checkbox
+            checked={checked3}
+            id="activity2"
+            onChange={({ checked }) => setChecked3(checked)}
+          />
+          <Text inline>
+            <Label htmlFor="activity2">
+              Use your activity to improve ads you see about Pinterest on other sites or apps you
+              may visit.
+            </Label>
+            <Link href="#" inline>
+              Learn more
+            </Link>
+          </Text>
+        </Flex>
+      </Flex>
+    </Fieldset>
+  );
+}
+`}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
@@ -500,7 +606,6 @@ If Checkbox is labeled by content elsewhere on the page, or a more complex label
           description={`All groups of related Checkboxes should have a legend, which is provided by wrapping them in [Fieldset](/web/fieldset) component.
 `}
         >
-          {' '}
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
