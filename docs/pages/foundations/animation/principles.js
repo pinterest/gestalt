@@ -20,12 +20,13 @@ export default function AnimationPrinciples(): Node {
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
               color="yellow-caramellow-450"
-              heading="Purposeful"
+              heading="Helpful"
               text={
                 <Text>
                   Animations are used sparingly, and only when there is a clear, intentional reason
-                  for them. Every animation should serve a purpose and not be added simply for the
-                  sake of having animation.
+                  for them. They help a user complete a task or learn new information, and should
+                  not distract the user for accomplishing a goal. Every animation should serve a
+                  purpose and not be added simply for the sake of having animation.
                 </Text>
               }
             />
@@ -33,11 +34,13 @@ export default function AnimationPrinciples(): Node {
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
               color="blue-skycicle-450"
-              heading="Helpful"
+              heading="Direct"
               text={
                 <Text>
-                  Animations help a user complete a task or learn new information. They should be
-                  logical and not distract the user for accomplishing a goal.
+                  Animations only last as long as needed to help guide the user. They are directed
+                  toward specific elements and follow a logical progression based on purpose or
+                  location of those elements. They are intuitive and perhaps even unnoticed because
+                  they feel natural and expected.
                 </Text>
               }
             />
@@ -48,9 +51,10 @@ export default function AnimationPrinciples(): Node {
               heading="Accessible"
               text={
                 <Text>
-                  Animations must be implemented in a way that maintains accessibility. Most of the
-                  time this means respecting a user’s device motion settings and disabling any
-                  animations when “use reduced motion” is turned on.
+                  Animations must be implemented in a way that maintains accessibility, ensuring
+                  they do not cause the user any harm. Most of the time this means respecting a
+                  user’s device motion settings and disabling any animations when “use reduced
+                  motion” is turned on.
                 </Text>
               }
             />
