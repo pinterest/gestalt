@@ -1,3 +1,9 @@
+## 74.0.1 (Sep 28, 2022)
+
+### Patch
+
+- Docs: Roadmap updates ([#2420](https://github.com/pinterest/gestalt/pull/2420)) - [Preview link](https://deploy-preview-2420--gestalt.netlify.app)
+
 ## 74.0.0 (Sep 28, 2022)
 
 ### Major
