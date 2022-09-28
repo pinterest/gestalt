@@ -1,3 +1,9 @@
+## 74.0.0 (Sep 28, 2022)
+
+### Major
+
+- DeviceTypeProvider: new utility and documentation page ([#2418](https://github.com/pinterest/gestalt/pull/2418)) - [Preview link](https://deploy-preview-2418--gestalt.netlify.app)
+
 ## 73.3.0 (Sep 27, 2022)
 
 ### Minor
