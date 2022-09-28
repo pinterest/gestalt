@@ -33,26 +33,33 @@ export default function TypographyPage(): Node {
             <Flex gap={2} direction="column">
               <Heading size="300">Feedback</Heading>
               <Markdown text="Animation is often used to provide feedback to the user that an action they intended to take was successful. For example, a Button may shrink when pressed or tapped to indicate to the user that the Button was successfully interacted with. Similarly, a loading spinner may appear after a user submits a form to help indicate to the user that the form was submitted successfully and a process is beginning. Another example could be a Card that grows slightly when hovered/focused to help indicate which Card a user is interacting with." />
-              <Text>[example from product - More Ideas on Home card]</Text>
+              <Text italic>[example from product - More Ideas on Home card]</Text>
             </Flex>
             <Flex gap={2} direction="column">
               <Heading size="300">Transitions</Heading>
-              <Markdown text="Another common use case for animations is to show a transition between two states in the UI. For example, a search IconButton may expand into a SearchField when interacted with or a Sheet may slide in from the side of the screen to draw attention to it. Transitional animations help guide the user to focus on certain pieces of UI, ideally helping them complete a task." />
-              <Text>
-                [example from product - Sheeting sliding in during Campaign setup process]
+              <Markdown
+                text={`
+              Another common use case for animations is to show a transition between two states in the UI. For example, a search IconButton may expand into a SearchField when interacted with, or a Sheet may slide in from the side of the screen to draw attention to it. Transitional animations help draw the user's attention to particular pieces of the UI, ideally helping them complete a task.
+
+              Transitional animations should also follow an intuitive flow. For example, a drawer that appears from the bottom on mobile should slide up from the bottom of the screen and slide back down upon dismissal.
+              `}
+              />
+              <Text italic>
+                [example from product - Sheeting sliding in during Campaign setup process] [example
+                from product - Mobile Sheet slides in and out from bottom]
               </Text>
             </Flex>
             <Flex gap={2} direction="column">
               <Heading size="300">Education</Heading>
               <Markdown text="Animations can also be used to help orient a user to the navigation or structure of an application. For instance, a new user may see a Pin shrink and navigate toward the Profile menu item to help inform the user that saved Pins can be found in the Profile menu. Another example could be a guided onboarding education tooltip that moves around the screen as it points to different features of the application." />
-              <Text>[example from product - Saved Pin traveling to Profile on mWeb]</Text>
+              <Text italic>[example from product - Saved Pin traveling to Profile on mWeb]</Text>
             </Flex>
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Animating illustrations and graphics"
           description={`
-          Celebratory animations can be used to help a user feel accomplished after a certain event has occurred or add interest to an otherwise stagnant process. For example, confetti can be used to indicate a process has completed successfully, like creating a first Board while onboarding onto the app. Alternatively, graphics in an onboarding flow can be animated to draw attention and add interest to a multi-step modal.
+          Celebratory animations can be used to help a user feel accomplished after a certain event has occurred or add interest to an otherwise stagnant process. For example, confetti can be used to indicate a process has been completed successfully, like creating a first Board while onboarding onto the app. Alternatively, graphics in an onboarding flow can be animated to draw attention and add interest to a multi-step modal.
 
           In general, illustrative animations add delight but are not critical for a user’s understanding of a task or feature. Because they are additive and not required, they should be used sparingly during high-value moments where an animation would be delightful and not distracting.
           `}
@@ -68,6 +75,15 @@ export default function TypographyPage(): Node {
       >
         <Text>[example from product - Pin fade when selecting business type]</Text>
       </MainSection>
+      <MainSection name="Treatment guidelines">
+        <MainSection.Subsection
+          title="Choosing objects to animate"
+          description="When an element is animated, avoid animating sub-elements contained within that element. For instance, if a Card grows when hovered/focused, any buttons or text elements within the Card should not also be animated.  "
+        />
+        <MainSection.Subsection title="Axis Considerations" />
+        <MainSection.Subsection title="Duration and velocity" />
+        <MainSection.Subsection title="Easing" />
+      </MainSection>
       <MainSection
         name="Accessibility"
         description={`
@@ -77,9 +93,11 @@ export default function TypographyPage(): Node {
 `}
       >
         <MainSection.Subsection
-          title="Infinite animations"
+          title="Looping animations"
           description={`
           Ensure that any animation that is moving, blinking, scrolling, or auto-playing and lasts longer than 5 seconds has an affordance for pausing and resuming the animation or an option to hide the animation.
+
+          _Looping animations should be avoided whenever possible, as they can become distracting very quickly._
 
           Further reading: [WCAG 2.0 Pause, Stop Hide requirements](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
           `}
