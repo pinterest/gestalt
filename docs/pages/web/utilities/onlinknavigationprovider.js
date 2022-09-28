@@ -6,7 +6,6 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import QualityChecklist from '../../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -18,8 +17,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
-      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection

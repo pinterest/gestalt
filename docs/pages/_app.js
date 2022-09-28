@@ -22,7 +22,7 @@ function Providers({ children, isMobile }: {| children: Node, isMobile: boolean 
 
   return (
     <DocsDeviceTypeProvider isMobile={isMobileDevice}>
-      <DeviceTypeProvider deviceType={isMobileDevice ? 'phone' : 'desktop'}>
+      <DeviceTypeProvider deviceType={isMobileDevice ? 'mobile' : 'desktop'}>
         <DocsExperimentProvider>
           <DocsI18nProvider>{children}</DocsI18nProvider>
         </DocsExperimentProvider>

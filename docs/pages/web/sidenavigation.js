@@ -29,6 +29,7 @@ import headerExample from '../../examples/sidenavigation/headerExample.js';
 import nestedExample from '../../examples/sidenavigation/nestedExample.js';
 import notificationsExample from '../../examples/sidenavigation/notificationsExample.js';
 import mobileExample from '../../examples/sidenavigation/mobileExample.js';
+import subcomponent from '../../examples/sidenavigation/subcomponent.js';
 
 export default function SideNavigationPage({
   generatedDocGen,
@@ -428,84 +429,26 @@ When building SideNavigation, we might want to render different combinations of 
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<SideNavigation accessibilityLabel="Subcomponent composability example">
-
-  { true && <SideNavigation.TopItem
-      href="#"
-      onClick={({ event }) => event.preventDefault()}
-      label="Trends"
-      icon="ads-stats"
-    /> }
-
-  <SideNavigation.Section label="Analytics">
-    { true && <SideNavigation.TopItem
-      href="#"
-      onClick={({ event }) => event.preventDefault()}
-      label="Reporting"
-      icon="ads-stats"
-    /> }
-    { true && <SideNavigation.TopItem
-      href="#"
-      onClick={({ event }) => event.preventDefault()}
-      label="Conversions"
-      icon="replace"
-    /> }
-  </SideNavigation.Section>
-
-  <SideNavigation.Section label="Audiences">
-    <SideNavigation.Group label="Christmas" icon="people">
-      <SideNavigation.NestedItem
-        href="#"
-        onClick={({ event }) => event.preventDefault()}
-        label="Luxury Christmas"
-      />
-      <SideNavigation.NestedGroup label="Classic Christmas">
-        <SideNavigation.NestedItem
-          href="#"
-          onClick={({ event }) => event.preventDefault()}
-          label="West Coast"
-        />
-        <SideNavigation.NestedItem
-          href="#"
-          onClick={({ event }) => event.preventDefault()}
-          label="East Coast"
-        />
-      </SideNavigation.NestedGroup>
-
-      <SideNavigation.NestedGroup label="Alternative Christmas">
-        { ["West Coast","East Coast"].map(x => <SideNavigation.NestedItem
-          href="#"
-          key={"xmas" + x}
-          onClick={({ event }) => event.preventDefault()}
-          label={x}
-        />) }
-        { ["Southern","NorthEast"].map(x => <SideNavigation.NestedItem
-          href="#"
-          key={"xmas" + x}
-          onClick={({ event }) => event.preventDefault()}
-          label={x}
-        />) }
-      </SideNavigation.NestedGroup>
-
-    </SideNavigation.Group>
-    <SideNavigation.Group label="Halloween" icon="people">
-      { ["West Coast","East Coast"].map(x => <SideNavigation.NestedItem
-          href="#"
-          key={"halloween" + x}
-          onClick={({ event }) => event.preventDefault()}
-          label={x}
-        />) }
-    </SideNavigation.Group>
-
-  </SideNavigation.Section>
-</SideNavigation>
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={subcomponent}
+                name="Subcomponent reusability example"
+                previewHeight={500}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Mobile">
+      <MainSection
+        name="Mobile"
+        description={`SideNavigation requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+
+For mobile, \`title\` and \`dismissButton\` become required props.
+
+Notice that the mobile UI requires logic to hide and show SideNavigation full width. If [Button](/web/button) or [TapArea](/web/taparea) control the visibility of SideNavigation, use \`accessibilityControls\` so that screen reader users can identify the relationship between elements.
+  `}
+      >
         <MainSection.Card
           sandpackExample={
             <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />

@@ -88,7 +88,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
             zIndex={ABOVE_PAGE_HEADER_ZINDEX}
           >
             <DocsDeviceTypeProvider isMobile>
-              <DeviceTypeProvider deviceType="phone">
+              <DeviceTypeProvider deviceType="mobile">
                 <DocsSideNavigation showBorder />
               </DeviceTypeProvider>
             </DocsDeviceTypeProvider>
