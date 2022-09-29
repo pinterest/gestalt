@@ -3,14 +3,18 @@ import { type ComponentType, type Node, Component as ReactComponent } from 'reac
 import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
-import ScrollContainer from './ScrollContainer.js';
+import ScrollContainer from './Masonry/ScrollContainer.js';
 import throttle, { type ThrottleReturn } from './throttle.js';
-import { type Cache } from './Cache.js';
-import MeasurementStore from './MeasurementStore.js';
-import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
-import defaultLayout from './defaultLayout.js';
-import uniformRowLayout from './uniformRowLayout.js';
-import fullWidthLayout from './fullWidthLayout.js';
+import { type Cache } from './Masonry/Cache.js';
+import MeasurementStore from './Masonry/MeasurementStore.js';
+import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
+import defaultLayout from './Masonry/defaultLayout.js';
+import uniformRowLayout from './Masonry/uniformRowLayout.js';
+import fullWidthLayout from './Masonry/fullWidthLayout.js';
+
+const RESIZE_DEBOUNCE = 300;
+
+const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
 type Position = {| top: number, left: number, width: number, height: number |};
 
@@ -95,15 +99,10 @@ type State<T> = {|
   hasPendingMeasurements: boolean,
   isFetching: boolean,
   items: $ReadOnlyArray<T>,
-  // $FlowFixMe[unclear-type]
-  measurementStore: Cache<T, *>,
+  measurementStore: Cache<T, number>,
   scrollTop: number,
   width: ?number,
 |};
-
-const RESIZE_DEBOUNCE = 300;
-
-const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
 /**
  * [Masonry](https://gestalt.pinterest.systems/web/masonry) creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
@@ -235,6 +234,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       hasPendingMeasurements !== this.state.hasPendingMeasurements ||
       prevState.width == null
     ) {
+      // This helps prevent jank
+      // Revisit this with React 18!
       this.insertAnimationFrame = requestAnimationFrame(() => {
         this.setState({
           hasPendingMeasurements,

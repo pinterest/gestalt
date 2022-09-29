@@ -1,22 +1,7 @@
 // @flow strict
 import { type Cache } from './Cache.js';
-
-export type Position = {|
-  top: number,
-  left: number,
-  width: number,
-  height: number,
-|};
-
-const mindex = (arr) => {
-  let idx = 0;
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] < arr[idx]) {
-      idx = i;
-    }
-  }
-  return idx;
-};
+import mindex from './mindex.js';
+import { type Position } from './types.js';
 
 const offscreen = (width, height = Infinity) => ({
   top: -9999,

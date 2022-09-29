@@ -1,7 +1,6 @@
 // @flow strict
 import { type Cache } from './Cache.js';
-
-type Position = {| top: number, left: number, width: number, height: number |};
+import { type Position } from './types.js';
 
 const offscreen = (width, height = Infinity) => ({
   top: -9999,
