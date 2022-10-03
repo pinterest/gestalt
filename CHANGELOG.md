@@ -1,3 +1,9 @@
+## 74.0.5 (Oct 3, 2022)
+
+### Patch
+
+- Datapoint: fix casing in docs examples ([#2425](https://github.com/pinterest/gestalt/pull/2425)) - [Preview link](https://deploy-preview-2425--gestalt.netlify.app)
+
 ## 74.0.4 (Oct 3, 2022)
 
 ### Patch
