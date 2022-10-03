@@ -1,15 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-
-export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -20,8 +19,8 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
   size="lg"
   title="Total impressions"
   tooltipText="The number of times your ads were seen, including earned impressions"
-  trend={{value: 30, accessibilityLabel: "Trending up"}}
-  value="2.34M"
+  trend={{ value: 30, accessibilityLabel: "Trending up" }}
+  value="2.34m"
 />
 `}
       />
@@ -57,7 +56,12 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
             type="do"
             description="Whenever possible, use the full number with locale-specific separators to ensure clarity across all languages."
             defaultCode={`
-<Datapoint size="lg" title="Total impressions" value="1,451" trend={{value: 10.1, accessibilityLabel: "Trending up"}}  />
+<Datapoint
+  size="lg"
+  title="Total impressions"
+  value="1,451"
+  trend={{ value: 10.1, accessibilityLabel: "Trending up" }}
+/>
 `}
           />
           <MainSection.Card
@@ -65,7 +69,12 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
             type="don't"
             description="Use long decimal values for `trend`. Limit the trend to one decimal point."
             defaultCode={`
-<Datapoint size="lg" title="Saves" value="10,392" trend={{value: -12.193, accessibilityLabel: "Trending down"}} />
+<Datapoint
+  size="lg"
+  title="Saves"
+  value="10,392"
+  trend={{ value: -12.193, accessibilityLabel: "Trending down" }}
+/>
 `}
           />
         </MainSection.Subsection>
@@ -96,7 +105,13 @@ export default function DatapointPage({ generatedDocGen }: {| generatedDocGen: D
             type="do"
             description="Be certain to use a positive `trendSentiment` only when the trend is overtly positive for the end user. Use a neutral `trendSentiment` in cases of ambiguity."
             defaultCode={`
-<Datapoint size="lg" title="Total spend" value="$14,325" trend={{value: 5.6, accessibilityLabel: "Trending up"}} trendSentiment="neutral"  />
+<Datapoint
+  size="lg"
+  title="Total spend"
+  value="$14,325"
+  trend={{ value: 5.6, accessibilityLabel: "Trending up" }}
+  trendSentiment="neutral"
+/>
 `}
           />
           <MainSection.Card
@@ -107,11 +122,11 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
 `}
             defaultCode={`
 <Flex direction="column" gap={{ column: 4, row: 0 }}>
-<Datapoint size="md" title="January spend" value="$14,325"  />
-<Datapoint size="md" title="February spend" value="$12,150"  />
-<Datapoint size="md" title="March spend" value="$23,700"  />
-<Datapoint size="md" title="April spend" value="$9,525"  />
-<Datapoint size="md" title="May spend" value="$10,750"  />
+  <Datapoint size="md" title="January spend" value="$14,325"  />
+  <Datapoint size="md" title="February spend" value="$12,150"  />
+  <Datapoint size="md" title="March spend" value="$23,700"  />
+  <Datapoint size="md" title="April spend" value="$9,525"  />
+  <Datapoint size="md" title="May spend" value="$10,750"  />
 </Flex>
 `}
           />
@@ -137,14 +152,14 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
             cardSize="md"
             title="Medium"
             defaultCode={`
-        <Datapoint size="md" title="Spend" value="$1.23M" />
+        <Datapoint size="md" title="Spend" value="$1.23m" />
 `}
           />
           <MainSection.Card
             cardSize="md"
             title="Large"
             defaultCode={`
-        <Datapoint size="lg" title="Spend" value="$1.23M" />
+        <Datapoint size="lg" title="Spend" value="$1.23m" />
 `}
           />
         </MainSection.Subsection>
@@ -157,9 +172,21 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
             cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Datapoint title="Pin clicks" value="1.23k" trend={{value: 12, accessibilityLabel: "Trending up"}} />
-  <Datapoint title="Saves" value="123" trend={{value: 0, accessibilityLabel: ""}} />
-  <Datapoint title="Total impressions" value="1.23M" trend={{value: -5, accessibilityLabel: "Trending down"}}  />
+  <Datapoint
+    title="Pin clicks"
+    value="1.23k"
+    trend={{ value: 12, accessibilityLabel: "Trending up" }}
+  />
+  <Datapoint
+    title="Saves"
+    value="123"
+    trend={{ value: 0, accessibilityLabel: "" }}
+  />
+  <Datapoint
+    title="Total impressions"
+    value="1.23m"
+    trend={{ value: -5, accessibilityLabel: "Trending down" }}
+  />
 </Flex>
 `}
           />
@@ -173,9 +200,24 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
             cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Datapoint title="Bounce rate" value="86.3%" trend={{value: 29, accessibilityLabel: "Trending up"}} trendSentiment="bad" />
-  <Datapoint title="Conversion falloffs" value="92" trend={{value: -10, accessibilityLabel: "Tending down"}} trendSentiment="good" />
-  <Datapoint title="Spend" value="$19.3k" trend={{value: -4, accessibilityLabel: "Trending down"}} trendSentiment="neutral"  />
+  <Datapoint
+    title="Bounce rate"
+    value="86.3%"
+    trend={{ value: 29, accessibilityLabel: "Trending up" }}
+    trendSentiment="bad"
+  />
+  <Datapoint
+    title="Conversion falloffs"
+    value="92"
+    trend={{ value: -10, accessibilityLabel: "Tending down" }}
+    trendSentiment="good"
+  />
+  <Datapoint
+    title="Spend"
+    value="$19.3k"
+    trend={{ value: -4, accessibilityLabel: "Trending down" }}
+    trendSentiment="neutral"
+  />
 </Flex>
 `}
           />
@@ -188,7 +230,11 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Datapoint title="Spend" value="$5.7k" tooltipText="Total ad spend in the selected time period" />
+<Datapoint
+  title="Spend"
+  value="$5.7k"
+  tooltipText="Total ad spend in the selected time period"
+/>
     `}
           />
         </MainSection.Subsection>
@@ -201,7 +247,12 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Datapoint title="Spend" value="$5.7k" tooltipText="Total ad spend in the selected time period" badge={{text: "Early access"}}/>
+<Datapoint
+  title="Spend"
+  value="$5.7k"
+  tooltipText="Total ad spend in the selected time period"
+  badge={{ text: "Early access" }}
+/>
     `}
           />
         </MainSection.Subsection>
