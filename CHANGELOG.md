@@ -1,3 +1,9 @@
+## 74.0.3 (Oct 3, 2022)
+
+### Patch
+
+- Docs: Additions to color guidelines to include Recommendations ([#2423](https://github.com/pinterest/gestalt/pull/2423)) - [Preview link](https://deploy-preview-2423--gestalt.netlify.app)
+
 ## 74.0.2 (Sep 28, 2022)
 
 ### Patch
