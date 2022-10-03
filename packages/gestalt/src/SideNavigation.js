@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { useId, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Flex from './Flex.js';
@@ -12,18 +12,9 @@ import SideNavigationTopItem from './SideNavigationTopItem.js';
 import SideNavigationGroup from './SideNavigationGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
-import getChildrenToArray from './getChildrenToArray.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
-import { type Indexable } from './zIndex.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-
-type TooltipProps = {|
-  accessibilityLabel?: string,
-  inline?: boolean,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
-  zIndex?: Indexable,
-|};
 
 export type Props = {|
   /**
@@ -45,7 +36,7 @@ export type Props = {|
   /**
    * Callback fired when SideNavigation requests to be closed in mobile devices. Must be used to control SideNavigation´s on/off display state. The accessibilityLabel should follow the Accessibility guidelines.
    */
-  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void, tooltip: TooltipProps |},
+  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void |},
   /**
   /**
    * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/web/sidenavigation#Border) variant for more info.
@@ -77,12 +68,19 @@ export default function SideNavigation({
 }: Props): Node {
   const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
 
+  const id = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
   if (isMobile) {
     return (
-      <SideNavigationProvider dismissButton={dismissButton}>
+      <SideNavigationProvider
+        dismissButton={{
+          accessibilityLabel: dismissButton?.accessibilityLabel,
+          onDismiss: dismissButton?.onDismiss ?? (() => {}),
+          id,
+        }}
+      >
         <SideNavigationMobile
           accessibilityLabel={accessibilityLabel}
           footer={footer}
@@ -90,6 +88,7 @@ export default function SideNavigation({
           dismissButton={dismissButton}
           showBorder={showBorder}
           title={title}
+          id={id}
         >
           {navigationChildren}
         </SideNavigationMobile>

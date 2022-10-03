@@ -5,14 +5,6 @@ export interface Indexable {
   index(): number;
 }
 
-type TooltipProps = {|
-  accessibilityLabel?: string,
-  inline?: boolean,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
-  zIndex?: Indexable,
-|};
-
 type SideNavigationContextType = {|
   selectedItemId: string,
   setSelectedItemId: (string) => void,
@@ -23,13 +15,13 @@ type SideNavigationContextType = {|
   dismissButton?: {|
     accessibilityLabel?: string,
     onDismiss: () => void,
-    tooltip: TooltipProps,
+    id: string,
   |},
 |};
 
 type Props = {|
   children: Node,
-  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void, tooltip: TooltipProps |},
+  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void, id: string |},
 |};
 
 const SideNavigationContext: Context<SideNavigationContextType> =

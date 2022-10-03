@@ -7,7 +7,6 @@ import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
 import { useNavigationContext } from './navigationContext.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
-import { TOOLTIP_ZINDEX } from './z-indices.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
@@ -109,10 +108,7 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
       title="Menu"
       dismissButton={{
         onDismiss: closeSideNavigation,
-        tooltip: {
-          text: 'Close navigation',
-          zIndex: TOOLTIP_ZINDEX,
-        },
+        accessibilityLabel: 'Dismiss side navigation',
       }}
       showBorder={showBorder}
     >

@@ -6,10 +6,11 @@ import TapArea from './TapArea.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
 import IconButton from './IconButton.js';
+import InternalDismissButton from './InternalDismissButton.js';
 import Box from './Box.js';
 import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import getChildrenToArray from './getChildrenToArray.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import SideNavigationGroupContent from './SideNavigationGroupContent.js';
 import { type Props } from './SideNavigationGroup.js';
@@ -97,11 +98,9 @@ export default function SideNavigationGroupMobile({
               </Flex>
             </Flex.Item>
             <Flex.Item flex="none">
-              <IconButton
-                size="lg"
+              <InternalDismissButton
+                accessibilityControls={dismissButton?.id}
                 accessibilityLabel={dismissButton?.accessibilityLabel || ''}
-                icon="cancel"
-                tooltip={dismissButton?.tooltip}
                 onClick={() => dismissButton?.onDismiss()}
               />
             </Flex.Item>

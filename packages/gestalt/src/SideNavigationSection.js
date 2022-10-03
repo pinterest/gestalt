@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import Box from './Box.js';
 import Text from './Text.js';
-import getChildrenToArray from './getChildrenToArray.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 
 type Props = {|
   /**

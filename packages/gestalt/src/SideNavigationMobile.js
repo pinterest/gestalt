@@ -1,32 +1,50 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, useRef, useEffect, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Divider from './Divider.js';
 import Heading from './Heading.js';
-import IconButton from './IconButton.js';
 import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
-import getChildrenToArray from './getChildrenToArray.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
+import InternalDismissButton from './InternalDismissButton.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
-import { type Props } from './SideNavigation.js';
+import { type Props as SideNavigationProps } from './SideNavigation.js';
+
+type Props = {| ...SideNavigationProps, id: string |};
 
 export default function SideNavigationMobile({
   accessibilityLabel,
   children,
   footer,
   header,
+  id,
   title,
   dismissButton,
   showBorder,
 }: Props): Node {
+  const dismissButtonRef = useRef();
+
   const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
 
   const { selectedMobileChildren } = useSideNavigation();
 
+  useEffect(() => {
+    if (dismissButtonRef.current) {
+      dismissButtonRef.current.focus();
+    }
+  }, [dismissButtonRef]);
+
   return (
-    <Box width="100%" height="100%" as="nav" aria-label={accessibilityLabel} color="default">
+    <Box
+      width="100%"
+      height="100%"
+      as="nav"
+      aria-label={accessibilityLabel}
+      color="default"
+      id={id}
+    >
       <div
         className={showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined}
       >
@@ -43,12 +61,11 @@ export default function SideNavigationMobile({
                     </Flex>
                   </Flex.Item>
                   <Flex.Item flex="none">
-                    <IconButton
-                      size="lg"
+                    <InternalDismissButton
                       accessibilityLabel={dismissButton?.accessibilityLabel || ''}
-                      icon="cancel"
-                      tooltip={dismissButton?.tooltip}
+                      accessibilityControls={id}
                       onClick={() => dismissButton?.onDismiss()}
+                      ref={dismissButtonRef}
                     />
                   </Flex.Item>
                 </Flex>
