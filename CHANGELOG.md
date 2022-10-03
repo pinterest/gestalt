@@ -1,3 +1,9 @@
+## 74.0.4 (Oct 3, 2022)
+
+### Patch
+
+- Internal: upgrade @netlify/plugin-nextjs to 4.23.4 ([#2424](https://github.com/pinterest/gestalt/pull/2424)) - [Preview link](https://deploy-preview-2424--gestalt.netlify.app)
+
 ## 74.0.3 (Oct 3, 2022)
 
 ### Patch
