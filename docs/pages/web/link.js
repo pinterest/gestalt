@@ -17,8 +17,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         description={generatedDocGen?.description}
         defaultCode={`
 <Text inline>
-  Find tips and best practices on the
-  <Link href="https://business.pinterest.com/" inline> Pinterest Business Site </Link>
+To see how you can grow your business, visit
+  <Link href="https://business.pinterest.com/advertise" inline externalLinkIcon="default" target="blank">Pinterest Ads</Link>
 </Text>
         `}
       />
