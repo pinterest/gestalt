@@ -2,6 +2,52 @@
   "year": "2022",
   "digests": [
     {
+      "month": "September",
+      "summary": "",
+      "posts": [
+        {
+          "title": "Gestalt Eng September Newsletter",
+          "audience": ["Engineering"],
+          "content": "A recap of significant changes from September."
+        },
+        {
+          "title": "TextField / TextArea max length",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/de/b2/95/deb2959b4156a6dbbc92b20a35276cf4.png",
+          "imageAltText": "Screenshot of TextField / TextArea max length",
+          "content": "TextField and TextArea now support a `maxLength` prop to allow for communication and enforcement of character limits for user input. [Check out the docs](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details on how to use this new feature."
+        },
+        {
+          "title": "SelectList groups",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/b7/8c/95/b78c958c3c231e1edb2d20007321cf9c.png",
+          "imageAltText": "Screenshot of SelectList groups",
+          "content": "SelectList now supports grouping of items with a revamped API using two sub-components, SelectList.Option and SelectList.Group. This allows for more complex dropdown menus without needing to create a more custom experience using Dropdown, improving mobile support and accessibility. [Check out the docs](https://gestalt.pinterest.systems/web/selectlist#Groups) to learn more about these new sub-components."
+        },
+        {
+          "title": "Device-specific UI",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/c4/f8/2a/c4f82a87559b87ff093a94c292b69a28.png",
+          "imageAltText": "Screenshot of mobile SideNavigation UI",
+          "content": "Earlier this year we quietly introduced a Context Provider to allow Gestalt components to use specific UI based on the user's device type (desktop vs mobile). With the launch of SideNavigation last month, [we're making this Provider public](https://gestalt.pinterest.systems/web/utilities/devicetypeprovider). Expect to see more updates in the future for device-specific UI in Gestalt components!"
+        },
+        {
+          "title": "Component updates: Checkbox, IconButton, RadioGroup, TextField",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/f2/fd/76/f2fd76d3bd4b76acaedeb7c58b2ee7ca.png",
+          "imageAltText": "Screenshot of Checkbox",
+          "content": "We standardized the style and props used for helper text and error messages on [Checkbox](https://gestalt.pinterest.systems/web/checkbox#With-helperText) and [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup#With-helperText) to match TextField, for a more consistent UI and developer experience (DX). We also improved DX by updating [IconButton's default size](https://gestalt.pinterest.systems/web/iconbutton#IconButtonProps) to match design guidance, for one fewer prop that needs to be set in the default usage. Badge now supports a [new 'recommendation' type](https://gestalt.pinterest.systems/web/badge#Type). And we [improved security for the end user](https://www.androidpolice.com/google-chrome-servers-get-passwords-enhanced-spell-check/) by turning off autocomplete for all TextFields of type `'password'` or `'email'`. Special thanks to Brian Lee for the heads-up on that fix!"
+        },
+        {
+          "title": "Docs updates",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/83/f1/df/83f1df9a6c53294380f7f1e83d5477b9.png",
+          "imageAltText": "Screenshot of button to copy Flow type",
+          "content": "When creating wrapper components that pass props through to Gestalt components, what Flow type should you use? Copy/pasting types from Gestalt source misses any future updates, leading to stale types. Reaching into Gestalt internals isn't allowed or recommended, as those types are subject to breaking changes without warning. Thankfully Flow provides utility types for this situation: `$ElementType<React$ElementConfig<typeof ComponentName>, 'propName'>`. Since this syntax isn't easy to remember, we added [a note in our FAQ](https://gestalt.pinterest.systems/get_started/faq#Component-usage) as well as a button that appears next to every prop in the Props tables that will copy the correct syntax to your clipboard.\n\nWe also updated the code examples for Avatar, AvatarGroup, Box, Button, ComboBox, Flex, and IconButton to use the new Sandpack editor."
+        }
+      ]
+    },
+    {
       "week": "September 23, 2022",
       "summary": "Improvement to Gestalt form fields, Figma quality-of-life improvements and Flow types improvements",
       "posts": [
