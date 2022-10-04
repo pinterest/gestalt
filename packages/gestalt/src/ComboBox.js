@@ -27,7 +27,7 @@ import handleContainerScrolling, {
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
 import { type Indexable } from './zIndex.js';
-import { useAccessibilityLabelContext } from './contexts/AccessibilityLabelProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Size = 'md' | 'lg';
 
@@ -191,7 +191,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   }: Props,
   ref,
 ): Node {
-  const { accessibilityClearButtonLabel } = useAccessibilityLabelContext('ComboBox');
+  const { accessibilityClearButtonLabel } = useDefaultLabelContext('ComboBox');
 
   // ==== REFS ====
 

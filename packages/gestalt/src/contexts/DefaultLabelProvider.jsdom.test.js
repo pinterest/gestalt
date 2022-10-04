@@ -1,22 +1,20 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import AccessibilityLabelProvider, {
-  useAccessibilityLabelContext,
-} from './AccessibilityLabelProvider.js';
+import DefaultLabelProvider, { useDefaultLabelContext } from './DefaultLabelProvider.js';
 
-// AccessibilityLabelProvider is a rename of the React Context.Provider, so no tests required
+// DefaultLabelProvider is a rename of the React Context.Provider, so no tests required
 
-describe('useAccessibilityLabelContext', () => {
+describe('useDefaultLabelContext', () => {
   it('returns provided string values for a supported component', () => {
     function TestComponent() {
       const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
-        useAccessibilityLabelContext('TextField');
+        useDefaultLabelContext('TextField');
 
       return <div>{[accessibilityHidePasswordLabel, accessibilityShowPasswordLabel]}</div>;
     }
 
     render(
-      <AccessibilityLabelProvider
+      <DefaultLabelProvider
         value={{
           ComboBox: {
             accessibilityClearButtonLabel: 'Clear input',
@@ -28,7 +26,7 @@ describe('useAccessibilityLabelContext', () => {
         }}
       >
         <TestComponent />
-      </AccessibilityLabelProvider>,
+      </DefaultLabelProvider>,
     );
 
     // This is a bit roundabout — we don't really care that these strings are in the document, but that they were returned from the Hook correctly
@@ -41,7 +39,7 @@ describe('useAccessibilityLabelContext', () => {
 
     function TestComponent() {
       // $FlowExpectedError[prop-missing]
-      const { foo } = useAccessibilityLabelContext('Foo');
+      const { foo } = useDefaultLabelContext('Foo');
 
       return <div>{foo}</div>;
     }
@@ -53,7 +51,7 @@ describe('useAccessibilityLabelContext', () => {
     expect(consoleMock).toHaveBeenCalledTimes(3);
     expect(consoleMock.mock.calls[0][0].message).toEqual(
       expect.stringContaining(
-        'Foo translations not available — please add translations to AccessibilityLabelProvider',
+        'Foo translations not available — please add translations to DefaultLabelProvider',
       ),
     );
   });

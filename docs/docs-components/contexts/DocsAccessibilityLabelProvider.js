@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import { AccessibilityLabelProvider } from 'gestalt';
+import { DefaultLabelProvider } from 'gestalt';
 
 type Props = {| children: Node |};
 
-export default function DocsAccessibilityLabelProvider({ children }: Props): Node {
-  return <AccessibilityLabelProvider value={null}>{children}</AccessibilityLabelProvider>;
+export default function DocsDefaultLabelProvider({ children }: Props): Node {
+  return <DefaultLabelProvider value={null}>{children}</DefaultLabelProvider>;
 }

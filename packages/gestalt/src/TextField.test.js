@@ -3,7 +3,7 @@ import { create } from 'react-test-renderer';
 import Tag from './Tag.js';
 import TextField from './TextField.js';
 
-jest.mock('./contexts/I18nProvider.js');
+jest.mock('./contexts/DefaultLabelProvider.js');
 
 describe('TextField', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {

@@ -4,11 +4,11 @@ import { type Context, createContext, useContext } from 'react';
 /**
  * To add new labels:
  * - Create a type for the component's labels (these types need to be flat, *not* nested)
- * - Add component labels type to AccessibilityLabelContextType keyed by component name
+ * - Add component labels type to DefaultLabelContextType keyed by component name
  * - Add fallback labels to fallbackLabels below
  */
 
-export type AccessibilityLabelContextType = {|
+export type DefaultLabelContextType = {|
   ComboBox: {|
     accessibilityClearButtonLabel: string,
   |},
@@ -18,7 +18,7 @@ export type AccessibilityLabelContextType = {|
   |},
 |};
 
-export const fallbackLabels: AccessibilityLabelContextType = {
+export const fallbackLabels: DefaultLabelContextType = {
   ComboBox: {
     accessibilityClearButtonLabel: 'Clear input',
   },
@@ -28,18 +28,18 @@ export const fallbackLabels: AccessibilityLabelContextType = {
   },
 };
 
-const AccessibilityLabelContext: Context<?AccessibilityLabelContextType> =
-  createContext<?AccessibilityLabelContextType>(null);
+const DefaultLabelContext: Context<?DefaultLabelContextType> =
+  createContext<?DefaultLabelContextType>(null);
 
-const AccessibilityLabelProvider = AccessibilityLabelContext.Provider;
-export default AccessibilityLabelProvider;
+const DefaultLabelProvider = DefaultLabelContext.Provider;
+export default DefaultLabelProvider;
 
-type ValidComponent = $Keys<AccessibilityLabelContextType>;
+type ValidComponent = $Keys<DefaultLabelContextType>;
 
-export function useAccessibilityLabelContext<C: ValidComponent>(
+export function useDefaultLabelContext<C: ValidComponent>(
   componentName: C,
-): $ElementType<AccessibilityLabelContextType, C> {
-  const labels = useContext(AccessibilityLabelContext);
+): $ElementType<DefaultLabelContextType, C> {
+  const labels = useContext(DefaultLabelContext);
 
   // If no Context value provided, return fallback labels
   if (!labels) {

@@ -4,7 +4,7 @@ import Icon from './Icon.js';
 import TextField from './TextField.js';
 import Upsell from './Upsell.js';
 
-jest.mock('./contexts/I18nProvider.js');
+jest.mock('./contexts/DefaultLabelProvider.js');
 
 describe('<Upsell />', () => {
   test('Basic Upsell', () => {

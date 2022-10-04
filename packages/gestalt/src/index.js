@@ -1,6 +1,5 @@
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
-import AccessibilityLabelProvider from './contexts/AccessibilityLabelProvider.js';
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';
@@ -18,6 +17,7 @@ import Column from './Column.js';
 import ComboBox from './ComboBox.js';
 import Container from './Container.js';
 import Datapoint from './Datapoint.js';
+import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
@@ -72,7 +72,6 @@ import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 
 export {
-  AccessibilityLabelProvider,
   ActivationCard,
   Avatar,
   AvatarGroup,
@@ -91,6 +90,7 @@ export {
   CompositeZIndex,
   Container,
   Datapoint,
+  DefaultLabelProvider,
   DeviceTypeProvider,
   Divider,
   Dropdown,

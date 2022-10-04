@@ -2,7 +2,7 @@
 import { render } from '@testing-library/react';
 import Upsell from './Upsell.js';
 
-jest.mock('./contexts/I18nProvider.js');
+jest.mock('./contexts/DefaultLabelProvider.js');
 
 test('Upsell handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn();

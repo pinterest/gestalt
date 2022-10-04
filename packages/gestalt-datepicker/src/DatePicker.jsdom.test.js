@@ -1,7 +1,7 @@
 // @flow strict-local
 import { useState } from 'react';
 import { act, render, screen, fireEvent } from '@testing-library/react';
-import { AccessibilityLabelProvider } from 'gestalt';
+import { DefaultLabelProvider } from 'gestalt';
 import DatePicker from './DatePicker.js';
 
 const accessibilityLabels = {
@@ -16,9 +16,7 @@ const accessibilityLabels = {
 const initialDate = new Date(2018, 11, 14);
 
 function renderComp(comp) {
-  return render(
-    <AccessibilityLabelProvider value={accessibilityLabels}>{comp}</AccessibilityLabelProvider>,
-  );
+  return render(<DefaultLabelProvider value={accessibilityLabels}>{comp}</DefaultLabelProvider>);
 }
 
 function DatePickerWrap() {

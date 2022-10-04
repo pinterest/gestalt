@@ -4,7 +4,7 @@ import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import { useExperimentContext } from './contexts/ExperimentProvider.js';
-import { useAccessibilityLabelContext } from './contexts/AccessibilityLabelProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
@@ -183,7 +183,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     }
   }
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
-    useAccessibilityLabelContext('TextField');
+    useDefaultLabelContext('TextField');
 
   const iconButton =
     inShowPasswordExp && isPasswordField ? (

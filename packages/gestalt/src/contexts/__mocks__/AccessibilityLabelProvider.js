@@ -2,20 +2,20 @@
 import { createContext, type Context, useContext } from 'react';
 import {
   fallbackLabels,
-  type AccessibilityLabelContextType,
+  type DefaultLabelContextType,
   // eslint-disable-next-line import/no-relative-parent-imports
-} from '../AccessibilityLabelProvider.js';
+} from '../DefaultLabelProvider.js';
 
-const MockContext: Context<?AccessibilityLabelContextType> =
-  createContext<?AccessibilityLabelContextType>(fallbackLabels);
-const AccessibilityLabelProvider = MockContext.Provider;
-export default AccessibilityLabelProvider;
+const MockContext: Context<?DefaultLabelContextType> =
+  createContext<?DefaultLabelContextType>(fallbackLabels);
+const DefaultLabelProvider = MockContext.Provider;
+export default DefaultLabelProvider;
 
-type ValidComponent = $Keys<AccessibilityLabelContextType>;
+type ValidComponent = $Keys<DefaultLabelContextType>;
 
-export function useI18nContext<C: ValidComponent>(
+export function useDefaultLabelContext<C: ValidComponent>(
   componentName: C,
-): $ElementType<AccessibilityLabelContextType, C> {
+): $ElementType<DefaultLabelContextType, C> {
   const labels = useContext(MockContext);
   return labels ? labels[componentName] : fallbackLabels[componentName];
 }
