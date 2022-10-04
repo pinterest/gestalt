@@ -1,3 +1,9 @@
+## 75.0.0 (Oct 4, 2022)
+
+### Major
+
+- SideNavigation: fix dismissButton focus ([#2426](https://github.com/pinterest/gestalt/pull/2426)) - [Preview link](https://deploy-preview-2426--gestalt.netlify.app)
+
 ## 74.0.6 (Oct 4, 2022)
 
 ### Patch
