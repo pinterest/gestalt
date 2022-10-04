@@ -40,7 +40,7 @@ export function useAccessibilityLabelContext<C: ValidComponent>(
   componentName: C,
 ): $ElementType<AccessibilityLabelContextType, C> {
   const labels = useContext(AccessibilityLabelContext);
-  console.log('HI');
+
   // If no Context value provided, return fallback labels
   if (!labels) {
     return fallbackLabels[componentName];

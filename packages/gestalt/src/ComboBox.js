@@ -192,7 +192,6 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   ref,
 ): Node {
   const { accessibilityClearButtonLabel } = useAccessibilityLabelContext('ComboBox');
-  console.log(accessibilityClearButtonLabel);
 
   // ==== REFS ====
 
