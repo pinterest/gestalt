@@ -8,7 +8,7 @@ import SideNavigationGroupMobile from './SideNavigationGroupMobile.js';
 import icons from './icons/index.js';
 import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import getChildrenToArray from './getChildrenToArray.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 

@@ -14,7 +14,6 @@ export default function Example(): Node {
           dismissButton={{
             onDismiss: () => setShowNav(false),
             accessibilityLabel: 'Close navigation',
-            tooltip: { accessibilityLabel: 'Close side navigation', text: 'Close navigation' },
           }}
         >
           <SideNavigation.TopItem

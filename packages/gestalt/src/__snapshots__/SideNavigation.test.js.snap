@@ -961,7 +961,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                   className="liItem"
                 >
                   <div
-                    aria-controls=":r8:"
+                    aria-controls=":rd:"
                     aria-disabled={false}
                     aria-expanded={false}
                     className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
@@ -1115,7 +1115,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                   </div>
                   <ul
                     className="ulItem"
-                    id=":r9:"
+                    id=":re:"
                   >
                     <li
                       className="liItem"
