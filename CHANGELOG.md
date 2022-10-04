@@ -1,3 +1,9 @@
+## 74.0.6 (Oct 4, 2022)
+
+### Patch
+
+- Docs: add September newsletter ([#2427](https://github.com/pinterest/gestalt/pull/2427)) - [Preview link](https://deploy-preview-2427--gestalt.netlify.app)
+
 ## 74.0.5 (Oct 3, 2022)
 
 ### Patch
