@@ -41,7 +41,7 @@ type Props = {|
   /**
    * Label to describe the clear button's purpose.
    */
-  accessibilityClearButtonLabel: string,
+  accessibilityClearButtonLabel?: string,
   /**
    * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */

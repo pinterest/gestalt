@@ -4,7 +4,7 @@ import DefaultLabelProvider, {
   useDefaultLabelContext,
 } from './DefaultLabelProvider.js';
 
-const Valid = <DefaultLabelProvider value={fallbackLabels}>Test</DefaultLabelProvider>;
+const Valid = <DefaultLabelProvider labels={fallbackLabels}>Test</DefaultLabelProvider>;
 
 // $FlowExpectedError[prop-missing]
 const NonExistingProp = <DefaultLabelProvider nonexisting={33} />;

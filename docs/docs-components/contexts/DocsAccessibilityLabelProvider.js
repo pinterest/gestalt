@@ -5,5 +5,5 @@ import { DefaultLabelProvider } from 'gestalt';
 type Props = {| children: Node |};
 
 export default function DocsDefaultLabelProvider({ children }: Props): Node {
-  return <DefaultLabelProvider value={null}>{children}</DefaultLabelProvider>;
+  return <DefaultLabelProvider labels={null}>{children}</DefaultLabelProvider>;
 }

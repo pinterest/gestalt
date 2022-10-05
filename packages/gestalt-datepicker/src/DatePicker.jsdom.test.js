@@ -16,7 +16,7 @@ const accessibilityLabels = {
 const initialDate = new Date(2018, 11, 14);
 
 function renderComp(comp) {
-  return render(<DefaultLabelProvider value={accessibilityLabels}>{comp}</DefaultLabelProvider>);
+  return render(<DefaultLabelProvider labels={accessibilityLabels}>{comp}</DefaultLabelProvider>);
 }
 
 function DatePickerWrap() {

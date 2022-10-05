@@ -15,7 +15,7 @@ describe('useDefaultLabelContext', () => {
 
     render(
       <DefaultLabelProvider
-        value={{
+        labels={{
           ComboBox: {
             accessibilityClearButtonLabel: 'Clear input',
           },
