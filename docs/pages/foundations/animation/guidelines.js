@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Heading, Text } from 'gestalt';
+import { Box, Flex, Heading, Text, Video } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import Page from '../../../docs-components/Page.js';
@@ -73,7 +73,22 @@ export default function TypographyPage(): Node {
         The type of product should help inform what type of animations to use.  While feedback-based animations may be incredibly helpful in a Business product, celebratory animations may not be. Again, consider if the animation is helping a user finish a task, or distracting them from getting things done efficiently. In a business product where users are intimately familiar with a task they perform multiple times a day, animation may negatively add to the time they spend on a process.
 `}
       >
-        <Text>[example from product - Pin fade when selecting business type]</Text>
+        <Box width={550}>
+          <Video
+            accessibilityMaximizeLabel="Maximize"
+            accessibilityMinimizeLabel="Minimize"
+            accessibilityMuteLabel="Mute"
+            accessibilityPauseLabel="Pause"
+            accessibilityPlayLabel="Play"
+            accessibilityProgressBarLabel="Progress bar"
+            accessibilityUnmuteLabel="Unmute"
+            aspectRatio={960 / 540}
+            controls
+            onPlayError={() => {}}
+            onPlay={() => {}}
+            src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
+          />
+        </Box>
       </MainSection>
       <MainSection name="Treatment guidelines">
         <MainSection.Subsection

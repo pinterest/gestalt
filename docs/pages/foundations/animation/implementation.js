@@ -15,7 +15,7 @@ export default function AnimationImplementation(): Node {
       />
       <MainSection
         name="Gestalt"
-        description="Many of our components come with animations baked in! If you are implementing a custom animation, be sure to wrap the animation in the [useReducedMotion hook](https://gestalt.pinterest.systems/web/utilities/usereducedmotion) to ensure an accessible experience. This hook will automatically disabled any contained animations when the user enables the Reduced Motion setting on their device."
+        description="Many of our components come with animations baked in! If you are implementing a custom animation, be sure to wrap the animation in the [useReducedMotion hook](https://gestalt.pinterest.systems/web/utilities/usereducedmotion) to ensure an accessible experience. This hook will automatically disable any contained animations when the user enables the Reduced Motion setting on their device."
       />
       <MainSection
         name="CSS and InlineStyle"
