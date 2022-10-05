@@ -100,6 +100,28 @@ export function BorderBox({ token }: BaseProps): Node {
   );
 }
 
+export function OpacityBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      color="recommendationWeak"
+      width={175}
+      height={75}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Box
+        dangerouslySetInlineStyle={{
+          __style: { opacity: `var(--${token.name})` },
+        }}
+        height={50}
+        width={150}
+        color="inverse"
+      />
+    </Box>
+  );
+}
+
 export function ElevationBox({ token }: BaseProps): Node {
   return (
     <Box
@@ -165,6 +187,8 @@ export function TokenExample({ token, category }: ExampleProps): Node {
       return <BorderBox token={token} />;
     case 'elevation':
       return <ElevationBox token={token} />;
+    case 'opacity':
+      return <OpacityBox token={token} />;
     default:
       return <Box>{token.value}</Box>;
   }

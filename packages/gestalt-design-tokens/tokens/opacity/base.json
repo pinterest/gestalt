@@ -1,0 +1,24 @@
+{
+  "opacity": {
+    "100": {
+      "value": "0.03",
+      "comment": "Pin wash - Permanent overlay used on Pin images to ensure a visual separation between the white background and any Pin images that have pure white peripheries. Note: iOS uses 4%"
+    },
+    "200": {
+      "value": "0.2",
+      "comment": "Overlay wash to be used sparingly. Only use it in situations where a high-level of opacity is needed and if the 40% doesn't fit the design goal"
+    },
+    "300": {
+      "value": "0.4",
+      "comment": "Overlay wash to supply a mid-range wash over an item (e.g. #FFFFFF media controls | #000000 wash behind modals, wash on images with text overlays) "
+    },
+    "400": {
+      "value": "0.8",
+      "comment": "Overlay wash used on most surface's scrims. Used to supply a low-level of opacity over an element (e.g. #FFFFFF image overlay | #00000 Board cover overlay) "
+    },
+    "500": {
+      "value": "0.9",
+      "comment": "Component wash applied on IconButton and other elements as needed (e.g. image overlays). In dark mode we recommend an inverse wash ($color-background-wash-light instead of $color-background-wash-dark)."
+    }
+  }
+}

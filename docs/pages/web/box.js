@@ -351,7 +351,20 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
           </CombinationNew>
         </MainSection.Subsection>
 
-        <MainSection.Subsection description="" title="Opacity">
+        <MainSection.Subsection
+          description="While we offer the full range of opacity options, below are usage guidelines for different values. See the [opacity design tokens](/foundations/design_tokens#Opacity)."
+          title="Opacity"
+        >
+          <MainSection.Card
+            description={`
+          - **3% (0.03)**: Use for Pin wash. Permanent overlay used on Pin images to ensure a visual separation between the white background and any Pin images that have pure white peripheries. For the time being, iOS uses 4%, but this will be reevaluated in the near future.
+              - Note: at the moment, this can only be accomplished using the \`$opacity-100\` token as an inline style on Box
+          - **20% (0.2)**: Overlay wash to be used sparingly. Only use it in situations where a high-level of opacity is needed and if the 40% doesn't fit the design goal.
+          - **40% (0.4)**: Overlay wash to supply a mid-range wash over an item (e.g. #FFFFFF media controls | #000000 wash behind modals, wash on images with text overlays).
+          - **80% (0.8)**: Overlay wash used on most surface's scrims. Used to supply a low-level of opacity over an element (e.g. #FFFFFF image overlay | #00000 Board cover overlay) .
+          - **90% (0.9)**: Component wash applied on IconButton and other elements as needed (e.g. image overlays). In dark mode we recommend an inverse wash.  For example: Use $color-background-wash-light instead of $color-background-wash-dark.
+          `}
+          />
           <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
             {({ opacity }) => <Box color="selected" width={60} height={60} opacity={opacity} />}
           </CombinationNew>
