@@ -1,20 +1,59 @@
 // @flow strict
-import { type Node } from 'react';
+import { Fragment, type Node } from 'react';
 import { Flex, Divider, Box, Text, SlimBanner } from 'gestalt';
-import COMPONENT_DATA from './COMPONENT_DATA.js';
+import COMPONENT_DATA, { type ListItemType } from './COMPONENT_DATA.js';
 import StatusData from './StatusData.js';
 import { STATUS_DESCRIPTION, COMPONENT_STATUS_MESSAGING } from './COMPONENT_STATUS_MESSAGING.js';
+
+const categories = ['figma', 'responsive', 'iOS', 'android', 'accessible'];
+
+function QualityItem({
+  category,
+  componentStatusData,
+}: {|
+  category: string,
+  componentStatusData: ?ListItemType,
+|}) {
+  const isAccessibility = category === 'accessible';
+
+  return (
+    <Flex gap={2}>
+      <Text size="200" weight="bold">
+        {`${
+          COMPONENT_STATUS_MESSAGING[category]?.shortTitle ||
+          COMPONENT_STATUS_MESSAGING[category].title
+        }: `}
+      </Text>
+
+      <StatusData
+        href={isAccessibility ? '#Accessibility' : '#Component-quality-checklist'}
+        status={
+          (isAccessibility
+            ? componentStatusData?.status?.[category].summary || 'notAvailable'
+            : componentStatusData?.status?.[category]) ?? 'notAvailable'
+        }
+        text={
+          STATUS_DESCRIPTION[
+            isAccessibility
+              ? componentStatusData?.status?.[category].summary || 'notAvailable'
+              : componentStatusData?.status?.[category] ?? 'notAvailable'
+          ].title
+        }
+      />
+    </Flex>
+  );
+}
 
 type Props = {|
   name: string,
 |};
 
-export default function PageHeaderQualitySumary({ name }: Props): Node {
+export default function PageHeaderQualitySummary({ name }: Props): Node {
   const componentStatusData = [
     ...COMPONENT_DATA.buildingBlockComponents,
     ...COMPONENT_DATA.generalComponents,
     ...COMPONENT_DATA.utilityComponents,
-  ].find((cmpName) => cmpName.name === name);
+  ].find((component) => component.name === name);
 
   const isDeprecated = componentStatusData?.status?.deprecated;
 
@@ -29,45 +68,19 @@ export default function PageHeaderQualitySumary({ name }: Props): Node {
   }
 
   return (
-    <Box marginStart={-4}>
-      <Flex wrap>
-        {['figma', 'responsive', 'iOS', 'android', 'accessible'].map((item, index) => (
-          <Flex key={`summary-${index}`}>
-            <Box paddingX={4} marginBottom={2}>
-              <Flex
-                gap={{
-                  row: 2,
-                  column: 0,
-                }}
-              >
-                <Text size="200" weight="bold">
-                  {`${
-                    COMPONENT_STATUS_MESSAGING[item]?.shortTitle ||
-                    COMPONENT_STATUS_MESSAGING[item].title
-                  }: `}
-                </Text>
-                <StatusData
-                  key={item}
-                  status={
-                    (item === 'accessible'
-                      ? componentStatusData?.status?.[item].summary || 'notAvailable'
-                      : componentStatusData?.status?.[item]) ?? 'notAvailable'
-                  }
-                  href={item === 'accessible' ? '#Accessibility' : '#Component-quality-checklist'}
-                  text={
-                    STATUS_DESCRIPTION[
-                      item === 'accessible'
-                        ? componentStatusData?.status?.[item].summary || 'notAvailable'
-                        : componentStatusData?.status?.[item] ?? 'notAvailable'
-                    ].title
-                  }
-                />
-              </Flex>
-            </Box>
-            <Divider />
-          </Flex>
-        ))}
-      </Flex>
-    </Box>
+    <Flex gap={4} wrap>
+      {categories.map((item, i, arr) => (
+        <Flex key={`summary-${item}`}>
+          <QualityItem category={item} componentStatusData={componentStatusData} />
+          {i < arr.length - 1 && (
+            <Fragment>
+              {/* This spacer element is dumb but otherwise Divider collapses to 1px height */}
+              <Box paddingX={2} />
+              <Divider />
+            </Fragment>
+          )}
+        </Flex>
+      ))}
+    </Flex>
   );
 }
