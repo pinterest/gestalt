@@ -5,7 +5,7 @@ import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import DefaultAvatar from './DefaultAvatar.js';
+import DefaultAvatar from './Avatar/DefaultAvatar.js';
 
 const sizes = {
   xs: 24,

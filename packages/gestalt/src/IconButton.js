@@ -2,15 +2,15 @@
 import { type Node, forwardRef, useImperativeHandle, useState, useRef } from 'react';
 import classnames from 'classnames';
 import icons from './icons/index.js';
-import InternalLink from './InternalLink.js';
+import InternalLink from './shared/InternalLink.js';
 import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { type AbstractEventHandler } from './types/AbstractEventHandler.js';
 import { type Indexable } from './zIndex.js';
 import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback from './useTapFeedback.js';
+import useFocusVisible from './hooks/useFocusVisible.js';
+import useTapFeedback from './hooks/useTapFeedback.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,

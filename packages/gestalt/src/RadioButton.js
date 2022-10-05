@@ -1,14 +1,14 @@
 // @flow strict
 import { forwardRef, type Node, useState } from 'react';
 import classnames from 'classnames';
-import controlStyles from './RadioButtonCheckbox.css';
+import controlStyles from './RadioGroup/RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import useFocusVisible from './useFocusVisible.js';
-import focusStyles from './Focus.css';
+import { type AbstractEventHandler } from './types/AbstractEventHandler.js';
+import useFocusVisible from './hooks/useFocusVisible.js';
+import focusStyles from './shared/Focus.css';
 
 type Props = {|
   /**

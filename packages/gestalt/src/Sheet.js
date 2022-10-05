@@ -20,12 +20,12 @@ c. Sheet is the actual component logic which includes the internal components <H
 
 import { type Node, useCallback, useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
-import { ESCAPE } from './keyCodes.js';
-import AnimationController, { useAnimation } from './AnimationController.js';
+import { ESCAPE } from './utils/keyCodes.js';
+import AnimationController, { useAnimation } from './shared/AnimationController.js';
 import Box from './Box.js';
-import Backdrop from './Backdrop.js';
+import Backdrop from './shared/Backdrop.js';
 import Flex from './Flex.js';
-import focusStyles from './Focus.css';
+import focusStyles from './shared/Focus.css';
 import IconButton from './IconButton.js';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';

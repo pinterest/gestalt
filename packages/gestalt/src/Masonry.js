@@ -1,16 +1,16 @@
 // @flow strict
 import { type ComponentType, type Node, Component as ReactComponent } from 'react';
-import debounce, { type DebounceReturn } from './debounce.js';
-import FetchItems from './FetchItems.js';
+import debounce, { type DebounceReturn } from './utils/debounce.js';
+import FetchItems from './shared/FetchItems.js';
 import styles from './Masonry.css';
-import ScrollContainer from './ScrollContainer.js';
-import throttle, { type ThrottleReturn } from './throttle.js';
-import { type Cache } from './Cache.js';
-import MeasurementStore from './MeasurementStore.js';
-import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
-import defaultLayout from './defaultLayout.js';
-import uniformRowLayout from './uniformRowLayout.js';
-import fullWidthLayout from './fullWidthLayout.js';
+import ScrollContainer from './shared/ScrollContainer.js';
+import throttle, { type ThrottleReturn } from './utils/throttle.js';
+import { type Cache } from './Masonry/Cache.js';
+import MeasurementStore from './Masonry/MeasurementStore.js';
+import { getElementHeight, getRelativeScrollTop, getScrollPos } from './utils/scroll.js';
+import defaultLayout from './Masonry/defaultLayout.js';
+import uniformRowLayout from './Masonry/uniformRowLayout.js';
+import fullWidthLayout from './Masonry/fullWidthLayout.js';
 
 type Position = {| top: number, left: number, width: number, height: number |};
 

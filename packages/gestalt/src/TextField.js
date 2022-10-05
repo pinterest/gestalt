@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, type Element, type Node, useEffect, useState } from 'react';
-import InternalTextField from './InternalTextField.js';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
+import InternalTextField from './shared/InternalTextField.js';
+import InternalTextFieldIconButton from './shared/InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import { useExperimentContext } from './contexts/ExperimentProvider.js';
 import { useI18nContext } from './contexts/I18nProvider.js';

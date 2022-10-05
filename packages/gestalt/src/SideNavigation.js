@@ -5,15 +5,15 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Divider from './Divider.js';
 import styles from './SideNavigation.css';
-import borderStyles from './Borders.css';
-import SideNavigationMobile from './SideNavigationMobile.js';
-import SideNavigationSection from './SideNavigationSection.js';
-import SideNavigationTopItem from './SideNavigationTopItem.js';
-import SideNavigationGroup from './SideNavigationGroup.js';
-import SideNavigationNestedItem from './SideNavigationNestedItem.js';
-import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
+import borderStyles from './shared/Borders.css';
+import SideNavigationMobile from './SideNavigation/SideNavigationMobile.js';
+import SideNavigationSection from './SideNavigation/SideNavigationSection.js';
+import SideNavigationTopItem from './SideNavigation/SideNavigationTopItem.js';
+import SideNavigationGroup from './SideNavigation/SideNavigationGroup.js';
+import SideNavigationNestedItem from './SideNavigation/SideNavigationNestedItem.js';
+import SideNavigationNestedGroup from './SideNavigation/SideNavigationNestedGroup.js';
 import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
+import { SideNavigationProvider } from './SideNavigation/SideNavigationProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 export type Props = {|

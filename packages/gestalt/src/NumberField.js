@@ -1,6 +1,6 @@
 // @flow strict
 import { forwardRef, type Node } from 'react';
-import InternalTextField from './InternalTextField.js';
+import InternalTextField from './shared/InternalTextField.js';
 
 // <input> deals with strings, but we only want numbers for this component.
 // So we parse what we get from InternalTextField and we stringify what we give it.

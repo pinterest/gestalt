@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Mask.css';
-import getRoundingClassName from './getRoundingClassName.js';
+import getRoundingClassName from './utils/getRoundingClassName.js';
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle';
 

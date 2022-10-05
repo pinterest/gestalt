@@ -3,15 +3,15 @@ import { type Node, useState, useCallback, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import Box from './Box.js';
 import styles from './Table.css';
-import TableCell from './TableCell.js';
-import TableBody from './TableBody.js';
-import TableFooter from './TableFooter.js';
-import TableHeader from './TableHeader.js';
-import TableHeaderCell from './TableHeaderCell.js';
-import TableRowExpandable from './TableRowExpandable.js';
-import TableRow from './TableRow.js';
-import TableSortableHeaderCell from './TableSortableHeaderCell.js';
-import { TableContextProvider } from './contexts/TableContext.js';
+import TableCell from './Table/TableCell.js';
+import TableBody from './Table/TableBody.js';
+import TableFooter from './Table/TableFooter.js';
+import TableHeader from './Table/TableHeader.js';
+import TableHeaderCell from './Table/TableHeaderCell.js';
+import TableRowExpandable from './Table/TableRowExpandable.js';
+import TableRow from './Table/TableRow.js';
+import TableSortableHeaderCell from './Table/TableSortableHeaderCell.js';
+import { TableContextProvider } from './Table/TableContext.js';
 
 type Props = {|
   /**

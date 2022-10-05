@@ -3,13 +3,13 @@ import { Fragment, Children, cloneElement, type Node, useState } from 'react';
 import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
-import DropdownItem from './DropdownItem.js';
-import DropdownLink from './DropdownLink.js';
-import DropdownSection from './DropdownSection.js';
-import { DropdownContextProvider } from './DropdownContext.js';
+import DropdownItem from './Dropdown/DropdownItem.js';
+import DropdownLink from './Dropdown/DropdownLink.js';
+import DropdownSection from './Dropdown/DropdownSection.js';
+import { DropdownContextProvider } from './Dropdown/DropdownContext.js';
 import { type Indexable } from './zIndex.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
-import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './utils/keyCodes.js';
 
 const KEYS = {
   UP: -1,

@@ -1,7 +1,7 @@
 // @flow strict
 import { Fragment } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes.js';
+import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './utils/keyCodes.js';
 import Dropdown from './Dropdown.js';
 
 describe('Dropdown', () => {

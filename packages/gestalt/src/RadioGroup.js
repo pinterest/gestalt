@@ -2,8 +2,8 @@
 import { type Node } from 'react';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
-import RadioGroupButton from './RadioGroupButton.js';
-import { RadioGroupContextProvider } from './RadioGroupContext.js';
+import RadioGroupButton from './RadioGroup/RadioGroupButton.js';
+import { RadioGroupContextProvider } from './RadioGroup/RadioGroupContext.js';
 
 type Props = {|
   /**

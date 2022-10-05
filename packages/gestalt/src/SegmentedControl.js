@@ -2,11 +2,11 @@
 import { type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
-import focusStyles from './Focus.css';
+import focusStyles from './shared/Focus.css';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
 import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
+import useFocusVisible from './hooks/useFocusVisible.js';
 
 type OnChange = ({| event: SyntheticMouseEvent<HTMLButtonElement>, activeIndex: number |}) => void;
 

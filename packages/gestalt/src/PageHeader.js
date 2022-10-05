@@ -9,7 +9,7 @@ import Text from './Text.js';
 import Tooltip from './Tooltip.js';
 import Flex from './Flex.js';
 import Image from './Image.js';
-import { type Dimension } from './boxTypes.js';
+import { type Dimension } from './Box/boxTypes.js';
 import {
   PageHeaderTitle,
   PageHeaderBadge,

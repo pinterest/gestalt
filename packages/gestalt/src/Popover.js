@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import Controller from './Controller.js';
+import Controller from './shared/Controller.js';
 
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;

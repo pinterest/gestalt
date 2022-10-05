@@ -2,17 +2,17 @@
 import { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
 import classnames from 'classnames';
 import Flex from './Flex.js';
-import focusStyles from './Focus.css';
+import focusStyles from './shared/Focus.css';
 import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
 import touchableStyles from './Touchable.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback from './useTapFeedback.js';
-import InternalLink from './InternalLink.js';
+import useFocusVisible from './hooks/useFocusVisible.js';
+import useTapFeedback from './hooks/useTapFeedback.js';
+import InternalLink from './shared/InternalLink.js';
 import Icon, { type IconColor } from './Icon.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { type AbstractEventHandler } from './types/AbstractEventHandler.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',

@@ -7,10 +7,25 @@ import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
 import styles from './Callout.css';
-import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType } from './commonTypes.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import MESSAGING_TYPE_ATTRIBUTES from './shared/MESSAGING_TYPE_ATTRIBUTES.js';
+import useResponsiveMinWidth from './hooks/useResponsiveMinWidth.js';
+import { type AbstractEventHandler } from './types/AbstractEventHandler.js';
+
+type ActionDataType = {|
+  accessibilityLabel: string,
+  disabled?: boolean,
+  href?: string,
+  label: string,
+  onClick?: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLButtonElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>,
+    {| dangerouslyDisableOnNavigation: () => void |},
+  >,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
 
 type Props = {|
   /**

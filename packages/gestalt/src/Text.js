@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import cx from 'classnames';
-import colors from './Colors.css';
+import colors from './shared/Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
-import { semanticColors } from './textTypes.js';
+import { semanticColors } from './shared/textTypes.js';
 
 function isNotNullish(val): boolean {
   return val !== null && val !== undefined;

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node, useReducer, useRef } from 'react';
-import useDebouncedCallback from './useDebouncedCallback.js';
-import Controller from './Controller.js';
+import useDebouncedCallback from './hooks/useDebouncedCallback.js';
+import Controller from './shared/Controller.js';
 import Text from './Text.js';
 import Box from './Box.js';
 import Layer from './Layer.js';

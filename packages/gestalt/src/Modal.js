@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node, useCallback, useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
-import { ESCAPE } from './keyCodes.js';
+import { ESCAPE } from './utils/keyCodes.js';
 import Box from './Box.js';
-import Backdrop from './Backdrop.js';
-import focusStyles from './Focus.css';
+import Backdrop from './shared/Backdrop.js';
+import focusStyles from './shared/Focus.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';

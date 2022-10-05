@@ -2,13 +2,13 @@
 import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './Touchable.css';
-import InternalLink from './InternalLink.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { type AriaCurrent } from './ariaTypes.js';
-import focusStyles from './Focus.css';
-import useFocusVisible from './useFocusVisible.js';
+import InternalLink from './shared/InternalLink.js';
+import useTapFeedback, { keyPressShouldTriggerTap } from './hooks/useTapFeedback.js';
+import getRoundingClassName, { type Rounding } from './utils/getRoundingClassName.js';
+import { type AbstractEventHandler } from './types/AbstractEventHandler.js';
+import { type AriaCurrent } from './types/ariaTypes.js';
+import focusStyles from './shared/Focus.css';
+import useFocusVisible from './hooks/useFocusVisible.js';
 
 type FocusEventHandler = AbstractEventHandler<
   SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,

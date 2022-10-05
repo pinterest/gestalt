@@ -1,7 +1,7 @@
 // @flow strict
 import { act, fireEvent, screen, render } from '@testing-library/react';
 import Sheet from './Sheet.js';
-import * as AnimationControllerModule from './AnimationController.js'; // eslint-disable-line import/no-namespace
+import * as AnimationControllerModule from './shared/AnimationController.js'; // eslint-disable-line import/no-namespace
 
 describe('Sheet', () => {
   let useAnimationMock;

@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import Box from './Box.js';
-import { type Dimension, type Padding } from './boxTypes.js';
+import { type Dimension, type Padding } from './Box/boxTypes.js';
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto';
 

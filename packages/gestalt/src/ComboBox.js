@@ -14,14 +14,14 @@ import {
   type Node,
 } from 'react';
 import Box from './Box.js';
-import ComboBoxItem from './ComboBoxItem.js';
+import ComboBoxItem from './ComboBox/ComboBoxItem.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
-import InternalTextField from './InternalTextField.js';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
+import InternalTextField from './shared/InternalTextField.js';
+import InternalTextFieldIconButton from './shared/InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import Text from './Text.js';
-import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './utils/keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
   type DirectionOptionType,

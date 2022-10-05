@@ -6,7 +6,7 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { type AbstractEventHandler } from './types/AbstractEventHandler.js';
 import styles from './ActivationCard.css';
 
 const STATUS_ICONS = {

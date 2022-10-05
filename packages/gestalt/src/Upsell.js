@@ -8,10 +8,26 @@ import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
-import UpsellForm from './UpsellForm.js';
+import UpsellForm from './Upsell/UpsellForm.js';
 import styles from './Upsell.css';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType } from './commonTypes.js';
+import useResponsiveMinWidth from './hooks/useResponsiveMinWidth.js';
+import { type AbstractEventHandler } from './types/AbstractEventHandler.js';
+
+type ActionDataType = {|
+  accessibilityLabel: string,
+  disabled?: boolean,
+  href?: string,
+  label: string,
+  onClick?: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLButtonElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>,
+    {| dangerouslyDisableOnNavigation: () => void |},
+  >,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
 
 type UpsellActionProps = {|
   data: ActionDataType,

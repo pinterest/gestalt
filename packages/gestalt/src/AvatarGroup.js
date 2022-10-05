@@ -2,9 +2,9 @@
 import { forwardRef, type Node, useCallback, useState } from 'react';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
-import AddCollaboratorsButton from './AvatarGroupAddCollaboratorsButton.js';
-import CollaboratorAvatar from './AvatarGroupCollaboratorAvatar.js';
-import CollaboratorsCount from './AvatarGroupCollaboratorsCount.js';
+import AddCollaboratorsButton from './Avatar/AvatarGroupAddCollaboratorsButton.js';
+import CollaboratorAvatar from './Avatar/AvatarGroupCollaboratorAvatar.js';
+import CollaboratorsCount from './Avatar/AvatarGroupCollaboratorsCount.js';
 import Flex from './Flex.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;

@@ -5,7 +5,7 @@ import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
 import styles from './Toast.css';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import useResponsiveMinWidth from './hooks/useResponsiveMinWidth.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 const TOAST_MAX_WIDTH_PX = 500;

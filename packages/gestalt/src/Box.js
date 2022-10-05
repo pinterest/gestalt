@@ -17,9 +17,9 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 import { forwardRef, type Node, type AbstractComponent, type Element } from 'react';
 import styles from './Box.css';
-import { buildStyles } from './boxTransforms.js';
+import { buildStyles } from './Box/boxTransforms.js';
 import { type Indexable } from './zIndex.js';
-import { type As } from './boxTypes.js';
+import { type As } from './Box/boxTypes.js';
 
 /*
 
