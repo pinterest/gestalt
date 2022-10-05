@@ -33,26 +33,4 @@ describe('useDefaultLabelContext', () => {
     expect(screen.getByText(/Hide password/)).toBeInTheDocument();
     expect(screen.getByText(/Show password/)).toBeInTheDocument();
   });
-
-  it('throws on unsupported component', () => {
-    const consoleMock = jest.spyOn(console, 'error').mockImplementation(jest.fn());
-
-    function TestComponent() {
-      // $FlowExpectedError[prop-missing]
-      const { foo } = useDefaultLabelContext('Foo');
-
-      return <div>{foo}</div>;
-    }
-
-    expect(() => {
-      render(<TestComponent />);
-    }).toThrow();
-
-    expect(consoleMock).toHaveBeenCalledTimes(3);
-    expect(consoleMock.mock.calls[0][0].message).toEqual(
-      expect.stringContaining(
-        'Foo translations not available — please add translations to DefaultLabelProvider',
-      ),
-    );
-  });
 });
