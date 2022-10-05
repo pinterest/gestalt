@@ -14,7 +14,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name="ColorSchemeProvider"
         description={generatedDocGen?.description}
-        type="utils"
+        type="utility"
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

@@ -17,7 +17,9 @@ const buildSourceLinkUrl = (componentName) =>
   );
 
 type Props = {|
+  aliases?: $ReadOnlyArray<string>,
   badge?: 'pilot' | 'deprecated',
+  children?: Node,
   /**
    * @deprecated : Use `children` instead of `defaultCode`
    */
@@ -31,26 +33,26 @@ type Props = {|
    * Only use if name !== file name and the link should point to a directory
    */
   folderName?: string,
-  showCode?: boolean,
-  name: string,
   margin?: 'default' | 'none',
+  name: string,
   shadedCodeExample?: boolean,
+  showCode?: boolean,
   slimBanner?: Element<typeof SlimBanner> | null,
-  type?: 'guidelines' | 'component' | 'utils',
-  children?: Node,
+  type?: 'guidelines' | 'component' | 'utility',
 |};
 
 export default function PageHeader({
+  aliases,
   badge,
   children,
   defaultCode,
-  margin = 'default',
   description = '',
   fileName,
   folderName,
-  showCode = true,
+  margin = 'default',
   name,
   shadedCodeExample,
+  showCode = true,
   slimBanner = null,
   type = 'component',
 }: Props): Node {
@@ -92,54 +94,39 @@ export default function PageHeader({
           column: addGap ? 8 : 0,
         }}
       >
-        <Flex
-          direction="column"
-          gap={{
-            row: 0,
-            column: 2,
-          }}
-        >
-          <Flex
-            alignItems="baseline"
-            direction="row"
-            gap={{
-              row: 2,
-              column: 0,
-            }}
-            justifyContent="between"
-            wrap
-          >
-            <Heading>
-              {name}{' '}
-              {badge ? (
-                <Tooltip inline text={badgeMap[badge].tooltipText}>
-                  <Badge
-                    text={badgeMap[badge].text}
-                    position="top"
-                    type={badgeMap[badge].type || 'info'}
-                  />
-                </Tooltip>
-              ) : null}
-            </Heading>
+        <Flex direction="column" gap={3}>
+          <Flex alignItems="baseline" justifyContent="between" wrap>
+            <Flex direction="column" gap={1}>
+              <Heading>
+                {name}{' '}
+                {badge ? (
+                  <Tooltip inline text={badgeMap[badge].tooltipText}>
+                    <Badge
+                      text={badgeMap[badge].text}
+                      position="top"
+                      type={badgeMap[badge].type || 'info'}
+                    />
+                  </Tooltip>
+                ) : null}
+              </Heading>
 
-            {type === 'component' && (
+              {aliases && <Text italic>also known as {aliases.join(', ')}</Text>}
+            </Flex>
+
+            {/* Enable this when we have a consistent directory structure */}
+            {['component' /* 'utility' */].includes(type) && (
               <Link
                 href={sourceLink}
                 onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
                 target="blank"
+                underline="always"
               >
-                <Text underline>View source on GitHub</Text>
+                <Text>View source on GitHub</Text>
               </Link>
             )}
           </Flex>
 
-          <Flex
-            direction="column"
-            gap={{
-              row: 0,
-              column: 6,
-            }}
-          >
+          <Flex direction="column" gap={6}>
             {description && <Markdown text={description} />}
             {slimBanner}
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}

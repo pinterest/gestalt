@@ -20,7 +20,7 @@ export default function DocsPage(): Node {
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
     </ul>
     `}
-        type="utils"
+        type="utility"
       />
       <AccessibilitySection name="useFocusVisible" />
 
