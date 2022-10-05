@@ -12,7 +12,7 @@ import { Box, DeviceTypeProvider } from 'gestalt';
 import path from 'path';
 import { promises as fs } from 'fs';
 import App from '../docs-components/App.js';
-import DocsAccessibilityLabelProvider from '../docs-components/contexts/DocsAccessibilityLabelProvider.js';
+import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider.js';
 import DocsExperimentProvider from '../docs-components/contexts/DocsExperimentProvider.js';
 import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
 
@@ -24,7 +24,7 @@ function Providers({ children, isMobile }: {| children: Node, isMobile: boolean 
     <DocsDeviceTypeProvider isMobile={isMobileDevice}>
       <DeviceTypeProvider deviceType={isMobileDevice ? 'mobile' : 'desktop'}>
         <DocsExperimentProvider>
-          <DocsAccessibilityLabelProvider>{children}</DocsAccessibilityLabelProvider>
+          <DocsDefaultLabelProvider>{children}</DocsDefaultLabelProvider>
         </DocsExperimentProvider>
       </DeviceTypeProvider>
     </DocsDeviceTypeProvider>
