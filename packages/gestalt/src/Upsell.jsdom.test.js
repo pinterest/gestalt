@@ -2,8 +2,6 @@
 import { render } from '@testing-library/react';
 import Upsell from './Upsell.js';
 
-jest.mock('./contexts/DefaultLabelProvider.js');
-
 test('Upsell handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn();
   const { getByLabelText } = render(
