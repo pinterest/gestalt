@@ -1,3 +1,9 @@
+## 75.0.2 (Oct 5, 2022)
+
+### Patch
+
+- Docs: cleanup PageHeaderQualitySummary ([#2429](https://github.com/pinterest/gestalt/pull/2429)) - [Preview link](https://deploy-preview-2429--gestalt.netlify.app)
+
 ## 75.0.1 (Oct 4, 2022)
 
 ### Patch
