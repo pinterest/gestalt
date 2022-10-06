@@ -365,7 +365,10 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
           - **90% (0.9)**: Component wash applied on IconButton and other elements as needed (e.g. image overlays). In dark mode we recommend an inverse wash.  For example: Use $color-background-wash-light instead of $color-background-wash-dark.
           `}
           />
-          <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
+          <CombinationNew
+            hasCheckerboard
+            opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
+          >
             {({ opacity }) => <Box color="selected" width={60} height={60} opacity={opacity} />}
           </CombinationNew>
         </MainSection.Subsection>

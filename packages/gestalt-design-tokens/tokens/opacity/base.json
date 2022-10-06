@@ -1,5 +1,9 @@
 {
   "opacity": {
+    "0": {
+      "value": "0",
+      "comment": "Transparent - When a transparent alpha value is needed (without a background)"
+    },
     "100": {
       "value": "0.03",
       "comment": "Pin wash - Permanent overlay used on Pin images to ensure a visual separation between the white background and any Pin images that have pure white peripheries. Note: iOS uses 4%"
