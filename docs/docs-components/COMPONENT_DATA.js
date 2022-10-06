@@ -115,13 +115,14 @@ type PlatformStatus = {|
 |};
 
 export type ListItemType = {|
+  aliases?: $ReadOnlyArray<string>,
+  android?: PlatformStatus,
   category: Category,
   description: string,
-  name: string,
   hasDarkBackground?: boolean,
-  path?: string,
   iOS?: PlatformStatus,
-  android?: PlatformStatus,
+  name: string,
+  path?: string,
   status?: {| ...PlatformStatus, iOS: StatusType, android: StatusType, responsive: StatusType |}, // web status
   svg: Element<typeof Accessibility>,
 |};
@@ -684,6 +685,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <ComboBox />,
     name: 'ComboBox',
+    aliases: ['Typeahead'],
     description:
       'ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.',
     category: 'Fields and forms',

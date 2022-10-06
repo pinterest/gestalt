@@ -24,7 +24,7 @@ export default function DocsPage(): Node {
       <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
     </ul>
     `}
-        type="utils"
+        type="utility"
       />
 
       <AccessibilitySection name="useReducedMotion" />

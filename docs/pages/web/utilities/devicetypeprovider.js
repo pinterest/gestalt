@@ -12,7 +12,11 @@ import implementation from '../../../examples/devicetypeprovider/implementation.
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        type="utility"
+      />
 
       <SlimBanner
         type="info"

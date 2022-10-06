@@ -153,7 +153,6 @@ type Props = {|
 
 /**
  * [ComboBox](https://gestalt.pinterest.systems/web/combobox) is the combination of a [Textfield](https://gestalt.pinterest.systems/web/textfield) and an associated [Dropdown](https://gestalt.pinterest.systems/web/dropdown) that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list.
- * Note: this is a new version of the deprecated component "Typeahead".
  *
  * ![Combobox closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-closed.spec.mjs-snapshots/ComboBox-closed-chromium-darwin.png)
  * ![Combobox open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open.spec.mjs-snapshots/ComboBox-open-chromium-darwin.png)

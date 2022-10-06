@@ -13,7 +13,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name="OnLinkNavigationProvider"
         description={generatedDocGen?.description}
-        type="utils"
+        type="utility"
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
