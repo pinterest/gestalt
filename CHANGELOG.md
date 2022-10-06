@@ -1,3 +1,9 @@
+## 75.0.3 (Oct 6, 2022)
+
+### Patch
+
+- Docs: add component aliases to page header ([#2432](https://github.com/pinterest/gestalt/pull/2432)) - [Preview link](https://deploy-preview-2432--gestalt.netlify.app)
+
 ## 75.0.2 (Oct 5, 2022)
 
 ### Patch
