@@ -25,11 +25,7 @@ const PREVIEW_HEIGHT = 320;
 export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        aliases={['Typeahead']}
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-      >
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample
           code={main}
           name="Main Combobox example"

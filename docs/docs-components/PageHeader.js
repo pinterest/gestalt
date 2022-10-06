@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node, type Element } from 'react';
 import { Badge, Box, Flex, Heading, Text, Tooltip, SlimBanner, Link } from 'gestalt';
+import COMPONENT_DATA from './COMPONENT_DATA.js';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
@@ -16,8 +17,13 @@ const buildSourceLinkUrl = (componentName) =>
     '/',
   );
 
+const componentData = [
+  ...COMPONENT_DATA.buildingBlockComponents,
+  ...COMPONENT_DATA.generalComponents,
+  ...COMPONENT_DATA.utilityComponents,
+];
+
 type Props = {|
-  aliases?: $ReadOnlyArray<string>,
   badge?: 'pilot' | 'deprecated',
   children?: Node,
   /**
@@ -42,7 +48,6 @@ type Props = {|
 |};
 
 export default function PageHeader({
-  aliases,
   badge,
   children,
   defaultCode,
@@ -62,6 +67,8 @@ export default function PageHeader({
     // Strip the file extension if linking to a folder
     sourceLink = sourceLink.replace(/\.js$/, '');
   }
+
+  const { aliases } = componentData.find((component) => component.name === name) ?? {};
 
   const badgeMap = {
     pilot: {
