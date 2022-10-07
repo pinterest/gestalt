@@ -1,3 +1,9 @@
+## 76.0.0 (Oct 7, 2022)
+
+### Major
+
+- Remove justify value of align Text prop ([#2428](https://github.com/pinterest/gestalt/pull/2428)) - [Preview link](https://deploy-preview-2428--gestalt.netlify.app)
+
 ## 75.0.4 (Oct 7, 2022)
 
 ### Patch
