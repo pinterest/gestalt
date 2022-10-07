@@ -1,3 +1,9 @@
+## 77.0.0 (Oct 7, 2022)
+
+### Major
+
+- DefaultLabelProvider: replace I18nProvider with more flexible component ([#2407](https://github.com/pinterest/gestalt/pull/2407)) - [Preview link](https://deploy-preview-2407--gestalt.netlify.app)
+
 ## 76.0.0 (Oct 7, 2022)
 
 ### Major
