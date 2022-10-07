@@ -19,7 +19,7 @@ type Props = {|
    *
    * Link: https://gestalt.pinterest.systems/web/text#align
    */
-  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
+  align?: 'start' | 'end' | 'center' | 'forceLeft' | 'forceRight',
   children?: Node,
   /**
    * Link: https://gestalt.pinterest.systems/web/text#color

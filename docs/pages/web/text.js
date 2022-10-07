@@ -166,8 +166,6 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
   <Divider />
   <Text align="center">Center</Text>
   <Divider />
-  <Text align="justify">Justify</Text>
-  <Divider />
   <Text align="forceLeft">Force left</Text>
   <Divider />
   <Text align="forceRight">Force right</Text>
