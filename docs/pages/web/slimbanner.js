@@ -124,12 +124,11 @@ Use for messages generated as an immediate response to user interaction. Instead
       <SelectList
         id="selectList"
         onChange={() => {}}
-        options={[
-          {label: 'Lead', value: 'lead'},
-        ]}
         label='Select conversion event'
         size='lg'
-      />
+      >
+        <SelectList.Option label="Lead" value="Lead" />
+      </SelectList>
       <Divider />
       <Fieldset legend="Bidding">
         <Flex direction="column" gap={{ column: 2, row: 0 }}>

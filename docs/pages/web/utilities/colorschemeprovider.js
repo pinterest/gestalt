@@ -31,20 +31,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             defaultCode={`
 function Example(props) {
   const [scheme, setScheme] = React.useState('light')
-  const schemeOptions = [
-    {
-      value: 'light',
-      label: 'Light'
-    },
-    {
-      value: 'dark',
-      label: 'Dark'
-    },
-    {
-      value: 'userPreference',
-      label: 'User Preference'
-    }
-  ];
   return (
     <ColorSchemeProvider colorScheme={scheme} id="docsExample">
       <Box color="white" padding={2}>
@@ -52,15 +38,23 @@ function Example(props) {
           id="scheme"
           name="scheme"
           onChange={({ value }) => setScheme(value)}
-          options={schemeOptions}
           placeholder="Select color scheme"
           label="Color scheme"
           value={scheme}
-        />
+        >
+          {[
+            { value: 'light', label: 'Light' },
+            { value: 'dark', label: 'Dark' },
+            { value: 'userPreference', label: 'User Preference' }
+          ].map(({ label, value }) =>
+            <SelectList.Option key={label} label={label} value={value} />
+          )}
+        </SelectList>
         <Box padding={2}>
           <Text>Some content</Text>
         </Box>
-        <Button text="Example button" /> <Button color="red" text="Red Button" />
+        <Button text="Example button"/>
+        <Button color="red" text="Red Button" />
       </Box>
     </ColorSchemeProvider>
   );
