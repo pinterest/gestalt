@@ -1,3 +1,9 @@
+## 75.0.4 (Oct 7, 2022)
+
+### Patch
+
+- Docs: Fix broken examples ([#2433](https://github.com/pinterest/gestalt/pull/2433)) - [Preview link](https://deploy-preview-2433--gestalt.netlify.app)
+
 ## 75.0.3 (Oct 6, 2022)
 
 ### Patch
