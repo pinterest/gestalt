@@ -128,10 +128,8 @@ function DatePickerExample() {
 
       <MainSection name="Variants">
         <Example
-          description="
-    Use DatePicker to select date inputs.
-  "
-          name="Example: Basic Date Picker"
+          description="Use DatePicker to select date inputs."
+          name="Basic Date Picker"
           defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -151,7 +149,7 @@ function DatePickerExample() {
     Provide pre-selected date values to DatePicker.
   "
           id="preselectedValue"
-          name="Example: Preselected Date"
+          name="Preselected Date"
           defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -172,7 +170,7 @@ function DatePickerExample() {
           description="
     Use DatePicker to select date range inputs.
   "
-          name="Example: Date Range Picker"
+          name="Date Range Picker"
           defaultCode={`
 function DatePickerRangeExample() {
   const [startDate, setStartDate] = React.useState(undefined);
@@ -213,7 +211,7 @@ function DatePickerRangeExample() {
         />
         <Example
           id="disabled"
-          name="Example: Disabled"
+          name="Disabled"
           defaultCode={`
 function DatePickerExample() {
   const [date, setDate] = React.useState(new Date());
@@ -235,7 +233,7 @@ function DatePickerExample() {
           description="
     Disable dates outside of a min and max date range.
   "
-          name="Example: Delimited selection period"
+          name="Delimited selection period"
           defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -257,7 +255,7 @@ function DatePickerExample() {
           description="
     Enable an array of dates.
   "
-          name="Example: Enabled dates"
+          name="Enabled dates"
           defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -278,7 +276,7 @@ function DatePickerExample() {
           description="
     Disable an array of dates.
   "
-          name="Example: Disabled dates"
+          name="Disabled dates"
           defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -300,7 +298,7 @@ function DatePickerExample() {
           description="
     Display a helper message for cases where you want to provide more information about the date field.
   "
-          name="Example: Helper Text"
+          name="Helper Text"
           defaultCode={`
 function DatePickerExample() {
   return (
@@ -320,7 +318,7 @@ function DatePickerExample() {
           description="
     Display an error message. Error message overrides the helper text.
   "
-          name="Example: Error Message"
+          name="Error Message"
           defaultCode={`
 function DatePickerExample() {
   const [date, setDate] = React.useState(undefined);
@@ -339,7 +337,7 @@ function DatePickerExample() {
         />
         <Combination
           id="idealDirection"
-          name="Example: Ideal Direction"
+          name="Ideal Direction"
           description="Define the preferred direction for the DatePicker popover to open. If that placement doesn't fit, the opposite direction will be used."
           layout="4column"
           idealDirection={['down', 'left', 'right', 'up']}
@@ -355,7 +353,7 @@ function DatePickerExample() {
         </Combination>
         <Combination
           id="localeData"
-          name="Example: Locales"
+          name="Supporting locales"
           description="
 Adjust the date format to each date-fns locale (https://date-fns.org/v2.14.0/docs/Locale).
 The following locale examples show the different locale format variants.

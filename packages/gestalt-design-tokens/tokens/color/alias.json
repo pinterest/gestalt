@@ -18,7 +18,7 @@
       },
       "error": {
         "value": "{color.red.pushpin.500.value}",
-        "darkValue": "{color.red.pushpin.400.value}",
+        "darkValue": "{color.red.pushpin.300.value}",
         "comment": "Text color to indicate an error"
       },
       "warning": {
@@ -67,7 +67,7 @@
         },
         "error": {
           "value": "{color.red.pushpin.500.value}",
-          "darkValue": "{color.red.pushpin.400.value}",
+          "darkValue": "{color.red.pushpin.300.value}",
           "comment": "Icon color to indicate an error"
         },
         "warning": {
