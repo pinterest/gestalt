@@ -1,3 +1,9 @@
+## 77.0.1 (Oct 7, 2022)
+
+### Patch
+
+- Docs: add aliases for many components ([#2434](https://github.com/pinterest/gestalt/pull/2434)) - [Preview link](https://deploy-preview-2434--gestalt.netlify.app)
+
 ## 77.0.0 (Oct 7, 2022)
 
 ### Major
