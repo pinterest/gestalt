@@ -29,7 +29,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-default: #ffffff;
   --color-text-subtle: #a5a5a5;
   --color-text-success: #39d377;
-  --color-text-error: #eb4242;
+  --color-text-error: #f47171;
   --color-text-warning: #e18d00;
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
@@ -37,7 +37,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-icon-default: #ffffff;
   --color-text-icon-subtle: #a5a5a5;
   --color-text-icon-success: #39d377;
-  --color-text-icon-error: #eb4242;
+  --color-text-icon-error: #f47171;
   --color-text-icon-warning: #e18d00;
   --color-text-icon-info: #75bfff;
   --color-text-icon-recommendation: #b190ff;
@@ -386,7 +386,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-default: #ffffff;
   --color-text-subtle: #a5a5a5;
   --color-text-success: #39d377;
-  --color-text-error: #eb4242;
+  --color-text-error: #f47171;
   --color-text-warning: #e18d00;
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
@@ -394,7 +394,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-icon-default: #ffffff;
   --color-text-icon-subtle: #a5a5a5;
   --color-text-icon-success: #39d377;
-  --color-text-icon-error: #eb4242;
+  --color-text-icon-error: #f47171;
   --color-text-icon-warning: #e18d00;
   --color-text-icon-info: #75bfff;
   --color-text-icon-recommendation: #b190ff;
