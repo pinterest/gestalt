@@ -167,7 +167,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   HTMLInputElement,
 >(function ComboBox(
   {
-    accessibilityClearButtonLabel: accessibilityClearButtonLabelProp,
+    accessibilityClearButtonLabel,
     disabled = false,
     errorMessage,
     helperText,
@@ -191,7 +191,8 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   }: Props,
   ref,
 ): Node {
-  const { accessibilityClearButtonLabel } = useDefaultLabelContext('ComboBox');
+  const { accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault } =
+    useDefaultLabelContext('ComboBox');
 
   // ==== REFS ====
 
@@ -437,7 +438,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
             controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
               <InternalTextFieldIconButton
                 accessibilityLabel={
-                  accessibilityClearButtonLabelProp ?? accessibilityClearButtonLabel
+                  accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
                 }
                 hoverStyle="default"
                 icon="cancel"
