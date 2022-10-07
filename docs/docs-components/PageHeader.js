@@ -117,7 +117,14 @@ export default function PageHeader({
                 ) : null}
               </Heading>
 
-              {aliases && <Text italic>also known as {aliases.join(', ')}</Text>}
+              {aliases && (
+                <Text italic>
+                  {/* using heading level to indicate to Algolia search that this is important */}
+                  <div role="heading" aria-level="3">
+                    also known as {aliases.join(', ')}
+                  </div>
+                </Text>
+              )}
             </Flex>
 
             {/* Enable this when we have a consistent directory structure */}

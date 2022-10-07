@@ -250,7 +250,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Avatar />,
     name: 'Avatar',
-    aliases: ['Pinner rep', 'Persona'],
+    aliases: ['Pinner rep', 'Persona', 'User Image', 'Identifier', 'Identicon'],
     description: 'Avatar is used to represent a user.',
     category: 'Avatars',
     status: {
@@ -299,7 +299,14 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <AvatarGroup />,
     name: 'AvatarGroup',
-    aliases: ['Pinner reps', 'Personas', 'Facepile'],
+    aliases: [
+      'Pinner reps',
+      'Personas',
+      'Facepile',
+      'User Images',
+      'Identification Group',
+      'Identicons',
+    ],
     description:
       'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
     category: 'Avatars',
@@ -349,6 +356,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Badge />,
     name: 'Badge',
+    aliases: ['Lozenge', 'Label', 'Stamp', 'Flag'],
     description: 'Badge is a label that indicates status or importance.',
     category: 'Indicators',
     status: {
@@ -397,6 +405,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Button />,
     name: 'Button',
+    aliases: ['Action', 'CTA'],
     description: 'Buttons allow users to perform actions within a surface.',
     category: 'Actions',
     status: {
@@ -445,6 +454,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <ButtonGroup />,
     name: 'ButtonGroup',
+    aliases: ['Button Row', 'Action Bar'],
     description: 'ButtonGroup is used to display a series of buttons.',
     category: 'Actions',
     status: {
@@ -493,7 +503,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Callout />,
     name: 'Callout',
-    aliases: ['Banner'],
+    aliases: ['Banner', 'Message', 'Notification', 'Notice', 'Note'],
     description:
       'Callout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.',
     category: 'Messaging',
@@ -543,6 +553,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Card />,
     name: 'Card',
+    aliases: ['Tile', 'Panel'],
     description: 'Card is used to highlight content in grids.',
     category: 'Structure',
     status: {
@@ -639,6 +650,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Collage />,
     name: 'Collage',
+    aliases: ['Photo Composition'],
     description:
       'Collage, similarly to Masonry, creates a deterministic grid layout that can absolutely position and virtualize images.',
     category: 'Pins and imagery',
@@ -688,7 +700,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <ComboBox />,
     name: 'ComboBox',
-    aliases: ['Typeahead'],
+    aliases: ['Typeahead', 'Autocomplete', 'Autosuggest'],
     description:
       'ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.',
     category: 'Fields and forms',
@@ -835,7 +847,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Divider />,
     name: 'Divider',
-    aliases: ['Separator'],
+    aliases: ['Separator', 'Horizontal Rule', '<hr>', 'Rule'],
     description:
       'Divider is a light gray 1px horizontal or vertical line which groups and divides content in lists and layouts.',
     category: 'Structure',
@@ -885,7 +897,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Dropdown />,
     name: 'Dropdown',
-    aliases: ['Menu'],
+    aliases: ['Menu', 'Contextual Menu'],
     description: 'Dropdown displays a list of actions, options or links.',
     category: 'Fields and forms',
     status: {
@@ -934,7 +946,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <RadioGroup />,
     name: 'Fieldset',
-    aliases: ['Form group'],
+    aliases: ['Form group', 'Input Group', 'Choice Group', 'Form Block'],
     description:
       'Fieldset creates a fieldset and legend for a group of related form items in order to clearly indicate related form items.',
     category: 'Fields and forms',
@@ -1034,6 +1046,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Icon />,
     name: 'Icon',
+    aliases: ['<svg>', 'Symbol', 'Glyph'],
     description:
       'Icons are the symbolic representation of an action or information, providing visual context and improving usability.',
     category: 'Pins and imagery',
@@ -1084,7 +1097,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <IconButton />,
     name: 'IconButton',
-    aliases: ['Glyph button'],
+    aliases: ['Glyph button', 'Condensed Button'],
     description:
       'IconButton allows users to take actions and make choices with a single click or tap.',
     category: 'Actions',
@@ -1134,6 +1147,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Image />,
     name: 'Image',
+    aliases: ['<img>', 'Picture', 'Photo'],
     description: 'Image is used to represent images.',
     category: 'Pins and imagery',
     status: {
@@ -1182,6 +1196,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <GestaltLabel />,
     name: 'Label',
+    aliases: ['Field Label', 'Form Label'],
     description: 'Label is used to connect a label with a form component in an accessible way.',
     category: 'Fields and forms',
     status: {
@@ -1230,7 +1245,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <GestaltLink />,
     name: 'Link',
-    aliases: ['Anchor'],
+    aliases: ['Anchor', '<a>', 'Text Link', 'Hyperlink'],
     description: 'Link allow users to click their way from page to page.',
     category: 'Actions',
     status: {
@@ -1329,7 +1344,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Modal />,
     name: 'Modal',
-    aliases: ['Dialog'],
+    aliases: ['Dialog', 'Prompt'],
     description: 'Modal displays content that requires user interaction.',
     category: 'Overlays',
     status: {
@@ -1378,7 +1393,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Module />,
     name: 'Module',
-    aliases: ['Accordion', 'Section', 'Expandable Section', 'Disclosure'],
+    aliases: ['Accordion', 'Section', 'Expandable Section', 'Disclosure', 'Stack View', 'Expander'],
     description: 'Module is a container that holds content about one subject.',
     category: 'Structure',
     status: {
@@ -1625,6 +1640,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <RadioGroup />,
     name: 'RadioGroup',
+    aliases: ['Single Select', 'Option Buttons', 'Radio Inputs'],
     description: 'Use RadioGroup when you have a few options that a user can choose from.',
     category: 'Controls',
     status: {
@@ -1673,6 +1689,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <SearchField />,
     name: 'SearchField',
+    aliases: ['Search Box', 'Search Bar'],
     description: 'SearchField allows users to search for free-form content.',
     category: 'Fields and forms',
     status: {
@@ -1721,6 +1738,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <SegmentedControl />,
     name: 'SegmentedControl',
+    aliases: ['Toggle Group'],
     description: 'SegmentedControl may be used to group multiple selections.',
     category: 'Navigation',
     status: {
@@ -1819,7 +1837,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Sheet />,
     name: 'Sheet',
-    aliases: ['Drawer', 'Panel'],
+    aliases: ['Drawer', 'Panel', 'Tray'],
     description:
       'Sheets are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page.',
     category: 'Overlays',
@@ -1869,7 +1887,13 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Spinner />,
     name: 'Spinner',
-    aliases: ['Refresh Indicator', 'Refresh Control', 'Loader'],
+    aliases: [
+      'Refresh Indicator',
+      'Refresh Control',
+      'Loader',
+      'Circular Loader',
+      'Loading Animation',
+    ],
     description:
       "Spinner helps indicate that a surface's content or portion of content is currently loading.",
     category: 'Loading',
@@ -1919,7 +1943,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <SlimBanner />,
     name: 'SlimBanner',
-    aliases: ['Notice', 'Scoped Notification'],
+    aliases: ['Notice', 'Note', 'Scoped Notification'],
     description: 'SlimBanner conveys brief information related to a specific section of a page.',
     category: 'Messaging',
     status: {
@@ -2018,7 +2042,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Status />,
     name: 'Status',
-    aliases: ['Status Indicator'],
+    aliases: ['Status Indicator', 'Signal', 'System Feedback'],
     description: "Status is a graphic indicator of an element's state.",
     category: 'Indicators',
     status: {
@@ -2067,7 +2091,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Switch />,
     name: 'Switch',
-    aliases: ['Toggle'],
+    aliases: ['Toggle', 'Slide Toggle'],
     description: 'Switch is used for single cell options that can be turned on and off only.',
     category: 'Controls',
     status: {
@@ -2214,7 +2238,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Tag />,
     name: 'Tag',
-    aliases: ['Chip', 'Pill'],
+    aliases: ['Chip', 'Pill', 'Filter Tag'],
     description: 'Tags are objects that hold text and have a delete icon to remove them.',
     category: 'Data',
     status: {
@@ -2263,6 +2287,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Text />,
     name: 'Text',
+    aliases: ['Copy'],
     description: 'Text is used for all text on the page.',
     category: 'Text',
     status: {
@@ -2311,6 +2336,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <TextArea />,
     name: 'TextArea',
+    aliases: ['Multi-line Input'],
     description: 'TextArea allows for multi-line input.',
     category: 'Fields and forms',
     status: {
@@ -2458,6 +2484,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Tooltip />,
     name: 'Tooltip',
+    aliases: ['Info Tip'],
     description:
       'Tooltip is a floating text label that succinctly describes the function of an interactive element.',
     category: 'Help and guidance',
@@ -2507,7 +2534,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Upsell />,
     name: 'Upsell',
-    aliases: ['Banner'],
+    aliases: ['Banner', 'Offer Banner', 'CTA Banner'],
     description:
       'Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
     category: 'Messaging',
@@ -2582,7 +2609,7 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Box />,
     name: 'Box',
-    aliases: ['div', 'View'],
+    aliases: ['<div>', 'View'],
     description:
       'Box is a component primitive that can be used to build the foundation of pretty much any other component.',
     category: 'Building blocks',
