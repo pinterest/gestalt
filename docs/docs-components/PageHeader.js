@@ -103,29 +103,18 @@ export default function PageHeader({
       >
         <Flex direction="column" gap={3}>
           <Flex alignItems="baseline" justifyContent="between" wrap>
-            <Flex direction="column" gap={1}>
-              <Heading>
-                {name}{' '}
-                {badge ? (
-                  <Tooltip inline text={badgeMap[badge].tooltipText}>
-                    <Badge
-                      text={badgeMap[badge].text}
-                      position="top"
-                      type={badgeMap[badge].type || 'info'}
-                    />
-                  </Tooltip>
-                ) : null}
-              </Heading>
-
-              {aliases && (
-                <Text italic>
-                  {/* using heading level to indicate to Algolia search that this is important */}
-                  <div role="heading" aria-level="3">
-                    also known as {aliases.join(', ')}
-                  </div>
-                </Text>
-              )}
-            </Flex>
+            <Heading>
+              {name}{' '}
+              {badge ? (
+                <Tooltip inline text={badgeMap[badge].tooltipText}>
+                  <Badge
+                    text={badgeMap[badge].text}
+                    position="top"
+                    type={badgeMap[badge].type || 'info'}
+                  />
+                </Tooltip>
+              ) : null}
+            </Heading>
 
             {/* Enable this when we have a consistent directory structure */}
             {['component' /* 'utility' */].includes(type) && (
@@ -141,7 +130,17 @@ export default function PageHeader({
           </Flex>
 
           <Flex direction="column" gap={6}>
-            {description && <Markdown text={description} />}
+            <Flex direction="column" gap={1}>
+              {description && <Markdown text={description} />}
+              {aliases && (
+                <Text italic>
+                  {/* using heading level to indicate to Algolia search that this is important */}
+                  <div role="heading" aria-level="2">
+                    also known as {aliases.join(', ')}
+                  </div>
+                </Text>
+              )}
+            </Flex>
             {slimBanner}
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
             {defaultCode && (
