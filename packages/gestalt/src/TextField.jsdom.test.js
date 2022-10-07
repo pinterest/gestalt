@@ -6,8 +6,6 @@ import userEvent from '@testing-library/user-event';
 import TextField from './TextField.js';
 import expectToThrow from './utils/testing/expectToThrow.js';
 
-jest.mock('./contexts/I18nProvider.js');
-
 const LABEL = 'textfieldLabel';
 
 const renderTextField = ({

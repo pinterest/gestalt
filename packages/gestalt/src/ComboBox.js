@@ -27,6 +27,7 @@ import handleContainerScrolling, {
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
 import { type Indexable } from './zIndex.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Size = 'md' | 'lg';
 
@@ -40,7 +41,7 @@ type Props = {|
   /**
    * Label to describe the clear button's purpose.
    */
-  accessibilityClearButtonLabel: string,
+  accessibilityClearButtonLabel?: string,
   /**
    * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */
@@ -189,6 +190,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   }: Props,
   ref,
 ): Node {
+  const { accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault } =
+    useDefaultLabelContext('ComboBox');
+
   // ==== REFS ====
 
   const innerRef = useRef(null);
@@ -432,7 +436,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           iconButton={
             controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
               <InternalTextFieldIconButton
-                accessibilityLabel={accessibilityClearButtonLabel}
+                accessibilityLabel={
+                  accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
+                }
                 hoverStyle="default"
                 icon="cancel"
                 onClick={handleOnClickIconButtonClear}

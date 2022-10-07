@@ -1,10 +1,13 @@
 // @flow strict-local
 import { useState } from 'react';
 import { act, render, screen, fireEvent } from '@testing-library/react';
-import { I18nProvider } from 'gestalt';
+import { DefaultLabelProvider } from 'gestalt';
 import DatePicker from './DatePicker.js';
 
-const translations = {
+const accessibilityLabels = {
+  ComboBox: {
+    accessibilityClearButtonLabel: 'Clear input',
+  },
   TextField: {
     accessibilityHidePasswordLabel: 'Hide password',
     accessibilityShowPasswordLabel: 'Show password',
@@ -13,7 +16,7 @@ const translations = {
 const initialDate = new Date(2018, 11, 14);
 
 function renderComp(comp) {
-  return render(<I18nProvider value={translations}>{comp}</I18nProvider>);
+  return render(<DefaultLabelProvider labels={accessibilityLabels}>{comp}</DefaultLabelProvider>);
 }
 
 function DatePickerWrap() {

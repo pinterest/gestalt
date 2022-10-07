@@ -4,8 +4,6 @@ import Icon from './Icon.js';
 import TextField from './TextField.js';
 import Upsell from './Upsell.js';
 
-jest.mock('./contexts/I18nProvider.js');
-
 describe('<Upsell />', () => {
   test('Basic Upsell', () => {
     const tree = create(<Upsell message="Insert a clever upsell message here" />).toJSON();
