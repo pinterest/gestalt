@@ -1,3 +1,9 @@
+## 77.0.2 (Oct 8, 2022)
+
+### Patch
+
+- Tokens: Adjust dark mode error text and icon ([#2435](https://github.com/pinterest/gestalt/pull/2435)) - [Preview link](https://deploy-preview-2435--gestalt.netlify.app)
+
 ## 77.0.1 (Oct 7, 2022)
 
 ### Patch
