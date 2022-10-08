@@ -69,6 +69,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         ],
       },
       'ActivationCard',
+      'AlertModal',
       'Avatar',
       'AvatarGroup',
       'Badge',

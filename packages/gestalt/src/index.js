@@ -1,6 +1,7 @@
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
+import AlertModal from './AlertModal.js';
 import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';
 import Badge from './Badge.js';
@@ -73,6 +74,7 @@ import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 
 export {
   ActivationCard,
+  AlertModal,
   Avatar,
   AvatarGroup,
   Badge,

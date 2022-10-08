@@ -201,7 +201,7 @@ export default function Modal({
                       [modalStyles.shadow]: showBottomShadow,
                     })}
                   >
-                    <Box padding={8}>{footer}</Box>
+                    <Box padding={6}>{footer}</Box>
                   </div>
                 )}
               </Box>
