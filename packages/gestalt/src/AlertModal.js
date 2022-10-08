@@ -38,7 +38,7 @@ type Props = {|
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  primaryAction?: {|
+  primaryAction: {|
     accessibilityLabel: string,
     disabled?: boolean,
     href?: string,
@@ -140,7 +140,7 @@ function AlertModalAction({ data, type }: {| data: ActionDataType, type: string 
       href={href}
       fullWidth
       onClick={onClick}
-      iconEnd="arrow-up-right"
+      iconEnd="visit"
       rel={rel}
       role="link"
       size="lg"
@@ -184,7 +184,7 @@ export default function AlertModal({
         <Flex
           justifyContent="end"
           gap={{
-            row: 2,
+            row: 4,
             column: 0,
           }}
         >
