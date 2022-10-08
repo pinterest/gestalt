@@ -39,7 +39,7 @@
   4. The viewport can be any size. Most windowing/recycling solutions implement some sort of overscanning, however Collection leaves this up the the parent.
 
 */
-import { type Node } from 'react';
+import { type ComponentType, Fragment, memo, type Node, useMemo, useCallback } from 'react';
 import layoutStyles from './Layout.css';
 
 type Props = {|
@@ -56,40 +56,86 @@ type Props = {|
   viewportHeight?: number,
 |};
 
+function symmetricDifference<T>(a: Set<T>, b: Set<T>): Set<T> {
+  const diff = new Set(a);
+  b.forEach((elem) => {
+    if (diff.has(elem)) {
+      diff.delete(elem);
+    } else {
+      diff.add(elem);
+    }
+  });
+  return diff;
+}
+
+const Viewport = memo(
+  function Viewport({
+    visible,
+    Component,
+  }: {|
+    visible: Set<number>,
+    Component: ComponentType<{| idx: number |}>,
+  |}) {
+    return (
+      <Fragment>
+        {Array.from(visible).map((idx) => (
+          <Component key={idx} idx={idx} />
+        ))}
+      </Fragment>
+    );
+  },
+  (prev, next) =>
+    prev.Component === next.Component && symmetricDifference(prev.visible, next.visible).size === 0,
+);
+
 /**
  * https://gestalt.pinterest.systems/collection
  */
 export default function Collection(props: Props): Node {
   const { Item, layout = [], viewportTop = 0, viewportLeft = 0 } = props;
 
+  const Component = useCallback(
+    ({ idx }) => {
+      <div key={idx} className={layoutStyles.absolute} style={layout[idx]}>
+        <Item idx={idx} />
+      </div>;
+    },
+    [layout],
+  );
+
   // Calculate the full dimensions of the item layer
-  const width = Math.max(...layout.map((item) => item.left + item.width));
-  const height = Math.max(...layout.map((item) => item.top + item.height));
+  const [width, height] = useMemo(
+    () => [
+      Math.max(...layout.map((item) => item.left + item.width)),
+      Math.max(...layout.map((item) => item.top + item.height)),
+    ],
+    [layout],
+  );
 
   // Default the viewport to being the full width of the content layer
   const { viewportWidth = width, viewportHeight = height } = props;
 
   // Calculates which items from the item layer to render in the viewport
   // layer.
-  const items = layout.reduce((acc, position, idx) => {
-    if (
-      position.top + position.height > viewportTop &&
-      position.top < viewportHeight + viewportTop &&
-      position.left < viewportWidth + viewportLeft &&
-      position.left + position.width > viewportLeft
-    ) {
-      acc.push({ idx, ...position });
-    }
-    return acc;
-  }, []);
+  const visible = useMemo(
+    () =>
+      layout.reduce((acc, position, idx) => {
+        if (
+          position.top + position.height > viewportTop &&
+          position.top < viewportHeight + viewportTop &&
+          position.left < viewportWidth + viewportLeft &&
+          position.left + position.width > viewportLeft
+        ) {
+          acc.add(idx);
+        }
+        return acc;
+      }, new Set()),
+    [layout, viewportTop, viewportLeft, viewportHeight, viewportWidth],
+  );
 
   return (
     <div className={layoutStyles.relative} style={{ width, height }}>
-      {items.map(({ idx, ...style }) => (
-        <div key={idx} className={layoutStyles.absolute} style={style}>
-          <Item idx={idx} />
-        </div>
-      ))}
+      <Viewport visible={visible} Component={Component} />
     </div>
   );
 }
