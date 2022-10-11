@@ -1,12 +1,14 @@
 // @flow strict
-import { Flex } from 'gestalt';
+import { Box, Flex } from 'gestalt';
 import { type Node } from 'react';
 import MainSectionCard from './MainSectionCard.js';
+import Checkerboard from './Checkerboard.js';
 
 type Props = {
   // $FlowFixMe[unclear-type]
   children: (props: { [key: string]: any, ... }, index?: number) => Node,
   hideTitle?: boolean,
+  hasCheckerboard?: boolean,
   ...
 };
 
@@ -48,7 +50,12 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default function CombinationNew({ children, hideTitle, ...props }: Props): Node {
+export default function CombinationNew({
+  children,
+  hideTitle,
+  hasCheckerboard,
+  ...props
+}: Props): Node {
   const CardArray = combinations(props).map((combination, i) => {
     const combinationTitles = Object.keys(combination).map((key) =>
       toReactAttribute(key, combination[key]),
@@ -73,6 +80,9 @@ export default function CombinationNew({ children, hideTitle, ...props }: Props)
         shadeColor={cardShadeColor}
         title={hideTitle ? undefined : combinationTitles}
       >
+        <Box position="absolute" top left bottom right>
+          {hasCheckerboard && <Checkerboard />}
+        </Box>
         {children(combination, i)}
       </MainSectionCard>
     );

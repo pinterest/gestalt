@@ -19,22 +19,32 @@ export type Token = {|
 
 const tokenCategories = [
   {
-    name: 'Spacing',
-    category: 'spacing',
-    id: 'space',
-    infoPage: { name: 'Box', path: 'web/box#Responsive-padding' },
-  },
-  {
     name: 'Background color',
     category: 'background-color',
     id: 'background',
     infoPage: { name: 'Box', path: 'web/box#Colors' },
   },
   {
-    name: 'Text color',
-    category: 'text-color',
-    id: 'color-text',
-    infoPage: { name: 'Text', path: 'web/text#Colors' },
+    name: 'Border color',
+    category: 'color-border',
+    id: 'color-border',
+    infoPage: { name: 'Box', path: 'web/box#Borders' },
+  },
+
+  {
+    name: 'Data visualization',
+    category: 'data-visualization',
+    id: 'data-visualization',
+    infoPage: {
+      name: 'Data Visualization Guidelines',
+      path: 'foundations/data_visualization/palette',
+    },
+  },
+  {
+    name: 'Elevation',
+    category: 'elevation',
+    id: 'elevation',
+    infoPage: { name: 'Box', path: 'web/box#Elevation' },
   },
   {
     name: 'Font size',
@@ -55,25 +65,22 @@ const tokenCategories = [
     infoPage: { name: 'Typography', path: 'foundations/typography/guidelines' },
   },
   {
-    name: 'Border color',
-    category: 'color-border',
-    id: 'color-border',
-    infoPage: { name: 'Box', path: 'web/box#Borders' },
+    name: 'Opacity',
+    category: 'opacity',
+    id: 'opacity',
+    infoPage: { name: 'Box', path: 'web/box#Opacity' },
   },
   {
-    name: 'Elevation',
-    category: 'elevation',
-    id: 'elevation',
-    infoPage: { name: 'Box', path: 'web/box#Elevation' },
+    name: 'Spacing',
+    category: 'spacing',
+    id: 'space',
+    infoPage: { name: 'Box', path: 'web/box#Responsive-padding' },
   },
   {
-    name: 'Data visualization',
-    category: 'data-visualization',
-    id: 'data-visualization',
-    infoPage: {
-      name: 'Data Visualization Guidelines',
-      path: 'foundations/data_visualization/palette',
-    },
+    name: 'Text color',
+    category: 'text-color',
+    id: 'color-text',
+    infoPage: { name: 'Text', path: 'web/text#Colors' },
   },
 ];
 

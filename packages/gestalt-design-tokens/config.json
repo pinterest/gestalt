@@ -113,6 +113,16 @@
               "type": "size"
             }
           }
+        },
+        {
+          "destination": "opacity.xml",
+          "format": "android/resources",
+          "resourceType": "dimen",
+          "filter": {
+            "attributes": {
+              "category": "opacity"
+            }
+          }
         }
       ]
     },
