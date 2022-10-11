@@ -16,6 +16,7 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
   return (
     <Page title="AlertModal">
       <PageHeader
+        badge="pilot"
         // defaultCode={`
         // function DefaultExample() {
         //   const [showModal, setShowModal] = React.useState(false);
