@@ -1,3 +1,9 @@
+## 77.1.0 (Oct 11, 2022)
+
+### Minor
+
+- Design tokens: Add opacity tokens ([#2430](https://github.com/pinterest/gestalt/pull/2430)) - [Preview link](https://deploy-preview-2430--gestalt.netlify.app)
+
 ## 77.0.2 (Oct 8, 2022)
 
 ### Patch
