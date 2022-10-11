@@ -13,30 +13,29 @@ import { type ActionDataType } from './commonTypes.js';
 
 type Props = {|
   /**
-   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modal#Accessibility) for more info.
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/alertmodal#Accessibility) for more info.
    */
   accessibilityModalLabel: string,
   /**
-   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
+   * Supply the element(s) that will be used as AlertModal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/alertmodal#Best-practices) for more info.
    */
   children: Node,
   /**
-   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
+   * The text used for AlertModal's heading.
    */
   heading: string,
   /**
-   * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
+   * Callback fired when AlertModal is dismissed by clicking on the backdrop outside of the AlertModal (if `closeOnOutsideClick` is true) or when the dismiss IconButton is clicked (for default AlertModals).
    */
   onDismiss: () => void,
   /**
-   * XXXX
-   *
+   * Determines the icon and dismiss pattern of the AlertModal. See the [warning](https://gestalt.pinterest.systems/web/alertmodal#Warning) and [error](https://gestalt.pinterest.systems/web/alertmodal#Error)  variants for more info.
    */
   type?: 'default' | 'warning' | 'error',
   /**
-   * Main action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Main action for users to take on AlertModal. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/alertmodal#Accessibility).
    */
   primaryAction: {|
     accessibilityLabel: string,
@@ -54,9 +53,9 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Secondary action for users to take on AlertModal. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/alertmodal#Accessibility).
    */
   secondaryAction?: {|
     accessibilityLabel: string,
@@ -114,16 +113,18 @@ function Header({
             {heading}
           </Heading>
         </Flex.Item>
-        <Box marginStart={6}>
-          <IconButton
-            accessibilityLabel="Close modal"
-            bgColor="white"
-            icon="cancel"
-            iconColor="darkGray"
-            onClick={onDismiss}
-            size="sm"
-          />
-        </Box>
+        {type === 'default' && (
+          <Box marginStart={6}>
+            <IconButton
+              accessibilityLabel="Close modal"
+              bgColor="white"
+              icon="cancel"
+              iconColor="darkGray"
+              onClick={onDismiss}
+              size="sm"
+            />
+          </Box>
+        )}
       </Flex>
     </Box>
   );
@@ -177,9 +178,7 @@ export default function AlertModal({
     <Modal
       accessibilityModalLabel={accessibilityModalLabel}
       align="start"
-      role="alertdialog"
-      heading={<Header type={type} heading={heading} onDismiss={onDismiss} />}
-      onDismiss={onDismiss}
+      closeOnOutsideClick={type === 'default'}
       footer={
         <Flex
           justifyContent="end"
@@ -192,6 +191,9 @@ export default function AlertModal({
           {primaryAction && <AlertModalAction type="primary" data={primaryAction} />}
         </Flex>
       }
+      heading={<Header type={type} heading={heading} onDismiss={onDismiss} />}
+      onDismiss={onDismiss}
+      role="alertdialog"
       size="sm"
     >
       <Box paddingX={6}>{children}</Box>

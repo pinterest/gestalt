@@ -16,38 +16,36 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
   return (
     <Page title="AlertModal">
       <PageHeader
-        defaultCode={`
-        function DefaultExample() {
-          const [showModal, setShowModal] = React.useState(false);
+        // defaultCode={`
+        // function DefaultExample() {
+        //   const [showModal, setShowModal] = React.useState(false);
 
-          const HEADER_ZINDEX = new FixedZIndex(10);
-          const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+        //   const HEADER_ZINDEX = new FixedZIndex(10);
+        //   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-          return (
-            <Layer zIndex={zIndex}>
-              <AlertModal
-              type="error"
-                accessibilityModalLabel="Delete board 70s Furniture"
-                heading="Delete this board"
-                primaryAction={{
-                  accessibilityLabel: 'Confirm delete board',
-                  label: 'Yes, delete',
-                  href: "pinterest.com"
-                }}
-                secondaryAction={{
-                  accessibilityLabel: 'Cancel board deletion',
-                  label: 'No, keep',
-                }}
-                onDismiss={() => {
-                  setShowModal(!showModal);
-                }}
-              >
-                <Text>Your board and all of its Pins will be deleted forever. Other Pinners who have access to this board will also lose access. This cannot be undone.</Text>
-              </AlertModal>
-            </Layer>
-          );
-        }
-        `}
+        //   return (
+        //     <Layer zIndex={zIndex}>
+        //       <AlertModal
+        //         accessibilityModalLabel="Delete board 70s Furniture"
+        //         heading="Delete this board"
+        //         primaryAction={{
+        //           accessibilityLabel: 'Confirm delete board',
+        //           label: 'Yes, delete',
+        //         }}
+        //         secondaryAction={{
+        //           accessibilityLabel: 'Cancel board deletion',
+        //           label: 'No, keep',
+        //         }}
+        //         onDismiss={() => {
+        //           setShowModal(!showModal);
+        //         }}
+        //       >
+        //         <Text>Your board and all of its Pins will be deleted forever. Other Pinners who have access to this board will also lose access. This cannot be undone.</Text>
+        //       </AlertModal>
+        //     </Layer>
+        //   );
+        // }
+        // `}
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
       />
@@ -174,7 +172,7 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Error"
-          description="Error messages alert users of an error or a very critical issue that severely limits the user’s ability to continue. Like warnings, warnings can only be dismissed by interacting with the dismiss buttons provided by the modal. If there is a way to resolve the error, two buttons can be included. If not, only one “dismiss” button is needed."
+          description="Error messages alert users of an error or a very critical issue that severely limits the user’s ability to continue. Like warnings, errors can only be dismissed by interacting with the dismiss buttons provided by the modal. If there is a way to resolve the error, two buttons can be included. If not, only one “dismiss” button is needed."
         >
           <MainSection.Card />
         </MainSection.Subsection>
