@@ -20,6 +20,15 @@ li {
   margin-top: 10px;
 }
 
+.reset {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
 /**
  * LiveEditor overrides
  */

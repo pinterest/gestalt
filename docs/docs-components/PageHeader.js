@@ -133,12 +133,10 @@ export default function PageHeader({
             <Flex direction="column" gap={1}>
               {description && <Markdown text={description} />}
               {aliases && (
-                <Text italic>
-                  {/* using heading level to indicate to Algolia search that this is important */}
-                  <div role="heading" aria-level="2">
-                    also known as {aliases.join(', ')}
-                  </div>
-                </Text>
+                // using h2 to indicate to Algolia search that this is important, but don't want native browser styling
+                <h2 className="reset">
+                  <Text italic>also known as {aliases.join(', ')}</Text>
+                </h2>
               )}
             </Flex>
             {slimBanner}
