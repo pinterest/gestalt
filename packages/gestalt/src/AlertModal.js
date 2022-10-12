@@ -202,6 +202,22 @@ export default function AlertModal({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('AlertModal');
 
+  if (primaryAction && primaryAction.href === undefined && primaryAction.onClick === undefined) {
+    throw new Error(
+      'Either an `href` or an `onClick` handler must be provided to `primaryAction`.',
+    );
+  }
+
+  if (
+    secondaryAction &&
+    secondaryAction.href === undefined &&
+    secondaryAction.onClick === undefined
+  ) {
+    throw new Error(
+      'Either an `href` or an `onClick` handler must be provided to `secondaryAction`.',
+    );
+  }
+
   return (
     <Modal
       accessibilityModalLabel={accessibilityModalLabel}
