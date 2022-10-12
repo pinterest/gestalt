@@ -7,33 +7,39 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+// Examples
+import main from '../../examples/numberfield/main.js';
+import bestPracticesDoHelperText from '../../examples/numberfield/bestPractices-do-helperText.js';
+import bestPracticesDontPlaceholder from '../../examples/numberfield/bestPractices-dont-placeholder.js';
+import bestPracticesDoLabel from '../../examples/numberfield/bestPractices-do-label.js';
+import bestPracticesDontLabel from '../../examples/numberfield/bestPractices-dont-label.js';
+import bestPracticesDoRelated from '../../examples/numberfield/bestPractices-do-related.js';
+import bestPracticesDontRelated from '../../examples/numberfield/bestPractices-dont-related.js';
+import bestPracticesDoErrorMessage from '../../examples/numberfield/bestPractices-do-errorMessage.js';
+import bestPracticesDontErrorMessage from '../../examples/numberfield/bestPractices-dont-errorMessage.js';
+import bestPracticesDoRequired from '../../examples/numberfield/bestPractices-do-required.js';
+import bestPracticesDontRequired from '../../examples/numberfield/bestPractices-dont-required.js';
+import disabled from '../../examples/numberfield/disabled.js';
+import helperText from '../../examples/numberfield/helperText.js';
+import errorMessage from '../../examples/numberfield/errorMessage.js';
+import minMaxStep from '../../examples/numberfield/minMaxStep.js';
+import enterKeyHint from '../../examples/numberfield/enterKeyHint.js';
+import ref from '../../examples/numberfield/ref.js';
 
-export default function NumberFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+const previewHeightPx = 235;
+
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <Box width={500}>
-      <NumberField
-        id="header-example"
-        label="Number of widgets"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="Please enter the number of widgets"
-        value={value}
-      />
-    </Box>
-  );
-}
-`}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          hideEditor
+          name="Main Example"
+          previewHeight={previewHeightPx}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -64,49 +70,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Use helper text for important information. Helper text helps users understand how to complete the number field or to indicate any needed input."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <Box padding={2} color="white">
-      <NumberField
-        helperText="Code was texted to you"
-        id="best-practices-do-helper-text"
-        label="Confirmation code"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDoHelperText}
+                hideEditor
+                name="Best Practices - Do - Helper Text"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Put essential information in the placeholder text, since it disappears when the user types. The placeholder text is not a replacement for the label."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <Box padding={2} color="white">
-      <NumberField
-        id="best-practices-dont-placeholder"
-        label=""
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="Code was texted to you"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDontPlaceholder}
+                hideControls
+                hideEditor
+                name="Best Practices - Don't - Placeholder"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -115,49 +100,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Always ensure the number field has a visible label. The label provides context and supports users when filling in information."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <Box padding={2} color="white">
-      <NumberField
-        id="best-practices-do-label"
-        label="Your age"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDoLabel}
+                hideEditor
+                name="Best Practices - Do - Label"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Remove the label, as this creates accessibility and usability issues."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <div className="skip-accessibility-check">
-      <Box padding={2} color="white">
-        <NumberField
-          id="best-practice-dont-label"
-          label=""
-          onChange={({ value }) => {
-            setValue(value);
-          }}
-          value={value}
-        />
-      </Box>
-    </div>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDontLabel}
+                hideEditor
+                hideControls
+                name="Best Practices - Don't - Label"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -166,65 +130,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Only place related fields on the same line."
-            defaultCode={`
-function Example(props) {
-  const [firstValue, setFirstValue] = React.useState();
-  const [secondValue, setSecondValue] = React.useState();
-
-  return (
-    <Flex gap={{ column: 0, row: 4 }}>
-      <NumberField
-        id="best-practices-do-related-first"
-        label="First value"
-        onChange={({ value }) => {
-          setFirstValue(value);
-        }}
-        value={firstValue}
-      />
-      <NumberField
-        id="best-practices-do-related-second"
-        label="Second value"
-        onChange={({ value }) => {
-          setSecondValue(value);
-        }}
-        value={secondValue}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDoRelated}
+                hideEditor
+                name="Best Practices - Do - Related"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Place unrelated number fields on the same line, as this can create comprehension issues."
-            defaultCode={`
-function Example(props) {
-  const [ageValue, setAgeValue] = React.useState();
-  const [petsValue, setPetsValue] = React.useState();
-
-  return (
-    <Flex gap={{ column: 0, row: 4 }}>
-      <NumberField
-        id="best-practices-dont-related-age"
-        label="Age"
-        onChange={({ value }) => {
-          setAgeValue(value);
-        }}
-        value={ageValue}
-      />
-      <NumberField
-        id="best-practices-dont-related-pets"
-        label="Number of pets"
-        onChange={({ value }) => {
-          setPetsValue(value);
-        }}
-        value={petsValue}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDontRelated}
+                hideEditor
+                hideControls
+                name="Best Practices - Don't - Related"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -233,51 +160,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Provide clear and useful error messages that help the user fix the issue. Error messages should be displayed in a timely manner — typically once the field loses focus or when the form is submitted."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <Box padding={2} color="white">
-      <NumberField
-        errorMessage="Please enter a value of at least $5"
-        helperText="Minimum is $5"
-        id="best-practices-do-error-message"
-        label="Monthly ad spend"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDoErrorMessage}
+                hideEditor
+                name="Best Practices - Do - Error Message"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description={`Display generic error messages, such as "There is an error".`}
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <Box padding={2} color="white">
-      <NumberField
-        errorMessage="There is an error"
-        helperText="Minimum is $5"
-        id="best-practices-dont-error-message"
-        label="Monthy ad spend"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDontErrorMessage}
+                hideEditor
+                hideControls
+                name="Best Practices - Don't - Error Message"
+                previewHeight={previewHeightPx}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -286,89 +190,28 @@ function Example(props) {
             cardSize="md"
             type="do"
             description="Consider all text fields as required, unless explicitly noted as optional."
-            defaultCode={`
-function Example(props) {
-  const [values, setValues] = React.useState({
-    first: undefined,
-    second: undefined,
-    third: undefined,
-  });
-
-  return (
-    <Flex direction="column" gap={{ column: 3, row: 0 }}>
-      <NumberField
-        id="best-practices-do-required-first"
-        label="First number"
-        onChange={({ value }) => {
-          setValues((prevValues) => ({ ...prevValues, first: value }));
-        }}
-        value={values.first}
-      />
-      <NumberField
-        id="best-practices-do-required-second"
-        label="Second number"
-        onChange={({ value }) => {
-          setValues((prevValues) => ({ ...prevValues, second: value }));
-        }}
-        value={values.second}
-      />
-      <NumberField
-        id="best-practices-do-required-third"
-        label="Third number (optional)"
-        onChange={({ value }) => {
-          setValues((prevValues) => ({ ...prevValues, third: value }));
-        }}
-        value={values.third}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDoRequired}
+                hideEditor
+                name="Best Practices - Do - Required Fields"
+                previewHeight={360}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Mark fields as required."
-            defaultCode={`
-function Example(props) {
-  const [values, setValues] = React.useState({
-    first: undefined,
-    second: undefined,
-    third: undefined,
-  });
-
-  return (
-    <Flex direction="column" gap={{ column: 3, row: 0 }}>
-      <NumberField
-        helperText="* This field is required."
-        id="best-practices-dont-required-first"
-        label="First number"
-        onChange={({ value }) => {
-          setValues((prevValues) => ({ ...prevValues, first: value }));
-        }}
-        value={values.first}
-      />
-      <NumberField
-        helperText="* This field is required."
-        id="best-practices-dont-required-second"
-        label="Second number"
-        onChange={({ value }) => {
-          setValues((prevValues) => ({ ...prevValues, second: value }));
-        }}
-        value={values.second}
-      />
-      <NumberField
-        id="best-practices-dont-required-third"
-        label="Third number"
-        onChange={({ value }) => {
-          setValues((prevValues) => ({ ...prevValues, third: value }));
-        }}
-        value={values.third}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                code={bestPracticesDontRequired}
+                hideEditor
+                hideControls
+                name="Best Practices - Don't - Required Fields"
+                previewHeight={360}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -432,24 +275,7 @@ function Example(props) {
           description="Disabled NumberFields cannot be interacted with using the mouse or keyboard."
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <NumberField
-      disabled
-      id="variant-disabled"
-      label="Disabled"
-      onChange={({ value }) => {
-        setValue(value);
-      }}
-      placeholder="This input is disabled"
-      value={value}
-    />
-  );
-}
-`}
+            sandpackExample={<SandpackExample code={disabled} name="Variants - Disabled" />}
           />
         </MainSection.Subsection>
 
@@ -458,25 +284,7 @@ function Example(props) {
           description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <Box padding={2} color="white">
-      <NumberField
-        id="variant-helperText"
-        helperText="Round up to the nearest whole number"
-        label="Average value"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        value={value}
-      />
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample code={helperText} name="Variants - Helper Text" />}
           />
         </MainSection.Subsection>
 
@@ -487,23 +295,9 @@ function Example(props) {
     Simply pass in an \`errorMessage\` when there is an error present and we will handle the rest.`}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
-
-  return (
-    <NumberField
-      id="variant-errorMessage"
-      errorMessage={value === null || value === undefined ? "You must enter a number" : null}
-      onChange={({ value }) => {
-        setValue(value);
-      }}
-      label="With an error message"
-      value={value}
-    />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={errorMessage} name="Variants - Error Message" />
+            }
           />
         </MainSection.Subsection>
 
@@ -518,41 +312,7 @@ function Example(props) {
   `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value1, setValue1] = React.useState();
-  const [value2, setValue2] = React.useState();
-
-  return (
-    <Flex direction="column" gap={{ column: 2, row: 0 }} width="80%">
-      <NumberField
-        id="minMaxStepExampleNumberField1"
-        label="Stepping in intervals of 5"
-        max={25}
-        min={5}
-        onChange={({ value }) => {
-          setValue1(value);
-        }}
-        placeholder="Use the arrow buttons to increase/decrease the input value"
-        step={5}
-        value={value1}
-      />
-      <NumberField
-        id="minMaxStepExampleNumberField2"
-        label="Stepping in intervals of 0.1"
-        max={2}
-        min={-2}
-        onChange={({ value }) => {
-          setValue2(value);
-        }}
-        placeholder="Use the arrow buttons to increase/decrease the input value"
-        step={0.1}
-        value={value2}
-      />
-    </Flex>
-  );
-}
-`}
+            sandpackExample={<SandpackExample code={minMaxStep} name="Variants - Min/Max/Step" />}
           />
         </MainSection.Subsection>
 
@@ -570,20 +330,9 @@ function Example(props) {
           `}
         >
           <MainSection.Card
-            defaultCode={`
-function NumberFieldExample() {
-  return (
-    <NumberField
-      id="enterKeyHint"
-      enterKeyHint="next"
-      label="Age"
-      onChange={() => {}}
-      onBlur={() => {}}
-      onFocus={() => {}}
-    />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={enterKeyHint} name="Variants - Enter Key Hint" />
+            }
           />
         </MainSection.Subsection>
 
@@ -596,38 +345,7 @@ function NumberFieldExample() {
   `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-  const [errorMessage, setErrorMessage] = React.useState(undefined);
-  const ref = React.useRef();
-
-  React.useEffect(() => {
-    if (ref.current && ref.current.checkValidity() === false) {
-      setErrorMessage("That episode doesn't exist (yet)!");
-    } else {
-      setErrorMessage(undefined);
-    }
-  }, [value]);
-
-  return (
-    <NumberField
-      errorMessage={errorMessage}
-      id="refExampleNumberField"
-      label="Enter a Star Wars episode number"
-      max={9}
-      min={1}
-      onChange={({ value }) => {
-        setValue(value);
-      }}
-      placeholder="Enter a number from 1–9"
-      ref={ref}
-      step={2}
-      value={value}
-    />
-  );
-}
-`}
+            sandpackExample={<SandpackExample code={ref} name="Variants - Refs" />}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -638,7 +356,7 @@ function Example(props) {
         <MainSection.Subsection
           description={`
       **[TextField](/web/textfield)**
-      For text input, telephone numbers, or numerical input with possible leading 0's (e.g. ZIP codes), use TextField. (For telephone numbers, use \`<TextField type="tel" />\`.)
+      When accepting numerical data that is not mathematically relevant or could have semantic leading 0's, e.g. ZIP codes, phone numbers, social security numbers, etc. Use [TextField](/web/textfield) instead. For telephone numbers specifically, be sure to use \`type="tel"\` for the best UX. Check out [this blog post](https://stackoverflow.blog/2022/09/15/why-the-number-input-is-the-worst-input/) for tips on when a number input is a good choice.
     `}
         />
       </MainSection>
