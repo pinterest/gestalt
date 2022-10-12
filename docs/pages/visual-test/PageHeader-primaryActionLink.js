@@ -10,13 +10,13 @@ export default function Snapshot(): Node {
         primaryAction={{
           component: (
             <Text weight="bold">
-              <Link href="www.pinterest.com">Switch to quick ad creation</Link>
+              <Link href="http://www.pinterest.com">Switch to quick ad creation</Link>
             </Text>
           ),
           dropdownItems: [
             <Dropdown.Link
               key="primaryActionLink"
-              href="www.pinterest.com"
+              href="http://www.pinterest.com"
               option={{
                 value: 'Switch to quick ad creation',
                 label: 'Switch to quick ad creation',
