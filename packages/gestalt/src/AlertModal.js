@@ -1,15 +1,33 @@
 // @flow strict
 import { type Node } from 'react';
 import Box from './Box.js';
-
 import Button from './Button.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Modal from './Modal.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { type ActionDataType } from './commonTypes.js';
+
+type AbstractEventHandler<T: SyntheticEvent<HTMLElement> | Event, U = {||}> = ({|
+  ...U,
+  +event: T,
+|}) => void;
+
+type ActionDataType = {|
+  accessibilityLabel: string,
+  disabled?: boolean,
+  href?: string,
+  label: string,
+  onClick?: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLButtonElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>,
+    {| dangerouslyDisableOnNavigation: () => void |},
+  >,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
 
 type Props = {|
   /**
@@ -25,7 +43,7 @@ type Props = {|
    */
   heading: string,
   /**
-   * Callback fired when AlertModal is dismissed by clicking on the backdrop outside of the AlertModal (if `closeOnOutsideClick` is true) or when the dismiss IconButton is clicked (for default AlertModals).
+   * Callback fired when AlertModal is dismissed by clicking on the backdrop outside of the AlertModal or when the dismiss icon button is clicked (for default AlertModals).
    */
   onDismiss: () => void,
   /**
@@ -96,9 +114,9 @@ function Header({
 |}) {
   return (
     <Box padding={6}>
-      <Flex flex="grow" alignItems="center">
+      <Flex flex="grow" alignItems="center" gap={4}>
         {type !== 'default' && (
-          <Box marginEnd={4}>
+          <Box>
             <Icon
               size="20"
               accessibilityLabel={type}
@@ -108,13 +126,12 @@ function Header({
           </Box>
         )}
         <Flex.Item flex="grow">
-          {' '}
           <Heading size="400" accessibilityLevel={1}>
             {heading}
           </Heading>
         </Flex.Item>
         {type === 'default' && (
-          <Box marginStart={6}>
+          <Box marginStart={2}>
             <IconButton
               accessibilityLabel="Close modal"
               bgColor="white"
@@ -163,7 +180,7 @@ function AlertModalAction({ data, type }: {| data: ActionDataType, type: string 
 }
 
 /**
- * An AlertModal is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-generated action. AlertModal overlays and blocks Page content until it is dismissed by the user.
+ * An AlertModal is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. AlertModal overlays and blocks page content until it is dismissed by the user.
  */
 export default function AlertModal({
   accessibilityModalLabel,
@@ -180,13 +197,7 @@ export default function AlertModal({
       align="start"
       closeOnOutsideClick={type === 'default'}
       footer={
-        <Flex
-          justifyContent="end"
-          gap={{
-            row: 4,
-            column: 0,
-          }}
-        >
+        <Flex justifyContent="end" gap={4}>
           {secondaryAction && <AlertModalAction type="secondary" data={secondaryAction} />}
           {primaryAction && <AlertModalAction type="primary" data={primaryAction} />}
         </Flex>
