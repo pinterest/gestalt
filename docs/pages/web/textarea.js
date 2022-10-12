@@ -464,7 +464,7 @@ function Example(props) {
 
 The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the \`maxLength\`.
 
-When \`maxLength\` is passed to TextArea, the component displays a character counter as well as a [warning or problem Status](/status) when the user reaches or the prepopulated controlled value exceeds the maximum length of characters.
+When \`maxLength\` is passed to TextArea, the component displays a character counter as well as a [warning or problem Status](/web/status) when the user reaches or the prepopulated controlled value exceeds the maximum length of characters.
 
 The first example shows an empty TextArea with \`maxLength\` set to 200 characters. The second example shows the warning and problem Status.`}
         >
