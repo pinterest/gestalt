@@ -3151,6 +3151,7 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'Z-Index Classes',
     description:
       'FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components.',
+    path: '/web/zindex_classes',
     category: 'Building blocks',
     status: {
       accessible: {
