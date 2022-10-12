@@ -1,3 +1,9 @@
+## 77.1.1 (Oct 12, 2022)
+
+### Patch
+
+- Docs: use actual h2 for aliases ([#2438](https://github.com/pinterest/gestalt/pull/2438)) - [Preview link](https://deploy-preview-2438--gestalt.netlify.app)
+
 ## 77.1.0 (Oct 11, 2022)
 
 ### Minor
