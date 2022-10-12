@@ -5,6 +5,9 @@ import { DefaultLabelProvider } from 'gestalt';
 import DatePicker from './DatePicker.js';
 
 const accessibilityLabels = {
+  AlertModal: {
+    accessibilityDismissButtonLabel: 'Close modal',
+  },
   ComboBox: {
     accessibilityClearButtonLabel: 'Clear input',
   },

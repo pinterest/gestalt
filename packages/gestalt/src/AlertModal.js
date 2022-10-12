@@ -7,6 +7,7 @@ import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Modal from './Modal.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type AbstractEventHandler<T: SyntheticEvent<HTMLElement> | Event, U = {||}> = ({|
   ...U,
@@ -30,6 +31,10 @@ type ActionDataType = {|
 |};
 
 type Props = {|
+  /**
+   * Label to describe the dismiss button's purpose.
+   */
+  accessibilityDismissButtonLabel?: string,
   /**
    * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/alertmodal#Accessibility) for more info.
    */
@@ -104,10 +109,12 @@ const ICON_COLOR_MAP = {
 };
 
 function Header({
+  accessibilityDismissButtonLabel,
   type,
   heading,
   onDismiss,
 }: {|
+  accessibilityDismissButtonLabel: string,
   type: 'default' | 'warning' | 'error',
   heading: string,
   onDismiss: () => void,
@@ -133,7 +140,7 @@ function Header({
         {type === 'default' && (
           <Box marginStart={2}>
             <IconButton
-              accessibilityLabel="Close modal"
+              accessibilityLabel={accessibilityDismissButtonLabel}
               bgColor="white"
               icon="cancel"
               iconColor="darkGray"
@@ -183,6 +190,7 @@ function AlertModalAction({ data, type }: {| data: ActionDataType, type: string 
  * An AlertModal is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. AlertModal overlays and blocks page content until it is dismissed by the user.
  */
 export default function AlertModal({
+  accessibilityDismissButtonLabel,
   accessibilityModalLabel,
   type = 'default',
   children,
@@ -191,6 +199,9 @@ export default function AlertModal({
   primaryAction,
   secondaryAction,
 }: Props): Node {
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('AlertModal');
+
   return (
     <Modal
       accessibilityModalLabel={accessibilityModalLabel}
@@ -202,7 +213,16 @@ export default function AlertModal({
           {primaryAction && <AlertModalAction type="primary" data={primaryAction} />}
         </Flex>
       }
-      heading={<Header type={type} heading={heading} onDismiss={onDismiss} />}
+      heading={
+        <Header
+          type={type}
+          heading={heading}
+          onDismiss={onDismiss}
+          accessibilityDismissButtonLabel={
+            accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+          }
+        />
+      }
       onDismiss={onDismiss}
       role="alertdialog"
       size="sm"
