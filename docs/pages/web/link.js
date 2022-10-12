@@ -61,7 +61,7 @@ To see how you can grow your business, visit
     <Text weight="bold" align="center"> Product details </Text>
     <Text> Tennis-inspired retro sneaker by Pinterest, elevated with a stacked midsole for extra height and a chunky profile. </Text>
     <Text inline> Ships from and sold by
-      <Link href="www.pinterest.com" inline> pinterest.com </Link>
+      <Link href="http://www.pinterest.com" inline> pinterest.com </Link>
     </Text>
   </Flex>
 </Box>

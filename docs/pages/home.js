@@ -60,7 +60,7 @@ export default function HomePage(): Node {
             />
             <IllustrationCard
               headingLevel={3}
-              href="/get_started/developers/development_process"
+              href="/get_started/developers/contributing/development_process"
               title="Developer onboarding and tooling"
               description="How to set up for development and create pull requests"
               color="blue-skycicle-450"
