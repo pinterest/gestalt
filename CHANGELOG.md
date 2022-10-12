@@ -1,3 +1,9 @@
+## 77.1.2 (Oct 12, 2022)
+
+### Patch
+
+- Docs: fix broken links ([#2439](https://github.com/pinterest/gestalt/pull/2439)) - [Preview link](https://deploy-preview-2439--gestalt.netlify.app)
+
 ## 77.1.1 (Oct 12, 2022)
 
 ### Patch
