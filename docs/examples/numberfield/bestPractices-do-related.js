@@ -3,27 +3,27 @@ import { useState } from 'react';
 import { Box, Flex, NumberField } from 'gestalt';
 
 export default function Example(): React$Node {
-  const [firstValue, setFirstValue] = useState();
-  const [secondValue, setSecondValue] = useState();
+  const [height, setHeight] = useState();
+  const [width, setWidth] = useState();
 
   return (
     <Box height="100%" padding={3}>
       <Flex alignItems="center" gap={4} justifyContent="center" height="100%" width="100%">
         <NumberField
-          id="best-practices-do-related-first"
-          label="First value"
+          id="best-practices-do-related-height"
+          label="Height"
           onChange={({ value }) => {
-            setFirstValue(value);
+            setHeight(value);
           }}
-          value={firstValue}
+          value={height}
         />
         <NumberField
-          id="best-practices-do-related-second"
-          label="Second value"
+          id="best-practices-do-related-width"
+          label="Width"
           onChange={({ value }) => {
-            setSecondValue(value);
+            setWidth(value);
           }}
-          value={secondValue}
+          value={width}
         />
       </Flex>
     </Box>
