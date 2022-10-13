@@ -1,3 +1,9 @@
+## 77.1.3 (Oct 13, 2022)
+
+### Patch
+
+- Docs: convert Hacking Gestalt page to use Sandpack ([#2440](https://github.com/pinterest/gestalt/pull/2440)) - [Preview link](https://deploy-preview-2440--gestalt.netlify.app)
+
 ## 77.1.2 (Oct 12, 2022)
 
 ### Patch
