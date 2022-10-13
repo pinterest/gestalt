@@ -202,21 +202,16 @@ export default function ModalAlert({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('ModalAlert');
 
-  if (primaryAction && primaryAction.href === undefined && primaryAction.onClick === undefined) {
-    throw new Error(
-      'Either an `href` or an `onClick` handler must be provided to `primaryAction`.',
-    );
-  }
-
-  if (
-    secondaryAction &&
-    secondaryAction.href === undefined &&
-    secondaryAction.onClick === undefined
-  ) {
-    throw new Error(
-      'Either an `href` or an `onClick` handler must be provided to `secondaryAction`.',
-    );
-  }
+  [
+    { data: primaryAction, name: 'primaryAction' },
+    { data: secondaryAction, name: 'secondaryAction' },
+  ].forEach((action) => {
+    if (action && action.data?.href === undefined && action.data?.onClick === undefined) {
+      throw new Error(
+        `Either an \`href\` or an \`onClick\` handler must be provided to \`${action.name}\`.`,
+      );
+    }
+  });
 
   return (
     <Modal
