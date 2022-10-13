@@ -95,7 +95,10 @@ export default function TypographyPage(): Node {
           title="Choosing objects to animate"
           description="When an element is animated, avoid animating sub-elements contained within that element. For instance, if a Card grows when hovered/focused, any buttons or text elements within the Card should not also be animated.  "
         />
-        <MainSection.Subsection title="Axis Considerations" />
+        <MainSection.Subsection
+          title="Axis Considerations"
+          description="Animations along an axis can be used to show transitions and educate users about navigation patterns. For example, items could animate along the z-axis to help relay stacking or depth, while items animated along an x-axis or y-axis can help relay navigation patterns, like swiping down to dismiss a sheet overlay."
+        />
         <MainSection.Subsection title="Duration and velocity" />
         <MainSection.Subsection title="Easing" />
       </MainSection>
