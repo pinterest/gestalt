@@ -16,7 +16,7 @@ describe('useDefaultLabelContext', () => {
     render(
       <DefaultLabelProvider
         labels={{
-          AlertModal: {
+          ModalAlert: {
             accessibilityDismissButtonLabel: 'Close modal',
           },
           ComboBox: {

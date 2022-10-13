@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { AlertModal, Box, Button, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
+import { ModalAlert, Box, Button, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
 
 const HEADER_ZINDEX = new FixedZIndex(10);
 const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
@@ -18,7 +18,7 @@ export default function DefaultExample(): Node {
       />
       {showModal && (
         <Layer zIndex={zIndex}>
-          <AlertModal
+          <ModalAlert
             accessibilityModalLabel="Delete board 70s Furniture"
             heading="Delete this board"
             primaryAction={{
@@ -37,7 +37,7 @@ export default function DefaultExample(): Node {
               Your board and all of its Pins will be deleted forever. Other Pinners who have access
               to this board will also lose access. This cannot be undone.
             </Text>
-          </AlertModal>
+          </ModalAlert>
         </Layer>
       )}
     </Box>

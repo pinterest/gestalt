@@ -40,23 +40,23 @@ type Props = {|
    */
   accessibilityModalLabel: string,
   /**
-   * Supply the element(s) that will be used as AlertModal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/alertmodal#Best-practices) for more info.
+   * Supply the element(s) that will be used as ModalAlert's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/alertmodal#Best-practices) for more info.
    */
   children: Node,
   /**
-   * The text used for AlertModal's heading.
+   * The text used for ModalAlert's heading.
    */
   heading: string,
   /**
-   * Callback fired when AlertModal is dismissed by clicking on the backdrop outside of the AlertModal or when the dismiss icon button is clicked (for default AlertModals).
+   * Callback fired when ModalAlert is dismissed by clicking on the backdrop outside of the ModalAlert or when the dismiss icon button is clicked (for default ModalAlerts).
    */
   onDismiss: () => void,
   /**
-   * Determines the icon and dismiss pattern of the AlertModal. See the [warning](https://gestalt.pinterest.systems/web/alertmodal#Warning) and [error](https://gestalt.pinterest.systems/web/alertmodal#Error)  variants for more info.
+   * Determines the icon and dismiss pattern of the ModalAlert. See the [warning](https://gestalt.pinterest.systems/web/alertmodal#Warning) and [error](https://gestalt.pinterest.systems/web/alertmodal#Error)  variants for more info.
    */
   type?: 'default' | 'warning' | 'error',
   /**
-   * Main action for users to take on AlertModal. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Main action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/alertmodal#Accessibility).
    */
@@ -76,7 +76,7 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Secondary action for users to take on AlertModal. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Secondary action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/alertmodal#Accessibility).
    */
@@ -154,7 +154,7 @@ function Header({
   );
 }
 
-function AlertModalAction({ data, type }: {| data: ActionDataType, type: string |}): Node {
+function ModalAlertAction({ data, type }: {| data: ActionDataType, type: string |}): Node {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, label, onClick, href, rel, target } = data;
   return href ? (
@@ -187,9 +187,9 @@ function AlertModalAction({ data, type }: {| data: ActionDataType, type: string 
 }
 
 /**
- * An AlertModal is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. AlertModal overlays and blocks page content until it is dismissed by the user.
+ * An ModalAlert is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. ModalAlert overlays and blocks page content until it is dismissed by the user.
  */
-export default function AlertModal({
+export default function ModalAlert({
   accessibilityDismissButtonLabel,
   accessibilityModalLabel,
   type = 'default',
@@ -200,7 +200,7 @@ export default function AlertModal({
   secondaryAction,
 }: Props): Node {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
-    useDefaultLabelContext('AlertModal');
+    useDefaultLabelContext('ModalAlert');
 
   if (primaryAction && primaryAction.href === undefined && primaryAction.onClick === undefined) {
     throw new Error(
@@ -225,8 +225,8 @@ export default function AlertModal({
       closeOnOutsideClick={type === 'default'}
       footer={
         <Flex justifyContent="end" gap={4}>
-          {secondaryAction && <AlertModalAction type="secondary" data={secondaryAction} />}
-          {primaryAction && <AlertModalAction type="primary" data={primaryAction} />}
+          {secondaryAction && <ModalAlertAction type="secondary" data={secondaryAction} />}
+          {primaryAction && <ModalAlertAction type="primary" data={primaryAction} />}
         </Flex>
       }
       heading={

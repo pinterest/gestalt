@@ -12,7 +12,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 // const PREVIEW_HEIGHT = 450;
 
-export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -26,7 +26,7 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
 
         //   return (
         //     <Layer zIndex={zIndex}>
-        //       <AlertModal
+        //       <ModalAlert
         //         accessibilityModalLabel="Delete board 70s Furniture"
         //         heading="Delete this board"
         //         primaryAction={{
@@ -44,7 +44,7 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
         //         }}
         //       >
         //         <Text>Your board and all of its Pins will be deleted forever. Other Pinners who have access to this board will also lose access. This cannot be undone.</Text>
-        //       </AlertModal>
+        //       </ModalAlert>
         //     </Layer>
         //   );
         // }
@@ -95,12 +95,12 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use to overlay Page content. AlertModals should be horizontally and vertically centered on the screen."
+            description="Use to overlay Page content. ModalAlerts should be horizontally and vertically centered on the screen."
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use AlertModal on top of another modal dialog. This can cause accessibility issues with focus states and make it hard for a user to escape and go back to the previous surface. On mobile surfaces, if a user has to confirm something triggered by a modal dialog, auto-dismiss the first dialog before presenting with the confirmation dialog."
+            description="Use ModalAlert on top of another modal dialog. This can cause accessibility issues with focus states and make it hard for a user to escape and go back to the previous surface. On mobile surfaces, if a user has to confirm something triggered by a modal dialog, auto-dismiss the first dialog before presenting with the confirmation dialog."
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -112,7 +112,7 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use AlertModal for long and complex content or tasks, or for content that should have a dedicated surface, like login flows. If extra functionality is needed in an overlay, use Modal or Sheet."
+            description="Use ModalAlert for long and complex content or tasks, or for content that should have a dedicated surface, like login flows. If extra functionality is needed in an overlay, use Modal or Sheet."
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -144,7 +144,7 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
         <MainSection.Subsection
           title="Labels"
           description={`
-          Make sure AlertModals have a clear purpose when being read by a screen reader by specifying an \`accessibilityModalLabel\` that will update the spoken text for the heading prop and give the user more context about the AlertModal.`}
+          Make sure ModalAlerts have a clear purpose when being read by a screen reader by specifying an \`accessibilityModalLabel\` that will update the spoken text for the heading prop and give the user more context about the ModalAlert.`}
         >
           <MainSection.Card cardSize="lg" />
         </MainSection.Subsection>
@@ -152,29 +152,29 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
 
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`heading\` and \`accessibilityModalLabel\`props, as well as any other text elements within AlertModal. Note that localization can lengthen text by 20 to 30 percent. `}
+        description={`Be sure to localize the \`heading\` and \`accessibilityModalLabel\`props, as well as any other text elements within ModalAlert. Note that localization can lengthen text by 20 to 30 percent. `}
       />
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Confirmation"
-          description="This is generally triggered by user action and asks a user to confirm or cancel an action. Confirmation AlertModals should always have a primary and secondary button; the primary button is for confirming, and the secondary for dismissing the modal. Confirmations aren’t critical and can be dismissed by clicking outside of the modal and hitting the ESC key, in addition to using the “Cancel” buttons provided in the modal."
+          title="Multiple actions for confirmation"
+          description="This is generally triggered by user action and asks a user to confirm or cancel an action. Confirmation ModalAlerts should always have a primary and secondary button; the primary button is for confirming, and the secondary for dismissing the modal. Confirmations aren’t critical and can be dismissed by clicking outside of the modal and hitting the ESC key, in addition to using the “Cancel” buttons provided in the modal."
         >
           <MainSection.Card />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Acknowledgment"
+          title="Single action for acknowledgment"
           description="This is system-generated and only requires a user to dismiss the message."
         >
           <MainSection.Card />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Warning"
+          title="Warning type"
           description="Warnings are used to alert a user that they need to proceed with caution. Due to their critical nature, warnings can only be dismissed by interacting with the dismiss buttons provided by the modal. If there is a way to resolve the warning, two buttons can be included. If not, only one “dismiss” button is needed."
         >
           <MainSection.Card />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Error"
+          title="Error type"
           description="Error messages alert users of an error or a very critical issue that severely limits the user’s ability to continue. Like warnings, errors can only be dismissed by interacting with the dismiss buttons provided by the modal. If there is a way to resolve the error, two buttons can be included. If not, only one “dismiss” button is needed."
         >
           <MainSection.Card />
@@ -232,6 +232,6 @@ export default function AlertModalPage({ generatedDocGen }: {| generatedDocGen: 
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'AlertModal' }) },
+    props: { generatedDocGen: await docgen({ componentName: 'ModalAlert' }) },
   };
 }
