@@ -1,3 +1,9 @@
+## 77.1.4 (Oct 13, 2022)
+
+### Patch
+
+- Docs: convert NumberField to use Sandpack ([#2441](https://github.com/pinterest/gestalt/pull/2441)) - [Preview link](https://deploy-preview-2441--gestalt.netlify.app)
+
 ## 77.1.3 (Oct 13, 2022)
 
 ### Patch
