@@ -82,6 +82,10 @@ type Props<T> = {|
    */
   virtualBoundsTop?: number,
   /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBufferFactor` allows customization of the buffer size, specified as a multiplier of the container height. It specifies the amount of extra buffer space for populating visible items. For example, if `virtualBufferFactor` is 2, then Masonry will render items that fit in the viewport, plus 2x the viewport height.
+   */
+  virtualBufferFactor?: number,
+  /**
    * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
    */
   virtualize?: boolean,
@@ -98,9 +102,6 @@ type State<T> = {|
 |};
 
 const RESIZE_DEBOUNCE = 300;
-// Multiplied against container height.
-// The amount of extra buffer space for populating visible items.
-const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
@@ -165,12 +166,14 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           |},
         ) => void | boolean | { ... }),
     minCols: number,
+    virtualBufferFactor: number,
     virtualize?: boolean,
   |} = {
     columnWidth: 236,
     minCols: 3,
     layout: 'basic',
     loadItems: () => {},
+    virtualBufferFactor: 0.7,
     virtualize: false,
   };
 
@@ -375,12 +378,19 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     idx,
     position,
   ) => {
-    const { Item, scrollContainer, virtualize, virtualBoundsTop, virtualBoundsBottom } = this.props;
+    const {
+      Item,
+      scrollContainer,
+      virtualize,
+      virtualBoundsTop,
+      virtualBoundsBottom,
+      virtualBufferFactor,
+    } = this.props;
     const { top, left, width, height } = position;
 
     let isVisible;
-    if (scrollContainer) {
-      const virtualBuffer = this.containerHeight * VIRTUAL_BUFFER_FACTOR;
+    if (scrollContainer && virtualBufferFactor) {
+      const virtualBuffer = this.containerHeight * virtualBufferFactor;
       const offsetScrollPos = this.state.scrollTop - this.containerOffset;
       const viewportTop = virtualBoundsTop
         ? offsetScrollPos - virtualBoundsTop

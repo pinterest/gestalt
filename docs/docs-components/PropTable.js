@@ -20,7 +20,7 @@ async function copyFlowType(code: string) {
 }
 
 function isNumeric(value) {
-  return /^-?\d+$/.test(value);
+  return /^-?\d+(\.\d+)?$/.test(value);
 }
 
 const transformDefaultValue = (input) => {
