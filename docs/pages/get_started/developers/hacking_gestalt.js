@@ -3,6 +3,11 @@ import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+// Examples
+import dangerouslySetInlineStyle from '../../../examples/hacking_gestalt/dangerouslySetInlineStyle.js';
+import ref from '../../../examples/hacking_gestalt/ref.js';
+import wrappingComponents from '../../../examples/hacking_gestalt/wrappingComponents.js';
 
 export default function DocsPage(): Node {
   return (
@@ -77,18 +82,12 @@ Custom components can also be made from scratch, using native DOM elements and C
 `}
         >
           <MainSection.Card
-            cardSize="lg" // this actually makes the rendered element smaller, which is desired
-            defaultCode={`
-<Box
-  dangerouslySetInlineStyle={{
-    __style: {
-      backgroundColor: 'var(--color-pink-flaminglow-400)',
-    },
-  }}
-  height={100}
-  width={100}
-/>
-          `}
+            sandpackExample={
+              <SandpackExample
+                code={dangerouslySetInlineStyle}
+                name="dangerouslySetInlineStyle Example"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -104,18 +103,13 @@ Certain components have styles that can be overridden when wrapped by (or wrappe
 - Your UI may look disjointed with the rest of the design system
 - Overridden styles will not respond to dark mode or RTL
 
-_Alternative_: When possible, stick to the styles available on Gestalt components natively. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
+**Alternative**: When possible, stick to the styles available on Gestalt components natively. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
 `}
         >
           <MainSection.Card
-            cardSize="lg" // this actually makes the rendered element smaller, which is desired
-            defaultCode={`
-<Text color="error">
-  <span style={{ fontFamily: 'cursive' }}>
-    Custom text
-  </span>
-</Text>
-          `}
+            sandpackExample={
+              <SandpackExample code={wrappingComponents} name="Wrapping Components Example" />
+            }
           />
         </MainSection.Subsection>
 
@@ -136,30 +130,7 @@ Components that accept refs (e.g. [Box](/web/box), [Button](/web/button), etc) c
 **Alternative:** When possible, stick to the styles available on Gestalt components natively. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
 `}
         >
-          <MainSection.Card
-            cardSize="lg" // this actually makes the rendered element smaller, which is desired
-            defaultCode={`
-function RefExample() {
-  const buttonRef = React.useRef();
-
-  React.useEffect(() => {
-    if (buttonRef.current) {
-      buttonRef.current.style.backgroundColor = 'aquamarine';
-    }
-  }, [buttonRef]);
-
-  return (
-    <Button
-      accessibilityLabel='Menu'
-      iconEnd="arrow-down"
-      ref={buttonRef}
-      size="lg"
-      text="Menu"
-    />
-  );
-}
-          `}
-          />
+          <MainSection.Card sandpackExample={<SandpackExample code={ref} name="Ref Example" />} />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -173,7 +144,7 @@ It is possible to use CSS selectors to peer "under the hood" of Gestalt componen
 - This is very, very brittle and subject to breaking changes at any point; we do not consider breaking changes to the underlying DOM structure when determining [semver](https://semver.org/) so even \`patch\` changes could break your UI
 - Overridden styles will not respond to dark mode or RTL
 
-_Alternative_: Absolutely anything — this is just about the worst way to hack Gestalt components. Your UI _will_ break in the future. Consider using a [ref](#Refs) if possible.
+**Alternative**: Absolutely anything — this is just about the worst way to hack Gestalt components. Your UI _will_ break in the future. Consider using a [ref](#Refs) if possible.
 `}
         />
       </MainSection>
