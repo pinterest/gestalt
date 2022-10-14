@@ -1,3 +1,9 @@
+## 77.1.5 (Oct 14, 2022)
+
+### Patch
+
+- Typography guidelines: fix typos ([#2443](https://github.com/pinterest/gestalt/pull/2443)) - [Preview link](https://deploy-preview-2443--gestalt.netlify.app)
+
 ## 77.1.4 (Oct 13, 2022)
 
 ### Patch
