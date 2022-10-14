@@ -1,3 +1,9 @@
+## 77.2.0 (Oct 14, 2022)
+
+### Minor
+
+- Masonry: add virtualBufferFactor prop ([#2442](https://github.com/pinterest/gestalt/pull/2442)) - [Preview link](https://deploy-preview-2442--gestalt.netlify.app)
+
 ## 77.1.5 (Oct 14, 2022)
 
 ### Patch
