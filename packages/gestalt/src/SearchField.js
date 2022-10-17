@@ -202,7 +202,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           </Box>
         )}
         <input
-          aria-describedby={errorMessage && focused ? `${id}-error` : null}
+          aria-describedby={errorMessage ? `${id}-error` : null}
           aria-invalid={errorMessage ? 'true' : 'false'}
           ref={inputRef}
           aria-label={accessibilityLabel}
@@ -238,7 +238,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           </button>
         )}
       </Box>
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
     </span>
   );
 });

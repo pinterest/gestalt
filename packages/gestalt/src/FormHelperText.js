@@ -8,25 +8,20 @@ import FormHelperTextCounter from './FormHelperTextCounter.js';
 import { type MaxLength } from './TextField.js';
 
 type Props = {|
+  id?: string,
   text: ?string,
   maxLength?: ?MaxLength,
   currentLength?: number,
-  addA11yPause?: boolean,
 |};
 
-export default function FormHelperText({
-  currentLength,
-  text,
-  maxLength,
-  addA11yPause = false,
-}: Props): Node {
+export default function FormHelperText({ id, currentLength, text, maxLength }: Props): Node {
   return (
-    <Box marginTop={2}>
+    // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
+    <Box marginTop={2} id={id}>
       <Flex gap={4}>
         <Flex.Item flex="grow">
           {text ? (
             <Text color="subtle" size="100">
-              {addA11yPause ? <Box display="visuallyHidden">:</Box> : null}
               {text}
             </Text>
           ) : null}

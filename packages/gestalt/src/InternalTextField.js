@@ -155,11 +155,22 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
       throw new Error('`maxLength` must be an integer value 0 or higher.');
     }
 
+    let ariaDescribedby;
+
+    if (hasErrorMessage) {
+      ariaDescribedby = `${id}-error`;
+    }
+
+    if (helperText || maxLength) {
+      ariaDescribedby = `${id}-helperText`;
+    }
+
     const inputElement = (
       <input
         aria-activedescendant={accessibilityActiveDescendant}
         aria-controls={accessibilityControls}
-        aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
+        // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+        aria-describedby={focused ? ariaDescribedby : undefined}
         aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
         autoComplete={autoComplete}
         className={tags ? unstyledClasses : styledClasses}
@@ -220,10 +231,15 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
         </Box>
 
         {(helperText || maxLength) && !errorMessage ? (
-          <FormHelperText text={helperText} maxLength={maxLength} currentLength={currentLength} />
+          <FormHelperText
+            id={`${id}-helperText`}
+            text={helperText}
+            maxLength={maxLength}
+            currentLength={currentLength}
+          />
         ) : null}
 
-        {hasErrorMessage ? <FormErrorMessage id={id} text={errorMessage} /> : null}
+        {hasErrorMessage ? <FormErrorMessage id={`${id}-error`} text={errorMessage} /> : null}
       </span>
     );
   });

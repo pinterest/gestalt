@@ -154,51 +154,62 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   const { isFocusVisible } = useFocusVisible();
 
+  let ariaDescribedby;
+
+  if (errorMessage) {
+    ariaDescribedby = `${id}-error`;
+  }
+
+  if (label && helperText) {
+    ariaDescribedby = `${id}-helperText`;
+  }
+
   return (
     <Box>
       <Box alignItems="start" display="flex" justifyContent="start" marginStart={-1} marginEnd={-1}>
-        <Label htmlFor={id}>
-          <Box paddingX={1} position="relative">
-            <input
-              checked={checked}
-              className={classnames(controlStyles.input, styleSize, {
-                [styles.inputEnabled]: !disabled,
-              })}
-              disabled={disabled}
-              id={id}
-              name={name}
-              onBlur={() => setFocused(false)}
-              onChange={handleChange}
-              onClick={handleClick}
-              onFocus={() => setFocused(true)}
-              onMouseEnter={handleHover}
-              onMouseLeave={handleHover}
-              ref={innerRef}
-              type="checkbox"
-            />
-            <div
-              className={classnames(
-                bgStyle,
-                borderStyle,
-                borderRadiusStyle,
-                styleSize,
-                styles.check,
-                {
-                  [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
-                },
-              )}
-            >
-              {(checked || indeterminate) && (
-                <Icon
-                  accessibilityLabel=""
-                  color="inverse"
-                  icon={indeterminate ? 'dash' : 'check'}
-                  size={size === 'sm' ? 8 : 12}
-                />
-              )}
-            </div>
-          </Box>
-        </Label>
+        <Box paddingX={1} position="relative">
+          <input
+            // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+            aria-describedby={focused ? ariaDescribedby : undefined}
+            aria-invalid={errorMessage ? 'true' : 'false'}
+            checked={checked}
+            className={classnames(controlStyles.input, styleSize, {
+              [styles.inputEnabled]: !disabled,
+            })}
+            disabled={disabled}
+            id={id}
+            name={name}
+            onBlur={() => setFocused(false)}
+            onChange={handleChange}
+            onClick={handleClick}
+            onFocus={() => setFocused(true)}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleHover}
+            ref={innerRef}
+            type="checkbox"
+          />
+          <div
+            className={classnames(
+              bgStyle,
+              borderStyle,
+              borderRadiusStyle,
+              styleSize,
+              styles.check,
+              {
+                [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+              },
+            )}
+          >
+            {(checked || indeterminate) && (
+              <Icon
+                accessibilityLabel=""
+                color="inverse"
+                icon={indeterminate ? 'dash' : 'check'}
+                size={size === 'sm' ? 8 : 12}
+              />
+            )}
+          </div>
+        </Box>
         {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Box
@@ -211,14 +222,14 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                   {label}
                 </Text>
-                {helperText && !errorMessage ? (
-                  <FormHelperText addA11yPause text={helperText} />
-                ) : null}
-                {errorMessage ? (
-                  <FormErrorMessage addA11yPause id={id} text={errorMessage} />
-                ) : null}
               </Box>
             </Label>
+            <Box paddingX={1}>
+              {helperText && !errorMessage ? (
+                <FormHelperText id={`${id}-helperText`} text={helperText} />
+              ) : null}
+              {errorMessage ? <FormErrorMessage id={`${id}-error`} text={errorMessage} /> : null}
+            </Box>
           </Box>
         )}
       </Box>
