@@ -9,23 +9,19 @@ import IconButton from './IconButton.js';
 import Modal from './Modal.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
-type AbstractEventHandler<T: SyntheticEvent<HTMLElement> | Event, U = {||}> = ({|
-  ...U,
-  +event: T,
-|}) => void;
-
 type ActionDataType = {|
   accessibilityLabel: string,
   disabled?: boolean,
   href?: string,
   label: string,
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
 |};
@@ -36,11 +32,11 @@ type Props = {|
    */
   accessibilityDismissButtonLabel?: string,
   /**
-   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/alertmodal#Accessibility) for more info.
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modalalert#Accessibility) for more info.
    */
   accessibilityModalLabel: string,
   /**
-   * Supply the element(s) that will be used as ModalAlert's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/alertmodal#Best-practices) for more info.
+   * Supply the element(s) that will be used as ModalAlert's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modalalert#Best-practices) for more info.
    */
   children: Node,
   /**
@@ -52,49 +48,21 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * Determines the icon and dismiss pattern of the ModalAlert. See the [warning](https://gestalt.pinterest.systems/web/alertmodal#Warning) and [error](https://gestalt.pinterest.systems/web/alertmodal#Error)  variants for more info.
+   * Determines the icon and dismiss pattern of the ModalAlert. See the [warning](https://gestalt.pinterest.systems/web/modalalert#Warning) and [error](https://gestalt.pinterest.systems/web/modalalert#Error)  variants for more info.
    */
   type?: 'default' | 'warning' | 'error',
   /**
    * Main action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/alertmodal#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
    */
-  primaryAction: {|
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href?: string,
-    label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| dangerouslyDisableOnNavigation: () => void |},
-    >,
-    rel?: 'none' | 'nofollow',
-    target?: null | 'self' | 'blank',
-  |},
+  primaryAction: ActionDataType,
   /**
    * Secondary action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/alertmodal#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
    */
-  secondaryAction?: {|
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href?: string,
-    label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| dangerouslyDisableOnNavigation: () => void |},
-    >,
-    rel?: 'none' | 'nofollow',
-    target?: null | 'self' | 'blank',
-  |},
+  secondaryAction?: ActionDataType,
 |};
 
 const ICON_COLOR_MAP = {
@@ -187,7 +155,7 @@ function ModalAlertAction({ data, type }: {| data: ActionDataType, type: string 
 }
 
 /**
- * An ModalAlert is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. ModalAlert overlays and blocks page content until it is dismissed by the user.
+ * A [ModalAlert](https://gestalt.pinterest.systems/web/modalalert) is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. ModalAlert overlays and blocks page content until it is dismissed by the user.
  */
 export default function ModalAlert({
   accessibilityDismissButtonLabel,
@@ -202,13 +170,11 @@ export default function ModalAlert({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('ModalAlert');
 
-  [
-    { data: primaryAction, name: 'primaryAction' },
-    { data: secondaryAction, name: 'secondaryAction' },
-  ].forEach((action) => {
-    if (action && action.data?.href === undefined && action.data?.onClick === undefined) {
+  Object.entries({ primaryAction, secondaryAction }).forEach(([key, value]) => {
+    // $FlowFixMe[incompatible-use]
+    if ([value?.href, value?.onClick].every((item) => item === undefined)) {
       throw new Error(
-        `Either an \`href\` or an \`onClick\` handler must be provided to \`${action.name}\`.`,
+        `Either an \`href\` or an \`onClick\` handler must be provided to \`${key}\`.`,
       );
     }
   });

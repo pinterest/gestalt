@@ -7,7 +7,7 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 // import SandpackExample from '../../docs-components/SandpackExample.js';
-// import defaultExample from '../../examples/alertmodal/defaultExample.js';
+// import defaultExample from '../../examples/modalalert/defaultExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 // const PREVIEW_HEIGHT = 450;
