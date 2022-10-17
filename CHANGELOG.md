@@ -1,3 +1,9 @@
+## 78.0.0 (Oct 17, 2022)
+
+### Major
+
+- ModalAlert: New component for confirmation and acknowledgment ([#2436](https://github.com/pinterest/gestalt/pull/2436)) - [Preview link](https://deploy-preview-2436--gestalt.netlify.app)
+
 ## 77.2.0 (Oct 14, 2022)
 
 ### Minor
