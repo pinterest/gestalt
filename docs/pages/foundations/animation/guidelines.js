@@ -96,11 +96,23 @@ export default function TypographyPage(): Node {
           description="When an element is animated, avoid animating sub-elements contained within that element. For instance, if a Card grows when hovered/focused, any buttons or text elements within the Card should not also be animated.  "
         />
         <MainSection.Subsection
-          title="Axis Considerations"
-          description="Animations along an axis can be used to show transitions and educate users about navigation patterns. For example, items could animate along the z-axis to help relay stacking or depth, while items animated along an x-axis or y-axis can help relay navigation patterns, like swiping down to dismiss a sheet overlay."
+          title="Axis considerations"
+          description="Animations along an axis can be used to show transitions and educate users about navigation patterns. For example, items could animate along the z-axis to help relay stacking or depth, while items animated along an x-axis or y-axis can help relay navigation patterns, like a Sheet that slides in and out from the side of the screen, or a toast that pops up from the bottom of the screen. Keep axis transitions direct, meaning that the animation starts from a logical location that gives the moving object the shortest distance to travel to its final destination. In other words, do not animate a Toast from the top of the screen down to the bottom of the screen if the final resting point is the bottom of the screen. Instead, begin the animation from the bottom of the screen."
         />
-        <MainSection.Subsection title="Duration and velocity" />
-        <MainSection.Subsection title="Easing" />
+        <MainSection.Subsection
+          title="Duration"
+          description="Animations should be direct and purposeful, meaning they only last as long as necessary to achieve the desired affect. For [accessibility reasons], avoid animations longer than 5 seconds. Most animations happen in a matter of milliseconds to avoid distracting the user. In most cases, aim to keep animations under one second. In the future, we will provide design tokens for desired durations in product."
+        />
+        <MainSection.Subsection
+          title="Easing and velocity"
+          description={`
+          The timing function of an animation should be determined by the property and object being animated.
+
+          Properties unrelated to motion (like color and opacity) will not likely benefit from easing and can be done linearly. For example, a background color of a button that expands or changes upon hover can happen linearly as it provides feedback to the user about their cursor position.
+
+          However, people experience motion non-linearly, so objects being moved can benefit from an easing timing function. For example, an object transitioning onto the screen from the right side may use ease-out as it slides into view to create visibility as fast as possible, and then ease-in upon its departure to create a smooth transition back to the main screen.
+          `}
+        />
       </MainSection>
       <MainSection
         name="Accessibility"
