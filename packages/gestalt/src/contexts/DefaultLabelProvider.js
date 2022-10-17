@@ -9,6 +9,9 @@ import { type Context, type Node, createContext, useContext } from 'react';
  */
 
 export type DefaultLabelContextType = {|
+  ModalAlert: {|
+    accessibilityDismissButtonLabel: string,
+  |},
   ComboBox: {|
     accessibilityClearButtonLabel: string,
   |},
@@ -19,6 +22,9 @@ export type DefaultLabelContextType = {|
 |};
 
 export const fallbackLabels: DefaultLabelContextType = {
+  ModalAlert: {
+    accessibilityDismissButtonLabel: 'Close modal',
+  },
   ComboBox: {
     accessibilityClearButtonLabel: 'Clear input',
   },
