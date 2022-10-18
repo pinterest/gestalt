@@ -6,6 +6,11 @@ import { type Context, type Node, createContext, useContext } from 'react';
  * - Create a type for the component's labels (these types need to be flat, *not* nested)
  * - Add component labels type to DefaultLabelContextType keyed by component name
  * - Add fallback labels to fallbackLabels below
+ * - Update these files with the new labels:
+ *   - Test file for this Provider
+ *      packages/gestalt/src/contexts/DefaultLabelProvider.jsdom.test.js
+ *   - Docs example for this Provider
+ *      docs/examples/defaultlabelprovider/translations.js
  */
 
 export type DefaultLabelContextType = {|
