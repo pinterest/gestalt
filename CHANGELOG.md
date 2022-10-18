@@ -1,3 +1,9 @@
+## 78.0.1 (Oct 18, 2022)
+
+### Patch
+
+- Masonry: update uniformRow docs example ([#2445](https://github.com/pinterest/gestalt/pull/2445)) - [Preview link](https://deploy-preview-2445--gestalt.netlify.app)
+
 ## 78.0.0 (Oct 17, 2022)
 
 ### Major
