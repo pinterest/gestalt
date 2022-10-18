@@ -1,3 +1,9 @@
+## 78.0.2 (Oct 18, 2022)
+
+### Patch
+
+- DefaultLabelProvider: add comments about updating translations ([#2446](https://github.com/pinterest/gestalt/pull/2446)) - [Preview link](https://deploy-preview-2446--gestalt.netlify.app)
+
 ## 78.0.1 (Oct 18, 2022)
 
 ### Patch
