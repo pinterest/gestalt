@@ -219,11 +219,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </Card>
       <Card
         description={`
-    Using the \`MasonryUniformRowLayout\` layout.
+    Using the \`uniformRow\` layout.
 
     ~~~jsx
-    import { Masonry, MasonryUniformRowLayout } from 'gestalt';
-    <Masonry Item={Item} items={items} layout={MasonryUniformRowLayout} />;
+    <Masonry Item={Item} items={items} layout="uniformRow" />;
     ~~~
   `}
         name="Uniform row heights"
