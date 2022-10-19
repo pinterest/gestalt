@@ -1,3 +1,9 @@
+## 78.0.3 (Oct 19, 2022)
+
+### Patch
+
+- Internal: re-enable playwright visual tests ([#2286](https://github.com/pinterest/gestalt/pull/2286)) - [Preview link](https://deploy-preview-2286--gestalt.netlify.app)
+
 ## 78.0.2 (Oct 18, 2022)
 
 ### Patch
