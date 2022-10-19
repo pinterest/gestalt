@@ -55,12 +55,13 @@ type Props = {| ...OwnProps, ...HookProps |};
 
 type State = {|
   popoverOffset: {|
-    top: ?number,
+    top: ?(number | string),
     left: ?number,
   |},
   caretOffset: CaretOffset,
   popoverDir: ?PopoverDir,
   popoverRef: ?HTMLElement,
+  anchorHeight: ?number,
 |};
 
 type PopoverOverride = {| top: string |} | null;
@@ -84,6 +85,7 @@ class Contents extends Component<Props, State> {
     },
     popoverDir: null,
     popoverRef: null,
+    anchorHeight: undefined,
   };
 
   componentDidMount() {
@@ -215,7 +217,7 @@ class Contents extends Component<Props, State> {
       return null;
     }
 
-    const { id } = this.props;
+    const { id, anchor } = this.props;
 
     const viewportAvailable = window.innerHeight;
     const popoverHeight = document.getElementById(id ?? '')?.clientHeight;
@@ -229,10 +231,23 @@ class Contents extends Component<Props, State> {
     // As the popover's `maxHeight` is 90%(90vh) we use the value below to keep the popover on viewport vertical center.
     const defaultTopPadding = '5vh';
 
+    // Absolute popover Y in screen
+    const popoverY = document.getElementById(id ?? '')?.getBoundingClientRect().top;
+    const isNegativeAbsolutePopoverY = popoverY !== undefined && popoverY < 0;
+    const topValue = `calc(${document.documentElement?.scrollTop ?? 0}px + ${defaultTopPadding})`;
+
+    const anchorElement = anchor.getBoundingClientRect();
+    const isInViewport =
+      anchorElement.top >= 0 &&
+      anchorElement.left >= 0 &&
+      anchorElement.bottom <= (window.innerHeight || document.documentElement?.clientHeight) &&
+      anchorElement.right <= (window.innerWidth || document.documentElement?.clientWidth);
+
     // The `scrollPosition` is required to cases which popover has opened on the scrolled screen
-    const overridePropsToMaxPopoverSize = shouldRenderOnScreenTop
-      ? { top: `calc(${document.documentElement?.scrollTop ?? 0}px + ${defaultTopPadding})` }
-      : null;
+    const overridePropsToMaxPopoverSize =
+      isInViewport && (shouldRenderOnScreenTop || isNegativeAbsolutePopoverY)
+        ? { top: topValue }
+        : null;
 
     return overridePropsToMaxPopoverSize;
   }

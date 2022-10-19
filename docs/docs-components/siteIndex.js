@@ -181,7 +181,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Overview', 'Available components', 'Priority and placement'],
       },
       'Screen sizes',
-
+      {
+        sectionName: 'Show cases',
+        pages: ['Dropdown'],
+      },
       {
         sectionName: 'Typography',
         pages: ['Guidelines'],

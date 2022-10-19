@@ -204,6 +204,13 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     category: 'Foundations',
     path: '/foundations/screen_sizes',
   },
+  {
+    svg: <ScreenSizes />,
+    name: 'Show Cases',
+    description: 'Show cases',
+    category: 'Foundations',
+    path: '/foundations/show_cases/dropdown',
+  },
 ];
 
 const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
