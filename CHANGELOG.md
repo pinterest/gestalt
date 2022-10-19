@@ -1,3 +1,9 @@
+## 78.1.0 (Oct 19, 2022)
+
+### Minor
+
+- Checkbox, RadioGroup, TextArea, TextField, NumberField, SearchField, SelectList, ComboBox: Add error icon to all errorMessage text elements, standardize implementation, & related a11y improvements ([#2444](https://github.com/pinterest/gestalt/pull/2444)) - [Preview link](https://deploy-preview-2444--gestalt.netlify.app)
+
 ## 78.0.3 (Oct 19, 2022)
 
 ### Patch
