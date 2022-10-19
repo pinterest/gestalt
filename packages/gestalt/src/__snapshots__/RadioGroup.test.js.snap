@@ -22,33 +22,31 @@ exports[`RadioGroup renders 1`] = `
       <div
         className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
-        <label
-          className="label"
-          htmlFor="choice-1"
+        <div
+          className="box paddingX1"
         >
           <div
-            className="box paddingX1"
+            className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
           >
-            <div
-              className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            >
-              <input
-                checked={false}
-                className="input sizeMd InputEnabled"
-                disabled={false}
-                id="choice-1"
-                name="choice"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                type="radio"
-                value="choice-1"
-              />
-            </div>
+            <input
+              checked={false}
+              className="input sizeMd InputEnabled"
+              disabled={false}
+              id="choice-1"
+              name="choice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              type="radio"
+              value="choice-1"
+            />
           </div>
-        </label>
+        </div>
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionColumn"
+        />
       </div>
     </div>
   </div>
@@ -77,33 +75,31 @@ exports[`RadioGroup renders a hidden legend 1`] = `
       <div
         className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
-        <label
-          className="label"
-          htmlFor="choice-1"
+        <div
+          className="box paddingX1"
         >
           <div
-            className="box paddingX1"
+            className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
           >
-            <div
-              className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            >
-              <input
-                checked={false}
-                className="input sizeMd InputEnabled"
-                disabled={false}
-                id="choice-1"
-                name="choice"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                type="radio"
-                value="choice-1"
-              />
-            </div>
+            <input
+              checked={false}
+              className="input sizeMd InputEnabled"
+              disabled={false}
+              id="choice-1"
+              name="choice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              type="radio"
+              value="choice-1"
+            />
           </div>
-        </label>
+        </div>
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionColumn"
+        />
       </div>
     </div>
   </div>
@@ -112,6 +108,7 @@ exports[`RadioGroup renders a hidden legend 1`] = `
 
 exports[`RadioGroup renders an error 1`] = `
 <fieldset
+  aria-describedby="testingErrorEx-error"
   className="unstyled p0 m0"
 >
   <legend
@@ -132,33 +129,31 @@ exports[`RadioGroup renders an error 1`] = `
       <div
         className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
-        <label
-          className="label"
-          htmlFor="choice-1"
+        <div
+          className="box paddingX1"
         >
           <div
-            className="box paddingX1"
+            className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
           >
-            <div
-              className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            >
-              <input
-                checked={false}
-                className="input sizeMd InputEnabled"
-                disabled={false}
-                id="choice-1"
-                name="choice"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                type="radio"
-                value="choice-1"
-              />
-            </div>
+            <input
+              checked={false}
+              className="input sizeMd InputEnabled"
+              disabled={false}
+              id="choice-1"
+              name="choice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              type="radio"
+              value="choice-1"
+            />
           </div>
-        </label>
+        </div>
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionColumn"
+        />
       </div>
     </div>
   </div>
@@ -172,7 +167,49 @@ exports[`RadioGroup renders an error 1`] = `
         className="formErrorMessage"
         id="testingErrorEx-error"
       >
-        please pick one
+        <div
+          className="box"
+          role="alert"
+        >
+          <div
+            className="Flex rowGap2 columnGap2 xsDirectionRow"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <div
+                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon errorIcon iconBlock"
+                      height={16}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={16}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="FlexItem"
+            >
+              please pick one
+            </div>
+          </div>
+        </div>
       </span>
     </div>
   </div>
@@ -201,33 +238,31 @@ exports[`RadioGroup renders in different direction 1`] = `
       <div
         className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
       >
-        <label
-          className="label"
-          htmlFor="choice-1"
+        <div
+          className="box paddingX1"
         >
           <div
-            className="box paddingX1"
+            className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
           >
-            <div
-              className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            >
-              <input
-                checked={false}
-                className="input sizeMd InputEnabled"
-                disabled={false}
-                id="choice-1"
-                name="choice"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                type="radio"
-                value="choice-1"
-              />
-            </div>
+            <input
+              checked={false}
+              className="input sizeMd InputEnabled"
+              disabled={false}
+              id="choice-1"
+              name="choice"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              type="radio"
+              value="choice-1"
+            />
           </div>
-        </label>
+        </div>
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionColumn"
+        />
       </div>
     </div>
   </div>

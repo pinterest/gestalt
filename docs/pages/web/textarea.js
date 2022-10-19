@@ -435,8 +435,9 @@ function Example(props) {
         <MainSection.Subsection
           title="Error message"
           description={`
-    A TextArea can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will handle the rest.`}
+TextArea can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextArea will handle the rest.
+
+Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -500,7 +501,7 @@ function TextAreaExample() {
   const [valueB, setValueB] = React.useState('Before and after via side by side display of pale woman with auburn hair using concealer. The image shows her using a brush with concealer under her eyes, second image shows her with full makeup and says new.');
 
   const characterCount = 200;
-  const errorAccessibilityLabel = "Limit reached. You can only use 20 characters in this field.";
+  const errorAccessibilityLabel = "Limit reached. You can only use 200 characters in this field.";
 
   return (
     <Flex direction="column" gap={12}>

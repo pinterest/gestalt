@@ -6,7 +6,6 @@ exports[`NumberField NumberField normal 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -29,7 +28,6 @@ exports[`NumberField NumberField with autocomplete 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       autoComplete="on"
       className="textField base enabled normal medium truncate"
@@ -54,7 +52,6 @@ exports[`NumberField NumberField with enterKeyHint 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -78,7 +75,6 @@ exports[`NumberField NumberField with error 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="true"
       className="textField base enabled errored medium truncate"
       disabled={false}
@@ -102,7 +98,49 @@ exports[`NumberField NumberField with error 1`] = `
         className="formErrorMessage"
         id="test-error"
       >
-        error message
+        <div
+          className="box"
+          role="alert"
+        >
+          <div
+            className="Flex rowGap2 columnGap2 xsDirectionRow"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <div
+                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon errorIcon iconBlock"
+                      height={16}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={16}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="FlexItem"
+            >
+              error message
+            </div>
+          </div>
+        </div>
       </span>
     </div>
   </div>
@@ -115,7 +153,6 @@ exports[`NumberField NumberField with name 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}

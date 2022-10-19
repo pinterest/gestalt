@@ -58,11 +58,7 @@ type Props = {|
 |};
 
 /**
- *  Use [RadioButtons](https://gestalt.pinterest.systems/web/radiobutton) when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list.
  * **NOTE** The standalone RadioButton is soon to be deprecated, use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) and RadioGroup.RadioButton instead.**NOTE**
- * ![RadioButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioButton.spec.mjs-snapshots/RadioButton-chromium-darwin.png)
- * ![RadioButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioButton-dark.spec.mjs-snapshots/RadioButton-dark-chromium-darwin.png)
- *
  */
 const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
@@ -135,6 +131,8 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
             )}
           >
             <input
+              // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+              aria-describedby={subtext && focused ? `${id}-helperText` : undefined}
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
                 [styles.InputEnabled]: !disabled,
@@ -155,26 +153,28 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
         </Box>
       </Label>
       {Boolean(image) && <Box paddingX={1}>{image}</Box>}
-      {label && (
-        <Label htmlFor={id}>
-          {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
-          <Box
-            paddingX={1}
-            dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
-          >
-            <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
-              {label}
+      <Box>
+        {label && (
+          <Label htmlFor={id}>
+            {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
+            <Box
+              paddingX={1}
+              dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
+            >
+              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
+                {label}
+              </Text>
+            </Box>
+          </Label>
+        )}
+        {label && subtext && (
+          <Box padding={1}>
+            <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
+              {subtext}
             </Text>
-            {subtext && (
-              <Box paddingY={1}>
-                <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
-                  <Box display="visuallyHidden">:</Box> {subtext}
-                </Text>
-              </Box>
-            )}
           </Box>
-        </Label>
-      )}
+        )}
+      </Box>
     </Box>
   );
 });

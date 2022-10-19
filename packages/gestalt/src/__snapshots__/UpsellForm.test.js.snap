@@ -23,7 +23,6 @@ exports[`UpsellForm renders 1`] = `
             className="box relative"
           >
             <input
-              aria-describedby={null}
               aria-invalid="false"
               className="textField base enabled normal medium truncate"
               disabled={false}

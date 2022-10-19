@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
 import Box from './Box.js';
+import Flex from './Flex.js';
 import Label from './Label.js';
 import Text from './Text.js';
 import FormHelperText from './FormHelperText.js';
@@ -128,55 +129,54 @@ const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputEl
 
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginStart={-1} marginEnd={-1}>
-      <Label htmlFor={id}>
-        <Box paddingX={1}>
-          <div
-            className={classnames(
-              bgStyle,
-              borderStyle,
-              borderWidth,
-              styleSize,
-              styles.RadioButton,
-              {
-                [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
-              },
-            )}
-          >
-            <input
-              checked={checked}
-              className={classnames(controlStyles.input, styleSize, {
-                [styles.InputEnabled]: !disabled,
-              })}
-              disabled={disabled}
-              id={id}
-              name={name}
-              onBlur={handleBlur}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onMouseEnter={() => handleHover(true)}
-              onMouseLeave={() => handleHover(false)}
-              ref={ref}
-              type="radio"
-              value={value}
-            />
-          </div>
-        </Box>
-      </Label>
+      <Box paddingX={1}>
+        <div
+          className={classnames(bgStyle, borderStyle, borderWidth, styleSize, styles.RadioButton, {
+            [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+          })}
+        >
+          <input
+            // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+            aria-describedby={helperText && focused ? `${id}-helperText` : undefined}
+            checked={checked}
+            className={classnames(controlStyles.input, styleSize, {
+              [styles.InputEnabled]: !disabled,
+            })}
+            disabled={disabled}
+            id={id}
+            name={name}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onMouseEnter={() => handleHover(true)}
+            onMouseLeave={() => handleHover(false)}
+            ref={ref}
+            type="radio"
+            value={value}
+          />
+        </div>
+      </Box>
       {Boolean(image) && <Box paddingX={1}>{image}</Box>}
-      {label && (
-        <Label htmlFor={id}>
-          {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
-          <Box
-            paddingX={1}
-            dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
-          >
-            <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
-              {label}
-            </Text>
-            {helperText ? <FormHelperText addA11yPause text={helperText} /> : null}
+      <Flex direction="column">
+        {label && (
+          <Label htmlFor={id}>
+            {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
+            <Box
+              paddingX={1}
+              dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
+            >
+              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
+                {label}
+              </Text>
+            </Box>
+          </Label>
+        )}
+        {label && helperText ? (
+          <Box paddingX={1}>
+            <FormHelperText id={`${id}-helperText`} text={helperText} />
           </Box>
-        </Label>
-      )}
+        ) : null}
+      </Flex>
     </Box>
   );
 });
