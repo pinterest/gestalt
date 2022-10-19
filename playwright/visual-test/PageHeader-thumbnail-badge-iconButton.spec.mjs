@@ -12,7 +12,10 @@ Object.keys(BREAKPOINTS).forEach((size) => {
       height: 1080,
     });
 
-    await page.goto('/visual-test/PageHeader-thumbnail-badge-iconButton');
+    await page.goto('/visual-test/PageHeader-thumbnail-badge-iconButton', {
+      // Wait until all network requests have finished
+      waitUntil: 'networkidle',
+    });
 
     const locator = page.locator('[data-test-id="visual-test"]');
     await expect(locator).toHaveScreenshot(

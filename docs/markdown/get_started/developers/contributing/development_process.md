@@ -11,8 +11,6 @@ Pinterest web engineers can visit the [internal Gestalt documentation](http://pi
 - [Install nvm](https://github.com/creationix/nvm#install-script)
 - [Install node](https://github.com/nvm-sh/nvm#usage)
 - [Install yarn](https://classic.yarnpkg.com/en/docs/install)
-- [Install Docker desktop](https://docs.docker.com/get-docker/)
-  <Hint>To install Docker, try running `brew install --cask docker`</Hint>
 
 ## Set up your Gestalt repository
 
@@ -111,18 +109,8 @@ yarn generate ComponentName
   # Start the documentation server (required for updating macOS snapshots)
   yarn start
   #
-  # Update macOS snapshots
+  # Update visual test snapshots
   yarn playwright:test visual-test/ --update-snapshots
-  ```
-
-  - In order to update the Linux snapshots in the tests, you must build a docker file and then run docker.
-
-  ```bash
-  # Build the docker container (only need to do this once)
-  yarn docker:build
-  #
-  # Update the linux snapshots
-  yarn docker:run
   ```
 
   - Update CSS flow types

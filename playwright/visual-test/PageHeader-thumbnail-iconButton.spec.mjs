@@ -9,10 +9,12 @@ test(`PageHeader visual regression check thumbnail - iconButton`, async ({
     height: 1080,
   });
 
-  await page.goto('/visual-test/PageHeader-thumbnail-iconButton');
+  await page.goto(
+    '/visual-test/PageHeader-thumbnail-iconButton',
+    // Wait until all network requests have finished
+    { waitUntil: 'networkidle' }
+  );
 
   const locator = page.locator('[data-test-id="visual-test"]');
-  await expect(locator).toHaveScreenshot(
-    `PPageHeader-thumbnail-iconButton.png`
-  );
+  await expect(locator).toHaveScreenshot(`PageHeader-thumbnail-iconButton.png`);
 });

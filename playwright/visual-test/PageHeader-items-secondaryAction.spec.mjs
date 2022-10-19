@@ -14,6 +14,7 @@ Object.keys(BREAKPOINTS).forEach((size) => {
 
     await page.goto('/visual-test/PageHeader-items-secondaryAction');
 
+    // eslint-disable-next-line playwright/no-conditional-in-test
     if (['xs', 'sm'].includes(size)) {
       await page.locator('button[aria-controls="pageheader-dropdown"]').click();
     }
