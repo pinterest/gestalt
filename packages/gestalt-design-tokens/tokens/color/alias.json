@@ -313,6 +313,10 @@
         "darkValue": "{color.red.pushpin.300.value}",
         "comment": "Used to indicate an error on a contained element, like TextField or TextArea"
       }
+    },
+    "transparent": {
+      "value": "transparent",
+      "comment": "Used for transparent backgrounds and fills"
     }
   }
 }
