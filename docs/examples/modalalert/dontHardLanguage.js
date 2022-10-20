@@ -9,7 +9,7 @@ export default function DontHardLanguage(): Node {
   return (
     <Layer zIndex={zIndex}>
       <ModalAlert
-        accessibilityModalLabel="Delete board 70s Furniture"
+        accessibilityModalLabel="Cancel order"
         heading="Are you sure?"
         primaryAction={{
           accessibilityLabel: 'Confirm cancel order',

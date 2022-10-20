@@ -9,7 +9,7 @@ export default function DoClearCommunicate(): Node {
   return (
     <Layer zIndex={zIndex}>
       <ModalAlert
-        accessibilityModalLabel="Delete board 70s Furniture"
+        accessibilityModalLabel="Cancel clothing order"
         heading="Do you really want to cancel your order?"
         primaryAction={{
           accessibilityLabel: 'Confirm cancel order',

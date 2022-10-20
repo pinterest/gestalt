@@ -18,7 +18,7 @@ export default function DoOverlayPage(): Node {
       />
       <Layer zIndex={zIndex}>
         <ModalAlert
-          accessibilityModalLabel="Delete board 70s Furniture"
+          accessibilityModalLabel="Promote to admin"
           heading="Promote to admin"
           primaryAction={{
             accessibilityLabel: 'Confirm delete board',

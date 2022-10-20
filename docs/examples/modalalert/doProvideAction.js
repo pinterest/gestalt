@@ -10,10 +10,10 @@ export default function DoClearCommunicate(): Node {
     <Layer zIndex={zIndex}>
       <ModalAlert
         type="error"
-        accessibilityModalLabel="Delete board 70s Furniture"
+        accessibilityModalLabel="Unable to charge credit card"
         heading="Your credit card has expired"
         primaryAction={{
-          accessibilityLabel: 'Confirm cancel order',
+          accessibilityLabel: 'Update credit card info',
           label: 'Update credit card',
           href: 'https://www.pinterest.com',
         }}

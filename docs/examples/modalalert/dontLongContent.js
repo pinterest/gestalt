@@ -9,16 +9,16 @@ export default function DoLimitContent(): Node {
   return (
     <Layer zIndex={zIndex}>
       <ModalAlert
-        accessibilityModalLabel="Delete board 70s Furniture"
+        accessibilityModalLabel="Idea Pin Creator Code"
         heading="Publish new Idea Pin?"
         primaryAction={{
           accessibilityLabel: 'Publish',
-          label: 'Yes, remove',
+          label: 'Publish',
           onClick: () => {},
         }}
         secondaryAction={{
           accessibilityLabel: 'Cancel',
-          label: 'No, keep',
+          label: 'Cancel',
           onClick: () => {},
         }}
         onDismiss={() => {}}

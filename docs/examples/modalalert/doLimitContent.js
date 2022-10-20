@@ -9,7 +9,7 @@ export default function DoLimitContent(): Node {
   return (
     <Layer zIndex={zIndex}>
       <ModalAlert
-        accessibilityModalLabel="Delete board 70s Furniture"
+        accessibilityModalLabel="Delete 70s couch item"
         heading="Remove this item?"
         primaryAction={{
           accessibilityLabel: 'Remove item',

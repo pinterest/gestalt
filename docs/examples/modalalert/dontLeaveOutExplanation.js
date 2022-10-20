@@ -10,12 +10,12 @@ export default function DoClearCommunicate(): Node {
     <Layer zIndex={zIndex}>
       <ModalAlert
         type="warning"
-        accessibilityModalLabel="Delete board 70s Furniture"
+        accessibilityModalLabel="Unable to follow account"
         heading="You can't follow this person"
         primaryAction={{
           accessibilityLabel: '',
           label: 'Got it',
-          href: 'https://www.pinterest.com',
+          onClick: () => {},
         }}
         onDismiss={() => {}}
       >
