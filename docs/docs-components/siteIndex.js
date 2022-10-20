@@ -99,6 +99,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Mask',
       'Masonry',
       'Modal',
+      'ModalAlert',
       'Module',
       'NumberField',
       'PageHeader',

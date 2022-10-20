@@ -6,52 +6,37 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-// import SandpackExample from '../../docs-components/SandpackExample.js';
-// import defaultExample from '../../examples/modalalert/defaultExample.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import defaultExample from '../../examples/modalalert/defaultExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import doClearCommunicate from '../../examples/modalalert/doClearCommunicate.js';
+import dontHardLanguage from '../../examples/modalalert/dontHardLanguage.js';
+import dontDoubleOverlay from '../../examples/modalalert/dontDoubleOverlay.js';
+import doOverlayPage from '../../examples/modalalert/doOverlayPage.js';
+import doLimitContent from '../../examples/modalalert/doLimitContent.js';
+import dontLongContent from '../../examples/modalalert/dontLongContent.js';
+import doProvideAction from '../../examples/modalalert/doProvideAction.js';
+import dontLeaveOutAction from '../../examples/modalalert/dontLeaveOutAction.js';
+import doExplainWhy from '../../examples/modalalert/doExplainWhy.js';
+import dontLeaveOutExplanation from '../../examples/modalalert/dontLeaveOutExplanation.js';
 
-// const PREVIEW_HEIGHT = 450;
+const PREVIEW_HEIGHT = 450;
 
 export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         badge="pilot"
-        // defaultCode={`
-        // function DefaultExample() {
-        //   const [showModal, setShowModal] = React.useState(false);
-
-        //   const HEADER_ZINDEX = new FixedZIndex(10);
-        //   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-        //   return (
-        //     <Layer zIndex={zIndex}>
-        //       <ModalAlert
-        //         accessibilityModalLabel="Delete board 70s Furniture"
-        //         heading="Delete this board"
-        //         primaryAction={{
-        //           accessibilityLabel: 'Confirm delete board',
-        //           label: 'Yes, delete',
-        //           onClick: () => {}
-        //         }}
-        //         secondaryAction={{
-        //           accessibilityLabel: 'Cancel board deletion',
-        //           label: 'No, keep',
-        //           onClick: () => {}
-        //         }}
-        //         onDismiss={() => {
-        //           setShowModal(!showModal);
-        //         }}
-        //       >
-        //         <Text>Your board and all of its Pins will be deleted forever. Other Pinners who have access to this board will also lose access. This cannot be undone.</Text>
-        //       </ModalAlert>
-        //     </Layer>
-        //   );
-        // }
-        // `}
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-      />
+      >
+        <SandpackExample
+          code={defaultExample}
+          name="ModalAlert Main Example"
+          hideEditor
+          previewHeight={PREVIEW_HEIGHT}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -84,11 +69,28 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="md"
             type="do"
             description="Clearly communicate what response is expected and make the action simple and straightforward, such as clicking/tapping a button to confirm."
+            sandpackExample={
+              <SandpackExample
+                code={doClearCommunicate}
+                name="Clear communicate example"
+                hideEditor
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use language that makes it hard to understand what action is being taken, while adding additional actions that may take the user out of their existing context."
+            sandpackExample={
+              <SandpackExample
+                code={dontHardLanguage}
+                name="Hard language example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -96,11 +98,28 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="md"
             type="do"
             description="Use to overlay Page content. ModalAlerts should be horizontally and vertically centered on the screen."
+            sandpackExample={
+              <SandpackExample
+                code={doOverlayPage}
+                name="Overlay page example"
+                hideEditor
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use ModalAlert on top of another modal dialog. This can cause accessibility issues with focus states and make it hard for a user to escape and go back to the previous surface. On mobile surfaces, if a user has to confirm something triggered by a modal dialog, auto-dismiss the first dialog before presenting with the confirmation dialog."
+            sandpackExample={
+              <SandpackExample
+                code={dontDoubleOverlay}
+                name="Double modal example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -108,11 +127,28 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="md"
             type="do"
             description="Limit the content to prevent the need to scroll at most screen sizes."
+            sandpackExample={
+              <SandpackExample
+                code={doLimitContent}
+                name="Limit content example"
+                hideEditor
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use ModalAlert for long and complex content or tasks, or for content that should have a dedicated surface, like login flows. If extra functionality is needed in an overlay, use Modal or Sheet."
+            sandpackExample={
+              <SandpackExample
+                code={dontLongContent}
+                name="Long text example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -120,11 +156,28 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="md"
             type="do"
             description="Provide a way for the user to correct an error or issue via a button or a link."
+            sandpackExample={
+              <SandpackExample
+                code={doProvideAction}
+                name="Provide action example"
+                hideEditor
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Leave it up to the user to find where to go to fix an issue."
+            sandpackExample={
+              <SandpackExample
+                code={dontLeaveOutAction}
+                name="Missing action example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -132,11 +185,28 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="md"
             type="do"
             description="Explain to the user why they’ve encountered a warning or error when an action button or link is not possible."
+            sandpackExample={
+              <SandpackExample
+                code={doExplainWhy}
+                name="Give explanation example"
+                hideEditor
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Omit an explanation as to why a user is encountering an error or issue."
+            sandpackExample={
+              <SandpackExample
+                code={dontLeaveOutExplanation}
+                name="Leave out explanation example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
