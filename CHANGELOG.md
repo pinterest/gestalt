@@ -1,3 +1,9 @@
+## 78.1.1 (Oct 20, 2022)
+
+### Patch
+
+- ModalAlert: Fix validation bug ([#2449](https://github.com/pinterest/gestalt/pull/2449)) - [Preview link](https://deploy-preview-2449--gestalt.netlify.app)
+
 ## 78.1.0 (Oct 19, 2022)
 
 ### Minor
