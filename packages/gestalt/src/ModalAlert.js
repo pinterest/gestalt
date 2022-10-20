@@ -172,7 +172,7 @@ export default function ModalAlert({
 
   Object.entries({ primaryAction, secondaryAction }).forEach(([key, value]) => {
     // $FlowFixMe[incompatible-use]
-    if ([value?.href, value?.onClick].every((item) => item === undefined)) {
+    if (value && [value.href, value.onClick].every((item) => item === undefined)) {
       throw new Error(
         `Either an \`href\` or an \`onClick\` handler must be provided to \`${key}\`.`,
       );
