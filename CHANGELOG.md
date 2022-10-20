@@ -1,3 +1,9 @@
+## 78.1.2 (Oct 20, 2022)
+
+### Patch
+
+- Design Tokens: Add transparent token ([#2448](https://github.com/pinterest/gestalt/pull/2448)) - [Preview link](https://deploy-preview-2448--gestalt.netlify.app)
+
 ## 78.1.1 (Oct 20, 2022)
 
 ### Patch
