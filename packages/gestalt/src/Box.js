@@ -183,6 +183,10 @@ type Props = {
    */
   lgColumn?: Column,
   /**
+   * Used to identify the element for testing purposes.
+   */
+  dataTestId?: string,
+  /**
    * Establishes the main-axis, thus defining the direction flex items are placed in the flex container.
    *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). If you're using Box strictly for Flexbox layouts, check out [Flex](https://gestalt.pinterest.systems/web/flex)!
@@ -542,7 +546,7 @@ type OutputType = Element<As>;
  *
  */
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
-  function Box({ as, ...props }: Props, ref): OutputType {
+  function Box({ as, dataTestId, ...props }: Props, ref): OutputType {
     const { passthroughProps, propsStyles } = buildStyles<$Diff<Props, {| as?: As |}>>({
       baseStyles: styles.box,
       props,
@@ -552,7 +556,9 @@ const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Prop
     const BoxElement: As = as ?? 'div';
 
     // And... magic!
-    return <BoxElement {...passthroughProps} {...propsStyles} ref={ref} />;
+    return (
+      <BoxElement {...passthroughProps} {...propsStyles} data-test-id={dataTestId} ref={ref} />
+    );
   },
 );
 
