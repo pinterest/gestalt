@@ -17,7 +17,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/87/81/4d/87814debb30c3792d50010d954a42708.png",
           "imageAltText": "cover image for gestalt web figma library",
-          "content": "We've pared back our [Gestalt Web Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web) to make components easier to find and (most importantly) more searchable."
+          "content": "We've pared back our Gestalt Web Figma library to make components easier to find and (most importantly) more searchable."
         },
         {
           "title": "Error icons added to all component error messages",
