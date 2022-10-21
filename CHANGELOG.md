@@ -1,3 +1,9 @@
+## 79.0.0 (Oct 21, 2022)
+
+### Major
+
+- Toast: deprecating value thumbnailShape=rectangular ([#2454](https://github.com/pinterest/gestalt/pull/2454)) - [Preview link](https://deploy-preview-2454--gestalt.netlify.app)
+
 ## 78.2.0 (Oct 21, 2022)
 
 ### Minor
