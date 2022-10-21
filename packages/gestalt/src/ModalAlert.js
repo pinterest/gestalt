@@ -185,7 +185,7 @@ export default function ModalAlert({
       align="start"
       closeOnOutsideClick={type === 'default'}
       footer={
-        <Flex justifyContent="end" gap={4}>
+        <Flex justifyContent="end" gap={2}>
           {secondaryAction && <ModalAlertAction type="secondary" data={secondaryAction} />}
           {primaryAction && <ModalAlertAction type="primary" data={primaryAction} />}
         </Flex>

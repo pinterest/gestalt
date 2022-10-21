@@ -46,13 +46,7 @@ export default function AccessibilityExample(): Node {
           setShowModal(!showModal);
         }}
         footer={
-          <Flex
-            justifyContent="end"
-            gap={{
-              row: 4,
-              column: 0,
-            }}
-          >
+          <Flex justifyContent="end" gap={2}>
             <Button color="gray" text="Cancel" />
             <Button color="red" text="Next" />
           </Flex>
