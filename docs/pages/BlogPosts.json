@@ -2,6 +2,60 @@
   "year": "2022",
   "digests": [
     {
+      "week": "October 21, 2022",
+      "summary": "A brand new component, improvements to our Figma libraries and accessibility improvements to our input components",
+      "posts": [
+        {
+          "title": "New ModalAlert component for confirmation and acknowledgment",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/f4/40/2e/f4402eb09e3f3f28461d03f81e963857.png",
+          "imageAltText": "screenshot of modalalert component",
+          "content": "Fresh off the press is our new [ModalAlert](https://gestalt.pinterest.systems/web/modalalert) component which takes the pain out of presenting users with Yes/No decisions."
+        },
+        {
+          "title": "Simplified Gestalt Web Figma library",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/87/81/4d/87814debb30c3792d50010d954a42708.png",
+          "imageAltText": "cover image for gestalt web figma library",
+          "content": "We've pared back our [Gestalt Web Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web) to make components easier to find and (most importantly) more searchable."
+        },
+        {
+          "title": "Error icons added to all component error messages",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/58/7b/31/587b315b36b8334ba9c513f09bb3341c.png",
+          "imageAltText": "screenshot of textfield with error message",
+          "content": "Gestalt component error messages were not the most accessible due to a reliance on color. We've added error icons next to error messages for [Checkbox](https://gestalt.pinterest.systems/web/checkbox#Error-message), [ComboxBox](https://gestalt.pinterest.systems/web/combobox#Error-message), [DatePicker](https://gestalt.pinterest.systems/web/datepicker#errorMessage), [FieldSet](https://gestalt.pinterest.systems/web/fieldset#Error-message), [NumberField](https://gestalt.pinterest.systems/web/numberfield#Error-message), [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup#With-an-error), [SearchField](https://gestalt.pinterest.systems/web/searchfield#Error), [SelectList](https://gestalt.pinterest.systems/web/selectlist#Error-message), [TextArea](https://gestalt.pinterest.systems/web/textarea#Error-message) and [TextField](https://gestalt.pinterest.systems/web/textfield#Error-message) to reinforce the context of the message."
+        },
+        {
+          "title": "Design Tokens: Added transparent token",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/fd/6c/72/fd6c72f2a699244e3e7ad483e9f791db.png",
+          "imageAltText": "a hollow circle with a dotted outline",
+          "content": "We made a minor update to our [opacity design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Opacity) with the addition of a fully transparent value."
+        }
+      ]
+    },
+    {
+      "week": "October 14, 2022",
+      "summary": "Token updates and motion guidelines for review",
+      "posts": [
+        {
+          "title": "Updated error color tokens for dark mode",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/0e/fa/78/0efa78c60f31beac0e7e81ff91d39c52.png",
+          "imageAltText": "error message on dark background",
+          "content": "We lightened our error colors for dark mode to display with higher contrast. These changes are now reflected in our [token codebase](https://gestalt.pinterest.systems/foundations/design_tokens) as well as our Figma Foundations library."
+        },
+        {
+          "title": "Gestalt motion guidelines working proposal is open for feedback",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/3a/7c/33/3a7c332818e13dac78afe68c125ce697.png",
+          "imageAltText": "a series of circles meant to infer movement",
+          "content": "We've completed our [first draft for Gestalt's official motion guidelines](https://coda.io/d/_dXH62hWG_Q-/Product-Animation-Guidelines_suius). But before we published them in our docs, we wanted to make them available for review and feedback. Please share your thoughts."
+        }
+      ]
+    },
+    {
       "month": "September",
       "summary": "",
       "posts": [
@@ -94,7 +148,7 @@
       "posts": [
         {
           "title": "New Recommendation type for Badge",
-          "audience": ["Design, Engineering"],
+          "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/04/1e/ba/041eba4ff21a8bfe83ba1ac0f8af6a54.png",
           "imageAltText": "screenshot of Recommendation Badge",
           "content": "With the introduction of recommendation types for Callout and SlimBanner, we added a [Recommendation type](https://gestalt.pinterest.systems/web/badge#Type) for [Badge](https://gestalt.pinterest.systems/web/badge). This update will open up Badge to new uses within the product to help make in-product recommendations quickly recognizable."
