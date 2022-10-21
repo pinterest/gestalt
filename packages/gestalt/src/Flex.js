@@ -26,6 +26,10 @@ type Props = {|
    */
   children?: Node,
   /**
+   * Used to identify the element for testing purposes.
+   */
+  dataTestId?: string,
+  /**
    * Establishes the main axis, thus defining the direction flex items are placed in the flex container.
    */
   direction?: 'row' | 'column',
@@ -105,6 +109,7 @@ const allowedProps = [
 export default function Flex({
   alignItems,
   children: childrenProp,
+  dataTestId,
   direction = 'row',
   gap = 0,
   justifyContent,
@@ -141,7 +146,7 @@ export default function Flex({
     allowlistProps: allowedProps,
   });
 
-  return <div {...passthroughProps} {...propsStyles} />;
+  return <div {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
 }
 
 Flex.Item = FlexItem;
