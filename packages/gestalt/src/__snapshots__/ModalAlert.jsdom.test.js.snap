@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Modal renders 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div>
+    <div
+      name="trap-focus"
+    >
+      <div
+        aria-label="Test modal"
+        class="container"
+        role="alertdialog"
+      >
+        <div
+          class="backdrop zoomOut"
+        />
+        <div
+          class="wrapper hideOutline"
+          style="width: 540px;"
+          tabindex="-1"
+        >
+          <div
+            class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+            style="width: 100%;"
+          >
+            <div
+              class="shadowContainer"
+            >
+              <div
+                class="box paddingX6 paddingY6"
+              >
+                <div
+                  class="Flex rowGap4 columnGap4 flexGrow itemsCenter xsDirectionRow"
+                >
+                  <div
+                    class="FlexItem flexGrow"
+                  >
+                    <h1
+                      class="Heading fontSize400 defaultText alignStart breakWord"
+                    >
+                      Delete Pin?
+                    </h1>
+                  </div>
+                  <div
+                    class="FlexItem"
+                  >
+                    <div
+                      class="box marginStart2"
+                    >
+                      <button
+                        aria-label="Close modal"
+                        class="parentButton"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <div
+                          class="button tapTransition enabled"
+                        >
+                          <div
+                            class="pog white"
+                            style="height: 32px; width: 32px;"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              aria-label=""
+                              class="icon defaultIcon iconBlock"
+                              height="16"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="16"
+                            >
+                              <path
+                                d="test-file-stub"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box flexGrow overflowAuto paddingX0 paddingY0 relative"
+              style="height: 100%;"
+            >
+              <div
+                class="box paddingX6"
+              >
+                Modal content
+              </div>
+            </div>
+            <div
+              class="shadowContainer"
+            >
+              <div
+                class="box paddingX6 paddingY6"
+              >
+                <div
+                  class="Flex rowGap4 columnGap4 justifyEnd xsDirectionRow"
+                >
+                  <div
+                    class="FlexItem"
+                  >
+                    <button
+                      aria-label="Acknowledge expired card"
+                      class="button hideOutline block accessibilityOutline parentButton"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <div
+                        class="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
+                      >
+                        <div
+                          class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                        >
+                          Got it
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
