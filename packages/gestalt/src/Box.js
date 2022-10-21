@@ -521,19 +521,10 @@ type Props = {
 // to strip out a few naughty properties that break style encapsulation
 // (className, style) or accessibility (onClick).
 const disallowedProps = [
-  'onClick',
   'className',
+  'data-test-id', // in favor of the dataTestId prop
+  'onClick',
   'style',
-  // We're currently also explicitly disallowing the deprecated marginLeft/Right
-  // props, as they're not RTL-friendly.
-  'marginLeft',
-  'smMarginLeft',
-  'mdMarginLeft',
-  'lgMarginLeft',
-  'marginRight',
-  'smMarginRight',
-  'mdMarginRight',
-  'lgMarginRight',
 ];
 
 type OutputType = Element<As>;
