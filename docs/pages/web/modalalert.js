@@ -12,7 +12,6 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import doClearCommunicate from '../../examples/modalalert/doClearCommunicate.js';
 import dontHardLanguage from '../../examples/modalalert/dontHardLanguage.js';
 import dontDoubleOverlay from '../../examples/modalalert/dontDoubleOverlay.js';
-import doOverlayPage from '../../examples/modalalert/doOverlayPage.js';
 import doLimitContent from '../../examples/modalalert/doLimitContent.js';
 import dontLongContent from '../../examples/modalalert/dontLongContent.js';
 import doProvideAction from '../../examples/modalalert/doProvideAction.js';
@@ -79,19 +78,6 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
               <SandpackExample
                 code={doClearCommunicate}
                 name="Clear communicate example"
-                hideEditor
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="lg"
-            type="do"
-            description="Use to overlay Page content. ModalAlerts should be horizontally and vertically centered on the screen."
-            sandpackExample={
-              <SandpackExample
-                code={doOverlayPage}
-                name="Overlay page example"
                 hideEditor
                 previewHeight={PREVIEW_HEIGHT}
               />
