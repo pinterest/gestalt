@@ -1,6 +1,17 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Button, CompositeZIndex, FixedZIndex, Flex, Layer, Modal, RadioGroup } from 'gestalt';
+import {
+  Box,
+  Button,
+  CompositeZIndex,
+  FixedZIndex,
+  Flex,
+  IconButton,
+  Heading,
+  Layer,
+  Modal,
+  RadioGroup,
+} from 'gestalt';
 
 export default function AccessibilityExample(): Node {
   const [showModal, setShowModal] = React.useState(false);
@@ -14,7 +25,23 @@ export default function AccessibilityExample(): Node {
       <Modal
         accessibilityModalLabel="Choose how to claim site"
         align="start"
-        heading="Pick claim option"
+        heading={
+          <Box padding={6}>
+            <Flex justifyContent="between">
+              <Heading size="500" accessibilityLevel={1}>
+                Pick claim option
+              </Heading>
+              <IconButton
+                accessibilityLabel="Dismiss modal"
+                bgColor="white"
+                icon="cancel"
+                iconColor="darkGray"
+                onClick={() => {}}
+                size="sm"
+              />
+            </Flex>
+          </Box>
+        }
         onDismiss={() => {
           setShowModal(!showModal);
         }}
