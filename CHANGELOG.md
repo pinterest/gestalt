@@ -1,3 +1,9 @@
+## 78.2.0 (Oct 21, 2022)
+
+### Minor
+
+- Flex: add dataTestId ([#2451](https://github.com/pinterest/gestalt/pull/2451)) - [Preview link](https://deploy-preview-2451--gestalt.netlify.app)
+
 ## 78.1.4 (Oct 21, 2022)
 
 ### Patch
