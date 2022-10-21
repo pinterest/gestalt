@@ -1,3 +1,9 @@
+## 78.1.3 (Oct 21, 2022)
+
+### Patch
+
+- ModalAlert: Add documentation and best practices ([#2450](https://github.com/pinterest/gestalt/pull/2450)) - [Preview link](https://deploy-preview-2450--gestalt.netlify.app)
+
 ## 78.1.2 (Oct 20, 2022)
 
 ### Patch
