@@ -100,7 +100,7 @@ exports[`Modal Modal renders 1`] = `
                 class="box paddingX6 paddingY6"
               >
                 <div
-                  class="Flex rowGap4 columnGap4 justifyEnd xsDirectionRow"
+                  class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"
                 >
                   <div
                     class="FlexItem"
