@@ -43,7 +43,7 @@ export default function SizesExample(): Node {
               footer={<Heading size="500">Footer</Heading>}
               size="sm"
             >
-              <Box padding={8}>
+              <Box padding={6}>
                 <Heading size="500">Children</Heading>
               </Box>
             </Modal>
@@ -68,7 +68,7 @@ export default function SizesExample(): Node {
               footer={<Heading size="500">Footer</Heading>}
               size="md"
             >
-              <Box padding={8}>
+              <Box padding={6}>
                 <Heading size="500">Children</Heading>
               </Box>
             </Modal>
@@ -93,7 +93,7 @@ export default function SizesExample(): Node {
               footer={<Heading size="500">Footer</Heading>}
               size="lg"
             >
-              <Box padding={8}>
+              <Box padding={6}>
                 <Heading size="500">Children</Heading>
               </Box>
             </Modal>

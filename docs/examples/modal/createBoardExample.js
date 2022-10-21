@@ -16,6 +16,7 @@ function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}) {
   return (
     <Modal
       accessibilityModalLabel="Create new board"
+      align="start"
       heading="Create board"
       onDismiss={onDismiss}
       footer={
@@ -25,8 +26,8 @@ function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}) {
       }
       size="sm"
     >
-      <Box paddingX={8}>
-        <Box marginBottom={8}>
+      <Box paddingX={6}>
+        <Box marginBottom={6}>
           <TextField
             id="name"
             onChange={() => {}}

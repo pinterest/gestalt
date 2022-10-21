@@ -48,7 +48,7 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * Determines the icon and dismiss pattern of the ModalAlert. See the [warning](https://gestalt.pinterest.systems/web/modalalert#Warning) and [error](https://gestalt.pinterest.systems/web/modalalert#Error)  variants for more info.
+   * Determines the icon and dismiss pattern of the ModalAlert. See the [warning](https://gestalt.pinterest.systems/web/modalalert#Warning-type) and [error](https://gestalt.pinterest.systems/web/modalalert#Error-type)  variants for more info.
    */
   type?: 'default' | 'warning' | 'error',
   /**
