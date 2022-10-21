@@ -71,9 +71,9 @@ We always appreciate the help and contributions of other engineers across Pinter
 3. **Implement and Test**
    Once the TDD has been finalized, it's time to build! If creating a new component, check out our [scaffolding script](https://github.com/pinterest/gestalt/blob/master/scripts/generateComponent.js). Don't forget about tests! If updating an existing component, please remember to update/add unit tests. Use \`.test.js\` to test UI and \`.jsdom.test.js\` to test interactions. Note that accessibility integration tests cover both the component itself and the related docs page. Run the test suites using the [package.json scripts](https://github.com/pinterest/gestalt/blob/master/package.json#L101).
 4. **Pull request**
-    When your work is complete and all tests are passing, make a _draft_ pull request for your changes by following the [development guidelines](/get_started/developers/installation). This will start the CI process, running a variety of tests. Once those tests are passing (aside from the semver one), mark your PR as _"Ready for review"_ and ping us on [#gestalt-web](https://pinch.pinadmin.com/gestaltSlack). Your changes will be reviewed by an engineer and a designer from the Gestalt team. We ensure each component is built to spec, accessible, performant and works well with other components.
+    When your work is complete and all tests are passing, make a _draft_ pull request for your changes by following the [development guidelines](/get_started/developers/installation). This will start the CI process, running a variety of tests. Once those tests are passing (aside from the semver one), mark your PR as _"Ready for review"_ and ping us on [#gestalt-eng-web](https://pinch.pinadmin.com/gestaltSlack). Your changes will be reviewed by an engineer and a designer from the Gestalt team. We ensure each component is built to spec, accessible, performant and works well with other components.
 5. **Release**
-   Now the fun part: releasing your component! After a Gestalt team member merges your change and Pinboard has been updated, feel free to announce your component/changes on the [#gestalt-web](https://pinch.pinadmin.com/gestaltSlack) Slack channel.
+   Now the fun part: releasing your component! After a Gestalt team member merges your change and Pinboard has been updated, feel free to announce your component/changes on the [#gestalt-eng-web](https://pinch.pinadmin.com/gestaltSlack) Slack channel.
 `}
         />
         <MainSection.Subsection
@@ -109,7 +109,7 @@ To see the bigger picture, you can view our [OKRs](https://pinch.pinadmin.com/ge
           description={`
 Before reaching out, take a look at our [documentation](https://gestalt.pinterest.systems/) to see if it answers your question, because it will likely get you the fastest answer. Still need help? Try searching Slack for your question, and then feel free to ask if your question hasn’t been answered in the past. You can also reference our [Communication Guidelines](https://pinch.pinadmin.com/gestaltCommsGuidelines) for more info.
 [#gestalt-design](https://pinch.pinadmin.com/gestaltSlackDesign) is for design-focused questions.
-[#gestalt-web](https://pinch.pinadmin.com/gestaltSlack) is for engineering-focused questions.
+[#gestalt-eng-web](https://pinch.pinadmin.com/gestaltSlack) is for engineering-focused questions.
 `}
         />
         <MainSection.Subsection

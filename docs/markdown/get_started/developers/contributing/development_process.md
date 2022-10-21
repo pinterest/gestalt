@@ -142,7 +142,7 @@ git push -f origin HEAD
 
 <Hint>Keeping the PR as a draft until it is ready for review reduces the number of unneeded notifications for maintainers </Hint>
 
-<Hint icon="lock"> If you are a Pinterest employee, please let us know on Slack (#gestalt-web) that your PR is ready for review. </Hint>
+<Hint icon="lock"> If you are a Pinterest employee, please let us know on Slack (#gestalt-eng-web) that your PR is ready for review. </Hint>
 
 - Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [release and versioning guidelines](/get_started/developers/releases#Automated-releases).
 
@@ -150,7 +150,7 @@ git push -f origin HEAD
 
 <details>
   <summary><b>My pull request fails on "Semver / Require Label (pull_request)", how do I fix it?</b></summary>
-  
+
 Nothing you can do to fix it.
 
 A Gestalt Core maintainer will add a semver label (patch release / minor release / major release) when reviewing a PR.
