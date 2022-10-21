@@ -19,6 +19,12 @@ import doProvideAction from '../../examples/modalalert/doProvideAction.js';
 import dontLeaveOutAction from '../../examples/modalalert/dontLeaveOutAction.js';
 import doExplainWhy from '../../examples/modalalert/doExplainWhy.js';
 import dontLeaveOutExplanation from '../../examples/modalalert/dontLeaveOutExplanation.js';
+import multipleActions from '../../examples/modalalert/multipleActions.js';
+import warningMultiAction from '../../examples/modalalert/warningMultiAction.js';
+import warningSingleAction from '../../examples/modalalert/warningSingleAction.js';
+import errorMultiAction from '../../examples/modalalert/errorMultiAction.js';
+import errorSingleAction from '../../examples/modalalert/errorSingleAction.js';
+import withCheckbox from '../../examples/modalalert/withCheckbox.js';
 
 const PREVIEW_HEIGHT = 450;
 
@@ -64,9 +70,9 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Best practices">
-        <MainSection.Subsection columns={2}>
+        <MainSection.Subsection>
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             type="do"
             description="Clearly communicate what response is expected and make the action simple and straightforward, such as clicking/tapping a button to confirm."
             sandpackExample={
@@ -79,23 +85,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
           <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Use language that makes it hard to understand what action is being taken, while adding additional actions that may take the user out of their existing context."
-            sandpackExample={
-              <SandpackExample
-                code={dontHardLanguage}
-                name="Hard language example"
-                hideEditor
-                hideControls
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             type="do"
             description="Use to overlay Page content. ModalAlerts should be horizontally and vertically centered on the screen."
             sandpackExample={
@@ -108,23 +98,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
           <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Use ModalAlert on top of another modal dialog. This can cause accessibility issues with focus states and make it hard for a user to escape and go back to the previous surface. On mobile surfaces, if a user has to confirm something triggered by a modal dialog, auto-dismiss the first dialog before presenting with the confirmation dialog."
-            sandpackExample={
-              <SandpackExample
-                code={dontDoubleOverlay}
-                name="Double modal example"
-                hideEditor
-                hideControls
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             type="do"
             description="Limit the content to prevent the need to scroll at most screen sizes."
             sandpackExample={
@@ -137,23 +111,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
           <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Use ModalAlert for long and complex content or tasks, or for content that should have a dedicated surface, like login flows. If extra functionality is needed in an overlay, use Modal or Sheet."
-            sandpackExample={
-              <SandpackExample
-                code={dontLongContent}
-                name="Long text example"
-                hideEditor
-                hideControls
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             type="do"
             description="Provide a way for the user to correct an error or issue via a button or a link."
             sandpackExample={
@@ -166,7 +124,64 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
+            type="do"
+            description="Explain to the user why they’ve encountered a warning or error when an action button or link is not possible."
+            sandpackExample={
+              <SandpackExample
+                code={doExplainWhy}
+                name="Give explanation example"
+                hideEditor
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection>
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description="Use language that makes it hard to understand what action is being taken, while adding additional actions that may take the user out of their existing context."
+            sandpackExample={
+              <SandpackExample
+                code={dontHardLanguage}
+                name="Hard language example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description="Use ModalAlert on top of another modal dialog. This can cause accessibility issues with focus states and make it hard for a user to escape and go back to the previous surface. On mobile surfaces, if a user has to confirm something triggered by a modal dialog, auto-dismiss the first dialog before presenting with the confirmation dialog."
+            sandpackExample={
+              <SandpackExample
+                code={dontDoubleOverlay}
+                name="Double modal example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="lg"
+            type="don't"
+            description="Use ModalAlert for long and complex content or tasks, or for content that should have a dedicated surface, like login flows. If extra functionality is needed in an overlay, use Modal or Sheet."
+            sandpackExample={
+              <SandpackExample
+                code={dontLongContent}
+                name="Long text example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="lg"
             type="don't"
             description="Leave it up to the user to find where to go to fix an issue."
             sandpackExample={
@@ -179,23 +194,8 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
               />
             }
           />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Explain to the user why they’ve encountered a warning or error when an action button or link is not possible."
-            sandpackExample={
-              <SandpackExample
-                code={doExplainWhy}
-                name="Give explanation example"
-                hideEditor
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             type="don't"
             description="Omit an explanation as to why a user is encountering an error or issue."
             sandpackExample={
@@ -215,9 +215,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
           title="Labels"
           description={`
           Make sure ModalAlerts have a clear purpose when being read by a screen reader by specifying an \`accessibilityModalLabel\` that will update the spoken text for the heading prop and give the user more context about the ModalAlert.`}
-        >
-          <MainSection.Card cardSize="lg" />
-        </MainSection.Subsection>
+        />
       </AccessibilitySection>
 
       <MainSection
@@ -229,31 +227,89 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
           title="Multiple actions for confirmation"
           description="This is generally triggered by user action and asks a user to confirm or cancel an action. Confirmation ModalAlerts should always have a primary and secondary button; the primary button is for confirming, and the secondary for dismissing the modal. Confirmations aren’t critical and can be dismissed by clicking outside of the modal and hitting the ESC key, in addition to using the “Cancel” buttons provided in the modal."
         >
-          <MainSection.Card />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={multipleActions}
+                name="Multiple example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Single action for acknowledgment"
           description="This is system-generated and only requires a user to dismiss the message."
         >
-          <MainSection.Card />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={warningSingleAction}
+                name="Single example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Warning type"
           description="Warnings are used to alert a user that they need to proceed with caution. Due to their critical nature, warnings can only be dismissed by interacting with the dismiss buttons provided by the modal. If there is a way to resolve the warning, two buttons can be included. If not, only one “dismiss” button is needed."
         >
-          <MainSection.Card />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={warningMultiAction}
+                name="Multiple warning example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={warningSingleAction}
+                name="Single warning example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Error type"
           description="Error messages alert users of an error or a very critical issue that severely limits the user’s ability to continue. Like warnings, errors can only be dismissed by interacting with the dismiss buttons provided by the modal. If there is a way to resolve the error, two buttons can be included. If not, only one “dismiss” button is needed."
         >
-          <MainSection.Card />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={errorMultiAction}
+                name="Multiple error example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={errorSingleAction}
+                name="Single error example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           title="With checkbox"
           description="Checkbox can be added to a modal that isn’t a warning or an error. Checkboxes are normally used for confirmation modals that may appear frequently in a creation or editing flow. An example is creating an Idea Pin. **If the action is infrequent or highly destructive (like deleting something), do not offer an option to not show the modal again**."
         >
-          <MainSection.Card />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={withCheckbox}
+                name="Multiple example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Writing">

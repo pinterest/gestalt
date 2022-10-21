@@ -82,7 +82,7 @@ function Header({
   subHeading?: string,
 |}) {
   return (
-    <Box justifyContent={align} padding={8}>
+    <Box justifyContent={align} padding={6}>
       <Heading size="500" accessibilityLevel={1} align={align}>
         {heading}
       </Heading>
@@ -201,7 +201,7 @@ export default function Modal({
                       [modalStyles.shadow]: showBottomShadow,
                     })}
                   >
-                    <Box padding={8}>{footer}</Box>
+                    <Box padding={6}>{footer}</Box>
                   </div>
                 )}
               </Box>
