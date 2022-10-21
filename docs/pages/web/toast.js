@@ -267,7 +267,7 @@ function ToastExample() {
           layout="12column"
           name="Combinations: Thumbnail shapes"
           showValues={false}
-          thumbnailShape={['circle', 'rectangle', 'square']}
+          thumbnailShape={['circle', 'square']}
         >
           {(props) => (
             <Toast
