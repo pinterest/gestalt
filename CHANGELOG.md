@@ -1,3 +1,9 @@
+## 79.0.2 (Oct 22, 2022)
+
+### Patch
+
+- Docs: update Slack channel name ([#2456](https://github.com/pinterest/gestalt/pull/2456)) - [Preview link](https://deploy-preview-2456--gestalt.netlify.app)
+
 ## 79.0.1 (Oct 22, 2022)
 
 ### Patch
