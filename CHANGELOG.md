@@ -1,3 +1,9 @@
+## 79.0.1 (Oct 22, 2022)
+
+### Patch
+
+- Modal: Update docs and best practices ([#2455](https://github.com/pinterest/gestalt/pull/2455)) - [Preview link](https://deploy-preview-2455--gestalt.netlify.app)
+
 ## 79.0.0 (Oct 21, 2022)
 
 ### Major
