@@ -200,7 +200,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
         <MainSection.Subsection
           title="Labels"
           description={`
-          Make sure ModalAlerts have a clear purpose when being read by a screen reader by specifying an \`accessibilityModalLabel\` that will update the spoken text for the heading prop and give the user more context about the ModalAlert.`}
+          Make sure ModalAlerts have a clear purpose when being read by a screen reader by specifying an \`accessibilityModalLabel\` that will update the spoken text for the heading prop and give the user more context about the ModalAlert. Also ensure the \`accessibilityLabel\` is supplied when \`primaryAction\` or \`secondaryAction\` is specified. This label should provide a clear description of the action's purpose, like "Cancel board deletion".`}
         />
       </AccessibilitySection>
 

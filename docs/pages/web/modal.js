@@ -10,9 +10,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibilityExample from '../../examples/modal/accessibilityExample.js';
 import createBoardExample from '../../examples/modal/createBoardExample.js';
-import defaultExample from '../../examples/modal/defaultExample.js';
 import limitActionsExample from '../../examples/modal/limitActionsExample.js';
-import userResponseExample from '../../examples/modal/userResponseExample.js';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
 import sizesExample from '../../examples/modal/sizesExample.js';
 import preventCloseExample from '../../examples/modal/preventCloseExample.js';
@@ -24,7 +22,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
     <Page title="Modal">
       <PageHeader name="Modal" description={generatedDocGen?.description}>
         <SandpackExample
-          code={defaultExample}
+          code={accessibilityExample}
           name="Modal Main Example"
           hideEditor
           previewHeight={PREVIEW_HEIGHT}
@@ -68,7 +66,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             description="Use Modal when a response is required from the user. Clearly communicate what response is expected and make the action simple and straight forward, such as clicking a button to confirm. The most common responses will be related to confirming or canceling."
             sandpackExample={
               <SandpackExample
-                code={userResponseExample}
+                code={accessibilityExample}
                 name="User response example"
                 hideEditor
                 previewHeight={PREVIEW_HEIGHT}
@@ -141,7 +139,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
         <MainSection.Subsection
           title="Role"
           description={`
-          Use the \`alertdialog\` role when the Modal requires the user’s immediate attention, such as an error or warning. For instance, navigating away from a page with active edits may trigger an alertdialog Modal that asks the user to confirm if they want to lose their changes. Learn more about [the alertdialog role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alertdialog_role).
+          If the Modal requires the user’s immediate attention, such as an error or warning, use the [ModalAlert](/web/modalalert) component instead, which automatically applies \`role="alertdialog"\` to the modal. For instance, navigating away from a page with active edits may trigger an alertdialog ModalAlert that asks the user to confirm if they want to lose their changes. Learn more about [the alertdialog role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alertdialog_role).
     `}
         >
           <MainSection.Card
@@ -160,7 +158,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={accessibilityExample}
+                code={createBoardExample}
                 name="Default role example"
                 previewHeight={PREVIEW_HEIGHT}
               />
@@ -253,6 +251,9 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
+**[ModalAlert](/web/modalalert)**
+Used to alert a user of an issue, or to request confirmation after a user-triggered action. Should be used instead of Modal for simple acknowledgments and confirmations.
+
 **[Sheet](/web/sheet)**
 To allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page, use Sheet.
 

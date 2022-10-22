@@ -24,6 +24,7 @@ import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
 import Masonry from '../graphics/general/Masonry.svg';
 import Modal from '../graphics/general/Modal.svg';
+import ModalAlert from '../graphics/general/ModalAlert.svg';
 import Module from '../graphics/general/Module.svg';
 import NumberField from '../graphics/general/NumberField.svg';
 import PageHeader from '../graphics/general/PageHeader.svg';
@@ -1391,7 +1392,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <Modal />,
+    svg: <ModalAlert />,
     name: 'ModalAlert',
     aliases: ['AlertDialog', 'Prompt'],
     description:
