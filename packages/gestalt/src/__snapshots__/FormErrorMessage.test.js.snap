@@ -9,9 +9,51 @@ exports[`FormErrorMessage with errorMessage 1`] = `
   >
     <span
       className="formErrorMessage"
-      id="test-error"
+      id="test"
     >
-      some error message
+      <div
+        className="box"
+        role="alert"
+      >
+        <div
+          className="Flex rowGap2 columnGap2 xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Flex rowGap0 columnGap0 xsDirectionColumn"
+            >
+              <div
+                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <svg
+                    aria-hidden={true}
+                    aria-label=""
+                    className="icon errorIcon iconBlock"
+                    height={16}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={16}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            some error message
+          </div>
+        </div>
+      </div>
     </span>
   </div>
 </div>
@@ -26,8 +68,50 @@ exports[`FormErrorMessage with no errorMessage 1`] = `
   >
     <span
       className="formErrorMessage"
-      id="test-error"
-    />
+      id="test"
+    >
+      <div
+        className="box"
+        role="alert"
+      >
+        <div
+          className="Flex rowGap2 columnGap2 xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Flex rowGap0 columnGap0 xsDirectionColumn"
+            >
+              <div
+                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <svg
+                    aria-hidden={true}
+                    aria-label=""
+                    className="icon errorIcon iconBlock"
+                    height={16}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={16}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="FlexItem"
+          />
+        </div>
+      </div>
+    </span>
   </div>
 </div>
 `;

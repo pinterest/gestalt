@@ -150,6 +150,9 @@
       "cosmicore": {
         "900": { "value": "#111111" }
       }
+    },
+    "transparent": {
+      "value": "transparent"
     }
   }
 }

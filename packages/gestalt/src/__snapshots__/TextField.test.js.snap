@@ -6,7 +6,6 @@ exports[`TextField TextField normal 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -29,7 +28,6 @@ exports[`TextField TextField with autocomplete 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       autoComplete="email"
       className="textField base enabled normal medium truncate"
@@ -54,7 +52,6 @@ exports[`TextField TextField with disabled 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base disabled normal medium truncate"
       disabled={true}
@@ -77,7 +74,6 @@ exports[`TextField TextField with enterKeyHint 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -101,7 +97,6 @@ exports[`TextField TextField with error 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="true"
       className="textField base enabled errored medium truncate"
       disabled={false}
@@ -125,7 +120,49 @@ exports[`TextField TextField with error 1`] = `
         className="formErrorMessage"
         id="test-error"
       >
-        error message
+        <div
+          className="box"
+          role="alert"
+        >
+          <div
+            className="Flex rowGap2 columnGap2 xsDirectionRow"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <div
+                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon errorIcon iconBlock"
+                      height={16}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={16}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="FlexItem"
+            >
+              error message
+            </div>
+          </div>
+        </div>
       </span>
     </div>
   </div>
@@ -138,7 +175,6 @@ exports[`TextField TextField with hasError 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="true"
       className="textField base enabled errored medium truncate"
       disabled={false}
@@ -161,7 +197,6 @@ exports[`TextField TextField with maxLength character counter 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -179,6 +214,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
   </div>
   <div
     className="box marginTop2"
+    id="test-helperText"
   >
     <div
       className="Flex rowGap4 columnGap4 xsDirectionRow"
@@ -232,6 +268,11 @@ exports[`TextField TextField with maxLength character counter 1`] = `
               <div
                 className="Text fontSize100 subtleText alignEnd breakWord fontWeightNormal"
               >
+                <div
+                  className="box xsDisplayVisuallyHidden"
+                >
+                  ,
+                </div>
                 0/20
               </div>
             </div>
@@ -249,7 +290,6 @@ exports[`TextField TextField with name 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -273,7 +313,6 @@ exports[`TextField TextField with readOnly 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -491,7 +530,6 @@ exports[`TextField TextField with tags 1`] = `
           className="textFieldSpacer"
         />
         <input
-          aria-describedby={null}
           aria-invalid="false"
           className="unstyledTextField"
           disabled={false}

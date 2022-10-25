@@ -166,7 +166,7 @@ We have several React components that use typography as the primary element.
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                {['600', '28px', '28pt', '28sp'].map((item) => (
+                {['600', '36px', '36pt', '36sp'].map((item) => (
                   <Table.Cell key={item}>
                     <Text size="200">{item}</Text>
                   </Table.Cell>
@@ -259,7 +259,7 @@ We use browser defaults on web UIs so that lines of text are readable in all lan
 iOS leading is automatically determined by a font’s size. Below is a breakdown based on Gestalt’s current font sizes. For more info, refer to Apple’s [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
             `}
           />
-          <Table accessibilityLabel="Font weight treatements">
+          <Table accessibilityLabel="Font weight treatments">
             <Table.Header>
               <Table.Row>
                 {['Font size (pt)', 'Leading'].map((item) => (
@@ -422,7 +422,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           title="Font weight"
           description="On Pinner surfaces, the main focus is a user’s visual content. On business surfaces, visuals are supported by denser text content and data visualization. Therefore, typographic weight shouldn’t be so heavy that it causes visual noise, nor should it be too light to read. Use the following guidelines for choosing font weight:"
         >
-          <Table accessibilityLabel="Font weight treatements">
+          <Table accessibilityLabel="Font weight treatments">
             <Table.Header>
               <Table.Row>
                 {['Use case', 'Web weight', 'iOS weight', 'Android weight', 'Example'].map(
@@ -526,7 +526,7 @@ Line height is automatically determined by a font’s size. For more info, refer
         name="Hierarchy"
         description="Font size and weight, along with line height, spacing, and width allow us to create a scannable and readable hierarchy that guides a user through a product experience."
       >
-        <Table accessibilityLabel="Typgraphic hierarchy">
+        <Table accessibilityLabel="Typographic hierarchy">
           <Table.Header>
             <Table.Row>
               {['Role', 'Size', 'Weight', 'Context'].map((item) => (
@@ -666,7 +666,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Follow a logical hierarchy by using headings based on a numerical order, not on font size. This makes our content more accessibile for SEO and screen readers."
+            description="Follow a logical hierarchy by using headings based on a numerical order, not on font size. This makes our content more accessible for SEO and screen readers."
           >
             <HierarchyDo />
           </MainSection.Card>

@@ -52,16 +52,19 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
         {maxLengthReached ? (
           <Fragment>
             {/* This visually hidden error message is accessible by screenreaders. It alerts the user right after the maximum length is reached. */}
-            <Box display="visuallyHidden" aria-live="assertive" role="alert">
+            <Box display="visuallyHidden" role="alert">
               {maxLength?.errorAccessibilityLabel}
             </Box>
-            <Status type={status} accessibilityLabel={maxLength?.errorAccessibilityLabel} />
+            <Box aria-hidden>
+              <Status type={status} accessibilityLabel="" />
+            </Box>
           </Fragment>
         ) : (
           <Box width={16} />
         )}
         <Flex width={width} justifyContent="end">
           <Text color={maxLengthReached ? textColor : 'subtle'} size="100" align="end">
+            <Box display="visuallyHidden">,</Box>
             {`${currentLength?.toString() ?? ''}/${maxLengthChars}`}
           </Text>
         </Flex>

@@ -53,7 +53,10 @@ export default function Fieldset({
   }
 
   return (
-    <fieldset className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}>
+    <fieldset
+      className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
+      aria-describedby={errorMessage ? `${id}-error` : undefined}
+    >
       <legend
         className={classnames(
           labelStyles.label,
@@ -67,7 +70,7 @@ export default function Fieldset({
         <Text size="100">{legend}</Text>
       </legend>
       {children}
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
     </fieldset>
   );
 }

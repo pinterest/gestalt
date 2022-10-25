@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { useState, type Node } from 'react';
 import classnames from 'classnames';
 import formElement from './FormElement.css';
 import layout from './Layout.css';
@@ -92,15 +92,6 @@ function SelectList({
     }
   };
 
-  const handleBlur: (event: SyntheticInputEvent<HTMLSelectElement>) => void = (event) => {
-    setFocused(false);
-    handleOnChange(event);
-  };
-
-  const handleFocus = () => {
-    setFocused(true);
-  };
-
   const classes = classnames(
     styles.select,
     formElement.base,
@@ -110,6 +101,16 @@ function SelectList({
   );
 
   const showPlaceholder = placeholder && !value;
+
+  let ariaDescribedby;
+
+  if (errorMessage) {
+    ariaDescribedby = `${id}-error`;
+  }
+
+  if (label && helperText) {
+    ariaDescribedby = `${id}-helperText`;
+  }
 
   return (
     <Box>
@@ -140,15 +141,19 @@ function SelectList({
           />
         </Box>
         <select
-          aria-describedby={errorMessage && focused ? `${id}-error` : null}
+          // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+          aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={errorMessage ? 'true' : 'false'}
           className={classes}
           disabled={disabled}
           id={id}
           name={name}
-          onBlur={handleBlur}
+          onBlur={(event) => {
+            setFocused(false);
+            handleOnChange(event);
+          }}
           onChange={handleOnChange}
-          onFocus={handleFocus}
+          onFocus={() => setFocused(true)}
           value={showPlaceholder ? placeholder : value}
         >
           {showPlaceholder && (
@@ -159,8 +164,10 @@ function SelectList({
           {children}
         </select>
       </Box>
-      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+      {helperText && !errorMessage ? (
+        <FormHelperText id={`${id}-helperText`} text={helperText} />
+      ) : null}
+      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
     </Box>
   );
 }

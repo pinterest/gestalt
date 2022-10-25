@@ -151,7 +151,18 @@ yarn playwright:test
           `}
             />
           </Text>
+          <Heading size="400">How do I update a visual snapshot for a specific test?</Heading>
+          <Text>
+            Run <code>yarn playwright:test</code> and specify a visual test file:
+          </Text>
+          <Markdown
+            text="
+~~~bash
+yarn playwright:test visual-test/Video.spec.mjs --update-snapshots
+~~~"
+          />
 
+          <Heading size="400">What is Gestalt teachings and how do I add a video?</Heading>
           <Heading size="400">Is there any internal Pinterest documentation for Gestalt?</Heading>
           <Text>
             If you&apos;re a Pinterest employee, you can visit

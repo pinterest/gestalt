@@ -24,6 +24,7 @@ import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
 import Masonry from '../graphics/general/Masonry.svg';
 import Modal from '../graphics/general/Modal.svg';
+import ModalAlert from '../graphics/general/ModalAlert.svg';
 import Module from '../graphics/general/Module.svg';
 import NumberField from '../graphics/general/NumberField.svg';
 import PageHeader from '../graphics/general/PageHeader.svg';
@@ -1346,6 +1347,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'Modal',
     aliases: ['Dialog', 'Prompt'],
     description: 'Modal displays content that requires user interaction.',
+    category: 'Overlays',
+    status: {
+      accessible: {
+        summary: 'partial',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'partial',
+        a11yNavigation: 'partial',
+        a11yComprehension: 'ready',
+      },
+      badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'partial',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <ModalAlert />,
+    name: 'ModalAlert',
+    aliases: ['AlertDialog', 'Prompt'],
+    description:
+      'ModalAlert is used to alert a user of an issue, or to request confirmation after a user-triggered action.',
     category: 'Overlays',
     status: {
       accessible: {

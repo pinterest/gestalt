@@ -1,3 +1,105 @@
+## 79.0.2 (Oct 22, 2022)
+
+### Patch
+
+- Docs: update Slack channel name ([#2456](https://github.com/pinterest/gestalt/pull/2456)) - [Preview link](https://deploy-preview-2456--gestalt.netlify.app)
+
+## 79.0.1 (Oct 22, 2022)
+
+### Patch
+
+- Modal: Update docs and best practices ([#2455](https://github.com/pinterest/gestalt/pull/2455)) - [Preview link](https://deploy-preview-2455--gestalt.netlify.app)
+
+## 79.0.0 (Oct 21, 2022)
+
+### Major
+
+- Toast: deprecating value thumbnailShape=rectangular ([#2454](https://github.com/pinterest/gestalt/pull/2454)) - [Preview link](https://deploy-preview-2454--gestalt.netlify.app)
+
+## 78.2.0 (Oct 21, 2022)
+
+### Minor
+
+- Flex: add dataTestId ([#2451](https://github.com/pinterest/gestalt/pull/2451)) - [Preview link](https://deploy-preview-2451--gestalt.netlify.app)
+
+## 78.1.4 (Oct 21, 2022)
+
+### Patch
+
+- Weekly updates for the last two weeks ([#2452](https://github.com/pinterest/gestalt/pull/2452)) - [Preview link](https://deploy-preview-2452--gestalt.netlify.app)
+
+## 78.1.3 (Oct 21, 2022)
+
+### Patch
+
+- ModalAlert: Add documentation and best practices ([#2450](https://github.com/pinterest/gestalt/pull/2450)) - [Preview link](https://deploy-preview-2450--gestalt.netlify.app)
+
+## 78.1.2 (Oct 20, 2022)
+
+### Patch
+
+- Design Tokens: Add transparent token ([#2448](https://github.com/pinterest/gestalt/pull/2448)) - [Preview link](https://deploy-preview-2448--gestalt.netlify.app)
+
+## 78.1.1 (Oct 20, 2022)
+
+### Patch
+
+- ModalAlert: Fix validation bug ([#2449](https://github.com/pinterest/gestalt/pull/2449)) - [Preview link](https://deploy-preview-2449--gestalt.netlify.app)
+
+## 78.1.0 (Oct 19, 2022)
+
+### Minor
+
+- Checkbox, RadioGroup, TextArea, TextField, NumberField, SearchField, SelectList, ComboBox: Add error icon to all errorMessage text elements, standardize implementation, & related a11y improvements ([#2444](https://github.com/pinterest/gestalt/pull/2444)) - [Preview link](https://deploy-preview-2444--gestalt.netlify.app)
+
+## 78.0.3 (Oct 19, 2022)
+
+### Patch
+
+- Internal: re-enable playwright visual tests ([#2286](https://github.com/pinterest/gestalt/pull/2286)) - [Preview link](https://deploy-preview-2286--gestalt.netlify.app)
+
+## 78.0.2 (Oct 18, 2022)
+
+### Patch
+
+- DefaultLabelProvider: add comments about updating translations ([#2446](https://github.com/pinterest/gestalt/pull/2446)) - [Preview link](https://deploy-preview-2446--gestalt.netlify.app)
+
+## 78.0.1 (Oct 18, 2022)
+
+### Patch
+
+- Masonry: update uniformRow docs example ([#2445](https://github.com/pinterest/gestalt/pull/2445)) - [Preview link](https://deploy-preview-2445--gestalt.netlify.app)
+
+## 78.0.0 (Oct 17, 2022)
+
+### Major
+
+- ModalAlert: New component for confirmation and acknowledgment ([#2436](https://github.com/pinterest/gestalt/pull/2436)) - [Preview link](https://deploy-preview-2436--gestalt.netlify.app)
+
+## 77.2.0 (Oct 14, 2022)
+
+### Minor
+
+- Masonry: add virtualBufferFactor prop ([#2442](https://github.com/pinterest/gestalt/pull/2442)) - [Preview link](https://deploy-preview-2442--gestalt.netlify.app)
+
+## 77.1.5 (Oct 14, 2022)
+
+### Patch
+
+- Typography guidelines: fix typos ([#2443](https://github.com/pinterest/gestalt/pull/2443)) - [Preview link](https://deploy-preview-2443--gestalt.netlify.app)
+
+## 77.1.4 (Oct 13, 2022)
+
+### Patch
+
+- Docs: convert NumberField to use Sandpack ([#2441](https://github.com/pinterest/gestalt/pull/2441)) - [Preview link](https://deploy-preview-2441--gestalt.netlify.app)
+
+## 77.1.3 (Oct 13, 2022)
+
+### Patch
+
+- Docs: convert Hacking Gestalt page to use Sandpack ([#2440](https://github.com/pinterest/gestalt/pull/2440)) - [Preview link](https://deploy-preview-2440--gestalt.netlify.app)
+
 ## 77.1.2 (Oct 12, 2022)
 
 ### Patch

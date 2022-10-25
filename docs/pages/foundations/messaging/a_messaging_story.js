@@ -147,7 +147,7 @@ After setting her new password, Claire gets a short and brief success toast just
           format="twoColImgRight"
           heading="Error modal"
           text={`
-As she pins, Claire accidentally taps a link that leads to harmful content. Luckily, we can stop this by throwing an AlertModal letting her know why she can’t continue.
+As she pins, Claire accidentally taps a link that leads to harmful content. Luckily, we can stop this by throwing an ModalAlert letting her know why she can’t continue.
 
 Claire goes back to find some other pins, then decides it’s time to get back to work.
             `}

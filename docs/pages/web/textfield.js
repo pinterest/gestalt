@@ -571,9 +571,8 @@ function Example(props) {
         <MainSection.Subsection
           title="Error message"
           description={`
-          TextField can display an error message.
-          Simply pass in an \`errorMessage\` when there is an error present and we will handle the rest.
-          Be sure to localize the text!
+TextField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextField will handle the rest.
+Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.
           `}
         >
           <MainSection.Card
@@ -585,7 +584,7 @@ function Example(props) {
     <TextField
       errorMessage={!value ? "This field can't be blank!" : null}
       id="variants-error-message"
-      label="With an error message"
+      label="New username"
       onChange={({ value }) => {
         setValue(value);
       }}

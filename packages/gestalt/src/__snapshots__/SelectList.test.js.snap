@@ -50,7 +50,6 @@ exports[`SelectList renders an option group 1`] = `
       </svg>
     </div>
     <select
-      aria-describedby={null}
       aria-invalid="false"
       className="select base enabled normal medium"
       disabled={false}
@@ -143,7 +142,6 @@ exports[`SelectList renders with a hidden label 1`] = `
       </svg>
     </div>
     <select
-      aria-describedby={null}
       aria-invalid="false"
       className="select base enabled normal medium"
       disabled={false}
@@ -208,7 +206,6 @@ exports[`SelectList renders with typical props 1`] = `
       </svg>
     </div>
     <select
-      aria-describedby={null}
       aria-invalid="false"
       className="select base enabled normal medium"
       disabled={false}

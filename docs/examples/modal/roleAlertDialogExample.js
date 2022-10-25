@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Button, CompositeZIndex, FixedZIndex, Flex, Layer, Modal, Text } from 'gestalt';
+import { CompositeZIndex, FixedZIndex, Layer, ModalAlert, Text } from 'gestalt';
 
 export default function AlertDialogAccessibilityExample(): Node {
   const [showModal, setShowModal] = React.useState(false);
@@ -10,33 +10,28 @@ export default function AlertDialogAccessibilityExample(): Node {
 
   return (
     <Layer zIndex={zIndex}>
-      <Modal
-        accessibilityModalLabel="Delete board 60s Furniture"
-        role="alertdialog"
-        heading="Are you sure?"
+      <ModalAlert
+        accessibilityModalLabel="Delete 70s couch item"
+        heading="Remove this item?"
+        primaryAction={{
+          accessibilityLabel: 'Remove item',
+          label: 'Yes, remove',
+          onClick: () => {},
+        }}
+        secondaryAction={{
+          accessibilityLabel: 'Keep item',
+          label: 'No, keep',
+          onClick: () => {},
+        }}
         onDismiss={() => {
           setShowModal(!showModal);
         }}
-        footer={
-          <Flex
-            justifyContent="end"
-            gap={{
-              row: 2,
-              column: 0,
-            }}
-          >
-            <Button color="gray" text="Cancel" />
-            <Button color="red" text="Delete forever" />
-          </Flex>
-        }
-        size="sm"
       >
-        <Box padding={8}>
-          <Text align="center" size="300">
-            Once you delete a board and all its Pins, you can&apos;t undo it!
-          </Text>
-        </Box>
-      </Modal>
+        <Text>
+          This item and all of its related metadata will be removed from your Catalogs permanently.
+          This cannot be undone.
+        </Text>
+      </ModalAlert>
     </Layer>
   );
 }

@@ -1,23 +1,9 @@
 // @flow strict-local
 import { useState } from 'react';
 import { act, render, screen, fireEvent } from '@testing-library/react';
-import { DefaultLabelProvider } from 'gestalt';
 import DatePicker from './DatePicker.js';
 
-const accessibilityLabels = {
-  ComboBox: {
-    accessibilityClearButtonLabel: 'Clear input',
-  },
-  TextField: {
-    accessibilityHidePasswordLabel: 'Hide password',
-    accessibilityShowPasswordLabel: 'Show password',
-  },
-};
 const initialDate = new Date(2018, 11, 14);
-
-function renderComp(comp) {
-  return render(<DefaultLabelProvider labels={accessibilityLabels}>{comp}</DefaultLabelProvider>);
-}
 
 function DatePickerWrap() {
   const [date, setDate] = useState(initialDate);
@@ -38,7 +24,7 @@ describe('DatePicker', () => {
   });
 
   it('displays TextField with given initial date', () => {
-    renderComp(<DatePicker id="fake_id" onChange={() => {}} value={initialDate} />);
+    render(<DatePicker id="fake_id" onChange={() => {}} value={initialDate} />);
     // We only check for selected value upon rendering,
     // because onChange logic is outside DatePicker
     // So initial date value does not change upon firing click event
@@ -48,7 +34,7 @@ describe('DatePicker', () => {
   it('passes clicked date to onChange prop', () => {
     const newDate = new Date(2018, 11, 13);
 
-    renderComp(
+    render(
       <DatePicker
         id="fake_id"
         onChange={mockOnChange}
@@ -70,7 +56,7 @@ describe('DatePicker', () => {
   });
 
   test('opens and closes DatePicker popover correctly', async () => {
-    renderComp(<DatePickerWrap />);
+    render(<DatePickerWrap />);
 
     // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
     await act(async () => {
@@ -103,7 +89,7 @@ describe('DatePicker', () => {
   });
 
   test('accepts entering manual dates', async () => {
-    renderComp(<DatePickerWrap />);
+    render(<DatePickerWrap />);
 
     // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
     await act(async () => {

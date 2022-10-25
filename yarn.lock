@@ -56,10 +56,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@axe-core/playwright@^4.4.2":
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/@axe-core/playwright/-/playwright-4.4.2.tgz#85811cc0e9fc2953e7be356043e1a368913c8106"
-  integrity sha512-PzdGAG4ybVfu/hgMRiMdirSGhwZf/hHlfEDmr/WFdcYv60XhQKSgb5h9B2H+6WN17hTmbacbQigq/4r5b7Ok4g==
+"@axe-core/playwright@^4.4.3":
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/@axe-core/playwright/-/playwright-4.4.3.tgz#cd92dc059a30566ab5153f632154b2ce7dc63d55"
+  integrity sha512-5H1uebutjeS8zV0klAifAsFxIOdAAF8AAGzfnC1twFY1h74TVISTDOtb+qyDzjjW3YAFd3FEbbasqS6ULcdkcQ==
   dependencies:
     axe-core "^4.4.1"
     playwright "^1.16.2"
@@ -3490,13 +3490,13 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@playwright/test@^1.22.1":
-  version "1.22.2"
-  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.22.2.tgz#b848f25f8918140c2d0bae8e9227a40198f2dd4a"
-  integrity sha512-cCl96BEBGPtptFz7C2FOSN3PrTnJ3rPpENe+gYCMx4GNNDlN4tmo2D89y13feGKTMMAIVrXfSQ/UmaQKLy1XLA==
+"@playwright/test@^1.25.0":
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.25.0.tgz#e0de134651e78e45e986c5f16578188dd5937331"
+  integrity sha512-j4EZhTTQI3dBeWblE21EV//swwmBtOpIrLdOIJIRv4uqsLdHgBg1z+JtTg+AeC5o2bAXIE26kDNW5A0TimG8Bg==
   dependencies:
     "@types/node" "*"
-    playwright-core "1.22.2"
+    playwright-core "1.25.0"
 
 "@react-hook/intersection-observer@^3.1.1":
   version "3.1.1"
@@ -7398,10 +7398,10 @@ eslint-plugin-jsx-a11y@^6.5.1:
     language-tags "^1.0.5"
     minimatch "^3.0.4"
 
-eslint-plugin-playwright@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-playwright/-/eslint-plugin-playwright-0.9.0.tgz#e14ac6c834f2704b293fc3f45cd40d771ec2e840"
-  integrity sha512-5bxAhiKjRASSgtQ4IipwtdesgQ8GT9m0PK61Uqxclu/TpiZS4eaAksydVeiiSPIOQph5GvuuLA7+oBS0WkWO6w==
+eslint-plugin-playwright@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-playwright/-/eslint-plugin-playwright-0.10.0.tgz#b90faba9002bc594b879435f3c83b198722b00f6"
+  integrity sha512-67iCGx4UZS8Z/Z9CcNbWjoJ7v5t7awfV2REm6hjEywYhE36GsOwGzgvDJ+dYdNwC1enLxFijUvwzfnIUin+5DA==
 
 eslint-plugin-react-hooks@^4.3.0:
   version "4.3.0"
@@ -13710,6 +13710,11 @@ playwright-core@1.22.2:
   version "1.22.2"
   resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.22.2.tgz#ed2963d79d71c2a18d5a6fd25b60b9f0a344661a"
   integrity sha512-w/hc/Ld0RM4pmsNeE6aL/fPNWw8BWit2tg+TfqJ3+p59c6s3B6C8mXvXrIPmfQEobkcFDc+4KirNzOQ+uBSP1Q==
+
+playwright-core@1.25.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.25.0.tgz#54dc867c6c2cc5e4233905e249206a02914d14f1"
+  integrity sha512-kZ3Jwaf3wlu0GgU0nB8UMQ+mXFTqBIFz9h1svTlNduNKjnbPXFxw7mJanLVjqxHJRn62uBfmgBj93YHidk2N5Q==
 
 playwright@^1.16.2:
   version "1.22.2"

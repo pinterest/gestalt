@@ -29,7 +29,7 @@ type Props = {|
   /**
    * The masked shape of the thumbnail.
    */
-  thumbnailShape?: 'circle' | 'rectangle' | 'square',
+  thumbnailShape?: 'circle' | 'square',
   /**
    * Use the `'error'` variant to indicate an error message. Generally not recommended given the ephemeral nature of Toasts.
    */

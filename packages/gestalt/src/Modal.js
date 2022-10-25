@@ -82,7 +82,7 @@ function Header({
   subHeading?: string,
 |}) {
   return (
-    <Box justifyContent={align} padding={8}>
+    <Box justifyContent={align} padding={6}>
       <Heading size="500" accessibilityLevel={1} align={align}>
         {heading}
       </Heading>
@@ -96,7 +96,7 @@ function Header({
 }
 
 /**
- * A [Modal](https://gestalt.pinterest.systems/web/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. The most common example of Modal is confirming an action the user has taken.
+ * A [Modal](https://gestalt.pinterest.systems/web/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. Modal should be used to gather short bits of information from the user. For confirmation of an action or acknowledgment, use [ModalAlert](https://gestalt.pinterest.systems/web/modalalert).
  */
 export default function Modal({
   _dangerouslyDisableScrollBoundaryContainer = false,
@@ -201,7 +201,7 @@ export default function Modal({
                       [modalStyles.shadow]: showBottomShadow,
                     })}
                   >
-                    <Box padding={8}>{footer}</Box>
+                    <Box padding={6}>{footer}</Box>
                   </div>
                 )}
               </Box>

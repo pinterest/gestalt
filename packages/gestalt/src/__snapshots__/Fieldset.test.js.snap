@@ -19,31 +19,27 @@ exports[`Fieldset renders 1`] = `
     <div
       className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
     >
-      <label
-        className="label"
-        htmlFor="Schnauzer"
+      <div
+        className="box paddingX1 relative"
       >
+        <input
+          aria-invalid="false"
+          checked={false}
+          className="input sizeMd inputEnabled"
+          disabled={false}
+          id="Schnauzer"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
         <div
-          className="box paddingX1 relative"
-        >
-          <input
-            checked={false}
-            className="input sizeMd inputEnabled"
-            disabled={false}
-            id="Schnauzer"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            type="checkbox"
-          />
-          <div
-            className="whiteBg border borderRadiusMd sizeMd check"
-          />
-        </div>
-      </label>
+          className="whiteBg border borderRadiusMd sizeMd check"
+        />
+      </div>
       <div
         className="box xsDisplayBlock"
         style={
@@ -66,6 +62,9 @@ exports[`Fieldset renders 1`] = `
             </div>
           </div>
         </label>
+        <div
+          className="box paddingX1"
+        />
       </div>
     </div>
   </div>
@@ -75,31 +74,27 @@ exports[`Fieldset renders 1`] = `
     <div
       className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
     >
-      <label
-        className="label"
-        htmlFor="Aussie"
+      <div
+        className="box paddingX1 relative"
       >
+        <input
+          aria-invalid="false"
+          checked={false}
+          className="input sizeMd inputEnabled"
+          disabled={false}
+          id="Aussie"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
         <div
-          className="box paddingX1 relative"
-        >
-          <input
-            checked={false}
-            className="input sizeMd inputEnabled"
-            disabled={false}
-            id="Aussie"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            type="checkbox"
-          />
-          <div
-            className="whiteBg border borderRadiusMd sizeMd check"
-          />
-        </div>
-      </label>
+          className="whiteBg border borderRadiusMd sizeMd check"
+        />
+      </div>
       <div
         className="box xsDisplayBlock"
         style={
@@ -122,6 +117,9 @@ exports[`Fieldset renders 1`] = `
             </div>
           </div>
         </label>
+        <div
+          className="box paddingX1"
+        />
       </div>
     </div>
   </div>
@@ -147,31 +145,27 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     <div
       className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
     >
-      <label
-        className="label"
-        htmlFor="Schnauzer"
+      <div
+        className="box paddingX1 relative"
       >
+        <input
+          aria-invalid="false"
+          checked={false}
+          className="input sizeMd inputEnabled"
+          disabled={false}
+          id="Schnauzer"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
         <div
-          className="box paddingX1 relative"
-        >
-          <input
-            checked={false}
-            className="input sizeMd inputEnabled"
-            disabled={false}
-            id="Schnauzer"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            type="checkbox"
-          />
-          <div
-            className="whiteBg border borderRadiusMd sizeMd check"
-          />
-        </div>
-      </label>
+          className="whiteBg border borderRadiusMd sizeMd check"
+        />
+      </div>
       <div
         className="box xsDisplayBlock"
         style={
@@ -194,6 +188,9 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
             </div>
           </div>
         </label>
+        <div
+          className="box paddingX1"
+        />
       </div>
     </div>
   </div>
@@ -203,31 +200,27 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     <div
       className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
     >
-      <label
-        className="label"
-        htmlFor="Aussie"
+      <div
+        className="box paddingX1 relative"
       >
+        <input
+          aria-invalid="false"
+          checked={false}
+          className="input sizeMd inputEnabled"
+          disabled={false}
+          id="Aussie"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
         <div
-          className="box paddingX1 relative"
-        >
-          <input
-            checked={false}
-            className="input sizeMd inputEnabled"
-            disabled={false}
-            id="Aussie"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            type="checkbox"
-          />
-          <div
-            className="whiteBg border borderRadiusMd sizeMd check"
-          />
-        </div>
-      </label>
+          className="whiteBg border borderRadiusMd sizeMd check"
+        />
+      </div>
       <div
         className="box xsDisplayBlock"
         style={
@@ -250,6 +243,9 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
             </div>
           </div>
         </label>
+        <div
+          className="box paddingX1"
+        />
       </div>
     </div>
   </div>
@@ -258,6 +254,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
 
 exports[`Fieldset renders with errorMessage 1`] = `
 <fieldset
+  aria-describedby="fieldset-with-error-error"
   className="unstyled p0 m0"
 >
   <legend
@@ -275,31 +272,27 @@ exports[`Fieldset renders with errorMessage 1`] = `
     <div
       className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
     >
-      <label
-        className="label"
-        htmlFor="Schnauzer"
+      <div
+        className="box paddingX1 relative"
       >
+        <input
+          aria-invalid="false"
+          checked={false}
+          className="input sizeMd inputEnabled"
+          disabled={false}
+          id="Schnauzer"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
         <div
-          className="box paddingX1 relative"
-        >
-          <input
-            checked={false}
-            className="input sizeMd inputEnabled"
-            disabled={false}
-            id="Schnauzer"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            type="checkbox"
-          />
-          <div
-            className="whiteBg border borderRadiusMd sizeMd check"
-          />
-        </div>
-      </label>
+          className="whiteBg border borderRadiusMd sizeMd check"
+        />
+      </div>
       <div
         className="box xsDisplayBlock"
         style={
@@ -322,6 +315,9 @@ exports[`Fieldset renders with errorMessage 1`] = `
             </div>
           </div>
         </label>
+        <div
+          className="box paddingX1"
+        />
       </div>
     </div>
   </div>
@@ -331,31 +327,27 @@ exports[`Fieldset renders with errorMessage 1`] = `
     <div
       className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
     >
-      <label
-        className="label"
-        htmlFor="Aussie"
+      <div
+        className="box paddingX1 relative"
       >
+        <input
+          aria-invalid="false"
+          checked={false}
+          className="input sizeMd inputEnabled"
+          disabled={false}
+          id="Aussie"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
         <div
-          className="box paddingX1 relative"
-        >
-          <input
-            checked={false}
-            className="input sizeMd inputEnabled"
-            disabled={false}
-            id="Aussie"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            type="checkbox"
-          />
-          <div
-            className="whiteBg border borderRadiusMd sizeMd check"
-          />
-        </div>
-      </label>
+          className="whiteBg border borderRadiusMd sizeMd check"
+        />
+      </div>
       <div
         className="box xsDisplayBlock"
         style={
@@ -378,6 +370,9 @@ exports[`Fieldset renders with errorMessage 1`] = `
             </div>
           </div>
         </label>
+        <div
+          className="box paddingX1"
+        />
       </div>
     </div>
   </div>
@@ -391,7 +386,49 @@ exports[`Fieldset renders with errorMessage 1`] = `
         className="formErrorMessage"
         id="fieldset-with-error-error"
       >
-        At least 1 item must be selected
+        <div
+          className="box"
+          role="alert"
+        >
+          <div
+            className="Flex rowGap2 columnGap2 xsDirectionRow"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <div
+                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon errorIcon iconBlock"
+                      height={16}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={16}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="FlexItem"
+            >
+              At least 1 item must be selected
+            </div>
+          </div>
+        </div>
       </span>
     </div>
   </div>

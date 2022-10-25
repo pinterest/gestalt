@@ -8,7 +8,13 @@ on:
       - master
 jobs:
   playwright-run:
-    runs-on: ubuntu-latest
+    name: Test (${{ matrix.shard }})
+    timeout-minutes: 60
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ['1/5', '2/5', '3/5', '4/5', '5/5']
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -22,7 +28,7 @@ jobs:
       - name: Run build
         run: yarn build
       - name: Run your tests
-        run: yarn run playwright:test --workers 2
+        run: yarn run playwright:test --workers 2 --shard=${{ matrix.shard }}
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v2

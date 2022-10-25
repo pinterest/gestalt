@@ -54,8 +54,6 @@ describe('TextField', () => {
     expect(screen.getByText('20/20', { ignore: '.subtleText' })).toBeVisible();
 
     expect(screen.getByText(errorAccessibilityLabel)).toBeVisible();
-
-    expect(screen.getByLabelText(errorAccessibilityLabel)).toBeVisible();
   });
 
   /* eslint-disable-next-line jest/expect-expect */

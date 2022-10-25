@@ -6,26 +6,19 @@ function ModalWithSubHeading({ onDismiss }: {| onDismiss: () => void |}) {
   return (
     <Modal
       accessibilityModalLabel="Resume account creation"
+      align="start"
       heading="Resume your work?"
       subHeading="Welcome back to the business account creation process!"
-      align="start"
       onDismiss={onDismiss}
       footer={
-        <Flex
-          alignItems="center"
-          justifyContent="end"
-          gap={{
-            row: 2,
-            column: 0,
-          }}
-        >
+        <Flex alignItems="center" justifyContent="end" gap={2}>
           <Button text="Cancel" onClick={onDismiss} />
           <Button color="red" text="Resume" />
         </Flex>
       }
       size="sm"
     >
-      <Box paddingX={8}>
+      <Box paddingX={6}>
         <Text>
           Want to continue where you left off? Click &quot;Resume&quot; to continue creating your
           account or &quot;Cancel&quot; to start over.
