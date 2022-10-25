@@ -40,6 +40,7 @@ import Module from './Module.js';
 import NumberField from './NumberField.js';
 import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
 import PageHeader from './PageHeader.js';
+import PilotToast from './PilotToast.js';
 import Pog from './Pog.js';
 import Popover from './Popover.js';
 import Pulsar from './Pulsar.js';
@@ -115,6 +116,7 @@ export {
   NumberField,
   OnLinkNavigationProvider,
   PageHeader,
+  PilotToast,
   Pog,
   Popover,
   Pulsar,

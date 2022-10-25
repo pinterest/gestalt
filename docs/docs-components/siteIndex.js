@@ -103,6 +103,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Module',
       'NumberField',
       'PageHeader',
+      'PilotToast',
       'Pog',
       'Popover',
       'Pulsar',
