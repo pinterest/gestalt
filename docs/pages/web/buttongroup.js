@@ -8,11 +8,15 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import defaultExample from '../../examples/buttongroup/defaultExample.js';
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description} />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
+        <SandpackExample code={defaultExample} name="ButtonGroup Main Example" hideEditor />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

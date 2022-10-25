@@ -8,11 +8,15 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import defaultExample from '../../examples/segmentedcontrol/defaultExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="SegmentedControl">
-      <PageHeader name="SegmentedControl" description={generatedDocGen?.description} />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
+        <SandpackExample code={defaultExample} name="SegmentedControl Main Example" hideEditor />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

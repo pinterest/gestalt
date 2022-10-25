@@ -8,11 +8,15 @@ import Page from '../../docs-components/Page.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import defaultExample from '../../examples/tag/defaultExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
+        <SandpackExample code={defaultExample} name="Tag Main Example" hideEditor />
+      </PageHeader>
 
       <PropTable
         componentName={generatedDocGen?.displayName}
