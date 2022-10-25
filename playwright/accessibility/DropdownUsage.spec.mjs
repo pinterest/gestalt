@@ -3,6 +3,6 @@ import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
 test('Dropdown Accessibility check', async ({ page }) => {
-  await page.goto('/web/dropdown');
+  await page.goto('/web/dropdown/usage');
   await expectAccessiblePage({ page });
 });
