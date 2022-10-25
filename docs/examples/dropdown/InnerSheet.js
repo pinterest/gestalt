@@ -2,7 +2,7 @@
 import { type Node, Fragment, useState, useRef, useEffect } from 'react';
 import { Box, Button, Dropdown, CompositeZIndex, FixedZIndex, Layer, Sheet } from 'gestalt';
 
-function InnerSheet(): Node {
+export default function InnerSheet(): Node {
   const [shouldShow, setShouldShow] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedElement, setSelectedElement] = useState(null);
@@ -17,7 +17,6 @@ function InnerSheet(): Node {
   }, [setElements]);
 
   const handleSelect = ({ item }) => {
-    console.log('Selected item: ', item);
     setSelectedElement(item);
   };
 
@@ -71,5 +70,3 @@ function InnerSheet(): Node {
     </Fragment>
   );
 }
-
-export default InnerSheet;

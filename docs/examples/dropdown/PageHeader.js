@@ -2,7 +2,7 @@
 import { type Node, useState, useEffect } from 'react';
 import { Box, Button, Dropdown, PageHeader } from 'gestalt';
 
-function PageHeaderExample(): Node {
+export default function PageHeaderExample(): Node {
   const [selectedElement, setSelectedElement] = useState(null);
   const [elements, setElements] = useState([]);
 
@@ -11,7 +11,6 @@ function PageHeaderExample(): Node {
   }, [setElements]);
 
   const handleSelect = ({ item }) => {
-    console.log('Selected item: ', item);
     setSelectedElement(item);
   };
 
@@ -41,5 +40,3 @@ function PageHeaderExample(): Node {
     </Box>
   );
 }
-
-export default PageHeaderExample;

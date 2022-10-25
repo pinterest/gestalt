@@ -6,14 +6,14 @@ import MainSection from '../../../docs-components/MainSection.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 
 // Examples
-import PopoverOverflowingViewport from './examples/PopoverOverflowingViewport.js';
-import CornerTop from './examples/CornerTop.js';
-import CornerBottom from './examples/CornerBottom.js';
-import InnerSheet from './examples/InnerSheet.js';
-import ScrollableContainer from './examples/ScrollableContainer.js';
-import PageHeaderExample from './examples/PageHeader.js';
+import PopoverOverflowingViewport from '../../../examples/dropdown/PopoverOverflowingViewport.js';
+import CornerTop from '../../../examples/dropdown/CornerTop.js';
+import CornerBottom from '../../../examples/dropdown/CornerBottom.js';
+import InnerSheet from '../../../examples/dropdown/InnerSheet.js';
+import ScrollableContainer from '../../../examples/dropdown/ScrollableContainer.js';
+import PageHeaderExample from '../../../examples/dropdown/PageHeader.js';
 
-export default function Dropdown(): Node {
+export default function DropdownShowCase(): Node {
   return (
     <Page title="Dropdown - Show case">
       <PageHeader badge="pilot" name="Dropdown" type="guidelines" />

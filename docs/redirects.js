@@ -96,18 +96,13 @@ const getStartedDevelopers = ['eslint_plugin', 'installation'].map((item) => ({
   permanent: true,
 }));
 
-const foundations = [
-  'accessibility',
-  'design_tokens',
-  'elevation',
-  'layouts',
-  'screen_sizes',
-  'show_cases',
-].map((item) => ({
-  source: `/${item}`,
-  destination: `/foundations/${item}`,
-  permanent: true,
-}));
+const foundations = ['accessibility', 'design_tokens', 'elevation', 'layouts', 'screen_sizes'].map(
+  (item) => ({
+    source: `/${item}`,
+    destination: `/foundations/${item}`,
+    permanent: true,
+  }),
+);
 
 const color = ['color_examples', 'color_palette', 'color_usage'].map((item) => ({
   source: `/${item}`,
@@ -174,11 +169,6 @@ const misc = [
   {
     source: '/typography',
     destination: '/foundations/typography/guidelines',
-    permanent: true,
-  },
-  {
-    source: '/show_cases',
-    destination: '/foundations/show_cases/dropdown',
     permanent: true,
   },
   {

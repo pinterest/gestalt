@@ -105,7 +105,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Datapoint',
       'DatePicker',
       'Divider',
-      'Dropdown',
+      {
+        sectionName: 'Dropdown',
+        pages: ['Usage', 'Show Case'],
+      },
       'Fieldset',
       'Flex',
       'Heading',
@@ -181,10 +184,6 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Overview', 'Available components', 'Priority and placement'],
       },
       'Screen sizes',
-      {
-        sectionName: 'Show cases',
-        pages: ['Dropdown'],
-      },
       {
         sectionName: 'Typography',
         pages: ['Guidelines'],

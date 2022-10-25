@@ -1,19 +1,18 @@
 // @flow strict
-import { type Node, useState, useRef, useEffect } from 'react';
-import { Box, Button, Dropdown, ScrollBoundaryContainer } from 'gestalt';
+import { type Node, useEffect, useRef, useState } from 'react';
+import { Flex, Box, Button, Dropdown } from 'gestalt';
 
-function ScrollableContainer(): Node {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedElement, setSelectedElement] = useState(null);
+export default function PopoverOverflowingViewport(): Node {
   const [elements, setElements] = useState([]);
+  const [selectedElement, setSelectedElement] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const anchorRef = useRef(null);
 
   useEffect(() => {
-    setElements(new Array(10).fill(undefined));
+    setElements(new Array(100).fill(undefined));
   }, [setElements]);
 
   const handleSelect = ({ item }) => {
-    console.log('Selected item: ', item);
     setSelectedElement(item);
   };
 
@@ -31,31 +30,31 @@ function ScrollableContainer(): Node {
     });
 
   return (
-    <Box padding={8} height={500} overflow="scrollY">
-      <Box height={1000}>
-        <ScrollBoundaryContainer>
+    <Box height={500}>
+      <Flex justifyContent="center" alignItems="center" height="100%">
+        <Box>
           <Button
-            text="Menu open button"
-            onClick={() => setIsOpen(!isOpen)}
+            accessibilityControls="demo-dropdown-example"
+            accessibilityExpanded={isOpen}
+            accessibilityHaspopup
+            iconEnd="arrow-down"
+            onClick={() => setIsOpen((prevVal) => !prevVal)}
             ref={anchorRef}
             selected={isOpen}
             size="lg"
+            text="Menu"
           />
           {isOpen && (
             <Dropdown
-              isWithinFixedContainer
               anchor={anchorRef.current}
               id="demo-dropdown-example"
-              onDismiss={() => setIsOpen(!isOpen)}
-              idealDirection="up"
+              onDismiss={() => setIsOpen(false)}
             >
               {preRenderItems()}
             </Dropdown>
           )}
-        </ScrollBoundaryContainer>
-      </Box>
+        </Box>
+      </Flex>
     </Box>
   );
 }
-
-export default ScrollableContainer;

@@ -2,7 +2,7 @@
 import { type Node, useEffect, useRef, useState } from 'react';
 import { Box, Flex, IconButton, Dropdown } from 'gestalt';
 
-function CornerTop(): Node {
+export default function CornerBottom(): Node {
   const [elements, setElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState(null);
   const [isOpen, setIsOpen] = useState('');
@@ -14,7 +14,6 @@ function CornerTop(): Node {
   }, [setElements]);
 
   const handleSelect = ({ item }) => {
-    console.log('Selected item: ', item);
     setSelectedElement(item);
   };
 
@@ -33,10 +32,10 @@ function CornerTop(): Node {
 
   return (
     <Box padding={2} height={500}>
-      <Flex justifyContent="between" alignItems="start" width="100%">
+      <Flex justifyContent="between" alignItems="end" height="100%">
         <IconButton
           accessibilityLabel="Menu open button"
-          icon="arrow-down"
+          icon="arrow-up"
           onClick={() => setIsOpen((prevState) => (prevState === 'refA' ? '' : 'refA'))}
           ref={anchorARef}
           selected={isOpen === 'refA'}
@@ -47,6 +46,7 @@ function CornerTop(): Node {
             anchor={anchorARef.current}
             id="demo-dropdown-example"
             onDismiss={() => setIsOpen('')}
+            idealDirection="up"
           >
             {preRenderItems()}
           </Dropdown>
@@ -54,7 +54,7 @@ function CornerTop(): Node {
 
         <IconButton
           accessibilityLabel="Menu open button"
-          icon="arrow-down"
+          icon="arrow-up"
           onClick={() => setIsOpen((prevState) => (prevState === 'refB' ? '' : 'refB'))}
           ref={anchorBRef}
           selected={isOpen === 'refB'}
@@ -65,6 +65,7 @@ function CornerTop(): Node {
             anchor={anchorBRef.current}
             id="demo-dropdown-example"
             onDismiss={() => setIsOpen('')}
+            idealDirection="up"
           >
             {preRenderItems()}
           </Dropdown>
@@ -73,5 +74,3 @@ function CornerTop(): Node {
     </Box>
   );
 }
-
-export default CornerTop;
