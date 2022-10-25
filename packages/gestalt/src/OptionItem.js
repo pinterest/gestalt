@@ -158,7 +158,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       onMouseDown={(event) => {
         event.preventDefault();
       }}
-      // onMouseEnter={() => setHoveredItemIndex(index)}
+      onMouseEnter={() => setHoveredItemIndex(index)}
       ref={index === hoveredItemIndex ? ref : null}
       role="menuitem"
       rounding={2}
