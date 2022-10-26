@@ -1,10 +1,15 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Heading, Text, Video } from 'gestalt';
+import { Flex, Heading } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import Page from '../../../docs-components/Page.js';
 import Markdown from '../../../docs-components/Markdown.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import educationExample from '../../../examples/animation/educationExample.js';
+import celebrationExample from '../../../examples/animation/celebrationExample.js';
+import feedbackExample from '../../../examples/animation/feedbackExample.js';
+import useExample from '../../../examples/animation/useExample.js';
 
 export default function TypographyPage(): Node {
   return (
@@ -22,18 +27,31 @@ export default function TypographyPage(): Node {
         Animations should help a user complete a task. Ask yourself, “what purpose does this animation serve?” Does it help a new user understand a flow in the product? Does it help showcase something is processing or loading?
 
 
-        Product animations typically fall into one of four categories: feedback, transitions, education, and celebration. While celebratory animations typically occur on illustrative, graphic objects, the other types of animations often apply to UI elements.
+        Product animations typically fall into one of four categories:
+
+        - feedback
+        - transitions
+        - education
+        - celebration.
+
+        While celebratory animations typically occur on illustrative elements, like icons or illustrations, the other types of animations often apply to UI elements, like Buttons or Modals.
 `}
       >
         <MainSection.Subsection
           title="Animating UI elements"
-          description="UI elements refers to non-graphical elements on a surface, like a Card, Button, Sheet or Pin."
+          description="UI elements refers to controls on a surface, like a Card, Button, Sheet or Pin."
         >
           <Flex gap={8} direction="column" maxWidth={572}>
             <Flex gap={2} direction="column">
               <Heading size="300">Feedback</Heading>
               <Markdown text="Animation is often used to provide feedback to the user that an action they intended to take was successful. For example, a Button may shrink when pressed or tapped to indicate to the user that the Button was successfully interacted with. Similarly, a loading spinner may appear after a user submits a form to help indicate to the user that the form was submitted successfully and a process is beginning. Another example could be a Card that grows slightly when hovered/focused to help indicate which Card a user is interacting with." />
-              <Text italic>[example from product - More Ideas on Home card]</Text>
+              <SandpackExample
+                code={feedbackExample}
+                name="Feedback Example"
+                hideEditor
+                hideControls
+                previewHeight={750}
+              />
             </Flex>
             <Flex gap={2} direction="column">
               <Heading size="300">Transitions</Heading>
@@ -44,51 +62,69 @@ export default function TypographyPage(): Node {
               Transitional animations should also follow an intuitive flow. For example, a drawer that appears from the bottom on mobile should slide up from the bottom of the screen and slide back down upon dismissal.
               `}
               />
-              <Text italic>
-                [example from product - Sheeting sliding in during Campaign setup process] [example
-                from product - Mobile Sheet slides in and out from bottom]
-              </Text>
+              <SandpackExample
+                code={educationExample}
+                name="Education Example"
+                hideEditor
+                hideControls
+                previewHeight={750}
+              />
             </Flex>
             <Flex gap={2} direction="column">
               <Heading size="300">Education</Heading>
               <Markdown text="Animations can also be used to help orient a user to the navigation or structure of an application. For instance, a new user may see a Pin shrink and navigate toward the Profile menu item to help inform the user that saved Pins can be found in the Profile menu. Another example could be a guided onboarding education tooltip that moves around the screen as it points to different features of the application." />
-              <Text italic>[example from product - Saved Pin traveling to Profile on mWeb]</Text>
+              <SandpackExample
+                code={educationExample}
+                name="Education Example"
+                hideEditor
+                hideControls
+                previewHeight={750}
+              />
             </Flex>
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Animating illustrations and graphics"
           description={`
+         Illustrations and graphics refers to non-structural elements, like an icon, line of a graph, or imagery, like confetti or empty state illustrations.
+          `}
+        >
+          <Flex gap={8} direction="column" maxWidth={572}>
+            <Flex gap={2} direction="column">
+              <Heading size="300">Celebration</Heading>
+              <Markdown
+                text={`
           Celebratory animations can be used to help a user feel accomplished after a certain event has occurred or add interest to an otherwise stagnant process. For example, confetti can be used to indicate a process has been completed successfully, like creating a first Board while onboarding onto the app. Alternatively, graphics in an onboarding flow can be animated to draw attention and add interest to a multi-step modal.
 
           In general, illustrative animations add delight but are not critical for a user’s understanding of a task or feature. Because they are additive and not required, they should be used sparingly during high-value moments where an animation would be delightful and not distracting.
           `}
-        >
-          <Text>[example in product - confetti on saving pin]</Text>
+              />
+              <SandpackExample
+                code={celebrationExample}
+                name="Celebration Example"
+                hideEditor
+                hideControls
+                previewHeight={750}
+              />
+            </Flex>
+          </Flex>
         </MainSection.Subsection>
       </MainSection>
       <MainSection
         name="Where to use"
         description={`
-        The type of product should help inform what type of animations to use.  While feedback-based animations may be incredibly helpful in a Business product, celebratory animations may not be. Again, consider if the animation is helping a user finish a task, or distracting them from getting things done efficiently. In a business product where users are intimately familiar with a task they perform multiple times a day, animation may negatively add to the time they spend on a process.
+        The type of product should help inform what type of animations to use.  While feedback-based animations may be incredibly helpful in a Business product, celebratory animations may not be. Again, consider if the animation is helping a user finish a task, or distracting them from getting things done efficiently. In a business product where users are intimately familiar with a task they perform multiple times a day, animation may negatively add to the time they spend on a process. Use a celebratory animation for rare moments, like the first time a user successfully creates a campaign, and not for completed tasks that happen frequently.
 `}
       >
-        <Box width={550}>
-          <Video
-            accessibilityMaximizeLabel="Maximize"
-            accessibilityMinimizeLabel="Minimize"
-            accessibilityMuteLabel="Mute"
-            accessibilityPauseLabel="Pause"
-            accessibilityPlayLabel="Play"
-            accessibilityProgressBarLabel="Progress bar"
-            accessibilityUnmuteLabel="Unmute"
-            aspectRatio={960 / 540}
-            controls
-            onPlayError={() => {}}
-            onPlay={() => {}}
-            src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
+        <Flex gap={8} direction="column" maxWidth={572}>
+          <SandpackExample
+            code={useExample}
+            name="When to use Example"
+            hideEditor
+            hideControls
+            previewHeight={750}
           />
-        </Box>
+        </Flex>
       </MainSection>
       <MainSection name="Treatment guidelines">
         <MainSection.Subsection
@@ -97,7 +133,15 @@ export default function TypographyPage(): Node {
         />
         <MainSection.Subsection
           title="Axis considerations"
-          description="Animations along an axis can be used to show transitions and educate users about navigation patterns. For example, items could animate along the z-axis to help relay stacking or depth, while items animated along an x-axis or y-axis can help relay navigation patterns, like a Sheet that slides in and out from the side of the screen, or a toast that pops up from the bottom of the screen. Keep axis transitions direct, meaning that the animation starts from a logical location that gives the moving object the shortest distance to travel to its final destination. In other words, do not animate a Toast from the top of the screen down to the bottom of the screen if the final resting point is the bottom of the screen. Instead, begin the animation from the bottom of the screen."
+          description="Animations along an axis can be used to show transitions and educate users about navigation patterns. For example, items could animate along the z-axis to help relay stacking or depth, while items animated along an x-axis or y-axis can help relay navigation patterns, like a Sheet that slides in and out from the side of the screen, or a toast that pops up from the bottom of the screen."
+        />
+        <MainSection.Subsection
+          title="Animation origin"
+          description={`
+          Keep transitions direct, meaning the animation starts from a logical location that gives the moving object the shortest distance to travel to its final destination. In other words, do not animate a Toast from the top of the screen down to the bottom of the screen if the final resting point is the bottom of the screen. Instead, begin the animation from the bottom of the screen.
+
+          Also consider collisions when choosing animation origins. If Notification cards can stack, they may animate in from the top right of a screen, but fade out to avoid colliding with incoming notifications.
+          `}
         />
         <MainSection.Subsection
           title="Duration"

@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { Box, Video } from 'gestalt';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
@@ -28,7 +29,25 @@ export default function AnimationImplementation(): Node {
       <MainSection
         name="Lottie"
         description="Lottie has been implemented on mobile and web platforms, and is best used for illustration animations. For more details about using Lottie, view our [internal documentation](https://coda.io/d/Lottie-Pinterest_daMxB3E_zkB/For-design_su4Je)."
-      />
+      >
+        <Box width={550}>
+          <Video
+            accessibilityMaximizeLabel="Maximize"
+            accessibilityMinimizeLabel="Minimize"
+            accessibilityMuteLabel="Mute"
+            accessibilityPauseLabel="Pause"
+            accessibilityPlayLabel="Play"
+            accessibilityProgressBarLabel="Progress bar"
+            accessibilityUnmuteLabel="Unmute"
+            aspectRatio={3 / 4}
+            controls
+            onPlayError={() => {}}
+            onPlay={() => {}}
+            playing
+            src="https://v2.pinimg.com/videos/mc/expMp4/b5/b5/a0/b5b5a0b7388da733cf7727efead7ae2e_t1.mp4"
+          />
+        </Box>
+      </MainSection>
     </Page>
   );
 }

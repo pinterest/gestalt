@@ -18,20 +18,22 @@ export default function PrincipleItem({ color, heading, image, text }: Principle
         column: 4,
       }}
     >
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        height={160}
-        width={260}
-        dangerouslySetInlineStyle={{
-          __style: {
-            backgroundColor: `var(--color-${color})`,
-          },
-        }}
-      >
-        {image}
-      </Box>
+      {image !== undefined && (
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height={160}
+          width={260}
+          dangerouslySetInlineStyle={{
+            __style: {
+              backgroundColor: `var(--color-${color})`,
+            },
+          }}
+        >
+          {image}
+        </Box>
+      )}
       <Heading size="400">{heading}</Heading>
       <Box marginBottom={6}>
         <Text>{text}</Text>
