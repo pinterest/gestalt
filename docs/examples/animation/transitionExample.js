@@ -7,7 +7,7 @@ export default function Example(): Node {
 
   return (
     <Flex gap={4} direction="column">
-      <Box width={380} height="100%" margin="auto" borderStyle="shadow">
+      <Box height="100%" margin="auto" borderStyle="shadow">
         <Video
           accessibilityMaximizeLabel="Maximize"
           accessibilityMinimizeLabel="Minimize"
@@ -18,9 +18,8 @@ export default function Example(): Node {
           accessibilityUnmuteLabel="Unmute"
           accessibilityHideCaptionsLabel="Hide captions"
           accessibilityShowCaptionsLabel="Show captions"
-          aspectRatio={9 / 16}
+          aspectRatio={1920 / 1016}
           controls
-          objectFit="contain"
           onPlayError={({ error }) => error && setPlaying(false)}
           onPlay={() => setPlaying(true)}
           onControlsPlay={() => setPlaying(true)}
@@ -28,11 +27,11 @@ export default function Example(): Node {
           onEnded={() => setPlaying(false)}
           playing={playing}
           loop
-          src="https://v2.pinimg.com/videos/mc/expMp4/18/77/51/1877513c45ca255d52bc2e364e782536_t1.mp4"
+          src="https://user-images.githubusercontent.com/5125094/198142847-0df04da0-bad4-4da4-afe8-8c06d8aecc5b.mov"
         />
       </Box>
       <Text align="center" italic>
-        More idea images shift when user hovers over the tile
+        A Sheet transitions in and out from the side of the screen using animation
       </Text>
     </Flex>
   );

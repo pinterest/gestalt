@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Heading } from 'gestalt';
+import { Box, Flex, Heading } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import Page from '../../../docs-components/Page.js';
@@ -10,6 +10,8 @@ import educationExample from '../../../examples/animation/educationExample.js';
 import celebrationExample from '../../../examples/animation/celebrationExample.js';
 import feedbackExample from '../../../examples/animation/feedbackExample.js';
 import useExample from '../../../examples/animation/useExample.js';
+import easeExample from '../../../examples/animation/easeExample.js';
+import transitionExample from '../../../examples/animation/transitionExample.js';
 
 export default function TypographyPage(): Node {
   return (
@@ -62,13 +64,15 @@ export default function TypographyPage(): Node {
               Transitional animations should also follow an intuitive flow. For example, a drawer that appears from the bottom on mobile should slide up from the bottom of the screen and slide back down upon dismissal.
               `}
               />
-              <SandpackExample
-                code={educationExample}
-                name="Education Example"
-                hideEditor
-                hideControls
-                previewHeight={750}
-              />
+              <Box width={800}>
+                <SandpackExample
+                  code={transitionExample}
+                  name="Transition Example"
+                  hideEditor
+                  hideControls
+                  previewHeight={500}
+                />
+              </Box>
             </Flex>
             <Flex gap={2} direction="column">
               <Heading size="300">Education</Heading>
@@ -155,8 +159,18 @@ export default function TypographyPage(): Node {
           Properties unrelated to motion (like color and opacity) will not likely benefit from easing and can be done linearly. For example, a background color of a button that expands or changes upon hover can happen linearly as it provides feedback to the user about their cursor position.
 
           However, people experience motion non-linearly, so objects being moved can benefit from an easing timing function. For example, an object transitioning onto the screen from the right side may use ease-out as it slides into view to create visibility as fast as possible, and then ease-in upon its departure to create a smooth transition back to the main screen.
+
+          [Learn more about easing functions](https://www.smashingmagazine.com/2021/04/easing-functions-css-animations-transitions/#cubic-b%C3%A9zier-functions)
           `}
-        />
+        >
+          <SandpackExample
+            code={easeExample}
+            name="Ease Example"
+            hideEditor
+            hideControls
+            previewHeight={800}
+          />
+        </MainSection.Subsection>
       </MainSection>
       <MainSection
         name="Accessibility"
@@ -176,24 +190,7 @@ export default function TypographyPage(): Node {
           Further reading: [WCAG 2.0 Pause, Stop Hide requirements](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
           `}
           columns={2}
-        >
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="In product video to encourage Pin creation lasts longer than 5 seconds but can be hidden by swiping down, or paused by tapping"
-            defaultCode={`
-              <Text>TBD</Text>
-              `}
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Auto-play videos in help docs that cannot be paused or hidden"
-            defaultCode={`
-            <Text>TBD</Text>
-`}
-          />
-        </MainSection.Subsection>
+        />
         <MainSection.Subsection
           title="Flashing animations"
           description={`
@@ -202,24 +199,7 @@ export default function TypographyPage(): Node {
           Further reading: [WCAG 2.0 Three Flashes requirements](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-three-times.html)
           `}
           columns={2}
-        >
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="A Notification animation that blinks once and stops"
-            defaultCode={`
-              <Text>TBD</Text>
-              `}
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="A toast that rapidly flashes when it appears"
-            defaultCode={`
-            <Text>TBD</Text>
-`}
-          />
-        </MainSection.Subsection>
+        />
         <MainSection.Subsection
           title="Reduced motion user setting"
           description={`
@@ -228,24 +208,7 @@ export default function TypographyPage(): Node {
           Further reading: [MDN prefers-reduced-motion guidelines](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
           `}
           columns={2}
-        >
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="A Button grows when hovered and reduced motion is not enabled"
-            defaultCode={`
-              <Text>TBD</Text>
-              `}
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Button still grows when use reduced motion is turned on"
-            defaultCode={`
-            <Text>TBD</Text>
-`}
-          />
-        </MainSection.Subsection>
+        />
       </MainSection>
     </Page>
   );

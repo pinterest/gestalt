@@ -32,7 +32,8 @@ export default function Example(): Node {
         />
       </Box>
       <Text align="center" italic>
-        An illustration animation is used to educate users about the flow of content
+        Hand and arrow illustration are animated to help teach users how to navigate the
+        application.
       </Text>
     </Flex>
   );

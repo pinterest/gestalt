@@ -1,9 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Video } from 'gestalt';
+import { Flex } from 'gestalt';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import useExample from '../../../examples/animation/useExample.js';
 
 export default function AnimationImplementation(): Node {
   return (
@@ -30,23 +32,15 @@ export default function AnimationImplementation(): Node {
         name="Lottie"
         description="Lottie has been implemented on mobile and web platforms, and is best used for illustration animations. For more details about using Lottie, view our [internal documentation](https://coda.io/d/Lottie-Pinterest_daMxB3E_zkB/For-design_su4Je)."
       >
-        <Box width={550}>
-          <Video
-            accessibilityMaximizeLabel="Maximize"
-            accessibilityMinimizeLabel="Minimize"
-            accessibilityMuteLabel="Mute"
-            accessibilityPauseLabel="Pause"
-            accessibilityPlayLabel="Play"
-            accessibilityProgressBarLabel="Progress bar"
-            accessibilityUnmuteLabel="Unmute"
-            aspectRatio={3 / 4}
-            controls
-            onPlayError={() => {}}
-            onPlay={() => {}}
-            playing
-            src="https://v2.pinimg.com/videos/mc/expMp4/b5/b5/a0/b5b5a0b7388da733cf7727efead7ae2e_t1.mp4"
+        <Flex gap={8} direction="column" maxWidth={572}>
+          <SandpackExample
+            code={useExample}
+            name="When to use Example"
+            hideEditor
+            hideControls
+            previewHeight={750}
           />
-        </Box>
+        </Flex>
       </MainSection>
     </Page>
   );
