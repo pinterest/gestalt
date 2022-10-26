@@ -1,3 +1,9 @@
+## 79.0.3 (Oct 26, 2022)
+
+### Patch
+
+- Docs: Add top of page examples ([#2457](https://github.com/pinterest/gestalt/pull/2457)) - [Preview link](https://deploy-preview-2457--gestalt.netlify.app)
+
 ## 79.0.2 (Oct 22, 2022)
 
 ### Patch
