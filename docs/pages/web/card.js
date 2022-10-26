@@ -8,11 +8,15 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import defaultExample from '../../examples/card/defaultExample.js';
 
 export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Card">
-      <PageHeader name="Card" description={generatedDocGen?.description} />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
+        <SandpackExample code={defaultExample} name="Card Main Example" hideEditor />
+      </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
