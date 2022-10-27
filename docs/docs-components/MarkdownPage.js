@@ -150,15 +150,17 @@ const components = {
     alt,
     width,
     height,
+    noPadding,
   }: {|
     src: string,
     caption?: string,
     alt?: string,
     width?: number,
     height?: number,
+    noPadding?: boolean,
   |}) => (
     <Box>
-      <Box padding={8} rounding={2} borderStyle="sm" height="250px">
+      <Box padding={noPadding === true ? 0 : 8} rounding={2} borderStyle="sm" height="250px">
         <Box
           position="relative"
           width="100%"
