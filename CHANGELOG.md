@@ -1,3 +1,9 @@
+## 79.0.5 (Oct 27, 2022)
+
+### Patch
+
+- Docs: Update to new copy icon ([#2459](https://github.com/pinterest/gestalt/pull/2459)) - [Preview link](https://deploy-preview-2459--gestalt.netlify.app)
+
 ## 79.0.4 (Oct 27, 2022)
 
 ### Patch
