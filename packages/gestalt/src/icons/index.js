@@ -48,7 +48,7 @@ import colorPicker from './color-picker.svg';
 import compass from './compass.svg';
 import compose from './compose.svg';
 import conversionTag from './conversion-tag.svg';
-import copy from './copy.svg';
+import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import dash from './dash.svg';
@@ -234,7 +234,7 @@ const icons = Object.freeze({
   cog,
   compass,
   compose,
-  copy,
+  'copy-to-clipboard': copyToClipboard,
   crop,
   dash,
   'conversion-tag': conversionTag,
