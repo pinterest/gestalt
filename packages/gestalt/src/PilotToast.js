@@ -1,16 +1,18 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { cloneElement, type Element, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
-import styles from './Toast.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { ToastMessage, ToastTypeThumbnail } from './PilotToastComponents.js';
 
-const TOAST_MAX_WIDTH_PX = 500;
+const TOAST_MAX_WIDTH_PX = 716;
 const TOAST_WIDTH_PX = 330;
+const TOAST_MIN_HEIGHT_PX = 56;
 const TEXT_MAX_WIDTH_PX = 127;
+
+const THUMBNAIL_WIDTH = 32;
 
 type Props = {|
   /**
@@ -18,10 +20,21 @@ type Props = {|
    */
   button?: Node,
   /**
+   * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the subtext. See the [XXX variant](https://gestalt.pinterest.systems/web/pageheader#Subtext) to learn more.
+   */
+  helperLink?: {|
+    text: string,
+    accessibilityLabel: string,
+    href: string,
+    onClick?: ({|
+      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
+  |},
+  /**
    * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
    */
-  // $FlowFixMe[unclear-type]
-  text: string | Element<*>,
+  text: string,
   /**
    * An optional thumbnail image to displayed next to the text.
    */
@@ -33,7 +46,7 @@ type Props = {|
   /**
    * Use the `'error'` variant to indicate an error message. Generally not recommended given the ephemeral nature of Toasts.
    */
-  variant?: 'default' | 'error',
+  type?: 'success' | 'error' | 'progress',
 |};
 
 /**
@@ -45,36 +58,36 @@ type Props = {|
  */
 export default function PilotToast({
   button,
+  helperLink,
   text,
   thumbnail,
   thumbnailShape = 'square',
-  variant = 'default',
+  type,
 }: Props): Node {
-  const { name: colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-  const isErrorVariant = variant === 'error';
+  const isErrorToast = type === 'error';
+  const isProgressToast = type === 'progress';
+  const isSuccessToast = type === 'success';
+  const isNeutralToast = !isErrorToast && !isProgressToast && !isSuccessToast;
+  const isTextOnlyToast = isNeutralToast && !thumbnail && !button;
 
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
-  let containerColor = isDarkMode ? 'light' : 'dark';
-  let textColor = isDarkMode ? 'dark' : 'light';
-  let textElement = text;
-
-  // If `text` is a Node, we need to override any text colors within to ensure they all match
-  if (typeof text !== 'string') {
-    let textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDark
-      : styles.textColorOverrideLight;
-    if (isErrorVariant) {
-      textColorOverrideStyles = styles.textColorOverrideLight;
-    }
-
-    textElement = <span className={textColorOverrideStyles}>{text}</span>;
-  }
+  let containerColor = 'inverse';
+  let textColor = 'inverse';
 
   // Error variant does not currently support dark mode
-  if (isErrorVariant) {
+  if (isErrorToast) {
+    containerColor = 'errorBase';
+    textColor = 'light';
+  }
+
+  if (isProgressToast) {
+    containerColor = 'secondary';
+    textColor = 'default';
+  }
+
+  if (isErrorToast) {
     containerColor = 'errorBase';
     textColor = 'light';
   }
@@ -84,42 +97,57 @@ export default function PilotToast({
 
   return (
     <Box
-      marginBottom={3}
+      borderStyle="shadow"
+      color={containerColor}
       // Ensure that maxWidth isn't greater than viewport width (for small screens)
       maxWidth={`min(${TOAST_MAX_WIDTH_PX}px, 100vw)`}
-      minWidth={TOAST_WIDTH_PX}
+      minHeight={TOAST_MIN_HEIGHT_PX}
       paddingX={4}
+      paddingY={3}
       role="status"
       // Button text and text can be long, so allow toast to expand
       // to max width if button is present
-      width={hasButton ? undefined : TOAST_WIDTH_PX}
+      rounding={4}
     >
-      <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
-        <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
-          {thumbnail ? (
-            <Flex.Item flex="none">
-              <Mask
-                height={thumbnailShape === 'rectangle' ? 64 : 48}
-                rounding={thumbnailShape === 'circle' ? 'circle' : 2}
-                width={48}
-              >
-                {thumbnail}
-              </Mask>
+      <Flex alignItems="center" gap={4}>
+        <Flex.Item flex={isTextOnlyToast ? undefined : 'grow'}>
+          <Flex gap={2}>
+            {isNeutralToast && thumbnail ? (
+              <Flex.Item flex="none">
+                <Mask
+                  height={THUMBNAIL_WIDTH}
+                  rounding={thumbnailShape === 'circle' ? 'circle' : 2}
+                  width={THUMBNAIL_WIDTH}
+                >
+                  {thumbnail}
+                </Mask>
+              </Flex.Item>
+            ) : null}
+
+            {type ? (
+              <Flex.Item flex="none">
+                <ToastTypeThumbnail type={type} />
+              </Flex.Item>
+            ) : null}
+
+            <Flex.Item>
+              <ToastMessage
+                align={!thumbnail && !button ? 'center' : 'start'}
+                text={text}
+                helperLink={helperLink}
+                textColor={textColor}
+                type={type}
+              />
             </Flex.Item>
-          ) : null}
-
-          <Flex.Item flex="grow" maxWidth={hasImage && hasButton ? TEXT_MAX_WIDTH_PX : undefined}>
-            <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
-              {textElement}
-            </Text>
+          </Flex>
+        </Flex.Item>
+        {isNeutralToast && button ? (
+          // Allow button text to wrap on mobile
+          <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
+            {cloneElement(button, { size: 'sm' })}
           </Flex.Item>
-
-          {button ? (
-            // Allow button text to wrap on mobile
-            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>{button}</Flex.Item>
-          ) : null}
-        </Flex>
-      </Box>
+        ) : null}
+      </Flex>
     </Box>
   );
 }

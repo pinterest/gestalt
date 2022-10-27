@@ -16,6 +16,10 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
+   * String that clients such as VoiceOver will read to describe the element. Always localize the label.
+   */
+  color?: 'default' | 'subtle',
+  /**
    * Whether or not to render with a 300ms delay. The delay is for perceived performance, so you should rarely need to remove it.
    */
   delay?: boolean,
@@ -34,6 +38,7 @@ type Props = {|
  */
 export default function Spinner({
   accessibilityLabel,
+  color = 'subtle',
   delay = true,
   show,
   size = 'md',
@@ -42,6 +47,7 @@ export default function Spinner({
     <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
+          color={color}
           icon="knoop"
           accessibilityLabel={accessibilityLabel}
           size={SIZE_NAME_TO_PIXEL[size]}
