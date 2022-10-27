@@ -156,26 +156,3 @@ Placement is always centered at the bottom of the screen and not blocking any na
   - Use lengthy, technical jargon or local idioms that will be hard to translate to other languages
   </Group>
 </TwoCol>
-
-## Related
-
-<ThreeCol>
-  <IllustrationCard
-  title="Tooltip"
-  description="Tooltip describes the function of an interactive element, typically IconButton, on hover."
-  color="teal-spabattical-450"
-  image="tooltip"
-  />
-  <IllustrationCard
-  title="Popover"
-  description="Popovers are used to educate users about a particular element on the screen, like a button or new UI control."
-  color="teal-spabattical-450"
-  image="popover"
-  />
-  <IllustrationCard
-  title="Sheet"
-  description="Sheets are bottom-anchored overlays that that allow the user to easily return to the previous screen. They are meant for temporary focused tasks."
-  color="teal-spabattical-450"
-  image="sheet"
-  />
-</ThreeCol>
