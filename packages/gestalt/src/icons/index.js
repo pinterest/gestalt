@@ -48,6 +48,7 @@ import colorPicker from './color-picker.svg';
 import compass from './compass.svg';
 import compose from './compose.svg';
 import conversionTag from './conversion-tag.svg';
+import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import dash from './dash.svg';
@@ -63,6 +64,7 @@ import eye from './eye.svg';
 import eyeHide from './eye-hide.svg';
 import facebook from './facebook.svg';
 import faceHappy from './face-happy.svg';
+import faceNeutral from './face-neutral.svg';
 import faceSad from './face-sad.svg';
 import faceSmiley from './face-smiley.svg';
 import fileUnknown from './file-unknown.svg';
@@ -91,6 +93,8 @@ import home from './home.svg';
 import ideaPin from './idea-pin.svg';
 import impressum from './impressum.svg';
 import infoCircle from './info-circle.svg';
+import insightsAudience from './insights-audience.svg';
+import insightsConversions from './insights-conversions.svg';
 import key from './key.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
@@ -114,6 +118,7 @@ import musicOff from './music-off.svg';
 import musicOn from './music-on.svg';
 import dragDrop from './drag-drop.svg';
 import overlayText from './overlay-text.svg';
+import overview from './overview.svg';
 import pause from './pause.svg';
 import people from './people.svg';
 import person from './person.svg';
@@ -164,6 +169,7 @@ import textSize from './text-size.svg';
 import textSmall from './text-small.svg';
 import textSpacing from './text-spacing.svg';
 import trashCan from './trash-can.svg';
+import trending from './trending.svg';
 import twitter from './twitter.svg';
 import videoCamera from './video-camera.svg';
 import viewTypeDefault from './view-type-default.svg';
@@ -228,6 +234,7 @@ const icons = Object.freeze({
   cog,
   compass,
   compose,
+  'copy-to-clipboard': copyToClipboard,
   crop,
   dash,
   'conversion-tag': conversionTag,
@@ -245,6 +252,7 @@ const icons = Object.freeze({
   'eye-hide': eyeHide,
   facebook,
   'face-happy': faceHappy,
+  'face-neutral': faceNeutral,
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
   'file-unknown': fileUnknown,
@@ -272,6 +280,8 @@ const icons = Object.freeze({
   home,
   'idea-pin': ideaPin,
   impressum,
+  'insights-audience': insightsAudience,
+  'insights-conversions': insightsConversions,
   'info-circle': infoCircle,
   key,
   knoop,
@@ -295,6 +305,7 @@ const icons = Object.freeze({
   'music-off': musicOff,
   'music-on': musicOn,
   'overlay-text': overlayText,
+  overview,
   pause,
   people,
   person,
@@ -345,6 +356,7 @@ const icons = Object.freeze({
   'text-small': textSmall,
   'text-spacing': textSpacing,
   'trash-can': trashCan,
+  trending,
   twitter,
   'video-camera': videoCamera,
   'view-type-default': viewTypeDefault,
