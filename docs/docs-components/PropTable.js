@@ -235,7 +235,7 @@ export default function PropTable({
 
                             <IconButton
                               accessibilityLabel="Copy Flow type"
-                              icon="drag-drop"
+                              icon="copy-to-clipboard"
                               iconColor="darkGray"
                               onClick={() => {
                                 trackButtonClick('Copy Flow type', `${componentName} - ${name}`);
