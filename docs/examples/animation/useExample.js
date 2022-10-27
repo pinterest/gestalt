@@ -28,7 +28,7 @@ export default function Example(): Node {
           onEnded={() => setPlaying(false)}
           playing={playing}
           loop
-          src="https://v2.pinimg.com/videos/mc/720p/b5/b5/a0/b5b5a0b7388da733cf7727efead7ae2e.mp4"
+          src="https://v.pinimg.com/videos/mc/720p/f4/5c/51/f45c5182f7721c660309948a973c6408.mp4"
         />
       </Box>
       <Text align="center" italic>
