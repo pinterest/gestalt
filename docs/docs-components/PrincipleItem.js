@@ -2,14 +2,14 @@
 import { Text, Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
 
-type PrincipleItemProps = {|
+type Props = {|
   color: string,
   heading: string,
   image?: Node,
   text: string | Node,
 |};
 
-export default function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Node {
+export default function PrincipleItem({ color, heading, image, text }: Props): Node {
   return (
     <Flex
       direction="column"
