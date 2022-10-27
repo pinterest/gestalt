@@ -13,7 +13,7 @@ export default function CopyCodeButton({ onClick }: Props): Node {
   return (
     <IconButton
       accessibilityLabel={label}
-      icon="drag-drop"
+      icon="copy-to-clipboard"
       iconColor="darkGray"
       onClick={() => {
         trackButtonClick(label);
