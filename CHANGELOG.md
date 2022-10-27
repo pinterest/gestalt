@@ -1,3 +1,9 @@
+## 79.0.4 (Oct 27, 2022)
+
+### Patch
+
+- Icons: Add new icons ([#2458](https://github.com/pinterest/gestalt/pull/2458)) - [Preview link](https://deploy-preview-2458--gestalt.netlify.app)
+
 ## 79.0.3 (Oct 26, 2022)
 
 ### Patch
