@@ -1,3 +1,9 @@
+## 79.0.7 (Oct 28, 2022)
+
+### Patch
+
+- Docs: Mobile Toast docs ([#2460](https://github.com/pinterest/gestalt/pull/2460)) - [Preview link](https://deploy-preview-2460--gestalt.netlify.app)
+
 ## 79.0.6 (Oct 28, 2022)
 
 ### Patch
