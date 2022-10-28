@@ -19,7 +19,6 @@ export default function AnimationPrinciples(): Node {
         <Flex gap={12} alignContent="between" wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="yellow-caramellow-450"
               heading="Helpful"
               text={
                 <Text>
@@ -33,7 +32,6 @@ export default function AnimationPrinciples(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="blue-skycicle-450"
               heading="Direct"
               text={
                 <Text>
@@ -47,7 +45,6 @@ export default function AnimationPrinciples(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="teal-spabattical-450"
               heading="Accessible"
               text={
                 <Text>

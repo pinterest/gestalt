@@ -8,9 +8,6 @@ import Markdown from '../../../docs-components/Markdown.js';
 import AlignmentStart from '../../../graphics/typography/alignmentStart.svg';
 import AlignmentCenter from '../../../graphics/typography/alignmentCenter.svg';
 import AlignmentEnd from '../../../graphics/typography/alignmentEnd.svg';
-import Speedy from '../../../graphics/typography/speedy.svg';
-import Inclusive from '../../../graphics/typography/inclusive.svg';
-import Minimal from '../../../graphics/typography/minimal.svg';
 import LineLength from '../../../graphics/typography/lineLength.svg';
 import LineHeightLatin from '../../../graphics/typography/lineHeightLatin.svg';
 import LineHeightCJK from '../../../graphics/typography/lineHeightCJK.svg';
@@ -35,8 +32,6 @@ export default function TypographyPage(): Node {
         <Flex gap={12} alignContent="between" wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="teal-spabattical-100"
-              image={<Speedy />}
               heading="Speedy"
               text={
                 <Text>
@@ -48,8 +43,6 @@ export default function TypographyPage(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="pink-flaminglow-100"
-              image={<Inclusive />}
               heading="Inclusive"
               text={
                 <Text>
@@ -61,8 +54,6 @@ export default function TypographyPage(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="orange-firetini-100"
-              image={<Minimal />}
               heading="Minimal"
               text={
                 <Text>

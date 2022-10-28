@@ -20,7 +20,7 @@ type Props = {|
 |};
 function ThemeLayout({ heading, children, text }: Props): Node {
   return (
-    <Flex gap={2} direction="column">
+    <Flex gap={2} direction="column" maxWidth={572}>
       <Heading size="300">{heading}</Heading>
       <Markdown text={text} />
       {children}
@@ -58,7 +58,7 @@ export default function TypographyPage(): Node {
           title="Animating UI elements"
           description="UI elements refers to controls on a surface, like a card, button, sheet or Pin."
         >
-          <Flex gap={8} direction="column" maxWidth={572}>
+          <Flex gap={8} direction="column">
             <ThemeLayout
               heading="Feedback"
               text="Animation is often used to provide feedback to the user that an action they took was successful. For example, a button may shrink when pressed or tapped to indicate to the user that the button was successfully interacted with. Similarly, a loading spinner may appear after a user submits a form to help indicate to the user that the form was submitted successfully and a process is beginning. Another example could be a card that grows slightly when hovered/focused to help indicate which card a user is interacting with."
@@ -71,24 +71,29 @@ export default function TypographyPage(): Node {
                 previewHeight={750}
               />
             </ThemeLayout>
-            <ThemeLayout
-              heading="Transitions"
-              text={`
+            <Flex gap={2} direction="column" width="100%">
+              <Flex gap={2} direction="column" maxWidth={572}>
+                <Heading size="300">Transitions</Heading>
+                <Markdown
+                  text={`
               Another common use case for animations is to show a transition between two states in the UI. For example, a search icon button may expand into an input field when interacted with, or a sheet may slide in from the side of the screen to draw attention to it. Transitional animations help draw the user's attention to particular pieces of the UI, ideally helping them complete a task.
 
               Transitional animations should also follow an intuitive flow. For example, a drawer that appears from the bottom on mobile should slide up from the bottom of the screen and slide back down upon dismissal.
               `}
-            >
-              <Box width={800}>
-                <SandpackExample
-                  code={transitionExample}
-                  name="Transition Example"
-                  hideEditor
-                  hideControls
-                  previewHeight={500}
                 />
-              </Box>
-            </ThemeLayout>
+              </Flex>
+              <Flex maxWidth={800} flex="grow">
+                <Flex.Item flex="grow">
+                  <SandpackExample
+                    code={transitionExample}
+                    name="Transition Example"
+                    hideEditor
+                    hideControls
+                    previewHeight={500}
+                  />
+                </Flex.Item>
+              </Flex>
+            </Flex>
             <ThemeLayout
               heading="Education"
               text="Animations can also be used to help orient a user to the navigation or structure of an application. For instance, a new user may see a Pin shrink and navigate toward the profile menu item to help inform the user that saved Pins can be found in the profile menu. Another example could be a guided onboarding education tooltip that moves around the screen as it points to different features of the application."
@@ -109,7 +114,7 @@ export default function TypographyPage(): Node {
          Illustrations and graphics refers to non-structural elements, like an icon or the line of a graph, or imagery, like confetti or empty state illustrations.
           `}
         >
-          <Flex gap={8} direction="column" maxWidth={572}>
+          <Flex gap={8} direction="column">
             <ThemeLayout
               heading="Celebration"
               text={`

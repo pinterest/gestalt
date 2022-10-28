@@ -4,9 +4,6 @@ import { type Node } from 'react';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
-import Timely from '../../../graphics/messaging/timely.svg';
-import Brief from '../../../graphics/messaging/brief.svg';
-import Relevant from '../../../graphics/messaging/relevant.svg';
 import PrincipleItem from '../../../docs-components/PrincipleItem.js';
 
 export default function MessagingPrinciples(): Node {
@@ -24,8 +21,6 @@ A message is different from a status indicator in that it includes a more detail
         <Flex gap={12} alignContent="between" wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="purple-mysticool-450"
-              image={<Timely />}
               heading="Timely"
               text={
                 <Text>
@@ -37,8 +32,6 @@ A message is different from a status indicator in that it includes a more detail
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="blue-skycicle-450"
-              image={<Brief />}
               heading="Brief"
               text={
                 <Text>
@@ -50,8 +43,6 @@ A message is different from a status indicator in that it includes a more detail
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="teal-spabattical-450"
-              image={<Relevant />}
               heading="Relevant"
               text={
                 <Text>

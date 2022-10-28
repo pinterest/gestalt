@@ -4,9 +4,6 @@ import { Box, Flex, Text, Icon } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import Page from '../../../docs-components/Page.js';
-import Obvious from '../../../graphics/iconography/obvious.svg';
-import Intentional from '../../../graphics/iconography/intentional.svg';
-import Accessible from '../../../graphics/iconography/accessible.svg';
 import Layout from '../../../graphics/iconography/layout.svg';
 import OutlinedPincode from '../../../graphics/iconography/outlinedPincode.svg';
 import ReactionLove from '../../../graphics/iconography/reactionLove.svg';
@@ -28,8 +25,6 @@ export default function IconographyPage(): Node {
         <Flex gap={12} alignContent="between" wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="purple-mysticool-100"
-              image={<Obvious />}
               heading="Obvious"
               text={
                 <Text>
@@ -42,8 +37,6 @@ export default function IconographyPage(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="green-matchacado-100"
-              image={<Intentional />}
               heading="Intentional"
               text={
                 <Text>
@@ -56,8 +49,6 @@ export default function IconographyPage(): Node {
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
             <PrincipleItem
-              color="blue-skycicle-100"
-              image={<Accessible />}
               heading="Accessible"
               text={
                 <Text>
