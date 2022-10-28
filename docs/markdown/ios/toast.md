@@ -64,13 +64,13 @@ fullwidth: true
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
-[Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+[Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
+[Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
 ### Duration
-Some people may take longer to read toasts than others due to aging or other cognitive impairments Use the guide below to set duration for Toasts:
+Some people may take longer to read toasts than others due to aging, low vision, or cognitive impairments. Use the guide below to set duration for Toasts:
 
-- Brief text of approximately 10–15 words (including button text): 5s
+- Brief text of approximately 10–15 words (including button text): 5 seconds
 - Longer than 15 words: Slow readers can read about 125–200 words per minute. Base your duration on the slowest number. For example, a toast with 20 words should be set to 10s. [Source](https://capitalizemytitle.com/reading-time/3000-words/)
 
 ## Variants
@@ -97,7 +97,7 @@ Some people may take longer to read toasts than others due to aging or other cog
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/02/40/85/024085af164541554f69c18368d7078e.jpg" noPadding alt="text only toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/d9/eb/56/d9eb56243a337584cebbb57e293b3d7f.jpg" noPadding alt="text only toast"/>
     
     **Text only**
     A simple, generic acknowledgment after an action is taken These should not be actionable.
@@ -114,7 +114,7 @@ Some people may take longer to read toasts than others due to aging or other cog
     <ImgContainer src="https://i.pinimg.com/originals/fa/1d/e5/fa1de5fbe15b0a3ee774f40c0a46b66c.jpg" noPadding alt="toast with avatar"/>
     
     **Avatar**
-    With an Avatar for Profile or Pinner-related messaging.  An optional link be included. When there’s a link on mWeb, the entire toast is tapable, using tapArea.
+    With an Avatar for Profile or Pinner-related messaging. An optional link can be included. When there’s a link on mWeb, the entire toast is tappable, using TapArea.
   </Group>
   <Group>
 
@@ -140,19 +140,20 @@ Some people may take longer to read toasts than others due to aging or other cog
 
 ### Placement
 
-Placement is always centered at the bottom of the screen and not blocking any navigation or important buttons.
+Placement is always centered at the top of the screen and not blocking any navigation or important buttons.
 
 ## Writing
 
 <TwoCol>
   <Group>
-    <Do title="When to use" />      
+    <Do title="Do" />      
   - Consider internationalization and how other languages may be take up more space
   - Be brief and concise
   - Use conversational language
   </Group>
   <Group>
-  <Dont title="When not to use" />
+  <Dont title="Don't" />
   - Use lengthy, technical jargon or local idioms that will be hard to translate to other languages
   </Group>
 </TwoCol>
+
