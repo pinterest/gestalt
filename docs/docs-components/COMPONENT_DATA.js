@@ -67,6 +67,7 @@ import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 import Accessibility from '../graphics/foundations/accessibility.svg';
 import DataVisualization from '../graphics/foundations/data_visualization.svg';
+import Animation from '../graphics/foundations/animation.svg';
 import Elevation from '../graphics/foundations/elevation.svg';
 import Typography from '../graphics/foundations/typography.svg';
 import Color from '../graphics/foundations/color.svg';
@@ -136,6 +137,13 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
       'How to create accessible designs and components that contribute to an accessible product',
     category: 'Foundations',
     path: '/foundations/accessibility',
+  },
+  {
+    svg: <Animation />,
+    name: 'Animation',
+    description: 'Guidelines for animation in product and implementation options',
+    category: 'Foundations',
+    path: '/foundations/animation/principles',
   },
   {
     svg: <Color />,
