@@ -1,3 +1,9 @@
+## 79.0.6 (Oct 28, 2022)
+
+### Patch
+
+- Animation: Add guidelines for product animation ([#2417](https://github.com/pinterest/gestalt/pull/2417)) - [Preview link](https://deploy-preview-2417--gestalt.netlify.app)
+
 ## 79.0.5 (Oct 27, 2022)
 
 ### Patch
