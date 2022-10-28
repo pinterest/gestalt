@@ -19,44 +19,7 @@ import HierarchyDo from '../../../graphics/typography/hierarchyDo.svg';
 import HierarchyDont from '../../../graphics/typography/hierarchyDont.svg';
 import ContrastLow from '../../../graphics/typography/contrastLow.svg';
 import ContrastHigh from '../../../graphics/typography/contrastHigh.svg';
-
-type PrincipleItemProps = {|
-  color: string,
-  heading: string,
-  image?: Node,
-  text: string | Node,
-|};
-
-function PrincipleItem({ color, heading, image, text }: PrincipleItemProps): Node {
-  return (
-    <Flex
-      direction="column"
-      gap={{
-        row: 0,
-        column: 4,
-      }}
-    >
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        height={160}
-        width={260}
-        dangerouslySetInlineStyle={{
-          __style: {
-            backgroundColor: `var(--color-${color})`,
-          },
-        }}
-      >
-        {image}
-      </Box>
-      <Heading size="400">{heading}</Heading>
-      <Box marginBottom={6}>
-        <Text>{text}</Text>
-      </Box>
-    </Flex>
-  );
-}
+import PrincipleItem from '../../../docs-components/PrincipleItem.js';
 
 export default function TypographyPage(): Node {
   return (

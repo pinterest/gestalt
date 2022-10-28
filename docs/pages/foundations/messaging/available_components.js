@@ -20,7 +20,7 @@ export default function MessagingComponentsPage(): Node {
           showHeading={false}
           defaultCode={`<Callout
   title='Your tag is not working'
-  message='Data may be outdated because your tag is not sendng information. Fix your tag for the most accurate metrics.'
+  message='Data may be outdated because your tag is not sending information. Fix your tag for the most accurate metrics.'
   type='error'
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
