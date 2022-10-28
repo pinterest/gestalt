@@ -173,7 +173,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Elevation',
       {
         sectionName: 'Iconography',
-        pages: ['Library', 'Usage', 'Creating icons'],
+        pages: ['Library', 'Custom and brand icons', 'Usage', 'Creating icons'],
       },
       'Layouts',
       {

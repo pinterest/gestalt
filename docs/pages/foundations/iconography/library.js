@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, type Node, type ElementProps } from 'react';
-import { Box, ComboBox, Flex, Icon, TapArea, Layer, Toast, Tooltip } from 'gestalt';
+import { Box, ComboBox, Flex, Icon, RadioGroup, TapArea, Text, Layer, Toast } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -8,15 +8,44 @@ import PageHeader from '../../../docs-components/PageHeader.js';
 const { icons } = Icon;
 type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
 
-function ClickableIcon({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
+function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
+  const [hovered, setHovered] = useState();
+
   return (
-    <Tooltip text={iconName} accessibilityLabel="">
-      <TapArea rounding="circle" tapStyle="compress" onTap={onTap}>
-        <Box padding={2}>
-          <Icon color="default" accessibilityLabel={iconName} icon={iconName} />
-        </Box>
-      </TapArea>
-    </Tooltip>
+    <TapArea
+      rounding="circle"
+      tapStyle="compress"
+      onTap={onTap}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Box
+        borderStyle="sm"
+        rounding={2}
+        padding={2}
+        width={172}
+        height={84}
+        color={hovered ? 'dark' : 'default'}
+      >
+        <Flex
+          height="100%"
+          flex="grow"
+          direction="column"
+          gap={2}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Icon
+            color={hovered ? 'light' : 'default'}
+            accessibilityLabel={iconName}
+            icon={iconName}
+          />
+          <Text color={hovered ? 'light' : 'default'} size="100">
+            {iconName}
+          </Text>
+        </Flex>
+      </Box>
+    </TapArea>
   );
 }
 
@@ -35,6 +64,7 @@ export default function IconPage(): Node {
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
   const [inputValue, setInputValue] = useState();
   const [selected, setSelected] = useState();
+  const [sortedAlphatbetical, setSortedAlphabetical] = useState(true);
 
   const handleOnChange = ({ value }) => {
     setSelected();
@@ -65,15 +95,15 @@ export default function IconPage(): Node {
   const selectedIcon = findIcon(selected?.label);
 
   return (
-    <Page title="Iconography and SVGs">
+    <Page title="Iconography collection">
       <PageHeader name="Iconography and SVGs" folderName="icons" type="guidelines" />
 
       <MainSection
         name="Icon library"
-        description="Use the combobox on the left to search icons by name. The icon list on the right renders the filtered results. You can also use the icon list to visually search for icons. On hover, a tooltip displays the icon name. On click, the icon name will be copied."
+        description="Use the icon grid to visually search for icons. On click, the icon name will be copied. You can use the search input below to search icons by name, or filter your search by alphabetical or category."
       >
-        <Flex width="100%">
-          <Box width="35%">
+        <Flex width="100%" direction="column" gap={8}>
+          <Flex gap={6} alignItems="end">
             <ComboBox
               accessibilityClearButtonLabel="Clear the current value"
               label="Search icons by name"
@@ -95,22 +125,34 @@ export default function IconPage(): Node {
               onChange={handleOnChange}
               onSelect={handleSelect}
             />
-          </Box>
-          <Box borderStyle="shadow" marginStart={4} overflow="auto" padding={4} width="65%">
-            <Flex
-              gap={{
-                row: 1,
-                column: 0,
-              }}
-              wrap
-            >
+            <RadioGroup legend="Sort by" direction="row" id="directionExample">
+              <RadioGroup.RadioButton
+                checked={sortedAlphatbetical}
+                id="sortAlphabetical"
+                label="Alphabetical"
+                name="sortOrder"
+                onChange={() => setSortedAlphabetical(true)}
+                value="alphabetical"
+              />
+              <RadioGroup.RadioButton
+                checked={!sortedAlphatbetical}
+                id="sortCategory"
+                label="Category"
+                name="sortOrder"
+                onChange={() => setSortedAlphabetical(false)}
+                value="category"
+              />
+            </RadioGroup>
+          </Flex>
+          <Box>
+            <Flex gap={3} wrap>
               {selectedIcon ? (
-                <ClickableIcon iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
+                <IconTile iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
               ) : (
                 (suggestedOptions || iconOptions).map(({ label: iconName }, index) => {
                   const icon = findIcon(iconName);
                   return icon ? (
-                    <ClickableIcon key={index} iconName={icon} onTap={buildHandleIconClick(icon)} />
+                    <IconTile key={index} iconName={icon} onTap={buildHandleIconClick(icon)} />
                   ) : null;
                 })
               )}
@@ -138,35 +180,6 @@ export default function IconPage(): Node {
         )}
       </MainSection>
 
-      <MainSection name="Custom SVG icons">
-        <MainSection.Subsection
-          description={`
-If you need a new icon for an experiment that is not listed on our [Icon](/web/icon) documentation, use the \`dangerouslySetSvgPath\` prop on [Icon](/web/icon), [IconButton](/web/iconbutton), and [Pog](/web/pog).
-
-However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/web/box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
-
-Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the icon to Gestalt.
-
-Gestalt icon svg files follow a particular format and use automatic file validation testing.
-
-\`<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-<path d="_______________"/>
-</svg>\`
-
-We override the color in the Gestalt Icon component and Gestalt only uses the \`d\` attribute in the \`path\` tag and the basic attributes for visualizing the raw file in the \`svg\` tag . For consistency, we don't include unnecessary attributes in the \`svg\` and \`path\` tags.
-
-We recommend streamlining (removing strokes, transforms, etc.) and optimizing the SVGs to improve performance and the pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac)
-
-To use svgo, install
-
-\`npm -g install svgo\`
-
-and run
-
-\`svgo -f packages/gestalt/src/icons --config=packages/gestalt/src/icons/svgo.config.js\``}
-        />
-      </MainSection>
-
       <MainSection name="Accessibility">
         <MainSection.Subsection
           description="
@@ -175,14 +188,6 @@ and run
 - Icons should be universal across cultures, regions, ages, and backgrounds without need for translation. Be mindful of your audience and use symbols and labels that resonate with them.
 - Some icons don't translate well in all cultures, so it's preferred to user-test each icon before it is added to Gestalt.
 "
-        />
-      </MainSection>
-
-      <MainSection name="Brand icons">
-        <MainSection.Subsection
-          description={`
-        All brand icons are trademarks of their respective owners. The inclusion of these trademarks does not indicate endorsement of the trademark holder by Pinterest, nor vice-versa. Please do not use brand logos for any purpose except to represent the company, product, or service to which they refer.
-        `}
         />
       </MainSection>
     </Page>
