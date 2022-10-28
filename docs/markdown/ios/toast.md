@@ -11,18 +11,18 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="When to use" />    
-    - Briefly acknowledging a user action without interrupting their flow
-    - When acknowledging an action that relates to another surface, providing a link that navigates the user to that surface
-    - To undo actions after acknowledgement, if there isn’t already a way to do so on the current surface
+    - Briefly acknowledging a user action without interrupting their flow.
+    - When acknowledging an action that relates to another surface, provide a link that navigates the user to that surface.
+    - To undo actions after acknowledgement, if there isn’t already a way to do so on the current surface.
     - For system processes like showing that a process is loading, or when there are internet connectivity issues.
   </Group>
   <Group>
   <Dont title="When not to use" />
   - When, due to an error, a user can’t even continue performing basic tasks like browsing already loaded Pins.
   - When asking a user to confirm that they want to perform an action. Use [Sheet](/ios/sheet) instead.
-  - When you want to suggest a user spend more money or try new features; use [Upsell](/upsell) instead.
-  - For errors that relate to a specific section or page. Use [Callout](/web/callout) or [SlimBanner](/slimbanner) instead.
-  - To guide or educate the user. Use [Popover](/popover) or [Tooltip](/tooltip) instead.
+  - When you want to suggest a user spend more money or try new features; use [Upsell](/web/upsell) instead.
+  - For errors that relate to a specific section or page. Use [Callout](/web/callout) or [SlimBanner](/web/slimbanner) instead.
+  - To guide or educate the user. Use [Popover](/web/popover) or [Tooltip](/web/tooltip) instead.
   </Group>
 </TwoCol>
 
