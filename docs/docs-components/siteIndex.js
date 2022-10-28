@@ -45,11 +45,31 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
   },
   {
     sectionName: 'Android',
-    pages: ['Overview', 'Avatar', 'Button', 'Icon', 'IconButton', 'Sheet', 'Tabs', 'TextField'],
+    pages: [
+      'Overview',
+      'Avatar',
+      'Button',
+      'Icon',
+      'IconButton',
+      'Sheet',
+      'Tabs',
+      'TextField',
+      'Toast',
+    ],
   },
   {
     sectionName: 'iOS',
-    pages: ['Overview', 'Avatar', 'Button', 'Icon', 'IconButton', 'Sheet', 'Tabs', 'TextField'],
+    pages: [
+      'Overview',
+      'Avatar',
+      'Button',
+      'Icon',
+      'IconButton',
+      'Sheet',
+      'Tabs',
+      'TextField',
+      'Toast',
+    ],
   },
   {
     sectionName: 'Web',
