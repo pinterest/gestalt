@@ -1,13 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Heading, Link, Text } from 'gestalt';
+import { Flex, Link, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import Page from '../../../docs-components/Page.js';
-import A11Y from '../../../graphics/home-page/accessibility.svg';
-import ColorEase from '../../../graphics/color-examples/colorEase.svg';
-import Consistency from '../../../graphics/color-examples/consistency.svg';
-
 import alternativeColors from '../../../examples/colors/alternativeColorsExample.js';
 import alternativeColorTextExample from '../../../examples/colors/alternativeColorTextExample.js';
 import alternativeColorTokensExample from '../../../examples/colors/alternativeColorTokensExample.js';
@@ -21,43 +17,7 @@ import repurposeExample from '../../../examples/colors/repurposeExample.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 import soleIndicatorExample from '../../../examples/colors/soleIndicatorExample.js';
 import validElevationExample from '../../../examples/colors/validElevationExample.js';
-
-type PrincipleCardProps = {|
-  color: string,
-  image?: Node,
-  text: string | Node,
-  heading: string,
-|};
-function PrincipleLayout({ color, image, text, heading }: PrincipleCardProps): Node {
-  return (
-    <Flex
-      direction="column"
-      gap={{
-        row: 0,
-        column: 4,
-      }}
-    >
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        height={160}
-        width={260}
-        dangerouslySetInlineStyle={{
-          __style: {
-            backgroundColor: `var(--color-${color})`,
-          },
-        }}
-      >
-        {image}
-      </Box>
-      <Heading size="400">{heading}</Heading>
-      <Box marginBottom={6}>
-        <Text>{text}</Text>
-      </Box>
-    </Flex>
-  );
-}
+import PrincipleItem from '../../../docs-components/PrincipleItem.js';
 
 export default function ColorExamplesPage(): Node {
   return (
@@ -68,18 +28,9 @@ export default function ColorExamplesPage(): Node {
         type="guidelines"
       />
       <MainSection name="Color principles">
-        <Flex
-          gap={{
-            row: 12,
-            column: 0,
-          }}
-          alignContent="between"
-          wrap
-        >
+        <Flex gap={12} alignContent="between" wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
-            <PrincipleLayout
-              color="teal-spabattical-500"
-              image={<ColorEase />}
+            <PrincipleItem
               heading="Ease of content"
               text={
                 <Text>
@@ -97,9 +48,7 @@ export default function ColorExamplesPage(): Node {
             />
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
-            <PrincipleLayout
-              color="orange-firetini-500"
-              image={<Consistency />}
+            <PrincipleItem
               heading="Consistency of visuals"
               text={
                 <Text>
@@ -118,9 +67,7 @@ export default function ColorExamplesPage(): Node {
             />
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
-            <PrincipleLayout
-              color="blue-skycicle-500"
-              image={<A11Y />}
+            <PrincipleItem
               heading="Accessible information"
               text={
                 <Text>
