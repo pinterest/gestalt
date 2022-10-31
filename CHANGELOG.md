@@ -1,3 +1,9 @@
+## 79.0.8 (Oct 31, 2022)
+
+### Patch
+
+- Docs: Update principles graphics across pages ([#2464](https://github.com/pinterest/gestalt/pull/2464)) - [Preview link](https://deploy-preview-2464--gestalt.netlify.app)
+
 ## 79.0.7 (Oct 28, 2022)
 
 ### Patch
