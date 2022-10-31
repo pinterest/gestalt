@@ -42,7 +42,7 @@ function GestaltApp(
   if (router.pathname.startsWith('/visual-test/')) {
     return (
       <Providers isMobile={isMobile}>
-        <Box data-test-id="visual-test" display="inlineBlock">
+        <Box dataTestId="visual-test" display="inlineBlock">
           <Component {...pageProps} />
         </Box>
       </Providers>

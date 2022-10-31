@@ -11,7 +11,7 @@ describe('ScrollBoundaryContainer', () => {
 
     const { getByTestId } = render(
       <ScrollBoundaryContainer overflow="scroll">
-        <Box data-test-id="childrenId" ref={ref} />
+        <Box dataTestId="childrenId" ref={ref} />
       </ScrollBoundaryContainer>,
     );
 

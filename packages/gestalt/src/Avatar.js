@@ -73,7 +73,7 @@ export default function Avatar(props: Props): Node {
       height={height}
       position="relative"
       rounding="circle"
-      data-test-id="gestalt-avatar-svg"
+      dataTestId="gestalt-avatar-svg"
     >
       {src && isImageLoaded ? (
         <Mask rounding="circle" wash>
