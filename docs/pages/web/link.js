@@ -33,9 +33,9 @@ To see how you can grow your business, visit
             title="When to use"
             description={`
 - Primarily for navigation, and usually within or directly accompanying a sentence. In particular cases, a Link is used to trigger actions assisting in a task completion in addition to navigation. However, these links should still serve as a support to a navigation purpose.
-- Directing users to another page or a different portion of the same page
-- Jump to an element on the same page
-- Highlighting URL destinations
+- Directing users to another page or a different portion of the same page.
+- Jump to an element on the same page.
+- Highlighting URL destinations.
         `}
           />
           <MainSection.Card
@@ -249,9 +249,8 @@ To see how you can grow your business, visit
           <MainSection.Card
             type="do"
             description={`
-Use the "visit" icon to represent an external link/domain. The icon should match the text size.
-
-Please note: Disclaimers and links taking users to Pinterest subsites don't need to display an external link icon.`}
+Display the external icon ("visit" icon) when the link text needs support to convey an external domain or subsite, and when it helps Pinners scan and pick a navigation option.
+`}
             defaultCode={`
 <Text inline>
   To receive push notifications instead of texts,
@@ -261,7 +260,7 @@ Please note: Disclaimers and links taking users to Pinterest subsites don't need
           />
           <MainSection.Card
             type="don't"
-            description="Use other icons paired with text within a paragraph or a sentence to represent an external Link."
+            description="Use other icons to represent an external Link. Instead, use the appropriate external icon."
             defaultCode={`
 <Flex gap={2} justifyContent="center" width="100%">
   <Text inline> Visit
@@ -270,6 +269,44 @@ Please note: Disclaimers and links taking users to Pinterest subsites don't need
     </Text>
   </Text>
   <Icon icon="link" accessibilityLabel="" color="default" />
+</Flex>
+            `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            type="do"
+            description={`
+Add clarity to external links through explicit link text and predictable destinations instead of overusing external icons when the link is surrounded by text content. If not possible, limit to a maximum of two external icons per paragraph.
+`}
+            defaultCode={`
+<Text inline>
+  Go to
+  <Link href="https://developers.pinterest.com/account-setup/" inline externalLinkIcon="default" target="blank">My Apps</Link>.
+</Text>
+`}
+          />
+          <MainSection.Card
+            type="don't"
+            description={`
+Overuse external icons, especially when they are part of text content.
+
+Displaying multiple icons within the same text block can cause unnecessary visual load and negatively impact readability. Instead, add clarity to external links through explicit link text.`}
+            defaultCode={`
+<Flex gap={2} direction="column" justifyContent="center" width="100%">
+  <Text inline>- Comply with our
+    <Link href="https://policy.pinterest.com/en/developer-guidelines" inline externalLinkIcon="default"> Development guidelines</Link>{" "}
+    or ensure you are currently logged into an existing
+    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" inline externalLinkIcon="default">business account.</Link>
+  </Text>
+  <Text inline>-
+    <Link href="" inline externalLinkIcon="default">Create a Pinterest business account</Link>{" "}
+    or ensure you are currently logged into an existing
+    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" inline externalLinkIcon="default">business account</Link>
+  </Text>
+  <Text inline>-
+    <Link href="https://developers.pinterest.com/account-setup/" inline externalLinkIcon="default">Go to My Apps</Link>
+  </Text>
 </Flex>
             `}
           />
@@ -449,9 +486,23 @@ Accessible content is critical if we consider that assistive technology also pre
           description={`
 When rendering an external link, add text for screen readers that this Link will go to a different destination. Users should be informed that they will be moving out of a domain and which domain they are moving to. This is particularly relevant for those with cognitive impairments or people relying on assistive technology.
 
-We recommend adding an external Link to inline content. However, use max of two external Links per paragraph when possible, as adding more than two icons in the same block of text can clutter the design and create readability issues.
+These are cases where external links should open in a new tab, as it supports Pinners to better navigate our product without disrupting their flow experience:
 
-Also, consider adding external Links to elements where the "visit" icon will support the user's comprehension, letting them know they are leaving Pinterest content and going to an external domain. For example, links inside a footer element.
+  - When changing pages would make the user lose unsaved progress—for example, filling out a form or adding content.
+
+  - When starting a process, which would stop if the user clicks away. For example, watching a video or completing a core task.
+
+  - When Pinners are logged in and, clicking away would interrupt that session.
+
+Sometimes opening links in a new tab can be challenging for users with difficulty perceiving visual content, users with cognitive disabilities, or people who magnify their screens. We don't recommend opening a link in a new tab when:
+
+  - It is invasive and disruptive to the flow of the page.
+
+  - Users have not been clearly informed about this behavior.
+
+We recommend adding an external link to inline content. However, use a maximum of two external links per paragraph when possible, as adding more than two icons in the same block of text can clutter the design and create readability issues.
+
+Also, consider adding external links to elements where the "visit" icon will support the user's comprehension, letting them know they are leaving Pinterest content and going to an external domain. For example, when using external links inside a footer element.
 
 For external links where an external Gestalt Link doesn't apply, check out [Button link role](https://gestalt.pinterest.systems/web/button#Role) or [IconButton link role](https://gestalt.pinterest.systems/web/iconbutton#Role).`}
         />
