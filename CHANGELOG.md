@@ -1,3 +1,9 @@
+## 79.0.9 (Oct 31, 2022)
+
+### Patch
+
+- Masonry: move files to /Masonry directory ([#2465](https://github.com/pinterest/gestalt/pull/2465)) - [Preview link](https://deploy-preview-2465--gestalt.netlify.app)
+
 ## 79.0.8 (Oct 31, 2022)
 
 ### Patch
