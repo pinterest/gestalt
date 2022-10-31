@@ -3,13 +3,11 @@ import { Text, Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
 
 type Props = {|
-  color: string,
   heading: string,
-  image?: Node,
   text: string | Node,
 |};
 
-export default function PrincipleItem({ color, heading, image, text }: Props): Node {
+export default function PrincipleItem({ heading, text }: Props): Node {
   return (
     <Flex
       direction="column"
@@ -18,22 +16,6 @@ export default function PrincipleItem({ color, heading, image, text }: Props): N
         column: 4,
       }}
     >
-      {image !== undefined && (
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          height={160}
-          width={260}
-          dangerouslySetInlineStyle={{
-            __style: {
-              backgroundColor: `var(--color-${color})`,
-            },
-          }}
-        >
-          {image}
-        </Box>
-      )}
       <Heading size="400">{heading}</Heading>
       <Box marginBottom={6}>
         <Text>{text}</Text>
