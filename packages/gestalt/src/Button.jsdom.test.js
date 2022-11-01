@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import Button from './Button.js';
 
 describe('Button', () => {
@@ -25,6 +25,46 @@ describe('Button', () => {
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current?.type).toEqual('button');
     expect(ref.current instanceof HTMLButtonElement && ref.current?.tabIndex).toEqual(0);
+  });
+
+  it('renders a link button with correct new tab announcement with and without accessibilityLabel', () => {
+    render(
+      <Button
+        iconEnd="visit"
+        size="lg"
+        text="Visit Pinterest"
+        role="link"
+        rel="nofollow"
+        target="blank"
+        href="#"
+      />,
+    );
+    expect(
+      screen.getByText('Visit Pinterest', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText('; Opens a new tab', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    render(
+      <Button
+        accessibilityLabel="Visit Pinterest"
+        iconEnd="visit"
+        size="lg"
+        text="Visit Pinterest"
+        role="link"
+        rel="nofollow"
+        target="blank"
+        href="#"
+      />,
+    );
+
+    expect(screen.getByLabelText('Visit Pinterest; Opens a new tab')).toBeVisible();
   });
 
   it('renders a link button with sequential keyboard navigation and forwards a ref to the innermost <a> element', () => {

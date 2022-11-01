@@ -162,6 +162,11 @@ exports[`target blank 1`] = `
   target="_blank"
 >
   Link
+  <div
+    className="box xsDisplayVisuallyHidden"
+  >
+    ; Opens a new tab
+  </div>
 </a>
 `;
 

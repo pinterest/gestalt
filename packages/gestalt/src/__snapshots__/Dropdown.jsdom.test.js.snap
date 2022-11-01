@@ -686,10 +686,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
+                      aria-hidden="true"
                       class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
                     >
                       <svg
-                        aria-label=", External"
+                        aria-hidden="true"
+                        aria-label=""
                         class="rtlSupport icon defaultIcon iconBlock"
                         height="12"
                         role="img"
@@ -701,6 +703,11 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         />
                       </svg>
                     </div>
+                  </div>
+                  <div
+                    class="box xsDisplayVisuallyHidden"
+                  >
+                    ; Opens a new tab
                   </div>
                 </a>
               </div>
@@ -821,10 +828,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
+                      aria-hidden="true"
                       class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
                     >
                       <svg
-                        aria-label=", External"
+                        aria-hidden="true"
+                        aria-label=""
                         class="rtlSupport icon defaultIcon iconBlock"
                         height="12"
                         role="img"
@@ -836,6 +845,11 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         />
                       </svg>
                     </div>
+                  </div>
+                  <div
+                    class="box xsDisplayVisuallyHidden"
+                  >
+                    ; Opens a new tab
                   </div>
                 </a>
               </div>
@@ -886,10 +900,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
+                      aria-hidden="true"
                       class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
                     >
                       <svg
-                        aria-label=", External"
+                        aria-hidden="true"
+                        aria-label=""
                         class="rtlSupport icon defaultIcon iconBlock"
                         height="12"
                         role="img"
@@ -901,6 +917,11 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         />
                       </svg>
                     </div>
+                  </div>
+                  <div
+                    class="box xsDisplayVisuallyHidden"
+                  >
+                    ; Opens a new tab
                   </div>
                 </a>
               </div>

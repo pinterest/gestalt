@@ -10,6 +10,7 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import textStyles from './Typography.css';
@@ -21,6 +22,7 @@ import layoutStyles from './Layout.css';
 import Icon from './Icon.js';
 import Box from './Box.js';
 import Text from './Text.js';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 
 const externalLinkIconMap = {
   '100': 12,
@@ -181,6 +183,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     width: innerRef?.current?.clientWidth,
   });
 
+  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
+
   const { isFocusVisible } = useFocusVisible();
 
   let underlineStyle = inline ? 'always' : 'hover';
@@ -219,9 +223,11 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     }
   };
 
+  const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+
   return (
     <a
-      aria-label={accessibilityLabel}
+      aria-label={ariaLabel}
       className={className}
       href={href}
       id={id}
@@ -268,6 +274,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       target={target ? `_${target}` : null}
     >
       {children}
+      <NewTabAccessibilityLabel target={target} />
       <ExternalIcon externalLinkIcon={externalLinkIcon} />
     </a>
   );

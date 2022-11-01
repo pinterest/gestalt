@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { IconButton } from 'gestalt';
+import { IconButton, SlimBanner } from 'gestalt';
 import PropTable from '../../docs-components/PropTable.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -317,7 +317,19 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
+      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`.">
+        <SlimBanner
+          iconAccessibilityLabel="Localize the default label"
+          message="IconButtons with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
+          type="recommendationBare"
+          helperLink={{
+            text: 'Learn more',
+            accessibilityLabel: 'Learn more about DefaultLabelProvider',
+            href: '/web/utilities/defaultlabelprovider',
+            onClick: () => {},
+          }}
+        />
+      </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Role"
@@ -331,7 +343,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
 
 \`target\` is optional and defines the frame or window to open the anchor defined on href:
 * "null" opens the anchor in the same window.
-* "blank" opens the anchor in a new window.
+* "blank" opens the anchor in a new window. IconButtons announce to assistive technologies that the link opens in a new tab. Localize the default label with [DefaultLabelProvider](/web/utilities/defaultlabelprovider).
 * "self" opens an anchor in the same frame.
 
 \`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link.

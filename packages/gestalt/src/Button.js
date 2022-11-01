@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
+import { Fragment, forwardRef, useImperativeHandle, useRef, type Node } from 'react';
 import classnames from 'classnames';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
@@ -13,6 +13,8 @@ import InternalLink from './InternalLink.js';
 import Icon, { type IconColor } from './Icon.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',
@@ -84,22 +86,34 @@ type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
-function IconEnd({
+function InternalButtonContent({
+  target,
   text,
   textColor,
   icon,
   size,
 }: {|
+  target?: null | 'self' | 'blank',
   text: Node,
   textColor: IconColor,
-  icon: $Keys<typeof icons>,
+  icon?: $Keys<typeof icons>,
   size: string,
 |}): Node {
   return (
-    <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-      {text}
-      <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
-    </Flex>
+    <Fragment>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        {text}
+        {icon ? (
+          <Icon
+            accessibilityLabel=""
+            color={textColor}
+            icon={icon}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        ) : null}
+      </Flex>
+      <NewTabAccessibilityLabel target={target} />
+    </Fragment>
   );
 }
 
@@ -146,6 +160,8 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+
+  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
@@ -208,9 +224,11 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
   if (props.role === 'link') {
     const { href, rel = 'none', target = null } = props;
 
+    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+
     return (
       <InternalLink
-        accessibilityLabel={accessibilityLabel}
+        accessibilityLabel={ariaLabel}
         colorClass={colorClass}
         disabled={disabled}
         fullWidth={fullWidth}
@@ -224,11 +242,13 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         target={target}
         wrappedComponent="button"
       >
-        {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
-        ) : (
-          buttonText
-        )}
+        <InternalButtonContent
+          target={target}
+          text={buttonText}
+          textColor={textColor}
+          icon={iconEnd}
+          size={size}
+        />
       </InternalLink>
     );
   }
@@ -255,11 +275,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         tabIndex={disabled ? null : tabIndex}
         type="submit"
       >
-        {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
-        ) : (
-          buttonText
-        )}
+        <InternalButtonContent text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
       </button>
     );
   }
@@ -289,7 +305,12 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <InternalButtonContent
+            text={buttonText}
+            textColor={textColor}
+            icon={iconEnd}
+            size={size}
+          />
         ) : (
           buttonText
         )}

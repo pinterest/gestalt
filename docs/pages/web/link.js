@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
@@ -460,7 +460,19 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
       <MainSection
         name="Localization"
         description={`Be sure to localize the \`accessibilityLabel\` as well as any children content.`}
-      />
+      >
+        <SlimBanner
+          iconAccessibilityLabel="Localize the default label"
+          message="Link announces to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
+          type="recommendationBare"
+          helperLink={{
+            text: 'Learn more',
+            accessibilityLabel: 'Learn more about DefaultLabelProvider',
+            href: '/web/utilities/defaultlabelprovider',
+            onClick: () => {},
+          }}
+        />
+      </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -600,6 +612,17 @@ However, Link's underline style can be overridden at any time using the \`underl
 - "self" opens an anchor in the same frame.
 `}
         >
+          <SlimBanner
+            iconAccessibilityLabel="Localize the default label"
+            message="Link announces to assistive technologies that the link opens in a new tab. Localize the default label with DefaultLabelProvider."
+            type="recommendationBare"
+            helperLink={{
+              text: 'Learn more',
+              accessibilityLabel: 'Learn more about DefaultLabelProvider',
+              href: '/web/utilities/defaultlabelprovider',
+              onClick: () => {},
+            }}
+          />
           <MainSection.Card
             defaultCode={`
 <Text inline>

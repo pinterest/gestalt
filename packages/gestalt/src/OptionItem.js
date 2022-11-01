@@ -131,6 +131,8 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       </Box>
       {isExternal && (
         <Box
+          // aria-hidden is required to prevent assistive technologies from accessing the icon as the actual link already announces that the link opens a new tab
+          aria-hidden
           alignItems="center"
           color="transparent"
           display="flex"
@@ -138,8 +140,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
           // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
           marginStart={2}
         >
-          {/* TODO: this label needs to be translated */}
-          <Icon accessibilityLabel=", External" color="default" icon="arrow-up-right" size={12} />
+          <Icon accessibilityLabel="" color="default" icon="arrow-up-right" size={12} />
         </Box>
       )}
     </Flex>

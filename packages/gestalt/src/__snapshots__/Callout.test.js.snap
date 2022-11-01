@@ -253,9 +253,17 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
           >
-            Visit Pinterest
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              >
+                Visit Pinterest
+              </div>
+            </div>
           </div>
         </a>
       </div>
@@ -401,9 +409,17 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
           >
-            Learn more
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              >
+                Learn more
+              </div>
+            </div>
           </div>
         </a>
       </div>
@@ -432,9 +448,17 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
           >
-            Visit Pinterest
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              >
+                Visit Pinterest
+              </div>
+            </div>
           </div>
         </a>
       </div>
@@ -531,9 +555,17 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
           >
-            Visit Pinterest
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              >
+                Visit Pinterest
+              </div>
+            </div>
           </div>
         </a>
       </div>
