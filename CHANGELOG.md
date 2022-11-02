@@ -1,3 +1,9 @@
+## 80.0.0 (Nov 2, 2022)
+
+### Major
+
+- Link, Button, TapArea, IconButton: implemented default label to target="blank" ([#2467](https://github.com/pinterest/gestalt/pull/2467)) - [Preview link](https://deploy-preview-2467--gestalt.netlify.app)
+
 ## 79.0.12 (Nov 2, 2022)
 
 ### Patch
