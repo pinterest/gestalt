@@ -1,3 +1,9 @@
+## 79.0.12 (Nov 2, 2022)
+
+### Patch
+
+- Links: updated documentation re external links ([#2466](https://github.com/pinterest/gestalt/pull/2466)) - [Preview link](https://deploy-preview-2466--gestalt.netlify.app)
+
 ## 79.0.11 (Nov 2, 2022)
 
 ### Patch
