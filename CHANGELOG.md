@@ -1,3 +1,9 @@
+## 79.0.10 (Nov 2, 2022)
+
+### Patch
+
+- Internal: Retry playwright step ([#2468](https://github.com/pinterest/gestalt/pull/2468)) - [Preview link](https://deploy-preview-2468--gestalt.netlify.app)
+
 ## 79.0.9 (Oct 31, 2022)
 
 ### Patch
