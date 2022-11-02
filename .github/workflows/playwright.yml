@@ -28,7 +28,11 @@ jobs:
       - name: Run build
         run: yarn build
       - name: Run your tests
-        run: yarn run playwright:test --workers 2 --shard=${{ matrix.shard }}
+        run: |
+          # Retry 2 times before the steps actually fails
+          (echo "===== Playwright run attempt: 1 ====" && yarn run playwright:test --workers 2 --shard=${{ matrix.shard }}) || \
+          (echo "===== Playwright run attempt: 2 ====" && yarn run playwright:test --workers 2 --shard=${{ matrix.shard }}) || \
+          (echo "==== Playwright run attempt ====" && exit 1)
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v2
