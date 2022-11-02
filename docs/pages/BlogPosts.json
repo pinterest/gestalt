@@ -2,6 +2,33 @@
   "year": "2022",
   "digests": [
     {
+      "week": "October 28, 2022",
+      "summary": "New animation guidelines, additional icons added to Figma and upcoming accessibility training",
+      "posts": [
+        {
+          "title": "Pilot animation guidelines available in Gestalt docs",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/27/00/05/2700053efd4641ffba6a549a746b4ce4.png",
+          "imageAltText": "image symbolizing animation",
+          "content": "We are _super excited_ to announce that pilot animation guidelines are now available in our documentation. We've broken up the content by [principles](https://gestalt.pinterest.systems/foundations/animation/principles), [guidelines](https://gestalt.pinterest.systems/foundations/animation/guidelines) and [implementation](https://gestalt.pinterest.systems/foundations/animation/implementation).\n\nKeep in mind this is our first iteration on these guidelines and we plan to continue improving in the weeks/months ahead."
+        },
+        {
+          "title": "New icons added to Figma",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/d4/82/30/d4823076255d8a92caa840c10a20cc71.png",
+          "imageAltText": "examples of gestalt icons",
+          "content": "We've added some new icons to our Gestalt Foundations Figma library:  \n * **captions**: to denote closed captions for media \n * **copy-to-clipboard**: for copying to your clipboard. currently used in 2FA\n * **face-neutral**: adds to our set of facial expressions for survey responses\n * **insights-audience**: to signify Audience insights\n * **insights-conversion**: to signify Conversion insights \n * **overview**: for business overview and dashboards\n * **trending**: a generic icon to denote trends—updated to match the 3px stroke weight and dimensions of other icons."
+        },
+        {
+          "title": "Design accessibility training on November 16th",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/39/57/61/3957613fc354854b3cd1c3546b53f161.png",
+          "imageAltText": "image of accessibility symbol",
+          "content": "Save the date! On **Wednesday, November 16th**, we will be providing accessibility training for designers. Come learn about how to ensure your designs can be used (and loved) by _everyone_."
+        }
+      ]
+    },
+    {
       "week": "October 21, 2022",
       "summary": "A brand new component, improvements to our Figma libraries and accessibility improvements to our input components",
       "posts": [

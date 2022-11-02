@@ -388,7 +388,7 @@
     {
       "task": "Toast component design guidelines",
       "deadline": "Quarter 3",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS",
       "description": "Addition of best practices, accessibility, localization and related components to Toast mobile documentation.",
       "link": ""
