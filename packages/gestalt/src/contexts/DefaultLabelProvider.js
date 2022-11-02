@@ -14,6 +14,9 @@ import { type Context, type Node, createContext, useContext } from 'react';
  */
 
 export type DefaultLabelContextType = {|
+  Link: {|
+    accessibilityNewTabLabel: string,
+  |},
   ModalAlert: {|
     accessibilityDismissButtonLabel: string,
   |},
@@ -27,6 +30,9 @@ export type DefaultLabelContextType = {|
 |};
 
 export const fallbackLabels: DefaultLabelContextType = {
+  Link: {
+    accessibilityNewTabLabel: 'Opens a new tab',
+  },
   ModalAlert: {
     accessibilityDismissButtonLabel: 'Close modal',
   },

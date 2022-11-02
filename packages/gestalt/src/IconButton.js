@@ -11,6 +11,8 @@ import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,
@@ -119,6 +121,8 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
+  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
+
   const { isFocusVisible } = useFocusVisible();
 
   const renderPogComponent = (selected?: boolean): Node => (
@@ -176,9 +180,12 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
 
   if (props.role === 'link') {
     const { href, rel, target } = props;
+
+    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+
     buttonComponent = (
       <InternalLink
-        accessibilityLabel={accessibilityLabel}
+        accessibilityLabel={ariaLabel}
         disabled={disabled}
         href={href}
         onClick={handleLinkClick}
@@ -195,6 +202,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
         wrappedComponent="iconButton"
       >
         {renderPogComponent()}
+        <NewTabAccessibilityLabel target={target} />
       </InternalLink>
     );
   } else {

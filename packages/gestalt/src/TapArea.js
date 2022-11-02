@@ -9,6 +9,8 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type AriaCurrent } from './ariaTypes.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type FocusEventHandler = AbstractEventHandler<
   SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
@@ -118,6 +120,8 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     width: innerRef?.current?.clientWidth,
   });
 
+  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
+
   const { isFocusVisible } = useFocusVisible();
 
   const buttonRoleClasses = classnames(
@@ -196,10 +200,12 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   if (props.role === 'link') {
     const { accessibilityCurrent, href, rel = 'none', target = null } = props;
 
+    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+
     return (
       <InternalLink
         accessibilityCurrent={accessibilityCurrent}
-        accessibilityLabel={accessibilityLabel}
+        accessibilityLabel={ariaLabel}
         disabled={disabled}
         href={href}
         fullHeight={fullHeight}
@@ -224,6 +230,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         wrappedComponent="tapArea"
       >
         {children}
+        <NewTabAccessibilityLabel target={target} />
       </InternalLink>
     );
   }

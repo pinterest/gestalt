@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { screen, fireEvent, render } from '@testing-library/react';
 import TapArea from './TapArea.js';
 
 describe('TapArea', () => {
@@ -108,5 +108,38 @@ describe('TapArea', () => {
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex).toEqual(-1);
+  });
+
+  it('renders a link TapArea with correct new tab announcement with and without accessibilityLabel', () => {
+    render(
+      <TapArea role="link" target="blank" href="https://www.pinterest.com">
+        Visit Pinterest
+      </TapArea>,
+    );
+
+    expect(
+      screen.getByText('Visit Pinterest', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText('; Opens a new tab', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    render(
+      <TapArea
+        accessibilityLabel="Visit Pinterest"
+        role="link"
+        target="blank"
+        href="https://www.pinterest.com"
+      >
+        Visit Pinterest
+      </TapArea>,
+    );
+
+    expect(screen.getByLabelText('Visit Pinterest; Opens a new tab')).toBeVisible();
   });
 });

@@ -362,7 +362,20 @@ If Button is used as a control Button to show/hide a Popover-based component, we
       <MainSection
         name="Localization"
         description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information. "
-      />
+      >
+        <SlimBanner
+          iconAccessibilityLabel="Localize the default label"
+          message="Buttons with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
+          type="recommendationBare"
+          helperLink={{
+            text: 'Learn more',
+            accessibilityLabel: 'Learn more about DefaultLabelProvider',
+            href: '/web/utilities/defaultlabelprovider',
+            onClick: () => {},
+          }}
+        />
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
@@ -521,6 +534,17 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 These optional props control the behavior of \`role="link"\` Buttons. External links commonly use \`target="_blank"\` to open the link in a new tab or window, and \`rel="nofollow"\` to provide hints for SEO.
 `}
         >
+          <SlimBanner
+            iconAccessibilityLabel="Localize the default label"
+            message="Button with link role announces to assistive technologies that the link opens in a new tab. Localize the default label with DefaultLabelProvider."
+            type="recommendationBare"
+            helperLink={{
+              text: 'Learn more',
+              accessibilityLabel: 'Learn more about DefaultLabelProvider',
+              href: '/web/utilities/defaultlabelprovider',
+              onClick: () => {},
+            }}
+          />
           <MainSection.Card
             cardSize="lg"
             sandpackExample={

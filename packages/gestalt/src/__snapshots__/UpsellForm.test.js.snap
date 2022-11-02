@@ -59,9 +59,17 @@ exports[`UpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+          className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
         >
-          Submit
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+            >
+              Submit
+            </div>
+          </div>
         </div>
       </button>
     </div>

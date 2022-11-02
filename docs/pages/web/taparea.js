@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, TapArea, Text } from 'gestalt';
+import { Box, TapArea, Text, SlimBanner } from 'gestalt';
 import PropTable from '../../docs-components/PropTable.js';
 import Combination from '../../docs-components/Combination.js';
 import Example from '../../docs-components/Example.js';
@@ -256,6 +256,20 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Localization">
+        <SlimBanner
+          iconAccessibilityLabel="Localize the default label"
+          message="TapAreas with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
+          type="recommendationBare"
+          helperLink={{
+            text: 'Learn more',
+            accessibilityLabel: 'Learn more about DefaultLabelProvider',
+            href: '/web/utilities/defaultlabelprovider',
+            onClick: () => {},
+          }}
+        />
+      </MainSection>
 
       <MainSection name="Variants">
         <Example

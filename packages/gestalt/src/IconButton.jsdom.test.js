@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import IconButton from './IconButton.js';
 
 describe('IconButton', () => {
@@ -86,5 +86,20 @@ describe('IconButton', () => {
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex).toEqual(-1);
+  });
+
+  it('renders a link button with correct new tab announcement with and without accessibilityLabel', () => {
+    render(
+      <IconButton
+        accessibilityLabel="Visit Pinterest"
+        icon="visit"
+        role="link"
+        target="blank"
+        href="https://www.pinterest.com"
+        tooltip={{ text: 'Link example' }}
+      />,
+    );
+
+    expect(screen.getByLabelText('Visit Pinterest; Opens a new tab')).toBeVisible();
   });
 });

@@ -4,6 +4,9 @@ import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 
 const myI18nTranslator = (val) => val.toUpperCase();
 const labels = {
+  Link: {
+    accessibilityNewTabLabel: myI18nTranslator('Opens a new tab'),
+  },
   ModalAlert: {
     accessibilityDismissButtonLabel: myI18nTranslator('Close modal'),
   },

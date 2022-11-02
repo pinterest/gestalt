@@ -16,6 +16,9 @@ describe('useDefaultLabelContext', () => {
     render(
       <DefaultLabelProvider
         labels={{
+          Link: {
+            accessibilityNewTabLabel: 'Opens a new tab',
+          },
           ModalAlert: {
             accessibilityDismissButtonLabel: 'Close modal',
           },

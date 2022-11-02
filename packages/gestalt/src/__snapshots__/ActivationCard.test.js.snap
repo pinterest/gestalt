@@ -337,9 +337,17 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         target={null}
       >
         <div
-          className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+          className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
         >
-          Learn more
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            >
+              Learn more
+            </div>
+          </div>
         </div>
       </a>
     </div>
@@ -488,9 +496,17 @@ exports[`<ActivationCard /> message + title + link 1`] = `
         target={null}
       >
         <div
-          className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+          className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
         >
-          Learn more
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            >
+              Learn more
+            </div>
+          </div>
         </div>
       </a>
     </div>
