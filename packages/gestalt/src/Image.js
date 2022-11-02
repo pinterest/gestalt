@@ -55,11 +55,11 @@ type Props = {|
   /**
    * Callback fired when the image loading has an error.
    */
-  onError?: () => void,
+  onError?: ({| event: SyntheticEvent<HTMLImageElement> |}) => void,
   /**
    * Callback fired when the image successfully loads.
    */
-  onLoad?: () => void,
+  onLoad?: ({| event: SyntheticEvent<HTMLImageElement> |}) => void,
   /**
    * When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility. See the [Presentational Images with Role example](https://gestalt.pinterest.systems/web/image#Presentational-Images-with-Role) for more details.
    */
@@ -112,16 +112,12 @@ export default class Image extends PureComponent<Props> {
     }
   }
 
-  handleLoad: () => void = () => {
-    if (this.props.onLoad) {
-      this.props.onLoad();
-    }
+  handleLoad = (event) => {
+    this.props.onLoad?.({ event });
   };
 
-  handleError: () => void = () => {
-    if (this.props.onError) {
-      this.props.onError();
-    }
+  handleError = (event) => {
+    this.props.onError?.({ event });
   };
 
   loadImage() {
