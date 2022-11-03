@@ -112,11 +112,11 @@ export default class Image extends PureComponent<Props> {
     }
   }
 
-  handleLoad = (event) => {
+  handleLoad: (event: SyntheticEvent<HTMLImageElement>) => void = (event) => {
     this.props.onLoad?.({ event });
   };
 
-  handleError = (event) => {
+  handleError: (event: SyntheticEvent<HTMLImageElement>) => void = (event) => {
     this.props.onError?.({ event });
   };
 
