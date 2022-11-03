@@ -66,10 +66,10 @@ export default function List({
           }
           return 0;
         })
-        .map((element, idx) => (
+        .map((element) => (
           <IllustrationCard
             headingLevel={headingLevel}
-            key={idx}
+            key={element.name}
             href={
               element?.path ??
               `/${platform.toLowerCase()}/${element.name.replace(/\s/g, '_').toLowerCase()}`

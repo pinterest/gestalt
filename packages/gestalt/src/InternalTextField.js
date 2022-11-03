@@ -208,6 +208,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputE
           {tags ? (
             <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
               {tags.map((tag, tagIndex) => (
+                // eslint-disable-next-line react/no-array-index-key
                 <Box key={tagIndex} marginEnd={1} marginBottom={1}>
                   {tag}
                 </Box>

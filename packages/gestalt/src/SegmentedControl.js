@@ -87,6 +87,7 @@ export default function SegmentedControl({
     <div className={classnames(styles.SegmentedControl, layout.medium)} role="tablist">
       {items.map((item, i) => (
         <SegmentedControlItem
+          // eslint-disable-next-line react/no-array-index-key
           key={i}
           index={i}
           item={item}

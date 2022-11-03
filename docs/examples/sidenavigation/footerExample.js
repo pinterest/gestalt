@@ -55,9 +55,9 @@ export default function Example(): Node {
             label: 'Draft',
             counter: { number: '100', accessibilityLabel: '100 Pins' },
           },
-        ].map(({ label, counter }, idx) => (
+        ].map(({ label, counter }) => (
           <SideNavigation.TopItem
-            key={idx}
+            key={label}
             href="#"
             label={label}
             icon="ads-stats"

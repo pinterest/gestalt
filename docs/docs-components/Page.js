@@ -47,6 +47,7 @@ export default function Page({
             {sections.map((card, i) => (
               <Box
                 id={`card-${i}`}
+                // eslint-disable-next-line react/no-array-index-key
                 key={i}
                 dangerouslySetInlineStyle={{
                   __style: {

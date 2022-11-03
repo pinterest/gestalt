@@ -213,6 +213,7 @@ export function PageHeaderItemsBlock({ items }: {| items: $ReadOnlyArray<Node> |
     <Box display="none" mdDisplay="block" overflow="hidden">
       <Flex gap={{ column: 0, row: 6 }}>
         {items.slice(0, 2).map((item, i) => (
+          // eslint-disable-next-line react/no-array-index-key
           <Flex.Item key={i}>{item}</Flex.Item>
         ))}
       </Flex>

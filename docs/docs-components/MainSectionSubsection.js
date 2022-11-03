@@ -94,8 +94,8 @@ function MainSectionSubsection({
               column: 4,
             }}
           >
-            {arrayChildren.map((child, idx) => (
-              <Flex.Item flex="grow" key={idx}>
+            {arrayChildren.map((child) => (
+              <Flex.Item flex="grow" key={child}>
                 {child}
               </Flex.Item>
             ))}
