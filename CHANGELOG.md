@@ -1,3 +1,9 @@
+## 80.0.2 (Nov 3, 2022)
+
+### Patch
+
+- Docs: Adjust Icon library heading ([#2473](https://github.com/pinterest/gestalt/pull/2473)) - [Preview link](https://deploy-preview-2473--gestalt.netlify.app)
+
 ## 80.0.1 (Nov 3, 2022)
 
 ### Patch
