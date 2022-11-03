@@ -564,6 +564,17 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
         </MainSection.Subsection>
       </MainSection>
 
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          description="
+- Icons must meet the [Non-Text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) requirement.
+- Avoid using unfamiliar icons. Always refer to Gestalt available icons. A new icon needs to be user tested to evaluate comprehension.
+- Icons should be universal across cultures, regions, ages, and backgrounds without need for translation. Be mindful of your audience and use symbols and labels that resonate with them.
+- Some icons don't translate well in all cultures, so it's preferred to user-test each icon before it is added to Gestalt.
+"
+        />
+      </MainSection>
+
       <MainSection name="Logos as icons">
         <MainSection.Subsection
           description={`Logos are third-party visual elements we only recommend setting as an icon when it is understandable by a global audience of users and meet our icon's principles and usage guidelines. For example, a payment credit card flag is required as an icon in a payment flow to support comprehension. In this case, aim for an internationally recognized logo in place of a locally recognized logo that may only apply to a specific background or culture.`}

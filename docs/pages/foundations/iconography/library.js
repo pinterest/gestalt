@@ -66,14 +66,16 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
       onTap={onTap}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
     >
       <Box
         borderStyle="sm"
         rounding={2}
         padding={2}
-        paddingX={hovered ? 6 : 2}
-        width={180}
-        height={90}
+        paddingX={2}
+        width={150}
+        height={110}
         color={hovered ? 'inverse' : 'default'}
         position="relative"
       >
@@ -83,7 +85,7 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
           direction="column"
           gap={2}
           alignItems="center"
-          justifyContent="end"
+          justifyContent="center"
         >
           <Icon
             color={hovered ? 'inverse' : 'default'}
@@ -280,17 +282,6 @@ export default function IconPage(): Node {
             </Box>
           </Layer>
         )}
-      </MainSection>
-
-      <MainSection name="Accessibility">
-        <MainSection.Subsection
-          description="
-- Icons must meet the [Non-Text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) requirement.
-- Avoid using unfamiliar icons. Always refer to Gestalt available icons. A new icon needs to be user tested to evaluate comprehension.
-- Icons should be universal across cultures, regions, ages, and backgrounds without need for translation. Be mindful of your audience and use symbols and labels that resonate with them.
-- Some icons don't translate well in all cultures, so it's preferred to user-test each icon before it is added to Gestalt.
-"
-        />
       </MainSection>
     </Page>
   );
