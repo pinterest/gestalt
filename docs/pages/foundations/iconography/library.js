@@ -1,19 +1,67 @@
 // @flow strict
 import { useState, type Node, type ElementProps } from 'react';
-import { Box, ComboBox, Flex, Icon, RadioGroup, TapArea, Text, Layer, Toast } from 'gestalt';
+import {
+  Box,
+  Flex,
+  Heading,
+  Icon,
+  Pog,
+  Layer,
+  Link,
+  RadioGroup,
+  SearchField,
+  TapArea,
+  Text,
+  Toast,
+} from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
+// $FlowExpectedError[untyped-import]
+import iconCategoryData from './ICON_DATA.json';
 
 const { icons } = Icon;
+const CATEGORIES = [
+  'Add',
+  'Ads and measurements',
+  'Alignment',
+  'Arrows',
+  'Media controls',
+  'Platform specific',
+  'Reactions and ratings',
+  'Social',
+  'Status',
+  'Text',
+  'Time',
+  'Toggle',
+  'Utility and tools',
+];
+
 type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
+type IconData = {|
+  name: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
+  category:
+    | 'Add'
+    | 'Ads and measurements'
+    | 'Alignment'
+    | 'Arrows'
+    | 'Media controls'
+    | 'Platform specific'
+    | 'Reactions and ratings'
+    | 'Social'
+    | 'Status'
+    | 'Text'
+    | 'Time'
+    | 'Toggle'
+    | 'Utility and tools',
+|};
 
 function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
   const [hovered, setHovered] = useState();
 
   return (
     <TapArea
-      rounding="circle"
+      rounding={2}
       tapStyle="compress"
       onTap={onTap}
       onMouseEnter={() => setHovered(true)}
@@ -23,9 +71,11 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
         borderStyle="sm"
         rounding={2}
         padding={2}
-        width={172}
-        height={84}
+        paddingX={hovered ? 6 : 2}
+        width={180}
+        height={90}
         color={hovered ? 'dark' : 'default'}
+        position="relative"
       >
         <Flex
           height="100%"
@@ -33,17 +83,33 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
           direction="column"
           gap={2}
           alignItems="center"
-          justifyContent="center"
+          justifyContent="end"
         >
           <Icon
             color={hovered ? 'light' : 'default'}
             accessibilityLabel={iconName}
             icon={iconName}
+            size="24"
           />
           <Text color={hovered ? 'light' : 'default'} size="100">
             {iconName}
           </Text>
         </Flex>
+        <Box
+          position="absolute"
+          bottom
+          right
+          display={hovered ? 'block' : 'none'}
+          dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+        >
+          <Pog
+            icon="copy-to-clipboard"
+            size="xs"
+            iconColor="darkGray"
+            bgColor="lightGray"
+            padding={1}
+          />
+        </Box>
       </Box>
     </TapArea>
   );
@@ -51,6 +117,16 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
 
 function findIcon(icon?: string): ?IconName {
   return icons.find((name) => name === icon);
+}
+
+function findIconByCategory(icon?: string, category: string): IconData {
+  // This check ensures there is an actual matching icon in our component
+  // so we don't accidentally show icons that are only in Figma.
+  const iconComponentName = icons.find((name) => name === icon);
+
+  return iconCategoryData.icons.find(
+    ({ name, categories }) => name === iconComponentName && categories.includes(category),
+  );
 }
 
 export default function IconPage(): Node {
@@ -63,23 +139,15 @@ export default function IconPage(): Node {
 
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
   const [inputValue, setInputValue] = useState();
-  const [selected, setSelected] = useState();
-  const [sortedAlphatbetical, setSortedAlphabetical] = useState(true);
+  const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
   const handleOnChange = ({ value }) => {
-    setSelected();
     setInputValue(value);
     setSuggestedOptions(
       value
         ? iconOptions.filter(({ label }) => label.toLowerCase().includes(value.toLowerCase()))
         : iconOptions,
     );
-  };
-
-  const handleSelect = ({ item }) => {
-    setInputValue(item.label);
-    setSuggestedOptions(iconOptions);
-    setSelected(item);
   };
 
   const buildHandleIconClick = (iconName: string) => () => {
@@ -92,7 +160,62 @@ export default function IconPage(): Node {
     }
   };
 
-  const selectedIcon = findIcon(selected?.label);
+  const renderIconTiles = () =>
+    sortedAlphabetical ? (
+      <Flex gap={3} wrap>
+        {(suggestedOptions || iconOptions).map(({ label: iconName }, index) => {
+          const icon = findIcon(iconName);
+          return icon ? (
+            <IconTile key={index} iconName={icon} onTap={buildHandleIconClick(icon)} />
+          ) : null;
+        })}
+      </Flex>
+    ) : (
+      CATEGORIES.map((category, idx) => {
+        const iconsToRenderByCategory = (suggestedOptions || iconOptions).map(
+          ({ label: iconName }, index) => {
+            const iconData = findIconByCategory(iconName, category);
+            return iconData ? (
+              <IconTile
+                key={index}
+                iconName={iconData.name}
+                onTap={buildHandleIconClick(iconData.name)}
+              />
+            ) : null;
+          },
+        );
+        if (iconsToRenderByCategory.filter(Boolean).length === 0) {
+          return null;
+        }
+        return (
+          <Flex key={idx} direction="column" gap={4}>
+            <Heading size="400">{category}</Heading>
+            <Flex gap={3} wrap>
+              {iconsToRenderByCategory}
+            </Flex>
+          </Flex>
+        );
+      })
+    );
+
+  const renderEmptyState = () => (
+    <Flex direction="column" gap={3}>
+      <Heading color="error" size="400">
+        No result found
+      </Heading>
+      <Text>
+        It appears we don&apos;t have an icon that matches your search. Check your spelling or try a
+        different search term.
+      </Text>
+      <Text>
+        Need a new icon?{' '}
+        <Link inline href="/get_started/how_to_work_with_us#Slack-channels">
+          Reach out to us
+        </Link>
+        , and we can evaluate your request.
+      </Text>
+    </Flex>
+  );
 
   return (
     <Page title="Iconography collection">
@@ -104,30 +227,18 @@ export default function IconPage(): Node {
       >
         <Flex width="100%" direction="column" gap={8}>
           <Flex gap={6} alignItems="end">
-            <ComboBox
-              accessibilityClearButtonLabel="Clear the current value"
+            <SearchField
+              accessibilityLabel="Search icons by name"
+              autoComplete="off"
+              accessibilityClearButtonLabel="Clear search field"
               label="Search icons by name"
-              id="controlled"
-              inputValue={inputValue}
-              noResultText="No results for your selection"
-              options={suggestedOptions}
-              onBlur={() => {
-                if (!selected) setInputValue('');
-                setSuggestedOptions(iconOptions);
-              }}
-              onClear={() => {
-                setInputValue('');
-                setSelected();
-                setSuggestedOptions(iconOptions);
-              }}
-              selectedOption={selected}
-              placeholder="Search"
+              id="icon-search-field"
               onChange={handleOnChange}
-              onSelect={handleSelect}
+              value={inputValue}
             />
             <RadioGroup legend="Sort by" direction="row" id="directionExample">
               <RadioGroup.RadioButton
-                checked={sortedAlphatbetical}
+                checked={sortedAlphabetical}
                 id="sortAlphabetical"
                 label="Alphabetical"
                 name="sortOrder"
@@ -135,7 +246,7 @@ export default function IconPage(): Node {
                 value="alphabetical"
               />
               <RadioGroup.RadioButton
-                checked={!sortedAlphatbetical}
+                checked={!sortedAlphabetical}
                 id="sortCategory"
                 label="Category"
                 name="sortOrder"
@@ -145,17 +256,8 @@ export default function IconPage(): Node {
             </RadioGroup>
           </Flex>
           <Box>
-            <Flex gap={3} wrap>
-              {selectedIcon ? (
-                <IconTile iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
-              ) : (
-                (suggestedOptions || iconOptions).map(({ label: iconName }, index) => {
-                  const icon = findIcon(iconName);
-                  return icon ? (
-                    <IconTile key={index} iconName={icon} onTap={buildHandleIconClick(icon)} />
-                  ) : null;
-                })
-              )}
+            <Flex direction="column" gap={8}>
+              {suggestedOptions.length === 0 ? renderEmptyState() : renderIconTiles()}
             </Flex>
           </Box>
         </Flex>

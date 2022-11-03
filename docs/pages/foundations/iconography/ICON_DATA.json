@@ -1,0 +1,805 @@
+{
+  "icons": [
+    {
+      "name": "add",
+      "categories": "Add"
+    },
+    {
+      "name": "add-circle",
+      "categories": "Add"
+    },
+    {
+      "name": "add-layout",
+      "categories": "Add"
+    },
+    {
+      "name": "add-person",
+      "categories": "Add"
+    },
+    {
+      "name": "add-pin",
+      "categories": "Add"
+    },
+    {
+      "name": "ad",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "ad-group",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "ads-overview",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "ads-stats",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "graph-bar",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "graph-pie",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "insights-audience",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "insights-conversions",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "overview",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "target",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "trending",
+      "categories": "Ads and measurements"
+    },
+    {
+      "name": "align-bottom",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-bottom-center",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-bottom-left",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-bottom-right",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-middle",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-top",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-top-center",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-top-left",
+      "categories": "Alignment"
+    },
+    {
+      "name": "align-top-right",
+      "categories": "Alignment"
+    },
+    {
+      "name": "arrow-back",
+      "categories": ["Arrows", "Platform specific"]
+    },
+    {
+      "name": "arrow-circle-down",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-circle-forward",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-circle-left",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-circle-up",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-counter-clockwise",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-down",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-end",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-forward",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-start",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-up",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-up-left",
+      "categories": "Arrows"
+    },
+    {
+      "name": "arrow-up-right",
+      "categories": "Arrows"
+    },
+    {
+      "name": "scale",
+      "categories": ["Arrows", "Utility and tools"]
+    },
+    {
+      "name": "switch-account",
+      "categories": "Arrows"
+    },
+    {
+      "name": "minimize",
+      "categories": ["Arrows", "Utility and tools"]
+    },
+    {
+      "name": "maximize",
+      "categories": ["Arrows", "Utility and tools"]
+    },
+    {
+      "name": "chevron-up-circle",
+      "categories": "Arrows"
+    },
+    {
+      "name": "directional-arrow-left",
+      "categories": ["Arrows", "Platform specific"]
+    },
+    {
+      "name": "directional-arrow-right",
+      "categories": "Arrows"
+    },
+    {
+      "name": "sort-ascending",
+      "categories": "Arrows"
+    },
+    {
+      "name": "sort-descending",
+      "categories": "Arrows"
+    },
+    {
+      "name": "camera",
+      "categories": "Media controls"
+    },
+    {
+      "name": "camera-roll",
+      "categories": "Media controls"
+    },
+    {
+      "name": "captions",
+      "categories": "Media controls"
+    },
+    {
+      "name": "forward",
+      "categories": "Media controls"
+    },
+    {
+      "name": "flash",
+      "categories": "Media controls"
+    },
+    {
+      "name": "mute",
+      "categories": ["Media controls", "Toggle"]
+    },
+    {
+      "name": "music-off",
+      "categories": ["Media controls", "Toggle"]
+    },
+    {
+      "name": "music-on",
+      "categories": ["Media controls", "Toggle"]
+    },
+    {
+      "name": "pause",
+      "categories": "Media controls"
+    },
+    {
+      "name": "play",
+      "categories": "Media controls"
+    },
+    {
+      "name": "rewind",
+      "categories": "Media controls"
+    },
+    {
+      "name": "sound",
+      "categories": ["Media controls", "Toggle"]
+    },
+    {
+      "name": "video-camera",
+      "categories": "Media controls"
+    },
+    {
+      "name": "android-share",
+      "categories": "Platform specific"
+    },
+    {
+      "name": "check",
+      "categories": "Platform specific"
+    },
+    {
+      "name": "hand-pointing",
+      "categories": "Platform specific"
+    },
+    {
+      "name": "share",
+      "categories": "Platform specific"
+    },
+    {
+      "name": "send",
+      "categories": "Platform specific"
+    },
+    {
+      "name": "face-happy",
+      "categories": "Reactions and ratings"
+    },
+    {
+      "name": "face-neutral",
+      "categories": "Reactions and ratings"
+    },
+    {
+      "name": "face-sad",
+      "categories": "Reactions and ratings"
+    },
+    {
+      "name": "face-smiley",
+      "categories": "Reactions and ratings"
+    },
+    {
+      "name": "heart",
+      "categories": ["Reactions and ratings", "Toggle"]
+    },
+    {
+      "name": "heart-outline",
+      "categories": ["Reactions and ratings", "Toggle"]
+    },
+    {
+      "name": "star",
+      "categories": "Reactions and ratings"
+    },
+    {
+      "name": "star-half",
+      "categories": "Reactions and ratings"
+    },
+    {
+      "name": "smiley-outline",
+      "categories": "Reactions and ratings"
+    },
+    {
+      "name": "facebook",
+      "categories": "Social"
+    },
+    {
+      "name": "gmail",
+      "categories": "Social"
+    },
+    {
+      "name": "google-plus",
+      "categories": "Social"
+    },
+    {
+      "name": "twitter",
+      "categories": "Social"
+    },
+    {
+      "name": "pinterest",
+      "categories": ["Social", "Utility and tools"]
+    },
+    {
+      "name": "workflow-status-all",
+      "categories": "Status"
+    },
+    {
+      "name": "workflow-status-canceled",
+      "categories": "Status"
+    },
+    {
+      "name": "workflow-status-halted",
+      "categories": "Status"
+    },
+    {
+      "name": "workflow-status-in-progress",
+      "categories": "Status"
+    },
+    {
+      "name": "workflow-status-ok",
+      "categories": "Status"
+    },
+    {
+      "name": "workflow-status-problem",
+      "categories": "Status"
+    },
+    {
+      "name": "workflow-status-unstarted",
+      "categories": "Status"
+    },
+    {
+      "name": "workflow-status-warning",
+      "categories": "Status"
+    },
+    {
+      "name": "alphabetical",
+      "categories": "Text"
+    },
+    {
+      "name": "text-align-center",
+      "categories": "Text"
+    },
+    {
+      "name": "text-align-left",
+      "categories": "Text"
+    },
+    {
+      "name": "text-align-right",
+      "categories": "Text"
+    },
+    {
+      "name": "text-all-caps",
+      "categories": "Text"
+    },
+    {
+      "name": "text-extra-small",
+      "categories": "Text"
+    },
+    {
+      "name": "text-large",
+      "categories": "Text"
+    },
+    {
+      "name": "text-line-height",
+      "categories": "Text"
+    },
+    {
+      "name": "text-medium",
+      "categories": "Text"
+    },
+    {
+      "name": "overlay-text",
+      "categories": "Text"
+    },
+    {
+      "name": "text-sentence-case",
+      "categories": "Text"
+    },
+    {
+      "name": "text-size",
+      "categories": "Text"
+    },
+    {
+      "name": "text-small",
+      "categories": "Text"
+    },
+    {
+      "name": "text-spacing",
+      "categories": "Text"
+    },
+    {
+      "name": "calendar",
+      "categories": "Time"
+    },
+    {
+      "name": "clock",
+      "categories": "Time"
+    },
+    {
+      "name": "history",
+      "categories": "Time"
+    },
+    {
+      "name": "eye",
+      "categories": "Toggle"
+    },
+    {
+      "name": "eye-hide",
+      "categories": "Toggle"
+    },
+    {
+      "name": "globe",
+      "categories": "Toggle"
+    },
+    {
+      "name": "globe-checked",
+      "categories": "Toggle"
+    },
+    {
+      "name": "360",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "accessibility",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "apps",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "alert",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "angled-pin",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "bell",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "cancel",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "canonical-pin",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "check-circle",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "clear",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "code",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "color-picker",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "color-solid",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "color-split",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "compass",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "compose",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "conversion-tag",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "copy-to-clipboard",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "credit-card",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "crop",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "dash",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "download",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "drag-drop",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "duplicate",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "edit",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "ellipsis",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "envelope",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "file-box",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "file-unknown",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "fill-opaque",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "fill-transparent",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "filter",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "folder",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "flag",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "flashlight",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "flip-horizontal",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "flip-vertical",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "gif",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "handle",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "home",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "idea-pin",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "impressum",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "info-circle",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "information",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "key",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "knoop",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "layout",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "lightbulb",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "lips",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "link",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "location",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "lock",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "logo-large",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "logo-small",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "logout",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "megaphone",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "menu",
+      "categories": "Utility and tools"
+    },
+
+    {
+      "name": "nut",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "people",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "person",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "phone",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "pin",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "pincode",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "publish",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "question-mark",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "refresh",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "reorder-images",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "replace",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "report",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "remove",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "rotate",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "search",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "security",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "shopping-bag",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "skintone",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "sparkle",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "speech",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "speech-ellipsis",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "speech-exclamation-point",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "story-pin",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "tag",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "terms",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "trash-can",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "upload-feed",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "visit",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "margins-large",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "margins-medium",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "margins-small",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "view-type-default",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "view-type-dense",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "view-type-list",
+      "categories": "Utility and tools"
+    },
+    {
+      "name": "view-type-space",
+      "categories": "Utility and tools"
+    }
+  ]
+}
