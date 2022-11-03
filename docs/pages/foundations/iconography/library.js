@@ -74,7 +74,7 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
         paddingX={hovered ? 6 : 2}
         width={180}
         height={90}
-        color={hovered ? 'dark' : 'default'}
+        color={hovered ? 'inverse' : 'default'}
         position="relative"
       >
         <Flex
@@ -86,12 +86,12 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
           justifyContent="end"
         >
           <Icon
-            color={hovered ? 'light' : 'default'}
+            color={hovered ? 'inverse' : 'default'}
             accessibilityLabel={iconName}
             icon={iconName}
             size="24"
           />
-          <Text color={hovered ? 'light' : 'default'} size="100">
+          <Text color={hovered ? 'inverse' : 'default'} size="100">
             {iconName}
           </Text>
         </Flex>
